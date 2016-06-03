@@ -108,7 +108,7 @@ name|class
 argument_list|,
 name|GroovyScriptEngineService
 operator|.
-name|TYPES
+name|NAME
 argument_list|)
 argument_list|)
 expr_stmt|;

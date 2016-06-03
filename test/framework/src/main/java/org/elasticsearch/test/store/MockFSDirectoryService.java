@@ -901,12 +901,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// https://github.com/elastic/elasticsearch/issues/15846
 DECL|method|checkIndex
 specifier|public
 specifier|static

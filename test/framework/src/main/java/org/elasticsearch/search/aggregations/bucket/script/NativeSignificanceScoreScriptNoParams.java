@@ -141,6 +141,9 @@ name|Object
 name|run
 parameter_list|()
 block|{
+name|checkParams
+argument_list|()
+expr_stmt|;
 return|return
 name|_subset_freq
 operator|.

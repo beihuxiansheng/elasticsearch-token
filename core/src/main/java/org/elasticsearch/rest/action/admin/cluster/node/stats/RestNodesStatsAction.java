@@ -54,26 +54,6 @@ name|action
 operator|.
 name|admin
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|stats
-operator|.
-name|NodesStatsResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|indices
 operator|.
 name|stats
@@ -214,7 +194,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestToXContentListener
+name|RestActions
+operator|.
+name|NodesResponseRestListener
 import|;
 end_import
 
@@ -958,7 +940,7 @@ argument_list|(
 name|nodesStatsRequest
 argument_list|,
 operator|new
-name|RestToXContentListener
+name|NodesResponseRestListener
 argument_list|<>
 argument_list|(
 name|channel

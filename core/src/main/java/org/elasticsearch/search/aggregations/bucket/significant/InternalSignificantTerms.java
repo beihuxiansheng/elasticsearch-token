@@ -58,6 +58,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|Aggregations
@@ -202,6 +214,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -317,6 +339,12 @@ DECL|field|score
 name|double
 name|score
 decl_stmt|;
+DECL|field|format
+specifier|transient
+specifier|final
+name|DocValueFormat
+name|format
+decl_stmt|;
 DECL|method|Bucket
 specifier|protected
 name|Bucket
@@ -326,6 +354,9 @@ name|subsetSize
 parameter_list|,
 name|long
 name|supersetSize
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|)
 block|{
 comment|// for serialization
@@ -335,6 +366,12 @@ name|subsetSize
 argument_list|,
 name|supersetSize
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|format
+operator|=
+name|format
 expr_stmt|;
 block|}
 DECL|method|Bucket
@@ -355,6 +392,9 @@ name|supersetSize
 parameter_list|,
 name|InternalAggregations
 name|aggregations
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|)
 block|{
 name|super
@@ -373,6 +413,12 @@ operator|.
 name|aggregations
 operator|=
 name|aggregations
+expr_stmt|;
+name|this
+operator|.
+name|format
+operator|=
+name|format
 expr_stmt|;
 block|}
 annotation|@
@@ -606,6 +652,11 @@ name|score
 return|;
 block|}
 block|}
+DECL|field|format
+specifier|protected
+name|DocValueFormat
+name|format
+decl_stmt|;
 DECL|method|InternalSignificantTerms
 specifier|protected
 name|InternalSignificantTerms
@@ -618,6 +669,9 @@ name|supersetSize
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|,
 name|int
 name|requiredSize
@@ -695,6 +749,17 @@ operator|.
 name|significanceHeuristic
 operator|=
 name|significanceHeuristic
+expr_stmt|;
+name|this
+operator|.
+name|format
+operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|format
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

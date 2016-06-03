@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An interface for storing blobs.  */
 end_comment
 
 begin_interface
@@ -48,6 +48,7 @@ name|BlobStore
 extends|extends
 name|Closeable
 block|{
+comment|/**      * Get a blob container instance for storing blobs at the given {@link BlobPath}.      */
 DECL|method|blobContainer
 name|BlobContainer
 name|blobContainer
@@ -56,6 +57,7 @@ name|BlobPath
 name|path
 parameter_list|)
 function_decl|;
+comment|/**      * Delete the blob store at the given {@link BlobPath}.      */
 DECL|method|delete
 name|void
 name|delete

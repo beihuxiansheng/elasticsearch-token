@@ -896,9 +896,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|current
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|ClusterInfo
 operator|.
@@ -908,6 +905,8 @@ name|System
 operator|.
 name|nanoTime
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|allocator

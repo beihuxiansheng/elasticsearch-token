@@ -91,10 +91,12 @@ extends|extends
 name|AcknowledgedResponse
 block|{
 DECL|method|CreateIndexResponse
+specifier|protected
 name|CreateIndexResponse
 parameter_list|()
 block|{     }
 DECL|method|CreateIndexResponse
+specifier|protected
 name|CreateIndexResponse
 parameter_list|(
 name|boolean

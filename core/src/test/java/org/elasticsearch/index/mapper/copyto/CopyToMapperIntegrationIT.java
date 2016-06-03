@@ -791,6 +791,12 @@ argument_list|()
 operator|.
 name|endArray
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|endObject
+argument_list|()
 return|;
 block|}
 block|}

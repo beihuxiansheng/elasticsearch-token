@@ -434,6 +434,10 @@ name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|2
@@ -1509,8 +1513,6 @@ throws|throws
 name|ExecutionException
 throws|,
 name|InterruptedException
-throws|,
-name|XMLStreamException
 block|{
 comment|// only wait for the cluster to form
 name|assertNoTimeout

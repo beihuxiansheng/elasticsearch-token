@@ -644,7 +644,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|shuffleXContent
+argument_list|(
 name|contentBuilder
+argument_list|)
 operator|.
 name|bytes
 argument_list|()

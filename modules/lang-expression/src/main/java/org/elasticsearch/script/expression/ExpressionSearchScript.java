@@ -194,7 +194,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -385,7 +385,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Error evaluating "
 operator|+
@@ -404,27 +404,13 @@ name|run
 parameter_list|()
 block|{
 return|return
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|evaluate
 argument_list|()
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-return|return
-operator|(
-name|float
-operator|)
-name|evaluate
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -545,26 +531,12 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|setNextVar
+name|setNextAggregationValue
 parameter_list|(
-name|String
-name|name
-parameter_list|,
 name|Object
 name|value
 parameter_list|)
 block|{
-comment|// this should only be used for the special "_value" variable used in aggregations
-assert|assert
-operator|(
-name|name
-operator|.
-name|equals
-argument_list|(
-literal|"_value"
-argument_list|)
-operator|)
-assert|;
 comment|// _value isn't used in script if specialValue == null
 if|if
 condition|(
@@ -600,7 +572,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Cannot use expression with text variable using "
 operator|+
@@ -609,6 +581,22 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setNextVar
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+comment|// other per-document variables aren't supported yet, even if they are numbers
+comment|// but we shouldn't encourage this anyway.
 block|}
 block|}
 return|;

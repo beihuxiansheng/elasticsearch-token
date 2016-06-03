@@ -516,10 +516,10 @@ argument_list|(
 literal|"</em>"
 argument_list|)
 decl_stmt|;
-DECL|method|testMarvelHeros
+DECL|method|testNgram
 specifier|public
 name|void
-name|testMarvelHeros
+name|testNgram
 parameter_list|()
 throws|throws
 name|IOException
@@ -685,48 +685,50 @@ argument_list|,
 name|conf
 argument_list|)
 decl_stmt|;
-name|BufferedReader
-name|reader
+name|String
+index|[]
+name|strings
 init|=
 operator|new
-name|BufferedReader
-argument_list|(
-operator|new
-name|InputStreamReader
-argument_list|(
-name|NoisyChannelSpellCheckerTests
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"/config/names.txt"
-argument_list|)
-argument_list|,
-name|StandardCharsets
-operator|.
-name|UTF_8
-argument_list|)
-argument_list|)
+name|String
+index|[]
+block|{
+literal|"Xorr the God-Jewel"
+block|,
+literal|"Grog the God-Crusher"
+block|,
+literal|"Xorn"
+block|,
+literal|"Walter Newell"
+block|,
+literal|"Wanda Maximoff"
+block|,
+literal|"Captain America"
+block|,
+literal|"American Ace"
+block|,
+literal|"USA Hero"
+block|,
+literal|"Wundarr the Aquarian"
+block|,
+literal|"Will o' the Wisp"
+block|,
+literal|"Xemnu the Titan"
+block|,
+literal|"Fantastic Four"
+block|,
+literal|"Quasar"
+block|,
+literal|"Quasar II"
+block|}
 decl_stmt|;
+for|for
+control|(
 name|String
 name|line
-init|=
-literal|null
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|line
-operator|=
-name|reader
-operator|.
-name|readLine
-argument_list|()
-operator|)
-operator|!=
-literal|null
-condition|)
+range|:
+name|strings
+control|)
 block|{
 name|Document
 name|doc
@@ -1798,7 +1800,7 @@ argument_list|(
 operator|new
 name|StringReader
 argument_list|(
-literal|"usa => usa, america, american\nursa => usa, america, american"
+literal|"usa => usa, america, american"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2215,10 +2217,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testMarvelHerosMultiGenerator
+DECL|method|testMultiGenerator
 specifier|public
 name|void
-name|testMarvelHerosMultiGenerator
+name|testMultiGenerator
 parameter_list|()
 throws|throws
 name|IOException
@@ -2432,48 +2434,48 @@ argument_list|,
 name|conf
 argument_list|)
 decl_stmt|;
-name|BufferedReader
-name|reader
+name|String
+index|[]
+name|strings
 init|=
 operator|new
-name|BufferedReader
-argument_list|(
-operator|new
-name|InputStreamReader
-argument_list|(
-name|NoisyChannelSpellCheckerTests
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"/config/names.txt"
-argument_list|)
-argument_list|,
-name|StandardCharsets
-operator|.
-name|UTF_8
-argument_list|)
-argument_list|)
+name|String
+index|[]
+block|{
+literal|"Xorr the God-Jewel"
+block|,
+literal|"Grog the God-Crusher"
+block|,
+literal|"Xorn"
+block|,
+literal|"Walter Newell"
+block|,
+literal|"Wanda Maximoff"
+block|,
+literal|"Captain America"
+block|,
+literal|"American Ace"
+block|,
+literal|"Wundarr the Aquarian"
+block|,
+literal|"Will o' the Wisp"
+block|,
+literal|"Xemnu the Titan"
+block|,
+literal|"Fantastic Four"
+block|,
+literal|"Quasar"
+block|,
+literal|"Quasar II"
+block|}
 decl_stmt|;
+for|for
+control|(
 name|String
 name|line
-init|=
-literal|null
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|line
-operator|=
-name|reader
-operator|.
-name|readLine
-argument_list|()
-operator|)
-operator|!=
-literal|null
-condition|)
+range|:
+name|strings
+control|)
 block|{
 name|Document
 name|doc
@@ -3272,10 +3274,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testMarvelHerosTrigram
+DECL|method|testTrigram
 specifier|public
 name|void
-name|testMarvelHerosTrigram
+name|testTrigram
 parameter_list|()
 throws|throws
 name|IOException
@@ -3441,48 +3443,50 @@ argument_list|,
 name|conf
 argument_list|)
 decl_stmt|;
-name|BufferedReader
-name|reader
+name|String
+index|[]
+name|strings
 init|=
 operator|new
-name|BufferedReader
-argument_list|(
-operator|new
-name|InputStreamReader
-argument_list|(
-name|NoisyChannelSpellCheckerTests
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"/config/names.txt"
-argument_list|)
-argument_list|,
-name|StandardCharsets
-operator|.
-name|UTF_8
-argument_list|)
-argument_list|)
+name|String
+index|[]
+block|{
+literal|"Xorr the God-Jewel"
+block|,
+literal|"Grog the God-Crusher"
+block|,
+literal|"Xorn"
+block|,
+literal|"Walter Newell"
+block|,
+literal|"Wanda Maximoff"
+block|,
+literal|"Captain America"
+block|,
+literal|"American Ace"
+block|,
+literal|"USA Hero"
+block|,
+literal|"Wundarr the Aquarian"
+block|,
+literal|"Will o' the Wisp"
+block|,
+literal|"Xemnu the Titan"
+block|,
+literal|"Fantastic Four"
+block|,
+literal|"Quasar"
+block|,
+literal|"Quasar II"
+block|}
 decl_stmt|;
+for|for
+control|(
 name|String
 name|line
-init|=
-literal|null
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|line
-operator|=
-name|reader
-operator|.
-name|readLine
-argument_list|()
-operator|)
-operator|!=
-literal|null
-condition|)
+range|:
+name|strings
+control|)
 block|{
 name|Document
 name|doc
@@ -4188,7 +4192,7 @@ argument_list|(
 operator|new
 name|StringReader
 argument_list|(
-literal|"usa => usa, america, american\nursa => usa, america, american"
+literal|"usa => usa, america, american"
 argument_list|)
 argument_list|)
 expr_stmt|;

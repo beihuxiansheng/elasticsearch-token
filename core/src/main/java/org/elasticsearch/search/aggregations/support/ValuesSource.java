@@ -1927,10 +1927,8 @@ control|)
 block|{
 name|script
 operator|.
-name|setNextVar
+name|setNextAggregationValue
 argument_list|(
-literal|"_value"
-argument_list|,
 name|longValues
 operator|.
 name|valueAt
@@ -2070,10 +2068,8 @@ control|)
 block|{
 name|script
 operator|.
-name|setNextVar
+name|setNextAggregationValue
 argument_list|(
-literal|"_value"
-argument_list|,
 name|doubleValues
 operator|.
 name|valueAt
@@ -2589,10 +2585,8 @@ argument_list|)
 decl_stmt|;
 name|script
 operator|.
-name|setNextVar
+name|setNextAggregationValue
 argument_list|(
-literal|"_value"
-argument_list|,
 name|value
 operator|.
 name|utf8ToString

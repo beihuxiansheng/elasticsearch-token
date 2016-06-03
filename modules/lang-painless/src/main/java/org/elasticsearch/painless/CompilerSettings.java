@@ -20,20 +20,11 @@ end_comment
 
 begin_class
 DECL|class|CompilerSettings
+specifier|public
 specifier|final
 class|class
 name|CompilerSettings
 block|{
-comment|/**      * Constant to be used when specifying numeric overflow when compiling a script.      */
-DECL|field|NUMERIC_OVERFLOW
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NUMERIC_OVERFLOW
-init|=
-literal|"numeric_overflow"
-decl_stmt|;
 comment|/**      * Constant to be used when specifying the maximum loop counter when compiling a script.      */
 DECL|field|MAX_LOOP_COUNTER
 specifier|public
@@ -44,13 +35,15 @@ name|MAX_LOOP_COUNTER
 init|=
 literal|"max_loop_counter"
 decl_stmt|;
-comment|/**      * Whether or not to allow numeric values to overflow without exception.      */
-DECL|field|numericOverflow
-specifier|private
-name|boolean
-name|numericOverflow
+comment|/**      * Constant to be used for enabling additional internal compilation checks (slower).      */
+DECL|field|PICKY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PICKY
 init|=
-literal|true
+literal|"picky"
 decl_stmt|;
 comment|/**      * The maximum number of statements allowed to be run in a loop.      */
 DECL|field|maxLoopCounter
@@ -60,37 +53,18 @@ name|maxLoopCounter
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * Returns {@code true} if numeric operations should overflow, {@code false}      * if they should signal an exception.      *<p>      * If this value is {@code true} (default), then things behave like java:      * overflow for integer types can result in unexpected values / unexpected      * signs, and overflow for floating point types can result in infinite or      * {@code NaN} values.      */
-DECL|method|getNumericOverflow
-specifier|public
+comment|/**      * Whether to throw exception on ambiguity or other internal parsing issues. This option      * makes things slower too, it is only for debugging.      */
+DECL|field|picky
+specifier|private
 name|boolean
-name|getNumericOverflow
-parameter_list|()
-block|{
-return|return
-name|numericOverflow
-return|;
-block|}
-comment|/**      * Set {@code true} for numerics to overflow, false to deliver exceptions.      * @see #getNumericOverflow      */
-DECL|method|setNumericOverflow
-specifier|public
-name|void
-name|setNumericOverflow
-parameter_list|(
-name|boolean
-name|allow
-parameter_list|)
-block|{
-name|this
-operator|.
-name|numericOverflow
-operator|=
-name|allow
-expr_stmt|;
-block|}
-comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.      */
+name|picky
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
 specifier|public
+specifier|final
 name|int
 name|getMaxLoopCounter
 parameter_list|()
@@ -102,6 +76,7 @@ block|}
 comment|/**      * Set the cumulative total number of statements that can be made in all loops.      * @see #getMaxLoopCounter      */
 DECL|method|setMaxLoopCounter
 specifier|public
+specifier|final
 name|void
 name|setMaxLoopCounter
 parameter_list|(
@@ -114,6 +89,34 @@ operator|.
 name|maxLoopCounter
 operator|=
 name|max
+expr_stmt|;
+block|}
+comment|/**      * Returns true if the compiler should be picky. This means it runs slower and enables additional      * runtime checks, throwing an exception if there are ambiguities in the grammar or other low level      * parsing problems.      */
+DECL|method|isPicky
+specifier|public
+name|boolean
+name|isPicky
+parameter_list|()
+block|{
+return|return
+name|picky
+return|;
+block|}
+comment|/**      * Set to true if compilation should be picky.      * @see #isPicky      */
+DECL|method|setPicky
+specifier|public
+name|void
+name|setPicky
+parameter_list|(
+name|boolean
+name|picky
+parameter_list|)
+block|{
+name|this
+operator|.
+name|picky
+operator|=
+name|picky
 expr_stmt|;
 block|}
 block|}

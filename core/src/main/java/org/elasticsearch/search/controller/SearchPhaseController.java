@@ -474,7 +474,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 import|;
 end_import
 
@@ -2686,6 +2686,11 @@ argument_list|(
 name|fieldDoc
 operator|.
 name|fields
+argument_list|,
+name|firstResult
+operator|.
+name|sortValueFormats
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -2954,7 +2959,7 @@ expr_stmt|;
 block|}
 block|}
 comment|//Collect profile results
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 name|shardResults
 init|=
 literal|null
@@ -3048,7 +3053,7 @@ block|}
 name|shardResults
 operator|=
 operator|new
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 argument_list|(
 name|profileResults
 argument_list|)

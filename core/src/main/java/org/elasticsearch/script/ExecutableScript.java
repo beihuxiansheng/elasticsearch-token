@@ -24,6 +24,7 @@ specifier|public
 interface|interface
 name|ExecutableScript
 block|{
+comment|/**      * Sets a runtime script parameter.      *<p>      * Note that this method may be slow, involving put() and get() calls      * to a hashmap or similar.      * @param name parameter name      * @param value parameter value      */
 DECL|method|setNextVar
 name|void
 name|setNextVar

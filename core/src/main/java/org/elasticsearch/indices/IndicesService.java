@@ -1433,12 +1433,6 @@ specifier|final
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|field|indexNameExpressionResolver
 specifier|private
 specifier|final
@@ -1622,9 +1616,6 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
 parameter_list|,
@@ -1712,12 +1703,6 @@ name|indicesQueriesRegistry
 expr_stmt|;
 name|this
 operator|.
-name|clusterService
-operator|=
-name|clusterService
-expr_stmt|;
-name|this
-operator|.
 name|indexNameExpressionResolver
 operator|=
 name|indexNameExpressionResolver
@@ -1789,12 +1774,18 @@ name|settings
 argument_list|,
 name|threadPool
 argument_list|,
+comment|// ensure we pull an iter with new shards - flatten makes a copy
+parameter_list|()
+lambda|->
 name|Iterables
 operator|.
 name|flatten
 argument_list|(
 name|this
 argument_list|)
+operator|.
+name|iterator
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -2380,14 +2371,6 @@ name|CommonStats
 argument_list|(
 name|indicesQueryCache
 argument_list|,
-name|indexService
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|getPercolatorQueryCache
-argument_list|()
-argument_list|,
 name|indexShard
 argument_list|,
 name|flags
@@ -2923,6 +2906,15 @@ init|=
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+decl_stmt|;
+specifier|final
+name|ClusterService
+name|clusterService
+init|=
+name|nodeServicesProvider
+operator|.
+name|getClusterService
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3811,7 +3803,9 @@ literal|"Can't delete unassigned index store for ["
 operator|+
 name|indexName
 operator|+
-literal|"] - it's still part of the cluster state ["
+literal|"] - it's still part of "
+operator|+
+literal|"the cluster state ["
 operator|+
 name|index
 operator|.
@@ -4559,7 +4553,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
-comment|// this method should only be called when we know the index is not part of the cluster state
+comment|// this method should only be called when we know the index (name + uuid) is not part of the cluster state
 if|if
 condition|(
 name|clusterState
@@ -4567,13 +4561,12 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|hasIndex
+name|index
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw

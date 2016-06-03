@@ -146,9 +146,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -206,20 +218,15 @@ block|{
 comment|/**      * The query type all template tests will be based on.      */
 DECL|field|templateBase
 specifier|private
-specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|templateBase
 decl_stmt|;
 annotation|@
-name|BeforeClass
-DECL|method|setupClass
+name|Before
+DECL|method|before
 specifier|public
-specifier|static
 name|void
-name|setupClass
+name|before
 parameter_list|()
 block|{
 name|templateBase
@@ -570,9 +577,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -644,9 +648,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -695,9 +696,6 @@ init|=
 literal|"{ \"match_all\" : {}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -787,9 +785,6 @@ init|=
 literal|"{ \"match_all\" : {\"_name\" : \"foobar\"}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -928,9 +923,6 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new

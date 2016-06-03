@@ -100,11 +100,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
-name|BucketHelpers
-operator|.
-name|GapPolicy
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -120,7 +116,9 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|BucketHelpers
+operator|.
+name|GapPolicy
 import|;
 end_import
 
@@ -815,7 +813,7 @@ name|assertEquals
 argument_list|(
 name|expected
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|parser
@@ -880,9 +878,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newAgg
 init|=
 name|aggParsers
@@ -903,7 +898,7 @@ name|parse
 argument_list|(
 name|expected
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|parseContext

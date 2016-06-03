@@ -422,9 +422,6 @@ DECL|field|query
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 decl_stmt|;
 DECL|field|type
@@ -459,9 +456,6 @@ name|String
 name|type
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|,
 name|boolean
@@ -488,9 +482,6 @@ name|String
 name|type
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|,
 name|boolean
@@ -656,9 +647,6 @@ comment|/**      * Returns the query to execute.      */
 DECL|method|query
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|()
 block|{
@@ -1309,9 +1297,6 @@ name|Token
 name|token
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|iqb
 init|=
 literal|null
@@ -1819,9 +1804,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -1831,9 +1813,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 init|=
 name|query

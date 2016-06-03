@@ -761,9 +761,8 @@ argument_list|)
 expr_stmt|;
 name|clusterStateHealth
 operator|=
+operator|new
 name|ClusterStateHealth
-operator|.
-name|readClusterHealth
 argument_list|(
 name|in
 argument_list|)
@@ -970,13 +969,8 @@ operator|.
 name|OK
 return|;
 block|}
-DECL|class|Fields
-specifier|static
-specifier|final
-class|class
-name|Fields
-block|{
 DECL|field|CLUSTER_NAME
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -985,6 +979,7 @@ init|=
 literal|"cluster_name"
 decl_stmt|;
 DECL|field|STATUS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -993,6 +988,7 @@ init|=
 literal|"status"
 decl_stmt|;
 DECL|field|TIMED_OUT
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1001,6 +997,7 @@ init|=
 literal|"timed_out"
 decl_stmt|;
 DECL|field|NUMBER_OF_NODES
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1009,6 +1006,7 @@ init|=
 literal|"number_of_nodes"
 decl_stmt|;
 DECL|field|NUMBER_OF_DATA_NODES
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1017,6 +1015,7 @@ init|=
 literal|"number_of_data_nodes"
 decl_stmt|;
 DECL|field|NUMBER_OF_PENDING_TASKS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1025,6 +1024,7 @@ init|=
 literal|"number_of_pending_tasks"
 decl_stmt|;
 DECL|field|NUMBER_OF_IN_FLIGHT_FETCH
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1033,6 +1033,7 @@ init|=
 literal|"number_of_in_flight_fetch"
 decl_stmt|;
 DECL|field|DELAYED_UNASSIGNED_SHARDS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1041,6 +1042,7 @@ init|=
 literal|"delayed_unassigned_shards"
 decl_stmt|;
 DECL|field|TASK_MAX_WAIT_TIME_IN_QUEUE
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1049,6 +1051,7 @@ init|=
 literal|"task_max_waiting_in_queue"
 decl_stmt|;
 DECL|field|TASK_MAX_WAIT_TIME_IN_QUEUE_IN_MILLIS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1057,6 +1060,7 @@ init|=
 literal|"task_max_waiting_in_queue_millis"
 decl_stmt|;
 DECL|field|ACTIVE_SHARDS_PERCENT_AS_NUMBER
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1065,6 +1069,7 @@ init|=
 literal|"active_shards_percent_as_number"
 decl_stmt|;
 DECL|field|ACTIVE_SHARDS_PERCENT
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1073,6 +1078,7 @@ init|=
 literal|"active_shards_percent"
 decl_stmt|;
 DECL|field|ACTIVE_PRIMARY_SHARDS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1081,6 +1087,7 @@ init|=
 literal|"active_primary_shards"
 decl_stmt|;
 DECL|field|ACTIVE_SHARDS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1089,6 +1096,7 @@ init|=
 literal|"active_shards"
 decl_stmt|;
 DECL|field|RELOCATING_SHARDS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1097,6 +1105,7 @@ init|=
 literal|"relocating_shards"
 decl_stmt|;
 DECL|field|INITIALIZING_SHARDS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1105,6 +1114,7 @@ init|=
 literal|"initializing_shards"
 decl_stmt|;
 DECL|field|UNASSIGNED_SHARDS
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1113,6 +1123,7 @@ init|=
 literal|"unassigned_shards"
 decl_stmt|;
 DECL|field|INDICES
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1120,7 +1131,6 @@ name|INDICES
 init|=
 literal|"indices"
 decl_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -1141,8 +1151,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|CLUSTER_NAME
 argument_list|,
 name|getClusterName
@@ -1153,8 +1161,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|STATUS
 argument_list|,
 name|getStatus
@@ -1175,8 +1181,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|TIMED_OUT
 argument_list|,
 name|isTimedOut
@@ -1187,8 +1191,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|NUMBER_OF_NODES
 argument_list|,
 name|getNumberOfNodes
@@ -1199,8 +1201,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|NUMBER_OF_DATA_NODES
 argument_list|,
 name|getNumberOfDataNodes
@@ -1211,8 +1211,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|ACTIVE_PRIMARY_SHARDS
 argument_list|,
 name|getActivePrimaryShards
@@ -1223,8 +1221,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|ACTIVE_SHARDS
 argument_list|,
 name|getActiveShards
@@ -1235,8 +1231,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|RELOCATING_SHARDS
 argument_list|,
 name|getRelocatingShards
@@ -1247,8 +1241,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|INITIALIZING_SHARDS
 argument_list|,
 name|getInitializingShards
@@ -1259,8 +1251,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|UNASSIGNED_SHARDS
 argument_list|,
 name|getUnassignedShards
@@ -1271,8 +1261,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|DELAYED_UNASSIGNED_SHARDS
 argument_list|,
 name|getDelayedUnassignedShards
@@ -1283,8 +1271,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|NUMBER_OF_PENDING_TASKS
 argument_list|,
 name|getNumberOfPendingTasks
@@ -1295,8 +1281,6 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
 name|NUMBER_OF_IN_FLIGHT_FETCH
 argument_list|,
 name|getNumberOfInFlightFetch
@@ -1307,12 +1291,8 @@ name|builder
 operator|.
 name|timeValueField
 argument_list|(
-name|Fields
-operator|.
 name|TASK_MAX_WAIT_TIME_IN_QUEUE_IN_MILLIS
 argument_list|,
-name|Fields
-operator|.
 name|TASK_MAX_WAIT_TIME_IN_QUEUE
 argument_list|,
 name|getTaskMaxWaitingTime
@@ -1323,12 +1303,8 @@ name|builder
 operator|.
 name|percentageField
 argument_list|(
-name|Fields
-operator|.
 name|ACTIVE_SHARDS_PERCENT_AS_NUMBER
 argument_list|,
-name|Fields
-operator|.
 name|ACTIVE_SHARDS_PERCENT
 argument_list|,
 name|getActiveShardsPercent
@@ -1373,8 +1349,6 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|Fields
-operator|.
 name|INDICES
 argument_list|)
 expr_stmt|;

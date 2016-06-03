@@ -19,6 +19,11 @@ comment|/**  * The PainlessError class is used to throw internal errors caused b
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"serial"
+argument_list|)
 DECL|class|PainlessError
 specifier|public
 class|class

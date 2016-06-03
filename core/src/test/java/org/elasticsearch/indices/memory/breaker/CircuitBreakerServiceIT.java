@@ -592,6 +592,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|endsWith
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -605,6 +617,18 @@ operator|.
 name|Matchers
 operator|.
 name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
 import|;
 end_import
 
@@ -644,6 +668,37 @@ name|info
 argument_list|(
 literal|"--> resetting breaker settings"
 argument_list|)
+expr_stmt|;
+comment|// clear all caches, we could be very close (or even above) the limit and then we will not be able to reset the breaker settings
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareClearCache
+argument_list|()
+operator|.
+name|setFieldDataCache
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setQueryCache
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setRequestCache
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 name|Settings
 name|resetSettings
@@ -753,6 +808,25 @@ argument_list|,
 literal|1.0
 argument_list|)
 operator|.
+name|put
+argument_list|(
+name|HierarchyCircuitBreakerService
+operator|.
+name|TOTAL_CIRCUIT_BREAKER_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|HierarchyCircuitBreakerService
+operator|.
+name|TOTAL_CIRCUIT_BREAKER_LIMIT_SETTING
+operator|.
+name|getDefaultRaw
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -837,6 +911,9 @@ name|NodeStats
 name|nodeStats
 range|:
 name|stats
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if
@@ -1563,13 +1640,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that a breaker correctly redistributes to a different breaker, in      * this case, the fielddata breaker borrows space from the request breaker      */
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"way too unstable request size. Needs a proper and more stable fix."
-argument_list|)
 DECL|method|testParentChecking
 specifier|public
 name|void
@@ -1710,48 +1780,6 @@ argument_list|,
 name|reqs
 argument_list|)
 expr_stmt|;
-comment|// We need the request limit beforehand, just from a single node because the limit should always be the same
-name|long
-name|beforeReqLimit
-init|=
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareNodesStats
-argument_list|()
-operator|.
-name|setBreaker
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|get
-argument_list|()
-operator|.
-name|getNodes
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|getBreaker
-argument_list|()
-operator|.
-name|getStats
-argument_list|(
-name|CircuitBreaker
-operator|.
-name|REQUEST
-argument_list|)
-operator|.
-name|getLimit
-argument_list|()
-decl_stmt|;
 name|Settings
 name|resetSettings
 init|=
@@ -1908,15 +1936,10 @@ literal|"Data too large, data for [test] would be larger than limit of [10/10b]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|reset
+argument_list|()
+expr_stmt|;
 comment|// Adjust settings so the parent breaker will fail, but neither the fielddata breaker nor the node request breaker will fail
-comment|// There is no "one size fits all" breaker size as internal request size will vary based on doc count.
-name|int
-name|parentBreakerSize
-init|=
-name|docCount
-operator|*
-literal|3
-decl_stmt|;
 name|resetSettings
 operator|=
 name|Settings
@@ -1933,9 +1956,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|parentBreakerSize
-operator|+
-literal|"b"
+literal|"500b"
 argument_list|)
 operator|.
 name|put
@@ -2027,30 +2048,74 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+specifier|final
+name|Throwable
+name|cause
+init|=
+name|ExceptionsHelper
+operator|.
+name|unwrap
+argument_list|(
+name|e
+argument_list|,
+name|CircuitBreakingException
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"CircuitBreakingException is not the cause of "
+operator|+
+name|e
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
 name|String
 name|errMsg
 init|=
-literal|"[parent] Data too large, data for [test] would be larger than limit of ["
-operator|+
-name|parentBreakerSize
+literal|"would be larger than limit of [500/500b]]"
 decl_stmt|;
 name|assertThat
 argument_list|(
 literal|"Exception: ["
 operator|+
-name|e
+name|cause
 operator|.
 name|toString
 argument_list|()
 operator|+
 literal|"] should contain a CircuitBreakingException"
 argument_list|,
-name|e
+name|cause
 operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|containsString
+name|startsWith
+argument_list|(
+literal|"CircuitBreakingException[[parent] Data too large"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"Exception: ["
+operator|+
+name|cause
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"] should contain a CircuitBreakingException"
+argument_list|,
+name|cause
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|endsWith
 argument_list|(
 name|errMsg
 argument_list|)

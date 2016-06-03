@@ -428,6 +428,10 @@ name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|2

@@ -40,6 +40,20 @@ name|fasterxml
 operator|.
 name|jackson
 operator|.
+name|core
+operator|.
+name|JsonGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
 name|dataformat
 operator|.
 name|smile
@@ -281,6 +295,20 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// this trips on many mappings now...
+comment|// Do not automatically close unclosed objects/arrays in com.fasterxml.jackson.dataformat.smile.SmileGenerator#close() method
+name|smileFactory
+operator|.
+name|configure
+argument_list|(
+name|JsonGenerator
+operator|.
+name|Feature
+operator|.
+name|AUTO_CLOSE_JSON_CONTENT
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|smileXContent
 operator|=
 operator|new

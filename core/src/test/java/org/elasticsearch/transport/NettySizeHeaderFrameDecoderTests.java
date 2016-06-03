@@ -30,11 +30,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cache
+name|cluster
 operator|.
-name|recycler
-operator|.
-name|MockPageCacheRecycler
+name|ClusterName
 import|;
 end_import
 
@@ -411,13 +409,9 @@ init|=
 operator|new
 name|MockBigArrays
 argument_list|(
-operator|new
-name|MockPageCacheRecycler
-argument_list|(
-name|settings
-argument_list|,
-name|threadPool
-argument_list|)
+name|Settings
+operator|.
+name|EMPTY
 argument_list|,
 operator|new
 name|NoneCircuitBreakerService
@@ -464,6 +458,10 @@ argument_list|(
 name|nettyTransport
 argument_list|,
 name|threadPool
+argument_list|,
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|nettyTransport
@@ -539,6 +537,10 @@ name|terminate
 argument_list|(
 name|threadPool
 argument_list|)
+expr_stmt|;
+name|threadPool
+operator|=
+literal|null
 expr_stmt|;
 block|}
 DECL|method|testThatTextMessageIsReturnedOnHTTPLikeRequest

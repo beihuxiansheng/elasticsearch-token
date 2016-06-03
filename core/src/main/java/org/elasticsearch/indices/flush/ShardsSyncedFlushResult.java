@@ -568,9 +568,8 @@ block|{
 name|ShardRouting
 name|shardRouting
 init|=
+operator|new
 name|ShardRouting
-operator|.
-name|readShardRoutingEntry
 argument_list|(
 name|in
 argument_list|)

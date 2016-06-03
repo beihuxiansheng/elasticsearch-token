@@ -233,7 +233,9 @@ name|class
 argument_list|,
 name|MustacheScriptEngineService
 operator|.
-name|TYPES
+name|NAME
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 argument_list|)

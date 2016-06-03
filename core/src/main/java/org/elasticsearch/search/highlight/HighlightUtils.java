@@ -372,10 +372,6 @@ name|sourceLookup
 operator|.
 name|extractRawValues
 argument_list|(
-name|hitContext
-operator|.
-name|getSourcePath
-argument_list|(
 name|mapper
 operator|.
 name|fieldType
@@ -383,7 +379,6 @@ argument_list|()
 operator|.
 name|name
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

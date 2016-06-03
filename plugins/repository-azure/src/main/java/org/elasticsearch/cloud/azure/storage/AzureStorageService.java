@@ -158,6 +158,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  * Azure Storage Service interface  * @see AzureStorageServiceImpl for Azure REST API implementation  */
 end_comment
@@ -246,11 +258,18 @@ name|String
 argument_list|>
 name|CONTAINER_SETTING
 init|=
+operator|new
 name|Setting
-operator|.
-name|simpleString
+argument_list|<>
 argument_list|(
 literal|"repositories.azure.container"
+argument_list|,
+literal|"elasticsearch-snapshots"
+argument_list|,
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|Property
 operator|.

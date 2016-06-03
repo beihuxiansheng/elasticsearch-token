@@ -1536,7 +1536,7 @@ name|MappedFieldType
 name|bogus
 init|=
 operator|new
-name|MappedFieldType
+name|TermBasedFieldType
 argument_list|()
 block|{
 annotation|@
@@ -1626,7 +1626,7 @@ name|MappedFieldType
 name|other
 init|=
 operator|new
-name|MappedFieldType
+name|TermBasedFieldType
 argument_list|()
 block|{
 annotation|@

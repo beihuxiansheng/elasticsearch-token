@@ -400,9 +400,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -584,6 +582,14 @@ argument_list|(
 name|capturingTransport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|transportService

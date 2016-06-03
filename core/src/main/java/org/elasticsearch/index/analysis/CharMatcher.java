@@ -301,6 +301,11 @@ name|Character
 operator|.
 name|OTHER_SYMBOL
 case|:
+case|case
+name|Character
+operator|.
+name|MODIFIER_SYMBOL
+case|:
 return|return
 literal|true
 return|;

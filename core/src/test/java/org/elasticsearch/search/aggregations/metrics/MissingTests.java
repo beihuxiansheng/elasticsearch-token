@@ -58,7 +58,7 @@ name|bucket
 operator|.
 name|missing
 operator|.
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|MissingTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 argument_list|>
 block|{
 annotation|@
@@ -78,15 +78,15 @@ name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
 specifier|final
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 name|factory
 init|=
 operator|new
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|,

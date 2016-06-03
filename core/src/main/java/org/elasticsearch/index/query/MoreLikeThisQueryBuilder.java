@@ -554,20 +554,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -7570,9 +7556,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext

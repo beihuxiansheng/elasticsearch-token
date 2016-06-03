@@ -52,7 +52,6 @@ name|indicesOptions
 parameter_list|()
 function_decl|;
 DECL|interface|Replaceable
-specifier|static
 interface|interface
 name|Replaceable
 extends|extends

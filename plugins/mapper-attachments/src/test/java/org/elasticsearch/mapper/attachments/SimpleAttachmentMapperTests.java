@@ -991,6 +991,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 name|byte
 index|[]

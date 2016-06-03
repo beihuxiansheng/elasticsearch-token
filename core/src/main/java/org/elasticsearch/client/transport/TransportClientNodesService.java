@@ -2178,6 +2178,13 @@ argument_list|,
 name|listedNode
 argument_list|)
 expr_stmt|;
+name|newFilteredNodes
+operator|.
+name|add
+argument_list|(
+name|listedNode
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
 block|}

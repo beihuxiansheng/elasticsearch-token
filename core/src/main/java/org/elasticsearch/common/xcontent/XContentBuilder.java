@@ -622,6 +622,19 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|isPrettyPrint
+specifier|public
+name|boolean
+name|isPrettyPrint
+parameter_list|()
+block|{
+return|return
+name|generator
+operator|.
+name|isPrettyPrint
+argument_list|()
+return|;
+block|}
 DECL|method|lfAtEnd
 specifier|public
 name|XContentBuilder
@@ -3942,7 +3955,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"failed to close the XContentBuilder"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|generator

@@ -250,7 +250,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 import|;
 end_import
 
@@ -558,9 +558,6 @@ specifier|private
 specifier|static
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|QUERY
 init|=
 name|QueryBuilders
@@ -901,10 +898,10 @@ name|NO
 block|{
 annotation|@
 name|Override
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|apply
 parameter_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|builder
 parameter_list|,
 name|String
@@ -927,10 +924,10 @@ name|YES
 block|{
 annotation|@
 name|Override
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|apply
 parameter_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|builder
 parameter_list|,
 name|String
@@ -964,10 +961,10 @@ block|}
 block|;
 DECL|method|apply
 specifier|abstract
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|apply
 parameter_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|builder
 parameter_list|,
 name|String

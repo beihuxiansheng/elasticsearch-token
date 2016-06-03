@@ -372,8 +372,7 @@ return|;
 block|}
 block|}
 block|,
-DECL|method|IP
-DECL|method|IP
+DECL|enum constant|IP
 name|IP
 argument_list|(
 operator|(
@@ -387,9 +386,9 @@ literal|"ip"
 argument_list|,
 name|ValuesSourceType
 operator|.
-name|NUMERIC
+name|BYTES
 argument_list|,
-name|IndexNumericFieldData
+name|IndexFieldData
 operator|.
 name|class
 argument_list|,
@@ -397,19 +396,6 @@ name|DocValueFormat
 operator|.
 name|IP
 argument_list|)
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|isNumeric
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
 block|,
 DECL|method|NUMERIC
 DECL|method|NUMERIC

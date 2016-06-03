@@ -264,9 +264,6 @@ name|RegexpQueryBuilder
 argument_list|>
 implements|implements
 name|MultiTermQueryBuilder
-argument_list|<
-name|RegexpQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public

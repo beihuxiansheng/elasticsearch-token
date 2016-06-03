@@ -140,7 +140,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorBuilder
+name|AggregationBuilder
 import|;
 end_import
 
@@ -153,8 +153,6 @@ operator|.
 name|search
 operator|.
 name|aggregations
-operator|.
-name|pipeline
 operator|.
 name|PipelineAggregatorBuilder
 import|;
@@ -592,9 +590,6 @@ name|SearchRequestBuilder
 name|setQuery
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -617,9 +612,6 @@ name|SearchRequestBuilder
 name|setPostFilter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|postFilter
 parameter_list|)
 block|{
@@ -1127,10 +1119,7 @@ specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
+name|AggregationBuilder
 name|aggregation
 parameter_list|)
 block|{

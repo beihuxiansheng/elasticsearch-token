@@ -72,7 +72,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -85,7 +85,7 @@ name|AbstractNumericMetricTestCase
 parameter_list|<
 name|AF
 extends|extends
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 operator|.
 name|LeafOnly
 parameter_list|<

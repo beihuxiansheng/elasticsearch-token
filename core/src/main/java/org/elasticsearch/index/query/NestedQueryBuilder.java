@@ -363,9 +363,6 @@ DECL|field|query
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 decl_stmt|;
 DECL|field|innerHitBuilder
@@ -848,9 +845,6 @@ init|=
 literal|null
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 literal|null
@@ -1532,9 +1526,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext

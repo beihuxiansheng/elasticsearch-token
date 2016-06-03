@@ -1321,6 +1321,16 @@ name|prev
 init|=
 name|routingTable
 decl_stmt|;
+name|logger
+operator|.
+name|error
+argument_list|(
+name|clusterState
+operator|.
+name|prettyPrint
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|routingTable
 operator|=
 name|service

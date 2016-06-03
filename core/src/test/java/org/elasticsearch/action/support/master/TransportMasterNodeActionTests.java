@@ -508,9 +508,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -524,9 +522,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -659,6 +655,14 @@ argument_list|(
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|transportService

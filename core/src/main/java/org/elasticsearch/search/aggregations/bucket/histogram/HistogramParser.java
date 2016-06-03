@@ -243,11 +243,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 name|factory
 init|=
 operator|new
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

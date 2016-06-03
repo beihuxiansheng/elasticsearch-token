@@ -1698,6 +1698,8 @@ name|clusterService
 argument_list|,
 name|routingService
 argument_list|,
+name|electMaster
+argument_list|,
 name|discoverySettings
 argument_list|,
 name|settings
@@ -3643,7 +3645,17 @@ parameter_list|,
 name|ClusterState
 name|newState
 parameter_list|)
-block|{             }
+block|{
+name|electMaster
+operator|.
+name|logMinimumMasterNodesWarningIfNecessary
+argument_list|(
+name|oldState
+argument_list|,
+name|newState
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -4844,6 +4856,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"failed to validate incoming join request from node [{}]"
+argument_list|,
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -6436,6 +6450,8 @@ name|String
 name|reason
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6462,6 +6478,8 @@ name|void
 name|startNewThreadIfNotRunning
 parameter_list|()
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6578,6 +6596,8 @@ name|Thread
 name|joinThread
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6606,6 +6626,8 @@ name|Thread
 name|joinThread
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6670,30 +6692,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|assertClusterStateThread
-specifier|private
-name|void
-name|assertClusterStateThread
-parameter_list|()
-block|{
-assert|assert
-name|clusterService
-operator|instanceof
-name|ClusterService
-operator|==
-literal|false
-operator|||
-operator|(
-operator|(
-name|ClusterService
-operator|)
-name|clusterService
-operator|)
-operator|.
-name|assertClusterStateThread
-argument_list|()
-assert|;
 block|}
 block|}
 block|}

@@ -274,6 +274,14 @@ operator|.
 name|topDocs
 argument_list|(
 name|topDocs
+argument_list|,
+name|context
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|sortValueFormats
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

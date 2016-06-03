@@ -90,7 +90,7 @@ name|range
 operator|.
 name|geodistance
 operator|.
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 import|;
 end_import
 
@@ -138,14 +138,14 @@ name|GeoDistanceRangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -170,11 +170,11 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|,

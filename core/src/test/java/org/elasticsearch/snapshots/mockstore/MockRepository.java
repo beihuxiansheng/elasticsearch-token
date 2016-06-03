@@ -1354,11 +1354,7 @@ name|blobName
 argument_list|)
 operator|.
 name|buildAsString
-argument_list|(
-literal|"/"
-argument_list|)
-operator|+
-literal|"/"
+argument_list|()
 operator|+
 name|randomPrefix
 decl_stmt|;

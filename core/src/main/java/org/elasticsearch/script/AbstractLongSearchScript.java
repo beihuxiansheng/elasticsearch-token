@@ -62,19 +62,6 @@ name|runAsLong
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|runAsFloat
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-return|return
-name|runAsLong
-argument_list|()
-return|;
-block|}
 block|}
 end_class
 

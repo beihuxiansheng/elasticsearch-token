@@ -104,9 +104,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
-name|PipelineAggregator
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -122,7 +120,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregator
 import|;
 end_import
 
@@ -354,9 +352,6 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -443,7 +438,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|unparsedParams
+name|params
 parameter_list|)
 block|{
 return|return

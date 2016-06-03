@@ -370,9 +370,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
+name|test
 operator|.
 name|AbstractQueryTestCase
 import|;
@@ -566,7 +564,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -728,9 +726,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -744,9 +740,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -775,7 +769,10 @@ name|BasePipelineAggregationTestCase
 parameter_list|<
 name|AF
 extends|extends
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregatorBuilder
+parameter_list|<
+name|AF
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ESTestCase
@@ -1279,7 +1276,9 @@ name|class
 argument_list|,
 name|MockScriptEngine
 operator|.
-name|TYPES
+name|NAME
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1760,11 +1759,6 @@ init|=
 name|shuffleXContent
 argument_list|(
 name|builder
-argument_list|,
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|XContentParser
@@ -1850,7 +1844,7 @@ name|assertEquals
 argument_list|(
 name|testAgg
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|parser
@@ -1915,9 +1909,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newAgg
 init|=
 name|aggParsers
@@ -1938,7 +1929,7 @@ name|parse
 argument_list|(
 name|testAgg
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|parseContext
@@ -2082,9 +2073,6 @@ argument_list|)
 init|)
 block|{
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|deserializedQuery
 init|=
 name|in

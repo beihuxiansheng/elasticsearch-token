@@ -262,7 +262,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|Snapshot
+name|SnapshotInfo
 import|;
 end_import
 
@@ -1327,7 +1327,7 @@ block|{
 comment|// This is a snapshot the is currently running - skipping
 continue|continue;
 block|}
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 init|=
 name|snapshotsService

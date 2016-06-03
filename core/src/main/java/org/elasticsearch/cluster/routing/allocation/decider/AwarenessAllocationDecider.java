@@ -736,6 +736,9 @@ operator|.
 name|assignedShards
 argument_list|(
 name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 control|)
 block|{

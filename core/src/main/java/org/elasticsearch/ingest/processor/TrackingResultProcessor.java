@@ -437,6 +437,8 @@ return|return
 operator|new
 name|CompoundProcessor
 argument_list|(
+literal|false
+argument_list|,
 name|processors
 argument_list|,
 name|onFailureProcessors

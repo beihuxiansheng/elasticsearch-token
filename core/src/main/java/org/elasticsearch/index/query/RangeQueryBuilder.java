@@ -332,9 +332,6 @@ name|RangeQueryBuilder
 argument_list|>
 implements|implements
 name|MultiTermQueryBuilder
-argument_list|<
-name|RangeQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -2177,9 +2174,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
