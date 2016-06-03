@@ -70,6 +70,16 @@ name|SettingsException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_class
 DECL|class|AzureTestUtils
 specifier|public
@@ -112,6 +122,8 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|settings
 operator|.
 name|loadFromPath
@@ -131,6 +143,23 @@ operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"could not load azure tests config"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
