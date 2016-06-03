@@ -2020,18 +2020,6 @@ argument_list|()
 return|;
 comment|// default to the same client settings
 block|}
-comment|/** Returns the addresses the client uses to connect to the test cluster. */
-DECL|method|getClusterUrls
-specifier|protected
-name|URL
-index|[]
-name|getClusterUrls
-parameter_list|()
-block|{
-return|return
-name|clusterUrls
-return|;
-block|}
 annotation|@
 name|Before
 DECL|method|reset
