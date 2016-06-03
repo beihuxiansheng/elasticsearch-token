@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Method
@@ -107,13 +119,7 @@ decl_stmt|;
 DECL|method|LListShortcut
 name|LListShortcut
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|AExpression
@@ -122,10 +128,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 literal|2
@@ -234,10 +236,10 @@ operator|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal list get shortcut for type ["
 operator|+
@@ -284,10 +286,10 @@ operator|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal list set shortcut for type ["
 operator|+
@@ -353,10 +355,10 @@ operator|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Shortcut argument types must match."
 argument_list|)
@@ -437,10 +439,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal list shortcut for type ["
 operator|+
@@ -489,7 +491,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 if|if
@@ -599,7 +601,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 if|if

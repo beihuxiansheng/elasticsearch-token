@@ -267,7 +267,7 @@ name|void
 name|testInvalidShift
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ClassCastException
 operator|.
@@ -284,7 +284,7 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ClassCastException
 operator|.
@@ -609,7 +609,7 @@ expr_stmt|;
 name|RuntimeException
 name|parseException
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|RuntimeException
 operator|.
@@ -724,7 +724,7 @@ expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.

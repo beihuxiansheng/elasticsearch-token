@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Field
@@ -140,13 +152,7 @@ DECL|method|LField
 specifier|public
 name|LField
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -155,10 +161,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 literal|1
@@ -189,10 +191,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal field ["
 operator|+
@@ -223,10 +225,6 @@ return|return
 operator|new
 name|LArrayLength
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|value
@@ -257,10 +255,6 @@ return|return
 operator|new
 name|LDefField
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|value
@@ -334,10 +328,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot write to read-only field ["
 operator|+
@@ -486,10 +480,6 @@ return|return
 operator|new
 name|LShortcut
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|value
@@ -514,10 +504,6 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|value
@@ -548,10 +534,6 @@ return|return
 operator|new
 name|LMapShortcut
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|index
@@ -586,10 +568,6 @@ return|return
 operator|new
 name|LListShortcut
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|index
@@ -609,10 +587,10 @@ block|}
 block|}
 block|}
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unknown field ["
 operator|+
@@ -655,7 +633,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 if|if
@@ -737,7 +715,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 if|if

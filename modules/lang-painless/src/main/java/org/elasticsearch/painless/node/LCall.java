@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Method
@@ -140,13 +152,7 @@ DECL|method|LCall
 specifier|public
 name|LCall
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -161,10 +167,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -202,10 +204,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal call ["
 operator|+
@@ -229,10 +231,10 @@ name|ARRAY
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal call ["
 operator|+
@@ -250,10 +252,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot assign a value to a call ["
 operator|+
@@ -419,10 +421,6 @@ init|=
 operator|new
 name|LDefCall
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|name
@@ -447,10 +445,10 @@ argument_list|)
 return|;
 block|}
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unknown call ["
 operator|+
@@ -500,7 +498,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 for|for
@@ -658,10 +656,10 @@ name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

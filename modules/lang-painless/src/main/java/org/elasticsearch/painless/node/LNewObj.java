@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Constructor
@@ -105,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents and object instantiation.  */
+comment|/**  * Represents and object instantiation.  */
 end_comment
 
 begin_class
@@ -138,13 +150,7 @@ DECL|method|LNewObj
 specifier|public
 name|LNewObj
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -159,10 +165,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -200,10 +202,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal new call with a target already defined."
 argument_list|)
@@ -217,10 +219,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot assign a value to a new call."
 argument_list|)
@@ -252,10 +254,10 @@ name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Not a type ["
 operator|+
@@ -344,10 +346,10 @@ argument_list|()
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"When calling constructor on type ["
 operator|+
@@ -455,10 +457,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unknown new call on type ["
 operator|+
@@ -501,7 +503,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|writer
@@ -567,10 +569,10 @@ name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

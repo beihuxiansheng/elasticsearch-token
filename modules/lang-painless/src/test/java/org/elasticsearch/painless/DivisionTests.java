@@ -1002,7 +1002,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ArithmeticException
 operator|.
@@ -1019,7 +1019,7 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ArithmeticException
 operator|.
