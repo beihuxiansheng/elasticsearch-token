@@ -2161,7 +2161,7 @@ specifier|final
 name|int
 name|DEFAULT_CONNECT_TIMEOUT
 init|=
-literal|500
+literal|1000
 decl_stmt|;
 DECL|field|DEFAULT_SOCKET_TIMEOUT
 specifier|public
@@ -2170,7 +2170,7 @@ specifier|final
 name|int
 name|DEFAULT_SOCKET_TIMEOUT
 init|=
-literal|5000
+literal|10000
 decl_stmt|;
 DECL|field|DEFAULT_MAX_RETRY_TIMEOUT
 specifier|public
