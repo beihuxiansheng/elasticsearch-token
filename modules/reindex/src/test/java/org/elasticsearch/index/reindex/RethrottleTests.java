@@ -51,22 +51,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -82,20 +66,7 @@ begin_comment
 comment|/**  * Tests that you can set requests_per_second over the Java API and that you can rethrottle running requests. There are REST tests for this  * too but this is the only place that tests running against multiple nodes so it is the only integration tests that checks for  * serialization.  */
 end_comment
 
-begin_comment
-comment|// Extra logging in case of failure. We couldn't explain the last failure:
-end_comment
-
-begin_comment
-comment|// https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+g1gc/359/consoleFull
-end_comment
-
 begin_class
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:DEBUG"
-argument_list|)
 DECL|class|RethrottleTests
 specifier|public
 class|class
