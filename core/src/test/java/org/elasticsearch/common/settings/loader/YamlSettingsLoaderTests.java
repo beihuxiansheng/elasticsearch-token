@@ -20,52 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -115,14 +69,48 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|hamcrest
+name|nio
 operator|.
-name|Matchers
+name|charset
 operator|.
-name|containsString
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -518,18 +506,8 @@ name|msg
 operator|.
 name|contains
 argument_list|(
-literal|"duplicate settings key [foo] found"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|msg
-argument_list|,
-name|msg
-operator|.
-name|contains
-argument_list|(
+literal|"duplicate settings key [foo] found at line number [2], column number [6], "
+operator|+
 literal|"previous value [bar], current value [baz]"
 argument_list|)
 argument_list|)
@@ -610,7 +588,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"null-valued setting found for key [foo] found at line"
+literal|"null-valued setting found for key [foo] found at line number [1], column number [5]"
 argument_list|)
 argument_list|)
 expr_stmt|;
