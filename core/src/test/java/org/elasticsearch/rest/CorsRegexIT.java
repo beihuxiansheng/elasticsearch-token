@@ -418,6 +418,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -452,7 +454,8 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertResponseWithOriginheader
 argument_list|(
 name|response
@@ -460,12 +463,16 @@ argument_list|,
 name|corsValue
 argument_list|)
 expr_stmt|;
+block|}
 name|corsValue
 operator|=
 literal|"https://localhost:9200"
 expr_stmt|;
+try|try
+init|(
+name|ElasticsearchResponse
 name|response
-operator|=
+init|=
 name|client
 operator|.
 name|performRequest
@@ -497,7 +504,9 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-expr_stmt|;
+init|;
+init|)
+block|{
 name|assertResponseWithOriginheader
 argument_list|(
 name|response
@@ -520,6 +529,7 @@ literal|"true"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testThatRegularExpressionReturnsForbiddenOnNonMatch
@@ -640,6 +650,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -666,7 +678,8 @@ argument_list|,
 literal|"Mozilla Bar"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|response
@@ -696,6 +709,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testThatRegularExpressionIsNotAppliedWithoutCorrectBrowserOnMatch
@@ -715,6 +729,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -733,7 +749,8 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|response
@@ -763,6 +780,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testThatPreFlightRequestWorksOnMatch
@@ -787,6 +805,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -833,7 +853,9 @@ argument_list|,
 literal|"GET"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|;
+init|)
+block|{
 name|assertResponseWithOriginheader
 argument_list|(
 name|response
@@ -851,6 +873,7 @@ literal|"Access-Control-Allow-Methods"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testThatPreFlightRequestReturnsNullOnNonMatch

@@ -236,6 +236,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -270,7 +272,8 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|response
@@ -313,6 +316,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testThatOmittingCorsHeaderDoesNotReturnAnything
@@ -332,6 +336,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -350,7 +356,8 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|response
@@ -393,6 +400,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

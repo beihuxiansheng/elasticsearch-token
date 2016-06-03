@@ -384,6 +384,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|ElasticsearchResponse
 name|authResponse
 init|=
@@ -410,7 +412,8 @@ argument_list|,
 literal|"password"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|authResponse
@@ -436,6 +439,7 @@ literal|"granted"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

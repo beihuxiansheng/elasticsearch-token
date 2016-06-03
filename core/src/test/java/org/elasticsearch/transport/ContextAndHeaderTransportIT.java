@@ -1802,6 +1802,8 @@ name|restClient
 argument_list|()
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -1840,7 +1842,8 @@ argument_list|,
 name|randomHeaderValue
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertThat
 argument_list|(
 name|response
@@ -1920,6 +1923,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

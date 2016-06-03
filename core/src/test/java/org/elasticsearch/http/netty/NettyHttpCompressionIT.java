@@ -395,6 +395,8 @@ argument_list|()
 argument_list|)
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -423,7 +425,8 @@ argument_list|,
 name|GZIP_ENCODING
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|200
@@ -458,6 +461,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testUncompressedResponseByDefault
@@ -508,6 +512,8 @@ name|httpClient
 argument_list|)
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -526,7 +532,8 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|200
@@ -548,6 +555,7 @@ name|hasContentEncodingHeader
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testCanInterpretUncompressedRequest
@@ -599,6 +607,8 @@ name|httpClient
 argument_list|)
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -617,7 +627,8 @@ argument_list|()
 argument_list|,
 name|SAMPLE_DOCUMENT
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|201
@@ -639,6 +650,7 @@ name|hasContentEncodingHeader
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testCanInterpretCompressedRequest
@@ -682,6 +694,8 @@ argument_list|()
 argument_list|)
 init|)
 block|{
+try|try
+init|(
 name|ElasticsearchResponse
 name|response
 init|=
@@ -700,7 +714,8 @@ argument_list|()
 argument_list|,
 name|SAMPLE_DOCUMENT
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 literal|201
@@ -727,6 +742,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|ContentEncodingHeaderExtractor
