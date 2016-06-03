@@ -300,6 +300,10 @@ operator|new
 name|CircuitBreakingException
 argument_list|(
 name|message
+argument_list|,
+name|bytesNeeded
+argument_list|,
+name|memoryBytesLimit
 argument_list|)
 throw|;
 block|}

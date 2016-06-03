@@ -98,20 +98,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentType
 import|;
 end_import
@@ -160,9 +146,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -220,20 +218,15 @@ block|{
 comment|/**      * The query type all template tests will be based on.      */
 DECL|field|templateBase
 specifier|private
-specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|templateBase
 decl_stmt|;
 annotation|@
-name|BeforeClass
-DECL|method|setupClass
+name|Before
+DECL|method|before
 specifier|public
-specifier|static
 name|void
-name|setupClass
+name|before
 parameter_list|()
 block|{
 name|templateBase
@@ -343,28 +336,24 @@ name|void
 name|testIllegalArgument
 parameter_list|()
 block|{
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|TemplateQueryBuilder
 argument_list|(
+operator|(
+name|Template
+operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 comment|/**      * Override superclass test since template query doesn't support boost and queryName, so      * we need to mutate other existing field in the test query.      */
 annotation|@
@@ -588,9 +577,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -662,9 +648,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -713,9 +696,6 @@ init|=
 literal|"{ \"match_all\" : {}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -749,7 +729,7 @@ name|builder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -784,7 +764,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -805,9 +785,6 @@ init|=
 literal|"{ \"match_all\" : {\"_name\" : \"foobar\"}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -850,7 +827,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -914,7 +891,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -946,9 +923,6 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -987,7 +961,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1047,7 +1021,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

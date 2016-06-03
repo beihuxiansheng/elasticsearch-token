@@ -68,6 +68,7 @@ end_import
 
 begin_class
 DECL|class|JavaVersion
+specifier|public
 class|class
 name|JavaVersion
 implements|implements

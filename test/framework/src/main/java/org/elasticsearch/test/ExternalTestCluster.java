@@ -500,19 +500,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-comment|// prevents any settings to be replaced by system properties.
-operator|.
-name|put
-argument_list|(
 literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|true
@@ -639,7 +626,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 index|]
 expr_stmt|;
 name|this
@@ -678,7 +666,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -691,9 +680,11 @@ name|nodeInfos
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 decl_stmt|;
 name|httpAddresses
 index|[

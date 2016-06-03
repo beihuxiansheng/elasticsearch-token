@@ -345,20 +345,6 @@ parameter_list|)
 block|{         }
 annotation|@
 name|Override
-DECL|method|runAsFloat
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|runAsLong
 specifier|public
 name|long

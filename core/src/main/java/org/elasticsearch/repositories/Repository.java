@@ -48,9 +48,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -106,7 +104,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|Snapshot
+name|SnapshotInfo
 import|;
 end_import
 
@@ -142,8 +140,20 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
 begin_comment
-comment|/**  * Snapshot repository interface.  *<p>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(SnapshotId, ShardId, IndexCommit, IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
+comment|/**  * Snapshot repository interface.  *<p>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(SnapshotId, ShardId, IndexCommit, IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -157,9 +167,9 @@ argument_list|<
 name|Repository
 argument_list|>
 block|{
-comment|/**      * Reads snapshot description from repository.      *      * @param snapshotId snapshot ID      * @return information about snapshot      */
+comment|/**      * Reads snapshot description from repository.      *      * @param snapshotId  snapshot id      * @return information about snapshot      */
 DECL|method|readSnapshot
-name|Snapshot
+name|SnapshotInfo
 name|readSnapshot
 parameter_list|(
 name|SnapshotId
@@ -171,10 +181,7 @@ DECL|method|readSnapshotMetaData
 name|MetaData
 name|readSnapshotMetaData
 parameter_list|(
-name|SnapshotId
-name|snapshotId
-parameter_list|,
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|,
 name|List
@@ -186,7 +193,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the list of snapshots currently stored in the repository      *      * @return snapshot list      */
+comment|/**      * Returns the list of snapshots currently stored in the repository that match the given predicate on the snapshot name.      * To get all snapshots, the predicate filter should return true regardless of the input.      *      * @return snapshot list      */
 DECL|method|snapshots
 name|List
 argument_list|<
@@ -215,7 +222,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
 DECL|method|finalizeSnapshot
-name|Snapshot
+name|SnapshotInfo
 name|finalizeSnapshot
 parameter_list|(
 name|SnapshotId

@@ -1554,10 +1554,12 @@ name|AllocationService
 block|{
 DECL|field|nanoTimeOverride
 specifier|private
-name|Long
+specifier|volatile
+name|long
 name|nanoTimeOverride
 init|=
-literal|null
+operator|-
+literal|1L
 decl_stmt|;
 DECL|method|MockAllocationService
 specifier|public
@@ -1620,7 +1622,8 @@ block|{
 return|return
 name|nanoTimeOverride
 operator|==
-literal|null
+operator|-
+literal|1L
 condition|?
 name|super
 operator|.
@@ -1777,11 +1780,6 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 while|while
 condition|(
 name|unassignedIterator
@@ -1833,8 +1831,6 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|changed
-operator||=
 name|replicaShardAllocator
 operator|.
 name|ignoreUnassignedIfDelayed
@@ -1846,7 +1842,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|changed
+literal|false
 return|;
 block|}
 block|}

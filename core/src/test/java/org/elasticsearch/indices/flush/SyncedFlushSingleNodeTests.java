@@ -78,7 +78,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -409,7 +409,7 @@ expr_stmt|;
 name|String
 name|syncId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|base64UUID
 argument_list|()
@@ -1560,7 +1560,7 @@ expr_stmt|;
 name|String
 name|syncId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|base64UUID
 argument_list|()
@@ -1896,7 +1896,7 @@ comment|// wipe it...
 name|String
 name|syncId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|base64UUID
 argument_list|()

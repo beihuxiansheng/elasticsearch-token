@@ -105,9 +105,6 @@ enum|enum
 name|SortMode
 implements|implements
 name|Writeable
-argument_list|<
-name|SortMode
-argument_list|>
 block|{
 comment|/** pick the lowest value **/
 DECL|enum constant|MIN

@@ -2450,8 +2450,10 @@ parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|,
+name|List
+argument_list|<
 name|NodeStats
-index|[]
+argument_list|>
 name|nodeStatsArray
 parameter_list|,
 name|ImmutableOpenMap

@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|test
@@ -45,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link org.apache.lucene.spatial.util.GeoHashUtils}  */
+comment|/**  * Tests for {@link org.elasticsearch.common.geo.GeoHashUtils}  */
 end_comment
 
 begin_class

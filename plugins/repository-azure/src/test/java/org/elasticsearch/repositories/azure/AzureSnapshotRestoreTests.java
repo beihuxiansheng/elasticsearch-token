@@ -150,7 +150,7 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|AbstractAzureWithThirdPartyTestCase
+name|AbstractAzureWithThirdPartyIntegTestCase
 import|;
 end_import
 
@@ -410,6 +410,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|cloud
+operator|.
+name|azure
+operator|.
+name|AzureTestUtils
+operator|.
+name|readSettingsFromFile
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -431,7 +447,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test needs Azure to run and -Dtests.thirdparty=true to be set  * and -Dtests.config=/path/to/elasticsearch.yml  * @see AbstractAzureWithThirdPartyTestCase  */
+comment|/**  * This test needs Azure to run and -Dtests.thirdparty=true to be set  * and -Dtests.config=/path/to/elasticsearch.yml  * @see AbstractAzureWithThirdPartyIntegTestCase  */
 end_comment
 
 begin_class
@@ -446,6 +462,10 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|,
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|1
@@ -459,7 +479,7 @@ specifier|public
 class|class
 name|AzureSnapshotRestoreTests
 extends|extends
-name|AbstractAzureWithThirdPartyTestCase
+name|AbstractAzureWithThirdPartyIntegTestCase
 block|{
 DECL|method|getRepositoryPath
 specifier|private
@@ -471,24 +491,9 @@ name|String
 name|testName
 init|=
 literal|"it-"
-operator|.
-name|concat
-argument_list|(
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
+operator|+
 name|getTestName
 argument_list|()
-argument_list|)
-operator|.
-name|replaceAll
-argument_list|(
-literal|"_"
-argument_list|,
-literal|"-"
-argument_list|)
-argument_list|)
 decl_stmt|;
 return|return
 name|testName
@@ -1380,10 +1385,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1546,10 +1548,7 @@ argument_list|,
 literal|"-test-idx-2"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2248,10 +2247,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2942,10 +2938,7 @@ argument_list|(
 literal|"test-idx-1"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -3087,10 +3080,7 @@ argument_list|(
 literal|"test-idx-2"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -3922,16 +3912,8 @@ comment|// It could happen that we just removed from a previous test the same co
 comment|// we can not create it yet.
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 try|try
 block|{
@@ -4093,7 +4075,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 argument_list|,
 literal|5
 argument_list|,
@@ -4247,10 +4228,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|fail
@@ -4307,16 +4285,8 @@ comment|// It could happen that we run this test really close to a previous one
 comment|// so we might need some time to be able to create the container
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 try|try
 block|{
@@ -4369,7 +4339,6 @@ expr_stmt|;
 name|fail
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|,
@@ -4520,10 +4489,7 @@ argument_list|(
 name|repository
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 block|}

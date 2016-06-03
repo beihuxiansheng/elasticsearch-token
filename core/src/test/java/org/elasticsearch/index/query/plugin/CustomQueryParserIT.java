@@ -337,8 +337,6 @@ operator|.
 name|setQuery
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -375,8 +373,6 @@ operator|.
 name|must
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -439,8 +435,6 @@ init|=
 name|constantScoreQuery
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -514,8 +508,6 @@ operator|.
 name|should
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -523,8 +515,6 @@ operator|.
 name|must
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -532,8 +522,6 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -541,8 +529,6 @@ operator|.
 name|mustNot
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -669,8 +655,6 @@ operator|.
 name|should
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -678,8 +662,6 @@ operator|.
 name|should
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -687,8 +669,6 @@ operator|.
 name|must
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -696,8 +676,6 @@ operator|.
 name|must
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -705,8 +683,6 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -714,8 +690,6 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -723,8 +697,6 @@ operator|.
 name|mustNot
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)
@@ -732,8 +704,6 @@ operator|.
 name|mustNot
 argument_list|(
 operator|new
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryBuilder
 argument_list|()
 argument_list|)

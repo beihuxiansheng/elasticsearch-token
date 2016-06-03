@@ -380,9 +380,8 @@ block|{
 name|TermsLookup
 name|deserializedLookup
 init|=
+operator|new
 name|TermsLookup
-operator|.
-name|readTermsLookupFrom
 argument_list|(
 name|in
 argument_list|)

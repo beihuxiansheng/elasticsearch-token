@@ -205,9 +205,8 @@ condition|)
 block|{
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
@@ -236,7 +235,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|script
 argument_list|)

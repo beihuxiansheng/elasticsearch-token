@@ -46,7 +46,7 @@ name|bucket
 operator|.
 name|global
 operator|.
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 import|;
 end_import
 
@@ -58,20 +58,20 @@ name|GlobalTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 return|return
 operator|new
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

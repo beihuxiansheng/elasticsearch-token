@@ -156,6 +156,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -215,9 +227,12 @@ DECL|field|SORT_SCORE
 specifier|private
 specifier|static
 specifier|final
-name|SortField
+name|SortFieldAndFormat
 name|SORT_SCORE
 init|=
+operator|new
+name|SortFieldAndFormat
+argument_list|(
 operator|new
 name|SortField
 argument_list|(
@@ -229,14 +244,22 @@ name|Type
 operator|.
 name|SCORE
 argument_list|)
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
+argument_list|)
 decl_stmt|;
 DECL|field|SORT_SCORE_REVERSE
 specifier|private
 specifier|static
 specifier|final
-name|SortField
+name|SortFieldAndFormat
 name|SORT_SCORE_REVERSE
 init|=
+operator|new
+name|SortFieldAndFormat
+argument_list|(
 operator|new
 name|SortField
 argument_list|(
@@ -249,6 +272,11 @@ operator|.
 name|SCORE
 argument_list|,
 literal|true
+argument_list|)
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|)
 decl_stmt|;
 comment|/**      * Build a ScoreSortBuilder default to descending sort order.      */
@@ -392,7 +420,7 @@ name|matcher
 init|=
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -545,7 +573,7 @@ annotation|@
 name|Override
 DECL|method|build
 specifier|public
-name|SortField
+name|SortFieldAndFormat
 name|build
 parameter_list|(
 name|QueryShardContext

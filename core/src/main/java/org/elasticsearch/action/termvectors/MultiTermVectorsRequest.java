@@ -1058,7 +1058,7 @@ specifier|public
 name|MultiTermVectorsRequest
 name|realtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 block|{

@@ -136,17 +136,11 @@ comment|// a convenience method for testing the write of a writeable enum
 DECL|method|assertWriteToStream
 specifier|protected
 specifier|static
-parameter_list|<
-name|T
-parameter_list|>
 name|void
 name|assertWriteToStream
 parameter_list|(
 specifier|final
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 name|writeableEnum
 parameter_list|,
 specifier|final
@@ -208,14 +202,6 @@ block|}
 comment|// a convenience method for testing the read of a writeable enum
 DECL|method|assertReadFromStream
 specifier|protected
-parameter_list|<
-name|T
-extends|extends
-name|Writeable
-argument_list|<
-name|T
-argument_list|>
-parameter_list|>
 name|void
 name|assertReadFromStream
 parameter_list|(
@@ -225,9 +211,6 @@ name|ordinal
 parameter_list|,
 specifier|final
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 name|expected
 parameter_list|)
 throws|throws

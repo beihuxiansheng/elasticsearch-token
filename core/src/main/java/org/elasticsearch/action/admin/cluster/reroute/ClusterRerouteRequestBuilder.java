@@ -66,20 +66,6 @@ name|AllocationCommand
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
 begin_comment
 comment|/**  * Builder for a cluster reroute request  */
 end_comment
@@ -186,23 +172,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the source for the request      */
-DECL|method|setSource
+comment|/**      * Sets the retry failed flag (defaults to<tt>false</tt>). If true, the      * request will retry allocating shards that can't currently be allocated due to too many allocation failures.      */
+DECL|method|setRetryFailed
 specifier|public
 name|ClusterRerouteRequestBuilder
-name|setSource
+name|setRetryFailed
 parameter_list|(
-name|BytesReference
-name|source
+name|boolean
+name|retryFailed
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|request
 operator|.
-name|source
+name|setRetryFailed
 argument_list|(
-name|source
+name|retryFailed
 argument_list|)
 expr_stmt|;
 return|return

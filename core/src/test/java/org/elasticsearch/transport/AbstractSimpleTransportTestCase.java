@@ -32,9 +32,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNode
+name|ClusterName
 import|;
 end_import
 
@@ -44,13 +42,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|io
+name|node
 operator|.
-name|stream
-operator|.
-name|NamedWriteableRegistry
+name|DiscoveryNode
 import|;
 end_import
 
@@ -458,8 +454,8 @@ parameter_list|,
 name|Version
 name|version
 parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
+name|ClusterName
+name|clusterName
 parameter_list|)
 function_decl|;
 annotation|@
@@ -505,7 +501,10 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|"TS_A"
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_INCLUDE_SETTING
@@ -514,7 +513,10 @@ name|getKey
 argument_list|()
 argument_list|,
 literal|""
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
@@ -530,9 +532,9 @@ argument_list|()
 argument_list|,
 name|version0
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|serviceA
@@ -578,7 +580,10 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|"TS_B"
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_INCLUDE_SETTING
@@ -587,7 +592,10 @@ name|getKey
 argument_list|()
 argument_list|,
 literal|""
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
@@ -603,9 +611,9 @@ argument_list|()
 argument_list|,
 name|version1
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|serviceB
@@ -1430,11 +1438,11 @@ index|]
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
-name|baseTransportResponseHandler
+name|responseHandler
 init|=
 operator|new
 name|BaseTransportResponseHandler
@@ -1626,7 +1634,7 @@ literal|"ping_pong"
 argument_list|,
 name|ping
 argument_list|,
-name|baseTransportResponseHandler
+name|responseHandler
 argument_list|)
 decl_stmt|;
 name|StringMessageResponse
@@ -2027,16 +2035,9 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|channel
-operator|.
-name|sendResponse
-argument_list|(
-name|TransportResponse
-operator|.
-name|Empty
-operator|.
-name|INSTANCE
-argument_list|,
+name|TransportResponseOptions
+name|responseOptions
+init|=
 name|TransportResponseOptions
 operator|.
 name|builder
@@ -2049,6 +2050,18 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+decl_stmt|;
+name|channel
+operator|.
+name|sendResponse
+argument_list|(
+name|TransportResponse
+operator|.
+name|Empty
+operator|.
+name|INSTANCE
+argument_list|,
+name|responseOptions
 argument_list|)
 expr_stmt|;
 block|}
@@ -2167,7 +2180,7 @@ operator|.
 name|Empty
 name|response
 parameter_list|)
-block|{                     }
+block|{                 }
 annotation|@
 name|Override
 specifier|public
@@ -2308,6 +2321,22 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|TransportResponseOptions
+name|responseOptions
+init|=
+name|TransportResponseOptions
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|withCompress
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|channel
 operator|.
 name|sendResponse
@@ -2322,18 +2351,7 @@ operator|.
 name|message
 argument_list|)
 argument_list|,
-name|TransportResponseOptions
-operator|.
-name|builder
-argument_list|()
-operator|.
-name|withCompress
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|build
-argument_list|()
+name|responseOptions
 argument_list|)
 expr_stmt|;
 block|}
@@ -3060,12 +3078,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// don't send back a response
-comment|//                try {
-comment|//                    channel.sendResponse(new StringMessage("hello " + request.message));
-comment|//                } catch (IOException e) {
-comment|//                    e.printStackTrace();
-comment|//                    assertThat(e.getMessage(), false, equalTo(true));
-comment|//                }
 block|}
 block|}
 argument_list|)
@@ -4345,7 +4357,10 @@ name|getKey
 argument_list|()
 argument_list|,
 name|includeSettings
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
@@ -6631,9 +6646,11 @@ try|try
 block|{
 name|serviceB
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 name|nodeA
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 name|fail
@@ -6901,9 +6918,11 @@ try|try
 block|{
 name|serviceB
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 name|nodeA
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 name|fail
@@ -7205,7 +7224,10 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|"TS_TEST"
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_INCLUDE_SETTING
@@ -7214,7 +7236,10 @@ name|getKey
 argument_list|()
 argument_list|,
 literal|""
-argument_list|,
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
@@ -7230,9 +7255,9 @@ argument_list|()
 argument_list|,
 name|version0
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|AtomicBoolean

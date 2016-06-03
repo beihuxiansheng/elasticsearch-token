@@ -454,9 +454,6 @@ enum|enum
 name|ScoreMode
 implements|implements
 name|Writeable
-argument_list|<
-name|ScoreMode
-argument_list|>
 block|{
 DECL|enum constant|FIRST
 DECL|enum constant|AVG
@@ -500,12 +497,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|ScoreMode
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in
@@ -553,29 +549,6 @@ argument_list|()
 index|[
 name|ordinal
 index|]
-return|;
-block|}
-DECL|method|readScoreModeFrom
-specifier|public
-specifier|static
-name|ScoreMode
-name|readScoreModeFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|ScoreMode
-operator|.
-name|MULTIPLY
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
 return|;
 block|}
 DECL|method|fromString

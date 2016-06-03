@@ -5757,9 +5757,6 @@ argument_list|)
 block|}
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 name|boolQuery

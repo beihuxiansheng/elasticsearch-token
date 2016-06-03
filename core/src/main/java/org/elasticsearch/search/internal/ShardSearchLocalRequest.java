@@ -666,11 +666,6 @@ return|return
 name|profile
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|innerReadFrom
 specifier|protected
 name|void
@@ -736,9 +731,8 @@ condition|)
 block|{
 name|source
 operator|=
+operator|new
 name|SearchSourceBuilder
-operator|.
-name|readSearchSourceFrom
 argument_list|(
 name|in
 argument_list|)
@@ -769,7 +763,7 @@ name|template
 operator|=
 name|in
 operator|.
-name|readOptionalStreamable
+name|readOptionalWriteable
 argument_list|(
 name|Template
 operator|::
@@ -923,7 +917,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|template
 argument_list|)

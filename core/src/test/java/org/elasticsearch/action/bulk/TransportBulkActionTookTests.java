@@ -400,9 +400,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -584,6 +582,14 @@ argument_list|(
 name|capturingTransport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|transportService
@@ -714,6 +720,9 @@ name|Override
 name|void
 name|executeBulk
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|BulkRequest
 name|bulkRequest
 parameter_list|,
@@ -744,6 +753,8 @@ name|super
 operator|.
 name|executeBulk
 argument_list|(
+name|task
+argument_list|,
 name|bulkRequest
 argument_list|,
 name|startTimeNanos
@@ -832,6 +843,9 @@ name|Override
 name|void
 name|executeBulk
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|BulkRequest
 name|bulkRequest
 parameter_list|,
@@ -868,6 +882,8 @@ name|super
 operator|.
 name|executeBulk
 argument_list|(
+name|task
+argument_list|,
 name|bulkRequest
 argument_list|,
 name|startTimeNanos
@@ -1006,6 +1022,8 @@ name|action
 operator|.
 name|doExecute
 argument_list|(
+literal|null
+argument_list|,
 name|bulkRequest
 argument_list|,
 operator|new

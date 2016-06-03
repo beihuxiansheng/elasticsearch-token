@@ -76,6 +76,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -133,7 +145,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|getMapperService

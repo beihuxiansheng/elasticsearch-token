@@ -515,6 +515,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodesInfo
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if
@@ -622,9 +625,6 @@ decl_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
-operator|.
-name|getRoutingNodes
-argument_list|()
 operator|.
 name|metaData
 argument_list|()
@@ -820,6 +820,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodesInfo
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if

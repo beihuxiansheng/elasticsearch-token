@@ -368,7 +368,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|ByteFieldMapper
+name|LegacyByteFieldMapper
 import|;
 end_import
 
@@ -384,7 +384,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 import|;
 end_import
 
@@ -400,7 +400,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|FloatFieldMapper
+name|LegacyFloatFieldMapper
 import|;
 end_import
 
@@ -416,7 +416,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|IntegerFieldMapper
+name|LegacyIntegerFieldMapper
 import|;
 end_import
 
@@ -432,7 +432,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 import|;
 end_import
 
@@ -448,7 +448,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|ShortFieldMapper
+name|LegacyShortFieldMapper
 import|;
 end_import
 
@@ -971,7 +971,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|FloatFieldMapper
+name|LegacyFloatFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1006,7 +1006,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1041,7 +1041,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1076,7 +1076,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|IntegerFieldMapper
+name|LegacyIntegerFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1111,7 +1111,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|ShortFieldMapper
+name|LegacyShortFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1146,7 +1146,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|ByteFieldMapper
+name|LegacyByteFieldMapper
 operator|.
 name|Builder
 argument_list|(

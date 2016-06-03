@@ -507,8 +507,9 @@ return|return
 operator|new
 name|DateTime
 argument_list|(
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 operator|(
 name|double

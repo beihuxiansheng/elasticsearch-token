@@ -151,6 +151,12 @@ name|SearchSlowLog
 implements|implements
 name|SearchOperationListener
 block|{
+DECL|field|index
+specifier|private
+specifier|final
+name|Index
+name|index
+decl_stmt|;
 DECL|field|reformat
 specifier|private
 name|boolean
@@ -667,6 +673,15 @@ operator|+
 literal|".fetch"
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|index
+operator|=
+name|indexSettings
+operator|.
+name|getIndex
+argument_list|()
+expr_stmt|;
 name|indexSettings
 operator|.
 name|getScopedSettings
@@ -1015,6 +1030,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1045,6 +1062,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1075,6 +1094,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1105,6 +1126,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1149,6 +1172,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1179,6 +1204,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1209,6 +1236,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1239,6 +1268,8 @@ argument_list|,
 operator|new
 name|SlowLogSearchContextPrinter
 argument_list|(
+name|index
+argument_list|,
 name|context
 argument_list|,
 name|tookInNanos
@@ -1250,8 +1281,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|SlowLogSearchContextPrinter
-specifier|private
 specifier|static
+specifier|final
 class|class
 name|SlowLogSearchContextPrinter
 block|{
@@ -1260,6 +1291,12 @@ specifier|private
 specifier|final
 name|SearchContext
 name|context
+decl_stmt|;
+DECL|field|index
+specifier|private
+specifier|final
+name|Index
+name|index
 decl_stmt|;
 DECL|field|tookInNanos
 specifier|private
@@ -1277,6 +1314,9 @@ DECL|method|SlowLogSearchContextPrinter
 specifier|public
 name|SlowLogSearchContextPrinter
 parameter_list|(
+name|Index
+name|index
+parameter_list|,
 name|SearchContext
 name|context
 parameter_list|,
@@ -1292,6 +1332,12 @@ operator|.
 name|context
 operator|=
 name|context
+expr_stmt|;
+name|this
+operator|.
+name|index
+operator|=
+name|index
 expr_stmt|;
 name|this
 operator|.
@@ -1321,6 +1367,18 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|index
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|" "
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append

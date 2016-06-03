@@ -104,17 +104,17 @@ name|TYPE
 init|=
 literal|"rename"
 decl_stmt|;
-DECL|field|oldFieldName
+DECL|field|field
 specifier|private
 specifier|final
 name|String
-name|oldFieldName
+name|field
 decl_stmt|;
-DECL|field|newFieldName
+DECL|field|targetField
 specifier|private
 specifier|final
 name|String
-name|newFieldName
+name|targetField
 decl_stmt|;
 DECL|method|RenameProcessor
 name|RenameProcessor
@@ -123,10 +123,10 @@ name|String
 name|tag
 parameter_list|,
 name|String
-name|oldFieldName
+name|field
 parameter_list|,
 name|String
-name|newFieldName
+name|targetField
 parameter_list|)
 block|{
 name|super
@@ -136,33 +136,33 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|oldFieldName
+name|field
 operator|=
-name|oldFieldName
+name|field
 expr_stmt|;
 name|this
 operator|.
-name|newFieldName
+name|targetField
 operator|=
-name|newFieldName
+name|targetField
 expr_stmt|;
 block|}
-DECL|method|getOldFieldName
+DECL|method|getField
 name|String
-name|getOldFieldName
+name|getField
 parameter_list|()
 block|{
 return|return
-name|oldFieldName
+name|field
 return|;
 block|}
-DECL|method|getNewFieldName
+DECL|method|getTargetField
 name|String
-name|getNewFieldName
+name|getTargetField
 parameter_list|()
 block|{
 return|return
-name|newFieldName
+name|targetField
 return|;
 block|}
 annotation|@
@@ -182,7 +182,7 @@ name|document
 operator|.
 name|hasField
 argument_list|(
-name|oldFieldName
+name|field
 argument_list|)
 operator|==
 literal|false
@@ -194,7 +194,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
-name|oldFieldName
+name|field
 operator|+
 literal|"] doesn't exist"
 argument_list|)
@@ -206,7 +206,7 @@ name|document
 operator|.
 name|hasField
 argument_list|(
-name|newFieldName
+name|targetField
 argument_list|)
 condition|)
 block|{
@@ -216,7 +216,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
-name|newFieldName
+name|targetField
 operator|+
 literal|"] already exists"
 argument_list|)
@@ -229,7 +229,7 @@ name|document
 operator|.
 name|getFieldValue
 argument_list|(
-name|oldFieldName
+name|field
 argument_list|,
 name|Object
 operator|.
@@ -240,7 +240,7 @@ name|document
 operator|.
 name|setFieldValue
 argument_list|(
-name|newFieldName
+name|targetField
 argument_list|,
 name|oldValue
 argument_list|)
@@ -251,7 +251,7 @@ name|document
 operator|.
 name|removeField
 argument_list|(
-name|oldFieldName
+name|field
 argument_list|)
 expr_stmt|;
 block|}
@@ -266,7 +266,7 @@ name|document
 operator|.
 name|removeField
 argument_list|(
-name|newFieldName
+name|targetField
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -336,7 +336,7 @@ literal|"field"
 argument_list|)
 decl_stmt|;
 name|String
-name|newField
+name|targetField
 init|=
 name|ConfigurationUtils
 operator|.
@@ -348,7 +348,7 @@ name|processorTag
 argument_list|,
 name|config
 argument_list|,
-literal|"to"
+literal|"target_field"
 argument_list|)
 decl_stmt|;
 return|return
@@ -359,7 +359,7 @@ name|processorTag
 argument_list|,
 name|field
 argument_list|,
-name|newField
+name|targetField
 argument_list|)
 return|;
 block|}

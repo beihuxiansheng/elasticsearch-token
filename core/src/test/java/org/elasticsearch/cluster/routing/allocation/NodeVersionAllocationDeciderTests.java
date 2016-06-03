@@ -98,9 +98,19 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|common
 operator|.
-name|metadata
+name|UUIDs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -439,6 +449,18 @@ operator|.
 name|shard
 operator|.
 name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|snapshots
+operator|.
+name|Snapshot
 import|;
 end_import
 
@@ -4063,6 +4085,8 @@ name|AllocationCommands
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// the two indices must stay as is, the replicas cannot move to oldNode2 because versions don't match
@@ -4316,11 +4340,20 @@ operator|new
 name|RestoreSource
 argument_list|(
 operator|new
-name|SnapshotId
+name|Snapshot
 argument_list|(
 literal|"rep1"
 argument_list|,
+operator|new
+name|SnapshotId
+argument_list|(
 literal|"snp1"
+argument_list|,
+name|UUIDs
+operator|.
+name|randomBase64UUID
+argument_list|()
+argument_list|)
 argument_list|)
 argument_list|,
 name|Version
@@ -4438,6 +4471,8 @@ name|AllocationCommands
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// Make sure that primary shards are only allocated on the new node
@@ -4861,6 +4896,9 @@ operator|.
 name|activePrimary
 argument_list|(
 name|r
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -4994,6 +5032,9 @@ operator|.
 name|activePrimary
 argument_list|(
 name|r
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat

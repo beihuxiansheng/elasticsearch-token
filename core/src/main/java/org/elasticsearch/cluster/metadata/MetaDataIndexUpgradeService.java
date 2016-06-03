@@ -366,7 +366,7 @@ name|CURRENT
 argument_list|)
 return|;
 block|}
-comment|/**      * Elasticsearch 3.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be upgraded using upgrade API before they can      * be open by this version of elasticsearch.      */
+comment|/**      * Elasticsearch 5.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be reindexed in Elasticsearch 2.x      * before they can be opened by this version of elasticsearch.     */
 DECL|method|checkSupportedVersion
 specifier|private
 name|void
@@ -408,18 +408,15 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] was created before v2.0.0.beta1 and wasn't upgraded."
+literal|"] was created before v2.0.0.beta1."
 operator|+
-literal|" This index should be open using a version before "
+literal|" It should be reindexed in Elasticsearch 2.x before upgrading to "
 operator|+
 name|Version
 operator|.
 name|CURRENT
-operator|.
-name|minimumCompatibilityVersion
-argument_list|()
 operator|+
-literal|" and upgraded using the upgrade API."
+literal|"."
 argument_list|)
 throw|;
 block|}
@@ -547,8 +544,6 @@ name|indexSettings
 argument_list|)
 init|)
 block|{
-try|try
-init|(
 name|MapperService
 name|mapperService
 init|=
@@ -567,8 +562,7 @@ parameter_list|()
 lambda|->
 literal|null
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 for|for
 control|(
 name|ObjectCursor
@@ -619,7 +613,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -645,13 +638,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_class
-
-begin_comment
 comment|/**      * Marks index as upgraded so we don't have to test it again      */
-end_comment
-
-begin_function
 DECL|method|markAsUpgraded
 specifier|private
 name|IndexMetaData
@@ -708,13 +695,7 @@ name|build
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * A fake analysis server that returns the same keyword analyzer for all requests      */
-end_comment
-
-begin_class
 DECL|class|FakeAnalysisService
 specifier|private
 specifier|static
@@ -827,9 +808,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_class
-
-begin_function
 DECL|method|archiveBrokenIndexSettings
 name|IndexMetaData
 name|archiveBrokenIndexSettings
@@ -889,8 +867,8 @@ name|indexMetaData
 return|;
 block|}
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 

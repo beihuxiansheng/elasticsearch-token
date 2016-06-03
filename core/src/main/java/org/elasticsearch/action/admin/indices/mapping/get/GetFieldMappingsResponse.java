@@ -434,12 +434,6 @@ name|indexEntry
 operator|.
 name|getKey
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder
@@ -483,12 +477,6 @@ name|typeEntry
 operator|.
 name|getKey
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 for|for

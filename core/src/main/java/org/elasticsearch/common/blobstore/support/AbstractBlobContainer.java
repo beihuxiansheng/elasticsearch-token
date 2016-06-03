@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A base abstract blob container that implements higher level container methods.  */
 end_comment
 
 begin_class

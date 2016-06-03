@@ -88,6 +88,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -376,9 +388,13 @@ name|SpanNotQueryBuilder
 argument_list|(
 literal|null
 argument_list|,
+operator|new
 name|SpanTermQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"value"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fail
@@ -400,9 +416,13 @@ block|{
 operator|new
 name|SpanNotQueryBuilder
 argument_list|(
+operator|new
 name|SpanTermQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"value"
+argument_list|)
 argument_list|,
 literal|null
 argument_list|)
@@ -752,7 +772,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -1002,7 +1022,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -1123,7 +1143,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.

@@ -169,9 +169,6 @@ enum|enum
 name|ValueType
 implements|implements
 name|Writeable
-argument_list|<
-name|ValueType
-argument_list|>
 block|{
 DECL|enum constant|STRING
 name|STRING
@@ -354,9 +351,7 @@ name|DateTime
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 argument_list|,
 name|DateTimeZone
 operator|.
@@ -377,8 +372,7 @@ return|;
 block|}
 block|}
 block|,
-DECL|method|IP
-DECL|method|IP
+DECL|enum constant|IP
 name|IP
 argument_list|(
 operator|(
@@ -392,9 +386,9 @@ literal|"ip"
 argument_list|,
 name|ValuesSourceType
 operator|.
-name|NUMERIC
+name|BYTES
 argument_list|,
-name|IndexNumericFieldData
+name|IndexFieldData
 operator|.
 name|class
 argument_list|,
@@ -402,19 +396,6 @@ name|DocValueFormat
 operator|.
 name|IP
 argument_list|)
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|isNumeric
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
 block|,
 DECL|method|NUMERIC
 DECL|method|NUMERIC
@@ -801,12 +782,11 @@ return|return
 name|description
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|ValueType
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

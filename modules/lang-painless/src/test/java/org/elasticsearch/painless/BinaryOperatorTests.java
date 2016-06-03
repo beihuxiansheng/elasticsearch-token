@@ -307,7 +307,6 @@ name|void
 name|testLongShiftsConst
 parameter_list|()
 block|{
-comment|// note: we always promote the results of shifts too (unlike java)
 name|assertEquals
 argument_list|(
 literal|1L
@@ -322,7 +321,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
+literal|1
 operator|<<
 literal|2L
 argument_list|,
@@ -334,7 +333,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|4L
+literal|4
 operator|>>
 literal|2L
 argument_list|,
@@ -372,7 +371,7 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 operator|-
-literal|1L
+literal|1
 operator|>>>
 literal|29L
 argument_list|,

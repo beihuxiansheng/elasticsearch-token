@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser used for all decay functions, one instance each. It parses this kind  * of input:  *  *<pre>  *<code>  * {  *      "fieldname1" : {  *          "origin" = "someValue",  *          "scale" = "someValue"  *      },  *      "multi_value_mode" : "min"  * }  *</code>  *</pre>  *  * "origin" here refers to the reference point and "scale" to the level of  * uncertainty you have in your origin.  *<p>  *  * For example, you might want to retrieve an event that took place around the  * 20 May 2010 somewhere near Berlin. You are mainly interested in events that  * are close to the 20 May 2010 but you are unsure about your guess, maybe it  * was a week before or after that. Your "origin" for the date field would be  * "20 May 2010" and your "scale" would be "7d".  *  *<p>  * This class parses the input and creates a scoring function from the  * parameters origin and scale.  *<p>  * To write a new decay scoring function, create a new class that extends  * {@link DecayFunctionBuilder}, setup a PARSER field with this class, and  * register them both using  * {@link org.elasticsearch.search.SearchModule#registerScoreFunction(ScoreFunctionParser, Writeable.Reader, ParseField)}.  * See {@link GaussDecayFunctionBuilder#PARSER} for an example.  */
+comment|/**  * Parser used for all decay functions, one instance each. It parses this kind  * of input:  *  *<pre>  *<code>  * {  *      "fieldname1" : {  *          "origin" = "someValue",  *          "scale" = "someValue"  *      },  *      "multi_value_mode" : "min"  * }  *</code>  *</pre>  *  * "origin" here refers to the reference point and "scale" to the level of  * uncertainty you have in your origin.  *<p>  *  * For example, you might want to retrieve an event that took place around the  * 20 May 2010 somewhere near Berlin. You are mainly interested in events that  * are close to the 20 May 2010 but you are unsure about your guess, maybe it  * was a week before or after that. Your "origin" for the date field would be  * "20 May 2010" and your "scale" would be "7d".  *  *<p>  * This class parses the input and creates a scoring function from the  * parameters origin and scale.  *<p>  * To write a new decay scoring function, create a new class that extends  * {@link DecayFunctionBuilder}, setup a PARSER field with this class, and  * register them both using  * {@link org.elasticsearch.search.SearchModule#registerScoreFunction(Writeable.Reader, ScoreFunctionParser, ParseField)}.  * See {@link GaussDecayFunctionBuilder#PARSER} for an example.  */
 end_comment
 
 begin_class
@@ -245,15 +245,20 @@ name|fromXContent
 parameter_list|(
 name|QueryParseContext
 name|context
-parameter_list|,
-name|XContentParser
-name|parser
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|ParsingException
 block|{
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
+argument_list|()
+decl_stmt|;
 name|String
 name|currentFieldName
 decl_stmt|;
@@ -354,7 +359,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

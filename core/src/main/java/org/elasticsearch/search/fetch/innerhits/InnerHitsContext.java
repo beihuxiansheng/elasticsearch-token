@@ -1010,6 +1010,8 @@ name|create
 argument_list|(
 name|sort
 argument_list|()
+operator|.
+name|sort
 argument_list|,
 name|topN
 argument_list|,
@@ -2009,6 +2011,8 @@ name|create
 argument_list|(
 name|sort
 argument_list|()
+operator|.
+name|sort
 argument_list|,
 name|topN
 argument_list|,

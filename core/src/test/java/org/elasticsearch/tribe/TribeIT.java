@@ -198,7 +198,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -661,11 +661,13 @@ argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|,
-literal|2
+literal|true
 argument_list|,
 literal|2
 argument_list|,
-name|Strings
+literal|2
+argument_list|,
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|(

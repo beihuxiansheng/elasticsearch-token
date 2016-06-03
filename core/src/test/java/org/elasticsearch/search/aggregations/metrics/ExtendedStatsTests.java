@@ -34,7 +34,7 @@ name|stats
 operator|.
 name|extended
 operator|.
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 import|;
 end_import
 
@@ -46,22 +46,22 @@ name|ExtendedStatsTests
 extends|extends
 name|AbstractNumericMetricTestCase
 argument_list|<
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

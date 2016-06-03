@@ -458,9 +458,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -820,6 +818,9 @@ name|type
 parameter_list|,
 name|String
 name|action
+parameter_list|,
+name|TaskId
+name|parentTaskId
 parameter_list|)
 block|{
 return|return
@@ -834,6 +835,8 @@ name|action
 argument_list|,
 name|getDescription
 argument_list|()
+argument_list|,
+name|parentTaskId
 argument_list|)
 return|;
 block|}
@@ -1256,7 +1259,7 @@ name|EMPTY
 argument_list|,
 literal|"testAction"
 argument_list|,
-name|clusterName
+name|CLUSTER_NAME
 argument_list|,
 name|threadPool
 argument_list|,
@@ -1591,7 +1594,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1639,7 +1643,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// and we should have at least as many failures as the number of blocked operations

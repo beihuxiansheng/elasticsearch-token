@@ -606,7 +606,7 @@ argument_list|()
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 return|return
@@ -1015,7 +1015,7 @@ name|stringValue
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 if|if
@@ -1283,7 +1283,7 @@ name|value
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 block|}

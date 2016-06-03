@@ -38,9 +38,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNodes
+name|ClusterState
 import|;
 end_import
 
@@ -133,8 +131,8 @@ parameter_list|,
 name|RoutingNodes
 name|routingNodes
 parameter_list|,
-name|DiscoveryNodes
-name|nodes
+name|ClusterState
+name|clusterState
 parameter_list|,
 name|List
 argument_list|<
@@ -146,6 +144,9 @@ name|startedShards
 parameter_list|,
 name|ClusterInfo
 name|clusterInfo
+parameter_list|,
+name|long
+name|currentNanoTime
 parameter_list|)
 block|{
 name|super
@@ -154,14 +155,13 @@ name|deciders
 argument_list|,
 name|routingNodes
 argument_list|,
-name|nodes
+name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,
-name|System
-operator|.
-name|nanoTime
-argument_list|()
+name|currentNanoTime
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|this

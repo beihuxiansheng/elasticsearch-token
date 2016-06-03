@@ -309,9 +309,7 @@ name|assertThat
 argument_list|(
 name|SubAggCollectionMode
 operator|.
-name|BREADTH_FIRST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -363,9 +361,7 @@ name|assertThat
 argument_list|(
 name|SubAggCollectionMode
 operator|.
-name|BREADTH_FIRST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -431,9 +427,7 @@ init|)
 block|{
 name|SubAggCollectionMode
 operator|.
-name|BREADTH_FIRST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

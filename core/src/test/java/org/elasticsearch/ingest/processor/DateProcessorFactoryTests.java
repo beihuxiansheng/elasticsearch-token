@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -226,7 +212,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -235,7 +221,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -291,7 +277,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getMatchField
+name|getField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -319,7 +305,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getMatchFormats
+name|getFormats
 argument_list|()
 argument_list|,
 name|equalTo
@@ -419,7 +405,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -459,7 +445,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_field] required property is missing"
+literal|"[field] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -521,7 +507,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -565,7 +551,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_formats] required property is missing"
+literal|"[formats] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -617,7 +603,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -626,7 +612,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -733,7 +719,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -742,7 +728,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -843,7 +829,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -852,7 +838,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -865,7 +851,7 @@ expr_stmt|;
 name|DateTimeZone
 name|timezone
 init|=
-name|randomTimezone
+name|randomDateTimeZone
 argument_list|()
 decl_stmt|;
 name|config
@@ -950,7 +936,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1014,49 +1000,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//we generate a timezone out of the available ones in joda, some available in the jdk are not available in joda by default
-DECL|method|randomTimezone
-specifier|private
-specifier|static
-name|DateTimeZone
-name|randomTimezone
-parameter_list|()
-block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|ids
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-name|DateTimeZone
-operator|.
-name|getAvailableIDs
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|Collections
-operator|.
-name|sort
-argument_list|(
-name|ids
-argument_list|)
-expr_stmt|;
-return|return
-name|DateTimeZone
-operator|.
-name|forID
-argument_list|(
-name|randomFrom
-argument_list|(
-name|ids
-argument_list|)
-argument_list|)
-return|;
-block|}
 DECL|method|testParseMatchFormats
 specifier|public
 name|void
@@ -1103,7 +1046,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1112,7 +1055,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Arrays
 operator|.
@@ -1138,7 +1081,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getMatchFormats
+name|getFormats
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1201,7 +1144,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1210,7 +1153,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 literal|"dd/MM/yyyy"
 argument_list|)
@@ -1245,7 +1188,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_formats] property isn't a list, but of type [java.lang.String]"
+literal|"[formats] property isn't a list, but of type [java.lang.String]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1307,7 +1250,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1325,7 +1268,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Arrays
 operator|.

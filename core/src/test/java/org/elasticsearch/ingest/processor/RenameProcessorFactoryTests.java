@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -151,7 +137,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"to"
+literal|"target_field"
 argument_list|,
 literal|"new_field"
 argument_list|)
@@ -202,7 +188,7 @@ name|assertThat
 argument_list|(
 name|renameProcessor
 operator|.
-name|getOldFieldName
+name|getField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -215,7 +201,7 @@ name|assertThat
 argument_list|(
 name|renameProcessor
 operator|.
-name|getNewFieldName
+name|getTargetField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -261,7 +247,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"to"
+literal|"target_field"
 argument_list|,
 literal|"new_field"
 argument_list|)
@@ -373,7 +359,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[to] required property is missing"
+literal|"[target_field] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;

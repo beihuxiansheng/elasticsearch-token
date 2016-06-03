@@ -235,6 +235,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 decl_stmt|;
 name|assertAcked
 argument_list|(

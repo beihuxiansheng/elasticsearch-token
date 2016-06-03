@@ -598,6 +598,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|public
+specifier|final
 name|void
 name|doReadFrom
 parameter_list|(
@@ -611,8 +612,12 @@ name|format
 operator|=
 name|in
 operator|.
-name|readValueFormat
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|DocValueFormat
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|gapPolicy
 operator|=
@@ -623,11 +628,28 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|innerReadFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 block|}
+DECL|method|innerReadFrom
+specifier|protected
+name|void
+name|innerReadFrom
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
 annotation|@
 name|Override
 DECL|method|doWriteTo
 specifier|public
+specifier|final
 name|void
 name|doWriteTo
 parameter_list|(
@@ -639,7 +661,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeValueFormat
+name|writeNamedWriteable
 argument_list|(
 name|format
 argument_list|)
@@ -651,7 +673,23 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+name|innerWriteTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 block|}
+DECL|method|innerWriteTo
+specifier|protected
+name|void
+name|innerWriteTo
+parameter_list|(
+name|StreamOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
 block|}
 end_class
 

@@ -586,6 +586,9 @@ name|NodeHotThreads
 name|ht
 range|:
 name|nodeHotThreads
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|assertNotNull

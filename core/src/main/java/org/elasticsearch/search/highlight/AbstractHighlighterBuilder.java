@@ -310,9 +310,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|Writeable
-argument_list|<
-name|HB
-argument_list|>
 block|{
 DECL|field|PRE_TAGS_FIELD
 specifier|public
@@ -609,9 +606,6 @@ decl_stmt|;
 DECL|field|highlightQuery
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|highlightQuery
 decl_stmt|;
 DECL|field|order
@@ -741,8 +735,12 @@ name|highlightQuery
 argument_list|(
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -922,7 +920,7 @@ condition|)
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|highlightQuery
 argument_list|)
@@ -1316,9 +1314,6 @@ name|HB
 name|highlightQuery
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|highlightQuery
 parameter_list|)
 block|{
@@ -1339,9 +1334,6 @@ comment|/**      * @return the value set by {@link #highlightQuery(QueryBuilder)
 DECL|method|highlightQuery
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|highlightQuery
 parameter_list|()
 block|{
@@ -2428,6 +2420,11 @@ name|c
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 return|;
 block|}
 catch|catch

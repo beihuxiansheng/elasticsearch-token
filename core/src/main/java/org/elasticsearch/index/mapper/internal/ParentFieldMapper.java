@@ -204,7 +204,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|lucene
+operator|.
+name|BytesRefs
 import|;
 end_import
 
@@ -576,6 +578,13 @@ static|static
 block|{
 name|FIELD_TYPE
 operator|.
+name|setTokenized
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|FIELD_TYPE
+operator|.
 name|setIndexOptions
 argument_list|(
 name|IndexOptions
@@ -892,15 +901,10 @@ decl_stmt|;
 name|String
 name|fieldName
 init|=
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Object
 name|fieldNode
@@ -1280,19 +1284,6 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
-comment|/**          * We don't need to analyzer the text, and we need to convert it to UID...          */
-annotation|@
-name|Override
-DECL|method|useTermQueryWithQueryString
-specifier|public
-name|boolean
-name|useTermQueryWithQueryString
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|termQuery
@@ -1374,7 +1365,9 @@ index|[
 name|i
 index|]
 operator|=
-name|indexedValueForSearch
+name|BytesRefs
+operator|.
+name|toBytesRef
 argument_list|(
 name|values
 operator|.
@@ -1610,6 +1603,9 @@ name|isParent
 argument_list|(
 name|context
 operator|.
+name|sourceToParse
+argument_list|()
+operator|.
 name|type
 argument_list|()
 argument_list|)
@@ -1638,6 +1634,9 @@ operator|new
 name|BytesRef
 argument_list|(
 name|context
+operator|.
+name|sourceToParse
+argument_list|()
 operator|.
 name|id
 argument_list|()
@@ -1828,11 +1827,6 @@ name|Uid
 operator|.
 name|createUid
 argument_list|(
-name|context
-operator|.
-name|stringBuilder
-argument_list|()
-argument_list|,
 name|parentType
 argument_list|,
 name|parentId

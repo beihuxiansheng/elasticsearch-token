@@ -415,19 +415,6 @@ argument_list|,
 literal|"foobar"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-comment|// make sure we get what we set :)
-operator|.
 name|build
 argument_list|()
 argument_list|)
@@ -467,6 +454,7 @@ argument_list|(
 name|transportAddress
 argument_list|)
 expr_stmt|;
+comment|// since we force transport clients there has to be one node started that we connect to.
 name|assertThat
 argument_list|(
 name|nodeService
@@ -483,7 +471,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// since we force transport clients there has to be one node started that we connect to.
+comment|// connected nodes have updated version
 for|for
 control|(
 name|DiscoveryNode
@@ -495,7 +483,6 @@ name|connectedNodes
 argument_list|()
 control|)
 block|{
-comment|// connected nodes have updated version
 name|assertThat
 argument_list|(
 name|discoveryNode

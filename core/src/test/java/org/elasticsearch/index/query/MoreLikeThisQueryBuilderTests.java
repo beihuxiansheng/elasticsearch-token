@@ -332,6 +332,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -847,6 +859,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|doc
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1801,7 +1818,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"more_like_this doesn't support binary/numeric fields"
+literal|"more_like_this only supports text/keyword fields"
 argument_list|)
 argument_list|)
 expr_stmt|;

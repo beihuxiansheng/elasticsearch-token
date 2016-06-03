@@ -98,9 +98,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -874,13 +872,11 @@ control|(
 name|String
 name|elem
 range|:
-name|Strings
-operator|.
-name|splitStringToArray
-argument_list|(
 name|basePath
-argument_list|,
-literal|'/'
+operator|.
+name|split
+argument_list|(
+literal|"/"
 argument_list|)
 control|)
 block|{
@@ -1080,6 +1076,8 @@ throw|throw
 operator|new
 name|SnapshotCreationException
 argument_list|(
+name|repositoryName
+argument_list|,
 name|snapshotId
 argument_list|,
 name|e

@@ -382,9 +382,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|ShapeBuilder
-argument_list|>
 block|{
 DECL|field|LOGGER
 specifier|protected

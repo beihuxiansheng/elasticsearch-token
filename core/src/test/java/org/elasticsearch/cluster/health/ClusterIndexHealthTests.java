@@ -60,6 +60,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|RoutingTableGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -75,18 +89,6 @@ operator|.
 name|CoreMatchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|empty
 import|;
 end_import
 
@@ -365,17 +367,6 @@ operator|.
 name|getNumberOfShards
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|indexHealth
-operator|.
-name|getValidationFailures
-argument_list|()
-argument_list|,
-name|empty
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|int

@@ -348,7 +348,7 @@ argument_list|()
 condition|?
 literal|"text"
 else|:
-literal|"long"
+literal|"keyword"
 decl_stmt|;
 name|String
 name|settings

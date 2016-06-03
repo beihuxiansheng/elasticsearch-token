@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An interface for providing basic metadata about a blob.  */
 end_comment
 
 begin_interface
@@ -26,11 +26,13 @@ specifier|public
 interface|interface
 name|BlobMetaData
 block|{
+comment|/**      * Gets the name of the blob.      */
 DECL|method|name
 name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the size of the blob in bytes.      */
 DECL|method|length
 name|long
 name|length

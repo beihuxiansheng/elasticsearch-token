@@ -334,27 +334,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeMap
 import|;
 end_import
 
@@ -2524,6 +2504,9 @@ literal|"index"
 argument_list|,
 literal|"not_analyzed"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

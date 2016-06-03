@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -49,6 +59,7 @@ interface|interface
 name|SearchPhase
 block|{
 DECL|method|parseElements
+specifier|default
 name|Map
 argument_list|<
 name|String
@@ -59,7 +70,14 @@ name|SearchParseElement
 argument_list|>
 name|parseElements
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+return|;
+block|}
 comment|/**      * Performs pre processing of the search context before the execute.      */
 DECL|method|preProcess
 name|void

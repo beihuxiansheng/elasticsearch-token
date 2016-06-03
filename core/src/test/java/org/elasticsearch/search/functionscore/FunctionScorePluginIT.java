@@ -416,6 +416,10 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|,
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|1
@@ -871,12 +875,12 @@ operator|.
 name|registerScoreFunction
 argument_list|(
 name|CustomDistanceScoreBuilder
-operator|.
-name|PARSER
-argument_list|,
-name|CustomDistanceScoreBuilder
 operator|::
 operator|new
+argument_list|,
+name|CustomDistanceScoreBuilder
+operator|.
+name|PARSER
 argument_list|,
 name|CustomDistanceScoreBuilder
 operator|.

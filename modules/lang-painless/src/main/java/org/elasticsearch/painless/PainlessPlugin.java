@@ -50,6 +50,10 @@ name|ScriptModule
 import|;
 end_import
 
+begin_comment
+comment|/**  * Registers Painless as a plugin.  */
+end_comment
+
 begin_class
 DECL|class|PainlessPlugin
 specifier|public
@@ -59,6 +63,17 @@ name|PainlessPlugin
 extends|extends
 name|Plugin
 block|{
+comment|// force to pare our definition at startup (not on the user's first script)
+static|static
+block|{
+name|Definition
+operator|.
+name|VOID_TYPE
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|name
@@ -108,7 +123,9 @@ name|class
 argument_list|,
 name|PainlessScriptEngineService
 operator|.
-name|TYPES
+name|NAME
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

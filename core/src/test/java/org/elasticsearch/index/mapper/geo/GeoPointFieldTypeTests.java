@@ -58,7 +58,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 import|;
 end_import
 
@@ -198,13 +198,13 @@ operator|.
 name|setLatLonEnabled
 argument_list|(
 operator|new
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|DoubleFieldType
 argument_list|()
 argument_list|,
 operator|new
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|DoubleFieldType
 argument_list|()

@@ -1023,9 +1023,8 @@ condition|)
 block|{
 name|source
 operator|=
+operator|new
 name|SearchSourceBuilder
-operator|.
-name|readSearchSourceFrom
 argument_list|(
 name|in
 argument_list|)
@@ -1058,7 +1057,7 @@ name|template
 operator|=
 name|in
 operator|.
-name|readOptionalStreamable
+name|readOptionalWriteable
 argument_list|(
 name|Template
 operator|::
@@ -1222,7 +1221,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|template
 argument_list|)

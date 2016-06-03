@@ -1206,12 +1206,6 @@ name|functions
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// fuzzy queries will be removed in 4.0
 DECL|method|testFuzzy
 specifier|public
 name|void
@@ -1565,6 +1559,10 @@ literal|"tag"
 argument_list|,
 literal|"something"
 argument_list|)
+argument_list|,
+name|ScoreMode
+operator|.
+name|None
 argument_list|)
 expr_stmt|;
 block|}
@@ -1584,6 +1582,8 @@ literal|"tag"
 argument_list|,
 literal|"something"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1797,10 +1797,7 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|)
-argument_list|)
-operator|.
-name|scoreMode
-argument_list|(
+argument_list|,
 name|ScoreMode
 operator|.
 name|Avg
@@ -1981,7 +1978,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2059,7 +2056,7 @@ argument_list|,
 literal|12
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2069,7 +2066,7 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2125,7 +2122,7 @@ literal|"value1"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2135,7 +2132,7 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2180,7 +2177,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2216,7 +2213,7 @@ literal|"gender_template"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 operator|new
 name|HashMap

@@ -127,7 +127,7 @@ argument_list|(
 name|reindexExternal
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|created
@@ -160,7 +160,7 @@ argument_list|(
 name|reindexExternal
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -193,7 +193,7 @@ argument_list|(
 name|reindexExternal
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|versionConflicts
@@ -226,7 +226,7 @@ argument_list|(
 name|reindexInternal
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|created
@@ -259,7 +259,7 @@ argument_list|(
 name|reindexInternal
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -294,7 +294,7 @@ argument_list|(
 name|reindexInternal
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -329,7 +329,7 @@ argument_list|(
 name|reindexCreate
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|created
@@ -362,7 +362,7 @@ argument_list|(
 name|reindexCreate
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|versionConflicts
@@ -395,7 +395,7 @@ argument_list|(
 name|reindexCreate
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|versionConflicts
@@ -415,7 +415,7 @@ block|}
 comment|/**      * Perform a reindex with EXTERNAL versioning which has "refresh" semantics.      */
 DECL|method|reindexExternal
 specifier|private
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|reindexExternal
 parameter_list|()
 block|{
@@ -460,7 +460,7 @@ block|}
 comment|/**      * Perform a reindex with INTERNAL versioning which has "overwrite" semantics.      */
 DECL|method|reindexInternal
 specifier|private
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|reindexInternal
 parameter_list|()
 block|{
@@ -505,7 +505,7 @@ block|}
 comment|/**      * Perform a reindex with CREATE OpType which has "create" semantics.      */
 DECL|method|reindexCreate
 specifier|private
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|reindexCreate
 parameter_list|()
 block|{

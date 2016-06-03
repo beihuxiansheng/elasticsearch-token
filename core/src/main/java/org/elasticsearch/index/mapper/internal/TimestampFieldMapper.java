@@ -120,6 +120,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|Lucene
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -137,20 +151,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
-name|NumericDateAnalyzer
 import|;
 end_import
 
@@ -236,7 +236,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 import|;
 end_import
 
@@ -252,7 +252,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 import|;
 end_import
 
@@ -383,7 +383,7 @@ specifier|static
 class|class
 name|Defaults
 extends|extends
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|Defaults
 block|{
@@ -465,32 +465,18 @@ name|FIELD_TYPE
 operator|.
 name|setIndexAnalyzer
 argument_list|(
-name|NumericDateAnalyzer
+name|Lucene
 operator|.
-name|buildNamedAnalyzer
-argument_list|(
-name|DATE_TIME_FORMATTER
-argument_list|,
-name|Defaults
-operator|.
-name|PRECISION_STEP_64_BIT
-argument_list|)
+name|KEYWORD_ANALYZER
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
 name|setSearchAnalyzer
 argument_list|(
-name|NumericDateAnalyzer
+name|Lucene
 operator|.
-name|buildNamedAnalyzer
-argument_list|(
-name|DATE_TIME_FORMATTER
-argument_list|,
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|)
+name|KEYWORD_ANALYZER
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -604,7 +590,7 @@ annotation|@
 name|Override
 DECL|method|fieldType
 specifier|public
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|DateFieldType
 name|fieldType
@@ -612,7 +598,7 @@ parameter_list|()
 block|{
 return|return
 operator|(
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|DateFieldType
 operator|)
@@ -877,15 +863,10 @@ decl_stmt|;
 name|String
 name|fieldName
 init|=
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Object
 name|fieldNode
@@ -1108,7 +1089,7 @@ specifier|final
 class|class
 name|TimestampFieldType
 extends|extends
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|DateFieldType
 block|{
@@ -1147,7 +1128,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**          * Override the default behavior to return a timestamp          */
 annotation|@
 name|Override
 DECL|method|valueForSearch
@@ -1161,9 +1141,6 @@ parameter_list|)
 block|{
 return|return
 name|value
-argument_list|(
-name|value
-argument_list|)
 return|;
 block|}
 block|}
@@ -1447,7 +1424,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|CustomLongNumericField
 argument_list|(

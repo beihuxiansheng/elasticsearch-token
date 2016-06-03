@@ -198,7 +198,9 @@ name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/action/fieldstats/fieldstats-index-constraints-request.json"
+literal|"/org/elasticsearch/action/fieldstats/"
+operator|+
+literal|"fieldstats-index-constraints-request.json"
 argument_list|)
 decl_stmt|;
 name|FieldStatsRequest

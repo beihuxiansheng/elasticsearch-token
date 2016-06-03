@@ -253,6 +253,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/** Flattens the two level {@code Iterable} into a single {@code Iterable}.  Note that this pre-caches the values from the outer {@code      *  Iterable}, but not the values from the inner one. */
 DECL|method|flatten
 specifier|public
 specifier|static

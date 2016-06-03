@@ -740,6 +740,53 @@ name|String
 name|expected
 parameter_list|)
 block|{
+name|String
+name|api
+init|=
+name|apiCallSection
+operator|.
+name|getApi
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+literal|"raw"
+operator|.
+name|equals
+argument_list|(
+name|api
+argument_list|)
+condition|)
+block|{
+name|api
+operator|+=
+literal|"[method="
+operator|+
+name|apiCallSection
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"method"
+argument_list|)
+operator|+
+literal|" path="
+operator|+
+name|apiCallSection
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"path"
+argument_list|)
+operator|+
+literal|"]"
+expr_stmt|;
+block|}
 return|return
 literal|"expected ["
 operator|+
@@ -747,10 +794,7 @@ name|expected
 operator|+
 literal|"] status code but api ["
 operator|+
-name|apiCallSection
-operator|.
-name|getApi
-argument_list|()
+name|api
 operator|+
 literal|"] returned ["
 operator|+

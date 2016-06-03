@@ -108,7 +108,7 @@ name|bucket
 operator|.
 name|filters
 operator|.
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 import|;
 end_import
 
@@ -120,14 +120,14 @@ name|FiltersTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -141,7 +141,7 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 name|factory
 decl_stmt|;
 if|if
@@ -160,38 +160,41 @@ index|[
 name|size
 index|]
 decl_stmt|;
-for|for
-control|(
 name|int
 name|i
 init|=
 literal|0
-init|;
-name|i
-operator|<
-name|size
-condition|;
-name|i
-operator|++
-control|)
-block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
-name|filters
-index|[
-name|i
-index|]
-operator|=
-operator|new
-name|KeyedFilter
+decl_stmt|;
+for|for
+control|(
+name|String
+name|key
+range|:
+name|randomUnique
 argument_list|(
+parameter_list|()
+lambda|->
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
 literal|20
 argument_list|)
+argument_list|,
+name|size
+argument_list|)
+control|)
+block|{
+name|filters
+index|[
+name|i
+operator|++
+index|]
+operator|=
+operator|new
+name|KeyedFilter
+argument_list|(
+name|key
 argument_list|,
 name|QueryBuilders
 operator|.
@@ -212,12 +215,11 @@ literal|20
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
+block|;             }
 name|factory
 operator|=
 operator|new
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -233,17 +235,11 @@ block|}
 else|else
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 index|[]
 name|filters
 init|=
 operator|new
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 index|[
 name|size
 index|]
@@ -263,9 +259,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 name|filters
 index|[
 name|i
@@ -294,7 +287,7 @@ block|}
 name|factory
 operator|=
 operator|new
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -381,13 +374,13 @@ argument_list|()
 argument_list|)
 block|}
 decl_stmt|;
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 name|builder
 decl_stmt|;
 name|builder
 operator|=
 operator|new
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|(
 literal|"my-agg"
 argument_list|,

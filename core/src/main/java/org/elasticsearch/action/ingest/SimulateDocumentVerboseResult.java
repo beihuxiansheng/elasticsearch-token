@@ -104,9 +104,6 @@ class|class
 name|SimulateDocumentVerboseResult
 implements|implements
 name|SimulateDocumentResult
-argument_list|<
-name|SimulateDocumentVerboseResult
-argument_list|>
 block|{
 DECL|field|processorResults
 specifier|private

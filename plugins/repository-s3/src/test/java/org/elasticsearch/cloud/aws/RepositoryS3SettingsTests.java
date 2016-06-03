@@ -3984,7 +3984,7 @@ operator|.
 name|TB
 argument_list|)
 argument_list|,
-literal|"Failed to parse value [6tb] for setting [chunk_size] must be =< 5tb"
+literal|"Failed to parse value [6tb] for setting [chunk_size] must be<= 5tb"
 argument_list|)
 expr_stmt|;
 block|}

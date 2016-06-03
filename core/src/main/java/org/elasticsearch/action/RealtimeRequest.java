@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|RealtimeRequest
 block|{
-comment|/**      * @param realtime Controls whether this request should be realtime by reading from the translog. If<code>null</code>      *                 is specified then whether the operation will be realtime depends on the api of the concrete request      *                 subclass.      */
+comment|/**      * @param realtime Controls whether this request should be realtime by reading from the translog.      */
 DECL|method|realtime
 parameter_list|<
 name|R
@@ -34,7 +34,7 @@ parameter_list|>
 name|R
 name|realtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 function_decl|;

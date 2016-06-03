@@ -135,9 +135,6 @@ enum|enum
 name|Operator
 implements|implements
 name|Writeable
-argument_list|<
-name|Operator
-argument_list|>
 block|{
 DECL|enum constant|OR
 DECL|enum constant|AND
@@ -239,11 +236,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|readOperatorFrom
+DECL|method|readFromStream
 specifier|public
 specifier|static
 name|Operator
-name|readOperatorFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

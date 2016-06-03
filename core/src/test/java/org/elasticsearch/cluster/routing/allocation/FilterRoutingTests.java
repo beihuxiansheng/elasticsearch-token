@@ -1335,6 +1335,29 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|clusterState
+operator|.
+name|getRoutingNodes
+argument_list|()
+operator|.
+name|shardsWithState
+argument_list|(
+name|ShardRoutingState
+operator|.
+name|INITIALIZING
+argument_list|)
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -1441,10 +1464,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testRebalanceAfterShardsCannotRemainOnNode
+DECL|method|testConcurrentRecoveriesAfterShardsCannotRemainOnNode
 specifier|public
 name|void
-name|testRebalanceAfterShardsCannotRemainOnNode
+name|testConcurrentRecoveriesAfterShardsCannotRemainOnNode
 parameter_list|()
 block|{
 name|AllocationService
@@ -1843,7 +1866,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -1901,7 +1924,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> check that concurrent rebalance only allows 1 shard to move"
+literal|"--> check that concurrent recoveries only allows 1 shard to move"
 argument_list|)
 expr_stmt|;
 name|assertThat

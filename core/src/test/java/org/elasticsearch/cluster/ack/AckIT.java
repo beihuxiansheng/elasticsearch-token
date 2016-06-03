@@ -296,6 +296,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|Iterators
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -840,7 +854,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -893,7 +907,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -1242,7 +1256,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -1308,7 +1322,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -1550,6 +1564,9 @@ expr_stmt|;
 name|shardToBeMoved
 operator|=
 name|routingNode
+operator|.
+name|copyShards
+argument_list|()
 operator|.
 name|get
 argument_list|(

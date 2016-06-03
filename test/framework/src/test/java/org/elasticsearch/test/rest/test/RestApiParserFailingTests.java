@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * These tests are not part of {@link RestApiParserTests} because the tested failures don't allow to consume the whole yaml stream  */
 end_comment
 
 begin_class
@@ -176,6 +176,8 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"location"
+argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
