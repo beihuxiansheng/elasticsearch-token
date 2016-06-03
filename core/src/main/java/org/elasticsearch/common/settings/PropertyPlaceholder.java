@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.property
+DECL|package|org.elasticsearch.common.settings
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|property
+name|settings
 package|;
 end_package
 
@@ -74,7 +74,6 @@ end_comment
 
 begin_class
 DECL|class|PropertyPlaceholder
-specifier|public
 class|class
 name|PropertyPlaceholder
 block|{
@@ -96,31 +95,8 @@ specifier|final
 name|boolean
 name|ignoreUnresolvablePlaceholders
 decl_stmt|;
-comment|/**      * Creates a new<code>PropertyPlaceholderHelper</code> that uses the supplied prefix and suffix. Unresolvable      * placeholders are ignored.      *      * @param placeholderPrefix the prefix that denotes the start of a placeholder.      * @param placeholderSuffix the suffix that denotes the end of a placeholder.      */
-DECL|method|PropertyPlaceholder
-specifier|public
-name|PropertyPlaceholder
-parameter_list|(
-name|String
-name|placeholderPrefix
-parameter_list|,
-name|String
-name|placeholderSuffix
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|placeholderPrefix
-argument_list|,
-name|placeholderSuffix
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Creates a new<code>PropertyPlaceholderHelper</code> that uses the supplied prefix and suffix.      *      * @param placeholderPrefix              the prefix that denotes the start of a placeholder.      * @param placeholderSuffix              the suffix that denotes the end of a placeholder.      * @param ignoreUnresolvablePlaceholders indicates whether unresolvable placeholders should be ignored      *                                       (<code>true</code>) or cause an exception (<code>false</code>).      */
 DECL|method|PropertyPlaceholder
-specifier|public
 name|PropertyPlaceholder
 parameter_list|(
 name|String
@@ -133,35 +109,27 @@ name|boolean
 name|ignoreUnresolvablePlaceholders
 parameter_list|)
 block|{
+name|this
+operator|.
+name|placeholderPrefix
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
 name|placeholderPrefix
-argument_list|,
-literal|"Argument 'placeholderPrefix' must not be null."
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|placeholderSuffix
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
 name|placeholderSuffix
-argument_list|,
-literal|"Argument 'placeholderSuffix' must not be null."
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|placeholderPrefix
-operator|=
-name|placeholderPrefix
-expr_stmt|;
-name|this
-operator|.
-name|placeholderSuffix
-operator|=
-name|placeholderSuffix
 expr_stmt|;
 name|this
 operator|.
@@ -170,15 +138,11 @@ operator|=
 name|ignoreUnresolvablePlaceholders
 expr_stmt|;
 block|}
-comment|/**      * Replaces all placeholders of format<code>${name}</code> with the value returned from the supplied {@link      * PlaceholderResolver}.      *      * @param value               the value containing the placeholders to be replaced.      * @param placeholderResolver the<code>PlaceholderResolver</code> to use for replacement.      * @return the supplied value with placeholders replaced inline.      */
+comment|/**      * Replaces all placeholders of format<code>${name}</code> with the value returned from the supplied {@link      * PlaceholderResolver}.      *      * @param value               the value containing the placeholders to be replaced.      * @param placeholderResolver the<code>PlaceholderResolver</code> to use for replacement.      * @return the supplied value with placeholders replaced inline.      * @throws NullPointerException if value is null      */
 DECL|method|replacePlaceholders
-specifier|public
 name|String
 name|replacePlaceholders
 parameter_list|(
-name|String
-name|key
-parameter_list|,
 name|String
 name|value
 parameter_list|,
@@ -190,20 +154,7 @@ name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|value
-argument_list|,
-literal|"value can not be null for ["
-operator|+
-name|key
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 return|return
@@ -215,15 +166,13 @@ name|placeholderResolver
 argument_list|,
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 return|;
 block|}
 DECL|method|parseStringValue
-specifier|protected
+specifier|private
 name|String
 name|parseStringValue
 parameter_list|(
@@ -701,7 +650,6 @@ return|;
 block|}
 comment|/**      * Strategy interface used to resolve replacement values for placeholders contained in Strings.      *      * @see PropertyPlaceholder      */
 DECL|interface|PlaceholderResolver
-specifier|public
 interface|interface
 name|PlaceholderResolver
 block|{
