@@ -70,7 +70,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeService
+name|GceInstancesService
 import|;
 end_import
 
@@ -569,7 +569,7 @@ name|settingsModule
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 argument_list|)
@@ -578,7 +578,7 @@ name|settingsModule
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 argument_list|)
@@ -596,7 +596,7 @@ name|settingsModule
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|REFRESH_SETTING
 argument_list|)
@@ -605,7 +605,7 @@ name|settingsModule
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|RETRY_SETTING
 argument_list|)
@@ -614,7 +614,7 @@ name|settingsModule
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|MAX_WAIT_SETTING
 argument_list|)

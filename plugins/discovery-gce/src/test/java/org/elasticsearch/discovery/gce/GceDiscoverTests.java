@@ -82,7 +82,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeServiceImpl
+name|GceInstancesServiceImpl
 import|;
 end_import
 
@@ -500,7 +500,7 @@ name|module
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeServiceImpl
+name|GceInstancesServiceImpl
 operator|.
 name|GCE_HOST
 argument_list|)
@@ -509,7 +509,7 @@ name|module
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeServiceImpl
+name|GceInstancesServiceImpl
 operator|.
 name|GCE_ROOT_URL
 argument_list|)
@@ -518,7 +518,7 @@ name|module
 operator|.
 name|registerSetting
 argument_list|(
-name|GceComputeServiceImpl
+name|GceInstancesServiceImpl
 operator|.
 name|GCE_VALIDATE_CERTIFICATES
 argument_list|)

@@ -87,11 +87,11 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|GceComputeService
+name|GceInstancesService
 argument_list|>
 name|computeServiceImpl
 init|=
-name|GceComputeServiceImpl
+name|GceInstancesServiceImpl
 operator|.
 name|class
 decl_stmt|;
@@ -152,7 +152,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|GceComputeService
+name|GceInstancesService
 argument_list|>
 name|getComputeServiceImpl
 parameter_list|()
@@ -194,7 +194,7 @@ argument_list|)
 expr_stmt|;
 name|bind
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|class
 argument_list|)

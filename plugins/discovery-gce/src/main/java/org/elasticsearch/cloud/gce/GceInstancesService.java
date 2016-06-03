@@ -96,16 +96,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -145,14 +135,14 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|GceComputeService
+DECL|interface|GceInstancesService
 specifier|public
 interface|interface
-name|GceComputeService
+name|GceInstancesService
 extends|extends
 name|LifecycleComponent
 argument_list|<
-name|GceComputeService
+name|GceInstancesService
 argument_list|>
 block|{
 comment|/**      * GCE API Version: Elasticsearch/GceCloud/1.0      */

@@ -36,7 +36,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeService
+name|GceInstancesService
 import|;
 end_import
 
@@ -253,7 +253,7 @@ name|transportService
 decl_stmt|;
 DECL|field|mock
 specifier|protected
-name|GceComputeService
+name|GceInstancesService
 name|mock
 decl_stmt|;
 DECL|field|projectName
@@ -416,8 +416,8 @@ name|DiscoveryNode
 argument_list|>
 name|buildDynamicNodes
 parameter_list|(
-name|GceComputeService
-name|gceComputeService
+name|GceInstancesService
+name|gceInstancesService
 parameter_list|,
 name|Settings
 name|nodeSettings
@@ -431,7 +431,7 @@ name|GceUnicastHostsProvider
 argument_list|(
 name|nodeSettings
 argument_list|,
-name|gceComputeService
+name|gceInstancesService
 argument_list|,
 name|transportService
 argument_list|,
@@ -488,7 +488,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -500,7 +500,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -516,7 +516,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -561,7 +561,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -573,7 +573,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -601,7 +601,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -664,7 +664,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -676,7 +676,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -706,7 +706,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -769,7 +769,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -781,7 +781,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -797,7 +797,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -842,7 +842,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -854,7 +854,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -882,7 +882,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -927,7 +927,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -939,7 +939,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -969,7 +969,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -1014,7 +1014,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1026,7 +1026,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1044,7 +1044,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -1089,7 +1089,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1101,7 +1101,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1119,7 +1119,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -1165,7 +1165,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1177,7 +1177,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1195,7 +1195,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -1240,7 +1240,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -1297,7 +1297,7 @@ argument_list|()
 operator|.
 name|putArray
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1315,7 +1315,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
@@ -1372,7 +1372,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1388,7 +1388,7 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|)
