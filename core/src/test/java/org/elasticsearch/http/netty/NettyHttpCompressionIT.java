@@ -378,7 +378,7 @@ init|(
 name|RestClient
 name|client
 init|=
-name|restClient
+name|createRestClient
 argument_list|(
 name|HttpClients
 operator|.
@@ -506,7 +506,7 @@ init|(
 name|RestClient
 name|client
 init|=
-name|restClient
+name|createRestClient
 argument_list|(
 name|httpClient
 argument_list|)
@@ -601,7 +601,7 @@ init|(
 name|RestClient
 name|client
 init|=
-name|restClient
+name|createRestClient
 argument_list|(
 name|httpClient
 argument_list|)
@@ -677,7 +677,7 @@ init|(
 name|RestClient
 name|client
 init|=
-name|restClient
+name|createRestClient
 argument_list|(
 name|HttpClients
 operator|.
