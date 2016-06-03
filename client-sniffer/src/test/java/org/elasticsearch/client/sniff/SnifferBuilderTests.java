@@ -92,6 +92,18 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|LogManager
+import|;
+end_import
+
 begin_class
 DECL|class|SnifferBuilderTests
 specifier|public
@@ -100,6 +112,17 @@ name|SnifferBuilderTests
 extends|extends
 name|LuceneTestCase
 block|{
+static|static
+block|{
+name|LogManager
+operator|.
+name|getLogManager
+argument_list|()
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testBuild
 specifier|public
 name|void
