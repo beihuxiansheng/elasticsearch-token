@@ -3799,6 +3799,8 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|request
 operator|.
 name|rewrite
@@ -3819,8 +3821,6 @@ operator|.
 name|resetNowInMillisUsed
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|request
