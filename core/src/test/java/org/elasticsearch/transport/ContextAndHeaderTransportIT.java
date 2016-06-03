@@ -562,20 +562,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
-operator|.
-name|RestStatus
-operator|.
-name|OK
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -638,15 +624,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
-name|ElasticsearchAssertions
+name|Matchers
 operator|.
-name|hasStatus
+name|equalTo
 import|;
 end_import
 
@@ -1827,10 +1809,16 @@ block|{
 name|assertThat
 argument_list|(
 name|response
+operator|.
+name|getStatusLine
+argument_list|()
+operator|.
+name|getStatusCode
+argument_list|()
 argument_list|,
-name|hasStatus
+name|equalTo
 argument_list|(
-name|OK
+literal|200
 argument_list|)
 argument_list|)
 expr_stmt|;
