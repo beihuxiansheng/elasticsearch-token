@@ -110,16 +110,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -943,7 +933,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the http client. Mandatory argument. Best practice is to use the same client used          * within {@link org.elasticsearch.client.RestClient} which can be created manually or          * through {@link RestClient.Builder#createDefaultHttpClient(Collection)}.          * @see CloseableHttpClient          */
+comment|/**          * Sets the http client. Mandatory argument. Best practice is to use the same client used          * within {@link org.elasticsearch.client.RestClient} which can be created manually or          * through {@link RestClient.Builder#createDefaultHttpClient()}.          * @see CloseableHttpClient          */
 DECL|method|setRestClient
 specifier|public
 name|Builder
