@@ -465,7 +465,7 @@ decl_stmt|;
 name|URL
 name|resource
 init|=
-name|GceInstancesServiceMock
+name|GceMockUtils
 operator|.
 name|class
 operator|.
