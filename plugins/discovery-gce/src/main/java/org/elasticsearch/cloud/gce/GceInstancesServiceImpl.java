@@ -474,32 +474,6 @@ name|String
 argument_list|>
 name|zones
 decl_stmt|;
-comment|// Forcing Google Token API URL as set in GCE SDK to
-comment|//      http://metadata/computeMetadata/v1/instance/service-accounts/default/token
-comment|// See https://developers.google.com/compute/docs/metadata#metadataserver
-DECL|field|gceHost
-specifier|private
-specifier|final
-name|String
-name|gceHost
-decl_stmt|;
-DECL|field|metaDataUrl
-specifier|private
-specifier|final
-name|String
-name|metaDataUrl
-decl_stmt|;
-DECL|field|tokenServerEncodedUrl
-specifier|private
-specifier|final
-name|String
-name|tokenServerEncodedUrl
-decl_stmt|;
-DECL|field|gceRootUrl
-specifier|private
-name|String
-name|gceRootUrl
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|instances
@@ -805,46 +779,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|gceHost
-operator|=
-name|GceMetadataServiceImpl
-operator|.
-name|GCE_HOST
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|metaDataUrl
-operator|=
-name|gceHost
-operator|+
-literal|"/computeMetadata/v1/instance"
-expr_stmt|;
-name|this
-operator|.
-name|gceRootUrl
-operator|=
-name|GCE_ROOT_URL
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|tokenServerEncodedUrl
-operator|=
-name|metaDataUrl
-operator|+
-literal|"/service-accounts/default/token"
-expr_stmt|;
-name|this
-operator|.
 name|validateCerts
 operator|=
 name|GCE_VALIDATE_CERTIFICATES
@@ -1001,6 +935,23 @@ argument_list|(
 literal|"starting GCE discovery service"
 argument_list|)
 expr_stmt|;
+comment|// Forcing Google Token API URL as set in GCE SDK to
+comment|//      http://metadata/computeMetadata/v1/instance/service-accounts/default/token
+comment|// See https://developers.google.com/compute/docs/metadata#metadataserver
+name|String
+name|tokenServerEncodedUrl
+init|=
+name|GceMetadataServiceImpl
+operator|.
+name|GCE_HOST
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
+operator|+
+literal|"/computeMetadata/v1/instance/service-accounts/default/token"
+decl_stmt|;
 name|ComputeCredential
 name|credential
 init|=
@@ -1017,8 +968,6 @@ argument_list|)
 operator|.
 name|setTokenServerEncodedUrl
 argument_list|(
-name|this
-operator|.
 name|tokenServerEncodedUrl
 argument_list|)
 operator|.
@@ -1151,7 +1100,12 @@ argument_list|)
 operator|.
 name|setRootUrl
 argument_list|(
-name|gceRootUrl
+name|GCE_ROOT_URL
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
