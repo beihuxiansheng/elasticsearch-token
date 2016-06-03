@@ -108,6 +108,16 @@ name|InetAddress
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
 begin_comment
 comment|/**  *<p>Resolves certain GCE related 'meta' hostnames into an actual hostname  * obtained from gce meta-data.</p>  * Valid config values for {@link GceAddressResolverType}s are -  *<ul>  *<li>_gce_ - maps to privateIp</li>  *<li>_gce:privateIp_</li>  *<li>_gce:hostname_</li>  *</ul>  */
 end_comment
@@ -329,10 +339,6 @@ decl_stmt|;
 if|if
 condition|(
 name|privateIpConfig
-operator|!=
-literal|null
-operator|&&
-name|privateIpConfig
 operator|.
 name|length
 operator|==
@@ -442,6 +448,8 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
+decl||
+name|URISyntaxException
 name|e
 parameter_list|)
 block|{
