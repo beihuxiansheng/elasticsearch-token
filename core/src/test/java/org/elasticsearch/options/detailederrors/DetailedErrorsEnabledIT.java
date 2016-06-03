@@ -269,7 +269,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|)
@@ -339,7 +339,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|)

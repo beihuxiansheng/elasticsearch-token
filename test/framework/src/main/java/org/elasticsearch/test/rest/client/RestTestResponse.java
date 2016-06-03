@@ -511,7 +511,7 @@ name|contentType
 init|=
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|)

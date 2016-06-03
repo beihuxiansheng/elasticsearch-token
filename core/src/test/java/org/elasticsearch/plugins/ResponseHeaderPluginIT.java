@@ -352,7 +352,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Secret"
 argument_list|)
@@ -409,7 +409,7 @@ name|assertThat
 argument_list|(
 name|authResponse
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Secret"
 argument_list|)

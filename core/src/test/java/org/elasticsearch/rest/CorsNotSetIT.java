@@ -274,7 +274,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Access-Control-Allow-Origin"
 argument_list|)
@@ -287,7 +287,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Access-Control-Allow-Credentials"
 argument_list|)
@@ -349,7 +349,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Access-Control-Allow-Origin"
 argument_list|)
@@ -362,7 +362,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getFirstHeader
+name|getHeader
 argument_list|(
 literal|"Access-Control-Allow-Credentials"
 argument_list|)

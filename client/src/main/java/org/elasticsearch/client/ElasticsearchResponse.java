@@ -261,10 +261,10 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns the value of the first header with a specified name of this message.      * If there is more than one matching header in the message the first element is returned.      * If there is no matching header in the message<code>null</code> is returned.      */
-DECL|method|getFirstHeader
+DECL|method|getHeader
 specifier|public
 name|String
-name|getFirstHeader
+name|getHeader
 parameter_list|(
 name|String
 name|name
