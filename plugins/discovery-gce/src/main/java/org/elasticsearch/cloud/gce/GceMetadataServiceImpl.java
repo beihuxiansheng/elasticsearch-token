@@ -228,16 +228,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|security
 operator|.
 name|AccessController
@@ -294,10 +284,8 @@ name|GceMetadataServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
 argument_list|<
-name|GceMetadataService
+name|GceMetadataServiceImpl
 argument_list|>
-implements|implements
-name|GceMetadataService
 block|{
 comment|// Forcing Google Token API URL as set in GCE SDK to
 comment|//      http://metadata/computeMetadata/v1/instance/service-accounts/default/token
@@ -401,8 +389,6 @@ return|return
 name|gceHttpTransport
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|metadata
 specifier|public
 name|String

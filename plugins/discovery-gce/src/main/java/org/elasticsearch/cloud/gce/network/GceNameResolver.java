@@ -28,7 +28,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceMetadataService
+name|GceMetadataServiceImpl
 import|;
 end_import
 
@@ -135,7 +135,7 @@ block|{
 DECL|field|gceMetadataService
 specifier|private
 specifier|final
-name|GceMetadataService
+name|GceMetadataServiceImpl
 name|gceMetadataService
 decl_stmt|;
 comment|/**      * enum that can be added to over time with more meta-data types      */
@@ -215,7 +215,7 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|GceMetadataService
+name|GceMetadataServiceImpl
 name|gceMetadataService
 parameter_list|)
 block|{

@@ -101,7 +101,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|GceMetadataService
+name|GceMetadataServiceImpl
 argument_list|>
 name|metadataServiceImpl
 init|=
@@ -168,7 +168,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|GceMetadataService
+name|GceMetadataServiceImpl
 argument_list|>
 name|getMetadataServiceImpl
 parameter_list|()
@@ -209,14 +209,9 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|GceMetadataService
+name|GceMetadataServiceImpl
 operator|.
 name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|metadataServiceImpl
 argument_list|)
 operator|.
 name|asEagerSingleton
