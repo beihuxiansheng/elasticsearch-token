@@ -4,29 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.test
+DECL|package|org.elasticsearch.test
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|test
-operator|.
-name|test
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-import|;
-end_import
 
 begin_import
 import|import
@@ -62,8 +48,16 @@ specifier|final
 class|class
 name|WrongName
 extends|extends
-name|ESTestCase
-block|{     }
+name|UnitTestCase
+block|{
+comment|/*          * Dummy test so the tests pass. We do this *and* skip the tests so anyone who jumps back to a branch without these tests can still          * compile without a failure. That is because clean doesn't actually clean these....          */
+DECL|method|testDummy
+specifier|public
+name|void
+name|testDummy
+parameter_list|()
+block|{}
+block|}
 DECL|class|DummyAbstractTests
 specifier|public
 specifier|static
@@ -71,7 +65,7 @@ specifier|abstract
 class|class
 name|DummyAbstractTests
 extends|extends
-name|ESTestCase
+name|UnitTestCase
 block|{     }
 DECL|interface|DummyInterfaceTests
 specifier|public
@@ -85,8 +79,15 @@ specifier|final
 class|class
 name|InnerTests
 extends|extends
-name|ESTestCase
-block|{     }
+name|UnitTestCase
+block|{
+DECL|method|testDummy
+specifier|public
+name|void
+name|testDummy
+parameter_list|()
+block|{}
+block|}
 DECL|class|WrongNameTheSecond
 specifier|public
 specifier|static
@@ -94,8 +95,15 @@ specifier|final
 class|class
 name|WrongNameTheSecond
 extends|extends
-name|ESTestCase
-block|{     }
+name|UnitTestCase
+block|{
+DECL|method|testDummy
+specifier|public
+name|void
+name|testDummy
+parameter_list|()
+block|{}
+block|}
 DECL|class|PlainUnit
 specifier|public
 specifier|static
@@ -104,6 +112,31 @@ class|class
 name|PlainUnit
 extends|extends
 name|TestCase
+block|{
+DECL|method|testDummy
+specifier|public
+name|void
+name|testDummy
+parameter_list|()
+block|{}
+block|}
+DECL|class|UnitTestCase
+specifier|public
+specifier|abstract
+specifier|static
+class|class
+name|UnitTestCase
+extends|extends
+name|TestCase
+block|{     }
+DECL|class|IntegTestCase
+specifier|public
+specifier|abstract
+specifier|static
+class|class
+name|IntegTestCase
+extends|extends
+name|UnitTestCase
 block|{     }
 block|}
 end_class
