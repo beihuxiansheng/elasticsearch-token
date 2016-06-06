@@ -1185,7 +1185,11 @@ name|mapperRegistry
 init|=
 operator|new
 name|IndicesModule
+argument_list|(
+operator|new
+name|NamedWriteableRegistry
 argument_list|()
+argument_list|)
 operator|.
 name|getMapperRegistry
 argument_list|()

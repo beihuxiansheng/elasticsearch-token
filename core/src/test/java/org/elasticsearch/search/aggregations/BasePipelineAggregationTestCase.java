@@ -1435,7 +1435,9 @@ name|scriptModule
 argument_list|,
 operator|new
 name|IndicesModule
-argument_list|()
+argument_list|(
+name|namedWriteableRegistry
+argument_list|)
 block|{
 annotation|@
 name|Override
