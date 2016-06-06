@@ -2665,7 +2665,7 @@ init|=
 operator|(
 name|AExpression
 operator|)
-name|visit
+name|visitExpression
 argument_list|(
 name|ctx
 operator|.

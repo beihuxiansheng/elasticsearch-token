@@ -184,6 +184,26 @@ name|Opcodes
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
 DECL|class|SEach
 specifier|public
@@ -489,7 +509,7 @@ name|type
 argument_list|,
 name|name
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|false
 argument_list|)
@@ -681,7 +701,7 @@ name|sort
 operator|!=
 name|Sort
 operator|.
-name|OBJECT
+name|DEF
 condition|)
 block|{
 throw|throw
@@ -692,7 +712,7 @@ argument_list|(
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Method [next] does not return type [Object]."
+literal|"Method [next] does not return type [def]."
 argument_list|)
 argument_list|)
 throw|;
@@ -707,10 +727,7 @@ name|location
 argument_list|,
 name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"Object"
-argument_list|)
+name|DEF_TYPE
 argument_list|,
 name|type
 argument_list|,
@@ -941,12 +958,26 @@ name|slot
 argument_list|)
 expr_stmt|;
 name|Label
+name|begin
+init|=
+operator|new
+name|Label
+argument_list|()
+decl_stmt|;
+name|Label
 name|end
 init|=
 operator|new
 name|Label
 argument_list|()
 decl_stmt|;
+name|writer
+operator|.
+name|mark
+argument_list|(
+name|begin
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|visitVarInsn
@@ -1066,6 +1097,13 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|goTo
+argument_list|(
+name|begin
 argument_list|)
 expr_stmt|;
 name|writer

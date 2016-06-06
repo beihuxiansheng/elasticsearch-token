@@ -441,10 +441,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|testEachStatement
+DECL|method|testIterableForEachStatement
 specifier|public
 name|void
-name|testEachStatement
+name|testIterableForEachStatement
 parameter_list|()
 block|{
 name|assertEquals
@@ -455,7 +455,33 @@ name|exec
 argument_list|(
 literal|"List l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
 operator|+
-literal|" for (int x : l) total += x; return x"
+literal|" for (int x : l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (String x : l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (Map.Entry e : m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
 argument_list|)
 argument_list|)
 expr_stmt|;
