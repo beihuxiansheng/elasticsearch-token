@@ -1022,6 +1022,13 @@ name|method
 operator|.
 name|handle
 decl_stmt|;
+if|if
+condition|(
+name|recipe
+operator|!=
+literal|0
+condition|)
+block|{
 name|MethodHandle
 name|filters
 index|[]
@@ -1034,13 +1041,6 @@ operator|.
 name|length
 index|]
 decl_stmt|;
-if|if
-condition|(
-name|recipe
-operator|!=
-literal|0
-condition|)
-block|{
 for|for
 control|(
 name|int
@@ -1109,7 +1109,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 name|handle
 operator|=
 name|MethodHandles
@@ -1123,6 +1122,7 @@ argument_list|,
 name|filters
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|handle
 return|;
