@@ -2271,6 +2271,12 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|// ensure all shards are allocated otherwise the ensure green below might not succeed since we require the merge node
+comment|// if we change the setting too quickly we will end up with one replica unassigned which can't be assigned anymore due
+comment|// to the require._name below.
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 comment|// relocate all shards to one node such that we can merge it.
 name|client
 argument_list|()
@@ -2761,6 +2767,12 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|// ensure all shards are allocated otherwise the ensure green below might not succeed since we require the merge node
+comment|// if we change the setting too quickly we will end up with one replica unassigned which can't be assigned anymore due
+comment|// to the require._name below.
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 comment|// relocate all shards to one node such that we can merge it.
 name|client
 argument_list|()
