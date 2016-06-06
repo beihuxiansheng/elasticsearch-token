@@ -265,6 +265,14 @@ name|HttpResponse
 name|httpResponse
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -300,6 +308,7 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|tracer
