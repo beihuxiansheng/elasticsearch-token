@@ -1496,17 +1496,6 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
-comment|// For the case where the chain represents a String concatenation
-comment|// we must first write debug information, and then depending on the
-comment|// Java version write a StringBuilder or track types going onto the
-comment|// stack.  This must be done before the links in the chain are read
-comment|// because we need the StringBuilder to be placed on the stack
-comment|// ahead of any potential concatenation arguments.
-if|if
-condition|(
-name|cat
-condition|)
-block|{
 name|writer
 operator|.
 name|writeDebugInfo
@@ -1514,6 +1503,16 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
+comment|// For the case where the chain represents a String concatenation
+comment|// we must, depending on the Java version, write a StringBuilder or
+comment|// track types going onto the stack.  This must be done before the
+comment|// links in the chain are read because we need the StringBuilder to
+comment|// be placed on the stack ahead of any potential concatenation arguments.
+if|if
+condition|(
+name|cat
+condition|)
+block|{
 name|writer
 operator|.
 name|writeNewStrings

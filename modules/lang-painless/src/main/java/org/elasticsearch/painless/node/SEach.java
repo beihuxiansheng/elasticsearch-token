@@ -516,6 +516,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// We must store the iterator as a variable for securing a slot on the stack, and
+comment|// also add the location offset to make the name unique in case of nested for each loops.
 name|iterator
 operator|=
 name|variables
