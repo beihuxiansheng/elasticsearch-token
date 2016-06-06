@@ -270,7 +270,7 @@ parameter_list|(
 name|RestClient
 name|restClient
 parameter_list|,
-name|int
+name|long
 name|sniffRequestTimeout
 parameter_list|,
 name|String
