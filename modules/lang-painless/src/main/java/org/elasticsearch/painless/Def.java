@@ -108,6 +108,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -597,6 +607,14 @@ specifier|final
 name|MethodHandle
 name|LIST_SET
 decl_stmt|;
+comment|/** pointer to Iterable.iterator() */
+DECL|field|ITERATOR
+specifier|private
+specifier|static
+specifier|final
+name|MethodHandle
+name|ITERATOR
+decl_stmt|;
 comment|/** factory for arraylength MethodHandle (intrinsic) from Java 9 */
 DECL|field|JAVA9_ARRAY_LENGTH_MH_FACTORY
 specifier|private
@@ -725,6 +743,28 @@ operator|.
 name|class
 argument_list|,
 name|Object
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ITERATOR
+operator|=
+name|lookup
+operator|.
+name|findVirtual
+argument_list|(
+name|Iterable
+operator|.
+name|class
+argument_list|,
+literal|"iterator"
+argument_list|,
+name|MethodType
+operator|.
+name|methodType
+argument_list|(
+name|Iterator
 operator|.
 name|class
 argument_list|)
@@ -1773,6 +1813,54 @@ operator|+
 literal|"] as an array."
 argument_list|)
 throw|;
+block|}
+comment|/**      * Returns a method handle to do iteration (for enhanced for loop)      * @param receiverClass Class of the array to load the value from      * @return a MethodHandle that accepts the receiver as first argument, returns iterator      */
+DECL|method|lookupIterator
+specifier|static
+name|MethodHandle
+name|lookupIterator
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|receiverClass
+parameter_list|)
+block|{
+if|if
+condition|(
+name|Iterable
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|receiverClass
+argument_list|)
+condition|)
+block|{
+return|return
+name|ITERATOR
+return|;
+block|}
+else|else
+block|{
+comment|// TODO: arrays
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot iterate over ["
+operator|+
+name|receiverClass
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// NOTE: Below methods are not cached, instead invoked directly because they are performant.
 comment|//       We also check for Long values first when possible since the type is more
