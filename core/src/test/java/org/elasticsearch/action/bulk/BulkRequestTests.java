@@ -90,6 +90,22 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|update
 operator|.
 name|UpdateRequest
@@ -1667,9 +1683,11 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1703,9 +1721,11 @@ argument_list|,
 literal|"id"
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1728,9 +1748,11 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1753,9 +1775,11 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1798,17 +1822,17 @@ argument_list|()
 argument_list|,
 name|contains
 argument_list|(
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|,
 literal|"id is missing"
 argument_list|,
 literal|"type is missing"
 argument_list|,
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|,
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|,
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|)
 argument_list|)
 expr_stmt|;

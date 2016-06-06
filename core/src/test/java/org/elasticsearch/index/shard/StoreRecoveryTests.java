@@ -666,7 +666,7 @@ name|LATEST
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_6_0_0
+name|LUCENE_6_0_1
 argument_list|)
 expr_stmt|;
 comment|// assertEquals(indexStats.reusedFileCount(), targetNumFiles); -- uncomment this once upgraded to Lucene 6.1

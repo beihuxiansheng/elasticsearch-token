@@ -314,6 +314,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -643,7 +653,10 @@ argument_list|,
 name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|filter
 init|=
 name|queryParseContext
@@ -651,6 +664,14 @@ operator|.
 name|parseInnerQueryBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|filter
+operator|.
+name|isPresent
+argument_list|()
+condition|)
+block|{
 name|otherOptions
 operator|.
 name|put
@@ -660,8 +681,12 @@ operator|.
 name|BACKGROUND_FILTER
 argument_list|,
 name|filter
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;

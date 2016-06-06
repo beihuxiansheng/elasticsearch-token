@@ -46,9 +46,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;

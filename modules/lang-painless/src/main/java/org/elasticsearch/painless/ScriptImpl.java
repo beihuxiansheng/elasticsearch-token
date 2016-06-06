@@ -688,6 +688,16 @@ name|startsWith
 argument_list|(
 literal|"java.lang.invoke."
 argument_list|)
+operator|||
+name|element
+operator|.
+name|getClassName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"sun.invoke."
+argument_list|)
 return|;
 block|}
 comment|/**      * Run the script.      * @return The script result as a double.      */

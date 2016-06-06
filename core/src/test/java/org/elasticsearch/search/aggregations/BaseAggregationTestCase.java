@@ -753,7 +753,7 @@ name|BaseAggregationTestCase
 parameter_list|<
 name|AB
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 parameter_list|<
 name|AB
 parameter_list|>
@@ -1876,9 +1876,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newAgg
 init|=
 name|aggParsers
@@ -2042,9 +2039,6 @@ argument_list|)
 init|)
 block|{
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|deserialized
 init|=
 name|in

@@ -674,6 +674,8 @@ init|=
 operator|new
 name|CompoundProcessor
 argument_list|(
+literal|false
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -681,6 +683,8 @@ argument_list|(
 operator|new
 name|CompoundProcessor
 argument_list|(
+literal|false
+argument_list|,
 name|Arrays
 operator|.
 name|asList

@@ -694,8 +694,6 @@ name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|?
 argument_list|,
-name|BulkIndexByScrollResponse
-argument_list|,
 name|?
 argument_list|>
 name|request

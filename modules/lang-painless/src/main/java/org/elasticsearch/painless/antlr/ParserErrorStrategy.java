@@ -102,11 +102,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|text
+name|elasticsearch
 operator|.
-name|ParseException
+name|painless
+operator|.
+name|Location
 import|;
 end_import
 
@@ -122,6 +124,25 @@ name|ParserErrorStrategy
 extends|extends
 name|DefaultErrorStrategy
 block|{
+DECL|field|sourceName
+specifier|final
+name|String
+name|sourceName
+decl_stmt|;
+DECL|method|ParserErrorStrategy
+name|ParserErrorStrategy
+parameter_list|(
+name|String
+name|sourceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceName
+operator|=
+name|sourceName
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|recover
@@ -159,7 +180,7 @@ condition|)
 block|{
 name|message
 operator|=
-literal|"Error: no parse token found."
+literal|"no parse token found."
 expr_stmt|;
 block|}
 elseif|else
@@ -172,23 +193,7 @@ condition|)
 block|{
 name|message
 operator|=
-literal|"Error["
-operator|+
-name|token
-operator|.
-name|getLine
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|token
-operator|.
-name|getCharPositionInLine
-argument_list|()
-operator|+
-literal|"]:"
-operator|+
-literal|" unexpected token ["
+literal|"unexpected token ["
 operator|+
 name|getTokenErrorDisplay
 argument_list|(
@@ -237,29 +242,13 @@ condition|)
 block|{
 name|message
 operator|=
-literal|"Error: unexpected end of script."
+literal|"unexpected end of script."
 expr_stmt|;
 block|}
 else|else
 block|{
 name|message
 operator|=
-literal|"Error["
-operator|+
-name|token
-operator|.
-name|getLine
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|token
-operator|.
-name|getCharPositionInLine
-argument_list|()
-operator|+
-literal|"]:"
-operator|+
 literal|"invalid sequence of tokens near ["
 operator|+
 name|getTokenErrorDisplay
@@ -275,23 +264,7 @@ else|else
 block|{
 name|message
 operator|=
-literal|"Error["
-operator|+
-name|token
-operator|.
-name|getLine
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|token
-operator|.
-name|getCharPositionInLine
-argument_list|()
-operator|+
-literal|"]:"
-operator|+
-literal|" unexpected token near ["
+literal|"unexpected token near ["
 operator|+
 name|getTokenErrorDisplay
 argument_list|(
@@ -301,14 +274,13 @@ operator|+
 literal|"]."
 expr_stmt|;
 block|}
-specifier|final
-name|ParseException
-name|parseException
+name|Location
+name|location
 init|=
 operator|new
-name|ParseException
+name|Location
 argument_list|(
-name|message
+name|sourceName
 argument_list|,
 name|token
 operator|==
@@ -323,18 +295,18 @@ name|getStartIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|parseException
+throw|throw
+name|location
 operator|.
-name|initCause
+name|createError
 argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
+argument_list|,
 name|re
 argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|parseException
 argument_list|)
 throw|;
 block|}
@@ -365,23 +337,7 @@ specifier|final
 name|String
 name|message
 init|=
-literal|"Error["
-operator|+
-name|token
-operator|.
-name|getLine
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|token
-operator|.
-name|getCharPositionInLine
-argument_list|()
-operator|+
-literal|"]:"
-operator|+
-literal|" unexpected token ["
+literal|"unexpected token ["
 operator|+
 name|getTokenErrorDisplay
 argument_list|(
@@ -407,14 +363,13 @@ argument_list|)
 operator|+
 literal|"]."
 decl_stmt|;
-specifier|final
-name|ParseException
-name|parseException
+name|Location
+name|location
 init|=
 operator|new
-name|ParseException
+name|Location
 argument_list|(
-name|message
+name|sourceName
 argument_list|,
 name|token
 operator|.
@@ -423,10 +378,15 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 throw|throw
-operator|new
-name|RuntimeException
+name|location
+operator|.
+name|createError
 argument_list|(
-name|parseException
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
+argument_list|)
 argument_list|)
 throw|;
 block|}

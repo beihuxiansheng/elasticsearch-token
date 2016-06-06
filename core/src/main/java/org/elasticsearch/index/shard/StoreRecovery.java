@@ -2492,7 +2492,7 @@ literal|"[{}] restoring shard [{}]"
 argument_list|,
 name|restoreSource
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardId
@@ -2569,7 +2569,10 @@ name|restore
 argument_list|(
 name|restoreSource
 operator|.
-name|snapshotId
+name|snapshot
+argument_list|()
+operator|.
+name|getSnapshotId
 argument_list|()
 argument_list|,
 name|restoreSource

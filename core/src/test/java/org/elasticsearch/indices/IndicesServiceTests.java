@@ -849,13 +849,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/18558"
-argument_list|)
 DECL|method|testDeleteIndexStore
 specifier|public
 name|void
@@ -1505,6 +1498,14 @@ argument_list|,
 name|numPending
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// shard lock released... we can now delete
 name|indicesService
 operator|.
@@ -1544,6 +1545,14 @@ argument_list|()
 argument_list|)
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1637,6 +1646,14 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// shard lock released... we can now delete
 name|indicesService
 operator|.
@@ -1678,6 +1695,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// "bogus" index has not been removed
 block|}
 name|assertAcked
 argument_list|(

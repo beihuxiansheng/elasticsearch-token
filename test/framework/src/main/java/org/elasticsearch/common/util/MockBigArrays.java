@@ -88,11 +88,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cache
+name|common
 operator|.
-name|recycler
+name|inject
 operator|.
-name|PageCacheRecycler
+name|Inject
 import|;
 end_import
 
@@ -104,9 +104,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|settings
 operator|.
-name|Inject
+name|Settings
 import|;
 end_import
 
@@ -497,8 +497,8 @@ DECL|method|MockBigArrays
 specifier|public
 name|MockBigArrays
 parameter_list|(
-name|PageCacheRecycler
-name|recycler
+name|Settings
+name|settings
 parameter_list|,
 name|CircuitBreakerService
 name|breakerService
@@ -506,7 +506,11 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|recycler
+operator|new
+name|MockPageCacheRecycler
+argument_list|(
+name|settings
+argument_list|)
 argument_list|,
 name|breakerService
 argument_list|,
@@ -515,7 +519,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|MockBigArrays
-specifier|public
+specifier|private
 name|MockBigArrays
 parameter_list|(
 name|PageCacheRecycler

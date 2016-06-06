@@ -807,6 +807,16 @@ operator|.
 name|TAG_SETTING
 argument_list|)
 expr_stmt|;
+comment|// Register cloud node settings: cloud.node
+name|settingsModule
+operator|.
+name|registerSetting
+argument_list|(
+name|AwsEc2Service
+operator|.
+name|AUTO_ATTRIBUTE_SETTING
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * We manage potential duplicates between s3 and ec2 plugins (cloud.aws.xxx)      */
 DECL|method|registerSettingIfMissing

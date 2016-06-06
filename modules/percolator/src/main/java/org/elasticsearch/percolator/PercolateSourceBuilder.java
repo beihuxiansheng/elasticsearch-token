@@ -172,8 +172,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
 name|PipelineAggregatorBuilder
 import|;
 end_import
@@ -339,9 +337,6 @@ specifier|private
 name|List
 argument_list|<
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|aggregationBuilders
 decl_stmt|;
@@ -350,9 +345,6 @@ specifier|private
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|pipelineAggregationBuilders
 decl_stmt|;
@@ -538,9 +530,6 @@ name|PercolateSourceBuilder
 name|addAggregation
 parameter_list|(
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregationBuilder
 parameter_list|)
 block|{
@@ -577,9 +566,6 @@ name|PercolateSourceBuilder
 name|addAggregation
 parameter_list|(
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregationBuilder
 parameter_list|)
 block|{
@@ -801,9 +787,6 @@ block|{
 for|for
 control|(
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregation
 range|:
 name|aggregationBuilders
@@ -830,9 +813,6 @@ block|{
 for|for
 control|(
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregation
 range|:
 name|pipelineAggregationBuilders

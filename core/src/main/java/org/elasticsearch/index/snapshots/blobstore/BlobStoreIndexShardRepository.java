@@ -198,9 +198,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -1443,9 +1441,6 @@ argument_list|,
 literal|"failed to restore snapshot ["
 operator|+
 name|snapshotId
-operator|.
-name|getSnapshot
-argument_list|()
 operator|+
 literal|"]"
 argument_list|,
@@ -2009,7 +2004,7 @@ name|blobContainer
 argument_list|,
 name|snapshotId
 operator|.
-name|getSnapshot
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2064,7 +2059,7 @@ name|equals
 argument_list|(
 name|snapshotId
 operator|.
-name|getSnapshot
+name|getName
 argument_list|()
 argument_list|)
 condition|)
@@ -2112,7 +2107,7 @@ name|blobContainer
 argument_list|,
 name|snapshotId
 operator|.
-name|getSnapshot
+name|getName
 argument_list|()
 argument_list|)
 return|;
@@ -3434,7 +3429,7 @@ name|BlobStoreIndexShardSnapshot
 argument_list|(
 name|snapshotId
 operator|.
-name|getSnapshot
+name|getName
 argument_list|()
 argument_list|,
 name|snapshotIndexCommit
@@ -3489,7 +3484,7 @@ name|blobContainer
 argument_list|,
 name|snapshotId
 operator|.
-name|getSnapshot
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

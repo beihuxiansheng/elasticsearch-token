@@ -442,6 +442,8 @@ init|=
 operator|new
 name|CompoundProcessor
 argument_list|(
+literal|false
+argument_list|,
 name|Collections
 operator|.
 name|unmodifiableList

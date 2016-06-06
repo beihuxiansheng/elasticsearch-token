@@ -158,8 +158,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
 name|PipelineAggregatorBuilder
 import|;
 end_import
@@ -590,9 +588,6 @@ name|PercolateRequestBuilder
 name|addAggregation
 parameter_list|(
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregationBuilder
 parameter_list|)
 block|{

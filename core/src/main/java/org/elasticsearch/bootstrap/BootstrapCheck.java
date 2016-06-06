@@ -729,7 +729,7 @@ name|MlockallCheck
 argument_list|(
 name|BootstrapSettings
 operator|.
-name|MLOCKALL_SETTING
+name|MEMORY_LOCK_SETTING
 operator|.
 name|get
 argument_list|(
