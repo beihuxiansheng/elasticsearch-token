@@ -257,7 +257,7 @@ name|Method
 operator|.
 name|PUT
 argument_list|,
-literal|"/{alias}/_rollover/{optional_alias}"
+literal|"/{alias}/_rollover"
 argument_list|,
 name|this
 argument_list|)
@@ -272,7 +272,7 @@ name|Method
 operator|.
 name|POST
 argument_list|,
-literal|"/{alias}/_rollover/{optional_alias}"
+literal|"/{alias}/_rollover"
 argument_list|,
 name|this
 argument_list|)
@@ -329,13 +329,6 @@ operator|.
 name|param
 argument_list|(
 literal|"alias"
-argument_list|)
-argument_list|,
-name|request
-operator|.
-name|param
-argument_list|(
-literal|"optional_alias"
 argument_list|)
 argument_list|)
 decl_stmt|;
