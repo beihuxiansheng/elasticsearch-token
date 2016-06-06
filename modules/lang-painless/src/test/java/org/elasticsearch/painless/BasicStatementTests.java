@@ -486,6 +486,49 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testArrayForEachStatement
+specifier|public
+name|void
+name|testArrayForEachStatement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (int x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String[] a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (String x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[][] i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (int[] j : i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDeclarationStatement
 specifier|public
 name|void
