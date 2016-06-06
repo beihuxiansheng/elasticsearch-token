@@ -184,6 +184,10 @@ name|Opcodes
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents a for-each loop shortcut for iterables.  Defers to other S-nodes for non-iterable types.  */
+end_comment
+
 begin_class
 DECL|class|SEach
 specifier|public

@@ -142,6 +142,10 @@ name|Opcodes
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents a for-each loop shortcut for arrays.  (Internal only.)  */
+end_comment
+
 begin_class
 DECL|class|SArrayEach
 class|class
