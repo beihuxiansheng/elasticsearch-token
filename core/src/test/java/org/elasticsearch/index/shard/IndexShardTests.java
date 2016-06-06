@@ -464,30 +464,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|UUIDs
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|snapshots
-operator|.
-name|SnapshotId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|node
@@ -605,6 +581,18 @@ operator|.
 name|service
 operator|.
 name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|UUIDs
 import|;
 end_import
 
@@ -1148,6 +1136,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|snapshots
+operator|.
+name|SnapshotId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|DummyShardLock
@@ -1453,6 +1453,42 @@ operator|.
 name|Collections
 operator|.
 name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|NONE
 import|;
 end_import
 
@@ -5091,9 +5127,9 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -5387,9 +5423,9 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -5812,9 +5848,9 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -6656,9 +6692,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -7571,10 +7607,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -7696,10 +7736,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -8104,10 +8148,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -9008,10 +9056,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -9315,10 +9367,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -9650,10 +9706,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -10312,10 +10372,14 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
 name|randomBoolean
 argument_list|()
+condition|?
+name|IMMEDIATE
+else|:
+name|NONE
 argument_list|)
 operator|.
 name|get
@@ -10338,9 +10402,9 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -10841,9 +10905,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -10866,9 +10930,9 @@ argument_list|(
 literal|"{\"foobar\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -11343,9 +11407,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -11368,9 +11432,9 @@ argument_list|(
 literal|"{\"foobar\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -11815,9 +11879,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -12213,9 +12277,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -12519,9 +12583,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -13889,9 +13953,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -13914,9 +13978,9 @@ argument_list|(
 literal|"{\"foo\" : \"bar\"}"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
