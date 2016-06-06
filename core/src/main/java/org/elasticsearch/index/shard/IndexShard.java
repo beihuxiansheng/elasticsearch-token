@@ -1638,11 +1638,11 @@ specifier|final
 name|ShardIndexWarmerService
 name|shardWarmerService
 decl_stmt|;
-DECL|field|shardQueryCache
+DECL|field|requestCacheStats
 specifier|private
 specifier|final
 name|ShardRequestCache
-name|shardQueryCache
+name|requestCacheStats
 decl_stmt|;
 DECL|field|shardFieldData
 specifier|private
@@ -2250,7 +2250,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|shardQueryCache
+name|requestCacheStats
 operator|=
 operator|new
 name|ShardRequestCache
@@ -2501,7 +2501,7 @@ block|{
 return|return
 name|this
 operator|.
-name|shardQueryCache
+name|requestCacheStats
 return|;
 block|}
 DECL|method|fieldData

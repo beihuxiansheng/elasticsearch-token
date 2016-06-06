@@ -2372,7 +2372,7 @@ name|action
 operator|.
 name|fieldstats
 operator|.
-name|TransportFieldStatsTransportAction
+name|TransportFieldStatsAction
 import|;
 end_import
 
@@ -4338,7 +4338,7 @@ name|FieldStatsAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportFieldStatsTransportAction
+name|TransportFieldStatsAction
 operator|.
 name|class
 argument_list|)
