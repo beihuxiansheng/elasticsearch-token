@@ -144,9 +144,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
-name|PipelineAggregator
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -162,7 +160,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregator
 import|;
 end_import
 
@@ -209,16 +207,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
-name|ParseException
 import|;
 end_import
 
@@ -566,9 +554,6 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)

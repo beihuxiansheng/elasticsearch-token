@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -1100,7 +1112,12 @@ specifier|static
 specifier|final
 class|class
 name|CommonFields
+extends|extends
+name|ParseField
+operator|.
+name|CommonFields
 block|{
+comment|// todo convert these to ParseField
 DECL|field|META
 specifier|public
 specifier|static

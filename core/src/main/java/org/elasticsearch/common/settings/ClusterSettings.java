@@ -110,9 +110,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cache
+name|common
 operator|.
-name|recycler
+name|util
 operator|.
 name|PageCacheRecycler
 import|;
@@ -921,20 +921,6 @@ operator|.
 name|node
 operator|.
 name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|internal
-operator|.
-name|InternalSettingsPreparer
 import|;
 end_import
 
@@ -2301,10 +2287,6 @@ name|PATH_LOGS_SETTING
 argument_list|,
 name|Environment
 operator|.
-name|PATH_PLUGINS_SETTING
-argument_list|,
-name|Environment
-operator|.
 name|PATH_REPO_SETTING
 argument_list|,
 name|Environment
@@ -2605,7 +2587,7 @@ name|SECURITY_FILTER_BAD_DEFAULTS_SETTING
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|MLOCKALL_SETTING
+name|MEMORY_LOCK_SETTING
 argument_list|,
 name|BootstrapSettings
 operator|.

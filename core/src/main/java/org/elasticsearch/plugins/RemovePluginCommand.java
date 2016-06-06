@@ -442,11 +442,11 @@ name|ExitCodes
 operator|.
 name|USAGE
 argument_list|,
-literal|"Plugin "
+literal|"plugin "
 operator|+
 name|pluginName
 operator|+
-literal|" not found. Run 'plugin list' to get list of installed plugins."
+literal|" not found; run 'elasticsearch-plugin list' to get list of installed plugins"
 argument_list|)
 throw|;
 block|}

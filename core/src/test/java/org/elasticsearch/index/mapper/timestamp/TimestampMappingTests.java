@@ -570,6 +570,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -926,6 +929,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 argument_list|,
@@ -946,6 +952,9 @@ name|startObject
 argument_list|(
 literal|"_timestamp"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

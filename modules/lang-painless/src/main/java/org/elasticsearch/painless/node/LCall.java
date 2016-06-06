@@ -36,9 +36,35 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Definition
+operator|.
+name|Sort
 import|;
 end_import
 
@@ -126,10 +152,7 @@ DECL|method|LCall
 specifier|public
 name|LCall
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -144,8 +167,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -183,12 +204,16 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
-name|error
-argument_list|(
-literal|"Illegal tree structure."
+literal|"Illegal call ["
+operator|+
+name|name
+operator|+
+literal|"] made without target."
 argument_list|)
 argument_list|)
 throw|;
@@ -200,18 +225,16 @@ name|before
 operator|.
 name|sort
 operator|==
-name|Definition
-operator|.
 name|Sort
 operator|.
 name|ARRAY
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal call ["
 operator|+
@@ -229,10 +252,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot assign a value to a call ["
 operator|+
@@ -261,7 +284,6 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|final
 name|Struct
 name|struct
 init|=
@@ -316,7 +338,6 @@ operator|++
 name|argument
 control|)
 block|{
-specifier|final
 name|AExpression
 name|expression
 init|=
@@ -389,22 +410,17 @@ name|before
 operator|.
 name|sort
 operator|==
-name|Definition
-operator|.
 name|Sort
 operator|.
 name|DEF
 condition|)
 block|{
-specifier|final
 name|ALink
 name|link
 init|=
 operator|new
 name|LDefCall
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|name
@@ -429,10 +445,10 @@ argument_list|)
 return|;
 block|}
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unknown call ["
 operator|+
@@ -463,7 +479,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -475,12 +491,18 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
 for|for
 control|(
-specifier|final
 name|AExpression
 name|argument
 range|:
@@ -491,7 +513,7 @@ name|argument
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -509,14 +531,11 @@ name|isStatic
 argument_list|(
 name|method
 operator|.
-name|reflect
-operator|.
-name|getModifiers
-argument_list|()
+name|modifiers
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -556,7 +575,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeInterface
 argument_list|(
@@ -574,7 +593,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeVirtual
 argument_list|(
@@ -613,7 +632,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|checkCast
 argument_list|(
@@ -633,14 +652,14 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

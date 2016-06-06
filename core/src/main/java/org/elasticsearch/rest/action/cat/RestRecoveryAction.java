@@ -1036,7 +1036,7 @@ operator|.
 name|getRestoreSource
 argument_list|()
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 operator|.
 name|getRepository
@@ -1061,10 +1061,13 @@ operator|.
 name|getRestoreSource
 argument_list|()
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 operator|.
-name|getSnapshot
+name|getSnapshotId
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

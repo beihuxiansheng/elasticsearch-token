@@ -176,12 +176,6 @@ specifier|final
 name|Collator
 name|collator
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// Intentionally sets deprecated options for backwards compatibility
 DECL|method|IcuCollationTokenFilterFactory
 specifier|public
 name|IcuCollationTokenFilterFactory
@@ -906,12 +900,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// Constructs a deprecated filter for backwards compatibility
 DECL|method|create
 specifier|public
 name|TokenStream

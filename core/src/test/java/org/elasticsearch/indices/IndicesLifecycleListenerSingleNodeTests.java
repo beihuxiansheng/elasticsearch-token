@@ -781,9 +781,7 @@ expr_stmt|;
 name|shard
 operator|.
 name|recoverFromStore
-argument_list|(
-name|localNode
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|newRouting
 operator|=

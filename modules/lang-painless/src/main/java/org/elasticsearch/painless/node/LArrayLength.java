@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Variables
 import|;
 end_import
@@ -73,10 +85,7 @@ decl_stmt|;
 DECL|method|LArrayLength
 name|LArrayLength
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -85,8 +94,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -127,10 +134,10 @@ name|load
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Must read array field [length]."
 argument_list|)
@@ -144,10 +151,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot write to read-only array field [length]."
 argument_list|)
@@ -164,10 +171,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal field access ["
 operator|+
@@ -189,7 +196,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -201,10 +208,17 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
+name|writer
 operator|.
 name|arrayLength
 argument_list|()
@@ -217,14 +231,14 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

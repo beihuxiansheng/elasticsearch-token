@@ -144,6 +144,9 @@ name|startedShards
 parameter_list|,
 name|ClusterInfo
 name|clusterInfo
+parameter_list|,
+name|long
+name|currentNanoTime
 parameter_list|)
 block|{
 name|super
@@ -156,10 +159,7 @@ name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,
-name|System
-operator|.
-name|nanoTime
-argument_list|()
+name|currentNanoTime
 argument_list|,
 literal|false
 argument_list|)

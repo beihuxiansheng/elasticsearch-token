@@ -292,6 +292,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * CommonTermsQuery query is a query that executes high-frequency terms in a  * optional sub-query to prevent slow queries due to "common" terms like  * stopwords. This query basically builds 2 queries off the {@code #add(Term)  * added} terms where low-frequency terms are added to a required boolean clause  * and high-frequency terms are added to an optional boolean clause. The  * optional clause is only executed if the required "low-frequency' clause  * matches. Scores produced by this query will be slightly different to plain  * {@link BooleanQuery} scorer mainly due to differences in the  * {@link Similarity#coord(int,int) number of leave queries} in the required  * boolean clause. In the most cases high-frequency terms are unlikely to  * significantly contribute to the document score unless at least one of the  * low-frequency terms are matched such that this query can improve query  * execution times significantly if applicable.  */
 end_comment
@@ -1231,7 +1241,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|CommonTermsQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1962,6 +1975,10 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 operator|new
 name|CommonTermsQueryBuilder
 argument_list|(
@@ -2013,6 +2030,7 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -2207,6 +2225,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseQueryString
+specifier|private
 specifier|static
 name|Query
 name|parseQueryString
@@ -2316,17 +2335,6 @@ name|count
 operator|++
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|count
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-literal|null
-return|;
 block|}
 name|query
 operator|.

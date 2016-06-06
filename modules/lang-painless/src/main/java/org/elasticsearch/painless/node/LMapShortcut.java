@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Method
@@ -107,10 +119,7 @@ decl_stmt|;
 DECL|method|LMapShortcut
 name|LMapShortcut
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|AExpression
@@ -119,8 +128,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 literal|2
@@ -214,10 +221,10 @@ operator|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal map get shortcut for type ["
 operator|+
@@ -247,10 +254,10 @@ literal|2
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal map set shortcut for type ["
 operator|+
@@ -316,10 +323,10 @@ operator|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Shortcut argument types must match."
 argument_list|)
@@ -418,10 +425,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal map shortcut for type ["
 operator|+
@@ -445,14 +452,14 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 name|index
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -463,9 +470,16 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|java
@@ -489,7 +503,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeInterface
 argument_list|(
@@ -507,7 +521,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeVirtual
 argument_list|(
@@ -546,7 +560,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|checkCast
 argument_list|(
@@ -566,9 +580,16 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|java
@@ -592,7 +613,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeInterface
 argument_list|(
@@ -610,7 +631,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeVirtual
 argument_list|(
@@ -626,7 +647,7 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|writePop
 argument_list|(

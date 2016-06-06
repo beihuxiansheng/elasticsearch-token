@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Sort
@@ -92,10 +104,7 @@ DECL|method|ENumeric
 specifier|public
 name|ENumeric
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -107,8 +116,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -160,12 +167,12 @@ literal|10
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
-literal|"Invalid tree structure."
+literal|"Illegal tree structure."
 argument_list|)
 argument_list|)
 throw|;
@@ -202,16 +209,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|NumberFormatException
 name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Invalid double constant ["
 operator|+
@@ -249,12 +255,12 @@ literal|10
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
-literal|"Invalid tree structure."
+literal|"Illegal tree structure."
 argument_list|)
 argument_list|)
 throw|;
@@ -291,16 +297,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|NumberFormatException
 name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Invalid float constant ["
 operator|+
@@ -364,16 +369,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|NumberFormatException
 name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Invalid long constant ["
 operator|+
@@ -389,7 +393,6 @@ else|else
 block|{
 try|try
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -405,7 +408,6 @@ name|expected
 operator|.
 name|sort
 decl_stmt|;
-specifier|final
 name|int
 name|integer
 init|=
@@ -541,16 +543,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|NumberFormatException
 name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Invalid int constant ["
 operator|+
@@ -570,14 +571,14 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|IllegalArgumentException
+name|createError
 argument_list|(
-name|error
+operator|new
+name|IllegalStateException
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

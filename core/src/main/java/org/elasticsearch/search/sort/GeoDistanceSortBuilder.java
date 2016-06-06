@@ -546,6 +546,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * A geo distance based sorting on a geo point like field.  */
 end_comment
@@ -1388,7 +1398,7 @@ operator|.
 name|unit
 return|;
 block|}
-comment|/**      * Sets validation method for this sort builder.       */
+comment|/**      * Sets validation method for this sort builder.      */
 DECL|method|validation
 specifier|public
 name|GeoDistanceSortBuilder
@@ -1408,7 +1418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Returns the validation method to use for this sort builder.       */
+comment|/**      * Returns the validation method to use for this sort builder.      */
 DECL|method|validation
 specifier|public
 name|GeoValidationMethod
@@ -2021,10 +2031,16 @@ name|sortMode
 init|=
 literal|null
 decl_stmt|;
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|nestedFilter
 init|=
-literal|null
+name|Optional
+operator|.
+name|empty
+argument_list|()
 decl_stmt|;
 name|String
 name|nestedPath
@@ -2597,11 +2613,13 @@ name|sortMode
 argument_list|)
 expr_stmt|;
 block|}
-name|result
-operator|.
-name|setNestedFilter
-argument_list|(
 name|nestedFilter
+operator|.
+name|ifPresent
+argument_list|(
+name|result
+operator|::
+name|setNestedFilter
 argument_list|)
 expr_stmt|;
 name|result

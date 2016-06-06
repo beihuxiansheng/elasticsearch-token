@@ -66,20 +66,6 @@ name|AllocationCommand
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
 begin_comment
 comment|/**  * Builder for a cluster reroute request  */
 end_comment
@@ -201,30 +187,6 @@ operator|.
 name|setRetryFailed
 argument_list|(
 name|retryFailed
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the commands for the request to execute.      */
-DECL|method|setCommands
-specifier|public
-name|ClusterRerouteRequestBuilder
-name|setCommands
-parameter_list|(
-name|AllocationCommand
-modifier|...
-name|commands
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|request
-operator|.
-name|commands
-argument_list|(
-name|commands
 argument_list|)
 expr_stmt|;
 return|return

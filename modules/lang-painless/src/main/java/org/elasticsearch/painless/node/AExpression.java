@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|AnalyzerCaster
 import|;
 end_import
@@ -189,19 +201,12 @@ DECL|method|AExpression
 specifier|public
 name|AExpression
 parameter_list|(
-specifier|final
-name|int
-name|line
-parameter_list|,
-specifier|final
-name|String
+name|Location
 name|location
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -223,7 +228,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Inserts {@link ECast} nodes into the tree for implicit casts.  Also replaces      * nodes with the constant variable set to a non-null value with {@link EConstant}.      * @return The new child node for the parent node calling this method.      */
@@ -285,8 +290,6 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -313,10 +316,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -344,8 +347,6 @@ init|=
 operator|new
 name|ECast
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|this
@@ -406,8 +407,6 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -434,10 +433,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -463,8 +462,6 @@ init|=
 operator|new
 name|ECast
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|this
@@ -491,8 +488,6 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -519,10 +514,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -536,8 +531,6 @@ init|=
 operator|new
 name|ECast
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 name|econstant

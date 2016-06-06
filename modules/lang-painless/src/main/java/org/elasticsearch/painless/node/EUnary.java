@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Sort
@@ -172,6 +184,7 @@ extends|extends
 name|AExpression
 block|{
 DECL|field|operation
+specifier|final
 name|Operation
 name|operation
 decl_stmt|;
@@ -183,10 +196,7 @@ DECL|method|EUnary
 specifier|public
 name|EUnary
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Operation
@@ -198,8 +208,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -292,10 +300,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -377,7 +385,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -400,10 +407,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply not [~] to type ["
 operator|+
@@ -442,7 +449,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -494,10 +500,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -525,7 +531,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -548,10 +553,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply positive [+] to type ["
 operator|+
@@ -590,7 +595,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -684,10 +688,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -715,7 +719,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -738,10 +741,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply negative [-] to type ["
 operator|+
@@ -780,7 +783,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -874,10 +876,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -897,9 +899,16 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|operation
@@ -920,7 +929,6 @@ operator|==
 literal|null
 condition|)
 block|{
-specifier|final
 name|Label
 name|localfals
 init|=
@@ -928,7 +936,6 @@ operator|new
 name|Label
 argument_list|()
 decl_stmt|;
-specifier|final
 name|Label
 name|end
 init|=
@@ -946,38 +953,38 @@ name|child
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|goTo
 argument_list|(
 name|end
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|mark
 argument_list|(
 name|localfals
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|mark
 argument_list|(
@@ -1003,14 +1010,13 @@ name|child
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 else|else
 block|{
-specifier|final
 name|org
 operator|.
 name|objectweb
@@ -1024,7 +1030,6 @@ name|actual
 operator|.
 name|type
 decl_stmt|;
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1036,7 +1041,7 @@ name|child
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -1057,7 +1062,7 @@ operator|.
 name|DEF
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -1078,7 +1083,7 @@ operator|.
 name|INT
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -1097,7 +1102,7 @@ operator|.
 name|LONG
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -1109,17 +1114,17 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
 argument_list|)
 throw|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|math
 argument_list|(
@@ -1151,7 +1156,7 @@ operator|.
 name|DEF
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -1163,7 +1168,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|math
 argument_list|(
@@ -1187,17 +1192,17 @@ name|ADD
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
 argument_list|)
 throw|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|writeBranch
 argument_list|(

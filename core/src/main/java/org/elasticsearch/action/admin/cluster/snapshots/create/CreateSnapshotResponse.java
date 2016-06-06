@@ -311,7 +311,7 @@ argument_list|)
 expr_stmt|;
 name|snapshotInfo
 operator|.
-name|toExternalXContent
+name|toXContent
 argument_list|(
 name|builder
 argument_list|,

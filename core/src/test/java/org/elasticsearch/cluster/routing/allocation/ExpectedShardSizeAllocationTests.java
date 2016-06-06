@@ -610,9 +610,6 @@ name|byteSize
 argument_list|,
 name|clusterState
 operator|.
-name|getRoutingNodes
-argument_list|()
-operator|.
 name|getRoutingTable
 argument_list|()
 operator|.
@@ -819,9 +816,6 @@ argument_list|(
 name|byteSize
 argument_list|,
 name|clusterState
-operator|.
-name|getRoutingNodes
-argument_list|()
 operator|.
 name|getRoutingTable
 argument_list|()

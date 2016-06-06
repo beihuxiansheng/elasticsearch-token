@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Variables
 import|;
 end_import
@@ -125,10 +137,7 @@ decl_stmt|;
 DECL|method|ALink
 name|ALink
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|int
@@ -137,8 +146,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -166,7 +173,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Write a load for the specific link type.      */
@@ -176,7 +183,7 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Write a store for the specific link type.      */
@@ -186,7 +193,7 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Used to copy link data from one to another during analysis in the case of replacement.      */

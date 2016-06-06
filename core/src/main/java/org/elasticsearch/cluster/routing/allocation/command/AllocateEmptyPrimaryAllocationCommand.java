@@ -752,6 +752,8 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

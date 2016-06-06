@@ -192,7 +192,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -877,7 +877,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Error running "
 operator|+

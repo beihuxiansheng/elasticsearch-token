@@ -273,6 +273,8 @@ block|{
 switch|switch
 condition|(
 name|nodeOrdinal
+operator|%
+literal|2
 condition|)
 block|{
 case|case

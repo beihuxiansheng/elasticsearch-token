@@ -390,6 +390,10 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|,
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|1
@@ -2050,6 +2054,9 @@ literal|"type"
 argument_list|,
 literal|"text"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

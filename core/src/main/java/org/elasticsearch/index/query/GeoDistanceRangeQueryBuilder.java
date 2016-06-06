@@ -381,6 +381,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1886,11 +1896,7 @@ else|else
 block|{
 name|fromValue
 operator|=
-operator|new
-name|Double
-argument_list|(
-literal|0
-argument_list|)
+literal|0.0
 expr_stmt|;
 block|}
 if|if
@@ -2312,7 +2318,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|GeoDistanceRangeQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -3815,7 +3824,12 @@ name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|queryBuilder
+argument_list|)
 return|;
 block|}
 annotation|@

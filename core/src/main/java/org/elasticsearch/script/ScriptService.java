@@ -200,18 +200,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParseField
 import|;
 end_import
@@ -1616,7 +1604,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|IllegalStateException
 argument_list|(
 literal|"scripts of type ["
 operator|+
@@ -1684,7 +1672,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|UnsupportedOperationException
 argument_list|(
 literal|"scripts of type ["
 operator|+
@@ -2024,13 +2012,25 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|ScriptException
+name|good
+parameter_list|)
+block|{
+comment|// TODO: remove this try-catch completely, when all script engines have good exceptions!
+throw|throw
+name|good
+throw|;
+comment|// its already good
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|exception
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Failed to compile "
 operator|+
@@ -2390,6 +2390,18 @@ name|scriptLang
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|ScriptException
+name|good
+parameter_list|)
+block|{
+comment|// TODO: remove this when all script engines have good exceptions!
+throw|throw
+name|good
+throw|;
+comment|// its already good!
 block|}
 catch|catch
 parameter_list|(

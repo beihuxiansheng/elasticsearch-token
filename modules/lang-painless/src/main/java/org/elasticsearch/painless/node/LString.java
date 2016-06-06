@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Variables
 import|;
 end_import
@@ -69,10 +81,7 @@ DECL|method|LString
 specifier|public
 name|LString
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -81,8 +90,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -114,10 +121,17 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|IllegalStateException
+name|createError
 argument_list|(
-literal|"Illegal tree structure."
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Illegal String constant ["
+operator|+
+name|string
+operator|+
+literal|"]."
+argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -128,10 +142,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot write to read-only String constant ["
 operator|+
@@ -150,10 +164,10 @@ name|load
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Must read String constant ["
 operator|+
@@ -181,7 +195,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -193,10 +207,10 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -211,14 +225,14 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

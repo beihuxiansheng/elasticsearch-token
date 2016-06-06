@@ -854,7 +854,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -907,7 +907,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -1256,7 +1256,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.
@@ -1322,7 +1322,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|routingNodeIter
+name|node
 argument_list|(
 name|moveAllocationCommand
 operator|.

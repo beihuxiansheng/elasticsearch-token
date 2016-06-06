@@ -192,6 +192,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * A query that will execute the wrapped query only for the specified indices,  * and "match_all" when it does not match those indices (by default).  *  * @deprecated instead search on the `_index` field  */
 end_comment
@@ -680,7 +690,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|IndicesQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -807,12 +820,20 @@ name|QUERY_FIELD
 argument_list|)
 condition|)
 block|{
+comment|// the 2.0 behaviour when encountering "query" : {} is to return no docs for matching indices
 name|innerQuery
 operator|=
 name|parseContext
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElse
+argument_list|(
+operator|new
+name|MatchNoneQueryBuilder
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -837,6 +858,12 @@ name|parseContext
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElse
+argument_list|(
+name|defaultNoMatchQuery
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1180,6 +1207,10 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 operator|new
 name|IndicesQueryBuilder
 argument_list|(
@@ -1213,6 +1244,7 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
+argument_list|)
 argument_list|)
 return|;
 block|}

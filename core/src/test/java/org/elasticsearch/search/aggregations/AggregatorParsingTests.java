@@ -308,9 +308,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
+name|test
 operator|.
 name|AbstractQueryTestCase
 import|;
@@ -684,9 +682,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -700,9 +696,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -1808,6 +1802,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -2040,6 +2037,9 @@ literal|"gt"
 argument_list|,
 literal|0
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -2373,6 +2373,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -2505,6 +2508,9 @@ argument_list|,
 literal|"tag"
 argument_list|)
 comment|//.endObject()
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

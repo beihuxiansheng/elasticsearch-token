@@ -166,7 +166,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 import|;
 end_import
 
@@ -272,7 +272,7 @@ specifier|public
 class|class
 name|ScriptedMetricAggregationBuilder
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 argument_list|<
 name|ScriptedMetricAggregationBuilder
 argument_list|>

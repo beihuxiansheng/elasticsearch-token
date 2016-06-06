@@ -513,7 +513,7 @@ argument_list|)
 expr_stmt|;
 name|req
 operator|.
-name|commands
+name|add
 argument_list|(
 operator|new
 name|AllocateEmptyPrimaryAllocationCommand

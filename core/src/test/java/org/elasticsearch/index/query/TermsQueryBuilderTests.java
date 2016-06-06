@@ -250,6 +250,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -315,22 +327,6 @@ operator|.
 name|stream
 operator|.
 name|Collectors
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|prefixQuery
 import|;
 end_import
 
@@ -1566,6 +1562,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder
@@ -1623,6 +1622,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder
@@ -1680,6 +1682,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder
@@ -1737,6 +1742,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder

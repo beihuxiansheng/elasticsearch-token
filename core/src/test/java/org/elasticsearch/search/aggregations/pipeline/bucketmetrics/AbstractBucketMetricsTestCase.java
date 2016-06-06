@@ -62,6 +62,9 @@ parameter_list|<
 name|PAF
 extends|extends
 name|BucketMetricsPipelineAggregatorBuilder
+parameter_list|<
+name|PAF
+parameter_list|>
 parameter_list|>
 extends|extends
 name|BasePipelineAggregationTestCase

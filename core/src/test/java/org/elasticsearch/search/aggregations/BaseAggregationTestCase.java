@@ -370,9 +370,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
+name|test
 operator|.
 name|AbstractQueryTestCase
 import|;
@@ -712,9 +710,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -728,9 +724,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -759,7 +753,7 @@ name|BaseAggregationTestCase
 parameter_list|<
 name|AB
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 parameter_list|<
 name|AB
 parameter_list|>
@@ -1882,9 +1876,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newAgg
 init|=
 name|aggParsers
@@ -2048,9 +2039,6 @@ argument_list|)
 init|)
 block|{
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|deserialized
 init|=
 name|in

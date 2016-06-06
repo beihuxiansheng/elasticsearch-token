@@ -1195,7 +1195,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"explicit index in multi percolate is not allowed"
+literal|"explicit index in multi search is not allowed"
 argument_list|)
 throw|;
 block|}

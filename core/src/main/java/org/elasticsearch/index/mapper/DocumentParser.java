@@ -4663,43 +4663,6 @@ operator|.
 name|VALUE_STRING
 condition|)
 block|{
-comment|// do a quick test to see if its fits a dynamic template, if so, use it.
-comment|// we need to do it here so we can handle things like attachment templates, where calling
-comment|// text (to see if its a date) causes the binary value to be cleared
-block|{
-name|Mapper
-operator|.
-name|Builder
-name|builder
-init|=
-name|context
-operator|.
-name|root
-argument_list|()
-operator|.
-name|findTemplateBuilder
-argument_list|(
-name|context
-argument_list|,
-name|currentFieldName
-argument_list|,
-literal|"text"
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|builder
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|builder
-return|;
-block|}
-block|}
 if|if
 condition|(
 name|context

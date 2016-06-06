@@ -273,6 +273,9 @@ operator|.
 name|activePrimary
 argument_list|(
 name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// check that active primary has a newer version so that peer recovery works

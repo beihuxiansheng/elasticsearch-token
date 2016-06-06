@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Constructor
@@ -105,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents and object instantiation.  */
+comment|/**  * Represents and object instantiation.  */
 end_comment
 
 begin_class
@@ -138,10 +150,7 @@ DECL|method|LNewObj
 specifier|public
 name|LNewObj
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -156,8 +165,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -195,12 +202,12 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
-name|error
-argument_list|(
-literal|"Illegal tree structure"
+literal|"Illegal new call with a target already defined."
 argument_list|)
 argument_list|)
 throw|;
@@ -212,10 +219,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot assign a value to a new call."
 argument_list|)
@@ -242,16 +249,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|IllegalArgumentException
 name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Not a type ["
 operator|+
@@ -264,7 +270,6 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|Struct
 name|struct
 init|=
@@ -301,7 +306,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Type
 index|[]
 name|types
@@ -342,10 +346,10 @@ argument_list|()
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"When calling constructor on type ["
 operator|+
@@ -394,7 +398,6 @@ operator|++
 name|argument
 control|)
 block|{
-specifier|final
 name|AExpression
 name|expression
 init|=
@@ -454,10 +457,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unknown new call on type ["
 operator|+
@@ -481,7 +484,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -493,10 +496,17 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
+name|writer
 operator|.
 name|newInstance
 argument_list|(
@@ -510,7 +520,7 @@ condition|(
 name|load
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|dup
 argument_list|()
@@ -528,11 +538,11 @@ name|argument
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|invokeConstructor
 argument_list|(
@@ -555,14 +565,14 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

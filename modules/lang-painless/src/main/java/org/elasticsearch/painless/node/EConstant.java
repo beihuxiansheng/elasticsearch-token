@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Variables
 import|;
 end_import
@@ -67,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents a constant.  Note this replaces any other expression  * node with a constant value set during a cast.  (Internal only.)  */
+comment|/**  * Represents a constant.  Note this replaces any other expression  * node with a constant value set during a cast.  (Internal only.)  */
 end_comment
 
 begin_class
@@ -81,10 +93,7 @@ block|{
 DECL|method|EConstant
 name|EConstant
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Object
@@ -93,8 +102,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -252,10 +259,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -270,10 +277,9 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -289,7 +295,7 @@ block|{
 case|case
 name|STRING
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -303,7 +309,7 @@ break|break;
 case|case
 name|DOUBLE
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -317,7 +323,7 @@ break|break;
 case|case
 name|FLOAT
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -331,7 +337,7 @@ break|break;
 case|case
 name|LONG
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -345,7 +351,7 @@ break|break;
 case|case
 name|INT
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -359,7 +365,7 @@ break|break;
 case|case
 name|CHAR
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -373,7 +379,7 @@ break|break;
 case|case
 name|SHORT
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -387,7 +393,7 @@ break|break;
 case|case
 name|BYTE
 case|:
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -413,7 +419,7 @@ operator|)
 name|constant
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|goTo
 argument_list|(
@@ -435,7 +441,7 @@ operator|)
 name|constant
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|goTo
 argument_list|(
@@ -455,7 +461,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
@@ -469,10 +475,10 @@ block|}
 break|break;
 default|default:
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -488,7 +494,7 @@ operator|.
 name|BOOL
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeBranch
 argument_list|(

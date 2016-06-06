@@ -615,7 +615,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"properties can not be null for setting ["
+literal|"properties cannot be null for setting ["
 operator|+
 name|key
 operator|+
@@ -659,7 +659,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a new Setting instance. When no scope is provided, we default to {@link Property#NodeScope}.      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
 specifier|public
 name|Setting
@@ -785,7 +785,7 @@ name|properties
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Setting instance. When no scope is provided, we default to {@link Property#NodeScope}.      * @param key the settings key for this setting.      * @param fallbackSetting a setting who's value to fallback on if this setting is not defined      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param fallbackSetting a setting who's value to fallback on if this setting is not defined      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
 specifier|public
 name|Setting

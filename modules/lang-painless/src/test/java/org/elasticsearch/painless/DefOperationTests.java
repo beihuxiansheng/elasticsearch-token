@@ -31,7 +31,7 @@ block|{
 name|Exception
 name|exception
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ClassCastException
 operator|.
@@ -39,10 +39,13 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
+block|{
 name|exec
 argument_list|(
 literal|"def x = 1.0; int y = x; return y;"
 argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -60,7 +63,7 @@ argument_list|)
 expr_stmt|;
 name|exception
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ClassCastException
 operator|.
@@ -68,10 +71,13 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
+block|{
 name|exec
 argument_list|(
 literal|"def x = (short)1; byte y = x; return y;"
 argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 name|assertTrue

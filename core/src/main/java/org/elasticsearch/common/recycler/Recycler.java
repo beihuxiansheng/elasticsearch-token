@@ -42,10 +42,10 @@ name|Recycler
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|Releasable
 block|{
 DECL|interface|Factory
-specifier|public
-specifier|static
 interface|interface
 name|Factory
 parameter_list|<
@@ -62,8 +62,6 @@ parameter_list|()
 function_decl|;
 block|}
 DECL|interface|C
-specifier|public
-specifier|static
 interface|interface
 name|C
 parameter_list|<
@@ -99,8 +97,6 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|interface|V
-specifier|public
-specifier|static
 interface|interface
 name|V
 parameter_list|<

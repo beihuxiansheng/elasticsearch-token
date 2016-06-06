@@ -468,9 +468,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -1213,9 +1211,8 @@ argument_list|)
 decl_stmt|;
 name|clusterStateHealth
 operator|=
+operator|new
 name|ClusterStateHealth
-operator|.
-name|readClusterHealth
 argument_list|(
 name|in
 argument_list|)

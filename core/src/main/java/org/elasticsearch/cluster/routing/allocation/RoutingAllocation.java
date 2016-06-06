@@ -263,12 +263,9 @@ name|metaData
 decl_stmt|;
 DECL|field|explanations
 specifier|private
+specifier|final
 name|RoutingExplanations
 name|explanations
-init|=
-operator|new
-name|RoutingExplanations
-argument_list|()
 decl_stmt|;
 comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          */
 DECL|method|Result
@@ -286,22 +283,17 @@ name|metaData
 parameter_list|)
 block|{
 name|this
-operator|.
+argument_list|(
 name|changed
-operator|=
-name|changed
-expr_stmt|;
-name|this
-operator|.
+argument_list|,
 name|routingTable
-operator|=
-name|routingTable
-expr_stmt|;
-name|this
-operator|.
+argument_list|,
 name|metaData
-operator|=
-name|metaData
+argument_list|,
+operator|new
+name|RoutingExplanations
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          * @param explanations Explanation for the reroute actions          */
@@ -411,6 +403,12 @@ specifier|private
 specifier|final
 name|MetaData
 name|metaData
+decl_stmt|;
+DECL|field|routingTable
+specifier|private
+specifier|final
+name|RoutingTable
+name|routingTable
 decl_stmt|;
 DECL|field|nodes
 specifier|private
@@ -542,6 +540,15 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
+name|routingTable
+operator|=
+name|clusterState
+operator|.
+name|routingTable
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|nodes
 operator|=
 name|clusterState
@@ -609,10 +616,7 @@ name|routingTable
 parameter_list|()
 block|{
 return|return
-name|routingNodes
-operator|.
 name|routingTable
-argument_list|()
 return|;
 block|}
 comment|/**      * Get current routing nodes      * @return routing nodes      */

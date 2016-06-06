@@ -156,12 +156,36 @@ name|NAME
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testDeleteByQuery
+specifier|public
+name|void
+name|testDeleteByQuery
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testCase
+argument_list|(
+name|deleteByQuery
+argument_list|()
+operator|.
+name|source
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|,
+name|DeleteByQueryAction
+operator|.
+name|NAME
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testCase
 specifier|private
 name|void
 name|testCase
 parameter_list|(
-name|AbstractBulkIndexByScrollRequestBuilder
+name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|?
 argument_list|,
@@ -270,7 +294,7 @@ argument_list|(
 literal|.000001f
 argument_list|)
 expr_stmt|;
-comment|// Throttle forever
+comment|// Throttle "forever"
 name|request
 operator|.
 name|source

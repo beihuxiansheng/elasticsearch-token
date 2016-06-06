@@ -32,11 +32,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
-operator|.
-name|util
+name|common
 operator|.
 name|SuppressForbidden
 import|;
@@ -731,7 +729,7 @@ name|MlockallCheck
 argument_list|(
 name|BootstrapSettings
 operator|.
-name|MLOCKALL_SETTING
+name|MEMORY_LOCK_SETTING
 operator|.
 name|get
 argument_list|(

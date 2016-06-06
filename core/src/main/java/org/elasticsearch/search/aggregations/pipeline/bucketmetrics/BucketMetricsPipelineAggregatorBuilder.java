@@ -102,6 +102,20 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|PipelineAggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|pipeline
 operator|.
 name|BucketHelpers
@@ -122,7 +136,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregator
+name|AbstractPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -138,7 +152,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregator
 import|;
 end_import
 
@@ -197,7 +211,7 @@ name|AF
 parameter_list|>
 parameter_list|>
 extends|extends
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregatorBuilder
 argument_list|<
 name|AF
 argument_list|>
@@ -479,9 +493,6 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
