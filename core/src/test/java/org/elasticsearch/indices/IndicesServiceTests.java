@@ -1695,7 +1695,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|indicesService
 operator|.
@@ -1703,6 +1703,7 @@ name|hasUncompletedPendingDeletes
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// "bogus" index has not been removed
 block|}
 name|assertAcked
 argument_list|(
