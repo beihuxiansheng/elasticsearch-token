@@ -441,6 +441,25 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|testEachStatement
+specifier|public
+name|void
+name|testEachStatement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (int x : l) total += x; return x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDeclarationStatement
 specifier|public
 name|void

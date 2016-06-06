@@ -140,6 +140,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|maxLoopCounter
+operator|=
+name|maxLoopCounter
+expr_stmt|;
+name|this
+operator|.
 name|initializer
 operator|=
 name|initializer
@@ -161,12 +167,6 @@ operator|.
 name|block
 operator|=
 name|block
-expr_stmt|;
-name|this
-operator|.
-name|maxLoopCounter
-operator|=
-name|maxLoopCounter
 expr_stmt|;
 block|}
 annotation|@
