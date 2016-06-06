@@ -184,7 +184,7 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|SeqNoStats
+name|SequenceNumbersService
 import|;
 end_import
 
@@ -1134,10 +1134,10 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|seqNoStats
+DECL|method|seqNoService
 specifier|public
-name|SeqNoStats
-name|seqNoStats
+name|SequenceNumbersService
+name|seqNoService
 parameter_list|()
 block|{
 throw|throw

@@ -882,20 +882,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalSettingsPreparer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
 name|service
 operator|.
 name|NodeService
@@ -1546,7 +1532,7 @@ literal|"0"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/** a per-JVM unique offset to be used for calculating unique port ranges. */
+comment|/**      * a per-JVM unique offset to be used for calculating unique port ranges.      */
 DECL|field|JVM_BASE_PORT_OFFSET
 specifier|public
 specifier|static
@@ -7231,6 +7217,14 @@ range|:
 name|indexService
 control|)
 block|{
+comment|// we assert busy as we can have background global checkpoint activity
+try|try
+block|{
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 name|assertThat
 argument_list|(
 literal|"index shard counter on shard "
@@ -7259,6 +7253,26 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"unexpected error while checking for shard counters"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -11864,7 +11878,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Simple interface that allows to wait for an async operation to finish      * @param<T> the result of the async execution      */
+comment|/**      * Simple interface that allows to wait for an async operation to finish      *      * @param<T> the result of the async execution      */
 DECL|interface|Async
 specifier|public
 interface|interface

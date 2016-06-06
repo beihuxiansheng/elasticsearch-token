@@ -643,6 +643,10 @@ name|asList
 argument_list|(
 name|countingListener
 argument_list|)
+argument_list|,
+name|s
+lambda|->
+block|{}
 argument_list|)
 decl_stmt|;
 name|idx

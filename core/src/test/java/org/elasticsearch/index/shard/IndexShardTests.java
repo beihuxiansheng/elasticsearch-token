@@ -12769,6 +12769,11 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
+name|shard
+operator|.
+name|getGlobalCheckpointSyncer
+argument_list|()
+argument_list|,
 name|Collections
 operator|.
 name|emptyList

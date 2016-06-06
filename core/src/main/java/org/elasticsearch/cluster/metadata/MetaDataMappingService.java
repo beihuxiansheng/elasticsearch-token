@@ -330,20 +330,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|percolator
-operator|.
-name|PercolatorFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -920,6 +906,10 @@ name|Collections
 operator|.
 name|emptyList
 argument_list|()
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|)
 expr_stmt|;
 name|removeIndex
@@ -1445,6 +1435,10 @@ name|Collections
 operator|.
 name|emptyList
 argument_list|()
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|)
 decl_stmt|;
 comment|// add mappings for all types, we need them for cross-type validation

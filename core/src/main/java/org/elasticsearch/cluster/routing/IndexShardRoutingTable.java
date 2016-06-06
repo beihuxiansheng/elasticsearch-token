@@ -801,6 +801,22 @@ operator|.
 name|activeShards
 return|;
 block|}
+comment|/**      * Returns a {@link List} of all initializing shards, including target shards of relocations      *      * @return a {@link List} of shards      */
+DECL|method|getAllInitializingShards
+specifier|public
+name|List
+argument_list|<
+name|ShardRouting
+argument_list|>
+name|getAllInitializingShards
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|allInitializingShards
+return|;
+block|}
 comment|/**      * Returns a {@link List} of active shards      *      * @return a {@link List} of shards      */
 DECL|method|getActiveShards
 specifier|public

@@ -223,10 +223,12 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|checkpointService
+specifier|private
 name|LocalCheckpointService
 name|checkpointService
 decl_stmt|;
 DECL|field|SMALL_CHUNK_SIZE
+specifier|private
 specifier|final
 name|int
 name|SMALL_CHUNK_SIZE
@@ -257,7 +259,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getCheckpointService
-specifier|protected
+specifier|private
 name|LocalCheckpointService
 name|getCheckpointService
 parameter_list|()
@@ -292,6 +294,9 @@ argument_list|(
 name|LocalCheckpointService
 operator|.
 name|SETTINGS_BIT_ARRAYS_SIZE
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|SMALL_CHUNK_SIZE
 argument_list|)
@@ -324,7 +329,7 @@ name|equalTo
 argument_list|(
 name|SequenceNumbersService
 operator|.
-name|UNASSIGNED_SEQ_NO
+name|NO_OPS_PERFORMED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -457,7 +462,7 @@ name|equalTo
 argument_list|(
 name|SequenceNumbersService
 operator|.
-name|UNASSIGNED_SEQ_NO
+name|NO_OPS_PERFORMED
 argument_list|)
 argument_list|)
 expr_stmt|;

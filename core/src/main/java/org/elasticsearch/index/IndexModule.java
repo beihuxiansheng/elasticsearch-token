@@ -122,7 +122,7 @@ name|cache
 operator|.
 name|query
 operator|.
-name|QueryCache
+name|DisabledQueryCache
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|cache
 operator|.
 name|query
 operator|.
-name|DisabledQueryCache
+name|QueryCache
 import|;
 end_import
 
@@ -225,6 +225,20 @@ operator|.
 name|shard
 operator|.
 name|SearchOperationListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
 import|;
 end_import
 
@@ -1370,6 +1384,12 @@ parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
 parameter_list|,
+name|Consumer
+argument_list|<
+name|ShardId
+argument_list|>
+name|globalCheckpointSyncer
+parameter_list|,
 name|IndicesFieldDataCache
 name|indicesFieldDataCache
 parameter_list|)
@@ -1668,6 +1688,8 @@ argument_list|,
 name|mapperRegistry
 argument_list|,
 name|indicesFieldDataCache
+argument_list|,
+name|globalCheckpointSyncer
 argument_list|,
 name|searchOperationListeners
 argument_list|,

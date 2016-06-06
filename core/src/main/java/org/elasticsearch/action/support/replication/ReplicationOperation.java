@@ -240,18 +240,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -639,13 +627,19 @@ else|:
 literal|null
 decl_stmt|;
 specifier|final
-name|ShardId
-name|shardId
+name|ShardRouting
+name|primaryRouting
 init|=
 name|primary
 operator|.
 name|routingEntry
 argument_list|()
+decl_stmt|;
+specifier|final
+name|ShardId
+name|shardId
+init|=
+name|primaryRouting
 operator|.
 name|shardId
 argument_list|()
@@ -711,6 +705,24 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 comment|// mark primary as successful
+name|primary
+operator|.
+name|updateLocalCheckpointForShard
+argument_list|(
+name|primaryRouting
+operator|.
+name|allocationId
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|primary
+operator|.
+name|localCheckpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|finalResponse
 operator|=
 name|primaryResponse
@@ -782,10 +794,7 @@ specifier|final
 name|String
 name|localNodeId
 init|=
-name|primary
-operator|.
-name|routingEntry
-argument_list|()
+name|primaryRouting
 operator|.
 name|currentNodeId
 argument_list|()
@@ -952,9 +961,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|TransportResponse
-operator|.
-name|Empty
+name|ReplicaResponse
 argument_list|>
 argument_list|()
 block|{
@@ -964,16 +971,29 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|TransportResponse
-operator|.
-name|Empty
-name|empty
+name|ReplicaResponse
+name|response
 parameter_list|)
 block|{
 name|successfulShards
 operator|.
 name|incrementAndGet
 argument_list|()
+expr_stmt|;
+name|primary
+operator|.
+name|updateLocalCheckpointForShard
+argument_list|(
+name|response
+operator|.
+name|allocationId
+argument_list|()
+argument_list|,
+name|response
+operator|.
+name|localCheckpoint
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|decPendingAndFinishIfNeeded
 argument_list|()
@@ -1783,6 +1803,24 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**          * Notifies the primary of a local checkpoint for the given allocation.          *          * Note: The primary will use this information to advance the global checkpoint if possible.          *          * @param allocationId allocation ID of the shard corresponding to the supplied local checkpoint          * @param checkpoint the *local* checkpoint for the shard          */
+DECL|method|updateLocalCheckpointForShard
+name|void
+name|updateLocalCheckpointForShard
+parameter_list|(
+name|String
+name|allocationId
+parameter_list|,
+name|long
+name|checkpoint
+parameter_list|)
+function_decl|;
+comment|/** returns the local checkpoint of the primary shard */
+DECL|method|localCheckpoint
+name|long
+name|localCheckpoint
+parameter_list|()
+function_decl|;
 block|}
 DECL|interface|Replicas
 interface|interface
@@ -1796,7 +1834,7 @@ name|ReplicaRequest
 parameter_list|>
 parameter_list|>
 block|{
-comment|/**          * performs the the given request on the specified replica          *          * @param replica {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to peform          * @param listener a callback to call once the operation has been complicated, either successfully or with an error.          */
+comment|/**          * performs the the given request on the specified replica          * @param replica {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to peform          * @param listener a callback to call once the operation has been complicated, either successfully or with an error.          */
 DECL|method|performOn
 name|void
 name|performOn
@@ -1809,9 +1847,7 @@ name|replicaRequest
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|TransportResponse
-operator|.
-name|Empty
+name|ReplicaResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -1848,6 +1884,24 @@ name|Throwable
 argument_list|>
 name|onIgnoredFailure
 parameter_list|)
+function_decl|;
+block|}
+comment|/**      * An interface to encapsulate the metadata needed from replica shards when they respond to operations performed on them      */
+DECL|interface|ReplicaResponse
+interface|interface
+name|ReplicaResponse
+block|{
+comment|/** the local check point for the shard. see {@link org.elasticsearch.index.seqno.SequenceNumbersService#getLocalCheckpoint()} */
+DECL|method|localCheckpoint
+name|long
+name|localCheckpoint
+parameter_list|()
+function_decl|;
+comment|/** the allocation id of the replica shard */
+DECL|method|allocationId
+name|String
+name|allocationId
+parameter_list|()
 function_decl|;
 block|}
 DECL|class|RetryOnPrimaryException

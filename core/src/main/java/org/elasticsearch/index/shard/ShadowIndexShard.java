@@ -366,6 +366,10 @@ name|bigArrays
 argument_list|,
 name|engineWarmer
 argument_list|,
+parameter_list|()
+lambda|->
+block|{             }
+argument_list|,
 name|searchOperationListeners
 argument_list|,
 name|Collections
@@ -526,6 +530,47 @@ return|return
 literal|null
 return|;
 comment|// shadow engine has no translog
+block|}
+annotation|@
+name|Override
+DECL|method|updateGlobalCheckpointOnReplica
+specifier|public
+name|void
+name|updateGlobalCheckpointOnReplica
+parameter_list|(
+name|long
+name|checkpoint
+parameter_list|)
+block|{
+comment|// nocommit: think shadow replicas through
+block|}
+annotation|@
+name|Override
+DECL|method|getLocalCheckpoint
+specifier|public
+name|long
+name|getLocalCheckpoint
+parameter_list|()
+block|{
+comment|// nocommit: think shadow replicas through
+return|return
+operator|-
+literal|1
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getGlobalCheckpoint
+specifier|public
+name|long
+name|getGlobalCheckpoint
+parameter_list|()
+block|{
+comment|// nocommit: think shadow replicas through
+return|return
+operator|-
+literal|1
+return|;
 block|}
 block|}
 end_class

@@ -400,7 +400,7 @@ name|cache
 operator|.
 name|query
 operator|.
-name|QueryCache
+name|DisabledQueryCache
 import|;
 end_import
 
@@ -432,7 +432,7 @@ name|cache
 operator|.
 name|query
 operator|.
-name|DisabledQueryCache
+name|QueryCache
 import|;
 end_import
 
@@ -624,6 +624,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndicesQueryCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|breaker
 operator|.
 name|CircuitBreakerService
@@ -641,18 +653,6 @@ operator|.
 name|breaker
 operator|.
 name|NoneCircuitBreakerService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesQueryCache
 import|;
 end_import
 
@@ -923,18 +923,6 @@ operator|.
 name|function
 operator|.
 name|Consumer
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
 import|;
 end_import
 
@@ -1468,6 +1456,10 @@ name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
 argument_list|,
+name|shardId
+lambda|->
+block|{}
+argument_list|,
 operator|new
 name|IndicesFieldDataCache
 argument_list|(
@@ -1657,6 +1649,10 @@ name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
 argument_list|,
+name|shardId
+lambda|->
+block|{}
+argument_list|,
 operator|new
 name|IndicesFieldDataCache
 argument_list|(
@@ -1798,6 +1794,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache
@@ -2019,6 +2019,10 @@ name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
 argument_list|,
+name|shardId
+lambda|->
+block|{}
+argument_list|,
 operator|new
 name|IndicesFieldDataCache
 argument_list|(
@@ -2191,6 +2195,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache
@@ -2434,6 +2442,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache
@@ -2686,6 +2698,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache
@@ -3109,6 +3125,10 @@ name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
 argument_list|,
+name|shardId
+lambda|->
+block|{}
+argument_list|,
 operator|new
 name|IndicesFieldDataCache
 argument_list|(
@@ -3234,6 +3254,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache
@@ -3394,6 +3418,10 @@ name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
 argument_list|,
+name|shardId
+lambda|->
+block|{}
+argument_list|,
 operator|new
 name|IndicesFieldDataCache
 argument_list|(
@@ -3517,6 +3545,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache
@@ -3668,6 +3700,10 @@ argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|shardId
+lambda|->
+block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache

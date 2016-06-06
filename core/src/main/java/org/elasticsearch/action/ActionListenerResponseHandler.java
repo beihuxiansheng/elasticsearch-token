@@ -109,6 +109,8 @@ specifier|private
 specifier|final
 name|ActionListener
 argument_list|<
+name|?
+super|super
 name|Response
 argument_list|>
 name|listener
@@ -128,6 +130,8 @@ name|ActionListenerResponseHandler
 parameter_list|(
 name|ActionListener
 argument_list|<
+name|?
+super|super
 name|Response
 argument_list|>
 name|listener
