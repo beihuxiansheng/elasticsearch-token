@@ -207,29 +207,24 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|SArrayEach
+specifier|public
 name|SArrayEach
 parameter_list|(
-specifier|final
 name|Location
 name|location
 parameter_list|,
-specifier|final
 name|int
 name|maxLoopCounter
 parameter_list|,
-specifier|final
 name|String
 name|type
 parameter_list|,
-specifier|final
 name|String
 name|name
 parameter_list|,
-specifier|final
 name|AExpression
 name|expression
 parameter_list|,
-specifier|final
 name|SBlock
 name|block
 parameter_list|)
@@ -280,6 +275,8 @@ name|Variables
 name|variables
 parameter_list|)
 block|{
+comment|// Note that we do not need to analyze the expression as this must already be done
+comment|// in the parent to determine that the for each target type is an array.
 specifier|final
 name|Type
 name|type
