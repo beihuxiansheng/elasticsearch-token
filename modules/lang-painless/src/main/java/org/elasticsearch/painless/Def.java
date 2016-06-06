@@ -1354,11 +1354,9 @@ name|e
 argument_list|)
 throw|;
 block|}
-try|try
-block|{
-comment|// create an implementation of the interface (instance)
-name|Object
-name|instance
+comment|// we could actually invoke and cache here (in non-capturing cases), but this is not a speedup.
+name|MethodHandle
+name|factory
 init|=
 name|callSite
 operator|.
@@ -1374,24 +1372,13 @@ argument_list|(
 name|clazz
 argument_list|)
 argument_list|)
-operator|.
-name|invoke
-argument_list|()
 decl_stmt|;
-comment|// bind this instance as a constant replacement for the parameter
 return|return
 name|MethodHandles
 operator|.
 name|dropArguments
 argument_list|(
-name|MethodHandles
-operator|.
-name|constant
-argument_list|(
-name|clazz
-argument_list|,
-name|instance
-argument_list|)
+name|factory
 argument_list|,
 literal|0
 argument_list|,
@@ -1400,21 +1387,6 @@ operator|.
 name|class
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Looks up handle for a dynamic field getter (field load)      *<p>      * A dynamic field load for variable {@code x} of type {@code def} looks like:      * {@code y = x.field}      *<p>      * The following field loads are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code getField()} from receiver's class/superclasses/interfaces.      *<li>Whitelisted method named {@code isField()} from receiver's class/superclasses/interfaces.      *<li>The {@code length} field of an array.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted getter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching getter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
 DECL|method|lookupGetter
