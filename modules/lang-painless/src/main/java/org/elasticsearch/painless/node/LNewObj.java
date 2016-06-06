@@ -50,7 +50,7 @@ name|painless
 operator|.
 name|Definition
 operator|.
-name|Constructor
+name|Method
 import|;
 end_import
 
@@ -143,7 +143,7 @@ argument_list|>
 name|arguments
 decl_stmt|;
 DECL|field|constructor
-name|Constructor
+name|Method
 name|constructor
 decl_stmt|;
 DECL|method|LNewObj
@@ -290,7 +290,7 @@ name|Definition
 operator|.
 name|MethodKey
 argument_list|(
-literal|"new"
+literal|"<init>"
 argument_list|,
 name|arguments
 operator|.

@@ -141,7 +141,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"dynamic method [indexOf] with signature [(String,int,String)"
+literal|"dynamic method [indexOf]"
 argument_list|)
 argument_list|)
 expr_stmt|;
