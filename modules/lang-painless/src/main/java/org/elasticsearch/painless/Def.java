@@ -1154,6 +1154,11 @@ specifier|static
 name|MethodHandle
 name|lookupMethod
 parameter_list|(
+name|MethodHandles
+operator|.
+name|Lookup
+name|lookup
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -1257,6 +1262,8 @@ index|]
 operator|=
 name|lookupReference
 argument_list|(
+name|lookup
+argument_list|,
 name|method
 operator|.
 name|arguments
@@ -1306,6 +1313,11 @@ specifier|static
 name|MethodHandle
 name|lookupReference
 parameter_list|(
+name|MethodHandles
+operator|.
+name|Lookup
+name|lookup
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -1353,17 +1365,6 @@ literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|MethodHandles
-operator|.
-name|Lookup
-name|lookup
-init|=
-name|MethodHandles
-operator|.
-name|lookup
-argument_list|()
-decl_stmt|;
-comment|// XXX: no lookuping needed, we should pass this from DefBootstrap!
 specifier|final
 name|CallSite
 name|callSite

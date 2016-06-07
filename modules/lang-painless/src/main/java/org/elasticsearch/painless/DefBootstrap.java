@@ -204,6 +204,14 @@ name|MAX_DEPTH
 init|=
 literal|5
 decl_stmt|;
+DECL|field|lookup
+specifier|private
+specifier|final
+name|MethodHandles
+operator|.
+name|Lookup
+name|lookup
+decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
@@ -230,6 +238,11 @@ comment|// pkg-protected for testing
 DECL|method|PIC
 name|PIC
 parameter_list|(
+name|MethodHandles
+operator|.
+name|Lookup
+name|lookup
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -247,6 +260,12 @@ name|super
 argument_list|(
 name|type
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|lookup
+operator|=
+name|lookup
 expr_stmt|;
 name|this
 operator|.
@@ -351,7 +370,6 @@ block|}
 comment|/**          * Does a slow lookup against the whitelist.          */
 DECL|method|lookup
 specifier|private
-specifier|static
 name|MethodHandle
 name|lookup
 parameter_list|(
@@ -388,6 +406,8 @@ name|Def
 operator|.
 name|lookupMethod
 argument_list|(
+name|lookup
+argument_list|,
 name|clazz
 argument_list|,
 name|name
@@ -752,6 +772,8 @@ return|return
 operator|new
 name|PIC
 argument_list|(
+name|lookup
+argument_list|,
 name|name
 argument_list|,
 name|type
