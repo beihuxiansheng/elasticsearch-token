@@ -1001,13 +1001,19 @@ specifier|private
 name|FieldDoc
 name|searchAfter
 decl_stmt|;
+comment|// filter for sliced scroll
+DECL|field|sliceFilter
+specifier|private
+name|Query
+name|sliceFilter
+decl_stmt|;
 comment|/**      * The original query as sent by the user without the types and aliases      * applied. Putting things in here leaks them into highlighting so don't add      * things like the type filter or alias filters.      */
 DECL|field|originalQuery
 specifier|private
 name|ParsedQuery
 name|originalQuery
 decl_stmt|;
-comment|/**      * Just like originalQuery but with the filters from types and aliases      * applied.      */
+comment|/**      * Just like originalQuery but with the filters from types, aliases and slice applied.      */
 DECL|field|filteredQuery
 specifier|private
 name|ParsedQuery
@@ -1545,7 +1551,7 @@ name|maxWindow
 operator|+
 literal|"]. This prevents allocating massive heaps for storing the results to be "
 operator|+
-literal|"rescored. This limit can be set by chaning the ["
+literal|"rescored. This limit can be set by chaining the ["
 operator|+
 name|IndexSettings
 operator|.
@@ -1775,7 +1781,9 @@ index|[]
 name|types
 parameter_list|)
 block|{
-return|return
+name|Query
+name|typesFilter
+init|=
 name|createSearchFilter
 argument_list|(
 name|types
@@ -1788,6 +1796,56 @@ operator|.
 name|hasNested
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sliceFilter
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|typesFilter
+return|;
+block|}
+if|if
+condition|(
+name|typesFilter
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|sliceFilter
+return|;
+block|}
+return|return
+operator|new
+name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|typesFilter
+argument_list|,
+name|Occur
+operator|.
+name|FILTER
+argument_list|)
+operator|.
+name|add
+argument_list|(
+name|sliceFilter
+argument_list|,
+name|Occur
+operator|.
+name|FILTER
+argument_list|)
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|// extracted to static helper method to make writing unit tests easier:
@@ -2824,6 +2882,25 @@ parameter_list|()
 block|{
 return|return
 name|searchAfter
+return|;
+block|}
+DECL|method|sliceFilter
+specifier|public
+name|SearchContext
+name|sliceFilter
+parameter_list|(
+name|Query
+name|filter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sliceFilter
+operator|=
+name|filter
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 annotation|@
