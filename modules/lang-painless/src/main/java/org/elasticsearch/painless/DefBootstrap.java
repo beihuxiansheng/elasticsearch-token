@@ -207,8 +207,6 @@ decl_stmt|;
 DECL|field|lookup
 specifier|private
 specifier|final
-name|MethodHandles
-operator|.
 name|Lookup
 name|lookup
 decl_stmt|;
@@ -238,8 +236,6 @@ comment|// pkg-protected for testing
 DECL|method|PIC
 name|PIC
 parameter_list|(
-name|MethodHandles
-operator|.
 name|Lookup
 name|lookup
 parameter_list|,

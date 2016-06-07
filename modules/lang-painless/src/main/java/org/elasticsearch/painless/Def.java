@@ -1154,8 +1154,6 @@ specifier|static
 name|MethodHandle
 name|lookupMethod
 parameter_list|(
-name|MethodHandles
-operator|.
 name|Lookup
 name|lookup
 parameter_list|,
@@ -1315,8 +1313,6 @@ specifier|static
 name|MethodHandle
 name|lookupReference
 parameter_list|(
-name|MethodHandles
-operator|.
 name|Lookup
 name|lookup
 parameter_list|,
