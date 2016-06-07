@@ -1761,7 +1761,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|method|getAsmMethod
-specifier|private
+specifier|public
 specifier|static
 name|Method
 name|getAsmMethod
