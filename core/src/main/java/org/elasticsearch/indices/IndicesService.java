@@ -6474,20 +6474,6 @@ name|SearchContext
 name|context
 parameter_list|)
 block|{
-if|if
-condition|(
-name|request
-operator|.
-name|template
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|// for now, only enable it for requests with no hits
 if|if
 condition|(

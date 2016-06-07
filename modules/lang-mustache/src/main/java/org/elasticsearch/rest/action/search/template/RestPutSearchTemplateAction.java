@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest.action.admin.cluster.storedscripts
+DECL|package|org.elasticsearch.rest.action.search.template
 package|package
 name|org
 operator|.
@@ -14,11 +14,9 @@ name|rest
 operator|.
 name|action
 operator|.
-name|admin
+name|search
 operator|.
-name|cluster
-operator|.
-name|storedscripts
+name|template
 package|;
 end_package
 
@@ -102,7 +100,7 @@ name|cluster
 operator|.
 name|storedscripts
 operator|.
-name|RestDeleteStoredScriptAction
+name|RestPutStoredScriptAction
 import|;
 end_import
 
@@ -130,23 +128,39 @@ name|RestRequest
 operator|.
 name|Method
 operator|.
-name|DELETE
+name|POST
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|PUT
 import|;
 end_import
 
 begin_class
-DECL|class|RestDeleteSearchTemplateAction
+DECL|class|RestPutSearchTemplateAction
 specifier|public
 class|class
-name|RestDeleteSearchTemplateAction
+name|RestPutSearchTemplateAction
 extends|extends
-name|RestDeleteStoredScriptAction
+name|RestPutStoredScriptAction
 block|{
 annotation|@
 name|Inject
-DECL|method|RestDeleteSearchTemplateAction
+DECL|method|RestPutSearchTemplateAction
 specifier|public
-name|RestDeleteSearchTemplateAction
+name|RestPutSearchTemplateAction
 parameter_list|(
 name|Settings
 name|settings
@@ -173,7 +187,18 @@ name|controller
 operator|.
 name|registerHandler
 argument_list|(
-name|DELETE
+name|POST
+argument_list|,
+literal|"/_search/template/{id}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|PUT
 argument_list|,
 literal|"/_search/template/{id}"
 argument_list|,

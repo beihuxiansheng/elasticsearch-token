@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest.action.admin.cluster.storedscripts
+DECL|package|org.elasticsearch.rest.action.search.template
 package|package
 name|org
 operator|.
@@ -14,11 +14,9 @@ name|rest
 operator|.
 name|action
 operator|.
-name|admin
+name|search
 operator|.
-name|cluster
-operator|.
-name|storedscripts
+name|template
 package|;
 end_package
 
@@ -102,7 +100,7 @@ name|cluster
 operator|.
 name|storedscripts
 operator|.
-name|RestGetStoredScriptAction
+name|RestDeleteStoredScriptAction
 import|;
 end_import
 
@@ -130,27 +128,23 @@ name|RestRequest
 operator|.
 name|Method
 operator|.
-name|GET
+name|DELETE
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-DECL|class|RestGetSearchTemplateAction
+DECL|class|RestDeleteSearchTemplateAction
 specifier|public
 class|class
-name|RestGetSearchTemplateAction
+name|RestDeleteSearchTemplateAction
 extends|extends
-name|RestGetStoredScriptAction
+name|RestDeleteStoredScriptAction
 block|{
 annotation|@
 name|Inject
-DECL|method|RestGetSearchTemplateAction
+DECL|method|RestDeleteSearchTemplateAction
 specifier|public
-name|RestGetSearchTemplateAction
+name|RestDeleteSearchTemplateAction
 parameter_list|(
 name|Settings
 name|settings
@@ -177,7 +171,7 @@ name|controller
 operator|.
 name|registerHandler
 argument_list|(
-name|GET
+name|DELETE
 argument_list|,
 literal|"/_search/template/{id}"
 argument_list|,
@@ -202,27 +196,6 @@ operator|.
 name|DEFAULT_LANG
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getScriptFieldName
-specifier|protected
-name|String
-name|getScriptFieldName
-parameter_list|()
-block|{
-return|return
-name|TEMPLATE
-return|;
-block|}
-DECL|field|TEMPLATE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|TEMPLATE
-init|=
-literal|"template"
-decl_stmt|;
 block|}
 end_class
 

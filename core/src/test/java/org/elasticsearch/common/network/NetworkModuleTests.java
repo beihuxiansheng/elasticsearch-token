@@ -706,6 +706,14 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// check it works with transport only as well
 name|module
 operator|=
@@ -749,6 +757,14 @@ argument_list|,
 name|FakeTransportService
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -823,6 +839,14 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// check it works with transport only as well
 name|module
 operator|=
@@ -866,6 +890,14 @@ argument_list|,
 name|FakeTransport
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,6 +975,14 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// check registration not allowed for transport only
 name|module
 operator|=
@@ -961,6 +1001,14 @@ literal|true
 argument_list|,
 operator|new
 name|NamedWriteableRegistry
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1064,6 +1112,14 @@ argument_list|,
 name|HttpServerTransport
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1299,6 +1355,14 @@ argument_list|,
 name|registry
 argument_list|)
 decl_stmt|;
+name|assertFalse
+argument_list|(
+name|module
+operator|.
+name|isTransportClient
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Builtin reader comes back
 name|assertNotNull
 argument_list|(
