@@ -1703,10 +1703,6 @@ name|RecoverySettings
 operator|.
 name|INDICES_RECOVERY_INTERNAL_LONG_ACTION_TIMEOUT_SETTING
 argument_list|,
-name|ThreadPool
-operator|.
-name|THREADPOOL_GROUP_SETTING
-argument_list|,
 name|ThrottlingAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES_SETTING
@@ -2640,6 +2636,10 @@ argument_list|,
 name|SearchModule
 operator|.
 name|INDICES_MAX_CLAUSE_COUNT_SETTING
+argument_list|,
+name|ThreadPool
+operator|.
+name|ESTIMATED_TIME_INTERVAL_SETTING
 argument_list|)
 argument_list|)
 argument_list|)

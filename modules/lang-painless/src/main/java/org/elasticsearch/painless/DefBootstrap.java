@@ -176,6 +176,16 @@ name|ARRAY_STORE
 init|=
 literal|4
 decl_stmt|;
+comment|/** static bootstrap parameter indicating a dynamic iteration, e.g. for (x : y) */
+DECL|field|ITERATOR
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ITERATOR
+init|=
+literal|5
+decl_stmt|;
 comment|/**      * CallSite that implements the polymorphic inlining cache (PIC).      */
 DECL|class|PIC
 specifier|static
@@ -270,7 +280,7 @@ name|Long
 operator|.
 name|bitCount
 argument_list|(
-name|flavor
+name|recipe
 argument_list|)
 operator|<=
 name|type
@@ -431,6 +441,17 @@ return|return
 name|Def
 operator|.
 name|lookupArrayStore
+argument_list|(
+name|clazz
+argument_list|)
+return|;
+case|case
+name|ITERATOR
+case|:
+return|return
+name|Def
+operator|.
+name|lookupIterator
 argument_list|(
 name|clazz
 argument_list|)

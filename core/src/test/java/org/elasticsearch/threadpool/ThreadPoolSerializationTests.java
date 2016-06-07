@@ -706,7 +706,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.index.queue_size"
+literal|"thread_pool.index.queue_size"
 argument_list|,
 literal|"-1"
 argument_list|)

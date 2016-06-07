@@ -365,7 +365,7 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.bulk.size"
+literal|"thread_pool.bulk.size"
 argument_list|,
 literal|1
 argument_list|)
@@ -374,7 +374,7 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.search.size"
+literal|"thread_pool.search.size"
 argument_list|,
 literal|1
 argument_list|)
@@ -384,7 +384,7 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.bulk.queue_size"
+literal|"thread_pool.bulk.queue_size"
 argument_list|,
 literal|1
 argument_list|)
@@ -393,7 +393,7 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.search.queue_size"
+literal|"thread_pool.search.queue_size"
 argument_list|,
 literal|1
 argument_list|)

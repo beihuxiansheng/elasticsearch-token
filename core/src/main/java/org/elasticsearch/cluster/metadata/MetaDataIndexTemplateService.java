@@ -1744,7 +1744,7 @@ name|validationErrors
 operator|.
 name|add
 argument_list|(
-literal|"template must not container the following characters "
+literal|"template must not contain the following characters "
 operator|+
 name|Strings
 operator|.

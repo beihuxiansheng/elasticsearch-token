@@ -4,13 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action
+DECL|package|org.elasticsearch.action.support.replication
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|action
+operator|.
+name|support
+operator|.
+name|replication
 package|;
 end_package
 
@@ -31,6 +35,30 @@ operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ShardOperationFailedException
 import|;
 end_import
 
@@ -371,7 +399,7 @@ operator|=
 name|failures
 expr_stmt|;
 block|}
-comment|/**          * @return the total number of shards the write should go to (replicas and primaries). This includes relocating shards, so this number can be higher than the number of shards.          */
+comment|/**          * @return the total number of shards the write should go to (replicas and primaries). This includes relocating shards, so this          *         number can be higher than the number of shards.          */
 DECL|method|getTotal
 specifier|public
 name|int
@@ -382,7 +410,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/**          * @return the total number of shards the write succeeded on (replicas and primaries). This includes relocating shards, so this number can be higher than the number of shards.          */
+comment|/**          * @return the total number of shards the write succeeded on (replicas and primaries). This includes relocating shards, so this          *         number can be higher than the number of shards.          */
 DECL|method|getSuccessful
 specifier|public
 name|int
