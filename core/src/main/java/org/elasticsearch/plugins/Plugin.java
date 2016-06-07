@@ -70,6 +70,30 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ExecutorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -85,6 +109,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -192,6 +226,29 @@ name|IndexModule
 name|indexModule
 parameter_list|)
 block|{}
+comment|/**      * Provides the list of this plugin's custom thread pools, empty if      * none.      *      * @param settings the current settings      * @return executors builders for this plugin's custom thread pools      */
+DECL|method|getExecutorBuilders
+specifier|public
+name|List
+argument_list|<
+name|ExecutorBuilder
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getExecutorBuilders
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

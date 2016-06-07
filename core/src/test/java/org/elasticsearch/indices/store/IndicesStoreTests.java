@@ -238,6 +238,18 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
+name|TestThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
 name|ThreadPool
 import|;
 end_import
@@ -507,7 +519,7 @@ block|{
 name|threadPool
 operator|=
 operator|new
-name|ThreadPool
+name|TestThreadPool
 argument_list|(
 literal|"ShardReplicationTests"
 argument_list|)
