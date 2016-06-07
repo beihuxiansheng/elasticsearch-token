@@ -3860,7 +3860,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|500l
+literal|500L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
