@@ -426,10 +426,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the {@link CreateIndexRequest} for the shrink index      */
-DECL|method|getShrinkIndexReqeust
+DECL|method|getShrinkIndexRequest
 specifier|public
 name|CreateIndexRequest
-name|getShrinkIndexReqeust
+name|getShrinkIndexRequest
 parameter_list|()
 block|{
 return|return

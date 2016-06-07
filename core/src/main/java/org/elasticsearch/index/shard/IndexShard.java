@@ -1482,6 +1482,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
@@ -1563,6 +1573,18 @@ operator|.
 name|function
 operator|.
 name|BiConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
 import|;
 end_import
 
@@ -8207,6 +8229,34 @@ lambda|->
 block|{
 try|try
 block|{
+specifier|final
+name|Set
+argument_list|<
+name|ShardId
+argument_list|>
+name|shards
+init|=
+name|IndexMetaData
+operator|.
+name|selectShrinkShards
+argument_list|(
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|sourceIndexService
+operator|.
+name|getMetaData
+argument_list|()
+argument_list|,
+name|indexMetaData
+operator|.
+name|getNumberOfShards
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|recoverFromLocalShards
@@ -8214,8 +8264,36 @@ argument_list|(
 name|mappingUpdateConsumer
 argument_list|,
 name|startedShards
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+parameter_list|(
+lambda|s
+argument_list|)
+operator|->
+name|shards
+operator|.
+name|contains
+argument_list|(
+name|s
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
 argument_list|)
 condition|)
+argument_list|)
 block|{
 name|recoveryListener
 operator|.
@@ -8223,8 +8301,7 @@ name|onRecoveryDone
 argument_list|(
 name|recoveryState
 argument_list|)
-expr_stmt|;
-block|}
+block|;                             }
 block|}
 catch|catch
 parameter_list|(
@@ -8255,8 +8332,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
+block|)
+empty_stmt|;
 block|}
 else|else
 block|{
@@ -8333,6 +8410,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_else
 else|else
 block|{
 name|markAsRecovering
@@ -8402,8 +8482,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
+end_else
+
+begin_block
+unit|} else
 block|{
 comment|// recover from a restore
 specifier|final
@@ -8521,18 +8603,20 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+end_block
+
+begin_expr_stmt
+unit|}      class
 DECL|class|ShardEventListener
-class|class
 name|ShardEventListener
-implements|implements
+expr|implements
 name|Engine
 operator|.
 name|EventListener
 block|{
 DECL|field|delegates
 specifier|private
-specifier|final
+name|final
 name|CopyOnWriteArrayList
 argument_list|<
 name|Callback
@@ -8541,33 +8625,33 @@ name|ShardFailure
 argument_list|>
 argument_list|>
 name|delegates
-init|=
+operator|=
 operator|new
 name|CopyOnWriteArrayList
 argument_list|<>
 argument_list|()
-decl_stmt|;
+block|;
 comment|// called by the current engine
-annotation|@
+block|@
 name|Override
 DECL|method|onFailedEngine
 specifier|public
 name|void
 name|onFailedEngine
-parameter_list|(
+argument_list|(
 name|String
 name|reason
-parameter_list|,
+argument_list|,
 annotation|@
 name|Nullable
 name|Throwable
 name|failure
-parameter_list|)
+argument_list|)
 block|{
-specifier|final
+name|final
 name|ShardFailure
 name|shardFailure
-init|=
+operator|=
 operator|new
 name|ShardFailure
 argument_list|(
@@ -8580,7 +8664,7 @@ argument_list|,
 name|getIndexUUID
 argument_list|()
 argument_list|)
-decl_stmt|;
+block|;
 for|for
 control|(
 name|Callback
@@ -8618,11 +8702,11 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-block|}
+end_expr_stmt
+
+begin_function
+unit|}         }     }      private
 DECL|method|createNewEngine
-specifier|private
 name|Engine
 name|createNewEngine
 parameter_list|(
@@ -8701,6 +8785,9 @@ return|return
 name|engine
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|newEngine
 specifier|protected
 name|Engine
@@ -8719,7 +8806,13 @@ name|config
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// pkg private for testing
+end_comment
+
+begin_function
 DECL|method|persistMetadata
 name|void
 name|persistMetadata
@@ -8888,6 +8981,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getIndexUUID
 specifier|private
 name|String
@@ -8901,6 +8997,9 @@ name|getUUID
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|docMapper
 specifier|private
 name|DocumentMapperForType
@@ -8919,6 +9018,9 @@ name|type
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|newEngineConfig
 specifier|private
 specifier|final
@@ -9011,6 +9113,9 @@ name|refreshListeners
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|acquirePrimaryOperationLock
 specifier|public
 name|Releasable
@@ -9030,7 +9135,13 @@ name|acquireUninterruptibly
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * acquires operation log. If the given primary term is lower then the one in {@link #shardRouting}      * an {@link IllegalArgumentException} is thrown.      */
+end_comment
+
+begin_function
 DECL|method|acquireReplicaOperationLock
 specifier|public
 name|Releasable
@@ -9080,6 +9191,9 @@ name|acquireUninterruptibly
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getActiveOperationsCount
 specifier|public
 name|int
@@ -9094,7 +9208,13 @@ argument_list|()
 return|;
 comment|// refCount is incremented on creation and decremented on close
 block|}
+end_function
+
+begin_comment
 comment|/**      * Syncs the given location with the underlying storage unless already synced.      */
+end_comment
+
+begin_function
 DECL|method|sync
 specifier|public
 name|void
@@ -9161,7 +9281,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns the current translog durability mode      */
+end_comment
+
+begin_function
 DECL|method|getTranslogDurability
 specifier|public
 name|Translog
@@ -9177,6 +9303,9 @@ name|getTranslogDurability
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_decl_stmt
 DECL|field|asyncFlushRunning
 specifier|private
 specifier|final
@@ -9187,7 +9316,13 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
+end_decl_stmt
+
+begin_comment
 comment|/**      * Schedules a flush if needed but won't schedule more than one flush concurrently. The flush will be executed on the      * Flush thread-pool asynchronously.      *      * @return<code>true</code> if a new flush is scheduled otherwise<code>false</code>.      */
+end_comment
+
+begin_function
 DECL|method|maybeFlush
 specifier|public
 name|boolean
@@ -9348,7 +9483,13 @@ return|return
 literal|false
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Build {@linkplain RefreshListeners} for this shard. Protected so {@linkplain ShadowIndexShard} can override it to return null.      */
+end_comment
+
+begin_function
 DECL|method|buildRefreshListeners
 specifier|protected
 name|RefreshListeners
@@ -9387,7 +9528,13 @@ name|logger
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Simple struct encapsulating a shard failure      *      * @see IndexShard#addShardFailureCallback(Callback)      */
+end_comment
+
+begin_class
 DECL|class|ShardFailure
 specifier|public
 specifier|static
@@ -9466,6 +9613,9 @@ name|indexUUID
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|getEngineFactory
 name|EngineFactory
 name|getEngineFactory
@@ -9475,7 +9625,13 @@ return|return
 name|engineFactory
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher *or* there are pending      * refresh listeners.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException  if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
+end_comment
+
+begin_function
 DECL|method|isRefreshNeeded
 specifier|public
 name|boolean
@@ -9501,7 +9657,13 @@ argument_list|()
 operator|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Add a listener for refreshes.      *      * @param location the location to listen for      * @param listener for the refresh. Called with true if registering the listener ran it out of slots and forced a refresh. Called with      *        false otherwise.      */
+end_comment
+
+begin_function
 DECL|method|addRefreshListener
 specifier|public
 name|void
@@ -9529,6 +9691,9 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_class
 DECL|class|IndexShardRecoveryPerformer
 specifier|private
 class|class
@@ -9703,8 +9868,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 

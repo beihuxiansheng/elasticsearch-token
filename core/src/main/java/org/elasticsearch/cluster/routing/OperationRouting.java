@@ -1544,7 +1544,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|generateShardId
-specifier|private
+specifier|static
 name|int
 name|generateShardId
 parameter_list|(
@@ -1593,6 +1593,8 @@ name|routing
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we don't use IMD#getNumberOfShards since the index might have been shrunk such that we need to use the size
+comment|// of original index to hash documents
 return|return
 name|Math
 operator|.
@@ -1602,9 +1604,14 @@ name|hash
 argument_list|,
 name|indexMetaData
 operator|.
-name|getNumberOfShards
+name|getRoutingNumShards
 argument_list|()
 argument_list|)
+operator|/
+name|indexMetaData
+operator|.
+name|getRoutingFactor
+argument_list|()
 return|;
 block|}
 DECL|method|ensureNodeIdExists
