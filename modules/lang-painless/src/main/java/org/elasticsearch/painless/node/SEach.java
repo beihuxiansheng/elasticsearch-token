@@ -1301,6 +1301,8 @@ operator|)
 name|DefBootstrap
 operator|.
 name|ITERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

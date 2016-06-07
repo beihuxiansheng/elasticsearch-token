@@ -358,6 +358,8 @@ catch|catch
 parameter_list|(
 name|PainlessError
 decl||
+name|BootstrapMethodError
+decl||
 name|Exception
 name|t
 parameter_list|)
