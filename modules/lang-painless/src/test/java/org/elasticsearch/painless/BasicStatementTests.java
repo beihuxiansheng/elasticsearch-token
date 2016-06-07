@@ -574,13 +574,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"working on it"
-argument_list|)
 DECL|method|testArrayForEachStatementDef
 specifier|public
 name|void
