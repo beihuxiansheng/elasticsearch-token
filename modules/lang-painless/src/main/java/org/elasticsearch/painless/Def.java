@@ -1148,7 +1148,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args args passed to callsite      * @param recipe bitset marking functional parameters      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
+comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args args passed to callsite      * @param recipe bitset marking functional parameters      * @return pointer to matching method to invoke. never returns null.      * @throws LambdaConversionException if a method reference cannot be converted to an functional interface      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
 DECL|method|lookupMethod
 specifier|static
 name|MethodHandle
@@ -1175,6 +1175,8 @@ parameter_list|,
 name|long
 name|recipe
 parameter_list|)
+throws|throws
+name|LambdaConversionException
 block|{
 name|Method
 name|method
@@ -1306,7 +1308,7 @@ return|return
 name|handle
 return|;
 block|}
-comment|/** Returns a method handle to an implementation of clazz, given method reference signature */
+comment|/** Returns a method handle to an implementation of clazz, given method reference signature        * @throws LambdaConversionException if a method reference cannot be converted to an functional interface       */
 DECL|method|lookupReference
 specifier|private
 specifier|static
@@ -1327,6 +1329,8 @@ parameter_list|,
 name|String
 name|signature
 parameter_list|)
+throws|throws
+name|LambdaConversionException
 block|{
 name|int
 name|separator
@@ -1436,8 +1440,6 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|ref
@@ -1511,21 +1513,6 @@ argument_list|,
 name|interfaceType
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|LambdaConversionException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
 block|}
 comment|// we could actually invoke and cache here (in non-capturing cases), but this is not a speedup.
 name|MethodHandle

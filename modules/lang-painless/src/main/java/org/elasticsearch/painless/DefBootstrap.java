@@ -392,6 +392,8 @@ parameter_list|,
 name|long
 name|recipe
 parameter_list|)
+throws|throws
+name|Throwable
 block|{
 switch|switch
 condition|(
