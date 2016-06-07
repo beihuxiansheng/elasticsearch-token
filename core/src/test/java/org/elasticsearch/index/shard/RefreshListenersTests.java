@@ -512,6 +512,18 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
+name|TestThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
 name|ThreadPool
 import|;
 end_import
@@ -742,7 +754,7 @@ comment|// Now setup the InternalEngine which is much more complicated because w
 name|threadPool
 operator|=
 operator|new
-name|ThreadPool
+name|TestThreadPool
 argument_list|(
 name|getTestName
 argument_list|()
