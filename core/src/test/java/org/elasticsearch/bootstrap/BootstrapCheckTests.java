@@ -2890,6 +2890,24 @@ argument_list|>
 name|consumer
 parameter_list|)
 block|{
+specifier|final
+name|String
+name|methodName
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getStackTrace
+argument_list|()
+index|[
+literal|2
+index|]
+operator|.
+name|getMethodName
+argument_list|()
+decl_stmt|;
 comment|// if seccomp is disabled, nothing should happen
 name|isSeccompInstalled
 operator|.
@@ -2934,7 +2952,7 @@ argument_list|(
 name|check
 argument_list|)
 argument_list|,
-literal|"testMightFork"
+name|methodName
 argument_list|)
 expr_stmt|;
 comment|// if seccomp is enabled, but we will not fork, nothing should
@@ -2967,7 +2985,7 @@ argument_list|(
 name|check
 argument_list|)
 argument_list|,
-literal|"testMightFork"
+name|methodName
 argument_list|)
 expr_stmt|;
 comment|// if seccomp is enabled, and we might fork, the check should
@@ -3014,7 +3032,7 @@ argument_list|(
 name|check
 argument_list|)
 argument_list|,
-literal|"testMightFork"
+name|methodName
 argument_list|)
 argument_list|)
 decl_stmt|;
