@@ -263,6 +263,8 @@ operator|)
 name|DefBootstrap
 operator|.
 name|ARRAY_LOAD
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -329,6 +331,8 @@ operator|)
 name|DefBootstrap
 operator|.
 name|ARRAY_STORE
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

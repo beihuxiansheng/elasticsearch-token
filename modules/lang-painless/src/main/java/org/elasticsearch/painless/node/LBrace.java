@@ -168,7 +168,6 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|Sort
 name|sort
 init|=

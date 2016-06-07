@@ -52,6 +52,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|WriteRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|single
 operator|.
 name|instance
@@ -162,10 +176,6 @@ name|Map
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|UpdateRequestBuilder
 specifier|public
@@ -178,6 +188,11 @@ name|UpdateRequest
 argument_list|,
 name|UpdateResponse
 argument_list|,
+name|UpdateRequestBuilder
+argument_list|>
+implements|implements
+name|WriteRequestBuilder
+argument_list|<
 name|UpdateRequestBuilder
 argument_list|>
 block|{
@@ -425,27 +440,6 @@ operator|.
 name|versionType
 argument_list|(
 name|versionType
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Should a refresh be executed post this update operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
-DECL|method|setRefresh
-specifier|public
-name|UpdateRequestBuilder
-name|setRefresh
-parameter_list|(
-name|boolean
-name|refresh
-parameter_list|)
-block|{
-name|request
-operator|.
-name|refresh
-argument_list|(
-name|refresh
 argument_list|)
 expr_stmt|;
 return|return

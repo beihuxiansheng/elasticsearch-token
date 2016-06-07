@@ -711,6 +711,10 @@ name|LocalCheckpointService
 operator|.
 name|SETTINGS_BIT_ARRAYS_SIZE
 argument_list|,
+name|IndexSettings
+operator|.
+name|MAX_REFRESH_LISTENERS_PER_SHARD
+argument_list|,
 name|ShardsLimitAllocationDecider
 operator|.
 name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING

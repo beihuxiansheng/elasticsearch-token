@@ -305,6 +305,24 @@ argument_list|(
 name|engineConfig
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|engineConfig
+operator|.
+name|getRefreshListeners
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ShadowEngine doesn't support RefreshListeners"
+argument_list|)
+throw|;
+block|}
 name|SearcherFactory
 name|searcherFactory
 init|=

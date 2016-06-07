@@ -127,6 +127,10 @@ name|AExpression
 argument_list|>
 name|arguments
 decl_stmt|;
+DECL|field|recipe
+name|long
+name|recipe
+decl_stmt|;
 DECL|method|LDefCall
 name|LDefCall
 parameter_list|(
@@ -174,6 +178,31 @@ name|Variables
 name|variables
 parameter_list|)
 block|{
+if|if
+condition|(
+name|arguments
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|63
+condition|)
+block|{
+comment|// technically, the limitation is just methods with> 63 params, containing method references.
+comment|// this is because we are lazy and use a long as a bitset. we can always change to a "string" if need be.
+comment|// but NEED NOT BE. nothing with this many parameters is in the whitelist and we do not support varargs.
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"methods with> 63 arguments are currently not supported"
+argument_list|)
+throw|;
+block|}
+name|recipe
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -202,6 +231,23 @@ argument_list|(
 name|argument
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|expression
+operator|instanceof
+name|EFunctionRef
+condition|)
+block|{
+name|recipe
+operator||=
+operator|(
+literal|1L
+operator|<<
+name|argument
+operator|)
+expr_stmt|;
+comment|// mark argument as deferred reference
+block|}
 name|expression
 operator|.
 name|internal
@@ -379,6 +425,8 @@ operator|)
 name|DefBootstrap
 operator|.
 name|METHOD_CALL
+argument_list|,
+name|recipe
 argument_list|)
 expr_stmt|;
 block|}

@@ -326,11 +326,11 @@ argument_list|)
 argument_list|)
 comment|// don't mess with this one! It's quite sensitive to a low queue size
 comment|// (see also ThreadedActionListener which is happily spawning threads even when we already got rejected)
-comment|//.put("threadpool.listener.queue_size", 1)
+comment|//.put("thread_pool.listener.queue_size", 1)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.get.queue_size"
+literal|"thread_pool.get.queue_size"
 argument_list|,
 literal|1
 argument_list|)
@@ -338,7 +338,7 @@ comment|// default is 50
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.bulk.queue_size"
+literal|"thread_pool.bulk.queue_size"
 argument_list|,
 literal|30
 argument_list|)

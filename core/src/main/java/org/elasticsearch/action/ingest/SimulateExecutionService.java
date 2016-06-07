@@ -120,9 +120,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|action
 operator|.
-name|processor
+name|ingest
 operator|.
 name|TrackingResultProcessor
 operator|.

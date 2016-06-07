@@ -223,9 +223,7 @@ name|BitSet
 name|expressions
 parameter_list|)
 block|{
-name|Writer
-name|writer
-init|=
+return|return
 operator|new
 name|Writer
 argument_list|(
@@ -241,9 +239,6 @@ name|root
 argument_list|,
 name|expressions
 argument_list|)
-decl_stmt|;
-return|return
-name|writer
 operator|.
 name|getBytes
 argument_list|()
@@ -374,8 +369,6 @@ operator|.
 name|ACC_PUBLIC
 argument_list|,
 name|EXECUTE
-argument_list|,
-literal|null
 argument_list|,
 name|writer
 argument_list|,

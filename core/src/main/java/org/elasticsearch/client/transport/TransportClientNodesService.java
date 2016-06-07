@@ -1396,6 +1396,15 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+comment|// we first read nodes before checking the closed state; this
+comment|// is because otherwise we could be subject to a race where we
+comment|// read the state as not being closed, and then the client is
+comment|// closed and the nodes list is cleared, and then a
+comment|// NoNodeAvailableException is thrown
+comment|// it is important that the order of first setting the state of
+comment|// closed and then clearing the list of nodes is maintained in
+comment|// the close method
+specifier|final
 name|List
 argument_list|<
 name|DiscoveryNode
@@ -1406,6 +1415,19 @@ name|this
 operator|.
 name|nodes
 decl_stmt|;
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"transport client is closed"
+argument_list|)
+throw|;
+block|}
 name|ensureNodesAreAvailable
 argument_list|(
 name|nodes
