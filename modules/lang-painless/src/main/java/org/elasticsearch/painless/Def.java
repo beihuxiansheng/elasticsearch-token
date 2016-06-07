@@ -2645,7 +2645,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// TODO: arrays
 throw|throw
 operator|new
 name|IllegalArgumentException
