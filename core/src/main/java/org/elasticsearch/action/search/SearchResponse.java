@@ -588,7 +588,7 @@ operator|=
 name|scrollId
 expr_stmt|;
 block|}
-comment|/**      * If profiling was enabled, this returns an object containing the profile results from      * each shard.  If profiling was not enabled, this will return null      *      * @return The profile results or null      */
+comment|/**      * If profiling was enabled, this returns an object containing the profile results from      * each shard.  If profiling was not enabled, this will return null      *      * @return The profile results or an empty map      */
 DECL|method|getProfileResults
 specifier|public
 annotation|@
