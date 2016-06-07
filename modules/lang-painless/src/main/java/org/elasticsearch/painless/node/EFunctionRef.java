@@ -280,7 +280,7 @@ name|equals
 argument_list|(
 name|ref
 operator|.
-name|samMethodType
+name|samType
 argument_list|)
 condition|)
 block|{
@@ -303,7 +303,7 @@ name|LAMBDA_BOOTSTRAP_HANDLE
 argument_list|,
 name|ref
 operator|.
-name|samMethodType
+name|samType
 argument_list|,
 name|ref
 operator|.
@@ -311,7 +311,7 @@ name|implMethod
 argument_list|,
 name|ref
 operator|.
-name|samMethodType
+name|samType
 argument_list|,
 literal|0
 argument_list|)
@@ -338,7 +338,7 @@ name|LAMBDA_BOOTSTRAP_HANDLE
 argument_list|,
 name|ref
 operator|.
-name|samMethodType
+name|samType
 argument_list|,
 name|ref
 operator|.
@@ -346,7 +346,7 @@ name|implMethod
 argument_list|,
 name|ref
 operator|.
-name|samMethodType
+name|samType
 argument_list|,
 name|LambdaMetafactory
 operator|.
