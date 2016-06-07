@@ -99,7 +99,8 @@ name|AExpression
 name|condition
 decl_stmt|;
 DECL|field|block
-name|AStatement
+specifier|final
+name|SBlock
 name|block
 decl_stmt|;
 DECL|method|SWhile
@@ -146,7 +147,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|analyze
-name|AStatement
+name|void
 name|analyze
 parameter_list|(
 name|Variables
@@ -261,8 +262,6 @@ operator|=
 literal|true
 expr_stmt|;
 name|block
-operator|=
-name|block
 operator|.
 name|analyze
 argument_list|(
@@ -357,9 +356,6 @@ operator|.
 name|decrementScope
 argument_list|()
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

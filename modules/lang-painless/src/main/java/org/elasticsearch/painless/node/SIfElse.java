@@ -94,11 +94,13 @@ name|AExpression
 name|condition
 decl_stmt|;
 DECL|field|ifblock
-name|AStatement
+specifier|final
+name|SBlock
 name|ifblock
 decl_stmt|;
 DECL|field|elseblock
-name|AStatement
+specifier|final
+name|SBlock
 name|elseblock
 decl_stmt|;
 DECL|method|SIfElse
@@ -145,7 +147,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|analyze
-name|AStatement
+name|void
 name|analyze
 parameter_list|(
 name|Variables
@@ -238,8 +240,6 @@ name|incrementScope
 argument_list|()
 expr_stmt|;
 name|ifblock
-operator|=
-name|ifblock
 operator|.
 name|analyze
 argument_list|(
@@ -311,8 +311,6 @@ name|incrementScope
 argument_list|()
 expr_stmt|;
 name|elseblock
-operator|=
-name|elseblock
 operator|.
 name|analyze
 argument_list|(
@@ -381,9 +379,6 @@ operator|.
 name|statementCount
 argument_list|)
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

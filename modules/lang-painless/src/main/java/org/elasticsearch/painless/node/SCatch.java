@@ -140,7 +140,8 @@ name|String
 name|name
 decl_stmt|;
 DECL|field|block
-name|AStatement
+specifier|final
+name|SBlock
 name|block
 decl_stmt|;
 DECL|field|variable
@@ -203,7 +204,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|analyze
-name|AStatement
+name|void
 name|analyze
 parameter_list|(
 name|Variables
@@ -326,8 +327,6 @@ operator|=
 name|lastLoop
 expr_stmt|;
 name|block
-operator|=
-name|block
 operator|.
 name|analyze
 argument_list|(
@@ -371,9 +370,6 @@ operator|.
 name|statementCount
 expr_stmt|;
 block|}
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override
