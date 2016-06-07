@@ -4088,7 +4088,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"This limit can be set by chaning the ["
+literal|"This limit can be set by chaining the ["
 operator|+
 name|IndexSettings
 operator|.
