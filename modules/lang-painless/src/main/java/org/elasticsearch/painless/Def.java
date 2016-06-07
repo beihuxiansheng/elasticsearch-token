@@ -1274,8 +1274,6 @@ name|i
 operator|-
 literal|1
 argument_list|)
-operator|.
-name|clazz
 argument_list|,
 operator|(
 name|String
@@ -1316,10 +1314,9 @@ parameter_list|(
 name|Lookup
 name|lookup
 parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
+name|Definition
+operator|.
+name|Type
 name|clazz
 parameter_list|,
 name|String
@@ -1525,6 +1522,8 @@ name|MethodType
 operator|.
 name|methodType
 argument_list|(
+name|clazz
+operator|.
 name|clazz
 argument_list|)
 argument_list|)

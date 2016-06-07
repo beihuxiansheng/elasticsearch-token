@@ -204,8 +204,6 @@ operator|new
 name|FunctionRef
 argument_list|(
 name|expected
-operator|.
-name|clazz
 argument_list|,
 name|type
 argument_list|,
