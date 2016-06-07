@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|BitMixer
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -257,9 +269,9 @@ block|{
 return|return
 name|contains
 argument_list|(
-name|Long
+name|BitMixer
 operator|.
-name|hashCode
+name|mix
 argument_list|(
 name|values
 operator|.
