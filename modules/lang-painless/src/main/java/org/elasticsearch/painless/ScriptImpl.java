@@ -370,6 +370,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Adds stack trace and other useful information to exceptiosn thrown      * from a Painless script.      * @param t The throwable to build an exception around.      * @return The generated ScriptException.      */
 DECL|method|convertToScriptException
 specifier|private
 name|ScriptException

@@ -175,7 +175,6 @@ operator|.
 name|incrementScope
 argument_list|()
 expr_stmt|;
-specifier|final
 name|AStatement
 name|last
 init|=
@@ -199,7 +198,8 @@ range|:
 name|statements
 control|)
 block|{
-comment|// TODO: why are we checking only statements 0..n-1 (this effectively checks only the previous statement)
+comment|// Note that we do not need to check after the last statement because
+comment|// there is no statement that can be unreachable after the last.
 if|if
 condition|(
 name|allEscape

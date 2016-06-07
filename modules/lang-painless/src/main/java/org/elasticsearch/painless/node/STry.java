@@ -124,7 +124,7 @@ name|List
 argument_list|<
 name|SCatch
 argument_list|>
-name|traps
+name|catches
 parameter_list|)
 block|{
 name|super
@@ -146,7 +146,7 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
-name|traps
+name|catches
 argument_list|)
 expr_stmt|;
 block|}
