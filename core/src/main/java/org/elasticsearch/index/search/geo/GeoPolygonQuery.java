@@ -632,9 +632,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|super
-operator|.
-name|equals
+name|sameClassAs
 argument_list|(
 name|obj
 argument_list|)
@@ -693,9 +691,7 @@ block|{
 name|int
 name|h
 init|=
-name|super
-operator|.
-name|hashCode
+name|classHash
 argument_list|()
 decl_stmt|;
 name|h

@@ -202,20 +202,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|indices
@@ -658,26 +644,12 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"upgrade to HardlinkCopyDirectoryWrapper in Lucene 6.1"
+name|targetNumFiles
 argument_list|,
-name|Version
-operator|.
-name|LATEST
-argument_list|,
-name|Version
-operator|.
-name|LUCENE_6_0_1
-argument_list|)
-expr_stmt|;
-comment|// assertEquals(indexStats.reusedFileCount(), targetNumFiles); -- uncomment this once upgraded to Lucene 6.1
-name|assertEquals
-argument_list|(
 name|indexStats
 operator|.
 name|reusedFileCount
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -685,6 +657,8 @@ else|else
 block|{
 name|assertEquals
 argument_list|(
+literal|0
+argument_list|,
 name|indexStats
 operator|.
 name|reusedFileCount

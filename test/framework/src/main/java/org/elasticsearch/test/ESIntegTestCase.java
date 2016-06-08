@@ -1330,6 +1330,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndicesQueryCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|IndicesRequestCache
 import|;
 end_import
@@ -10003,6 +10015,25 @@ argument_list|(
 literal|"script.inline"
 argument_list|,
 literal|"true"
+argument_list|)
+comment|// by default we never cache below 10k docs in a segment,
+comment|// bypass this limit so that caching gets some testing in
+comment|// integration tests that usually create few documents
+operator|.
+name|put
+argument_list|(
+name|IndicesQueryCache
+operator|.
+name|INDICES_QUERIES_CACHE_ALL_SEGMENTS_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|nodeOrdinal
+operator|%
+literal|2
+operator|==
+literal|0
 argument_list|)
 comment|// wait short time for other active shards before actually deleting, default 30s not needed in tests
 operator|.

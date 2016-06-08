@@ -50,20 +50,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|XInetAddressPoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|IndexOptions
@@ -441,7 +427,7 @@ literal|"/64"
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|newPrefixQuery
 argument_list|(
@@ -479,7 +465,7 @@ literal|"/16"
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|newPrefixQuery
 argument_list|(
@@ -580,7 +566,7 @@ argument_list|(
 literal|"::"
 argument_list|)
 argument_list|,
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MAX_VALUE
 argument_list|)
@@ -692,7 +678,7 @@ argument_list|(
 literal|"2001:db8::"
 argument_list|)
 argument_list|,
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MAX_VALUE
 argument_list|)
@@ -727,7 +713,7 @@ argument_list|(
 literal|"2001:db8::1"
 argument_list|)
 argument_list|,
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MAX_VALUE
 argument_list|)
@@ -954,7 +940,7 @@ argument_list|(
 literal|"::1:0:0:0"
 argument_list|)
 argument_list|,
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MAX_VALUE
 argument_list|)

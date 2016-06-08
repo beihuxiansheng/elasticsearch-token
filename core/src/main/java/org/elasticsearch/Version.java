@@ -822,7 +822,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_6_0_1
+name|LUCENE_6_1_0
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT
