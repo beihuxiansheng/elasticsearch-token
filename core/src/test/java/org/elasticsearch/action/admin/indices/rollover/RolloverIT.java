@@ -993,9 +993,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|new
-name|Condition
-operator|.
-name|MaxAge
+name|MaxAgeCondition
 argument_list|(
 name|TimeValue
 operator|.

@@ -660,9 +660,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Condition
-operator|.
-name|MaxAge
+name|MaxAgeCondition
 argument_list|(
 name|age
 argument_list|)
@@ -685,9 +683,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Condition
-operator|.
-name|MaxDocs
+name|MaxDocsCondition
 argument_list|(
 name|docs
 argument_list|)
