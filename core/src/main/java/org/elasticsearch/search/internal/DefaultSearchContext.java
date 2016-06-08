@@ -720,6 +720,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|slice
+operator|.
+name|SliceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|sort
 operator|.
 name|SortAndFormats
@@ -1002,10 +1016,10 @@ name|FieldDoc
 name|searchAfter
 decl_stmt|;
 comment|// filter for sliced scroll
-DECL|field|sliceFilter
+DECL|field|sliceBuilder
 specifier|private
-name|Query
-name|sliceFilter
+name|SliceBuilder
+name|sliceBuilder
 decl_stmt|;
 comment|/**      * The original query as sent by the user without the types and aliases      * applied. Putting things in here leaks them into highlighting so don't add      * things like the type filter or alias filters.      */
 DECL|field|originalQuery
@@ -1551,7 +1565,7 @@ name|maxWindow
 operator|+
 literal|"]. This prevents allocating massive heaps for storing the results to be "
 operator|+
-literal|"rescored. This limit can be set by chaining the ["
+literal|"rescored. This limit can be set by changing the ["
 operator|+
 name|IndexSettings
 operator|.
@@ -1564,6 +1578,69 @@ literal|"] index level setting."
 argument_list|)
 throw|;
 block|}
+block|}
+block|}
+if|if
+condition|(
+name|sliceBuilder
+operator|!=
+literal|null
+condition|)
+block|{
+name|int
+name|sliceLimit
+init|=
+name|indexService
+operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getMaxSlicesPerScroll
+argument_list|()
+decl_stmt|;
+name|int
+name|numSlices
+init|=
+name|sliceBuilder
+operator|.
+name|getMax
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|numSlices
+operator|>
+name|sliceLimit
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryPhaseExecutionException
+argument_list|(
+name|this
+argument_list|,
+literal|"The number of slices ["
+operator|+
+name|numSlices
+operator|+
+literal|"] is too large. It must "
+operator|+
+literal|"be less than ["
+operator|+
+name|sliceLimit
+operator|+
+literal|"]. This limit can be set by changing the ["
+operator|+
+name|IndexSettings
+operator|.
+name|MAX_SLICES_PER_SCROLL
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] index level setting."
+argument_list|)
+throw|;
 block|}
 block|}
 comment|// initialize the filtering alias based on the provided filters
@@ -1799,7 +1876,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|sliceFilter
+name|sliceBuilder
 operator|==
 literal|null
 condition|)
@@ -1808,6 +1885,33 @@ return|return
 name|typesFilter
 return|;
 block|}
+name|Query
+name|sliceFilter
+init|=
+name|sliceBuilder
+operator|.
+name|toFilter
+argument_list|(
+name|queryShardContext
+argument_list|,
+name|shardTarget
+argument_list|()
+operator|.
+name|getShardId
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|queryShardContext
+operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getNumberOfShards
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|typesFilter
@@ -2884,20 +2988,20 @@ return|return
 name|searchAfter
 return|;
 block|}
-DECL|method|sliceFilter
+DECL|method|sliceBuilder
 specifier|public
 name|SearchContext
-name|sliceFilter
+name|sliceBuilder
 parameter_list|(
-name|Query
-name|filter
+name|SliceBuilder
+name|sliceBuilder
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sliceFilter
+name|sliceBuilder
 operator|=
-name|filter
+name|sliceBuilder
 expr_stmt|;
 return|return
 name|this
