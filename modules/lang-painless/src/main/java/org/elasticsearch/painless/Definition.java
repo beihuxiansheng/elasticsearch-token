@@ -24,6 +24,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|SetOnce
 import|;
 end_import
@@ -103,6 +117,16 @@ operator|.
 name|charset
 operator|.
 name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|time
+operator|.
+name|LocalDate
 import|;
 end_import
 
@@ -5565,6 +5589,25 @@ name|class
 condition|)
 block|{
 comment|// ok, we rely on generics erasure for these (its guaranteed in the javadocs though!!!!)
+block|}
+elseif|else
+if|if
+condition|(
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+operator|&&
+name|owner
+operator|.
+name|clazz
+operator|==
+name|LocalDate
+operator|.
+name|class
+condition|)
+block|{
+comment|// ok, java 9 added covariant override for LocalDate.getEra() to return IsoEra:
+comment|// https://bugs.openjdk.java.net/browse/JDK-8072746
 block|}
 else|else
 block|{
