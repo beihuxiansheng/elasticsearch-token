@@ -583,9 +583,6 @@ init|=
 name|RestClient
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|setHosts
 argument_list|(
 name|httpHost
 argument_list|)

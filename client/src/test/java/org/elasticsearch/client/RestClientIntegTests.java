@@ -543,14 +543,6 @@ operator|=
 name|RestClient
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|setDefaultHeaders
-argument_list|(
-name|defaultHeaders
-argument_list|)
-operator|.
-name|setHosts
 argument_list|(
 operator|new
 name|HttpHost
@@ -571,6 +563,11 @@ operator|.
 name|getPort
 argument_list|()
 argument_list|)
+argument_list|)
+operator|.
+name|setDefaultHeaders
+argument_list|(
+name|defaultHeaders
 argument_list|)
 operator|.
 name|build

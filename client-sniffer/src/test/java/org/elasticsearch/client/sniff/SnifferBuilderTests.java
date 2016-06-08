@@ -195,9 +195,6 @@ init|=
 name|RestClient
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|setHosts
 argument_list|(
 name|hosts
 argument_list|)
@@ -234,12 +231,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"scheme cannot be null"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|"scheme cannot be null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -271,12 +268,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"scheme must be either http or https"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|"scheme must be either http or https"
 argument_list|)
 expr_stmt|;
 block|}
@@ -320,12 +317,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"sniffInterval must be greater than 0"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|"sniffInterval must be greater than 0"
 argument_list|)
 expr_stmt|;
 block|}
@@ -369,12 +366,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"sniffRequestTimeout must be greater than 0"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|"sniffRequestTimeout must be greater than 0"
 argument_list|)
 expr_stmt|;
 block|}
@@ -418,12 +415,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"sniffAfterFailureDelay must be greater than 0"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|"sniffAfterFailureDelay must be greater than 0"
 argument_list|)
 expr_stmt|;
 block|}
@@ -453,12 +450,12 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"restClient cannot be null"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|"restClient cannot be null"
 argument_list|)
 expr_stmt|;
 block|}

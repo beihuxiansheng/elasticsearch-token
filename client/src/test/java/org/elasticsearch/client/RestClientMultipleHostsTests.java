@@ -681,9 +681,6 @@ operator|=
 name|RestClient
 operator|.
 name|builder
-argument_list|()
-operator|.
-name|setHosts
 argument_list|(
 name|httpHosts
 argument_list|)
