@@ -704,7 +704,7 @@ name|get
 argument_list|(
 name|rolloverRequest
 operator|.
-name|getSourceAlias
+name|getAlias
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1193,7 +1193,7 @@ name|newIndex
 argument_list|,
 name|request
 operator|.
-name|getSourceAlias
+name|getAlias
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1215,7 +1215,7 @@ name|oldIndex
 argument_list|,
 name|request
 operator|.
-name|getSourceAlias
+name|getAlias
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1449,7 +1449,7 @@ name|get
 argument_list|(
 name|request
 operator|.
-name|getSourceAlias
+name|getAlias
 argument_list|()
 argument_list|)
 decl_stmt|;

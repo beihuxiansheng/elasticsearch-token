@@ -13205,7 +13205,7 @@ name|RolloverRequestBuilder
 name|prepareRolloverIndex
 parameter_list|(
 name|String
-name|sourceAlias
+name|alias
 parameter_list|)
 block|{
 return|return
@@ -13219,9 +13219,9 @@ operator|.
 name|INSTANCE
 argument_list|)
 operator|.
-name|setSourceAlias
+name|setAlias
 argument_list|(
-name|sourceAlias
+name|alias
 argument_list|)
 return|;
 block|}

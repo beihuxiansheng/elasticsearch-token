@@ -136,10 +136,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setSourceAlias
+DECL|method|setAlias
 specifier|public
 name|RolloverRequestBuilder
-name|setSourceAlias
+name|setAlias
 parameter_list|(
 name|String
 name|sourceAlias
@@ -149,7 +149,7 @@ name|this
 operator|.
 name|request
 operator|.
-name|setSourceAlias
+name|setAlias
 argument_list|(
 name|sourceAlias
 argument_list|)
