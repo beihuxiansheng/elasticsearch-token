@@ -307,6 +307,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the name of the index that the request alias was pointing to      */
 DECL|method|getOldIndex
 specifier|public
 name|String
@@ -317,6 +318,7 @@ return|return
 name|oldIndex
 return|;
 block|}
+comment|/**      * Returns the name of the index that the request alias currently points to      */
 DECL|method|getNewIndex
 specifier|public
 name|String
@@ -327,6 +329,7 @@ return|return
 name|newIndex
 return|;
 block|}
+comment|/**      * Returns the statuses of all the request conditions      */
 DECL|method|getConditionStatus
 specifier|public
 name|Set
@@ -347,6 +350,7 @@ return|return
 name|conditionStatus
 return|;
 block|}
+comment|/**      * Returns if the rollover execution was skipped even when conditions were met      */
 DECL|method|isSimulate
 specifier|public
 name|boolean
@@ -357,6 +361,7 @@ return|return
 name|simulate
 return|;
 block|}
+comment|/**      * Returns if the rollover was not simulated and the conditions were met      */
 DECL|method|isRolledOver
 specifier|public
 name|boolean
@@ -367,6 +372,7 @@ return|return
 name|rolledOver
 return|;
 block|}
+comment|/**      * Returns if the rollover index had to be explicitly created      */
 DECL|method|isRolloverIndexCreated
 specifier|public
 name|boolean

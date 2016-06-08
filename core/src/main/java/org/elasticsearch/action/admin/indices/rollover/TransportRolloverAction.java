@@ -427,7 +427,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Main class to swap the index pointed to by an alias, given some predicates  */
+comment|/**  * Main class to swap the index pointed to by an alias, given some conditions  */
 end_comment
 
 begin_class

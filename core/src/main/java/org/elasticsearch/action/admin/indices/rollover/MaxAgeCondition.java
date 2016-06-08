@@ -76,6 +76,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Condition for index maximum age. Evaluates to<code>true</code>  * when the index is at least {@link #value} old  */
+end_comment
+
 begin_class
 DECL|class|MaxAgeCondition
 specifier|public

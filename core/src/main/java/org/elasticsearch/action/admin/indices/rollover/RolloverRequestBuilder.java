@@ -94,10 +94,6 @@ name|TimeValue
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO: Documentation  */
-end_comment
-
 begin_class
 DECL|class|RolloverRequestBuilder
 specifier|public

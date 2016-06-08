@@ -98,6 +98,10 @@ name|Set
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base class for rollover request conditions  */
+end_comment
+
 begin_class
 DECL|class|Condition
 specifier|public
@@ -263,6 +267,7 @@ operator|+
 literal|"]"
 return|;
 block|}
+comment|/**      * Holder for index stats used to evaluate conditions      */
 DECL|class|Stats
 specifier|public
 specifier|static
@@ -306,6 +311,7 @@ name|indexCreated
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Holder for evaluated condition result      */
 DECL|class|Result
 specifier|public
 specifier|static

@@ -62,6 +62,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Condition for maximum index docs. Evaluates to<code>true</code>  * when the index has at least {@link #value} docs  */
+end_comment
+
 begin_class
 DECL|class|MaxDocsCondition
 specifier|public
