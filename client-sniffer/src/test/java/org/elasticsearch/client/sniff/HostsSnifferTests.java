@@ -714,19 +714,15 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"GET http://localhost:"
+literal|"GET "
 operator|+
-name|httpServer
-operator|.
-name|getAddress
-argument_list|()
-operator|.
-name|getPort
-argument_list|()
+name|httpHost
 operator|+
 literal|"/_nodes/http?timeout="
 operator|+
 name|sniffRequestTimeout
+operator|+
+literal|"ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1358,6 +1354,15 @@ name|writeEndObject
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
 name|String
 index|[]
 name|roles
@@ -1472,6 +1477,7 @@ operator|.
 name|writeEndArray
 argument_list|()
 expr_stmt|;
+block|}
 name|int
 name|numAttributes
 init|=
