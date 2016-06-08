@@ -161,7 +161,7 @@ name|assertAcked
 argument_list|(
 name|prepareCreate
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 operator|.
 name|addAlias
@@ -207,7 +207,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -220,7 +220,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -312,7 +312,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -339,7 +339,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-2"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -368,7 +368,7 @@ name|assertAcked
 argument_list|(
 name|prepareCreate
 argument_list|(
-literal|"test_index"
+literal|"test_index-2"
 argument_list|)
 operator|.
 name|addAlias
@@ -386,7 +386,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-2"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -399,7 +399,7 @@ argument_list|)
 expr_stmt|;
 name|flush
 argument_list|(
-literal|"test_index"
+literal|"test_index-2"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -432,7 +432,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index"
+literal|"test_index-2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -445,7 +445,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -537,7 +537,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-2"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -564,7 +564,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-3"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -593,7 +593,7 @@ name|assertAcked
 argument_list|(
 name|prepareCreate
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 operator|.
 name|addAlias
@@ -611,7 +611,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -624,7 +624,7 @@ argument_list|)
 expr_stmt|;
 name|flush
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -662,7 +662,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -675,7 +675,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -767,7 +767,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-1"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -794,7 +794,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-2"
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -815,7 +815,7 @@ name|assertAcked
 argument_list|(
 name|prepareCreate
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 operator|.
 name|addAlias
@@ -833,7 +833,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -846,7 +846,7 @@ argument_list|)
 expr_stmt|;
 name|flush
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -889,7 +889,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -902,7 +902,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1054,7 +1054,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1102,7 +1102,7 @@ name|assertAcked
 argument_list|(
 name|prepareCreate
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 operator|.
 name|addAlias
@@ -1120,7 +1120,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -1157,7 +1157,7 @@ argument_list|)
 expr_stmt|;
 name|flush
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|,
 literal|"test_index-1"
 argument_list|)
@@ -1192,7 +1192,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1281,7 +1281,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index"
+literal|"test_index-0"
 argument_list|)
 decl_stmt|;
 name|assertFalse

@@ -244,7 +244,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"no source alias"
+literal|"no alias"
 argument_list|)
 throw|;
 block|}
