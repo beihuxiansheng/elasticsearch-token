@@ -379,6 +379,13 @@ comment|/**  * Integration test to check interaction between {@link RestClient} 
 end_comment
 
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"uses sun HttpServer"
+argument_list|)
 DECL|class|RestClientIntegTests
 specifier|public
 class|class
