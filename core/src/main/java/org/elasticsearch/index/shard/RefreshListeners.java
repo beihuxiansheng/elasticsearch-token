@@ -262,10 +262,10 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
-comment|/**      * Add a listener for refreshes, calling it immediately if the location is already visible. If this runs out of listener slots then it      * forces a refresh and calls the listener immediately as well.      *      * @param location the location to listen for      * @param listener for the refresh. Called with true if registering the listener ran it out of slots and forced a refresh. Called with      *        false otherwise.      */
+comment|/**      * Add a listener for refreshes, calling it immediately if the location is already visible. If this runs out of listener slots then it      * forces a refresh and calls the listener immediately as well.      *      * @param location the location to listen for      * @param listener for the refresh. Called with true if registering the listener ran it out of slots and forced a refresh. Called with      *        false otherwise.      * @return did we call the listener (true) or register the listener to call later (false)?      */
 DECL|method|addOrNotify
 specifier|public
-name|void
+name|boolean
 name|addOrNotify
 parameter_list|(
 name|Translog
@@ -318,7 +318,9 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|true
+return|;
 block|}
 synchronized|synchronized
 init|(
@@ -368,7 +370,9 @@ name|listener
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
 comment|// No free slot so force a refresh and call the listener in this thread
@@ -384,6 +388,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Returns true if there are pending listeners.      */
 DECL|method|refreshNeeded
