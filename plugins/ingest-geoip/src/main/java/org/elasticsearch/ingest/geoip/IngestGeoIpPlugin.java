@@ -172,6 +172,18 @@ name|Stream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|zip
+operator|.
+name|GZIPInputStream
+import|;
+end_import
+
 begin_class
 DECL|class|IngestGeoIpPlugin
 specifier|public
@@ -358,7 +370,7 @@ argument_list|()
 operator|.
 name|getPathMatcher
 argument_list|(
-literal|"glob:**.mmdb"
+literal|"glob:**.mmdb.gz"
 argument_list|)
 decl_stmt|;
 comment|// Use iterator instead of forEach otherwise IOException needs to be caught twice...
@@ -411,6 +423,9 @@ init|(
 name|InputStream
 name|inputStream
 init|=
+operator|new
+name|GZIPInputStream
+argument_list|(
 name|Files
 operator|.
 name|newInputStream
@@ -420,6 +435,7 @@ argument_list|,
 name|StandardOpenOption
 operator|.
 name|READ
+argument_list|)
 argument_list|)
 init|)
 block|{

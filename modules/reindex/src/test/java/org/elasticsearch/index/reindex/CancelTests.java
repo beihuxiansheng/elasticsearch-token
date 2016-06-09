@@ -210,6 +210,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|IngestTestPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|BeforeClass
@@ -489,6 +501,15 @@ name|nodePlugins
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|plugins
+operator|.
+name|add
+argument_list|(
+name|IngestTestPlugin
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|plugins
 operator|.
 name|add
@@ -1152,17 +1173,11 @@ name|BytesArray
 argument_list|(
 literal|"{\n"
 operator|+
-literal|"  \"description\" : \"sets updated to true\",\n"
+literal|"  \"description\" : \"sets processed to true\",\n"
 operator|+
 literal|"  \"processors\" : [ {\n"
 operator|+
-literal|"      \"set\" : {\n"
-operator|+
-literal|"        \"field\": \"updated\",\n"
-operator|+
-literal|"        \"value\": true"
-operator|+
-literal|"      }\n"
+literal|"      \"test\" : {}\n"
 operator|+
 literal|"  } ]\n"
 operator|+
@@ -1259,7 +1274,7 @@ name|setQuery
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"updated"
+literal|"processed"
 argument_list|,
 literal|true
 argument_list|)

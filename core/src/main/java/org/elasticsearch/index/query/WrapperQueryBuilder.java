@@ -576,7 +576,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[wrapper] query malformed, expected `query` but was"
+literal|"[wrapper] query malformed, expected `query` but was "
 operator|+
 name|fieldName
 argument_list|)

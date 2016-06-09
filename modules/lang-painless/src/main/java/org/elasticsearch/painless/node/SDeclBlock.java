@@ -170,7 +170,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|SDeclaration
+name|AStatement
 name|declaration
 range|:
 name|declarations

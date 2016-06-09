@@ -157,7 +157,6 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|AStatement
 name|last
 init|=
@@ -181,6 +180,8 @@ range|:
 name|statements
 control|)
 block|{
+comment|// Note that we do not need to check after the last statement because
+comment|// there is no statement that can be unreachable after the last.
 if|if
 condition|(
 name|allEscape

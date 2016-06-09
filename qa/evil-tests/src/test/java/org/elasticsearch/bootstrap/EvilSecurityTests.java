@@ -356,6 +356,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** test generated permissions for all configured paths */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// needs to check settings for deprecated path
 DECL|method|testEnvironmentPaths
 specifier|public
 name|void

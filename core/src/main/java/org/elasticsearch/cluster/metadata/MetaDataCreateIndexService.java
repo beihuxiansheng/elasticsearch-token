@@ -52,20 +52,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|CollectionUtil
@@ -641,20 +627,6 @@ operator|.
 name|query
 operator|.
 name|QueryShardContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|DocsStats
 import|;
 end_import
 
@@ -2401,6 +2373,22 @@ operator|.
 name|shrinkFrom
 argument_list|()
 decl_stmt|;
+name|int
+name|routingNumShards
+init|=
+name|IndexMetaData
+operator|.
+name|INDEX_NUMBER_OF_SHARDS_SETTING
+operator|.
+name|get
+argument_list|(
+name|indexSettingsBuilder
+operator|.
+name|build
+argument_list|()
+argument_list|)
+decl_stmt|;
+empty_stmt|;
 if|if
 condition|(
 name|shrinkFromIndex
@@ -2427,6 +2415,26 @@ name|index
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|IndexMetaData
+name|sourceMetaData
+init|=
+name|currentState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|getIndexSafe
+argument_list|(
+name|shrinkFromIndex
+argument_list|)
+decl_stmt|;
+name|routingNumShards
+operator|=
+name|sourceMetaData
+operator|.
+name|getRoutingNumShards
+argument_list|()
+expr_stmt|;
 block|}
 name|Settings
 name|actualIndexSettings
@@ -2436,10 +2444,10 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// Set up everything, now locally create the index to see that things are ok, and apply
-specifier|final
 name|IndexMetaData
-name|tmpImd
+operator|.
+name|Builder
+name|tmpImdBuilder
 init|=
 name|IndexMetaData
 operator|.
@@ -2450,6 +2458,18 @@ operator|.
 name|index
 argument_list|()
 argument_list|)
+operator|.
+name|setRoutingNumShards
+argument_list|(
+name|routingNumShards
+argument_list|)
+decl_stmt|;
+comment|// Set up everything, now locally create the index to see that things are ok, and apply
+specifier|final
+name|IndexMetaData
+name|tmpImd
+init|=
+name|tmpImdBuilder
 operator|.
 name|settings
 argument_list|(
@@ -2686,6 +2706,11 @@ operator|.
 name|settings
 argument_list|(
 name|actualIndexSettings
+argument_list|)
+operator|.
+name|setRoutingNumShards
+argument_list|(
+name|routingNumShards
 argument_list|)
 decl_stmt|;
 for|for
@@ -3815,7 +3840,16 @@ name|exists
 argument_list|(
 name|targetIndexSettings
 argument_list|)
-operator|&&
+condition|)
+block|{
+comment|// this method applies all necessary checks ie. if the target shards are less than the source shards
+comment|// of if the source shards are divisible by the number of target shards
+name|IndexMetaData
+operator|.
+name|getRoutingFactor
+argument_list|(
+name|sourceMetaData
+argument_list|,
 name|IndexMetaData
 operator|.
 name|INDEX_NUMBER_OF_SHARDS_SETTING
@@ -3824,17 +3858,8 @@ name|get
 argument_list|(
 name|targetIndexSettings
 argument_list|)
-operator|>
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"can not shrink index into more than one shard"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 comment|// now check that index is all on one node
 specifier|final
@@ -4102,14 +4127,6 @@ literal|"index.analysis."
 argument_list|)
 decl_stmt|;
 name|indexSettingsBuilder
-comment|// we can only shrink to 1 shard so far!
-operator|.
-name|put
-argument_list|(
-literal|"index.number_of_shards"
-argument_list|,
-literal|1
-argument_list|)
 comment|// we use "i.r.a.initial_recovery" rather than "i.r.a.require|include" since we want the replica to allocate right away
 comment|// once we are allocated.
 operator|.

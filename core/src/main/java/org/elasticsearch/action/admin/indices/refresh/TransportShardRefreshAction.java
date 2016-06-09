@@ -28,18 +28,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ReplicationResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|ActionFilters
@@ -59,6 +47,22 @@ operator|.
 name|replication
 operator|.
 name|BasicReplicationRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ReplicationResponse
 import|;
 end_import
 
@@ -133,20 +137,6 @@ operator|.
 name|service
 operator|.
 name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 
@@ -241,10 +231,6 @@ operator|.
 name|TransportService
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|TransportShardRefreshAction
@@ -359,12 +345,7 @@ annotation|@
 name|Override
 DECL|method|shardOperationOnPrimary
 specifier|protected
-name|Tuple
-argument_list|<
-name|ReplicationResponse
-argument_list|,
-name|BasicReplicationRequest
-argument_list|>
+name|PrimaryResult
 name|shardOperationOnPrimary
 parameter_list|(
 name|BasicReplicationRequest
@@ -419,14 +400,13 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|Tuple
-argument_list|<>
+name|PrimaryResult
 argument_list|(
+name|shardRequest
+argument_list|,
 operator|new
 name|ReplicationResponse
 argument_list|()
-argument_list|,
-name|shardRequest
 argument_list|)
 return|;
 block|}
@@ -434,7 +414,7 @@ annotation|@
 name|Override
 DECL|method|shardOperationOnReplica
 specifier|protected
-name|void
+name|ReplicaResult
 name|shardOperationOnReplica
 parameter_list|(
 name|BasicReplicationRequest
@@ -490,6 +470,11 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+operator|new
+name|ReplicaResult
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

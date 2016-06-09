@@ -56,20 +56,6 @@ name|Type
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|node
-operator|.
-name|ANode
-import|;
-end_import
-
 begin_comment
 comment|/**  * Used during the analysis phase to collect legal type casts and promotions  * for type-checking and later to write necessary casts in the bytecode.  */
 end_comment
