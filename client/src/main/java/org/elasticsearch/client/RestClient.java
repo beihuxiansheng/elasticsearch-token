@@ -995,11 +995,11 @@ argument_list|()
 expr_stmt|;
 block|}
 name|CloseableHttpResponse
-name|response
+name|httpResponse
 decl_stmt|;
 try|try
 block|{
-name|response
+name|httpResponse
 operator|=
 name|client
 operator|.
@@ -1049,7 +1049,7 @@ expr_stmt|;
 continue|continue;
 block|}
 name|Response
-name|elasticsearchResponse
+name|response
 init|=
 operator|new
 name|Response
@@ -1061,7 +1061,7 @@ argument_list|()
 argument_list|,
 name|host
 argument_list|,
-name|response
+name|httpResponse
 argument_list|)
 decl_stmt|;
 name|int
@@ -1112,7 +1112,7 @@ name|request
 argument_list|,
 name|host
 argument_list|,
-name|response
+name|httpResponse
 argument_list|)
 expr_stmt|;
 name|onSuccess
@@ -1121,7 +1121,7 @@ name|host
 argument_list|)
 expr_stmt|;
 return|return
-name|elasticsearchResponse
+name|response
 return|;
 block|}
 else|else
@@ -1138,7 +1138,7 @@ name|request
 argument_list|,
 name|host
 argument_list|,
-name|response
+name|httpResponse
 argument_list|)
 expr_stmt|;
 name|String
@@ -1148,7 +1148,7 @@ try|try
 block|{
 if|if
 condition|(
-name|elasticsearchResponse
+name|response
 operator|.
 name|getEntity
 argument_list|()
@@ -1169,7 +1169,7 @@ name|EntityUtils
 operator|.
 name|toString
 argument_list|(
-name|elasticsearchResponse
+name|response
 operator|.
 name|getEntity
 argument_list|()
@@ -1179,7 +1179,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|elasticsearchResponse
+name|response
 operator|.
 name|close
 argument_list|()
@@ -1191,7 +1191,7 @@ init|=
 operator|new
 name|ResponseException
 argument_list|(
-name|elasticsearchResponse
+name|response
 argument_list|,
 name|responseBody
 argument_list|)
