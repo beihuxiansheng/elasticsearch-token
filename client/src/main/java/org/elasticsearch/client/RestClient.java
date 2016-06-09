@@ -884,7 +884,7 @@ argument_list|)
 expr_stmt|;
 comment|//we apply a soft margin so that e.g. if a request took 59 seconds and timeout is set to 60 we don't do another attempt
 name|long
-name|retryTimeout
+name|retryTimeoutMillis
 init|=
 name|Math
 operator|.
@@ -931,8 +931,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|//in case we are retrying, check whether maxRetryTimeout has been reached, in which case an exception will be thrown
 name|long
-name|timeElapsed
+name|timeElapsedMillis
 init|=
 name|TimeUnit
 operator|.
@@ -951,9 +952,9 @@ decl_stmt|;
 name|long
 name|timeout
 init|=
-name|retryTimeout
+name|retryTimeoutMillis
 operator|-
-name|timeElapsed
+name|timeElapsedMillis
 decl_stmt|;
 if|if
 condition|(
@@ -970,7 +971,7 @@ name|IOException
 argument_list|(
 literal|"request retries exceeded max retry timeout ["
 operator|+
-name|retryTimeout
+name|retryTimeoutMillis
 operator|+
 literal|"]"
 argument_list|)
@@ -986,6 +987,7 @@ throw|throw
 name|retryTimeoutException
 throw|;
 block|}
+comment|//also reset the request to make it reusable for the next attempt
 name|request
 operator|.
 name|reset
