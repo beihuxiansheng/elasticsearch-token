@@ -552,10 +552,10 @@ specifier|private
 name|String
 name|alias
 decl_stmt|;
-DECL|field|simulate
+DECL|field|dryRun
 specifier|private
 name|boolean
-name|simulate
+name|dryRun
 decl_stmt|;
 DECL|field|conditions
 specifier|private
@@ -689,7 +689,7 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
-name|simulate
+name|dryRun
 operator|=
 name|in
 operator|.
@@ -781,7 +781,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|simulate
+name|dryRun
 argument_list|)
 expr_stmt|;
 name|out
@@ -869,20 +869,20 @@ name|alias
 expr_stmt|;
 block|}
 comment|/**      * Sets if the rollover should not be executed when conditions are met      */
-DECL|method|simulate
+DECL|method|dryRun
 specifier|public
 name|void
-name|simulate
+name|dryRun
 parameter_list|(
 name|boolean
-name|simulate
+name|dryRun
 parameter_list|)
 block|{
 name|this
 operator|.
-name|simulate
+name|dryRun
 operator|=
-name|simulate
+name|dryRun
 expr_stmt|;
 block|}
 comment|/**      * Adds condition to check if the index is at least<code>age</code> old      */
@@ -958,13 +958,13 @@ argument_list|)
 expr_stmt|;
 empty_stmt|;
 block|}
-DECL|method|isSimulate
+DECL|method|isDryRun
 name|boolean
-name|isSimulate
+name|isDryRun
 parameter_list|()
 block|{
 return|return
-name|simulate
+name|dryRun
 return|;
 block|}
 DECL|method|getConditions

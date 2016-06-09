@@ -190,10 +190,10 @@ argument_list|>
 argument_list|>
 name|conditionStatus
 decl_stmt|;
-DECL|field|simulate
+DECL|field|dryRun
 specifier|private
 name|boolean
-name|simulate
+name|dryRun
 decl_stmt|;
 DECL|field|rolledOver
 specifier|private
@@ -227,7 +227,7 @@ argument_list|>
 name|conditionResults
 parameter_list|,
 name|boolean
-name|simulate
+name|dryRun
 parameter_list|,
 name|boolean
 name|rolledOver
@@ -250,9 +250,9 @@ name|newIndex
 expr_stmt|;
 name|this
 operator|.
-name|simulate
+name|dryRun
 operator|=
-name|simulate
+name|dryRun
 expr_stmt|;
 name|this
 operator|.
@@ -351,14 +351,14 @@ name|conditionStatus
 return|;
 block|}
 comment|/**      * Returns if the rollover execution was skipped even when conditions were met      */
-DECL|method|isSimulate
+DECL|method|isDryRun
 specifier|public
 name|boolean
-name|isSimulate
+name|isDryRun
 parameter_list|()
 block|{
 return|return
-name|simulate
+name|dryRun
 return|;
 block|}
 comment|/**      * Returns if the rollover was not simulated and the conditions were met      */
@@ -497,7 +497,7 @@ name|conditionStatus
 operator|=
 name|conditions
 expr_stmt|;
-name|simulate
+name|dryRun
 operator|=
 name|in
 operator|.
@@ -603,7 +603,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|simulate
+name|dryRun
 argument_list|)
 expr_stmt|;
 name|out
@@ -676,9 +676,9 @@ name|field
 argument_list|(
 name|Fields
 operator|.
-name|SIMULATED
+name|DRY_RUN
 argument_list|,
-name|simulate
+name|dryRun
 argument_list|)
 expr_stmt|;
 name|builder
@@ -763,13 +763,13 @@ name|OLD_INDEX
 init|=
 literal|"old_index"
 decl_stmt|;
-DECL|field|SIMULATED
+DECL|field|DRY_RUN
 specifier|static
 specifier|final
 name|String
-name|SIMULATED
+name|DRY_RUN
 init|=
-literal|"simulated"
+literal|"dry_run"
 decl_stmt|;
 DECL|field|ROLLED_OVER
 specifier|static

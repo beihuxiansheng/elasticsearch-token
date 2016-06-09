@@ -819,7 +819,7 @@ if|if
 condition|(
 name|rolloverRequest
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 condition|)
 block|{

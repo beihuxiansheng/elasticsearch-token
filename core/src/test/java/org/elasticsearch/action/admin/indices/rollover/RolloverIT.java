@@ -242,7 +242,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 argument_list|,
 name|equalTo
@@ -467,7 +467,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 argument_list|,
 name|equalTo
@@ -736,7 +736,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 argument_list|,
 name|equalTo
@@ -903,10 +903,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testRolloverSimulate
+DECL|method|testRolloverDryRun
 specifier|public
 name|void
-name|testRolloverSimulate
+name|testRolloverDryRun
 parameter_list|()
 throws|throws
 name|Exception
@@ -967,7 +967,7 @@ argument_list|(
 literal|"test_alias"
 argument_list|)
 operator|.
-name|simulate
+name|dryRun
 argument_list|(
 literal|true
 argument_list|)
@@ -1005,7 +1005,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1232,7 +1232,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1535,7 +1535,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|isSimulate
+name|isDryRun
 argument_list|()
 argument_list|,
 name|equalTo
