@@ -284,7 +284,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"sniffRequestTimeout must be greater than 0"
+literal|"sniffRequestTimeoutMillis must be greater than 0"
 argument_list|)
 expr_stmt|;
 block|}

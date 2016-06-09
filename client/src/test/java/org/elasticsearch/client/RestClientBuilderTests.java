@@ -282,7 +282,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"maxRetryTimeout must be greater than 0"
+literal|"maxRetryTimeoutMillis must be greater than 0"
 argument_list|,
 name|e
 operator|.

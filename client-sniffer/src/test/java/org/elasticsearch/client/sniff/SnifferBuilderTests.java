@@ -309,7 +309,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"sniffInterval must be greater than 0"
+literal|"sniffIntervalMillis must be greater than 0"
 argument_list|,
 name|e
 operator|.
@@ -360,7 +360,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"sniffAfterFailureDelay must be greater than 0"
+literal|"sniffAfterFailureDelayMillis must be greater than 0"
 argument_list|,
 name|e
 operator|.
