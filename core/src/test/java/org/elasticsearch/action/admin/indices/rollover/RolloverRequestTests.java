@@ -123,6 +123,11 @@ name|randomAsciiOfLength
 argument_list|(
 literal|10
 argument_list|)
+argument_list|,
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -301,6 +306,11 @@ init|=
 operator|new
 name|RolloverRequest
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|randomAsciiOfLength
 argument_list|(
 literal|10
