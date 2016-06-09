@@ -83,11 +83,11 @@ specifier|final
 name|int
 name|failedAttempts
 decl_stmt|;
-DECL|field|deadUntil
+DECL|field|deadUntilNanos
 specifier|private
 specifier|final
 name|long
-name|deadUntil
+name|deadUntilNanos
 decl_stmt|;
 DECL|method|DeadHostState
 specifier|private
@@ -102,7 +102,7 @@ literal|1
 expr_stmt|;
 name|this
 operator|.
-name|deadUntil
+name|deadUntilNanos
 operator|=
 name|System
 operator|.
@@ -153,7 +153,7 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|deadUntil
+name|deadUntilNanos
 operator|=
 name|System
 operator|.
@@ -174,13 +174,13 @@ literal|1
 expr_stmt|;
 block|}
 comment|/**      * Returns the timestamp (nanos) till the host is supposed to stay dead without being retried.      * After that the host should be retried.      */
-DECL|method|getDeadUntil
+DECL|method|getDeadUntilNanos
 name|long
-name|getDeadUntil
+name|getDeadUntilNanos
 parameter_list|()
 block|{
 return|return
-name|deadUntil
+name|deadUntilNanos
 return|;
 block|}
 annotation|@
@@ -198,9 +198,9 @@ literal|"failedAttempts="
 operator|+
 name|failedAttempts
 operator|+
-literal|", deadUntil="
+literal|", deadUntilNanos="
 operator|+
-name|deadUntil
+name|deadUntilNanos
 operator|+
 literal|'}'
 return|;

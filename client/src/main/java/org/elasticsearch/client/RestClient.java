@@ -1389,7 +1389,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getDeadUntil
+name|getDeadUntilNanos
 argument_list|()
 operator|<
 literal|0
@@ -1496,7 +1496,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getDeadUntil
+name|getDeadUntilNanos
 argument_list|()
 argument_list|,
 name|o2
@@ -1504,7 +1504,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getDeadUntil
+name|getDeadUntilNanos
 argument_list|()
 argument_list|)
 return|;
