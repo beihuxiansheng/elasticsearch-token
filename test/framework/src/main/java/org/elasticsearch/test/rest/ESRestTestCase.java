@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -1744,7 +1744,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -1753,7 +1753,7 @@ if|if
 condition|(
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 operator|.
 name|getStatusLine

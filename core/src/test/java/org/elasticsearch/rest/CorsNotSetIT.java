@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -217,7 +217,7 @@ literal|"http://localhost:9200"
 decl_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -308,7 +308,7 @@ name|Exception
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient

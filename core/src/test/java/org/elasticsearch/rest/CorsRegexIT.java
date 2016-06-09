@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -399,7 +399,7 @@ literal|"http://localhost:9200"
 decl_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -450,7 +450,7 @@ literal|"https://localhost:9200"
 expr_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -563,16 +563,16 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 decl_stmt|;
 comment|// a rejected origin gets a FORBIDDEN - 403
@@ -617,7 +617,7 @@ name|Exception
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -687,7 +687,7 @@ name|Exception
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -754,7 +754,7 @@ literal|"http://localhost:9200"
 decl_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -886,16 +886,16 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 decl_stmt|;
 comment|// a rejected origin gets a FORBIDDEN - 403
@@ -949,7 +949,7 @@ specifier|static
 name|void
 name|assertResponseWithOriginheader
 parameter_list|(
-name|ElasticsearchResponse
+name|Response
 name|response
 parameter_list|,
 name|String

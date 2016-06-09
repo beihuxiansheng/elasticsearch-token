@@ -25,21 +25,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception thrown when an elasticsearch node responds to a request with a status code that indicates an error.  * Note that the response body gets passed in as a string and read eagerly, which means that the ElasticsearchResponse object  * is expected to be closed and available only to read metadata like status line, request line, response headers.  */
+comment|/**  * Exception thrown when an elasticsearch node responds to a request with a status code that indicates an error.  * Note that the response body gets passed in as a string and read eagerly, which means that the Response object  * is expected to be closed and available only to read metadata like status line, request line, response headers.  */
 end_comment
 
 begin_class
-DECL|class|ElasticsearchResponseException
+DECL|class|ResponseException
 specifier|public
 class|class
-name|ElasticsearchResponseException
+name|ResponseException
 extends|extends
 name|IOException
 block|{
-DECL|field|elasticsearchResponse
+DECL|field|response
 specifier|private
-name|ElasticsearchResponse
-name|elasticsearchResponse
+name|Response
+name|response
 decl_stmt|;
 DECL|field|responseBody
 specifier|private
@@ -47,11 +47,11 @@ specifier|final
 name|String
 name|responseBody
 decl_stmt|;
-DECL|method|ElasticsearchResponseException
-name|ElasticsearchResponseException
+DECL|method|ResponseException
+name|ResponseException
 parameter_list|(
-name|ElasticsearchResponse
-name|elasticsearchResponse
+name|Response
+name|response
 parameter_list|,
 name|String
 name|responseBody
@@ -63,7 +63,7 @@ name|super
 argument_list|(
 name|buildMessage
 argument_list|(
-name|elasticsearchResponse
+name|response
 argument_list|,
 name|responseBody
 argument_list|)
@@ -71,9 +71,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|elasticsearchResponse
+name|response
 operator|=
-name|elasticsearchResponse
+name|response
 expr_stmt|;
 name|this
 operator|.
@@ -88,7 +88,7 @@ specifier|static
 name|String
 name|buildMessage
 parameter_list|(
-name|ElasticsearchResponse
+name|Response
 name|response
 parameter_list|,
 name|String
@@ -149,18 +149,18 @@ return|return
 name|message
 return|;
 block|}
-comment|/**      * Returns the {@link ElasticsearchResponse} that caused this exception to be thrown.      * Expected to be used only to read metadata like status line, request line, response headers. The response body should      * be retrieved using {@link #getResponseBody()}      */
-DECL|method|getElasticsearchResponse
+comment|/**      * Returns the {@link Response} that caused this exception to be thrown.      * Expected to be used only to read metadata like status line, request line, response headers. The response body should      * be retrieved using {@link #getResponseBody()}      */
+DECL|method|getResponse
 specifier|public
-name|ElasticsearchResponse
-name|getElasticsearchResponse
+name|Response
+name|getResponse
 parameter_list|()
 block|{
 return|return
-name|elasticsearchResponse
+name|response
 return|;
 block|}
-comment|/**      * Returns the response body as a string or null if there wasn't any.      * The body is eagerly consumed when an ElasticsearchResponseException gets created, and its corresponding ElasticsearchResponse      * gets closed straightaway so this method is the only way to get back the response body that was returned.      */
+comment|/**      * Returns the response body as a string or null if there wasn't any.      * The body is eagerly consumed when an ResponseException gets created, and its corresponding Response      * gets closed straightaway so this method is the only way to get back the response body that was returned.      */
 DECL|method|getResponseBody
 specifier|public
 name|String

@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -501,7 +501,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -590,7 +590,7 @@ argument_list|)
 argument_list|,
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 operator|.
 name|getStatusLine

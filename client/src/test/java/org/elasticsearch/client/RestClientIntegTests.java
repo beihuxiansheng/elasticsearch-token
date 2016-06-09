@@ -1051,12 +1051,12 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ElasticsearchResponse
+name|Response
 name|esResponse
 decl_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1092,7 +1092,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -1100,7 +1100,7 @@ name|esResponse
 operator|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 expr_stmt|;
 block|}
@@ -1281,7 +1281,7 @@ argument_list|(
 name|requestBody
 argument_list|)
 decl_stmt|;
-name|ElasticsearchResponse
+name|Response
 name|esResponse
 decl_stmt|;
 name|String
@@ -1298,7 +1298,7 @@ argument_list|)
 decl_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1344,7 +1344,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -1359,7 +1359,7 @@ name|esResponse
 operator|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 expr_stmt|;
 block|}

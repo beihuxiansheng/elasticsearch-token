@@ -190,7 +190,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -202,7 +202,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -673,16 +673,16 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 decl_stmt|;
 if|if

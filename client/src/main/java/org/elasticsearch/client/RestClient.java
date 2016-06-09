@@ -833,10 +833,10 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the current client points to.      * Selects a host out of the provided ones in a round-robin fashion. Failing hosts are marked dead and retried after a certain      * amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times they previously failed (the more failures,      * the later they will be retried). In case of failures all of the alive nodes (or dead nodes that deserve a retry) are retried      * till one responds or none of them does, in which case an {@link IOException} will be thrown.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param headers the optional request headers      * @return the response returned by elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ElasticsearchResponseException in case elasticsearch responded with a status code that indicated an error      */
+comment|/**      * Sends a request to the elasticsearch cluster that the current client points to.      * Selects a host out of the provided ones in a round-robin fashion. Failing hosts are marked dead and retried after a certain      * amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times they previously failed (the more failures,      * the later they will be retried). In case of failures all of the alive nodes (or dead nodes that deserve a retry) are retried      * till one responds or none of them does, in which case an {@link IOException} will be thrown.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param headers the optional request headers      * @return the response returned by elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case elasticsearch responded with a status code that indicated an error      */
 DECL|method|performRequest
 specifier|public
-name|ElasticsearchResponse
+name|Response
 name|performRequest
 parameter_list|(
 name|String
@@ -1072,11 +1072,11 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|ElasticsearchResponse
+name|Response
 name|elasticsearchResponse
 init|=
 operator|new
-name|ElasticsearchResponse
+name|Response
 argument_list|(
 name|request
 operator|.
@@ -1209,11 +1209,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|ElasticsearchResponseException
-name|elasticsearchResponseException
+name|ResponseException
+name|responseException
 init|=
 operator|new
-name|ElasticsearchResponseException
+name|ResponseException
 argument_list|(
 name|elasticsearchResponse
 argument_list|,
@@ -1226,7 +1226,7 @@ name|addSuppressedException
 argument_list|(
 name|lastSeenException
 argument_list|,
-name|elasticsearchResponseException
+name|responseException
 argument_list|)
 expr_stmt|;
 comment|//clients don't retry on 500 because elasticsearch still misuses it instead of 400 in some places

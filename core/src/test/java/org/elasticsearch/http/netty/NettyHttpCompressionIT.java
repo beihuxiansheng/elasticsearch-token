@@ -146,7 +146,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -397,7 +397,7 @@ init|)
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|client
@@ -514,7 +514,7 @@ init|)
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|client
@@ -609,7 +609,7 @@ init|)
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|client
@@ -696,7 +696,7 @@ init|)
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|client

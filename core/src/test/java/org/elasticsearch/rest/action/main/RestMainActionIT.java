@@ -40,7 +40,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -189,7 +189,7 @@ name|IOException
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
@@ -246,7 +246,7 @@ name|IOException
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient

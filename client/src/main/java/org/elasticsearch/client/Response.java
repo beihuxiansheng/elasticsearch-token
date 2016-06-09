@@ -125,10 +125,10 @@ comment|/**  * Holds an elasticsearch response. It wraps the {@link CloseableHtt
 end_comment
 
 begin_class
-DECL|class|ElasticsearchResponse
+DECL|class|Response
 specifier|public
 class|class
-name|ElasticsearchResponse
+name|Response
 implements|implements
 name|Closeable
 block|{
@@ -150,8 +150,8 @@ specifier|final
 name|CloseableHttpResponse
 name|response
 decl_stmt|;
-DECL|method|ElasticsearchResponse
-name|ElasticsearchResponse
+DECL|method|Response
+name|Response
 parameter_list|(
 name|RequestLine
 name|requestLine
@@ -321,7 +321,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ElasticsearchResponse{"
+literal|"Response{"
 operator|+
 literal|"requestLine="
 operator|+

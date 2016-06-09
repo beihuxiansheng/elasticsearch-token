@@ -34,7 +34,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -414,7 +414,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{

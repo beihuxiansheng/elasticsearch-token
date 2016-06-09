@@ -1419,7 +1419,7 @@ name|getOkStatusCodes
 argument_list|()
 control|)
 block|{
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1499,7 +1499,7 @@ control|)
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1569,7 +1569,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -1595,7 +1595,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 operator|.
 name|getStatusLine
@@ -1822,7 +1822,7 @@ control|)
 block|{
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1927,16 +1927,16 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2412,12 +2412,12 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ElasticsearchResponse
+name|Response
 name|esResponse
 decl_stmt|;
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -2453,7 +2453,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -2461,7 +2461,7 @@ name|esResponse
 operator|=
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 expr_stmt|;
 block|}
@@ -2997,7 +2997,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{

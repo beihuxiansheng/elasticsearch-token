@@ -232,7 +232,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -244,7 +244,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -849,8 +849,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|ElasticsearchResponse
-name|elasticsearchResponse
+name|Response
+name|response
 init|=
 name|restClient
 operator|.
@@ -874,7 +874,7 @@ init|=
 operator|new
 name|RestTestResponse
 argument_list|(
-name|elasticsearchResponse
+name|response
 argument_list|)
 decl_stmt|;
 name|Object
@@ -1085,7 +1085,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// And everything else is a url parameter!
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1792,7 +1792,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|restClient
@@ -1820,7 +1820,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|e
 parameter_list|)
 block|{
@@ -1832,7 +1832,7 @@ name|contains
 argument_list|(
 name|e
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 operator|.
 name|getStatusLine

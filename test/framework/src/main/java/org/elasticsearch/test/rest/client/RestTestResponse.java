@@ -70,7 +70,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponseException
+name|ResponseException
 import|;
 end_import
 
@@ -151,7 +151,7 @@ block|{
 DECL|field|response
 specifier|private
 specifier|final
-name|ElasticsearchResponse
+name|Response
 name|response
 decl_stmt|;
 DECL|field|body
@@ -169,7 +169,7 @@ DECL|method|RestTestResponse
 specifier|public
 name|RestTestResponse
 parameter_list|(
-name|ElasticsearchResponse
+name|Response
 name|response
 parameter_list|)
 block|{
@@ -259,7 +259,7 @@ DECL|method|RestTestResponse
 specifier|public
 name|RestTestResponse
 parameter_list|(
-name|ElasticsearchResponseException
+name|ResponseException
 name|responseException
 parameter_list|)
 block|{
@@ -269,7 +269,7 @@ name|response
 operator|=
 name|responseException
 operator|.
-name|getElasticsearchResponse
+name|getResponse
 argument_list|()
 expr_stmt|;
 name|this

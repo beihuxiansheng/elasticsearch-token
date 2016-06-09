@@ -198,7 +198,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ElasticsearchResponse
+name|Response
 import|;
 end_import
 
@@ -1765,7 +1765,7 @@ expr_stmt|;
 block|}
 try|try
 init|(
-name|ElasticsearchResponse
+name|Response
 name|response
 init|=
 name|getRestClient
