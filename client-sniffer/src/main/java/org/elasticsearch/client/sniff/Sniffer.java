@@ -329,17 +329,17 @@ specifier|final
 name|RestClient
 name|restClient
 decl_stmt|;
-DECL|field|sniffInterval
+DECL|field|sniffIntervalMillis
 specifier|private
 specifier|final
 name|long
-name|sniffInterval
+name|sniffIntervalMillis
 decl_stmt|;
-DECL|field|sniffAfterFailureDelay
+DECL|field|sniffAfterFailureDelayMillis
 specifier|private
 specifier|final
 name|long
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 decl_stmt|;
 DECL|field|scheduledExecutorService
 specifier|private
@@ -378,10 +378,10 @@ name|RestClient
 name|restClient
 parameter_list|,
 name|long
-name|sniffInterval
+name|sniffIntervalMillis
 parameter_list|,
 name|long
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 parameter_list|)
 block|{
 name|this
@@ -398,15 +398,15 @@ name|restClient
 expr_stmt|;
 name|this
 operator|.
-name|sniffInterval
+name|sniffIntervalMillis
 operator|=
-name|sniffInterval
+name|sniffIntervalMillis
 expr_stmt|;
 name|this
 operator|.
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 operator|=
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 expr_stmt|;
 name|this
 operator|.
@@ -525,7 +525,7 @@ name|sniff
 argument_list|(
 literal|null
 argument_list|,
-name|sniffInterval
+name|sniffIntervalMillis
 argument_list|)
 expr_stmt|;
 block|}
@@ -541,7 +541,7 @@ name|sniff
 argument_list|(
 name|failedHost
 argument_list|,
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 argument_list|)
 expr_stmt|;
 block|}
@@ -788,10 +788,10 @@ specifier|final
 name|HostsSniffer
 name|hostsSniffer
 decl_stmt|;
-DECL|field|sniffInterval
+DECL|field|sniffIntervalMillis
 specifier|private
 name|long
-name|sniffInterval
+name|sniffIntervalMillis
 init|=
 name|DEFAULT_SNIFF_INTERVAL
 decl_stmt|;
@@ -802,10 +802,10 @@ name|sniffOnFailure
 init|=
 literal|true
 decl_stmt|;
-DECL|field|sniffAfterFailureDelay
+DECL|field|sniffAfterFailureDelayMillis
 specifier|private
 name|long
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 init|=
 name|DEFAULT_SNIFF_AFTER_FAILURE_DELAY
 decl_stmt|;
@@ -852,19 +852,19 @@ operator|=
 name|hostsSniffer
 expr_stmt|;
 block|}
-comment|/**          * Sets the interval between consecutive ordinary sniff executions. Will be honoured when sniffOnFailure is disabled or          * when there are no failures between consecutive sniff executions.          * @throws IllegalArgumentException if sniffInterval is not greater than 0          */
-DECL|method|setSniffInterval
+comment|/**          * Sets the interval between consecutive ordinary sniff executions in milliseconds. Will be honoured when          * sniffOnFailure is disabled or when there are no failures between consecutive sniff executions.          * @throws IllegalArgumentException if sniffIntervalMillis is not greater than 0          */
+DECL|method|setSniffIntervalMillis
 specifier|public
 name|Builder
-name|setSniffInterval
+name|setSniffIntervalMillis
 parameter_list|(
 name|int
-name|sniffInterval
+name|sniffIntervalMillis
 parameter_list|)
 block|{
 if|if
 condition|(
-name|sniffInterval
+name|sniffIntervalMillis
 operator|<=
 literal|0
 condition|)
@@ -873,21 +873,21 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"sniffInterval must be greater than 0"
+literal|"sniffIntervalMillis must be greater than 0"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|sniffInterval
+name|sniffIntervalMillis
 operator|=
-name|sniffInterval
+name|sniffIntervalMillis
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables/disables sniffing on failure. If enabled, at each failure nodes will be reloaded, and a new sniff execution will          * be scheduled after a shorter time than usual (sniffAfterFailureDelay).          */
+comment|/**          * Enables/disables sniffing on failure. If enabled, at each failure nodes will be reloaded, and a new sniff execution will          * be scheduled after a shorter time than usual (sniffAfterFailureDelayMillis).          */
 DECL|method|setSniffOnFailure
 specifier|public
 name|Builder
@@ -907,19 +907,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the delay of a sniff execution scheduled after a failure.          */
-DECL|method|setSniffAfterFailureDelay
+comment|/**          * Sets the delay of a sniff execution scheduled after a failure (in milliseconds)          */
+DECL|method|setSniffAfterFailureDelayMillis
 specifier|public
 name|Builder
-name|setSniffAfterFailureDelay
+name|setSniffAfterFailureDelayMillis
 parameter_list|(
 name|int
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 parameter_list|)
 block|{
 if|if
 condition|(
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 operator|<=
 literal|0
 condition|)
@@ -928,15 +928,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"sniffAfterFailureDelay must be greater than 0"
+literal|"sniffAfterFailureDelayMillis must be greater than 0"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 operator|=
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 expr_stmt|;
 return|return
 name|this
@@ -957,11 +957,11 @@ name|restClient
 argument_list|,
 name|hostsSniffer
 argument_list|,
-name|sniffInterval
+name|sniffIntervalMillis
 argument_list|,
 name|sniffOnFailure
 argument_list|,
-name|sniffAfterFailureDelay
+name|sniffAfterFailureDelayMillis
 argument_list|)
 return|;
 block|}

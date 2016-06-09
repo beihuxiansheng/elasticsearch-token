@@ -293,7 +293,7 @@ name|RestClient
 name|restClient
 parameter_list|,
 name|long
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 parameter_list|,
 name|Scheme
 name|scheme
@@ -320,7 +320,7 @@ name|singletonMap
 argument_list|(
 literal|"timeout"
 argument_list|,
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 operator|+
 literal|"ms"
 argument_list|)
@@ -881,10 +881,10 @@ specifier|final
 name|RestClient
 name|restClient
 decl_stmt|;
-DECL|field|sniffRequestTimeout
+DECL|field|sniffRequestTimeoutMillis
 specifier|private
 name|long
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 init|=
 name|DEFAULT_SNIFF_REQUEST_TIMEOUT
 decl_stmt|;
@@ -917,19 +917,19 @@ operator|=
 name|restClient
 expr_stmt|;
 block|}
-comment|/**          * Sets the sniff request timeout to be passed in as a query string parameter to elasticsearch.          * Allows to halt the request without any failure, as only the nodes that have responded          * within this timeout will be returned.          */
-DECL|method|setSniffRequestTimeout
+comment|/**          * Sets the sniff request timeout (in milliseconds) to be passed in as a query string parameter to elasticsearch.          * Allows to halt the request without any failure, as only the nodes that have responded within this timeout will be returned.          */
+DECL|method|setSniffRequestTimeoutMillis
 specifier|public
 name|Builder
-name|setSniffRequestTimeout
+name|setSniffRequestTimeoutMillis
 parameter_list|(
 name|int
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 parameter_list|)
 block|{
 if|if
 condition|(
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 operator|<=
 literal|0
 condition|)
@@ -938,15 +938,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"sniffRequestTimeout must be greater than 0"
+literal|"sniffRequestTimeoutMillis must be greater than 0"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 operator|=
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 expr_stmt|;
 return|return
 name|this
@@ -994,7 +994,7 @@ name|HostsSniffer
 argument_list|(
 name|restClient
 argument_list|,
-name|sniffRequestTimeout
+name|sniffRequestTimeoutMillis
 argument_list|,
 name|scheme
 argument_list|)

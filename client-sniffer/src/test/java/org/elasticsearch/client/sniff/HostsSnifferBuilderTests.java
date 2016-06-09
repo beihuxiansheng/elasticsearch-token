@@ -248,7 +248,7 @@ argument_list|(
 name|client
 argument_list|)
 operator|.
-name|setSniffRequestTimeout
+name|setSniffRequestTimeoutMillis
 argument_list|(
 name|RandomInts
 operator|.
@@ -341,7 +341,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|setSniffRequestTimeout
+name|setSniffRequestTimeoutMillis
 argument_list|(
 name|RandomInts
 operator|.

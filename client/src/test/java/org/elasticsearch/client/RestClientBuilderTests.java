@@ -251,7 +251,7 @@ literal|9200
 argument_list|)
 argument_list|)
 operator|.
-name|setMaxRetryTimeout
+name|setMaxRetryTimeoutMillis
 argument_list|(
 name|RandomInts
 operator|.
@@ -557,7 +557,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|setMaxRetryTimeout
+name|setMaxRetryTimeoutMillis
 argument_list|(
 name|RandomInts
 operator|.

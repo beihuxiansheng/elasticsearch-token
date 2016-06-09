@@ -278,7 +278,7 @@ argument_list|,
 name|hostsSniffer
 argument_list|)
 operator|.
-name|setSniffInterval
+name|setSniffIntervalMillis
 argument_list|(
 name|RandomInts
 operator|.
@@ -329,7 +329,7 @@ argument_list|,
 name|hostsSniffer
 argument_list|)
 operator|.
-name|setSniffAfterFailureDelay
+name|setSniffAfterFailureDelayMillis
 argument_list|(
 name|RandomInts
 operator|.
@@ -418,7 +418,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|setSniffInterval
+name|setSniffIntervalMillis
 argument_list|(
 name|RandomInts
 operator|.
@@ -447,7 +447,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|setSniffAfterFailureDelay
+name|setSniffAfterFailureDelayMillis
 argument_list|(
 name|RandomInts
 operator|.
