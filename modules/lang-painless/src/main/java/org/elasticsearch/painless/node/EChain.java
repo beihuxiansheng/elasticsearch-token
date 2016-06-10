@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -271,13 +271,13 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|analyzeLinks
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|analyzeIncrDecr
@@ -292,7 +292,7 @@ condition|)
 block|{
 name|analyzeCompound
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -306,7 +306,7 @@ condition|)
 block|{
 name|analyzeWrite
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -322,7 +322,7 @@ specifier|private
 name|void
 name|analyzeLinks
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -770,7 +770,7 @@ specifier|private
 name|void
 name|analyzeCompound
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1325,7 +1325,7 @@ specifier|private
 name|void
 name|analyzeWrite
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{

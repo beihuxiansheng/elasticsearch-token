@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -188,8 +188,8 @@ specifier|abstract
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Writes ASM based on the data collected during the analysis phase.      */

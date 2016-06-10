@@ -387,7 +387,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(ShardRouting, boolean)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
+comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(ShardRouting)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
 annotation|@
 name|Override
 DECL|method|updateRoutingEntry
@@ -397,9 +397,6 @@ name|updateRoutingEntry
 parameter_list|(
 name|ShardRouting
 name|newRouting
-parameter_list|,
-name|boolean
-name|persistState
 parameter_list|)
 throws|throws
 name|IOException
@@ -428,8 +425,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-name|persistState
 argument_list|)
 expr_stmt|;
 block|}

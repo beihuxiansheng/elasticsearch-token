@@ -112,7 +112,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -195,8 +195,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -210,7 +210,7 @@ condition|)
 block|{
 name|analyzeMul
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -226,7 +226,7 @@ condition|)
 block|{
 name|analyzeDiv
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -242,7 +242,7 @@ condition|)
 block|{
 name|analyzeRem
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -258,7 +258,7 @@ condition|)
 block|{
 name|analyzeAdd
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -274,7 +274,7 @@ condition|)
 block|{
 name|analyzeSub
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -290,7 +290,7 @@ condition|)
 block|{
 name|analyzeLSH
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -306,7 +306,7 @@ condition|)
 block|{
 name|analyzeRSH
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -322,7 +322,7 @@ condition|)
 block|{
 name|analyzeUSH
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -338,7 +338,7 @@ condition|)
 block|{
 name|analyzeBWAnd
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -354,7 +354,7 @@ condition|)
 block|{
 name|analyzeXor
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -370,7 +370,7 @@ condition|)
 block|{
 name|analyzeBWOr
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -393,7 +393,7 @@ specifier|private
 name|void
 name|analyzeMul
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -648,7 +648,7 @@ specifier|private
 name|void
 name|analyzeDiv
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -919,7 +919,7 @@ specifier|private
 name|void
 name|analyzeRem
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1190,7 +1190,7 @@ specifier|private
 name|void
 name|analyzeAdd
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1579,7 +1579,7 @@ specifier|private
 name|void
 name|analyzeSub
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1834,7 +1834,7 @@ specifier|private
 name|void
 name|analyzeLSH
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2039,7 +2039,7 @@ specifier|private
 name|void
 name|analyzeRSH
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2244,7 +2244,7 @@ specifier|private
 name|void
 name|analyzeUSH
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2449,7 +2449,7 @@ specifier|private
 name|void
 name|analyzeBWAnd
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2650,7 +2650,7 @@ specifier|private
 name|void
 name|analyzeXor
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2876,7 +2876,7 @@ specifier|private
 name|void
 name|analyzeBWOr
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{

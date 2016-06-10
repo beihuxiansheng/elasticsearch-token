@@ -2978,16 +2978,10 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"2.0 = sum of:\n  2.0 = Score based on child doc range from 0 to 1\n"
+literal|"2.0 = sum of:\n  2.0 = Score based on 2 child docs in range from 0 to 1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: Enable when changes from BlockJoinQuery#explain are added to Lucene (Most likely version 4.2)
-comment|//        assertThat(explanation.getDetails().length, equalTo(2));
-comment|//        assertThat(explanation.getDetails()[0].getValue(), equalTo(1f));
-comment|//        assertThat(explanation.getDetails()[0].getDescription(), equalTo("Child[0]"));
-comment|//        assertThat(explanation.getDetails()[1].getValue(), equalTo(1f));
-comment|//        assertThat(explanation.getDetails()[1].getDescription(), equalTo("Child[1]"));
 block|}
 DECL|method|testSimpleNestedSorting
 specifier|public

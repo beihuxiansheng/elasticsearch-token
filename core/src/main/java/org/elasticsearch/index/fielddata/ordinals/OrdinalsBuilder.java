@@ -100,22 +100,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoEncodingUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|ArrayUtil
@@ -1874,7 +1858,7 @@ block|{
 comment|// accept only the max resolution terms
 comment|// todo is this necessary?
 return|return
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
 name|getPrefixCodedShift
 argument_list|(

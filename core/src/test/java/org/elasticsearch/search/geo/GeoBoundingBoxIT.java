@@ -1146,6 +1146,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// norelease
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://issues.apache.org/jira/browse/LUCENE-7325"
+argument_list|)
 DECL|method|testLimitsBoundingBox
 specifier|public
 name|void

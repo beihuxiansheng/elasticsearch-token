@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -156,8 +156,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -196,7 +196,7 @@ name|lastLoop
 operator|=
 name|lastLoop
 expr_stmt|;
-name|variables
+name|locals
 operator|.
 name|incrementScope
 argument_list|()
@@ -205,10 +205,10 @@ name|block
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
-name|variables
+name|locals
 operator|.
 name|decrementScope
 argument_list|()
@@ -274,7 +274,7 @@ name|lastLoop
 operator|=
 name|lastLoop
 expr_stmt|;
-name|variables
+name|locals
 operator|.
 name|incrementScope
 argument_list|()
@@ -283,10 +283,10 @@ name|catc
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
-name|variables
+name|locals
 operator|.
 name|decrementScope
 argument_list|()

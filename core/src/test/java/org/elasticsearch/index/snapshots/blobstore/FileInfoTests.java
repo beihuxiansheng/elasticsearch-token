@@ -155,8 +155,6 @@ operator|.
 name|BlobStoreIndexShardSnapshot
 operator|.
 name|FileInfo
-operator|.
-name|Fields
 import|;
 end_import
 
@@ -845,7 +843,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
+name|FileInfo
 operator|.
 name|NAME
 argument_list|,
@@ -856,7 +854,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
+name|FileInfo
 operator|.
 name|PHYSICAL_NAME
 argument_list|,
@@ -867,7 +865,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
+name|FileInfo
 operator|.
 name|LENGTH
 argument_list|,
@@ -878,7 +876,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
+name|FileInfo
 operator|.
 name|WRITTEN_BY
 argument_list|,
@@ -894,7 +892,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
+name|FileInfo
 operator|.
 name|CHECKSUM
 argument_list|,
