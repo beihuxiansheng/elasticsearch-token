@@ -379,9 +379,8 @@ argument_list|()
 expr_stmt|;
 name|interval
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)

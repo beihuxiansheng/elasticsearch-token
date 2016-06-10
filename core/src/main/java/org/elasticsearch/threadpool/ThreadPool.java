@@ -3525,9 +3525,8 @@ condition|)
 block|{
 name|keepAlive
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)
