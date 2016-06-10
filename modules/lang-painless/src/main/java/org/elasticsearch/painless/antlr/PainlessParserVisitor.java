@@ -60,6 +60,28 @@ name|SourceContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#function}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitFunction
+name|T
+name|visitFunction
+parameter_list|(
+name|PainlessParser
+operator|.
+name|FunctionContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#parameters}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitParameters
+name|T
+name|visitParameters
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ParametersContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code if}    * labeled alternative in {@link PainlessParser#statement}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitIf
 name|T
@@ -552,6 +574,17 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|VariableContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code calllocal}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitCalllocal
+name|T
+name|visitCalllocal
+parameter_list|(
+name|PainlessParser
+operator|.
+name|CalllocalContext
 name|ctx
 parameter_list|)
 function_decl|;

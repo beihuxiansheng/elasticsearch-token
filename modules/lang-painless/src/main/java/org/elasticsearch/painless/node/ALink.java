@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -162,8 +162,8 @@ specifier|abstract
 name|ALink
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Write values before a load/store occurs such as an array index.      */

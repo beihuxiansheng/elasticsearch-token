@@ -154,7 +154,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 operator|.
 name|Variable
 import|;
@@ -264,11 +264,6 @@ name|SEach
 extends|extends
 name|AStatement
 block|{
-DECL|field|maxLoopCounter
-specifier|final
-name|int
-name|maxLoopCounter
-decl_stmt|;
 DECL|field|type
 specifier|final
 name|String
@@ -340,9 +335,6 @@ parameter_list|(
 name|Location
 name|location
 parameter_list|,
-name|int
-name|maxLoopCounter
-parameter_list|,
 name|String
 name|type
 parameter_list|,
@@ -360,12 +352,6 @@ name|super
 argument_list|(
 name|location
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|maxLoopCounter
-operator|=
-name|maxLoopCounter
 expr_stmt|;
 name|this
 operator|.
@@ -398,15 +384,15 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|expression
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|expression
@@ -423,7 +409,7 @@ name|expression
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -467,14 +453,14 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-name|variables
+name|locals
 operator|.
 name|incrementScope
 argument_list|()
 expr_stmt|;
 name|variable
 operator|=
-name|variables
+name|locals
 operator|.
 name|addVariable
 argument_list|(
@@ -504,7 +490,7 @@ condition|)
 block|{
 name|analyzeArray
 argument_list|(
-name|variables
+name|locals
 argument_list|,
 name|type
 argument_list|)
@@ -539,7 +525,7 @@ condition|)
 block|{
 name|analyzeIterable
 argument_list|(
-name|variables
+name|locals
 argument_list|,
 name|type
 argument_list|)
@@ -548,8 +534,6 @@ block|}
 else|else
 block|{
 throw|throw
-name|location
-operator|.
 name|createError
 argument_list|(
 operator|new
@@ -576,8 +560,6 @@ literal|null
 condition|)
 block|{
 throw|throw
-name|location
-operator|.
 name|createError
 argument_list|(
 operator|new
@@ -604,7 +586,7 @@ name|block
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|block
@@ -651,14 +633,17 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-name|maxLoopCounter
+name|locals
+operator|.
+name|getMaxLoopCounter
+argument_list|()
 operator|>
 literal|0
 condition|)
 block|{
 name|loopCounterSlot
 operator|=
-name|variables
+name|locals
 operator|.
 name|getVariable
 argument_list|(
@@ -670,7 +655,7 @@ operator|.
 name|slot
 expr_stmt|;
 block|}
-name|variables
+name|locals
 operator|.
 name|decrementScope
 argument_list|()
@@ -680,7 +665,7 @@ DECL|method|analyzeArray
 name|void
 name|analyzeArray
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|,
 name|Type
@@ -780,7 +765,7 @@ DECL|method|analyzeIterable
 name|void
 name|analyzeIterable
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|,
 name|Type
@@ -865,8 +850,6 @@ literal|null
 condition|)
 block|{
 throw|throw
-name|location
-operator|.
 name|createError
 argument_list|(
 operator|new
@@ -953,8 +936,6 @@ block|}
 else|else
 block|{
 throw|throw
-name|location
-operator|.
 name|createError
 argument_list|(
 operator|new
@@ -1302,6 +1283,9 @@ name|DefBootstrap
 operator|.
 name|ITERATOR
 argument_list|,
+operator|(
+name|Object
+operator|)
 literal|0
 argument_list|)
 expr_stmt|;

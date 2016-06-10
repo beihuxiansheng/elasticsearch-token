@@ -100,7 +100,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -230,8 +230,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -245,7 +245,7 @@ condition|)
 block|{
 name|analyzeNot
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -261,7 +261,7 @@ condition|)
 block|{
 name|analyzeBWNot
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -277,7 +277,7 @@ condition|)
 block|{
 name|analyzerAdd
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -293,7 +293,7 @@ condition|)
 block|{
 name|analyzerSub
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -315,7 +315,7 @@ DECL|method|analyzeNot
 name|void
 name|analyzeNot
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -374,7 +374,7 @@ DECL|method|analyzeBWNot
 name|void
 name|analyzeBWNot
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -520,7 +520,7 @@ DECL|method|analyzerAdd
 name|void
 name|analyzerAdd
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -708,7 +708,7 @@ DECL|method|analyzerSub
 name|void
 name|analyzerSub
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{

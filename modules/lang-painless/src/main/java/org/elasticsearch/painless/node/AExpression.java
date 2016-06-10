@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -217,8 +217,8 @@ specifier|abstract
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
@@ -236,8 +236,8 @@ DECL|method|cast
 name|AExpression
 name|cast
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 specifier|final
@@ -306,7 +306,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -432,7 +432,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -526,7 +526,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if

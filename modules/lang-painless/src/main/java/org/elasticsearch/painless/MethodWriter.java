@@ -869,6 +869,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MethodWriter
+specifier|public
 name|MethodWriter
 parameter_list|(
 name|int
@@ -939,6 +940,7 @@ expr_stmt|;
 block|}
 comment|/**      * @return A new {@link MethodWriter} with the specified access and signature.      */
 DECL|method|newMethodWriter
+specifier|public
 name|MethodWriter
 name|newMethodWriter
 parameter_list|(

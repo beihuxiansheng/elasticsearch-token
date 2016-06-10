@@ -62,7 +62,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 operator|.
 name|Variable
 import|;
@@ -182,8 +182,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 specifier|final
@@ -244,7 +244,7 @@ name|expression
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|expression
@@ -253,13 +253,13 @@ name|expression
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
 name|variable
 operator|=
-name|variables
+name|locals
 operator|.
 name|addVariable
 argument_list|(

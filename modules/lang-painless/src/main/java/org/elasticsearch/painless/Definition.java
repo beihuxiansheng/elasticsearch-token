@@ -1366,7 +1366,7 @@ name|MethodHandle
 name|handle
 decl_stmt|;
 DECL|method|Method
-specifier|private
+specifier|public
 name|Method
 parameter_list|(
 name|String
@@ -1969,9 +1969,7 @@ name|functionalMethod
 operator|=
 operator|new
 name|SetOnce
-argument_list|<
-name|Method
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2153,7 +2151,7 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-comment|/**           * If this class is a functional interface according to JLS, returns its method.          * Otherwise returns null.          */
+comment|/**          * If this class is a functional interface according to JLS, returns its method.          * Otherwise returns null.          */
 DECL|method|getFunctionalMethod
 specifier|public
 name|Method

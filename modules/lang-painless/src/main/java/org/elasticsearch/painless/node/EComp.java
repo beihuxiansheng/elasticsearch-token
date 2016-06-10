@@ -100,7 +100,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -313,8 +313,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -328,7 +328,7 @@ condition|)
 block|{
 name|analyzeEq
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -344,7 +344,7 @@ condition|)
 block|{
 name|analyzeEqR
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -360,7 +360,7 @@ condition|)
 block|{
 name|analyzeNE
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -376,7 +376,7 @@ condition|)
 block|{
 name|analyzeNER
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -392,7 +392,7 @@ condition|)
 block|{
 name|analyzeGTE
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -408,7 +408,7 @@ condition|)
 block|{
 name|analyzeGT
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -424,7 +424,7 @@ condition|)
 block|{
 name|analyzeLTE
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -440,7 +440,7 @@ condition|)
 block|{
 name|analyzeLT
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -463,7 +463,7 @@ specifier|private
 name|void
 name|analyzeEq
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -823,7 +823,7 @@ specifier|private
 name|void
 name|analyzeEqR
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1139,7 +1139,7 @@ specifier|private
 name|void
 name|analyzeNE
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1501,7 +1501,7 @@ specifier|private
 name|void
 name|analyzeNER
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1817,7 +1817,7 @@ specifier|private
 name|void
 name|analyzeGTE
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2074,7 +2074,7 @@ specifier|private
 name|void
 name|analyzeGT
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2331,7 +2331,7 @@ specifier|private
 name|void
 name|analyzeLTE
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -2588,7 +2588,7 @@ specifier|private
 name|void
 name|analyzeLT
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
