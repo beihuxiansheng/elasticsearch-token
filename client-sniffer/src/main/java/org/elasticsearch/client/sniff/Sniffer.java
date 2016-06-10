@@ -689,6 +689,11 @@ condition|)
 block|{
 return|return;
 block|}
+name|scheduledExecutorService
+operator|.
+name|shutdownNow
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -705,11 +710,6 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 block|}
-name|scheduledExecutorService
-operator|.
-name|shutdownNow
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns a new {@link Builder} to help with {@link Sniffer} creation.      */
