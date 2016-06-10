@@ -200,6 +200,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|codehaus
+operator|.
+name|mojo
+operator|.
+name|animal_sniffer
+operator|.
+name|IgnoreJRERequirement
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|client
@@ -407,6 +421,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|IgnoreJRERequirement
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -874,6 +890,8 @@ return|return
 name|httpServer
 return|;
 block|}
+annotation|@
+name|IgnoreJRERequirement
 annotation|@
 name|SuppressForbidden
 argument_list|(

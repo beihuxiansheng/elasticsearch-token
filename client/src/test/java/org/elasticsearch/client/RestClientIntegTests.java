@@ -208,6 +208,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|codehaus
+operator|.
+name|mojo
+operator|.
+name|animal_sniffer
+operator|.
+name|IgnoreJRERequirement
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|AfterClass
@@ -393,6 +407,8 @@ comment|/**  * Integration test to check interaction between {@link RestClient} 
 end_comment
 
 begin_class
+annotation|@
+name|IgnoreJRERequirement
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -625,6 +641,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|IgnoreJRERequirement
 annotation|@
 name|SuppressForbidden
 argument_list|(
