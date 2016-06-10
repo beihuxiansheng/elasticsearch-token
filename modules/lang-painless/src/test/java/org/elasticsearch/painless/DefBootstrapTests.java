@@ -122,7 +122,7 @@ name|DefBootstrap
 operator|.
 name|METHOD_CALL
 argument_list|,
-literal|0
+literal|0L
 argument_list|)
 decl_stmt|;
 name|MethodHandle
@@ -230,7 +230,7 @@ name|DefBootstrap
 operator|.
 name|METHOD_CALL
 argument_list|,
-literal|0
+literal|0L
 argument_list|)
 decl_stmt|;
 name|MethodHandle
@@ -397,7 +397,7 @@ name|DefBootstrap
 operator|.
 name|METHOD_CALL
 argument_list|,
-literal|0
+literal|0L
 argument_list|)
 decl_stmt|;
 name|MethodHandle
