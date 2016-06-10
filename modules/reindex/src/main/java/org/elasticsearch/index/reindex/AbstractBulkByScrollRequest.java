@@ -965,9 +965,8 @@ argument_list|()
 expr_stmt|;
 name|timeout
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)
@@ -986,9 +985,8 @@ argument_list|)
 expr_stmt|;
 name|retryBackoffInitialTime
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)

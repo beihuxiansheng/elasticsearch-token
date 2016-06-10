@@ -14,6 +14,16 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Comparator
+import|;
+end_import
+
 begin_class
 DECL|class|FunctionRefTests
 specifier|public
@@ -140,6 +150,206 @@ operator|+
 literal|"DoubleSummaryStatistics::combine); "
 operator|+
 literal|"return stats.getSum()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReference
+specifier|public
+name|void
+name|testCapturingMethodReference
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Integer x = Integer.valueOf(5); return Optional.empty().orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return Optional.empty().orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceDefImpl
+specifier|public
+name|void
+name|testCapturingMethodReferenceDefImpl
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = Integer.valueOf(5); return Optional.empty().orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); return Optional.empty().orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceDefInterface
+specifier|public
+name|void
+name|testCapturingMethodReferenceDefInterface
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Integer x = Integer.valueOf(5); def opt = Optional.empty(); return opt.orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); def opt = Optional.empty(); return opt.orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceDefEverywhere
+specifier|public
+name|void
+name|testCapturingMethodReferenceDefEverywhere
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = Integer.valueOf(5); def opt = Optional.empty(); return opt.orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); def opt = Optional.empty(); return opt.orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdas
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdas
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String x = 'testing';"
+operator|+
+literal|"String y = 'abcdefg';"
+operator|+
+literal|"org.elasticsearch.painless.FeatureTest test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdasDefImpls
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdasDefImpls
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 'testing';"
+operator|+
+literal|"def y = 'abcdefg';"
+operator|+
+literal|"org.elasticsearch.painless.FeatureTest test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdasDefInterface
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdasDefInterface
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String x = 'testing';"
+operator|+
+literal|"String y = 'abcdefg';"
+operator|+
+literal|"def test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdasDefEverywhere
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdasDefEverywhere
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 'testing';"
+operator|+
+literal|"def y = 'abcdefg';"
+operator|+
+literal|"def test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
 argument_list|)
 argument_list|)
 expr_stmt|;

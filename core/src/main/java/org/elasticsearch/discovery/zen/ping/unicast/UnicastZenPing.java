@@ -770,22 +770,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|readTimeValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -3292,7 +3276,8 @@ argument_list|()
 expr_stmt|;
 name|timeout
 operator|=
-name|readTimeValue
+operator|new
+name|TimeValue
 argument_list|(
 name|in
 argument_list|)
