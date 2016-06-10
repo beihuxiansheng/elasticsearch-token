@@ -32,6 +32,7 @@ end_comment
 
 begin_class
 DECL|class|DeadHostState
+specifier|final
 class|class
 name|DeadHostState
 block|{
