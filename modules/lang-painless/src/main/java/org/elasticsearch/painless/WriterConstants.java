@@ -541,9 +541,10 @@ name|int
 operator|.
 name|class
 argument_list|,
-name|long
+name|Object
+index|[]
 operator|.
-name|class
+expr|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_BOOTSTRAP_HANDLE
