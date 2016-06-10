@@ -472,10 +472,16 @@ block|}
 catch|catch
 parameter_list|(
 name|FileNotFoundException
-name|ok
+name|e
 parameter_list|)
 block|{
-comment|// behaves like Files.deleteIfExists
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 annotation|@
