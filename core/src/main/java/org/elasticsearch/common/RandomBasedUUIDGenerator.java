@@ -18,16 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Base64
@@ -63,9 +53,10 @@ block|{
 return|return
 name|getBase64UUID
 argument_list|(
-name|SecureRandomHolder
+name|Randomness
 operator|.
-name|INSTANCE
+name|getSecure
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -114,7 +105,7 @@ operator||=
 literal|0x40
 expr_stmt|;
 comment|/* set the version to 0100 / 0x40 */
-comment|/* Set the variant:           * The high field of th clock sequence multiplexed with the variant.          * We set only the MSB of the variant*/
+comment|/* Set the variant:          * The high field of th clock sequence multiplexed with the variant.          * We set only the MSB of the variant*/
 name|randomBytes
 index|[
 literal|8
