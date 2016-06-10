@@ -291,17 +291,6 @@ name|DecltypeContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitFuncref
-name|T
-name|visitFuncref
-parameter_list|(
-name|PainlessParser
-operator|.
-name|FuncrefContext
-name|ctx
-parameter_list|)
-function_decl|;
 comment|/**    * Visit a parse tree produced by {@link PainlessParser#declvar}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitDeclvar
 name|T
@@ -662,6 +651,39 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|ArgumentContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#lambda}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLambda
+name|T
+name|visitLambda
+parameter_list|(
+name|PainlessParser
+operator|.
+name|LambdaContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#lamtype}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLamtype
+name|T
+name|visitLamtype
+parameter_list|(
+name|PainlessParser
+operator|.
+name|LamtypeContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitFuncref
+name|T
+name|visitFuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|FuncrefContext
 name|ctx
 parameter_list|)
 function_decl|;
