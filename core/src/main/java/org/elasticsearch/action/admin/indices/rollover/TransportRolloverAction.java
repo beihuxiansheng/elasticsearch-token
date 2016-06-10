@@ -1534,14 +1534,6 @@ name|aliases
 argument_list|()
 argument_list|)
 operator|.
-name|customs
-argument_list|(
-name|createIndexRequest
-operator|.
-name|customs
-argument_list|()
-argument_list|)
-operator|.
 name|mappings
 argument_list|(
 name|createIndexRequest
