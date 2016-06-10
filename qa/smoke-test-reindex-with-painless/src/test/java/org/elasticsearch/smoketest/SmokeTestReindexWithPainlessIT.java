@@ -97,16 +97,16 @@ import|;
 end_import
 
 begin_class
-DECL|class|SmokeTestReindexWithGroovyIT
+DECL|class|SmokeTestReindexWithPainlessIT
 specifier|public
 class|class
-name|SmokeTestReindexWithGroovyIT
+name|SmokeTestReindexWithPainlessIT
 extends|extends
 name|ESRestTestCase
 block|{
-DECL|method|SmokeTestReindexWithGroovyIT
+DECL|method|SmokeTestReindexWithPainlessIT
 specifier|public
-name|SmokeTestReindexWithGroovyIT
+name|SmokeTestReindexWithPainlessIT
 parameter_list|(
 annotation|@
 name|Name
