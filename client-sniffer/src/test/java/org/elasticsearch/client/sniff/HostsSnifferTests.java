@@ -186,20 +186,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|mojo
@@ -293,6 +279,16 @@ operator|.
 name|io
 operator|.
 name|StringWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|InetAddress
 import|;
 end_import
 
@@ -423,13 +419,6 @@ end_import
 begin_class
 annotation|@
 name|IgnoreJRERequirement
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"uses sun HttpServer"
-argument_list|)
 DECL|class|HostsSnifferTests
 specifier|public
 class|class
@@ -590,7 +579,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|.
-name|getHostName
+name|getHostString
 argument_list|()
 argument_list|,
 name|httpServer
@@ -865,6 +854,11 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
+name|InetAddress
+operator|.
+name|getLoopbackAddress
+argument_list|()
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,
@@ -892,13 +886,6 @@ return|;
 block|}
 annotation|@
 name|IgnoreJRERequirement
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"uses sun HttpServer"
-argument_list|)
 DECL|class|ResponseHandler
 specifier|private
 specifier|static
