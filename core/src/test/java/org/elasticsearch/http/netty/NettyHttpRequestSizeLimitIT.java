@@ -353,11 +353,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:DEBUG,org.elasticsearch.common.breaker:TRACE,org.elasticsearch.test:TRACE,org.elasticsearch.transport:TRACE"
-argument_list|)
 DECL|method|testLimitsInFlightRequests
 specifier|public
 name|void
