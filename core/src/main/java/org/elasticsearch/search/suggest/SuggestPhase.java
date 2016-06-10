@@ -90,18 +90,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|SearchPhase
 import|;
 end_import
@@ -230,18 +218,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -271,28 +247,6 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|parseElements
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-parameter_list|()
-block|{
-comment|// this is used to parse SearchSourceBuilder.ext() bytes
-comment|// we don't allow any suggestion parsing for the extension
-return|return
-name|emptyMap
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override
