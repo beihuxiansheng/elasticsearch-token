@@ -474,6 +474,20 @@ name|search
 operator|.
 name|profile
 operator|.
+name|ProfileShardResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
 name|SearchProfileShardResults
 import|;
 end_import
@@ -488,7 +502,9 @@ name|search
 operator|.
 name|profile
 operator|.
-name|ProfileShardResult
+name|query
+operator|.
+name|QueryProfileShardResult
 import|;
 end_import
 
@@ -2984,10 +3000,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|List
-argument_list|<
 name|ProfileShardResult
-argument_list|>
 argument_list|>
 name|profileResults
 init|=

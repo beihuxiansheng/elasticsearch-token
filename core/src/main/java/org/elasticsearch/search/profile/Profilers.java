@@ -40,6 +40,22 @@ name|search
 operator|.
 name|profile
 operator|.
+name|aggregation
+operator|.
+name|AggregationProfiler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
 name|query
 operator|.
 name|QueryProfiler
@@ -77,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Wrapper around several {@link QueryProfiler}s that makes management easier. */
+comment|/** Wrapper around all the profilers that makes management easier. */
 end_comment
 
 begin_class
@@ -102,6 +118,12 @@ name|QueryProfiler
 argument_list|>
 name|queryProfilers
 decl_stmt|;
+DECL|field|aggProfiler
+specifier|private
+specifier|final
+name|AggregationProfiler
+name|aggProfiler
+decl_stmt|;
 comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link QueryProfiler}. */
 DECL|method|Profilers
 specifier|public
@@ -124,6 +146,14 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|aggProfiler
+operator|=
+operator|new
+name|AggregationProfiler
 argument_list|()
 expr_stmt|;
 name|addQueryProfiler
@@ -200,6 +230,17 @@ name|unmodifiableList
 argument_list|(
 name|queryProfilers
 argument_list|)
+return|;
+block|}
+comment|/** Return the {@link AggregationProfiler}. */
+DECL|method|getAggregationProfiler
+specifier|public
+name|AggregationProfiler
+name|getAggregationProfiler
+parameter_list|()
+block|{
+return|return
+name|aggProfiler
 return|;
 block|}
 block|}

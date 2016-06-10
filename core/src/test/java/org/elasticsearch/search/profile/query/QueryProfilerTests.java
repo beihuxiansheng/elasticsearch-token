@@ -405,10 +405,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ProfileTests
+DECL|class|QueryProfilerTests
 specifier|public
 class|class
-name|ProfileTests
+name|QueryProfilerTests
 extends|extends
 name|ESTestCase
 block|{
@@ -689,7 +689,7 @@ name|results
 init|=
 name|profiler
 operator|.
-name|getQueryTree
+name|getTree
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -936,7 +936,7 @@ name|results
 init|=
 name|profiler
 operator|.
-name|getQueryTree
+name|getTree
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -1177,7 +1177,7 @@ name|results
 init|=
 name|profiler
 operator|.
-name|getQueryTree
+name|getTree
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -1302,7 +1302,7 @@ name|results
 init|=
 name|profiler
 operator|.
-name|getQueryTree
+name|getTree
 argument_list|()
 decl_stmt|;
 name|assertEquals
