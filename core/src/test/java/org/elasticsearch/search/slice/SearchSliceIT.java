@@ -212,16 +212,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -295,18 +285,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
 import|;
 end_import
 
@@ -484,6 +462,10 @@ argument_list|(
 literal|"number_of_shards"
 argument_list|,
 name|numberOfShards
+argument_list|,
+literal|"index.max_slices_per_scroll"
+argument_list|,
+literal|10000
 argument_list|)
 operator|.
 name|addMapping
