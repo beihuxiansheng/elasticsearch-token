@@ -576,6 +576,8 @@ name|DEF_BOOTSTRAP_TYPE
 operator|.
 name|toMethodDescriptorString
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_UTIL_TYPE
@@ -1383,6 +1385,8 @@ name|LAMBDA_BOOTSTRAP_TYPE
 operator|.
 name|toMethodDescriptorString
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|/** dynamic invokedynamic bootstrap for indy string concats (Java 9+) */
@@ -1484,6 +1488,8 @@ name|type
 operator|.
 name|toMethodDescriptorString
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

@@ -14,16 +14,6 @@ name|painless
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
 begin_class
 DECL|class|FunctionRefTests
 specifier|public
@@ -350,6 +340,53 @@ operator|+
 literal|"def test = new org.elasticsearch.painless.FeatureTest(2,3);"
 operator|+
 literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOwnStaticMethodReference
+specifier|public
+name|void
+name|testOwnStaticMethodReference
+parameter_list|()
+block|{
+comment|//System.out.println(Debugger.toString("int mycompare(int i, int j) { return j - i; } " +
+comment|//                     "List l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"));
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int mycompare(int i, int j) { return j - i; } "
+operator|+
+literal|"List l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"working on it"
+argument_list|)
+DECL|method|testOwnStaticMethodReferenceDef
+specifier|public
+name|void
+name|testOwnStaticMethodReferenceDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int mycompare(int i, int j) { return j - i; } "
+operator|+
+literal|"def l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
 argument_list|)
 argument_list|)
 expr_stmt|;

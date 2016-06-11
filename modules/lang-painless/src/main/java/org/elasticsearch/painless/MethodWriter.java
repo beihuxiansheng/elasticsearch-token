@@ -2637,10 +2637,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|visitEnd
+DECL|method|endMethod
 specifier|public
 name|void
-name|visitEnd
+name|endMethod
 parameter_list|()
 block|{
 if|if
@@ -2666,7 +2666,7 @@ throw|;
 block|}
 name|super
 operator|.
-name|visitEnd
+name|endMethod
 argument_list|()
 expr_stmt|;
 block|}
