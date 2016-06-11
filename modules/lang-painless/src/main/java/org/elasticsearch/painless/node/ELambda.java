@@ -123,12 +123,6 @@ name|AStatement
 argument_list|>
 name|statements
 decl_stmt|;
-DECL|field|locals
-name|Locals
-name|locals
-init|=
-literal|null
-decl_stmt|;
 DECL|method|ELambda
 specifier|public
 name|ELambda
