@@ -154,18 +154,6 @@ name|nio
 operator|.
 name|file
 operator|.
-name|DirectoryNotEmptyException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
 name|DirectoryStream
 import|;
 end_import
@@ -486,8 +474,6 @@ argument_list|(
 name|blobName
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 operator|!
@@ -499,6 +485,7 @@ name|blobPath
 argument_list|)
 condition|)
 block|{
+comment|// blobPath does not exist
 throw|throw
 operator|new
 name|IOException
@@ -511,23 +498,6 @@ name|toString
 argument_list|()
 operator|+
 literal|" does not exist"
-argument_list|)
-throw|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|DirectoryNotEmptyException
-decl||
-name|SecurityException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-name|e
 argument_list|)
 throw|;
 block|}
