@@ -46,6 +46,18 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_class
 DECL|class|WhenThingsGoWrongTests
 specifier|public
@@ -929,6 +941,53 @@ literal|"def x = new ArrayList(); x.add('foo'); return x['bogus'];"
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Makes sure that we present a useful error message with a misplaced right-curly. This is important because we do some funky things in      * the parser with right-curly brackets to allow statements to be delimited by them at the end of blocks.      */
+DECL|method|testRCurlyNotDelim
+specifier|public
+name|void
+name|testRCurlyNotDelim
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+comment|// We don't want PICKY here so we get the normal error message
+name|exec
+argument_list|(
+literal|"def i = 1} return 1"
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"invalid sequence of tokens near ['}']."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

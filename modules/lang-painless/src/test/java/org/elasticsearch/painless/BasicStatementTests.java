@@ -1239,6 +1239,55 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testLastInBlockDoesntNeedSemi
+specifier|public
+name|void
+name|testLastInBlockDoesntNeedSemi
+parameter_list|()
+block|{
+comment|// One statement in the block in case that is a special case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Two statements in the block, in case that is the general case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
