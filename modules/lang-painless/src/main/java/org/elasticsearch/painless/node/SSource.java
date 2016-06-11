@@ -969,10 +969,6 @@ name|MethodWriter
 argument_list|(
 name|Opcodes
 operator|.
-name|ACC_PUBLIC
-operator||
-name|Opcodes
-operator|.
 name|ACC_STATIC
 argument_list|,
 name|WriterConstants
