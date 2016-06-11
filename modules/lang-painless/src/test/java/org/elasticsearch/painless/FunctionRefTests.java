@@ -382,6 +382,44 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testInterfaceDefaultMethod
+specifier|public
+name|void
+name|testInterfaceDefaultMethod
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"bar"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String f(BiFunction function) { function.apply('foo', 'bar') }"
+operator|+
+literal|"Map map = new HashMap(); f(map::getOrDefault)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInterfaceDefaultMethodDef
+specifier|public
+name|void
+name|testInterfaceDefaultMethodDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"bar"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String f(BiFunction function) { function.apply('foo', 'bar') }"
+operator|+
+literal|"def map = new HashMap(); f(map::getOrDefault)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testMethodMissing
 specifier|public
 name|void
