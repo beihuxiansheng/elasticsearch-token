@@ -358,7 +358,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int mycompare(int i, int j) { return j - i; } "
+literal|"int mycompare(int i, int j) { j - i } "
 operator|+
 literal|"List l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
 argument_list|)
@@ -384,7 +384,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int mycompare(int i, int j) { return j - i; } "
+literal|"int mycompare(int i, int j) { j - i } "
 operator|+
 literal|"def l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
 argument_list|)
