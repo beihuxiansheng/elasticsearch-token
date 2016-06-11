@@ -62,18 +62,6 @@ name|lang
 operator|.
 name|invoke
 operator|.
-name|LambdaConversionException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|invoke
-operator|.
 name|LambdaMetafactory
 import|;
 end_import
@@ -1148,7 +1136,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param lookup caller's lookup      * @param callSiteType callsite's type      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args args passed to callsite      * @param recipe bitset marking functional parameters      * @return pointer to matching method to invoke. never returns null.      * @throws LambdaConversionException if a method reference cannot be converted to an functional interface      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
+comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param lookup caller's lookup      * @param callSiteType callsite's type      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args args passed to callsite      * @param recipe bitset marking functional parameters      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      * @throws Throwable if a method reference cannot be converted to an functional interface      */
 DECL|method|lookupMethod
 specifier|static
 name|MethodHandle
@@ -1177,7 +1165,7 @@ name|long
 name|recipe
 parameter_list|)
 throws|throws
-name|LambdaConversionException
+name|Throwable
 block|{
 comment|// simple case: no lambdas
 if|if
@@ -1662,7 +1650,7 @@ name|String
 name|name
 parameter_list|)
 throws|throws
-name|LambdaConversionException
+name|Throwable
 block|{
 name|Definition
 operator|.
@@ -1748,7 +1736,7 @@ name|receiverClass
 argument_list|)
 return|;
 block|}
-comment|/** Returns a method handle to an implementation of clazz, given method reference signature        * @throws LambdaConversionException if a method reference cannot be converted to an functional interface       */
+comment|/** Returns a method handle to an implementation of clazz, given method reference signature. */
 DECL|method|lookupReferenceInternal
 specifier|private
 specifier|static
@@ -1777,7 +1765,7 @@ modifier|...
 name|captures
 parameter_list|)
 throws|throws
-name|LambdaConversionException
+name|Throwable
 block|{
 specifier|final
 name|FunctionRef
@@ -1867,13 +1855,12 @@ operator|.
 name|lookupClass
 argument_list|()
 argument_list|,
-literal|"handle$"
-operator|+
+name|getUserFunctionHandleFieldName
+argument_list|(
 name|call
-operator|+
-literal|"$"
-operator|+
+argument_list|,
 name|arity
+argument_list|)
 argument_list|,
 name|MethodHandle
 operator|.
@@ -1913,23 +1900,6 @@ name|arity
 operator|+
 literal|"] arguments."
 argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|rethrow
-argument_list|(
-name|t
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|AssertionError
-argument_list|()
 throw|;
 block|}
 name|ref
@@ -2070,6 +2040,30 @@ argument_list|,
 name|captures
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/** gets the field name used to lookup up the MethodHandle for a function. */
+DECL|method|getUserFunctionHandleFieldName
+specifier|public
+specifier|static
+name|String
+name|getUserFunctionHandleFieldName
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|int
+name|arity
+parameter_list|)
+block|{
+return|return
+literal|"handle$"
+operator|+
+name|name
+operator|+
+literal|"$"
+operator|+
+name|arity
 return|;
 block|}
 comment|/**      * Looks up handle for a dynamic field getter (field load)      *<p>      * A dynamic field load for variable {@code x} of type {@code def} looks like:      * {@code y = x.field}      *<p>      * The following field loads are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code getField()} from receiver's class/superclasses/interfaces.      *<li>Whitelisted method named {@code isField()} from receiver's class/superclasses/interfaces.      *<li>The {@code length} field of an array.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted getter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching getter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
