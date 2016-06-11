@@ -142,18 +142,6 @@ name|LambdaMetafactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a function reference.  */
 end_comment

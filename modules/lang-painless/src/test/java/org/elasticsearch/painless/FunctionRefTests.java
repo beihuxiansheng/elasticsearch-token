@@ -363,13 +363,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"working on it"
-argument_list|)
 DECL|method|testOwnStaticMethodReferenceDef
 specifier|public
 name|void
