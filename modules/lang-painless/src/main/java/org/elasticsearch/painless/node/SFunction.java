@@ -1013,6 +1013,24 @@ throw|;
 block|}
 block|}
 block|}
+DECL|method|getHandleStaticFieldName
+name|String
+name|getHandleStaticFieldName
+parameter_list|()
+block|{
+return|return
+literal|"handle$"
+operator|+
+name|name
+operator|+
+literal|"$"
+operator|+
+name|parameters
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
