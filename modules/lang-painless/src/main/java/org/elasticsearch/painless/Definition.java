@@ -1462,6 +1462,7 @@ operator|=
 name|handle
 expr_stmt|;
 block|}
+comment|/**           * Returns MethodType for this method.          *<p>          * This works even for user-defined Methods (where the MethodHandle is null).          */
 DECL|method|getMethodType
 specifier|public
 name|MethodType
