@@ -350,22 +350,6 @@ name|void
 name|testOwnStaticMethodReference
 parameter_list|()
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|Debugger
-operator|.
-name|toString
-argument_list|(
-literal|"int mycompare(int i, int j) { return j - i; } "
-operator|+
-literal|"List l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2

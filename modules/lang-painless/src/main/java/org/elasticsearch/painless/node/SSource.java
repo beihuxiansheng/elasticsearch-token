@@ -926,11 +926,14 @@ range|:
 name|functions
 control|)
 block|{
-comment|// XXX: Opcodes.ACC_FINAL too
 name|writer
 operator|.
 name|visitField
 argument_list|(
+name|Opcodes
+operator|.
+name|ACC_FINAL
+operator||
 name|Opcodes
 operator|.
 name|ACC_PRIVATE
