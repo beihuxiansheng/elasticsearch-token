@@ -811,7 +811,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// Create the execute MethodWriter.
 name|expressions
 operator|=
 operator|new
@@ -823,8 +822,9 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Write the constructor:
 name|MethodWriter
-name|execute
+name|constructor
 init|=
 operator|new
 name|MethodWriter
@@ -833,26 +833,11 @@ name|Opcodes
 operator|.
 name|ACC_PUBLIC
 argument_list|,
-name|EXECUTE
+name|CONSTRUCTOR
 argument_list|,
 name|writer
 argument_list|,
 name|expressions
-argument_list|)
-decl_stmt|;
-comment|// Write the constructor.
-name|MethodWriter
-name|constructor
-init|=
-name|execute
-operator|.
-name|newMethodWriter
-argument_list|(
-name|Opcodes
-operator|.
-name|ACC_PUBLIC
-argument_list|,
-name|CONSTRUCTOR
 argument_list|)
 decl_stmt|;
 name|constructor
@@ -897,7 +882,24 @@ operator|.
 name|endMethod
 argument_list|()
 expr_stmt|;
-comment|// Write the execute method.
+comment|// Write the execute method:
+name|MethodWriter
+name|execute
+init|=
+operator|new
+name|MethodWriter
+argument_list|(
+name|Opcodes
+operator|.
+name|ACC_PUBLIC
+argument_list|,
+name|EXECUTE
+argument_list|,
+name|writer
+argument_list|,
+name|expressions
+argument_list|)
+decl_stmt|;
 name|write
 argument_list|(
 name|execute
@@ -908,6 +910,25 @@ operator|.
 name|endMethod
 argument_list|()
 expr_stmt|;
+comment|// Write all functions:
+for|for
+control|(
+name|SFunction
+name|function
+range|:
+name|functions
+control|)
+block|{
+name|function
+operator|.
+name|write
+argument_list|(
+name|writer
+argument_list|,
+name|expressions
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1111,22 +1132,6 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
-for|for
-control|(
-name|SFunction
-name|function
-range|:
-name|functions
-control|)
-block|{
-name|function
-operator|.
-name|write
-argument_list|(
-name|writer
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|reserved
