@@ -144,6 +144,48 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testArrayCtorMethodRef
+specifier|public
+name|void
+name|testArrayCtorMethodRef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1.0D
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1.0); l.add(2.0); "
+operator|+
+literal|"def[] array = l.stream().toArray(Double[]::new);"
+operator|+
+literal|"return array[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayCtorMethodRefDef
+specifier|public
+name|void
+name|testArrayCtorMethodRefDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1.0D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add(1.0); l.add(2.0); "
+operator|+
+literal|"def[] array = l.stream().toArray(Double[]::new);"
+operator|+
+literal|"return array[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testCapturingMethodReference
 specifier|public
 name|void

@@ -335,6 +335,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testArrayVariable
+specifier|public
+name|void
+name|testArrayVariable
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 1; int[] y = new int[x]; return y.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testForLoop
 specifier|public
 name|void
