@@ -213,7 +213,7 @@ name|back
 init|=
 literal|null
 decl_stmt|;
-comment|/** Creates a new simple EChain */
+comment|/** Creates a new RHS-only EChain */
 DECL|method|EChain
 specifier|public
 name|EChain
