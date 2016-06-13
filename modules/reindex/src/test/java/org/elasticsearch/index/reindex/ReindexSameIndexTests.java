@@ -244,7 +244,6 @@ decl_stmt|;
 DECL|field|AUTO_CREATE_INDEX
 specifier|private
 specifier|static
-specifier|final
 name|AutoCreateIndex
 name|AUTO_CREATE_INDEX
 init|=
