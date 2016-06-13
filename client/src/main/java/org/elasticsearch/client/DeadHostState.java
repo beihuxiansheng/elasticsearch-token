@@ -113,6 +113,7 @@ operator|+
 name|MIN_CONNECTION_TIMEOUT_NANOS
 expr_stmt|;
 block|}
+comment|/**      * We keep track of how many times a certain node fails consecutively. The higher that number is the longer we will wait      * to retry that same node again. Minimum is 1 minute (for a node the only failed once), maximum is 30 minutes (for a node      * that failed many consecutive times).      */
 DECL|method|DeadHostState
 name|DeadHostState
 parameter_list|(
