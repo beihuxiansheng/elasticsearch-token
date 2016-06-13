@@ -3172,7 +3172,6 @@ name|document
 return|;
 block|}
 DECL|method|createMultiDocumentSearcher
-specifier|private
 specifier|static
 name|IndexSearcher
 name|createMultiDocumentSearcher
