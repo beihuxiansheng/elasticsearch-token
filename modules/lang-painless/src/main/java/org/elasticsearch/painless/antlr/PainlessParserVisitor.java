@@ -555,6 +555,17 @@ name|StringContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code regex}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitRegex
+name|T
+name|visitRegex
+parameter_list|(
+name|PainlessParser
+operator|.
+name|RegexContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code variable}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitVariable
 name|T

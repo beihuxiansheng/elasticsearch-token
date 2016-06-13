@@ -182,6 +182,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
 begin_comment
 comment|/**  * General pool of constants used during the writing phase of compilation.  */
 end_comment
@@ -547,6 +559,27 @@ operator|.
 name|getType
 argument_list|(
 name|MethodHandle
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|/**      * A Method instance for {@linkplain Pattern#compile}. This isn't looked up from Definition because we intentionally don't add it there      * so that the script can't create regexes without this syntax. Essentially, our static regex syntax has a monopoly on building regexes      * because it can do it statically. This is both faster and prevents the script from doing something super slow like building a regex      * per time it is run.      */
+DECL|field|PATTERN_COMPILE
+specifier|public
+specifier|final
+specifier|static
+name|Method
+name|PATTERN_COMPILE
+init|=
+name|getAsmMethod
+argument_list|(
+name|Pattern
+operator|.
+name|class
+argument_list|,
+literal|"compile"
+argument_list|,
+name|String
 operator|.
 name|class
 argument_list|)

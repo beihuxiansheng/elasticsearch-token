@@ -375,6 +375,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Make sure we don't try and convert the {@code /} after the {@code ]} into a regex....      */
+DECL|method|testDivideArray
+specifier|public
+name|void
+name|testDivideArray
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def[] x = new def[1]; x[0] = 2; return x[0] / 2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

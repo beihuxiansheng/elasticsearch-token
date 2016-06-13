@@ -283,6 +283,8 @@ literal|"java.util.txt"
 argument_list|,
 literal|"java.util.function.txt"
 argument_list|,
+literal|"java.util.regex.txt"
+argument_list|,
 literal|"java.util.stream.txt"
 argument_list|,
 literal|"joda.time.txt"
