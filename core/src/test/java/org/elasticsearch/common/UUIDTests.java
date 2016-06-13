@@ -30,29 +30,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|SecureRandom
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
 import|;
 end_import
 
@@ -138,40 +118,9 @@ name|void
 name|testThreadedRandomUUID
 parameter_list|()
 block|{
-comment|// we can not use a reproducible source of randomness for this
-comment|// test, the test explicitly relies on each thread having a
-comment|// unique source of randomness; thus, we fake what production
-comment|// code does when using a RandomBasedUUIDGenerator
 name|testUUIDThreaded
 argument_list|(
-operator|new
-name|RandomBasedUUIDGenerator
-argument_list|()
-block|{
-specifier|private
-specifier|final
-name|SecureRandom
-name|sr
-init|=
-name|SecureRandomHolder
-operator|.
-name|INSTANCE
-decl_stmt|;
-annotation|@
-name|Override
-specifier|public
-name|String
-name|getBase64UUID
-parameter_list|()
-block|{
-return|return
-name|getBase64UUID
-argument_list|(
-name|sr
-argument_list|)
-return|;
-block|}
-block|}
+name|randomUUIDGen
 argument_list|)
 expr_stmt|;
 block|}

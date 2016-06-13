@@ -214,16 +214,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -363,37 +353,26 @@ decl_stmt|;
 DECL|field|INITIAL_CLUSTER_ID
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|INITIAL_CLUSTER_ID
+init|=
+name|UUIDs
+operator|.
+name|randomBase64UUID
+argument_list|()
 decl_stmt|;
+comment|// the initial indices which every cluster state test starts out with
 DECL|field|initialIndices
 specifier|private
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|Index
 argument_list|>
 name|initialIndices
-decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|beforeClass
-specifier|public
-specifier|static
-name|void
-name|beforeClass
-parameter_list|()
-block|{
-name|INITIAL_CLUSTER_ID
-operator|=
-name|UUIDs
-operator|.
-name|randomBase64UUID
-argument_list|()
-expr_stmt|;
-comment|// the initial indices which every cluster state test starts out with
-name|initialIndices
-operator|=
+init|=
 name|Arrays
 operator|.
 name|asList
@@ -431,8 +410,7 @@ name|randomBase64UUID
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|/**      * Test basic properties of the ClusterChangedEvent class:      *   (1) make sure there are no null values for any of its properties      *   (2) make sure you can't create a ClusterChangedEvent with any null values      */
 DECL|method|testBasicProperties
 specifier|public
