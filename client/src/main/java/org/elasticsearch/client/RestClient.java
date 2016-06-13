@@ -1527,7 +1527,6 @@ argument_list|(
 name|filteredHosts
 argument_list|)
 decl_stmt|;
-comment|//TODO is it possible to make this O(1)? (rotate is O(n))
 name|Collections
 operator|.
 name|rotate
