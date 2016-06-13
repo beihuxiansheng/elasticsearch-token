@@ -257,9 +257,6 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|ARRAY_LOAD
@@ -323,9 +320,6 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|ARRAY_STORE

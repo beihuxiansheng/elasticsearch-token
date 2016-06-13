@@ -529,9 +529,6 @@ name|descriptor
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|REFERENCE
