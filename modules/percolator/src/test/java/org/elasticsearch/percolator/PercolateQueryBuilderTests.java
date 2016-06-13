@@ -1869,7 +1869,7 @@ name|numDocs
 init|=
 name|randomIntBetween
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 literal|8
 argument_list|)
