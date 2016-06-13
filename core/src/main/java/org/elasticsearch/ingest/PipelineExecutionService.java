@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -59,18 +49,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterChangedEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
 import|;
 end_import
 
@@ -139,34 +117,6 @@ operator|.
 name|concurrent
 operator|.
 name|AbstractRunnable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|IngestDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Pipeline
 import|;
 end_import
 
@@ -559,7 +509,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//this shouldn't be needed here but we do it for consistency with index api which requires it to prevent double execution
+comment|//this shouldn't be needed here but we do it for consistency with index api
+comment|// which requires it to prevent double execution
 name|indexRequest
 operator|.
 name|setPipeline

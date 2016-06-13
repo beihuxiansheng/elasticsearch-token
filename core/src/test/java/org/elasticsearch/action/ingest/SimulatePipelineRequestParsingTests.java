@@ -86,8 +86,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|CompoundProcessor
 import|;
 end_import
@@ -99,8 +97,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocument
 import|;
@@ -114,8 +110,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|Pipeline
 import|;
 end_import
@@ -127,8 +121,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|Processor
 import|;
@@ -278,8 +270,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 operator|.
 name|MetaData
@@ -296,8 +286,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 operator|.
 name|MetaData
@@ -313,8 +301,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocument
 operator|.

@@ -150,8 +150,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestInfo
 import|;
 end_import
