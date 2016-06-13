@@ -158,6 +158,89 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testPlus
+specifier|public
+name|void
+name|testPlus
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = (byte)-1; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = (short)-1; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|65535
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char)-1; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -1; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = -1L; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1.0F
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = -1F; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1.0
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = -1.0; return +x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
