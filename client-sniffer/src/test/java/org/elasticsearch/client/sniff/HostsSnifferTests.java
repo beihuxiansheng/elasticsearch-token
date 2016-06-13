@@ -416,6 +416,10 @@ name|equalTo
 import|;
 end_import
 
+begin_comment
+comment|//animal-sniffer doesn't like our usage of com.sun.net.httpserver.* classes
+end_comment
+
 begin_class
 annotation|@
 name|IgnoreJRERequirement
@@ -884,6 +888,7 @@ return|return
 name|httpServer
 return|;
 block|}
+comment|//animal-sniffer doesn't like our usage of com.sun.net.httpserver.* classes
 annotation|@
 name|IgnoreJRERequirement
 DECL|class|ResponseHandler

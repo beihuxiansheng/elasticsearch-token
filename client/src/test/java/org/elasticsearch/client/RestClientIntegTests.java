@@ -402,6 +402,10 @@ begin_comment
 comment|/**  * Integration test to check interaction between {@link RestClient} and {@link org.apache.http.client.HttpClient}.  * Works against a real http server, one single host.  */
 end_comment
 
+begin_comment
+comment|//animal-sniffer doesn't like our usage of com.sun.net.httpserver.* classes
+end_comment
+
 begin_class
 annotation|@
 name|IgnoreJRERequirement
@@ -635,6 +639,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|//animal-sniffer doesn't like our usage of com.sun.net.httpserver.* classes
 annotation|@
 name|IgnoreJRERequirement
 DECL|class|ResponseHandler
