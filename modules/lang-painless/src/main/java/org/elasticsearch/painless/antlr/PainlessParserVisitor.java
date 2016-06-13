@@ -687,6 +687,50 @@ name|FuncrefContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#classFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitClassFuncref
+name|T
+name|visitClassFuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ClassFuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#constructorFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitConstructorFuncref
+name|T
+name|visitConstructorFuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ConstructorFuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#capturingFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitCapturingFuncref
+name|T
+name|visitCapturingFuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|CapturingFuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#localFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLocalFuncref
+name|T
+name|visitLocalFuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|LocalFuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
