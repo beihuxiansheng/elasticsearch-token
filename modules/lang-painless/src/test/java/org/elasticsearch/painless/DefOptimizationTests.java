@@ -1426,6 +1426,48 @@ literal|"INVOKEDYNAMIC gt(Ljava/lang/Object;I)Z"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testUnaryMinusOptRet
+specifier|public
+name|void
+name|testUnaryMinusOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; double y = -x; return y"
+argument_list|,
+literal|"INVOKEDYNAMIC neg(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnaryNotOptRet
+specifier|public
+name|void
+name|testUnaryNotOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; double y = ~x; return y"
+argument_list|,
+literal|"INVOKEDYNAMIC not(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnaryPlusOptRet
+specifier|public
+name|void
+name|testUnaryPlusOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; double y = +x; return y"
+argument_list|,
+literal|"INVOKEDYNAMIC plus(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

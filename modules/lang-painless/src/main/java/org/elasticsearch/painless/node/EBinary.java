@@ -3908,7 +3908,7 @@ name|writeDynamicBinaryInstruction
 argument_list|(
 name|location
 argument_list|,
-name|expected
+name|actual
 argument_list|,
 name|left
 operator|.

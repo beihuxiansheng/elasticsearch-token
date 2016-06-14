@@ -14,3696 +14,3420 @@ name|painless
 package|;
 end_package
 
-begin_comment
-comment|/** Tests for addition operator across all types */
-end_comment
-
-begin_comment
-comment|//TODO: NaN/Inf/overflow/...
-end_comment
-
 begin_class
-DECL|class|AdditionTests
+DECL|class|ComparisonTests
 specifier|public
 class|class
-name|AdditionTests
+name|ComparisonTests
 extends|extends
 name|ScriptTestCase
 block|{
-DECL|method|testBasics
+DECL|method|testDefEq
 specifier|public
 name|void
-name|testBasics
+name|testDefEq
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|3.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1; byte y = 2; return x + y;"
+literal|"def x = (byte)7; def y = (int)7; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short)6; def y = (int)6; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)5; def y = (int)5; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; def y = (int)4; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; def y = (int)3; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; def y = (int)2; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; def y = (int)1; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte)7; def y = (double)7; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short)6; def y = (double)6; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)5; def y = (double)5; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; def y = (double)4; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; def y = (double)3; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; def y = (double)2; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; def y = (double)1; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; def y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; def y = false; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; def y = null; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = null; def y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; def y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; def y = false; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); def y = new HashMap(); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testInt
+DECL|method|testDefEqTypedLHS
 specifier|public
 name|void
-name|testInt
+name|testDefEqTypedLHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 1; int y = 1; return x+y;"
+literal|"byte x = (byte)7; def y = (int)7; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 1; int y = 2; return x+y;"
+literal|"short x = (short)6; def y = (int)6; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
-operator|+
-literal|10
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 5; int y = 10; return x+y;"
+literal|"char x = (char)5; def y = (int)5; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|1
-operator|+
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 1; int y = 1; int z = 2; return x+y+z;"
+literal|"int x = (int)4; def y = (int)4; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1
-operator|+
-literal|1
-operator|)
-operator|+
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 1; int y = 1; int z = 2; return (x+y)+z;"
+literal|"long x = (long)5; def y = (int)3; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-operator|(
-literal|1
-operator|+
-literal|2
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 1; int y = 1; int z = 2; return x+(y+z);"
+literal|"float x = (float)6; def y = (int)2; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
-operator|+
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 0; int y = 1; return x+y;"
+literal|"double x = (double)7; def y = (int)1; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 1; int y = 0; return x+y;"
+literal|"byte x = (byte)7; def y = (double)7; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
-operator|+
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 0; int y = 0; return x+y;"
+literal|"short x = (short)6; def y = (double)6; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
-operator|+
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 0; int y = 0; return x+y;"
+literal|"char x = (char)5; def y = (double)5; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = (int)4; def y = (double)4; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = (long)5; def y = (double)3; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = (float)6; def y = (double)2; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = (double)7; def y = (double)1; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; def y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true; def y = false; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true; def y = null; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true; def y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; def y = false; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); def y = new HashMap(); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testIntConst
+DECL|method|testDefEqTypedRHS
 specifier|public
 name|void
-name|testIntConst
+name|testDefEqTypedRHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1+1;"
+literal|"def x = (byte)7; int y = (int)7; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1+2;"
+literal|"def x = (short)6; int y = (int)6; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
-operator|+
-literal|10
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 5+10;"
+literal|"def x = (char)5; int y = (int)5; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|1
-operator|+
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1+1+2;"
+literal|"def x = (int)4; int y = (int)4; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1
-operator|+
-literal|1
-operator|)
-operator|+
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (1+1)+2;"
+literal|"def x = (long)5; int y = (int)3; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-operator|(
-literal|1
-operator|+
-literal|2
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1+(1+2);"
+literal|"def x = (float)6; int y = (int)2; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
-operator|+
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0+1;"
+literal|"def x = (double)7; int y = (int)1; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-operator|+
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1+0;"
+literal|"def x = (byte)7; double y = (double)7; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
-operator|+
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0+0;"
+literal|"def x = (short)6; double y = (double)6; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)5; double y = (double)5; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; double y = (double)4; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; double y = (double)3; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; double y = (double)2; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; double y = (double)1; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; boolean y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; boolean y = false; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = null; boolean y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; boolean y = true; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; boolean y = false; return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); Map y = new HashMap(); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); Map y = new HashMap(); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); Map y = new HashMap(); y.put(3, 3); return x == y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); Map y = x; x.put(3, 3); y.put(3, 3); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testByte
+DECL|method|testDefEqr
 specifier|public
 name|void
-name|testByte
+name|testDefEqr
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 1; byte y = 1; return x+y;"
+literal|"def x = (byte)7; def y = (int)7; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 1; byte y = 2; return x+y;"
+literal|"def x = (short)6; def y = (int)6; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|5
-operator|+
-operator|(
-name|byte
-operator|)
-literal|10
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 5; byte y = 10; return x+y;"
+literal|"def x = (char)5; def y = (int)5; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 1; byte y = 1; byte z = 2; return x+y+z;"
+literal|"def x = (int)4; def y = (int)4; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
-operator|)
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 1; byte y = 1; byte z = 2; return (x+y)+z;"
+literal|"def x = (long)5; def y = (int)3; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 1; byte y = 1; byte z = 2; return x+(y+z);"
+literal|"def x = (float)6; def y = (int)2; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|0
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 0; byte y = 1; return x+y;"
+literal|"def x = (double)7; def y = (int)1; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 1; byte y = 0; return x+y;"
+literal|"def x = false; def y = true; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|0
-operator|+
-operator|(
-name|byte
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = 0; byte y = 0; return x+y;"
+literal|"def x = new HashMap(); def y = new HashMap(); return x === y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x === y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x === y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testByteConst
+DECL|method|testDefNe
 specifier|public
 name|void
-name|testByteConst
+name|testDefNe
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)1+(byte)1;"
+literal|"def x = (byte)7; def y = (int)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)1+(byte)2;"
+literal|"def x = (short)6; def y = (int)6; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|5
-operator|+
-operator|(
-name|byte
-operator|)
-literal|10
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)5+(byte)10;"
+literal|"def x = (char)5; def y = (int)5; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)1+(byte)1+(byte)2;"
+literal|"def x = (int)4; def y = (int)4; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
-operator|)
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return ((byte)1+(byte)1)+(byte)2;"
+literal|"def x = (long)5; def y = (int)3; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|2
-operator|)
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)1+((byte)1+(byte)2);"
+literal|"def x = (float)6; def y = (int)2; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|0
-operator|+
-operator|(
-name|byte
-operator|)
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)0+(byte)1;"
+literal|"def x = (double)7; def y = (int)1; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-operator|+
-operator|(
-name|byte
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)1+(byte)0;"
+literal|"def x = (byte)7; def y = (double)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|byte
-operator|)
-literal|0
-operator|+
-operator|(
-name|byte
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)0+(byte)0;"
+literal|"def x = (short)6; def y = (double)6; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)5; def y = (double)5; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; def y = (double)4; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; def y = (double)3; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; def y = (double)2; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; def y = (double)1; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); def y = new HashMap(); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true;  def y = true; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true;  def y = false; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; def y = true; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; def y = false; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testChar
+DECL|method|testDefNeTypedLHS
 specifier|public
 name|void
-name|testChar
+name|testDefNeTypedLHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 1; char y = 1; return x+y;"
+literal|"byte x = (byte)7; def y = (int)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 1; char y = 2; return x+y;"
+literal|"short x = (short)6; def y = (int)6; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|5
-operator|+
-operator|(
-name|char
-operator|)
-literal|10
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 5; char y = 10; return x+y;"
+literal|"char x = (char)5; def y = (int)5; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 1; char y = 1; char z = 2; return x+y+z;"
+literal|"int x = (int)4; def y = (int)4; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
-operator|)
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 1; char y = 1; char z = 2; return (x+y)+z;"
+literal|"long x = (long)5; def y = (int)3; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
-operator|)
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 1; char y = 1; char z = 2; return x+(y+z);"
+literal|"float x = (float)6; def y = (int)2; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|0
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 0; char y = 1; return x+y;"
+literal|"double x = (double)7; def y = (int)1; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 1; char y = 0; return x+y;"
+literal|"byte x = (byte)7; def y = (double)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|0
-operator|+
-operator|(
-name|char
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = 0; char y = 0; return x+y;"
+literal|"short x = (short)6; def y = (double)6; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char)5; def y = (double)5; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = (int)4; def y = (double)4; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = (long)5; def y = (double)3; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = (float)6; def y = (double)2; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = (double)7; def y = (double)1; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); def y = new HashMap(); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true;  def y = true; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true;  def y = false; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; def y = true; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; def y = false; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testCharConst
+DECL|method|testDefNeTypedRHS
 specifier|public
 name|void
-name|testCharConst
+name|testDefNeTypedRHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)1+(char)1;"
+literal|"def x = (byte)7; int y = (int)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)1+(char)2;"
+literal|"def x = (short)6; int y = (int)6; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|5
-operator|+
-operator|(
-name|char
-operator|)
-literal|10
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)5+(char)10;"
+literal|"def x = (char)5; int y = (int)5; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)1+(char)1+(char)2;"
+literal|"def x = (int)4; int y = (int)4; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
-operator|)
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return ((char)1+(char)1)+(char)2;"
+literal|"def x = (long)5; int y = (int)3; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|2
-operator|)
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)1+((char)1+(char)2);"
+literal|"def x = (float)6; int y = (int)2; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|0
-operator|+
-operator|(
-name|char
-operator|)
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)0+(char)1;"
+literal|"def x = (double)7; int y = (int)1; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|1
-operator|+
-operator|(
-name|char
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)1+(char)0;"
+literal|"def x = (byte)7; double y = (double)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|char
-operator|)
-literal|0
-operator|+
-operator|(
-name|char
-operator|)
-literal|0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (char)0+(char)0;"
+literal|"def x = (short)6; double y = (double)6; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)5; double y = (double)5; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; double y = (double)4; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; double y = (double)3; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; double y = (double)2; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; double y = (double)1; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); Map y = new HashMap(); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); Map y = new HashMap(); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); Map y = new HashMap(); y.put(3, 3); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); Map y = x; x.put(3, 3); y.put(3, 3); return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true;  boolean y = true; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true;  boolean y = false; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; boolean y = true; return x != y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; boolean y = false; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testShort
+DECL|method|testDefNer
 specifier|public
 name|void
-name|testShort
+name|testDefNer
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 1; short y = 1; return x+y;"
+literal|"def x = (byte)7; def y = (int)7; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 1; short y = 2; return x+y;"
+literal|"def x = (short)6; def y = (int)6; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|5
-operator|+
-operator|(
-name|short
-operator|)
-literal|10
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 5; short y = 10; return x+y;"
+literal|"def x = (char)5; def y = (int)5; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 1; short y = 1; short z = 2; return x+y+z;"
+literal|"def x = (int)4; def y = (int)4; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
-operator|)
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 1; short y = 1; short z = 2; return (x+y)+z;"
+literal|"def x = (long)5; def y = (int)3; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
-operator|)
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 1; short y = 1; short z = 2; return x+(y+z);"
+literal|"def x = (float)6; def y = (int)2; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|0
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 0; short y = 1; return x+y;"
+literal|"def x = (double)7; def y = (int)1; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 1; short y = 0; return x+y;"
+literal|"def x = new HashMap(); def y = new HashMap(); return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|0
-operator|+
-operator|(
-name|short
-operator|)
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = 0; short y = 0; return x+y;"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x !== y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x !== y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testShortConst
+DECL|method|testDefLt
 specifier|public
 name|void
-name|testShortConst
+name|testDefLt
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)1+(short)1;"
+literal|"def x = (byte)1; def y = (int)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)1+(short)2;"
+literal|"def x = (short)2; def y = (int)6; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|5
-operator|+
-operator|(
-name|short
-operator|)
-literal|10
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)5+(short)10;"
+literal|"def x = (char)3; def y = (int)5; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)1+(short)1+(short)2;"
+literal|"def x = (int)4; def y = (int)4; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
-operator|)
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return ((short)1+(short)1)+(short)2;"
+literal|"def x = (long)5; def y = (int)3; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|2
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)1+((short)1+(short)2);"
+literal|"def x = (float)6; def y = (int)2; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|0
-operator|+
-operator|(
-name|short
-operator|)
-literal|1
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)0+(short)1;"
+literal|"def x = (double)7; def y = (int)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|1
-operator|+
-operator|(
-name|short
-operator|)
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)1+(short)0;"
+literal|"def x = (byte)1; def y = (double)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-name|short
-operator|)
-literal|0
-operator|+
-operator|(
-name|short
-operator|)
-literal|0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)0+(short)0;"
+literal|"def x = (short)2; def y = (double)6; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)3; def y = (double)5; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; def y = (double)4; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; def y = (double)3; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; def y = (double)2; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; def y = (double)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLong
+DECL|method|testDefLtTypedLHS
 specifier|public
 name|void
-name|testLong
+name|testDefLtTypedLHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|1L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 1; long y = 1; return x+y;"
+literal|"byte x = (byte)1; def y = (int)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 1; long y = 2; return x+y;"
+literal|"short x = (short)2; def y = (int)6; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5L
-operator|+
-literal|10L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 5; long y = 10; return x+y;"
+literal|"char x = (char)3; def y = (int)5; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|1L
-operator|+
-literal|2L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 1; long y = 1; long z = 2; return x+y+z;"
+literal|"int x = (int)4; def y = (int)4; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1L
-operator|+
-literal|1L
-operator|)
-operator|+
-literal|2L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 1; long y = 1; long z = 2; return (x+y)+z;"
+literal|"long x = (long)5; def y = (int)3; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-operator|(
-literal|1L
-operator|+
-literal|2L
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 1; long y = 1; long z = 2; return x+(y+z);"
+literal|"float x = (float)6; def y = (int)2; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0L
-operator|+
-literal|1L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 0; long y = 1; return x+y;"
+literal|"double x = (double)7; def y = (int)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|0L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 1; long y = 0; return x+y;"
+literal|"byte x = (byte)1; def y = (double)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0L
-operator|+
-literal|0L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = 0; long y = 0; return x+y;"
+literal|"short x = (short)2; def y = (double)6; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char)3; def y = (double)5; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = (int)4; def y = (double)4; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = (long)5; def y = (double)3; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = (float)6; def y = (double)2; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = (double)7; def y = (double)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testLongConst
+DECL|method|testDefLtTypedRHS
 specifier|public
 name|void
-name|testLongConst
+name|testDefLtTypedRHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|1L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1L+1L;"
+literal|"def x = (byte)1; int y = (int)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1L+2L;"
+literal|"def x = (short)2; int y = (int)6; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5L
-operator|+
-literal|10L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 5L+10L;"
+literal|"def x = (char)3; int y = (int)5; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|1L
-operator|+
-literal|2L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1L+1L+2L;"
+literal|"def x = (int)4; int y = (int)4; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1L
-operator|+
-literal|1L
-operator|)
-operator|+
-literal|2L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (1L+1L)+2L;"
+literal|"def x = (long)5; int y = (int)3; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-operator|(
-literal|1L
-operator|+
-literal|2L
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1L+(1L+2L);"
+literal|"def x = (float)6; int y = (int)2; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0L
-operator|+
-literal|1L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0L+1L;"
+literal|"def x = (double)7; int y = (int)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1L
-operator|+
-literal|0L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1L+0L;"
+literal|"def x = (byte)1; double y = (double)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0L
-operator|+
-literal|0L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0L+0L;"
+literal|"def x = (short)2; double y = (double)6; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)3; double y = (double)5; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; double y = (double)4; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; double y = (double)3; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; double y = (double)2; return x< y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; double y = (double)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFloat
+DECL|method|testDefLte
 specifier|public
 name|void
-name|testFloat
+name|testDefLte
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|1F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 1F; float y = 1F; return x+y;"
+literal|"def x = (byte)1; def y = (int)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 1F; float y = 2F; return x+y;"
+literal|"def x = (short)2; def y = (int)6; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5F
-operator|+
-literal|10F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 5F; float y = 10F; return x+y;"
+literal|"def x = (char)3; def y = (int)5; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|1F
-operator|+
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 1F; float y = 1F; float z = 2F; return x+y+z;"
+literal|"def x = (int)4; def y = (int)4; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1F
-operator|+
-literal|1F
-operator|)
-operator|+
-literal|2F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 1F; float y = 1F; float z = 2F; return (x+y)+z;"
+literal|"def x = (long)5; def y = (int)3; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1F
-operator|+
-literal|1F
-operator|)
-operator|+
-literal|2F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 1F; float y = 1F; float z = 2F; return x+(y+z);"
+literal|"def x = (float)6; def y = (int)2; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0F
-operator|+
-literal|1F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 0F; float y = 1F; return x+y;"
+literal|"def x = (double)7; def y = (int)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|0F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 1F; float y = 0F; return x+y;"
+literal|"def x = (byte)1; def y = (double)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0F
-operator|+
-literal|0F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = 0F; float y = 0F; return x+y;"
+literal|"def x = (short)2; def y = (double)6; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)3; def y = (double)5; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; def y = (double)4; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; def y = (double)3; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; def y = (double)2; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; def y = (double)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFloatConst
+DECL|method|testDefLteTypedLHS
 specifier|public
 name|void
-name|testFloatConst
+name|testDefLteTypedLHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|1F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1F+1F;"
+literal|"byte x = (byte)1; def y = (int)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1F+2F;"
+literal|"short x = (short)2; def y = (int)6; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5F
-operator|+
-literal|10F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 5F+10F;"
+literal|"char x = (char)3; def y = (int)5; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|1F
-operator|+
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1F+1F+2F;"
+literal|"int x = (int)4; def y = (int)4; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1F
-operator|+
-literal|1F
-operator|)
-operator|+
-literal|2F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (1F+1F)+2F;"
+literal|"long x = (long)5; def y = (int)3; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-operator|(
-literal|1F
-operator|+
-literal|2F
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1F+(1F+2F);"
+literal|"float x = (float)6; def y = (int)2; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0F
-operator|+
-literal|1F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0F+1F;"
+literal|"double x = (double)7; def y = (int)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1F
-operator|+
-literal|0F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1F+0F;"
+literal|"byte x = (byte)1; def y = (double)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0F
-operator|+
-literal|0F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0F+0F;"
+literal|"short x = (short)2; def y = (double)6; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char)3; def y = (double)5; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = (int)4; def y = (double)4; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = (long)5; def y = (double)3; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = (float)6; def y = (double)2; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = (double)7; def y = (double)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDouble
+DECL|method|testDefLteTypedRHS
 specifier|public
 name|void
-name|testDouble
+name|testDefLteTypedRHS
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|1.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1.0; double y = 1.0; return x+y;"
+literal|"def x = (byte)1; int y = (int)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|2.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1.0; double y = 2.0; return x+y;"
+literal|"def x = (short)2; int y = (int)6; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5.0
-operator|+
-literal|10.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 5.0; double y = 10.0; return x+y;"
+literal|"def x = (char)3; int y = (int)5; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|1.0
-operator|+
-literal|2.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1.0; double y = 1.0; double z = 2.0; return x+y+z;"
+literal|"def x = (int)4; int y = (int)4; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1.0
-operator|+
-literal|1.0
-operator|)
-operator|+
-literal|2.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1.0; double y = 1.0; double z = 2.0; return (x+y)+z;"
+literal|"def x = (long)5; int y = (int)3; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-operator|(
-literal|1.0
-operator|+
-literal|2.0
-operator|)
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1.0; double y = 1.0; double z = 2.0; return x+(y+z);"
+literal|"def x = (float)6; int y = (int)2; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.0
-operator|+
-literal|1.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 0.0; double y = 1.0; return x+y;"
+literal|"def x = (double)7; int y = (int)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|0.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 1.0; double y = 0.0; return x+y;"
+literal|"def x = (byte)1; double y = (double)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.0
-operator|+
-literal|0.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = 0.0; double y = 0.0; return x+y;"
+literal|"def x = (short)2; double y = (double)6; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)3; double y = (double)5; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; double y = (double)4; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; double y = (double)3; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; double y = (double)2; return x<= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; double y = (double)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDoubleConst
+DECL|method|testDefGt
 specifier|public
 name|void
-name|testDoubleConst
+name|testDefGt
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|1.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1.0+1.0;"
+literal|"def x = (byte)1; def y = (int)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|2.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1.0+2.0;"
+literal|"def x = (short)2; def y = (int)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5.0
-operator|+
-literal|10.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 5.0+10.0;"
+literal|"def x = (char)3; def y = (int)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|1.0
-operator|+
-literal|2.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1.0+1.0+2.0;"
+literal|"def x = (int)4; def y = (int)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|(
-literal|1.0
-operator|+
-literal|1.0
-operator|)
-operator|+
-literal|2.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (1.0+1.0)+2.0;"
+literal|"def x = (long)5; def y = (int)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-operator|(
-literal|1.0
-operator|+
-literal|2.0
-operator|)
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1.0+(1.0+2.0);"
+literal|"def x = (float)6; def y = (int)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.0
-operator|+
-literal|1.0
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0.0+1.0;"
+literal|"def x = (double)7; def y = (int)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1.0
-operator|+
-literal|0.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 1.0+0.0;"
+literal|"def x = (byte)1; def y = (double)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.0
-operator|+
-literal|0.0
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 0.0+0.0;"
+literal|"def x = (short)2; def y = (double)6; return x> y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)3; def y = (double)5; return x> y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (int)4; def y = (double)4; return x> y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (long)5; def y = (double)3; return x> y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (float)6; def y = (double)2; return x> y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (double)7; def y = (double)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDef
+DECL|method|testDefGtTypedLHS
 specifier|public
 name|void
-name|testDef
+name|testDefGtTypedLHS
 parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; def y = (byte)1; return x + y"
+literal|"byte x = (byte)1; def y = (int)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; def y = (byte)1; return x + y"
+literal|"short x = (short)2; def y = (int)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; def y = (byte)1; return x + y"
+literal|"char x = (char)3; def y = (int)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; def y = (byte)1; return x + y"
+literal|"int x = (int)4; def y = (int)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; def y = (byte)1; return x + y"
+literal|"long x = (long)5; def y = (int)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; def y = (byte)1; return x + y"
+literal|"float x = (float)6; def y = (int)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; def y = (byte)1; return x + y"
+literal|"double x = (double)7; def y = (int)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; def y = (short)1; return x + y"
+literal|"byte x = (byte)1; def y = (double)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; def y = (short)1; return x + y"
+literal|"short x = (short)2; def y = (double)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; def y = (short)1; return x + y"
+literal|"char x = (char)3; def y = (double)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; def y = (short)1; return x + y"
+literal|"int x = (int)4; def y = (double)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; def y = (short)1; return x + y"
+literal|"long x = (long)5; def y = (double)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; def y = (short)1; return x + y"
+literal|"float x = (float)6; def y = (double)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; def y = (short)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (byte)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (short)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (char)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (int)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (long)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (byte)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (short)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (char)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (int)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (long)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (byte)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (short)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (char)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (int)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (long)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (byte)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (short)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (char)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (int)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (long)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (byte)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (short)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (char)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (int)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (long)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; def y = (double)1; return x + y"
+literal|"double x = (double)7; def y = (double)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDefTypedLHS
+DECL|method|testDefGtTypedRHS
 specifier|public
 name|void
-name|testDefTypedLHS
+name|testDefGtTypedRHS
 parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = (byte)1; def y = (byte)1; return x + y"
+literal|"def x = (byte)1; int y = (int)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = (short)1; def y = (byte)1; return x + y"
+literal|"def x = (short)2; int y = (int)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = (char)1; def y = (byte)1; return x + y"
+literal|"def x = (char)3; int y = (int)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = (int)1; def y = (byte)1; return x + y"
+literal|"def x = (int)4; int y = (int)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = (long)1; def y = (byte)1; return x + y"
+literal|"def x = (long)5; int y = (int)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = (float)1; def y = (byte)1; return x + y"
+literal|"def x = (float)6; int y = (int)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = (double)1; def y = (byte)1; return x + y"
+literal|"def x = (double)7; int y = (int)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte x = (byte)1; def y = (short)1; return x + y"
+literal|"def x = (byte)1; double y = (double)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"short x = (short)1; def y = (short)1; return x + y"
+literal|"def x = (short)2; double y = (double)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"char x = (char)1; def y = (short)1; return x + y"
+literal|"def x = (char)3; double y = (double)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = (int)1; def y = (short)1; return x + y"
+literal|"def x = (int)4; double y = (double)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"long x = (long)1; def y = (short)1; return x + y"
+literal|"def x = (long)5; double y = (double)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"float x = (float)1; def y = (short)1; return x + y"
+literal|"def x = (float)6; double y = (double)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"double x = (double)1; def y = (short)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"byte x = (byte)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"short x = (short)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"char x = (char)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = (int)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"long x = (long)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"float x = (float)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"double x = (double)1; def y = (char)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"byte x = (byte)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"short x = (short)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"char x = (char)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = (int)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"long x = (long)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"float x = (float)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"double x = (double)1; def y = (int)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"byte x = (byte)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"short x = (short)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"char x = (char)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = (int)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2L
-argument_list|,
-name|exec
-argument_list|(
-literal|"long x = (long)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"float x = (float)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"double x = (double)1; def y = (long)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"byte x = (byte)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"short x = (short)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"char x = (char)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = (int)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"long x = (long)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"float x = (float)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"double x = (double)1; def y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"byte x = (byte)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"short x = (short)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"char x = (char)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = (int)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"long x = (long)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"float x = (float)1; def y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"double x = (double)1; def y = (double)1; return x + y"
+literal|"def x = (double)7; double y = (double)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDefTypedRHS
+DECL|method|testDefGte
 specifier|public
 name|void
-name|testDefTypedRHS
+name|testDefGte
 parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; byte y = (byte)1; return x + y"
+literal|"def x = (byte)1; def y = (int)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; byte y = (byte)1; return x + y"
+literal|"def x = (short)2; def y = (int)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; byte y = (byte)1; return x + y"
+literal|"def x = (char)3; def y = (int)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; byte y = (byte)1; return x + y"
+literal|"def x = (int)4; def y = (int)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; byte y = (byte)1; return x + y"
+literal|"def x = (long)5; def y = (int)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; byte y = (byte)1; return x + y"
+literal|"def x = (float)6; def y = (int)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; byte y = (byte)1; return x + y"
+literal|"def x = (double)7; def y = (int)1; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; short y = (short)1; return x + y"
+literal|"def x = (byte)1; def y = (double)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; short y = (short)1; return x + y"
+literal|"def x = (short)2; def y = (double)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; short y = (short)1; return x + y"
+literal|"def x = (char)3; def y = (double)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; short y = (short)1; return x + y"
+literal|"def x = (int)4; def y = (double)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; short y = (short)1; return x + y"
+literal|"def x = (long)5; def y = (double)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; short y = (short)1; return x + y"
+literal|"def x = (float)6; def y = (double)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; short y = (short)1; return x + y"
+literal|"def x = (double)7; def y = (double)1; return x>= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefGteTypedLHS
+specifier|public
+name|void
+name|testDefGteTypedLHS
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = (byte)1; def y = (int)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; char y = (char)1; return x + y"
+literal|"short x = (short)2; def y = (int)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; char y = (char)1; return x + y"
+literal|"char x = (char)3; def y = (int)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; char y = (char)1; return x + y"
+literal|"int x = (int)4; def y = (int)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; char y = (char)1; return x + y"
+literal|"long x = (long)5; def y = (int)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; char y = (char)1; return x + y"
+literal|"float x = (float)6; def y = (int)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; char y = (char)1; return x + y"
+literal|"double x = (double)7; def y = (int)1; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; char y = (char)1; return x + y"
+literal|"byte x = (byte)1; def y = (double)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; int y = (int)1; return x + y"
+literal|"short x = (short)2; def y = (double)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; int y = (int)1; return x + y"
+literal|"char x = (char)3; def y = (double)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; int y = (int)1; return x + y"
+literal|"int x = (int)4; def y = (double)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; int y = (int)1; return x + y"
+literal|"long x = (long)5; def y = (double)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; int y = (int)1; return x + y"
+literal|"float x = (float)6; def y = (double)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; int y = (int)1; return x + y"
+literal|"double x = (double)7; def y = (double)1; return x>= y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefGteTypedRHS
+specifier|public
+name|void
+name|testDefGteTypedRHS
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte)1; int y = (int)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; int y = (int)1; return x + y"
+literal|"def x = (short)2; int y = (int)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; long y = (long)1; return x + y"
+literal|"def x = (char)3; int y = (int)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; long y = (long)1; return x + y"
+literal|"def x = (int)4; int y = (int)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; long y = (long)1; return x + y"
+literal|"def x = (long)5; int y = (int)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; long y = (long)1; return x + y"
+literal|"def x = (float)6; int y = (int)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2L
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; long y = (long)1; return x + y"
+literal|"def x = (double)7; int y = (int)1; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1; long y = (long)1; return x + y"
+literal|"def x = (byte)1; double y = (double)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2D
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1; long y = (long)1; return x + y"
+literal|"def x = (short)2; double y = (double)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1; float y = (float)1; return x + y"
+literal|"def x = (char)3; double y = (double)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1; float y = (float)1; return x + y"
+literal|"def x = (int)4; double y = (double)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1; float y = (float)1; return x + y"
+literal|"def x = (long)5; double y = (double)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1; float y = (float)1; return x + y"
+literal|"def x = (float)6; double y = (double)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2F
+literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1; float y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2F
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; float y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; float y = (float)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (byte)1; double y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (short)1; double y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (char)1; double y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (int)1; double y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (long)1; double y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (float)1; double y = (double)1; return x + y"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2D
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = (double)1; double y = (double)1; return x + y"
+literal|"def x = (double)7; double y = (double)1; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
