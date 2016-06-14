@@ -1822,6 +1822,42 @@ name|writer
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
+comment|// XXX: fix these types, but first we need def compound assignment tests.
+comment|// (and also corner cases such as shifts). its tricky here as there are possibly explicit casts, too.
+comment|// write the operation instruction for compound assignment
+if|if
+condition|(
+name|promote
+operator|.
+name|sort
+operator|==
+name|Sort
+operator|.
+name|DEF
+condition|)
+block|{
+name|writer
+operator|.
+name|writeDynamicBinaryInstruction
+argument_list|(
+name|location
+argument_list|,
+name|promote
+argument_list|,
+name|Definition
+operator|.
+name|DEF_TYPE
+argument_list|,
+name|Definition
+operator|.
+name|DEF_TYPE
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|writer
 operator|.
 name|writeBinaryInstruction
@@ -1833,7 +1869,7 @@ argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
-comment|// write the operation instruction for compound assignment
+block|}
 name|writer
 operator|.
 name|writeCast
