@@ -1258,6 +1258,48 @@ literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Ljava/lang/Object;)D"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBooleanXorOptLHS
+specifier|public
+name|void
+name|testBooleanXorOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"boolean x = true; def y = true; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(ZLjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptRHS
+specifier|public
+name|void
+name|testBooleanXorOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true; boolean y = true; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Z)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptRet
+specifier|public
+name|void
+name|testBooleanXorOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true; def y = true; boolean v = x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Ljava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testLtOptLHS
 specifier|public
 name|void
