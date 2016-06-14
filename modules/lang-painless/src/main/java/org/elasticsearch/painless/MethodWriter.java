@@ -1932,7 +1932,7 @@ operator|.
 name|asm
 operator|.
 name|Type
-name|descriptor
+name|methodType
 init|=
 name|org
 operator|.
@@ -1957,6 +1957,14 @@ operator|.
 name|type
 argument_list|)
 decl_stmt|;
+name|String
+name|descriptor
+init|=
+name|methodType
+operator|.
+name|getDescriptor
+argument_list|()
+decl_stmt|;
 switch|switch
 condition|(
 name|operation
@@ -1970,9 +1978,6 @@ argument_list|(
 literal|"mul"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -1990,9 +1995,6 @@ argument_list|(
 literal|"div"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2010,9 +2012,6 @@ argument_list|(
 literal|"rem"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2030,9 +2029,6 @@ argument_list|(
 literal|"add"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2050,9 +2046,6 @@ argument_list|(
 literal|"sub"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2070,9 +2063,6 @@ argument_list|(
 literal|"lsh"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2090,9 +2080,6 @@ argument_list|(
 literal|"ush"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2110,9 +2097,6 @@ argument_list|(
 literal|"rsh"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2130,9 +2114,6 @@ argument_list|(
 literal|"and"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2150,9 +2131,6 @@ argument_list|(
 literal|"xor"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
@@ -2170,9 +2148,6 @@ argument_list|(
 literal|"or"
 argument_list|,
 name|descriptor
-operator|.
-name|getDescriptor
-argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
