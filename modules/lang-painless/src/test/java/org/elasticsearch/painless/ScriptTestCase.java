@@ -395,7 +395,9 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"bytecode not found"
+literal|"bytecode not found, got: \n"
+operator|+
+name|asm
 argument_list|,
 name|asm
 operator|.

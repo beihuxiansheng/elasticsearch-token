@@ -3539,7 +3539,6 @@ break|break;
 case|case
 name|DEF
 case|:
-comment|// XXX: move this out, so we can populate descriptor with what we really have (instead of casts/boxing!)
 name|org
 operator|.
 name|objectweb
