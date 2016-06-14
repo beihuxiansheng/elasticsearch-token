@@ -492,7 +492,7 @@ name|numSearchRequests
 init|=
 name|randomIntBetween
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 literal|64
 argument_list|)
