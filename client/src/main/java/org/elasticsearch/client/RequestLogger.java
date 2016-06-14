@@ -252,9 +252,6 @@ parameter_list|(
 name|Log
 name|logger
 parameter_list|,
-name|String
-name|message
-parameter_list|,
 name|HttpUriRequest
 name|request
 parameter_list|,
@@ -277,9 +274,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-name|message
-operator|+
-literal|" ["
+literal|"request ["
 operator|+
 name|request
 operator|.
@@ -298,7 +293,7 @@ operator|.
 name|getUri
 argument_list|()
 operator|+
-literal|"] ["
+literal|"] returned ["
 operator|+
 name|httpResponse
 operator|.
@@ -407,9 +402,6 @@ parameter_list|(
 name|Log
 name|logger
 parameter_list|,
-name|String
-name|message
-parameter_list|,
 name|HttpUriRequest
 name|request
 parameter_list|,
@@ -424,9 +416,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-name|message
-operator|+
-literal|" ["
+literal|"request ["
 operator|+
 name|request
 operator|.
@@ -445,7 +435,7 @@ operator|.
 name|getUri
 argument_list|()
 operator|+
-literal|"]"
+literal|"] failed"
 argument_list|,
 name|e
 argument_list|)

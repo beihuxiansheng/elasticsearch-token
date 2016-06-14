@@ -1023,8 +1023,6 @@ name|logFailedRequest
 argument_list|(
 name|logger
 argument_list|,
-literal|"request failed"
-argument_list|,
 name|request
 argument_list|,
 name|host
@@ -1106,8 +1104,6 @@ name|logResponse
 argument_list|(
 name|logger
 argument_list|,
-literal|"request succeeded"
-argument_list|,
 name|request
 argument_list|,
 name|host
@@ -1129,8 +1125,6 @@ operator|.
 name|logResponse
 argument_list|(
 name|logger
-argument_list|,
-literal|"request failed"
 argument_list|,
 name|request
 argument_list|,
