@@ -285,9 +285,6 @@ name|String
 name|index
 parameter_list|,
 name|String
-name|type
-parameter_list|,
-name|String
 name|id
 parameter_list|,
 annotation|@
@@ -322,9 +319,6 @@ name|clusterState
 parameter_list|,
 name|String
 name|index
-parameter_list|,
-name|String
-name|type
 parameter_list|,
 name|String
 name|id

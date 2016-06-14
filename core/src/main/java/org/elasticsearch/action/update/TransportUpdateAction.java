@@ -1148,11 +1148,6 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|type
-argument_list|()
-argument_list|,
-name|request
-operator|.
 name|id
 argument_list|()
 argument_list|,
