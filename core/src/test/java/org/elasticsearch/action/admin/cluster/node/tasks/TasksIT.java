@@ -2789,6 +2789,16 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+name|ListenableActionFuture
+argument_list|<
+name|?
+argument_list|>
+name|indexFuture
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 name|CountDownLatch
 name|taskRegistered
 init|=
@@ -2872,7 +2882,7 @@ name|Task
 name|task
 parameter_list|)
 block|{
-comment|/*                      * We can't block all tasks here or the task listing task                      * would never return.                      */
+comment|/*                          * We can't block all tasks here or the task listing task                          * would never return.                          */
 if|if
 condition|(
 literal|false
@@ -2916,12 +2926,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|ListenableActionFuture
-argument_list|<
-name|?
-argument_list|>
 name|indexFuture
-init|=
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -2941,7 +2947,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|taskRegistered
 operator|.
 name|await
@@ -3183,16 +3189,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|taskFinishLock
 operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|indexFuture
+operator|!=
+literal|null
+condition|)
+block|{
 name|indexFuture
 operator|.
 name|get
 argument_list|()
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|testTasksCancellation
 specifier|public
