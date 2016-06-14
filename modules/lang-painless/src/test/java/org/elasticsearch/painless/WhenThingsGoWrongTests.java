@@ -1106,6 +1106,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBadBoxingCast
+specifier|public
+name|void
+name|testBadBoxingCast
+parameter_list|()
+block|{
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"BitSet bs = new BitSet(); bs.and(2);"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
