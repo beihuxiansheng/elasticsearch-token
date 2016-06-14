@@ -70,6 +70,18 @@ name|emptyMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|WhenThingsGoWrongTests
 specifier|public
@@ -1067,14 +1079,30 @@ comment|// Invalid unicode
 block|}
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
-literal|"Illegal Unicode escape sequence near index 2\n\\ujjjj\n  ^"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Illegal Unicode escape sequence near index 2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"\\ujjjj"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
