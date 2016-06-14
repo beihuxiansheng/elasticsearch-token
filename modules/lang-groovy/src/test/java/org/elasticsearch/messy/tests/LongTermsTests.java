@@ -2051,12 +2051,12 @@ name|void
 name|testSizeIsZero
 parameter_list|()
 block|{
-name|ElasticsearchException
+name|IllegalArgumentException
 name|exception
 init|=
 name|expectThrows
 argument_list|(
-name|ElasticsearchException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
@@ -2123,12 +2123,12 @@ name|assertThat
 argument_list|(
 name|exception
 operator|.
-name|getDetailedMessage
+name|getMessage
 argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"parameters [required_size] and [shard_size] must be>0 in terms aggregation."
+literal|"[size] must be greater than 0. Found [0] in [terms]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4877,8 +4877,10 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-name|randomInt
+name|randomIntBetween
 argument_list|(
+literal|1
+argument_list|,
 literal|5
 argument_list|)
 argument_list|)

@@ -655,12 +655,7 @@ block|{
 if|if
 condition|(
 name|shardSize
-operator|<
-operator|-
-literal|1
-operator|||
-name|shardSize
-operator|==
+operator|<=
 literal|0
 condition|)
 block|{
@@ -883,6 +878,14 @@ argument_list|,
 name|requiredSize
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shardSize
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -897,6 +900,7 @@ argument_list|,
 name|shardSize
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|builder
 return|;

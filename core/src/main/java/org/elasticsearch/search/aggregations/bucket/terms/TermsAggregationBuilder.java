@@ -779,7 +779,7 @@ block|{
 if|if
 condition|(
 name|size
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -787,7 +787,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[size] must be greater than or equal to 0. Found ["
+literal|"[size] must be greater than 0. Found ["
 operator|+
 name|size
 operator|+
@@ -823,7 +823,7 @@ block|{
 if|if
 condition|(
 name|shardSize
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -831,7 +831,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[shardSize] must be greater than or equal to 0. Found ["
+literal|"[shardSize] must be greater than 0. Found ["
 operator|+
 name|shardSize
 operator|+
