@@ -555,6 +555,30 @@ argument_list|(
 literal|"Exception"
 argument_list|)
 decl_stmt|;
+DECL|field|PATTERN_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
+name|PATTERN_TYPE
+init|=
+name|getType
+argument_list|(
+literal|"Pattern"
+argument_list|)
+decl_stmt|;
+DECL|field|MATCHER_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
+name|MATCHER_TYPE
+init|=
+name|getType
+argument_list|(
+literal|"Matcher"
+argument_list|)
+decl_stmt|;
 DECL|enum|Sort
 specifier|public
 enum|enum
@@ -4823,7 +4847,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Duplicate  method signature ["
+literal|"Duplicate method signature ["
 operator|+
 name|methodKey
 operator|+
