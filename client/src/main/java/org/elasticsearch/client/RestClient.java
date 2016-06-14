@@ -1019,7 +1019,7 @@ parameter_list|)
 block|{
 name|RequestLogger
 operator|.
-name|log
+name|logFailedRequest
 argument_list|(
 name|logger
 argument_list|,
@@ -1102,7 +1102,7 @@ condition|)
 block|{
 name|RequestLogger
 operator|.
-name|log
+name|logResponse
 argument_list|(
 name|logger
 argument_list|,
@@ -1126,7 +1126,7 @@ return|;
 block|}
 name|RequestLogger
 operator|.
-name|log
+name|logResponse
 argument_list|(
 name|logger
 argument_list|,

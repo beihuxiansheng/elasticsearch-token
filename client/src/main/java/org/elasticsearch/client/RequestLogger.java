@@ -244,10 +244,10 @@ name|RequestLogger
 parameter_list|()
 block|{     }
 comment|/**      * Logs a request that yielded a response      */
-DECL|method|log
+DECL|method|logResponse
 specifier|static
 name|void
-name|log
+name|logResponse
 parameter_list|(
 name|Log
 name|logger
@@ -399,10 +399,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Logs a request that failed      */
-DECL|method|log
+DECL|method|logFailedRequest
 specifier|static
 name|void
-name|log
+name|logFailedRequest
 parameter_list|(
 name|Log
 name|logger
