@@ -1598,6 +1598,19 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElseThrow
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|ParsingException
+argument_list|(
+name|location
+argument_list|,
+literal|"Failed to parse inner query, was empty"
+argument_list|)
+argument_list|)
 return|;
 block|}
 catch|catch

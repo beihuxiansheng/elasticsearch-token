@@ -38,7 +38,19 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
 import|;
 end_import
 
@@ -125,13 +137,7 @@ decl_stmt|;
 DECL|method|ALink
 name|ALink
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|int
@@ -140,10 +146,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -160,8 +162,8 @@ specifier|abstract
 name|ALink
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Write values before a load/store occurs such as an array index.      */

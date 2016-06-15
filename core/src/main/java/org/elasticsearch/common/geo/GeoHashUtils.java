@@ -46,9 +46,11 @@ name|lucene
 operator|.
 name|spatial
 operator|.
-name|util
+name|geopoint
 operator|.
-name|GeoEncodingUtils
+name|document
+operator|.
+name|GeoPointField
 import|;
 end_import
 
@@ -181,7 +183,7 @@ name|short
 name|MORTON_OFFSET
 init|=
 operator|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
 name|BITS
 operator|<<
@@ -250,9 +252,9 @@ name|BitUtil
 operator|.
 name|flipFlop
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 name|lat
 argument_list|,
@@ -634,9 +636,9 @@ name|ghLong
 init|=
 name|fromMorton
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 name|lat
 argument_list|,
@@ -720,7 +722,7 @@ name|short
 name|msf
 init|=
 operator|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
 name|BITS
 operator|<<

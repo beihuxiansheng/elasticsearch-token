@@ -1232,9 +1232,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|super
-operator|.
-name|equals
+name|sameClassAs
 argument_list|(
 name|o
 argument_list|)
@@ -1296,9 +1294,7 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|super
-operator|.
-name|hashCode
+name|classHash
 argument_list|()
 operator|^
 name|slop

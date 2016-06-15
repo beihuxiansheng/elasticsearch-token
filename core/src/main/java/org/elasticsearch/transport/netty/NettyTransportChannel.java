@@ -298,10 +298,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|NettyTransportChannel
 specifier|public
@@ -358,11 +354,11 @@ specifier|final
 name|long
 name|reservedBytes
 decl_stmt|;
-DECL|field|closed
+DECL|field|released
 specifier|private
 specifier|final
 name|AtomicBoolean
-name|closed
+name|released
 init|=
 operator|new
 name|AtomicBoolean
@@ -511,7 +507,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|close
+name|release
 argument_list|()
 expr_stmt|;
 if|if
@@ -769,7 +765,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|close
+name|release
 argument_list|()
 expr_stmt|;
 name|BytesStreamOutput
@@ -907,16 +903,16 @@ name|onResponseSentListener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|close
+DECL|method|release
 specifier|private
 name|void
-name|close
+name|release
 parameter_list|()
 block|{
-comment|// attempt to close once atomically
+comment|// attempt to release once atomically
 if|if
 condition|(
-name|closed
+name|released
 operator|.
 name|compareAndSet
 argument_list|(
@@ -932,7 +928,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Channel is already closed"
+literal|"reserved bytes are already released"
 argument_list|)
 throw|;
 block|}

@@ -37,6 +37,16 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+DECL|method|canTripCircuitBreaker
+specifier|default
+name|boolean
+name|canTripCircuitBreaker
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_interface
 

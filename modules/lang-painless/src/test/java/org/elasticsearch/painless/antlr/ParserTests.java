@@ -209,6 +209,8 @@ operator|new
 name|ErrorHandlingLexer
 argument_list|(
 name|stream
+argument_list|,
+literal|"testing"
 argument_list|)
 decl_stmt|;
 name|PainlessParser
@@ -229,7 +231,9 @@ name|strategy
 init|=
 operator|new
 name|ParserErrorStrategy
-argument_list|()
+argument_list|(
+literal|"testing"
+argument_list|)
 decl_stmt|;
 name|lexer
 operator|.
@@ -473,6 +477,60 @@ name|contains
 argument_list|(
 literal|"unexpected character"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaSyntax
+specifier|public
+name|void
+name|testLambdaSyntax
+parameter_list|()
+block|{
+name|buildAntlrTree
+argument_list|(
+literal|"call(p -> {p.doSomething();});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call(int p -> {p.doSomething();});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call((p, u, v) -> {p.doSomething(); blah = 1;});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call(1, (p, u, v) -> {p.doSomething(); blah = 1;}, 3);"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call((p, u, v) -> {p.doSomething(); blah = 1;});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call(x, y, z, (int p, int u, int v) -> {p.doSomething(); blah = 1;});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call(x, y, z, (long p, List u, String v) -> {p.doSomething(); blah = 1;});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call(x, y, z, (int p, u, int v) -> {p.doSomething(); blah = 1;});"
+argument_list|)
+expr_stmt|;
+name|buildAntlrTree
+argument_list|(
+literal|"call(x, (int p, u, int v) -> {p.doSomething(); blah = 1;}, z,"
+operator|+
+literal|" (int p, u, int v) -> {p.doSomething(); blah = 1;}, 'test');"
 argument_list|)
 expr_stmt|;
 block|}

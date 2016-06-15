@@ -164,7 +164,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationInitializationException
+name|AbstractAggregationBuilder
 import|;
 end_import
 
@@ -178,7 +178,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
+name|AggregationInitializationException
 import|;
 end_import
 
@@ -420,7 +420,7 @@ specifier|public
 class|class
 name|TopHitsAggregationBuilder
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 argument_list|<
 name|TopHitsAggregationBuilder
 argument_list|>

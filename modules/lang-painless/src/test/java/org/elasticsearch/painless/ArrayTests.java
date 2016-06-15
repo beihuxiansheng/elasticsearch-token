@@ -335,6 +335,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testArrayVariable
+specifier|public
+name|void
+name|testArrayVariable
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 1; int[] y = new int[x]; return y.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testForLoop
 specifier|public
 name|void
@@ -354,6 +371,24 @@ argument_list|(
 literal|"def a = new int[1000]; for (int x = 0; x< a.length; x++) { a[x] = x; } "
 operator|+
 literal|"int total = 0; for (int x = 0; x< a.length; x++) { total += a[x]; } return total;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Make sure we don't try and convert the {@code /} after the {@code ]} into a regex....      */
+DECL|method|testDivideArray
+specifier|public
+name|void
+name|testDivideArray
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def[] x = new def[1]; x[0] = 2; return x[0] / 2"
 argument_list|)
 argument_list|)
 expr_stmt|;

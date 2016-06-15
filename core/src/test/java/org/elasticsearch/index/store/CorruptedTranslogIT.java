@@ -855,9 +855,6 @@ name|shardIterators
 init|=
 name|state
 operator|.
-name|getRoutingNodes
-argument_list|()
-operator|.
 name|getRoutingTable
 argument_list|()
 operator|.

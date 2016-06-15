@@ -723,6 +723,31 @@ operator|new
 name|MultiSearchRequest
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|hasParam
+argument_list|(
+literal|"max_concurrent_searches"
+argument_list|)
+condition|)
+block|{
+name|multiSearchRequest
+operator|.
+name|maxConcurrentSearchRequests
+argument_list|(
+name|request
+operator|.
+name|paramAsInt
+argument_list|(
+literal|"max_concurrent_searches"
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 index|[]
 name|indices
@@ -1195,7 +1220,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"explicit index in multi percolate is not allowed"
+literal|"explicit index in multi search is not allowed"
 argument_list|)
 throw|;
 block|}

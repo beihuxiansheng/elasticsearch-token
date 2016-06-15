@@ -364,6 +364,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  * */
 end_comment
@@ -1707,7 +1717,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|GeoDistanceQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -2668,7 +2681,12 @@ name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|qb
+argument_list|)
 return|;
 block|}
 annotation|@

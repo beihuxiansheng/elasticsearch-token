@@ -46,9 +46,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -1080,6 +1078,16 @@ name|blockOnControlFiles
 operator|=
 name|blocked
 expr_stmt|;
+block|}
+DECL|method|blockOnDataFiles
+specifier|public
+name|boolean
+name|blockOnDataFiles
+parameter_list|()
+block|{
+return|return
+name|blockOnDataFiles
+return|;
 block|}
 DECL|method|unblockExecution
 specifier|public

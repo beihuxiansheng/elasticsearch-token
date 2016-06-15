@@ -887,9 +887,9 @@ name|searchModule
 operator|.
 name|registerFetchSubPhase
 argument_list|(
+operator|new
 name|TermVectorsFetchSubPhase
-operator|.
-name|class
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

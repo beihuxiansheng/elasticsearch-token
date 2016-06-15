@@ -2371,11 +2371,6 @@ name|concreteIndex
 argument_list|,
 name|indexRequest
 operator|.
-name|type
-argument_list|()
-argument_list|,
-name|indexRequest
-operator|.
 name|id
 argument_list|()
 argument_list|,
@@ -2487,11 +2482,6 @@ name|concreteIndex
 argument_list|,
 name|deleteRequest
 operator|.
-name|type
-argument_list|()
-argument_list|,
-name|deleteRequest
-operator|.
 name|id
 argument_list|()
 argument_list|,
@@ -2600,11 +2590,6 @@ argument_list|(
 name|clusterState
 argument_list|,
 name|concreteIndex
-argument_list|,
-name|updateRequest
-operator|.
-name|type
-argument_list|()
 argument_list|,
 name|updateRequest
 operator|.
@@ -2788,7 +2773,7 @@ name|shardId
 argument_list|,
 name|bulkRequest
 operator|.
-name|refresh
+name|getRefreshPolicy
 argument_list|()
 argument_list|,
 name|requests

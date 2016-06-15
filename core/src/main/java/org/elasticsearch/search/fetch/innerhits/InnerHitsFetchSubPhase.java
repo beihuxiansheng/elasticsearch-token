@@ -76,20 +76,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|SearchParseElement
@@ -234,16 +220,25 @@ name|FetchSubPhase
 block|{
 DECL|field|fetchPhase
 specifier|private
+specifier|final
 name|FetchPhase
 name|fetchPhase
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|InnerHitsFetchSubPhase
 specifier|public
 name|InnerHitsFetchSubPhase
-parameter_list|()
-block|{     }
+parameter_list|(
+name|FetchPhase
+name|fetchPhase
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fetchPhase
+operator|=
+name|fetchPhase
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|parseElements
@@ -657,23 +652,6 @@ index|[]
 name|hits
 parameter_list|)
 block|{     }
-comment|// To get around cyclic dependency issue
-DECL|method|setFetchPhase
-specifier|public
-name|void
-name|setFetchPhase
-parameter_list|(
-name|FetchPhase
-name|fetchPhase
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fetchPhase
-operator|=
-name|fetchPhase
-expr_stmt|;
-block|}
 block|}
 end_class
 

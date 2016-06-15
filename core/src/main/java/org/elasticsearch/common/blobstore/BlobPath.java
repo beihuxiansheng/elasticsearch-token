@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * The list of paths where a blob can reside.  The contents of the paths are dependent upon the implementation of {@link BlobContainer}.  */
 end_comment
 
 begin_class

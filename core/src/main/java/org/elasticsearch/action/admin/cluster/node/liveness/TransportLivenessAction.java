@@ -187,6 +187,11 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+literal|false
+argument_list|,
+literal|false
+comment|/*can not trip circuit breaker*/
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

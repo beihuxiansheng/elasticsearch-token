@@ -390,6 +390,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|hamcrest
@@ -1033,9 +1051,9 @@ argument_list|,
 literal|"value"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -1498,6 +1516,14 @@ argument_list|,
 name|numPending
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// shard lock released... we can now delete
 name|indicesService
 operator|.
@@ -1537,6 +1563,14 @@ argument_list|()
 argument_list|)
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -1630,6 +1664,14 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// shard lock released... we can now delete
 name|indicesService
 operator|.
@@ -1671,6 +1713,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|indicesService
+operator|.
+name|hasUncompletedPendingDeletes
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// "bogus" index has not been removed
 block|}
 name|assertAcked
 argument_list|(

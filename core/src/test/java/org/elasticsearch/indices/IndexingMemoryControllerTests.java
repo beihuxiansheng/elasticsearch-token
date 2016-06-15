@@ -2848,9 +2848,7 @@ argument_list|(
 name|newShard
 operator|.
 name|recoverFromStore
-argument_list|(
-name|localNode
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -2878,8 +2876,6 @@ name|routing
 operator|.
 name|moveToStarted
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

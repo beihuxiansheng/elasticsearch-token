@@ -2443,6 +2443,9 @@ name|qsc
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(

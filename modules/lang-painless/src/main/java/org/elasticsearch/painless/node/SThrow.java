@@ -36,7 +36,19 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
 import|;
 end_import
 
@@ -73,13 +85,7 @@ DECL|method|SThrow
 specifier|public
 name|SThrow
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|AExpression
@@ -88,10 +94,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -108,8 +110,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|expression
@@ -124,7 +126,7 @@ name|expression
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|expression
@@ -133,7 +135,7 @@ name|expression
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|methodEscape
@@ -167,7 +169,7 @@ name|writer
 operator|.
 name|writeStatementOffset
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|expression

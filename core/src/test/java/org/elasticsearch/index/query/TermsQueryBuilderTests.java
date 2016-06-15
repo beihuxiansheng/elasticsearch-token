@@ -1562,6 +1562,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder
@@ -1619,6 +1622,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder
@@ -1676,6 +1682,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder
@@ -1733,6 +1742,9 @@ decl_stmt|;
 name|TermsQueryBuilder
 name|copy
 init|=
+operator|(
+name|TermsQueryBuilder
+operator|)
 name|assertSerialization
 argument_list|(
 name|builder

@@ -42,22 +42,6 @@ name|action
 operator|.
 name|index
 operator|.
-name|NodeIndexDeletedAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|action
-operator|.
-name|index
-operator|.
 name|NodeMappingRefreshAction
 import|;
 end_import
@@ -734,7 +718,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskResultsService
+name|TaskPersistenceService
 import|;
 end_import
 
@@ -1423,16 +1407,6 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|NodeIndexDeletedAction
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
 name|NodeMappingRefreshAction
 operator|.
 name|class
@@ -1453,7 +1427,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|TaskResultsService
+name|TaskPersistenceService
 operator|.
 name|class
 argument_list|)

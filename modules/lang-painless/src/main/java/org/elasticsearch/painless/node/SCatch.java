@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Type
@@ -50,7 +62,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -62,7 +74,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 operator|.
 name|Variable
 import|;
@@ -152,13 +164,7 @@ DECL|method|SCatch
 specifier|public
 name|SCatch
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -173,10 +179,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -205,8 +207,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 specifier|final
@@ -234,10 +236,10 @@ name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Not a type ["
 operator|+
@@ -266,10 +268,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Not an exception type ["
 operator|+
@@ -284,7 +286,7 @@ throw|;
 block|}
 name|variable
 operator|=
-name|variables
+name|locals
 operator|.
 name|addVariable
 argument_list|(
@@ -328,7 +330,7 @@ name|block
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|methodEscape
@@ -383,7 +385,7 @@ name|writer
 operator|.
 name|writeStatementOffset
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|Label

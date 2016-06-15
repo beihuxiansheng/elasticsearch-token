@@ -191,7 +191,12 @@ name|this
 operator|.
 name|snapshots
 operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|snapshots
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the list of snapshots      *      * @return the list of snapshots      */

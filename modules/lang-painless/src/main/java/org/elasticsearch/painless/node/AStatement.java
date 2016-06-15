@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -37,6 +37,18 @@ operator|.
 name|asm
 operator|.
 name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Location
 import|;
 end_import
 
@@ -160,22 +172,12 @@ decl_stmt|;
 DECL|method|AStatement
 name|AStatement
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -186,8 +188,8 @@ specifier|abstract
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Writes ASM based on the data collected during the analysis phase.      */

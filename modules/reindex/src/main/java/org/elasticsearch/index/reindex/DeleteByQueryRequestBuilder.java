@@ -78,8 +78,6 @@ name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|DeleteByQueryRequest
 argument_list|,
-name|BulkIndexByScrollResponse
-argument_list|,
 name|DeleteByQueryRequestBuilder
 argument_list|>
 block|{

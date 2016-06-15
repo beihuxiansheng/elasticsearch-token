@@ -128,7 +128,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 import|;
 end_import
 
@@ -204,7 +204,7 @@ specifier|public
 class|class
 name|SamplerAggregationBuilder
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 argument_list|<
 name|SamplerAggregationBuilder
 argument_list|>

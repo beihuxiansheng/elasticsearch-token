@@ -55,7 +55,7 @@ expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -141,7 +141,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"dynamic method [indexOf] with signature [(String,int,String)"
+literal|"dynamic method [indexOf]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -158,7 +158,9 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"FeatureTest f = new FeatureTest(); return f.x == 0&& f.y == 0;"
+literal|"org.elasticsearch.painless.FeatureTest f = new org.elasticsearch.painless.FeatureTest();"
+operator|+
+literal|"return f.x == 0&& f.y == 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -168,7 +170,9 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"FeatureTest f = new FeatureTest(1, 2); return f.x == 1&& f.y == 2;"
+literal|"org.elasticsearch.painless.FeatureTest f = new org.elasticsearch.painless.FeatureTest(1, 2);"
+operator|+
+literal|"return f.x == 1&& f.y == 2;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -185,7 +189,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return FeatureTest.overloadedStatic();"
+literal|"return org.elasticsearch.painless.FeatureTest.overloadedStatic();"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -195,7 +199,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return FeatureTest.overloadedStatic(false);"
+literal|"return org.elasticsearch.painless.FeatureTest.overloadedStatic(false);"
 argument_list|)
 argument_list|)
 expr_stmt|;

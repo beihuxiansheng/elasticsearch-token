@@ -58,18 +58,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ReplicationResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|UnavailableShardsException
 import|;
 end_import
@@ -151,20 +139,6 @@ operator|.
 name|routing
 operator|.
 name|ShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 
@@ -372,9 +346,14 @@ parameter_list|<
 name|ReplicaRequest
 parameter_list|>
 parameter_list|,
-name|Response
+name|PrimaryResultT
 extends|extends
-name|ReplicationResponse
+name|ReplicationOperation
+operator|.
+name|PrimaryResult
+parameter_list|<
+name|ReplicaRequest
+parameter_list|>
 parameter_list|>
 block|{
 DECL|field|logger
@@ -414,6 +393,7 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+comment|/**      * The number of pending sub-operations in this operation. This is incremented when the following operations start and decremented when      * they complete:      *<ul>      *<li>The operation on the primary</li>      *<li>The operation on each replica</li>      *<li>Coordination of the operation as a whole. This prevents the operation from terminating early if we haven't started any replica      * operations and the primary finishes.</li>      *</ul>      */
 DECL|field|pendingShards
 specifier|final
 specifier|private
@@ -455,7 +435,7 @@ name|Request
 argument_list|,
 name|ReplicaRequest
 argument_list|,
-name|Response
+name|PrimaryResultT
 argument_list|>
 name|primary
 decl_stmt|;
@@ -478,20 +458,20 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|field|finalResponseListener
+DECL|field|resultListener
 specifier|final
 specifier|protected
 name|ActionListener
 argument_list|<
-name|Response
+name|PrimaryResultT
 argument_list|>
-name|finalResponseListener
+name|resultListener
 decl_stmt|;
-DECL|field|finalResponse
+DECL|field|primaryResult
 specifier|private
 specifier|volatile
-name|Response
-name|finalResponse
+name|PrimaryResultT
+name|primaryResult
 init|=
 literal|null
 decl_stmt|;
@@ -530,13 +510,13 @@ name|Request
 argument_list|,
 name|ReplicaRequest
 argument_list|,
-name|Response
+name|PrimaryResultT
 argument_list|>
 name|primary
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|Response
+name|PrimaryResultT
 argument_list|>
 name|listener
 parameter_list|,
@@ -591,7 +571,7 @@ name|primary
 expr_stmt|;
 name|this
 operator|.
-name|finalResponseListener
+name|resultListener
 operator|=
 name|listener
 expr_stmt|;
@@ -639,13 +619,19 @@ else|:
 literal|null
 decl_stmt|;
 specifier|final
-name|ShardId
-name|shardId
+name|ShardRouting
+name|primaryRouting
 init|=
 name|primary
 operator|.
 name|routingEntry
 argument_list|()
+decl_stmt|;
+specifier|final
+name|ShardId
+name|primaryId
+init|=
+name|primaryRouting
 operator|.
 name|shardId
 argument_list|()
@@ -662,7 +648,7 @@ argument_list|(
 operator|new
 name|UnavailableShardsException
 argument_list|(
-name|shardId
+name|primaryId
 argument_list|,
 literal|"{} Timeout: [{}], request: [{}]"
 argument_list|,
@@ -689,41 +675,22 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-comment|// increase by 1 until we finish all primary coordination
-name|Tuple
-argument_list|<
-name|Response
-argument_list|,
-name|ReplicaRequest
-argument_list|>
-name|primaryResponse
-init|=
+name|primaryResult
+operator|=
 name|primary
 operator|.
 name|perform
 argument_list|(
 name|request
 argument_list|)
-decl_stmt|;
-name|successfulShards
-operator|.
-name|incrementAndGet
-argument_list|()
 expr_stmt|;
-comment|// mark primary as successful
-name|finalResponse
-operator|=
-name|primaryResponse
-operator|.
-name|v1
-argument_list|()
-expr_stmt|;
+specifier|final
 name|ReplicaRequest
 name|replicaRequest
 init|=
-name|primaryResponse
+name|primaryResult
 operator|.
-name|v2
+name|replicaRequest
 argument_list|()
 decl_stmt|;
 assert|assert
@@ -750,7 +717,7 @@ name|trace
 argument_list|(
 literal|"[{}] op [{}] completed on primary for request [{}]"
 argument_list|,
-name|shardId
+name|primaryId
 argument_list|,
 name|opType
 argument_list|,
@@ -762,6 +729,7 @@ comment|// we have to get a new state after successfully indexing into the prima
 comment|// we have to make sure that every operation indexed into the primary after recovery start will also be replicated
 comment|// to the recovery target. If we use an old cluster state, we may miss a relocation that has started since then.
 comment|// If the index gets deleted after primary operation, we skip replication
+specifier|final
 name|List
 argument_list|<
 name|ShardRouting
@@ -770,7 +738,7 @@ name|shards
 init|=
 name|getShards
 argument_list|(
-name|shardId
+name|primaryId
 argument_list|,
 name|clusterStateSupplier
 operator|.
@@ -884,11 +852,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// decrement pending and finish (if there are no replicas, or those are done)
+name|successfulShards
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 name|decPendingAndFinishIfNeeded
 argument_list|()
 expr_stmt|;
-comment|// incremented in the beginning of this method
 block|}
 DECL|method|performOnReplica
 specifier|private
@@ -1584,7 +1555,7 @@ name|failuresArray
 argument_list|)
 expr_stmt|;
 block|}
-name|finalResponse
+name|primaryResult
 operator|.
 name|setShardInfo
 argument_list|(
@@ -1607,11 +1578,11 @@ name|failuresArray
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|finalResponseListener
+name|resultListener
 operator|.
 name|onResponse
 argument_list|(
-name|finalResponse
+name|primaryResult
 argument_list|)
 expr_stmt|;
 block|}
@@ -1637,7 +1608,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-name|finalResponseListener
+name|resultListener
 operator|.
 name|onFailure
 argument_list|(
@@ -1744,18 +1715,21 @@ parameter_list|<
 name|ReplicaRequest
 parameter_list|>
 parameter_list|,
-name|Response
+name|PrimaryResultT
 extends|extends
-name|ReplicationResponse
+name|PrimaryResult
+parameter_list|<
+name|ReplicaRequest
+parameter_list|>
 parameter_list|>
 block|{
-comment|/** routing entry for this primary */
+comment|/**          * routing entry for this primary          */
 DECL|method|routingEntry
 name|ShardRouting
 name|routingEntry
 parameter_list|()
 function_decl|;
-comment|/** fail the primary, typically due to the fact that the operation has learned the primary has been demoted by the master */
+comment|/**          * fail the primary, typically due to the fact that the operation has learned the primary has been demoted by the master          */
 DECL|method|failShard
 name|void
 name|failShard
@@ -1767,14 +1741,9 @@ name|Throwable
 name|throwable
 parameter_list|)
 function_decl|;
-comment|/**          * Performs the given request on this primary          *          * @return A tuple containing not null values, as first value the result of the primary operation and as second value          * the request to be executed on the replica shards.          */
+comment|/**          * Performs the given request on this primary. Yes, this returns as soon as it can with the request for the replicas and calls a          * listener when the primary request is completed. Yes, the primary request might complete before the method returns. Yes, it might          * also complete after. Deal with it.          *          * @param request the request to perform          * @return the request to send to the repicas          */
 DECL|method|perform
-name|Tuple
-argument_list|<
-name|Response
-argument_list|,
-name|ReplicaRequest
-argument_list|>
+name|PrimaryResultT
 name|perform
 parameter_list|(
 name|Request
@@ -1796,7 +1765,7 @@ name|ReplicaRequest
 parameter_list|>
 parameter_list|>
 block|{
-comment|/**          * performs the the given request on the specified replica          *          * @param replica {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to peform          * @param listener a callback to call once the operation has been complicated, either successfully or with an error.          */
+comment|/**          * performs the the given request on the specified replica          *          * @param replica        {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to peform          * @param listener       a callback to call once the operation has been complicated, either successfully or with an error.          */
 DECL|method|performOn
 name|void
 name|performOn
@@ -1816,7 +1785,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**          * Fail the specified shard, removing it from the current set of active shards          * @param replica shard to fail          * @param primary the primary shard that requested the failure          * @param message a (short) description of the reason          * @param throwable the original exception which caused the ReplicationOperation to request the shard to be failed          * @param onSuccess a callback to call when the shard has been successfully removed from the active set.          * @param onPrimaryDemoted a callback to call when the shard can not be failed because the current primary has been demoted          *                         by the master.          * @param onIgnoredFailure a callback to call when failing a shard has failed, but it that failure can be safely ignored and the          *                         replication operation can finish processing          *                         Note: this callback should be used in extreme situations, typically node shutdown.          */
+comment|/**          * Fail the specified shard, removing it from the current set of active shards          *          * @param replica          shard to fail          * @param primary          the primary shard that requested the failure          * @param message          a (short) description of the reason          * @param throwable        the original exception which caused the ReplicationOperation to request the shard to be failed          * @param onSuccess        a callback to call when the shard has been successfully removed from the active set.          * @param onPrimaryDemoted a callback to call when the shard can not be failed because the current primary has been demoted          *                         by the master.          * @param onIgnoredFailure a callback to call when failing a shard has failed, but it that failure can be safely ignored and the          *                         replication operation can finish processing          *                         Note: this callback should be used in extreme situations, typically node shutdown.          */
 DECL|method|failShard
 name|void
 name|failShard
@@ -1922,6 +1891,34 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|interface|PrimaryResult
+interface|interface
+name|PrimaryResult
+parameter_list|<
+name|R
+extends|extends
+name|ReplicationRequest
+parameter_list|<
+name|R
+parameter_list|>
+parameter_list|>
+block|{
+DECL|method|replicaRequest
+name|R
+name|replicaRequest
+parameter_list|()
+function_decl|;
+DECL|method|setShardInfo
+name|void
+name|setShardInfo
+parameter_list|(
+name|ReplicationResponse
+operator|.
+name|ShardInfo
+name|shardInfo
+parameter_list|)
+function_decl|;
 block|}
 block|}
 end_class
