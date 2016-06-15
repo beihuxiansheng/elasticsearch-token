@@ -1610,46 +1610,6 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = true; x ^= true; return x;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = true; x ^= false; return x;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = false; x ^= true; return x;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = false; x ^= false; return x;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
 literal|"boolean[] x = new boolean[1]; x[0] = true; x[0] ^= true; return x[0];"
 argument_list|)
 argument_list|)
@@ -1681,46 +1641,6 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"boolean[] x = new boolean[1]; x[0] = false; x[0] ^= false; return x[0];"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"def[] x = new def[1]; x[0] = true; x[0] ^= true; return x[0];"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"def[] x = new def[1]; x[0] = true; x[0] ^= false; return x[0];"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"def[] x = new def[1]; x[0] = false; x[0] ^= true; return x[0];"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"def[] x = new def[1]; x[0] = false; x[0] ^= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1879,6 +1799,254 @@ block|{
 name|exec
 argument_list|(
 literal|"int x = 4; double y = 1; x ^= y"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCompoundAssignmentDef
+specifier|public
+name|void
+name|testCompoundAssignmentDef
+parameter_list|()
+block|{
+comment|// boolean
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; x ^= true; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = true; x ^= false; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; x ^= true; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = false; x ^= false; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def[] x = new def[1]; x[0] = true; x[0] ^= true; return x[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def[] x = new def[1]; x[0] = true; x[0] ^= false; return x[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def[] x = new def[1]; x[0] = false; x[0] ^= true; return x[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def[] x = new def[1]; x[0] = false; x[0] ^= false; return x[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// byte
+name|assertEquals
+argument_list|(
+call|(
+name|byte
+call|)
+argument_list|(
+literal|13
+operator|^
+literal|14
+argument_list|)
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte)13; x ^= 14; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+call|(
+name|short
+call|)
+argument_list|(
+literal|13
+operator|^
+literal|14
+argument_list|)
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short)13; x ^= 14; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+call|(
+name|char
+call|)
+argument_list|(
+literal|13
+operator|^
+literal|14
+argument_list|)
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)13; x ^= 14; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|13
+operator|^
+literal|14
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 13; x ^= 14; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+call|(
+name|long
+call|)
+argument_list|(
+literal|13
+operator|^
+literal|14
+argument_list|)
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 13L; x ^= 14; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefBogusCompoundAssignment
+specifier|public
+name|void
+name|testDefBogusCompoundAssignment
+parameter_list|()
+block|{
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"def x = 4F; int y = 1; x ^= y"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"def x = 4D; int y = 1; x ^= y"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 4; def y = (float)1; x ^= y"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 4; def y = (double)1; x ^= y"
 argument_list|)
 expr_stmt|;
 block|}

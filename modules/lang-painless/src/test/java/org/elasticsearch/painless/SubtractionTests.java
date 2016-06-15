@@ -3683,6 +3683,184 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testDefCompoundAssignment
+specifier|public
+name|void
+name|testDefCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte)5; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte)5; x -= 10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short)5; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short)5; x -= 10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)5; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char)10; x -= 5; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; x -= 10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|15L
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5L; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5L
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5L; x -= 10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// float
+name|assertEquals
+argument_list|(
+literal|15F
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5f; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5F
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5f; x -= 10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// double
+name|assertEquals
+argument_list|(
+literal|15D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5.0; x -= -10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5.0; x -= 10; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
