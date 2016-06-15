@@ -581,7 +581,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**          * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}          * types at this call site and given up on caching using this fallback wand we switch to a          * megamorphic cache using {@link ClassValue}).          */
+comment|/**          * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}          * types at this call site and given up on caching using this fallback and we switch to a          * megamorphic cache using {@link ClassValue}).          */
 annotation|@
 name|SuppressForbidden
 argument_list|(
