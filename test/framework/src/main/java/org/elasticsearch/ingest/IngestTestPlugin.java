@@ -90,8 +90,6 @@ argument_list|(
 literal|"test"
 argument_list|,
 parameter_list|(
-name|templateService
-parameter_list|,
 name|registry
 parameter_list|)
 lambda|->

@@ -130,6 +130,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|bytes
@@ -233,6 +247,18 @@ operator|.
 name|core
 operator|.
 name|ProcessorInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
 import|;
 end_import
 
@@ -380,6 +406,18 @@ name|nullValue
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
 begin_class
 DECL|class|PipelineStoreTests
 specifier|public
@@ -431,8 +469,6 @@ argument_list|(
 literal|"set"
 argument_list|,
 parameter_list|(
-name|templateService
-parameter_list|,
 name|registry
 parameter_list|)
 lambda|->
@@ -528,8 +564,6 @@ argument_list|(
 literal|"remove"
 argument_list|,
 parameter_list|(
-name|templateService
-parameter_list|,
 name|registry
 parameter_list|)
 lambda|->
@@ -611,7 +645,19 @@ name|buildProcessorFactoryRegistry
 argument_list|(
 name|registryBuilder
 argument_list|,
-literal|null
+name|mock
+argument_list|(
+name|ScriptService
+operator|.
+name|class
+argument_list|)
+argument_list|,
+name|mock
+argument_list|(
+name|ClusterService
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 end_expr_stmt

@@ -74,20 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|TemplateService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|monitor
 operator|.
 name|MonitorService
@@ -116,7 +102,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiFunction
+name|Function
 import|;
 end_import
 
@@ -315,10 +301,8 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|BiFunction
+name|Function
 argument_list|<
-name|TemplateService
-argument_list|,
 name|ProcessorsRegistry
 argument_list|,
 name|Processor

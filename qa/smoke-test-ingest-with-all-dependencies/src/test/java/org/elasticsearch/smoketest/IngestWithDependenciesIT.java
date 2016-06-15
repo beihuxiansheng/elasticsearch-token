@@ -97,16 +97,16 @@ import|;
 end_import
 
 begin_class
-DECL|class|IngestWithMustacheIT
+DECL|class|IngestWithDependenciesIT
 specifier|public
 class|class
-name|IngestWithMustacheIT
+name|IngestWithDependenciesIT
 extends|extends
 name|ESRestTestCase
 block|{
-DECL|method|IngestWithMustacheIT
+DECL|method|IngestWithDependenciesIT
 specifier|public
-name|IngestWithMustacheIT
+name|IngestWithDependenciesIT
 parameter_list|(
 annotation|@
 name|Name

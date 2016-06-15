@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|TemplateServiceIT
 extends|extends
-name|AbstractMustacheTestCase
+name|AbstractScriptTestCase
 block|{
 DECL|method|testTemplates
 specifier|public
