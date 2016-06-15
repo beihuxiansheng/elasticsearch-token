@@ -902,9 +902,17 @@ name|requestWithAcceptHeader
 init|=
 operator|new
 name|FakeRestRequest
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|withHeaders
 argument_list|(
 name|headers
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|table
 operator|.

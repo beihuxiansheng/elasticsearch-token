@@ -1538,7 +1538,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|RandomAllocationDecider
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 class|class

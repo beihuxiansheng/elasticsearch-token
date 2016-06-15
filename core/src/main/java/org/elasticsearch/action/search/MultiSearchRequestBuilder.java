@@ -242,6 +242,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets how many search requests specified in this multi search requests are allowed to be ran concurrently.      */
+DECL|method|setMaxConcurrentSearchRequests
+specifier|public
+name|MultiSearchRequestBuilder
+name|setMaxConcurrentSearchRequests
+parameter_list|(
+name|int
+name|maxConcurrentSearchRequests
+parameter_list|)
+block|{
+name|request
+argument_list|()
+operator|.
+name|maxConcurrentSearchRequests
+argument_list|(
+name|maxConcurrentSearchRequests
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

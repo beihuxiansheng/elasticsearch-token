@@ -350,7 +350,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|taskResultsService
 specifier|private
-name|TaskResultsService
+name|TaskPersistenceService
 name|taskResultsService
 decl_stmt|;
 DECL|field|lastDiscoveryNodes
@@ -381,7 +381,7 @@ specifier|public
 name|void
 name|setTaskResultsService
 parameter_list|(
-name|TaskResultsService
+name|TaskPersistenceService
 name|taskResultsService
 parameter_list|)
 block|{
@@ -844,7 +844,7 @@ expr_stmt|;
 return|return;
 block|}
 specifier|final
-name|TaskResult
+name|PersistedTaskInfo
 name|taskResult
 decl_stmt|;
 try|try
@@ -1020,7 +1020,7 @@ expr_stmt|;
 return|return;
 block|}
 specifier|final
-name|TaskResult
+name|PersistedTaskInfo
 name|taskResult
 decl_stmt|;
 try|try

@@ -466,9 +466,11 @@ literal|"_local"
 block|,
 literal|"_primary_first"
 block|,
-literal|"_prefer_node:somenode"
+literal|"_prefer_nodes:somenode"
 block|,
-literal|"_prefer_node:server2"
+literal|"_prefer_nodes:server2"
+block|,
+literal|"_prefer_nodes:somenode,server2"
 block|}
 decl_stmt|;
 for|for

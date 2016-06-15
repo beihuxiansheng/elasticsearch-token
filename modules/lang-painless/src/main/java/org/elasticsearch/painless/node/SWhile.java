@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -89,11 +89,6 @@ name|SWhile
 extends|extends
 name|AStatement
 block|{
-DECL|field|maxLoopCounter
-specifier|final
-name|int
-name|maxLoopCounter
-decl_stmt|;
 DECL|field|condition
 name|AExpression
 name|condition
@@ -110,9 +105,6 @@ parameter_list|(
 name|Location
 name|location
 parameter_list|,
-name|int
-name|maxLoopCounter
-parameter_list|,
 name|AExpression
 name|condition
 parameter_list|,
@@ -124,12 +116,6 @@ name|super
 argument_list|(
 name|location
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|maxLoopCounter
-operator|=
-name|maxLoopCounter
 expr_stmt|;
 name|this
 operator|.
@@ -150,11 +136,11 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
-name|variables
+name|locals
 operator|.
 name|incrementScope
 argument_list|()
@@ -171,7 +157,7 @@ name|condition
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|condition
@@ -180,7 +166,7 @@ name|condition
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -265,7 +251,7 @@ name|block
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -332,14 +318,17 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-name|maxLoopCounter
+name|locals
+operator|.
+name|getMaxLoopCounter
+argument_list|()
 operator|>
 literal|0
 condition|)
 block|{
 name|loopCounterSlot
 operator|=
-name|variables
+name|locals
 operator|.
 name|getVariable
 argument_list|(
@@ -351,7 +340,7 @@ operator|.
 name|slot
 expr_stmt|;
 block|}
-name|variables
+name|locals
 operator|.
 name|decrementScope
 argument_list|()

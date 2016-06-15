@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -151,8 +151,8 @@ DECL|method|analyze
 name|ALink
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|after
@@ -222,14 +222,9 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|LOAD
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -284,14 +279,9 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|STORE
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

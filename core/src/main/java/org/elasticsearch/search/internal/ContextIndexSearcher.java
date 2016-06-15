@@ -624,7 +624,7 @@ argument_list|()
 expr_stmt|;
 name|profiler
 operator|.
-name|pollLastQuery
+name|pollLastElement
 argument_list|()
 expr_stmt|;
 block|}

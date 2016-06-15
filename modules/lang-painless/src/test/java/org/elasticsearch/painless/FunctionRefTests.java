@@ -144,6 +144,324 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testArrayCtorMethodRef
+specifier|public
+name|void
+name|testArrayCtorMethodRef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1.0D
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1.0); l.add(2.0); "
+operator|+
+literal|"def[] array = l.stream().toArray(Double[]::new);"
+operator|+
+literal|"return array[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayCtorMethodRefDef
+specifier|public
+name|void
+name|testArrayCtorMethodRefDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1.0D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add(1.0); l.add(2.0); "
+operator|+
+literal|"def[] array = l.stream().toArray(Double[]::new);"
+operator|+
+literal|"return array[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReference
+specifier|public
+name|void
+name|testCapturingMethodReference
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Integer x = Integer.valueOf(5); return Optional.empty().orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return Optional.empty().orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceDefImpl
+specifier|public
+name|void
+name|testCapturingMethodReferenceDefImpl
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = Integer.valueOf(5); return Optional.empty().orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); return Optional.empty().orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceDefInterface
+specifier|public
+name|void
+name|testCapturingMethodReferenceDefInterface
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Integer x = Integer.valueOf(5); def opt = Optional.empty(); return opt.orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); def opt = Optional.empty(); return opt.orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceDefEverywhere
+specifier|public
+name|void
+name|testCapturingMethodReferenceDefEverywhere
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"5"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = Integer.valueOf(5); def opt = Optional.empty(); return opt.orElseGet(x::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[]"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); def opt = Optional.empty(); return opt.orElseGet(l::toString);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdas
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdas
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String x = 'testing';"
+operator|+
+literal|"String y = 'abcdefg';"
+operator|+
+literal|"org.elasticsearch.painless.FeatureTest test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdasDefImpls
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdasDefImpls
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 'testing';"
+operator|+
+literal|"def y = 'abcdefg';"
+operator|+
+literal|"org.elasticsearch.painless.FeatureTest test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdasDefInterface
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdasDefInterface
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String x = 'testing';"
+operator|+
+literal|"String y = 'abcdefg';"
+operator|+
+literal|"def test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturingMethodReferenceMultipleLambdasDefEverywhere
+specifier|public
+name|void
+name|testCapturingMethodReferenceMultipleLambdasDefEverywhere
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 'testing';"
+operator|+
+literal|"def y = 'abcdefg';"
+operator|+
+literal|"def test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x::concat, y::substring);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOwnStaticMethodReference
+specifier|public
+name|void
+name|testOwnStaticMethodReference
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int mycompare(int i, int j) { j - i } "
+operator|+
+literal|"List l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOwnStaticMethodReferenceDef
+specifier|public
+name|void
+name|testOwnStaticMethodReferenceDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int mycompare(int i, int j) { j - i } "
+operator|+
+literal|"def l = new ArrayList(); l.add(2); l.add(1); l.sort(this::mycompare); return l.get(0);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInterfaceDefaultMethod
+specifier|public
+name|void
+name|testInterfaceDefaultMethod
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"bar"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String f(BiFunction function) { function.apply('foo', 'bar') }"
+operator|+
+literal|"Map map = new HashMap(); f(map::getOrDefault)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInterfaceDefaultMethodDef
+specifier|public
+name|void
+name|testInterfaceDefaultMethodDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"bar"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String f(BiFunction function) { function.apply('foo', 'bar') }"
+operator|+
+literal|"def map = new HashMap(); f(map::getOrDefault)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testMethodMissing
 specifier|public
 name|void

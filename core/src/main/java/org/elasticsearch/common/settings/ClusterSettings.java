@@ -1667,6 +1667,10 @@ name|IndicesQueryCache
 operator|.
 name|INDICES_CACHE_QUERY_COUNT_SETTING
 argument_list|,
+name|IndicesQueryCache
+operator|.
+name|INDICES_QUERIES_CACHE_ALL_SEGMENTS_SETTING
+argument_list|,
 name|IndicesTTLService
 operator|.
 name|INDICES_TTL_INTERVAL_SETTING

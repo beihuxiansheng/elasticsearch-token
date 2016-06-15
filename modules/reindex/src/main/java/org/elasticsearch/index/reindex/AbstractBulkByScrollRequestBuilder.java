@@ -424,6 +424,28 @@ name|self
 argument_list|()
 return|;
 block|}
+comment|/**      * Should this task persist its result after it has finished?      */
+DECL|method|setShouldPersistResult
+specifier|public
+name|Self
+name|setShouldPersistResult
+parameter_list|(
+name|boolean
+name|shouldPersistResult
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setShouldPersistResult
+argument_list|(
+name|shouldPersistResult
+argument_list|)
+expr_stmt|;
+return|return
+name|self
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

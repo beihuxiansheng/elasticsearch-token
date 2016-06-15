@@ -82,7 +82,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [_score] is reserved"
+literal|"Variable [_score] is reserved"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -164,7 +164,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [doc] is reserved"
+literal|"Variable [doc] is reserved"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -246,7 +246,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [ctx] is reserved"
+literal|"Variable [ctx] is reserved"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -362,7 +362,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [_value] is reserved"
+literal|"Variable [_value] is reserved"
 argument_list|)
 argument_list|)
 expr_stmt|;

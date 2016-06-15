@@ -11500,8 +11500,6 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|type
-argument_list|,
 literal|null
 argument_list|,
 name|routing

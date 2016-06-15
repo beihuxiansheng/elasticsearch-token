@@ -110,6 +110,16 @@ name|sourceName
 operator|=
 name|sourceName
 expr_stmt|;
+comment|// Replace the TokenFactory with a stashing wrapper so we can do token-level lookbehind for regex detection
+name|_factory
+operator|=
+operator|new
+name|StashingTokenFactory
+argument_list|<>
+argument_list|(
+name|_factory
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

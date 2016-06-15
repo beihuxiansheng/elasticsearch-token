@@ -718,7 +718,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskResultsService
+name|TaskPersistenceService
 import|;
 end_import
 
@@ -1427,7 +1427,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|TaskResultsService
+name|TaskPersistenceService
 operator|.
 name|class
 argument_list|)
