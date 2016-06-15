@@ -346,14 +346,6 @@ argument_list|,
 name|shardRoutingTable
 argument_list|,
 name|indexMetaData
-operator|.
-name|activeAllocationIds
-argument_list|(
-name|shardId
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

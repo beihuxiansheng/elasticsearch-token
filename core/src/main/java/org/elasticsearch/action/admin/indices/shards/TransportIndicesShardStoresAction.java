@@ -789,14 +789,6 @@ argument_list|,
 name|routing
 argument_list|,
 name|indexMetaData
-operator|.
-name|activeAllocationIds
-argument_list|(
-name|shardId
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
