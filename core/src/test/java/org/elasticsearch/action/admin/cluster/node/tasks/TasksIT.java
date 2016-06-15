@@ -3120,19 +3120,7 @@ name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|task
-operator|.
-name|getStatus
-argument_list|()
-argument_list|,
-name|fetchedWithGet
-operator|.
-name|getStatus
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// The status won't always be equal - it might change between the list and the get.
 name|assertEquals
 argument_list|(
 name|task
