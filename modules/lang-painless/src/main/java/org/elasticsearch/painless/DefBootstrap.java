@@ -446,10 +446,6 @@ argument_list|<
 name|?
 argument_list|>
 name|receiver
-parameter_list|,
-name|Object
-index|[]
-name|callArgs
 parameter_list|)
 throws|throws
 name|Throwable
@@ -476,17 +472,7 @@ name|receiver
 argument_list|,
 name|name
 argument_list|,
-name|callArgs
-argument_list|,
-operator|(
-name|Long
-operator|)
-name|this
-operator|.
 name|args
-index|[
-literal|0
-index|]
 argument_list|)
 return|;
 case|case
@@ -561,8 +547,6 @@ argument_list|,
 operator|(
 name|String
 operator|)
-name|this
-operator|.
 name|args
 index|[
 literal|0
@@ -581,7 +565,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**          * Creates the {@link MethodHandle} for the megamorphic call site          * using {@link ClassValue} and {@link MethodHandles#exactInvoker(MethodType)}:          *<p>          * TODO: Remove the variable args and just use {@code type()}!          */
+comment|/**          * Creates the {@link MethodHandle} for the megamorphic call site          * using {@link ClassValue} and {@link MethodHandles#exactInvoker(MethodType)}:          */
 DECL|method|createMegamorphicHandle
 specifier|private
 name|MethodHandle
@@ -640,8 +624,6 @@ argument_list|,
 name|name
 argument_list|,
 name|receiverType
-argument_list|,
-name|callArgs
 argument_list|)
 operator|.
 name|asType
@@ -805,8 +787,6 @@ argument_list|,
 name|name
 argument_list|,
 name|receiver
-argument_list|,
-name|callArgs
 argument_list|)
 operator|.
 name|asType
@@ -2144,8 +2124,8 @@ condition|(
 name|args
 operator|.
 name|length
-operator|!=
-literal|1
+operator|==
+literal|0
 condition|)
 block|{
 throw|throw
@@ -2192,14 +2172,19 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-if|if
-condition|(
+name|int
+name|numLambdas
+init|=
 name|Long
 operator|.
 name|bitCount
 argument_list|(
 name|recipe
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|numLambdas
 operator|>
 name|type
 operator|.
@@ -2212,6 +2197,29 @@ operator|new
 name|BootstrapMethodError
 argument_list|(
 literal|"Illegal recipe for method call: too many bits"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|args
+operator|.
+name|length
+operator|!=
+name|numLambdas
+operator|+
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|BootstrapMethodError
+argument_list|(
+literal|"Illegal number of parameters: expected "
+operator|+
+name|numLambdas
+operator|+
+literal|" references"
 argument_list|)
 throw|;
 block|}
