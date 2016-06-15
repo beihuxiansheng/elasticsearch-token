@@ -1149,6 +1149,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|UNARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1284,6 +1286,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|UNARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1369,6 +1373,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|UNARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
