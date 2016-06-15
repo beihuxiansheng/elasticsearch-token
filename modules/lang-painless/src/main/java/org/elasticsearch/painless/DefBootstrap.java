@@ -865,6 +865,15 @@ operator|.
 name|lookup
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Lookup
+name|publicLookup
+init|=
+name|MethodHandles
+operator|.
+name|publicLookup
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|CHECK_CLASS
@@ -929,10 +938,7 @@ expr_stmt|;
 name|MethodHandle
 name|mh
 init|=
-name|MethodHandles
-operator|.
 name|publicLookup
-argument_list|()
 operator|.
 name|findVirtual
 argument_list|(
@@ -966,10 +972,7 @@ name|mh
 argument_list|,
 literal|1
 argument_list|,
-name|MethodHandles
-operator|.
 name|publicLookup
-argument_list|()
 operator|.
 name|findVirtual
 argument_list|(
@@ -990,7 +993,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|mh
+name|MEGAMORPHIC_LOOKUP
 operator|=
 name|mh
 operator|.
@@ -1008,10 +1011,6 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|MEGAMORPHIC_LOOKUP
-operator|=
-name|mh
 expr_stmt|;
 block|}
 catch|catch
