@@ -581,17 +581,11 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**          * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}          * types at this call site and given up on caching using this fallback and we switch to a          * megamorphic cache using {@link ClassValue}).          */
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"slow path"
-argument_list|)
-DECL|method|fallback
-name|Object
-name|fallback
+comment|/**          * Creates the {@link MethodHandle} for the megamorphic call site          * using {@link ClassValue} and {@link MethodHandles#exactInvoker(MethodType)}:          *<p>          * TODO: Remove the variable args and just use {@code type()}!          */
+DECL|method|createMegamorphicHandle
+specifier|private
+name|MethodHandle
+name|createMegamorphicHandle
 parameter_list|(
 specifier|final
 name|Object
@@ -602,36 +596,12 @@ throws|throws
 name|Throwable
 block|{
 specifier|final
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|receiver
-init|=
-name|callArgs
-index|[
-literal|0
-index|]
-operator|.
-name|getClass
-argument_list|()
-decl_stmt|;
-specifier|final
 name|MethodType
 name|type
 init|=
 name|type
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|depth
-operator|>=
-name|MAX_DEPTH
-condition|)
-block|{
-comment|// we revert the whole cache and build a new megamorphic one
-comment|// using ClassValue and MethodHandles.exactInvoker():
 specifier|final
 name|ClassValue
 argument_list|<
@@ -738,9 +708,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MethodHandle
-name|target
-init|=
+return|return
 name|MethodHandles
 operator|.
 name|foldArguments
@@ -753,6 +721,46 @@ name|type
 argument_list|)
 argument_list|,
 name|cacheLookup
+argument_list|)
+return|;
+block|}
+comment|/**          * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}          * types at this call site and given up on caching using this fallback and we switch to a          * megamorphic cache using {@link ClassValue}).          */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"slow path"
+argument_list|)
+DECL|method|fallback
+name|Object
+name|fallback
+parameter_list|(
+specifier|final
+name|Object
+index|[]
+name|callArgs
+parameter_list|)
+throws|throws
+name|Throwable
+block|{
+if|if
+condition|(
+name|depth
+operator|>=
+name|MAX_DEPTH
+condition|)
+block|{
+comment|// we revert the whole cache and build a new megamorphic one
+specifier|final
+name|MethodHandle
+name|target
+init|=
+name|this
+operator|.
+name|createMegamorphicHandle
+argument_list|(
+name|callArgs
 argument_list|)
 decl_stmt|;
 name|setTarget
@@ -769,6 +777,23 @@ name|callArgs
 argument_list|)
 return|;
 block|}
+else|else
+block|{
+specifier|final
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|receiver
+init|=
+name|callArgs
+index|[
+literal|0
+index|]
+operator|.
+name|getClass
+argument_list|()
+decl_stmt|;
 specifier|final
 name|MethodHandle
 name|target
@@ -787,6 +812,7 @@ operator|.
 name|asType
 argument_list|(
 name|type
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|MethodHandle
@@ -830,6 +856,7 @@ argument_list|(
 name|callArgs
 argument_list|)
 return|;
+block|}
 block|}
 DECL|field|CHECK_CLASS
 specifier|private
