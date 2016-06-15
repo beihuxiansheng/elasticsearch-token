@@ -255,7 +255,7 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-literal|0
+literal|10000
 argument_list|)
 operator|.
 name|collectMode

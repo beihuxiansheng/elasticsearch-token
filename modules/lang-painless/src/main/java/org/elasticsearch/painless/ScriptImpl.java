@@ -360,6 +360,8 @@ name|PainlessError
 decl||
 name|BootstrapMethodError
 decl||
+name|IllegalAccessError
+decl||
 name|Exception
 name|t
 parameter_list|)

@@ -2060,6 +2060,7 @@ return|;
 block|}
 comment|/**      * Updates the settings and index metadata and notifies all registered settings consumers with the new settings iff at least one setting has changed.      *      * @return<code>true</code> iff any setting has been updated otherwise<code>false</code>.      */
 DECL|method|updateIndexMetaData
+specifier|public
 specifier|synchronized
 name|boolean
 name|updateIndexMetaData

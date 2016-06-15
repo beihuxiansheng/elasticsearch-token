@@ -84,22 +84,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoDistanceUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -387,24 +371,6 @@ operator|.
 name|util
 operator|.
 name|Optional
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
 import|;
 end_import
 
@@ -1978,7 +1944,7 @@ else|else
 block|{
 name|toValue
 operator|=
-name|GeoDistanceUtils
+name|GeoUtils
 operator|.
 name|maxRadialDistanceMeters
 argument_list|(
@@ -2123,6 +2089,8 @@ name|fromValue
 else|:
 name|fromValue
 operator|+
+name|GeoUtils
+operator|.
 name|TOLERANCE
 argument_list|,
 operator|(
@@ -2133,6 +2101,8 @@ name|toValue
 else|:
 name|toValue
 operator|-
+name|GeoUtils
+operator|.
 name|TOLERANCE
 argument_list|)
 return|;

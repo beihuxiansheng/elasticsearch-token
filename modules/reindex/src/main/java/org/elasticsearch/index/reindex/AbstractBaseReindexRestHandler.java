@@ -498,6 +498,16 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+else|else
+block|{
+name|internal
+operator|.
+name|setShouldPersistResult
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|/*          * Lets try and validate before forking so the user gets some error. The          * task can't totally validate until it starts but this is better than          * nothing.          */
 name|ActionRequestValidationException
 name|validationException

@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -111,8 +111,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if

@@ -1196,6 +1196,98 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testLambdas
+specifier|public
+name|void
+name|testLambdas
+parameter_list|()
+block|{
+name|Exception
+name|exception
+init|=
+name|expectThrows
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"Math.max(2, p -> {p.doSomething();})"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|exception
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Lambda functions are not supported."
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLastInBlockDoesntNeedSemi
+specifier|public
+name|void
+name|testLastInBlockDoesntNeedSemi
+parameter_list|()
+block|{
+comment|// One statement in the block in case that is a special case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Two statements in the block, in case that is the general case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

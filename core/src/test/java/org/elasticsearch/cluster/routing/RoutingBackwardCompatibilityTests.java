@@ -494,8 +494,6 @@ name|clusterState
 argument_list|,
 name|index
 argument_list|,
-name|type
-argument_list|,
 name|id
 argument_list|,
 name|routing

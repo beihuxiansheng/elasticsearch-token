@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -127,6 +127,16 @@ operator|.
 name|painless
 operator|.
 name|MethodWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -203,6 +213,39 @@ name|back
 init|=
 literal|null
 decl_stmt|;
+comment|/** Creates a new RHS-only EChain */
+DECL|method|EChain
+specifier|public
+name|EChain
+parameter_list|(
+name|Location
+name|location
+parameter_list|,
+name|ALink
+name|link
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|location
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|link
+argument_list|)
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|EChain
 specifier|public
 name|EChain
@@ -271,13 +314,13 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|analyzeLinks
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|analyzeIncrDecr
@@ -292,7 +335,7 @@ condition|)
 block|{
 name|analyzeCompound
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -306,7 +349,7 @@ condition|)
 block|{
 name|analyzeWrite
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -322,7 +365,7 @@ specifier|private
 name|void
 name|analyzeLinks
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -770,7 +813,7 @@ specifier|private
 name|void
 name|analyzeCompound
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1325,7 +1368,7 @@ specifier|private
 name|void
 name|analyzeWrite
 parameter_list|(
-name|Variables
+name|Locals
 name|variables
 parameter_list|)
 block|{
@@ -1779,6 +1822,42 @@ name|writer
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
+comment|// XXX: fix these types, but first we need def compound assignment tests.
+comment|// (and also corner cases such as shifts). its tricky here as there are possibly explicit casts, too.
+comment|// write the operation instruction for compound assignment
+if|if
+condition|(
+name|promote
+operator|.
+name|sort
+operator|==
+name|Sort
+operator|.
+name|DEF
+condition|)
+block|{
+name|writer
+operator|.
+name|writeDynamicBinaryInstruction
+argument_list|(
+name|location
+argument_list|,
+name|promote
+argument_list|,
+name|Definition
+operator|.
+name|DEF_TYPE
+argument_list|,
+name|Definition
+operator|.
+name|DEF_TYPE
+argument_list|,
+name|operation
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|writer
 operator|.
 name|writeBinaryInstruction
@@ -1790,7 +1869,7 @@ argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
-comment|// write the operation instruction for compound assignment
+block|}
 name|writer
 operator|.
 name|writeCast

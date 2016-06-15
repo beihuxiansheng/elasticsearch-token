@@ -33,11 +33,11 @@ argument_list|(
 literal|"_shards"
 argument_list|)
 block|,
-comment|/**      * Route to preferred node, if possible      */
-DECL|enum constant|PREFER_NODE
-name|PREFER_NODE
+comment|/**      * Route to preferred nodes, if possible      */
+DECL|enum constant|PREFER_NODES
+name|PREFER_NODES
 argument_list|(
-literal|"_prefer_node"
+literal|"_prefer_nodes"
 argument_list|)
 block|,
 comment|/**      * Route to local node, if possible      */
@@ -189,10 +189,10 @@ return|return
 name|SHARDS
 return|;
 case|case
-literal|"_prefer_node"
+literal|"_prefer_nodes"
 case|:
 return|return
-name|PREFER_NODE
+name|PREFER_NODES
 return|;
 case|case
 literal|"_only_node"

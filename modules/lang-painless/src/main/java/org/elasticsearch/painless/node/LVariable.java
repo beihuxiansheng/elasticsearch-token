@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 operator|.
 name|Variable
 import|;
@@ -131,8 +131,8 @@ DECL|method|analyze
 name|ALink
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -160,7 +160,7 @@ block|}
 name|Variable
 name|variable
 init|=
-name|variables
+name|locals
 operator|.
 name|getVariable
 argument_list|(
