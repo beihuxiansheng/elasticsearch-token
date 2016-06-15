@@ -637,6 +637,7 @@ argument_list|>
 name|receiverType
 parameter_list|)
 block|{
+comment|// it's too stupid that we cannot throw checked exceptions... (use rethrow puzzler):
 try|try
 block|{
 return|return
@@ -660,16 +661,20 @@ block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|e
+name|t
 parameter_list|)
 block|{
-comment|// XXX: fix that
+name|Def
+operator|.
+name|rethrow
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
+name|AssertionError
+argument_list|()
 throw|;
 block|}
 block|}

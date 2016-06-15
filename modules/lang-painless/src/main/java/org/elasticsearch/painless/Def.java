@@ -868,7 +868,6 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|rethrow
-specifier|private
 specifier|static
 parameter_list|<
 name|T
