@@ -1927,6 +1927,8 @@ operator|.
 name|DEF_TYPE
 argument_list|,
 name|operation
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
