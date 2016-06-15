@@ -601,6 +601,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"muted while investigating"
+argument_list|)
 DECL|method|testDoesNotLimitExcludedRequests
 specifier|public
 name|void
