@@ -747,15 +747,12 @@ init|=
 operator|new
 name|PluginInfo
 argument_list|(
-name|plugin
+name|pluginClass
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
-name|plugin
-operator|.
-name|description
-argument_list|()
+literal|"classpath plugin"
 argument_list|,
 literal|"NA"
 argument_list|,
@@ -1339,9 +1336,12 @@ name|warn
 argument_list|(
 literal|"Plugin: {} implementing onModule with no parameters or more than one parameter"
 argument_list|,
-name|plugin
+name|pluginEntry
 operator|.
-name|name
+name|v1
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1377,9 +1377,12 @@ name|warn
 argument_list|(
 literal|"Plugin: {} implementing onModule by the type is not of Module type {}"
 argument_list|,
-name|plugin
+name|pluginEntry
 operator|.
-name|name
+name|v1
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|moduleClass
@@ -1583,10 +1586,10 @@ name|e
 argument_list|,
 name|plugin
 operator|.
-name|v2
+name|v1
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1616,10 +1619,10 @@ name|e
 argument_list|,
 name|plugin
 operator|.
-name|v2
+name|v1
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -265,30 +265,6 @@ operator|new
 name|TestEventListener
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"mock-index-listener"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"a mock index listener for testing only"
-return|;
-block|}
 comment|/**          * For tests to pass in to fail on listener invocation          */
 DECL|field|INDEX_FAIL
 specifier|public

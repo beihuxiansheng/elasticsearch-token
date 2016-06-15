@@ -140,30 +140,6 @@ name|Plugin
 block|{
 annotation|@
 name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"additional-settings1"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"adds additional setting 'foo.bar'"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|additionalSettings
 specifier|public
 name|Settings
@@ -217,30 +193,6 @@ name|Plugin
 block|{
 annotation|@
 name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"additional-settings2"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"adds additional setting 'foo.bar'"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|additionalSettings
 specifier|public
 name|Settings
@@ -273,30 +225,6 @@ name|FailOnModule
 extends|extends
 name|Plugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"fail-on-module"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"fails in onModule"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void
@@ -597,7 +525,14 @@ name|msg
 operator|.
 name|contains
 argument_list|(
-literal|"plugin [additional-settings1]"
+literal|"plugin ["
+operator|+
+name|AdditionalSettingsPlugin1
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -609,7 +544,14 @@ name|msg
 operator|.
 name|contains
 argument_list|(
-literal|"plugin [additional-settings2]"
+literal|"plugin ["
+operator|+
+name|AdditionalSettingsPlugin2
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

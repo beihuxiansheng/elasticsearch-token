@@ -1193,18 +1193,6 @@ operator|.
 name|IndexScope
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"random-exception-reader-wrapper"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void
@@ -1228,18 +1216,6 @@ argument_list|(
 name|EXCEPTION_LOW_LEVEL_RATIO_SETTING
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"a mock reader wrapper that throws random exceptions for testing"
-return|;
 block|}
 DECL|method|onModule
 specifier|public

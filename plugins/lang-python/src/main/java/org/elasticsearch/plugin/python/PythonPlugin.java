@@ -66,10 +66,6 @@ name|PythonScriptEngineService
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|PythonPlugin
 specifier|public
@@ -78,30 +74,6 @@ name|PythonPlugin
 extends|extends
 name|Plugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"lang-python"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Adds support for writing scripts in Python"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void

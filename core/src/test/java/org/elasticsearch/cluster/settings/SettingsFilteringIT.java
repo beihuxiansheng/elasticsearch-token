@@ -344,32 +344,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**          * The name of the plugin.          */
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"settings-filtering"
-return|;
-block|}
-comment|/**          * The description of the plugin.          */
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Settings Filtering Plugin"
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|additionalSettings

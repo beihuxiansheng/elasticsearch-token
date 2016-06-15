@@ -56,10 +56,6 @@ name|Plugin
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|AnalysisPhoneticPlugin
 specifier|public
@@ -68,30 +64,6 @@ name|AnalysisPhoneticPlugin
 extends|extends
 name|Plugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"analysis-phonetic"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Phonetic analysis support"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void

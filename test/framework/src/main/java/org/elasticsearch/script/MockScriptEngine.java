@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A dummy script engine used for testing. Scripts must be a number. Many   * tests rely on the fact this thing returns a String as its compiled form.  * they even try to serialize it over the network!  */
+comment|/**  * A dummy script engine used for testing. Scripts must be a number. Many  * tests rely on the fact this thing returns a String as its compiled form.  * they even try to serialize it over the network!  */
 end_comment
 
 begin_class
@@ -217,35 +217,6 @@ name|TestPlugin
 extends|extends
 name|Plugin
 block|{
-DECL|method|TestPlugin
-specifier|public
-name|TestPlugin
-parameter_list|()
-block|{         }
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-name|NAME
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Mock script engine for integration tests"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void
