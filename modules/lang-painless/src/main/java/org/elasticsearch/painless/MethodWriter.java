@@ -1984,6 +1984,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2001,6 +2003,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2018,12 +2022,45 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
 case|case
 name|ADD
 case|:
+comment|// if either side is primitive, then the + operator should always throw NPE on null,
+comment|// so we don't need a special NPE guard.
+comment|// otherwise, we need to allow nulls for possible string concatenation.
+name|boolean
+name|hasPrimitiveArg
+init|=
+name|lhs
+operator|.
+name|clazz
+operator|.
+name|isPrimitive
+argument_list|()
+operator|||
+name|rhs
+operator|.
+name|clazz
+operator|.
+name|isPrimitive
+argument_list|()
+decl_stmt|;
+name|int
+name|flags
+init|=
+name|hasPrimitiveArg
+condition|?
+literal|0
+else|:
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
+decl_stmt|;
 name|invokeDynamic
 argument_list|(
 literal|"add"
@@ -2035,6 +2072,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2052,6 +2091,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2069,6 +2110,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|SHIFT_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2086,6 +2129,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|SHIFT_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2103,6 +2148,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|SHIFT_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2120,6 +2167,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2137,6 +2186,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2154,6 +2205,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 break|break;

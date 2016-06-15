@@ -3656,6 +3656,10 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
 argument_list|)
 expr_stmt|;
 name|writejump
@@ -3742,6 +3746,10 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
 argument_list|)
 expr_stmt|;
 name|writer
@@ -3797,6 +3805,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|writejump
@@ -3826,6 +3836,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|writejump
@@ -3855,6 +3867,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|writejump
@@ -3884,6 +3898,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|writejump

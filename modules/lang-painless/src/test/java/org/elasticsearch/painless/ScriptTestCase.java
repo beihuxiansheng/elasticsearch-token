@@ -408,6 +408,45 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Uses the {@link Debugger} to get the bytecode output for a script and compare      * it against an expected bytecode pattern as a regular expression (please try to avoid!)      */
+DECL|method|assertBytecodeHasPattern
+specifier|public
+name|void
+name|assertBytecodeHasPattern
+parameter_list|(
+name|String
+name|script
+parameter_list|,
+name|String
+name|pattern
+parameter_list|)
+block|{
+specifier|final
+name|String
+name|asm
+init|=
+name|Debugger
+operator|.
+name|toString
+argument_list|(
+name|script
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"bytecode not found, got: \n"
+operator|+
+name|asm
+argument_list|,
+name|asm
+operator|.
+name|matches
+argument_list|(
+name|pattern
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** Checks a specific exception class is thrown (boxed inside ScriptException) and returns it. */
 DECL|method|expectScriptThrows
 specifier|public
