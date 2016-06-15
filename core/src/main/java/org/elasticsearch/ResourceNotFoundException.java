@@ -83,7 +83,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ResourceNotFoundException
-specifier|protected
+specifier|public
 name|ResourceNotFoundException
 parameter_list|(
 name|String
