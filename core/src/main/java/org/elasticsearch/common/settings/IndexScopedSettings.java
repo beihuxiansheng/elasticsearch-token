@@ -767,6 +767,10 @@ name|INDEX_STORE_TYPE_SETTING
 argument_list|,
 name|IndexModule
 operator|.
+name|INDEX_STORE_PRE_LOAD_SETTING
+argument_list|,
+name|IndexModule
+operator|.
 name|INDEX_QUERY_CACHE_ENABLED_SETTING
 argument_list|,
 name|IndexModule
