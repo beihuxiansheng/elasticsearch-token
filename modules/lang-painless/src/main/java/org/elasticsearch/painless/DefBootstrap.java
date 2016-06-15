@@ -698,7 +698,7 @@ name|dropArguments
 argument_list|(
 name|cacheLookup
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|type
 operator|.
