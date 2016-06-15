@@ -2769,6 +2769,268 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testCompoundAssignment
+specifier|public
+name|void
+name|testCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = 45; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = 5; x /= -1; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = 45; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = 5; x /= -1; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = 45; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 45; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; x /= -1; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|15L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = 45; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = 5; x /= -1; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// float
+name|assertEquals
+argument_list|(
+literal|15F
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = 45f; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5F
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = 5f; x /= -1; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// double
+name|assertEquals
+argument_list|(
+literal|15D
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = 45.0; x /= 3; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|5D
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = 5.0; x /= -1; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCompoundAssignmentByZero
+specifier|public
+name|void
+name|testCompoundAssignmentByZero
+parameter_list|()
+block|{
+comment|// byte
+name|expectScriptThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"byte x = 1; x /= 0; return x;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+comment|// short
+name|expectScriptThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"short x = 1; x /= 0; return x;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+comment|// char
+name|expectScriptThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"char x = 1; x /= 0; return x;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+comment|// int
+name|expectScriptThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 1; x /= 0; return x;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+comment|// long
+name|expectScriptThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"long x = 1; x /= 0; return x;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

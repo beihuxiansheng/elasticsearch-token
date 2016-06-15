@@ -3809,6 +3809,591 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testLshCompoundAssignment
+specifier|public
+name|void
+name|testLshCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = 15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = (byte) -15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = 15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = (short) -15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char) 15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -15; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|60L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = 15L; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|60L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = -15L; x<<= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long shift distance
+name|assertEquals
+argument_list|(
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 15; x<<= 2L; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|60
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -15; x<<= 2L; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRshCompoundAssignment
+specifier|public
+name|void
+name|testRshCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = 60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = (byte) -60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = 60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = (short) -60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char) 60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -60; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|15L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = 60L; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|15L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = -60L; x>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long shift distance
+name|assertEquals
+argument_list|(
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 60; x>>= 2L; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -60; x>>= 2L; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUshCompoundAssignment
+specifier|public
+name|void
+name|testUshCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = 60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = (byte) -60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = 60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = (short) -60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char) 60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|60
+operator|>>>
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -60; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|15L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = 60L; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|60L
+operator|>>>
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = -60L; x>>>= 2; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long shift distance
+name|assertEquals
+argument_list|(
+literal|15
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 60; x>>>= 2L; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|60
+operator|>>>
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -60; x>>>= 2L; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBogusCompoundAssignment
+specifier|public
+name|void
+name|testBogusCompoundAssignment
+parameter_list|()
+block|{
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"long x = 1L; float y = 2; x<<= y;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 1; double y = 2L; x<<= y;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"float x = 1F; int y = 2; x<<= y;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"double x = 1D; int y = 2L; x<<= y;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBogusCompoundAssignmentConst
+specifier|public
+name|void
+name|testBogusCompoundAssignmentConst
+parameter_list|()
+block|{
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 1L; x<<= 2F;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 1L; x<<= 2.0;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"float x = 1F; x<<= 2;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"double x = 1D; x<<= 2L;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
