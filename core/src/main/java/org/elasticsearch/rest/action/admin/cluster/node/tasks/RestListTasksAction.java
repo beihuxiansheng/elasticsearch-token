@@ -597,6 +597,18 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|canTripCircuitBreaker
+specifier|public
+name|boolean
+name|canTripCircuitBreaker
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
