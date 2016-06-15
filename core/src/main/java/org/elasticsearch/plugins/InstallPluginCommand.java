@@ -762,6 +762,28 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// protocols allowed for direct url installation
+DECL|field|URL_PROTOCOLS
+specifier|private
+specifier|static
+specifier|final
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|URL_PROTOCOLS
+init|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"http"
+argument_list|,
+literal|"https"
+argument_list|,
+literal|"file"
+argument_list|)
+decl_stmt|;
 DECL|field|batchOption
 specifier|private
 specifier|final
@@ -1470,6 +1492,33 @@ argument_list|)
 return|;
 block|}
 comment|// fall back to plain old URL
+if|if
+condition|(
+name|pluginId
+operator|.
+name|contains
+argument_list|(
+literal|"://"
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// definitely not a valid url, so assume it is a plugin name
+throw|throw
+operator|new
+name|UserError
+argument_list|(
+name|ExitCodes
+operator|.
+name|USAGE
+argument_list|,
+literal|"Unknown plugin "
+operator|+
+name|pluginId
+argument_list|)
+throw|;
+block|}
 name|terminal
 operator|.
 name|println
