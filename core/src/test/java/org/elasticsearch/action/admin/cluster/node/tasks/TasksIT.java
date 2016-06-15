@@ -3723,6 +3723,29 @@ operator|=
 name|waitForTestTaskStartOnAllNodes
 argument_list|()
 expr_stmt|;
+comment|// Wait for the task to start
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareGetTask
+argument_list|(
+name|taskId
+argument_list|)
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Spin up a request to wait for that task to finish
 name|waitResponseFuture
 operator|=
