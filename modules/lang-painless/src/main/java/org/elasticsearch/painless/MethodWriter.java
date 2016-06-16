@@ -1615,9 +1615,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** Starts a new string concat.      * @return the size of arguments pushed to stack (the object that does string concats, e.g. a StringBuilder)      */
 DECL|method|writeNewStrings
 specifier|public
-name|void
+name|int
 name|writeNewStrings
 parameter_list|()
 block|{
@@ -1639,6 +1640,10 @@ argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
+comment|// nothing added to stack
 block|}
 else|else
 block|{
@@ -1658,6 +1663,10 @@ argument_list|,
 name|STRINGBUILDER_CONSTRUCTOR
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
+comment|// StringBuilder on stack
 block|}
 block|}
 DECL|method|writeAppendStrings

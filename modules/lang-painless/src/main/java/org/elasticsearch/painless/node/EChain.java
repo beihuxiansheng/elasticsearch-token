@@ -1625,11 +1625,18 @@ comment|// we must, depending on the Java version, write a StringBuilder or
 comment|// track types going onto the stack.  This must be done before the
 comment|// links in the chain are read because we need the StringBuilder to
 comment|// be placed on the stack ahead of any potential concatenation arguments.
+name|int
+name|catElementStackSize
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|cat
 condition|)
 block|{
+name|catElementStackSize
+operator|=
 name|writer
 operator|.
 name|writeNewStrings
@@ -1697,10 +1704,10 @@ name|link
 operator|.
 name|size
 argument_list|,
-literal|1
+name|catElementStackSize
 argument_list|)
 expr_stmt|;
-comment|// dup the StringBuilder
+comment|// dup the top element and insert it before concat helper on stack
 name|link
 operator|.
 name|load
@@ -1776,7 +1783,7 @@ operator|.
 name|writeToStrings
 argument_list|()
 expr_stmt|;
-comment|// put the value of the StringBuilder on the stack
+comment|// put the value for string concat onto the stack
 name|writer
 operator|.
 name|writeCast

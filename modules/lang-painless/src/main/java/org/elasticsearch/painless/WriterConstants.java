@@ -1238,9 +1238,8 @@ expr_stmt|;
 block|}
 name|INDY_STRING_CONCAT_BOOTSTRAP_HANDLE
 operator|=
-literal|null
+name|bs
 expr_stmt|;
-comment|// Disabled until https://github.com/elastic/elasticsearch/issues/18929
 block|}
 DECL|field|MAX_INDY_STRING_CONCAT_ARGS
 specifier|public
