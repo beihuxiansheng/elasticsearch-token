@@ -206,7 +206,7 @@ name|PainlessLexer
 name|lexer
 init|=
 operator|new
-name|ErrorHandlingLexer
+name|EnhancedPainlessLexer
 argument_list|(
 name|stream
 argument_list|,

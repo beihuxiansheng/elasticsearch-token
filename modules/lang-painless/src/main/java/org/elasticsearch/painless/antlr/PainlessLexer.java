@@ -1456,7 +1456,7 @@ name|SlashStrategy
 operator|.
 name|slashIsRegex
 argument_list|(
-name|_factory
+name|this
 argument_list|)
 return|;
 block|}
@@ -1489,7 +1489,7 @@ name|SlashStrategy
 operator|.
 name|slashIsRegex
 argument_list|(
-name|_factory
+name|this
 argument_list|)
 return|;
 block|}

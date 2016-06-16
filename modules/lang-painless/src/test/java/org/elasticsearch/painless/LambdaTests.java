@@ -252,7 +252,24 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x = x + 1; return x;})"
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x = x + 1; return x })"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnneededCurlyStatements
+specifier|public
+name|void
+name|testUnneededCurlyStatements
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x + 1 })"
 argument_list|)
 argument_list|)
 expr_stmt|;
