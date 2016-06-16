@@ -1301,6 +1301,8 @@ argument_list|,
 name|plugins
 argument_list|,
 name|ingestInfo
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
