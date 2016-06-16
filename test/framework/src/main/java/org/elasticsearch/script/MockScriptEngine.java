@@ -225,35 +225,6 @@ name|Plugin
 implements|implements
 name|ScriptPlugin
 block|{
-DECL|method|TestPlugin
-specifier|public
-name|TestPlugin
-parameter_list|()
-block|{         }
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-name|NAME
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Mock script engine for integration tests"
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getScriptEngineService

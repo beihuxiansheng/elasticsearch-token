@@ -161,22 +161,6 @@ specifier|abstract
 class|class
 name|Plugin
 block|{
-comment|/**      * The name of the plugin.      */
-DECL|method|name
-specifier|public
-specifier|abstract
-name|String
-name|name
-parameter_list|()
-function_decl|;
-comment|/**      * The description of the plugin.      */
-DECL|method|description
-specifier|public
-specifier|abstract
-name|String
-name|description
-parameter_list|()
-function_decl|;
 comment|/**      * Node level modules.      */
 DECL|method|nodeModules
 specifier|public
