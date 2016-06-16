@@ -257,6 +257,67 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testTwoLambdas
+specifier|public
+name|void
+name|testTwoLambdas
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"org.elasticsearch.painless.FeatureTest test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x -> 'testing'.concat(x), y -> 'abcdefg'.substring(y))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNestedLambdas
+specifier|public
+name|void
+name|testNestedLambdas
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"Optional.empty().orElseGet(() -> Optional.empty().orElseGet(() -> 1));"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaInLoop
+specifier|public
+name|void
+name|testLambdaInLoop
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|100
+argument_list|,
+name|exec
+argument_list|(
+literal|"int sum = 0; "
+operator|+
+literal|"for (int i = 0; i< 100; i++) {"
+operator|+
+literal|"  sum += Optional.empty().orElseGet(() -> 1);"
+operator|+
+literal|"}"
+operator|+
+literal|"return sum;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
