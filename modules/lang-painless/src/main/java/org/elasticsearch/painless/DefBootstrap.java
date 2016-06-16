@@ -570,12 +570,7 @@ DECL|method|createMegamorphicHandle
 specifier|private
 name|MethodHandle
 name|createMegamorphicHandle
-parameter_list|(
-specifier|final
-name|Object
-index|[]
-name|callArgs
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Throwable
 block|{
@@ -741,9 +736,7 @@ init|=
 name|this
 operator|.
 name|createMegamorphicHandle
-argument_list|(
-name|callArgs
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|setTarget
 argument_list|(

@@ -419,7 +419,10 @@ name|writer
 operator|.
 name|push
 argument_list|(
-name|defPointer
+operator|(
+name|String
+operator|)
+literal|null
 argument_list|)
 expr_stmt|;
 name|writer
