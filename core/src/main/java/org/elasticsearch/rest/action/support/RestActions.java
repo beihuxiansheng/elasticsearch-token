@@ -1407,9 +1407,10 @@ name|nodesResponse
 argument_list|(
 name|builder
 argument_list|,
-name|ToXContent
+name|channel
 operator|.
-name|EMPTY_PARAMS
+name|request
+argument_list|()
 argument_list|,
 name|response
 argument_list|)
