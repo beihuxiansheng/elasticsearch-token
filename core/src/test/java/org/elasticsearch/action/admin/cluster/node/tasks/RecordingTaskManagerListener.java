@@ -310,6 +310,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|waitForTaskCompletion
+specifier|public
+name|void
+name|waitForTaskCompletion
+parameter_list|(
+name|Task
+name|task
+parameter_list|)
+block|{     }
 DECL|method|getEvents
 specifier|public
 specifier|synchronized
