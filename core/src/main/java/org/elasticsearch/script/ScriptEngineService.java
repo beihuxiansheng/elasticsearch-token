@@ -56,16 +56,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -149,17 +139,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|vars
-parameter_list|)
-function_decl|;
-comment|/**      * Handler method called when a script is removed from the Guava cache.      *      * The passed script may be null if it has already been garbage collected.      * */
-DECL|method|scriptRemoved
-name|void
-name|scriptRemoved
-parameter_list|(
-annotation|@
-name|Nullable
-name|CompiledScript
-name|script
 parameter_list|)
 function_decl|;
 comment|/**      * Returns<code>true</code> if this scripting engine can safely accept inline scripts by default. The default is<code>false</code>      */

@@ -1711,19 +1711,6 @@ parameter_list|()
 block|{}
 annotation|@
 name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{
-comment|// Nothing to do
-block|}
-annotation|@
-name|Override
 DECL|method|isInlineScriptEnabled
 specifier|public
 name|boolean

@@ -3703,17 +3703,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{         }
 block|}
 comment|/**      * Mock plugin for the {@link FieldValueScriptEngine}      */
 DECL|class|FieldValueScriptPlugin
@@ -4119,17 +4108,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{         }
 annotation|@
 name|Override
 DECL|method|isInlineScriptEnabled

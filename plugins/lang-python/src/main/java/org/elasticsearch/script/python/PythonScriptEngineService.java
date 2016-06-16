@@ -796,21 +796,6 @@ name|cleanup
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-annotation|@
-name|Nullable
-name|CompiledScript
-name|compiledScript
-parameter_list|)
-block|{
-comment|// Nothing to do
-block|}
 DECL|class|PythonExecutableScript
 specifier|public
 class|class
