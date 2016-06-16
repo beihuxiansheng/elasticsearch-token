@@ -604,6 +604,10 @@ argument_list|,
 name|String
 operator|.
 name|class
+argument_list|,
+name|int
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|PATTERN_MATCHER
