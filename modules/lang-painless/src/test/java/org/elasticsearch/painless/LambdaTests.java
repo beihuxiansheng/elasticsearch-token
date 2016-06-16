@@ -34,7 +34,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Optional.empty().orElseGet(() -> { return 1; });"
+literal|"Optional.empty().orElseGet(() -> 1);"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -51,7 +51,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = Optional.empty(); x.orElseGet(() -> { return 1; });"
+literal|"def x = Optional.empty(); x.orElseGet(() -> 1);"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -70,7 +70,7 @@ name|exec
 argument_list|(
 literal|"List l = new ArrayList(); l.add('looooong'); l.add('short'); "
 operator|+
-literal|"l.sort((a, b) -> { a.length() - b.length(); }); return l.get(0)"
+literal|"l.sort((a, b) -> a.length() - b.length()); return l.get(0)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -89,7 +89,7 @@ name|exec
 argument_list|(
 literal|"List l = new ArrayList(); l.add('looooong'); l.add('short'); "
 operator|+
-literal|"l.sort((String a, String b) -> { (a.length() - b.length()); }); return l.get(0)"
+literal|"l.sort((String a, String b) -> a.length() - b.length()); return l.get(0)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -108,7 +108,7 @@ name|exec
 argument_list|(
 literal|"List l = new ArrayList(); l.add(1); l.add(1); "
 operator|+
-literal|"return l.stream().mapToInt(x -> { x + 1; }).sum();"
+literal|"return l.stream().mapToInt(x -> x + 1).sum();"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -127,7 +127,7 @@ name|exec
 argument_list|(
 literal|"List l = new ArrayList(); l.add(1); l.add(1); "
 operator|+
-literal|"return l.stream().mapToInt(int x -> { x + 1; }).sum();"
+literal|"return l.stream().mapToInt(int x -> x + 1).sum();"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -146,7 +146,7 @@ name|exec
 argument_list|(
 literal|"def l = new ArrayList(); l.add(1); l.add(1); "
 operator|+
-literal|"return l.stream().mapToInt(x -> { x + 1; }).sum();"
+literal|"return l.stream().mapToInt(x -> x + 1).sum();"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -165,7 +165,7 @@ name|exec
 argument_list|(
 literal|"def l = new ArrayList(); l.add(1); l.add(1); "
 operator|+
-literal|"return l.stream().mapToInt(int x -> { x + 1; }).sum();"
+literal|"return l.stream().mapToInt(int x -> x + 1).sum();"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -184,7 +184,7 @@ name|exec
 argument_list|(
 literal|"List l = new ArrayList(); l.add(1); l.add(1); "
 operator|+
-literal|"return l.stream().mapToInt(byte x -> { return x; }).sum();"
+literal|"return l.stream().mapToInt(byte x -> x).sum();"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -201,7 +201,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x + 1; })"
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> x + 1)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -218,7 +218,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(int x -> { x + 1; })"
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(int x -> x + 1)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -235,7 +235,85 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"long applyOne(IntFunction arg) { arg.apply(1) } applyOne(long x -> { x + 1; })"
+literal|"long applyOne(IntFunction arg) { arg.apply(1) } applyOne(long x -> x + 1)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testMultipleStatements
+specifier|public
+name|void
+name|testMultipleStatements
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x = x + 1; return x;})"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testTwoLambdas
+specifier|public
+name|void
+name|testTwoLambdas
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"testingcdefg"
+argument_list|,
+name|exec
+argument_list|(
+literal|"org.elasticsearch.painless.FeatureTest test = new org.elasticsearch.painless.FeatureTest(2,3);"
+operator|+
+literal|"return test.twoFunctionsOfX(x -> 'testing'.concat(x), y -> 'abcdefg'.substring(y))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNestedLambdas
+specifier|public
+name|void
+name|testNestedLambdas
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"Optional.empty().orElseGet(() -> Optional.empty().orElseGet(() -> 1));"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaInLoop
+specifier|public
+name|void
+name|testLambdaInLoop
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|100
+argument_list|,
+name|exec
+argument_list|(
+literal|"int sum = 0; "
+operator|+
+literal|"for (int i = 0; i< 100; i++) {"
+operator|+
+literal|"  sum += Optional.empty().orElseGet(() -> 1);"
+operator|+
+literal|"}"
+operator|+
+literal|"return sum;"
 argument_list|)
 argument_list|)
 expr_stmt|;

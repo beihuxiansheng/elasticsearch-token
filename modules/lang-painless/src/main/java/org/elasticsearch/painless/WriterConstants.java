@@ -604,6 +604,10 @@ argument_list|,
 name|String
 operator|.
 name|class
+argument_list|,
+name|int
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|PATTERN_MATCHER
@@ -1234,8 +1238,9 @@ expr_stmt|;
 block|}
 name|INDY_STRING_CONCAT_BOOTSTRAP_HANDLE
 operator|=
-name|bs
+literal|null
 expr_stmt|;
+comment|// Disabled until https://github.com/elastic/elasticsearch/issues/18929
 block|}
 DECL|field|MAX_INDY_STRING_CONCAT_ARGS
 specifier|public
