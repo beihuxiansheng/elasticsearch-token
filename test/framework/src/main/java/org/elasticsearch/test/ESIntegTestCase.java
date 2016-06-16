@@ -1330,6 +1330,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndicesQueryCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|IndicesRequestCache
 import|;
 end_import
@@ -10004,6 +10016,25 @@ literal|"script.inline"
 argument_list|,
 literal|"true"
 argument_list|)
+comment|// by default we never cache below 10k docs in a segment,
+comment|// bypass this limit so that caching gets some testing in
+comment|// integration tests that usually create few documents
+operator|.
+name|put
+argument_list|(
+name|IndicesQueryCache
+operator|.
+name|INDICES_QUERIES_CACHE_ALL_SEGMENTS_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|nodeOrdinal
+operator|%
+literal|2
+operator|==
+literal|0
+argument_list|)
 comment|// wait short time for other active shards before actually deleting, default 30s not needed in tests
 operator|.
 name|put
@@ -10872,22 +10903,28 @@ return|return
 literal|"a test plugin that registers index.tests.seed as an index setting"
 return|;
 block|}
-DECL|method|onModule
+annotation|@
+name|Override
+DECL|method|getSettings
 specifier|public
-name|void
-name|onModule
-parameter_list|(
-name|SettingsModule
-name|module
-parameter_list|)
+name|List
+argument_list|<
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getSettings
+parameter_list|()
 block|{
-name|module
+return|return
+name|Arrays
 operator|.
-name|registerSetting
+name|asList
 argument_list|(
 name|INDEX_TEST_SEED_SETTING
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 comment|/**      * Returns the client ratio configured via      */

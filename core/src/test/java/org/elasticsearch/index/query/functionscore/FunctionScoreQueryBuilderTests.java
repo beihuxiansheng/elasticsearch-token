@@ -108,6 +108,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParsingException
 import|;
 end_import
@@ -3968,11 +3980,70 @@ operator|)
 name|parseQuery
 argument_list|(
 name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 argument_list|)
 decl_stmt|;
-name|checkGeneratedJson
+comment|// this should be equivalent to the same with a match_all query
+name|String
+name|expected
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"function_score\" : {\n"
+operator|+
+literal|"    \"query\" : { \"match_all\" : {} },\n"
+operator|+
+literal|"    \"functions\" : [ {\n"
+operator|+
+literal|"      \"filter\" : { },\n"
+operator|+
+literal|"      \"weight\" : 23.0,\n"
+operator|+
+literal|"      \"random_score\" : { }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"filter\" : { },\n"
+operator|+
+literal|"      \"weight\" : 5.0\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"score_mode\" : \"multiply\",\n"
+operator|+
+literal|"    \"boost_mode\" : \"multiply\",\n"
+operator|+
+literal|"    \"max_boost\" : 100.0,\n"
+operator|+
+literal|"    \"min_score\" : 1.0,\n"
+operator|+
+literal|"    \"boost\" : 42.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|FunctionScoreQueryBuilder
+name|expectedParsed
+init|=
+operator|(
+name|FunctionScoreQueryBuilder
+operator|)
+name|parseQuery
 argument_list|(
 name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedParsed
 argument_list|,
 name|parsed
 argument_list|)

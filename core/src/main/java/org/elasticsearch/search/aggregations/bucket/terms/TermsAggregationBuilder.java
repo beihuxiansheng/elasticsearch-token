@@ -511,9 +511,7 @@ specifier|private
 name|SubAggCollectionMode
 name|collectMode
 init|=
-name|SubAggCollectionMode
-operator|.
-name|DEPTH_FIRST
+literal|null
 decl_stmt|;
 DECL|field|bucketCountThresholds
 specifier|private
@@ -598,11 +596,13 @@ argument_list|)
 expr_stmt|;
 name|collectMode
 operator|=
-name|SubAggCollectionMode
-operator|.
-name|readFromStream
-argument_list|(
 name|in
+operator|.
+name|readOptionalWriteable
+argument_list|(
+name|SubAggCollectionMode
+operator|::
+name|readFromStream
 argument_list|)
 expr_stmt|;
 name|executionHint
@@ -674,11 +674,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|collectMode
-operator|.
-name|writeTo
-argument_list|(
 name|out
+operator|.
+name|writeOptionalWriteable
+argument_list|(
+name|collectMode
 argument_list|)
 expr_stmt|;
 name|out
@@ -779,7 +779,7 @@ block|{
 if|if
 condition|(
 name|size
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -787,7 +787,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[size] must be greater than or equal to 0. Found ["
+literal|"[size] must be greater than 0. Found ["
 operator|+
 name|size
 operator|+
@@ -823,7 +823,7 @@ block|{
 if|if
 condition|(
 name|shardSize
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -831,7 +831,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[shardSize] must be greater than or equal to 0. Found ["
+literal|"[shardSize] must be greater than 0. Found ["
 operator|+
 name|shardSize
 operator|+
@@ -1332,6 +1332,13 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|collectMode
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1352,6 +1359,7 @@ name|getPreferredName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|includeExclude

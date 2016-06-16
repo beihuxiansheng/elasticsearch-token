@@ -80,7 +80,7 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-DECL|field|MLOCKALL_SETTING
+DECL|field|MEMORY_LOCK_SETTING
 specifier|public
 specifier|static
 specifier|final
@@ -88,13 +88,13 @@ name|Setting
 argument_list|<
 name|Boolean
 argument_list|>
-name|MLOCKALL_SETTING
+name|MEMORY_LOCK_SETTING
 init|=
 name|Setting
 operator|.
 name|boolSetting
 argument_list|(
-literal|"bootstrap.mlockall"
+literal|"bootstrap.memory_lock"
 argument_list|,
 literal|false
 argument_list|,

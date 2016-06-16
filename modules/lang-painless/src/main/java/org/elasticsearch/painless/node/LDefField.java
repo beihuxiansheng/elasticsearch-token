@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|DefBootstrap
 import|;
 end_import
@@ -48,7 +60,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -112,13 +124,7 @@ decl_stmt|;
 DECL|method|LDefField
 name|LDefField
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -127,10 +133,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 literal|1
@@ -149,8 +151,8 @@ DECL|method|analyze
 name|ALink
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|after
@@ -189,7 +191,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|String
@@ -220,9 +222,6 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|LOAD
@@ -243,7 +242,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|String
@@ -280,9 +279,6 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|DefBootstrap
 operator|.
 name|STORE

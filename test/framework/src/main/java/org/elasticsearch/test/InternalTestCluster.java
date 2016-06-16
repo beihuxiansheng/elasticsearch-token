@@ -11500,8 +11500,6 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|type
-argument_list|,
 literal|null
 argument_list|,
 name|routing
@@ -12260,7 +12258,7 @@ name|inFlightRequestsBreaker
 init|=
 name|getInstance
 argument_list|(
-name|HierarchyCircuitBreakerService
+name|CircuitBreakerService
 operator|.
 name|class
 argument_list|,

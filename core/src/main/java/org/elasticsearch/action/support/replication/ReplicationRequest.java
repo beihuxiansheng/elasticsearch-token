@@ -74,6 +74,38 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|refresh
+operator|.
+name|TransportShardRefreshAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|index
+operator|.
+name|IndexRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -213,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Requests that are run on a particular replica, first on the primary and then on the replicas like {@link IndexRequest} or  * {@link TransportShardRefreshAction}.  */
 end_comment
 
 begin_class
@@ -677,9 +709,8 @@ argument_list|)
 expr_stmt|;
 name|timeout
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)

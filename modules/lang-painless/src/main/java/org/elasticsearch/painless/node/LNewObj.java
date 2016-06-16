@@ -36,9 +36,21 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
-name|Constructor
+name|Method
 import|;
 end_import
 
@@ -78,7 +90,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -105,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents and object instantiation.  */
+comment|/**  * Represents and object instantiation.  */
 end_comment
 
 begin_class
@@ -131,20 +143,14 @@ argument_list|>
 name|arguments
 decl_stmt|;
 DECL|field|constructor
-name|Constructor
+name|Method
 name|constructor
 decl_stmt|;
 DECL|method|LNewObj
 specifier|public
 name|LNewObj
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -159,10 +165,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -188,8 +190,8 @@ DECL|method|analyze
 name|ALink
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -200,10 +202,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal new call with a target already defined."
 argument_list|)
@@ -217,10 +219,10 @@ name|store
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot assign a value to a new call."
 argument_list|)
@@ -252,10 +254,10 @@ name|exception
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Not a type ["
 operator|+
@@ -288,7 +290,7 @@ name|Definition
 operator|.
 name|MethodKey
 argument_list|(
-literal|"new"
+literal|"<init>"
 argument_list|,
 name|arguments
 operator|.
@@ -344,10 +346,10 @@ argument_list|()
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"When calling constructor on type ["
 operator|+
@@ -425,7 +427,7 @@ name|expression
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|arguments
@@ -438,7 +440,7 @@ name|expression
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -455,10 +457,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unknown new call on type ["
 operator|+
@@ -501,7 +503,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|writer
@@ -567,10 +569,10 @@ name|writer
 parameter_list|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

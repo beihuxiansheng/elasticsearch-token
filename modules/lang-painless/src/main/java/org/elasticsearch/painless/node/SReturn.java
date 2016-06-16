@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Definition
+name|Location
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -73,13 +73,7 @@ DECL|method|SReturn
 specifier|public
 name|SReturn
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|AExpression
@@ -88,10 +82,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -108,17 +98,18 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 name|expression
 operator|.
 name|expected
 operator|=
-name|Definition
+name|locals
 operator|.
-name|OBJECT_TYPE
+name|getReturnType
+argument_list|()
 expr_stmt|;
 name|expression
 operator|.
@@ -130,7 +121,7 @@ name|expression
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|expression
@@ -139,7 +130,7 @@ name|expression
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|methodEscape
@@ -173,7 +164,7 @@ name|writer
 operator|.
 name|writeStatementOffset
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|expression

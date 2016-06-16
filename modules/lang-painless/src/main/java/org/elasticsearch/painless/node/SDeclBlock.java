@@ -24,7 +24,19 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Location
 import|;
 end_import
 
@@ -85,13 +97,7 @@ DECL|method|SDeclBlock
 specifier|public
 name|SDeclBlock
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|List
@@ -103,10 +109,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -128,8 +130,8 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 for|for
@@ -144,7 +146,7 @@ name|declaration
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 block|}
@@ -168,7 +170,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|SDeclaration
+name|AStatement
 name|declaration
 range|:
 name|declarations

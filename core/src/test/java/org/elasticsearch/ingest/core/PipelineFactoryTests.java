@@ -32,6 +32,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ingest
 operator|.
 name|ProcessorsRegistry
@@ -68,11 +82,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|script
 operator|.
-name|processor
-operator|.
-name|FailProcessor
+name|ScriptService
 import|;
 end_import
 
@@ -82,11 +94,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|test
 operator|.
-name|processor
-operator|.
-name|SetProcessor
+name|ClusterServiceUtils
 import|;
 end_import
 
@@ -99,6 +109,18 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|TestThreadPool
 import|;
 end_import
 
@@ -153,18 +175,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|prefs
-operator|.
-name|PreferencesFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -197,6 +207,18 @@ operator|.
 name|Matchers
 operator|.
 name|nullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
 import|;
 end_import
 
@@ -1532,8 +1554,6 @@ argument_list|()
 argument_list|,
 operator|(
 parameter_list|(
-name|templateService
-parameter_list|,
 name|registry
 parameter_list|)
 lambda|->
@@ -1550,10 +1570,19 @@ name|builder
 operator|.
 name|build
 argument_list|(
-name|TestTemplateService
+name|mock
+argument_list|(
+name|ScriptService
 operator|.
-name|instance
-argument_list|()
+name|class
+argument_list|)
+argument_list|,
+name|mock
+argument_list|(
+name|ClusterService
+operator|.
+name|class
+argument_list|)
 argument_list|)
 return|;
 block|}

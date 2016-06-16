@@ -28,9 +28,11 @@ name|lucene
 operator|.
 name|spatial
 operator|.
-name|util
+name|geopoint
 operator|.
-name|GeoEncodingUtils
+name|document
+operator|.
+name|GeoPointField
 import|;
 end_import
 
@@ -711,9 +713,9 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 literal|42.0
 argument_list|,
@@ -1239,9 +1241,9 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 literal|42.0
 argument_list|,
@@ -1803,9 +1805,9 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 literal|42.0
 argument_list|,

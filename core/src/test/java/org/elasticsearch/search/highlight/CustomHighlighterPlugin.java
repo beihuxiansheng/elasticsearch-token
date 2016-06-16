@@ -87,9 +87,9 @@ name|registerHighlighter
 argument_list|(
 literal|"test-custom"
 argument_list|,
+operator|new
 name|CustomHighlighter
-operator|.
-name|class
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

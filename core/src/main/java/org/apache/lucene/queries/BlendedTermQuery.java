@@ -1656,13 +1656,12 @@ literal|true
 return|;
 if|if
 condition|(
-operator|!
-name|super
-operator|.
-name|equals
+name|sameClassAs
 argument_list|(
 name|o
 argument_list|)
+operator|==
+literal|false
 condition|)
 return|return
 literal|false
@@ -1703,9 +1702,7 @@ name|Objects
 operator|.
 name|hash
 argument_list|(
-name|super
-operator|.
-name|hashCode
+name|classHash
 argument_list|()
 argument_list|,
 name|Arrays

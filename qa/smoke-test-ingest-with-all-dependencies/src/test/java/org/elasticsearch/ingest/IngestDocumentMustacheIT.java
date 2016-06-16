@@ -120,7 +120,7 @@ specifier|public
 class|class
 name|IngestDocumentMustacheIT
 extends|extends
-name|AbstractMustacheTestCase
+name|AbstractScriptTestCase
 block|{
 DECL|method|testAccessMetaDataViaTemplate
 specifier|public

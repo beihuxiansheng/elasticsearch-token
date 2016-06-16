@@ -108,6 +108,7 @@ name|ActionRequestValidationException
 name|validate
 parameter_list|()
 function_decl|;
+comment|/**      * Should this task persist its result after it has finished?      */
 DECL|method|getShouldPersistResult
 specifier|public
 name|boolean

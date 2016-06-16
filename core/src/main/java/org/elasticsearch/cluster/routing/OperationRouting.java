@@ -196,6 +196,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -230,9 +240,17 @@ name|Set
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
 
 begin_class
 DECL|class|OperationRouting
@@ -285,9 +303,6 @@ name|String
 name|index
 parameter_list|,
 name|String
-name|type
-parameter_list|,
-name|String
 name|id
 parameter_list|,
 annotation|@
@@ -322,9 +337,6 @@ name|clusterState
 parameter_list|,
 name|String
 name|index
-parameter_list|,
-name|String
-name|type
 parameter_list|,
 name|String
 name|id
@@ -1129,12 +1141,18 @@ name|preferenceType
 condition|)
 block|{
 case|case
-name|PREFER_NODE
+name|PREFER_NODES
 case|:
-return|return
-name|indexShard
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|nodesIds
+init|=
+name|Arrays
 operator|.
-name|preferNodeActiveInitializingShardsIt
+name|stream
 argument_list|(
 name|preference
 operator|.
@@ -1142,7 +1160,7 @@ name|substring
 argument_list|(
 name|Preference
 operator|.
-name|PREFER_NODE
+name|PREFER_NODES
 operator|.
 name|type
 argument_list|()
@@ -1152,6 +1170,27 @@ argument_list|()
 operator|+
 literal|1
 argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toSet
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|indexShard
+operator|.
+name|preferNodeActiveInitializingShardsIt
+argument_list|(
+name|nodesIds
 argument_list|)
 return|;
 case|case
@@ -1162,7 +1201,12 @@ name|indexShard
 operator|.
 name|preferNodeActiveInitializingShardsIt
 argument_list|(
+name|Collections
+operator|.
+name|singleton
+argument_list|(
 name|localNodeId
+argument_list|)
 argument_list|)
 return|;
 case|case
@@ -1544,7 +1588,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|generateShardId
-specifier|private
+specifier|static
 name|int
 name|generateShardId
 parameter_list|(
@@ -1593,6 +1637,8 @@ name|routing
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we don't use IMD#getNumberOfShards since the index might have been shrunk such that we need to use the size
+comment|// of original index to hash documents
 return|return
 name|Math
 operator|.
@@ -1602,9 +1648,14 @@ name|hash
 argument_list|,
 name|indexMetaData
 operator|.
-name|getNumberOfShards
+name|getRoutingNumShards
 argument_list|()
 argument_list|)
+operator|/
+name|indexMetaData
+operator|.
+name|getRoutingFactor
+argument_list|()
 return|;
 block|}
 DECL|method|ensureNodeIdExists

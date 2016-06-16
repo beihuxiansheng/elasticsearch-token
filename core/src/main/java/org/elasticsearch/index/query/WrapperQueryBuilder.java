@@ -186,6 +186,16 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Query builder which allows building a query given JSON string or binary data provided as input. This is useful when you want  * to use the Java Builder API but still have JSON query strings at hand that you want to combine with other  * query builders.  *<p>  * Example usage in a boolean query :  *<pre>  *<code>  *      BoolQueryBuilder bool = new BoolQueryBuilder();  *      bool.must(new WrapperQueryBuilder("{\"term\": {\"field\":\"value\"}}");  *      bool.must(new TermQueryBuilder("field2","value2");  *</code>  *</pre>  */
 end_comment
@@ -479,7 +489,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|WrapperQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -563,7 +576,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[wrapper] query malformed, expected `query` but was"
+literal|"[wrapper] query malformed, expected `query` but was "
 operator|+
 name|fieldName
 argument_list|)
@@ -609,10 +622,15 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 operator|new
 name|WrapperQueryBuilder
 argument_list|(
 name|source
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -740,6 +758,22 @@ name|parseContext
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElseThrow
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|ParsingException
+argument_list|(
+name|qSourceParser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"inner query cannot be empty"
+argument_list|)
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

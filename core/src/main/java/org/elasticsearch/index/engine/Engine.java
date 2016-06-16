@@ -3419,6 +3419,8 @@ literal|false
 return|;
 block|}
 comment|/**      * Synchronously refreshes the engine for new search operations to reflect the latest      * changes.      */
+annotation|@
+name|Nullable
 DECL|method|refresh
 specifier|public
 specifier|abstract
@@ -5053,6 +5055,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|/**          * Build a realtime get result from the translog.          */
 DECL|method|GetResult
 specifier|public
 name|GetResult
@@ -5102,6 +5105,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**          * Build a non-realtime get result from the searcher.          */
 DECL|method|GetResult
 specifier|public
 name|GetResult

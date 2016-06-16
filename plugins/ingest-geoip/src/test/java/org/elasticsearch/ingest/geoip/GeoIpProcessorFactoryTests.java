@@ -334,7 +334,7 @@ name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/GeoLite2-City.mmdb"
+literal|"/GeoLite2-City.mmdb.gz"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -342,7 +342,7 @@ name|geoIpConfigDir
 operator|.
 name|resolve
 argument_list|(
-literal|"GeoLite2-City.mmdb"
+literal|"GeoLite2-City.mmdb.gz"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -357,7 +357,7 @@ name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/GeoLite2-Country.mmdb"
+literal|"/GeoLite2-Country.mmdb.gz"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -365,7 +365,7 @@ name|geoIpConfigDir
 operator|.
 name|resolve
 argument_list|(
-literal|"GeoLite2-Country.mmdb"
+literal|"GeoLite2-Country.mmdb.gz"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -609,7 +609,7 @@ name|put
 argument_list|(
 literal|"database_file"
 argument_list|,
-literal|"GeoLite2-Country.mmdb"
+literal|"GeoLite2-Country.mmdb.gz"
 argument_list|)
 expr_stmt|;
 name|String
@@ -855,7 +855,7 @@ name|put
 argument_list|(
 literal|"database_file"
 argument_list|,
-literal|"GeoLite2-Country.mmdb"
+literal|"GeoLite2-Country.mmdb.gz"
 argument_list|)
 expr_stmt|;
 name|GeoIpProcessor
@@ -980,7 +980,7 @@ name|put
 argument_list|(
 literal|"database_file"
 argument_list|,
-literal|"GeoLite2-Country.mmdb"
+literal|"GeoLite2-Country.mmdb.gz"
 argument_list|)
 expr_stmt|;
 name|EnumSet
@@ -1123,7 +1123,7 @@ name|put
 argument_list|(
 literal|"database_file"
 argument_list|,
-literal|"does-not-exist.mmdb"
+literal|"does-not-exist.mmdb.gz"
 argument_list|)
 expr_stmt|;
 try|try
@@ -1156,7 +1156,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[database_file] database file [does-not-exist.mmdb] doesn't exist"
+literal|"[database_file] database file [does-not-exist.mmdb.gz] doesn't exist"
 argument_list|)
 argument_list|)
 expr_stmt|;

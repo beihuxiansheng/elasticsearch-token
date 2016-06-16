@@ -76,17 +76,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
 name|tasks
-operator|.
-name|list
 operator|.
 name|TaskInfo
 import|;

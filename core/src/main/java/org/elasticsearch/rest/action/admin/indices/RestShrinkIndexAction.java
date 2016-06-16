@@ -306,9 +306,6 @@ condition|)
 block|{
 name|shrinkIndexRequest
 operator|.
-name|getShrinkIndexReqeust
-argument_list|()
-operator|.
 name|source
 argument_list|(
 name|request

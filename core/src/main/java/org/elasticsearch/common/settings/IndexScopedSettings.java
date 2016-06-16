@@ -689,6 +689,14 @@ name|IndexSettings
 operator|.
 name|INDEX_CHECK_ON_STARTUP
 argument_list|,
+name|IndexSettings
+operator|.
+name|MAX_REFRESH_LISTENERS_PER_SHARD
+argument_list|,
+name|IndexSettings
+operator|.
+name|MAX_SLICES_PER_SCROLL
+argument_list|,
 name|ShardsLimitAllocationDecider
 operator|.
 name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING

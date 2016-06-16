@@ -796,6 +796,803 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testMulOptLHS
+specifier|public
+name|void
+name|testMulOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x * y"
+argument_list|,
+literal|"INVOKEDYNAMIC mul(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testMulOptRHS
+specifier|public
+name|void
+name|testMulOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x * y"
+argument_list|,
+literal|"INVOKEDYNAMIC mul(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testMulOptRet
+specifier|public
+name|void
+name|testMulOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x * y"
+argument_list|,
+literal|"INVOKEDYNAMIC mul(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDivOptLHS
+specifier|public
+name|void
+name|testDivOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x / y"
+argument_list|,
+literal|"INVOKEDYNAMIC div(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDivOptRHS
+specifier|public
+name|void
+name|testDivOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x / y"
+argument_list|,
+literal|"INVOKEDYNAMIC div(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDivOptRet
+specifier|public
+name|void
+name|testDivOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x / y"
+argument_list|,
+literal|"INVOKEDYNAMIC div(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRemOptLHS
+specifier|public
+name|void
+name|testRemOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x % y"
+argument_list|,
+literal|"INVOKEDYNAMIC rem(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRemOptRHS
+specifier|public
+name|void
+name|testRemOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x % y"
+argument_list|,
+literal|"INVOKEDYNAMIC rem(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRemOptRet
+specifier|public
+name|void
+name|testRemOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x % y"
+argument_list|,
+literal|"INVOKEDYNAMIC rem(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAddOptLHS
+specifier|public
+name|void
+name|testAddOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x + y"
+argument_list|,
+literal|"INVOKEDYNAMIC add(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAddOptRHS
+specifier|public
+name|void
+name|testAddOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x + y"
+argument_list|,
+literal|"INVOKEDYNAMIC add(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAddOptRet
+specifier|public
+name|void
+name|testAddOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x + y"
+argument_list|,
+literal|"INVOKEDYNAMIC add(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// horrible, sorry
+DECL|method|testAddOptNullGuards
+specifier|public
+name|void
+name|testAddOptNullGuards
+parameter_list|()
+block|{
+comment|// needs null guard
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"def x = 1; def y = 2; return x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+comment|// still needs null guard, NPE is the wrong thing!
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"def x = 1; def y = 2; double z = x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+comment|// a primitive argument is present: no null guard needed
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"def x = 1; int y = 2; return x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+literal|0
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"int x = 1; def y = 2; return x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+literal|0
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSubOptLHS
+specifier|public
+name|void
+name|testSubOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x - y"
+argument_list|,
+literal|"INVOKEDYNAMIC sub(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSubOptRHS
+specifier|public
+name|void
+name|testSubOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x - y"
+argument_list|,
+literal|"INVOKEDYNAMIC sub(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSubOptRet
+specifier|public
+name|void
+name|testSubOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x - y"
+argument_list|,
+literal|"INVOKEDYNAMIC sub(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLshOptLHS
+specifier|public
+name|void
+name|testLshOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x<< y"
+argument_list|,
+literal|"INVOKEDYNAMIC lsh(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLshOptRHS
+specifier|public
+name|void
+name|testLshOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x<< y"
+argument_list|,
+literal|"INVOKEDYNAMIC lsh(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLshOptRet
+specifier|public
+name|void
+name|testLshOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x<< y"
+argument_list|,
+literal|"INVOKEDYNAMIC lsh(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRshOptLHS
+specifier|public
+name|void
+name|testRshOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x>> y"
+argument_list|,
+literal|"INVOKEDYNAMIC rsh(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRshOptRHS
+specifier|public
+name|void
+name|testRshOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x>> y"
+argument_list|,
+literal|"INVOKEDYNAMIC rsh(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRshOptRet
+specifier|public
+name|void
+name|testRshOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x>> y"
+argument_list|,
+literal|"INVOKEDYNAMIC rsh(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUshOptLHS
+specifier|public
+name|void
+name|testUshOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x>>> y"
+argument_list|,
+literal|"INVOKEDYNAMIC ush(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUshOptRHS
+specifier|public
+name|void
+name|testUshOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x>>> y"
+argument_list|,
+literal|"INVOKEDYNAMIC ush(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUshOptRet
+specifier|public
+name|void
+name|testUshOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x>>> y"
+argument_list|,
+literal|"INVOKEDYNAMIC ush(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAndOptLHS
+specifier|public
+name|void
+name|testAndOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x& y"
+argument_list|,
+literal|"INVOKEDYNAMIC and(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAndOptRHS
+specifier|public
+name|void
+name|testAndOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x& y"
+argument_list|,
+literal|"INVOKEDYNAMIC and(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAndOptRet
+specifier|public
+name|void
+name|testAndOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x& y"
+argument_list|,
+literal|"INVOKEDYNAMIC and(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOrOptLHS
+specifier|public
+name|void
+name|testOrOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x | y"
+argument_list|,
+literal|"INVOKEDYNAMIC or(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOrOptRHS
+specifier|public
+name|void
+name|testOrOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x | y"
+argument_list|,
+literal|"INVOKEDYNAMIC or(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOrOptRet
+specifier|public
+name|void
+name|testOrOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x | y"
+argument_list|,
+literal|"INVOKEDYNAMIC or(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testXorOptLHS
+specifier|public
+name|void
+name|testXorOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(ILjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testXorOptRHS
+specifier|public
+name|void
+name|testXorOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;I)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testXorOptRet
+specifier|public
+name|void
+name|testXorOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; def y = 2; double d = x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptLHS
+specifier|public
+name|void
+name|testBooleanXorOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"boolean x = true; def y = true; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(ZLjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptRHS
+specifier|public
+name|void
+name|testBooleanXorOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true; boolean y = true; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Z)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptRet
+specifier|public
+name|void
+name|testBooleanXorOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true; def y = true; boolean v = x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Ljava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLtOptLHS
+specifier|public
+name|void
+name|testLtOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x< y"
+argument_list|,
+literal|"INVOKEDYNAMIC lt(ILjava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLtOptRHS
+specifier|public
+name|void
+name|testLtOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x< y"
+argument_list|,
+literal|"INVOKEDYNAMIC lt(Ljava/lang/Object;I)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLteOptLHS
+specifier|public
+name|void
+name|testLteOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x<= y"
+argument_list|,
+literal|"INVOKEDYNAMIC lte(ILjava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLteOptRHS
+specifier|public
+name|void
+name|testLteOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x<= y"
+argument_list|,
+literal|"INVOKEDYNAMIC lte(Ljava/lang/Object;I)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testEqOptLHS
+specifier|public
+name|void
+name|testEqOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x == y"
+argument_list|,
+literal|"INVOKEDYNAMIC eq(ILjava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testEqOptRHS
+specifier|public
+name|void
+name|testEqOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x == y"
+argument_list|,
+literal|"INVOKEDYNAMIC eq(Ljava/lang/Object;I)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNeqOptLHS
+specifier|public
+name|void
+name|testNeqOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x != y"
+argument_list|,
+literal|"INVOKEDYNAMIC eq(ILjava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNeqOptRHS
+specifier|public
+name|void
+name|testNeqOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x != y"
+argument_list|,
+literal|"INVOKEDYNAMIC eq(Ljava/lang/Object;I)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGteOptLHS
+specifier|public
+name|void
+name|testGteOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x>= y"
+argument_list|,
+literal|"INVOKEDYNAMIC gte(ILjava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGteOptRHS
+specifier|public
+name|void
+name|testGteOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x>= y"
+argument_list|,
+literal|"INVOKEDYNAMIC gte(Ljava/lang/Object;I)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGtOptLHS
+specifier|public
+name|void
+name|testGtOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"int x = 1; def y = 2; return x> y"
+argument_list|,
+literal|"INVOKEDYNAMIC gt(ILjava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGtOptRHS
+specifier|public
+name|void
+name|testGtOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; int y = 2; return x> y"
+argument_list|,
+literal|"INVOKEDYNAMIC gt(Ljava/lang/Object;I)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnaryMinusOptRet
+specifier|public
+name|void
+name|testUnaryMinusOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; double y = -x; return y"
+argument_list|,
+literal|"INVOKEDYNAMIC neg(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnaryNotOptRet
+specifier|public
+name|void
+name|testUnaryNotOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; double y = ~x; return y"
+argument_list|,
+literal|"INVOKEDYNAMIC not(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnaryPlusOptRet
+specifier|public
+name|void
+name|testUnaryPlusOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1; double y = +x; return y"
+argument_list|,
+literal|"INVOKEDYNAMIC plus(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

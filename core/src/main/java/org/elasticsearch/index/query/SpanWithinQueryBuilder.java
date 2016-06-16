@@ -166,6 +166,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Builder for {@link org.apache.lucene.search.spans.SpanWithinQuery}.  */
 end_comment
@@ -472,7 +482,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|SpanWithinQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -585,7 +598,10 @@ name|BIG_FIELD
 argument_list|)
 condition|)
 block|{
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|query
 init|=
 name|parseContext
@@ -596,6 +612,16 @@ decl_stmt|;
 if|if
 condition|(
 name|query
+operator|.
+name|isPresent
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|query
+operator|.
+name|get
+argument_list|()
 operator|instanceof
 name|SpanQueryBuilder
 operator|==
@@ -621,6 +647,9 @@ operator|(
 name|SpanQueryBuilder
 operator|)
 name|query
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -639,7 +668,10 @@ name|LITTLE_FIELD
 argument_list|)
 condition|)
 block|{
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|query
 init|=
 name|parseContext
@@ -650,6 +682,16 @@ decl_stmt|;
 if|if
 condition|(
 name|query
+operator|.
+name|isPresent
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|query
+operator|.
+name|get
+argument_list|()
 operator|instanceof
 name|SpanQueryBuilder
 operator|==
@@ -675,6 +717,9 @@ operator|(
 name|SpanQueryBuilder
 operator|)
 name|query
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -833,7 +878,12 @@ name|queryName
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|query
+argument_list|)
 return|;
 block|}
 annotation|@

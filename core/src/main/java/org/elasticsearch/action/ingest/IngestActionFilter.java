@@ -1085,11 +1085,11 @@ argument_list|()
 decl_stmt|;
 name|modifiedBulkRequest
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
 name|bulkRequest
 operator|.
-name|refresh
+name|getRefreshPolicy
 argument_list|()
 argument_list|)
 expr_stmt|;

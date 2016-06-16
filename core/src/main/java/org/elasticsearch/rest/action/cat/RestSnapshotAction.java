@@ -509,7 +509,7 @@ name|addCell
 argument_list|(
 literal|"id"
 argument_list|,
-literal|"alias:id,snapshotId;desc:unique snapshot id"
+literal|"alias:id,snapshot;desc:unique snapshot"
 argument_list|)
 operator|.
 name|addCell
@@ -647,7 +647,10 @@ name|addCell
 argument_list|(
 name|snapshotStatus
 operator|.
-name|name
+name|snapshotId
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

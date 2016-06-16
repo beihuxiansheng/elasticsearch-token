@@ -36,7 +36,19 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
 import|;
 end_import
 
@@ -77,11 +89,6 @@ name|SDo
 extends|extends
 name|AStatement
 block|{
-DECL|field|maxLoopCounter
-specifier|final
-name|int
-name|maxLoopCounter
-decl_stmt|;
 DECL|field|block
 specifier|final
 name|SBlock
@@ -95,17 +102,8 @@ DECL|method|SDo
 specifier|public
 name|SDo
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
-parameter_list|,
-name|int
-name|maxLoopCounter
 parameter_list|,
 name|SBlock
 name|block
@@ -116,10 +114,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -135,12 +129,6 @@ name|block
 operator|=
 name|block
 expr_stmt|;
-name|this
-operator|.
-name|maxLoopCounter
-operator|=
-name|maxLoopCounter
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -148,11 +136,11 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
-name|variables
+name|locals
 operator|.
 name|incrementScope
 argument_list|()
@@ -165,10 +153,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous do while loop."
 argument_list|)
@@ -191,7 +179,7 @@ name|block
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -207,10 +195,10 @@ name|anyContinue
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous do while loop."
 argument_list|)
@@ -229,7 +217,7 @@ name|condition
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 name|condition
@@ -238,7 +226,7 @@ name|condition
 operator|.
 name|cast
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -268,10 +256,10 @@ name|continuous
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous do while loop."
 argument_list|)
@@ -302,14 +290,17 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-name|maxLoopCounter
+name|locals
+operator|.
+name|getMaxLoopCounter
+argument_list|()
 operator|>
 literal|0
 condition|)
 block|{
 name|loopCounterSlot
 operator|=
-name|variables
+name|locals
 operator|.
 name|getVariable
 argument_list|(
@@ -321,7 +312,7 @@ operator|.
 name|slot
 expr_stmt|;
 block|}
-name|variables
+name|locals
 operator|.
 name|decrementScope
 argument_list|()
@@ -341,7 +332,7 @@ name|writer
 operator|.
 name|writeStatementOffset
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|Label
@@ -428,7 +419,7 @@ operator|.
 name|statementCount
 argument_list|)
 argument_list|,
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|writer

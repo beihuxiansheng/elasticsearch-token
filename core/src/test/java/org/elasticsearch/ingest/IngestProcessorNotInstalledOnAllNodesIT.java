@@ -316,9 +316,7 @@ name|installPlugin
 condition|?
 name|pluginList
 argument_list|(
-name|IngestClientIT
-operator|.
-name|IngestPlugin
+name|IngestTestPlugin
 operator|.
 name|class
 argument_list|)

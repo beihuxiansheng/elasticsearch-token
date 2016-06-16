@@ -175,7 +175,7 @@ name|this
 operator|.
 name|request
 operator|.
-name|getShrinkIndexReqeust
+name|getShrinkIndexRequest
 argument_list|()
 operator|.
 name|settings

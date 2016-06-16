@@ -67,6 +67,12 @@ argument_list|(
 literal|false
 argument_list|)
 block|,
+DECL|enum constant|HALF_FLOAT
+name|HALF_FLOAT
+argument_list|(
+literal|true
+argument_list|)
+block|,
 DECL|enum constant|FLOAT
 name|FLOAT
 argument_list|(

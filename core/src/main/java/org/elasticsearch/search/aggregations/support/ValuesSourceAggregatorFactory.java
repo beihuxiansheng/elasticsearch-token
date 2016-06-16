@@ -240,7 +240,8 @@ block|{
 return|return
 name|config
 operator|.
-name|timeZone
+name|timezone
+argument_list|()
 return|;
 block|}
 annotation|@

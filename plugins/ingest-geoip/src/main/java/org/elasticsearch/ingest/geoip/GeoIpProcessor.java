@@ -1447,7 +1447,7 @@ name|config
 argument_list|,
 literal|"database_file"
 argument_list|,
-literal|"GeoLite2-City.mmdb"
+literal|"GeoLite2-City.mmdb.gz"
 argument_list|)
 decl_stmt|;
 name|List

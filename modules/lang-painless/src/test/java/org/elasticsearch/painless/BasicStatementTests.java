@@ -441,6 +441,182 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|testIterableForEachStatement
+specifier|public
+name|void
+name|testIterableForEachStatement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (int x : l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (String x : l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (Map.Entry e : m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testIterableForEachStatementDef
+specifier|public
+name|void
+name|testIterableForEachStatementDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (int x : l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (String x : l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (Map.Entry e : m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayForEachStatement
+specifier|public
+name|void
+name|testArrayForEachStatement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (int x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String[] a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (String x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[][] i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (int[] j : i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayForEachStatementDef
+specifier|public
+name|void
+name|testArrayForEachStatementDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (int x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (String x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (int[] j : i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDeclarationStatement
 specifier|public
 name|void
@@ -1016,6 +1192,55 @@ operator|.
 name|get
 argument_list|(
 literal|"x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLastInBlockDoesntNeedSemi
+specifier|public
+name|void
+name|testLastInBlockDoesntNeedSemi
+parameter_list|()
+block|{
+comment|// One statement in the block in case that is a special case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Two statements in the block, in case that is the general case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10} else {return 12}"
 argument_list|)
 argument_list|)
 expr_stmt|;

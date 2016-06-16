@@ -196,6 +196,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Span query that matches the union of its clauses. Maps to {@link SpanOrQuery}.  */
 end_comment
@@ -488,7 +498,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|SpanOrQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -620,7 +633,10 @@ operator|.
 name|END_ARRAY
 condition|)
 block|{
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|query
 init|=
 name|parseContext
@@ -630,12 +646,21 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
-operator|(
 name|query
+operator|.
+name|isPresent
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|query
+operator|.
+name|get
+argument_list|()
 operator|instanceof
 name|SpanQueryBuilder
-operator|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -659,6 +684,9 @@ operator|(
 name|SpanQueryBuilder
 operator|)
 name|query
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -838,7 +866,12 @@ name|queryName
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|queryBuilder
+argument_list|)
 return|;
 block|}
 annotation|@
