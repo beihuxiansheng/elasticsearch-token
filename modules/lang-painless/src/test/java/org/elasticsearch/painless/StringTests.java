@@ -1724,6 +1724,23 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testAppendStringIntoMap
+specifier|public
+name|void
+name|testAppendStringIntoMap
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"nullcat"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new HashMap(); a.cat += 'cat'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
