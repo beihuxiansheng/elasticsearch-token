@@ -1274,8 +1274,6 @@ specifier|private
 name|MethodHandle
 name|lookupGeneric
 parameter_list|()
-throws|throws
-name|Throwable
 block|{
 if|if
 condition|(
@@ -1309,7 +1307,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**          * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}          * types at this call site and given up on caching).          */
+comment|/**          * Called when a new type is encountered or if cached type does not match.          * In that case we revert to a generic, but slower operator handling.          */
 annotation|@
 name|SuppressForbidden
 argument_list|(
