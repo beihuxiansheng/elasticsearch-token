@@ -38,7 +38,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|Setting
 import|;
 end_import
 
@@ -52,7 +52,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|SettingsModule
+name|Settings
 import|;
 end_import
 
@@ -65,6 +65,16 @@ operator|.
 name|plugins
 operator|.
 name|ScriptPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -250,15 +260,32 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This method is called after all modules have been processed but before we actually validate all settings. This allows the      * script extensions to add all their settings.      */
-DECL|method|prepareSettings
+DECL|method|getSettings
 specifier|public
-name|void
-name|prepareSettings
-parameter_list|(
-name|SettingsModule
-name|settingsModule
-parameter_list|)
+name|List
+argument_list|<
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getSettings
+parameter_list|()
 block|{
+name|ArrayList
+argument_list|<
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|settings
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
 name|scriptSettings
 operator|.
 name|getScriptTypeSettings
@@ -266,9 +293,9 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|settingsModule
+name|settings
 operator|::
-name|registerSetting
+name|add
 argument_list|)
 expr_stmt|;
 name|scriptSettings
@@ -278,9 +305,9 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|settingsModule
+name|settings
 operator|::
-name|registerSetting
+name|add
 argument_list|)
 expr_stmt|;
 name|scriptSettings
@@ -290,14 +317,14 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|settingsModule
+name|settings
 operator|::
-name|registerSetting
+name|add
 argument_list|)
 expr_stmt|;
-name|settingsModule
+name|settings
 operator|.
-name|registerSetting
+name|add
 argument_list|(
 name|scriptSettings
 operator|.
@@ -305,6 +332,9 @@ name|getDefaultScriptLanguageSetting
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|settings
+return|;
 block|}
 annotation|@
 name|Override

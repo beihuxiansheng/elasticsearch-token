@@ -160,7 +160,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|Setting
 import|;
 end_import
 
@@ -174,7 +174,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|SettingsModule
+name|Settings
 import|;
 end_import
 
@@ -480,6 +480,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -617,18 +627,24 @@ name|getName
 argument_list|()
 return|;
 block|}
-DECL|method|onModule
+annotation|@
+name|Override
+DECL|method|getSettings
 specifier|public
-name|void
-name|onModule
-parameter_list|(
-name|SettingsModule
-name|settingsModule
-parameter_list|)
+name|List
+argument_list|<
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getSettings
+parameter_list|()
 block|{
-name|settingsModule
+return|return
+name|Arrays
 operator|.
-name|registerSetting
+name|asList
 argument_list|(
 name|AzureComputeService
 operator|.
@@ -636,7 +652,7 @@ name|Management
 operator|.
 name|ENDPOINT_SETTING
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 DECL|field|httpsServer
