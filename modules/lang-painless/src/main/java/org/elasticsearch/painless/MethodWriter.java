@@ -64,7 +64,7 @@ name|objectweb
 operator|.
 name|asm
 operator|.
-name|ClassWriter
+name|ClassVisitor
 import|;
 end_import
 
@@ -720,7 +720,7 @@ parameter_list|,
 name|Method
 name|method
 parameter_list|,
-name|ClassWriter
+name|ClassVisitor
 name|cw
 parameter_list|,
 name|BitSet
