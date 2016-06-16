@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.script.mustache
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|mustache
+name|plugins
 package|;
 end_package
 
@@ -36,21 +34,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|script
 operator|.
-name|Plugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|ScriptPlugin
+name|NativeScriptFactory
 import|;
 end_import
 
@@ -62,7 +48,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineRegistry
+name|ScriptContext
 import|;
 end_import
 
@@ -80,54 +66,37 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|script
-operator|.
-name|ScriptModule
+name|Collections
 import|;
 end_import
 
-begin_class
-DECL|class|MustachePlugin
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_comment
+comment|/**  * An additional extension point to {@link Plugin}. Plugins extending the scripting functionality must implement this inteface  * to provide access to script engines or script factories.  */
+end_comment
+
+begin_interface
+DECL|interface|ScriptPlugin
 specifier|public
-class|class
-name|MustachePlugin
-extends|extends
-name|Plugin
-implements|implements
+interface|interface
 name|ScriptPlugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"lang-mustache"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Mustache scripting integration for Elasticsearch"
-return|;
-block|}
-annotation|@
-name|Override
+comment|/**      * Returns a {@link ScriptEngineService} instance or<code>null</code> if this plugin doesn't add a new script engine      */
 DECL|method|getScriptEngineService
-specifier|public
+specifier|default
 name|ScriptEngineService
 name|getScriptEngineService
 parameter_list|(
@@ -136,15 +105,41 @@ name|settings
 parameter_list|)
 block|{
 return|return
-operator|new
-name|MustacheScriptEngineService
-argument_list|(
-name|settings
-argument_list|)
+literal|null
+return|;
+block|}
+comment|/**      * Returns a list of {@link NativeScriptFactory} instances.      */
+DECL|method|getNativeScripts
+specifier|default
+name|List
+argument_list|<
+name|NativeScriptFactory
+argument_list|>
+name|getNativeScripts
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a {@link ScriptContext.Plugin} instance or<code>null</code> if this plugin doesn't add a new script context plugin      */
+DECL|method|getCustomScriptContexts
+specifier|default
+name|ScriptContext
+operator|.
+name|Plugin
+name|getCustomScriptContexts
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 block|}
-end_class
+end_interface
 
 end_unit
 

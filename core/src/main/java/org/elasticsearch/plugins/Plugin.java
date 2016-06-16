@@ -74,9 +74,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
+name|script
 operator|.
-name|ExecutorBuilder
+name|ScriptModule
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|ThreadPool
+name|ExecutorBuilder
 import|;
 end_import
 
@@ -224,6 +224,19 @@ name|onModule
 parameter_list|(
 name|IndexModule
 name|indexModule
+parameter_list|)
+block|{}
+comment|/**      * Old-style guice scripting extension point.      *      * @deprecated implement {@link ScriptPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|ScriptModule
+name|module
 parameter_list|)
 block|{}
 comment|/**      * Provides the list of this plugin's custom thread pools, empty if      * none.      *      * @param settings the current settings      * @return executors builders for this plugin's custom thread pools      */
