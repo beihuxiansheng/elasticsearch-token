@@ -14,6 +14,42 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|PatternSyntaxException
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|RegexTests
 specifier|public
@@ -34,7 +70,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return /foo/.matcher(\"foo\").matches()"
+literal|"return 'foo' ==~ /foo/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -44,7 +80,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return /foo/.matcher(\"bar\").matches()"
+literal|"return 'bar' ==~ /foo/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -61,7 +97,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return /\\/\\//.matcher(\"//\").matches()"
+literal|"return '//' ==~ /\\/\\//"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -78,7 +114,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def a = /foo/; return a.matcher(\"foo\").matches()"
+literal|"def a = /foo/; return 'foo' ==~ a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -95,7 +131,17 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"if (/foo/.matcher(\"foo\").matches()) { return true } else { return false }"
+literal|"if (/foo/.matcher('foo').matches()) { return true } else { return false }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"if ('foo' ==~ /foo/) { return true } else { return false }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -112,7 +158,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return false || /foo/.matcher(\"foo\").matches()"
+literal|"return false || /foo/.matcher('foo').matches()"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -122,7 +168,27 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return true&& /foo/.matcher(\"foo\").matches()"
+literal|"return true&& /foo/.matcher('foo').matches()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return false || 'foo' ==~ /foo/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return true&& 'foo' ==~ /foo/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -139,7 +205,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return !/foo/.matcher(\"foo\").matches()"
+literal|"return !/foo/.matcher('foo').matches()"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -149,7 +215,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return !/foo/.matcher(\"bar\").matches()"
+literal|"return !/foo/.matcher('bar').matches()"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -166,7 +232,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return /foo/.matcher(\"foo\").matches() ? true : false"
+literal|"return /foo/.matcher('foo').matches() ? true : false"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -176,7 +242,27 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def i = 0; i += /foo/.matcher(\"foo\").matches() ? 1 : 1; return i"
+literal|"def i = 0; i += /foo/.matcher('foo').matches() ? 1 : 1; return i"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 'foo' ==~ /foo/ ? true : false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 0; i += 'foo' ==~ /foo/ ? 1 : 1; return i"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +279,17 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def i = true; return i ? /foo/.matcher(\"foo\").matches() : false"
+literal|"def i = true; return i ? /foo/.matcher('foo').matches() : false"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = true; return i ? 'foo' ==~ /foo/ : false"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -210,7 +306,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def i = false; return i ? false : /foo/.matcher(\"foo\").matches()"
+literal|"def i = false; return i ? false : 'foo' ==~ /foo/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -227,7 +323,17 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"boolean m(String s) {/foo/.matcher(s).matches()} m(\"foo\")"
+literal|"boolean m(String s) {/foo/.matcher(s).matches()} m('foo')"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean m(String s) {s ==~ /foo/} m('foo')"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -244,8 +350,393 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Pattern m(boolean a) {a ? /foo/ : /bar/} m(true).matcher(\"foo\").matches()"
+literal|"Pattern m(boolean a) {a ? /foo/ : /bar/} m(true).matcher('foo').matches()"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"Pattern m(boolean a) {a ? /foo/ : /bar/} 'foo' ==~ m(true)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"Pattern m(boolean a) {a ? /foo/ : /bar/} m(false).matcher('foo').matches()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"Pattern m(boolean a) {a ? /foo/ : /bar/} 'foo' ==~ m(false)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCallMatcherDirectly
+specifier|public
+name|void
+name|testCallMatcherDirectly
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return /foo/.matcher('foo').matches()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"return /foo/.matcher('bar').matches()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFindInIf
+specifier|public
+name|void
+name|testFindInIf
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"if ('fooasdfbasdf' =~ /foo/) {return true} else {return false}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"if ('1fooasdfbasdf' =~ /foo/) {return true} else {return false}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"if ('1f11ooasdfbasdf' =~ /foo/) {return true} else {return false}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFindCastToBoolean
+specifier|public
+name|void
+name|testFindCastToBoolean
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return (boolean)('fooasdfbasdf' =~ /foo/)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return (boolean)('111fooasdfbasdf' =~ /foo/)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"return (boolean)('fo11oasdfbasdf' =~ /foo/)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFindOrStringConcat
+specifier|public
+name|void
+name|testFindOrStringConcat
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 'f' + 'o' + 'o' =~ /foo/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFindOfDef
+specifier|public
+name|void
+name|testFindOfDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def s = 'foo'; return s =~ /foo/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFindOnInput
+specifier|public
+name|void
+name|testFindOnInput
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"return params.s =~ /foo/"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"s"
+argument_list|,
+literal|"fooasdfdf"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"return params.s =~ /foo/"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"s"
+argument_list|,
+literal|"11f2ooasdfdf"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGroup
+specifier|public
+name|void
+name|testGroup
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"foo"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Matcher m = /foo/.matcher('foo'); m.find(); return m.group()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNumberedGroup
+specifier|public
+name|void
+name|testNumberedGroup
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"o"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Matcher m = /(f)(o)o/.matcher('foo'); m.find(); return m.group(2)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNamedGroup
+specifier|public
+name|void
+name|testNamedGroup
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"o"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Matcher m = /(?<first>f)(?<second>o)o/.matcher('foo'); m.find(); return m.namedGroup('second')"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCantUsePatternCompile
+specifier|public
+name|void
+name|testCantUsePatternCompile
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"Pattern.compile('aa')"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Unknown call [compile] with [1] arguments on type [Pattern]."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBadRegexPattern
+specifier|public
+name|void
+name|testBadRegexPattern
+parameter_list|()
+block|{
+name|PatternSyntaxException
+name|e
+init|=
+name|expectScriptThrows
+argument_list|(
+name|PatternSyntaxException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"/\\ujjjj/"
+argument_list|)
+expr_stmt|;
+comment|// Invalid unicode
+block|}
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Illegal Unicode escape sequence near index 2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"\\ujjjj"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRegexAgainstNumber
+specifier|public
+name|void
+name|testRegexAgainstNumber
+parameter_list|()
+block|{
+name|ClassCastException
+name|e
+init|=
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"12 ==~ /cat/"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Cannot cast from [int] to [String]."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

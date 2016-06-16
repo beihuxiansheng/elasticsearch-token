@@ -147,6 +147,7 @@ return|;
 block|}
 comment|/**      * The list of settings this builder will register.      *      * @return the list of registered settings      */
 DECL|method|getRegisteredSettings
+specifier|public
 specifier|abstract
 name|List
 argument_list|<

@@ -1135,7 +1135,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param lookup caller's lookup      * @param callSiteType callsite's type      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args args passed to callsite      * @param recipe bitset marking functional parameters      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      * @throws Throwable if a method reference cannot be converted to an functional interface      */
+comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param lookup caller's lookup      * @param callSiteType callsite's type      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args bootstrap args passed to callsite      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      * @throws Throwable if a method reference cannot be converted to an functional interface      */
 DECL|method|lookupMethod
 specifier|static
 name|MethodHandle
@@ -1159,13 +1159,29 @@ parameter_list|,
 name|Object
 name|args
 index|[]
-parameter_list|,
-name|long
-name|recipe
 parameter_list|)
 throws|throws
 name|Throwable
 block|{
+name|long
+name|recipe
+init|=
+operator|(
+name|Long
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+name|int
+name|numArguments
+init|=
+name|callSiteType
+operator|.
+name|parameterCount
+argument_list|()
+decl_stmt|;
 comment|// simple case: no lambdas
 if|if
 condition|(
@@ -1181,9 +1197,7 @@ name|receiverClass
 argument_list|,
 name|name
 argument_list|,
-name|args
-operator|.
-name|length
+name|numArguments
 operator|-
 literal|1
 argument_list|)
@@ -1196,10 +1210,16 @@ comment|// e.g. f(a, g(x), b, h(y), i()) looks like f(a, g, x, b, h, y, i).
 name|int
 name|arity
 init|=
-name|args
+name|callSiteType
 operator|.
-name|length
+name|parameterCount
+argument_list|()
 operator|-
+literal|1
+decl_stmt|;
+name|int
+name|upTo
+init|=
 literal|1
 decl_stmt|;
 for|for
@@ -1211,9 +1231,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|args
-operator|.
-name|length
+name|numArguments
 condition|;
 name|i
 operator|++
@@ -1246,7 +1264,8 @@ name|String
 operator|)
 name|args
 index|[
-name|i
+name|upTo
+operator|++
 index|]
 decl_stmt|;
 name|int
@@ -1303,6 +1322,10 @@ name|replaced
 init|=
 literal|0
 decl_stmt|;
+name|upTo
+operator|=
+literal|1
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1312,9 +1335,7 @@ literal|1
 init|;
 name|i
 operator|<
-name|args
-operator|.
-name|length
+name|numArguments
 condition|;
 name|i
 operator|++
@@ -1349,7 +1370,8 @@ name|String
 operator|)
 name|args
 index|[
-name|i
+name|upTo
+operator|++
 index|]
 decl_stmt|;
 name|int

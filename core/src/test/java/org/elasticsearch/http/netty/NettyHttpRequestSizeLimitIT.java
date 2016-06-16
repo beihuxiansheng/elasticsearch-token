@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * This test checks that in-flight requests are limited on HTTP level and that requests that are excluded from limiting can pass.  *  * As the same setting is also used to limit in-flight requests on transport level, we avoid transport messages by forcing  * a single node "cluster". We also force test infrastructure to use the node client instead of the transport client for the same reason.  */
 end_comment
 
 begin_class
@@ -266,9 +266,17 @@ name|supportsDedicatedMasters
 operator|=
 literal|false
 argument_list|,
+name|numClientNodes
+operator|=
+literal|0
+argument_list|,
 name|numDataNodes
 operator|=
 literal|1
+argument_list|,
+name|transportClientRatio
+operator|=
+literal|0
 argument_list|)
 DECL|class|NettyHttpRequestSizeLimitIT
 specifier|public
@@ -601,13 +609,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"muted while investigating"
-argument_list|)
 DECL|method|testDoesNotLimitExcludedRequests
 specifier|public
 name|void

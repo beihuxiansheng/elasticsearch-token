@@ -62,10 +62,16 @@ argument_list|>
 name|params
 parameter_list|)
 function_decl|;
-comment|/**      * Indicates if document scores may be needed by the produced scripts.      *       * @return {@code true} if scores are needed.      */
+comment|/**      * Indicates if document scores may be needed by the produced scripts.      *      * @return {@code true} if scores are needed.      */
 DECL|method|needsScores
 name|boolean
 name|needsScores
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the name of the script factory      */
+DECL|method|getName
+name|String
+name|getName
 parameter_list|()
 function_decl|;
 block|}

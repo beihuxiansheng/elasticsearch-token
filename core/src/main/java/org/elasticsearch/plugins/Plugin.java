@@ -52,7 +52,35 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|SettingsModule
 import|;
 end_import
 
@@ -74,9 +102,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
+name|script
 operator|.
-name|ExecutorBuilder
+name|ScriptModule
 import|;
 end_import
 
@@ -88,7 +116,7 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
-name|ThreadPool
+name|ExecutorBuilder
 import|;
 end_import
 
@@ -197,6 +225,43 @@ name|IndexModule
 name|indexModule
 parameter_list|)
 block|{}
+comment|/**      * Returns a list of additional {@link Setting} definitions for this plugin.      */
+DECL|method|getSettings
+specifier|public
+name|List
+argument_list|<
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getSettings
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns a list of additional settings filter for this plugin      */
+DECL|method|getSettingsFilter
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getSettingsFilter
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Old-style guice index level extension point.      *      * @deprecated use #onIndexModule instead      */
 annotation|@
 name|Deprecated
@@ -208,6 +273,32 @@ name|onModule
 parameter_list|(
 name|IndexModule
 name|indexModule
+parameter_list|)
+block|{}
+comment|/**      * Old-style guice settings extension point.      *      * @deprecated use #getSettings and #getSettingsFilter instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|SettingsModule
+name|settingsModule
+parameter_list|)
+block|{}
+comment|/**      * Old-style guice scripting extension point.      *      * @deprecated implement {@link ScriptPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|ScriptModule
+name|module
 parameter_list|)
 block|{}
 comment|/**      * Provides the list of this plugin's custom thread pools, empty if      * none.      *      * @param settings the current settings      * @return executors builders for this plugin's custom thread pools      */
