@@ -1625,8 +1625,6 @@ name|routingKeyForShard
 argument_list|(
 name|index
 argument_list|,
-literal|"type"
-argument_list|,
 name|i
 argument_list|)
 decl_stmt|;

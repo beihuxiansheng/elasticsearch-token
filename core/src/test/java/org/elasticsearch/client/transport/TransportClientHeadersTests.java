@@ -514,6 +514,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"cluster.name"
+argument_list|,
+literal|"cluster1"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"node.name"
 argument_list|,
 literal|"transport_client_"
@@ -832,9 +839,6 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -844,8 +848,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-name|clusterName
 argument_list|)
 expr_stmt|;
 block|}
@@ -917,9 +919,7 @@ argument_list|(
 operator|new
 name|LivenessResponse
 argument_list|(
-name|ClusterName
-operator|.
-name|DEFAULT
+name|clusterName
 argument_list|,
 name|node
 argument_list|)

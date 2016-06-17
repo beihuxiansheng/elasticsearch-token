@@ -592,7 +592,9 @@ name|clusterName
 operator|=
 name|ClusterName
 operator|.
-name|clusterNameFromSettings
+name|CLUSTER_NAME_SETTING
+operator|.
+name|get
 argument_list|(
 name|settings
 argument_list|)

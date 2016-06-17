@@ -692,9 +692,6 @@ name|version
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|NamedWriteableRegistry
@@ -732,8 +729,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-name|clusterName
 argument_list|)
 return|;
 block|}
@@ -751,9 +746,6 @@ name|version
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|NamedWriteableRegistry
@@ -803,8 +795,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-name|clusterName
 argument_list|)
 return|;
 block|}
@@ -828,9 +818,6 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -844,8 +831,6 @@ name|transport
 argument_list|)
 argument_list|,
 name|threadPool
-argument_list|,
-name|clusterName
 argument_list|)
 expr_stmt|;
 name|this

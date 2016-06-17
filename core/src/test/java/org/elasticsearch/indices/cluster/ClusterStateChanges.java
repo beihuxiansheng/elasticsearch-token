@@ -1404,8 +1404,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|MetaDataIndexUpgradeService

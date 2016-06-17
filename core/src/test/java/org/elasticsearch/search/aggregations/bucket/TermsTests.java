@@ -1081,7 +1081,10 @@ operator|.
 name|Order
 operator|.
 name|count
+argument_list|(
+name|randomBoolean
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;

@@ -22,6 +22,16 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|ClientConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|Protocol
 import|;
 end_import
@@ -588,6 +598,29 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
+comment|/**          * repositories.s3.use_throttle_retries: Set to `true` if you want to throttle retries. Defaults to AWS SDK default value (`false`).          */
+DECL|field|USE_THROTTLE_RETRIES_SETTING
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|USE_THROTTLE_RETRIES_SETTING
+init|=
+name|Setting
+operator|.
+name|boolSetting
+argument_list|(
+literal|"repositories.s3.use_throttle_retries"
+argument_list|,
+name|ClientConfiguration
+operator|.
+name|DEFAULT_THROTTLE_RETRIES
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
+argument_list|)
+decl_stmt|;
 comment|/**          * repositories.s3.chunk_size: Big files can be broken down into chunks during snapshotting if needed. Defaults to 1g.          */
 DECL|field|CHUNK_SIZE_SETTING
 name|Setting
@@ -966,6 +999,29 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
+comment|/**          * use_throttle_retries          * @see  Repositories#USE_THROTTLE_RETRIES_SETTING          */
+DECL|field|USE_THROTTLE_RETRIES_SETTING
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|USE_THROTTLE_RETRIES_SETTING
+init|=
+name|Setting
+operator|.
+name|boolSetting
+argument_list|(
+literal|"use_throttle_retries"
+argument_list|,
+name|ClientConfiguration
+operator|.
+name|DEFAULT_THROTTLE_RETRIES
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
+argument_list|)
+decl_stmt|;
 comment|/**          * chunk_size          * @see  Repositories#CHUNK_SIZE_SETTING          */
 DECL|field|CHUNK_SIZE_SETTING
 name|Setting
@@ -1299,6 +1355,22 @@ operator|.
 name|MAX_RETRIES_SETTING
 argument_list|)
 decl_stmt|;
+name|boolean
+name|useThrottleRetries
+init|=
+name|getValue
+argument_list|(
+name|repositorySettings
+argument_list|,
+name|Repository
+operator|.
+name|USE_THROTTLE_RETRIES_SETTING
+argument_list|,
+name|Repositories
+operator|.
+name|USE_THROTTLE_RETRIES_SETTING
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
 name|chunkSize
@@ -1425,7 +1497,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}], cannedACL [{}], storageClass [{}]"
+literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], "
+operator|+
+literal|"buffer_size [{}], max_retries [{}], use_throttle_retries [{}], cannedACL [{}], storageClass [{}]"
 argument_list|,
 name|bucket
 argument_list|,
@@ -1442,6 +1516,8 @@ argument_list|,
 name|bufferSize
 argument_list|,
 name|maxRetries
+argument_list|,
+name|useThrottleRetries
 argument_list|,
 name|cannedACL
 argument_list|,
@@ -1502,6 +1578,8 @@ argument_list|,
 name|secret
 argument_list|,
 name|maxRetries
+argument_list|,
+name|useThrottleRetries
 argument_list|)
 argument_list|,
 name|bucket

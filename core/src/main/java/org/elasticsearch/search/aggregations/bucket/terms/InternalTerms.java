@@ -1102,7 +1102,7 @@ if|if
 condition|(
 name|InternalOrder
 operator|.
-name|isCountOrder
+name|isCountDesc
 argument_list|(
 name|this
 operator|.

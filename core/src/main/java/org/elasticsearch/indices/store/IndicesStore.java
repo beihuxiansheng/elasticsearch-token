@@ -2151,9 +2151,6 @@ name|thisClusterName
 init|=
 name|clusterService
 operator|.
-name|state
-argument_list|()
-operator|.
 name|getClusterName
 argument_list|()
 decl_stmt|;
@@ -2341,9 +2338,8 @@ argument_list|)
 expr_stmt|;
 name|clusterName
 operator|=
+operator|new
 name|ClusterName
-operator|.
-name|readClusterName
 argument_list|(
 name|in
 argument_list|)

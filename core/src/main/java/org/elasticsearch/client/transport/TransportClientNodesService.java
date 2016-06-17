@@ -810,9 +810,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
@@ -832,7 +829,14 @@ name|this
 operator|.
 name|clusterName
 operator|=
-name|clusterName
+name|ClusterName
+operator|.
+name|CLUSTER_NAME_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

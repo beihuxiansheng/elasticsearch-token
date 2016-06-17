@@ -440,13 +440,11 @@ init|=
 operator|new
 name|TransportService
 argument_list|(
+name|settings
+argument_list|,
 name|nettyTransport
 argument_list|,
 name|threadPool
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|nettyTransport
