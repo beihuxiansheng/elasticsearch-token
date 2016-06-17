@@ -60,7 +60,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingService
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -142,12 +144,12 @@ name|nodeDescription
 parameter_list|()
 function_decl|;
 comment|/**      * Another hack to solve dep injection problem..., note, this will be called before      * any start is called.      */
-DECL|method|setRoutingService
+DECL|method|setAllocationService
 name|void
-name|setRoutingService
+name|setAllocationService
 parameter_list|(
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 parameter_list|)
 function_decl|;
 comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      *      * The {@link AckListener} allows to keep track of the ack received from nodes, and verify whether      * they updated their own cluster state or not.      *      * The method is guaranteed to throw a {@link FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
