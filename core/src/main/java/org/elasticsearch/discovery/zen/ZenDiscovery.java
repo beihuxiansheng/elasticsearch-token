@@ -186,7 +186,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingService
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -1115,10 +1117,10 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|routingService
+DECL|field|allocationService
 specifier|private
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 decl_stmt|;
 DECL|field|clusterName
 specifier|private
@@ -1237,7 +1239,7 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-comment|// must initialized in doStart(), when we have the routingService set
+comment|// must initialized in doStart(), when we have the allocationService set
 DECL|field|nodeJoinController
 specifier|private
 specifier|volatile
@@ -1642,20 +1644,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setRoutingService
+DECL|method|setAllocationService
 specifier|public
 name|void
-name|setRoutingService
+name|setAllocationService
 parameter_list|(
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routingService
+name|allocationService
 operator|=
-name|routingService
+name|allocationService
 expr_stmt|;
 block|}
 annotation|@
@@ -1695,7 +1697,7 @@ name|NodeJoinController
 argument_list|(
 name|clusterService
 argument_list|,
-name|routingService
+name|allocationService
 argument_list|,
 name|electMaster
 argument_list|,
@@ -3098,10 +3100,7 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|routingService
-operator|.
-name|getAllocationService
-argument_list|()
+name|allocationService
 operator|.
 name|reroute
 argument_list|(
@@ -3375,10 +3374,7 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|routingService
-operator|.
-name|getAllocationService
-argument_list|()
+name|allocationService
 operator|.
 name|reroute
 argument_list|(
