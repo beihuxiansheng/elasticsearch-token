@@ -2367,7 +2367,7 @@ argument_list|()
 decl_stmt|;
 name|nodeJoinController
 operator|.
-name|startAccumulatingJoins
+name|startElectionContext
 argument_list|()
 expr_stmt|;
 while|while
@@ -2545,7 +2545,7 @@ block|{
 comment|// process any incoming joins (they will fail because we are not the master)
 name|nodeJoinController
 operator|.
-name|stopAccumulatingJoins
+name|stopElectionContext
 argument_list|(
 literal|"not master"
 argument_list|)

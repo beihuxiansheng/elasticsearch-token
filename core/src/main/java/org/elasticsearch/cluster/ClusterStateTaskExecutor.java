@@ -96,14 +96,14 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Callback invoked after new cluster state is published. Note that      * this method is not invoked if the cluster state was not updated.      */
+comment|/**      * Callback invoked after new cluster state is published. Note that      * this method is not invoked if the cluster state was not updated.      * @param clusterChangedEvent the change event for this cluster state change, containing      *                            both old and new states      */
 DECL|method|clusterStatePublished
 specifier|default
 name|void
 name|clusterStatePublished
 parameter_list|(
-name|ClusterState
-name|newClusterState
+name|ClusterChangedEvent
+name|clusterChangedEvent
 parameter_list|)
 block|{     }
 comment|/**      * Represents the result of a batched execution of cluster state update tasks      * @param<T> the type of the cluster state update task      */
@@ -344,6 +344,9 @@ name|TaskResult
 name|executionResult
 parameter_list|)
 block|{
+name|TaskResult
+name|existing
+init|=
 name|executionResults
 operator|.
 name|put
@@ -352,7 +355,18 @@ name|task
 argument_list|,
 name|executionResult
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+assert|assert
+name|existing
+operator|==
+literal|null
+operator|:
+name|task
+operator|+
+literal|" already has result "
+operator|+
+name|existing
+assert|;
 return|return
 name|this
 return|;
