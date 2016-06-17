@@ -597,8 +597,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|clusterService
 argument_list|,
 literal|null

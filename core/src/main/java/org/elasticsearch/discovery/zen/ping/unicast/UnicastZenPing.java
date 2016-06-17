@@ -1048,9 +1048,6 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|ElectMasterService
 name|electMasterService
 parameter_list|,
@@ -1258,7 +1255,8 @@ argument_list|,
 name|emptySet
 argument_list|()
 argument_list|,
-name|version
+name|getVersion
+argument_list|()
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -3479,6 +3477,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|getVersion
+specifier|protected
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|Version
+operator|.
+name|CURRENT
+return|;
+comment|// for tests
 block|}
 block|}
 end_class

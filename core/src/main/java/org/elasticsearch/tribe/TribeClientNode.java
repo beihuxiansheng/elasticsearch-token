@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -109,10 +99,6 @@ name|Environment
 argument_list|(
 name|settings
 argument_list|)
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|,
 name|Collections
 operator|.

@@ -1526,10 +1526,6 @@ name|indicesService
 argument_list|,
 name|allocationService
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 operator|new
 name|AliasValidator
 argument_list|(

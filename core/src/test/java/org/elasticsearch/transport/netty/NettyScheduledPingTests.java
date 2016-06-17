@@ -478,10 +478,6 @@ name|BigArrays
 operator|.
 name|NON_RECYCLING_INSTANCE
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 name|registryA
 argument_list|,
 name|circuitBreakerService
@@ -537,10 +533,6 @@ argument_list|,
 name|BigArrays
 operator|.
 name|NON_RECYCLING_INSTANCE
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|,
 name|registryB
 argument_list|,

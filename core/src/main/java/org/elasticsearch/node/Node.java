@@ -1685,10 +1685,6 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 name|Collections
 operator|.
 expr|<
@@ -1710,9 +1706,6 @@ name|Node
 parameter_list|(
 name|Environment
 name|tmpEnv
-parameter_list|,
-name|Version
-name|version
 parameter_list|,
 name|Collection
 argument_list|<
@@ -1802,7 +1795,9 @@ specifier|final
 name|String
 name|displayVersion
 init|=
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|+
 operator|(
 name|Build
@@ -2281,19 +2276,6 @@ operator|new
 name|ModulesBuilder
 argument_list|()
 decl_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Version
-operator|.
-name|Module
-argument_list|(
-name|version
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// plugin modules must be added here, before others or we can get crazy injection errors...
 for|for
 control|(

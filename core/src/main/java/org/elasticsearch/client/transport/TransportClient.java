@@ -778,19 +778,6 @@ operator|new
 name|ModulesBuilder
 argument_list|()
 decl_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-operator|new
-name|Version
-operator|.
-name|Module
-argument_list|(
-name|version
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// plugin modules must be added here, before others or we can get crazy injection errors...
 for|for
 control|(

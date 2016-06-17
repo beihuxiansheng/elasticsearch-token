@@ -663,12 +663,6 @@ specifier|final
 name|ThreadPoolExecutor
 name|workers
 decl_stmt|;
-DECL|field|version
-specifier|private
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|transportServiceAdapter
 specifier|private
 specifier|volatile
@@ -778,9 +772,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 parameter_list|,
@@ -798,12 +789,6 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|int
 name|workerCount
@@ -1410,9 +1395,8 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-name|this
-operator|.
-name|version
+name|getVersion
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
@@ -2586,6 +2570,19 @@ name|singletonList
 argument_list|(
 literal|"0.0.0.0"
 argument_list|)
+return|;
+block|}
+DECL|method|getVersion
+specifier|protected
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+comment|// for tests
+return|return
+name|Version
+operator|.
+name|CURRENT
 return|;
 block|}
 block|}

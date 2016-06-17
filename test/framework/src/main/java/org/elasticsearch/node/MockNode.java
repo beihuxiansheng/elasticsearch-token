@@ -86,12 +86,6 @@ name|MockNode
 extends|extends
 name|Node
 block|{
-comment|// these are kept here so a copy of this MockNode can be created, since Node does not store them
-DECL|field|version
-specifier|private
-name|Version
-name|version
-decl_stmt|;
 DECL|field|plugins
 specifier|private
 name|Collection
@@ -111,9 +105,6 @@ name|MockNode
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Version
-name|version
 parameter_list|,
 name|Collection
 argument_list|<
@@ -138,16 +129,8 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|,
-name|version
-argument_list|,
 name|classpathPlugins
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|this
 operator|.
@@ -172,16 +155,6 @@ parameter_list|()
 block|{
 return|return
 name|plugins
-return|;
-block|}
-DECL|method|getVersion
-specifier|public
-name|Version
-name|getVersion
-parameter_list|()
-block|{
-return|return
-name|version
 return|;
 block|}
 block|}
