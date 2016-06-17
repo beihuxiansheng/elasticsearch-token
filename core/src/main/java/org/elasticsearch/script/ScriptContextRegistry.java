@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -89,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for operations that use scripts as part of their execution. Can be standard operations of custom defined ones (via plugin).  * Allows plugins to register custom operations that they use scripts for, via {@link ScriptModule#registerScriptContext(org.elasticsearch.script.ScriptContext.Plugin)}.  * Scripts can be enabled/disabled via fine-grained settings for each single registered operation.  */
+comment|/**  * Registry for operations that use scripts as part of their execution. Can be standard operations of custom defined ones (via plugin).  * Allows plugins to register custom operations that they use scripts for,  * via {@link org.elasticsearch.plugins.ScriptPlugin}  * Scripts can be enabled/disabled via fine-grained settings for each single registered operation.  */
 end_comment
 
 begin_class

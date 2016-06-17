@@ -618,6 +618,16 @@ operator|.
 name|length
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|restController
+operator|.
+name|canTripCircuitBreaker
+argument_list|(
+name|request
+argument_list|)
+condition|)
+block|{
 name|inFlightRequestsBreaker
 argument_list|(
 name|circuitBreakerService
@@ -630,6 +640,20 @@ argument_list|,
 literal|"<http_request>"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|inFlightRequestsBreaker
+argument_list|(
+name|circuitBreakerService
+argument_list|)
+operator|.
+name|addWithoutBreaking
+argument_list|(
+name|contentLength
+argument_list|)
+expr_stmt|;
+block|}
 comment|// iff we could reserve bytes for the request we need to send the response also over this channel
 name|responseChannel
 operator|=

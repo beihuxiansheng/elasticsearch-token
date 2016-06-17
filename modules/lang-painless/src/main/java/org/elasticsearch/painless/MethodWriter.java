@@ -64,7 +64,7 @@ name|objectweb
 operator|.
 name|asm
 operator|.
-name|ClassWriter
+name|ClassVisitor
 import|;
 end_import
 
@@ -720,7 +720,7 @@ parameter_list|,
 name|Method
 name|method
 parameter_list|,
-name|ClassWriter
+name|ClassVisitor
 name|cw
 parameter_list|,
 name|BitSet
@@ -1615,9 +1615,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** Starts a new string concat.      * @return the size of arguments pushed to stack (the object that does string concats, e.g. a StringBuilder)      */
 DECL|method|writeNewStrings
 specifier|public
-name|void
+name|int
 name|writeNewStrings
 parameter_list|()
 block|{
@@ -1639,6 +1640,10 @@ argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
+comment|// nothing added to stack
 block|}
 else|else
 block|{
@@ -1658,6 +1663,10 @@ argument_list|,
 name|STRINGBUILDER_CONSTRUCTOR
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
+comment|// StringBuilder on stack
 block|}
 block|}
 DECL|method|writeAppendStrings
@@ -1923,6 +1932,9 @@ name|rhs
 parameter_list|,
 name|Operation
 name|operation
+parameter_list|,
+name|boolean
+name|compoundAssignment
 parameter_list|)
 block|{
 name|org
@@ -1965,6 +1977,23 @@ operator|.
 name|getDescriptor
 argument_list|()
 decl_stmt|;
+name|int
+name|flags
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|compoundAssignment
+condition|)
+block|{
+name|flags
+operator||=
+name|DefBootstrap
+operator|.
+name|OPERATOR_COMPOUND_ASSIGNMENT
+expr_stmt|;
+block|}
 switch|switch
 condition|(
 name|operation
@@ -1984,6 +2013,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2001,6 +2032,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2018,12 +2051,47 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
 case|case
 name|ADD
 case|:
+comment|// if either side is primitive, then the + operator should always throw NPE on null,
+comment|// so we don't need a special NPE guard.
+comment|// otherwise, we need to allow nulls for possible string concatenation.
+name|boolean
+name|hasPrimitiveArg
+init|=
+name|lhs
+operator|.
+name|clazz
+operator|.
+name|isPrimitive
+argument_list|()
+operator|||
+name|rhs
+operator|.
+name|clazz
+operator|.
+name|isPrimitive
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|hasPrimitiveArg
+condition|)
+block|{
+name|flags
+operator||=
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
+expr_stmt|;
+block|}
 name|invokeDynamic
 argument_list|(
 literal|"add"
@@ -2035,6 +2103,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2052,6 +2122,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2069,6 +2141,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|SHIFT_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2086,6 +2160,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|SHIFT_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2103,6 +2179,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|SHIFT_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2120,6 +2198,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2137,6 +2217,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2154,6 +2236,8 @@ argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 break|break;

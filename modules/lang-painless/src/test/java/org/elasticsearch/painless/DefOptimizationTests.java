@@ -964,6 +964,89 @@ literal|"INVOKEDYNAMIC add(Ljava/lang/Object;Ljava/lang/Object;)D"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// horrible, sorry
+DECL|method|testAddOptNullGuards
+specifier|public
+name|void
+name|testAddOptNullGuards
+parameter_list|()
+block|{
+comment|// needs null guard
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"def x = 1; def y = 2; return x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+comment|// still needs null guard, NPE is the wrong thing!
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"def x = 1; def y = 2; double z = x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|OPERATOR_ALLOWS_NULL
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+comment|// a primitive argument is present: no null guard needed
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"def x = 1; int y = 2; return x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+literal|0
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeHasPattern
+argument_list|(
+literal|"int x = 1; def y = 2; return x + y"
+argument_list|,
+literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+name|DefBootstrap
+operator|.
+name|BINARY_OPERATOR
+operator|+
+literal|",\\s+"
+operator|+
+literal|0
+operator|+
+literal|".*"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSubOptLHS
 specifier|public
 name|void
@@ -1255,6 +1338,48 @@ argument_list|(
 literal|"def x = 1; def y = 2; double d = x ^ y"
 argument_list|,
 literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptLHS
+specifier|public
+name|void
+name|testBooleanXorOptLHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"boolean x = true; def y = true; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(ZLjava/lang/Object;)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptRHS
+specifier|public
+name|void
+name|testBooleanXorOptRHS
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true; boolean y = true; return x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Z)Ljava/lang/Object;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBooleanXorOptRet
+specifier|public
+name|void
+name|testBooleanXorOptRet
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true; def y = true; boolean v = x ^ y"
+argument_list|,
+literal|"INVOKEDYNAMIC xor(Ljava/lang/Object;Ljava/lang/Object;)Z"
 argument_list|)
 expr_stmt|;
 block|}

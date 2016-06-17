@@ -2644,6 +2644,10 @@ argument_list|,
 name|ThreadPool
 operator|.
 name|ESTIMATED_TIME_INTERVAL_SETTING
+argument_list|,
+name|Node
+operator|.
+name|BREAKER_TYPE_KEY
 argument_list|)
 argument_list|)
 argument_list|)

@@ -56,6 +56,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
+name|util
+operator|.
+name|Printer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -328,6 +342,8 @@ argument_list|,
 name|source
 argument_list|,
 name|settings
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|root
@@ -446,6 +462,9 @@ name|source
 parameter_list|,
 name|CompilerSettings
 name|settings
+parameter_list|,
+name|Printer
+name|debugStream
 parameter_list|)
 block|{
 if|if
@@ -491,6 +510,8 @@ argument_list|,
 name|source
 argument_list|,
 name|settings
+argument_list|,
+name|debugStream
 argument_list|)
 decl_stmt|;
 name|root

@@ -201,6 +201,11 @@ name|promote
 init|=
 literal|null
 decl_stmt|;
+DECL|field|shiftDistance
+name|Type
+name|shiftDistance
+decl_stmt|;
+comment|// for shifts, the RHS is promoted independently
 DECL|field|there
 name|Cast
 name|there
@@ -839,6 +844,11 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
+name|boolean
+name|shift
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|operation
@@ -999,6 +1009,23 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|shiftDistance
+operator|=
+name|AnalyzerCaster
+operator|.
+name|promoteNumeric
+argument_list|(
+name|expression
+operator|.
+name|actual
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|shift
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1023,6 +1050,23 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|shiftDistance
+operator|=
+name|AnalyzerCaster
+operator|.
+name|promoteNumeric
+argument_list|(
+name|expression
+operator|.
+name|actual
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|shift
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1046,6 +1090,23 @@ name|after
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|shiftDistance
+operator|=
+name|AnalyzerCaster
+operator|.
+name|promoteNumeric
+argument_list|(
+name|expression
+operator|.
+name|actual
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|shift
+operator|=
+literal|true
 expr_stmt|;
 block|}
 elseif|else
@@ -1144,6 +1205,14 @@ condition|(
 name|promote
 operator|==
 literal|null
+operator|||
+operator|(
+name|shift
+operator|&&
+name|shiftDistance
+operator|==
+literal|null
+operator|)
 condition|)
 block|{
 throw|throw
@@ -1252,23 +1321,18 @@ block|}
 elseif|else
 if|if
 condition|(
-name|operation
-operator|==
-name|Operation
+name|shift
+condition|)
+block|{
+if|if
+condition|(
+name|shiftDistance
 operator|.
-name|LSH
-operator|||
-name|operation
+name|sort
 operator|==
-name|Operation
+name|Sort
 operator|.
-name|RSH
-operator|||
-name|operation
-operator|==
-name|Operation
-operator|.
-name|USH
+name|LONG
 condition|)
 block|{
 name|expression
@@ -1285,6 +1349,16 @@ name|explicit
 operator|=
 literal|true
 expr_stmt|;
+block|}
+else|else
+block|{
+name|expression
+operator|.
+name|expected
+operator|=
+name|shiftDistance
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1551,11 +1625,18 @@ comment|// we must, depending on the Java version, write a StringBuilder or
 comment|// track types going onto the stack.  This must be done before the
 comment|// links in the chain are read because we need the StringBuilder to
 comment|// be placed on the stack ahead of any potential concatenation arguments.
+name|int
+name|catElementStackSize
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|cat
 condition|)
 block|{
+name|catElementStackSize
+operator|=
 name|writer
 operator|.
 name|writeNewStrings
@@ -1623,10 +1704,10 @@ name|link
 operator|.
 name|size
 argument_list|,
-literal|1
+name|catElementStackSize
 argument_list|)
 expr_stmt|;
-comment|// dup the StringBuilder
+comment|// dup the top element and insert it before concat helper on stack
 name|link
 operator|.
 name|load
@@ -1702,7 +1783,7 @@ operator|.
 name|writeToStrings
 argument_list|()
 expr_stmt|;
-comment|// put the value of the StringBuilder on the stack
+comment|// put the value for string concat onto the stack
 name|writer
 operator|.
 name|writeCast
@@ -1823,7 +1904,7 @@ argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
 comment|// XXX: fix these types, but first we need def compound assignment tests.
-comment|// (and also corner cases such as shifts). its tricky here as there are possibly explicit casts, too.
+comment|// its tricky here as there are possibly explicit casts, too.
 comment|// write the operation instruction for compound assignment
 if|if
 condition|(
@@ -1853,6 +1934,8 @@ operator|.
 name|DEF_TYPE
 argument_list|,
 name|operation
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

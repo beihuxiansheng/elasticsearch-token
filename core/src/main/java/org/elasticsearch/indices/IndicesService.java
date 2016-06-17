@@ -6798,7 +6798,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Fetch {@linkplain FieldStats} for a field. These stats are cached until the shard changes.      * @param shard the shard to use with the cache key      * @param searcher searcher to use to lookup the field stats      * @param field the actual field      */
+comment|/**      * Fetch {@linkplain FieldStats} for a field. These stats are cached until the shard changes.      * @param shard the shard to use with the cache key      * @param searcher searcher to use to lookup the field stats      * @param field the actual field      * @param useCache should this request use the cache?      */
 DECL|method|getFieldStats
 specifier|public
 name|FieldStats
@@ -6817,6 +6817,9 @@ name|searcher
 parameter_list|,
 name|String
 name|field
+parameter_list|,
+name|boolean
+name|useCache
 parameter_list|)
 throws|throws
 name|Exception
@@ -6843,6 +6846,25 @@ condition|)
 block|{
 return|return
 literal|null
+return|;
+block|}
+if|if
+condition|(
+name|useCache
+operator|==
+literal|false
+condition|)
+block|{
+return|return
+name|fieldType
+operator|.
+name|stats
+argument_list|(
+name|searcher
+operator|.
+name|reader
+argument_list|()
+argument_list|)
 return|;
 block|}
 name|BytesReference

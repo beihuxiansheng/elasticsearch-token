@@ -67,20 +67,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
-DECL|method|getBuilderPrototype
-specifier|default
-name|QB
-name|getBuilderPrototype
-parameter_list|()
-block|{
-comment|// TODO remove this when nothing implements it
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
 block|}
 end_interface
 

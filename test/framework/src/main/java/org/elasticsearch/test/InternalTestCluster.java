@@ -12258,7 +12258,7 @@ name|inFlightRequestsBreaker
 init|=
 name|getInstance
 argument_list|(
-name|HierarchyCircuitBreakerService
+name|CircuitBreakerService
 operator|.
 name|class
 argument_list|,

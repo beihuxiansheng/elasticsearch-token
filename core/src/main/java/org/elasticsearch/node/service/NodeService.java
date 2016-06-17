@@ -436,6 +436,11 @@ specifier|final
 name|SettingsFilter
 name|settingsFilter
 decl_stmt|;
+DECL|field|clusterService
+specifier|private
+name|ClusterService
+name|clusterService
+decl_stmt|;
 DECL|field|scriptService
 specifier|private
 name|ScriptService
@@ -574,6 +579,12 @@ name|circuitBreakerService
 expr_stmt|;
 name|this
 operator|.
+name|clusterService
+operator|=
+name|clusterService
+expr_stmt|;
+name|this
+operator|.
 name|ingestService
 operator|=
 operator|new
@@ -640,9 +651,11 @@ name|this
 operator|.
 name|ingestService
 operator|.
-name|setScriptService
+name|buildProcessorsFactoryRegistry
 argument_list|(
 name|scriptService
+argument_list|,
+name|clusterService
 argument_list|)
 expr_stmt|;
 block|}

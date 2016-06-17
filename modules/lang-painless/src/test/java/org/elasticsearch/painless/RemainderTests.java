@@ -2769,6 +2769,336 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testCompoundAssignment
+specifier|public
+name|void
+name|testCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = 15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"byte x = (byte) -15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = 15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"short x = (short) -15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"char x = (char) 15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = -15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|3L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = 15L; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long x = -15L; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// float
+name|assertEquals
+argument_list|(
+literal|3F
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = 15F; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3F
+argument_list|,
+name|exec
+argument_list|(
+literal|"float x = -15F; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// double
+name|assertEquals
+argument_list|(
+literal|3D
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = 15.0; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3D
+argument_list|,
+name|exec
+argument_list|(
+literal|"double x = -15.0; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefCompoundAssignment
+specifier|public
+name|void
+name|testDefCompoundAssignment
+parameter_list|()
+block|{
+comment|// byte
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte)15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|byte
+operator|)
+operator|-
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (byte) -15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// short
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short)15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|(
+name|short
+operator|)
+operator|-
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (short) -15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// char
+name|assertEquals
+argument_list|(
+operator|(
+name|char
+operator|)
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = (char) 15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// int
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = -15; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// long
+name|assertEquals
+argument_list|(
+literal|3L
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 15L; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3L
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = -15L; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// float
+name|assertEquals
+argument_list|(
+literal|3F
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 15F; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3F
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = -15F; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// double
+name|assertEquals
+argument_list|(
+literal|3D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 15.0; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|3D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = -15.0; x %= 4; return x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

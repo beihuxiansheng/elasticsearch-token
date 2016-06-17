@@ -180,6 +180,18 @@ name|objectweb
 operator|.
 name|asm
 operator|.
+name|ClassVisitor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|ClassWriter
 import|;
 end_import
@@ -948,12 +960,12 @@ name|initializeConstant
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes the function to given ClassWriter. */
+comment|/** Writes the function to given ClassVisitor. */
 DECL|method|write
 name|void
 name|write
 parameter_list|(
-name|ClassWriter
+name|ClassVisitor
 name|writer
 parameter_list|,
 name|BitSet

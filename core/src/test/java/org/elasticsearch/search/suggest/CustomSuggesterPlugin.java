@@ -40,10 +40,6 @@ name|SearchModule
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|CustomSuggesterPlugin
 specifier|public
@@ -52,30 +48,6 @@ name|CustomSuggesterPlugin
 extends|extends
 name|Plugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"test-plugin-custom-suggester"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Custom suggester to test pluggable implementation"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void

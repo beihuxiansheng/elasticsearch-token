@@ -1369,14 +1369,6 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|MapperService
-name|mapperService
-init|=
-name|indexServices
-operator|.
-name|mapperService
-argument_list|()
-decl_stmt|;
 name|IndexShard
 name|shard
 init|=
@@ -1432,7 +1424,10 @@ name|fieldNames
 operator|.
 name|addAll
 argument_list|(
+name|shard
+operator|.
 name|mapperService
+argument_list|()
 operator|.
 name|simpleMatchToIndexNames
 argument_list|(
@@ -1464,6 +1459,11 @@ argument_list|,
 name|searcher
 argument_list|,
 name|field
+argument_list|,
+name|request
+operator|.
+name|shouldUseCache
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
