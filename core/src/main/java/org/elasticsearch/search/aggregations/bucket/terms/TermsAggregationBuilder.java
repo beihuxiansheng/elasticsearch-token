@@ -478,7 +478,9 @@ operator|.
 name|Order
 operator|.
 name|count
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 argument_list|,
 name|Terms
 operator|.

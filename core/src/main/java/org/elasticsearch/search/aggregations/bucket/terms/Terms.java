@@ -403,15 +403,24 @@ name|Order
 implements|implements
 name|ToXContent
 block|{
-comment|/**          * @return a bucket ordering strategy that sorts buckets by their document counts (descending)          */
+comment|/**          * @return a bucket ordering strategy that sorts buckets by their document counts (ascending or descending)          */
 DECL|method|count
 specifier|public
 specifier|static
 name|Order
 name|count
-parameter_list|()
+parameter_list|(
+name|boolean
+name|asc
+parameter_list|)
 block|{
 return|return
+name|asc
+condition|?
+name|InternalOrder
+operator|.
+name|COUNT_ASC
+else|:
 name|InternalOrder
 operator|.
 name|COUNT_DESC
