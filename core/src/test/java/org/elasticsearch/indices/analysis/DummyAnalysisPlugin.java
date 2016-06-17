@@ -36,32 +36,6 @@ name|DummyAnalysisPlugin
 extends|extends
 name|Plugin
 block|{
-comment|/**      * The name of the plugin.      */
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"analysis-dummy"
-return|;
-block|}
-comment|/**      * The description of the plugin.      */
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Analysis Dummy Plugin"
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void

@@ -172,7 +172,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -344,7 +344,7 @@ DECL|field|pipelineAggregationBuilders
 specifier|private
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregationBuilders
 decl_stmt|;
@@ -565,7 +565,7 @@ specifier|public
 name|PercolateSourceBuilder
 name|addAggregation
 parameter_list|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|aggregationBuilder
 parameter_list|)
 block|{
@@ -812,7 +812,7 @@ condition|)
 block|{
 for|for
 control|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|aggregation
 range|:
 name|pipelineAggregationBuilders

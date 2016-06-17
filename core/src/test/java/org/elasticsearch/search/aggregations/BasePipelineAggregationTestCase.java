@@ -478,7 +478,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 import|;
 end_import
 
@@ -653,7 +653,7 @@ name|BasePipelineAggregationTestCase
 parameter_list|<
 name|AF
 extends|extends
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 parameter_list|<
 name|AF
 parameter_list|>
@@ -1549,7 +1549,7 @@ name|nextToken
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|newAgg
 init|=
 name|aggParsers
@@ -1713,14 +1713,14 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|deserializedQuery
 init|=
 name|in
 operator|.
 name|readNamedWriteable
 argument_list|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 operator|.
 name|class
 argument_list|)
@@ -2057,7 +2057,7 @@ name|in
 operator|.
 name|readNamedWriteable
 argument_list|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 operator|.
 name|class
 argument_list|)
