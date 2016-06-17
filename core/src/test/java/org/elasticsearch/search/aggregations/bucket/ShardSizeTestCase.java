@@ -258,8 +258,6 @@ name|routingKeyForShard
 argument_list|(
 literal|"idx"
 argument_list|,
-literal|"type"
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -268,8 +266,6 @@ operator|=
 name|routingKeyForShard
 argument_list|(
 literal|"idx"
-argument_list|,
-literal|"type"
 argument_list|,
 literal|1
 argument_list|)

@@ -386,10 +386,6 @@ operator|.
 name|CURRENT
 argument_list|,
 name|threadPool
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}

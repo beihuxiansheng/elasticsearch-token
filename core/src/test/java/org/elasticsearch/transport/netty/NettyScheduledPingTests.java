@@ -433,6 +433,13 @@ argument_list|,
 literal|0
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"cluster.name"
+argument_list|,
+literal|"test"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -480,15 +487,6 @@ argument_list|,
 name|circuitBreakerService
 argument_list|)
 decl_stmt|;
-name|ClusterName
-name|test
-init|=
-operator|new
-name|ClusterName
-argument_list|(
-literal|"test"
-argument_list|)
-decl_stmt|;
 name|MockTransportService
 name|serviceA
 init|=
@@ -500,8 +498,6 @@ argument_list|,
 name|nettyA
 argument_list|,
 name|threadPool
-argument_list|,
-name|test
 argument_list|)
 decl_stmt|;
 name|serviceA
@@ -562,8 +558,6 @@ argument_list|,
 name|nettyB
 argument_list|,
 name|threadPool
-argument_list|,
-name|test
 argument_list|)
 decl_stmt|;
 name|serviceB

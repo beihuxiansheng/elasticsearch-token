@@ -526,9 +526,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
@@ -545,7 +542,10 @@ name|this
 operator|.
 name|clusterName
 operator|=
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

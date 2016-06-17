@@ -789,7 +789,14 @@ name|builder
 argument_list|(
 name|ClusterName
 operator|.
-name|DEFAULT
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getDefault
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
 argument_list|)
 operator|.
 name|metaData

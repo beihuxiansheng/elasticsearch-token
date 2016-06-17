@@ -2531,7 +2531,7 @@ name|Setting
 operator|.
 name|simpleString
 argument_list|(
-literal|"http.type"
+name|HTTP_TYPE_KEY
 argument_list|,
 name|Property
 operator|.
@@ -2575,7 +2575,7 @@ name|Setting
 operator|.
 name|simpleString
 argument_list|(
-literal|"transport.service.type"
+name|TRANSPORT_SERVICE_TYPE_KEY
 argument_list|,
 name|Property
 operator|.
@@ -2596,7 +2596,7 @@ name|Setting
 operator|.
 name|simpleString
 argument_list|(
-literal|"transport.type"
+name|TRANSPORT_TYPE_KEY
 argument_list|,
 name|Property
 operator|.

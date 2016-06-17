@@ -472,9 +472,6 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|)
@@ -487,7 +484,10 @@ name|threadPool
 argument_list|,
 name|transportService
 argument_list|,
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -2110,9 +2110,8 @@ argument_list|()
 expr_stmt|;
 name|clusterName
 operator|=
+operator|new
 name|ClusterName
-operator|.
-name|readClusterName
 argument_list|(
 name|in
 argument_list|)

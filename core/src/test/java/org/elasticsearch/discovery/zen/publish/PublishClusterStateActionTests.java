@@ -774,7 +774,14 @@ name|CLUSTER_NAME
 init|=
 name|ClusterName
 operator|.
-name|DEFAULT
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getDefault
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
 decl_stmt|;
 DECL|field|threadPool
 specifier|protected
@@ -1747,8 +1754,6 @@ argument_list|,
 name|version
 argument_list|,
 name|threadPool
-argument_list|,
-name|CLUSTER_NAME
 argument_list|)
 decl_stmt|;
 name|transportService

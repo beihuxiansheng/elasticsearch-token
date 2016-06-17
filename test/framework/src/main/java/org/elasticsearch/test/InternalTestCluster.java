@@ -11338,9 +11338,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|String
-name|type
-parameter_list|,
 name|int
 name|shard
 parameter_list|,
@@ -11456,14 +11453,10 @@ expr_stmt|;
 name|OperationRouting
 name|operationRouting
 init|=
-name|getInstanceFromNode
-argument_list|(
-name|OperationRouting
+name|clusterService
 operator|.
-name|class
-argument_list|,
-name|node
-argument_list|)
+name|operationRouting
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
