@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Location
 import|;
 end_import
@@ -229,6 +241,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 comment|/**      * Inserts {@link ECast} nodes into the tree for implicit casts.  Also replaces      * nodes with the constant variable set to a non-null value with {@link EConstant}.      * @return The new child node for the parent node calling this method.      */

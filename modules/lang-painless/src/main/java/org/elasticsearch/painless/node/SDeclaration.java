@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Location
 import|;
 end_import
@@ -270,8 +282,6 @@ argument_list|,
 name|name
 argument_list|,
 literal|false
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -283,6 +293,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 name|writer
@@ -396,6 +409,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 block|}
@@ -418,7 +433,8 @@ argument_list|)
 argument_list|,
 name|variable
 operator|.
-name|slot
+name|getSlot
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

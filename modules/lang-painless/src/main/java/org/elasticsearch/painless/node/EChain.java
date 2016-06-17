@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Cast
@@ -1611,6 +1623,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 name|writer
@@ -1675,6 +1690,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// call the write method on the link to prepare for a load/store operation
@@ -1713,6 +1730,8 @@ operator|.
 name|load
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// read the current link's value
@@ -1731,6 +1750,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
@@ -1823,6 +1844,8 @@ operator|.
 name|store
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// store the link's value from the stack in its respective variable/field/array
@@ -1854,6 +1877,8 @@ operator|.
 name|load
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// load the current link's value
@@ -1900,6 +1925,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
@@ -1996,6 +2023,8 @@ operator|.
 name|store
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// store the link's value from the stack in its respective variable/field/array
@@ -2008,6 +2037,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
@@ -2042,6 +2073,8 @@ operator|.
 name|store
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// store the link's value from the stack in its respective variable/field/array
@@ -2055,6 +2088,8 @@ operator|.
 name|load
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// read the link's value onto the stack
