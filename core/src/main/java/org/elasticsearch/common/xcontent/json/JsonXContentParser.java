@@ -358,24 +358,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Tentative workaround for https://github.com/elastic/elasticsearch/issues/8629
-comment|// TODO: Remove this when we upgrade jackson to 2.6.x.
-if|if
-condition|(
-name|parser
-operator|.
-name|getTextLength
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-operator|new
-name|BytesRef
-argument_list|()
-return|;
-block|}
 return|return
 operator|new
 name|BytesRef

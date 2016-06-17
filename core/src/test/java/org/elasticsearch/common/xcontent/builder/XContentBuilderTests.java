@@ -2693,6 +2693,11 @@ try|try
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|field
 argument_list|(
 literal|"map"
