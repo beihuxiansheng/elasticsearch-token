@@ -1103,6 +1103,7 @@ end_import
 begin_class
 DECL|class|ESIndexLevelReplicationTestCase
 specifier|public
+specifier|abstract
 class|class
 name|ESIndexLevelReplicationTestCase
 extends|extends
