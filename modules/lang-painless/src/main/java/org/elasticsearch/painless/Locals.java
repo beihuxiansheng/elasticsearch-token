@@ -143,6 +143,7 @@ end_comment
 begin_class
 DECL|class|Locals
 specifier|public
+specifier|final
 class|class
 name|Locals
 block|{
@@ -287,7 +288,7 @@ name|currentScope
 argument_list|)
 return|;
 block|}
-comment|/** Creates a new lambda scope inside the current scope */
+comment|/**       * Creates a new lambda scope inside the current scope      *<p>      * This is just like {@link #newFunctionScope}, except the captured parameters are made read-only.      */
 DECL|method|newLambdaScope
 specifier|public
 specifier|static
@@ -295,7 +296,7 @@ name|Locals
 name|newLambdaScope
 parameter_list|(
 name|Locals
-name|currentScope
+name|programScope
 parameter_list|,
 name|List
 argument_list|<
@@ -303,23 +304,107 @@ name|Parameter
 argument_list|>
 name|parameters
 parameter_list|,
-name|List
-argument_list|<
-name|Variable
-argument_list|>
-name|captures
+name|int
+name|captureCount
+parameter_list|,
+name|int
+name|maxLoopCounter
 parameter_list|)
 block|{
-return|return
+name|Locals
+name|locals
+init|=
 operator|new
-name|LambdaLocals
+name|Locals
 argument_list|(
-name|currentScope
+name|programScope
 argument_list|,
-name|parameters
-argument_list|,
-name|captures
+name|Definition
+operator|.
+name|DEF_TYPE
 argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|parameters
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|Parameter
+name|parameter
+init|=
+name|parameters
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|boolean
+name|isCapture
+init|=
+name|i
+operator|<
+name|captureCount
+decl_stmt|;
+name|locals
+operator|.
+name|defineVariable
+argument_list|(
+name|parameter
+operator|.
+name|location
+argument_list|,
+name|parameter
+operator|.
+name|type
+argument_list|,
+name|parameter
+operator|.
+name|name
+argument_list|,
+name|isCapture
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Loop counter to catch infinite loops.  Internal use only.
+if|if
+condition|(
+name|maxLoopCounter
+operator|>
+literal|0
+condition|)
+block|{
+name|locals
+operator|.
+name|defineVariable
+argument_list|(
+literal|null
+argument_list|,
+name|Definition
+operator|.
+name|INT_TYPE
+argument_list|,
+name|LOOP
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|locals
 return|;
 block|}
 comment|/** Creates a new function scope inside the current scope */
@@ -658,7 +743,6 @@ block|}
 comment|/** Checks if a variable exists or not, in this scope or any parents. */
 DECL|method|hasVariable
 specifier|public
-specifier|final
 name|boolean
 name|hasVariable
 parameter_list|(
@@ -779,7 +863,6 @@ block|}
 comment|/** Looks up a method. Returns null if the method does not exist. */
 DECL|method|getMethod
 specifier|public
-specifier|final
 name|Method
 name|getMethod
 parameter_list|(
@@ -829,7 +912,6 @@ block|}
 comment|/** Creates a new variable. Throws IAE if the variable has already been defined (even in a parent) or reserved. */
 DECL|method|addVariable
 specifier|public
-specifier|final
 name|Variable
 name|addVariable
 parameter_list|(
@@ -973,11 +1055,13 @@ name|returnType
 decl_stmt|;
 comment|// next slot number to assign
 DECL|field|nextSlotNumber
+specifier|private
 name|int
 name|nextSlotNumber
 decl_stmt|;
 comment|// variable name -> variable
 DECL|field|variables
+specifier|private
 name|Map
 argument_list|<
 name|String
@@ -988,6 +1072,7 @@ name|variables
 decl_stmt|;
 comment|// method name+arity -> methods
 DECL|field|methods
+specifier|private
 name|Map
 argument_list|<
 name|MethodKey
@@ -998,6 +1083,7 @@ name|methods
 decl_stmt|;
 comment|/**      * Create a new Locals      */
 DECL|method|Locals
+specifier|private
 name|Locals
 parameter_list|(
 name|Locals
@@ -1017,6 +1103,7 @@ expr_stmt|;
 block|}
 comment|/**      * Create a new Locals with specified return type      */
 DECL|method|Locals
+specifier|private
 name|Locals
 parameter_list|(
 name|Locals
@@ -1067,6 +1154,7 @@ block|}
 block|}
 comment|/** Returns the parent scope */
 DECL|method|getParent
+specifier|private
 name|Locals
 name|getParent
 parameter_list|()
@@ -1077,6 +1165,7 @@ return|;
 block|}
 comment|/** Looks up a variable at this scope only. Returns null if the variable does not exist. */
 DECL|method|lookupVariable
+specifier|private
 name|Variable
 name|lookupVariable
 parameter_list|(
@@ -1109,6 +1198,7 @@ return|;
 block|}
 comment|/** Looks up a method at this scope only. Returns null if the method does not exist. */
 DECL|method|lookupMethod
+specifier|private
 name|Method
 name|lookupMethod
 parameter_list|(
@@ -1138,6 +1228,7 @@ return|;
 block|}
 comment|/** Defines a variable at this scope internally. */
 DECL|method|defineVariable
+specifier|private
 name|Variable
 name|defineVariable
 parameter_list|(
@@ -1181,16 +1272,12 @@ name|name
 argument_list|,
 name|type
 argument_list|,
+name|getNextSlot
+argument_list|()
+argument_list|,
 name|readonly
 argument_list|)
 decl_stmt|;
-name|variable
-operator|.
-name|slot
-operator|=
-name|getNextSlot
-argument_list|()
-expr_stmt|;
 name|variables
 operator|.
 name|put
@@ -1214,9 +1301,8 @@ return|return
 name|variable
 return|;
 block|}
-comment|// TODO: make private, thats bogus
 DECL|method|addMethod
-specifier|public
+specifier|private
 name|void
 name|addMethod
 parameter_list|(
@@ -1264,6 +1350,7 @@ expr_stmt|;
 comment|// TODO: check result
 block|}
 DECL|method|getNextSlot
+specifier|private
 name|int
 name|getNextSlot
 parameter_list|()
@@ -1297,18 +1384,17 @@ specifier|final
 name|Type
 name|type
 decl_stmt|;
-DECL|field|slot
-name|int
-name|slot
-init|=
-operator|-
-literal|1
-decl_stmt|;
 DECL|field|readonly
 specifier|public
 specifier|final
 name|boolean
 name|readonly
+decl_stmt|;
+DECL|field|slot
+specifier|private
+specifier|final
+name|int
+name|slot
 decl_stmt|;
 DECL|method|Variable
 specifier|public
@@ -1322,6 +1408,9 @@ name|name
 parameter_list|,
 name|Type
 name|type
+parameter_list|,
+name|int
+name|slot
 parameter_list|,
 name|boolean
 name|readonly
@@ -1347,6 +1436,12 @@ name|type
 expr_stmt|;
 name|this
 operator|.
+name|slot
+operator|=
+name|slot
+expr_stmt|;
+name|this
+operator|.
 name|readonly
 operator|=
 name|readonly
@@ -1366,6 +1461,7 @@ block|}
 DECL|class|Parameter
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Parameter
 block|{
