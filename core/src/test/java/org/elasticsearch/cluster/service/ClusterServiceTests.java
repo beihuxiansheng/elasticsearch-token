@@ -80,18 +80,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -195,20 +183,6 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNodes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|OperationRouting
 import|;
 end_import
 
@@ -2276,6 +2250,10 @@ name|i
 operator|++
 control|)
 block|{
+while|while
+condition|(
+literal|null
+operator|!=
 name|tasks
 operator|.
 name|put
@@ -2336,9 +2314,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
+block|)
+block|)
+function|;
 block|}
+end_class
+
+begin_expr_stmt
 name|clusterService
 operator|.
 name|submitStateUpdateTasks
@@ -2427,14 +2409,19 @@ return|;
 block|}
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|latch
 operator|.
 name|await
 argument_list|()
 expr_stmt|;
-block|}
+end_expr_stmt
+
+begin_function
+unit|}      public
 DECL|method|testClusterStateBatchedUpdates
-specifier|public
 name|void
 name|testClusterStateBatchedUpdates
 parameter_list|()
@@ -3692,7 +3679,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Note, this test can only work as long as we have a single thread executor executing the state update tasks!      */
+end_comment
+
+begin_function
 DECL|method|testPrioritizedTasks
 specifier|public
 name|void
@@ -3874,6 +3867,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|testDuplicateSubmission
 specifier|public
 name|void
@@ -4107,6 +4103,9 @@ name|await
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|TestLogging
 argument_list|(
@@ -4574,6 +4573,9 @@ name|assertAllExpectationsMatched
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|TestLogging
 argument_list|(
@@ -5168,6 +5170,9 @@ name|assertAllExpectationsMatched
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_class
 DECL|class|SimpleTask
 specifier|private
 specifier|static
@@ -5231,6 +5236,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|BlockingTask
 specifier|private
 specifier|static
@@ -5316,6 +5324,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|PrioritizedTask
 specifier|private
 specifier|static
@@ -5424,6 +5435,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|TimedClusterService
 specifier|static
 class|class
@@ -5490,8 +5504,8 @@ argument_list|()
 return|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
