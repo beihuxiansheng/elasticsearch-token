@@ -82,7 +82,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable [_score] is reserved"
+literal|"Variable [_score] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -164,7 +164,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable [doc] is reserved"
+literal|"Variable [doc] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -246,7 +246,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable [ctx] is reserved"
+literal|"Variable [ctx] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -362,7 +362,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable [_value] is reserved"
+literal|"Variable [_value] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -420,7 +420,7 @@ name|source
 argument_list|,
 name|root
 operator|.
-name|getExpressions
+name|getStatements
 argument_list|()
 argument_list|)
 return|;

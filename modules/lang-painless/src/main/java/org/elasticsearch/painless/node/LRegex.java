@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Constant
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 import|;
 end_import
@@ -36,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Locals
+name|Globals
 import|;
 end_import
 
@@ -49,8 +61,6 @@ operator|.
 name|painless
 operator|.
 name|Locals
-operator|.
-name|Constant
 import|;
 end_import
 
@@ -317,15 +327,16 @@ throw|;
 block|}
 name|constant
 operator|=
-name|locals
-operator|.
-name|addConstant
+operator|new
+name|Constant
 argument_list|(
 name|location
 argument_list|,
 name|Definition
 operator|.
 name|PATTERN_TYPE
+operator|.
+name|type
 argument_list|,
 literal|"regexAt$"
 operator|+
@@ -357,6 +368,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -369,6 +383,9 @@ name|load
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 name|writer
@@ -397,6 +414,13 @@ operator|.
 name|type
 argument_list|)
 expr_stmt|;
+name|globals
+operator|.
+name|addConstantInitializer
+argument_list|(
+name|constant
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -406,6 +430,9 @@ name|store
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 throw|throw
