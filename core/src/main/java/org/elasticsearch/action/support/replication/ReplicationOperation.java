@@ -499,6 +499,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|method|ReplicationOperation
+specifier|public
 name|ReplicationOperation
 parameter_list|(
 name|Request
@@ -601,6 +602,7 @@ name|opType
 expr_stmt|;
 block|}
 DECL|method|execute
+specifier|public
 name|void
 name|execute
 parameter_list|()
@@ -1698,6 +1700,7 @@ literal|false
 return|;
 block|}
 DECL|interface|Primary
+specifier|public
 interface|interface
 name|Primary
 parameter_list|<
@@ -1754,6 +1757,7 @@ name|Exception
 function_decl|;
 block|}
 DECL|interface|Replicas
+specifier|public
 interface|interface
 name|Replicas
 parameter_list|<
@@ -1893,6 +1897,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|interface|PrimaryResult
+specifier|public
 interface|interface
 name|PrimaryResult
 parameter_list|<
