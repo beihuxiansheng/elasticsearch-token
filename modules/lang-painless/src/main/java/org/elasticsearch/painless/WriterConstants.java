@@ -664,7 +664,6 @@ argument_list|)
 decl_stmt|;
 comment|/** dynamic callsite bootstrap signature */
 DECL|field|DEF_BOOTSTRAP_TYPE
-specifier|public
 specifier|final
 specifier|static
 name|MethodType
@@ -696,6 +695,10 @@ name|int
 operator|.
 name|class
 argument_list|,
+name|int
+operator|.
+name|class
+argument_list|,
 name|Object
 index|[]
 operator|.
@@ -703,7 +706,6 @@ expr|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_BOOTSTRAP_HANDLE
-specifier|public
 specifier|final
 specifier|static
 name|Handle

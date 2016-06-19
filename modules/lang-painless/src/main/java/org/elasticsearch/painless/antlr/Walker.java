@@ -2535,6 +2535,8 @@ return|return
 operator|new
 name|SSource
 argument_list|(
+name|settings
+argument_list|,
 name|sourceName
 argument_list|,
 name|sourceText

@@ -978,6 +978,10 @@ literal|"def x = 1; def y = 2; return x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
 operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
+operator|+
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -997,6 +1001,10 @@ argument_list|(
 literal|"def x = 1; def y = 2; double z = x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
 operator|+
 name|DefBootstrap
 operator|.
@@ -1018,6 +1026,10 @@ literal|"def x = 1; int y = 2; return x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
 operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
+operator|+
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -1034,6 +1046,10 @@ argument_list|(
 literal|"int x = 1; def y = 2; return x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
 operator|+
 name|DefBootstrap
 operator|.

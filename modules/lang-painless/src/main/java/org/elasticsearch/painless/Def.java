@@ -1581,6 +1581,8 @@ name|call
 argument_list|,
 name|nestedType
 argument_list|,
+literal|0
+argument_list|,
 name|DefBootstrap
 operator|.
 name|REFERENCE

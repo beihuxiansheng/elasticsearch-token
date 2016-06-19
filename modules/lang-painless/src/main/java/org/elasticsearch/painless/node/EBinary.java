@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|DefBootstrap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 import|;
 end_import
@@ -182,6 +194,13 @@ name|cat
 init|=
 literal|false
 decl_stmt|;
+DECL|field|originallyExplicit
+name|boolean
+name|originallyExplicit
+init|=
+literal|false
+decl_stmt|;
+comment|// record whether there was originally an explicit cast
 DECL|method|EBinary
 specifier|public
 name|EBinary
@@ -233,6 +252,10 @@ name|Locals
 name|locals
 parameter_list|)
 block|{
+name|originallyExplicit
+operator|=
+name|explicit
+expr_stmt|;
 if|if
 condition|(
 name|operation
@@ -4106,6 +4129,25 @@ name|DEF
 operator|)
 condition|)
 block|{
+comment|// def calls adopt the wanted return value. if there was a narrowing cast,
+comment|// we need to flag that so that its done at runtime.
+name|int
+name|flags
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|originallyExplicit
+condition|)
+block|{
+name|flags
+operator||=
+name|DefBootstrap
+operator|.
+name|OPERATOR_EXPLICIT_CAST
+expr_stmt|;
+block|}
 name|writer
 operator|.
 name|writeDynamicBinaryInstruction
@@ -4124,7 +4166,7 @@ name|actual
 argument_list|,
 name|operation
 argument_list|,
-literal|false
+name|flags
 argument_list|)
 expr_stmt|;
 block|}
