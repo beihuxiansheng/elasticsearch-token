@@ -1098,7 +1098,7 @@ name|Object
 operator|)
 name|handle
 operator|.
-name|invoke
+name|invokeExact
 argument_list|(
 operator|(
 name|Object
