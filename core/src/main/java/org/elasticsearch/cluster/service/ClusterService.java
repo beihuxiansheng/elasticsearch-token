@@ -1639,7 +1639,9 @@ name|DiscoveryNode
 name|localNode
 parameter_list|()
 block|{
-return|return
+name|DiscoveryNode
+name|localNode
+init|=
 name|clusterState
 operator|.
 name|getNodes
@@ -1647,6 +1649,24 @@ argument_list|()
 operator|.
 name|getLocalNode
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|localNode
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No local node found. Is the node started?"
+argument_list|)
+throw|;
+block|}
+return|return
+name|localNode
 return|;
 block|}
 DECL|method|operationRouting
