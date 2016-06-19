@@ -2628,6 +2628,34 @@ name|indexedDocumentId
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|getResponse
+operator|.
+name|isSourceEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"indexed document ["
+operator|+
+name|indexedDocumentIndex
+operator|+
+literal|"/"
+operator|+
+name|indexedDocumentType
+operator|+
+literal|"/"
+operator|+
+name|indexedDocumentId
+operator|+
+literal|"] source disabled"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|PercolateQueryBuilder
@@ -2690,7 +2718,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"nothing to percolator"
+literal|"no document to percolate"
 argument_list|)
 throw|;
 block|}
