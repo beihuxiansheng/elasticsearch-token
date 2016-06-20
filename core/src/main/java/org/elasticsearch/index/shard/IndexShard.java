@@ -7418,6 +7418,21 @@ name|doCheckIndex
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|ClosedByInterruptException
+name|ex
+parameter_list|)
+block|{
+assert|assert
+name|cancellableThreads
+operator|.
+name|isCancelled
+argument_list|()
+assert|;
+comment|// that's fine we might run into this when we cancel the thread since Java NIO will close the channel on interrupt
+comment|// and on the next access we fail it.
+block|}
 finally|finally
 block|{
 name|store
