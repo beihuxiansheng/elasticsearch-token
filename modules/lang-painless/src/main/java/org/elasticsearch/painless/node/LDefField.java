@@ -120,20 +120,6 @@ name|MethodWriter
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|WriterConstants
-operator|.
-name|DEF_BOOTSTRAP_HANDLE
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a field load/store or shortcut on a def type.  (Internal only.)  */
 end_comment
@@ -250,12 +236,12 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
-name|String
-name|desc
+name|Type
+name|methodType
 init|=
 name|Type
 operator|.
-name|getMethodDescriptor
+name|getMethodType
 argument_list|(
 name|after
 operator|.
@@ -270,13 +256,11 @@ argument_list|)
 decl_stmt|;
 name|writer
 operator|.
-name|invokeDynamic
+name|invokeDefCall
 argument_list|(
 name|value
 argument_list|,
-name|desc
-argument_list|,
-name|DEF_BOOTSTRAP_HANDLE
+name|methodType
 argument_list|,
 name|DefBootstrap
 operator|.
@@ -304,12 +288,12 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
-name|String
-name|desc
+name|Type
+name|methodType
 init|=
 name|Type
 operator|.
-name|getMethodDescriptor
+name|getMethodType
 argument_list|(
 name|Definition
 operator|.
@@ -330,13 +314,11 @@ argument_list|)
 decl_stmt|;
 name|writer
 operator|.
-name|invokeDynamic
+name|invokeDefCall
 argument_list|(
 name|value
 argument_list|,
-name|desc
-argument_list|,
-name|DEF_BOOTSTRAP_HANDLE
+name|methodType
 argument_list|,
 name|DefBootstrap
 operator|.

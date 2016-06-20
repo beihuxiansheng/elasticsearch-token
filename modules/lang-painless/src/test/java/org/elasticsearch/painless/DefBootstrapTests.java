@@ -148,6 +148,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
+literal|0
+argument_list|,
 name|DefBootstrap
 operator|.
 name|METHOD_CALL
@@ -257,6 +259,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|0
 argument_list|,
 name|DefBootstrap
 operator|.
@@ -428,6 +432,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|0
 argument_list|,
 name|DefBootstrap
 operator|.
@@ -644,6 +650,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|0
 argument_list|,
 name|DefBootstrap
 operator|.
@@ -962,6 +970,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
+literal|0
+argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -1048,6 +1058,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|0
 argument_list|,
 name|DefBootstrap
 operator|.
@@ -1159,6 +1171,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
+literal|0
+argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -1264,6 +1278,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|0
 argument_list|,
 name|DefBootstrap
 operator|.
@@ -1395,6 +1411,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
+literal|0
+argument_list|,
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -1486,6 +1504,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|0
 argument_list|,
 name|DefBootstrap
 operator|.

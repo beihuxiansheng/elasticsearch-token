@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|CompilerSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Constant
 import|;
 end_import
@@ -984,6 +996,9 @@ parameter_list|(
 name|ClassVisitor
 name|writer
 parameter_list|,
+name|CompilerSettings
+name|settings
+parameter_list|,
 name|Globals
 name|globals
 parameter_list|)
@@ -1030,6 +1045,8 @@ name|globals
 operator|.
 name|getStatements
 argument_list|()
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
 name|write
