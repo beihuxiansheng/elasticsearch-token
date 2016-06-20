@@ -1023,17 +1023,6 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
 DECL|method|isInlineScriptEnabled
 specifier|public
 name|boolean
@@ -1366,17 +1355,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{         }
 annotation|@
 name|Override
 DECL|method|isInlineScriptEnabled
@@ -1720,17 +1698,6 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
 DECL|method|isInlineScriptEnabled
 specifier|public
 name|boolean
@@ -2034,17 +2001,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{         }
 annotation|@
 name|Override
 DECL|method|isInlineScriptEnabled

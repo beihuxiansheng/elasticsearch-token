@@ -397,7 +397,7 @@ name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
 name|stateResponse
 operator|.
@@ -422,12 +422,9 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
 name|numShards
 operator|.
 name|totalNumShards
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger
@@ -730,7 +727,7 @@ name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
 name|stateResponse
 operator|.
@@ -755,12 +752,9 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
 name|numShards
 operator|.
 name|totalNumShards
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1063,7 +1057,7 @@ name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
 name|stateResponse
 operator|.
@@ -1088,12 +1082,9 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
 name|numShards
 operator|.
 name|totalNumShards
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger

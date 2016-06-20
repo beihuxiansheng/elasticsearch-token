@@ -1121,10 +1121,6 @@ name|settings
 argument_list|,
 name|threadPool
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()

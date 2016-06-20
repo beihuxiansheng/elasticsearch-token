@@ -684,9 +684,6 @@ parameter_list|,
 name|BigArrays
 name|bigArrays
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 parameter_list|,
@@ -703,8 +700,6 @@ argument_list|,
 name|networkService
 argument_list|,
 name|bigArrays
-argument_list|,
-name|version
 argument_list|,
 name|namedWriteableRegistry
 argument_list|,

@@ -504,10 +504,6 @@ name|settings
 argument_list|,
 name|THREAD_POOL
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()

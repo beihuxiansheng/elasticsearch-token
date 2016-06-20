@@ -844,21 +844,6 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Action taken when a script is removed from the cache.      * @param script The removed script.      */
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-specifier|final
-name|CompiledScript
-name|script
-parameter_list|)
-block|{
-comment|// Nothing to do.
-block|}
 comment|/**      * Action taken when the engine is closed.      */
 annotation|@
 name|Override

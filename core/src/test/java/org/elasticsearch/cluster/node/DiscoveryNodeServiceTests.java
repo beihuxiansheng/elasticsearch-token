@@ -297,10 +297,6 @@ name|builder
 operator|.
 name|build
 argument_list|()
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode
@@ -433,10 +429,6 @@ name|builder
 operator|.
 name|build
 argument_list|()
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|int

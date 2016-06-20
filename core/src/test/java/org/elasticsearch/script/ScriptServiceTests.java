@@ -4132,19 +4132,6 @@ parameter_list|()
 block|{          }
 annotation|@
 name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{
-comment|// Nothing to do here
-block|}
-annotation|@
-name|Override
 DECL|method|isInlineScriptEnabled
 specifier|public
 name|boolean
@@ -4308,20 +4295,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{          }
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{
-comment|// Nothing to do here
-block|}
+block|{         }
 block|}
 DECL|method|emptyClusterState
 specifier|private

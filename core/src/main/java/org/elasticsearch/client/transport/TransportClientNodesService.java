@@ -416,6 +416,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -569,6 +579,8 @@ class|class
 name|TransportClientNodesService
 extends|extends
 name|AbstractComponent
+implements|implements
+name|Closeable
 block|{
 DECL|field|nodesSamplerInterval
 specifier|private
@@ -815,9 +827,6 @@ name|transportService
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -854,7 +863,9 @@ name|this
 operator|.
 name|minCompatibilityVersion
 operator|=
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
