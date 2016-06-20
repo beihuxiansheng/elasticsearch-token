@@ -430,6 +430,49 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Lambda parameters shouldn't be able to mask a variable already in scope */
+DECL|method|testNoParamMasking
+specifier|public
+name|void
+name|testNoParamMasking
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 0; List l = new ArrayList(); l.add(1); l.add(1); "
+operator|+
+literal|"return l.stream().mapToInt(x -> { x += 1; return x }).sum();"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"already defined"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testCaptureDef
 specifier|public
 name|void

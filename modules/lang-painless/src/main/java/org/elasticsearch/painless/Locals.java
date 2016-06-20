@@ -361,7 +361,7 @@ name|captureCount
 decl_stmt|;
 name|locals
 operator|.
-name|defineVariable
+name|addVariable
 argument_list|(
 name|parameter
 operator|.
@@ -451,7 +451,7 @@ control|)
 block|{
 name|locals
 operator|.
-name|defineVariable
+name|addVariable
 argument_list|(
 name|parameter
 operator|.
