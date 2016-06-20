@@ -2511,11 +2511,7 @@ argument_list|)
 operator|.
 name|toInstance
 argument_list|(
-operator|new
-name|Environment
-argument_list|(
-name|settings
-argument_list|)
+name|environment
 argument_list|)
 expr_stmt|;
 name|b
