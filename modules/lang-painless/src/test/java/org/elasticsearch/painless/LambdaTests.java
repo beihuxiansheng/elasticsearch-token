@@ -274,6 +274,58 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** interface ignores return value */
+DECL|method|testVoidReturn
+specifier|public
+name|void
+name|testVoidReturn
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"List list = new ArrayList(); "
+operator|+
+literal|"list.add(2); "
+operator|+
+literal|"List list2 = new ArrayList(); "
+operator|+
+literal|"list.forEach(x -> list2.add(x));"
+operator|+
+literal|"return list[0]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** interface ignores return value */
+DECL|method|testVoidReturnDef
+specifier|public
+name|void
+name|testVoidReturnDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"def list = new ArrayList(); "
+operator|+
+literal|"list.add(2); "
+operator|+
+literal|"List list2 = new ArrayList(); "
+operator|+
+literal|"list.forEach(x -> list2.add(x));"
+operator|+
+literal|"return list[0]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testTwoLambdas
 specifier|public
 name|void
