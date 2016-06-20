@@ -839,6 +839,44 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Currently these do not adopt the argument value, we issue a separate cast!      */
+DECL|method|testArgumentsDef
+specifier|public
+name|void
+name|testArgumentsDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5L; return (+(int)x);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; def y = 1L; return x + (int)y"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|'b'
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 'abcdeg'; def y = 1L; x.charAt((int)y)"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Unary operators adopt the return value      */
 DECL|method|testUnaryOperatorDef
 specifier|public
