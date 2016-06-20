@@ -298,6 +298,9 @@ parameter_list|(
 name|Locals
 name|programScope
 parameter_list|,
+name|Type
+name|returnType
+parameter_list|,
 name|List
 argument_list|<
 name|Parameter
@@ -319,9 +322,7 @@ name|Locals
 argument_list|(
 name|programScope
 argument_list|,
-name|Definition
-operator|.
-name|DEF_TYPE
+name|returnType
 argument_list|)
 decl_stmt|;
 for|for
