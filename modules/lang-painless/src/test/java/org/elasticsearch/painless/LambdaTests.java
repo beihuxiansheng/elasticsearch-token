@@ -561,6 +561,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNestedCaptureParams
+specifier|public
+name|void
+name|testNestedCaptureParams
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int foo(Function f) { return f.apply(1) }"
+operator|+
+literal|"return foo(x -> foo(y -> x + 1))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testWrongArity
 specifier|public
 name|void
@@ -642,6 +661,40 @@ operator|.
 name|contains
 argument_list|(
 literal|"Incorrect number of parameters"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaInFunction
+specifier|public
+name|void
+name|testLambdaInFunction
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def foo() { Optional.empty().orElseGet(() -> 5) } return foo();"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaCaptureFunctionParam
+specifier|public
+name|void
+name|testLambdaCaptureFunctionParam
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def foo(int x) { Optional.empty().orElseGet(() -> x) } return foo(5);"
 argument_list|)
 argument_list|)
 expr_stmt|;
