@@ -136,14 +136,14 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"_timestamp"
+literal|"_all"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"enabled"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 operator|.
 name|endObject
@@ -205,7 +205,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|timestampFieldMapper
+name|allFieldMapper
 argument_list|()
 operator|.
 name|enabled
@@ -213,7 +213,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
