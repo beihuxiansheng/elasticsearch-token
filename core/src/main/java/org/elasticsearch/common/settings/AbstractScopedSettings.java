@@ -1671,6 +1671,15 @@ operator|+
 literal|"?"
 expr_stmt|;
 block|}
+else|else
+block|{
+name|msg
+operator|+=
+literal|" please check that any required plugins are installed, or check the breaking changes documentation for removed "
+operator|+
+literal|"settings"
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
