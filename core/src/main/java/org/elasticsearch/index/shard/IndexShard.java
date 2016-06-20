@@ -510,6 +510,20 @@ name|common
 operator|.
 name|util
 operator|.
+name|CancellableThreads
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|AbstractRunnable
@@ -1546,7 +1560,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|Consumer
+name|BiConsumer
 import|;
 end_import
 
@@ -1558,7 +1572,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiConsumer
+name|Consumer
 import|;
 end_import
 
@@ -1721,6 +1735,12 @@ specifier|private
 specifier|final
 name|QueryCachingPolicy
 name|cachingPolicy
+decl_stmt|;
+DECL|field|cancellableThreads
+specifier|private
+specifier|final
+name|CancellableThreads
+name|cancellableThreads
 decl_stmt|;
 comment|/**      * How many bytes we are currently moving to disk, via either IndexWriter.flush or refresh.  IndexingMemoryController polls this      * across all shards to decide if throttling is necessary because moving bytes to disk is falling behind vs incoming documents      * being indexed/deleted.      */
 DECL|field|writingBytes
@@ -2401,6 +2421,12 @@ name|shardRouting
 argument_list|,
 literal|null
 argument_list|)
+expr_stmt|;
+name|cancellableThreads
+operator|=
+operator|new
+name|CancellableThreads
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|store
@@ -5384,6 +5410,13 @@ name|engine
 argument_list|)
 expr_stmt|;
 block|}
+name|cancellableThreads
+operator|.
+name|cancel
+argument_list|(
+name|reason
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -7375,8 +7408,14 @@ condition|)
 block|{
 try|try
 block|{
+name|cancellableThreads
+operator|.
+name|executeIO
+argument_list|(
+name|this
+operator|::
 name|doCheckIndex
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
