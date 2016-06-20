@@ -56,6 +56,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -124,6 +134,19 @@ operator|=
 name|constant
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|extractVariables
+name|void
+name|extractVariables
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|variables
+parameter_list|)
+block|{}
 annotation|@
 name|Override
 DECL|method|analyze

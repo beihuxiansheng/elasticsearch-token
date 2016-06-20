@@ -76,8 +76,28 @@ name|MethodWriter
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
-comment|/**  * Respresents a decimal constant.  */
+comment|/**  * Represents a decimal constant.  */
 end_comment
 
 begin_class
@@ -114,9 +134,27 @@ name|this
 operator|.
 name|value
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|value
+argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|extractVariables
+name|void
+name|extractVariables
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|variables
+parameter_list|)
+block|{}
 annotation|@
 name|Override
 DECL|method|analyze
