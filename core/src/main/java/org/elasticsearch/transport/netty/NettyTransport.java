@@ -2194,12 +2194,6 @@ specifier|final
 name|NetworkService
 name|networkService
 decl_stmt|;
-DECL|field|version
-specifier|protected
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|blockingClient
 specifier|protected
 specifier|final
@@ -2448,9 +2442,6 @@ parameter_list|,
 name|BigArrays
 name|bigArrays
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 parameter_list|,
@@ -2480,12 +2471,6 @@ operator|.
 name|bigArrays
 operator|=
 name|bigArrays
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|this
 operator|.
@@ -6480,9 +6465,8 @@ name|Version
 operator|.
 name|smallest
 argument_list|(
-name|this
-operator|.
-name|version
+name|getCurrentVersion
+argument_list|()
 argument_list|,
 name|node
 operator|.
@@ -9836,6 +9820,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|getCurrentVersion
+specifier|protected
+name|Version
+name|getCurrentVersion
+parameter_list|()
+block|{
+comment|// this is just for tests to mock stuff like the nodes version - tests can override this internally
+return|return
+name|Version
+operator|.
+name|CURRENT
+return|;
 block|}
 block|}
 end_class

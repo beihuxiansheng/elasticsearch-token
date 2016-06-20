@@ -260,9 +260,9 @@ name|nettyFromThreadPool
 argument_list|(
 name|settings
 argument_list|,
-name|version
-argument_list|,
 name|threadPool
+argument_list|,
+name|version
 argument_list|)
 decl_stmt|;
 name|transportService

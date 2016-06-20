@@ -34,16 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -937,19 +927,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** The version of elasticsearch the node should act like. */
-DECL|method|getVersion
-specifier|protected
-name|Version
-name|getVersion
-parameter_list|()
-block|{
-return|return
-name|Version
-operator|.
-name|CURRENT
-return|;
-block|}
 comment|/** The plugin classes that should be added to the node. */
 DECL|method|getPlugins
 specifier|protected
@@ -1198,9 +1175,6 @@ operator|new
 name|MockNode
 argument_list|(
 name|settings
-argument_list|,
-name|getVersion
-argument_list|()
 argument_list|,
 name|getPlugins
 argument_list|()

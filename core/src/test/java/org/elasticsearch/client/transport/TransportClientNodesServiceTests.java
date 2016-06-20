@@ -739,10 +739,6 @@ argument_list|,
 name|transportService
 argument_list|,
 name|threadPool
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 expr_stmt|;
 name|this

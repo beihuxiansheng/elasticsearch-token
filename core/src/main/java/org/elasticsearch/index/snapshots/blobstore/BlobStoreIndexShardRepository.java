@@ -890,11 +890,6 @@ specifier|private
 name|RateLimiter
 name|restoreRateLimiter
 decl_stmt|;
-DECL|field|rateLimiterListener
-specifier|private
-name|RateLimiterListener
-name|rateLimiterListener
-decl_stmt|;
 DECL|field|snapshotThrottleListener
 specifier|private
 name|RateLimitingInputStream
@@ -1145,12 +1140,6 @@ operator|.
 name|restoreRateLimiter
 operator|=
 name|restoreRateLimiter
-expr_stmt|;
-name|this
-operator|.
-name|rateLimiterListener
-operator|=
-name|rateLimiterListener
 expr_stmt|;
 name|this
 operator|.

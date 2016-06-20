@@ -288,9 +288,6 @@ name|ElectMasterService
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -302,7 +299,9 @@ name|this
 operator|.
 name|minMasterVersion
 operator|=
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
