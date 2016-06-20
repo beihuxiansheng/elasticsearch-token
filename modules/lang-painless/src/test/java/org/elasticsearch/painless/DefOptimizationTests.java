@@ -1609,6 +1609,34 @@ literal|"INVOKEDYNAMIC plus(Ljava/lang/Object;)D"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testLambdaReturnType
+specifier|public
+name|void
+name|testLambdaReturnType
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"List l = new ArrayList(); l.removeIf(x -> x< 10)"
+argument_list|,
+literal|"synthetic lambda$0(Ljava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaArguments
+specifier|public
+name|void
+name|testLambdaArguments
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"List l = new ArrayList(); l.stream().mapToDouble(Double::valueOf).map(x -> x + 1)"
+argument_list|,
+literal|"synthetic lambda$0(D)D"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
