@@ -1943,6 +1943,38 @@ name|IllegalAccessException
 name|e
 parameter_list|)
 block|{
+comment|// is it a synthetic method? If we generated the method ourselves, be more helpful. It can only fail
+comment|// because the arity does not match the expected interface type.
+if|if
+condition|(
+name|call
+operator|.
+name|contains
+argument_list|(
+literal|"$"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Incorrect number of parameters for ["
+operator|+
+name|interfaceMethod
+operator|.
+name|name
+operator|+
+literal|"] in ["
+operator|+
+name|clazz
+operator|.
+name|clazz
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
