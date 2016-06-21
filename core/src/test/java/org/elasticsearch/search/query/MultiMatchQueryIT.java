@@ -4429,7 +4429,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"theone"
+literal|"theother"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4439,7 +4439,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"theother"
+literal|"theone"
 argument_list|)
 argument_list|)
 expr_stmt|;
