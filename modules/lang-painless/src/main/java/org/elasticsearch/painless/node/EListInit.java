@@ -124,6 +124,10 @@ name|Set
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents a list initialization shortcut.  */
+end_comment
+
 begin_class
 DECL|class|EListInit
 specifier|public
