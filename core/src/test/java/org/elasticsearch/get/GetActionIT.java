@@ -30,6 +30,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ShardOperationFailedException
@@ -153,6 +163,20 @@ operator|.
 name|get
 operator|.
 name|MultiGetResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
 import|;
 end_import
 
@@ -288,9 +312,33 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalSettingsPlugin
 import|;
 end_import
 
@@ -301,6 +349,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -321,6 +379,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -411,6 +479,18 @@ operator|.
 name|Matchers
 operator|.
 name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -6432,6 +6512,14 @@ name|addMapping
 argument_list|(
 literal|"my-type1"
 argument_list|,
+literal|"_timestamp"
+argument_list|,
+literal|"enabled=true"
+argument_list|,
+literal|"_ttl"
+argument_list|,
+literal|"enabled=true"
+argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"type=parent"
@@ -6643,6 +6731,66 @@ name|getResponse
 operator|.
 name|getField
 argument_list|(
+literal|"_timestamp"
+argument_list|)
+operator|.
+name|isMetadataField
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|getField
+argument_list|(
+literal|"_timestamp"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"205097"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|getField
+argument_list|(
+literal|"_ttl"
+argument_list|)
+operator|.
+name|isMetadataField
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// TODO: _ttl should return the original value, but it does not work today because
+comment|// it would use now() instead of the value of _timestamp to rebase
+comment|// assertThat(getResponse.getField("_ttl").getValue().toString(), equalTo("10000000205097"));
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|getField
+argument_list|(
 literal|"_parent"
 argument_list|)
 operator|.
@@ -6798,6 +6946,66 @@ literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|getField
+argument_list|(
+literal|"_timestamp"
+argument_list|)
+operator|.
+name|isMetadataField
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|getField
+argument_list|(
+literal|"_timestamp"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"205097"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|getResponse
+operator|.
+name|getField
+argument_list|(
+literal|"_ttl"
+argument_list|)
+operator|.
+name|isMetadataField
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// TODO: _ttl should return the original value, but it does not work today because
+comment|// it would use now() instead of the value of _timestamp to rebase
+comment|//assertThat(getResponse.getField("_ttl").getValue().toString(), equalTo("10000000000000"));
 name|assertThat
 argument_list|(
 name|getResponse
@@ -8330,6 +8538,12 @@ literal|"  \"mappings\": {\n"
 operator|+
 literal|"    \"parentdoc\": {\n"
 operator|+
+literal|"      \"_ttl\": {\n"
+operator|+
+literal|"        \"enabled\": true\n"
+operator|+
+literal|"      }\n"
+operator|+
 literal|"    },\n"
 operator|+
 literal|"    \"doc\": {\n"
@@ -8337,6 +8551,12 @@ operator|+
 literal|"      \"_parent\": {\n"
 operator|+
 literal|"        \"type\": \"parentdoc\"\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"_ttl\": {\n"
+operator|+
+literal|"        \"enabled\": true\n"
 operator|+
 literal|"      }\n"
 operator|+
@@ -8417,6 +8637,8 @@ index|[]
 name|fieldsList
 init|=
 block|{
+literal|"_ttl"
+block|,
 literal|"_parent"
 block|}
 decl_stmt|;
@@ -8491,6 +8713,22 @@ literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\"\n"
 operator|+
+literal|"  },\n"
+operator|+
+literal|"  \"mappings\": {\n"
+operator|+
+literal|"    \"parentdoc\": {},\n"
+operator|+
+literal|"    \"doc\": {\n"
+operator|+
+literal|"      \"_timestamp\": {\n"
+operator|+
+literal|"        \"enabled\": true\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
 literal|"  }\n"
 operator|+
 literal|"}"
@@ -8562,6 +8800,8 @@ index|[]
 name|fieldsList
 init|=
 block|{
+literal|"_timestamp"
+block|,
 literal|"_routing"
 block|}
 decl_stmt|;
