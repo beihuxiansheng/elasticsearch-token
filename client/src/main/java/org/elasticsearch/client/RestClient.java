@@ -1116,7 +1116,7 @@ argument_list|,
 name|httpResponse
 argument_list|)
 expr_stmt|;
-name|onSuccess
+name|onResponse
 argument_list|(
 name|host
 argument_list|)
@@ -1220,7 +1220,7 @@ expr_stmt|;
 break|break;
 default|default:
 comment|//mark host alive and don't retry, as the error should be a request problem
-name|onSuccess
+name|onResponse
 argument_list|(
 name|host
 argument_list|)
@@ -1548,10 +1548,10 @@ name|rotatedHosts
 return|;
 block|}
 comment|/**      * Called after each successful request call.      * Receives as an argument the host that was used for the successful request.      */
-DECL|method|onSuccess
+DECL|method|onResponse
 specifier|private
 name|void
-name|onSuccess
+name|onResponse
 parameter_list|(
 name|HttpHost
 name|host
