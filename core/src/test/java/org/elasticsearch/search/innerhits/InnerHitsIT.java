@@ -1668,7 +1668,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|addFieldDataField
+name|addDocValueField
 argument_list|(
 literal|"comments.message"
 argument_list|)
@@ -3324,7 +3324,7 @@ operator|new
 name|InnerHitBuilder
 argument_list|()
 operator|.
-name|addFieldDataField
+name|addDocValueField
 argument_list|(
 literal|"message"
 argument_list|)

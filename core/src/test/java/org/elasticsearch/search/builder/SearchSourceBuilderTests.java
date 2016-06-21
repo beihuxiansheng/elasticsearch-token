@@ -1786,7 +1786,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|fields
+name|storedFields
 argument_list|(
 name|fields
 argument_list|)
@@ -1823,7 +1823,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|fieldDataField
+name|docValueField
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
