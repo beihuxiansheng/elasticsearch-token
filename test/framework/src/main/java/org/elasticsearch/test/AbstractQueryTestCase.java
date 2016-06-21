@@ -5989,8 +5989,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-name|scriptModule
-argument_list|,
 operator|new
 name|IndexSettingsModule
 argument_list|(
@@ -6132,14 +6130,10 @@ argument_list|)
 decl_stmt|;
 name|scriptService
 operator|=
-name|injector
+name|scriptModule
 operator|.
-name|getInstance
-argument_list|(
-name|ScriptService
-operator|.
-name|class
-argument_list|)
+name|getScriptService
+argument_list|()
 expr_stmt|;
 name|similarityService
 operator|=
