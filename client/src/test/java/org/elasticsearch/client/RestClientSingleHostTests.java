@@ -1018,6 +1018,12 @@ argument_list|,
 literal|9200
 argument_list|)
 expr_stmt|;
+name|failureListener
+operator|=
+operator|new
+name|TrackingFailureListener
+argument_list|()
+expr_stmt|;
 name|restClient
 operator|=
 name|RestClient
@@ -1037,21 +1043,13 @@ argument_list|(
 name|defaultHeaders
 argument_list|)
 operator|.
-name|build
-argument_list|()
-expr_stmt|;
-name|failureListener
-operator|=
-operator|new
-name|TrackingFailureListener
-argument_list|()
-expr_stmt|;
-name|restClient
-operator|.
 name|setFailureListener
 argument_list|(
 name|failureListener
 argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Verifies the content of the {@link HttpRequest} that's internally created and passed through to the http client      */

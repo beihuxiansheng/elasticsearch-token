@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class responsible for sniffing nodes from an elasticsearch cluster and setting them to a provided instance of {@link RestClient}.  * Must be created via {@link Builder}, which allows to set all of the different options or rely on defaults.  * A background task fetches the nodes from elasticsearch and updates them periodically.  * Supports sniffing on failure, meaning that the client will notify the sniffer at each host failure, so that nodes can be updated  * straightaway.  */
+comment|/**  * Class responsible for sniffing nodes from an elasticsearch cluster and setting them to a provided instance of {@link RestClient}.  * Must be created via {@link Builder}, which allows to set all of the different options or rely on defaults.  * A background task fetches the nodes through the {@link HostsSniffer} and sets them to the {@link RestClient} instance.  * It is possible to perform sniffing on failure by creating a {@link SniffOnFailureListener} and providing it as an argument to  * {@link org.elasticsearch.client.RestClient.Builder#setFailureListener(RestClient.FailureListener)}. The Sniffer implementation  * needs to be lazily set to the previously created SniffOnFailureListener through {@link SniffOnFailureListener#setSniffer(Sniffer)}.  */
 end_comment
 
 begin_class
@@ -180,10 +180,6 @@ specifier|public
 specifier|final
 class|class
 name|Sniffer
-extends|extends
-name|RestClient
-operator|.
-name|FailureListener
 implements|implements
 name|Closeable
 block|{
@@ -203,12 +199,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|sniffOnFailure
-specifier|private
-specifier|final
-name|boolean
-name|sniffOnFailure
-decl_stmt|;
 DECL|field|task
 specifier|private
 specifier|final
@@ -227,9 +217,6 @@ name|hostsSniffer
 parameter_list|,
 name|long
 name|sniffInterval
-parameter_list|,
-name|boolean
-name|sniffOnFailure
 parameter_list|,
 name|long
 name|sniffAfterFailureDelay
@@ -251,47 +238,26 @@ argument_list|,
 name|sniffAfterFailureDelay
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|sniffOnFailure
-operator|=
-name|sniffOnFailure
-expr_stmt|;
-name|restClient
-operator|.
-name|setFailureListener
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|onFailure
+comment|/**      * Triggers a new sniffing round and explicitly takes out the failed host provided as argument      */
+DECL|method|sniffOnFailure
 specifier|public
 name|void
-name|onFailure
+name|sniffOnFailure
 parameter_list|(
 name|HttpHost
-name|host
+name|failedHost
 parameter_list|)
-throws|throws
-name|IOException
 block|{
-if|if
-condition|(
-name|sniffOnFailure
-condition|)
-block|{
-comment|//re-sniff immediately but take out the node that failed
+name|this
+operator|.
 name|task
 operator|.
 name|sniffOnFailure
 argument_list|(
-name|host
+name|failedHost
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -574,13 +540,22 @@ name|List
 argument_list|<
 name|HttpHost
 argument_list|>
-name|sniffedNodes
+name|sniffedHosts
 init|=
 name|hostsSniffer
 operator|.
 name|sniffHosts
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"sniffed hosts: "
+operator|+
+name|sniffedHosts
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|excludeHost
@@ -588,7 +563,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sniffedNodes
+name|sniffedHosts
 operator|.
 name|remove
 argument_list|(
@@ -596,29 +571,38 @@ name|excludeHost
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sniffedHosts
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"sniffed nodes: "
-operator|+
-name|sniffedNodes
+literal|"no hosts to set, hosts will be updated at the next sniffing round"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
 name|this
 operator|.
 name|restClient
 operator|.
 name|setHosts
 argument_list|(
-name|sniffedNodes
+name|sniffedHosts
 operator|.
 name|toArray
 argument_list|(
 operator|new
 name|HttpHost
 index|[
-name|sniffedNodes
+name|sniffedHosts
 operator|.
 name|size
 argument_list|()
@@ -626,6 +610,7 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -795,13 +780,6 @@ name|sniffIntervalMillis
 init|=
 name|DEFAULT_SNIFF_INTERVAL
 decl_stmt|;
-DECL|field|sniffOnFailure
-specifier|private
-name|boolean
-name|sniffOnFailure
-init|=
-literal|true
-decl_stmt|;
 DECL|field|sniffAfterFailureDelayMillis
 specifier|private
 name|long
@@ -887,26 +865,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Enables/disables sniffing on failure. If enabled, at each failure nodes will be reloaded, and a new sniff execution will          * be scheduled after a shorter time than usual (sniffAfterFailureDelayMillis).          */
-DECL|method|setSniffOnFailure
-specifier|public
-name|Builder
-name|setSniffOnFailure
-parameter_list|(
-name|boolean
-name|sniffOnFailure
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sniffOnFailure
-operator|=
-name|sniffOnFailure
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**          * Sets the delay of a sniff execution scheduled after a failure (in milliseconds)          */
 DECL|method|setSniffAfterFailureDelayMillis
 specifier|public
@@ -958,8 +916,6 @@ argument_list|,
 name|hostsSniffer
 argument_list|,
 name|sniffIntervalMillis
-argument_list|,
-name|sniffOnFailure
 argument_list|,
 name|sniffAfterFailureDelayMillis
 argument_list|)
