@@ -1547,7 +1547,7 @@ condition|(
 name|augmentation
 condition|)
 block|{
-comment|// virtual/interface method disguised as static
+comment|// static method disguised as virtual/interface method
 name|params
 operator|=
 operator|new
