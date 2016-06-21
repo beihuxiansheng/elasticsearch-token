@@ -118,7 +118,7 @@ name|pipeline
 operator|.
 name|movavg
 operator|.
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 import|;
 end_import
 
@@ -746,7 +746,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 operator|.
 name|MODEL
 operator|.
@@ -763,7 +763,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 operator|.
 name|SETTINGS
 operator|.
@@ -1048,7 +1048,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 operator|.
 name|MODEL
 operator|.
@@ -1065,7 +1065,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 operator|.
 name|SETTINGS
 operator|.

@@ -2432,10 +2432,6 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode

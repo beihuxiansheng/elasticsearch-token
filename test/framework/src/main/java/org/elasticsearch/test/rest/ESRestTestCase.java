@@ -2335,7 +2335,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"start setup test [{}]"
 argument_list|,
@@ -2369,7 +2369,7 @@ expr_stmt|;
 block|}
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"end setup test [{}]"
 argument_list|,

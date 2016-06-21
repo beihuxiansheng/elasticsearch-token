@@ -1404,8 +1404,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|MetaDataIndexUpgradeService
@@ -1527,10 +1525,6 @@ argument_list|,
 name|indicesService
 argument_list|,
 name|allocationService
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|,
 operator|new
 name|AliasValidator

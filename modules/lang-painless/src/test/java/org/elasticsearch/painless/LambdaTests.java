@@ -252,7 +252,76 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x = x + 1; return x;})"
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x = x + 1; return x })"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnneededCurlyStatements
+specifier|public
+name|void
+name|testUnneededCurlyStatements
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x + 1 })"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** interface ignores return value */
+DECL|method|testVoidReturn
+specifier|public
+name|void
+name|testVoidReturn
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"List list = new ArrayList(); "
+operator|+
+literal|"list.add(2); "
+operator|+
+literal|"List list2 = new ArrayList(); "
+operator|+
+literal|"list.forEach(x -> list2.add(x));"
+operator|+
+literal|"return list[0]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** interface ignores return value */
+DECL|method|testVoidReturnDef
+specifier|public
+name|void
+name|testVoidReturnDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"def list = new ArrayList(); "
+operator|+
+literal|"list.add(2); "
+operator|+
+literal|"List list2 = new ArrayList(); "
+operator|+
+literal|"list.forEach(x -> list2.add(x));"
+operator|+
+literal|"return list[0]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -314,6 +383,318 @@ operator|+
 literal|"}"
 operator|+
 literal|"return sum;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapture
+specifier|public
+name|void
+name|testCapture
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return Optional.empty().orElseGet(() -> x);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testTwoCaptures
+specifier|public
+name|void
+name|testTwoCaptures
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"1test"
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 1; String y = 'test'; return Optional.empty().orElseGet(() -> x + y);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCapturesAreReadOnly
+specifier|public
+name|void
+name|testCapturesAreReadOnly
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1); l.add(1); "
+operator|+
+literal|"return l.stream().mapToInt(x -> { l = null; return x + 1 }).sum();"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"is read-only"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testOnlyCapturesAreReadOnly
+specifier|public
+name|void
+name|testOnlyCapturesAreReadOnly
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|4
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1); l.add(1); "
+operator|+
+literal|"return l.stream().mapToInt(x -> { x += 1; return x }).sum();"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Lambda parameters shouldn't be able to mask a variable already in scope */
+DECL|method|testNoParamMasking
+specifier|public
+name|void
+name|testNoParamMasking
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int x = 0; List l = new ArrayList(); l.add(1); l.add(1); "
+operator|+
+literal|"return l.stream().mapToInt(x -> { x += 1; return x }).sum();"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"already defined"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCaptureDef
+specifier|public
+name|void
+name|testCaptureDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; def y = Optional.empty(); y.orElseGet(() -> x);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNestedCapture
+specifier|public
+name|void
+name|testNestedCapture
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; int y = 1;"
+operator|+
+literal|"return Optional.empty().orElseGet(() -> x ? 5 : Optional.empty().orElseGet(() -> y));"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNestedCaptureParams
+specifier|public
+name|void
+name|testNestedCaptureParams
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int foo(Function f) { return f.apply(1) }"
+operator|+
+literal|"return foo(x -> foo(y -> x + 1))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testWrongArity
+specifier|public
+name|void
+name|testWrongArity
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"Optional.empty().orElseGet(x -> x);"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Incorrect number of parameters"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testWrongArityDef
+specifier|public
+name|void
+name|testWrongArityDef
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"def y = Optional.empty(); return y.orElseGet(x -> x);"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Incorrect number of parameters"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaInFunction
+specifier|public
+name|void
+name|testLambdaInFunction
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def foo() { Optional.empty().orElseGet(() -> 5) } return foo();"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaCaptureFunctionParam
+specifier|public
+name|void
+name|testLambdaCaptureFunctionParam
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def foo(int x) { Optional.empty().orElseGet(() -> x) } return foo(5);"
 argument_list|)
 argument_list|)
 expr_stmt|;

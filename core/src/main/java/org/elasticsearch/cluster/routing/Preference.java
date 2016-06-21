@@ -82,13 +82,6 @@ argument_list|(
 literal|"_only_local"
 argument_list|)
 block|,
-comment|/**      * Route to specific node only      */
-DECL|enum constant|ONLY_NODE
-name|ONLY_NODE
-argument_list|(
-literal|"_only_node"
-argument_list|)
-block|,
 comment|/**      * Route to only node with attribute      */
 DECL|enum constant|ONLY_NODES
 name|ONLY_NODES
@@ -193,12 +186,6 @@ literal|"_prefer_nodes"
 case|:
 return|return
 name|PREFER_NODES
-return|;
-case|case
-literal|"_only_node"
-case|:
-return|return
-name|ONLY_NODE
 return|;
 case|case
 literal|"_local"

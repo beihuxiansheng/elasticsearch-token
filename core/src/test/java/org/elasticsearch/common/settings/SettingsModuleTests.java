@@ -278,7 +278,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"unknown setting [some.foo.bar]"
+literal|"unknown setting [some.foo.bar] please check that any required plugins are installed, or check the breaking "
+operator|+
+literal|"changes documentation for removed settings"
 argument_list|,
 name|ex
 operator|.
@@ -765,7 +767,9 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"tribe.blocks validation failed: unknown setting [wtf]"
+literal|"tribe.blocks validation failed: unknown setting [wtf] please check that any required plugins are"
+operator|+
+literal|" installed, or check the breaking changes documentation for removed settings"
 argument_list|,
 name|ex
 operator|.

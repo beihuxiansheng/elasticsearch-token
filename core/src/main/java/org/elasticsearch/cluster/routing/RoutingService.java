@@ -269,18 +269,6 @@ name|void
 name|doClose
 parameter_list|()
 block|{     }
-DECL|method|getAllocationService
-specifier|public
-name|AllocationService
-name|getAllocationService
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|allocationService
-return|;
-block|}
 comment|/**      * Initiates a reroute.      */
 DECL|method|reroute
 specifier|public

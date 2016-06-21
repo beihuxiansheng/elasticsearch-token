@@ -50,7 +50,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingService
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -152,13 +154,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setRoutingService
+DECL|method|setAllocationService
 specifier|public
 name|void
-name|setRoutingService
+name|setAllocationService
 parameter_list|(
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 parameter_list|)
 block|{      }
 annotation|@

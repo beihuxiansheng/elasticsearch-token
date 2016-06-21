@@ -100,7 +100,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|pipeline
 operator|.
 name|movavg
 operator|.
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 import|;
 end_import
 
@@ -274,14 +274,14 @@ name|MovAvgTests
 extends|extends
 name|BasePipelineAggregationTestCase
 argument_list|<
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -305,11 +305,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 name|factory
 init|=
 operator|new
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -725,11 +725,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 name|expected
 init|=
 operator|new
-name|MovAvgPipelineAggregatorBuilder
+name|MovAvgPipelineAggregationBuilder
 argument_list|(
 literal|"commits_moving_avg"
 argument_list|,
@@ -877,7 +877,7 @@ name|nextToken
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|newAgg
 init|=
 name|aggParsers

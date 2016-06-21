@@ -470,19 +470,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-annotation|@
-name|Nullable
-name|CompiledScript
-name|script
-parameter_list|)
-block|{     }
-annotation|@
-name|Override
 DECL|method|close
 specifier|public
 name|void

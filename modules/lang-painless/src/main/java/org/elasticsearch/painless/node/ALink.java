@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Location
 import|;
 end_import
@@ -174,6 +186,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 comment|/**      * Write a load for the specific link type.      */
@@ -184,6 +199,9 @@ name|load
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 comment|/**      * Write a store for the specific link type.      */
@@ -194,6 +212,9 @@ name|store
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 comment|/**      * Used to copy link data from one to another during analysis in the case of replacement.      */

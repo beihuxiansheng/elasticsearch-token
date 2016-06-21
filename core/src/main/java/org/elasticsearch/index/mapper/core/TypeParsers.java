@@ -3496,9 +3496,7 @@ block|{
 comment|// "default" similarity has been renamed into "classic" in 3.x.
 name|value
 operator|=
-name|SimilarityService
-operator|.
-name|DEFAULT_SIMILARITY
+literal|"classic"
 expr_stmt|;
 block|}
 name|SimilarityProvider

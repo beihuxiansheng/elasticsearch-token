@@ -86,18 +86,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
@@ -348,9 +336,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -374,8 +359,6 @@ argument_list|,
 name|ListTasksAction
 operator|.
 name|NAME
-argument_list|,
-name|clusterName
 argument_list|,
 name|threadPool
 argument_list|,

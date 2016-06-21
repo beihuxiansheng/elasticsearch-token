@@ -2031,6 +2031,9 @@ name|settings
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
@@ -4487,6 +4490,9 @@ argument_list|,
 name|secretKey
 argument_list|,
 literal|null
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

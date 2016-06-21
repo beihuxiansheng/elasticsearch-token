@@ -806,7 +806,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"1.0 = tf(freq=1.0), with freq of"
+literal|"freq=1.0 = termFreq=1.0"
 argument_list|)
 argument_list|)
 expr_stmt|;

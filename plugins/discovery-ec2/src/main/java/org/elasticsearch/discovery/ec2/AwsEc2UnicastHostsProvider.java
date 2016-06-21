@@ -416,12 +416,6 @@ specifier|final
 name|AmazonEC2
 name|client
 decl_stmt|;
-DECL|field|version
-specifier|private
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|bindAnyGroup
 specifier|private
 specifier|final
@@ -485,9 +479,6 @@ name|transportService
 parameter_list|,
 name|AwsEc2Service
 name|awsEc2Service
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -509,12 +500,6 @@ name|awsEc2Service
 operator|.
 name|client
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|this
 operator|.
@@ -1074,7 +1059,9 @@ argument_list|,
 name|emptySet
 argument_list|()
 argument_list|,
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()

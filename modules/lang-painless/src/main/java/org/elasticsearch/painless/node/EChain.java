@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Cast
@@ -102,6 +114,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|DefBootstrap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Operation
 import|;
 end_import
@@ -147,6 +171,26 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -286,7 +330,12 @@ name|this
 operator|.
 name|links
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|links
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -312,6 +361,51 @@ name|expression
 operator|=
 name|expression
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|extractVariables
+name|void
+name|extractVariables
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|variables
+parameter_list|)
+block|{
+for|for
+control|(
+name|ALink
+name|link
+range|:
+name|links
+control|)
+block|{
+name|link
+operator|.
+name|extractVariables
+argument_list|(
+name|variables
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
+name|expression
+operator|.
+name|extractVariables
+argument_list|(
+name|variables
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1326,6 +1420,26 @@ condition|)
 block|{
 if|if
 condition|(
+name|promote
+operator|.
+name|sort
+operator|==
+name|Sort
+operator|.
+name|DEF
+condition|)
+block|{
+comment|// shifts are promoted independently, but for the def type, we need object.
+name|expression
+operator|.
+name|expected
+operator|=
+name|promote
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|shiftDistance
 operator|.
 name|sort
@@ -1611,6 +1725,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 name|writer
@@ -1675,6 +1792,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// call the write method on the link to prepare for a load/store operation
@@ -1713,6 +1832,8 @@ operator|.
 name|load
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// read the current link's value
@@ -1731,6 +1852,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
@@ -1823,6 +1946,8 @@ operator|.
 name|store
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// store the link's value from the stack in its respective variable/field/array
@@ -1854,6 +1979,8 @@ operator|.
 name|load
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// load the current link's value
@@ -1900,6 +2027,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
@@ -1935,7 +2064,9 @@ name|DEF_TYPE
 argument_list|,
 name|operation
 argument_list|,
-literal|true
+name|DefBootstrap
+operator|.
+name|OPERATOR_COMPOUND_ASSIGNMENT
 argument_list|)
 expr_stmt|;
 block|}
@@ -1996,6 +2127,8 @@ operator|.
 name|store
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// store the link's value from the stack in its respective variable/field/array
@@ -2008,6 +2141,8 @@ operator|.
 name|write
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// write the bytecode for the rhs expression
@@ -2042,6 +2177,8 @@ operator|.
 name|store
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// store the link's value from the stack in its respective variable/field/array
@@ -2055,6 +2192,8 @@ operator|.
 name|load
 argument_list|(
 name|writer
+argument_list|,
+name|globals
 argument_list|)
 expr_stmt|;
 comment|// read the link's value onto the stack

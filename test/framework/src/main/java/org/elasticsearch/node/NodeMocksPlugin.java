@@ -20,20 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|MockBigArrays
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -48,24 +34,7 @@ name|NodeMocksPlugin
 extends|extends
 name|Plugin
 block|{
-DECL|method|onModule
-specifier|public
-name|void
-name|onModule
-parameter_list|(
-name|NodeModule
-name|module
-parameter_list|)
-block|{
-name|module
-operator|.
-name|bigArraysImpl
-operator|=
-name|MockBigArrays
-operator|.
-name|class
-expr_stmt|;
-block|}
+comment|// just a marker plugin for MockNode to mock out BigArrays
 block|}
 end_class
 

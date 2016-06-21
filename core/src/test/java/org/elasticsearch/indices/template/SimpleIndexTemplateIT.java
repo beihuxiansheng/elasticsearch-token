@@ -3151,7 +3151,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"unknown setting [index.does_not_exist]"
+literal|"unknown setting [index.does_not_exist] please check that any required plugins are"
+operator|+
+literal|" installed, or check the breaking changes documentation for removed settings"
 argument_list|,
 name|e
 operator|.

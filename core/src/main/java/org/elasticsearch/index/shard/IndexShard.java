@@ -1546,7 +1546,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|Consumer
+name|BiConsumer
 import|;
 end_import
 
@@ -1558,7 +1558,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiConsumer
+name|Consumer
 import|;
 end_import
 

@@ -28,6 +28,26 @@ name|Location
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * The superclass for all other nodes.  */
 end_comment
@@ -56,9 +76,27 @@ name|this
 operator|.
 name|location
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|location
+argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds all variable names referenced to the variable set.      *<p>      * This can be called at any time, e.g. to support lambda capture.      * @param variables set of variables referenced (any scope)      */
+DECL|method|extractVariables
+specifier|abstract
+name|void
+name|extractVariables
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|variables
+parameter_list|)
+function_decl|;
 DECL|method|createError
 specifier|public
 name|RuntimeException

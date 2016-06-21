@@ -1067,7 +1067,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"invalid sequence of tokens near ['b']."
+literal|"unexpected token ['b'] was expecting one of [{<EOF>, ';'}]."
 argument_list|,
 name|e
 operator|.

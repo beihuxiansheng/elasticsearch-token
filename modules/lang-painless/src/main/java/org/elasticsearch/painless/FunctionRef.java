@@ -813,7 +813,6 @@ block|}
 comment|/**       * If the interface expects a primitive type to be returned, we can't return Object,      * But we can set SAM to the wrapper version, and a cast will take place       */
 DECL|method|adapt
 specifier|private
-specifier|static
 name|MethodType
 name|adapt
 parameter_list|(
@@ -824,6 +823,39 @@ name|MethodType
 name|actual
 parameter_list|)
 block|{
+comment|// add some checks, now that we've set everything up, to deliver exceptions as early as possible.
+if|if
+condition|(
+name|expected
+operator|.
+name|parameterCount
+argument_list|()
+operator|!=
+name|actual
+operator|.
+name|parameterCount
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Incorrect number of parameters for ["
+operator|+
+name|invokedName
+operator|+
+literal|"] in ["
+operator|+
+name|invokedType
+operator|.
+name|returnType
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|expected
