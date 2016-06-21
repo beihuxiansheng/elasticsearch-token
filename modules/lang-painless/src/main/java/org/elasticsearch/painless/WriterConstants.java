@@ -585,6 +585,22 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|AUGMENTATION_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
+name|AUGMENTATION_TYPE
+init|=
+name|Type
+operator|.
+name|getType
+argument_list|(
+name|Augmentation
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * A Method instance for {@linkplain Pattern#compile}. This isn't available from Definition because we intentionally don't add it there      * so that the script can't create regexes without this syntax. Essentially, our static regex syntax has a monopoly on building regexes      * because it can do it statically. This is both faster and prevents the script from doing something super slow like building a regex      * per time it is run.      */
 DECL|field|PATTERN_COMPILE
 specifier|public
