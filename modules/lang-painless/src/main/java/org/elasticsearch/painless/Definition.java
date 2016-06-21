@@ -1868,20 +1868,9 @@ argument_list|)
 assert|;
 name|type
 operator|=
-name|org
+name|WriterConstants
 operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Type
-operator|.
-name|getType
-argument_list|(
-name|Augmentation
-operator|.
-name|class
-argument_list|)
+name|AUGMENTATION_TYPE
 expr_stmt|;
 block|}
 else|else
@@ -5236,9 +5225,7 @@ name|name
 operator|+
 literal|"] not found for class ["
 operator|+
-name|owner
-operator|.
-name|clazz
+name|implClass
 operator|.
 name|getName
 argument_list|()

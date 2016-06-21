@@ -412,11 +412,7 @@ name|name
 argument_list|,
 name|call
 argument_list|,
-name|captured
-operator|.
-name|type
-operator|.
-name|clazz
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

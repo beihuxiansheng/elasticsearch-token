@@ -140,7 +140,7 @@ specifier|final
 name|Handle
 name|implMethodASM
 decl_stmt|;
-comment|/**      * Creates a new FunctionRef, which will resolve {@code type::call} from the whitelist.      * @param expected interface type to implement.      * @param type the left hand side of a method reference expression      * @param call the right hand side of a method reference expression      * @param captures captured arguments      */
+comment|/**      * Creates a new FunctionRef, which will resolve {@code type::call} from the whitelist.      * @param expected interface type to implement.      * @param type the left hand side of a method reference expression      * @param call the right hand side of a method reference expression      * @param numCaptures number of captured arguments      */
 DECL|method|FunctionRef
 specifier|public
 name|FunctionRef
@@ -156,12 +156,8 @@ parameter_list|,
 name|String
 name|call
 parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-modifier|...
-name|captures
+name|int
+name|numCaptures
 parameter_list|)
 block|{
 name|this
@@ -183,18 +179,16 @@ name|type
 argument_list|,
 name|call
 argument_list|,
-name|captures
-operator|.
-name|length
+name|numCaptures
 operator|>
 literal|0
 argument_list|)
 argument_list|,
-name|captures
+name|numCaptures
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new FunctionRef (already resolved)      * @param expected interface type to implement      * @param method functional interface method      * @param impl implementation method      * @param captures captured arguments      */
+comment|/**      * Creates a new FunctionRef (already resolved)      * @param expected interface type to implement      * @param method functional interface method      * @param impl implementation method      * @param numCaptures number of captured arguments      */
 DECL|method|FunctionRef
 specifier|public
 name|FunctionRef
@@ -214,12 +208,8 @@ operator|.
 name|Method
 name|impl
 parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-modifier|...
-name|captures
+name|int
+name|numCaptures
 parameter_list|)
 block|{
 comment|// e.g. compareTo
@@ -230,6 +220,15 @@ operator|.
 name|name
 expr_stmt|;
 comment|// e.g. (Object)Comparator
+name|MethodType
+name|implType
+init|=
+name|impl
+operator|.
+name|getMethodType
+argument_list|()
+decl_stmt|;
+comment|// only include captured parameters as arguments
 name|invokedType
 operator|=
 name|MethodType
@@ -240,7 +239,17 @@ name|expected
 operator|.
 name|clazz
 argument_list|,
-name|captures
+name|implType
+operator|.
+name|dropParameterTypes
+argument_list|(
+name|numCaptures
+argument_list|,
+name|implType
+operator|.
+name|parameterCount
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// e.g. (Object,Object)int
@@ -362,6 +371,28 @@ name|getInternalName
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|impl
+operator|.
+name|augmentation
+condition|)
+block|{
+name|ownerIsInterface
+operator|=
+literal|false
+expr_stmt|;
+name|owner
+operator|=
+name|WriterConstants
+operator|.
+name|AUGMENTATION_TYPE
+operator|.
+name|getInternalName
+argument_list|()
+expr_stmt|;
+block|}
 else|else
 block|{
 name|ownerIsInterface
@@ -432,9 +463,7 @@ name|dropParameterTypes
 argument_list|(
 literal|0
 argument_list|,
-name|captures
-operator|.
-name|length
+name|numCaptures
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -457,12 +486,8 @@ parameter_list|,
 name|MethodHandle
 name|impl
 parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-modifier|...
-name|captures
+name|int
+name|numCaptures
 parameter_list|)
 block|{
 comment|// e.g. compareTo
@@ -473,6 +498,15 @@ operator|.
 name|name
 expr_stmt|;
 comment|// e.g. (Object)Comparator
+name|MethodType
+name|implType
+init|=
+name|impl
+operator|.
+name|type
+argument_list|()
+decl_stmt|;
+comment|// only include captured parameters as arguments
 name|invokedType
 operator|=
 name|MethodType
@@ -483,7 +517,17 @@ name|expected
 operator|.
 name|clazz
 argument_list|,
-name|captures
+name|implType
+operator|.
+name|dropParameterTypes
+argument_list|(
+name|numCaptures
+argument_list|,
+name|implType
+operator|.
+name|parameterCount
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// e.g. (Object,Object)int
@@ -525,9 +569,7 @@ name|dropParameterTypes
 argument_list|(
 literal|0
 argument_list|,
-name|captures
-operator|.
-name|length
+name|numCaptures
 argument_list|)
 argument_list|)
 expr_stmt|;
