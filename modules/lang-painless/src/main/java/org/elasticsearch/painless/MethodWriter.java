@@ -888,14 +888,12 @@ name|Location
 name|location
 parameter_list|)
 block|{
-if|if
-condition|(
+assert|assert
 name|slot
-operator|>
+operator|!=
 operator|-
 literal|1
-condition|)
-block|{
+assert|;
 name|writeDebugInfo
 argument_list|(
 name|location
@@ -952,7 +950,6 @@ argument_list|(
 name|end
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|writeCast
 specifier|public
