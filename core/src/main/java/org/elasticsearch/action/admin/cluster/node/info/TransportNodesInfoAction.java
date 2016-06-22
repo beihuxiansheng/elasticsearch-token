@@ -470,6 +470,11 @@ name|request
 operator|.
 name|ingest
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|indices
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -858,6 +858,11 @@ name|ingestService
 operator|.
 name|info
 argument_list|()
+argument_list|,
+name|indicesService
+operator|.
+name|getTotalIndexingBufferBytes
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -892,6 +897,9 @@ name|plugin
 parameter_list|,
 name|boolean
 name|ingest
+parameter_list|,
+name|boolean
+name|indices
 parameter_list|)
 block|{
 return|return
@@ -1030,6 +1038,15 @@ operator|.
 name|info
 argument_list|()
 operator|)
+else|:
+literal|null
+argument_list|,
+name|indices
+condition|?
+name|indicesService
+operator|.
+name|getTotalIndexingBufferBytes
+argument_list|()
 else|:
 literal|null
 argument_list|)
