@@ -137,6 +137,8 @@ class|class
 name|IcuFoldingTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|field|unicodeSetFilter
 specifier|private
@@ -282,6 +284,18 @@ name|tokenStream
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
+return|;
 block|}
 block|}
 end_class

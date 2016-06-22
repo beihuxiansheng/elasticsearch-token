@@ -87,6 +87,8 @@ class|class
 name|KuromojiIterationMarkCharFilterFactory
 extends|extends
 name|AbstractCharFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|field|normalizeKanji
 specifier|private
@@ -172,6 +174,18 @@ name|normalizeKanji
 argument_list|,
 name|normalizeKana
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}

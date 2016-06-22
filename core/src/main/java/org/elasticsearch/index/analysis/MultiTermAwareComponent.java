@@ -16,27 +16,25 @@ name|analysis
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|AnalysisFactoryTestCase
-import|;
-end_import
+begin_comment
+comment|/** Elasticsearch counterpart of {@link org.apache.lucene.analysis.util.MultiTermAwareComponent}. */
+end_comment
 
-begin_class
-DECL|class|AnalysisFactoryTests
+begin_interface
+DECL|interface|MultiTermAwareComponent
 specifier|public
-class|class
-name|AnalysisFactoryTests
-extends|extends
-name|AnalysisFactoryTestCase
+interface|interface
+name|MultiTermAwareComponent
 block|{
-comment|// tests are inherited
+comment|/** Returns an analysis component to handle analysis if multi-term queries.      * The returned component must be a TokenizerFactory, TokenFilterFactory or CharFilterFactory.      */
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 
