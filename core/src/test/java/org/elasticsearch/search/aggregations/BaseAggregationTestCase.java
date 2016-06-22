@@ -1193,6 +1193,11 @@ operator|new
 name|IndicesModule
 argument_list|(
 name|namedWriteableRegistry
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 block|{
 annotation|@
