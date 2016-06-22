@@ -252,6 +252,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
 name|Objects
 operator|.
 name|requireNonNull
@@ -307,7 +319,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a persisted or running task. Running tasks just have a {@link #getTask()} while persisted tasks will have either a  * {@link #getError()} or {@link #getResult()}.  */
+comment|/**  * Information about a persisted or running task. Running tasks just have a {@link #getTask()} while persisted tasks will have either a  * {@link #getError()} or {@link #getResponse()}.  */
 end_comment
 
 begin_class
@@ -321,6 +333,12 @@ name|Writeable
 implements|,
 name|ToXContent
 block|{
+DECL|field|completed
+specifier|private
+specifier|final
+name|boolean
+name|completed
+decl_stmt|;
 DECL|field|task
 specifier|private
 specifier|final
@@ -337,23 +355,28 @@ name|error
 decl_stmt|;
 annotation|@
 name|Nullable
-DECL|field|result
+DECL|field|response
 specifier|private
 specifier|final
 name|BytesReference
-name|result
+name|response
 decl_stmt|;
-comment|/**      * Construct a {@linkplain PersistedTaskInfo} for a running task.      */
+comment|/**      * Construct a {@linkplain PersistedTaskInfo} for a task for which we don't have a result or error. That usually means that the task      * is incomplete, but it could also mean that we waited for the task to complete but it didn't save any error information.      */
 DECL|method|PersistedTaskInfo
 specifier|public
 name|PersistedTaskInfo
 parameter_list|(
+name|boolean
+name|completed
+parameter_list|,
 name|TaskInfo
 name|task
 parameter_list|)
 block|{
 name|this
 argument_list|(
+name|completed
+argument_list|,
 name|task
 argument_list|,
 literal|null
@@ -378,6 +401,8 @@ name|IOException
 block|{
 name|this
 argument_list|(
+literal|true
+argument_list|,
 name|task
 argument_list|,
 name|toXContent
@@ -398,20 +423,22 @@ name|TaskInfo
 name|task
 parameter_list|,
 name|ToXContent
-name|result
+name|response
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|this
 argument_list|(
+literal|true
+argument_list|,
 name|task
 argument_list|,
 literal|null
 argument_list|,
 name|toXContent
 argument_list|(
-name|result
+name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -420,6 +447,9 @@ DECL|method|PersistedTaskInfo
 specifier|private
 name|PersistedTaskInfo
 parameter_list|(
+name|boolean
+name|completed
+parameter_list|,
 name|TaskInfo
 name|task
 parameter_list|,
@@ -434,6 +464,12 @@ name|BytesReference
 name|result
 parameter_list|)
 block|{
+name|this
+operator|.
+name|completed
+operator|=
+name|completed
+expr_stmt|;
 name|this
 operator|.
 name|task
@@ -453,7 +489,7 @@ name|error
 expr_stmt|;
 name|this
 operator|.
-name|result
+name|response
 operator|=
 name|result
 expr_stmt|;
@@ -469,6 +505,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|completed
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 name|task
 operator|=
 operator|new
@@ -484,7 +527,7 @@ operator|.
 name|readOptionalBytesReference
 argument_list|()
 expr_stmt|;
-name|result
+name|response
 operator|=
 name|in
 operator|.
@@ -505,6 +548,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|completed
+argument_list|)
+expr_stmt|;
 name|task
 operator|.
 name|writeTo
@@ -523,7 +573,7 @@ name|out
 operator|.
 name|writeOptionalBytesReference
 argument_list|(
-name|result
+name|response
 argument_list|)
 expr_stmt|;
 block|}
@@ -538,7 +588,7 @@ return|return
 name|task
 return|;
 block|}
-comment|/**      * Get the error that finished this task. Will return null if the task didn't finish with an error or it hasn't yet finished.      */
+comment|/**      * Get the error that finished this task. Will return null if the task didn't finish with an error, it hasn't yet finished, or didn't      * persist its result.      */
 DECL|method|getError
 specifier|public
 name|BytesReference
@@ -549,7 +599,7 @@ return|return
 name|error
 return|;
 block|}
-comment|/**      * Convert {@link #getError()} from XContent to a Map for easy processing. Will return null if the task didn't finish with an error or      * hasn't yet finished.      */
+comment|/**      * Convert {@link #getError()} from XContent to a Map for easy processing. Will return an empty map if the task didn't finish with an      * error, hasn't yet finished, or didn't persist its result.      */
 DECL|method|getErrorAsMap
 specifier|public
 name|Map
@@ -569,7 +619,8 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+name|emptyMap
+argument_list|()
 return|;
 block|}
 return|return
@@ -584,19 +635,19 @@ name|v2
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the result that this task finished with. Will return null if the task was finished by an error or it hasn't yet finished.      */
-DECL|method|getResult
+comment|/**      * Get the response that this task finished with. Will return null if the task was finished by an error, it hasn't yet finished, or      * didn't persist its result.      */
+DECL|method|getResponse
 specifier|public
 name|BytesReference
-name|getResult
+name|getResponse
 parameter_list|()
 block|{
 return|return
-name|result
+name|response
 return|;
 block|}
-comment|/**      * Convert {@link #getResult()} from XContent to a Map for easy processing. Will return null if the task was finished with an error or      * hasn't yet finished.      */
-DECL|method|getResultAsMap
+comment|/**      * Convert {@link #getResponse()} from XContent to a Map for easy processing. Will return an empty map if the task was finished with an      * error, hasn't yet finished, or didn't persist its result.      */
+DECL|method|getResponseAsMap
 specifier|public
 name|Map
 argument_list|<
@@ -604,24 +655,25 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getResultAsMap
+name|getResponseAsMap
 parameter_list|()
 block|{
 if|if
 condition|(
-name|result
+name|response
 operator|==
 literal|null
 condition|)
 block|{
 return|return
-literal|null
+name|emptyMap
+argument_list|()
 return|;
 block|}
 return|return
 name|convertToMap
 argument_list|(
-name|result
+name|response
 argument_list|,
 literal|false
 argument_list|)
@@ -630,7 +682,6 @@ name|v2
 argument_list|()
 return|;
 block|}
-comment|/**      * Was the task completed before returned?      */
 DECL|method|isCompleted
 specifier|public
 name|boolean
@@ -638,13 +689,7 @@ name|isCompleted
 parameter_list|()
 block|{
 return|return
-name|error
-operator|!=
-literal|null
-operator|||
-name|result
-operator|!=
-literal|null
+name|completed
 return|;
 block|}
 annotation|@
@@ -728,7 +773,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|result
+name|response
 operator|!=
 literal|null
 condition|)
@@ -737,9 +782,9 @@ name|XContentHelper
 operator|.
 name|writeRawField
 argument_list|(
-literal|"result"
+literal|"response"
 argument_list|,
-name|result
+name|response
 argument_list|,
 name|builder
 argument_list|,
@@ -774,6 +819,8 @@ lambda|->
 operator|new
 name|PersistedTaskInfo
 argument_list|(
+literal|true
+argument_list|,
 operator|(
 name|TaskInfo
 operator|)
@@ -844,7 +891,7 @@ argument_list|,
 operator|new
 name|ParseField
 argument_list|(
-literal|"result"
+literal|"response"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -912,6 +959,17 @@ name|Objects
 operator|.
 name|equals
 argument_list|(
+name|completed
+argument_list|,
+name|other
+operator|.
+name|completed
+argument_list|)
+operator|&&
+name|Objects
+operator|.
+name|equals
+argument_list|(
 name|task
 argument_list|,
 name|other
@@ -936,12 +994,12 @@ name|Objects
 operator|.
 name|equals
 argument_list|(
-name|getResultAsMap
+name|getResponseAsMap
 argument_list|()
 argument_list|,
 name|other
 operator|.
-name|getResultAsMap
+name|getResponseAsMap
 argument_list|()
 argument_list|)
 return|;
@@ -960,12 +1018,14 @@ name|Objects
 operator|.
 name|hash
 argument_list|(
+name|completed
+argument_list|,
 name|task
 argument_list|,
 name|getErrorAsMap
 argument_list|()
 argument_list|,
-name|getResultAsMap
+name|getResponseAsMap
 argument_list|()
 argument_list|)
 return|;

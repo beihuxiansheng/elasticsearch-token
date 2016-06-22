@@ -422,6 +422,30 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|onFailureProcessorConfigs
+operator|!=
+literal|null
+operator|&&
+name|onFailureProcessors
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"pipeline ["
+operator|+
+name|id
+operator|+
+literal|"] cannot have an empty on_failure option defined"
+argument_list|)
+throw|;
+block|}
 name|CompoundProcessor
 name|compoundProcessor
 init|=

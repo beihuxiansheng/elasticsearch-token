@@ -494,6 +494,9 @@ return|return
 operator|new
 name|PersistedTaskInfo
 argument_list|(
+name|randomBoolean
+argument_list|()
+argument_list|,
 name|randomTaskInfo
 argument_list|()
 argument_list|)
@@ -525,7 +528,7 @@ argument_list|(
 name|randomTaskInfo
 argument_list|()
 argument_list|,
-name|randomTaskActionResult
+name|randomTaskResponse
 argument_list|()
 argument_list|)
 return|;
@@ -762,11 +765,11 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|randomTaskActionResult
+DECL|method|randomTaskResponse
 specifier|private
 specifier|static
 name|ToXContent
-name|randomTaskActionResult
+name|randomTaskResponse
 parameter_list|()
 block|{
 name|Map
@@ -843,7 +846,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Results in Elasticsearch never output a leading startObject. There isn't really a good reason, they just don't.
+comment|// Responses in Elasticsearch never output a leading startObject. There isn't really a good reason, they just don't.
 for|for
 control|(
 name|Map

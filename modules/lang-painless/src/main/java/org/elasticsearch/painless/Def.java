@@ -2005,6 +2005,8 @@ argument_list|,
 name|handle
 argument_list|,
 name|captures
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -2023,6 +2025,8 @@ argument_list|,
 name|call
 argument_list|,
 name|captures
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 block|}

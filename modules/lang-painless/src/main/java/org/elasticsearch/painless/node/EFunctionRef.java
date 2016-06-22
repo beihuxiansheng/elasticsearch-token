@@ -429,6 +429,8 @@ argument_list|,
 name|interfaceMethod
 argument_list|,
 name|implMethod
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -445,6 +447,8 @@ argument_list|,
 name|type
 argument_list|,
 name|call
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

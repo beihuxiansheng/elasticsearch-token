@@ -50,20 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|WriteRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -122,9 +108,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|mapper
 operator|.
-name|MatchPhraseQueryBuilder
+name|MapperParsingException
 import|;
 end_import
 
@@ -136,9 +122,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|query
 operator|.
-name|MapperParsingException
+name|MatchPhraseQueryBuilder
 import|;
 end_import
 
@@ -446,7 +432,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
+name|assertHitCount
 import|;
 end_import
 
@@ -466,39 +452,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertHitCount
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
 operator|.
 name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|startsWith
 import|;
 end_import
 
