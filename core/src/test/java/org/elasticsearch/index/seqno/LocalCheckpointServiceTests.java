@@ -304,6 +304,14 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
 argument_list|)
 return|;
 block|}

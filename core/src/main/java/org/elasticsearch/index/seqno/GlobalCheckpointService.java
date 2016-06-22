@@ -151,20 +151,22 @@ DECL|field|globalCheckpoint
 specifier|private
 name|long
 name|globalCheckpoint
-init|=
-name|SequenceNumbersService
-operator|.
-name|UNASSIGNED_SEQ_NO
 decl_stmt|;
+comment|/**      * Initialize the global checkpoint service. The {@code globalCheckpoint}      * should be set to the last known global checkpoint for this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED}.      *      * @param shardId          the shard this service is providing tracking      *                         local checkpoints for      * @param indexSettings    the index settings      * @param globalCheckpoint the last known global checkpoint for this shard,      *                         or      *                         {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
 DECL|method|GlobalCheckpointService
-specifier|public
 name|GlobalCheckpointService
 parameter_list|(
+specifier|final
 name|ShardId
 name|shardId
 parameter_list|,
+specifier|final
 name|IndexSettings
 name|indexSettings
+parameter_list|,
+specifier|final
+name|long
+name|globalCheckpoint
 parameter_list|)
 block|{
 name|super
@@ -211,6 +213,12 @@ operator|.
 name|getNumberOfReplicas
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|globalCheckpoint
+operator|=
+name|globalCheckpoint
 expr_stmt|;
 block|}
 comment|/**      * notifies the service of a local checkpoint. if the checkpoint is lower than the currently known one,      * this is a noop. Last, if the allocation id is not yet known, it is ignored. This to prevent late      * arrivals from shards that are removed to be re-added.      */
@@ -414,7 +422,6 @@ block|}
 comment|/**      * Scans through the currently known local checkpoints and updates the global checkpoint accordingly.      *      * @return true if the checkpoint has been updated or if it can not be updated since one of the local checkpoints      * of one of the active allocations is not known.      */
 DECL|method|updateCheckpointOnPrimary
 specifier|synchronized
-specifier|public
 name|boolean
 name|updateCheckpointOnPrimary
 parameter_list|()
@@ -605,7 +612,6 @@ block|}
 comment|/**      * updates the global checkpoint on a replica shard (after it has been updated by the primary).      */
 DECL|method|updateCheckpointOnReplica
 specifier|synchronized
-specifier|public
 name|void
 name|updateCheckpointOnReplica
 parameter_list|(

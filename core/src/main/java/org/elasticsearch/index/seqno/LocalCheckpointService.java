@@ -86,6 +86,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|SnapshotStatus
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -143,6 +157,7 @@ argument_list|>
 name|processedSeqNo
 decl_stmt|;
 DECL|field|bitArraysSize
+specifier|private
 specifier|final
 name|int
 name|bitArraysSize
@@ -150,36 +165,39 @@ decl_stmt|;
 DECL|field|firstProcessedSeqNo
 name|long
 name|firstProcessedSeqNo
-init|=
-literal|0
 decl_stmt|;
 comment|/** the current local checkpoint, i.e., all seqNo lower (&lt;=) than this number have been completed */
 DECL|field|checkpoint
 specifier|volatile
 name|long
 name|checkpoint
-init|=
-name|SequenceNumbersService
-operator|.
-name|NO_OPS_PERFORMED
 decl_stmt|;
 comment|/** the next available seqNo - used for seqNo generation */
 DECL|field|nextSeqNo
+specifier|private
 specifier|volatile
 name|long
 name|nextSeqNo
-init|=
-literal|0
 decl_stmt|;
+comment|/**      * Initialize the local checkpoint service. The {@code maxSeqNo} should be      * set to the last sequence number assigned by this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED} and      * {@code localCheckpoint} should be set to the last known local checkpoint      * for this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}.      *      * @param shardId         the shard this service is providing tracking      *                        local checkpoints for      * @param indexSettings   the index settings      * @param maxSeqNo        the last sequence number assigned by this shard, or      *                        {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint the last known local checkpoint for this shard, or      *                        {@link SequenceNumbersService#NO_OPS_PERFORMED}      */
 DECL|method|LocalCheckpointService
-specifier|public
 name|LocalCheckpointService
 parameter_list|(
+specifier|final
 name|ShardId
 name|shardId
 parameter_list|,
+specifier|final
 name|IndexSettings
 name|indexSettings
+parameter_list|,
+specifier|final
+name|long
+name|maxSeqNo
+parameter_list|,
+specifier|final
+name|long
+name|localCheckpoint
 parameter_list|)
 block|{
 name|super
@@ -189,6 +207,70 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|localCheckpoint
+operator|<
+literal|0
+operator|&&
+name|localCheckpoint
+operator|!=
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"local checkpoint must be non-negative or ["
+operator|+
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+operator|+
+literal|"] "
+operator|+
+literal|"but was ["
+operator|+
+name|localCheckpoint
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|maxSeqNo
+operator|<
+literal|0
+operator|&&
+name|maxSeqNo
+operator|!=
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"max seq. no. must be non-negative or ["
+operator|+
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+operator|+
+literal|"] but was ["
+operator|+
+name|maxSeqNo
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|bitArraysSize
 operator|=
 name|SETTINGS_BIT_ARRAYS_SIZE
@@ -208,10 +290,45 @@ name|LinkedList
 argument_list|<>
 argument_list|()
 expr_stmt|;
+name|firstProcessedSeqNo
+operator|=
+name|localCheckpoint
+operator|==
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+condition|?
+literal|0
+else|:
+name|localCheckpoint
+operator|+
+literal|1
+expr_stmt|;
+name|this
+operator|.
+name|nextSeqNo
+operator|=
+name|maxSeqNo
+operator|==
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+condition|?
+literal|0
+else|:
+name|maxSeqNo
+operator|+
+literal|1
+expr_stmt|;
+name|this
+operator|.
+name|checkpoint
+operator|=
+name|localCheckpoint
+expr_stmt|;
 block|}
 comment|/**      * issue the next sequence number      **/
 DECL|method|generateSeqNo
-specifier|public
 specifier|synchronized
 name|long
 name|generateSeqNo
@@ -224,7 +341,6 @@ return|;
 block|}
 comment|/**      * marks the processing of the given seqNo have been completed      **/
 DECL|method|markSeqNoAsCompleted
-specifier|public
 specifier|synchronized
 name|void
 name|markSeqNoAsCompleted
@@ -308,7 +424,6 @@ return|;
 block|}
 comment|/** gets the maximum seqno seen so far */
 DECL|method|getMaxSeqNo
-specifier|public
 name|long
 name|getMaxSeqNo
 parameter_list|()
@@ -473,6 +588,14 @@ assert|;
 assert|assert
 name|seqNo
 operator|>=
+name|firstProcessedSeqNo
+operator|:
+literal|"seqNo: "
+operator|+
+name|seqNo
+operator|+
+literal|" firstProcessedSeqNo: "
+operator|+
 name|firstProcessedSeqNo
 assert|;
 name|int

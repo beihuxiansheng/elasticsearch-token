@@ -196,6 +196,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|)
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|)
 expr_stmt|;
 block|}

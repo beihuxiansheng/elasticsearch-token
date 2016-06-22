@@ -88,6 +88,7 @@ init|=
 operator|-
 literal|2L
 decl_stmt|;
+comment|/**      * Represents no operations have been performed on the shard.      */
 DECL|field|NO_OPS_PERFORMED
 specifier|public
 specifier|final
@@ -108,15 +109,30 @@ specifier|final
 name|GlobalCheckpointService
 name|globalCheckpointService
 decl_stmt|;
+comment|/**      * Initialize the sequence number service. The {@code maxSeqNo}      * should be set to the last sequence number assigned by this      * shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED},      * {@code localCheckpoint} should be set to the last known local      * checkpoint for this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED}, and      * {@code globalCheckpoint} should be set to the last known global      * checkpoint for this shard, or      * {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard this service is providing tracking      *                         local checkpoints for      * @param indexSettings    the index settings      * @param maxSeqNo         the last sequence number assigned by this      *                         shard, or      *                         {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint  the last known local checkpoint for this shard,      *                         or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param globalCheckpoint the last known global checkpoint for this shard,      *                         or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
 DECL|method|SequenceNumbersService
 specifier|public
 name|SequenceNumbersService
 parameter_list|(
+specifier|final
 name|ShardId
 name|shardId
 parameter_list|,
+specifier|final
 name|IndexSettings
 name|indexSettings
+parameter_list|,
+specifier|final
+name|long
+name|maxSeqNo
+parameter_list|,
+specifier|final
+name|long
+name|localCheckpoint
+parameter_list|,
+specifier|final
+name|long
+name|globalCheckpoint
 parameter_list|)
 block|{
 name|super
@@ -134,6 +150,10 @@ argument_list|(
 name|shardId
 argument_list|,
 name|indexSettings
+argument_list|,
+name|maxSeqNo
+argument_list|,
+name|localCheckpoint
 argument_list|)
 expr_stmt|;
 name|globalCheckpointService
@@ -144,6 +164,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|indexSettings
+argument_list|,
+name|globalCheckpoint
 argument_list|)
 expr_stmt|;
 block|}
