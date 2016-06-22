@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.rest.client.http
+DECL|package|org.elasticsearch.client
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|rest
-operator|.
 name|client
-operator|.
-name|http
 package|;
 end_package
 
@@ -38,6 +32,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|client
+operator|.
+name|methods
+operator|.
+name|HttpGet
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -47,29 +57,29 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows to send DELETE requests providing a body (not supported out of the box)  */
+comment|/**  * Allows to send GET requests providing a body (not supported out of the box)  */
 end_comment
 
 begin_class
-DECL|class|HttpDeleteWithEntity
-specifier|public
+DECL|class|HttpGetWithEntity
+specifier|final
 class|class
-name|HttpDeleteWithEntity
+name|HttpGetWithEntity
 extends|extends
 name|HttpEntityEnclosingRequestBase
 block|{
 DECL|field|METHOD_NAME
-specifier|public
 specifier|final
 specifier|static
 name|String
 name|METHOD_NAME
 init|=
-literal|"DELETE"
+name|HttpGet
+operator|.
+name|METHOD_NAME
 decl_stmt|;
-DECL|method|HttpDeleteWithEntity
-specifier|public
-name|HttpDeleteWithEntity
+DECL|method|HttpGetWithEntity
+name|HttpGetWithEntity
 parameter_list|(
 specifier|final
 name|URI
