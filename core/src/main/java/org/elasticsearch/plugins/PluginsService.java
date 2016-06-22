@@ -368,6 +368,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ExecutorBuilder
@@ -1516,12 +1528,24 @@ name|moduleClass
 argument_list|)
 condition|)
 block|{
-name|logger
+if|if
+condition|(
+name|moduleClass
+operator|==
+name|ScriptModule
 operator|.
-name|warn
+name|class
+condition|)
+block|{
+comment|// This is still part of the Plugin class to point the user to the new implementation
+continue|continue;
+block|}
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
-literal|"Plugin: {} implementing onModule by the type is not of Module type {}"
-argument_list|,
+literal|"Plugin: ["
+operator|+
 name|pluginEntry
 operator|.
 name|v1
@@ -1529,11 +1553,17 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-argument_list|,
+operator|+
+literal|"] implements onModule taking a parameter that isn't a Module ["
+operator|+
 name|moduleClass
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
-expr_stmt|;
-continue|continue;
+throw|;
 block|}
 name|list
 operator|.
