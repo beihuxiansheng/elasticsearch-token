@@ -1786,7 +1786,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|fields
+name|storedFields
 argument_list|(
 name|fields
 argument_list|)
@@ -1823,7 +1823,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|fieldDataField
+name|docValueField
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -2959,8 +2959,10 @@ decl_stmt|;
 name|int
 name|max
 init|=
-name|randomInt
+name|between
 argument_list|(
+literal|2
+argument_list|,
 literal|1000
 argument_list|)
 decl_stmt|;

@@ -22,6 +22,18 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
+name|RandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
 name|generators
 operator|.
 name|RandomInts
@@ -149,20 +161,6 @@ operator|.
 name|message
 operator|.
 name|BasicStatusLine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
 import|;
 end_import
 
@@ -334,6 +332,54 @@ begin_import
 import|import static
 name|org
 operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|mockito
 operator|.
 name|Matchers
@@ -376,7 +422,7 @@ specifier|public
 class|class
 name|RestClientMultipleHostsTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|field|restClient
 specifier|private
@@ -629,7 +675,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|2
@@ -720,7 +766,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -785,7 +831,7 @@ name|statusCode
 init|=
 name|randomOkStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -800,7 +846,7 @@ name|performRequest
 argument_list|(
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
@@ -896,7 +942,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -961,7 +1007,7 @@ name|method
 init|=
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -970,7 +1016,7 @@ name|statusCode
 init|=
 name|randomErrorNoRetryStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1205,7 +1251,7 @@ name|performRequest
 argument_list|(
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1564,7 +1610,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|2
@@ -1638,7 +1684,7 @@ name|performRequest
 argument_list|(
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1822,7 +1868,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1842,7 +1888,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|2
@@ -1870,7 +1916,7 @@ name|statusCode
 init|=
 name|randomErrorNoRetryStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1888,7 +1934,7 @@ name|performRequest
 argument_list|(
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2014,7 +2060,7 @@ name|performRequest
 argument_list|(
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2154,7 +2200,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -2171,7 +2217,7 @@ literal|"/"
 operator|+
 name|randomErrorRetryStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 return|;
