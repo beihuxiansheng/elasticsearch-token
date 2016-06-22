@@ -84,25 +84,47 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -112,7 +134,7 @@ specifier|public
 class|class
 name|RestClientBuilderTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|method|testBuild
 specifier|public
@@ -257,7 +279,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 name|Integer
@@ -432,7 +454,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -495,7 +517,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -518,7 +540,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -532,7 +554,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -591,7 +613,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -606,7 +628,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1

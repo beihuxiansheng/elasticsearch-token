@@ -32,13 +32,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|client
 operator|.
-name|util
-operator|.
-name|LuceneTestCase
+name|RestClient
 import|;
 end_import
 
@@ -50,7 +48,31 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|RestClient
+name|RestClientTestCase
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -60,7 +82,7 @@ specifier|public
 class|class
 name|SniffOnFailureListenerTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|method|testSetSniffer
 specifier|public

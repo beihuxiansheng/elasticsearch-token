@@ -172,20 +172,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|mojo
@@ -229,6 +215,18 @@ operator|.
 name|client
 operator|.
 name|RestClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|RestClientTestCase
 import|;
 end_import
 
@@ -416,6 +414,42 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_comment
 comment|//animal-sniffer doesn't like our usage of com.sun.net.httpserver.* classes
 end_comment
@@ -428,7 +462,7 @@ specifier|public
 class|class
 name|HostsSnifferTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|field|sniffRequestTimeout
 specifier|private
@@ -470,7 +504,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1000
@@ -486,7 +520,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 name|HostsSniffer
@@ -1069,7 +1103,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -1121,7 +1155,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1140,7 +1174,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1189,7 +1223,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|5
@@ -1206,7 +1240,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1228,7 +1262,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1285,7 +1319,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|9200
@@ -1325,7 +1359,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1374,7 +1408,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1408,7 +1442,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1433,7 +1467,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1459,7 +1493,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -1506,7 +1540,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 name|roles
@@ -1562,7 +1596,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -1865,7 +1899,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|400
