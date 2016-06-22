@@ -860,12 +860,6 @@ name|info
 argument_list|()
 argument_list|,
 name|indicesService
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|indicesService
 operator|.
 name|getTotalIndexingBufferBytes
 argument_list|()
