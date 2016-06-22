@@ -1830,6 +1830,16 @@ name|clone
 argument_list|()
 return|;
 block|}
+comment|// pkg-private for testing
+DECL|method|includeInAll
+name|Boolean
+name|includeInAll
+parameter_list|()
+block|{
+return|return
+name|includeInAll
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|includeInAll

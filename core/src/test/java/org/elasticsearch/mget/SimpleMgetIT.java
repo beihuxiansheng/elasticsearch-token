@@ -1432,8 +1432,6 @@ name|routingKeyForShard
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"test"
-argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -1443,8 +1441,6 @@ name|routingOtherShard
 init|=
 name|routingKeyForShard
 argument_list|(
-literal|"test"
-argument_list|,
 literal|"test"
 argument_list|,
 literal|1

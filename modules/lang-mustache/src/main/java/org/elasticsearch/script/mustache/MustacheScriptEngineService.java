@@ -616,19 +616,6 @@ parameter_list|()
 block|{
 comment|// Nothing to do here
 block|}
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-name|CompiledScript
-name|script
-parameter_list|)
-block|{
-comment|// Nothing to do here
-block|}
 comment|// permission checked before doing crazy reflection
 DECL|field|SPECIAL_PERMISSION
 specifier|static

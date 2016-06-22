@@ -126,7 +126,7 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|ExtendedStatsBucketPipelineAggregatorBuilder
+name|ExtendedStatsBucketPipelineAggregationBuilder
 name|buildFactory
 parameter_list|(
 name|String
@@ -144,11 +144,11 @@ argument_list|>
 name|params
 parameter_list|)
 block|{
-name|ExtendedStatsBucketPipelineAggregatorBuilder
+name|ExtendedStatsBucketPipelineAggregationBuilder
 name|factory
 init|=
 operator|new
-name|ExtendedStatsBucketPipelineAggregatorBuilder
+name|ExtendedStatsBucketPipelineAggregationBuilder
 argument_list|(
 name|pipelineAggregatorName
 argument_list|,

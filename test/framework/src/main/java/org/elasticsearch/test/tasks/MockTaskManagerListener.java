@@ -54,6 +54,14 @@ name|Task
 name|task
 parameter_list|)
 function_decl|;
+DECL|method|waitForTaskCompletion
+name|void
+name|waitForTaskCompletion
+parameter_list|(
+name|Task
+name|task
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

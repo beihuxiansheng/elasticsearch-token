@@ -638,7 +638,9 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"unknown setting [index.creation_date]"
+literal|"unknown setting [index.creation_date] please check that any required plugins are installed, or check the "
+operator|+
+literal|"breaking changes documentation for removed settings"
 argument_list|,
 name|ex
 operator|.
@@ -1222,7 +1224,9 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"unknown setting [index.unknown.value]"
+literal|"unknown setting [index.unknown.value] please check that any required plugins are installed, or check the"
+operator|+
+literal|" breaking changes documentation for removed settings"
 argument_list|,
 name|e
 operator|.
@@ -1549,6 +1553,7 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// recreate that index
 name|client
 argument_list|()
 operator|.
@@ -1572,20 +1577,21 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-comment|// recreate that index
 synchronized|synchronized
 init|(
 name|indexVersionLock
 init|)
 block|{
-comment|// we sync here since we have to ensure that all indexing operations below for a given ID are done before we increment the
-comment|// index version otherwise a doc that is in-flight could make it into an index that it was supposed to be deleted for and our assertion fail...
+comment|// we sync here since we have to ensure that all indexing operations below for a given ID are done before
+comment|// we increment the index version otherwise a doc that is in-flight could make it into an index that it
+comment|// was supposed to be deleted for and our assertion fail...
 name|indexVersion
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
+comment|// from here on all docs with index_version == 0|1 must be gone!!!! only 2 are ok;
 name|assertAcked
 argument_list|(
 name|client
@@ -1606,7 +1612,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// from here on all docs with index_version == 0|1 must be gone!!!! only 2 are ok;
 block|}
 finally|finally
 block|{
@@ -1752,7 +1757,8 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-comment|// we only really assert that we never reuse segments of old indices or anything like this here and that nothing fails with crazy exceptions
+comment|// we only really assert that we never reuse segments of old indices or anything like this here and that nothing fails with
+comment|// crazy exceptions
 name|SearchResponse
 name|expected
 init|=

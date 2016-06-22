@@ -98,7 +98,7 @@ name|bucketmetrics
 operator|.
 name|percentile
 operator|.
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 import|;
 end_import
 
@@ -122,14 +122,14 @@ name|PercentilesBucketTests
 extends|extends
 name|AbstractBucketMetricsTestCase
 argument_list|<
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
 name|String
@@ -139,11 +139,11 @@ name|String
 name|bucketsPath
 parameter_list|)
 block|{
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 name|factory
 init|=
 operator|new
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -297,11 +297,11 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 comment|// skip object start
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 name|builder
 init|=
 operator|(
-name|PercentilesBucketPipelineAggregatorBuilder
+name|PercentilesBucketPipelineAggregationBuilder
 operator|)
 name|aggParsers
 operator|.

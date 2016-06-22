@@ -48,8 +48,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 import|;
 end_import

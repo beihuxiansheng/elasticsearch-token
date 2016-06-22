@@ -356,6 +356,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getRegisteredSettings
+specifier|public
 name|List
 argument_list|<
 name|Setting

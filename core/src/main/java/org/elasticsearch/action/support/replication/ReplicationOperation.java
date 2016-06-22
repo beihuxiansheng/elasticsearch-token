@@ -499,6 +499,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|method|ReplicationOperation
+specifier|public
 name|ReplicationOperation
 parameter_list|(
 name|Request
@@ -601,6 +602,7 @@ name|opType
 expr_stmt|;
 block|}
 DECL|method|execute
+specifier|public
 name|void
 name|execute
 parameter_list|()
@@ -725,6 +727,34 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
+name|performOnReplicas
+argument_list|(
+name|primaryId
+argument_list|,
+name|replicaRequest
+argument_list|)
+expr_stmt|;
+name|successfulShards
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|decPendingAndFinishIfNeeded
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|performOnReplicas
+specifier|private
+name|void
+name|performOnReplicas
+parameter_list|(
+name|ShardId
+name|primaryId
+parameter_list|,
+name|ReplicaRequest
+name|replicaRequest
+parameter_list|)
+block|{
 comment|// we have to get a new state after successfully indexing into the primary in order to honour recovery semantics.
 comment|// we have to make sure that every operation indexed into the primary after recovery start will also be replicated
 comment|// to the recovery target. If we use an old cluster state, we may miss a relocation that has started since then.
@@ -852,14 +882,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|successfulShards
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
-name|decPendingAndFinishIfNeeded
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|performOnReplica
 specifier|private
@@ -1698,6 +1720,7 @@ literal|false
 return|;
 block|}
 DECL|interface|Primary
+specifier|public
 interface|interface
 name|Primary
 parameter_list|<
@@ -1754,6 +1777,7 @@ name|Exception
 function_decl|;
 block|}
 DECL|interface|Replicas
+specifier|public
 interface|interface
 name|Replicas
 parameter_list|<
@@ -1893,6 +1917,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|interface|PrimaryResult
+specifier|public
 interface|interface
 name|PrimaryResult
 parameter_list|<

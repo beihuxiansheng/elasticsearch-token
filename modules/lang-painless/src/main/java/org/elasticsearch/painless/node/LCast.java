@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Location
 import|;
 end_import
@@ -51,6 +63,16 @@ operator|.
 name|Definition
 operator|.
 name|Cast
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -140,6 +162,19 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|extractVariables
+name|void
+name|extractVariables
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|variables
+parameter_list|)
+block|{}
 annotation|@
 name|Override
 DECL|method|analyze
@@ -253,6 +288,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 name|writer
@@ -278,6 +316,9 @@ name|load
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -290,6 +331,9 @@ name|store
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 throw|throw

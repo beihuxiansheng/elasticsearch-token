@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|GeneralScriptException
+name|ScriptException
 import|;
 end_import
 
@@ -756,7 +756,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|GeneralScriptException
+name|ScriptException
 name|expected
 parameter_list|)
 block|{

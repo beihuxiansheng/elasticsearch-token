@@ -72,8 +72,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessorFactory
 import|;
 end_import
@@ -1440,7 +1438,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[properties] illegal property value [invalid]. valid values are [IP, COUNTRY_ISO_CODE, COUNTRY_NAME, CONTINENT_NAME, REGION_NAME, CITY_NAME, TIMEZONE, LOCATION]"
+literal|"[properties] illegal property value [invalid]. valid values are [IP, COUNTRY_ISO_CODE, "
+operator|+
+literal|"COUNTRY_NAME, CONTINENT_NAME, REGION_NAME, CITY_NAME, TIMEZONE, LOCATION]"
 argument_list|)
 argument_list|)
 expr_stmt|;

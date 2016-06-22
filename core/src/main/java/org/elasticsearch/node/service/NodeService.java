@@ -467,12 +467,6 @@ init|=
 name|emptyMap
 argument_list|()
 decl_stmt|;
-DECL|field|version
-specifier|private
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|discovery
 specifier|private
 specifier|final
@@ -508,9 +502,6 @@ name|pluginService
 parameter_list|,
 name|CircuitBreakerService
 name|circuitBreakerService
-parameter_list|,
-name|Version
-name|version
 parameter_list|,
 name|ProcessorsRegistry
 operator|.
@@ -558,12 +549,6 @@ operator|.
 name|discovery
 operator|=
 name|discovery
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|this
 operator|.
@@ -790,7 +775,9 @@ return|return
 operator|new
 name|NodeInfo
 argument_list|(
-name|version
+name|Version
+operator|.
+name|CURRENT
 argument_list|,
 name|Build
 operator|.
@@ -925,7 +912,9 @@ return|return
 operator|new
 name|NodeInfo
 argument_list|(
-name|version
+name|Version
+operator|.
+name|CURRENT
 argument_list|,
 name|Build
 operator|.

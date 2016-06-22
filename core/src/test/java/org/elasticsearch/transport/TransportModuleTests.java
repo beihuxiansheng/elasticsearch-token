@@ -168,9 +168,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 parameter_list|)
@@ -182,8 +179,6 @@ argument_list|,
 name|circuitBreakerService
 argument_list|,
 name|threadPool
-argument_list|,
-name|version
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)
@@ -211,9 +206,6 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -223,8 +215,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-name|clusterName
 argument_list|)
 expr_stmt|;
 block|}

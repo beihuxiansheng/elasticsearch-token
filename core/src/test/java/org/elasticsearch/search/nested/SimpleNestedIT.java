@@ -2965,7 +2965,19 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2f
+name|searchResponse
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getHits
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|score
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2978,7 +2990,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"2.0 = sum of:\n  2.0 = Score based on 2 child docs in range from 0 to 1"
+literal|"0.36464313 = sum of:\n  0.36464313 = Score based on 2 child docs in range from 0 to 1"
 argument_list|)
 argument_list|)
 expr_stmt|;

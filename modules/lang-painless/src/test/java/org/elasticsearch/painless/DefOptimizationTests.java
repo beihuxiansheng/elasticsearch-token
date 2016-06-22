@@ -978,6 +978,10 @@ literal|"def x = 1; def y = 2; return x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
 operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
+operator|+
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -997,6 +1001,10 @@ argument_list|(
 literal|"def x = 1; def y = 2; double z = x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
 operator|+
 name|DefBootstrap
 operator|.
@@ -1018,6 +1026,10 @@ literal|"def x = 1; int y = 2; return x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
 operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
+operator|+
 name|DefBootstrap
 operator|.
 name|BINARY_OPERATOR
@@ -1034,6 +1046,10 @@ argument_list|(
 literal|"int x = 1; def y = 2; return x + y"
 argument_list|,
 literal|"(?s).*INVOKEDYNAMIC add.*arguments:\\s+"
+operator|+
+literal|"\\d+"
+operator|+
+literal|",\\s+"
 operator|+
 name|DefBootstrap
 operator|.
@@ -1590,6 +1606,34 @@ argument_list|(
 literal|"def x = 1; double y = +x; return y"
 argument_list|,
 literal|"INVOKEDYNAMIC plus(Ljava/lang/Object;)D"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaReturnType
+specifier|public
+name|void
+name|testLambdaReturnType
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"List l = new ArrayList(); l.removeIf(x -> x< 10)"
+argument_list|,
+literal|"synthetic lambda$0(Ljava/lang/Object;)Z"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLambdaArguments
+specifier|public
+name|void
+name|testLambdaArguments
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"List l = new ArrayList(); l.stream().mapToDouble(Double::valueOf).map(x -> x + 1)"
+argument_list|,
+literal|"synthetic lambda$0(D)D"
 argument_list|)
 expr_stmt|;
 block|}

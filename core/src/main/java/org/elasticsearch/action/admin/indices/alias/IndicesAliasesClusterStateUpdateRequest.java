@@ -69,6 +69,7 @@ index|[]
 name|actions
 decl_stmt|;
 DECL|method|IndicesAliasesClusterStateUpdateRequest
+specifier|public
 name|IndicesAliasesClusterStateUpdateRequest
 parameter_list|()
 block|{      }

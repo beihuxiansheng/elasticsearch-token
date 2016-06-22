@@ -861,10 +861,6 @@ argument_list|)
 argument_list|,
 name|bigArrays
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()

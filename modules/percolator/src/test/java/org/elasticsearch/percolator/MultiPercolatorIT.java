@@ -50,20 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -282,22 +268,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|rangeQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|percolator
 operator|.
 name|PercolatorTestUtil
@@ -447,10 +417,6 @@ operator|.
 name|nullValue
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|MultiPercolatorIT

@@ -146,16 +146,11 @@ name|DummyMasterElectionService
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|version
 argument_list|)
 expr_stmt|;
 block|}

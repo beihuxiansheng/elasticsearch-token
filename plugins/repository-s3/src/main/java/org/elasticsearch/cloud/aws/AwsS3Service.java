@@ -145,6 +145,10 @@ argument_list|,
 name|Property
 operator|.
 name|Filtered
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.secret_key: AWS Secret key. Shared with discovery-ec2 plugin      */
@@ -168,6 +172,10 @@ argument_list|,
 name|Property
 operator|.
 name|Filtered
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.protocol: Protocol for AWS API: http or https. Defaults to https. Shared with discovery-ec2 plugin      */
@@ -205,6 +213,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.host: In case of proxy, define its hostname/IP. Shared with discovery-ec2 plugin      */
@@ -224,6 +236,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.port: In case of proxy, define its port. Defaults to 80. Shared with discovery-ec2 plugin      */
@@ -251,6 +267,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.username: In case of proxy with auth, define the username. Shared with discovery-ec2 plugin      */
@@ -270,6 +290,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.password: In case of proxy with auth, define the password. Shared with discovery-ec2 plugin      */
@@ -293,6 +317,10 @@ argument_list|,
 name|Property
 operator|.
 name|Filtered
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.signer: If you are using an old AWS API version, you can define a Signer. Shared with discovery-ec2 plugin      */
@@ -312,6 +340,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.region: Region. Shared with discovery-ec2 plugin      */
@@ -344,6 +376,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Shared
 argument_list|)
 decl_stmt|;
 comment|/**      * Defines specific s3 settings starting with cloud.aws.s3.      */
@@ -685,6 +721,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|boolean
+name|useThrottleRetries
 parameter_list|)
 function_decl|;
 block|}

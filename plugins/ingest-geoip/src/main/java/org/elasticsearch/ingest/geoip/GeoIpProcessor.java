@@ -210,8 +210,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessor
 import|;
 end_import
@@ -224,8 +222,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessorFactory
 import|;
 end_import
@@ -237,8 +233,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocument
 import|;
@@ -382,8 +376,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 operator|.
 name|newConfigurationException
@@ -398,8 +390,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 operator|.
 name|readOptionalList
@@ -413,8 +403,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|ConfigurationUtils
 operator|.

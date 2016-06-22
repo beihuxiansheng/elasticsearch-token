@@ -104,10 +104,6 @@ name|JavaScriptScriptEngineService
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|JavaScriptPlugin
 specifier|public
@@ -126,30 +122,6 @@ operator|.
 name|init
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"lang-javascript"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"JavaScript plugin allowing to add javascript scripting support"
-return|;
 block|}
 annotation|@
 name|Override

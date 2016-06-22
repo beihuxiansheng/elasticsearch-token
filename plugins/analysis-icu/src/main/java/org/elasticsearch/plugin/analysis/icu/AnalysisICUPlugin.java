@@ -128,10 +128,6 @@ name|Plugin
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|AnalysisICUPlugin
 specifier|public
@@ -140,30 +136,6 @@ name|AnalysisICUPlugin
 extends|extends
 name|Plugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"analysis-icu"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"UTF related ICU analysis support"
-return|;
-block|}
 comment|/**      * Automatically called with the analysis module.      */
 DECL|method|onModule
 specifier|public
