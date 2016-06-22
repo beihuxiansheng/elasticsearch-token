@@ -455,6 +455,8 @@ name|Nullable
 name|IngestInfo
 name|ingest
 parameter_list|,
+annotation|@
+name|Nullable
 name|ByteSizeValue
 name|totalIndexingBuffer
 parameter_list|)
