@@ -22,6 +22,18 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
+name|RandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
 name|generators
 operator|.
 name|RandomInts
@@ -360,20 +372,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -592,6 +590,78 @@ begin_import
 import|import static
 name|org
 operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertArrayEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|mockito
 operator|.
 name|Matchers
@@ -658,7 +728,7 @@ specifier|public
 class|class
 name|RestClientSingleHostTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|field|restClient
 specifier|private
@@ -931,7 +1001,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -968,7 +1038,7 @@ init|=
 literal|"Header-default"
 operator|+
 operator|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -986,7 +1056,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|3
@@ -2003,7 +2073,7 @@ literal|"/"
 operator|+
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2063,7 +2133,7 @@ name|method
 init|=
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2072,7 +2142,7 @@ name|statusCode
 init|=
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2197,7 +2267,7 @@ name|method
 init|=
 name|randomHttpMethod
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2206,7 +2276,7 @@ name|statusCode
 init|=
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2313,7 +2383,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -2352,7 +2422,7 @@ init|=
 literal|"Header"
 operator|+
 operator|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -2370,7 +2440,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|3
@@ -2406,7 +2476,7 @@ name|statusCode
 init|=
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2554,7 +2624,7 @@ literal|"/"
 operator|+
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2582,7 +2652,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -2596,7 +2666,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -2642,7 +2712,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|3
@@ -2804,7 +2874,7 @@ name|request
 operator|instanceof
 name|HttpEntityEnclosingRequest
 operator|&&
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -2820,7 +2890,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|10
@@ -2871,7 +2941,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -2885,7 +2955,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -2922,7 +2992,7 @@ init|=
 literal|"Header"
 operator|+
 operator|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -2940,7 +3010,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|3

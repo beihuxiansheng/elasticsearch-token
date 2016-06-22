@@ -180,20 +180,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|codehaus
 operator|.
 name|mojo
@@ -398,6 +384,54 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_comment
 comment|/**  * Integration test to check interaction between {@link RestClient} and {@link org.apache.http.client.HttpClient}.  * Works against a real http server, one single host.  */
 end_comment
@@ -414,7 +448,7 @@ specifier|public
 class|class
 name|RestClientIntegTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|field|httpServer
 specifier|private
@@ -496,7 +530,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -533,7 +567,7 @@ init|=
 literal|"Header-default"
 operator|+
 operator|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -551,7 +585,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|3
@@ -985,7 +1019,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -1061,7 +1095,7 @@ init|=
 literal|"Header"
 operator|+
 operator|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -1079,7 +1113,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|3
@@ -1115,7 +1149,7 @@ name|statusCode
 init|=
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1303,7 +1337,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testBody
+name|bodyTest
 argument_list|(
 literal|"DELETE"
 argument_list|)
@@ -1318,16 +1352,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testBody
+name|bodyTest
 argument_list|(
 literal|"GET"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testBody
+DECL|method|bodyTest
 specifier|private
 name|void
-name|testBody
+name|bodyTest
 parameter_list|(
 name|String
 name|method
@@ -1360,7 +1394,7 @@ name|statusCode
 init|=
 name|randomStatusCode
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;

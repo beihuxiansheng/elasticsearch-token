@@ -260,20 +260,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -336,13 +322,25 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
 begin_class
 DECL|class|RequestLoggerTests
 specifier|public
 class|class
 name|RequestLoggerTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|method|testTraceRequest
 specifier|public
@@ -364,7 +362,7 @@ literal|"localhost"
 argument_list|,
 literal|9200
 argument_list|,
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -394,7 +392,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -535,7 +533,7 @@ name|request
 operator|instanceof
 name|HttpEntityEnclosingRequest
 operator|&&
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -572,7 +570,7 @@ name|entity
 decl_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -712,7 +710,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|200
@@ -764,7 +762,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|0
@@ -814,7 +812,7 @@ expr_stmt|;
 name|boolean
 name|hasBody
 init|=
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -847,7 +845,7 @@ name|entity
 decl_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean

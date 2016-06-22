@@ -60,13 +60,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|client
 operator|.
-name|util
-operator|.
-name|LuceneTestCase
+name|RestClient
 import|;
 end_import
 
@@ -78,7 +76,43 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|RestClient
+name|RestClientTestCase
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -88,7 +122,7 @@ specifier|public
 class|class
 name|HostsSnifferBuilderTests
 extends|extends
-name|LuceneTestCase
+name|RestClientTestCase
 block|{
 DECL|method|testBuild
 specifier|public
@@ -137,7 +171,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
@@ -254,7 +288,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 name|Integer
@@ -302,7 +336,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -317,7 +351,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 name|HostsSniffer
@@ -332,7 +366,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|random
+name|getRandom
 argument_list|()
 operator|.
 name|nextBoolean
@@ -347,7 +381,7 @@ name|RandomInts
 operator|.
 name|randomIntBetween
 argument_list|(
-name|random
+name|getRandom
 argument_list|()
 argument_list|,
 literal|1
