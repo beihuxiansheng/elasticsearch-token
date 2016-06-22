@@ -2545,7 +2545,7 @@ name|field
 argument_list|(
 name|SearchSourceBuilder
 operator|.
-name|FIELDS_FIELD
+name|STORED_FIELDS_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -2567,7 +2567,7 @@ name|startArray
 argument_list|(
 name|SearchSourceBuilder
 operator|.
-name|FIELDS_FIELD
+name|STORED_FIELDS_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -2609,7 +2609,7 @@ name|startArray
 argument_list|(
 name|SearchSourceBuilder
 operator|.
-name|FIELDDATA_FIELDS_FIELD
+name|DOCVALUE_FIELDS_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -3054,7 +3054,7 @@ name|currentFieldName
 argument_list|,
 name|SearchSourceBuilder
 operator|.
-name|FIELDS_FIELD
+name|STORED_FIELDS_FIELD
 argument_list|)
 condition|)
 block|{
@@ -3693,7 +3693,7 @@ name|currentFieldName
 argument_list|,
 name|SearchSourceBuilder
 operator|.
-name|FIELDS_FIELD
+name|STORED_FIELDS_FIELD
 argument_list|)
 condition|)
 block|{
@@ -3807,7 +3807,7 @@ name|currentFieldName
 argument_list|,
 name|SearchSourceBuilder
 operator|.
-name|FIELDDATA_FIELDS_FIELD
+name|DOCVALUE_FIELDS_FIELD
 argument_list|)
 condition|)
 block|{

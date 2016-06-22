@@ -4982,7 +4982,7 @@ if|if
 condition|(
 name|source
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 operator|!=
 literal|null
@@ -4997,7 +4997,7 @@ name|addAll
 argument_list|(
 name|source
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5048,7 +5048,7 @@ if|if
 condition|(
 name|source
 operator|.
-name|fieldDataFields
+name|docValueFields
 argument_list|()
 operator|!=
 literal|null
@@ -5073,7 +5073,7 @@ name|field
 range|:
 name|source
 operator|.
-name|fieldDataFields
+name|docValueFields
 argument_list|()
 control|)
 block|{
