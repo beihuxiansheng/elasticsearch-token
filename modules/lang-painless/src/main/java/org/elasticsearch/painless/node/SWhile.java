@@ -483,6 +483,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|loopCounter
+operator|!=
+literal|null
+condition|)
+block|{
 name|writer
 operator|.
 name|writeLoopCounter
@@ -506,6 +513,7 @@ argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
+block|}
 name|block
 operator|.
 name|continu
@@ -530,6 +538,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|loopCounter
+operator|!=
+literal|null
+condition|)
+block|{
 name|writer
 operator|.
 name|writeLoopCounter
@@ -544,6 +559,7 @@ argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

@@ -483,6 +483,13 @@ argument_list|,
 name|globals
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|loopCounter
+operator|!=
+literal|null
+condition|)
+block|{
 name|writer
 operator|.
 name|writeLoopCounter
@@ -506,6 +513,7 @@ argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|goTo
