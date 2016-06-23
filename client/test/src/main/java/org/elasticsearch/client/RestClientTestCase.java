@@ -116,6 +116,20 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
+name|ThreadLeakLingering
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
 name|ThreadLeakScope
 import|;
 end_import
@@ -212,6 +226,14 @@ name|Consequence
 operator|.
 name|IGNORE_REMAINING_TESTS
 argument_list|)
+annotation|@
+name|ThreadLeakLingering
+argument_list|(
+name|linger
+operator|=
+literal|5000
+argument_list|)
+comment|// 5 sec lingering
 annotation|@
 name|TimeoutSuite
 argument_list|(
