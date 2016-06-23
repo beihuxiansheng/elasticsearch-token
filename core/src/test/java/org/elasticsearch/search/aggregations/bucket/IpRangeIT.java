@@ -19,6 +19,20 @@ package|;
 end_package
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|health
+operator|.
+name|ClusterHealthStatus
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -354,6 +368,13 @@ literal|"type=ip"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|waitForRelocation
+argument_list|(
+name|ClusterHealthStatus
+operator|.
+name|GREEN
+argument_list|)
+expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -456,6 +477,16 @@ argument_list|(
 literal|"idx_unmapped"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|waitForRelocation
+argument_list|(
+name|ClusterHealthStatus
+operator|.
+name|GREEN
+argument_list|)
+expr_stmt|;
+name|refresh
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testSingleValuedField
