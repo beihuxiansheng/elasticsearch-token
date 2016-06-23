@@ -2165,7 +2165,7 @@ name|totalIndexedDocs
 argument_list|()
 argument_list|)
 operator|.
-name|setNoFields
+name|setNoStoredFields
 argument_list|()
 operator|.
 name|execute

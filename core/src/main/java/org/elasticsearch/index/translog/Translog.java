@@ -1216,6 +1216,9 @@ name|Checkpoint
 operator|.
 name|write
 argument_list|(
+name|getChannelFactory
+argument_list|()
+argument_list|,
 name|location
 operator|.
 name|resolve
@@ -6805,18 +6808,14 @@ argument_list|()
 return|;
 block|}
 DECL|method|getChannelFactory
-name|TranslogWriter
-operator|.
 name|ChannelFactory
 name|getChannelFactory
 parameter_list|()
 block|{
 return|return
-name|TranslogWriter
-operator|.
-name|ChannelFactory
-operator|.
-name|DEFAULT
+name|FileChannel
+operator|::
+name|open
 return|;
 block|}
 comment|/**      * If this {@code Translog} was closed as a side-effect of a tragic exception,      * e.g. disk full while flushing a new segment, this returns the root cause exception.      * Otherwise (no tragic exception has occurred) it returns null.      */

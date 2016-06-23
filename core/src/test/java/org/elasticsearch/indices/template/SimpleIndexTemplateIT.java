@@ -366,6 +366,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -959,15 +977,12 @@ argument_list|,
 literal|"value 2"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|ensureGreen
@@ -994,12 +1009,12 @@ literal|"value1"
 argument_list|)
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -1091,15 +1106,12 @@ argument_list|,
 literal|"value 2"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|ensureGreen
@@ -1126,12 +1138,12 @@ literal|"value1"
 argument_list|)
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -3139,7 +3151,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"unknown setting [index.does_not_exist]"
+literal|"unknown setting [index.does_not_exist] please check that any required plugins are"
+operator|+
+literal|" installed, or check the breaking changes documentation for removed settings"
 argument_list|,
 name|e
 operator|.

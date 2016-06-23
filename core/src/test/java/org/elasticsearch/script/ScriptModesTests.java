@@ -106,16 +106,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -137,16 +127,6 @@ operator|.
 name|util
 operator|.
 name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -179,18 +159,6 @@ operator|.
 name|Collections
 operator|.
 name|unmodifiableMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableSet
 import|;
 end_import
 
@@ -480,38 +448,10 @@ init|=
 operator|new
 name|ScriptEngineRegistry
 argument_list|(
-name|Arrays
+name|scriptEngines
 operator|.
-name|asList
-argument_list|(
-operator|new
-name|ScriptEngineRegistry
-operator|.
-name|ScriptEngineRegistration
-argument_list|(
-name|NativeScriptEngineService
-operator|.
-name|class
-argument_list|,
-name|NativeScriptEngineService
-operator|.
-name|NAME
-argument_list|)
-argument_list|,
-operator|new
-name|ScriptEngineRegistry
-operator|.
-name|ScriptEngineRegistration
-argument_list|(
-name|CustomScriptEngineService
-operator|.
-name|class
-argument_list|,
-name|CustomScriptEngineService
-operator|.
-name|NAME
-argument_list|)
-argument_list|)
+name|values
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|scriptSettings
@@ -1854,20 +1794,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{          }
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-annotation|@
-name|Nullable
-name|CompiledScript
-name|script
-parameter_list|)
-block|{          }
+block|{         }
 block|}
 block|}
 end_class

@@ -1323,10 +1323,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 literal|null
 argument_list|,
 operator|new
@@ -1488,10 +1484,6 @@ argument_list|,
 name|indicesService
 argument_list|,
 literal|null
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|,
 literal|null
 argument_list|,

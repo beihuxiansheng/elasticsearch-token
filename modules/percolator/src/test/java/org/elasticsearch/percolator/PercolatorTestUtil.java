@@ -52,18 +52,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|test

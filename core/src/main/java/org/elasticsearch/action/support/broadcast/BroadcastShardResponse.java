@@ -140,7 +140,7 @@ return|;
 block|}
 DECL|method|getShardId
 specifier|public
-name|int
+name|ShardId
 name|getShardId
 parameter_list|()
 block|{
@@ -148,9 +148,6 @@ return|return
 name|this
 operator|.
 name|shardId
-operator|.
-name|id
-argument_list|()
 return|;
 block|}
 annotation|@

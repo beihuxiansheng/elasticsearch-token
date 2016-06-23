@@ -986,12 +986,6 @@ specifier|final
 name|AllocationService
 name|allocationService
 decl_stmt|;
-DECL|field|version
-specifier|private
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|aliasValidator
 specifier|private
 specifier|final
@@ -1040,9 +1034,6 @@ parameter_list|,
 name|AllocationService
 name|allocationService
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|AliasValidator
 name|aliasValidator
 parameter_list|,
@@ -1084,12 +1075,6 @@ operator|.
 name|allocationService
 operator|=
 name|allocationService
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|this
 operator|.
@@ -2303,7 +2288,9 @@ name|Version
 operator|.
 name|smallest
 argument_list|(
-name|version
+name|Version
+operator|.
+name|CURRENT
 argument_list|,
 name|nodes
 operator|.

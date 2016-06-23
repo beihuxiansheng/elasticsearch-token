@@ -386,10 +386,6 @@ operator|.
 name|CURRENT
 argument_list|,
 name|threadPool
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
@@ -467,10 +463,6 @@ argument_list|,
 name|transportService
 argument_list|,
 name|awsEc2Service
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|List
@@ -1509,9 +1501,6 @@ name|transportService
 parameter_list|,
 name|AwsEc2Service
 name|service
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -1521,8 +1510,6 @@ argument_list|,
 name|transportService
 argument_list|,
 name|service
-argument_list|,
-name|version
 argument_list|)
 expr_stmt|;
 block|}
@@ -1563,10 +1550,6 @@ argument_list|,
 name|transportService
 argument_list|,
 name|awsEc2Service
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 block|{
 annotation|@
@@ -1684,10 +1667,6 @@ argument_list|,
 name|transportService
 argument_list|,
 name|awsEc2Service
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 block|{
 annotation|@

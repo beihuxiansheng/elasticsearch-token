@@ -716,8 +716,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -797,8 +795,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

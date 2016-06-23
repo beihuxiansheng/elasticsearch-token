@@ -262,10 +262,10 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
-comment|/**      * Add a listener for refreshes, calling it immediately if the location is already visible. If this runs out of listener slots then it      * forces a refresh and calls the listener immediately as well.      *      * @param location the location to listen for      * @param listener for the refresh. Called with true if registering the listener ran it out of slots and forced a refresh. Called with      *        false otherwise.      */
+comment|/**      * Add a listener for refreshes, calling it immediately if the location is already visible. If this runs out of listener slots then it      * forces a refresh and calls the listener immediately as well.      *      * @param location the location to listen for      * @param listener for the refresh. Called with true if registering the listener ran it out of slots and forced a refresh. Called with      *        false otherwise.      * @return did we call the listener (true) or register the listener to call later (false)?      */
 DECL|method|addOrNotify
 specifier|public
-name|void
+name|boolean
 name|addOrNotify
 parameter_list|(
 name|Translog
@@ -318,7 +318,9 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|true
+return|;
 block|}
 synchronized|synchronized
 init|(
@@ -368,7 +370,9 @@ name|listener
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
 comment|// No free slot so force a refresh and call the listener in this thread
@@ -384,6 +388,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Returns true if there are pending listeners.      */
 DECL|method|refreshNeeded
@@ -472,40 +479,7 @@ block|{
 comment|/*              * The translog had an empty last write location at the start of the refresh so we can't alert anyone to anything. This              * usually happens during recovery. The next refresh cycle out to pick up this refresh.              */
 return|return;
 block|}
-comment|// First check if we've actually moved forward. If not then just bail immediately.
-assert|assert
-name|lastRefreshedLocation
-operator|==
-literal|null
-operator|||
-name|currentRefreshLocation
-operator|.
-name|compareTo
-argument_list|(
-name|lastRefreshedLocation
-argument_list|)
-operator|>=
-literal|0
-assert|;
-if|if
-condition|(
-name|lastRefreshedLocation
-operator|!=
-literal|null
-operator|&&
-name|currentRefreshLocation
-operator|.
-name|compareTo
-argument_list|(
-name|lastRefreshedLocation
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-return|return;
-block|}
-comment|/*          * Set the lastRefreshedLocation so listeners that come in for locations before that will just execute inline without messing          * around with refreshListeners or synchronizing at all.          */
+comment|/*          * Set the lastRefreshedLocation so listeners that come in for locations before that will just execute inline without messing          * around with refreshListeners or synchronizing at all. Note that it is not safe for us to abort early if we haven't advanced the          * position here because we set and read lastRefreshedLocation outside of a synchronized block. We do that so that waiting for a          * refresh that has already passed is just a volatile read but the cost is that any check whether or not we've advanced the          * position will introduce a race between adding the listener and the position check. We could work around this by moving this          * assignment into the synchronized block below and double checking lastRefreshedLocation in addOrNotify's synchronized block but          * that doesn't seem worth it given that we already skip this process early if there aren't any listeners to iterate.          */
 name|lastRefreshedLocation
 operator|=
 name|currentRefreshLocation

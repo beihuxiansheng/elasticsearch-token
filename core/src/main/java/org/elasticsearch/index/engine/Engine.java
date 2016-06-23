@@ -4348,6 +4348,18 @@ operator|.
 name|endTime
 return|;
 block|}
+DECL|method|type
+specifier|abstract
+name|String
+name|type
+parameter_list|()
+function_decl|;
+DECL|method|id
+specifier|abstract
+name|String
+name|id
+parameter_list|()
+function_decl|;
 block|}
 DECL|class|Index
 specifier|public
@@ -4487,6 +4499,8 @@ operator|.
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|type
 specifier|public
 name|String
@@ -4502,6 +4516,8 @@ name|type
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|String
@@ -4845,6 +4861,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|type
 specifier|public
 name|String
@@ -4857,6 +4875,8 @@ operator|.
 name|type
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|String

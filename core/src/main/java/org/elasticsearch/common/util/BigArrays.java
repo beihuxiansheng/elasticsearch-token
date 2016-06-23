@@ -2096,8 +2096,6 @@ specifier|final
 name|BigArrays
 name|circuitBreakingInstance
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|BigArrays
 specifier|public
 name|BigArrays
@@ -2127,6 +2125,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// public for tests
 DECL|method|BigArrays
 specifier|public
 name|BigArrays

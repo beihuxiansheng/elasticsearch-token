@@ -465,9 +465,6 @@ name|settings
 parameter_list|,
 name|Version
 name|version
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 function_decl|;
 annotation|@
@@ -543,10 +540,6 @@ name|build
 argument_list|()
 argument_list|,
 name|version0
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|serviceA
@@ -622,10 +615,6 @@ name|build
 argument_list|()
 argument_list|,
 name|version1
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|serviceB
@@ -7266,10 +7255,6 @@ name|build
 argument_list|()
 argument_list|,
 name|version0
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|AtomicBoolean

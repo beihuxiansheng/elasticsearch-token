@@ -948,6 +948,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|canTripCircuitBreaker
+specifier|public
+name|boolean
+name|canTripCircuitBreaker
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

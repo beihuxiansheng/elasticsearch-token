@@ -718,7 +718,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskResultsService
+name|TaskPersistenceService
 import|;
 end_import
 
@@ -986,6 +986,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|clusterService
+specifier|private
+specifier|final
+name|ClusterService
+name|clusterService
+decl_stmt|;
 comment|// pkg private so tests can mock
 DECL|field|clusterInfoServiceImpl
 name|Class
@@ -1006,6 +1012,9 @@ name|ClusterModule
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|ClusterService
+name|clusterService
 parameter_list|)
 block|{
 name|this
@@ -1056,6 +1065,12 @@ name|BalancedShardsAllocator
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|clusterService
+operator|=
+name|clusterService
 expr_stmt|;
 block|}
 DECL|method|registerAllocationDecider
@@ -1272,22 +1287,14 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|asEagerSingleton
-argument_list|()
+name|toInstance
+argument_list|(
+name|clusterService
+argument_list|)
 expr_stmt|;
 name|bind
 argument_list|(
 name|NodeConnectionsService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
-name|OperationRouting
 operator|.
 name|class
 argument_list|)
@@ -1427,7 +1434,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|TaskResultsService
+name|TaskPersistenceService
 operator|.
 name|class
 argument_list|)

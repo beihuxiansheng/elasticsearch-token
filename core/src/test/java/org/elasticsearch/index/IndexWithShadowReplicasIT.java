@@ -5946,7 +5946,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|addFieldDataField
+name|addDocValueField
 argument_list|(
 literal|"foo"
 argument_list|)

@@ -114,37 +114,6 @@ name|MatrixAggregationPlugin
 extends|extends
 name|Plugin
 block|{
-DECL|method|MatrixAggregationPlugin
-specifier|public
-name|MatrixAggregationPlugin
-parameter_list|()
-throws|throws
-name|IOException
-block|{     }
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"aggs-matrix-stats"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"Adds aggregations whose input are a list of numeric fields and output includes a matrix."
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void

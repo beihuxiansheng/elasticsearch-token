@@ -959,7 +959,22 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/*          * TODO: once we upgraded to Lucene 6.1 use HardlinkCopyDirectoryWrapper to enable hardlinks if possible and enable it          * in the security.policy:          *          * grant codeBase "${codebase.lucene-misc-6.1.0.jar}" {          *  // needed to allow shard shrinking to use hard-links if possible via lucenes HardlinkCopyDirectoryWrapper          *  permission java.nio.file.LinkPermission "hard";          * };          * target = new org.apache.lucene.store.HardlinkCopyDirectoryWrapper(target);          */
+name|target
+operator|=
+operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|HardlinkCopyDirectoryWrapper
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
 try|try
 init|(
 name|IndexWriter

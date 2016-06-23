@@ -216,6 +216,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -856,15 +874,12 @@ argument_list|,
 literal|"192.168.0.10"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|SearchResponse
@@ -1584,15 +1599,12 @@ argument_list|,
 literal|"value"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 comment|// id is not indexed, but lets see that we automatically convert to
@@ -4088,7 +4100,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"This limit can be set by chaining the ["
+literal|"This limit can be set by changing the ["
 operator|+
 name|IndexSettings
 operator|.

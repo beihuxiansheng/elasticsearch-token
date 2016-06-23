@@ -4471,6 +4471,7 @@ return|;
 block|}
 block|}
 DECL|class|ReplicaResponse
+specifier|public
 specifier|static
 class|class
 name|ReplicaResponse
@@ -4496,6 +4497,7 @@ name|ReplicaResponse
 parameter_list|()
 block|{          }
 DECL|method|ReplicaResponse
+specifier|public
 name|ReplicaResponse
 parameter_list|(
 name|String

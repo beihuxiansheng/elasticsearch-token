@@ -403,7 +403,7 @@ specifier|private
 name|boolean
 name|includeGlobalState
 init|=
-literal|true
+literal|false
 decl_stmt|;
 DECL|field|partial
 specifier|private

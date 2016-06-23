@@ -416,10 +416,6 @@ name|networkService
 argument_list|,
 name|bigArrays
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
@@ -440,13 +436,11 @@ init|=
 operator|new
 name|TransportService
 argument_list|(
+name|settings
+argument_list|,
 name|nettyTransport
 argument_list|,
 name|threadPool
-argument_list|,
-name|ClusterName
-operator|.
-name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|nettyTransport

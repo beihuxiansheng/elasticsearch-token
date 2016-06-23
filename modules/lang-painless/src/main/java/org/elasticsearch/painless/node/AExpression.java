@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Location
 import|;
 end_import
@@ -76,7 +88,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -217,8 +229,8 @@ specifier|abstract
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
@@ -229,6 +241,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 comment|/**      * Inserts {@link ECast} nodes into the tree for implicit casts.  Also replaces      * nodes with the constant variable set to a non-null value with {@link EConstant}.      * @return The new child node for the parent node calling this method.      */
@@ -236,8 +251,8 @@ DECL|method|cast
 name|AExpression
 name|cast
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 specifier|final
@@ -306,7 +321,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -432,7 +447,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -526,7 +541,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if

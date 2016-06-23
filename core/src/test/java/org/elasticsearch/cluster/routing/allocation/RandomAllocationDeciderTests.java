@@ -666,7 +666,14 @@ name|cluster
 operator|.
 name|ClusterName
 operator|.
-name|DEFAULT
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getDefault
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
 argument_list|)
 operator|.
 name|metaData
@@ -1538,7 +1545,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|RandomAllocationDecider
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 class|class

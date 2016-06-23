@@ -112,18 +112,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|Template
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|Scroll
@@ -154,7 +142,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -832,16 +820,16 @@ name|this
 return|;
 block|}
 comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
-DECL|method|setNoFields
+DECL|method|setNoStoredFields
 specifier|public
 name|SearchRequestBuilder
-name|setNoFields
+name|setNoStoredFields
 parameter_list|()
 block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|noFields
+name|noStoredFields
 argument_list|()
 expr_stmt|;
 return|return
@@ -934,11 +922,33 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a field to load and return (note, it must be stored) as part of the search request.      * If none are specified, the source of the document will be return.      */
-DECL|method|addField
+comment|/**      * Adds a docvalue based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name The field to get from the docvalue      */
+DECL|method|addDocValueField
 specifier|public
 name|SearchRequestBuilder
-name|addField
+name|addDocValueField
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|docValueField
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a stored field to load and return (note, it must be stored) as part of the search request.      * If none are specified, the source of the document will be return.      */
+DECL|method|addStoredField
+specifier|public
+name|SearchRequestBuilder
+name|addStoredField
 parameter_list|(
 name|String
 name|field
@@ -947,7 +957,7 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|field
+name|storedField
 argument_list|(
 name|field
 argument_list|)
@@ -956,7 +966,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a field data based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name The field to get from the field data cache      */
+comment|/**      * Adds a field data based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name The field to get from the field data cache      * @deprecated Use {@link SearchRequestBuilder#addDocValueField(String)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addFieldDataField
 specifier|public
 name|SearchRequestBuilder
@@ -969,7 +981,7 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|fieldDataField
+name|docValueField
 argument_list|(
 name|name
 argument_list|)
@@ -1120,7 +1132,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      */
+comment|/**      * Sets the stored fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      *      * @deprecated Use {@link SearchRequestBuilder#storedFields(String...)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|fields
 specifier|public
 name|SearchRequestBuilder
@@ -1134,7 +1148,35 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
+name|storedFields
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|fields
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      */
+DECL|method|storedFields
+specifier|public
+name|SearchRequestBuilder
+name|storedFields
+parameter_list|(
+name|String
+modifier|...
+name|fields
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|storedFields
 argument_list|(
 name|Arrays
 operator|.
@@ -1176,7 +1218,7 @@ specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|aggregation
 parameter_list|)
 block|{
@@ -1382,27 +1424,6 @@ operator|.
 name|source
 argument_list|(
 name|source
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * template stuff      */
-DECL|method|setTemplate
-specifier|public
-name|SearchRequestBuilder
-name|setTemplate
-parameter_list|(
-name|Template
-name|template
-parameter_list|)
-block|{
-name|request
-operator|.
-name|template
-argument_list|(
-name|template
 argument_list|)
 expr_stmt|;
 return|return

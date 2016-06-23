@@ -624,6 +624,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -5003,9 +5021,9 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|setSource
@@ -5213,9 +5231,9 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|setSource
@@ -9207,9 +9225,9 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -9360,11 +9378,6 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setRefresh
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|get
 argument_list|()
 expr_stmt|;
@@ -9508,9 +9521,9 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -9700,9 +9713,9 @@ argument_list|,
 literal|"nulls make me sad"
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -9733,11 +9746,6 @@ operator|+
 literal|"_1"
 argument_list|,
 literal|"nulls make me sad"
-argument_list|)
-operator|.
-name|setRefresh
-argument_list|(
-literal|true
 argument_list|)
 operator|.
 name|get

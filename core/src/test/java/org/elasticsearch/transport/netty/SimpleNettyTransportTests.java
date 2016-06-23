@@ -222,9 +222,6 @@ name|settings
 parameter_list|,
 name|Version
 name|version
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|settings
@@ -263,11 +260,9 @@ name|nettyFromThreadPool
 argument_list|(
 name|settings
 argument_list|,
-name|version
-argument_list|,
 name|threadPool
 argument_list|,
-name|clusterName
+name|version
 argument_list|)
 decl_stmt|;
 name|transportService

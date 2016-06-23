@@ -2365,7 +2365,7 @@ argument_list|)
 operator|.
 name|setPreference
 argument_list|(
-literal|"_only_node:"
+literal|"_only_nodes:"
 operator|+
 name|shardRouting
 operator|.

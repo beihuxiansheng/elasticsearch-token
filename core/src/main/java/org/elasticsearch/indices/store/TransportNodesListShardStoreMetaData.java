@@ -592,9 +592,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -622,8 +619,6 @@ argument_list|(
 name|settings
 argument_list|,
 name|ACTION_NAME
-argument_list|,
-name|clusterName
 argument_list|,
 name|threadPool
 argument_list|,
@@ -793,7 +788,10 @@ return|return
 operator|new
 name|NodesStoreFilesMetaData
 argument_list|(
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|,
 name|responses
 argument_list|,

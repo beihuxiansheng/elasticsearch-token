@@ -151,6 +151,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setUseCache
+specifier|public
+name|FieldStatsRequestBuilder
+name|setUseCache
+parameter_list|(
+name|boolean
+name|useCache
+parameter_list|)
+block|{
+name|request
+argument_list|()
+operator|.
+name|setUseCache
+argument_list|(
+name|useCache
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

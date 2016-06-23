@@ -38,11 +38,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
+name|io
 operator|.
-name|file
-operator|.
-name|AccessMode
+name|InputStream
 import|;
 end_import
 
@@ -50,11 +48,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
+name|net
 operator|.
-name|file
-operator|.
-name|Path
+name|URL
 import|;
 end_import
 
@@ -75,8 +71,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Path
-name|path
+name|URL
+name|url
 init|=
 name|Build
 operator|.
@@ -84,23 +80,17 @@ name|getElasticsearchCodebase
 argument_list|()
 decl_stmt|;
 comment|// throws exception if does not exist, or we cannot access it
-name|path
+try|try
+init|(
+name|InputStream
+name|ignored
+init|=
+name|url
 operator|.
-name|getFileSystem
+name|openStream
 argument_list|()
-operator|.
-name|provider
-argument_list|()
-operator|.
-name|checkAccess
-argument_list|(
-name|path
-argument_list|,
-name|AccessMode
-operator|.
-name|READ
-argument_list|)
-expr_stmt|;
+init|)
+block|{}
 comment|// these should never be null
 name|assertNotNull
 argument_list|(

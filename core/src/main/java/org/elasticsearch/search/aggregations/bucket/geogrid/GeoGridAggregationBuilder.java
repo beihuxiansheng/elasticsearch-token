@@ -54,6 +54,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|ParseField
@@ -593,18 +603,17 @@ block|{
 if|if
 condition|(
 name|size
-operator|<
-operator|-
-literal|1
+operator|<=
+literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[size] must be greater than or equal to 0. Found ["
+literal|"[size] must be greater than 0. Found ["
 operator|+
-name|shardSize
+name|size
 operator|+
 literal|"] in ["
 operator|+
@@ -646,16 +655,15 @@ block|{
 if|if
 condition|(
 name|shardSize
-operator|<
-operator|-
-literal|1
+operator|<=
+literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[shardSize] must be greater than or equal to 0. Found ["
+literal|"[shardSize] must be greater than 0. Found ["
 operator|+
 name|shardSize
 operator|+
@@ -731,20 +739,6 @@ name|this
 operator|.
 name|shardSize
 decl_stmt|;
-if|if
-condition|(
-name|shardSize
-operator|==
-literal|0
-condition|)
-block|{
-name|shardSize
-operator|=
-name|Integer
-operator|.
-name|MAX_VALUE
-expr_stmt|;
-block|}
 name|int
 name|requiredSize
 init|=
@@ -754,26 +748,13 @@ name|requiredSize
 decl_stmt|;
 if|if
 condition|(
-name|requiredSize
-operator|==
-literal|0
-condition|)
-block|{
-name|requiredSize
-operator|=
-name|Integer
-operator|.
-name|MAX_VALUE
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|shardSize
 operator|<
 literal|0
 condition|)
 block|{
-comment|// Use default heuristic to avoid any wrong-ranking caused by distributed counting
+comment|// Use default heuristic to avoid any wrong-ranking caused by
+comment|// distributed counting
 name|shardSize
 operator|=
 name|BucketUtils
@@ -791,6 +772,29 @@ name|numberOfShards
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|requiredSize
+operator|<=
+literal|0
+operator|||
+name|shardSize
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"parameters [required_size] and [shard_size] must be>0 in geohash_grid aggregation ["
+operator|+
+name|name
+operator|+
+literal|"]."
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
@@ -874,6 +878,14 @@ argument_list|,
 name|requiredSize
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shardSize
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -888,6 +900,7 @@ argument_list|,
 name|shardSize
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|builder
 return|;
