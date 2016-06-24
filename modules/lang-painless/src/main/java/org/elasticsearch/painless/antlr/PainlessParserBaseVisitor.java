@@ -706,6 +706,27 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
+DECL|method|visitInstanceof
+annotation|@
+name|Override
+specifier|public
+name|T
+name|visitInstanceof
+parameter_list|(
+name|PainlessParser
+operator|.
+name|InstanceofContext
+name|ctx
+parameter_list|)
+block|{
+return|return
+name|visitChildren
+argument_list|(
+name|ctx
+argument_list|)
+return|;
+block|}
+comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
 DECL|method|visitPre
 annotation|@
 name|Override
