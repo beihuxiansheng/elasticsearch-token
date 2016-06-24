@@ -390,6 +390,17 @@ name|BinaryContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code instanceof}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitInstanceof
+name|T
+name|visitInstanceof
+parameter_list|(
+name|PainlessParser
+operator|.
+name|InstanceofContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code pre}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitPre
 name|T

@@ -209,6 +209,50 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testIterable_AsCollection
+specifier|public
+name|void
+name|testIterable_AsCollection
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return l.asCollection() === l"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testIterable_AsList
+specifier|public
+name|void
+name|testIterable_AsList
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return l.asList() === l"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"Set l = new HashSet(); l.add(5); return l.asList()[0]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testIterable_Each
 specifier|public
 name|void
@@ -317,6 +361,16 @@ name|void
 name|testIterable_Sum
 parameter_list|()
 block|{
+name|assertEquals
+argument_list|(
+literal|3.0D
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = [1,2]; return l.sum()"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|5.0D

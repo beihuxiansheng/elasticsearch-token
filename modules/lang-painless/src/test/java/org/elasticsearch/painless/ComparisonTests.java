@@ -3432,6 +3432,203 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testInstanceOf
+specifier|public
+name|void
+name|testInstanceOf
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof int"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof Number"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof Integer"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof def"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof Object"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof int"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof def"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof Object"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof Integer"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof Number"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof float"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 5; return x instanceof Map"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return l instanceof List"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = null; return l instanceof List"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return l instanceof Collection"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); return l instanceof Map"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] x = new int[] { 5 }; return x instanceof int[]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] x = new int[] { 5 }; return x instanceof float[]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] x = new int[] { 5 }; return x instanceof int[][]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
