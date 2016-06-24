@@ -171,7 +171,7 @@ operator|.
 name|stash
 argument_list|()
 operator|.
-name|unstashMap
+name|replaceStashedValues
 argument_list|(
 name|map
 argument_list|)
@@ -196,7 +196,7 @@ operator|.
 name|stash
 argument_list|()
 operator|.
-name|unstashValue
+name|getValue
 argument_list|(
 name|expectedValue
 operator|.
@@ -240,7 +240,7 @@ operator|.
 name|stash
 argument_list|()
 operator|.
-name|unstashValue
+name|getValue
 argument_list|(
 name|field
 argument_list|)

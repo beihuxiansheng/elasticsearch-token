@@ -302,7 +302,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tells whether a particular value needs to be looked up in the stash      * The stash contains fields eventually extracted from previous responses that can be reused      * as arguments for following requests (e.g. scroll_id)      */
+comment|/**      * Tells whether a particular key needs to be looked up in the stash based on its name.      * Returns true if the string representation of the key starts with "$", false otherwise      * The stash contains fields eventually extracted from previous responses that can be reused      * as arguments for following requests (e.g. scroll_id)      */
 DECL|method|isStashedValue
 specifier|public
 name|boolean
@@ -347,21 +347,21 @@ literal|"$"
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts a value from the current stash      * The stash contains fields eventually extracted from previous responses that can be reused      * as arguments for following requests (e.g. scroll_id)      */
-DECL|method|unstashValue
+comment|/**      * Retrieves a value from the current stash.      * The stash contains fields eventually extracted from previous responses that can be reused      * as arguments for following requests (e.g. scroll_id)      */
+DECL|method|getValue
 specifier|public
 name|Object
-name|unstashValue
+name|getValue
 parameter_list|(
 name|String
-name|value
+name|key
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 if|if
 condition|(
-name|value
+name|key
 operator|.
 name|startsWith
 argument_list|(
@@ -385,7 +385,7 @@ name|response
 operator|.
 name|evaluate
 argument_list|(
-name|value
+name|key
 operator|.
 name|substring
 argument_list|(
@@ -406,7 +406,7 @@ name|stash
 operator|.
 name|get
 argument_list|(
-name|value
+name|key
 operator|.
 name|substring
 argument_list|(
@@ -427,7 +427,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"stashed value not found for key ["
 operator|+
-name|value
+name|key
 operator|+
 literal|"]"
 argument_list|)
@@ -437,8 +437,8 @@ return|return
 name|stashedValue
 return|;
 block|}
-comment|/**      * Recursively unstashes map values if needed      */
-DECL|method|unstashMap
+comment|/**      * Goes recursively against each map entry and replaces any string value starting with "$" with its      * corresponding value retrieved from the stash      */
+DECL|method|replaceStashedValues
 specifier|public
 name|Map
 argument_list|<
@@ -446,7 +446,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|unstashMap
+name|replaceStashedValues
 parameter_list|(
 name|Map
 argument_list|<
@@ -556,7 +556,7 @@ name|set
 argument_list|(
 name|i
 argument_list|,
-name|unstashValue
+name|getValue
 argument_list|(
 name|o
 operator|.
@@ -629,7 +629,7 @@ name|entry
 operator|.
 name|setValue
 argument_list|(
-name|unstashValue
+name|getValue
 argument_list|(
 name|entry
 operator|.

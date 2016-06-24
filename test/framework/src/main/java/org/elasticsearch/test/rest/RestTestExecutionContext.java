@@ -363,7 +363,7 @@ name|setValue
 argument_list|(
 name|stash
 operator|.
-name|unstashValue
+name|getValue
 argument_list|(
 name|entry
 operator|.
@@ -477,7 +477,7 @@ name|bodyAsString
 argument_list|(
 name|stash
 operator|.
-name|unstashMap
+name|replaceStashedValues
 argument_list|(
 name|bodies
 operator|.
@@ -517,7 +517,7 @@ name|bodyAsString
 argument_list|(
 name|stash
 operator|.
-name|unstashMap
+name|replaceStashedValues
 argument_list|(
 name|body
 argument_list|)

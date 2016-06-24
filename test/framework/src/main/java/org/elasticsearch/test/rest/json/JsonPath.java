@@ -316,7 +316,7 @@ name|key
 operator|=
 name|stash
 operator|.
-name|unstashValue
+name|getValue
 argument_list|(
 name|key
 argument_list|)
