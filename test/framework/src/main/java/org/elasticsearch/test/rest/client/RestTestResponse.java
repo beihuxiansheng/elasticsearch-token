@@ -96,7 +96,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|Stash
+name|ObjectPath
 import|;
 end_import
 
@@ -110,9 +110,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|json
-operator|.
-name|JsonPath
+name|Stash
 import|;
 end_import
 
@@ -139,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Response obtained from a REST call, eagerly reads the response body into a string for later optional parsing.  * Supports parsing the response body as json when needed and returning specific values extracted from it.  */
+comment|/**  * Response obtained from a REST call, eagerly reads the response body into a string for later optional parsing.  * Supports parsing the response body when needed and returning specific values extracted from it.  */
 end_comment
 
 begin_class
@@ -162,7 +160,7 @@ name|body
 decl_stmt|;
 DECL|field|parsedResponse
 specifier|private
-name|JsonPath
+name|ObjectPath
 name|parsedResponse
 decl_stmt|;
 DECL|method|RestTestResponse
@@ -329,7 +327,7 @@ name|isJson
 argument_list|()
 condition|)
 block|{
-name|JsonPath
+name|ObjectPath
 name|parsedResponse
 init|=
 name|parsedResponse
@@ -388,7 +386,7 @@ operator|>=
 literal|400
 return|;
 block|}
-comment|/**      * Parses the response body as json and extracts a specific value from it (identified by the provided path)      */
+comment|/**      * Parses the response body and extracts a specific value from it (identified by the provided path)      */
 DECL|method|evaluate
 specifier|public
 name|Object
@@ -411,7 +409,7 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the response body as json and extracts a specific value from it (identified by the provided path)      */
+comment|/**      * Parses the response body and extracts a specific value from it (identified by the provided path)      */
 DECL|method|evaluate
 specifier|public
 name|Object
@@ -437,15 +435,15 @@ return|return
 literal|null
 return|;
 block|}
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
 name|parsedResponse
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|jsonPath
+name|objectPath
 operator|==
 literal|null
 condition|)
@@ -490,7 +488,7 @@ literal|null
 return|;
 block|}
 return|return
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -531,7 +529,7 @@ return|;
 block|}
 DECL|method|parsedResponse
 specifier|private
-name|JsonPath
+name|ObjectPath
 name|parsedResponse
 parameter_list|()
 throws|throws
@@ -566,8 +564,9 @@ block|}
 return|return
 name|parsedResponse
 operator|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|body
 argument_list|)

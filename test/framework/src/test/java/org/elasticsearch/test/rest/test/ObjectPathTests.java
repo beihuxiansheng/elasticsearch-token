@@ -54,9 +54,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|json
-operator|.
-name|JsonPath
+name|ObjectPath
 import|;
 end_import
 
@@ -163,10 +161,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JsonPathTests
+DECL|class|ObjectPathTests
 specifier|public
 class|class
-name|JsonPathTests
+name|ObjectPathTests
 extends|extends
 name|ESTestCase
 block|{
@@ -183,11 +181,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"field2.field3\" : \"value2\" } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -195,7 +194,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -241,11 +240,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"field2\" : \"value2\" } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -253,7 +253,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -299,11 +299,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"field2\" : \"value2\" } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -311,7 +312,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -357,11 +358,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"field2\" : \"value2\" } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -369,7 +371,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -415,11 +417,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"field2\" : 333 } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -427,7 +430,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -473,11 +476,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"field2\" : 3.55 } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -485,7 +489,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -531,11 +535,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"array1\" : [ \"value1\", \"value2\" ] } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -543,7 +548,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -667,11 +672,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"array1\" : [ \"value1\", \"value2\" ] } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -679,7 +685,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -725,11 +731,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"array1\" : [ {\"element\": \"value1\"}, {\"element\":\"value2\"} ] } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -737,7 +744,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -783,11 +790,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"array1\" : [ {\"element\": \"value1\"}, {\"element\":\"value2\"} ] } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -795,7 +803,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -829,11 +837,12 @@ name|json
 init|=
 literal|"{ \"metadata\": { \"templates\" : {\"template_1\": { \"field\" : \"value\"}, \"template_2\": { \"field\" : \"value\"} } } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -841,7 +850,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -933,11 +942,12 @@ name|json
 init|=
 literal|"{ \"field1\": { \"array1\" : [ {\"element\": \"value1\"}, {\"element\":\"value2\"} ] } }"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
@@ -945,7 +955,7 @@ decl_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -1011,18 +1021,19 @@ name|json
 init|=
 literal|"{ \"field1\": { \"elements\" : {\"element1\": \"value1\"}}}"
 decl_stmt|;
-name|JsonPath
-name|jsonPath
+name|ObjectPath
+name|objectPath
 init|=
-operator|new
-name|JsonPath
+name|ObjectPath
+operator|.
+name|createFromXContent
 argument_list|(
 name|json
 argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
@@ -1074,7 +1085,7 @@ expr_stmt|;
 name|Object
 name|object
 init|=
-name|jsonPath
+name|objectPath
 operator|.
 name|evaluate
 argument_list|(
