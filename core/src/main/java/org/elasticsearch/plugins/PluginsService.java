@@ -332,6 +332,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|analysis
+operator|.
+name|AnalysisModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|NativeScriptFactory
@@ -1530,14 +1544,17 @@ condition|)
 block|{
 if|if
 condition|(
-name|moduleClass
+name|method
+operator|.
+name|getDeclaringClass
+argument_list|()
 operator|==
-name|ScriptModule
+name|Plugin
 operator|.
 name|class
 condition|)
 block|{
-comment|// This is still part of the Plugin class to point the user to the new implementation
+comment|// These are still part of the Plugin class to point the user to the new implementations
 continue|continue;
 block|}
 throw|throw
