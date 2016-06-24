@@ -267,6 +267,8 @@ argument_list|,
 literal|"transport"
 argument_list|,
 literal|"ingest"
+argument_list|,
+literal|"indices"
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -666,6 +668,18 @@ operator|.
 name|contains
 argument_list|(
 literal|"ingest"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|nodesInfoRequest
+operator|.
+name|indices
+argument_list|(
+name|metrics
+operator|.
+name|contains
+argument_list|(
+literal|"indices"
 argument_list|)
 argument_list|)
 expr_stmt|;

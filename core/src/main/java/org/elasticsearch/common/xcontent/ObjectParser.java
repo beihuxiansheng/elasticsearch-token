@@ -2305,6 +2305,14 @@ argument_list|,
 name|VALUE_BOOLEAN
 argument_list|)
 operator|,
+DECL|enum constant|OBJECT_OR_STRING
+name|OBJECT_OR_STRING
+argument_list|(
+name|START_OBJECT
+argument_list|,
+name|VALUE_STRING
+argument_list|)
+operator|,
 DECL|enum constant|VALUE
 name|VALUE
 argument_list|(

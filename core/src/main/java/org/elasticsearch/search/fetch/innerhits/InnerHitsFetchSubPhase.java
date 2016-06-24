@@ -492,16 +492,6 @@ index|]
 decl_stmt|;
 name|searchHitFields
 operator|.
-name|shard
-argument_list|(
-name|innerHits
-operator|.
-name|shardTarget
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|searchHitFields
-operator|.
 name|score
 argument_list|(
 name|scoreDoc

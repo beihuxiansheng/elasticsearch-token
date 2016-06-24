@@ -3608,7 +3608,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"pin"
 argument_list|)
@@ -3656,7 +3656,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"pin"
 argument_list|)

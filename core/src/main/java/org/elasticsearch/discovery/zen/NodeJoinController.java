@@ -164,9 +164,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|allocation
-operator|.
-name|AllocationService
+name|RoutingService
 import|;
 end_import
 
@@ -432,11 +430,11 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|allocationService
+DECL|field|routingService
 specifier|private
 specifier|final
-name|AllocationService
-name|allocationService
+name|RoutingService
+name|routingService
 decl_stmt|;
 DECL|field|electMaster
 specifier|private
@@ -476,8 +474,8 @@ parameter_list|(
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|AllocationService
-name|allocationService
+name|RoutingService
+name|routingService
 parameter_list|,
 name|ElectMasterService
 name|electMaster
@@ -502,9 +500,9 @@ name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|allocationService
+name|routingService
 operator|=
-name|allocationService
+name|routingService
 expr_stmt|;
 name|this
 operator|.
@@ -2087,9 +2085,83 @@ argument_list|(
 name|clusterBlocks
 argument_list|)
 expr_stmt|;
+name|newState
+operator|.
+name|nodes
+argument_list|(
+name|nodesBuilder
+argument_list|)
+expr_stmt|;
 name|nodesChanged
 operator|=
 literal|true
+expr_stmt|;
+comment|// reroute now to remove any dead nodes (master may have stepped down when they left and didn't update the routing table)
+comment|// Note: also do it now to avoid assigning shards to these nodes. We will have another reroute after the cluster
+comment|// state is published.
+comment|// TODO: this publishing of a cluster state with no nodes assigned to joining nodes shouldn't be needed anymore. remove.
+specifier|final
+name|ClusterState
+name|tmpState
+init|=
+name|newState
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|RoutingAllocation
+operator|.
+name|Result
+name|result
+init|=
+name|routingService
+operator|.
+name|getAllocationService
+argument_list|()
+operator|.
+name|reroute
+argument_list|(
+name|tmpState
+argument_list|,
+literal|"nodes joined"
+argument_list|)
+decl_stmt|;
+name|newState
+operator|=
+name|ClusterState
+operator|.
+name|builder
+argument_list|(
+name|tmpState
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|.
+name|changed
+argument_list|()
+condition|)
+block|{
+name|newState
+operator|.
+name|routingResult
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+name|nodesBuilder
+operator|=
+name|DiscoveryNodes
+operator|.
+name|builder
+argument_list|(
+name|tmpState
+operator|.
+name|nodes
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -2232,9 +2304,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"received join request from node [{}], but found existing node {} with same address, "
-operator|+
-literal|"removing existing node"
+literal|"received join request from node [{}], but found existing node {} with same address, removing existing node"
 argument_list|,
 name|node
 argument_list|,
@@ -2264,54 +2334,6 @@ argument_list|(
 name|nodesBuilder
 argument_list|)
 expr_stmt|;
-specifier|final
-name|ClusterState
-name|tmpState
-init|=
-name|newState
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
-name|RoutingAllocation
-operator|.
-name|Result
-name|result
-init|=
-name|allocationService
-operator|.
-name|reroute
-argument_list|(
-name|tmpState
-argument_list|,
-literal|"node_join"
-argument_list|)
-decl_stmt|;
-name|newState
-operator|=
-name|ClusterState
-operator|.
-name|builder
-argument_list|(
-name|tmpState
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|.
-name|changed
-argument_list|()
-condition|)
-block|{
-name|newState
-operator|.
-name|routingResult
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// we must return a new cluster state instance to force publishing. This is important
 comment|// for the joining node to finalize its join and set us as a master
@@ -2351,6 +2373,28 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
+if|if
+condition|(
+name|event
+operator|.
+name|nodesDelta
+argument_list|()
+operator|.
+name|hasChanges
+argument_list|()
+condition|)
+block|{
+comment|// we reroute not in the same cluster state update since in certain areas we rely on
+comment|// the node to be in the cluster state (sampled from ClusterService#state) to be there, also
+comment|// shard transitions need to better be handled in such cases
+name|routingService
+operator|.
+name|reroute
+argument_list|(
+literal|"post_node_add"
+argument_list|)
+expr_stmt|;
+block|}
 name|NodeJoinController
 operator|.
 name|this

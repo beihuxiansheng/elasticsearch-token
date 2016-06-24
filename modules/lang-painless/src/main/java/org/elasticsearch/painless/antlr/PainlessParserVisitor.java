@@ -390,6 +390,17 @@ name|BinaryContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code instanceof}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitInstanceof
+name|T
+name|visitInstanceof
+parameter_list|(
+name|PainlessParser
+operator|.
+name|InstanceofContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code pre}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitPre
 name|T
@@ -464,6 +475,28 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|NullContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code listinit}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitListinit
+name|T
+name|visitListinit
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ListinitContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code mapinit}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitMapinit
+name|T
+name|visitMapinit
+parameter_list|(
+name|PainlessParser
+operator|.
+name|MapinitContext
 name|ctx
 parameter_list|)
 function_decl|;
@@ -739,6 +772,61 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|LocalFuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code newstandardarray}    * labeled alternative in {@link PainlessParser#arrayinitializer}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitNewstandardarray
+name|T
+name|visitNewstandardarray
+parameter_list|(
+name|PainlessParser
+operator|.
+name|NewstandardarrayContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code newinitializedarray}    * labeled alternative in {@link PainlessParser#arrayinitializer}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitNewinitializedarray
+name|T
+name|visitNewinitializedarray
+parameter_list|(
+name|PainlessParser
+operator|.
+name|NewinitializedarrayContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#listinitializer}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitListinitializer
+name|T
+name|visitListinitializer
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ListinitializerContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#mapinitializer}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitMapinitializer
+name|T
+name|visitMapinitializer
+parameter_list|(
+name|PainlessParser
+operator|.
+name|MapinitializerContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#maptoken}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitMaptoken
+name|T
+name|visitMaptoken
+parameter_list|(
+name|PainlessParser
+operator|.
+name|MaptokenContext
 name|ctx
 parameter_list|)
 function_decl|;
