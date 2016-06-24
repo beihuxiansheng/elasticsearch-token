@@ -365,14 +365,11 @@ operator|.
 name|push
 argument_list|(
 name|resolvedType
-operator|==
-name|Object
 operator|.
-name|class
-operator|||
-name|resolvedType
-operator|==
+name|isAssignableFrom
+argument_list|(
 name|expressionType
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

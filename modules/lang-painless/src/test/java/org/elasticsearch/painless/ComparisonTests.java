@@ -3454,6 +3454,46 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
+literal|"int x = 5; return x instanceof Number"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof Integer"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof def"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x = 5; return x instanceof Object"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
 literal|"def x = 5; return x instanceof int"
 argument_list|)
 argument_list|)
