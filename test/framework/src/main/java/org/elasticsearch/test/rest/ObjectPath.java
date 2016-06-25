@@ -26,7 +26,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
+name|XContent
 import|;
 end_import
 
@@ -106,6 +106,9 @@ specifier|static
 name|ObjectPath
 name|createFromXContent
 parameter_list|(
+name|XContent
+name|xContent
+parameter_list|,
 name|String
 name|input
 parameter_list|)
@@ -117,12 +120,7 @@ init|(
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
 name|xContent
-argument_list|(
-name|input
-argument_list|)
 operator|.
 name|createParser
 argument_list|(
