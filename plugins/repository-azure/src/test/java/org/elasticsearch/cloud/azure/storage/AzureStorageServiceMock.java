@@ -602,7 +602,8 @@ condition|(
 name|keyPath
 operator|!=
 literal|null
-operator|||
+operator|&&
+operator|!
 name|keyPath
 operator|.
 name|isEmpty

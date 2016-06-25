@@ -490,14 +490,14 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"File "
+literal|"File ["
 operator|+
 name|blobPath
 operator|.
 name|toString
 argument_list|()
 operator|+
-literal|" does not exist"
+literal|"] does not exist"
 argument_list|)
 throw|;
 block|}
