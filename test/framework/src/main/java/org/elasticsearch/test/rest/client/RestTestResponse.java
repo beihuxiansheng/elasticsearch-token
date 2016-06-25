@@ -347,6 +347,12 @@ operator|==
 name|XContentType
 operator|.
 name|JSON
+operator|||
+name|xContentType
+operator|==
+name|XContentType
+operator|.
+name|YAML
 condition|)
 block|{
 name|this
