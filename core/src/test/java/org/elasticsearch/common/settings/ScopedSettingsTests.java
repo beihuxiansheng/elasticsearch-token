@@ -823,7 +823,7 @@ try|try
 block|{
 name|service
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|Settings
 operator|.
@@ -914,7 +914,7 @@ argument_list|)
 expr_stmt|;
 name|service
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|Settings
 operator|.

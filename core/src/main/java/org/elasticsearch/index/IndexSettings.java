@@ -2530,6 +2530,7 @@ name|value
 expr_stmt|;
 block|}
 DECL|method|getScopedSettings
+specifier|public
 name|IndexScopedSettings
 name|getScopedSettings
 parameter_list|()

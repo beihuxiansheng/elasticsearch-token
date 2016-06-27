@@ -428,7 +428,7 @@ comment|// now we try to apply things and if they are invalid we fail
 comment|// this dryRun will validate& parse settings but won't actually apply them.
 name|clusterSettings
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|settings
 argument_list|)
