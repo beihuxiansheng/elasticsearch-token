@@ -403,9 +403,14 @@ expr_stmt|;
 comment|//we always stash the last response body
 name|stash
 operator|.
-name|stashResponse
+name|stashValue
 argument_list|(
+literal|"body"
+argument_list|,
 name|response
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

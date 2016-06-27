@@ -172,8 +172,6 @@ parameter_list|(
 name|Object
 name|object
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
