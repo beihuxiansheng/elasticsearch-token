@@ -64,18 +64,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|MapBuilder
@@ -1641,7 +1629,7 @@ name|newHashSet
 argument_list|(
 name|discoveryNodes
 operator|.
-name|resolveNodesIds
+name|resolveNodes
 argument_list|(
 name|nodeAttributes
 argument_list|)

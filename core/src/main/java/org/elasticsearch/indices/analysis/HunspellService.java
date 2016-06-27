@@ -299,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Serves as a node level registry for hunspell dictionaries. This services expects all dictionaries to be located under  * the {@code<path.conf>/hunspell} directory, where each locale has its dedicated sub-directory which holds the dictionary  * files. For example, the dictionary files for {@code en_US} locale must be placed under {@code<path.conf>/hunspell/en_US}  * directory.  *<p>  * The following settings can be set for each dictionary:  *<ul>  *<li>{@code ignore_case} - If true, dictionary matching will be case insensitive (defaults to {@code false})</li>  *<li>{@code strict_affix_parsing} - Determines whether errors while reading a affix rules file will cause exception or simple be ignored (defaults to {@code true})</li>  *</ul>  *<p>  * These settings can either be configured as node level configuration, such as:  *<br><br>  *<pre><code>  *     indices.analysis.hunspell.dictionary.en_US.ignore_case: true  *     indices.analysis.hunspell.dictionary.en_US.strict_affix_parsing: false  *</code></pre>  *<p>  * or, as dedicated configuration per dictionary, placed in a {@code settings.yml} file under the dictionary directory. For  * example, the following can be the content of the {@code<path.config>/hunspell/en_US/settings.yml} file:  *<br><br>  *<pre><code>  *     ignore_case: true  *     strict_affix_parsing: false  *</code></pre>  *  * @see org.elasticsearch.index.analysis.HunspellTokenFilterFactory  */
+comment|/**  * Serves as a node level registry for hunspell dictionaries. This services expects all dictionaries to be located under  * the {@code<path.conf>/hunspell} directory, where each locale has its dedicated sub-directory which holds the dictionary  * files. For example, the dictionary files for {@code en_US} locale must be placed under {@code<path.conf>/hunspell/en_US}  * directory.  *<p>  * The following settings can be set for each dictionary:  *<ul>  *<li>{@code ignore_case} - If true, dictionary matching will be case insensitive (defaults to {@code false})</li>  *<li>{@code strict_affix_parsing} - Determines whether errors while reading a affix rules file will cause exception or simple be ignored  *      (defaults to {@code true})</li>  *</ul>  *<p>  * These settings can either be configured as node level configuration, such as:  *<br><br>  *<pre><code>  *     indices.analysis.hunspell.dictionary.en_US.ignore_case: true  *     indices.analysis.hunspell.dictionary.en_US.strict_affix_parsing: false  *</code></pre>  *<p>  * or, as dedicated configuration per dictionary, placed in a {@code settings.yml} file under the dictionary directory. For  * example, the following can be the content of the {@code<path.config>/hunspell/en_US/settings.yml} file:  *<br><br>  *<pre><code>  *     ignore_case: true  *     strict_affix_parsing: false  *</code></pre>  *  * @see org.elasticsearch.index.analysis.HunspellTokenFilterFactory  */
 end_comment
 
 begin_class
@@ -846,6 +846,8 @@ operator|.
 name|getByPrefix
 argument_list|(
 name|locale
+operator|+
+literal|"."
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -1781,7 +1781,7 @@ argument_list|)
 expr_stmt|;
 name|innerHits
 operator|.
-name|setStoredFieldNames
+name|setFieldNames
 argument_list|(
 name|randomListStuff
 argument_list|(
@@ -1800,7 +1800,7 @@ argument_list|)
 expr_stmt|;
 name|innerHits
 operator|.
-name|setDocValueFields
+name|setFieldDataFields
 argument_list|(
 name|randomListStuff
 argument_list|(
@@ -2349,13 +2349,13 @@ condition|)
 block|{
 name|instance
 operator|.
-name|setDocValueFields
+name|setFieldDataFields
 argument_list|(
 name|randomValueOtherThan
 argument_list|(
 name|instance
 operator|.
-name|getDocValueFields
+name|getFieldDataFields
 argument_list|()
 argument_list|,
 parameter_list|()
@@ -2385,7 +2385,7 @@ else|else
 block|{
 name|instance
 operator|.
-name|addDocValueField
+name|addFieldDataField
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -2669,7 +2669,7 @@ if|if
 condition|(
 name|instance
 operator|.
-name|getStoredFieldNames
+name|getFieldNames
 argument_list|()
 operator|==
 literal|null
@@ -2680,13 +2680,13 @@ condition|)
 block|{
 name|instance
 operator|.
-name|setStoredFieldNames
+name|setFieldNames
 argument_list|(
 name|randomValueOtherThan
 argument_list|(
 name|instance
 operator|.
-name|getStoredFieldNames
+name|getFieldNames
 argument_list|()
 argument_list|,
 parameter_list|()
@@ -2716,7 +2716,7 @@ else|else
 block|{
 name|instance
 operator|.
-name|getStoredFieldNames
+name|getFieldNames
 argument_list|()
 operator|.
 name|add

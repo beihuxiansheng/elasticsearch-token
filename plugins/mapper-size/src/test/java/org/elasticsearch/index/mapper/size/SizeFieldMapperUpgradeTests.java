@@ -632,12 +632,12 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"_source"
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"_size"
 argument_list|)

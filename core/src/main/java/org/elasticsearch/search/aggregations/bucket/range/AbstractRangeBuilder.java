@@ -48,7 +48,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInputReader
+name|StreamOutput
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamOutput
+name|Writeable
 import|;
 end_import
 
@@ -300,7 +300,9 @@ name|?
 argument_list|>
 name|rangeFactory
 parameter_list|,
-name|StreamInputReader
+name|Writeable
+operator|.
+name|Reader
 argument_list|<
 name|R
 argument_list|>

@@ -2338,6 +2338,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test isolates the master from rest of the cluster, waits for a new master to be elected, restores the partition      * and verifies that all node agree on the new cluster state      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,cluster.service:TRACE,gateway:TRACE,indices.store:TRACE"
+argument_list|)
 DECL|method|testIsolateMasterAndVerifyClusterStateConsensus
 specifier|public
 name|void

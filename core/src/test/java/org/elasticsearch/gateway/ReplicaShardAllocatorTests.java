@@ -256,22 +256,6 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|AllocationService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
 name|RoutingAllocation
 import|;
 end_import
@@ -327,6 +311,24 @@ operator|.
 name|decider
 operator|.
 name|Decision
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|decider
+operator|.
+name|SameShardAllocationDecider
 import|;
 end_import
 
@@ -921,8 +923,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -939,8 +939,6 @@ operator|.
 name|addData
 argument_list|(
 name|nodeToMatch
-argument_list|,
-literal|false
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -1049,8 +1047,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1067,8 +1063,6 @@ operator|.
 name|addData
 argument_list|(
 name|nodeToMatch
-argument_list|,
-literal|false
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -1177,8 +1171,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1195,8 +1187,6 @@ operator|.
 name|addData
 argument_list|(
 name|nodeToMatch
-argument_list|,
-literal|false
 argument_list|,
 literal|"NO_MATCH"
 argument_list|,
@@ -1295,8 +1285,6 @@ name|addData
 argument_list|(
 name|node2
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1390,8 +1378,6 @@ operator|.
 name|addData
 argument_list|(
 name|node1
-argument_list|,
-literal|true
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -1487,8 +1473,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1505,8 +1489,6 @@ operator|.
 name|addData
 argument_list|(
 name|node2
-argument_list|,
-literal|false
 argument_list|,
 literal|"NO_MATCH"
 argument_list|,
@@ -1608,8 +1590,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1626,8 +1606,6 @@ operator|.
 name|addData
 argument_list|(
 name|node2
-argument_list|,
-literal|false
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -1731,6 +1709,14 @@ name|YES
 argument_list|)
 block|,
 operator|new
+name|SameShardAllocationDecider
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
+block|,
+operator|new
 name|AllocationDecider
 argument_list|(
 name|Settings
@@ -1789,8 +1775,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1807,8 +1791,6 @@ operator|.
 name|addData
 argument_list|(
 name|node2
-argument_list|,
-literal|false
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -1932,8 +1914,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -1959,8 +1939,6 @@ operator|.
 name|addData
 argument_list|(
 name|node2
-argument_list|,
-literal|false
 argument_list|,
 literal|null
 argument_list|)
@@ -2080,8 +2058,6 @@ name|addData
 argument_list|(
 name|node2
 argument_list|,
-literal|false
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -2190,8 +2166,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -2209,8 +2183,6 @@ name|addData
 argument_list|(
 name|node2
 argument_list|,
-literal|false
-argument_list|,
 literal|"NO_MATCH"
 argument_list|,
 operator|new
@@ -2227,8 +2199,6 @@ operator|.
 name|addData
 argument_list|(
 name|node3
-argument_list|,
-literal|false
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -2336,8 +2306,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -2355,8 +2323,6 @@ name|addData
 argument_list|(
 name|node2
 argument_list|,
-literal|false
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -2373,8 +2339,6 @@ operator|.
 name|addData
 argument_list|(
 name|node3
-argument_list|,
-literal|false
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -2459,8 +2423,6 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-literal|true
-argument_list|,
 literal|"MATCH"
 argument_list|,
 operator|new
@@ -2477,8 +2439,6 @@ operator|.
 name|addData
 argument_list|(
 name|node2
-argument_list|,
-literal|false
 argument_list|,
 literal|"MATCH"
 argument_list|,
@@ -3234,9 +3194,6 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|boolean
-name|allocated
-parameter_list|,
 name|String
 name|syncId
 parameter_list|,
@@ -3337,8 +3294,6 @@ name|TransportNodesListShardStoreMetaData
 operator|.
 name|StoreFilesMetaData
 argument_list|(
-name|allocated
-argument_list|,
 name|shardId
 argument_list|,
 operator|new

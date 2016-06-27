@@ -7958,9 +7958,6 @@ name|TransportNodesListShardStoreMetaData
 operator|.
 name|StoreFilesMetaData
 argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|,
 operator|new
 name|ShardId
 argument_list|(

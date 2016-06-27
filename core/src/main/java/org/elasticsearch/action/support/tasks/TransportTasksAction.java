@@ -901,7 +901,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|resolveNodesIds
+name|resolveNodes
 argument_list|(
 name|request
 operator|.

@@ -1646,7 +1646,7 @@ argument_list|(
 name|HIGH_CARD_IDX_NAME
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 name|NUMBER_FIELD_NAME
 argument_list|)

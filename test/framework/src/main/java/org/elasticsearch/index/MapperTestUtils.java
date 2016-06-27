@@ -206,6 +206,20 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+operator|.
+name|createAnalysisService
+import|;
+end_import
+
 begin_class
 DECL|class|MapperTestUtils
 specifier|public
@@ -358,21 +372,11 @@ decl_stmt|;
 name|AnalysisService
 name|analysisService
 init|=
-operator|new
-name|AnalysisRegistry
-argument_list|(
-literal|null
-argument_list|,
-operator|new
-name|Environment
-argument_list|(
-name|finalSettings
-argument_list|)
-argument_list|)
-operator|.
-name|build
+name|createAnalysisService
 argument_list|(
 name|indexSettings
+argument_list|,
+name|finalSettings
 argument_list|)
 decl_stmt|;
 name|SimilarityService

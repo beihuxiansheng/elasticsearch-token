@@ -2792,6 +2792,14 @@ name|class
 argument_list|,
 name|RestHeadAction
 operator|.
+name|Document
+operator|.
+name|class
+argument_list|,
+name|RestHeadAction
+operator|.
+name|Source
+operator|.
 name|class
 argument_list|,
 name|RestMultiGetAction

@@ -102,10 +102,6 @@ name|instanceOf
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|SimpleSmartChineseAnalysisTests
 specifier|public
@@ -143,8 +139,6 @@ argument_list|,
 operator|new
 name|AnalysisSmartChinesePlugin
 argument_list|()
-operator|::
-name|onModule
 argument_list|)
 decl_stmt|;
 name|TokenizerFactory

@@ -5175,13 +5175,10 @@ argument_list|(
 name|shardId
 argument_list|,
 operator|new
-name|String
+name|DiscoveryNode
 index|[]
 block|{
 name|node
-operator|.
-name|getId
-argument_list|()
 block|}
 argument_list|)
 argument_list|)

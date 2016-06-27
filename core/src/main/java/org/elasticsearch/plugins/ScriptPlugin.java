@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An additional extension point to {@link Plugin}. Plugins extending the scripting functionality must implement this inteface  * to provide access to script engines or script factories.  */
+comment|/**  * An additional extension point for {@link Plugin}s that extends Elasticsearch's scripting functionality.  */
 end_comment
 
 begin_interface
