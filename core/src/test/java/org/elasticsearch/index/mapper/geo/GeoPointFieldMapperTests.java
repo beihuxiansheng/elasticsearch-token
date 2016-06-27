@@ -9139,7 +9139,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"location.geohash"
 argument_list|)
@@ -9459,7 +9459,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"location.geohash"
 argument_list|)
@@ -9842,7 +9842,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"location.geohash"
 argument_list|)
@@ -9881,7 +9881,7 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"location.latlon"
 argument_list|)

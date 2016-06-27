@@ -873,7 +873,7 @@ operator|*
 literal|2
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"_id"
 argument_list|)

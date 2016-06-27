@@ -2076,7 +2076,7 @@ literal|"c1"
 argument_list|)
 argument_list|)
 operator|.
-name|storedFields
+name|fields
 argument_list|(
 literal|"_parent"
 argument_list|)
@@ -2179,7 +2179,7 @@ literal|"p1"
 argument_list|)
 argument_list|)
 operator|.
-name|storedFields
+name|fields
 argument_list|(
 literal|"_parent"
 argument_list|)
@@ -2342,7 +2342,7 @@ literal|"_parent#parent:p1"
 argument_list|)
 argument_list|)
 operator|.
-name|storedFields
+name|fields
 argument_list|(
 literal|"_parent"
 argument_list|)
@@ -15069,7 +15069,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"_id"
 argument_list|)

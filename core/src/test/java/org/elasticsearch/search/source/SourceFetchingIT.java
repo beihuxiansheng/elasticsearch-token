@@ -161,7 +161,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"bla"
 argument_list|)
@@ -198,7 +198,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|addStoredField
+name|addField
 argument_list|(
 literal|"_source"
 argument_list|)
