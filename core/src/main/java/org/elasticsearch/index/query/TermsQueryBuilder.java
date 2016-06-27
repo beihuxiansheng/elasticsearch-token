@@ -1899,10 +1899,13 @@ if|if
 condition|(
 name|getResponse
 operator|.
-name|isExists
+name|isSourceEmpty
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
+comment|// extract terms only if the doc source exists
 name|List
 argument_list|<
 name|Object
