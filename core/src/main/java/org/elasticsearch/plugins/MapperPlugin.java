@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.mapper
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
-operator|.
-name|mapper
+name|plugins
 package|;
 end_package
 
@@ -60,50 +58,23 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|murmur3
-operator|.
-name|Murmur3FieldMapper
+name|MetadataFieldMapper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|MapperPlugin
-import|;
-end_import
+begin_comment
+comment|/**  * An extension point for {@link Plugin} implementations to add custom mappers  */
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|Plugin
-import|;
-end_import
-
-begin_class
-DECL|class|MapperMurmur3Plugin
+begin_interface
+DECL|interface|MapperPlugin
 specifier|public
-class|class
-name|MapperMurmur3Plugin
-extends|extends
-name|Plugin
-implements|implements
+interface|interface
 name|MapperPlugin
 block|{
-annotation|@
-name|Override
+comment|/**      * Returns additional mapper implementations added by this plugin.      *      * The key of the returned {@link Map} is the unique name for the mapper which will be used      * as the mapping {@code type}, and the value is a {@link Mapper.TypeParser} to parse the      * mapper settings into a {@link Mapper}.      */
 DECL|method|getMappers
-specifier|public
+specifier|default
 name|Map
 argument_list|<
 name|String
@@ -118,22 +89,33 @@ block|{
 return|return
 name|Collections
 operator|.
-name|singletonMap
-argument_list|(
-name|Murmur3FieldMapper
-operator|.
-name|CONTENT_TYPE
+name|emptyMap
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns additional metadata mapper implementations added by this plugin.      *      * The key of the returned {@link Map} is the unique name for the metadata mapper, which      * is used in the mapping json to configure the metadata mapper, and the value is a      * {@link MetadataFieldMapper.TypeParser} to parse the mapper settings into a      * {@link MetadataFieldMapper}.      */
+DECL|method|getMetadataMappers
+specifier|default
+name|Map
+argument_list|<
+name|String
 argument_list|,
-operator|new
-name|Murmur3FieldMapper
+name|MetadataFieldMapper
 operator|.
 name|TypeParser
+argument_list|>
+name|getMetadataMappers
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyMap
 argument_list|()
-argument_list|)
 return|;
 block|}
 block|}
-end_class
+end_interface
 
 end_unit
 

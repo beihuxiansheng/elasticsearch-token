@@ -1177,6 +1177,11 @@ argument_list|(
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 operator|.
 name|getMapperRegistry
@@ -1268,7 +1273,7 @@ parameter_list|,
 name|Accountable
 name|accountable
 parameter_list|)
-block|{              }
+block|{}
 annotation|@
 name|Override
 specifier|public
@@ -1281,7 +1286,7 @@ parameter_list|,
 name|Accountable
 name|accountable
 parameter_list|)
-block|{              }
+block|{}
 block|}
 argument_list|)
 decl_stmt|;
