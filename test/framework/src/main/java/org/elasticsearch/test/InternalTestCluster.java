@@ -3303,6 +3303,9 @@ argument_list|(
 literal|2000
 argument_list|)
 argument_list|)
+operator|.
+name|getStringRep
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3346,6 +3349,9 @@ operator|*
 literal|60
 argument_list|)
 argument_list|)
+operator|.
+name|getStringRep
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3384,6 +3390,9 @@ operator|*
 literal|60
 argument_list|)
 argument_list|)
+operator|.
+name|getStringRep
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3932,6 +3941,9 @@ argument_list|,
 literal|10000000
 argument_list|)
 argument_list|)
+operator|.
+name|getStringRep
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

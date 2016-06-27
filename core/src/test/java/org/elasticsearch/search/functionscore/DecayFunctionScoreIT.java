@@ -6069,7 +6069,7 @@ literal|"num1"
 argument_list|,
 literal|null
 argument_list|,
-literal|"1000w"
+literal|"7000d"
 argument_list|)
 argument_list|)
 block|,
@@ -6095,7 +6095,7 @@ literal|"num1"
 argument_list|,
 literal|null
 argument_list|,
-literal|"1000w"
+literal|"7000d"
 argument_list|)
 argument_list|)
 block|}

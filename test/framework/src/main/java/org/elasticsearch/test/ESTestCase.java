@@ -2366,15 +2366,13 @@ index|[]
 block|{
 literal|"d"
 block|,
-literal|"H"
+literal|"h"
 block|,
 literal|"ms"
 block|,
 literal|"s"
 block|,
-literal|"S"
-block|,
-literal|"w"
+literal|"m"
 block|}
 decl_stmt|;
 DECL|method|randomTimeValue

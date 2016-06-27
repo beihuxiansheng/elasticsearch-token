@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|FieldDoc
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FieldDoc
+name|Query
 import|;
 end_import
 
@@ -918,11 +918,10 @@ name|queryBoost
 init|=
 literal|1.0f
 decl_stmt|;
-comment|// timeout in millis
-DECL|field|timeoutInMillis
+DECL|field|timeout
 specifier|private
-name|long
-name|timeoutInMillis
+name|TimeValue
+name|timeout
 decl_stmt|;
 comment|// terminate after count
 DECL|field|terminateAfter
@@ -1352,12 +1351,9 @@ name|timeEstimateCounter
 expr_stmt|;
 name|this
 operator|.
-name|timeoutInMillis
+name|timeout
 operator|=
 name|timeout
-operator|.
-name|millis
-argument_list|()
 expr_stmt|;
 name|queryShardContext
 operator|=
@@ -2792,32 +2788,32 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|timeoutInMillis
+DECL|method|timeout
 specifier|public
-name|long
-name|timeoutInMillis
+name|TimeValue
+name|timeout
 parameter_list|()
 block|{
 return|return
-name|timeoutInMillis
+name|timeout
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|timeoutInMillis
+DECL|method|timeout
 specifier|public
 name|void
-name|timeoutInMillis
+name|timeout
 parameter_list|(
-name|long
-name|timeoutInMillis
+name|TimeValue
+name|timeout
 parameter_list|)
 block|{
 name|this
 operator|.
-name|timeoutInMillis
+name|timeout
 operator|=
-name|timeoutInMillis
+name|timeout
 expr_stmt|;
 block|}
 annotation|@
