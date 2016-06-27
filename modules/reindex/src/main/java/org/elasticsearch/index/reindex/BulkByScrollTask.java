@@ -1412,7 +1412,8 @@ name|Float
 operator|.
 name|POSITIVE_INFINITY
 condition|?
-literal|"unlimited"
+operator|-
+literal|1
 else|:
 name|requestsPerSecond
 argument_list|)
@@ -1736,7 +1737,7 @@ return|return
 name|throttled
 return|;
 block|}
-comment|/**          * The number of requests per second to which to throttle the request. 0 means unlimited.          */
+comment|/**          * The number of requests per second to which to throttle the request. Float.POSITIVE_INFINITY means unlimited.          */
 DECL|method|getRequestsPerSecond
 specifier|public
 name|float

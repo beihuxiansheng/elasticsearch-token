@@ -1878,7 +1878,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"\"requests_per_second\":\"unlimited\""
+literal|"\"requests_per_second\":-1"
 argument_list|)
 argument_list|)
 expr_stmt|;

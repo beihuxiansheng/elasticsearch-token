@@ -795,22 +795,6 @@ return|return
 literal|null
 return|;
 block|}
-if|if
-condition|(
-literal|"unlimited"
-operator|.
-name|equals
-argument_list|(
-name|requestsPerSecondString
-argument_list|)
-condition|)
-block|{
-return|return
-name|Float
-operator|.
-name|POSITIVE_INFINITY
-return|;
-block|}
 name|float
 name|requestsPerSecond
 decl_stmt|;
@@ -836,7 +820,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[requests_per_second] must be a float greater than 0. Use \"unlimited\" to disable throttling."
+literal|"[requests_per_second] must be a float greater than 0. Use -1 to disable throttling."
 argument_list|,
 name|e
 argument_list|)
@@ -845,16 +829,30 @@ block|}
 if|if
 condition|(
 name|requestsPerSecond
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+name|Float
+operator|.
+name|POSITIVE_INFINITY
+return|;
+block|}
+if|if
+condition|(
+name|requestsPerSecond
 operator|<=
 literal|0
 condition|)
 block|{
-comment|// We validate here and in the setters because the setters use "Float.POSITIVE_INFINITY" instead of "unlimited"
+comment|// We validate here and in the setters because the setters use "Float.POSITIVE_INFINITY" instead of -1
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[requests_per_second] must be a float greater than 0. Use \"unlimited\" to disable throttling."
+literal|"[requests_per_second] must be a float greater than 0. Use -1 to disable throttling."
 argument_list|)
 throw|;
 block|}
