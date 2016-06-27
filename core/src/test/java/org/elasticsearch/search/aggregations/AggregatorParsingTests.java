@@ -978,6 +978,8 @@ argument_list|(
 name|settings
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+literal|false
 argument_list|)
 block|{
 annotation|@

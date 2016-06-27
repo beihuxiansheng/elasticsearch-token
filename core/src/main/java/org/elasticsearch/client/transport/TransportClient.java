@@ -952,18 +952,9 @@ argument_list|(
 name|settings
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+literal|true
 argument_list|)
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configure
-parameter_list|()
-block|{
-comment|// noop
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 name|modules
