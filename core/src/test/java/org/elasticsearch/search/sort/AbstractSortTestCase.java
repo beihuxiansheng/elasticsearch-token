@@ -954,9 +954,6 @@ argument_list|,
 name|String
 argument_list|>
 name|params
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 return|return

@@ -1969,12 +1969,6 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-DECL|field|state
-specifier|private
-specifier|final
-name|ClusterState
-name|state
-decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
@@ -2020,9 +2014,6 @@ parameter_list|,
 name|Script
 name|script
 parameter_list|,
-name|ClusterState
-name|state
-parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -2049,12 +2040,6 @@ operator|.
 name|script
 operator|=
 name|script
-expr_stmt|;
-name|this
-operator|.
-name|state
-operator|=
-name|state
 expr_stmt|;
 name|this
 operator|.
@@ -2123,8 +2108,6 @@ name|UPDATE
 argument_list|,
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 decl_stmt|;
 name|executable
