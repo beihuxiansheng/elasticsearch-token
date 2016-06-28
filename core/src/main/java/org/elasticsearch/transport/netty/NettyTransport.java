@@ -6446,8 +6446,7 @@ name|stream
 operator|=
 name|CompressorFactory
 operator|.
-name|defaultCompressor
-argument_list|()
+name|COMPRESSOR
 operator|.
 name|streamOutput
 argument_list|(

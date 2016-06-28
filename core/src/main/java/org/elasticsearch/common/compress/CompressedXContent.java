@@ -402,8 +402,7 @@ name|compressedStream
 init|=
 name|CompressorFactory
 operator|.
-name|defaultCompressor
-argument_list|()
+name|COMPRESSOR
 operator|.
 name|streamOutput
 argument_list|(
@@ -560,8 +559,7 @@ name|compressedOutput
 init|=
 name|CompressorFactory
 operator|.
-name|defaultCompressor
-argument_list|()
+name|COMPRESSOR
 operator|.
 name|streamOutput
 argument_list|(
