@@ -6119,11 +6119,12 @@ name|debug
 argument_list|(
 literal|"removing node data paths: [{}]"
 argument_list|,
-operator|(
-name|Object
-index|[]
-operator|)
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|locations
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|IOUtils
@@ -7259,7 +7260,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to wait for a cluster of size [{}], got"
+literal|"failed to wait for a cluster of size [{}], got [{}]"
 argument_list|,
 name|newSize
 argument_list|,
