@@ -1627,6 +1627,12 @@ specifier|final
 name|Environment
 name|environment
 decl_stmt|;
+DECL|field|nodeEnvironment
+specifier|private
+specifier|final
+name|NodeEnvironment
+name|nodeEnvironment
+decl_stmt|;
 DECL|field|pluginsService
 specifier|private
 specifier|final
@@ -2191,10 +2197,6 @@ name|additionalSettings
 argument_list|,
 name|additionalSettingsFilter
 argument_list|)
-decl_stmt|;
-specifier|final
-name|NodeEnvironment
-name|nodeEnvironment
 decl_stmt|;
 try|try
 block|{
@@ -2821,6 +2823,17 @@ parameter_list|()
 block|{
 return|return
 name|environment
+return|;
+block|}
+comment|/**      * Returns the {@link NodeEnvironment} instance of this node      */
+DECL|method|getNodeEnvironment
+specifier|public
+name|NodeEnvironment
+name|getNodeEnvironment
+parameter_list|()
+block|{
+return|return
+name|nodeEnvironment
 return|;
 block|}
 comment|/**      * Start the node. If the node is already started, this method is no-op.      */
