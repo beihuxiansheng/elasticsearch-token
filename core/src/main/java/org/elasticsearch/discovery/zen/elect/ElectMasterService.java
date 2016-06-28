@@ -496,18 +496,16 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"value for setting \""
+literal|"value for setting \"{}\" is too low. This can result in data loss! Please set it to at least a quorum of master-"
 operator|+
+literal|"eligible nodes (current value: [{}], total number of master-eligible nodes used for publishing in this round: [{}])"
+argument_list|,
 name|ElectMasterService
 operator|.
 name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|"\" is too low. This can result in data loss! Please set it to at least a quorum of master-eligible nodes "
-operator|+
-literal|"(current value: [{}], total number of master-eligible nodes used for publishing in this round: [{}])"
 argument_list|,
 name|minimumMasterNodes
 argument_list|()

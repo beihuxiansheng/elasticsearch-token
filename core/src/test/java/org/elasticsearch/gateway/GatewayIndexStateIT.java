@@ -3057,11 +3057,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> created temp data path for shadow replicas ["
-operator|+
+literal|"--> created temp data path for shadow replicas [{}]"
+argument_list|,
 name|dataPath
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|logger

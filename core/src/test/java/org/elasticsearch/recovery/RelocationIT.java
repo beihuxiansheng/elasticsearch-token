@@ -4260,8 +4260,6 @@ operator|.
 name|info
 argument_list|(
 literal|" --> waiting for relocation to complete"
-argument_list|,
-name|numDocs
 argument_list|)
 expr_stmt|;
 name|ensureGreen
