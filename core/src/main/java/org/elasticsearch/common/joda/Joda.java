@@ -308,18 +308,6 @@ name|Locale
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -3380,6 +3368,7 @@ else|:
 literal|16
 return|;
 block|}
+comment|/**          * We adjust the instant by displayOffset to adjust for the offset that might have been added in          * {@link DateTimeFormatter#printTo(Appendable, long, Chronology)} when using a time zone.          */
 annotation|@
 name|Override
 DECL|method|printTo
@@ -3416,6 +3405,8 @@ operator|.
 name|append
 argument_list|(
 name|instant
+operator|-
+name|displayOffset
 argument_list|)
 expr_stmt|;
 block|}
@@ -3425,13 +3416,18 @@ name|buf
 operator|.
 name|append
 argument_list|(
+operator|(
 name|instant
+operator|-
+name|displayOffset
+operator|)
 operator|/
 literal|1000
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**          * We adjust the instant by displayOffset to adjust for the offset that might have been added in          * {@link DateTimeFormatter#printTo(Appendable, long, Chronology)} when using a time zone.          */
 annotation|@
 name|Override
 DECL|method|printTo
@@ -3474,6 +3470,8 @@ operator|.
 name|valueOf
 argument_list|(
 name|instant
+operator|-
+name|displayOffset
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3488,7 +3486,11 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
+operator|(
 name|instant
+operator|-
+name|displayOffset
+operator|)
 operator|/
 literal|1000
 argument_list|)
