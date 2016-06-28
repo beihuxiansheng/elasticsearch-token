@@ -3226,7 +3226,7 @@ name|indicesFieldDataCache
 argument_list|)
 return|;
 block|}
-comment|/**      * This method verifies that the given {@link IndexMetaData} holds sane values to create an {@link IndexService}. This method will throw an      * exception if the creation fails. The created {@link IndexService} will not be registered and will be closed immediately.      */
+comment|/**      * This method verifies that the given {@code metaData} holds sane values to create an {@link IndexService}.      * This method tries to update the meta data of the created {@link IndexService} if the given {@code metaDataUpdate} is different from the given {@code metaData}.      * This method will throw an exception if the creation or the update fails.      * The created {@link IndexService} will not be registered and will be closed immediately.      */
 DECL|method|verifyIndexMetadata
 specifier|public
 specifier|synchronized
@@ -3239,6 +3239,9 @@ name|nodeServicesProvider
 parameter_list|,
 name|IndexMetaData
 name|metaData
+parameter_list|,
+name|IndexMetaData
+name|metaDataUpdate
 parameter_list|)
 throws|throws
 name|IOException
@@ -3384,22 +3387,26 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|service
-operator|.
-name|getIndexSettings
-argument_list|()
-operator|.
-name|getScopedSettings
-argument_list|()
-operator|.
-name|validateUpdate
-argument_list|(
+if|if
+condition|(
 name|metaData
 operator|.
-name|getSettings
-argument_list|()
+name|equals
+argument_list|(
+name|metaDataUpdate
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|service
+operator|.
+name|updateMetaData
+argument_list|(
+name|metaDataUpdate
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{

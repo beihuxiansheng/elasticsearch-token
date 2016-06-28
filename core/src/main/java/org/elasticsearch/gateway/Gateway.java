@@ -904,6 +904,8 @@ argument_list|(
 name|nodeServicesProvider
 argument_list|,
 name|electedIndexMetaData
+argument_list|,
+name|electedIndexMetaData
 argument_list|)
 expr_stmt|;
 block|}
