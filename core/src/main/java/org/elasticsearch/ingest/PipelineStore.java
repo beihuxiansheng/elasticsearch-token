@@ -334,8 +334,6 @@ name|PipelineStore
 extends|extends
 name|AbstractComponent
 implements|implements
-name|Closeable
-implements|,
 name|ClusterStateListener
 block|{
 DECL|field|factory
@@ -419,24 +417,6 @@ name|scriptService
 argument_list|,
 name|clusterService
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// TODO: When org.elasticsearch.node.Node can close Closable instances we should try to remove this code,
-comment|// since any wired closable should be able to close itself
-name|processorRegistry
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
