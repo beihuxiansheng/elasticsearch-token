@@ -252,7 +252,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { x = x + 1; return x })"
+literal|"int applyOne(IntFunction arg) { arg.apply(1) } applyOne(x -> { def y = x + 1; return y })"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -463,6 +463,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"def type tracking"
+argument_list|)
 DECL|method|testOnlyCapturesAreReadOnly
 specifier|public
 name|void
