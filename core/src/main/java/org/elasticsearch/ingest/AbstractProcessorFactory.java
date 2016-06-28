@@ -63,6 +63,9 @@ specifier|public
 name|P
 name|create
 parameter_list|(
+name|ProcessorsRegistry
+name|registry
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -93,6 +96,8 @@ decl_stmt|;
 return|return
 name|doCreate
 argument_list|(
+name|registry
+argument_list|,
 name|tag
 argument_list|,
 name|config
@@ -105,6 +110,9 @@ specifier|abstract
 name|P
 name|doCreate
 parameter_list|(
+name|ProcessorsRegistry
+name|registry
+parameter_list|,
 name|String
 name|tag
 parameter_list|,

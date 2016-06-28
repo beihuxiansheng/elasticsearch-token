@@ -246,6 +246,9 @@ specifier|protected
 name|TestProcessor
 name|doCreate
 parameter_list|(
+name|ProcessorsRegistry
+name|registry
+parameter_list|,
 name|String
 name|tag
 parameter_list|,

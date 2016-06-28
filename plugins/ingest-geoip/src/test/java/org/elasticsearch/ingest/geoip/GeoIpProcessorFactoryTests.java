@@ -479,6 +479,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -636,6 +638,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -774,6 +778,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -863,6 +869,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -1038,6 +1046,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
@@ -1130,6 +1140,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
@@ -1321,6 +1333,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -1414,6 +1428,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
@@ -1476,6 +1492,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;

@@ -54,6 +54,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|ProcessorsRegistry
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -326,6 +338,9 @@ specifier|public
 name|GsubProcessor
 name|doCreate
 parameter_list|(
+name|ProcessorsRegistry
+name|registry
+parameter_list|,
 name|String
 name|processorTag
 parameter_list|,

@@ -72,6 +72,9 @@ DECL|method|create
 name|P
 name|create
 parameter_list|(
+name|ProcessorsRegistry
+name|registry
+parameter_list|,
 name|Map
 argument_list|<
 name|String

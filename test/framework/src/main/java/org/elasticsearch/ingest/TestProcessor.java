@@ -232,6 +232,9 @@ specifier|public
 name|TestProcessor
 name|doCreate
 parameter_list|(
+name|ProcessorsRegistry
+name|registry
+parameter_list|,
 name|String
 name|processorTag
 parameter_list|,
