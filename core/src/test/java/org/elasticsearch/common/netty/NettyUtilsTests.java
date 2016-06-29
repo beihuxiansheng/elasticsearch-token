@@ -547,7 +547,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO we should factor out a BaseBytesReferenceTestCase
 comment|// we know bytes stream output always creates a paged bytes reference, we use it to create randomized content
 name|ReleasableBytesStreamOutput
 name|out

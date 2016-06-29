@@ -228,6 +228,11 @@ name|buffer
 operator|.
 name|slice
 argument_list|(
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+operator|+
 name|from
 argument_list|,
 name|length

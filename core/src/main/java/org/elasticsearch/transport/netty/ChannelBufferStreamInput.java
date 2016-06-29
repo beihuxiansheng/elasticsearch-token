@@ -608,7 +608,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|EOFException
+name|IndexOutOfBoundsException
 argument_list|()
 throw|;
 block|}

@@ -1413,6 +1413,10 @@ operator|<
 name|length
 operator|)
 condition|?
+name|Byte
+operator|.
+name|toUnsignedInt
+argument_list|(
 name|bytearray
 operator|.
 name|get
@@ -1421,6 +1425,7 @@ name|offset
 operator|+
 name|pos
 operator|++
+argument_list|)
 argument_list|)
 else|:
 operator|-

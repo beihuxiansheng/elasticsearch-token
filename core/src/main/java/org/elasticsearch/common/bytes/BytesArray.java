@@ -91,6 +91,7 @@ end_import
 begin_class
 DECL|class|BytesArray
 specifier|public
+specifier|final
 class|class
 name|BytesArray
 implements|implements

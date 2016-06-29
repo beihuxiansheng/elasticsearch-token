@@ -494,6 +494,13 @@ block|{
 name|BytesRef
 name|ref
 init|=
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
 name|toBytesRef
 argument_list|()
 decl_stmt|;
