@@ -92,16 +92,6 @@ name|InternalSettingsPreparer
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
 begin_comment
 comment|/**  * A cli tool for adding, removing and listing plugins for elasticsearch.  */
 end_comment
