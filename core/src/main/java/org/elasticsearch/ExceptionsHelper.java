@@ -437,6 +437,9 @@ return|return
 name|result
 return|;
 block|}
+comment|/**      * @deprecated Don't swallow exceptions, allow them to propagate.      */
+annotation|@
+name|Deprecated
 DECL|method|detailedMessage
 specifier|public
 specifier|static
@@ -458,6 +461,9 @@ literal|0
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Don't swallow exceptions, allow them to propagate.      */
+annotation|@
+name|Deprecated
 DECL|method|detailedMessage
 specifier|public
 specifier|static
