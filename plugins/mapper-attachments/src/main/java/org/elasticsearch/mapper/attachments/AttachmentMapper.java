@@ -2600,12 +2600,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// https://github.com/elastic/elasticsearch/issues/15843
 DECL|method|parse
 specifier|public
 name|Mapper

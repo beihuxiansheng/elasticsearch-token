@@ -189,8 +189,6 @@ argument_list|,
 operator|new
 name|AnalysisStempelPlugin
 argument_list|()
-operator|::
-name|onModule
 argument_list|)
 decl_stmt|;
 name|TokenFilterFactory

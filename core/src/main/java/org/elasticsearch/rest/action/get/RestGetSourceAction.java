@@ -566,13 +566,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|response
 operator|.
-name|isExists
+name|isSourceEmpty
 argument_list|()
 condition|)
 block|{
+comment|// check if doc source (or doc itself) is missing
 return|return
 operator|new
 name|BytesRestResponse

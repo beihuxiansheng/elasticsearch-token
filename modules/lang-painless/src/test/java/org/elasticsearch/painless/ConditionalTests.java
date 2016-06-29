@@ -378,29 +378,9 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"boolean x = false; boolean y = true; return (x ? 2 : 4.0F) == (y ? new Long(2) : new Float(4.0F));"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
 literal|"boolean x = false; boolean y = true; "
 operator|+
-literal|"return (x ? new HashMap() : new ArrayList()) == (y ? new Long(2) : new Float(4.0F));"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"boolean x = false; boolean y = true; return (x ? 2 : 4.0F) == (y ? new HashMap() : new ArrayList());"
+literal|"return (x ? new HashMap() : new ArrayList()) == (y ? new HashMap() : new ArrayList());"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -411,82 +391,74 @@ name|void
 name|testIncompatibleAssignment
 parameter_list|()
 block|{
-try|try
+name|expectScriptThrows
+argument_list|(
+name|ClassCastException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"boolean x = false; byte z = x ? 2 : 4.0F; return z;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected class cast exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectScriptThrows
+argument_list|(
 name|ClassCastException
-name|expected
-parameter_list|)
-block|{}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"boolean x = false; Map z = x ? 4 : (byte)7; return z;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected class cast exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectScriptThrows
+argument_list|(
 name|ClassCastException
-name|expected
-parameter_list|)
-block|{}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"boolean x = false; Map z = x ? new HashMap() : new ArrayList(); return z;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected class cast exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectScriptThrows
+argument_list|(
 name|ClassCastException
-name|expected
-parameter_list|)
-block|{}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"boolean x = false; int y = 2; byte z = x ? y : 7; return z;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected class cast exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassCastException
-name|expected
-parameter_list|)
-block|{}
 block|}
 block|}
 end_class

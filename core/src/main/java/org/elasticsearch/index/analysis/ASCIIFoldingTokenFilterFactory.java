@@ -107,6 +107,8 @@ class|class
 name|ASCIIFoldingTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|field|PRESERVE_ORIGINAL
 specifier|public
@@ -194,6 +196,18 @@ name|tokenStream
 argument_list|,
 name|preserveOriginal
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}

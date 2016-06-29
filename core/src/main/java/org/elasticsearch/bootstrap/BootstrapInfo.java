@@ -330,6 +330,13 @@ return|return
 name|SYSTEM_PROPERTIES
 return|;
 block|}
+DECL|method|init
+specifier|public
+specifier|static
+name|void
+name|init
+parameter_list|()
+block|{     }
 block|}
 end_class
 

@@ -314,6 +314,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -372,7 +382,7 @@ annotation|@
 name|Override
 DECL|method|doCreateFactory
 specifier|protected
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|doCreateFactory
 parameter_list|(
 name|String
@@ -405,11 +415,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -471,7 +481,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|BACKGROUND_FILTER
 argument_list|)
@@ -501,7 +511,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|HEURISTIC
 argument_list|)
@@ -604,7 +614,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|HEURISTIC
 argument_list|,
@@ -624,7 +634,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|BACKGROUND_FILTER
 argument_list|)
@@ -643,7 +653,10 @@ argument_list|,
 name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|filter
 init|=
 name|queryParseContext
@@ -651,17 +664,29 @@ operator|.
 name|parseInnerQueryBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|filter
+operator|.
+name|isPresent
+argument_list|()
+condition|)
+block|{
 name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|BACKGROUND_FILTER
 argument_list|,
 name|filter
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -685,7 +710,7 @@ name|TermsAggregator
 operator|.
 name|BucketCountThresholds
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|DEFAULT_BUCKET_COUNT_THRESHOLDS
 argument_list|)

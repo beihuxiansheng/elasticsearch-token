@@ -56,7 +56,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -82,7 +82,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [_score] is reserved"
+literal|"Variable [_score] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,7 +97,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -138,7 +138,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -164,7 +164,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [doc] is reserved"
+literal|"Variable [doc] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -179,7 +179,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -220,7 +220,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -246,7 +246,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [ctx] is reserved"
+literal|"Variable [ctx] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -261,7 +261,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -336,7 +336,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -362,7 +362,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Variable name [_value] is reserved"
+literal|"Variable [_value] is already defined"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -377,7 +377,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.

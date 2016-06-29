@@ -198,7 +198,7 @@ name|Override
 DECL|method|parse
 specifier|public
 specifier|final
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -576,7 +576,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -638,7 +638,7 @@ block|}
 DECL|method|buildFactory
 specifier|protected
 specifier|abstract
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
 name|?
 argument_list|>

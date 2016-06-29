@@ -262,6 +262,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Match query is a query that analyzes the text and constructs a query as the  * result of the analysis.  */
 end_comment
@@ -1236,7 +1246,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No negative prefix length allowed."
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] requires prefix length to be non-negative."
 argument_list|)
 throw|;
 block|}
@@ -1276,7 +1290,7 @@ block|{
 if|if
 condition|(
 name|maxExpansions
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -1284,7 +1298,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No negative maxExpansions allowed."
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] requires maxExpansions to be positive."
 argument_list|)
 throw|;
 block|}
@@ -2319,7 +2337,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|MatchQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -3355,7 +3376,12 @@ name|boost
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|matchQuery
+argument_list|)
 return|;
 block|}
 block|}

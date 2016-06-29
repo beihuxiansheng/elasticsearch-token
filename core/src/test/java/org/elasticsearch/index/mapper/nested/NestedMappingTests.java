@@ -1088,6 +1088,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -1882,6 +1885,9 @@ literal|"include_in_parent"
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -2703,6 +2709,9 @@ literal|"include_in_parent"
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -3541,6 +3550,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -4355,6 +4367,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -4721,6 +4736,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 return|;
@@ -5048,6 +5066,9 @@ name|startObject
 argument_list|(
 literal|"properties"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

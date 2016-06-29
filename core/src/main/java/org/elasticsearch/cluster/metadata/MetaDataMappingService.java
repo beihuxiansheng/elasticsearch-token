@@ -330,20 +330,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|percolator
-operator|.
-name|PercolatorFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -1944,7 +1930,11 @@ throw|throw
 operator|new
 name|InvalidTypeNameException
 argument_list|(
-literal|"Document mapping type name can't start with '_'"
+literal|"Document mapping type name can't start with '_', found: ["
+operator|+
+name|mappingType
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}

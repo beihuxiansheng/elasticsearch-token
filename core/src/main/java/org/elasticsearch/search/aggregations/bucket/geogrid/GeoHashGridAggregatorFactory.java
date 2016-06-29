@@ -120,7 +120,7 @@ name|bucket
 operator|.
 name|geogrid
 operator|.
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 operator|.
 name|CellIdSource
 import|;

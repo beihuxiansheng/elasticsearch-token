@@ -50,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|common
 operator|.
-name|search
+name|unit
 operator|.
-name|SearchType
+name|TimeValue
 import|;
 end_import
 
@@ -663,13 +663,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|timeoutInMillis
+DECL|method|timeout
 specifier|public
 name|void
-name|timeoutInMillis
+name|timeout
 parameter_list|(
-name|long
-name|timeoutInMillis
+name|TimeValue
+name|timeout
 parameter_list|)
 block|{
 throw|throw

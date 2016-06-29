@@ -164,24 +164,6 @@ name|AtomicLong
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterName
-operator|.
-name|readClusterName
-import|;
-end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|ZenPing
 specifier|public
@@ -447,7 +429,8 @@ name|IOException
 block|{
 name|clusterName
 operator|=
-name|readClusterName
+operator|new
+name|ClusterName
 argument_list|(
 name|in
 argument_list|)

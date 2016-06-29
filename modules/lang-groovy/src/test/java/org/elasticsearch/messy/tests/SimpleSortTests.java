@@ -66,6 +66,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -249,24 +263,6 @@ operator|.
 name|util
 operator|.
 name|Random
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
 import|;
 end_import
 
@@ -2162,6 +2158,8 @@ name|closeTo
 argument_list|(
 name|i
 argument_list|,
+name|GeoUtils
+operator|.
 name|TOLERANCE
 argument_list|)
 argument_list|)

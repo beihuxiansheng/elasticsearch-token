@@ -143,6 +143,8 @@ class|class
 name|LowerCaseTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|field|lang
 specifier|private
@@ -287,6 +289,18 @@ literal|"] not support for lower case"
 argument_list|)
 throw|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
+return|;
 block|}
 block|}
 end_class

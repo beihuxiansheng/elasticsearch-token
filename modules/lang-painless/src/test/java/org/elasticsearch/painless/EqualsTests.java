@@ -692,7 +692,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return new Long(3) == new Long(3);"
+literal|"return 3 == 3;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -702,97 +702,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return new Long(3) === new Long(3);"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = x; return x == y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = x; return x === y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = new Integer(3); return x == y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = new Integer(3); return x === y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); int y = 3; return x == y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); short y = 3; return x == y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Short y = (short)3; return x == y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); int y = 3; return x === y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); double y = 3; return x === y;"
+literal|"int x = 4; int y = 5; x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -869,7 +779,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return new Long(3) != new Long(3);"
+literal|"return 3 != 3;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -879,67 +789,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return new Long(3) !== new Long(3);"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = x; return x != y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = x; return x !== y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = new Integer(3); return x != y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); Object y = new Integer(3); return x !== y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); int y = 3; return x !== y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = new Integer(3); double y = 3; return x !== y;"
+literal|"int x = 4; int y = 5; x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1016,7 +866,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; Character b = (char)'b'; if (a == b) return 1; else return 0;"
+literal|"def a = (char)'a'; def b = (char)'b'; if (a == b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1026,27 +876,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; Character b = (char)'a'; if (a == b) return 1; else return 0;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer a = new Integer(1); Integer b = 1; if (a === b) return 1; else return 0;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = (char)'a'; Character b = new Character((char)'a'); if (a === b) return 1; else return 0;"
+literal|"def a = (char)'a'; def b = (char)'a'; if (a == b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1056,7 +886,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; Object b = a; if (a === b) return 1; else return 0;"
+literal|"def a = 1; def b = 1; if (a === b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1066,7 +896,27 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Integer a = 1; Number b = a; Number c = a; if (c === b) return 1; else return 0;"
+literal|"def a = (char)'a'; def b = (char)'a'; if (a === b) return 1; else return 0;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = (char)'a'; Object b = a; if (a === b) return 1; else return 0;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = 1; Number b = a; Number c = a; if (c === b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1076,7 +926,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Integer a = 1; Character b = (char)'a'; if (a === (Object)b) return 1; else return 0;"
+literal|"def a = 1; Object b = new HashMap(); if (a === (Object)b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1093,7 +943,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; Character b = (char)'b'; if (a != b) return 1; else return 0;"
+literal|"def a = (char)'a'; def b = (char)'b'; if (a != b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1103,27 +953,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; Character b = (char)'a'; if (a != b) return 1; else return 0;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer a = new Integer(1); Integer b = 1; if (a !== b) return 1; else return 0;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = (char)'a'; Character b = new Character((char)'a'); if (a !== b) return 1; else return 0;"
+literal|"def a = (char)'a'; def b = (char)'a'; if (a != b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1133,7 +963,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; Object b = a; if (a !== b) return 1; else return 0;"
+literal|"def a = 1; def b = 1; if (a !== b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1143,7 +973,27 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Integer a = 1; Number b = a; Number c = a; if (c !== b) return 1; else return 0;"
+literal|"def a = (char)'a'; def b = (char)'a'; if (a !== b) return 1; else return 0;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = (char)'a'; Object b = a; if (a !== b) return 1; else return 0;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = 1; Number b = a; Number c = a; if (c !== b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1153,7 +1003,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Integer a = 1; Character b = (char)'a'; if (a !== (Object)b) return 1; else return 0;"
+literal|"def a = 1; Object b = new HashMap(); if (a !== (Object)b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1170,7 +1020,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return a == null;"
+literal|"HashMap a = new HashMap(); return a == null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1180,7 +1030,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return a === null;"
+literal|"HashMap a = new HashMap(); return a === null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1190,7 +1040,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return a != null;"
+literal|"HashMap a = new HashMap(); return a != null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1200,87 +1050,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return a !== null;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; return a == null;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; return a != null;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = (char)'a'; Character b = null; return a == b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = null; return a === b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = (char)'a'; Character b = null; return a != b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = null; return a !== b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = null; double y = 2.0; return x == y;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = null; Short y = null; return x == y;"
+literal|"HashMap a = new HashMap(); return a !== null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1297,7 +1067,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return null == a;"
+literal|"HashMap a = new HashMap(); return null == a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1307,7 +1077,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return null === a;"
+literal|"HashMap a = new HashMap(); return null === a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1317,7 +1087,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return null != a;"
+literal|"HashMap a = new HashMap(); return null != a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1327,107 +1097,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = (char)'a'; return null !== a;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; return null == a;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; return null != a;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = (char)'a'; return a == b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = null; return a == b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = null; return b === a;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = (char)'a'; return a != b;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = null; return b != a;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Character a = null; Character b = null; return b !== a;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|false
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = null; double y = 2.0; return y == x;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|true
-argument_list|,
-name|exec
-argument_list|(
-literal|"Integer x = null; Short y = null; return y == x;"
+literal|"HashMap a = new HashMap(); return null !== a;"
 argument_list|)
 argument_list|)
 expr_stmt|;

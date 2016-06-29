@@ -92,6 +92,16 @@ name|InternalSettingsPreparer
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/**  * A cli tool for adding, removing and listing plugins for elasticsearch.  */
 end_comment
@@ -107,10 +117,7 @@ block|{
 DECL|method|PluginCli
 specifier|public
 name|PluginCli
-parameter_list|(
-name|Environment
-name|env
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
@@ -125,9 +132,7 @@ literal|"list"
 argument_list|,
 operator|new
 name|ListPluginsCommand
-argument_list|(
-name|env
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|subcommands
@@ -138,9 +143,7 @@ literal|"install"
 argument_list|,
 operator|new
 name|InstallPluginCommand
-argument_list|(
-name|env
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|subcommands
@@ -151,9 +154,7 @@ literal|"remove"
 argument_list|,
 operator|new
 name|RemovePluginCommand
-argument_list|(
-name|env
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -183,6 +184,16 @@ argument_list|,
 literal|"INFO"
 argument_list|)
 decl_stmt|;
+name|String
+name|pathHome
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"es.path.home"
+argument_list|)
+decl_stmt|;
 comment|// Set the appender for all potential log files to terminal so that other components that use the logger print out the
 comment|// same terminal.
 comment|// The reason for this is that the plugin cli cannot be configured with a file appender because when the plugin command is
@@ -203,6 +214,13 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+literal|"path.home"
+argument_list|,
+name|pathHome
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"appender.terminal.type"
 argument_list|,
 literal|"terminal"
@@ -212,12 +230,12 @@ name|put
 argument_list|(
 literal|"rootLogger"
 argument_list|,
-literal|"${es.logger.level}, terminal"
+literal|"${logger.level}, terminal"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"es.logger.level"
+literal|"logger.level"
 argument_list|,
 name|loggerLevel
 argument_list|)
@@ -242,29 +260,11 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Environment
-name|env
-init|=
-name|InternalSettingsPreparer
-operator|.
-name|prepareEnvironment
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|,
-name|Terminal
-operator|.
-name|DEFAULT
-argument_list|)
-decl_stmt|;
 name|exit
 argument_list|(
 operator|new
 name|PluginCli
-argument_list|(
-name|env
-argument_list|)
+argument_list|()
 operator|.
 name|main
 argument_list|(

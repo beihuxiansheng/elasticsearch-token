@@ -236,6 +236,9 @@ argument_list|<
 name|String
 argument_list|,
 name|AnalyzerProvider
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|analyzerProviders
 parameter_list|,
@@ -414,6 +417,9 @@ argument_list|<
 name|String
 argument_list|,
 name|AnalyzerProvider
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|entry
 range|:
@@ -424,6 +430,9 @@ argument_list|()
 control|)
 block|{
 name|AnalyzerProvider
+argument_list|<
+name|?
+argument_list|>
 name|analyzerFactory
 init|=
 name|entry

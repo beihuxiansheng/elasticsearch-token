@@ -695,21 +695,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Node ["
-operator|+
+literal|"Node [{}] not available for scroll request [{}]"
+argument_list|,
 name|target
 operator|.
 name|getNode
 argument_list|()
-operator|+
-literal|"] not available for scroll request ["
-operator|+
+argument_list|,
 name|scrollId
 operator|.
 name|getSource
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -777,21 +773,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Node ["
-operator|+
+literal|"Node [{}] not available for scroll request [{}]"
+argument_list|,
 name|target
 operator|.
 name|getNode
 argument_list|()
-operator|+
-literal|"] not available for scroll request ["
-operator|+
+argument_list|,
 name|scrollId
 operator|.
 name|getSource
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

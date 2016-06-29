@@ -712,8 +712,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -777,9 +775,7 @@ expr_stmt|;
 name|shard
 operator|.
 name|recoverFromStore
-argument_list|(
-name|localNode
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|newRouting
 operator|=
@@ -795,8 +791,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

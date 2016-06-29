@@ -128,7 +128,7 @@ name|bucket
 operator|.
 name|sampler
 operator|.
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 import|;
 end_import
 
@@ -940,7 +940,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 name|sampleAgg
 init|=
 name|sampler
@@ -1109,7 +1109,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 name|sampleAgg
 init|=
 name|sampler
@@ -1256,7 +1256,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 name|sampleAgg
 init|=
 name|sampler

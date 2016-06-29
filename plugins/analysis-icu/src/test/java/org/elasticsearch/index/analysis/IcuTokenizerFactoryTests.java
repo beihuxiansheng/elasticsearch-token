@@ -618,8 +618,6 @@ argument_list|,
 operator|new
 name|AnalysisICUPlugin
 argument_list|()
-operator|::
-name|onModule
 argument_list|)
 return|;
 block|}

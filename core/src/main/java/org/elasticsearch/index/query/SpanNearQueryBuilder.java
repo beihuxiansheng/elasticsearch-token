@@ -172,6 +172,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -183,6 +193,16 @@ operator|.
 name|util
 operator|.
 name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
 import|;
 end_import
 
@@ -341,7 +361,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"query must include at least one clause"
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] must include at least one clause"
 argument_list|)
 throw|;
 block|}
@@ -464,10 +488,11 @@ operator|.
 name|slop
 return|;
 block|}
-DECL|method|clause
+comment|/**      * Add a span clause to the current list of clauses      */
+DECL|method|addClause
 specifier|public
 name|SpanNearQueryBuilder
-name|clause
+name|addClause
 parameter_list|(
 name|SpanQueryBuilder
 name|clause
@@ -484,7 +509,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"query clauses cannot be null"
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"]  clauses cannot be null"
 argument_list|)
 throw|;
 block|}
@@ -510,9 +539,14 @@ name|clauses
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|this
 operator|.
 name|clauses
+argument_list|)
 return|;
 block|}
 comment|/**      * When<code>inOrder</code> is true, the spans from each clause      * must be in the same order as in<code>clauses</code> and must be non-overlapping.      * Defaults to<code>true</code>      */
@@ -642,7 +676,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|SpanNearQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -786,7 +823,10 @@ operator|.
 name|END_ARRAY
 condition|)
 block|{
+name|Optional
+argument_list|<
 name|QueryBuilder
+argument_list|>
 name|query
 init|=
 name|parseContext
@@ -796,12 +836,21 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
-operator|(
 name|query
+operator|.
+name|isPresent
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|query
+operator|.
+name|get
+argument_list|()
 operator|instanceof
 name|SpanQueryBuilder
-operator|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -825,6 +874,9 @@ operator|(
 name|SpanQueryBuilder
 operator|)
 name|query
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1092,7 +1144,7 @@ control|)
 block|{
 name|queryBuilder
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|clauses
 operator|.
@@ -1125,7 +1177,12 @@ name|queryName
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|queryBuilder
+argument_list|)
 return|;
 block|}
 annotation|@

@@ -507,36 +507,6 @@ name|void
 name|ensureValidity
 parameter_list|()
 block|{
-if|if
-condition|(
-name|shardSize
-operator|==
-literal|0
-condition|)
-block|{
-name|setShardSize
-argument_list|(
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|requiredSize
-operator|==
-literal|0
-condition|)
-block|{
-name|setRequiredSize
-argument_list|(
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|)
-expr_stmt|;
-block|}
 comment|// shard_size cannot be smaller than size as we need to at least fetch<size> entries from every shards in order to return<size>
 if|if
 condition|(
@@ -568,10 +538,29 @@ block|}
 if|if
 condition|(
 name|requiredSize
+operator|<=
+literal|0
+operator|||
+name|shardSize
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"parameters [required_size] and [shard_size] must be>0 in terms aggregation."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|minDocCount
 operator|<
 literal|0
 operator|||
-name|minDocCount
+name|shardMinDocCount
 operator|<
 literal|0
 condition|)
@@ -580,7 +569,7 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"parameters [requiredSize] and [minDocCount] must be>=0 in terms aggregation."
+literal|"parameter [min_doc_count] and [shardMinDocCount] must be>=0 in terms aggregation."
 argument_list|)
 throw|;
 block|}
@@ -709,7 +698,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|REQUIRED_SIZE_FIELD_NAME
 operator|.
@@ -723,7 +712,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|SHARD_SIZE_FIELD_NAME
 operator|.
@@ -737,7 +726,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|MIN_DOC_COUNT_FIELD_NAME
 operator|.
@@ -751,7 +740,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|SHARD_MIN_DOC_COUNT_FIELD_NAME
 operator|.

@@ -653,7 +653,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 operator|.
 name|BUCKETS_PATH_FIELD
 operator|.
@@ -720,7 +720,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 operator|.
 name|BUCKETS_PATH_FIELD
 operator|.

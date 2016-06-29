@@ -681,18 +681,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verify that when explicitly changing the value of the index setting for the delayed      * allocation to a very small value, it kicks the allocation of the unassigned shard      * even though the node it was hosted on will not come back.      */
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/18293"
-argument_list|)
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:DEBUG,cluster.routing:TRACE"
-argument_list|)
 DECL|method|testDelayedAllocationChangeWithSettingTo100ms
 specifier|public
 name|void
@@ -1040,17 +1028,8 @@ argument_list|)
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
-block|{
+lambda|->
 name|assertThat
 argument_list|(
 name|client
@@ -1090,9 +1069,6 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 name|assertThat

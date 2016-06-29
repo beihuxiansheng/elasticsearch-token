@@ -202,24 +202,6 @@ name|Collections
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|set
-operator|.
-name|Sets
-operator|.
-name|newHashSet
-import|;
-end_import
-
 begin_comment
 comment|/**  * This service is responsible for upgrading legacy index metadata to the current version  *<p>  * Every time an existing index is introduced into cluster this service should be used  * to upgrade the existing index metadata to the latest version of the cluster. It typically  * occurs during cluster upgrade, when dangling indices are imported into the cluster or indices  * are restored from a repository.  */
 end_comment

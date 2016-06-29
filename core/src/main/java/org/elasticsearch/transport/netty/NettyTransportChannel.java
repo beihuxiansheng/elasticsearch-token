@@ -262,6 +262,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelFutureListener
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -283,10 +297,6 @@ operator|.
 name|AtomicBoolean
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|NettyTransportChannel
@@ -344,11 +354,11 @@ specifier|final
 name|long
 name|reservedBytes
 decl_stmt|;
-DECL|field|closed
+DECL|field|released
 specifier|private
 specifier|final
 name|AtomicBoolean
-name|closed
+name|released
 init|=
 operator|new
 name|AtomicBoolean
@@ -497,7 +507,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|close
+name|release
 argument_list|()
 expr_stmt|;
 if|if
@@ -598,8 +608,7 @@ name|stream
 operator|=
 name|CompressorFactory
 operator|.
-name|defaultCompressor
-argument_list|()
+name|COMPRESSOR
 operator|.
 name|streamOutput
 argument_list|(
@@ -685,6 +694,17 @@ name|addedReleaseListener
 operator|=
 literal|true
 expr_stmt|;
+specifier|final
+name|TransportResponseOptions
+name|finalOptions
+init|=
+name|options
+decl_stmt|;
+name|ChannelFutureListener
+name|onResponseSentListener
+init|=
+name|f
+lambda|->
 name|transportServiceAdapter
 operator|.
 name|onResponseSent
@@ -695,7 +715,14 @@ name|action
 argument_list|,
 name|response
 argument_list|,
-name|options
+name|finalOptions
+argument_list|)
+decl_stmt|;
+name|future
+operator|.
+name|addListener
+argument_list|(
+name|onResponseSentListener
 argument_list|)
 expr_stmt|;
 block|}
@@ -737,7 +764,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|close
+name|release
 argument_list|()
 expr_stmt|;
 name|BytesStreamOutput
@@ -841,13 +868,21 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+name|ChannelFuture
+name|future
+init|=
 name|channel
 operator|.
 name|write
 argument_list|(
 name|buffer
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+name|ChannelFutureListener
+name|onResponseSentListener
+init|=
+name|f
+lambda|->
 name|transportServiceAdapter
 operator|.
 name|onResponseSent
@@ -858,18 +893,25 @@ name|action
 argument_list|,
 name|error
 argument_list|)
+decl_stmt|;
+name|future
+operator|.
+name|addListener
+argument_list|(
+name|onResponseSentListener
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|close
+DECL|method|release
 specifier|private
 name|void
-name|close
+name|release
 parameter_list|()
 block|{
-comment|// attempt to close once atomically
+comment|// attempt to release once atomically
 if|if
 condition|(
-name|closed
+name|released
 operator|.
 name|compareAndSet
 argument_list|(
@@ -885,7 +927,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Channel is already closed"
+literal|"reserved bytes are already released"
 argument_list|)
 throw|;
 block|}

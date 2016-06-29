@@ -417,6 +417,20 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// this trips on many mappings now...
+comment|// Do not automatically close unclosed objects/arrays in com.fasterxml.jackson.core.json.UTF8JsonGenerator#close() method
+name|jsonFactory
+operator|.
+name|configure
+argument_list|(
+name|JsonGenerator
+operator|.
+name|Feature
+operator|.
+name|AUTO_CLOSE_JSON_CONTENT
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|jsonXContent
 operator|=
 operator|new

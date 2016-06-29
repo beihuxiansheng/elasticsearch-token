@@ -46,6 +46,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -85,7 +97,7 @@ name|r
 argument_list|,
 literal|0
 argument_list|,
-literal|4
+literal|3
 argument_list|)
 condition|)
 block|{
@@ -130,14 +142,6 @@ name|createMultiTermQuery
 argument_list|(
 name|r
 argument_list|)
-return|;
-case|case
-literal|4
-case|:
-return|return
-operator|new
-name|EmptyQueryBuilder
-argument_list|()
 return|;
 default|default:
 throw|throw

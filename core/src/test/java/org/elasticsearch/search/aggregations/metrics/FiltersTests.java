@@ -108,7 +108,7 @@ name|bucket
 operator|.
 name|filters
 operator|.
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 import|;
 end_import
 
@@ -120,14 +120,14 @@ name|FiltersTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -141,7 +141,7 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 name|factory
 decl_stmt|;
 if|if
@@ -219,7 +219,7 @@ block|;             }
 name|factory
 operator|=
 operator|new
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -287,7 +287,7 @@ block|}
 name|factory
 operator|=
 operator|new
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -374,13 +374,13 @@ argument_list|()
 argument_list|)
 block|}
 decl_stmt|;
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 name|builder
 decl_stmt|;
 name|builder
 operator|=
 operator|new
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 argument_list|(
 literal|"my-agg"
 argument_list|,

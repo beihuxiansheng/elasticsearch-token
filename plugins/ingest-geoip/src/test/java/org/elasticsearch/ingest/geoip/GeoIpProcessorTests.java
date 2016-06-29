@@ -48,8 +48,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 import|;
 end_import
@@ -63,6 +61,16 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -103,6 +111,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|zip
+operator|.
+name|GZIPInputStream
 import|;
 end_import
 
@@ -149,13 +169,9 @@ block|{
 name|InputStream
 name|database
 init|=
-name|GeoIpProcessor
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
+name|getDatabaseFileInputStream
 argument_list|(
-literal|"/GeoLite2-City.mmdb"
+literal|"/GeoLite2-City.mmdb.gz"
 argument_list|)
 decl_stmt|;
 name|GeoIpProcessor
@@ -215,7 +231,7 @@ name|put
 argument_list|(
 literal|"source_field"
 argument_list|,
-literal|"82.170.213.79"
+literal|"8.8.8.8"
 argument_list|)
 expr_stmt|;
 name|IngestDocument
@@ -252,7 +268,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"82.170.213.79"
+literal|"8.8.8.8"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -311,7 +327,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"82.170.213.79"
+literal|"8.8.8.8"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -326,7 +342,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"NL"
+literal|"US"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -341,7 +357,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Netherlands"
+literal|"United States"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -356,7 +372,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Europe"
+literal|"North America"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -371,7 +387,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"North Holland"
+literal|"California"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -386,7 +402,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Amsterdam"
+literal|"Mountain View"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -401,7 +417,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Europe/Amsterdam"
+literal|"America/Los_Angeles"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -424,7 +440,7 @@ name|put
 argument_list|(
 literal|"lat"
 argument_list|,
-literal|52.374d
+literal|37.386d
 argument_list|)
 expr_stmt|;
 name|location
@@ -433,7 +449,8 @@ name|put
 argument_list|(
 literal|"lon"
 argument_list|,
-literal|4.8897d
+operator|-
+literal|122.0838d
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -463,13 +480,9 @@ block|{
 name|InputStream
 name|database
 init|=
-name|GeoIpProcessor
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
+name|getDatabaseFileInputStream
 argument_list|(
-literal|"/GeoLite2-Country.mmdb"
+literal|"/GeoLite2-Country.mmdb.gz"
 argument_list|)
 decl_stmt|;
 name|GeoIpProcessor
@@ -686,13 +699,9 @@ block|{
 name|InputStream
 name|database
 init|=
-name|GeoIpProcessor
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
+name|getDatabaseFileInputStream
 argument_list|(
-literal|"/GeoLite2-City.mmdb"
+literal|"/GeoLite2-City.mmdb.gz"
 argument_list|)
 decl_stmt|;
 name|GeoIpProcessor
@@ -752,7 +761,7 @@ name|put
 argument_list|(
 literal|"source_field"
 argument_list|,
-literal|"202.45.11.11"
+literal|"127.0.0.1"
 argument_list|)
 expr_stmt|;
 name|IngestDocument
@@ -832,13 +841,9 @@ block|{
 name|InputStream
 name|database
 init|=
-name|GeoIpProcessor
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
+name|getDatabaseFileInputStream
 argument_list|(
-literal|"/GeoLite2-City.mmdb"
+literal|"/GeoLite2-City.mmdb.gz"
 argument_list|)
 decl_stmt|;
 name|GeoIpProcessor
@@ -957,6 +962,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getDatabaseFileInputStream
+specifier|static
+name|InputStream
+name|getDatabaseFileInputStream
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|GZIPInputStream
+argument_list|(
+name|GeoIpProcessor
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
+argument_list|(
+name|path
+argument_list|)
+argument_list|)
+return|;
 block|}
 block|}
 end_class

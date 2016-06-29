@@ -491,20 +491,6 @@ operator|=
 name|forcedAwarenessAttributes
 expr_stmt|;
 block|}
-comment|/**      * Get the attributes defined by this instance      *      * @return attributes defined by this instance      */
-DECL|method|awarenessAttributes
-specifier|public
-name|String
-index|[]
-name|awarenessAttributes
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|awarenessAttributes
-return|;
-block|}
 DECL|method|setAwarenessAttributes
 specifier|private
 name|void
@@ -736,6 +722,9 @@ operator|.
 name|assignedShards
 argument_list|(
 name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 control|)
 block|{

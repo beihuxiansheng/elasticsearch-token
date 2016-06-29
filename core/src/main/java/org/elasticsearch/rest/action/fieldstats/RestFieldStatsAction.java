@@ -757,7 +757,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|BytesRestResponse

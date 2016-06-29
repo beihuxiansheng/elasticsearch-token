@@ -1256,9 +1256,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -1286,15 +1283,18 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|clusterName
+name|clusterService
 operator|=
-name|clusterName
+name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|clusterService
+name|clusterName
 operator|=
 name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1513,8 +1513,6 @@ name|threadPool
 argument_list|,
 name|transportService
 argument_list|,
-name|clusterName
-argument_list|,
 name|clusterService
 argument_list|)
 expr_stmt|;
@@ -1542,7 +1540,10 @@ name|threadPool
 argument_list|,
 name|transportService
 argument_list|,
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -1577,7 +1578,10 @@ argument_list|()
 argument_list|,
 name|discoverySettings
 argument_list|,
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -1697,6 +1701,8 @@ argument_list|(
 name|clusterService
 argument_list|,
 name|routingService
+argument_list|,
+name|electMaster
 argument_list|,
 name|discoverySettings
 argument_list|,
@@ -2365,7 +2371,7 @@ argument_list|()
 decl_stmt|;
 name|nodeJoinController
 operator|.
-name|startAccumulatingJoins
+name|startElectionContext
 argument_list|()
 expr_stmt|;
 while|while
@@ -2543,7 +2549,7 @@ block|{
 comment|// process any incoming joins (they will fail because we are not the master)
 name|nodeJoinController
 operator|.
-name|stopAccumulatingJoins
+name|stopElectionContext
 argument_list|(
 literal|"not master"
 argument_list|)
@@ -3643,7 +3649,17 @@ parameter_list|,
 name|ClusterState
 name|newState
 parameter_list|)
-block|{             }
+block|{
+name|electMaster
+operator|.
+name|logMinimumMasterNodesWarningIfNecessary
+argument_list|(
+name|oldState
+argument_list|,
+name|newState
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -6438,6 +6454,8 @@ name|String
 name|reason
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6464,6 +6482,8 @@ name|void
 name|startNewThreadIfNotRunning
 parameter_list|()
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6580,6 +6600,8 @@ name|Thread
 name|joinThread
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6608,6 +6630,8 @@ name|Thread
 name|joinThread
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -6672,30 +6696,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|assertClusterStateThread
-specifier|private
-name|void
-name|assertClusterStateThread
-parameter_list|()
-block|{
-assert|assert
-name|clusterService
-operator|instanceof
-name|ClusterService
-operator|==
-literal|false
-operator|||
-operator|(
-operator|(
-name|ClusterService
-operator|)
-name|clusterService
-operator|)
-operator|.
-name|assertClusterStateThread
-argument_list|()
-assert|;
 block|}
 block|}
 block|}

@@ -140,6 +140,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|PipelineAggregationBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -167,7 +181,7 @@ name|PipelineAggregator
 implements|implements
 name|Streamable
 block|{
-comment|/**      * Parse the {@link PipelineAggregatorBuilder} from a {@link QueryParseContext}.      */
+comment|/**      * Parse the {@link PipelineAggregationBuilder} from a {@link QueryParseContext}.      */
 annotation|@
 name|FunctionalInterface
 DECL|interface|Parser
@@ -217,10 +231,7 @@ argument_list|)
 decl_stmt|;
 comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *          * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
 DECL|method|parse
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
+name|PipelineAggregationBuilder
 name|parse
 parameter_list|(
 name|String

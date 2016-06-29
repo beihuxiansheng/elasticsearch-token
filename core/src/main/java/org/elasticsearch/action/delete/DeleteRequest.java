@@ -52,7 +52,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationRequest
+name|ReplicatedWriteRequest
 import|;
 end_import
 
@@ -162,7 +162,7 @@ specifier|public
 class|class
 name|DeleteRequest
 extends|extends
-name|ReplicationRequest
+name|ReplicatedWriteRequest
 argument_list|<
 name|DeleteRequest
 argument_list|>
@@ -195,11 +195,6 @@ DECL|field|parent
 specifier|private
 name|String
 name|parent
-decl_stmt|;
-DECL|field|refresh
-specifier|private
-name|boolean
-name|refresh
 decl_stmt|;
 DECL|field|version
 specifier|private
@@ -520,38 +515,6 @@ operator|.
 name|routing
 return|;
 block|}
-comment|/**      * Should a refresh be executed post this index operation causing the operation to      * be searchable. Note, heavy indexing should not set this to<tt>true</tt>. Defaults      * to<tt>false</tt>.      */
-DECL|method|refresh
-specifier|public
-name|DeleteRequest
-name|refresh
-parameter_list|(
-name|boolean
-name|refresh
-parameter_list|)
-block|{
-name|this
-operator|.
-name|refresh
-operator|=
-name|refresh
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-DECL|method|refresh
-specifier|public
-name|boolean
-name|refresh
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|refresh
-return|;
-block|}
 comment|/**      * Sets the version, which will cause the delete operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
 DECL|method|version
 specifier|public
@@ -663,13 +626,6 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
-name|refresh
-operator|=
-name|in
-operator|.
-name|readBoolean
-argument_list|()
-expr_stmt|;
 name|version
 operator|=
 name|in
@@ -738,13 +694,6 @@ name|writeOptionalString
 argument_list|(
 name|parent
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-name|refresh
 argument_list|)
 expr_stmt|;
 name|out

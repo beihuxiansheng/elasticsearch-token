@@ -336,6 +336,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Creates a Lucene query that will filter for all documents that lie within the specified  * bounding box.  *  * This query can only operate on fields of type geo_point that have latitude and longitude  * enabled.  * */
 end_comment
@@ -1974,7 +1984,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|GeoBoundingBoxQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -2839,7 +2852,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|builder
+argument_list|)
 return|;
 block|}
 annotation|@

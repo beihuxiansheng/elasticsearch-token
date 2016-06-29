@@ -191,7 +191,12 @@ name|this
 operator|.
 name|snapshots
 operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|snapshots
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the list of snapshots      *      * @return the list of snapshots      */
@@ -331,21 +336,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|Fields
-specifier|static
-specifier|final
-class|class
-name|Fields
-block|{
-DECL|field|SNAPSHOTS
-specifier|static
-specifier|final
-name|String
-name|SNAPSHOTS
-init|=
-literal|"snapshots"
-decl_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -368,9 +358,7 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-name|Fields
-operator|.
-name|SNAPSHOTS
+literal|"snapshots"
 argument_list|)
 expr_stmt|;
 for|for
@@ -383,7 +371,7 @@ control|)
 block|{
 name|snapshotInfo
 operator|.
-name|toExternalXContent
+name|toXContent
 argument_list|(
 name|builder
 argument_list|,

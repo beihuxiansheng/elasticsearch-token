@@ -643,7 +643,7 @@ name|resolvedNodesIds
 init|=
 name|discoveryNodes
 operator|.
-name|resolveNodesIds
+name|resolveNodes
 argument_list|(
 name|nodeSelectors
 operator|.

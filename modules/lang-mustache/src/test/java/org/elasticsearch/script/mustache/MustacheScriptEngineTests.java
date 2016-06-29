@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|mustachejava
+operator|.
+name|MustacheFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -181,10 +193,10 @@ specifier|private
 name|MustacheScriptEngineService
 name|qe
 decl_stmt|;
-DECL|field|escaper
+DECL|field|factory
 specifier|private
-name|JsonEscapingMustacheFactory
-name|escaper
+name|MustacheFactory
+name|factory
 decl_stmt|;
 annotation|@
 name|Before
@@ -206,11 +218,13 @@ operator|.
 name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
-name|escaper
+name|factory
 operator|=
 operator|new
-name|JsonEscapingMustacheFactory
-argument_list|()
+name|CustomMustacheFactory
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testSimpleParameterReplace
@@ -464,7 +478,7 @@ operator|new
 name|StringWriter
 argument_list|()
 decl_stmt|;
-name|escaper
+name|factory
 operator|.
 name|encode
 argument_list|(
@@ -495,7 +509,7 @@ operator|new
 name|StringWriter
 argument_list|()
 decl_stmt|;
-name|escaper
+name|factory
 operator|.
 name|encode
 argument_list|(
@@ -724,7 +738,7 @@ operator|new
 name|StringWriter
 argument_list|()
 decl_stmt|;
-name|escaper
+name|factory
 operator|.
 name|encode
 argument_list|(

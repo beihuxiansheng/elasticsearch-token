@@ -224,6 +224,11 @@ name|UpdateByQueryAction
 operator|.
 name|NAME
 case|:
+case|case
+name|DeleteByQueryAction
+operator|.
+name|NAME
+case|:
 continue|continue;
 default|default:
 name|validationException

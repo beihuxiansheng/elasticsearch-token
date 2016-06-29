@@ -88,6 +88,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -760,7 +772,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -1010,7 +1022,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -1131,7 +1143,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.

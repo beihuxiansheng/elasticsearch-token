@@ -84,22 +84,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoDistanceUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -381,20 +365,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
+import|import
+name|java
 operator|.
 name|util
 operator|.
-name|GeoEncodingUtils
-operator|.
-name|TOLERANCE
+name|Optional
 import|;
 end_import
 
@@ -1886,11 +1862,7 @@ else|else
 block|{
 name|fromValue
 operator|=
-operator|new
-name|Double
-argument_list|(
-literal|0
-argument_list|)
+literal|0.0
 expr_stmt|;
 block|}
 if|if
@@ -1972,7 +1944,7 @@ else|else
 block|{
 name|toValue
 operator|=
-name|GeoDistanceUtils
+name|GeoUtils
 operator|.
 name|maxRadialDistanceMeters
 argument_list|(
@@ -2117,6 +2089,8 @@ name|fromValue
 else|:
 name|fromValue
 operator|+
+name|GeoUtils
+operator|.
 name|TOLERANCE
 argument_list|,
 operator|(
@@ -2127,6 +2101,8 @@ name|toValue
 else|:
 name|toValue
 operator|-
+name|GeoUtils
+operator|.
 name|TOLERANCE
 argument_list|)
 return|;
@@ -2312,7 +2288,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|GeoDistanceRangeQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -3815,7 +3794,12 @@ name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|queryBuilder
+argument_list|)
 return|;
 block|}
 annotation|@

@@ -41,6 +41,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressLoggerChecks
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -61,6 +73,13 @@ comment|/**  * Elasticsearch's logger wrapper.  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressLoggerChecks
+argument_list|(
+name|reason
+operator|=
+literal|"safely delegates to itself"
+argument_list|)
 DECL|class|ESLogger
 specifier|public
 class|class

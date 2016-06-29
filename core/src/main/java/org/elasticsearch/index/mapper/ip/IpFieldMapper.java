@@ -82,20 +82,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|XInetAddressPoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|IndexOptions
@@ -1243,7 +1229,7 @@ index|]
 argument_list|)
 decl_stmt|;
 return|return
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|newPrefixQuery
 argument_list|(
@@ -1329,7 +1315,7 @@ condition|)
 block|{
 name|lower
 operator|=
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MIN_VALUE
 expr_stmt|;
@@ -1356,7 +1342,7 @@ name|lower
 operator|.
 name|equals
 argument_list|(
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MAX_VALUE
 argument_list|)
@@ -1370,7 +1356,7 @@ return|;
 block|}
 name|lower
 operator|=
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|nextUp
 argument_list|(
@@ -1391,7 +1377,7 @@ condition|)
 block|{
 name|upper
 operator|=
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MAX_VALUE
 expr_stmt|;
@@ -1418,7 +1404,7 @@ name|upper
 operator|.
 name|equals
 argument_list|(
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|MIN_VALUE
 argument_list|)
@@ -1432,7 +1418,7 @@ return|;
 block|}
 name|upper
 operator|=
-name|XInetAddressPoint
+name|InetAddressPoint
 operator|.
 name|nextDown
 argument_list|(

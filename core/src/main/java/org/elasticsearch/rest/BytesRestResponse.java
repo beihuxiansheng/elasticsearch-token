@@ -636,7 +636,7 @@ name|SUPPRESSED_ERROR_LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"{} Params: {}"
+literal|"path: {}, params: {}"
 argument_list|,
 name|t
 argument_list|,
@@ -645,7 +645,7 @@ operator|.
 name|request
 argument_list|()
 operator|.
-name|path
+name|rawPath
 argument_list|()
 argument_list|,
 name|channel
@@ -664,7 +664,7 @@ name|SUPPRESSED_ERROR_LOGGER
 operator|.
 name|warn
 argument_list|(
-literal|"{} Params: {}"
+literal|"path: {}, params: {}"
 argument_list|,
 name|t
 argument_list|,
@@ -673,7 +673,7 @@ operator|.
 name|request
 argument_list|()
 operator|.
-name|path
+name|rawPath
 argument_list|()
 argument_list|,
 name|channel

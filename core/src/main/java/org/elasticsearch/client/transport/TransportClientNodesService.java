@@ -416,6 +416,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -569,6 +579,8 @@ class|class
 name|TransportClientNodesService
 extends|extends
 name|AbstractComponent
+implements|implements
+name|Closeable
 block|{
 DECL|field|nodesSamplerInterval
 specifier|private
@@ -810,17 +822,11 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -832,7 +838,14 @@ name|this
 operator|.
 name|clusterName
 operator|=
-name|clusterName
+name|ClusterName
+operator|.
+name|CLUSTER_NAME_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -850,7 +863,9 @@ name|this
 operator|.
 name|minCompatibilityVersion
 operator|=
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -1396,6 +1411,15 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+comment|// we first read nodes before checking the closed state; this
+comment|// is because otherwise we could be subject to a race where we
+comment|// read the state as not being closed, and then the client is
+comment|// closed and the nodes list is cleared, and then a
+comment|// NoNodeAvailableException is thrown
+comment|// it is important that the order of first setting the state of
+comment|// closed and then clearing the list of nodes is maintained in
+comment|// the close method
+specifier|final
 name|List
 argument_list|<
 name|DiscoveryNode
@@ -1406,6 +1430,19 @@ name|this
 operator|.
 name|nodes
 decl_stmt|;
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"transport client is closed"
+argument_list|)
+throw|;
+block|}
 name|ensureNodesAreAvailable
 argument_list|(
 name|nodes

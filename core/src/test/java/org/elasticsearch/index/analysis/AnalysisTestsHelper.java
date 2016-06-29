@@ -74,18 +74,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexSettings
 import|;
 end_import
@@ -100,7 +88,7 @@ name|indices
 operator|.
 name|analysis
 operator|.
-name|HunspellService
+name|AnalysisModule
 import|;
 end_import
 
@@ -139,12 +127,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|java
 operator|.
 name|util
 operator|.
 name|Collections
+operator|.
+name|emptyList
 import|;
 end_import
 
@@ -281,34 +271,22 @@ argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
-name|Environment
-name|environment
-init|=
-operator|new
-name|Environment
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
-name|AnalysisRegistry
+name|AnalysisModule
 argument_list|(
 operator|new
-name|HunspellService
+name|Environment
 argument_list|(
 name|settings
+argument_list|)
 argument_list|,
-name|environment
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
+name|emptyList
 argument_list|()
 argument_list|)
-argument_list|,
-name|environment
-argument_list|)
+operator|.
+name|getAnalysisRegistry
+argument_list|()
 operator|.
 name|build
 argument_list|(
