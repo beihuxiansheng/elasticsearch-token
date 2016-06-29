@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressLoggerChecks
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -244,6 +256,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressLoggerChecks
+argument_list|(
+name|reason
+operator|=
+literal|"mock usage"
+argument_list|)
 DECL|method|testGetMaxMapCount
 specifier|public
 name|void

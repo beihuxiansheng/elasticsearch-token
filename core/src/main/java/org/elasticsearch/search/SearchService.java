@@ -4579,11 +4579,11 @@ expr_stmt|;
 block|}
 name|context
 operator|.
-name|timeoutInMillis
+name|timeout
 argument_list|(
 name|source
 operator|.
-name|timeoutInMillis
+name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;

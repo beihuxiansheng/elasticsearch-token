@@ -893,18 +893,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1725,23 +1713,16 @@ name|builder
 operator|.
 name|timeout
 argument_list|(
-operator|new
 name|TimeValue
-argument_list|(
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|100
-argument_list|)
-argument_list|,
-name|randomFrom
-argument_list|(
-name|TimeUnit
 operator|.
-name|values
+name|parseTimeValue
+argument_list|(
+name|randomTimeValue
 argument_list|()
-argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+literal|"timeout"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3386,16 +3367,11 @@ init|=
 name|createSearchSourceBuilder
 argument_list|()
 decl_stmt|;
-name|assertFalse
+name|assertNotNull
 argument_list|(
 literal|"source builder is equal to null"
 argument_list|,
 name|firstBuilder
-operator|.
-name|equals
-argument_list|(
-literal|null
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -4398,7 +4374,7 @@ name|assertThat
 argument_list|(
 name|builder
 operator|.
-name|timeoutInMillis
+name|timeout
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4413,9 +4389,6 @@ literal|null
 argument_list|,
 literal|"timeout"
 argument_list|)
-operator|.
-name|millis
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

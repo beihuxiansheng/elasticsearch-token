@@ -1768,8 +1768,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"created thread pool: "
-operator|+
+literal|"created thread pool: {}"
+argument_list|,
 name|entry
 operator|.
 name|getValue

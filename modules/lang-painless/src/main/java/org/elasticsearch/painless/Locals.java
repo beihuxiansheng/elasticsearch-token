@@ -353,12 +353,14 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// TODO: allow non-captures to be r/w:
+comment|// boolean isCapture = i< captureCount;
+comment|// currently, this cannot be allowed, as we swap in real types,
+comment|// but that can prevent a store of a different type...
 name|boolean
 name|isCapture
 init|=
-name|i
-operator|<
-name|captureCount
+literal|true
 decl_stmt|;
 name|locals
 operator|.

@@ -1649,7 +1649,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1702,7 +1702,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1755,7 +1755,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1808,7 +1808,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}

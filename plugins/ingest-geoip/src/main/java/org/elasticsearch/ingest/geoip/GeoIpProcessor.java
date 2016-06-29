@@ -1293,8 +1293,6 @@ name|AbstractProcessorFactory
 argument_list|<
 name|GeoIpProcessor
 argument_list|>
-implements|implements
-name|Closeable
 block|{
 DECL|field|DEFAULT_CITY_PROPERTIES
 specifier|static
@@ -1657,27 +1655,6 @@ argument_list|,
 name|properties
 argument_list|)
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|databaseReaders
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|// Geoip2's AddressNotFoundException is checked and due to the fact that we need run their code

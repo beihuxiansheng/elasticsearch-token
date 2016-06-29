@@ -1051,6 +1051,11 @@ argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
+name|function
+operator|.
+name|visitCode
+argument_list|()
+expr_stmt|;
 name|write
 argument_list|(
 name|function

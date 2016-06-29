@@ -551,13 +551,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to disconnect to node ["
-operator|+
-name|node
-operator|+
-literal|"]"
+literal|"failed to disconnect to node [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
 block|}

@@ -2247,10 +2247,6 @@ operator|.
 name|startNode
 argument_list|(
 name|nodeSettings
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|ZenDiscovery

@@ -2459,13 +2459,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to clear scroll ["
-operator|+
-name|scrollId
-operator|+
-literal|']'
+literal|"Failed to clear scroll [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|scrollId
 argument_list|)
 expr_stmt|;
 block|}

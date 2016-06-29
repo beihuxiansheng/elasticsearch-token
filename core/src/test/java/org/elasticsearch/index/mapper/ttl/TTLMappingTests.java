@@ -1331,7 +1331,7 @@ name|field
 argument_list|(
 literal|"default"
 argument_list|,
-literal|"1w"
+literal|"7d"
 argument_list|)
 operator|.
 name|endObject
