@@ -50,7 +50,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -244,9 +246,6 @@ parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|TransportPercolateAction
 name|action
 parameter_list|)
@@ -254,8 +253,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|this
@@ -295,8 +292,6 @@ argument_list|(
 name|settings
 argument_list|,
 name|controller
-argument_list|,
-name|client
 argument_list|)
 decl_stmt|;
 name|controller
@@ -330,8 +325,6 @@ argument_list|(
 name|settings
 argument_list|,
 name|controller
-argument_list|,
-name|client
 argument_list|)
 decl_stmt|;
 name|controller
@@ -365,8 +358,6 @@ argument_list|(
 name|settings
 argument_list|,
 name|controller
-argument_list|,
-name|client
 argument_list|)
 decl_stmt|;
 name|controller
@@ -404,10 +395,6 @@ name|restRequest
 parameter_list|,
 name|RestChannel
 name|restChannel
-parameter_list|,
-specifier|final
-name|Client
-name|client
 parameter_list|)
 block|{
 name|percolateRequest
@@ -512,10 +499,6 @@ name|restRequest
 parameter_list|,
 name|RestChannel
 name|restChannel
-parameter_list|,
-specifier|final
-name|Client
-name|client
 parameter_list|)
 block|{
 name|String
@@ -791,7 +774,7 @@ name|RestChannel
 name|restChannel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -809,8 +792,6 @@ argument_list|,
 name|restRequest
 argument_list|,
 name|restChannel
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -831,16 +812,11 @@ parameter_list|,
 specifier|final
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -858,7 +834,7 @@ name|RestChannel
 name|restChannel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -883,8 +859,6 @@ argument_list|,
 name|restRequest
 argument_list|,
 name|restChannel
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -906,16 +880,11 @@ parameter_list|,
 specifier|final
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -933,7 +902,7 @@ name|RestChannel
 name|restChannel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -951,8 +920,6 @@ argument_list|,
 name|restRequest
 argument_list|,
 name|restChannel
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -974,16 +941,11 @@ parameter_list|,
 specifier|final
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -1001,7 +963,7 @@ name|RestChannel
 name|restChannel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -1026,8 +988,6 @@ argument_list|,
 name|restRequest
 argument_list|,
 name|restChannel
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}

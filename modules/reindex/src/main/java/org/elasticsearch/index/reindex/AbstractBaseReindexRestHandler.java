@@ -327,9 +327,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|,
@@ -349,8 +346,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|this
@@ -385,7 +380,7 @@ name|action
 expr_stmt|;
 block|}
 DECL|method|handleRequest
-specifier|protected
+specifier|public
 name|void
 name|handleRequest
 parameter_list|(
