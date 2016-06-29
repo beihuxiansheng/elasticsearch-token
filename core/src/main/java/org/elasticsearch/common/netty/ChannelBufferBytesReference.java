@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.bytes
+DECL|package|org.elasticsearch.common.netty
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|netty
 package|;
 end_package
 
@@ -38,9 +38,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|bytes
 operator|.
-name|Channels
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -114,18 +128,6 @@ name|java
 operator|.
 name|nio
 operator|.
-name|channels
-operator|.
-name|GatheringByteChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
 name|charset
 operator|.
 name|StandardCharsets
@@ -138,7 +140,7 @@ end_comment
 
 begin_class
 DECL|class|ChannelBufferBytesReference
-specifier|public
+specifier|final
 class|class
 name|ChannelBufferBytesReference
 implements|implements
@@ -151,7 +153,6 @@ name|ChannelBuffer
 name|buffer
 decl_stmt|;
 DECL|method|ChannelBufferBytesReference
-specifier|public
 name|ChannelBufferBytesReference
 parameter_list|(
 name|ChannelBuffer
@@ -285,37 +286,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|writeTo
-specifier|public
-name|void
-name|writeTo
-parameter_list|(
-name|GatheringByteChannel
-name|channel
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|Channels
-operator|.
-name|writeToChannel
-argument_list|(
-name|buffer
-argument_list|,
-name|buffer
-operator|.
-name|readerIndex
-argument_list|()
-argument_list|,
-name|length
-argument_list|()
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|toBytes
 specifier|public
 name|byte
@@ -419,8 +389,6 @@ name|copy
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|toChannelBuffer
 specifier|public
 name|ChannelBuffer
