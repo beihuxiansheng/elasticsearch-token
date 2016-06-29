@@ -5119,6 +5119,10 @@ name|SumAggregationBuilder
 operator|::
 operator|new
 argument_list|,
+name|InternalSum
+operator|::
+operator|new
+argument_list|,
 operator|new
 name|SumParser
 argument_list|()
@@ -5134,6 +5138,10 @@ name|MinAggregationBuilder
 operator|::
 operator|new
 argument_list|,
+name|InternalMin
+operator|::
+operator|new
+argument_list|,
 operator|new
 name|MinParser
 argument_list|()
@@ -5146,6 +5154,10 @@ expr_stmt|;
 name|registerAggregation
 argument_list|(
 name|MaxAggregationBuilder
+operator|::
+operator|new
+argument_list|,
+name|InternalMax
 operator|::
 operator|new
 argument_list|,
@@ -7251,21 +7263,6 @@ block|}
 static|static
 block|{
 comment|// calcs
-name|InternalSum
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
-name|InternalMin
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
-name|InternalMax
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
 name|InternalValueCount
 operator|.
 name|registerStreams
