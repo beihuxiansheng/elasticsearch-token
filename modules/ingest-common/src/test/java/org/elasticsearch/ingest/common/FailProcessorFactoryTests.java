@@ -203,6 +203,9 @@ expr_stmt|;
 name|FailProcessor
 name|failProcessor
 init|=
+operator|(
+name|FailProcessor
+operator|)
 name|factory
 operator|.
 name|create

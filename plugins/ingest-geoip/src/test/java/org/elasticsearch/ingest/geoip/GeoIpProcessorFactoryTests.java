@@ -475,6 +475,9 @@ expr_stmt|;
 name|GeoIpProcessor
 name|processor
 init|=
+operator|(
+name|GeoIpProcessor
+operator|)
 name|factory
 operator|.
 name|create
@@ -634,6 +637,9 @@ expr_stmt|;
 name|GeoIpProcessor
 name|processor
 init|=
+operator|(
+name|GeoIpProcessor
+operator|)
 name|factory
 operator|.
 name|create
@@ -774,6 +780,9 @@ expr_stmt|;
 name|GeoIpProcessor
 name|processor
 init|=
+operator|(
+name|GeoIpProcessor
+operator|)
 name|factory
 operator|.
 name|create
@@ -865,6 +874,9 @@ expr_stmt|;
 name|GeoIpProcessor
 name|processor
 init|=
+operator|(
+name|GeoIpProcessor
+operator|)
 name|factory
 operator|.
 name|create
@@ -1329,6 +1341,9 @@ expr_stmt|;
 name|GeoIpProcessor
 name|processor
 init|=
+operator|(
+name|GeoIpProcessor
+operator|)
 name|factory
 operator|.
 name|create

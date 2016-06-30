@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorsRegistry
+name|Processor
 import|;
 end_import
 
@@ -208,9 +208,6 @@ class|class
 name|Factory
 extends|extends
 name|AbstractProcessorFactory
-argument_list|<
-name|FailProcessor
-argument_list|>
 block|{
 DECL|field|templateService
 specifier|private
@@ -240,7 +237,14 @@ specifier|public
 name|FailProcessor
 name|doCreate
 parameter_list|(
-name|ProcessorsRegistry
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
 name|registry
 parameter_list|,
 name|String

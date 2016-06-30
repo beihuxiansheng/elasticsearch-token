@@ -162,6 +162,9 @@ expr_stmt|;
 name|SplitProcessor
 name|splitProcessor
 init|=
+operator|(
+name|SplitProcessor
+operator|)
 name|factory
 operator|.
 name|create

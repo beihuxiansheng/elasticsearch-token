@@ -61,19 +61,21 @@ comment|/**      * A factory that knows how to construct a processor based on a 
 DECL|interface|Factory
 interface|interface
 name|Factory
-parameter_list|<
-name|P
-extends|extends
-name|Processor
-parameter_list|>
 block|{
-comment|/**          * Creates a processor based on the specified map of maps config.          *          * Implementations are responsible for removing the used keys, so that after creating a pipeline ingest can          * verify if all configurations settings have been used.          */
+comment|/**          * Creates a processor based on the specified map of maps config.          *          * @param processorFactories Other processors which may be created inside this processor          * @param config The configuration for the processor          *          *<b>Note:</b> Implementations are responsible for removing the used configuration keys, so that after          * creating a pipeline ingest can verify if all configurations settings have been used.          */
 DECL|method|create
-name|P
+name|Processor
 name|create
 parameter_list|(
-name|ProcessorsRegistry
-name|registry
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|processorFactories
 parameter_list|,
 name|Map
 argument_list|<

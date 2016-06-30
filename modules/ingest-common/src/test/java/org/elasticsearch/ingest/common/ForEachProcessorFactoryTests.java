@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorsRegistry
+name|Processor
 import|;
 end_import
 
@@ -177,14 +177,14 @@ name|Processor
 operator|.
 name|Factory
 argument_list|>
-name|processors
+name|registry
 init|=
 operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|processors
+name|registry
 operator|.
 name|put
 argument_list|(
@@ -199,15 +199,6 @@ lambda|->
 name|processor
 argument_list|)
 expr_stmt|;
-name|ProcessorsRegistry
-name|registry
-init|=
-operator|new
-name|ProcessorsRegistry
-argument_list|(
-name|processors
-argument_list|)
-decl_stmt|;
 name|ForEachProcessor
 operator|.
 name|Factory

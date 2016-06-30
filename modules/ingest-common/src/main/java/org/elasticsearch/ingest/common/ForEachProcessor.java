@@ -84,7 +84,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorsRegistry
+name|Processor
 import|;
 end_import
 
@@ -413,9 +413,6 @@ class|class
 name|Factory
 extends|extends
 name|AbstractProcessorFactory
-argument_list|<
-name|ForEachProcessor
-argument_list|>
 block|{
 annotation|@
 name|Override
@@ -424,6 +421,16 @@ specifier|protected
 name|ForEachProcessor
 name|doCreate
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|factories
+parameter_list|,
 name|String
 name|tag
 parameter_list|,
@@ -491,7 +498,7 @@ name|readProcessorConfigs
 argument_list|(
 name|processorConfigs
 argument_list|,
-name|processorRegistry
+name|factories
 argument_list|)
 decl_stmt|;
 return|return

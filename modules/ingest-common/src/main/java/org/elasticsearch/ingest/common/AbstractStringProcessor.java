@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorsRegistry
+name|Processor
 import|;
 end_import
 
@@ -210,16 +210,8 @@ specifier|static
 specifier|abstract
 class|class
 name|Factory
-parameter_list|<
-name|T
-extends|extends
-name|AbstractStringProcessor
-parameter_list|>
 extends|extends
 name|AbstractProcessorFactory
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|processorType
 specifier|protected
@@ -246,10 +238,17 @@ annotation|@
 name|Override
 DECL|method|doCreate
 specifier|public
-name|T
+name|AbstractStringProcessor
 name|doCreate
 parameter_list|(
-name|ProcessorsRegistry
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
 name|registry
 parameter_list|,
 name|String
@@ -294,7 +293,7 @@ block|}
 DECL|method|newProcessor
 specifier|protected
 specifier|abstract
-name|T
+name|AbstractStringProcessor
 name|newProcessor
 parameter_list|(
 name|String

@@ -307,6 +307,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 argument_list|)
@@ -386,6 +388,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 argument_list|)
@@ -477,6 +481,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 argument_list|)
@@ -701,6 +707,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 argument_list|)
@@ -810,6 +818,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 argument_list|)
