@@ -708,8 +708,6 @@ name|scriptService
 argument_list|,
 name|script
 argument_list|,
-name|clusterState
-argument_list|,
 name|script
 operator|.
 name|getParams
@@ -839,9 +837,6 @@ parameter_list|,
 name|Script
 name|script
 parameter_list|,
-name|ClusterState
-name|state
-parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -858,8 +853,6 @@ argument_list|,
 name|scriptService
 argument_list|,
 name|script
-argument_list|,
-name|state
 argument_list|,
 name|params
 argument_list|)

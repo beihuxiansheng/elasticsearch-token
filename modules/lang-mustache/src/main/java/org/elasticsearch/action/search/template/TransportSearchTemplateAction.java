@@ -404,12 +404,6 @@ name|MustacheScriptEngineService
 operator|.
 name|NAME
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|field|scriptService
 specifier|private
 specifier|final
@@ -461,9 +455,6 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|resolver
 parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
@@ -500,12 +491,6 @@ name|SearchTemplateRequest
 operator|::
 operator|new
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -601,11 +586,6 @@ argument_list|,
 name|SEARCH
 argument_list|,
 name|emptyMap
-argument_list|()
-argument_list|,
-name|clusterService
-operator|.
-name|state
 argument_list|()
 argument_list|)
 decl_stmt|;
