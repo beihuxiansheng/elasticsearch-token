@@ -309,7 +309,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|write
-specifier|private
 name|void
 name|write
 parameter_list|(
