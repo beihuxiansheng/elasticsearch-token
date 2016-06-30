@@ -54,7 +54,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -277,16 +279,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|,
 literal|false
 argument_list|)
@@ -324,16 +321,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|,
 literal|true
 argument_list|)
@@ -357,16 +349,13 @@ specifier|final
 name|boolean
 name|source
 decl_stmt|;
-comment|/**      * All subclasses must be registered in {@link org.elasticsearch.common.network.NetworkModule}.      *      * @param settings injected settings      * @param client   injected client      * @param source   {@code false} to check for {@link GetResponse#isExists()}.      *                 {@code true} to also check for {@link GetResponse#isSourceEmpty()}.      */
+comment|/**      * All subclasses must be registered in {@link org.elasticsearch.common.network.NetworkModule}.      *      * @param settings injected settings      * @param source   {@code false} to check for {@link GetResponse#isExists()}.      *                 {@code true} to also check for {@link GetResponse#isSourceEmpty()}.      */
 DECL|method|RestHeadAction
 specifier|public
 name|RestHeadAction
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Client
-name|client
 parameter_list|,
 name|boolean
 name|source
@@ -375,8 +364,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|this
@@ -402,7 +389,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{

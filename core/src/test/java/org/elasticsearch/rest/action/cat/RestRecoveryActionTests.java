@@ -362,8 +362,6 @@ argument_list|,
 name|restController
 argument_list|,
 name|restController
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 specifier|final

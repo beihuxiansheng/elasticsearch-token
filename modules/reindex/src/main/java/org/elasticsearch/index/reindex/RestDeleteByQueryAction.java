@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -255,9 +257,6 @@ parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|,
@@ -277,8 +276,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|,
 name|indicesQueriesRegistry
 argument_list|,
@@ -317,7 +314,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|handleRequest
-specifier|protected
+specifier|public
 name|void
 name|handleRequest
 parameter_list|(
@@ -327,7 +324,7 @@ parameter_list|,
 name|RestChannel
 name|channel
 parameter_list|,
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 throws|throws

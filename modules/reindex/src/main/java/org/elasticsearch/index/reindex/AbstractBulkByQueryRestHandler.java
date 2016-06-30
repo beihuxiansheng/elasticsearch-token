@@ -344,9 +344,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|,
@@ -366,8 +363,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|,
 name|indicesQueriesRegistry
 argument_list|,

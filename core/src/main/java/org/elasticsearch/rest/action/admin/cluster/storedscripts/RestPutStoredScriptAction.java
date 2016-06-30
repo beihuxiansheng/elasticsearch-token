@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -195,9 +197,6 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|this
@@ -207,8 +206,6 @@ argument_list|,
 name|controller
 argument_list|,
 literal|true
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -224,16 +221,11 @@ name|controller
 parameter_list|,
 name|boolean
 name|registerDefaultHandlers
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 if|if
@@ -298,7 +290,7 @@ specifier|final
 name|RestChannel
 name|channel
 parameter_list|,
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
