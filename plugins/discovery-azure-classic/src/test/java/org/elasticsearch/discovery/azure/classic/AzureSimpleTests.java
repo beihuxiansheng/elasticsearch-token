@@ -188,10 +188,10 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testOneNodeDhouldRunUsingPrivateIp
+DECL|method|testOneNodeShouldRunUsingPrivateIp
 specifier|public
 name|void
-name|testOneNodeDhouldRunUsingPrivateIp
+name|testOneNodeShouldRunUsingPrivateIp
 parameter_list|()
 block|{
 name|Settings
