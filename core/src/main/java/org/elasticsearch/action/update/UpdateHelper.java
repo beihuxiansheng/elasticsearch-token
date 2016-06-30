@@ -2133,14 +2133,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ClusterState
-name|state
-init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
-decl_stmt|;
 name|ExecutableScript
 name|executableScript
 init|=
@@ -2160,8 +2152,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 decl_stmt|;
 name|executableScript

@@ -415,8 +415,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 operator|.
 name|run
@@ -451,8 +449,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 expr_stmt|;
 if|if
@@ -482,8 +478,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 expr_stmt|;
 block|}

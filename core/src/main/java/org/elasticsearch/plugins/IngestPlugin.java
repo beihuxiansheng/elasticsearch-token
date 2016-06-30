@@ -122,9 +122,6 @@ parameter_list|(
 name|Environment
 name|env
 parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
