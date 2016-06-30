@@ -69,7 +69,7 @@ operator|=
 literal|"safely delegates to logger"
 argument_list|)
 DECL|class|NettyInternalESLogger
-specifier|public
+specifier|final
 class|class
 name|NettyInternalESLogger
 extends|extends
@@ -82,7 +82,6 @@ name|ESLogger
 name|logger
 decl_stmt|;
 DECL|method|NettyInternalESLogger
-specifier|public
 name|NettyInternalESLogger
 parameter_list|(
 name|ESLogger

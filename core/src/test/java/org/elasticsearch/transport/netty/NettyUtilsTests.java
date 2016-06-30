@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.netty
+DECL|package|org.elasticsearch.transport.netty
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|transport
 operator|.
 name|netty
 package|;
@@ -139,16 +139,6 @@ operator|.
 name|buffer
 operator|.
 name|CompositeChannelBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
 import|;
 end_import
 

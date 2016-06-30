@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport.netty
+DECL|package|org.elasticsearch.common.util.concurrent
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|common
 operator|.
-name|netty
+name|util
+operator|.
+name|concurrent
 package|;
 end_package
 

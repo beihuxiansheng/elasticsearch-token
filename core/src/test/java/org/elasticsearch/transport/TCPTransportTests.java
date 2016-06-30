@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport.netty
+DECL|package|org.elasticsearch.transport
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|transport
-operator|.
-name|netty
 package|;
 end_package
 
@@ -43,14 +41,14 @@ import|;
 end_import
 
 begin_comment
-comment|/** Unit tests for NettyTransport */
+comment|/** Unit tests for TCPTransport */
 end_comment
 
 begin_class
-DECL|class|NettyTransportTests
+DECL|class|TCPTransportTests
 specifier|public
 class|class
-name|NettyTransportTests
+name|TCPTransportTests
 extends|extends
 name|ESTestCase
 block|{
@@ -67,7 +65,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -129,7 +127,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -217,7 +215,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -279,7 +277,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -365,7 +363,7 @@ name|Exception
 block|{
 try|try
 block|{
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -418,7 +416,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -480,7 +478,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -568,7 +566,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -630,7 +628,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
@@ -718,7 +716,7 @@ name|TransportAddress
 index|[]
 name|addresses
 init|=
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|parse
 argument_list|(
