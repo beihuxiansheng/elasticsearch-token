@@ -1450,7 +1450,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1462,7 +1462,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1480,11 +1480,9 @@ decl_stmt|;
 name|mock
 operator|=
 operator|new
-name|GceComputeServiceMock
+name|GceInstancesServiceMock
 argument_list|(
 name|nodeSettings
-argument_list|,
-name|networkService
 argument_list|)
 expr_stmt|;
 name|List
