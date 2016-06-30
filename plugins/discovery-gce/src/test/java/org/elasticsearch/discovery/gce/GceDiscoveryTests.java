@@ -1483,11 +1483,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * For issue https://github.com/elastic/elasticsearch/issues/16967      */
-DECL|method|testEmptyRegion16967
+comment|/**      * For issue https://github.com/elastic/elasticsearch/issues/16967:      * When using multiple regions and one of them has no instance at all, this      * was producing a NPE as a result.      */
+DECL|method|testNoRegionReturnsEmptyList
 specifier|public
 name|void
-name|testEmptyRegion16967
+name|testNoRegionReturnsEmptyList
 parameter_list|()
 block|{
 name|Settings
