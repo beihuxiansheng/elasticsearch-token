@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|GenericAction
 import|;
 end_import
 
@@ -48,9 +48,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|TransportAction
+name|WriteConsistencyLevel
 import|;
 end_import
 
@@ -62,7 +60,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -278,9 +278,9 @@ parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
-name|TA
+name|A
 extends|extends
-name|TransportAction
+name|GenericAction
 parameter_list|<
 name|Request
 parameter_list|,
@@ -317,7 +317,7 @@ decl_stmt|;
 DECL|field|action
 specifier|private
 specifier|final
-name|TA
+name|A
 name|action
 decl_stmt|;
 DECL|method|AbstractBaseReindexRestHandler
@@ -339,7 +339,7 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|TA
+name|A
 name|action
 parameter_list|)
 block|{
@@ -380,7 +380,7 @@ name|action
 expr_stmt|;
 block|}
 DECL|method|handleRequest
-specifier|public
+specifier|protected
 name|void
 name|handleRequest
 parameter_list|(
@@ -389,6 +389,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|,
 name|boolean
 name|includeCreated
@@ -475,15 +478,16 @@ name|includeUpdated
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|action
+name|client
 operator|.
-name|execute
+name|executeLocally
 argument_list|(
+name|action
+argument_list|,
 name|internal
 argument_list|,
 operator|new
 name|BulkIndexByScrollResponseContentListener
-argument_list|<>
 argument_list|(
 name|channel
 argument_list|,
@@ -503,7 +507,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*          * Lets try and validate before forking so the user gets some error. The          * task can't totally validate until it starts but this is better than          * nothing.          */
+comment|/*          * Let's try and validate before forking so the user gets some error. The          * task can't totally validate until it starts but this is better than          * nothing.          */
 name|ActionRequestValidationException
 name|validationException
 init|=
@@ -538,10 +542,12 @@ name|sendTask
 argument_list|(
 name|channel
 argument_list|,
-name|action
+name|client
 operator|.
-name|execute
+name|executeLocally
 argument_list|(
+name|action
+argument_list|,
 name|internal
 argument_list|,
 name|LoggingTaskListener

@@ -24,9 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|SearchRequest
+name|GenericAction
 import|;
 end_import
 
@@ -38,21 +36,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
+name|search
 operator|.
-name|TransportAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Client
+name|SearchRequest
 import|;
 end_import
 
@@ -320,9 +306,9 @@ parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
-name|TA
+name|A
 extends|extends
-name|TransportAction
+name|GenericAction
 parameter_list|<
 name|Request
 parameter_list|,
@@ -334,7 +320,7 @@ name|AbstractBaseReindexRestHandler
 argument_list|<
 name|Request
 argument_list|,
-name|TA
+name|A
 argument_list|>
 block|{
 DECL|method|AbstractBulkByQueryRestHandler
@@ -356,7 +342,7 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|TA
+name|A
 name|action
 parameter_list|)
 block|{

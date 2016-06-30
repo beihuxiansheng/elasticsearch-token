@@ -242,7 +242,7 @@ name|AbstractBulkByQueryRestHandler
 argument_list|<
 name|DeleteByQueryRequest
 argument_list|,
-name|TransportDeleteByQueryAction
+name|DeleteByQueryAction
 argument_list|>
 block|{
 annotation|@
@@ -268,9 +268,6 @@ name|suggesters
 parameter_list|,
 name|ClusterService
 name|clusterService
-parameter_list|,
-name|TransportDeleteByQueryAction
-name|action
 parameter_list|)
 block|{
 name|super
@@ -285,7 +282,9 @@ name|suggesters
 argument_list|,
 name|clusterService
 argument_list|,
-name|action
+name|DeleteByQueryAction
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|controller
@@ -353,6 +352,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|,
 literal|false
 argument_list|,

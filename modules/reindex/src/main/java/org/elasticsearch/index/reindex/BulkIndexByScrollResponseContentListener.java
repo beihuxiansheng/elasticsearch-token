@@ -169,15 +169,10 @@ DECL|class|BulkIndexByScrollResponseContentListener
 specifier|public
 class|class
 name|BulkIndexByScrollResponseContentListener
-parameter_list|<
-name|R
-extends|extends
-name|BulkIndexByScrollResponse
-parameter_list|>
 extends|extends
 name|RestBuilderListener
 argument_list|<
-name|R
+name|BulkIndexByScrollResponse
 argument_list|>
 block|{
 DECL|field|params
@@ -226,7 +221,7 @@ specifier|public
 name|RestResponse
 name|buildResponse
 parameter_list|(
-name|R
+name|BulkIndexByScrollResponse
 name|response
 parameter_list|,
 name|XContentBuilder
@@ -283,7 +278,7 @@ specifier|private
 name|RestStatus
 name|getStatus
 parameter_list|(
-name|R
+name|BulkIndexByScrollResponse
 name|response
 parameter_list|)
 block|{

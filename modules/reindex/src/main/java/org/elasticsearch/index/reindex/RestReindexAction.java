@@ -548,7 +548,7 @@ name|AbstractBaseReindexRestHandler
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|TransportReindexAction
+name|ReindexAction
 argument_list|>
 block|{
 DECL|field|PARSER
@@ -1097,9 +1097,6 @@ name|suggesters
 parameter_list|,
 name|ClusterService
 name|clusterService
-parameter_list|,
-name|TransportReindexAction
-name|action
 parameter_list|)
 block|{
 name|super
@@ -1114,7 +1111,9 @@ name|suggesters
 argument_list|,
 name|clusterService
 argument_list|,
-name|action
+name|ReindexAction
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|controller
@@ -1171,6 +1170,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|,
 literal|true
 argument_list|,
