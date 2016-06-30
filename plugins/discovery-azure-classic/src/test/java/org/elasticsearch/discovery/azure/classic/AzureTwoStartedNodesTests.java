@@ -257,10 +257,7 @@ argument_list|(
 literal|"1s"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 operator|.
 name|getState
@@ -310,10 +307,7 @@ argument_list|(
 literal|"1s"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 operator|.
 name|getState
@@ -417,10 +411,7 @@ argument_list|(
 literal|"1s"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 operator|.
 name|getState
@@ -470,10 +461,7 @@ argument_list|(
 literal|"1s"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 operator|.
 name|getState
