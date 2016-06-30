@@ -2322,6 +2322,16 @@ argument_list|,
 name|threadPool
 argument_list|)
 decl_stmt|;
+name|clusterService
+operator|.
+name|add
+argument_list|(
+name|scriptModule
+operator|.
+name|getScriptService
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|resourcesToClose
 operator|.
 name|add

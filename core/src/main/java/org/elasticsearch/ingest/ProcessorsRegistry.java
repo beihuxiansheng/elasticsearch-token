@@ -161,9 +161,6 @@ argument_list|,
 name|Processor
 operator|.
 name|Factory
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|>
 name|providers
@@ -221,9 +218,6 @@ argument_list|,
 name|Processor
 operator|.
 name|Factory
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|>
 name|entry
@@ -355,9 +349,6 @@ argument_list|,
 name|Processor
 operator|.
 name|Factory
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|>
 name|providers
@@ -383,9 +374,6 @@ argument_list|,
 name|Processor
 operator|.
 name|Factory
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|provider
 parameter_list|)
@@ -397,9 +385,6 @@ argument_list|,
 name|Processor
 operator|.
 name|Factory
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|previous
 init|=

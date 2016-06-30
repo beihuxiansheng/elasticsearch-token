@@ -941,11 +941,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|queryRewriteContext
-operator|.
-name|getClusterState
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|BytesReference

@@ -542,11 +542,6 @@ name|registry
 operator|.
 name|getScriptService
 argument_list|()
-argument_list|,
-name|registry
-operator|.
-name|getClusterService
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

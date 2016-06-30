@@ -1008,6 +1008,18 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
+name|TcpTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
 name|Transport
 import|;
 end_import
@@ -3446,7 +3458,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|CONNECTIONS_PER_NODE_RECOVERY
 operator|.
@@ -3467,7 +3479,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|CONNECTIONS_PER_NODE_BULK
 operator|.
@@ -3488,7 +3500,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|CONNECTIONS_PER_NODE_REG
 operator|.
@@ -3810,7 +3822,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|PING_SCHEDULE
 operator|.

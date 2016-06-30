@@ -1032,11 +1032,6 @@ name|context
 operator|.
 name|lookup
 argument_list|()
-argument_list|,
-name|context
-operator|.
-name|getClusterState
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1071,9 +1066,6 @@ name|scriptService
 parameter_list|,
 name|SearchLookup
 name|searchLookup
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 name|this
@@ -1104,8 +1096,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 expr_stmt|;
 block|}

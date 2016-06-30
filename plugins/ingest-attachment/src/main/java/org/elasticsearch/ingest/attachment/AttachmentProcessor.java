@@ -100,7 +100,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|IngestDocument
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocument
+name|Processor
 import|;
 end_import
 
@@ -897,11 +897,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
-argument_list|<
-name|AttachmentProcessor
-argument_list|>
+implements|implements
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|DEFAULT_PROPERTIES
 specifier|static
@@ -923,10 +922,10 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|AttachmentProcessor
-name|doCreate
+name|create
 parameter_list|(
 name|String
 name|processorTag

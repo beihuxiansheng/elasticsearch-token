@@ -402,7 +402,11 @@ parameter_list|(
 name|registry
 parameter_list|)
 lambda|->
+parameter_list|(
+name|tag
+parameter_list|,
 name|config
+parameter_list|)
 lambda|->
 block|{
 name|String
@@ -497,7 +501,11 @@ parameter_list|(
 name|registry
 parameter_list|)
 lambda|->
+parameter_list|(
+name|tag
+parameter_list|,
 name|config
+parameter_list|)
 lambda|->
 block|{
 name|String

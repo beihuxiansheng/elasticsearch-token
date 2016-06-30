@@ -479,11 +479,6 @@ name|context
 operator|.
 name|scriptService
 argument_list|()
-argument_list|,
-name|context
-operator|.
-name|clusterState
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -504,14 +499,6 @@ name|context
 operator|.
 name|scriptService
 argument_list|()
-argument_list|,
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
-operator|.
-name|getClusterState
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -522,9 +509,6 @@ name|initialize
 parameter_list|(
 name|ScriptService
 name|scriptService
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 name|searchScript
@@ -545,8 +529,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|state
 argument_list|)
 expr_stmt|;
 name|searchScript
