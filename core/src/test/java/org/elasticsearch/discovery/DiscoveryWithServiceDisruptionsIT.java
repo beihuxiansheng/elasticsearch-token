@@ -622,6 +622,20 @@ name|test
 operator|.
 name|disruption
 operator|.
+name|BridgePartition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|disruption
+operator|.
 name|IntermittentLongGCDisruption
 import|;
 end_import
@@ -2769,7 +2783,6 @@ name|seconds
 operator|+
 literal|"s"
 decl_stmt|;
-comment|// TODO: add node count randomizaion
 specifier|final
 name|List
 argument_list|<
@@ -2779,6 +2792,11 @@ name|nodes
 init|=
 name|startCluster
 argument_list|(
+name|rarely
+argument_list|()
+condition|?
+literal|5
+else|:
 literal|3
 argument_list|)
 decl_stmt|;
@@ -3511,7 +3529,10 @@ control|)
 block|{
 name|ensureStableCluster
 argument_list|(
-literal|3
+name|nodes
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -3563,9 +3584,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"validating through node [{}]"
+literal|"validating through node [{}] ([{}] acked docs)"
 argument_list|,
 name|node
+argument_list|,
+name|ackedDocs
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -7557,6 +7583,16 @@ operator|new
 name|SlowClusterStateProcessing
 argument_list|(
 name|random
+argument_list|()
+argument_list|)
+argument_list|,
+operator|new
+name|BridgePartition
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|randomBoolean
 argument_list|()
 argument_list|)
 argument_list|)
