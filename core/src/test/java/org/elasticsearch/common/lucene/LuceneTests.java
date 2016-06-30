@@ -2984,13 +2984,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/19151"
-argument_list|)
 DECL|method|testAsSequentialAccessBits
 specifier|public
 name|void
@@ -3155,7 +3148,10 @@ expr_stmt|;
 name|LeafReaderContext
 name|leafReaderContext
 init|=
-name|reader
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
 operator|.
 name|leaves
 argument_list|()
