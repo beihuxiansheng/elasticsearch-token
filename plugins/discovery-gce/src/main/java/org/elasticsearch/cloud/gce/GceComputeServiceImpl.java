@@ -755,6 +755,13 @@ name|instanceList
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|instanceList
+operator|.
+name|getItems
+argument_list|()
+operator|==
+literal|null
 condition|?
 name|Collections
 operator|.
