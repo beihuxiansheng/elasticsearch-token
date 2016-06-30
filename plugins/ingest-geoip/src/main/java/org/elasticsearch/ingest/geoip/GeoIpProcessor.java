@@ -222,7 +222,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|IngestDocument
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocument
+name|Processor
 import|;
 end_import
 
@@ -1276,11 +1276,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
-argument_list|<
-name|GeoIpProcessor
-argument_list|>
+implements|implements
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|DEFAULT_CITY_PROPERTIES
 specifier|static
@@ -1371,10 +1370,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|GeoIpProcessor
-name|doCreate
+name|create
 parameter_list|(
 name|String
 name|processorTag

@@ -110,7 +110,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|ConfigurationUtils
 import|;
 end_import
 
@@ -428,7 +428,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|AbstractProcessorFactory
+name|ConfigurationUtils
 operator|.
 name|TAG_KEY
 argument_list|,
