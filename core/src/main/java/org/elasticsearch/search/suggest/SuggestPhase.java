@@ -62,35 +62,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchParseElement
 import|;
 end_import
 
@@ -230,18 +204,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -256,8 +218,6 @@ name|AbstractComponent
 implements|implements
 name|SearchPhase
 block|{
-annotation|@
-name|Inject
 DECL|method|SuggestPhase
 specifier|public
 name|SuggestPhase
@@ -271,28 +231,6 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|parseElements
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-parameter_list|()
-block|{
-comment|// this is used to parse SearchSourceBuilder.ext() bytes
-comment|// we don't allow any suggestion parsing for the extension
-return|return
-name|emptyMap
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override

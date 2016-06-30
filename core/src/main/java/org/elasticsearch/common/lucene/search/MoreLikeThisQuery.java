@@ -539,9 +539,7 @@ name|Objects
 operator|.
 name|hash
 argument_list|(
-name|super
-operator|.
-name|hashCode
+name|classHash
 argument_list|()
 argument_list|,
 name|boostTerms
@@ -593,9 +591,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|super
-operator|.
-name|equals
+name|sameClassAs
 argument_list|(
 name|obj
 argument_list|)

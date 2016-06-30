@@ -282,6 +282,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -2848,9 +2866,9 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|execute
@@ -2947,7 +2965,19 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2f
+name|searchResponse
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getHits
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|score
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2960,16 +2990,10 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"2.0 = sum of:\n  2.0 = Score based on child doc range from 0 to 1\n"
+literal|"0.36464313 = sum of:\n  0.36464313 = Score based on 2 child docs in range from 0 to 1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: Enable when changes from BlockJoinQuery#explain are added to Lucene (Most likely version 4.2)
-comment|//        assertThat(explanation.getDetails().length, equalTo(2));
-comment|//        assertThat(explanation.getDetails()[0].getValue(), equalTo(1f));
-comment|//        assertThat(explanation.getDetails()[0].getDescription(), equalTo("Child[0]"));
-comment|//        assertThat(explanation.getDetails()[1].getValue(), equalTo(1f));
-comment|//        assertThat(explanation.getDetails()[1].getDescription(), equalTo("Child[1]"));
 block|}
 DECL|method|testSimpleNestedSorting
 specifier|public

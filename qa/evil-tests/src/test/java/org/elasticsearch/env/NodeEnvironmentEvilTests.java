@@ -420,11 +420,6 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"elasticsearch"
-argument_list|)
-operator|.
-name|resolve
-argument_list|(
 literal|"nodes"
 argument_list|)
 operator|.
@@ -620,11 +615,6 @@ name|Path
 name|fooIndex
 init|=
 name|path
-operator|.
-name|resolve
-argument_list|(
-literal|"elasticsearch"
-argument_list|)
 operator|.
 name|resolve
 argument_list|(

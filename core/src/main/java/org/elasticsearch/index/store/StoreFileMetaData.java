@@ -52,18 +52,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -85,22 +73,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
 import|;
 end_import
 
@@ -285,7 +257,18 @@ name|BytesRef
 name|hash
 parameter_list|)
 block|{
+comment|// its possible here to have a _na_ checksum or an unsupported writtenBy version, if the
+comment|// file is a segments_N file, but that is fine in the case of a segments_N file because
+comment|// we handle that case upstream
 assert|assert
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"segments_"
+argument_list|)
+operator|||
+operator|(
 name|writtenBy
 operator|!=
 literal|null
@@ -296,6 +279,7 @@ name|onOrAfter
 argument_list|(
 name|FIRST_LUCENE_CHECKSUM_VERSION
 argument_list|)
+operator|)
 operator|:
 literal|"index version less that "
 operator|+
@@ -305,15 +289,29 @@ literal|" are not supported but got: "
 operator|+
 name|writtenBy
 assert|;
+name|this
+operator|.
+name|name
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|writtenBy
+name|name
 argument_list|,
-literal|"writtenBy must not be null"
+literal|"name must not be null"
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|length
+operator|=
+name|length
+expr_stmt|;
+name|this
+operator|.
+name|checksum
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
@@ -325,27 +323,16 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-name|this
-operator|.
-name|length
-operator|=
-name|length
-expr_stmt|;
-name|this
-operator|.
-name|checksum
-operator|=
-name|checksum
-expr_stmt|;
-name|this
-operator|.
 name|writtenBy
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|writtenBy
+argument_list|,
+literal|"writtenBy must not be null"
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

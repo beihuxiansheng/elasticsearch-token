@@ -44,8 +44,6 @@ name|BigArray
 block|{
 comment|/**      * Get an element given its index.      */
 DECL|method|get
-specifier|public
-specifier|abstract
 name|byte
 name|get
 parameter_list|(
@@ -55,8 +53,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Set a value at the given index and return the previous value.      */
 DECL|method|set
-specifier|public
-specifier|abstract
 name|byte
 name|set
 parameter_list|(
@@ -67,10 +63,8 @@ name|byte
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Get a reference to a slice.      *       * @return<code>true</code> when a byte[] was materialized,<code>false</code> otherwise.      */
+comment|/**      * Get a reference to a slice.      *      * @return<code>true</code> when a byte[] was materialized,<code>false</code> otherwise.      */
 DECL|method|get
-specifier|public
-specifier|abstract
 name|boolean
 name|get
 parameter_list|(
@@ -86,8 +80,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Bulk set.      */
 DECL|method|set
-specifier|public
-specifier|abstract
 name|void
 name|set
 parameter_list|(
@@ -107,8 +99,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Fill slots between<code>fromIndex</code> inclusive to<code>toIndex</code> exclusive with<code>value</code>.      */
 DECL|method|fill
-specifier|public
-specifier|abstract
 name|void
 name|fill
 parameter_list|(

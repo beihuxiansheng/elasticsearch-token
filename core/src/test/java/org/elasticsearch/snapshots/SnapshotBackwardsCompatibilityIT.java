@@ -889,7 +889,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> snapshot subset of indices before upgrage"
+literal|"--> snapshot subset of indices before upgrade"
 argument_list|)
 expr_stmt|;
 name|CreateSnapshotResponse

@@ -332,7 +332,7 @@ specifier|public
 name|AB
 name|subAggregation
 parameter_list|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|aggregation
 parameter_list|)
 block|{

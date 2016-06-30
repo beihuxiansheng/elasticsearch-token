@@ -1256,9 +1256,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -1286,15 +1283,18 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|clusterName
+name|clusterService
 operator|=
-name|clusterName
+name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|clusterService
+name|clusterName
 operator|=
 name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1513,8 +1513,6 @@ name|threadPool
 argument_list|,
 name|transportService
 argument_list|,
-name|clusterName
-argument_list|,
 name|clusterService
 argument_list|)
 expr_stmt|;
@@ -1542,7 +1540,10 @@ name|threadPool
 argument_list|,
 name|transportService
 argument_list|,
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -1577,7 +1578,10 @@ argument_list|()
 argument_list|,
 name|discoverySettings
 argument_list|,
-name|clusterName
+name|clusterService
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -2367,7 +2371,7 @@ argument_list|()
 decl_stmt|;
 name|nodeJoinController
 operator|.
-name|startAccumulatingJoins
+name|startElectionContext
 argument_list|()
 expr_stmt|;
 while|while
@@ -2545,7 +2549,7 @@ block|{
 comment|// process any incoming joins (they will fail because we are not the master)
 name|nodeJoinController
 operator|.
-name|stopAccumulatingJoins
+name|stopElectionContext
 argument_list|(
 literal|"not master"
 argument_list|)

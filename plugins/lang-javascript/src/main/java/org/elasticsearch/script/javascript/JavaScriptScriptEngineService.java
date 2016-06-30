@@ -100,20 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -467,26 +453,6 @@ operator|.
 name|cert
 operator|.
 name|Certificate
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -894,8 +860,6 @@ name|void
 name|init
 parameter_list|()
 block|{}
-annotation|@
-name|Inject
 DECL|method|JavaScriptScriptEngineService
 specifier|public
 name|JavaScriptScriptEngineService
@@ -947,19 +911,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{      }
-annotation|@
-name|Override
-DECL|method|scriptRemoved
-specifier|public
-name|void
-name|scriptRemoved
-parameter_list|(
-annotation|@
-name|Nullable
-name|CompiledScript
-name|compiledScript
-parameter_list|)
 block|{
 comment|// Nothing to do here
 block|}

@@ -34,20 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|TemplateService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|script
 operator|.
 name|CompiledScript
@@ -239,11 +225,8 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
-comment|// null == OK, because ingest templates are only inline templates.
 return|return
 operator|new
 name|Template

@@ -776,12 +776,12 @@ operator|.
 name|scope
 return|;
 block|}
-comment|/**      * Applies the given settings to all listeners and rolls back the result after application. This      * method will not change any settings but will fail if any of the settings can't be applied.      */
-DECL|method|dryRun
+comment|/**      * Validates the given settings by running it through all update listeners without applying it. This      * method will not change any settings but will fail if any of the settings can't be applied.      */
+DECL|method|validateUpdate
 specifier|public
 specifier|synchronized
 name|Settings
-name|dryRun
+name|validateUpdate
 parameter_list|(
 name|Settings
 name|settings
@@ -861,18 +861,8 @@ control|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|settingUpdater
-operator|.
-name|hasChanged
-argument_list|(
-name|current
-argument_list|,
-name|previous
-argument_list|)
-condition|)
-block|{
+comment|// ensure running this through the updater / dynamic validator
+comment|// don't check if the value has changed we wanna test this anyways
 name|settingUpdater
 operator|.
 name|getValue
@@ -882,7 +872,6 @@ argument_list|,
 name|previous
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1669,6 +1658,15 @@ argument_list|()
 operator|)
 operator|+
 literal|"?"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|msg
+operator|+=
+literal|" please check that any required plugins are installed, or check the breaking changes documentation for removed "
+operator|+
+literal|"settings"
 expr_stmt|;
 block|}
 throw|throw

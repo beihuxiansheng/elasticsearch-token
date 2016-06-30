@@ -254,9 +254,33 @@ name|org
 operator|.
 name|hamcrest
 operator|.
+name|CoreMatchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasToString
 import|;
 end_import
 
@@ -466,9 +490,11 @@ literal|"_local"
 block|,
 literal|"_primary_first"
 block|,
-literal|"_prefer_node:somenode"
+literal|"_prefer_nodes:somenode"
 block|,
-literal|"_prefer_node:server2"
+literal|"_prefer_nodes:server2"
+block|,
+literal|"_prefer_nodes:somenode,server2"
 block|}
 decl_stmt|;
 for|for
@@ -1589,7 +1615,7 @@ argument_list|)
 operator|.
 name|setPreference
 argument_list|(
-literal|"_only_node:DOES-NOT-EXIST"
+literal|"_only_nodes:DOES-NOT-EXIST"
 argument_list|)
 operator|.
 name|execute
@@ -1613,13 +1639,13 @@ block|{
 name|assertThat
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|,
-name|is
+name|hasToString
 argument_list|(
-literal|"No data node with id[DOES-NOT-EXIST] found"
+name|containsString
+argument_list|(
+literal|"no data nodes with criteria [DOES-NOT-EXIST] found for shard: [test]["
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

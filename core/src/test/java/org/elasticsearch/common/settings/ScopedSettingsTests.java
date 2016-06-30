@@ -823,7 +823,7 @@ try|try
 block|{
 name|service
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|Settings
 operator|.
@@ -914,7 +914,7 @@ argument_list|)
 expr_stmt|;
 name|service
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|Settings
 operator|.
@@ -1822,6 +1822,13 @@ operator|.
 name|BUILT_IN_INDEX_SETTINGS
 argument_list|)
 decl_stmt|;
+name|String
+name|unknownMsgSuffix
+init|=
+literal|" please check that any required plugins are installed, or check the breaking changes documentation for"
+operator|+
+literal|" removed settings"
+decl_stmt|;
 name|settings
 operator|.
 name|validate
@@ -1895,6 +1902,8 @@ block|{
 name|assertEquals
 argument_list|(
 literal|"unknown setting [i.am.not.a.setting]"
+operator|+
+name|unknownMsgSuffix
 argument_list|,
 name|e
 operator|.
@@ -1942,6 +1951,8 @@ block|{
 name|assertEquals
 argument_list|(
 literal|"unknown setting [i.am.not.a.setting]"
+operator|+
+name|unknownMsgSuffix
 argument_list|,
 name|e
 operator|.

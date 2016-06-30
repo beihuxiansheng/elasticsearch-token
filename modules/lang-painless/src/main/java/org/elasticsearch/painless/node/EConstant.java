@@ -36,9 +36,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Definition
-operator|.
-name|Sort
+name|Globals
 import|;
 end_import
 
@@ -50,7 +48,43 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Definition
+operator|.
+name|Sort
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
 import|;
 end_import
 
@@ -67,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents a constant.  Note this replaces any other expression  * node with a constant value set during a cast.  (Internal only.)  */
+comment|/**  * Represents a constant.  Note this replaces any other expression  * node with a constant value set during a cast.  (Internal only.)  */
 end_comment
 
 begin_class
@@ -81,13 +115,7 @@ block|{
 DECL|method|EConstant
 name|EConstant
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Object
@@ -96,10 +124,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -112,12 +136,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|extractVariables
+name|void
+name|extractVariables
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|variables
+parameter_list|)
+block|{}
+annotation|@
+name|Override
 DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 if|if
@@ -257,10 +294,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -276,6 +313,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 block|{
 name|Sort
@@ -473,10 +513,10 @@ block|}
 break|break;
 default|default:
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

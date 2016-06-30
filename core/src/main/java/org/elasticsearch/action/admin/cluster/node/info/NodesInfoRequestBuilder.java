@@ -315,6 +315,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the node indices info be returned.      */
+DECL|method|setIndices
+specifier|public
+name|NodesInfoRequestBuilder
+name|setIndices
+parameter_list|(
+name|boolean
+name|indices
+parameter_list|)
+block|{
+name|request
+argument_list|()
+operator|.
+name|indices
+argument_list|(
+name|indices
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

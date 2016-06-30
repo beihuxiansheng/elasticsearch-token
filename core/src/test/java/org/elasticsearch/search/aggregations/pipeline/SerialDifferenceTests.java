@@ -64,7 +64,7 @@ name|pipeline
 operator|.
 name|serialdiff
 operator|.
-name|SerialDiffPipelineAggregatorBuilder
+name|SerialDiffPipelineAggregationBuilder
 import|;
 end_import
 
@@ -76,14 +76,14 @@ name|SerialDifferenceTests
 extends|extends
 name|BasePipelineAggregationTestCase
 argument_list|<
-name|SerialDiffPipelineAggregatorBuilder
+name|SerialDiffPipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|SerialDiffPipelineAggregatorBuilder
+name|SerialDiffPipelineAggregationBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -107,11 +107,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|SerialDiffPipelineAggregatorBuilder
+name|SerialDiffPipelineAggregationBuilder
 name|factory
 init|=
 operator|new
-name|SerialDiffPipelineAggregatorBuilder
+name|SerialDiffPipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,

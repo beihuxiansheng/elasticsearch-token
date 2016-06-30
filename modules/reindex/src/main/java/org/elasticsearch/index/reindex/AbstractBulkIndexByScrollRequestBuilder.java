@@ -94,8 +94,6 @@ name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|Request
 argument_list|,
-name|BulkIndexByScrollResponse
-argument_list|,
 name|Self
 argument_list|>
 block|{

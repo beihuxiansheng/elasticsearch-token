@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|TemplateService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -76,7 +62,7 @@ specifier|public
 class|class
 name|TemplateServiceIT
 extends|extends
-name|AbstractMustacheTestCase
+name|AbstractScriptTestCase
 block|{
 DECL|method|testTemplates
 specifier|public

@@ -242,8 +242,6 @@ specifier|final
 name|AutoCreate
 name|autoCreate
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|AutoCreateIndex
 specifier|public
 name|AutoCreateIndex

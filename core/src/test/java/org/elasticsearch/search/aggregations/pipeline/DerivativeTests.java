@@ -64,7 +64,7 @@ name|pipeline
 operator|.
 name|derivative
 operator|.
-name|DerivativePipelineAggregatorBuilder
+name|DerivativePipelineAggregationBuilder
 import|;
 end_import
 
@@ -76,14 +76,14 @@ name|DerivativeTests
 extends|extends
 name|BasePipelineAggregationTestCase
 argument_list|<
-name|DerivativePipelineAggregatorBuilder
+name|DerivativePipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|DerivativePipelineAggregatorBuilder
+name|DerivativePipelineAggregationBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -107,11 +107,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|DerivativePipelineAggregatorBuilder
+name|DerivativePipelineAggregationBuilder
 name|factory
 init|=
 operator|new
-name|DerivativePipelineAggregatorBuilder
+name|DerivativePipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,

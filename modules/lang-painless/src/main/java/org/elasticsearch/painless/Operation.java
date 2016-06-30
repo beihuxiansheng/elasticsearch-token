@@ -54,6 +54,18 @@ argument_list|(
 literal|"-"
 argument_list|)
 block|,
+DECL|enum constant|FIND
+name|FIND
+argument_list|(
+literal|"=~"
+argument_list|)
+block|,
+DECL|enum constant|MATCH
+name|MATCH
+argument_list|(
+literal|"==~"
+argument_list|)
+block|,
 DECL|enum constant|LSH
 name|LSH
 argument_list|(

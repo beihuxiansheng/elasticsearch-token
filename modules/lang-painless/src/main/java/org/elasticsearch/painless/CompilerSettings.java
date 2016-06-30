@@ -45,6 +45,16 @@ name|PICKY
 init|=
 literal|"picky"
 decl_stmt|;
+comment|/**      * For testing: do not use.      */
+DECL|field|INITIAL_CALL_SITE_DEPTH
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INITIAL_CALL_SITE_DEPTH
+init|=
+literal|"initialCallSiteDepth"
+decl_stmt|;
 comment|/**      * The maximum number of statements allowed to be run in a loop.      */
 DECL|field|maxLoopCounter
 specifier|private
@@ -60,6 +70,14 @@ name|boolean
 name|picky
 init|=
 literal|false
+decl_stmt|;
+comment|/**      * For testing. Do not use.      */
+DECL|field|initialCallSiteDepth
+specifier|private
+name|int
+name|initialCallSiteDepth
+init|=
+literal|0
 decl_stmt|;
 comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
@@ -117,6 +135,34 @@ operator|.
 name|picky
 operator|=
 name|picky
+expr_stmt|;
+block|}
+comment|/**      * Returns initial call site depth. This means we pretend we've already seen N different types,      * to better exercise fallback code in tests.      */
+DECL|method|getInitialCallSiteDepth
+specifier|public
+name|int
+name|getInitialCallSiteDepth
+parameter_list|()
+block|{
+return|return
+name|initialCallSiteDepth
+return|;
+block|}
+comment|/**      * For testing megamorphic fallbacks. Do not use.      * @see #getInitialCallSiteDepth()      */
+DECL|method|setInitialCallSiteDepth
+specifier|public
+name|void
+name|setInitialCallSiteDepth
+parameter_list|(
+name|int
+name|depth
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialCallSiteDepth
+operator|=
+name|depth
 expr_stmt|;
 block|}
 block|}

@@ -1930,7 +1930,11 @@ throw|throw
 operator|new
 name|InvalidTypeNameException
 argument_list|(
-literal|"Document mapping type name can't start with '_'"
+literal|"Document mapping type name can't start with '_', found: ["
+operator|+
+name|mappingType
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}

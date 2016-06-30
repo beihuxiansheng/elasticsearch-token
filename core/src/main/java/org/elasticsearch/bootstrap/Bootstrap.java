@@ -520,39 +520,13 @@ name|definitelyRunningAsRoot
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|Boolean
-operator|.
-name|parseBoolean
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"es.insecure.allow.root"
-argument_list|)
-argument_list|)
-condition|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"running as ROOT user. this is a bad idea!"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"don't run elasticsearch as root."
+literal|"can not run elasticsearch as root"
 argument_list|)
 throw|;
-block|}
 block|}
 comment|// enable secure computing mode
 if|if

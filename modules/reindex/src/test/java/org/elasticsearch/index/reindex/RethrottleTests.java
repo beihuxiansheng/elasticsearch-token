@@ -51,22 +51,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -82,20 +66,7 @@ begin_comment
 comment|/**  * Tests that you can set requests_per_second over the Java API and that you can rethrottle running requests. There are REST tests for this  * too but this is the only place that tests running against multiple nodes so it is the only integration tests that checks for  * serialization.  */
 end_comment
 
-begin_comment
-comment|// Extra logging in case of failure. We couldn't explain the last failure:
-end_comment
-
-begin_comment
-comment|// https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+g1gc/359/consoleFull
-end_comment
-
 begin_class
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:DEBUG"
-argument_list|)
 DECL|class|RethrottleTests
 specifier|public
 class|class
@@ -156,12 +127,36 @@ name|NAME
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testDeleteByQuery
+specifier|public
+name|void
+name|testDeleteByQuery
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testCase
+argument_list|(
+name|deleteByQuery
+argument_list|()
+operator|.
+name|source
+argument_list|(
+literal|"test"
+argument_list|)
+argument_list|,
+name|DeleteByQueryAction
+operator|.
+name|NAME
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testCase
 specifier|private
 name|void
 name|testCase
 parameter_list|(
-name|AbstractBulkIndexByScrollRequestBuilder
+name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|?
 argument_list|,

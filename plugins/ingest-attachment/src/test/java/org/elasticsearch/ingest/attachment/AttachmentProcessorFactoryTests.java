@@ -34,8 +34,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessorFactory
 import|;
 end_import

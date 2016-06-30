@@ -140,6 +140,20 @@ name|common
 operator|.
 name|netty
 operator|.
+name|NettyUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|netty
+operator|.
 name|ReleaseChannelFutureListener
 import|;
 end_import
@@ -298,10 +312,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|NettyTransportChannel
 specifier|public
@@ -358,11 +368,11 @@ specifier|final
 name|long
 name|reservedBytes
 decl_stmt|;
-DECL|field|closed
+DECL|field|released
 specifier|private
 specifier|final
 name|AtomicBoolean
-name|closed
+name|released
 init|=
 operator|new
 name|AtomicBoolean
@@ -511,7 +521,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|close
+name|release
 argument_list|()
 expr_stmt|;
 if|if
@@ -612,8 +622,7 @@ name|stream
 operator|=
 name|CompressorFactory
 operator|.
-name|defaultCompressor
-argument_list|()
+name|COMPRESSOR
 operator|.
 name|streamOutput
 argument_list|(
@@ -651,10 +660,12 @@ decl_stmt|;
 name|ChannelBuffer
 name|buffer
 init|=
-name|bytes
+name|NettyUtils
 operator|.
 name|toChannelBuffer
-argument_list|()
+argument_list|(
+name|bytes
+argument_list|)
 decl_stmt|;
 name|NettyHeader
 operator|.
@@ -769,7 +780,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|close
+name|release
 argument_list|()
 expr_stmt|;
 name|BytesStreamOutput
@@ -855,10 +866,12 @@ decl_stmt|;
 name|ChannelBuffer
 name|buffer
 init|=
-name|bytes
+name|NettyUtils
 operator|.
 name|toChannelBuffer
-argument_list|()
+argument_list|(
+name|bytes
+argument_list|)
 decl_stmt|;
 name|NettyHeader
 operator|.
@@ -907,16 +920,16 @@ name|onResponseSentListener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|close
+DECL|method|release
 specifier|private
 name|void
-name|close
+name|release
 parameter_list|()
 block|{
-comment|// attempt to close once atomically
+comment|// attempt to release once atomically
 if|if
 condition|(
-name|closed
+name|released
 operator|.
 name|compareAndSet
 argument_list|(
@@ -932,7 +945,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Channel is already closed"
+literal|"reserved bytes are already released"
 argument_list|)
 throw|;
 block|}

@@ -34,16 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -248,20 +238,6 @@ name|common
 operator|.
 name|util
 operator|.
-name|PageCacheRecycler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|EsExecutors
@@ -351,20 +327,6 @@ operator|.
 name|node
 operator|.
 name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|internal
-operator|.
-name|InternalSettingsPreparer
 import|;
 end_import
 
@@ -465,6 +427,18 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -953,19 +927,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** The version of elasticsearch the node should act like. */
-DECL|method|getVersion
-specifier|protected
-name|Version
-name|getVersion
-parameter_list|()
-block|{
-return|return
-name|Version
-operator|.
-name|CURRENT
-return|;
-block|}
 comment|/** The plugin classes that should be added to the node. */
 DECL|method|getPlugins
 specifier|protected
@@ -1049,6 +1010,13 @@ name|Node
 name|newNode
 parameter_list|()
 block|{
+specifier|final
+name|Path
+name|tempDir
+init|=
+name|createTempDir
+argument_list|()
+decl_stmt|;
 name|Settings
 name|settings
 init|=
@@ -1086,8 +1054,24 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|createTempDir
+name|tempDir
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|Environment
+operator|.
+name|PATH_REPO_SETTING
+operator|.
+name|getKey
 argument_list|()
+argument_list|,
+name|tempDir
+operator|.
+name|resolve
+argument_list|(
+literal|"repo"
+argument_list|)
 argument_list|)
 comment|// TODO: use a consistent data path for custom paths
 comment|// This needs to tie into the ESIntegTestCase#indexSettings() method
@@ -1191,9 +1175,6 @@ operator|new
 name|MockNode
 argument_list|(
 name|settings
-argument_list|,
-name|getVersion
-argument_list|()
 argument_list|,
 name|getPlugins
 argument_list|()

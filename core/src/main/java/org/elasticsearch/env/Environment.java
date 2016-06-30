@@ -774,6 +774,19 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
+specifier|final
+name|ClusterName
+name|clusterName
+init|=
+name|ClusterName
+operator|.
+name|CLUSTER_NAME_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|dataPaths
@@ -853,12 +866,7 @@ index|]
 operator|.
 name|resolve
 argument_list|(
-name|ClusterName
-operator|.
-name|clusterNameFromSettings
-argument_list|(
-name|settings
-argument_list|)
+name|clusterName
 operator|.
 name|value
 argument_list|()
@@ -897,12 +905,7 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-name|ClusterName
-operator|.
-name|clusterNameFromSettings
-argument_list|(
-name|settings
-argument_list|)
+name|clusterName
 operator|.
 name|value
 argument_list|()
@@ -1166,7 +1169,9 @@ return|return
 name|sharedDataFile
 return|;
 block|}
-comment|/**      * The data location with the cluster name as a sub directory.      */
+comment|/**      * The data location with the cluster name as a sub directory.      *      * @deprecated Used to upgrade old data paths to new ones that do not include the cluster name, should not be used to write files to and      * will be removed in ES 6.0      */
+annotation|@
+name|Deprecated
 DECL|method|dataWithClusterFiles
 specifier|public
 name|Path

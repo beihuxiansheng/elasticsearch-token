@@ -611,6 +611,8 @@ literal|"copy_to"
 argument_list|,
 literal|"fielddata"
 argument_list|,
+literal|"include_in_all"
+argument_list|,
 literal|"ignore_above"
 argument_list|)
 argument_list|)
@@ -651,6 +653,8 @@ argument_list|,
 literal|"copy_to"
 argument_list|,
 literal|"fielddata"
+argument_list|,
+literal|"include_in_all"
 argument_list|,
 literal|"analyzer"
 argument_list|,

@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -43,20 +57,6 @@ operator|.
 name|stream
 operator|.
 name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|buffer
-operator|.
-name|ChannelBuffer
 import|;
 end_import
 
@@ -80,18 +80,6 @@ name|OutputStream
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|channels
-operator|.
-name|GatheringByteChannel
-import|;
-end_import
-
 begin_comment
 comment|/**  * A reference to bytes.  */
 end_comment
@@ -103,8 +91,6 @@ interface|interface
 name|BytesReference
 block|{
 DECL|class|Helper
-specifier|public
-specifier|static
 class|class
 name|Helper
 block|{
@@ -437,17 +423,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Writes the bytes directly to the channel.      */
-DECL|method|writeTo
-name|void
-name|writeTo
-parameter_list|(
-name|GatheringByteChannel
-name|channel
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Returns the bytes as a single byte array.      */
 DECL|method|toBytes
 name|byte
@@ -465,12 +440,6 @@ comment|/**      * Returns the bytes copied over as a byte array.      */
 DECL|method|copyBytesArray
 name|BytesArray
 name|copyBytesArray
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the bytes as a channel buffer.      */
-DECL|method|toChannelBuffer
-name|ChannelBuffer
-name|toChannelBuffer
 parameter_list|()
 function_decl|;
 comment|/**      * Is there an underlying byte array for this bytes reference.      */
@@ -510,6 +479,57 @@ name|BytesRef
 name|copyBytesRef
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a BytesRefIterator for this BytesReference. This method allows      * access to the internal pages of this reference without copying them. Use with care!      * @see BytesRefIterator      */
+DECL|method|iterator
+specifier|default
+name|BytesRefIterator
+name|iterator
+parameter_list|()
+block|{
+return|return
+operator|new
+name|BytesRefIterator
+argument_list|()
+block|{
+name|BytesRef
+name|ref
+init|=
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
+name|toBytesRef
+argument_list|()
+decl_stmt|;
+annotation|@
+name|Override
+specifier|public
+name|BytesRef
+name|next
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|BytesRef
+name|r
+init|=
+name|ref
+decl_stmt|;
+name|ref
+operator|=
+literal|null
+expr_stmt|;
+comment|// only return it once...
+return|return
+name|r
+return|;
+block|}
+block|}
+return|;
+block|}
 block|}
 end_interface
 

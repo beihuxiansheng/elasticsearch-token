@@ -80,28 +80,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|tasks
-operator|.
-name|list
-operator|.
-name|TaskInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ingest
 operator|.
 name|DeletePipelineRequest
@@ -203,6 +181,30 @@ operator|.
 name|plugins
 operator|.
 name|Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|IngestTestPlugin
 import|;
 end_import
 
@@ -493,6 +495,15 @@ name|plugins
 operator|.
 name|add
 argument_list|(
+name|IngestTestPlugin
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|plugins
+operator|.
+name|add
+argument_list|(
 name|ReindexCancellationPlugin
 operator|.
 name|class
@@ -529,10 +540,6 @@ parameter_list|,
 name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|?
-argument_list|,
-name|?
-extends|extends
-name|BulkIndexByScrollResponse
 argument_list|,
 name|?
 argument_list|>
@@ -1156,17 +1163,11 @@ name|BytesArray
 argument_list|(
 literal|"{\n"
 operator|+
-literal|"  \"description\" : \"sets updated to true\",\n"
+literal|"  \"description\" : \"sets processed to true\",\n"
 operator|+
 literal|"  \"processors\" : [ {\n"
 operator|+
-literal|"      \"set\" : {\n"
-operator|+
-literal|"        \"field\": \"updated\",\n"
-operator|+
-literal|"        \"value\": true"
-operator|+
-literal|"      }\n"
+literal|"      \"test\" : {}\n"
 operator|+
 literal|"  } ]\n"
 operator|+
@@ -1263,7 +1264,7 @@ name|setQuery
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"updated"
+literal|"processed"
 argument_list|,
 literal|true
 argument_list|)
@@ -1411,39 +1412,6 @@ name|ReindexCancellationPlugin
 extends|extends
 name|Plugin
 block|{
-annotation|@
-name|Override
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-literal|"reindex-cancellation"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|description
-specifier|public
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-literal|"See "
-operator|+
-name|CancelTests
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" documentation"
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|onIndexModule

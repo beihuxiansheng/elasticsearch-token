@@ -491,8 +491,6 @@ specifier|final
 name|CircuitBreakerService
 name|breakerService
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|MockBigArrays
 specifier|public
 name|MockBigArrays

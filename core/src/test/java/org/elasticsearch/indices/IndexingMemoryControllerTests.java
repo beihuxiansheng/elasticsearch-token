@@ -2876,8 +2876,6 @@ name|routing
 operator|.
 name|moveToStarted
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

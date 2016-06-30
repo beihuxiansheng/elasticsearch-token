@@ -210,8 +210,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessor
 import|;
 end_import
@@ -224,8 +222,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessorFactory
 import|;
 end_import
@@ -237,8 +233,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocument
 import|;
@@ -382,8 +376,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 operator|.
 name|newConfigurationException
@@ -398,8 +390,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 operator|.
 name|readOptionalList
@@ -413,8 +403,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|ConfigurationUtils
 operator|.
@@ -1293,8 +1281,6 @@ name|AbstractProcessorFactory
 argument_list|<
 name|GeoIpProcessor
 argument_list|>
-implements|implements
-name|Closeable
 block|{
 DECL|field|DEFAULT_CITY_PROPERTIES
 specifier|static
@@ -1447,7 +1433,7 @@ name|config
 argument_list|,
 literal|"database_file"
 argument_list|,
-literal|"GeoLite2-City.mmdb"
+literal|"GeoLite2-City.mmdb.gz"
 argument_list|)
 decl_stmt|;
 name|List
@@ -1654,27 +1640,6 @@ argument_list|,
 name|properties
 argument_list|)
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|databaseReaders
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|// Geoip2's AddressNotFoundException is checked and due to the fact that we need run their code

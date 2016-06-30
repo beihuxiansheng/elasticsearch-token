@@ -52,6 +52,30 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|AnalyzerCaster
 import|;
 end_import
@@ -64,7 +88,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Locals
 import|;
 end_import
 
@@ -189,22 +213,12 @@ DECL|method|AExpression
 specifier|public
 name|AExpression
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -215,8 +229,8 @@ specifier|abstract
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
@@ -227,6 +241,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 comment|/**      * Inserts {@link ECast} nodes into the tree for implicit casts.  Also replaces      * nodes with the constant variable set to a non-null value with {@link EConstant}.      * @return The new child node for the parent node calling this method.      */
@@ -234,8 +251,8 @@ DECL|method|cast
 name|AExpression
 name|cast
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 block|{
 specifier|final
@@ -275,23 +292,26 @@ operator|instanceof
 name|EConstant
 condition|)
 block|{
+comment|// For the case where a cast is not required and a constant is not set
+comment|// or the node is already an EConstant no changes are required to the tree.
 return|return
 name|this
 return|;
 block|}
 else|else
 block|{
-specifier|final
+comment|// For the case where a cast is not required but a
+comment|// constant is set, an EConstant replaces this node
+comment|// with the constant copied from this node.  Note that
+comment|// for constants output data does not need to be copied
+comment|// from this node because the output data for the EConstant
+comment|// will already be the same.
 name|EConstant
 name|econstant
 init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -301,7 +321,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -318,10 +338,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -342,17 +362,16 @@ operator|==
 literal|null
 condition|)
 block|{
-specifier|final
+comment|// For the case where a cast is required and a constant is not set.
+comment|// Modify the tree to add an ECast between this node and its parent.
+comment|// The output data from this node is copied to the ECast for
+comment|// further reads done by the parent.
 name|ECast
 name|ecast
 init|=
 operator|new
 name|ECast
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|this
@@ -393,6 +412,13 @@ operator|.
 name|constant
 condition|)
 block|{
+comment|// For the case where a cast is required, a constant is set,
+comment|// and the constant can be immediately cast to the expected type.
+comment|// An EConstant replaces this node with the constant cast appropriately
+comment|// from the constant value defined by this node.  Note that
+comment|// for constants output data does not need to be copied
+comment|// from this node because the output data for the EConstant
+comment|// will already be the same.
 name|constant
 operator|=
 name|AnalyzerCaster
@@ -406,17 +432,12 @@ argument_list|,
 name|cast
 argument_list|)
 expr_stmt|;
-specifier|final
 name|EConstant
 name|econstant
 init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -426,7 +447,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -443,10 +464,10 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -465,17 +486,19 @@ operator|instanceof
 name|EConstant
 condition|)
 block|{
-specifier|final
+comment|// For the case where a cast is required, a constant is set,
+comment|// the constant cannot be immediately cast to the expected type,
+comment|// and this node is already an EConstant.  Modify the tree to add
+comment|// an ECast between this node and its parent.  Note that
+comment|// for constants output data does not need to be copied
+comment|// from this node because the output data for the EConstant
+comment|// will already be the same.
 name|ECast
 name|ecast
 init|=
 operator|new
 name|ECast
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|this
@@ -495,17 +518,20 @@ return|;
 block|}
 else|else
 block|{
-specifier|final
+comment|// For the case where a cast is required, a constant is set,
+comment|// the constant cannot be immediately cast to the expected type,
+comment|// and this node is not an EConstant.  Replace this node with
+comment|// an Econstant node copying the constant from this node.
+comment|// Modify the tree to add an ECast between the EConstant node
+comment|// and its parent.  Note that for constants output data does not
+comment|// need to be copied from this node because the output data for
+comment|// the EConstant will already be the same.
 name|EConstant
 name|econstant
 init|=
 operator|new
 name|EConstant
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -515,7 +541,7 @@ name|econstant
 operator|.
 name|analyze
 argument_list|(
-name|variables
+name|locals
 argument_list|)
 expr_stmt|;
 if|if
@@ -532,27 +558,22 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|ECast
 name|ecast
 init|=
 operator|new
 name|ECast
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|econstant

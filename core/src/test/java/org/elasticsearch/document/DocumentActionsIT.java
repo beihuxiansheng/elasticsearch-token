@@ -164,6 +164,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|health
@@ -335,7 +351,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Integration test for document action like index, bulk, and get. It has a very long history: it was in the second commit of Elasticsearch.  */
 end_comment
 
 begin_class
@@ -440,15 +456,14 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat

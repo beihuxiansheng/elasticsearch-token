@@ -24,7 +24,33 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
+operator|.
+name|Variable
 import|;
 end_import
 
@@ -37,6 +63,18 @@ operator|.
 name|asm
 operator|.
 name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Location
 import|;
 end_import
 
@@ -129,12 +167,11 @@ init|=
 literal|false
 decl_stmt|;
 comment|/**      * Set to the loop counter variable slot as a shortcut if loop statements      * are being counted.      */
-DECL|field|loopCounterSlot
-name|int
-name|loopCounterSlot
+DECL|field|loopCounter
+name|Variable
+name|loopCounter
 init|=
-operator|-
-literal|1
+literal|null
 decl_stmt|;
 comment|/**      * Set to the approximate number of statements in a loop block to prevent      * infinite loops during runtime.      */
 DECL|field|statementCount
@@ -160,22 +197,12 @@ decl_stmt|;
 DECL|method|AStatement
 name|AStatement
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -186,8 +213,8 @@ specifier|abstract
 name|void
 name|analyze
 parameter_list|(
-name|Variables
-name|variables
+name|Locals
+name|locals
 parameter_list|)
 function_decl|;
 comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
@@ -198,6 +225,9 @@ name|write
 parameter_list|(
 name|MethodWriter
 name|writer
+parameter_list|,
+name|Globals
+name|globals
 parameter_list|)
 function_decl|;
 block|}

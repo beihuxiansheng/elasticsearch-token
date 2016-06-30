@@ -95,6 +95,8 @@ class|class
 name|PersianNormalizationFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|method|PersianNormalizationFilterFactory
 specifier|public
@@ -140,6 +142,18 @@ name|PersianNormalizationFilter
 argument_list|(
 name|tokenStream
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}

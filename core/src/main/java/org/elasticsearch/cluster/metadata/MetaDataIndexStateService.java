@@ -1213,6 +1213,8 @@ argument_list|(
 name|nodeServiceProvider
 argument_list|,
 name|indexMetaData
+argument_list|,
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 block|}

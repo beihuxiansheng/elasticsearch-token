@@ -594,7 +594,14 @@ name|builder
 argument_list|(
 name|ClusterName
 operator|.
-name|DEFAULT
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getDefault
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
 argument_list|)
 operator|.
 name|build
@@ -4086,9 +4093,8 @@ block|{
 name|ClusterName
 name|clusterName
 init|=
+operator|new
 name|ClusterName
-operator|.
-name|readClusterName
 argument_list|(
 name|in
 argument_list|)
@@ -4573,9 +4579,8 @@ name|IOException
 block|{
 name|clusterName
 operator|=
+operator|new
 name|ClusterName
-operator|.
-name|readClusterName
 argument_list|(
 name|in
 argument_list|)

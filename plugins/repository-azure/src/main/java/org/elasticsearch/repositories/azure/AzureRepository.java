@@ -98,9 +98,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -1078,6 +1076,8 @@ throw|throw
 operator|new
 name|SnapshotCreationException
 argument_list|(
+name|repositoryName
+argument_list|,
 name|snapshotId
 argument_list|,
 name|e

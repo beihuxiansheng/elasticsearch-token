@@ -3856,20 +3856,6 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
-name|Operator
-name|op
-init|=
-name|randomBoolean
-argument_list|()
-condition|?
-name|Operator
-operator|.
-name|AND
-else|:
-name|Operator
-operator|.
-name|OR
-decl_stmt|;
 name|SearchResponse
 name|left
 init|=
@@ -4007,11 +3993,6 @@ literal|"first_name"
 argument_list|,
 literal|"capta"
 argument_list|)
-operator|.
-name|operator
-argument_list|(
-name|op
-argument_list|)
 argument_list|)
 operator|.
 name|should
@@ -4022,11 +4003,6 @@ literal|"last_name"
 argument_list|,
 literal|"capta"
 argument_list|)
-operator|.
-name|operator
-argument_list|(
-name|op
-argument_list|)
 argument_list|)
 operator|.
 name|should
@@ -4036,11 +4012,6 @@ argument_list|(
 literal|"category"
 argument_list|,
 literal|"capta"
-argument_list|)
-operator|.
-name|operator
-argument_list|(
-name|op
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4075,20 +4046,6 @@ literal|0
 argument_list|,
 literal|1
 argument_list|)
-decl_stmt|;
-name|Operator
-name|op
-init|=
-name|randomBoolean
-argument_list|()
-condition|?
-name|Operator
-operator|.
-name|AND
-else|:
-name|Operator
-operator|.
-name|OR
 decl_stmt|;
 name|SearchResponse
 name|left
@@ -4313,11 +4270,6 @@ literal|"first_name"
 argument_list|,
 literal|"captain america"
 argument_list|)
-operator|.
-name|operator
-argument_list|(
-name|op
-argument_list|)
 argument_list|)
 operator|.
 name|should
@@ -4328,11 +4280,6 @@ literal|"last_name"
 argument_list|,
 literal|"captain america"
 argument_list|)
-operator|.
-name|operator
-argument_list|(
-name|op
-argument_list|)
 argument_list|)
 operator|.
 name|should
@@ -4342,11 +4289,6 @@ argument_list|(
 literal|"category"
 argument_list|,
 literal|"captain america"
-argument_list|)
-operator|.
-name|operator
-argument_list|(
-name|op
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4487,7 +4429,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"theone"
+literal|"theother"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4497,7 +4439,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"theother"
+literal|"theone"
 argument_list|)
 argument_list|)
 expr_stmt|;

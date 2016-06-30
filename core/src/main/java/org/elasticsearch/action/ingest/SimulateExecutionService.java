@@ -48,8 +48,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 import|;
 end_import
@@ -62,8 +60,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|Pipeline
 import|;
 end_import
@@ -75,8 +71,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|CompoundProcessor
 import|;
@@ -120,9 +114,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|action
 operator|.
-name|processor
+name|ingest
 operator|.
 name|TrackingResultProcessor
 operator|.

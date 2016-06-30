@@ -1950,6 +1950,35 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+literal|false
+operator|==
+name|propName
+operator|.
+name|equals
+argument_list|(
+literal|"null_value"
+argument_list|)
+operator|&&
+name|propNode
+operator|==
+literal|null
+condition|)
+block|{
+comment|/*                  * No properties *except* null_value are allowed to have null. So we catch it here and tell the user something useful rather                  * than send them a null pointer exception later.                  */
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"["
+operator|+
+name|propName
+operator|+
+literal|"] must not have a [null] value"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|propName
 operator|.
 name|equals
@@ -3467,9 +3496,7 @@ block|{
 comment|// "default" similarity has been renamed into "classic" in 3.x.
 name|value
 operator|=
-name|SimilarityService
-operator|.
-name|DEFAULT_SIMILARITY
+literal|"classic"
 expr_stmt|;
 block|}
 name|SimilarityProvider

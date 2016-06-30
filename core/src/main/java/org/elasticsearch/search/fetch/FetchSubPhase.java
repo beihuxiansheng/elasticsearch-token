@@ -165,8 +165,6 @@ interface|interface
 name|FetchSubPhase
 block|{
 DECL|class|HitContext
-specifier|public
-specifier|static
 class|class
 name|HitContext
 block|{
@@ -360,16 +358,9 @@ name|emptyMap
 argument_list|()
 return|;
 block|}
-DECL|method|hitExecutionNeeded
-name|boolean
-name|hitExecutionNeeded
-parameter_list|(
-name|SearchContext
-name|context
-parameter_list|)
-function_decl|;
 comment|/**      * Executes the hit level phase, with a reader and doc id (note, its a low level reader, and the matching doc).      */
 DECL|method|hitExecute
+specifier|default
 name|void
 name|hitExecute
 parameter_list|(
@@ -379,16 +370,9 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
-function_decl|;
-DECL|method|hitsExecutionNeeded
-name|boolean
-name|hitsExecutionNeeded
-parameter_list|(
-name|SearchContext
-name|context
-parameter_list|)
-function_decl|;
+block|{}
 DECL|method|hitsExecute
+specifier|default
 name|void
 name|hitsExecute
 parameter_list|(
@@ -399,10 +383,9 @@ name|InternalSearchHit
 index|[]
 name|hits
 parameter_list|)
-function_decl|;
+block|{}
 comment|/**      * This interface is in the fetch phase plugin mechanism.      * Whenever a new search is executed we create a new {@link SearchContext} that holds individual contexts for each {@link org.elasticsearch.search.fetch.FetchSubPhase}.      * Fetch phases that use the plugin mechanism must provide a ContextFactory to the SearchContext that creates the fetch phase context and also associates them with a name.      * See {@link SearchContext#getFetchSubPhaseContext(FetchSubPhase.ContextFactory)}      */
 DECL|interface|ContextFactory
-specifier|public
 interface|interface
 name|ContextFactory
 parameter_list|<
@@ -413,14 +396,12 @@ parameter_list|>
 block|{
 comment|/**          * The name of the context.          */
 DECL|method|getName
-specifier|public
 name|String
 name|getName
 parameter_list|()
 function_decl|;
 comment|/**          * Creates a new instance of a FetchSubPhaseContext that holds all information a FetchSubPhase needs to execute on hits.          */
 DECL|method|newContextInstance
-specifier|public
 name|SubPhaseContext
 name|newContextInstance
 parameter_list|()
