@@ -850,6 +850,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TcpTransport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -7666,15 +7678,7 @@ name|put
 argument_list|(
 literal|125
 argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|netty
-operator|.
-name|SizeHeaderFrameDecoder
+name|TcpTransport
 operator|.
 name|HttpOnTransportException
 operator|.

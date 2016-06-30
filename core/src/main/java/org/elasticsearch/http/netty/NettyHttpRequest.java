@@ -50,7 +50,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|transport
 operator|.
 name|netty
 operator|.

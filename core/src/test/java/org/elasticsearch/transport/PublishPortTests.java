@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport.netty
+DECL|package|org.elasticsearch.transport
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|transport
-operator|.
-name|netty
 package|;
 end_package
 
@@ -53,30 +51,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|BindTransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportSettings
 import|;
 end_import
 
@@ -152,9 +126,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|netty
-operator|.
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|resolvePublishPort
 import|;
@@ -185,10 +157,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyPublishPortTests
+DECL|class|PublishPortTests
 specifier|public
 class|class
-name|NettyPublishPortTests
+name|PublishPortTests
 extends|extends
 name|ESTestCase
 block|{

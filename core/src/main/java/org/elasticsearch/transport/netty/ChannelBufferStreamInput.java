@@ -64,20 +64,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|netty
-operator|.
-name|NettyUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|jboss
 operator|.
 name|netty
@@ -85,16 +71,6 @@ operator|.
 name|buffer
 operator|.
 name|ChannelBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|EOFException
 import|;
 end_import
 
@@ -114,7 +90,6 @@ end_comment
 
 begin_class
 DECL|class|ChannelBufferStreamInput
-specifier|public
 class|class
 name|ChannelBufferStreamInput
 extends|extends
