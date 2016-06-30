@@ -2964,6 +2964,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+comment|// an offset to the end would be len 0
 name|int
 name|sliceLength
 init|=
