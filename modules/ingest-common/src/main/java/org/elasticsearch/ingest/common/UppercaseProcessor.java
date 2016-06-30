@@ -110,9 +110,6 @@ extends|extends
 name|AbstractStringProcessor
 operator|.
 name|Factory
-argument_list|<
-name|UppercaseProcessor
-argument_list|>
 block|{
 DECL|method|Factory
 specifier|public

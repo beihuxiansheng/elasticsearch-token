@@ -273,7 +273,7 @@ parameter_list|()
 lambda|->
 name|factory
 operator|.
-name|doCreate
+name|create
 argument_list|(
 name|randomAsciiOfLength
 argument_list|(
@@ -350,7 +350,7 @@ parameter_list|()
 lambda|->
 name|factory
 operator|.
-name|doCreate
+name|create
 argument_list|(
 name|randomAsciiOfLength
 argument_list|(

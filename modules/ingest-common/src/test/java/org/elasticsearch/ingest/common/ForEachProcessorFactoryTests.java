@@ -190,7 +190,11 @@ parameter_list|(
 name|registry
 parameter_list|)
 lambda|->
+parameter_list|(
+name|tag
+parameter_list|,
 name|config
+parameter_list|)
 lambda|->
 name|processor
 argument_list|)
@@ -283,6 +287,8 @@ name|forEachFactory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -386,6 +392,8 @@ name|forEachFactory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
@@ -439,6 +447,8 @@ name|forEachFactory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
