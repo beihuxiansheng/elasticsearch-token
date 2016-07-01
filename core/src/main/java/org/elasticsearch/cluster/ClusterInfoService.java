@@ -26,14 +26,12 @@ name|ClusterInfoService
 block|{
 comment|/** The latest cluster information */
 DECL|method|getClusterInfo
-specifier|public
 name|ClusterInfo
 name|getClusterInfo
 parameter_list|()
 function_decl|;
 comment|/** Add a listener that will be called every time new information is gathered */
 DECL|method|addListener
-specifier|public
 name|void
 name|addListener
 parameter_list|(
@@ -43,12 +41,10 @@ parameter_list|)
 function_decl|;
 comment|/**      * Interface for listeners to implement in order to perform actions when      * new information about the cluster has been gathered      */
 DECL|interface|Listener
-specifier|public
 interface|interface
 name|Listener
 block|{
 DECL|method|onNewInfo
-specifier|public
 name|void
 name|onNewInfo
 parameter_list|(

@@ -211,8 +211,6 @@ argument_list|,
 name|workingFields
 argument_list|,
 name|extended
-argument_list|,
-name|strictISO
 argument_list|)
 expr_stmt|;
 block|}
@@ -739,7 +737,7 @@ name|reducedPrec
 return|;
 block|}
 comment|//-----------------------------------------------------------------------
-comment|/**      * Creates a date using the ordinal date format.      * Specification reference: 5.2.2.      *      * @param bld  the builder      * @param fields  the fields      * @param extended  true to use extended format      * @param strictISO  true to only allow ISO formats      * @since 1.1      */
+comment|/**      * Creates a date using the ordinal date format.      * Specification reference: 5.2.2.      *      * @param bld  the builder      * @param fields  the fields      * @param extended  true to use extended format      * @since 1.1      */
 DECL|method|dateByOrdinal
 specifier|private
 specifier|static
@@ -757,9 +755,6 @@ name|fields
 parameter_list|,
 name|boolean
 name|extended
-parameter_list|,
-name|boolean
-name|strictISO
 parameter_list|)
 block|{
 name|boolean

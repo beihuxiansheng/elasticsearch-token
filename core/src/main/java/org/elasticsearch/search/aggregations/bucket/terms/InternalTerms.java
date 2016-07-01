@@ -273,8 +273,8 @@ literal|"sum_other_doc_count"
 decl_stmt|;
 DECL|class|Bucket
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Bucket
 extends|extends
@@ -307,8 +307,8 @@ name|boolean
 name|showDocCountError
 decl_stmt|;
 DECL|field|format
-specifier|transient
 specifier|final
+specifier|transient
 name|DocValueFormat
 name|format
 decl_stmt|;

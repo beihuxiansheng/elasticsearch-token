@@ -650,8 +650,8 @@ expr_stmt|;
 block|}
 comment|/**      * a set of settings that are expected to have different values betweem clusters, even they have been initialized with the same      * base settins.      */
 DECL|field|clusterUniqueSettings
-specifier|final
 specifier|static
+specifier|final
 name|Set
 argument_list|<
 name|String

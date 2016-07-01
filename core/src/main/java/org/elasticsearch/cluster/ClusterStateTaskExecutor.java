@@ -115,14 +115,14 @@ name|T
 parameter_list|>
 block|{
 DECL|field|resultingState
-specifier|final
 specifier|public
+specifier|final
 name|ClusterState
 name|resultingState
 decl_stmt|;
 DECL|field|executionResults
-specifier|final
 specifier|public
+specifier|final
 name|Map
 argument_list|<
 name|T

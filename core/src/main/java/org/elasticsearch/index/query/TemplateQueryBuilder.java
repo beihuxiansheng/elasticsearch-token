@@ -302,8 +302,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|parametersToTypes
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

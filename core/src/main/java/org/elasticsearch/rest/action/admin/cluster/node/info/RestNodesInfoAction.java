@@ -240,8 +240,8 @@ name|settingsFilter
 decl_stmt|;
 DECL|field|ALLOWED_METRICS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Set
 argument_list|<
 name|String

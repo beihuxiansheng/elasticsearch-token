@@ -2368,8 +2368,6 @@ operator|.
 name|settings
 argument_list|()
 argument_list|,
-name|repositoryInjector
-argument_list|,
 name|repository
 argument_list|,
 name|indexShardRepository
@@ -2683,9 +2681,6 @@ name|type
 parameter_list|,
 name|Settings
 name|settings
-parameter_list|,
-name|Injector
-name|injector
 parameter_list|,
 name|Repository
 name|repository

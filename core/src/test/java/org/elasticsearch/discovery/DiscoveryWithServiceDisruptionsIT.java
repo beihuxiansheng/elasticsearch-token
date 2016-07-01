@@ -1432,8 +1432,8 @@ name|nodes
 return|;
 block|}
 DECL|field|DEFAULT_SETTINGS
-specifier|final
 specifier|static
+specifier|final
 name|Settings
 name|DEFAULT_SETTINGS
 init|=

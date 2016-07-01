@@ -683,8 +683,8 @@ name|OsProbeHolder
 block|{
 DECL|field|INSTANCE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|OsProbe
 name|INSTANCE
 init|=

@@ -2252,11 +2252,6 @@ throws|throws
 name|IOException
 block|{
 comment|// Logic similar to QueryParser#getFieldQuery
-name|int
-name|count
-init|=
-literal|0
-decl_stmt|;
 try|try
 init|(
 name|TokenStream
@@ -2330,9 +2325,6 @@ name|toBytesRef
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|count
-operator|++
 expr_stmt|;
 block|}
 block|}

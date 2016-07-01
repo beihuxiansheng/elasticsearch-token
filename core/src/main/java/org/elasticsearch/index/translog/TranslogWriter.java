@@ -725,7 +725,6 @@ block|}
 DECL|method|closeWithTragicEvent
 specifier|private
 specifier|synchronized
-specifier|final
 name|void
 name|closeWithTragicEvent
 parameter_list|(

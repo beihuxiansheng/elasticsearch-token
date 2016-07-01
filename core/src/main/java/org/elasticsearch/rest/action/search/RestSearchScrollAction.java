@@ -525,7 +525,7 @@ argument_list|(
 name|request
 argument_list|)
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 expr_stmt|;
 name|searchScrollRequest

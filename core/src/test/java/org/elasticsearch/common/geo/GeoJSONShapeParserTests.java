@@ -398,8 +398,8 @@ name|ESTestCase
 block|{
 DECL|field|GEOMETRY_FACTORY
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|GeometryFactory
 name|GEOMETRY_FACTORY
 init|=

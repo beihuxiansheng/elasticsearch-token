@@ -111,8 +111,8 @@ name|Collector
 block|{
 DECL|field|NO_OP_COLLECTOR
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|BucketCollector
 name|NO_OP_COLLECTOR
 init|=

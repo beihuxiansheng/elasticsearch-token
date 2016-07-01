@@ -1294,22 +1294,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|TimestampFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|translog
 operator|.
 name|Translog
@@ -2912,7 +2896,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5954,9 +5938,9 @@ specifier|final
 name|long
 name|numDocs
 parameter_list|,
-specifier|final
 annotation|@
 name|Nullable
+specifier|final
 name|BackgroundIndexer
 name|indexer
 parameter_list|)
@@ -5995,9 +5979,9 @@ parameter_list|,
 name|TimeUnit
 name|maxWaitTimeUnit
 parameter_list|,
-specifier|final
 annotation|@
 name|Nullable
+specifier|final
 name|BackgroundIndexer
 name|indexer
 parameter_list|)
@@ -12076,8 +12060,8 @@ block|}
 comment|/**      * Returns an instance of {@link RestClient} pointing to the current test cluster.      * Creates a new client if the method is invoked for the first time in the context of the current test scope.      * The returned client gets automatically closed when needed, it shouldn't be closed as part of tests otherwise      * it cannot be reused by other tests anymore.      */
 DECL|method|getRestClient
 specifier|protected
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|RestClient
 name|getRestClient
 parameter_list|()

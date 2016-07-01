@@ -533,8 +533,8 @@ block|}
 decl_stmt|;
 comment|/**      * a {@link FieldOptions} with default settings      */
 DECL|field|defaultOptions
-specifier|final
 specifier|static
+specifier|final
 name|FieldOptions
 name|defaultOptions
 init|=

@@ -212,8 +212,8 @@ name|ActionResponse
 block|{
 DECL|field|EMPTY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|ReplicationResponse
 operator|.
 name|ShardInfo
@@ -1312,15 +1312,6 @@ name|String
 name|SUCCESSFUL
 init|=
 literal|"successful"
-decl_stmt|;
-DECL|field|PENDING
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PENDING
-init|=
-literal|"pending"
 decl_stmt|;
 DECL|field|FAILED
 specifier|private

@@ -1903,8 +1903,8 @@ return|;
 block|}
 block|}
 DECL|class|MightForkCheck
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|MightForkCheck
 implements|implements

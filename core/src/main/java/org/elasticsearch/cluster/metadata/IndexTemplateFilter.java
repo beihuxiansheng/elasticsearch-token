@@ -57,7 +57,6 @@ name|template
 parameter_list|)
 function_decl|;
 DECL|class|Compound
-specifier|static
 class|class
 name|Compound
 implements|implements

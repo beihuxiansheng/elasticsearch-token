@@ -3041,8 +3041,8 @@ return|;
 block|}
 DECL|class|PreShardSyncedFlushRequest
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|PreShardSyncedFlushRequest
 extends|extends
@@ -3164,8 +3164,8 @@ block|}
 block|}
 comment|/**      * Response for first step of synced flush (flush) for one shard copy      */
 DECL|class|PreSyncedFlushResponse
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|PreSyncedFlushResponse
 extends|extends

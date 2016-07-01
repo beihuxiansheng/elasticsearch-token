@@ -22,18 +22,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|service
 operator|.
 name|ClusterService
@@ -218,8 +206,6 @@ argument_list|,
 literal|null
 argument_list|,
 name|clusterService
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

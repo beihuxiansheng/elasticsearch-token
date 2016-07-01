@@ -3109,7 +3109,7 @@ operator|.
 name|buildAsBytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 block|,
@@ -3132,7 +3132,7 @@ operator|.
 name|buildAsBytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 argument_list|)

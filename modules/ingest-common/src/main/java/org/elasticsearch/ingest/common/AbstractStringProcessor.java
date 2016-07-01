@@ -194,8 +194,8 @@ name|value
 parameter_list|)
 function_decl|;
 DECL|class|Factory
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Factory
 implements|implements

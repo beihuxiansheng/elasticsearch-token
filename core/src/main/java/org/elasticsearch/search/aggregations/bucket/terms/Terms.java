@@ -297,8 +297,8 @@ end_comment
 
 begin_class
 DECL|class|Bucket
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Bucket
 extends|extends
@@ -396,8 +396,8 @@ end_comment
 
 begin_class
 DECL|class|Order
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Order
 implements|implements

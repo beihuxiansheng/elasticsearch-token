@@ -297,8 +297,8 @@ return|;
 block|}
 DECL|class|Builder
 specifier|protected
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Builder
 parameter_list|<

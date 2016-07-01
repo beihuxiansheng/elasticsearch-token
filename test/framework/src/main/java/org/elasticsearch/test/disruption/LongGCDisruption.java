@@ -110,8 +110,8 @@ name|SingleNodeDisruption
 block|{
 DECL|field|unsafeClasses
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Pattern
 index|[]
 name|unsafeClasses

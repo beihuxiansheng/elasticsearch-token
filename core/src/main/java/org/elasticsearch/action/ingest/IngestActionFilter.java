@@ -926,8 +926,8 @@ end_function
 
 begin_class
 DECL|class|BulkRequestModifier
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|BulkRequestModifier
 implements|implements
@@ -1398,8 +1398,8 @@ end_class
 
 begin_class
 DECL|class|IngestBulkResponseListener
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|IngestBulkResponseListener
 implements|implements

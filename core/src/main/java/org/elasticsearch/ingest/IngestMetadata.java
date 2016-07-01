@@ -249,8 +249,8 @@ name|Custom
 block|{
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TYPE
 init|=
@@ -258,8 +258,8 @@ literal|"ingest"
 decl_stmt|;
 DECL|field|PROTO
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|IngestMetadata
 name|PROTO
 init|=

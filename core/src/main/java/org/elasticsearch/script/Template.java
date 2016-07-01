@@ -933,7 +933,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 return|;
 block|}

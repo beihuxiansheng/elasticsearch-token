@@ -236,8 +236,8 @@ name|BucketMetricsPipelineAggregator
 block|{
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|TYPE
 init|=
@@ -261,8 +261,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STREAM
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|PipelineAggregatorStreams
 operator|.
 name|Stream

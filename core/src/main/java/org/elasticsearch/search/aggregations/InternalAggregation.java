@@ -656,6 +656,31 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
+name|pipelineAggregators
+operator|.
+name|add
+argument_list|(
+name|in
+operator|.
+name|readNamedWriteable
+argument_list|(
+name|PipelineAggregator
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|BytesReference
 name|type
 init|=
@@ -686,6 +711,7 @@ argument_list|(
 name|pipelineAggregator
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -786,6 +812,31 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
+name|pipelineAggregators
+operator|.
+name|add
+argument_list|(
+name|in
+operator|.
+name|readNamedWriteable
+argument_list|(
+name|PipelineAggregator
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|BytesReference
 name|type
 init|=
@@ -816,6 +867,7 @@ argument_list|(
 name|pipelineAggregator
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|doReadFrom
@@ -865,7 +917,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-comment|// NORELEASE remote writing the name - it is automatically handled with writeNamedWriteable
+comment|// NORELEASE remote writing the name? it is automatically handled with writeNamedWriteable
 name|out
 operator|.
 name|writeGenericValue
@@ -891,6 +943,43 @@ range|:
 name|pipelineAggregators
 control|)
 block|{
+comment|// NORELEASE temporary hack to support old style streams and new style NamedWriteable
+try|try
+block|{
+name|pipelineAggregator
+operator|.
+name|getWriteableName
+argument_list|()
+expr_stmt|;
+comment|// Throws UnsupportedOperationException if we should use old style streams.
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeNamedWriteable
+argument_list|(
+name|pipelineAggregator
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedOperationException
+name|e
+parameter_list|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|writeBytesReference
@@ -912,6 +1001,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 name|doWriteTo
 argument_list|(
 name|out
@@ -932,18 +1022,6 @@ name|IOException
 function_decl|;
 annotation|@
 name|Override
-DECL|method|getName
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getWriteableName
 specifier|public
 name|String
@@ -959,6 +1037,18 @@ literal|"Override on every class"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
 comment|/**      * @return The {@link Type} of this aggregation      */
 DECL|method|type
 specifier|public
@@ -966,14 +1056,20 @@ name|Type
 name|type
 parameter_list|()
 block|{
+comment|// NORELEASE remove this method
 throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Use getWriteableName instead"
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" used type but should Use getWriteableName instead"
 argument_list|)
 throw|;
-comment|// NORELEASE remove me
 block|}
 comment|/**      * Reduces the given addAggregation to a single one and returns it. In<b>most</b> cases, the assumption will be the all given      * addAggregation are of the same type (the same type as this aggregation). For best efficiency, when implementing,      * try reusing an existing get instance (typically the first in the given list) to save on redundant object      * construction.      */
 DECL|method|reduce

@@ -294,16 +294,8 @@ argument_list|)
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|NodesStatsResponse
 name|resp
@@ -339,7 +331,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -894,12 +885,6 @@ name|getNodeExplanations
 argument_list|()
 decl_stmt|;
 name|Float
-name|noAttrWeight
-init|=
-operator|-
-literal|1f
-decl_stmt|;
-name|Float
 name|barAttrWeight
 init|=
 operator|-
@@ -961,14 +946,6 @@ init|=
 name|explanation
 operator|.
 name|getFinalDecision
-argument_list|()
-decl_stmt|;
-name|String
-name|finalExplanation
-init|=
-name|explanation
-operator|.
-name|getFinalExplanation
 argument_list|()
 decl_stmt|;
 name|ClusterAllocationExplanation
@@ -1043,10 +1020,6 @@ argument_list|(
 literal|"node does not match index include filters [foo:\"bar\"]"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|noAttrWeight
-operator|=
-name|weight
 expr_stmt|;
 name|assertNull
 argument_list|(

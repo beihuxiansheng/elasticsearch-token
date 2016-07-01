@@ -4893,8 +4893,8 @@ block|}
 block|}
 DECL|class|ChannelBufferStreamOutput
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ChannelBufferStreamOutput
 extends|extends

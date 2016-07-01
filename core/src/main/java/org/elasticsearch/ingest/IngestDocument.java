@@ -287,8 +287,8 @@ name|IngestDocument
 block|{
 DECL|field|INGEST_KEY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|INGEST_KEY
 init|=

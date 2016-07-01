@@ -197,8 +197,8 @@ name|info
 parameter_list|)
 function_decl|;
 DECL|class|ExecutorSettings
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|ExecutorSettings
 block|{

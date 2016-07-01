@@ -2859,14 +2859,6 @@ argument_list|>
 name|usages
 parameter_list|)
 block|{
-name|ClusterInfo
-name|clusterInfo
-init|=
-name|allocation
-operator|.
-name|clusterInfo
-argument_list|()
-decl_stmt|;
 name|DiskUsage
 name|usage
 init|=

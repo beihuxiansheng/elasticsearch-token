@@ -2110,8 +2110,8 @@ argument_list|)
 return|;
 block|}
 DECL|class|LateParsingQuery
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|LateParsingQuery
 extends|extends

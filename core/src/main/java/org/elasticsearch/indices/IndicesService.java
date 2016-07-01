@@ -2702,10 +2702,10 @@ block|}
 comment|/**      * Returns an IndexService for the specified index if exists otherwise returns<code>null</code>.      */
 annotation|@
 name|Override
-DECL|method|indexService
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|indexService
+specifier|public
 name|IndexService
 name|indexService
 parameter_list|(
@@ -4938,10 +4938,10 @@ block|}
 comment|/**      * Verify that the contents on disk for the given index is deleted; if not, delete the contents.      * This method assumes that an index is already deleted in the cluster state and/or explicitly      * through index tombstones.      * @param index {@code Index} to make sure its deleted from disk      * @param clusterState {@code ClusterState} to ensure the index is not part of it      * @return IndexMetaData for the index loaded from disk      */
 annotation|@
 name|Override
-DECL|method|verifyIndexIsDeleted
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|verifyIndexIsDeleted
+specifier|public
 name|IndexMetaData
 name|verifyIndexIsDeleted
 parameter_list|(
@@ -6197,8 +6197,8 @@ block|}
 comment|/**      * FieldDataCacheCleaner is a scheduled Runnable used to clean a Guava cache      * periodically. In this case it is the field data cache, because a cache that      * has an entry invalidated may not clean up the entry if it is not read from      * or written to after invalidation.      */
 DECL|class|CacheCleaner
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|CacheCleaner
 implements|implements
@@ -6941,12 +6941,10 @@ init|(
 name|StreamInput
 name|in
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|statsRef
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 init|)
 block|{
 return|return
@@ -7020,8 +7018,8 @@ argument_list|)
 return|;
 block|}
 DECL|class|IndexShardCacheEntity
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|IndexShardCacheEntity
 extends|extends

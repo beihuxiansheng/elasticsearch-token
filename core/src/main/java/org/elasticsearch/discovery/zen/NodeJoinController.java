@@ -1707,8 +1707,8 @@ argument_list|>
 name|callbacks
 decl_stmt|;
 DECL|field|logger
-specifier|final
 specifier|private
+specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
@@ -1876,8 +1876,8 @@ block|}
 comment|// a task indicated that the current node should become master, if no current master is known
 DECL|field|BECOME_MASTER_TASK
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|DiscoveryNode
 name|BECOME_MASTER_TASK
 init|=
@@ -1909,8 +1909,8 @@ comment|// a task that is used to process pending joins without explicitly becom
 comment|// this task is used when election is stop without the local node becoming a master per se (though it might
 DECL|field|FINISH_ELECTION_NOT_MASTER_TASK
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|DiscoveryNode
 name|FINISH_ELECTION_NOT_MASTER_TASK
 init|=

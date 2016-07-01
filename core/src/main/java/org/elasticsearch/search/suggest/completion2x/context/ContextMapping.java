@@ -768,8 +768,8 @@ block|}
 comment|/**      *  A {@link ContextMapping} combined with the information provided by a document      *  form a {@link ContextConfig} which is used to build the underlying {@link FST}. This class hold      *  a simple method wrapping a {@link TokenStream} by provided document informations.      */
 DECL|class|ContextConfig
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|ContextConfig
 block|{
@@ -791,8 +791,8 @@ block|}
 comment|/**      * A {@link ContextQuery} defines the context information for a specific {@link ContextMapping}      * defined within a suggestion request. According to the parameters set in the request and the      * {@link ContextMapping} such a query is used to wrap the {@link TokenStream} of the actual      * suggestion request into a {@link TokenStream} with the context settings      */
 DECL|class|ContextQuery
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|ContextQuery
 implements|implements

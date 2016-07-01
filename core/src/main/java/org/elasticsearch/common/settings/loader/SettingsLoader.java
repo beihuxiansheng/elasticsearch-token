@@ -91,7 +91,6 @@ interface|interface
 name|SettingsLoader
 block|{
 DECL|class|Helper
-specifier|static
 class|class
 name|Helper
 block|{

@@ -245,8 +245,8 @@ block|{
 comment|/** how long to wait for an index to exist */
 DECL|field|NONEXISTENT_INDEX_RETRY_WAIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|NONEXISTENT_INDEX_RETRY_WAIT
 init|=
@@ -254,8 +254,8 @@ literal|"index.shadow.wait_for_initial_commit"
 decl_stmt|;
 DECL|field|DEFAULT_NONEXISTENT_INDEX_RETRY_WAIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|TimeValue
 name|DEFAULT_NONEXISTENT_INDEX_RETRY_WAIT
 init|=

@@ -166,8 +166,8 @@ name|ScriptSettings
 block|{
 DECL|field|DEFAULT_LANG
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|DEFAULT_LANG
 init|=
@@ -175,8 +175,8 @@ literal|"groovy"
 decl_stmt|;
 DECL|field|SCRIPT_TYPE_SETTING_MAP
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|ScriptService

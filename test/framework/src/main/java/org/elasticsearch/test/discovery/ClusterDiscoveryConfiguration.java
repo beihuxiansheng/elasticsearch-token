@@ -776,8 +776,8 @@ literal|"we know we pass a IP address"
 argument_list|)
 DECL|method|unicastHostPorts
 specifier|protected
-specifier|synchronized
 specifier|static
+specifier|synchronized
 name|int
 index|[]
 name|unicastHostPorts

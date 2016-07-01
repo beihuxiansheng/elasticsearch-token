@@ -513,15 +513,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|100
-operator|*
-literal|1024
-operator|*
-literal|1024
 argument_list|)
 expr_stmt|;
-comment|// fix jvm mem size to 100mb
 block|}
 DECL|method|deleteShard
 specifier|public

@@ -331,8 +331,6 @@ operator|new
 name|CreateHandler
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|)
 decl_stmt|;
 name|controller
@@ -371,9 +369,6 @@ name|CreateHandler
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|RestController
-name|controller
 parameter_list|)
 block|{
 name|super

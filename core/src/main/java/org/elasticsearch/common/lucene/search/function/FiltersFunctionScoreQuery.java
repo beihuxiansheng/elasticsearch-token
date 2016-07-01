@@ -604,8 +604,8 @@ name|Float
 name|minScore
 decl_stmt|;
 DECL|field|combineFunction
-specifier|final
 specifier|protected
+specifier|final
 name|CombineFunction
 name|combineFunction
 decl_stmt|;

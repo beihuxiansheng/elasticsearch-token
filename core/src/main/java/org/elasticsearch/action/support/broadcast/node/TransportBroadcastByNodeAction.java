@@ -3253,8 +3253,8 @@ block|}
 comment|/**      * Can be used for implementations of {@link #shardOperation(BroadcastRequest, ShardRouting) shardOperation} for      * which there is no shard-level return value.      */
 DECL|class|EmptyResult
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|EmptyResult
 implements|implements

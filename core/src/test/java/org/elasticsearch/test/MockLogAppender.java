@@ -124,8 +124,8 @@ name|AppenderSkeleton
 block|{
 DECL|field|COMMON_PREFIX
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMON_PREFIX
 init|=
@@ -266,8 +266,8 @@ function_decl|;
 block|}
 DECL|class|AbstractEventExpectation
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|AbstractEventExpectation
 implements|implements

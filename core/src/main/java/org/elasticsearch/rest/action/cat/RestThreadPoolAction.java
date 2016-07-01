@@ -478,8 +478,8 @@ name|AbstractCatAction
 block|{
 DECL|field|SUPPORTED_NAMES
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 index|[]
 name|SUPPORTED_NAMES
@@ -557,8 +557,8 @@ block|}
 decl_stmt|;
 DECL|field|SUPPORTED_ALIASES
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 index|[]
 name|SUPPORTED_ALIASES
@@ -606,8 +606,8 @@ assert|;
 block|}
 DECL|field|DEFAULT_THREAD_POOLS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 index|[]
 name|DEFAULT_THREAD_POOLS
@@ -637,8 +637,8 @@ block|,     }
 decl_stmt|;
 DECL|field|ALIAS_TO_THREAD_POOL
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -649,8 +649,8 @@ name|ALIAS_TO_THREAD_POOL
 decl_stmt|;
 DECL|field|THREAD_POOL_TO_ALIAS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -758,8 +758,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|)
 expr_stmt|;
 name|controller

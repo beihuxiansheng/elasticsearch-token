@@ -1632,8 +1632,8 @@ comment|// inside a PrivilegedAction code block, we are forced to catch any chec
 comment|// it with an unchecked exception.
 DECL|class|AddressNotFoundRuntimeException
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|AddressNotFoundRuntimeException
 extends|extends

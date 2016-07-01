@@ -1486,10 +1486,10 @@ block|}
 comment|/**      * Return the shard with the provided id, or null if there is no such shard.      */
 annotation|@
 name|Override
-DECL|method|getShardOrNull
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|getShardOrNull
+specifier|public
 name|IndexShard
 name|getShardOrNull
 parameter_list|(
@@ -4358,8 +4358,8 @@ block|}
 block|}
 block|}
 DECL|class|BaseAsyncTask
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseAsyncTask
 implements|implements
@@ -4836,8 +4836,8 @@ block|}
 block|}
 comment|/**      * FSyncs the translog for all shards of this index in a defined interval.      */
 DECL|class|AsyncTranslogFSync
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|AsyncTranslogFSync
 extends|extends

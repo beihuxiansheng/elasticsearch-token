@@ -1728,8 +1728,8 @@ DECL|enum constant|PENDING_OPERATIONS
 name|PENDING_OPERATIONS
 block|}
 DECL|method|getFromSearcher
-specifier|final
 specifier|protected
+specifier|final
 name|GetResult
 name|getFromSearcher
 parameter_list|(
@@ -2839,8 +2839,8 @@ expr_stmt|;
 block|}
 comment|/** How much heap is used that would be freed by a refresh.  Note that this may throw {@link AlreadyClosedException}. */
 DECL|method|getIndexBufferRAMBytesUsed
-specifier|abstract
 specifier|public
+specifier|abstract
 name|long
 name|getIndexBufferRAMBytesUsed
 parameter_list|()
@@ -3955,8 +3955,8 @@ block|}
 block|}
 DECL|class|Operation
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Operation
 block|{

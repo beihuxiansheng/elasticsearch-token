@@ -102,8 +102,8 @@ name|ESIntegTestCase
 block|{
 DECL|field|SCRIPT_MAX_SIZE_IN_BYTES
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|SCRIPT_MAX_SIZE_IN_BYTES
 init|=
@@ -111,8 +111,8 @@ literal|64
 decl_stmt|;
 DECL|field|LANG
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|LANG
 init|=

@@ -4053,8 +4053,8 @@ return|;
 block|}
 block|}
 DECL|field|joinId
-specifier|final
 specifier|static
+specifier|final
 name|AtomicInteger
 name|joinId
 init|=

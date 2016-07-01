@@ -765,8 +765,8 @@ function_decl|;
 block|}
 DECL|class|NumberFieldType
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|NumberFieldType
 extends|extends

@@ -302,8 +302,8 @@ name|scheduledFuture
 decl_stmt|;
 DECL|field|ENABLED_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -325,8 +325,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|REFRESH_INTERVAL_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -368,8 +368,8 @@ literal|"monitor.jvm.gc.collector."
 decl_stmt|;
 DECL|field|GC_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Settings
@@ -389,8 +389,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|GC_OVERHEAD_WARN_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -416,8 +416,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|GC_OVERHEAD_INFO_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -443,8 +443,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|GC_OVERHEAD_DEBUG_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -1986,8 +1986,8 @@ name|doClose
 parameter_list|()
 block|{     }
 DECL|class|JvmMonitor
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|JvmMonitor
 implements|implements

@@ -4894,12 +4894,10 @@ decl_stmt|;
 name|StreamInput
 name|input
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|orig
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

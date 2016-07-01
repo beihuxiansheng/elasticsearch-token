@@ -282,7 +282,7 @@ operator|)
 name|result
 operator|)
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 return|;
 block|}

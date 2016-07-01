@@ -220,14 +220,14 @@ name|newConcurrentMap
 argument_list|()
 decl_stmt|;
 DECL|field|logger
-specifier|final
 specifier|private
+specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
 DECL|field|threadPool
-specifier|final
 specifier|private
+specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;

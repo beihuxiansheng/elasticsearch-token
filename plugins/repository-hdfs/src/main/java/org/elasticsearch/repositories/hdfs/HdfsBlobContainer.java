@@ -423,27 +423,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-operator|!
-name|blobExists
-argument_list|(
-name|blobName
-argument_list|)
-condition|)
+try|try
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Blob ["
-operator|+
-name|blobName
-operator|+
-literal|"] does not exist"
-argument_list|)
-throw|;
-block|}
 name|store
 operator|.
 name|execute
@@ -487,6 +468,15 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|ok
+parameter_list|)
+block|{
+comment|// behaves like Files.deleteIfExists
+block|}
 block|}
 annotation|@
 name|Override
@@ -792,9 +782,9 @@ name|BlobMetaData
 argument_list|>
 name|listBlobsByPrefix
 parameter_list|(
-specifier|final
 annotation|@
 name|Nullable
+specifier|final
 name|String
 name|prefix
 parameter_list|)

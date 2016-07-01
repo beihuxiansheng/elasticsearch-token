@@ -897,8 +897,8 @@ extends|extends
 name|TimeZoneRounding
 block|{
 DECL|field|ID
-specifier|final
 specifier|static
+specifier|final
 name|byte
 name|ID
 init|=

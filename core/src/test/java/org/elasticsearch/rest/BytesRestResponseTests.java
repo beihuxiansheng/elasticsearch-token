@@ -202,18 +202,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|not
 import|;
 end_import
@@ -443,7 +431,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -554,7 +542,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -636,7 +624,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -759,7 +747,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -852,7 +840,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -895,7 +883,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -953,7 +941,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1119,7 +1107,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|String
@@ -1262,7 +1250,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1357,7 +1345,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat

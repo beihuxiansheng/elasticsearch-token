@@ -1601,8 +1601,6 @@ name|canExecuteScript
 argument_list|(
 name|lang
 argument_list|,
-name|scriptEngineService
-argument_list|,
 name|script
 operator|.
 name|getType
@@ -2320,8 +2318,6 @@ name|isAnyScriptContextEnabled
 argument_list|(
 name|scriptLang
 argument_list|,
-name|scriptEngineService
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -2443,7 +2439,7 @@ literal|"Unable to find script in : "
 operator|+
 name|scriptBytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 throw|;
@@ -3076,9 +3072,6 @@ parameter_list|(
 name|String
 name|lang
 parameter_list|,
-name|ScriptEngineService
-name|scriptEngineService
-parameter_list|,
 name|ScriptType
 name|scriptType
 parameter_list|)
@@ -3099,8 +3092,6 @@ condition|(
 name|canExecuteScript
 argument_list|(
 name|lang
-argument_list|,
-name|scriptEngineService
 argument_list|,
 name|scriptType
 argument_list|,
@@ -3124,9 +3115,6 @@ name|canExecuteScript
 parameter_list|(
 name|String
 name|lang
-parameter_list|,
-name|ScriptEngineService
-name|scriptEngineService
 parameter_list|,
 name|ScriptType
 name|scriptType
@@ -3554,8 +3542,6 @@ name|engineService
 operator|.
 name|getType
 argument_list|()
-argument_list|,
-name|engineService
 argument_list|,
 name|ScriptType
 operator|.

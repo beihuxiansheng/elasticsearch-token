@@ -302,8 +302,8 @@ decl_stmt|;
 comment|// PercolateQuery emits this score if no 'query' is defined in the percolate request
 DECL|field|NO_SCORE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|float
 name|NO_SCORE
 init|=

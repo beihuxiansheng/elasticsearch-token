@@ -317,8 +317,8 @@ block|}
 decl_stmt|;
 DECL|field|BUCKET_STREAM
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|BucketStreams
 operator|.
 name|Stream

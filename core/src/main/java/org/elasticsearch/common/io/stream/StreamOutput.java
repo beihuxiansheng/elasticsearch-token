@@ -1906,8 +1906,8 @@ function_decl|;
 block|}
 DECL|field|WRITERS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|Class

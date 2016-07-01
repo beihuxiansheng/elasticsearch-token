@@ -2334,8 +2334,8 @@ block|}
 comment|/**      * Parses the query provided as string argument and compares it with the expected result provided as argument as a {@link QueryBuilder}      */
 DECL|method|assertParsedQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2362,8 +2362,8 @@ expr_stmt|;
 block|}
 DECL|method|assertParsedQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2420,8 +2420,8 @@ block|}
 comment|/**      * Parses the query provided as bytes argument and compares it with the expected result provided as argument as a {@link QueryBuilder}      */
 DECL|method|assertParsedQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2448,8 +2448,8 @@ expr_stmt|;
 block|}
 DECL|method|assertParsedQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2505,8 +2505,8 @@ expr_stmt|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2529,8 +2529,8 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2569,8 +2569,8 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2593,8 +2593,8 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -3539,15 +3539,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|serviceHolder
 operator|.
@@ -3964,15 +3962,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|serviceHolder
 operator|.
@@ -4566,8 +4562,8 @@ name|CodepointSetGenerator
 block|{
 DECL|field|ASCII_SET
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|char
 index|[]
 name|ASCII_SET

@@ -189,8 +189,8 @@ name|AbstractIndexComponent
 block|{
 DECL|field|DEFAULT_SIMILARITY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|DEFAULT_SIMILARITY
 init|=

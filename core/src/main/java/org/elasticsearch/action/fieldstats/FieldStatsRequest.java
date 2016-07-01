@@ -215,8 +215,8 @@ argument_list|>
 block|{
 DECL|field|DEFAULT_LEVEL
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|DEFAULT_LEVEL
 init|=

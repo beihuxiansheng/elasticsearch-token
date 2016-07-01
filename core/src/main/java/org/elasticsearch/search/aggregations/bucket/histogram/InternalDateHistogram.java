@@ -138,8 +138,8 @@ name|Factory
 argument_list|()
 decl_stmt|;
 DECL|field|TYPE
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|TYPE
 init|=

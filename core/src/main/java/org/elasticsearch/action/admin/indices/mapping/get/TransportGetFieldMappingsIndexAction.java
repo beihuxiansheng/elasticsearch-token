@@ -931,8 +931,8 @@ operator|.
 name|Params
 argument_list|()
 block|{
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|INCLUDE_DEFAULTS
 init|=

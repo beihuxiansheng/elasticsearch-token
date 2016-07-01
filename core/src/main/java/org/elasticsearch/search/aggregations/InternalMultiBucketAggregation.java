@@ -253,8 +253,8 @@ block|}
 block|}
 DECL|class|InternalBucket
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|InternalBucket
 implements|implements
