@@ -491,6 +491,9 @@ parameter_list|,
 name|CircuitBreakerService
 name|circuitBreakerService
 parameter_list|,
+name|ScriptService
+name|scriptService
+parameter_list|,
 name|IngestService
 name|ingestService
 parameter_list|,
@@ -566,6 +569,12 @@ name|settingsFilter
 operator|=
 name|settingsFilter
 expr_stmt|;
+name|this
+operator|.
+name|scriptService
+operator|=
+name|scriptService
+expr_stmt|;
 name|clusterService
 operator|.
 name|add
@@ -585,31 +594,6 @@ operator|.
 name|getPipelineExecutionService
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-comment|// can not use constructor injection or there will be a circular dependency
-comment|// nocommit: try removing this...
-annotation|@
-name|Inject
-argument_list|(
-name|optional
-operator|=
-literal|true
-argument_list|)
-DECL|method|setScriptService
-specifier|public
-name|void
-name|setScriptService
-parameter_list|(
-name|ScriptService
-name|scriptService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|scriptService
-operator|=
-name|scriptService
 expr_stmt|;
 block|}
 DECL|method|setHttpServer
