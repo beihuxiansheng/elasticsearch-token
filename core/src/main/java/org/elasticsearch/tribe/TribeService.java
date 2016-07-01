@@ -609,9 +609,6 @@ class|class
 name|TribeService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|TribeService
-argument_list|>
 block|{
 DECL|field|TRIBE_METADATA_BLOCK
 specifier|public

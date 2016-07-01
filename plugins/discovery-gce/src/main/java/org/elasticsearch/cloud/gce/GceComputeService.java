@@ -151,9 +151,6 @@ interface|interface
 name|GceComputeService
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|GceComputeService
-argument_list|>
 block|{
 comment|/**      * GCE API Version: Elasticsearch/GceCloud/1.0      */
 DECL|field|VERSION

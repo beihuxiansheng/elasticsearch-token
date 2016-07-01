@@ -381,6 +381,8 @@ operator|.
 name|client
 operator|=
 name|client
+expr_stmt|;
+name|client
 operator|.
 name|start
 argument_list|()

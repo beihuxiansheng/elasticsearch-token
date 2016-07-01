@@ -1105,9 +1105,6 @@ name|Channel
 parameter_list|>
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|Transport
-argument_list|>
 implements|implements
 name|Transport
 block|{

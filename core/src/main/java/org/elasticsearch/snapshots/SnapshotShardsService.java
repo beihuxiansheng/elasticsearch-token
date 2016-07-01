@@ -659,9 +659,6 @@ class|class
 name|SnapshotShardsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SnapshotShardsService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{

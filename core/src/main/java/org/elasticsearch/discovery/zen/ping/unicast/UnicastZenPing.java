@@ -811,9 +811,6 @@ class|class
 name|UnicastZenPing
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|ZenPing
-argument_list|>
 implements|implements
 name|ZenPing
 block|{

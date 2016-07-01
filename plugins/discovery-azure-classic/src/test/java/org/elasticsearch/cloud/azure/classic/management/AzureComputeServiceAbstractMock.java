@@ -70,9 +70,6 @@ class|class
 name|AzureComputeServiceAbstractMock
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AzureComputeServiceAbstractMock
-argument_list|>
 implements|implements
 name|AzureComputeService
 block|{

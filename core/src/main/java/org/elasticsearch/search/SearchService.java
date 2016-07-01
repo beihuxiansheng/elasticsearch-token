@@ -1123,9 +1123,6 @@ class|class
 name|SearchService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SearchService
-argument_list|>
 implements|implements
 name|IndexEventListener
 block|{

@@ -367,9 +367,6 @@ class|class
 name|HttpServer
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|HttpServer
-argument_list|>
 implements|implements
 name|HttpServerAdapter
 block|{

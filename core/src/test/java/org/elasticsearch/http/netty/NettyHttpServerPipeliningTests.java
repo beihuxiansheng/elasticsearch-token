@@ -1120,7 +1120,7 @@ annotation|@
 name|Override
 DECL|method|stop
 specifier|public
-name|HttpServerTransport
+name|void
 name|stop
 parameter_list|()
 block|{
@@ -1129,12 +1129,11 @@ operator|.
 name|shutdownNow
 argument_list|()
 expr_stmt|;
-return|return
 name|super
 operator|.
 name|stop
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 block|}
 DECL|class|CustomHttpChannelPipelineFactory
