@@ -348,7 +348,7 @@ if|if
 condition|(
 name|stash
 operator|.
-name|isStashedValue
+name|containsStashedValue
 argument_list|(
 name|entry
 operator|.

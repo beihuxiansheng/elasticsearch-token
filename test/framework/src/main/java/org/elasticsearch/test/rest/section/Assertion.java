@@ -184,7 +184,7 @@ operator|.
 name|stash
 argument_list|()
 operator|.
-name|isStashedValue
+name|containsStashedValue
 argument_list|(
 name|expectedValue
 argument_list|)
@@ -228,7 +228,7 @@ operator|.
 name|stash
 argument_list|()
 operator|.
-name|isStashedValue
+name|containsStashedValue
 argument_list|(
 name|field
 argument_list|)
