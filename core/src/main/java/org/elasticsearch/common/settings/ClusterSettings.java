@@ -2435,10 +2435,6 @@ name|ALLOWED_URLS_SETTING
 argument_list|,
 name|URLRepository
 operator|.
-name|REPOSITORIES_LIST_DIRECTORIES_SETTING
-argument_list|,
-name|URLRepository
-operator|.
 name|REPOSITORIES_URL_SETTING
 argument_list|,
 name|URLRepository

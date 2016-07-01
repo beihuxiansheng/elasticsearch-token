@@ -138,6 +138,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -542,6 +552,8 @@ throws|throws
 name|URISyntaxException
 throws|,
 name|StorageException
+throws|,
+name|IOException
 function_decl|;
 DECL|method|getOutputStream
 name|OutputStream
