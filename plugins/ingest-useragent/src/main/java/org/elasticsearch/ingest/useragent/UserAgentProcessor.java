@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|IngestDocument
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocument
+name|Processor
 import|;
 end_import
 
@@ -193,20 +193,6 @@ operator|.
 name|ConfigurationUtils
 operator|.
 name|readStringProperty
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|ConfigurationUtils
-operator|.
-name|readOptionalStringProperty
 import|;
 end_import
 
@@ -981,11 +967,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
-argument_list|<
-name|UserAgentProcessor
-argument_list|>
+implements|implements
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|userAgentParsers
 specifier|private
@@ -1020,10 +1005,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|UserAgentProcessor
-name|doCreate
+name|create
 parameter_list|(
 name|String
 name|processorTag
