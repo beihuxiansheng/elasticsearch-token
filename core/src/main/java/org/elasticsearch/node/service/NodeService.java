@@ -400,11 +400,6 @@ specifier|final
 name|SettingsFilter
 name|settingsFilter
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|field|scriptService
 specifier|private
 name|ScriptService
@@ -523,12 +518,6 @@ operator|.
 name|httpServer
 operator|=
 name|httpServer
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 name|this
 operator|.
