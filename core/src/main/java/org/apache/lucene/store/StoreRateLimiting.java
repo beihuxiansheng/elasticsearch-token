@@ -70,7 +70,6 @@ name|StoreRateLimiting
 block|{
 DECL|interface|Provider
 specifier|public
-specifier|static
 interface|interface
 name|Provider
 block|{

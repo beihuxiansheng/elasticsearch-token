@@ -340,18 +340,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|NodeEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|NodeServicesProvider
@@ -758,9 +746,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|NodeEnvironment
-name|nodeEnvironment
-parameter_list|,
 name|GatewayMetaState
 name|metaState
 parameter_list|,
@@ -792,8 +777,6 @@ argument_list|(
 name|settings
 argument_list|,
 name|clusterService
-argument_list|,
-name|nodeEnvironment
 argument_list|,
 name|metaState
 argument_list|,

@@ -611,8 +611,6 @@ argument_list|)
 expr_stmt|;
 name|validateEnd
 argument_list|(
-name|source
-argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
@@ -933,9 +931,6 @@ specifier|static
 name|void
 name|validateEnd
 parameter_list|(
-name|SourceToParse
-name|source
-parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|)
@@ -2339,11 +2334,6 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 block|}
-name|ObjectMapper
-name|update
-init|=
-literal|null
-decl_stmt|;
 name|innerParseObject
 argument_list|(
 name|context

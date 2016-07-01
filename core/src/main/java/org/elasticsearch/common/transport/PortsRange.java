@@ -335,7 +335,6 @@ return|;
 block|}
 DECL|interface|PortCallback
 specifier|public
-specifier|static
 interface|interface
 name|PortCallback
 block|{

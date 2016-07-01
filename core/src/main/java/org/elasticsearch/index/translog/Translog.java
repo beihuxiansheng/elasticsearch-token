@@ -3082,22 +3082,6 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|isReferencedGeneration
-specifier|private
-name|boolean
-name|isReferencedGeneration
-parameter_list|(
-name|long
-name|generation
-parameter_list|)
-block|{
-comment|// used to make decisions if a file can be deleted
-return|return
-name|generation
-operator|>=
-name|lastCommittedTranslogFileGeneration
-return|;
-block|}
 DECL|method|getConfig
 specifier|public
 name|TranslogConfig

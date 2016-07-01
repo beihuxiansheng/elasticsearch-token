@@ -893,9 +893,6 @@ name|fields
 parameter_list|,
 name|FetchSourceContext
 name|fetchSourceContext
-parameter_list|,
-name|boolean
-name|ignoreErrorsOnGeneratedFields
 parameter_list|)
 block|{
 if|if
@@ -971,8 +968,6 @@ argument_list|,
 name|engineGetResult
 argument_list|,
 name|mapperService
-argument_list|,
-name|ignoreErrorsOnGeneratedFields
 argument_list|)
 decl_stmt|;
 if|if
@@ -1413,8 +1408,6 @@ argument_list|,
 name|get
 argument_list|,
 name|mapperService
-argument_list|,
-name|ignoreErrorsOnGeneratedFields
 argument_list|)
 return|;
 block|}
@@ -2308,9 +2301,6 @@ name|get
 parameter_list|,
 name|MapperService
 name|mapperService
-parameter_list|,
-name|boolean
-name|ignoreErrorsOnGeneratedFields
 parameter_list|)
 block|{
 name|Map

@@ -250,8 +250,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|)
 expr_stmt|;
 name|controller

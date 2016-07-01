@@ -1313,15 +1313,6 @@ name|SUCCESSFUL
 init|=
 literal|"successful"
 decl_stmt|;
-DECL|field|PENDING
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PENDING
-init|=
-literal|"pending"
-decl_stmt|;
 DECL|field|FAILED
 specifier|private
 specifier|static

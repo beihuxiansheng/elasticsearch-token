@@ -1203,15 +1203,8 @@ argument_list|>
 name|newHeaders
 parameter_list|)
 block|{
-specifier|final
-name|String
-name|existingValue
-decl_stmt|;
 if|if
 condition|(
-operator|(
-name|existingValue
-operator|=
 name|newHeaders
 operator|.
 name|putIfAbsent
@@ -1220,7 +1213,6 @@ name|key
 argument_list|,
 name|value
 argument_list|)
-operator|)
 operator|!=
 literal|null
 condition|)

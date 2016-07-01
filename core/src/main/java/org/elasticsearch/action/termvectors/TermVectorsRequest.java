@@ -2733,8 +2733,6 @@ argument_list|(
 name|readFilterSettings
 argument_list|(
 name|parser
-argument_list|,
-name|termVectorsRequest
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3160,9 +3158,6 @@ name|readFilterSettings
 parameter_list|(
 name|XContentParser
 name|parser
-parameter_list|,
-name|TermVectorsRequest
-name|termVectorsRequest
 parameter_list|)
 throws|throws
 name|IOException

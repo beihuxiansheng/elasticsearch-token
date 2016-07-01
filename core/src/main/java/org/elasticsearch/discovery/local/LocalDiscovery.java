@@ -409,20 +409,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -497,16 +483,6 @@ name|boolean
 name|master
 init|=
 literal|false
-decl_stmt|;
-DECL|field|initialStateSent
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|initialStateSent
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|()
 decl_stmt|;
 DECL|field|clusterGroups
 specifier|private

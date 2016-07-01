@@ -60,7 +60,6 @@ name|Accountable
 block|{
 comment|/** Return the length of this array. */
 DECL|method|size
-specifier|public
 name|long
 name|size
 parameter_list|()

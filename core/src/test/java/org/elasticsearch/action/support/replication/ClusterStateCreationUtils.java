@@ -1568,11 +1568,6 @@ name|ClusterState
 name|stateWithNoShard
 parameter_list|()
 block|{
-name|int
-name|numberOfNodes
-init|=
-literal|2
-decl_stmt|;
 name|DiscoveryNodes
 operator|.
 name|Builder
