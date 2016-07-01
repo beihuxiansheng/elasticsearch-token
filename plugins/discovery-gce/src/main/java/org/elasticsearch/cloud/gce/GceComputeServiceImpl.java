@@ -499,9 +499,6 @@ class|class
 name|GceComputeServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|GceComputeService
-argument_list|>
 implements|implements
 name|GceComputeService
 block|{

@@ -269,9 +269,6 @@ class|class
 name|InternalAwsS3Service
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AwsS3Service
-argument_list|>
 implements|implements
 name|AwsS3Service
 block|{

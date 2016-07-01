@@ -618,7 +618,7 @@ throws|,
 name|StorageException
 function_decl|;
 DECL|method|start
-name|AzureStorageService
+name|void
 name|start
 parameter_list|()
 function_decl|;

@@ -53,9 +53,6 @@ interface|interface
 name|HttpServerTransport
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|HttpServerTransport
-argument_list|>
 block|{
 DECL|method|boundAddress
 name|BoundTransportAddress

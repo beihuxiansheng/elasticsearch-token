@@ -407,9 +407,6 @@ class|class
 name|GatewayService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|GatewayService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{

@@ -3884,9 +3884,6 @@ class|class
 name|MasterAwareService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|MasterAwareService
-argument_list|>
 implements|implements
 name|LocalNodeMasterListener
 block|{

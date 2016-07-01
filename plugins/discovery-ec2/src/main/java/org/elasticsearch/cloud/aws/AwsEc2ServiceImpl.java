@@ -339,9 +339,6 @@ class|class
 name|AwsEc2ServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AwsEc2Service
-argument_list|>
 implements|implements
 name|AwsEc2Service
 block|{

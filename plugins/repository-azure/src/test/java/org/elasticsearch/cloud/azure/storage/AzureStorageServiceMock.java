@@ -235,9 +235,6 @@ class|class
 name|AzureStorageServiceMock
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AzureStorageServiceMock
-argument_list|>
 implements|implements
 name|AzureStorageService
 block|{

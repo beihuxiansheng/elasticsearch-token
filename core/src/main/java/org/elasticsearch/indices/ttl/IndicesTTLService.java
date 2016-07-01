@@ -589,9 +589,6 @@ class|class
 name|IndicesTTLService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|IndicesTTLService
-argument_list|>
 block|{
 DECL|field|INDICES_TTL_INTERVAL_SETTING
 specifier|public

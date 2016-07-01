@@ -1503,9 +1503,6 @@ class|class
 name|IndicesService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|IndicesService
-argument_list|>
 implements|implements
 name|IndicesClusterStateService
 operator|.

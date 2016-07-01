@@ -260,26 +260,18 @@ annotation|@
 name|Override
 DECL|method|start
 specifier|public
-name|Discovery
+name|void
 name|start
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|stop
 specifier|public
-name|Discovery
+name|void
 name|stop
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|close
@@ -287,7 +279,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{      }
+block|{}
 block|}
 end_class
 

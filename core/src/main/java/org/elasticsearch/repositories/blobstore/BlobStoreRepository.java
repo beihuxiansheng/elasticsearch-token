@@ -702,9 +702,6 @@ class|class
 name|BlobStoreRepository
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|Repository
-argument_list|>
 implements|implements
 name|Repository
 implements|,

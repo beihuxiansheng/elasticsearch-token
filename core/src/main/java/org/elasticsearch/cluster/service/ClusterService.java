@@ -839,9 +839,6 @@ class|class
 name|ClusterService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|ClusterService
-argument_list|>
 block|{
 DECL|field|CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD_SETTING
 specifier|public
