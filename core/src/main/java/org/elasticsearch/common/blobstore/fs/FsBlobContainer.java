@@ -476,7 +476,7 @@ argument_list|)
 decl_stmt|;
 name|Files
 operator|.
-name|deleteIfExists
+name|delete
 argument_list|(
 name|blobPath
 argument_list|)

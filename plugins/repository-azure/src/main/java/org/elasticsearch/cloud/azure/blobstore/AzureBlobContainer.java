@@ -405,6 +405,27 @@ argument_list|,
 name|blobName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 return|return
@@ -700,6 +721,27 @@ argument_list|,
 name|blobName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|blobStore
