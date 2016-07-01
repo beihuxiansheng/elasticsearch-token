@@ -347,8 +347,8 @@ name|Releasable
 block|{
 DECL|field|defaultDatePrinter
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|DateTimeFormatter
 name|defaultDatePrinter
 init|=
@@ -3975,8 +3975,8 @@ function_decl|;
 block|}
 DECL|field|MAP
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|Class

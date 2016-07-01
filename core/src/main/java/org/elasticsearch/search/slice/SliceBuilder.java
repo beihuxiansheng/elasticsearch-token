@@ -335,8 +335,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|PARSER
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ObjectParser
 argument_list|<
 name|SliceBuilder

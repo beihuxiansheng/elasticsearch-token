@@ -849,8 +849,8 @@ name|PingContextProvider
 block|{
 DECL|field|PING_TIMEOUT_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -875,8 +875,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|JOIN_TIMEOUT_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -925,8 +925,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|JOIN_RETRY_ATTEMPTS_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -950,8 +950,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|JOIN_RETRY_DELAY_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -978,8 +978,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MAX_PINGS_FROM_ANOTHER_MASTER_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -1003,8 +1003,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|SEND_LEAVE_REQUEST_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -1026,8 +1026,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_WAIT_FOR_JOINS_TIMEOUT_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -1076,8 +1076,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_IGNORE_NON_MASTER_PINGS_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean

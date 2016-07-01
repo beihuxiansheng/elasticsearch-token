@@ -191,8 +191,8 @@ name|ESIntegTestCase
 block|{
 DECL|field|BLOCK_WAIT_TIMEOUT
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|TimeValue
 name|BLOCK_WAIT_TIMEOUT
 init|=

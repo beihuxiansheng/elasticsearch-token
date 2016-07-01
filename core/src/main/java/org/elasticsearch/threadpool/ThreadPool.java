@@ -687,8 +687,8 @@ expr_stmt|;
 block|}
 DECL|field|TYPE_MAP
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

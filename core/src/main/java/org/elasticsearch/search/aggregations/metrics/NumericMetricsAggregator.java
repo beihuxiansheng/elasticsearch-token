@@ -153,8 +153,8 @@ expr_stmt|;
 block|}
 DECL|class|SingleValue
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|SingleValue
 extends|extends
@@ -217,8 +217,8 @@ function_decl|;
 block|}
 DECL|class|MultiValue
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|MultiValue
 extends|extends

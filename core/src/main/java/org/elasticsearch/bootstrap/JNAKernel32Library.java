@@ -214,15 +214,15 @@ decl_stmt|;
 comment|// Native library instance must be kept around for the same reason.
 DECL|class|Holder
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Holder
 block|{
 DECL|field|instance
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|JNAKernel32Library
 name|instance
 init|=

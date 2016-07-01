@@ -3638,8 +3638,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|UNKNOWN
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|long
 name|UNKNOWN
 init|=

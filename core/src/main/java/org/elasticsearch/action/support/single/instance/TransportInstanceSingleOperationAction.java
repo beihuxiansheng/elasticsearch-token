@@ -1143,9 +1143,9 @@ DECL|method|retry
 name|void
 name|retry
 parameter_list|(
-specifier|final
 annotation|@
 name|Nullable
+specifier|final
 name|Throwable
 name|failure
 parameter_list|)

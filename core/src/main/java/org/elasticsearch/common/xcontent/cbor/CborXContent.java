@@ -241,15 +241,15 @@ argument_list|)
 return|;
 block|}
 DECL|field|cborFactory
-specifier|final
 specifier|static
+specifier|final
 name|CBORFactory
 name|cborFactory
 decl_stmt|;
 DECL|field|cborXContent
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|CborXContent
 name|cborXContent
 decl_stmt|;

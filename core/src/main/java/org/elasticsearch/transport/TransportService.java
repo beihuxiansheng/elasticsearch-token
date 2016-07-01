@@ -4772,8 +4772,8 @@ block|}
 comment|/**      * This handler wrapper ensures that the response thread executes with the correct thread context. Before any of the4 handle methods      * are invoked we restore the context.      */
 DECL|class|ContextRestoreResponseHandler
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ContextRestoreResponseHandler
 parameter_list|<
@@ -4930,14 +4930,14 @@ name|DiscoveryNode
 name|localNode
 decl_stmt|;
 DECL|field|action
-specifier|final
 specifier|private
+specifier|final
 name|String
 name|action
 decl_stmt|;
 DECL|field|requestId
-specifier|final
 specifier|private
+specifier|final
 name|long
 name|requestId
 decl_stmt|;

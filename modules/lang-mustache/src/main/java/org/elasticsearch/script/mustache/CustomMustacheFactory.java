@@ -548,8 +548,8 @@ block|}
 block|}
 comment|/**      * Base class for custom Mustache functions      */
 DECL|class|CustomCode
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|CustomCode
 extends|extends

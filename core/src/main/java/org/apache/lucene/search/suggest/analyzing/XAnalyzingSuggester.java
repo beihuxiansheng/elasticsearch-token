@@ -5720,8 +5720,8 @@ expr_stmt|;
 block|}
 DECL|class|SurfaceFormAndPayload
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|SurfaceFormAndPayload
 implements|implements

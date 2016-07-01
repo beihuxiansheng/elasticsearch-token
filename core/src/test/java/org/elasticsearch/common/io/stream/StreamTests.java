@@ -1135,8 +1135,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|WriteableString
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|WriteableString
 implements|implements

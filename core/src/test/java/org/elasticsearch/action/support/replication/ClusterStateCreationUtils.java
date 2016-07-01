@@ -1831,8 +1831,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|selectAndRemove
-specifier|static
 specifier|private
+specifier|static
 name|String
 name|selectAndRemove
 parameter_list|(

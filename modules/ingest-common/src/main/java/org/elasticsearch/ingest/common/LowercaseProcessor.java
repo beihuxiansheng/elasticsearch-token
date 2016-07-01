@@ -102,8 +102,8 @@ return|;
 block|}
 DECL|class|Factory
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

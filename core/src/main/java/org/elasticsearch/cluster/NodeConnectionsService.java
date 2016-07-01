@@ -327,8 +327,8 @@ name|newConcurrentMap
 argument_list|()
 decl_stmt|;
 DECL|field|nodeLocks
-specifier|final
 specifier|private
+specifier|final
 name|KeyedLock
 argument_list|<
 name|DiscoveryNode

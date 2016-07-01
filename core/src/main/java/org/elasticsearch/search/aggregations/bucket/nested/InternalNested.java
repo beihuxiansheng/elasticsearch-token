@@ -155,8 +155,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STREAM
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|AggregationStreams
 operator|.
 name|Stream

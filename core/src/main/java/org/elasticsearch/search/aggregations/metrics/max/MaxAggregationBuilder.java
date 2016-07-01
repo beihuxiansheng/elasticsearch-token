@@ -276,8 +276,8 @@ literal|"max"
 decl_stmt|;
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|TYPE
 init|=

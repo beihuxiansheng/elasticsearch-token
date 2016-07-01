@@ -576,8 +576,8 @@ literal|"cmp"
 decl_stmt|;
 DECL|field|logger
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
@@ -597,8 +597,8 @@ name|delegatePostingsFormat
 decl_stmt|;
 DECL|field|providers
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -1517,8 +1517,8 @@ block|}
 block|}
 DECL|class|CompletionLookupProvider
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|CompletionLookupProvider
 implements|implements
@@ -2014,8 +2014,8 @@ return|;
 block|}
 DECL|class|LookupFactory
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|LookupFactory
 implements|implements

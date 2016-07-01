@@ -325,8 +325,8 @@ literal|"This TermsEnum only supports #seekExact(BytesRef) as well as #docFreq()
 decl_stmt|;
 DECL|field|NOT_FOUND
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|NOT_FOUND
 init|=

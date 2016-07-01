@@ -422,8 +422,8 @@ name|FieldMapper
 block|{
 DECL|field|QUERY_BUILDER_CONTENT_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|XContentType
 name|QUERY_BUILDER_CONTENT_TYPE
 init|=
@@ -433,8 +433,8 @@ name|SMILE
 decl_stmt|;
 DECL|field|INDEX_MAP_UNMAPPED_FIELDS_AS_STRING_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean

@@ -247,15 +247,15 @@ argument_list|)
 return|;
 block|}
 DECL|field|smileFactory
-specifier|final
 specifier|static
+specifier|final
 name|SmileFactory
 name|smileFactory
 decl_stmt|;
 DECL|field|smileXContent
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|SmileXContent
 name|smileXContent
 decl_stmt|;

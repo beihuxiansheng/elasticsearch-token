@@ -123,8 +123,8 @@ argument_list|>
 block|{
 DECL|field|NO_INGEST_TOOK
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|long
 name|NO_INGEST_TOOK
 init|=

@@ -5754,8 +5754,8 @@ block|}
 block|}
 comment|/** Extended SearcherFactory that warms the segments if needed when acquiring a new searcher */
 DECL|class|SearchFactory
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|SearchFactory
 extends|extends

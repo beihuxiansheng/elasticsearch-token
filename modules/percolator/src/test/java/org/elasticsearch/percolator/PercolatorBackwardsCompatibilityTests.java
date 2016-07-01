@@ -335,8 +335,8 @@ name|ESIntegTestCase
 block|{
 DECL|field|INDEX_NAME
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|INDEX_NAME
 init|=

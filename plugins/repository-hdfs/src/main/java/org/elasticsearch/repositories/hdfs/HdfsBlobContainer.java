@@ -782,9 +782,9 @@ name|BlobMetaData
 argument_list|>
 name|listBlobsByPrefix
 parameter_list|(
-specifier|final
 annotation|@
 name|Nullable
+specifier|final
 name|String
 name|prefix
 parameter_list|)

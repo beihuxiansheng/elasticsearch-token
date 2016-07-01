@@ -654,8 +654,8 @@ return|;
 block|}
 DECL|class|Entry
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Entry
 extends|extends

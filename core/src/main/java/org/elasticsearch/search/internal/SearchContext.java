@@ -671,8 +671,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|DEFAULT_TERMINATE_AFTER
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|DEFAULT_TERMINATE_AFTER
 init|=

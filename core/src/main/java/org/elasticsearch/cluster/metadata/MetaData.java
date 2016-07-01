@@ -7340,8 +7340,8 @@ block|}
 block|}
 DECL|field|FORMAT_PARAMS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ToXContent
 operator|.
 name|Params
@@ -7398,8 +7398,8 @@ block|}
 comment|/**      * State format for {@link MetaData} to write to and load from disk      */
 DECL|field|FORMAT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|MetaDataStateFormat
 argument_list|<
 name|MetaData

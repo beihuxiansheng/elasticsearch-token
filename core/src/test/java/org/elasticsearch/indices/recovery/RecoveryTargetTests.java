@@ -480,14 +480,14 @@ name|T
 name|lastRead
 decl_stmt|;
 DECL|field|shouldStop
-specifier|final
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|shouldStop
 decl_stmt|;
 DECL|field|source
-specifier|final
 specifier|private
+specifier|final
 name|T
 name|source
 decl_stmt|;

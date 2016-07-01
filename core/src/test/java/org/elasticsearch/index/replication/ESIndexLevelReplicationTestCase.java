@@ -1115,8 +1115,8 @@ name|ThreadPool
 name|threadPool
 decl_stmt|;
 DECL|field|index
-specifier|final
 specifier|private
+specifier|final
 name|Index
 name|index
 init|=
@@ -1129,8 +1129,8 @@ literal|"uuid"
 argument_list|)
 decl_stmt|;
 DECL|field|shardId
-specifier|final
 specifier|private
+specifier|final
 name|ShardId
 name|shardId
 init|=
@@ -1143,8 +1143,8 @@ literal|0
 argument_list|)
 decl_stmt|;
 DECL|field|indexMapping
-specifier|final
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -1164,8 +1164,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|recoveryListener
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|RecoveryTargetService
 operator|.
 name|RecoveryListener

@@ -1841,8 +1841,8 @@ block|}
 comment|/**      * Basic implementation of {@link FixedSourceDistance}. This class keeps the basic parameters for a distance      * functions based on a fixed source. Namely latitude, longitude and unit.      */
 DECL|class|FixedSourceDistanceBase
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|FixedSourceDistanceBase
 implements|implements

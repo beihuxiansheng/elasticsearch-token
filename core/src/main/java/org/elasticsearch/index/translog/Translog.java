@@ -788,8 +788,8 @@ name|current
 decl_stmt|;
 DECL|field|NOT_SET_GENERATION
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|long
 name|NOT_SET_GENERATION
 init|=
@@ -6438,8 +6438,8 @@ block|}
 comment|/**      * References a transaction log generation      */
 DECL|class|TranslogGeneration
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|TranslogGeneration
 block|{

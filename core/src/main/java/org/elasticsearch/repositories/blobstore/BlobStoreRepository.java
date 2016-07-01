@@ -1233,16 +1233,16 @@ block|}
 block|}
 comment|/**      * Returns initialized and ready to use BlobStore      *<p>      * This method is first called in the {@link #doStart()} method.      *      * @return blob store      */
 DECL|method|blobStore
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|BlobStore
 name|blobStore
 parameter_list|()
 function_decl|;
 comment|/**      * Returns base path of the repository      */
 DECL|method|basePath
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|BlobPath
 name|basePath
 parameter_list|()

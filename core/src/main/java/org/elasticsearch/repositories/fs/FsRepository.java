@@ -242,8 +242,8 @@ name|BlobStoreRepository
 block|{
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TYPE
 init|=

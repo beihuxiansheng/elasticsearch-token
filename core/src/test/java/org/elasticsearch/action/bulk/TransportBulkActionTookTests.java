@@ -467,8 +467,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|threadPool
-specifier|static
 specifier|private
+specifier|static
 name|ThreadPool
 name|threadPool
 decl_stmt|;

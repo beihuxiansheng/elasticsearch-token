@@ -950,8 +950,8 @@ name|AbstractComponent
 block|{
 DECL|field|MAX_INDEX_NAME_BYTES
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|MAX_INDEX_NAME_BYTES
 init|=

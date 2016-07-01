@@ -363,10 +363,10 @@ operator|.
 name|node
 return|;
 block|}
-DECL|method|getByShardId
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|getByShardId
+specifier|public
 name|ShardRouting
 name|getByShardId
 parameter_list|(

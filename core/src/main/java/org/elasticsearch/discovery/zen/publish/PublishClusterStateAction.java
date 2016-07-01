@@ -3398,8 +3398,8 @@ throw|;
 block|}
 block|}
 DECL|method|isCommitted
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|boolean
 name|isCommitted
 parameter_list|()
@@ -3409,8 +3409,8 @@ name|committed
 return|;
 block|}
 DECL|method|onNodeSendAck
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|onNodeSendAck
 parameter_list|(
@@ -3505,8 +3505,8 @@ return|;
 block|}
 comment|/**          * check if enough master node responded to commit the change. fails the commit          * if there are no more pending master nodes but not enough acks to commit.          */
 DECL|method|checkForCommitOrFailIfNoPending
-specifier|synchronized
 specifier|private
+specifier|synchronized
 name|void
 name|checkForCommitOrFailIfNoPending
 parameter_list|(
@@ -3578,8 +3578,8 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|decrementPendingMasterAcksAndChangeForFailure
-specifier|synchronized
 specifier|private
+specifier|synchronized
 name|void
 name|decrementPendingMasterAcksAndChangeForFailure
 parameter_list|()
@@ -3610,8 +3610,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|onNodeSendFailed
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|onNodeSendFailed
 parameter_list|(
@@ -3664,8 +3664,8 @@ expr_stmt|;
 block|}
 comment|/**          * tries and commit the current state, if a decision wasn't made yet          *          * @return true if successful          */
 DECL|method|markAsCommitted
-specifier|synchronized
 specifier|private
+specifier|synchronized
 name|boolean
 name|markAsCommitted
 parameter_list|()
@@ -3707,8 +3707,8 @@ return|;
 block|}
 comment|/**          * tries marking the publishing as failed, if a decision wasn't made yet          *          * @return true if the publishing was failed and the cluster state is *not* committed          **/
 DECL|method|markAsFailed
-specifier|synchronized
 specifier|private
+specifier|synchronized
 name|boolean
 name|markAsFailed
 parameter_list|(
@@ -3762,8 +3762,8 @@ return|;
 block|}
 comment|/**          * tries marking the publishing as failed, if a decision wasn't made yet          *          * @return true if the publishing was failed and the cluster state is *not* committed          **/
 DECL|method|markAsFailed
-specifier|synchronized
 specifier|private
+specifier|synchronized
 name|boolean
 name|markAsFailed
 parameter_list|(

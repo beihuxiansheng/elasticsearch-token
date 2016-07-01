@@ -191,8 +191,8 @@ name|ProcessProbeHolder
 block|{
 DECL|field|INSTANCE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ProcessProbe
 name|INSTANCE
 init|=

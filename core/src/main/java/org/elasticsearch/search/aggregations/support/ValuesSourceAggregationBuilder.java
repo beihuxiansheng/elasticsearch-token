@@ -356,8 +356,8 @@ argument_list|>
 block|{
 DECL|class|LeafOnly
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|LeafOnly
 parameter_list|<

@@ -114,8 +114,8 @@ name|Cloneable
 block|{
 DECL|field|ALL
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|CommonStatsFlags
 name|ALL
 init|=
@@ -128,8 +128,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|NONE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|CommonStatsFlags
 name|NONE
 init|=

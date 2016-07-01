@@ -58,8 +58,8 @@ name|ClusterInfoService
 block|{
 DECL|field|INSTANCE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|EmptyClusterInfoService
 name|INSTANCE
 init|=

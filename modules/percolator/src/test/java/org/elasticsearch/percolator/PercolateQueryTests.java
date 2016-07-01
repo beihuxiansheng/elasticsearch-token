@@ -814,8 +814,8 @@ name|ESTestCase
 block|{
 DECL|field|EXTRACTED_TERMS_FIELD_NAME
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|EXTRACTED_TERMS_FIELD_NAME
 init|=
@@ -823,8 +823,8 @@ literal|"extracted_terms"
 decl_stmt|;
 DECL|field|UNKNOWN_QUERY_FIELD_NAME
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|UNKNOWN_QUERY_FIELD_NAME
 init|=
@@ -832,8 +832,8 @@ literal|"unknown_query"
 decl_stmt|;
 DECL|field|EXTRACTED_TERMS_FIELD_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|FieldType
 name|EXTRACTED_TERMS_FIELD_TYPE
 init|=
@@ -4160,8 +4160,8 @@ end_function
 begin_class
 DECL|class|CustomQuery
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|CustomQuery
 extends|extends
@@ -4265,8 +4265,8 @@ end_class
 begin_class
 DECL|class|ControlQuery
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ControlQuery
 extends|extends

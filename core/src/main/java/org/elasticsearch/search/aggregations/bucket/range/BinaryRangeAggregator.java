@@ -759,8 +759,8 @@ return|;
 block|}
 block|}
 DECL|class|SortedSetRangeLeafCollector
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|SortedSetRangeLeafCollector
 extends|extends
@@ -1497,8 +1497,8 @@ name|IOException
 function_decl|;
 block|}
 DECL|class|SortedBinaryRangeLeafCollector
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|SortedBinaryRangeLeafCollector
 extends|extends

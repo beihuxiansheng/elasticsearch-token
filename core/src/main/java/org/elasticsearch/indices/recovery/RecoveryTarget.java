@@ -468,8 +468,8 @@ name|logger
 decl_stmt|;
 DECL|field|idGenerator
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|AtomicLong
 name|idGenerator
 init|=

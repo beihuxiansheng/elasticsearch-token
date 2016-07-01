@@ -887,8 +887,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|SearchRequestSlot
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|SearchRequestSlot
 block|{

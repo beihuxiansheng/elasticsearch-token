@@ -645,8 +645,8 @@ argument_list|>
 block|{
 DECL|field|OP_TYPE_UPDATE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|OP_TYPE_UPDATE
 init|=
@@ -654,8 +654,8 @@ literal|"update"
 decl_stmt|;
 DECL|field|OP_TYPE_DELETE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|OP_TYPE_DELETE
 init|=

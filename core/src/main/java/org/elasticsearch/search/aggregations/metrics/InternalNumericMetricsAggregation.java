@@ -125,8 +125,8 @@ name|DEFAULT_FORMAT
 decl_stmt|;
 DECL|class|SingleValue
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|SingleValue
 extends|extends
@@ -283,8 +283,8 @@ block|}
 block|}
 DECL|class|MultiValue
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|MultiValue
 extends|extends

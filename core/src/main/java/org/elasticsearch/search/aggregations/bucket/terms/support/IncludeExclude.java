@@ -869,8 +869,8 @@ block|}
 block|}
 DECL|class|OrdinalsFilter
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|OrdinalsFilter
 block|{

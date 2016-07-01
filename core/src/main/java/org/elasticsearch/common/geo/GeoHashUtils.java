@@ -1051,8 +1051,8 @@ block|}
 comment|/**      * Calculate the geohash of a neighbor of a geohash      *      * @param geohash the geohash of a cell      * @param level   level of the geohash      * @param dx      delta of the first grid coordinate (must be -1, 0 or +1)      * @param dy      delta of the second grid coordinate (must be -1, 0 or +1)      * @return geohash of the defined cell      */
 DECL|method|neighbor
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|neighbor
 parameter_list|(

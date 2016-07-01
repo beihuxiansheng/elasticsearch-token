@@ -231,8 +231,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|class|PublishResponder
-specifier|static
 specifier|private
+specifier|static
 class|class
 name|PublishResponder
 extends|extends

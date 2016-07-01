@@ -2528,8 +2528,8 @@ literal|false
 return|;
 block|}
 DECL|class|Context
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Context
 block|{
@@ -2743,8 +2743,8 @@ function_decl|;
 block|}
 comment|/**      * Resolves alias/index name expressions with wildcards into the corresponding concrete indices/aliases      */
 DECL|class|WildcardExpressionResolver
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|WildcardExpressionResolver
 implements|implements
@@ -4048,8 +4048,8 @@ block|}
 block|}
 block|}
 DECL|class|DateMathExpressionResolver
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|DateMathExpressionResolver
 implements|implements

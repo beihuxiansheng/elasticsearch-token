@@ -1575,8 +1575,8 @@ function_decl|;
 block|}
 block|}
 DECL|class|BaseScorer
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseScorer
 extends|extends

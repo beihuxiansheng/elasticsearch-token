@@ -276,8 +276,8 @@ literal|"min"
 decl_stmt|;
 DECL|field|TYPE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|TYPE
 init|=

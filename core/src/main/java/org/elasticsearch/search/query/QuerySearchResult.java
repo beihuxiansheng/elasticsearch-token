@@ -671,9 +671,9 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the profiled results for this search, or potentially null if result was empty      * @return The profiled results, or null      */
 DECL|method|profileResults
-specifier|public
 annotation|@
 name|Nullable
+specifier|public
 name|ProfileShardResult
 name|profileResults
 parameter_list|()

@@ -212,8 +212,8 @@ name|ActionResponse
 block|{
 DECL|field|EMPTY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|ReplicationResponse
 operator|.
 name|ShardInfo

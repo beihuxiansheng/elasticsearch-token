@@ -673,8 +673,8 @@ block|}
 comment|/**      * A set based extension point which allows to register extended classes that might be used to chain additional functionality etc.      */
 DECL|class|ClassSet
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ClassSet
 parameter_list|<
@@ -868,8 +868,8 @@ block|}
 comment|/**      * A an instance of a map, mapping one instance value to another. Both key and value are instances, not classes      * like with other extension points.      */
 DECL|class|InstanceMap
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|InstanceMap
 parameter_list|<

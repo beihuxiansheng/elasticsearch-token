@@ -2302,8 +2302,8 @@ block|}
 comment|/**      * Represents differences between two maps of objects and is used as base class for different map implementations.      *      * Implements serialization. How differences are applied is left to subclasses.      *      * @param<K> the type of map keys      * @param<T> the type of map values      * @param<M> the map implementation type      */
 DECL|class|MapDiff
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|MapDiff
 parameter_list|<
@@ -3193,8 +3193,8 @@ block|}
 comment|/**      * Serializer for Diffable map values. Needs to implement read and readDiff methods.      *      * @param<K> type of map keys      * @param<V> type of map values      */
 DECL|class|DiffableValueSerializer
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|DiffableValueSerializer
 parameter_list|<
@@ -3390,8 +3390,8 @@ block|}
 comment|/**      * Serializer for non-diffable map values      *      * @param<K> type of map keys      * @param<V> type of map values      */
 DECL|class|NonDiffableValueSerializer
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|NonDiffableValueSerializer
 parameter_list|<

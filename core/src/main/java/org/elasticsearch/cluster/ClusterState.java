@@ -716,8 +716,8 @@ function_decl|;
 block|}
 DECL|field|customPrototypes
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

@@ -1551,8 +1551,8 @@ block|}
 block|}
 comment|/**      * Test class for testing task operations      */
 DECL|class|TestTasksAction
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|TestTasksAction
 extends|extends

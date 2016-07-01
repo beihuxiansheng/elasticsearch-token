@@ -385,8 +385,8 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|TYPE
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|TYPE
 init|=
@@ -400,8 +400,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STREAM
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|AggregationStreams
 operator|.
 name|Stream
@@ -452,8 +452,8 @@ block|}
 decl_stmt|;
 DECL|field|BUCKET_STREAM
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|BucketStreams
 operator|.
 name|Stream
@@ -654,15 +654,15 @@ name|aggregations
 decl_stmt|;
 DECL|field|keyed
 specifier|private
-specifier|transient
 specifier|final
+specifier|transient
 name|boolean
 name|keyed
 decl_stmt|;
 DECL|field|format
 specifier|protected
-specifier|transient
 specifier|final
+specifier|transient
 name|DocValueFormat
 name|format
 decl_stmt|;

@@ -965,8 +965,8 @@ expr_stmt|;
 block|}
 DECL|class|Collector
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Collector
 extends|extends
@@ -1731,8 +1731,8 @@ block|}
 block|}
 comment|/**      * Representation of a list of hash values. There might be dups and there is no guarantee on the order.      */
 DECL|class|MurmurHash3Values
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|MurmurHash3Values
 block|{

@@ -1951,8 +1951,8 @@ expr_stmt|;
 block|}
 DECL|class|IndexNodePredicate
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|IndexNodePredicate
 implements|implements

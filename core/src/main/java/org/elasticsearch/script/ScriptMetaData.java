@@ -343,8 +343,8 @@ name|Custom
 block|{
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TYPE
 init|=
@@ -352,8 +352,8 @@ literal|"stored_scripts"
 decl_stmt|;
 DECL|field|PROTO
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|ScriptMetaData
 name|PROTO
 init|=
@@ -1185,9 +1185,9 @@ name|id
 return|;
 block|}
 DECL|class|Builder
-specifier|final
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Builder
 block|{
@@ -1346,8 +1346,8 @@ return|;
 block|}
 block|}
 DECL|class|ScriptMetadataDiff
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ScriptMetadataDiff
 implements|implements
@@ -1493,8 +1493,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ScriptAsBytes
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ScriptAsBytes
 extends|extends

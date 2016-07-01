@@ -516,8 +516,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|readURIParameters
-specifier|static
 specifier|public
+specifier|static
 name|void
 name|readURIParameters
 parameter_list|(
@@ -758,8 +758,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|addFieldStringsFromParameter
-specifier|static
 specifier|public
+specifier|static
 name|void
 name|addFieldStringsFromParameter
 parameter_list|(

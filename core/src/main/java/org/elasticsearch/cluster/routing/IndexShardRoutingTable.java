@@ -327,8 +327,8 @@ argument_list|>
 name|assignedShards
 decl_stmt|;
 DECL|field|NO_SHARDS
-specifier|final
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|ShardRouting

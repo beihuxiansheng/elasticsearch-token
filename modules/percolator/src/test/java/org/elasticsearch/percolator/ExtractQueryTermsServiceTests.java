@@ -666,8 +666,8 @@ name|ESTestCase
 block|{
 DECL|field|QUERY_TERMS_FIELD
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|QUERY_TERMS_FIELD
 init|=
@@ -675,8 +675,8 @@ literal|"extracted_terms"
 decl_stmt|;
 DECL|field|EXTRACTION_RESULT_FIELD
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|EXTRACTION_RESULT_FIELD
 init|=
@@ -684,8 +684,8 @@ literal|"extraction_result"
 decl_stmt|;
 DECL|field|QUERY_TERMS_FIELD_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|FieldType
 name|QUERY_TERMS_FIELD_TYPE
 init|=

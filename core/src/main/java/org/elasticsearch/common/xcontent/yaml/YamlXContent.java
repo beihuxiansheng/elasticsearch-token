@@ -227,15 +227,15 @@ argument_list|)
 return|;
 block|}
 DECL|field|yamlFactory
-specifier|final
 specifier|static
+specifier|final
 name|YAMLFactory
 name|yamlFactory
 decl_stmt|;
 DECL|field|yamlXContent
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|YamlXContent
 name|yamlXContent
 decl_stmt|;

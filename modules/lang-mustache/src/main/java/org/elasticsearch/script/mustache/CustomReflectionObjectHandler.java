@@ -215,8 +215,8 @@ return|;
 block|}
 block|}
 DECL|class|ArrayMap
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ArrayMap
 extends|extends
@@ -512,8 +512,8 @@ return|;
 block|}
 block|}
 DECL|class|CollectionMap
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|CollectionMap
 extends|extends

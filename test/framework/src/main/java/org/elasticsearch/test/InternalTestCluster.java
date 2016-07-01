@@ -8782,8 +8782,8 @@ block|}
 block|}
 comment|/**      * Restarts a node and calls the callback during restart.      */
 DECL|method|restartNode
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|restartNode
 parameter_list|(
@@ -8839,8 +8839,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|restartAllNodes
-specifier|synchronized
 specifier|private
+specifier|synchronized
 name|void
 name|restartAllNodes
 parameter_list|(

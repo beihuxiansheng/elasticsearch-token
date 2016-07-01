@@ -1195,8 +1195,8 @@ name|slowTaskLoggingThreshold
 expr_stmt|;
 block|}
 DECL|method|setClusterStatePublisher
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|setClusterStatePublisher
 parameter_list|(
@@ -1217,8 +1217,8 @@ name|publisher
 expr_stmt|;
 block|}
 DECL|method|setLocalNode
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|setLocalNode
 parameter_list|(
@@ -1288,8 +1288,8 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|setNodeConnectionsService
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|setNodeConnectionsService
 parameter_list|(
@@ -1315,8 +1315,8 @@ expr_stmt|;
 block|}
 comment|/**      * Adds an initial block to be set on the first cluster state created.      */
 DECL|method|addInitialStateBlock
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|addInitialStateBlock
 parameter_list|(
@@ -1352,8 +1352,8 @@ expr_stmt|;
 block|}
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|removeInitialStateBlock
 parameter_list|(
@@ -1374,8 +1374,8 @@ expr_stmt|;
 block|}
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|removeInitialStateBlock
 parameter_list|(
@@ -1412,8 +1412,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doStart
-specifier|synchronized
 specifier|protected
+specifier|synchronized
 name|void
 name|doStart
 parameter_list|()
@@ -1521,8 +1521,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doStop
-specifier|synchronized
 specifier|protected
+specifier|synchronized
 name|void
 name|doStop
 parameter_list|()
@@ -1626,8 +1626,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doClose
-specifier|synchronized
 specifier|protected
+specifier|synchronized
 name|void
 name|doClose
 parameter_list|()
@@ -2719,8 +2719,8 @@ end_function
 
 begin_class
 DECL|class|SourcePrioritizedRunnable
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|SourcePrioritizedRunnable
 extends|extends
@@ -5446,8 +5446,8 @@ operator|.
 name|AckListener
 block|{
 DECL|field|listeners
-specifier|final
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Discovery

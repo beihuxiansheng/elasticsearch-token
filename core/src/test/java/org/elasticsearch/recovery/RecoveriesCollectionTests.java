@@ -345,8 +345,8 @@ extends|extends
 name|ESSingleNodeTestCase
 block|{
 DECL|field|listener
-specifier|final
 specifier|static
+specifier|final
 name|RecoveryTargetService
 operator|.
 name|RecoveryListener

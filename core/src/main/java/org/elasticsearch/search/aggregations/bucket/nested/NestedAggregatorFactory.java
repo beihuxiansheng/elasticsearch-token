@@ -405,8 +405,8 @@ return|;
 block|}
 DECL|class|Unmapped
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Unmapped
 extends|extends

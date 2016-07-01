@@ -697,8 +697,8 @@ name|localAddress
 decl_stmt|;
 DECL|field|transports
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ConcurrentMap
 argument_list|<
 name|LocalTransportAddress

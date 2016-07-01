@@ -229,8 +229,8 @@ name|WriterConstants
 block|{
 DECL|field|CLASS_VERSION
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|CLASS_VERSION
 init|=
@@ -240,8 +240,8 @@ name|V1_8
 decl_stmt|;
 DECL|field|ASM_VERSION
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|ASM_VERSION
 init|=
@@ -251,8 +251,8 @@ name|ASM5
 decl_stmt|;
 DECL|field|BASE_CLASS_NAME
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|BASE_CLASS_NAME
 init|=
@@ -265,8 +265,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|BASE_CLASS_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|BASE_CLASS_TYPE
 init|=
@@ -281,8 +281,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|CLASS_NAME
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|CLASS_NAME
 init|=
@@ -292,8 +292,8 @@ literal|"$Script"
 decl_stmt|;
 DECL|field|CLASS_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|CLASS_TYPE
 init|=
@@ -313,8 +313,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|CONSTRUCTOR
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|CONSTRUCTOR
 init|=
@@ -341,8 +341,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|CLINIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|CLINIT
 init|=
@@ -357,8 +357,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|EXECUTE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|EXECUTE
 init|=
@@ -389,8 +389,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|PAINLESS_ERROR_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|PAINLESS_ERROR_TYPE
 init|=
@@ -405,8 +405,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|NEEDS_SCORE_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|NEEDS_SCORE_TYPE
 init|=
@@ -421,8 +421,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|SCORER_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|SCORER_TYPE
 init|=
@@ -437,8 +437,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|SCORER_SCORE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|SCORER_SCORE
 init|=
@@ -453,8 +453,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MAP_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|MAP_TYPE
 init|=
@@ -469,8 +469,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MAP_GET
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|MAP_GET
 init|=
@@ -489,8 +489,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|ITERATOR_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|ITERATOR_TYPE
 init|=
@@ -505,8 +505,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|ITERATOR_HASNEXT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|ITERATOR_HASNEXT
 init|=
@@ -521,8 +521,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|ITERATOR_NEXT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|ITERATOR_NEXT
 init|=
@@ -537,8 +537,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|UTILITY_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|UTILITY_TYPE
 init|=
@@ -553,8 +553,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRING_TO_CHAR
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRING_TO_CHAR
 init|=
@@ -573,8 +573,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|CHAR_TO_STRING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|CHAR_TO_STRING
 init|=
@@ -593,8 +593,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|METHOD_HANDLE_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|METHOD_HANDLE_TYPE
 init|=
@@ -626,8 +626,8 @@ decl_stmt|;
 comment|/**      * A Method instance for {@linkplain Pattern#compile}. This isn't available from Definition because we intentionally don't add it there      * so that the script can't create regexes without this syntax. Essentially, our static regex syntax has a monopoly on building regexes      * because it can do it statically. This is both faster and prevents the script from doing something super slow like building a regex      * per time it is run.      */
 DECL|field|PATTERN_COMPILE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|PATTERN_COMPILE
 init|=
@@ -650,8 +650,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|PATTERN_MATCHER
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|PATTERN_MATCHER
 init|=
@@ -670,8 +670,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MATCHER_MATCHES
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|MATCHER_MATCHES
 init|=
@@ -686,8 +686,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MATCHER_FIND
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|MATCHER_FIND
 init|=
@@ -702,8 +702,8 @@ argument_list|)
 decl_stmt|;
 comment|/** dynamic callsite bootstrap signature */
 DECL|field|DEF_BOOTSTRAP_TYPE
-specifier|final
 specifier|static
+specifier|final
 name|MethodType
 name|DEF_BOOTSTRAP_TYPE
 init|=
@@ -744,8 +744,8 @@ expr|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_BOOTSTRAP_HANDLE
-specifier|final
 specifier|static
+specifier|final
 name|Handle
 name|DEF_BOOTSTRAP_HANDLE
 init|=
@@ -777,8 +777,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_UTIL_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|DEF_UTIL_TYPE
 init|=
@@ -793,8 +793,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_BOOLEAN
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_BOOLEAN
 init|=
@@ -813,8 +813,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_BYTE_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_BYTE_IMPLICIT
 init|=
@@ -833,8 +833,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_SHORT_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_SHORT_IMPLICIT
 init|=
@@ -853,8 +853,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_CHAR_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_CHAR_IMPLICIT
 init|=
@@ -873,8 +873,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_INT_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_INT_IMPLICIT
 init|=
@@ -893,8 +893,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_LONG_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_LONG_IMPLICIT
 init|=
@@ -913,8 +913,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_FLOAT_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_FLOAT_IMPLICIT
 init|=
@@ -933,8 +933,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_DOUBLE_IMPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_DOUBLE_IMPLICIT
 init|=
@@ -953,8 +953,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_BYTE_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_BYTE_EXPLICIT
 init|=
@@ -973,8 +973,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_SHORT_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_SHORT_EXPLICIT
 init|=
@@ -993,8 +993,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_CHAR_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_CHAR_EXPLICIT
 init|=
@@ -1013,8 +1013,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_INT_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_INT_EXPLICIT
 init|=
@@ -1033,8 +1033,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_LONG_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_LONG_EXPLICIT
 init|=
@@ -1053,8 +1053,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_FLOAT_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_FLOAT_EXPLICIT
 init|=
@@ -1073,8 +1073,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|DEF_TO_DOUBLE_EXPLICIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|DEF_TO_DOUBLE_EXPLICIT
 init|=
@@ -1094,8 +1094,8 @@ decl_stmt|;
 comment|/** invokedynamic bootstrap for lambda expression/method references */
 DECL|field|LAMBDA_BOOTSTRAP_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|MethodType
 name|LAMBDA_BOOTSTRAP_TYPE
 init|=
@@ -1129,8 +1129,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|LAMBDA_BOOTSTRAP_HANDLE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Handle
 name|LAMBDA_BOOTSTRAP_HANDLE
 init|=
@@ -1163,8 +1163,8 @@ decl_stmt|;
 comment|/** dynamic invokedynamic bootstrap for indy string concats (Java 9+) */
 DECL|field|INDY_STRING_CONCAT_BOOTSTRAP_HANDLE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Handle
 name|INDY_STRING_CONCAT_BOOTSTRAP_HANDLE
 decl_stmt|;
@@ -1283,8 +1283,8 @@ expr_stmt|;
 block|}
 DECL|field|MAX_INDY_STRING_CONCAT_ARGS
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|MAX_INDY_STRING_CONCAT_ARGS
 init|=
@@ -1292,8 +1292,8 @@ literal|200
 decl_stmt|;
 DECL|field|STRING_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|STRING_TYPE
 init|=
@@ -1308,8 +1308,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|STRINGBUILDER_TYPE
 init|=
@@ -1324,8 +1324,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_CONSTRUCTOR
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_CONSTRUCTOR
 init|=
@@ -1340,8 +1340,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_BOOLEAN
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_BOOLEAN
 init|=
@@ -1360,8 +1360,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_CHAR
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_CHAR
 init|=
@@ -1380,8 +1380,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_INT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_INT
 init|=
@@ -1400,8 +1400,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_LONG
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_LONG
 init|=
@@ -1420,8 +1420,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_FLOAT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_FLOAT
 init|=
@@ -1440,8 +1440,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_DOUBLE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_DOUBLE
 init|=
@@ -1460,8 +1460,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_STRING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_STRING
 init|=
@@ -1480,8 +1480,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_OBJECT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_APPEND_OBJECT
 init|=
@@ -1500,8 +1500,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_TOSTRING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|STRINGBUILDER_TOSTRING
 init|=
@@ -1516,8 +1516,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|OBJECTS_TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|OBJECTS_TYPE
 init|=
@@ -1532,8 +1532,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|EQUALS
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Method
 name|EQUALS
 init|=

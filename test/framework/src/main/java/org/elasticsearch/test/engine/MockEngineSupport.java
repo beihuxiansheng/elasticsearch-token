@@ -1077,8 +1077,8 @@ return|;
 block|}
 DECL|class|DirectoryReaderWrapper
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|DirectoryReaderWrapper
 extends|extends
