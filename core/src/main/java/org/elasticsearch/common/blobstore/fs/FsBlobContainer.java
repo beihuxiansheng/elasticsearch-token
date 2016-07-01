@@ -474,33 +474,13 @@ argument_list|(
 name|blobName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
 name|Files
 operator|.
-name|deleteIfExists
+name|delete
 argument_list|(
 name|blobPath
 argument_list|)
-condition|)
-block|{
-comment|// blobPath does not exist
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"File ["
-operator|+
-name|blobPath
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"] does not exist"
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 annotation|@
 name|Override
