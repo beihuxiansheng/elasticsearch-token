@@ -267,9 +267,6 @@ class|class
 name|NodeConnectionsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|NodeConnectionsService
-argument_list|>
 block|{
 DECL|field|CLUSTER_NODE_RECONNECT_INTERVAL_SETTING
 specifier|public

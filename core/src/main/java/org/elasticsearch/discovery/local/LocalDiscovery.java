@@ -433,9 +433,6 @@ class|class
 name|LocalDiscovery
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|Discovery
-argument_list|>
 implements|implements
 name|Discovery
 block|{

@@ -153,9 +153,6 @@ class|class
 name|MonitorService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|MonitorService
-argument_list|>
 block|{
 DECL|field|jvmGcMonitorService
 specifier|private

@@ -2718,7 +2718,7 @@ annotation|@
 name|Override
 DECL|method|start
 specifier|public
-name|Transport
+name|void
 name|start
 parameter_list|()
 block|{
@@ -2727,15 +2727,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override
 DECL|method|stop
 specifier|public
-name|Transport
+name|void
 name|stop
 parameter_list|()
 block|{
@@ -2744,9 +2741,6 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 annotation|@
 name|Override

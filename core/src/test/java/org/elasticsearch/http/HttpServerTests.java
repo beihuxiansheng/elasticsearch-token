@@ -861,9 +861,6 @@ class|class
 name|TestHttpServerTransport
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|HttpServerTransport
-argument_list|>
 implements|implements
 name|HttpServerTransport
 block|{

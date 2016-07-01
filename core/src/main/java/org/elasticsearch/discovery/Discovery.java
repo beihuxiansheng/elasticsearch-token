@@ -127,9 +127,6 @@ interface|interface
 name|Discovery
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|Discovery
-argument_list|>
 block|{
 DECL|method|localNode
 name|DiscoveryNode

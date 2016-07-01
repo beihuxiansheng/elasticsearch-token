@@ -220,6 +220,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -370,6 +380,8 @@ name|this
 operator|.
 name|client
 operator|=
+name|client
+expr_stmt|;
 name|client
 operator|.
 name|start
@@ -809,6 +821,8 @@ throws|throws
 name|URISyntaxException
 throws|,
 name|StorageException
+throws|,
+name|IOException
 block|{
 return|return
 name|this

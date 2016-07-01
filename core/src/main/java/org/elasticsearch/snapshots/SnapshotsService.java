@@ -763,9 +763,6 @@ class|class
 name|SnapshotsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SnapshotsService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{

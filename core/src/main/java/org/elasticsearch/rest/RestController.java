@@ -267,9 +267,6 @@ class|class
 name|RestController
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|RestController
-argument_list|>
 block|{
 DECL|field|getHandlers
 specifier|private

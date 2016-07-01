@@ -261,9 +261,6 @@ class|class
 name|DelayedAllocationService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|DelayedAllocationService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{

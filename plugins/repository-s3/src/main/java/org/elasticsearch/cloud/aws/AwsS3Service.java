@@ -117,9 +117,6 @@ interface|interface
 name|AwsS3Service
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|AwsS3Service
-argument_list|>
 block|{
 comment|// Global AWS settings (shared between discovery-ec2 and repository-s3)
 comment|// Each setting starting with `cloud.aws` also exists in discovery-ec2 project. Don't forget to update

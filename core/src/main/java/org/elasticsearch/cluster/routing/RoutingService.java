@@ -177,9 +177,6 @@ class|class
 name|RoutingService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|RoutingService
-argument_list|>
 block|{
 DECL|field|CLUSTER_UPDATE_TASK_SOURCE
 specifier|private

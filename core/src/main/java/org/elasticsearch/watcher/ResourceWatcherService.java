@@ -183,9 +183,6 @@ class|class
 name|ResourceWatcherService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|ResourceWatcherService
-argument_list|>
 block|{
 DECL|enum|Frequency
 specifier|public

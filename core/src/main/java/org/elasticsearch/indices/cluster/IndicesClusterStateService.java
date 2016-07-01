@@ -773,9 +773,6 @@ class|class
 name|IndicesClusterStateService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|IndicesClusterStateService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{

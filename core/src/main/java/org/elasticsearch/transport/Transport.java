@@ -169,9 +169,6 @@ interface|interface
 name|Transport
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|Transport
-argument_list|>
 block|{
 DECL|field|TRANSPORT_TCP_COMPRESS
 name|Setting

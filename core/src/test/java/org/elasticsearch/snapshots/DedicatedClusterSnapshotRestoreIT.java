@@ -2969,12 +2969,10 @@ expr_stmt|;
 block|}
 DECL|interface|ClusterStateUpdater
 specifier|private
-specifier|static
 interface|interface
 name|ClusterStateUpdater
 block|{
 DECL|method|execute
-specifier|public
 name|ClusterState
 name|execute
 parameter_list|(
@@ -3810,7 +3808,10 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// Subtract index file from the count
+comment|// Subtract three files that will remain in the repository:
+comment|//   (1) index-1
+comment|//   (2) index-0 (because we keep the previous version) and
+comment|//   (3) index-latest
 name|assertThat
 argument_list|(
 literal|"not all files were deleted during snapshot cancellation"
@@ -3824,7 +3825,7 @@ argument_list|(
 name|repo
 argument_list|)
 operator|-
-literal|1
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;

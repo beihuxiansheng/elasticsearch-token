@@ -255,9 +255,6 @@ class|class
 name|JvmGcMonitorService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|JvmGcMonitorService
-argument_list|>
 block|{
 DECL|field|threadPool
 specifier|private

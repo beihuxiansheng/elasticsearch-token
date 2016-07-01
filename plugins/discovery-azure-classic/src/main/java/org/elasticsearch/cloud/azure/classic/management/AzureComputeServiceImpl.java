@@ -241,9 +241,6 @@ class|class
 name|AzureComputeServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AzureComputeServiceImpl
-argument_list|>
 implements|implements
 name|AzureComputeService
 block|{

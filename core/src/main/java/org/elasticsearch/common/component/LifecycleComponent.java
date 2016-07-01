@@ -39,9 +39,6 @@ DECL|interface|LifecycleComponent
 specifier|public
 interface|interface
 name|LifecycleComponent
-parameter_list|<
-name|T
-parameter_list|>
 extends|extends
 name|Releasable
 block|{
@@ -69,12 +66,12 @@ name|listener
 parameter_list|)
 function_decl|;
 DECL|method|start
-name|T
+name|void
 name|start
 parameter_list|()
 function_decl|;
 DECL|method|stop
-name|T
+name|void
 name|stop
 parameter_list|()
 function_decl|;

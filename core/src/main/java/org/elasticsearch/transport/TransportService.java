@@ -619,9 +619,6 @@ class|class
 name|TransportService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|TransportService
-argument_list|>
 block|{
 DECL|field|DIRECT_RESPONSE_PROFILE
 specifier|public
