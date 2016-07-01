@@ -2443,7 +2443,7 @@ literal|"Unable to find script in : "
 operator|+
 name|scriptBytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 throw|;

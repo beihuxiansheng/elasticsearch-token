@@ -622,13 +622,7 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|BytesReference
-operator|.
-name|Helper
-operator|.
-name|bytesEqual
+name|assertEquals
 argument_list|(
 name|xcontentBytes
 argument_list|,
@@ -636,7 +630,6 @@ name|response
 operator|.
 name|content
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

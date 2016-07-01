@@ -595,15 +595,10 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|bytes
 operator|.
-name|toBytes
+name|streamInput
 argument_list|()
-argument_list|)
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

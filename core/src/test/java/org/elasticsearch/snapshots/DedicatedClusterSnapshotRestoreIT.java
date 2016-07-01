@@ -6510,7 +6510,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|containsString
@@ -6526,7 +6526,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|not
@@ -6670,7 +6670,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|containsString
@@ -6686,7 +6686,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|not

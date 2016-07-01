@@ -455,7 +455,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 if|if

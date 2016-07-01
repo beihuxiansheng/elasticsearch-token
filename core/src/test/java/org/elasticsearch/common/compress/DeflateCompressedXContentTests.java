@@ -520,10 +520,12 @@ expr_stmt|;
 comment|// we used the compressed representation directly and did not recompress
 name|assertArrayEquals
 argument_list|(
-name|b1
+name|BytesReference
 operator|.
 name|toBytes
-argument_list|()
+argument_list|(
+name|b1
+argument_list|)
 argument_list|,
 operator|new
 name|CompressedXContent
@@ -537,10 +539,12 @@ argument_list|)
 expr_stmt|;
 name|assertArrayEquals
 argument_list|(
-name|b2
+name|BytesReference
 operator|.
 name|toBytes
-argument_list|()
+argument_list|(
+name|b2
+argument_list|)
 argument_list|,
 operator|new
 name|CompressedXContent

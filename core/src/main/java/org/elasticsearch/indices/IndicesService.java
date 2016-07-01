@@ -6941,12 +6941,10 @@ init|(
 name|StreamInput
 name|in
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|statsRef
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 init|)
 block|{
 return|return

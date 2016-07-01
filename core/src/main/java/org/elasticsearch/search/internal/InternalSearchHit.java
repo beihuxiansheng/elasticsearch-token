@@ -1128,11 +1128,13 @@ name|this
 operator|.
 name|sourceAsBytes
 operator|=
-name|sourceRef
-argument_list|()
+name|BytesReference
 operator|.
 name|toBytes
+argument_list|(
+name|sourceRef
 argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|this
