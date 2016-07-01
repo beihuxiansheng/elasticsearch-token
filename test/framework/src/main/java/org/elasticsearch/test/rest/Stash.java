@@ -428,7 +428,7 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-comment|/*          * String*Buffer* because that is what the Matcher API takes. In modern versions of java the uncontended synchronization is very,          * very cheap so that should be a problem.          */
+comment|/*          * String*Buffer* because that is what the Matcher API takes. In modern versions of java the uncontended synchronization is very,          * very cheap so that should not be a problem.          */
 name|StringBuffer
 name|result
 init|=
