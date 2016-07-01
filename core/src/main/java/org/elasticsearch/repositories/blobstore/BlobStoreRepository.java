@@ -2245,6 +2245,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|snapshotFormat
 argument_list|(
 name|snapshot
@@ -2263,6 +2265,25 @@ name|snapshotId
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"snapshotFormat failed to delete snapshot [{}]"
+argument_list|,
+name|snapshotId
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 name|globalMetaDataFormat
 argument_list|(
 name|snapshot
@@ -2279,9 +2300,26 @@ name|snapshotName
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"gloalMetaDataFormat failed to delete snapshot [{}]"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 else|else
 block|{
 comment|// We don't know which version was the snapshot created with - try deleting both current and legacy formats
+try|try
+block|{
 name|snapshotFormat
 operator|.
 name|delete
@@ -2294,6 +2332,23 @@ name|snapshotId
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"snapshotFormat failed to delete snapshot [{}]"
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 name|snapshotLegacyFormat
 operator|.
 name|delete
@@ -2303,6 +2358,23 @@ argument_list|,
 name|snapshotName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"snapshotLegacyFormat failed to delete snapshot [{}]"
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 name|globalMetaDataLegacyFormat
 operator|.
 name|delete
@@ -2312,6 +2384,23 @@ argument_list|,
 name|snapshotName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"globalMetaDataLegacyFormat failed to delete snapshot [{}]"
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 name|globalMetaDataFormat
 operator|.
 name|delete
@@ -2321,6 +2410,21 @@ argument_list|,
 name|snapshotName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"globalMetaDataFormat failed to delete snapshot [{}]"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Delete snapshot from the snapshot list
 name|List
