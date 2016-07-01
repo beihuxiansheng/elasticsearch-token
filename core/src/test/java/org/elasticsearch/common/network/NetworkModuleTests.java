@@ -40,7 +40,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -500,15 +502,13 @@ block|{
 name|super
 argument_list|(
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
 DECL|method|handleRequest
-specifier|protected
+specifier|public
 name|void
 name|handleRequest
 parameter_list|(
@@ -518,7 +518,7 @@ parameter_list|,
 name|RestChannel
 name|channel
 parameter_list|,
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 throws|throws
@@ -542,8 +542,6 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -560,7 +558,7 @@ parameter_list|,
 name|RestChannel
 name|channel
 parameter_list|,
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{}

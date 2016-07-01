@@ -193,6 +193,8 @@ argument_list|,
 parameter_list|(
 name|r
 parameter_list|,
+name|t
+parameter_list|,
 name|c
 parameter_list|)
 lambda|->
@@ -264,6 +266,8 @@ operator|.
 name|create
 argument_list|(
 name|registry
+argument_list|,
+literal|null
 argument_list|,
 name|config
 argument_list|)
@@ -370,6 +374,8 @@ name|create
 argument_list|(
 name|registry
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
@@ -424,6 +430,8 @@ operator|.
 name|create
 argument_list|(
 name|registry
+argument_list|,
+literal|null
 argument_list|,
 name|config
 argument_list|)

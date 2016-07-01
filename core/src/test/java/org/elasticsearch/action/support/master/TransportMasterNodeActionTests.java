@@ -1676,11 +1676,11 @@ name|localNode
 argument_list|,
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 name|localNode
 argument_list|,
 name|remoteNode
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|allNodes

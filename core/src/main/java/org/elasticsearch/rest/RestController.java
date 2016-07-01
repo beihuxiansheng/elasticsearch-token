@@ -20,6 +20,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|node
+operator|.
+name|NodeClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -768,6 +782,10 @@ specifier|final
 name|RestChannel
 name|channel
 parameter_list|,
+specifier|final
+name|NodeClient
+name|client
+parameter_list|,
 name|ThreadContext
 name|threadContext
 parameter_list|)
@@ -850,6 +868,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -871,6 +891,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -1052,6 +1074,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|)
 throws|throws
 name|Exception
@@ -1079,6 +1104,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 block|}
@@ -1399,6 +1426,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|)
 block|{
 try|try
@@ -1446,6 +1476,8 @@ name|request
 argument_list|,
 name|channel
 argument_list|,
+name|client
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
@@ -1467,6 +1499,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|,
 name|this
 argument_list|)
@@ -1538,6 +1572,9 @@ parameter_list|,
 name|RestChannel
 name|channel
 parameter_list|,
+name|NodeClient
+name|client
+parameter_list|,
 name|RestFilterChain
 name|filterChain
 parameter_list|)
@@ -1549,6 +1586,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 block|}

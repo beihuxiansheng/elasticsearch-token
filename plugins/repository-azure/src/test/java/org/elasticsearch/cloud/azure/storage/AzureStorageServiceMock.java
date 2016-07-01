@@ -545,6 +545,12 @@ condition|(
 name|keyPath
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|keyPath
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 comment|// strip off key path from the beginning of the blob name
@@ -569,6 +575,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|prefix
+operator|==
+literal|null
+operator|||
 name|startsWithIgnoreCase
 argument_list|(
 name|checkBlob

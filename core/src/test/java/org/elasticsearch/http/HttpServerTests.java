@@ -517,6 +517,8 @@ parameter_list|(
 name|request
 parameter_list|,
 name|channel
+parameter_list|,
+name|client
 parameter_list|)
 lambda|->
 name|channel
@@ -557,6 +559,8 @@ parameter_list|(
 name|request
 parameter_list|,
 name|channel
+parameter_list|,
+name|client
 parameter_list|)
 lambda|->
 block|{
@@ -656,6 +660,8 @@ argument_list|,
 name|restController
 argument_list|,
 name|nodeService
+argument_list|,
+literal|null
 argument_list|,
 name|circuitBreakerService
 argument_list|)

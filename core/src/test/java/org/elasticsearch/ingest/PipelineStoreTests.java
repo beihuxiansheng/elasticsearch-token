@@ -395,6 +395,8 @@ argument_list|,
 parameter_list|(
 name|factories
 parameter_list|,
+name|tag
+parameter_list|,
 name|config
 parameter_list|)
 lambda|->
@@ -487,6 +489,8 @@ literal|"remove"
 argument_list|,
 parameter_list|(
 name|factories
+parameter_list|,
+name|tag
 parameter_list|,
 name|config
 parameter_list|)

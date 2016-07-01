@@ -34,7 +34,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|ConfigurationUtils
 import|;
 end_import
 
@@ -239,17 +239,6 @@ argument_list|(
 literal|10
 argument_list|)
 decl_stmt|;
-name|config
-operator|.
-name|put
-argument_list|(
-name|AbstractProcessorFactory
-operator|.
-name|TAG_KEY
-argument_list|,
-name|processorTag
-argument_list|)
-expr_stmt|;
 name|AttachmentProcessor
 name|processor
 init|=
@@ -258,6 +247,8 @@ operator|.
 name|create
 argument_list|(
 literal|null
+argument_list|,
+name|processorTag
 argument_list|,
 name|config
 argument_list|)
@@ -376,17 +367,6 @@ argument_list|(
 literal|10
 argument_list|)
 decl_stmt|;
-name|config
-operator|.
-name|put
-argument_list|(
-name|AbstractProcessorFactory
-operator|.
-name|TAG_KEY
-argument_list|,
-name|processorTag
-argument_list|)
-expr_stmt|;
 name|AttachmentProcessor
 name|processor
 init|=
@@ -395,6 +375,8 @@ operator|.
 name|create
 argument_list|(
 literal|null
+argument_list|,
+name|processorTag
 argument_list|,
 name|config
 argument_list|)
@@ -472,6 +454,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -654,6 +638,8 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -734,6 +720,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -829,6 +817,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config

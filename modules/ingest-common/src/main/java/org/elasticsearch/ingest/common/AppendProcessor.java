@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|ConfigurationUtils
 import|;
 end_import
 
@@ -242,8 +242,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
+implements|implements
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|templateService
 specifier|private
@@ -268,10 +270,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|AppendProcessor
-name|doCreate
+name|create
 parameter_list|(
 name|Map
 argument_list|<

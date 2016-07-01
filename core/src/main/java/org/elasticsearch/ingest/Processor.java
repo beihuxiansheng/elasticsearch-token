@@ -62,7 +62,7 @@ DECL|interface|Factory
 interface|interface
 name|Factory
 block|{
-comment|/**          * Creates a processor based on the specified map of maps config.          *          * @param processorFactories Other processors which may be created inside this processor          * @param config The configuration for the processor          *          *<b>Note:</b> Implementations are responsible for removing the used configuration keys, so that after          * creating a pipeline ingest can verify if all configurations settings have been used.          */
+comment|/**          * Creates a processor based on the specified map of maps config.          *          * @param processorFactories Other processors which may be created inside this processor          * @param tag The tag for the processor          * @param config The configuration for the processor          *          *<b>Note:</b> Implementations are responsible for removing the used configuration keys, so that after          * creating a pipeline ingest can verify if all configurations settings have been used.          */
 DECL|method|create
 name|Processor
 name|create
@@ -76,6 +76,9 @@ operator|.
 name|Factory
 argument_list|>
 name|processorFactories
+parameter_list|,
+name|String
+name|tag
 parameter_list|,
 name|Map
 argument_list|<

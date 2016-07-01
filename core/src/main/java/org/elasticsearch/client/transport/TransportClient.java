@@ -436,7 +436,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|TransportService
+name|TcpTransport
 import|;
 end_import
 
@@ -448,9 +448,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|netty
-operator|.
-name|NettyTransport
+name|TransportService
 import|;
 end_import
 
@@ -647,7 +645,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|PING_SCHEDULE
 operator|.
@@ -954,18 +952,9 @@ argument_list|(
 name|settings
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+literal|true
 argument_list|)
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configure
-parameter_list|()
-block|{
-comment|// noop
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 name|modules

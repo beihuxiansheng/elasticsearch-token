@@ -206,7 +206,7 @@ name|processorConfig0
 operator|.
 name|put
 argument_list|(
-name|AbstractProcessorFactory
+name|ConfigurationUtils
 operator|.
 name|TAG_KEY
 argument_list|,

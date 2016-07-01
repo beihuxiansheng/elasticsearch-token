@@ -32,18 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|AbstractProcessorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -217,17 +205,6 @@ argument_list|(
 literal|10
 argument_list|)
 decl_stmt|;
-name|config
-operator|.
-name|put
-argument_list|(
-name|AbstractProcessorFactory
-operator|.
-name|TAG_KEY
-argument_list|,
-name|processorTag
-argument_list|)
-expr_stmt|;
 name|DateProcessor
 name|processor
 init|=
@@ -236,6 +213,8 @@ operator|.
 name|create
 argument_list|(
 literal|null
+argument_list|,
+name|processorTag
 argument_list|,
 name|config
 argument_list|)
@@ -403,6 +382,8 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
@@ -509,6 +490,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -636,6 +619,8 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -739,6 +724,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -863,6 +850,8 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -960,6 +949,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -1068,6 +1059,8 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -1158,6 +1151,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -1283,6 +1278,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
