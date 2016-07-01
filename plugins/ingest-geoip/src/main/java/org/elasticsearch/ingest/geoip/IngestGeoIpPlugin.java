@@ -296,7 +296,6 @@ annotation|@
 name|Override
 DECL|method|getProcessors
 specifier|public
-specifier|synchronized
 name|Map
 argument_list|<
 name|String

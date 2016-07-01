@@ -1010,6 +1010,16 @@ specifier|public
 name|UserAgentProcessor
 name|create
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|factories
+parameter_list|,
 name|String
 name|processorTag
 parameter_list|,
