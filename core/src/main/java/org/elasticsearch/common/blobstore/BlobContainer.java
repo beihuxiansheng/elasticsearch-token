@@ -54,6 +54,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -95,7 +107,7 @@ name|String
 name|blobName
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new {@link InputStream} for the given blob name.      *      * @param   blobName      *          The name of the blob to get an {@link InputStream} for.      * @return  The {@code InputStream} to read the blob.      * @throws  IOException if the blob does not exist or can not be read.      */
+comment|/**      * Creates a new {@link InputStream} for the given blob name.      *      * @param   blobName      *          The name of the blob to get an {@link InputStream} for.      * @return  The {@code InputStream} to read the blob.      * @throws  NoSuchFileException if the blob does not exist      * @throws  IOException if the blob can not be read.      */
 DECL|method|readBlob
 name|InputStream
 name|readBlob
@@ -137,7 +149,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Deletes a blob with giving name, if the blob exists.  If the blob does not exist, this method throws an IOException.      *      * @param   blobName      *          The name of the blob to delete.      * @throws  IOException if the blob does not exist, or if the blob exists but could not be deleted.      */
+comment|/**      * Deletes a blob with giving name, if the blob exists.  If the blob does not exist, this method throws an IOException.      *      * @param   blobName      *          The name of the blob to delete.      * @throws  NoSuchFileException if the blob does not exist      * @throws  IOException if the blob exists but could not be deleted.      */
 DECL|method|deleteBlob
 name|void
 name|deleteBlob

@@ -352,16 +352,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -373,6 +363,18 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 
@@ -1069,6 +1071,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchFileException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 return|return
 name|doPrivileged
 argument_list|(
@@ -1148,7 +1171,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FileNotFoundException
+name|NoSuchFileException
 argument_list|(
 name|e
 operator|.
@@ -1256,6 +1279,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchFileException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 name|doPrivileged
 argument_list|(
 parameter_list|()

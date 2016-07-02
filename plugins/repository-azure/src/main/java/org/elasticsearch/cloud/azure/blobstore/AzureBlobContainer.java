@@ -162,16 +162,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -213,6 +203,18 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 
@@ -416,7 +418,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|NoSuchFileException
 argument_list|(
 literal|"Blob ["
 operator|+
@@ -465,7 +467,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FileNotFoundException
+name|NoSuchFileException
 argument_list|(
 name|e
 operator|.
@@ -648,7 +650,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FileNotFoundException
+name|NoSuchFileException
 argument_list|(
 name|e
 operator|.
