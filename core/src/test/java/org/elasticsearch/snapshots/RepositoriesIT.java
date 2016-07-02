@@ -1318,7 +1318,20 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"unsupported url protocol [netdoc]"
+literal|"Unable to parse URL repository setting"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"netdoc"
 argument_list|)
 argument_list|)
 expr_stmt|;
