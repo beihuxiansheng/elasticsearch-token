@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Integration test for highlighters registered by a plugin.  */
 end_comment
 
 begin_class

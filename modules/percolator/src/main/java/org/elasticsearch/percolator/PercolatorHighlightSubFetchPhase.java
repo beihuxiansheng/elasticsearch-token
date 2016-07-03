@@ -222,18 +222,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|Highlighters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|fetch
 operator|.
 name|FetchSubPhase
@@ -251,6 +239,20 @@ operator|.
 name|highlight
 operator|.
 name|HighlightPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|highlight
+operator|.
+name|Highlighter
 import|;
 end_import
 
@@ -340,6 +342,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Highlighting in the case of the percolate query is a bit different, because the PercolateQuery itself doesn't get highlighted,  * but the source of the PercolateQuery gets highlighted by each hit containing a query.  */
 end_comment
@@ -360,7 +372,12 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Highlighters
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Highlighter
+argument_list|>
 name|highlighters
 parameter_list|)
 block|{

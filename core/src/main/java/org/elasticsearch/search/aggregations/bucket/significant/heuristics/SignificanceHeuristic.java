@@ -74,11 +74,33 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|significant
+operator|.
+name|SignificantTerms
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|internal
 operator|.
 name|SearchContext
 import|;
 end_import
+
+begin_comment
+comment|/**  * Heuristic for that {@link SignificantTerms} uses to pick out significant terms.  */
+end_comment
 
 begin_class
 DECL|class|SignificanceHeuristic

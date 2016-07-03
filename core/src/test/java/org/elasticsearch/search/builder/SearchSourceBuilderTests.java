@@ -894,6 +894,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -1357,6 +1369,9 @@ argument_list|,
 name|namedWriteableRegistry
 argument_list|,
 literal|false
+argument_list|,
+name|emptyList
+argument_list|()
 argument_list|)
 block|{
 annotation|@

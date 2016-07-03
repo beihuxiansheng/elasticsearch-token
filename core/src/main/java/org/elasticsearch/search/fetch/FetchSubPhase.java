@@ -80,18 +80,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|SearchParseElement
 import|;
 end_import
@@ -155,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Sub phase within the fetch phase used to fetch things *about* the documents highlghting.  */
 end_comment
 
 begin_interface
