@@ -503,12 +503,30 @@ name|STATE_FILE_CODEC
 init|=
 literal|"state"
 decl_stmt|;
+DECL|field|MIN_COMPATIBLE_STATE_FILE_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MIN_COMPATIBLE_STATE_FILE_VERSION
+init|=
+literal|0
+decl_stmt|;
 DECL|field|STATE_FILE_VERSION
 specifier|private
 specifier|static
 specifier|final
 name|int
 name|STATE_FILE_VERSION
+init|=
+literal|1
+decl_stmt|;
+DECL|field|STATE_FILE_VERSION_ES_2X_AND_BELOW
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|STATE_FILE_VERSION_ES_2X_AND_BELOW
 init|=
 literal|0
 decl_stmt|;
@@ -599,7 +617,7 @@ return|return
 name|format
 return|;
 block|}
-comment|/**      * Writes the given state to the given directories. The state is written to a      * state directory ({@value #STATE_DIR_NAME}) underneath each of the given file locations and is created if it      * doesn't exist. The state is serialized to a temporary file in that directory and is then atomically moved to      * it's target filename of the pattern<tt>{prefix}{version}.st</tt>.      *      * @param state the state object to write      * @param version the version of the state      * @param locations the locations where the state should be written to.      * @throws IOException if an IOException occurs      */
+comment|/**      * Writes the given state to the given directories. The state is written to a      * state directory ({@value #STATE_DIR_NAME}) underneath each of the given file locations and is created if it      * doesn't exist. The state is serialized to a temporary file in that directory and is then atomically moved to      * it's target filename of the pattern<tt>{prefix}{version}.st</tt>.      *      * @param state the state object to write      * @param locations the locations where the state should be written to.      * @throws IOException if an IOException occurs      */
 DECL|method|write
 specifier|public
 specifier|final
@@ -609,10 +627,6 @@ parameter_list|(
 specifier|final
 name|T
 name|state
-parameter_list|,
-specifier|final
-name|long
-name|version
 parameter_list|,
 specifier|final
 name|Path
@@ -788,13 +802,6 @@ name|index
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeLong
-argument_list|(
-name|version
-argument_list|)
-expr_stmt|;
 try|try
 init|(
 name|XContentBuilder
@@ -955,6 +962,7 @@ argument_list|,
 name|tmpPath
 argument_list|)
 expr_stmt|;
+comment|// we are on the same FileSystem / Partition here we can do an atomic move
 name|Files
 operator|.
 name|move
@@ -968,7 +976,6 @@ operator|.
 name|ATOMIC_MOVE
 argument_list|)
 expr_stmt|;
-comment|// we are on the same FileSystem / Partition here we can do an atomic move
 name|IOUtils
 operator|.
 name|fsync
@@ -1125,6 +1132,10 @@ argument_list|(
 name|indexInput
 argument_list|)
 expr_stmt|;
+specifier|final
+name|int
+name|fileVersion
+init|=
 name|CodecUtil
 operator|.
 name|checkHeader
@@ -1133,11 +1144,11 @@ name|indexInput
 argument_list|,
 name|STATE_FILE_CODEC
 argument_list|,
-name|STATE_FILE_VERSION
+name|MIN_COMPATIBLE_STATE_FILE_VERSION
 argument_list|,
 name|STATE_FILE_VERSION
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|XContentType
 name|xContentType
@@ -1153,12 +1164,21 @@ name|readInt
 argument_list|()
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|fileVersion
+operator|==
+name|STATE_FILE_VERSION_ES_2X_AND_BELOW
+condition|)
+block|{
+comment|// format version 0, wrote a version that always came from the content state file and was never used
 name|indexInput
 operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
 comment|// version currently unused
+block|}
 name|long
 name|filePointer
 init|=
@@ -1621,6 +1641,7 @@ decl_stmt|;
 comment|// now, iterate over the current versions, and find latest one
 comment|// we don't check if the stateDir is present since it could be deleted
 comment|// after the check. Also if there is a _state file and it's not a dir something is really wrong
+comment|// we don't pass a glob since we need the group part for parsing
 try|try
 init|(
 name|DirectoryStream
@@ -1637,7 +1658,6 @@ name|stateDir
 argument_list|)
 init|)
 block|{
-comment|// we don't pass a glob since we need the group part for parsing
 for|for
 control|(
 name|Path

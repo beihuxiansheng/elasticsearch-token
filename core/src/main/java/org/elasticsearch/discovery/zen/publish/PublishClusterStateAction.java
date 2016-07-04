@@ -1219,9 +1219,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1453,9 +1450,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 condition|)
 block|{

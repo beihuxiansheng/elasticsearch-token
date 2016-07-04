@@ -889,7 +889,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -4217,7 +4217,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.add_id_to_custom_path"
+literal|"node.add_lock_id_to_custom_path"
 argument_list|,
 literal|false
 argument_list|)

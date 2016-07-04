@@ -2375,6 +2375,11 @@ argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
+name|getEphemeralId
+argument_list|()
+argument_list|,
+name|nodeWithInfo
+operator|.
 name|getHostName
 argument_list|()
 argument_list|,

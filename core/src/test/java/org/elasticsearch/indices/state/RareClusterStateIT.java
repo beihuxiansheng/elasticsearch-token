@@ -354,7 +354,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -1077,9 +1077,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"_non_existent"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

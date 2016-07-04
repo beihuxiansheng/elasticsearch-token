@@ -3281,15 +3281,12 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|get
+name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 operator|==
-literal|null
+literal|false
 condition|)
 block|{
 name|logger
@@ -3323,9 +3320,6 @@ operator|.
 name|remove
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|currentState
@@ -3755,9 +3749,6 @@ condition|(
 operator|!
 name|masterNode
 operator|.
-name|getId
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|currentState
@@ -3765,7 +3756,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|getMasterNodeId
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -3792,9 +3783,6 @@ operator|.
 name|remove
 argument_list|(
 name|masterNode
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 operator|.
 name|masterNodeId

@@ -8874,10 +8874,6 @@ name|write
 argument_list|(
 name|newShardStateMetadata
 argument_list|,
-name|newShardStateMetadata
-operator|.
-name|legacyVersion
-argument_list|,
 name|shardPath
 argument_list|()
 operator|.

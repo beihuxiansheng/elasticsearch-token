@@ -304,7 +304,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -980,9 +980,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 operator|==
 literal|false
@@ -2137,9 +2134,10 @@ argument_list|(
 literal|8
 argument_list|)
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.

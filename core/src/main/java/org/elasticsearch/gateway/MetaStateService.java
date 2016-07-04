@@ -590,11 +590,6 @@ name|write
 argument_list|(
 name|indexMetaData
 argument_list|,
-name|indexMetaData
-operator|.
-name|getVersion
-argument_list|()
-argument_list|,
 name|nodeEnv
 operator|.
 name|indexPaths
@@ -671,11 +666,6 @@ operator|.
 name|write
 argument_list|(
 name|metaData
-argument_list|,
-name|metaData
-operator|.
-name|version
-argument_list|()
 argument_list|,
 name|nodeEnv
 operator|.

@@ -76,7 +76,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -143,6 +143,14 @@ name|testSupersedes
 parameter_list|()
 block|{
 specifier|final
+name|Version
+name|version
+init|=
+name|Version
+operator|.
+name|CURRENT
+decl_stmt|;
+specifier|final
 name|DiscoveryNode
 name|node1
 init|=
@@ -151,9 +159,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"node1"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -161,9 +170,7 @@ argument_list|,
 name|emptySet
 argument_list|()
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -175,9 +182,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"node2"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -185,9 +193,7 @@ argument_list|,
 name|emptySet
 argument_list|()
 argument_list|,
-name|Version
-operator|.
-name|CURRENT
+name|version
 argument_list|)
 decl_stmt|;
 specifier|final
