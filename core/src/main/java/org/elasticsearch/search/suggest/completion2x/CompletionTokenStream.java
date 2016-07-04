@@ -571,12 +571,10 @@ expr_stmt|;
 block|}
 DECL|interface|ToFiniteStrings
 specifier|public
-specifier|static
 interface|interface
 name|ToFiniteStrings
 block|{
 DECL|method|toFiniteStrings
-specifier|public
 name|Set
 argument_list|<
 name|IntsRef
