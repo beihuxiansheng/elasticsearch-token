@@ -2548,7 +2548,9 @@ name|nodeJoinController
 operator|.
 name|stopElectionContext
 argument_list|(
-literal|"not master"
+name|masterNode
+operator|+
+literal|" elected"
 argument_list|)
 expr_stmt|;
 comment|// send join request
@@ -3007,7 +3009,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-node_left("
+literal|"zen-disco-node-left("
 operator|+
 name|node
 operator|+
@@ -3248,7 +3250,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-node_failed("
+literal|"zen-disco-node-failed("
 operator|+
 name|node
 operator|+
@@ -3527,7 +3529,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-minimum_master_nodes_changed"
+literal|"zen-disco-mini-master-nodes-changed"
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
@@ -3709,7 +3711,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-master_failed ("
+literal|"master_failed ("
 operator|+
 name|masterNode
 operator|+

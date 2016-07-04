@@ -318,18 +318,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -2796,14 +2784,19 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|ArrayList
+name|Map
 argument_list|<
 name|String
+argument_list|,
+name|ArrayList
+argument_list|<
+name|T
 argument_list|>
-name|sources
+argument_list|>
+name|processTasksBySource
 init|=
 operator|new
-name|ArrayList
+name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -2861,11 +2854,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"will process [{}]"
+literal|"will process [{}[{}]]"
 argument_list|,
 name|task
 operator|.
 name|source
+argument_list|,
+name|task
+operator|.
+name|task
 argument_list|)
 expr_stmt|;
 name|toExecute
@@ -2875,13 +2872,27 @@ argument_list|(
 name|task
 argument_list|)
 expr_stmt|;
-name|sources
+name|processTasksBySource
+operator|.
+name|computeIfAbsent
+argument_list|(
+name|task
+operator|.
+name|source
+argument_list|,
+name|s
+lambda|->
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+argument_list|)
 operator|.
 name|add
 argument_list|(
 name|task
 operator|.
-name|source
+name|task
 argument_list|)
 expr_stmt|;
 block|}
@@ -2891,11 +2902,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"skipping [{}], already processed"
+literal|"skipping [{}[{}]], already processed"
 argument_list|,
 name|task
 operator|.
 name|source
+argument_list|,
+name|task
+operator|.
+name|task
 argument_list|)
 expr_stmt|;
 block|}
@@ -2914,13 +2929,77 @@ return|return;
 block|}
 specifier|final
 name|String
-name|source
+name|tasksSummary
 init|=
-name|Strings
+name|processTasksBySource
 operator|.
-name|collectionToCommaDelimitedString
+name|entrySet
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
 argument_list|(
-name|sources
+name|entry
+lambda|->
+block|{
+name|String
+name|tasks
+init|=
+name|executor
+operator|.
+name|describeTasks
+argument_list|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|tasks
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|entry
+operator|.
+name|getKey
+argument_list|()
+else|:
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"["
+operator|+
+name|tasks
+operator|+
+literal|"]"
+return|;
+block|}
+argument_list|)
+operator|.
+name|reduce
+argument_list|(
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|)
+lambda|->
+name|s1
+operator|+
+literal|", "
+operator|+
+name|s2
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|""
 argument_list|)
 decl_stmt|;
 if|if
@@ -2938,7 +3017,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: ignoring, cluster_service not started"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2949,7 +3028,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: execute"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 name|ClusterState
@@ -2980,7 +3059,7 @@ name|debug
 argument_list|(
 literal|"failing [{}]: local node is no longer master"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 name|toExecute
@@ -3116,7 +3195,7 @@ operator|.
 name|version
 argument_list|()
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|previousClusterState
 operator|.
@@ -3148,7 +3227,7 @@ name|warnAboutSlowTaskIfNeeded
 argument_list|(
 name|executionTime
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 name|batchResult
@@ -3509,7 +3588,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: took [{}] no change in cluster_state"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|executionTime
 argument_list|)
@@ -3521,7 +3600,7 @@ name|warnAboutSlowTaskIfNeeded
 argument_list|(
 name|executionTime
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -3822,7 +3901,7 @@ name|trace
 argument_list|(
 literal|"cluster state updated, source [{}]\n{}"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 operator|.
@@ -3851,7 +3930,7 @@ operator|.
 name|version
 argument_list|()
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -3861,7 +3940,7 @@ init|=
 operator|new
 name|ClusterChangedEvent
 argument_list|(
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 argument_list|,
@@ -3919,7 +3998,7 @@ literal|"{}, reason: {}"
 argument_list|,
 name|summary
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -3985,7 +4064,7 @@ literal|"failing [{}]: failed to commit cluster state version [{}]"
 argument_list|,
 name|t
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 operator|.
@@ -4291,7 +4370,7 @@ literal|"exception thrown while notifying executor of new cluster state publicat
 argument_list|,
 name|e
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -4326,7 +4405,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: took [{}] done applying updated cluster_state (version: {}, uuid: {})"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|executionTime
 argument_list|,
@@ -4345,7 +4424,7 @@ name|warnAboutSlowTaskIfNeeded
 argument_list|(
 name|executionTime
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -4403,7 +4482,7 @@ operator|.
 name|stateUUID
 argument_list|()
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 operator|.

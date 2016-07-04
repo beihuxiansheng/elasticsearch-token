@@ -892,11 +892,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-join(node "
-operator|+
-name|node
-operator|+
-literal|"])"
+literal|"zen-disco-node-join"
 argument_list|,
 name|node
 argument_list|,
@@ -1370,7 +1366,7 @@ specifier|final
 name|String
 name|source
 init|=
-literal|"zen-disco-join(elected_as_master, ["
+literal|"zen-disco-elected-as-master (["
 operator|+
 name|tasks
 operator|.
@@ -1437,11 +1433,11 @@ specifier|final
 name|String
 name|source
 init|=
-literal|"zen-disco-join(election stopped ["
+literal|"zen-disco-process-pending-joins ["
 operator|+
 name|reason
 operator|+
-literal|"] nodes joined"
+literal|"]"
 decl_stmt|;
 name|tasks
 operator|.
@@ -1909,6 +1905,20 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+comment|// this is not really task , so don't log anything about it...
+block|}
+block|}
 decl_stmt|;
 comment|// a task that is used to process pending joins without explicitly becoming a master and listening to the results
 comment|// this task is used when election is stop without the local node becoming a master per se (though it might
@@ -1943,6 +1953,20 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+comment|// this is not really task , so don't log anything about it...
+block|}
+block|}
 decl_stmt|;
 DECL|class|JoinTaskExecutor
 class|class
