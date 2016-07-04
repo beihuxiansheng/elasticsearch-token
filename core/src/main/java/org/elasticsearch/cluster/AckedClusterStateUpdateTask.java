@@ -200,7 +200,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Called once all the nodes have acknowledged the cluster state update request. Must be      * very lightweight execution, since it gets executed on the cluster service thread.      *      * @param t optional error that might have been thrown      */
+comment|/**      * Called once all the nodes have acknowledged the cluster state update request. Must be      * very lightweight execution, since it gets executed on the cluster service thread.      *      * @param e optional error that might have been thrown      */
 DECL|method|onAllNodesAcked
 specifier|public
 name|void
@@ -208,8 +208,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
@@ -261,15 +261,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

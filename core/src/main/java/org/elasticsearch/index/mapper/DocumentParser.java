@@ -617,8 +617,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -626,7 +626,7 @@ name|wrapInMapperParsingException
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1177,7 +1177,7 @@ parameter_list|(
 name|SourceToParse
 name|source
 parameter_list|,
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

@@ -566,7 +566,7 @@ name|String
 name|id
 parameter_list|,
 name|Throwable
-name|t
+name|cause
 parameter_list|)
 block|{
 name|this
@@ -591,7 +591,7 @@ name|this
 operator|.
 name|cause
 operator|=
-name|t
+name|cause
 expr_stmt|;
 name|this
 operator|.
@@ -601,7 +601,7 @@ name|ExceptionsHelper
 operator|.
 name|status
 argument_list|(
-name|t
+name|cause
 argument_list|)
 expr_stmt|;
 block|}
@@ -641,7 +641,7 @@ name|cause
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 name|status

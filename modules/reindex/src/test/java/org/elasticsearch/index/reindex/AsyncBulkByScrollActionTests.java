@@ -6007,7 +6007,7 @@ expr_stmt|;
 block|}
 DECL|method|wrappedRejectedException
 specifier|private
-name|Throwable
+name|Exception
 name|wrappedRejectedException
 parameter_list|()
 block|{

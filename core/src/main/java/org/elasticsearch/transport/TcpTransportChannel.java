@@ -303,8 +303,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
@@ -320,7 +320,7 @@ name|version
 argument_list|,
 name|channel
 argument_list|,
-name|error
+name|exception
 argument_list|,
 name|requestId
 argument_list|,

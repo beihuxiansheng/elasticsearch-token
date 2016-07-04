@@ -1135,11 +1135,11 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 name|exception
 init|=
 operator|new
-name|Throwable
+name|Exception
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -2504,7 +2504,7 @@ name|allNodes
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Throwable
+name|Exception
 name|failure
 init|=
 name|randomBoolean

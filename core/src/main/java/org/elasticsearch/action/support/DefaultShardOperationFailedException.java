@@ -233,7 +233,7 @@ name|int
 name|shardId
 parameter_list|,
 name|Throwable
-name|t
+name|reason
 parameter_list|)
 block|{
 name|this
@@ -252,15 +252,17 @@ name|this
 operator|.
 name|reason
 operator|=
-name|t
+name|reason
 expr_stmt|;
+name|this
+operator|.
 name|status
 operator|=
 name|ExceptionsHelper
 operator|.
 name|status
 argument_list|(
-name|t
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -401,7 +403,7 @@ name|reason
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 name|status

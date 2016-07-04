@@ -1513,8 +1513,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1523,14 +1523,14 @@ name|error
 argument_list|(
 literal|"unexpected error from waitToBeElectedAsMaster"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|electionFuture
 operator|.
 name|markAsFailed
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1817,8 +1817,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1827,14 +1827,14 @@ name|error
 argument_list|(
 literal|"unexpected error from waitToBeElectedAsMaster"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|electionFuture
 operator|.
 name|markAsFailed
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3115,8 +3115,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3125,14 +3125,14 @@ name|error
 argument_list|(
 literal|"unexpected error in join thread"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|backgroundExceptions
 operator|.
 name|add
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3424,8 +3424,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3434,14 +3434,14 @@ name|error
 argument_list|(
 literal|"unexpected error in join thread"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|backgroundExceptions
 operator|.
 name|add
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4094,8 +4094,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4104,7 +4104,7 @@ name|error
 argument_list|(
 literal|"unexpected error for {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|future
 argument_list|)
@@ -4113,7 +4113,7 @@ name|future
 operator|.
 name|markAsFailed
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

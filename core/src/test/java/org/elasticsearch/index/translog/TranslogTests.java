@@ -3555,12 +3555,12 @@ name|threadCount
 index|]
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 index|[]
 name|threadExceptions
 init|=
 operator|new
-name|Throwable
+name|Exception
 index|[
 name|threadCount
 index|]
@@ -4726,7 +4726,7 @@ comment|// any errors on threads
 specifier|final
 name|List
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|errors
 init|=
@@ -5026,8 +5026,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -5036,7 +5036,7 @@ name|error
 argument_list|(
 literal|"--> writer [{}] had an error"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|threadName
 argument_list|)
@@ -5045,7 +5045,7 @@ name|errors
 operator|.
 name|add
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5121,8 +5121,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -5131,7 +5131,7 @@ name|error
 argument_list|(
 literal|"--> reader [{}] had an error"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|threadId
 argument_list|)
@@ -5140,7 +5140,7 @@ name|errors
 operator|.
 name|add
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 try|try
@@ -5152,21 +5152,23 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|e
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
 literal|"unexpected error while closing view, after failure"
-argument_list|)
-expr_stmt|;
-name|t
-operator|.
-name|addSuppressed
-argument_list|(
-name|e
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -9717,12 +9719,12 @@ name|threadCount
 index|]
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 index|[]
 name|threadExceptions
 init|=
 operator|new
-name|Throwable
+name|Exception
 index|[
 name|threadCount
 index|]
@@ -9907,7 +9909,7 @@ decl_stmt|;
 DECL|field|threadExceptions
 specifier|private
 specifier|final
-name|Throwable
+name|Exception
 index|[]
 name|threadExceptions
 decl_stmt|;
@@ -9939,7 +9941,7 @@ name|LocationOperation
 argument_list|>
 name|writtenOperations
 parameter_list|,
-name|Throwable
+name|Exception
 index|[]
 name|threadExceptions
 parameter_list|)
@@ -10146,7 +10148,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -11201,12 +11203,12 @@ name|threadCount
 index|]
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 index|[]
 name|threadExceptions
 init|=
 operator|new
-name|Throwable
+name|Exception
 index|[
 name|threadCount
 index|]

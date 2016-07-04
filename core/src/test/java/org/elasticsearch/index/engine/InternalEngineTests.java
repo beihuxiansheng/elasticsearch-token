@@ -2646,8 +2646,8 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we don't need to notify anybody in this test
@@ -19040,9 +19040,9 @@ name|InterruptedException
 block|{
 name|AtomicReference
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
-name|throwable
+name|exception
 init|=
 operator|new
 name|AtomicReference
@@ -19156,15 +19156,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-name|throwable
+name|exception
 operator|.
 name|set
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|stop
@@ -19197,7 +19197,7 @@ name|info
 argument_list|(
 literal|"exception caught: "
 argument_list|,
-name|throwable
+name|exception
 operator|.
 name|get
 argument_list|()
@@ -19211,7 +19211,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|throwable
+name|exception
 operator|.
 name|get
 argument_list|()

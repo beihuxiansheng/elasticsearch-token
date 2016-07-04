@@ -736,7 +736,7 @@ decl_stmt|;
 DECL|field|lastFailure
 specifier|private
 specifier|volatile
-name|Throwable
+name|Exception
 name|lastFailure
 decl_stmt|;
 DECL|method|AsyncSingleAction
@@ -1025,7 +1025,7 @@ parameter_list|(
 name|ShardRouting
 name|shardRouting
 parameter_list|,
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1072,11 +1072,11 @@ parameter_list|(
 annotation|@
 name|Nullable
 specifier|final
-name|Throwable
+name|Exception
 name|currentFailure
 parameter_list|)
 block|{
-name|Throwable
+name|Exception
 name|lastFailure
 init|=
 name|this
@@ -1124,7 +1124,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|Throwable
+name|Exception
 name|failure
 init|=
 name|lastFailure
@@ -1438,7 +1438,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1455,7 +1455,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

@@ -174,10 +174,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|AbstractIndexFieldData
 specifier|public
@@ -337,7 +333,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

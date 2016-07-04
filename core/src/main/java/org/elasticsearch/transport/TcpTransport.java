@@ -1090,10 +1090,6 @@ name|newConcurrentMap
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|TcpTransport
 specifier|public
@@ -2192,8 +2188,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -2210,7 +2206,7 @@ name|debug
 argument_list|(
 literal|"[{}] failed to send ping transport message"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -2229,7 +2225,7 @@ name|trace
 argument_list|(
 literal|"[{}] failed to send ping transport message (channel closed)"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -2296,8 +2292,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -2314,7 +2310,7 @@ name|trace
 argument_list|(
 literal|"failed to send ping transport message"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2326,7 +2322,7 @@ name|warn
 argument_list|(
 literal|"failed to send ping transport message"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3004,7 +3000,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3258,7 +3254,7 @@ name|Channel
 name|channel
 parameter_list|,
 specifier|final
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -5268,8 +5264,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -5278,7 +5274,7 @@ name|debug
 argument_list|(
 literal|"Error closing serverChannel for profile [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|entry
 operator|.
@@ -5395,7 +5391,7 @@ parameter_list|(
 name|Channel
 name|channel
 parameter_list|,
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -6025,7 +6021,7 @@ name|Channel
 name|channel
 parameter_list|,
 specifier|final
-name|Throwable
+name|Exception
 name|error
 parameter_list|,
 specifier|final
@@ -6196,7 +6192,7 @@ name|onRequestSent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends the response to the given channel. This method should be used to send {@link TransportResponse} objects back to the caller.      *      * @see #sendErrorResponse(Version, Object, Throwable, long, String) for sending back errors to the caller      */
+comment|/**      * Sends the response to the given channel. This method should be used to send {@link TransportResponse} objects back to the caller.      *      * @see #sendErrorResponse(Version, Object, Exception, long, String) for sending back errors to the caller      */
 DECL|method|sendResponse
 specifier|public
 name|void
@@ -7633,7 +7629,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -7684,8 +7680,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|handleException
@@ -7695,7 +7691,7 @@ argument_list|,
 operator|new
 name|ResponseHandlerFailureTransportException
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7735,7 +7731,7 @@ name|TransportResponseHandler
 name|handler
 parameter_list|)
 block|{
-name|Throwable
+name|Exception
 name|error
 decl_stmt|;
 try|try
@@ -7744,13 +7740,13 @@ name|error
 operator|=
 name|stream
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -7846,7 +7842,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -8063,7 +8059,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -8112,27 +8108,25 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|e1
+name|inner
 parameter_list|)
 block|{
-name|logger
+name|inner
 operator|.
-name|warn
+name|addSuppressed
 argument_list|(
-literal|"Failed to send error message back to client for action [{}]"
-argument_list|,
 name|e
-argument_list|,
-name|action
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Actual Exception"
+literal|"Failed to send error message back to client for action [{}]"
 argument_list|,
-name|e1
+name|inner
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 block|}
@@ -8307,7 +8301,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -8336,31 +8330,29 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
-name|logger
+name|inner
 operator|.
-name|warn
+name|addSuppressed
 argument_list|(
-literal|"Failed to send error message back to client for action [{}]"
-argument_list|,
-name|e1
-argument_list|,
-name|reg
-operator|.
-name|getAction
-argument_list|()
+name|e
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Actual Exception"
+literal|"Failed to send error message back to client for action [{}]"
 argument_list|,
-name|e
+name|inner
+argument_list|,
+name|reg
+operator|.
+name|getAction
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

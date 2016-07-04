@@ -6033,7 +6033,7 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -6367,8 +6367,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
@@ -6377,14 +6377,14 @@ name|consumer
 operator|.
 name|accept
 argument_list|(
-name|error
+name|exception
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|error
+name|exception
 argument_list|)
 expr_stmt|;
 block|}

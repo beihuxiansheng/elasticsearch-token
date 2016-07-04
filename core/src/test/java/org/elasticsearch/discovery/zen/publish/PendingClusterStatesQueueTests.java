@@ -1956,13 +1956,13 @@ specifier|public
 name|void
 name|onNewClusterStateFailed
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failure
 operator|=
-name|t
+name|e
 expr_stmt|;
 block|}
 block|}

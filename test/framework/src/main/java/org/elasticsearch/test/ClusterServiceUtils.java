@@ -54,18 +54,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -621,15 +609,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
 argument_list|(
 literal|"unexpected exception"
 operator|+
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

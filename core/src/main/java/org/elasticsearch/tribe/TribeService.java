@@ -2021,7 +2021,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2044,17 +2044,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"failed to close node {} on failed start"
 argument_list|,
-name|t
+name|inner
 argument_list|,
 name|otherNode
 argument_list|)
@@ -2123,8 +2130,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2133,7 +2140,7 @@ name|warn
 argument_list|(
 literal|"failed to close node {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -2251,7 +2258,7 @@ argument_list|,
 parameter_list|(
 name|source
 parameter_list|,
-name|t
+name|e
 parameter_list|)
 lambda|->
 name|logger
@@ -2260,7 +2267,7 @@ name|warn
 argument_list|(
 literal|"failed to process [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -2389,8 +2396,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|builder
@@ -2399,7 +2406,7 @@ name|failures
 argument_list|(
 name|tasks
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

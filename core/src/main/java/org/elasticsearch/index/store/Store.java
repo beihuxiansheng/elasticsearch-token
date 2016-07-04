@@ -1921,7 +1921,7 @@ parameter_list|)
 block|{                 }
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -3070,12 +3070,12 @@ argument_list|(
 name|buffer
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 decl_stmt|;
 if|if
@@ -4573,7 +4573,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -4606,6 +4606,9 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ex
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -4630,15 +4633,21 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e
+name|Exception
+name|inner
 parameter_list|)
 block|{
-comment|// ignore...
-block|}
+name|ex
+operator|.
+name|addSuppressed
+argument_list|(
+name|inner
+argument_list|)
+expr_stmt|;
 throw|throw
 name|ex
 throw|;
+block|}
 block|}
 return|return
 operator|new
@@ -4830,7 +4839,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -7025,11 +7034,11 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// ignore
+comment|// ignore :(
 block|}
 block|}
 block|}

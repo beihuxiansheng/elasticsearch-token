@@ -273,8 +273,8 @@ parameter_list|(
 name|T
 name|task
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 return|return
@@ -286,7 +286,7 @@ name|TaskResult
 operator|.
 name|failure
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 return|;
@@ -305,8 +305,8 @@ name|T
 argument_list|>
 name|tasks
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -321,7 +321,7 @@ name|failure
 argument_list|(
 name|task
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -404,7 +404,7 @@ block|{
 DECL|field|failure
 specifier|private
 specifier|final
-name|Throwable
+name|Exception
 name|failure
 decl_stmt|;
 DECL|field|SUCCESS
@@ -437,7 +437,7 @@ specifier|static
 name|TaskResult
 name|failure
 parameter_list|(
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -453,7 +453,7 @@ DECL|method|TaskResult
 specifier|private
 name|TaskResult
 parameter_list|(
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -478,7 +478,7 @@ return|;
 block|}
 DECL|method|getFailure
 specifier|public
-name|Throwable
+name|Exception
 name|getFailure
 parameter_list|()
 block|{
@@ -502,7 +502,7 @@ name|onSuccess
 parameter_list|,
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|onFailure
 parameter_list|)

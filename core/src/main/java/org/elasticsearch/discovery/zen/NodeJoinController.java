@@ -708,8 +708,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -718,7 +718,7 @@ name|error
 argument_list|(
 literal|"unexpected failure while waiting for incoming joins"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -734,7 +734,7 @@ name|myElectionContext
 argument_list|,
 literal|"unexpected failure while waiting for pending joins ["
 operator|+
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()
@@ -1674,8 +1674,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|ElectionContext
@@ -1684,7 +1684,7 @@ name|this
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1777,8 +1777,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -1797,21 +1797,23 @@ name|callback
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"error during task failure"
+literal|"error handling task failure [{}]"
+argument_list|,
+name|inner
 argument_list|,
 name|e
 argument_list|)

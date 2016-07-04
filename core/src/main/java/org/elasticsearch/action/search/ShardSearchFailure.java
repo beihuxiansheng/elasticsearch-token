@@ -207,13 +207,13 @@ DECL|method|ShardSearchFailure
 specifier|public
 name|ShardSearchFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|this
 argument_list|(
-name|t
+name|e
 argument_list|,
 literal|null
 argument_list|)
@@ -223,8 +223,8 @@ DECL|method|ShardSearchFailure
 specifier|public
 name|ShardSearchFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|,
 annotation|@
 name|Nullable
@@ -232,6 +232,7 @@ name|SearchShardTarget
 name|shardTarget
 parameter_list|)
 block|{
+specifier|final
 name|Throwable
 name|actual
 init|=
@@ -239,7 +240,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 if|if
@@ -300,7 +301,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|this
@@ -593,7 +594,7 @@ name|cause
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}

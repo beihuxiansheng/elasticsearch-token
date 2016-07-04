@@ -553,7 +553,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -633,7 +633,7 @@ name|accept
 argument_list|(
 name|any
 argument_list|(
-name|Throwable
+name|Exception
 operator|.
 name|class
 argument_list|)
@@ -775,7 +775,7 @@ name|BiConsumer
 argument_list|<
 name|IndexRequest
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -793,7 +793,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|completionHandler
 init|=
@@ -987,7 +987,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -1147,7 +1147,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -1431,7 +1431,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -1733,7 +1733,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -1996,7 +1996,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -2239,7 +2239,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -2558,7 +2558,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -2741,7 +2741,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -2919,7 +2919,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -3063,7 +3063,7 @@ argument_list|)
 decl_stmt|;
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=
@@ -3367,7 +3367,7 @@ name|BiConsumer
 argument_list|<
 name|IndexRequest
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 name|requestItemErrorHandler
 init|=
@@ -3380,7 +3380,7 @@ argument_list|)
 decl_stmt|;
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|completionHandler
 init|=
@@ -3560,7 +3560,7 @@ name|BiConsumer
 argument_list|<
 name|IndexRequest
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 name|requestItemErrorHandler
 init|=
@@ -3578,7 +3578,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|completionHandler
 init|=
@@ -3860,7 +3860,7 @@ argument_list|)
 expr_stmt|;
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failureHandler
 init|=

@@ -3064,7 +3064,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -4217,8 +4217,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4227,7 +4227,7 @@ name|debug
 argument_list|(
 literal|"error while processing ack for master node [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|newClusterState
 operator|.
@@ -4354,8 +4354,8 @@ end_block
 begin_catch
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|TimeValue
@@ -4389,7 +4389,7 @@ name|warn
 argument_list|(
 literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|executionTime
 argument_list|,
@@ -4540,8 +4540,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -4552,25 +4552,30 @@ name|onFailure
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"exception thrown by listener notifying of failure [{}] from [{}]"
+literal|"exception thrown by listener notifying of failure from [{}]"
 argument_list|,
-name|e
-argument_list|,
-name|t
+name|inner
 argument_list|,
 name|source
 argument_list|)
@@ -4765,8 +4770,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -4775,25 +4780,30 @@ name|listener
 operator|.
 name|onAllNodesAcked
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"exception thrown by listener while notifying on all nodes acked [{}]"
+literal|"exception thrown by listener while notifying on all nodes acked"
 argument_list|,
-name|e
-argument_list|,
-name|t
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -5485,8 +5495,8 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -5505,7 +5515,7 @@ name|onNodeAck
 argument_list|(
 name|node
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5591,7 +5601,7 @@ name|ackTimeoutCallback
 decl_stmt|;
 DECL|field|lastFailure
 specifier|private
-name|Throwable
+name|Exception
 name|lastFailure
 decl_stmt|;
 DECL|method|AckCountDownListener
@@ -5739,8 +5749,8 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -5774,7 +5784,7 @@ block|}
 block|}
 if|if
 condition|(
-name|t
+name|e
 operator|==
 literal|null
 condition|)
@@ -5797,7 +5807,7 @@ name|this
 operator|.
 name|lastFailure
 operator|=
-name|t
+name|e
 expr_stmt|;
 name|logger
 operator|.
@@ -5805,7 +5815,7 @@ name|debug
 argument_list|(
 literal|"ack received from node [{}], cluster_state update (version: {})"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|,

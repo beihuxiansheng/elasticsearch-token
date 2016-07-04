@@ -4892,13 +4892,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|instanceOf
 argument_list|(
@@ -4910,7 +4910,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()

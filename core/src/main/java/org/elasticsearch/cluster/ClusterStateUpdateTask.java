@@ -190,11 +190,11 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(String, Throwable)}. May return null to indicate no timeout is needed (default).      */
+comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link ClusterStateTaskListener#onFailure(String, Exception)}. May return null to indicate no timeout is needed (default).      */
 annotation|@
 name|Nullable
 DECL|method|timeout

@@ -814,7 +814,7 @@ name|nodeId
 decl_stmt|;
 DECL|field|cause
 specifier|private
-name|Throwable
+name|Exception
 name|cause
 decl_stmt|;
 DECL|field|status
@@ -839,7 +839,7 @@ name|Nullable
 name|String
 name|nodeId
 parameter_list|,
-name|Throwable
+name|Exception
 name|cause
 parameter_list|,
 name|RestStatus
@@ -1026,7 +1026,7 @@ name|cause
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 name|status

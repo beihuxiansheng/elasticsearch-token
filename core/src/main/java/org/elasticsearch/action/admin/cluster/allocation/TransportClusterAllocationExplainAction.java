@@ -927,7 +927,7 @@ block|}
 else|else
 block|{
 specifier|final
-name|Throwable
+name|Exception
 name|storeErr
 init|=
 name|storeStatus
@@ -2177,7 +2177,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

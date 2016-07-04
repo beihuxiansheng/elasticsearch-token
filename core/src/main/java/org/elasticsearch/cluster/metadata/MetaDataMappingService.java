@@ -1207,8 +1207,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1217,7 +1217,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to refresh-mapping in cluster state"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|index
 argument_list|)
@@ -1280,7 +1280,7 @@ argument_list|,
 parameter_list|(
 name|source
 parameter_list|,
-name|t
+name|e
 parameter_list|)
 lambda|->
 name|logger
@@ -1289,7 +1289,7 @@ name|warn
 argument_list|(
 literal|"failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -1506,8 +1506,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|builder
@@ -1516,7 +1516,7 @@ name|failure
 argument_list|(
 name|request
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2310,15 +2310,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2344,8 +2344,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener

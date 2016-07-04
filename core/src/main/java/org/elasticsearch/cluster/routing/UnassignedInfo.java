@@ -48,20 +48,6 @@ name|cluster
 operator|.
 name|metadata
 operator|.
-name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
 name|MetaData
 import|;
 end_import
@@ -405,7 +391,7 @@ decl_stmt|;
 DECL|field|failure
 specifier|private
 specifier|final
-name|Throwable
+name|Exception
 name|failure
 decl_stmt|;
 DECL|field|failedAllocations
@@ -473,7 +459,7 @@ name|message
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|failure
 parameter_list|,
 name|int
@@ -655,7 +641,7 @@ name|failure
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 name|this
@@ -829,7 +815,7 @@ annotation|@
 name|Nullable
 DECL|method|getFailure
 specifier|public
-name|Throwable
+name|Exception
 name|getFailure
 parameter_list|()
 block|{

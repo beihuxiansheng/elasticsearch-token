@@ -1043,13 +1043,13 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|finishHim
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1298,13 +1298,13 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|finishHim
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1695,7 +1695,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1980,7 +1980,7 @@ end_expr_stmt
 begin_expr_stmt
 unit|} catch
 operator|(
-name|Throwable
+name|Exception
 name|t
 operator|)
 block|{
@@ -2299,7 +2299,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2324,7 +2324,7 @@ DECL|method|finishHim
 name|void
 name|finishHim
 parameter_list|(
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -2345,7 +2345,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Finish the request.      *      * @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      * @param timedOut have any of the sub-requests timed out?      */
+comment|/**      * Finish the request.      *  @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      * @param timedOut have any of the sub-requests timed out?      */
 end_comment
 
 begin_function
@@ -2353,7 +2353,7 @@ DECL|method|finishHim
 name|void
 name|finishHim
 parameter_list|(
-name|Throwable
+name|Exception
 name|failure
 parameter_list|,
 name|List
@@ -2451,7 +2451,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2795,7 +2795,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

@@ -1142,8 +1142,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -1152,7 +1152,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrap
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|ClusterBlockException
 operator|.
@@ -1168,7 +1168,7 @@ name|info
 argument_list|(
 literal|"expected ClusterBlockException  but got "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|fail
@@ -2285,8 +2285,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -2295,7 +2295,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrap
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|IllegalStateException
 operator|.
@@ -2311,7 +2311,7 @@ name|info
 argument_list|(
 literal|"expected IllegalStateException  but got "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|fail

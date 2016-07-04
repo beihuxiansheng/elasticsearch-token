@@ -229,7 +229,7 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -291,7 +291,7 @@ operator|.
 name|Delete
 name|delete
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -362,7 +362,7 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -421,7 +421,7 @@ operator|.
 name|Delete
 name|delete
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{

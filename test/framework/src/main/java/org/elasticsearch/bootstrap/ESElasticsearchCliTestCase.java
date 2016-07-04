@@ -267,8 +267,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// if an unexpected exception is thrown, we log
@@ -285,7 +285,7 @@ argument_list|)
 expr_stmt|;
 comment|// rethrow so the test fails
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}

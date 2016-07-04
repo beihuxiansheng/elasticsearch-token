@@ -584,10 +584,6 @@ name|source
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|TermVectorsService
 specifier|public
@@ -1158,7 +1154,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -1847,7 +1843,7 @@ name|boolean
 name|doAllFields
 parameter_list|)
 throws|throws
-name|Throwable
+name|IOException
 block|{
 comment|// parse the document, at the moment we do update the mapping, just like percolate
 name|ParsedDocument
@@ -2101,8 +2097,6 @@ parameter_list|,
 name|BytesReference
 name|doc
 parameter_list|)
-throws|throws
-name|Throwable
 block|{
 name|MapperService
 name|mapperService

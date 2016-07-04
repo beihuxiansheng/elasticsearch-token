@@ -127,8 +127,6 @@ operator|.
 name|stats
 operator|.
 name|CommonStatsFlags
-operator|.
-name|Flag
 import|;
 end_import
 
@@ -147,6 +145,8 @@ operator|.
 name|stats
 operator|.
 name|CommonStatsFlags
+operator|.
+name|Flag
 import|;
 end_import
 
@@ -507,8 +507,6 @@ operator|.
 name|settings
 operator|.
 name|Setting
-operator|.
-name|Property
 import|;
 end_import
 
@@ -523,6 +521,8 @@ operator|.
 name|settings
 operator|.
 name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -1492,10 +1492,6 @@ name|arrayAsArrayList
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|IndicesService
 specifier|public
@@ -2167,7 +2163,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3617,7 +3613,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -4108,7 +4104,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

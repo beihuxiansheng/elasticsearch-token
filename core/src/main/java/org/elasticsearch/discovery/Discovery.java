@@ -174,8 +174,8 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 DECL|method|onTimeout

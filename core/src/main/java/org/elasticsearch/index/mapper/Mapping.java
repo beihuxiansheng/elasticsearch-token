@@ -98,6 +98,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UncheckedIOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -805,7 +815,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|AssertionError
+name|UncheckedIOException
 argument_list|(
 name|bogus
 argument_list|)

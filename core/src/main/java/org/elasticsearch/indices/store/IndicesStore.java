@@ -1750,7 +1750,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -1779,8 +1779,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1789,7 +1789,7 @@ name|error
 argument_list|(
 literal|"{} unexpected error during deletion of unallocated shard"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 argument_list|)

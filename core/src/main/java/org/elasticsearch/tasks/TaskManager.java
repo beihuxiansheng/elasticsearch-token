@@ -885,7 +885,7 @@ parameter_list|(
 name|Task
 name|task
 parameter_list|,
-name|Throwable
+name|Exception
 name|error
 parameter_list|,
 name|ActionListener
@@ -1006,7 +1006,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1177,7 +1177,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

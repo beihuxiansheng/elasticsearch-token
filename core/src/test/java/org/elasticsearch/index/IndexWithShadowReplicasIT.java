@@ -3691,7 +3691,7 @@ name|void
 name|testPrimaryRelocationWithConcurrentIndexing
 parameter_list|()
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|Path
 name|dataPath
@@ -3911,7 +3911,7 @@ decl_stmt|;
 specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|exceptions
 init|=
@@ -4000,15 +4000,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|exceptions
 operator|.
 name|add
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -2097,7 +2097,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2126,10 +2126,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|files
 operator|+=
 literal|" (failure="
@@ -2138,7 +2145,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|e1
+name|inner
 argument_list|)
 operator|+
 literal|")"
@@ -2210,7 +2217,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2625,8 +2632,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -2637,7 +2644,7 @@ name|shardId
 argument_list|,
 literal|"restore failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}

@@ -999,10 +999,31 @@ name|exp
 operator|instanceof
 name|RemoteTransportException
 condition|?
+call|(
+name|Exception
+call|)
+argument_list|(
 name|exp
 operator|.
 name|getCause
 argument_list|()
+operator|instanceof
+name|Exception
+condition|?
+name|exp
+operator|.
+name|getCause
+argument_list|()
+else|:
+operator|new
+name|ElasticsearchException
+argument_list|(
+name|exp
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+argument_list|)
 else|:
 name|exp
 argument_list|)
@@ -1063,7 +1084,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Send a shard failed request to the master node to update the      * cluster state.      *      * @param shardRouting       the shard to fail      * @param sourceShardRouting the source shard requesting the failure (must be the shard itself, or the primary shard)      * @param message            the reason for the failure      * @param failure            the underlying cause of the failure      * @param listener           callback upon completion of the request      */
+comment|/**      * Send a shard failed request to the master node to update the      * cluster state.      *  @param shardRouting       the shard to fail      * @param sourceShardRouting the source shard requesting the failure (must be the shard itself, or the primary shard)      * @param message            the reason for the failure      * @param failure            the underlying cause of the failure      * @param listener           callback upon completion of the request      */
 DECL|method|shardFailed
 specifier|public
 name|void
@@ -1083,7 +1104,7 @@ parameter_list|,
 annotation|@
 name|Nullable
 specifier|final
-name|Throwable
+name|Exception
 name|failure
 parameter_list|,
 name|Listener
@@ -1422,8 +1443,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1432,7 +1453,7 @@ name|error
 argument_list|(
 literal|"{} unexpected failure while failing shard [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -1452,23 +1473,30 @@ name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|channelThrowable
+name|Exception
+name|channelException
 parameter_list|)
 block|{
+name|channelException
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"{} failed to send failure [{}] while failing shard [{}]"
 argument_list|,
-name|channelThrowable
+name|channelException
 argument_list|,
 name|request
 operator|.
@@ -1477,7 +1505,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -1530,8 +1558,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|channelThrowable
+name|Exception
+name|channelException
 parameter_list|)
 block|{
 name|logger
@@ -1540,7 +1568,7 @@ name|warn
 argument_list|(
 literal|"{} failed to send no longer master while failing shard [{}]"
 argument_list|,
-name|channelThrowable
+name|channelException
 argument_list|,
 name|request
 operator|.
@@ -1588,8 +1616,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|channelThrowable
+name|Exception
+name|channelException
 parameter_list|)
 block|{
 name|logger
@@ -1598,7 +1626,7 @@ name|warn
 argument_list|(
 literal|"{} failed to send response while failing shard [{}]"
 argument_list|,
-name|channelThrowable
+name|channelException
 argument_list|,
 name|request
 operator|.
@@ -1889,8 +1917,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// failures are communicated back to the requester
@@ -1901,7 +1929,7 @@ name|failures
 argument_list|(
 name|tasksToFail
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2626,8 +2654,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|builder
@@ -2636,7 +2664,7 @@ name|failures
 argument_list|(
 name|tasks
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2659,8 +2687,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2669,7 +2697,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -2697,7 +2725,7 @@ name|String
 name|message
 decl_stmt|;
 DECL|field|failure
-name|Throwable
+name|Exception
 name|failure
 decl_stmt|;
 DECL|method|ShardRoutingEntry
@@ -2719,7 +2747,7 @@ name|message
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -2805,7 +2833,7 @@ name|failure
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}
@@ -2959,15 +2987,15 @@ name|void
 name|onSuccess
 parameter_list|()
 block|{         }
-comment|/**          * Notification for non-channel exceptions that are not handled          * by {@link ShardStateAction}.          *          * The exceptions that are handled by {@link ShardStateAction}          * are:          *  - {@link NotMasterException}          *  - {@link NodeDisconnectedException}          *  - {@link Discovery.FailedToCommitClusterStateException}          *          * Any other exception is communicated to the requester via          * this notification.          *          * @param t the unexpected cause of the failure on the master          */
+comment|/**          * Notification for non-channel exceptions that are not handled          * by {@link ShardStateAction}.          *          * The exceptions that are handled by {@link ShardStateAction}          * are:          *  - {@link NotMasterException}          *  - {@link NodeDisconnectedException}          *  - {@link Discovery.FailedToCommitClusterStateException}          *          * Any other exception is communicated to the requester via          * this notification.          *          * @param e the unexpected cause of the failure on the master          */
 DECL|method|onFailure
 specifier|default
 name|void
 name|onFailure
 parameter_list|(
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{         }
 block|}

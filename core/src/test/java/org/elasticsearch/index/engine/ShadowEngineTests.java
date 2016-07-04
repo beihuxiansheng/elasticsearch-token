@@ -1857,8 +1857,8 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we don't need to notify anybody in this test

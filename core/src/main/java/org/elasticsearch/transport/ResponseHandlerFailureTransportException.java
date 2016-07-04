@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A failure to handle the response of a transaction action.  *  *  */
+comment|/**  * A failure to handle the response of a transaction action.  */
 end_comment
 
 begin_class

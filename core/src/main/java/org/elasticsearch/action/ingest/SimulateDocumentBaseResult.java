@@ -188,7 +188,7 @@ name|failure
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}
@@ -337,7 +337,7 @@ else|else
 block|{
 name|ElasticsearchException
 operator|.
-name|renderThrowable
+name|renderException
 argument_list|(
 name|builder
 argument_list|,

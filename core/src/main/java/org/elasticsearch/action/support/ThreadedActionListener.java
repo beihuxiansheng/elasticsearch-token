@@ -436,15 +436,15 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -460,7 +460,7 @@ name|void
 name|onFailure
 parameter_list|(
 specifier|final
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -511,8 +511,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -521,7 +521,7 @@ name|warn
 argument_list|(
 literal|"failed to execute failure callback on [{}], failure [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|listener
 argument_list|,

@@ -1793,8 +1793,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1803,7 +1803,7 @@ name|debug
 argument_list|(
 literal|"Ping execution failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|sendPingsHandler
@@ -1822,8 +1822,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1832,7 +1832,7 @@ name|debug
 argument_list|(
 literal|"Ping execution failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|sendPingsHandler
@@ -2610,7 +2610,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

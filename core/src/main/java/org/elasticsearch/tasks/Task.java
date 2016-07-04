@@ -423,7 +423,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|Throwable
+name|Exception
 name|error
 parameter_list|)
 throws|throws

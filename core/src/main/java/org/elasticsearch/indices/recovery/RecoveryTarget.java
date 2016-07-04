@@ -1311,8 +1311,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1321,7 +1321,7 @@ name|debug
 argument_list|(
 literal|"error while closing recovery output [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|entry
 operator|.
@@ -1763,7 +1763,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

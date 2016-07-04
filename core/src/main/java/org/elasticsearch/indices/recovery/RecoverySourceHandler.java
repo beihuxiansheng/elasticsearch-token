@@ -537,7 +537,7 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|suppressedException
 parameter_list|)
 block|{
@@ -757,7 +757,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -797,7 +797,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -877,7 +877,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1939,7 +1939,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2326,7 +2326,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3025,7 +3025,7 @@ argument_list|>
 name|outputStreamFactory
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|store
 operator|.
@@ -3141,8 +3141,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 specifier|final
@@ -3158,7 +3158,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCorruption
 argument_list|(
-name|t
+name|e
 argument_list|)
 operator|)
 operator|!=
@@ -3218,7 +3218,7 @@ name|exception
 operator|.
 name|addSuppressed
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|logger
@@ -3247,7 +3247,7 @@ block|}
 else|else
 block|{
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}

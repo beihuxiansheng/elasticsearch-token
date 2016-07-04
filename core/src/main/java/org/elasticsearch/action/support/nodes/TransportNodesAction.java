@@ -350,10 +350,6 @@ name|Supplier
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TransportNodesAction
 specifier|public
@@ -1342,8 +1338,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onFailure
@@ -1352,7 +1348,7 @@ name|idx
 argument_list|,
 name|nodeId
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1508,8 +1504,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1518,14 +1514,14 @@ name|debug
 argument_list|(
 literal|"failed to combine responses from nodes"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return;

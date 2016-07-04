@@ -1776,8 +1776,8 @@ operator|.
 name|common
 operator|.
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1786,7 +1786,7 @@ name|warn
 argument_list|(
 literal|"failed to start initial join process"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2235,8 +2235,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2245,7 +2245,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -2708,8 +2708,8 @@ name|source
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2718,7 +2718,7 @@ name|error
 argument_list|(
 literal|"unexpected error while trying to finalize cluster join"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|joinThreadControl
@@ -2818,10 +2818,11 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
+specifier|final
 name|Throwable
 name|unwrap
 init|=
@@ -2829,7 +2830,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 if|if
@@ -2861,7 +2862,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|,
 name|joinAttempt
@@ -2885,7 +2886,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|,
 name|joinAttempt
@@ -2909,7 +2910,7 @@ name|trace
 argument_list|(
 literal|"failed to send join request to master [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|masterNode
 argument_list|)
@@ -2929,7 +2930,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3159,8 +3160,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3169,7 +3170,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -3433,8 +3434,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3443,7 +3444,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -3609,8 +3610,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3619,7 +3620,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -3856,8 +3857,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3866,7 +3867,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -4347,8 +4348,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4357,7 +4358,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -4380,23 +4381,30 @@ name|markAsFailed
 argument_list|(
 name|newClusterState
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|unexpected
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
 literal|"unexpected exception while failing [{}]"
 argument_list|,
-name|unexpected
+name|inner
 argument_list|,
 name|source
 argument_list|)
@@ -4443,15 +4451,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onFailure
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4842,7 +4850,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -6033,8 +6041,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -6043,7 +6051,7 @@ name|debug
 argument_list|(
 literal|"unexpected error during cluster state update task after pings from another master"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6300,8 +6308,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -6310,7 +6318,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)

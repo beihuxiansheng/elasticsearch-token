@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A synchronization aid that allows a set of threads to all wait for each other  * to reach a common barrier point. Barriers are useful in programs involving a  * fixed sized party of threads that must occasionally wait for each other.  *<code>ThreadBarrier</code> adds a<i>cause</i> to  * {@link BrokenBarrierException} thrown by a {@link #reset()} operation defined  * by {@link CyclicBarrier}.  *<p>  *<b>Sample usage:</b><br>  *<ul>  *<li>Barrier as a synchronization and Exception handling aid</li>  *<li>Barrier as a trigger for elapsed notification events</li>  *</ul>  *<pre>  *    class MyTestClass implements RemoteEventListener  *    {  *      final ThreadBarrier barrier;  *  *      class Worker implements Runnable  *        {  *          public void run()  *            {  *              barrier.await();    //wait for all threads to reach run  *              try  *                {  *                  prepare();  *                  barrier.await();    //wait for all threads to prepare  *                  process();  *                  barrier.await();    //wait for all threads to process  *                }  *              catch(Throwable t){  *                  log(&quot;Worker thread caught exception&quot;, t);  *                  barrier.reset(t);  *                }  *            }  *        }  *  *      public void testThreads() {  *          barrier = new ThreadBarrier(N_THREADS + 1);  *          for (int i = 0; i&lt; N; ++i)  *           new Thread(new Worker()).start();  *  *          try{  *              barrier.await();    //wait for all threads to reach run  *              barrier.await();    //wait for all threads to prepare  *              barrier.await();    //wait for all threads to process  *            }  *          catch(BrokenBarrierException bbe) {  *              Assert.fail(bbe);  *            }  *       }  *  *      int actualNotificationCount = 0;  *      public synchronized void notify (RemoteEvent event) {  *          try{  *              actualNotificationCount++;  *              if (actualNotificationCount == EXPECTED_COUNT)  *                  barrier.await();    //signal when all notifications arrive  *  *               // too many notifications?  *               Assert.assertFalse(&quot;Exceeded notification count&quot;,  *                                          actualNotificationCount&gt; EXPECTED_COUNT);  *            }  *          catch(Throwable t) {  *              log(&quot;Worker thread caught exception&quot;, t);  *              barrier.reset(t);  *            }  *        }  *  *      public void testNotify() {  *          barrier = new ThreadBarrier(N_LISTENERS + 1);  *          registerNotification();  *          triggerNotifications();  *  *          //wait until either all notifications arrive, or  *          //until a MAX_TIMEOUT is reached.  *          barrier.await(MAX_TIMEOUT);  *  *          //check if all notifications were accounted for or timed-out  *          Assert.assertEquals(&quot;Notification count&quot;,  *                                      EXPECTED_COUNT, actualNotificationCount);  *  *          //inspect that the barrier isn't broken  *          barrier.inspect(); //throws BrokenBarrierException if broken  *        }  *    }  *</pre>  *  *  */
+comment|/**  * A synchronization aid that allows a set of threads to all wait for each other  * to reach a common barrier point. Barriers are useful in programs involving a  * fixed sized party of threads that must occasionally wait for each other.  *<code>ThreadBarrier</code> adds a<i>cause</i> to  * {@link BrokenBarrierException} thrown by a {@link #reset()} operation defined  * by {@link CyclicBarrier}.  *<p>  *<b>Sample usage:</b><br>  *<ul>  *<li>Barrier as a synchronization and Exception handling aid</li>  *<li>Barrier as a trigger for elapsed notification events</li>  *</ul>  *<pre>  *    class MyTestClass implements RemoteEventListener  *    {  *      final ThreadBarrier barrier;  *  *      class Worker implements Runnable  *        {  *          public void run()  *            {  *              barrier.await();    //wait for all threads to reach run  *              try  *                {  *                  prepare();  *                  barrier.await();    //wait for all threads to prepare  *                  process();  *                  barrier.await();    //wait for all threads to process  *                }  *              catch(Exception e){  *                  log(&quot;Worker thread caught exception&quot;, e);  *                  barrier.reset(e);  *                }  *            }  *        }  *  *      public void testThreads() {  *          barrier = new ThreadBarrier(N_THREADS + 1);  *          for (int i = 0; i&lt; N; ++i)  *           new Thread(new Worker()).start();  *  *          try{  *              barrier.await();    //wait for all threads to reach run  *              barrier.await();    //wait for all threads to prepare  *              barrier.await();    //wait for all threads to process  *            }  *          catch(BrokenBarrierException bbe) {  *              Assert.fail(bbe);  *            }  *       }  *  *      int actualNotificationCount = 0;  *      public synchronized void notify (RemoteEvent event) {  *          try{  *              actualNotificationCount++;  *              if (actualNotificationCount == EXPECTED_COUNT)  *                  barrier.await();    //signal when all notifications arrive  *  *               // too many notifications?  *               Assert.assertFalse(&quot;Exceeded notification count&quot;,  *                                          actualNotificationCount&gt; EXPECTED_COUNT);  *            }  *          catch(Exception e) {  *              log(&quot;Worker thread caught exception&quot;, e);  *              barrier.reset(e);  *            }  *        }  *  *      public void testNotify() {  *          barrier = new ThreadBarrier(N_LISTENERS + 1);  *          registerNotification();  *          triggerNotifications();  *  *          //wait until either all notifications arrive, or  *          //until a MAX_TIMEOUT is reached.  *          barrier.await(MAX_TIMEOUT);  *  *          //check if all notifications were accounted for or timed-out  *          Assert.assertEquals(&quot;Notification count&quot;,  *                                      EXPECTED_COUNT, actualNotificationCount);  *  *          //inspect that the barrier isn't broken  *          barrier.inspect(); //throws BrokenBarrierException if broken  *        }  *    }  *</pre>  *  *  */
 end_comment
 
 begin_class
@@ -78,10 +78,10 @@ name|ThreadBarrier
 extends|extends
 name|CyclicBarrier
 block|{
-comment|/**      * The cause of a {@link BrokenBarrierException} and {@link TimeoutException}      * thrown from an await() when {@link #reset(Throwable)} was invoked.      */
+comment|/**      * The cause of a {@link BrokenBarrierException} and {@link TimeoutException}      * thrown from an await() when {@link #reset(Exception)} was invoked.      */
 DECL|field|cause
 specifier|private
-name|Throwable
+name|Exception
 name|cause
 decl_stmt|;
 DECL|method|ThreadBarrier
@@ -231,7 +231,7 @@ specifier|synchronized
 name|void
 name|reset
 parameter_list|(
-name|Throwable
+name|Exception
 name|cause
 parameter_list|)
 block|{
@@ -265,7 +265,7 @@ name|cause
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Queries if this barrier is in a broken state. Note that if      * {@link #reset(Throwable)} is invoked the barrier will remain broken, while      * {@link #reset()} will reset the barrier to its initial state and      * {@link #isBroken()} will return false.      *      * @return {@code true} if one or more parties broke out of this barrier due      *         to interruption or timeout since construction or the last reset,      *         or a barrier action failed due to an exception; {@code false}      *         otherwise.      * @see #inspect()      */
+comment|/**      * Queries if this barrier is in a broken state. Note that if      * {@link #reset(Exception)} is invoked the barrier will remain broken, while      * {@link #reset()} will reset the barrier to its initial state and      * {@link #isBroken()} will return false.      *      * @return {@code true} if one or more parties broke out of this barrier due      *         to interruption or timeout since construction or the last reset,      *         or a barrier action failed due to an exception; {@code false}      *         otherwise.      * @see #inspect()      */
 annotation|@
 name|Override
 DECL|method|isBroken
@@ -343,7 +343,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Initializes the cause of this throwable to the specified value. The cause      * is the throwable that was initialized by {@link #reset(Throwable)}.      *      * @param t throwable.      */
+comment|/**      * Initializes the cause of this throwable to the specified value. The cause      * is the throwable that was initialized by {@link #reset(Exception)}.      *      * @param t throwable.      */
 DECL|method|initCause
 specifier|private
 specifier|synchronized

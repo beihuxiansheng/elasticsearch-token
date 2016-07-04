@@ -6219,13 +6219,13 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
 condition|(
-name|t
+name|e
 operator|!=
 literal|null
 condition|)
@@ -6240,7 +6240,7 @@ argument_list|<>
 argument_list|(
 name|node
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6841,8 +6841,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
@@ -6853,7 +6853,7 @@ name|error
 operator|.
 name|set
 argument_list|(
-name|error
+name|exception
 argument_list|)
 expr_stmt|;
 name|assertThat

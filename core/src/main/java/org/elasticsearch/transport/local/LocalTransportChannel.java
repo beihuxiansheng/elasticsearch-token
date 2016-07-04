@@ -464,8 +464,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
@@ -506,7 +506,7 @@ index|]
 argument_list|,
 name|action
 argument_list|,
-name|error
+name|exception
 argument_list|)
 decl_stmt|;
 name|stream
@@ -537,7 +537,7 @@ name|requestId
 argument_list|,
 name|action
 argument_list|,
-name|error
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
