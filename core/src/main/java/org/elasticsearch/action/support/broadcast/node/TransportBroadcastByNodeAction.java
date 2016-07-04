@@ -734,6 +734,8 @@ name|settings
 argument_list|,
 name|actionName
 argument_list|,
+name|canTripCircuitBreaker
+argument_list|,
 name|threadPool
 argument_list|,
 name|transportService
