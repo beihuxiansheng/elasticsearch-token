@@ -5639,7 +5639,7 @@ block|{
 comment|// 4byte for the checksum
 throw|throw
 operator|new
-name|AssertionError
+name|TranslogCorruptedException
 argument_list|(
 literal|"operation size must be at least 4 but was: "
 operator|+
@@ -5711,6 +5711,16 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|TranslogCorruptedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|EOFException
 name|e
 parameter_list|)
@@ -5720,24 +5730,6 @@ operator|new
 name|TruncatedTranslogException
 argument_list|(
 literal|"reached premature end of file, translog is truncated"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|AssertionError
-decl||
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|TranslogCorruptedException
-argument_list|(
-literal|"translog corruption while reading from stream"
 argument_list|,
 name|e
 argument_list|)
