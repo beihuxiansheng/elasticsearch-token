@@ -2935,7 +2935,6 @@ block|}
 DECL|method|failIfCorrupted
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|failIfCorrupted
 parameter_list|(
@@ -5673,7 +5672,6 @@ return|;
 block|}
 DECL|method|numSegmentFiles
 specifier|private
-specifier|final
 name|int
 name|numSegmentFiles
 parameter_list|()
@@ -7204,7 +7202,6 @@ block|}
 comment|/**      * A listener that is executed once the store is closed and all references to it are released      */
 DECL|interface|OnClose
 specifier|public
-specifier|static
 interface|interface
 name|OnClose
 extends|extends
@@ -7214,8 +7211,6 @@ name|ShardLock
 argument_list|>
 block|{
 DECL|field|EMPTY
-specifier|static
-specifier|final
 name|OnClose
 name|EMPTY
 init|=

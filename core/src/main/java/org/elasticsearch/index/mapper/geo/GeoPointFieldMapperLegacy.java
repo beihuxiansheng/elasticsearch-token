@@ -928,7 +928,6 @@ comment|/** Get an instance based on the number of bytes that has been used to e
 DECL|method|of
 specifier|public
 specifier|static
-specifier|final
 name|Encoding
 name|of
 parameter_list|(
@@ -972,7 +971,6 @@ comment|/** Get an instance based on the expected precision. Here are examples o
 DECL|method|of
 specifier|public
 specifier|static
-specifier|final
 name|Encoding
 name|of
 parameter_list|(
@@ -1223,7 +1221,6 @@ block|}
 comment|/** The number of bytes required to encode a single geo point. */
 DECL|method|numBytes
 specifier|public
-specifier|final
 name|int
 name|numBytes
 parameter_list|()

@@ -84,7 +84,6 @@ name|MultiBucketsAggregation
 block|{
 comment|/**      * A bucket in the histogram where documents fall in      */
 DECL|interface|Bucket
-specifier|static
 interface|interface
 name|Bucket
 extends|extends
@@ -108,7 +107,6 @@ function_decl|;
 comment|/**      * A strategy defining the order in which the buckets in this histogram are ordered.      */
 DECL|class|Order
 specifier|abstract
-specifier|static
 class|class
 name|Order
 implements|implements

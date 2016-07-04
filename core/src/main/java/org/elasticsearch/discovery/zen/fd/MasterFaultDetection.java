@@ -385,7 +385,6 @@ literal|"internal:discovery/zen/fd/master_ping"
 decl_stmt|;
 DECL|interface|Listener
 specifier|public
-specifier|static
 interface|interface
 name|Listener
 block|{

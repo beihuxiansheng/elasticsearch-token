@@ -528,7 +528,6 @@ name|docMapper
 expr_stmt|;
 block|}
 DECL|method|parseDocument
-specifier|final
 name|ParsedDocument
 name|parseDocument
 parameter_list|(

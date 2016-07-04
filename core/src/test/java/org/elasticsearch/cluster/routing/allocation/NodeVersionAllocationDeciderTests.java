@@ -4768,7 +4768,6 @@ return|;
 block|}
 DECL|method|assertRecoveryNodeVersions
 specifier|private
-specifier|final
 name|void
 name|assertRecoveryNodeVersions
 parameter_list|(

@@ -2849,7 +2849,6 @@ annotation|@
 name|Override
 DECL|method|write
 specifier|public
-specifier|final
 name|void
 name|write
 parameter_list|(
@@ -2871,7 +2870,6 @@ annotation|@
 name|Override
 DECL|method|write
 specifier|public
-specifier|final
 name|void
 name|write
 parameter_list|(

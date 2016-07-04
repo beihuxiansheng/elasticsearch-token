@@ -622,7 +622,6 @@ comment|/**      * Compares the two references using the given int function.    
 DECL|method|compareIterators
 specifier|private
 specifier|static
-specifier|final
 name|int
 name|compareIterators
 parameter_list|(
@@ -947,7 +946,6 @@ block|}
 DECL|method|advance
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|advance
 parameter_list|(

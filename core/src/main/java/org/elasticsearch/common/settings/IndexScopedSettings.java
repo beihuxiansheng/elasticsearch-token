@@ -1023,7 +1023,6 @@ annotation|@
 name|Override
 DECL|method|isPrivateSetting
 specifier|protected
-specifier|final
 name|boolean
 name|isPrivateSetting
 parameter_list|(

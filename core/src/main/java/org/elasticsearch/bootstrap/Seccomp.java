@@ -293,7 +293,6 @@ decl_stmt|;
 comment|// Linux implementation, based on seccomp(2) or prctl(2) with bpf filtering
 comment|/** Access to non-standard Linux libc methods */
 DECL|interface|LinuxLibrary
-specifier|static
 interface|interface
 name|LinuxLibrary
 extends|extends
@@ -334,7 +333,6 @@ name|args
 parameter_list|)
 function_decl|;
 block|}
-empty_stmt|;
 comment|// null if unavailable or something goes wrong.
 DECL|field|linux_libc
 specifier|private
@@ -2196,7 +2194,6 @@ block|}
 comment|// OS X implementation via sandbox(7)
 comment|/** Access to non-standard OS X libc methods */
 DECL|interface|MacLibrary
-specifier|static
 interface|interface
 name|MacLibrary
 extends|extends
@@ -2508,7 +2505,6 @@ block|}
 comment|// Solaris implementation via priv_set(3C)
 comment|/** Access to non-standard Solaris libc methods */
 DECL|interface|SolarisLibrary
-specifier|static
 interface|interface
 name|SolarisLibrary
 extends|extends

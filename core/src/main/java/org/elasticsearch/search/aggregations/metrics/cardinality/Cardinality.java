@@ -52,7 +52,6 @@ name|SingleValue
 block|{
 comment|/**      * The number of unique terms.      */
 DECL|method|getValue
-specifier|public
 name|long
 name|getValue
 parameter_list|()

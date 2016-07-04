@@ -230,7 +230,6 @@ annotation|@
 name|Override
 DECL|method|incrementToken
 specifier|public
-specifier|final
 name|boolean
 name|incrementToken
 parameter_list|()

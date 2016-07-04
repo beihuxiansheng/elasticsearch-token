@@ -4274,7 +4274,6 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
-specifier|final
 name|void
 name|close
 parameter_list|()

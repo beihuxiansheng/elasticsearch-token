@@ -210,7 +210,6 @@ annotation|@
 name|Override
 DECL|method|getProfileName
 specifier|public
-specifier|final
 name|String
 name|getProfileName
 parameter_list|()
@@ -223,7 +222,6 @@ annotation|@
 name|Override
 DECL|method|action
 specifier|public
-specifier|final
 name|String
 name|action
 parameter_list|()
@@ -238,7 +236,6 @@ annotation|@
 name|Override
 DECL|method|sendResponse
 specifier|public
-specifier|final
 name|void
 name|sendResponse
 parameter_list|(
@@ -262,7 +259,6 @@ annotation|@
 name|Override
 DECL|method|sendResponse
 specifier|public
-specifier|final
 name|void
 name|sendResponse
 parameter_list|(
@@ -373,7 +369,6 @@ annotation|@
 name|Override
 DECL|method|getRequestId
 specifier|public
-specifier|final
 name|long
 name|getRequestId
 parameter_list|()
@@ -386,7 +381,6 @@ annotation|@
 name|Override
 DECL|method|getChannelType
 specifier|public
-specifier|final
 name|String
 name|getChannelType
 parameter_list|()

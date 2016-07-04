@@ -666,7 +666,6 @@ expr_stmt|;
 block|}
 DECL|interface|Listener
 specifier|public
-specifier|static
 interface|interface
 name|Listener
 block|{

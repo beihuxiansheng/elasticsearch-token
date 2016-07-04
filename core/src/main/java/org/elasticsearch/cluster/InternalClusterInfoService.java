@@ -1690,7 +1690,6 @@ return|;
 block|}
 DECL|method|maybeRefresh
 specifier|private
-specifier|final
 name|void
 name|maybeRefresh
 parameter_list|()

@@ -1926,7 +1926,6 @@ return|;
 block|}
 DECL|interface|ToStringValues
 specifier|private
-specifier|static
 interface|interface
 name|ToStringValues
 block|{

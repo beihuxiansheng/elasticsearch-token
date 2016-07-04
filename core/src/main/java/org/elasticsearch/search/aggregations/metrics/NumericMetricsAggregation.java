@@ -41,8 +41,6 @@ extends|extends
 name|Aggregation
 block|{
 DECL|interface|SingleValue
-specifier|public
-specifier|static
 interface|interface
 name|SingleValue
 extends|extends
@@ -60,8 +58,6 @@ parameter_list|()
 function_decl|;
 block|}
 DECL|interface|MultiValue
-specifier|public
-specifier|static
 interface|interface
 name|MultiValue
 extends|extends

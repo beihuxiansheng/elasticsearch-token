@@ -5740,7 +5740,6 @@ block|}
 DECL|method|isPerCommitFile
 specifier|private
 specifier|static
-specifier|final
 name|boolean
 name|isPerCommitFile
 parameter_list|(
@@ -5768,7 +5767,6 @@ block|}
 DECL|method|isPerSegmentFile
 specifier|private
 specifier|static
-specifier|final
 name|boolean
 name|isPerSegmentFile
 parameter_list|(

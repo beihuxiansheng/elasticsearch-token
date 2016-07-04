@@ -549,7 +549,6 @@ block|}
 DECL|method|randomLatitude
 specifier|private
 specifier|static
-specifier|final
 name|double
 name|randomLatitude
 parameter_list|()
@@ -573,7 +572,6 @@ block|}
 DECL|method|randomLongitude
 specifier|private
 specifier|static
-specifier|final
 name|double
 name|randomLongitude
 parameter_list|()

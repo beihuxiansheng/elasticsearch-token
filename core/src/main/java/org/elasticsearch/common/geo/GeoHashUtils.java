@@ -945,7 +945,6 @@ block|}
 DECL|method|encode
 specifier|private
 specifier|static
-specifier|final
 name|char
 name|encode
 parameter_list|(

@@ -1268,7 +1268,6 @@ block|}
 comment|/** recover all translog files found on disk */
 DECL|method|recoverFromFiles
 specifier|private
-specifier|final
 name|ArrayList
 argument_list|<
 name|TranslogReader

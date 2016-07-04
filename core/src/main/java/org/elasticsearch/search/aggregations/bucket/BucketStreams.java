@@ -125,7 +125,6 @@ decl_stmt|;
 comment|/**      * A stream that knows how to read a bucket from the input.      */
 DECL|interface|Stream
 specifier|public
-specifier|static
 interface|interface
 name|Stream
 parameter_list|<

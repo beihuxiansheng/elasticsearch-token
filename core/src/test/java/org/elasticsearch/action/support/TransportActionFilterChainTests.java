@@ -3102,7 +3102,6 @@ block|}
 block|}
 DECL|interface|RequestCallback
 specifier|private
-specifier|static
 interface|interface
 name|RequestCallback
 block|{
@@ -3149,7 +3148,6 @@ function_decl|;
 block|}
 DECL|interface|ResponseCallback
 specifier|private
-specifier|static
 interface|interface
 name|ResponseCallback
 block|{

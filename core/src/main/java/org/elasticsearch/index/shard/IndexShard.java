@@ -8941,7 +8941,6 @@ end_function
 begin_function
 DECL|method|newEngineConfig
 specifier|private
-specifier|final
 name|EngineConfig
 name|newEngineConfig
 parameter_list|(

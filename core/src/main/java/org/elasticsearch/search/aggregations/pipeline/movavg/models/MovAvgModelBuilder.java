@@ -49,7 +49,6 @@ extends|extends
 name|ToXContent
 block|{
 DECL|method|build
-specifier|public
 name|MovAvgModel
 name|build
 parameter_list|()

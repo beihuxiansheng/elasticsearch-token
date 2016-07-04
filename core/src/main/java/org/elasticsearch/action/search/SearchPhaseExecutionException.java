@@ -360,7 +360,6 @@ block|}
 DECL|method|deduplicateCause
 specifier|private
 specifier|static
-specifier|final
 name|Throwable
 name|deduplicateCause
 parameter_list|(

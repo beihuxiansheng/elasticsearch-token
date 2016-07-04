@@ -940,7 +940,6 @@ literal|false
 return|;
 block|}
 DECL|method|addIndices
-specifier|final
 name|void
 name|addIndices
 parameter_list|(
