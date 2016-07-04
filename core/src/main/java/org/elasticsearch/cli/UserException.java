@@ -19,10 +19,10 @@ comment|/**  * An exception representing a user fixable problem in {@link Comman
 end_comment
 
 begin_class
-DECL|class|UserError
+DECL|class|UserException
 specifier|public
 class|class
-name|UserError
+name|UserException
 extends|extends
 name|Exception
 block|{
@@ -33,10 +33,10 @@ specifier|final
 name|int
 name|exitCode
 decl_stmt|;
-comment|/** Constructs a UserError with an exit status and message to show the user. */
-DECL|method|UserError
+comment|/** Constructs a UserException with an exit status and message to show the user. */
+DECL|method|UserException
 specifier|public
-name|UserError
+name|UserException
 parameter_list|(
 name|int
 name|exitCode
