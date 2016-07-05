@@ -1300,7 +1300,7 @@ name|SearchSourceBuilder
 operator|.
 name|FIELDS_FIELD
 operator|+
-literal|"] is not longer supported, please use ["
+literal|"] is no longer supported, please use ["
 operator|+
 name|SearchSourceBuilder
 operator|.
