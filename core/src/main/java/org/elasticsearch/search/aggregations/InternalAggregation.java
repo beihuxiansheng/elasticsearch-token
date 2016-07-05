@@ -1071,7 +1071,7 @@ literal|" used type but should Use getWriteableName instead"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Reduces the given addAggregation to a single one and returns it. In<b>most</b> cases, the assumption will be the all given      * addAggregation are of the same type (the same type as this aggregation). For best efficiency, when implementing,      * try reusing an existing get instance (typically the first in the given list) to save on redundant object      * construction.      */
+comment|/**      * Reduces the given aggregations to a single one and returns it. In<b>most</b> cases, the assumption will be the all given      * aggregations are of the same type (the same type as this aggregation). For best efficiency, when implementing,      * try reusing an existing instance (typically the first in the given list) to save on redundant object      * construction.      */
 DECL|method|reduce
 specifier|public
 specifier|final
