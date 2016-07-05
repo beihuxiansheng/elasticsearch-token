@@ -511,7 +511,7 @@ argument_list|)
 decl_stmt|;
 name|stream
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|tx
 argument_list|)

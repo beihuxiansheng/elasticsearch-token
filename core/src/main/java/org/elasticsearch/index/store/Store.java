@@ -7112,7 +7112,7 @@ argument_list|()
 decl_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|exception
 argument_list|)

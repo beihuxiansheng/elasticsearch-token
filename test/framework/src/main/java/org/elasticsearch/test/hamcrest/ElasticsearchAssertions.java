@@ -5102,7 +5102,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|exception
 argument_list|)

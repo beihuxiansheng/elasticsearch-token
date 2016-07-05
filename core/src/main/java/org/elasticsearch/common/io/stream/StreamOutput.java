@@ -3512,10 +3512,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writeThrowable
+DECL|method|writeException
 specifier|public
 name|void
-name|writeThrowable
+name|writeException
 parameter_list|(
 name|Throwable
 name|throwable
@@ -4223,7 +4223,7 @@ condition|(
 name|writeCause
 condition|)
 block|{
-name|writeThrowable
+name|writeException
 argument_list|(
 name|throwable
 operator|.
