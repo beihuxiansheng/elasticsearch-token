@@ -1867,18 +1867,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Resets the stream.      */
-annotation|@
-name|Override
-DECL|method|reset
-specifier|public
-specifier|abstract
-name|void
-name|reset
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Closes the stream to further operations.      */
 annotation|@
 name|Override
