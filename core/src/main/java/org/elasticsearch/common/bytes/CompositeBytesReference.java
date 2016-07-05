@@ -541,7 +541,6 @@ return|;
 block|}
 DECL|method|getOffsetIndex
 specifier|private
-specifier|final
 name|int
 name|getOffsetIndex
 parameter_list|(
