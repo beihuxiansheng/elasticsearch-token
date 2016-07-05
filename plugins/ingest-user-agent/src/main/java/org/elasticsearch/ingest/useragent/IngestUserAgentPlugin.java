@@ -261,7 +261,7 @@ name|Setting
 operator|.
 name|longSetting
 argument_list|(
-literal|"ingest.useragent.cache_size"
+literal|"ingest.user_agent.cache_size"
 argument_list|,
 literal|1000
 argument_list|,

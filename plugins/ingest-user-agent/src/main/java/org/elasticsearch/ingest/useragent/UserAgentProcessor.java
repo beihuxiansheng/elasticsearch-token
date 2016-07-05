@@ -211,7 +211,7 @@ specifier|final
 name|String
 name|TYPE
 init|=
-literal|"useragent"
+literal|"user_agent"
 decl_stmt|;
 DECL|field|field
 specifier|private
@@ -1061,7 +1061,7 @@ name|config
 argument_list|,
 literal|"target_field"
 argument_list|,
-literal|"useragent"
+literal|"user_agent"
 argument_list|)
 decl_stmt|;
 name|String

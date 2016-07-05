@@ -284,7 +284,7 @@ name|configDir
 operator|.
 name|resolve
 argument_list|(
-literal|"ingest-useragent"
+literal|"ingest-user-agent"
 argument_list|)
 expr_stmt|;
 name|Files
@@ -497,7 +497,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"useragent"
+literal|"user_agent"
 argument_list|)
 argument_list|)
 expr_stmt|;
