@@ -3601,6 +3601,32 @@ operator|.
 name|toBytesRef
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|sliceLength
+operator|==
+literal|0
+operator|&&
+name|sliceOffset
+operator|!=
+name|sliceRef
+operator|.
+name|offset
+condition|)
+block|{
+comment|// some impls optimize this to an empty instance then the offset will be 0
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|sliceRef
+operator|.
+name|offset
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// note that these are only true if we have<= than a page, otherwise offset/length are shifted
 name|assertEquals
 argument_list|(
@@ -3611,6 +3637,7 @@ operator|.
 name|offset
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 name|sliceLength
