@@ -417,6 +417,8 @@ argument_list|,
 name|sliceOffset
 operator|+
 name|sliceLength
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertEquals
