@@ -251,8 +251,8 @@ name|ESBackcompatTestCase
 block|{
 comment|// This pattern match characters with Line_Break = Complex_Content.
 DECL|field|complexUnicodeChars
-specifier|final
 specifier|static
+specifier|final
 name|Pattern
 name|complexUnicodeChars
 init|=

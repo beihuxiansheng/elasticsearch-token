@@ -127,7 +127,6 @@ decl_stmt|;
 comment|/**      * A stream that knows how to read an aggregation from the input.      */
 DECL|interface|Stream
 specifier|public
-specifier|static
 interface|interface
 name|Stream
 block|{

@@ -64,18 +64,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|MapBuilder
@@ -339,8 +327,8 @@ argument_list|>
 name|assignedShards
 decl_stmt|;
 DECL|field|NO_SHARDS
-specifier|final
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|ShardRouting
@@ -1657,7 +1645,7 @@ name|newHashSet
 argument_list|(
 name|discoveryNodes
 operator|.
-name|resolveNodesIds
+name|resolveNodes
 argument_list|(
 name|nodeAttributes
 argument_list|)

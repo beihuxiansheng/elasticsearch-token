@@ -528,8 +528,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|PARSER
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ObjectParser
 argument_list|<
 name|InnerHitBuilder
@@ -668,7 +668,7 @@ name|SearchSourceBuilder
 operator|.
 name|FIELDS_FIELD
 operator|+
-literal|"] is not longer supported, please use ["
+literal|"] is no longer supported, please use ["
 operator|+
 name|SearchSourceBuilder
 operator|.
@@ -3289,11 +3289,6 @@ argument_list|,
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
-argument_list|,
-name|context
-operator|.
-name|getClusterState
 argument_list|()
 argument_list|)
 decl_stmt|;

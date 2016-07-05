@@ -375,6 +375,8 @@ literal|true
 return|;
 block|}
 comment|/** Set the deferred collectors. */
+annotation|@
+name|Override
 DECL|method|setDeferredCollector
 specifier|public
 name|void

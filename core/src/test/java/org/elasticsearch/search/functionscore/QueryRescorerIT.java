@@ -3604,8 +3604,8 @@ comment|// This comparator uses a custom tie in case the scores are equal, so th
 comment|// are sorted equally. This is fine since tests only care about the fact the scores should be equal, not ordering.
 DECL|field|searchHitsComparator
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|SearchHit

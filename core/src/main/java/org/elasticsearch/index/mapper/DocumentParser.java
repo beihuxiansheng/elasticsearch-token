@@ -528,7 +528,6 @@ name|docMapper
 expr_stmt|;
 block|}
 DECL|method|parseDocument
-specifier|final
 name|ParsedDocument
 name|parseDocument
 parameter_list|(
@@ -611,16 +610,14 @@ argument_list|)
 expr_stmt|;
 name|validateEnd
 argument_list|(
-name|source
-argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -628,7 +625,7 @@ name|wrapInMapperParsingException
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -933,9 +930,6 @@ specifier|static
 name|void
 name|validateEnd
 parameter_list|(
-name|SourceToParse
-name|source
-parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|)
@@ -1187,7 +1181,7 @@ parameter_list|(
 name|SourceToParse
 name|source
 parameter_list|,
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2344,11 +2338,6 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 block|}
-name|ObjectMapper
-name|update
-init|=
-literal|null
-decl_stmt|;
 name|innerParseObject
 argument_list|(
 name|context

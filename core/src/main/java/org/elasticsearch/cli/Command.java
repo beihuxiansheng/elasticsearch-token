@@ -264,7 +264,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|UserError
+name|UserException
 name|e
 parameter_list|)
 block|{
@@ -381,7 +381,7 @@ block|{
 comment|// mutually exclusive, we can remove this with jopt-simple 5.0, which natively supports it
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -525,7 +525,7 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Executes this command.      *      * Any runtime user errors (like an input file that does not exist), should throw a {@link UserError}. */
+comment|/**      * Executes this command.      *      * Any runtime user errors (like an input file that does not exist), should throw a {@link UserException}. */
 DECL|method|execute
 specifier|protected
 specifier|abstract

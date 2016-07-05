@@ -26,6 +26,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressLoggerChecks
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|Lifecycle
@@ -230,8 +242,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -311,6 +323,13 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressLoggerChecks
+argument_list|(
+name|reason
+operator|=
+literal|"mock usage"
+argument_list|)
 DECL|method|testDoRunDoesNotRunWhenStoppedOrClosed
 specifier|public
 name|void
@@ -363,8 +382,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -512,8 +531,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -684,8 +703,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail

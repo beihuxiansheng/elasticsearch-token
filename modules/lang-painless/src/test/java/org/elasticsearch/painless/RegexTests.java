@@ -18,6 +18,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|CharBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -898,6 +908,264 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"/./ciux.flags()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceAllMatchesString
+specifier|public
+name|void
+name|testReplaceAllMatchesString
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"thE qUIck brOwn fOx"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'the quick brown fox'.replaceAll(/[aeiou]/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceAllMatchesCharSequence
+specifier|public
+name|void
+name|testReplaceAllMatchesCharSequence
+parameter_list|()
+block|{
+name|CharSequence
+name|charSequence
+init|=
+name|CharBuffer
+operator|.
+name|wrap
+argument_list|(
+literal|"the quick brown fox"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"thE qUIck brOwn fOx"
+argument_list|,
+name|exec
+argument_list|(
+literal|"params.a.replaceAll(/[aeiou]/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"a"
+argument_list|,
+name|charSequence
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceAllNoMatchString
+specifier|public
+name|void
+name|testReplaceAllNoMatchString
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"i am cat"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'i am cat'.replaceAll(/dolphin/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceAllNoMatchCharSequence
+specifier|public
+name|void
+name|testReplaceAllNoMatchCharSequence
+parameter_list|()
+block|{
+name|CharSequence
+name|charSequence
+init|=
+name|CharBuffer
+operator|.
+name|wrap
+argument_list|(
+literal|"i am cat"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"i am cat"
+argument_list|,
+name|exec
+argument_list|(
+literal|"params.a.replaceAll(/dolphin/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"a"
+argument_list|,
+name|charSequence
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceAllQuoteReplacement
+specifier|public
+name|void
+name|testReplaceAllQuoteReplacement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"th/E q/U/Ick br/Own f/Ox"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'the quick brown fox'.replaceAll(/[aeiou]/, m -> '/' + m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"th$E q$U$Ick br$Own f$Ox"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'the quick brown fox'.replaceAll(/[aeiou]/, m -> '$' + m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceFirstMatchesString
+specifier|public
+name|void
+name|testReplaceFirstMatchesString
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"thE quick brown fox"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'the quick brown fox'.replaceFirst(/[aeiou]/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceFirstMatchesCharSequence
+specifier|public
+name|void
+name|testReplaceFirstMatchesCharSequence
+parameter_list|()
+block|{
+name|CharSequence
+name|charSequence
+init|=
+name|CharBuffer
+operator|.
+name|wrap
+argument_list|(
+literal|"the quick brown fox"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"thE quick brown fox"
+argument_list|,
+name|exec
+argument_list|(
+literal|"params.a.replaceFirst(/[aeiou]/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"a"
+argument_list|,
+name|charSequence
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceFirstNoMatchString
+specifier|public
+name|void
+name|testReplaceFirstNoMatchString
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"i am cat"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'i am cat'.replaceFirst(/dolphin/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceFirstNoMatchCharSequence
+specifier|public
+name|void
+name|testReplaceFirstNoMatchCharSequence
+parameter_list|()
+block|{
+name|CharSequence
+name|charSequence
+init|=
+name|CharBuffer
+operator|.
+name|wrap
+argument_list|(
+literal|"i am cat"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"i am cat"
+argument_list|,
+name|exec
+argument_list|(
+literal|"params.a.replaceFirst(/dolphin/, m -> m.group().toUpperCase(Locale.ROOT))"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"a"
+argument_list|,
+name|charSequence
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testReplaceFirstQuoteReplacement
+specifier|public
+name|void
+name|testReplaceFirstQuoteReplacement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"th/E quick brown fox"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'the quick brown fox'.replaceFirst(/[aeiou]/, m -> '/' + m.group().toUpperCase(Locale.ROOT))"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"th$E quick brown fox"
+argument_list|,
+name|exec
+argument_list|(
+literal|"'the quick brown fox'.replaceFirst(/[aeiou]/, m -> '$' + m.group().toUpperCase(Locale.ROOT))"
 argument_list|)
 argument_list|)
 expr_stmt|;

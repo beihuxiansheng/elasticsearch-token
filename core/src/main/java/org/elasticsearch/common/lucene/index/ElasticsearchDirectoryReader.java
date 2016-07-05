@@ -247,8 +247,8 @@ return|;
 block|}
 DECL|class|SubReaderWrapper
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|SubReaderWrapper
 extends|extends

@@ -8662,7 +8662,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> make sure that number of files is back to what it was when the first snapshot was made"
+literal|"--> make sure that number of files is back to what it was when the first snapshot was made, "
+operator|+
+literal|"plus one because one backup index-N file should remain"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8678,6 +8680,8 @@ name|numberOfFiles
 index|[
 literal|0
 index|]
+operator|+
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19927,8 +19931,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail

@@ -232,17 +232,6 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-name|set
-init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|String

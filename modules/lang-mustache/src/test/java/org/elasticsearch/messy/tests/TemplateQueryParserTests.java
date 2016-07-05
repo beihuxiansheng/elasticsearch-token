@@ -130,20 +130,6 @@ name|common
 operator|.
 name|inject
 operator|.
-name|AbstractModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
 name|Injector
 import|;
 end_import
@@ -313,20 +299,6 @@ operator|.
 name|index
 operator|.
 name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
-name|AnalysisRegistry
 import|;
 end_import
 
@@ -1147,6 +1119,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 block|{
 annotation|@
@@ -1175,17 +1149,11 @@ expr_stmt|;
 name|AnalysisService
 name|analysisService
 init|=
-operator|new
-name|AnalysisRegistry
-argument_list|(
-literal|null
-argument_list|,
-name|environment
-argument_list|)
-operator|.
-name|build
+name|createAnalysisService
 argument_list|(
 name|idxSettings
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
 name|SimilarityService
@@ -1210,6 +1178,11 @@ name|IndicesModule
 argument_list|(
 operator|new
 name|NamedWriteableRegistry
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
 argument_list|()
 argument_list|)
 operator|.
@@ -1302,7 +1275,7 @@ parameter_list|,
 name|Accountable
 name|accountable
 parameter_list|)
-block|{              }
+block|{}
 annotation|@
 name|Override
 specifier|public
@@ -1315,7 +1288,7 @@ parameter_list|,
 name|Accountable
 name|accountable
 parameter_list|)
-block|{              }
+block|{}
 block|}
 argument_list|)
 decl_stmt|;

@@ -691,7 +691,6 @@ expr_stmt|;
 block|}
 DECL|method|randomSliceBuilder
 specifier|private
-specifier|final
 name|SliceBuilder
 name|randomSliceBuilder
 parameter_list|()
@@ -777,15 +776,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

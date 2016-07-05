@@ -56,9 +56,6 @@ name|Percentile
 argument_list|>
 block|{
 DECL|field|TYPE_NAME
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|TYPE_NAME
 init|=

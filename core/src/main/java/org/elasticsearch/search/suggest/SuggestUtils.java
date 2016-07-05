@@ -789,8 +789,8 @@ return|;
 block|}
 DECL|class|TokenConsumer
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|TokenConsumer
 block|{

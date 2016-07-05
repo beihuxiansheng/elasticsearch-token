@@ -672,8 +672,8 @@ block|}
 block|}
 DECL|field|SCORE_DOC_COMPARATOR
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|ScoreDoc

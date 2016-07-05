@@ -120,20 +120,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -343,16 +329,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -403,12 +379,6 @@ init|=
 name|MustacheScriptEngineService
 operator|.
 name|NAME
-decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
 decl_stmt|;
 DECL|field|scriptService
 specifier|private
@@ -461,9 +431,6 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|resolver
 parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
@@ -500,12 +467,6 @@ name|SearchTemplateRequest
 operator|::
 operator|new
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -601,11 +562,6 @@ argument_list|,
 name|SEARCH
 argument_list|,
 name|emptyMap
-argument_list|()
-argument_list|,
-name|clusterService
-operator|.
-name|state
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -747,7 +703,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -766,7 +722,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -785,7 +741,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{

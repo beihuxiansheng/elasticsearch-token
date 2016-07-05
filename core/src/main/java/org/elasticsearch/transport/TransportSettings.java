@@ -146,8 +146,8 @@ end_comment
 
 begin_class
 DECL|class|TransportSettings
-specifier|final
 specifier|public
+specifier|final
 class|class
 name|TransportSettings
 block|{

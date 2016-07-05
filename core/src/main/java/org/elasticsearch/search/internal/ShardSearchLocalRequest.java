@@ -80,6 +80,20 @@ name|common
 operator|.
 name|bytes
 operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
 name|BytesReference
 import|;
 end_import
@@ -903,14 +917,21 @@ expr_stmt|;
 comment|// copy it over, most requests are small, we might as well copy to make sure we are not sliced...
 comment|// we could potentially keep it without copying, but then pay the price of extra unused bytes up to a page
 return|return
+operator|new
+name|BytesArray
+argument_list|(
 name|out
 operator|.
 name|bytes
 argument_list|()
 operator|.
-name|copyBytesArray
+name|toBytesRef
 argument_list|()
+argument_list|,
+literal|true
+argument_list|)
 return|;
+comment|// do a deep copy
 block|}
 annotation|@
 name|Override

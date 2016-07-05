@@ -137,6 +137,17 @@ name|EachContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code ineach}    * labeled alternative in {@link PainlessParser#statement}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitIneach
+name|T
+name|visitIneach
+parameter_list|(
+name|PainlessParser
+operator|.
+name|IneachContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code decl}    * labeled alternative in {@link PainlessParser#statement}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitDecl
 name|T
@@ -387,6 +398,17 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|BinaryContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code instanceof}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitInstanceof
+name|T
+name|visitInstanceof
+parameter_list|(
+name|PainlessParser
+operator|.
+name|InstanceofContext
 name|ctx
 parameter_list|)
 function_decl|;

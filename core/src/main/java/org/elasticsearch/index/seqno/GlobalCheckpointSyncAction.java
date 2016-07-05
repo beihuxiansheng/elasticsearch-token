@@ -593,7 +593,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -614,8 +614,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|PrimaryRequest
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|PrimaryRequest
 extends|extends
@@ -648,8 +648,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ReplicaRequest
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ReplicaRequest
 extends|extends

@@ -318,18 +318,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -839,9 +827,6 @@ class|class
 name|ClusterService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|ClusterService
-argument_list|>
 block|{
 DECL|field|CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD_SETTING
 specifier|public
@@ -1195,8 +1180,8 @@ name|slowTaskLoggingThreshold
 expr_stmt|;
 block|}
 DECL|method|setClusterStatePublisher
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|setClusterStatePublisher
 parameter_list|(
@@ -1217,8 +1202,8 @@ name|publisher
 expr_stmt|;
 block|}
 DECL|method|setLocalNode
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|setLocalNode
 parameter_list|(
@@ -1288,8 +1273,8 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|setNodeConnectionsService
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|setNodeConnectionsService
 parameter_list|(
@@ -1315,8 +1300,8 @@ expr_stmt|;
 block|}
 comment|/**      * Adds an initial block to be set on the first cluster state created.      */
 DECL|method|addInitialStateBlock
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|addInitialStateBlock
 parameter_list|(
@@ -1352,8 +1337,8 @@ expr_stmt|;
 block|}
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|removeInitialStateBlock
 parameter_list|(
@@ -1374,8 +1359,8 @@ expr_stmt|;
 block|}
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|removeInitialStateBlock
 parameter_list|(
@@ -1412,8 +1397,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doStart
-specifier|synchronized
 specifier|protected
+specifier|synchronized
 name|void
 name|doStart
 parameter_list|()
@@ -1521,8 +1506,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doStop
-specifier|synchronized
 specifier|protected
+specifier|synchronized
 name|void
 name|doStop
 parameter_list|()
@@ -1626,8 +1611,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doClose
-specifier|synchronized
 specifier|protected
+specifier|synchronized
 name|void
 name|doClose
 parameter_list|()
@@ -2719,8 +2704,8 @@ end_function
 
 begin_class
 DECL|class|SourcePrioritizedRunnable
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|SourcePrioritizedRunnable
 extends|extends
@@ -2799,14 +2784,19 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|ArrayList
+name|Map
 argument_list|<
 name|String
+argument_list|,
+name|ArrayList
+argument_list|<
+name|T
 argument_list|>
-name|sources
+argument_list|>
+name|processTasksBySource
 init|=
 operator|new
-name|ArrayList
+name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -2864,11 +2854,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"will process [{}]"
+literal|"will process [{}[{}]]"
 argument_list|,
 name|task
 operator|.
 name|source
+argument_list|,
+name|task
+operator|.
+name|task
 argument_list|)
 expr_stmt|;
 name|toExecute
@@ -2878,13 +2872,27 @@ argument_list|(
 name|task
 argument_list|)
 expr_stmt|;
-name|sources
+name|processTasksBySource
+operator|.
+name|computeIfAbsent
+argument_list|(
+name|task
+operator|.
+name|source
+argument_list|,
+name|s
+lambda|->
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+argument_list|)
 operator|.
 name|add
 argument_list|(
 name|task
 operator|.
-name|source
+name|task
 argument_list|)
 expr_stmt|;
 block|}
@@ -2894,11 +2902,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"skipping [{}], already processed"
+literal|"skipping [{}[{}]], already processed"
 argument_list|,
 name|task
 operator|.
 name|source
+argument_list|,
+name|task
+operator|.
+name|task
 argument_list|)
 expr_stmt|;
 block|}
@@ -2917,13 +2929,77 @@ return|return;
 block|}
 specifier|final
 name|String
-name|source
+name|tasksSummary
 init|=
-name|Strings
+name|processTasksBySource
 operator|.
-name|collectionToCommaDelimitedString
+name|entrySet
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
 argument_list|(
-name|sources
+name|entry
+lambda|->
+block|{
+name|String
+name|tasks
+init|=
+name|executor
+operator|.
+name|describeTasks
+argument_list|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|tasks
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|entry
+operator|.
+name|getKey
+argument_list|()
+else|:
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"["
+operator|+
+name|tasks
+operator|+
+literal|"]"
+return|;
+block|}
+argument_list|)
+operator|.
+name|reduce
+argument_list|(
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|)
+lambda|->
+name|s1
+operator|+
+literal|", "
+operator|+
+name|s2
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|""
 argument_list|)
 decl_stmt|;
 if|if
@@ -2941,7 +3017,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: ignoring, cluster_service not started"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2952,7 +3028,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: execute"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 name|ClusterState
@@ -2983,7 +3059,7 @@ name|debug
 argument_list|(
 literal|"failing [{}]: local node is no longer master"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 name|toExecute
@@ -3067,7 +3143,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3119,7 +3195,7 @@ operator|.
 name|version
 argument_list|()
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|previousClusterState
 operator|.
@@ -3151,7 +3227,7 @@ name|warnAboutSlowTaskIfNeeded
 argument_list|(
 name|executionTime
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 name|batchResult
@@ -3512,7 +3588,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: took [{}] no change in cluster_state"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|executionTime
 argument_list|)
@@ -3524,7 +3600,7 @@ name|warnAboutSlowTaskIfNeeded
 argument_list|(
 name|executionTime
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -3825,7 +3901,7 @@ name|trace
 argument_list|(
 literal|"cluster state updated, source [{}]\n{}"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 operator|.
@@ -3854,7 +3930,7 @@ operator|.
 name|version
 argument_list|()
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -3864,7 +3940,7 @@ init|=
 operator|new
 name|ClusterChangedEvent
 argument_list|(
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 argument_list|,
@@ -3922,7 +3998,7 @@ literal|"{}, reason: {}"
 argument_list|,
 name|summary
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -3988,7 +4064,7 @@ literal|"failing [{}]: failed to commit cluster state version [{}]"
 argument_list|,
 name|t
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 operator|.
@@ -4248,8 +4324,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4258,7 +4334,7 @@ name|debug
 argument_list|(
 literal|"error while processing ack for master node [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|newClusterState
 operator|.
@@ -4322,7 +4398,7 @@ literal|"exception thrown while notifying executor of new cluster state publicat
 argument_list|,
 name|e
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -4357,7 +4433,7 @@ name|debug
 argument_list|(
 literal|"processing [{}]: took [{}] done applying updated cluster_state (version: {}, uuid: {})"
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|executionTime
 argument_list|,
@@ -4376,7 +4452,7 @@ name|warnAboutSlowTaskIfNeeded
 argument_list|(
 name|executionTime
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|)
 expr_stmt|;
 block|}
@@ -4385,8 +4461,8 @@ end_block
 begin_catch
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|TimeValue
@@ -4420,7 +4496,7 @@ name|warn
 argument_list|(
 literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|executionTime
 argument_list|,
@@ -4434,7 +4510,7 @@ operator|.
 name|stateUUID
 argument_list|()
 argument_list|,
-name|source
+name|tasksSummary
 argument_list|,
 name|newClusterState
 operator|.
@@ -4571,8 +4647,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -4583,25 +4659,30 @@ name|onFailure
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"exception thrown by listener notifying of failure [{}] from [{}]"
+literal|"exception thrown by listener notifying of failure from [{}]"
 argument_list|,
-name|e
-argument_list|,
-name|t
+name|inner
 argument_list|,
 name|source
 argument_list|)
@@ -4796,8 +4877,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -4806,25 +4887,30 @@ name|listener
 operator|.
 name|onAllNodesAcked
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"exception thrown by listener while notifying on all nodes acked [{}]"
+literal|"exception thrown by listener while notifying on all nodes acked"
 argument_list|,
-name|e
-argument_list|,
-name|t
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -5474,8 +5560,8 @@ operator|.
 name|AckListener
 block|{
 DECL|field|listeners
-specifier|final
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Discovery
@@ -5516,8 +5602,8 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -5536,7 +5622,7 @@ name|onNodeAck
 argument_list|(
 name|node
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5622,7 +5708,7 @@ name|ackTimeoutCallback
 decl_stmt|;
 DECL|field|lastFailure
 specifier|private
-name|Throwable
+name|Exception
 name|lastFailure
 decl_stmt|;
 DECL|method|AckCountDownListener
@@ -5770,8 +5856,8 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -5805,7 +5891,7 @@ block|}
 block|}
 if|if
 condition|(
-name|t
+name|e
 operator|==
 literal|null
 condition|)
@@ -5828,7 +5914,7 @@ name|this
 operator|.
 name|lastFailure
 operator|=
-name|t
+name|e
 expr_stmt|;
 name|logger
 operator|.
@@ -5836,7 +5922,7 @@ name|debug
 argument_list|(
 literal|"ack received from node [{}], cluster_state update (version: {})"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|,

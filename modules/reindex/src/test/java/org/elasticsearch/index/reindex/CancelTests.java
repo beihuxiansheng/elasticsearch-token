@@ -1018,7 +1018,7 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getIndexingFailures
+name|getBulkFailures
 argument_list|()
 argument_list|,
 name|emptyIterable

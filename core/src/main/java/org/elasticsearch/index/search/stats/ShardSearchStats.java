@@ -997,8 +997,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|StatsHolder
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|StatsHolder
 block|{

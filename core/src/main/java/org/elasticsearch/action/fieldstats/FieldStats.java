@@ -3244,14 +3244,14 @@ block|}
 block|}
 DECL|class|Fields
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Fields
 block|{
 DECL|field|MAX_DOC
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|MAX_DOC
 init|=
@@ -3262,8 +3262,8 @@ literal|"max_doc"
 argument_list|)
 decl_stmt|;
 DECL|field|DOC_COUNT
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|DOC_COUNT
 init|=
@@ -3274,8 +3274,8 @@ literal|"doc_count"
 argument_list|)
 decl_stmt|;
 DECL|field|DENSITY
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|DENSITY
 init|=
@@ -3286,8 +3286,8 @@ literal|"density"
 argument_list|)
 decl_stmt|;
 DECL|field|SUM_DOC_FREQ
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SUM_DOC_FREQ
 init|=
@@ -3298,8 +3298,8 @@ literal|"sum_doc_freq"
 argument_list|)
 decl_stmt|;
 DECL|field|SUM_TOTAL_TERM_FREQ
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SUM_TOTAL_TERM_FREQ
 init|=
@@ -3310,8 +3310,8 @@ literal|"sum_total_term_freq"
 argument_list|)
 decl_stmt|;
 DECL|field|SEARCHABLE
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|SEARCHABLE
 init|=
@@ -3322,8 +3322,8 @@ literal|"searchable"
 argument_list|)
 decl_stmt|;
 DECL|field|AGGREGATABLE
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|AGGREGATABLE
 init|=
@@ -3334,8 +3334,8 @@ literal|"aggregatable"
 argument_list|)
 decl_stmt|;
 DECL|field|MIN_VALUE
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|MIN_VALUE
 init|=
@@ -3346,8 +3346,8 @@ literal|"min_value"
 argument_list|)
 decl_stmt|;
 DECL|field|MIN_VALUE_AS_STRING
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|MIN_VALUE_AS_STRING
 init|=
@@ -3358,8 +3358,8 @@ literal|"min_value_as_string"
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_VALUE
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|MAX_VALUE
 init|=
@@ -3370,8 +3370,8 @@ literal|"max_value"
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_VALUE_AS_STRING
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|MAX_VALUE_AS_STRING
 init|=

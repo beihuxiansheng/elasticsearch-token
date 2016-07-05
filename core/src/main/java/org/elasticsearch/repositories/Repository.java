@@ -163,9 +163,6 @@ interface|interface
 name|Repository
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|Repository
-argument_list|>
 block|{
 comment|/**      * Reads snapshot description from repository.      *      * @param snapshotId  snapshot id      * @return information about snapshot      */
 DECL|method|readSnapshot

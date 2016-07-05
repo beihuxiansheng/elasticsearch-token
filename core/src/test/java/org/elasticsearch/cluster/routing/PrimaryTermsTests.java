@@ -327,8 +327,8 @@ name|numberOfReplicas
 decl_stmt|;
 DECL|field|DEFAULT_SETTINGS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Settings
 name|DEFAULT_SETTINGS
 init|=
@@ -453,19 +453,15 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Setup test with "
-operator|+
+literal|"Setup test with {} shards and {} replicas."
+argument_list|,
 name|this
 operator|.
 name|numberOfShards
-operator|+
-literal|" shards and "
-operator|+
+argument_list|,
 name|this
 operator|.
 name|numberOfReplicas
-operator|+
-literal|" replicas."
 argument_list|)
 expr_stmt|;
 name|this
@@ -630,17 +626,13 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"adding "
-operator|+
-operator|(
+literal|"adding {} nodes and performing rerouting"
+argument_list|,
 name|this
 operator|.
 name|numberOfReplicas
 operator|+
 literal|1
-operator|)
-operator|+
-literal|" nodes and performing rerouting"
 argument_list|)
 expr_stmt|;
 name|Builder

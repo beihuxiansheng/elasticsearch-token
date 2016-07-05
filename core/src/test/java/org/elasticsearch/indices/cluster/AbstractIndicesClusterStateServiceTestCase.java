@@ -1414,10 +1414,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|indexService
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|indexService
+specifier|public
 name|MockIndexService
 name|indexService
 parameter_list|(

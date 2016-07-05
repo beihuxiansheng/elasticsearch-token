@@ -217,8 +217,8 @@ implements|implements
 name|ToXContent
 block|{
 DECL|field|PROTOTYPE
-specifier|final
 specifier|static
+specifier|final
 name|PipelineConfiguration
 name|PROTOTYPE
 init|=
@@ -253,8 +253,8 @@ return|;
 block|}
 DECL|field|PARSER
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ObjectParser
 argument_list|<
 name|Builder

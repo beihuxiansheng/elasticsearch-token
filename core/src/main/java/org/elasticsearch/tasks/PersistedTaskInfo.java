@@ -393,7 +393,7 @@ parameter_list|(
 name|TaskInfo
 name|task
 parameter_list|,
-name|Throwable
+name|Exception
 name|error
 parameter_list|)
 throws|throws
@@ -1155,7 +1155,7 @@ specifier|static
 name|BytesReference
 name|toXContent
 parameter_list|(
-name|Throwable
+name|Exception
 name|error
 parameter_list|)
 throws|throws

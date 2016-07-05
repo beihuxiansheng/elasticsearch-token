@@ -174,6 +174,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TcpTransport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -535,7 +547,7 @@ argument_list|()
 argument_list|,
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -774,7 +786,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Unwraps the actual cause from the exception for cases when the exception is a      * {@link ElasticsearchWrapperException}.      *      * @see org.elasticsearch.ExceptionsHelper#unwrapCause(Throwable)      */
+comment|/**      * Unwraps the actual cause from the exception for cases when the exception is a      * {@link ElasticsearchWrapperException}.      *      * @see ExceptionsHelper#unwrapCause(Throwable)      */
 DECL|method|unwrapCause
 specifier|public
 name|Throwable
@@ -948,7 +960,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|this
 operator|.
@@ -2207,7 +2219,7 @@ name|addSuppressed
 argument_list|(
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2338,7 +2350,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|t
 argument_list|)
@@ -5594,29 +5606,13 @@ block|,
 DECL|enum constant|HTTP_ON_TRANSPORT_EXCEPTION
 name|HTTP_ON_TRANSPORT_EXCEPTION
 argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|netty
-operator|.
-name|SizeHeaderFrameDecoder
+name|TcpTransport
 operator|.
 name|HttpOnTransportException
 operator|.
 name|class
 argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|netty
-operator|.
-name|SizeHeaderFrameDecoder
+name|TcpTransport
 operator|.
 name|HttpOnTransportException
 operator|::
@@ -6616,11 +6612,11 @@ block|}
 end_function
 
 begin_function
-DECL|method|renderThrowable
+DECL|method|renderException
 specifier|public
 specifier|static
 name|void
-name|renderThrowable
+name|renderException
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -6628,8 +6624,8 @@ parameter_list|,
 name|Params
 name|params
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 throws|throws
 name|IOException
@@ -6650,7 +6646,7 @@ name|ElasticsearchException
 operator|.
 name|guessRootCauses
 argument_list|(
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 name|builder
@@ -6723,7 +6719,7 @@ name|builder
 argument_list|,
 name|params
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|builder

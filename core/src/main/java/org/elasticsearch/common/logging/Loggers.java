@@ -160,8 +160,8 @@ name|Loggers
 block|{
 DECL|field|commonPrefix
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|commonPrefix
 init|=

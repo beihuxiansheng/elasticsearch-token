@@ -545,12 +545,10 @@ decl_stmt|;
 name|StreamInput
 name|input
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|stuffArray
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(

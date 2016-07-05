@@ -14,6 +14,20 @@ name|rest
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|node
+operator|.
+name|NodeClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * Handler for REST requests  */
 end_comment
@@ -24,6 +38,7 @@ specifier|public
 interface|interface
 name|RestHandler
 block|{
+comment|/**      * Handles a rest request.      *      * @param request The request to handle      * @param channel The channel to write the request response to      * @param client A client to use to make internal requests on behalf of the original request      */
 DECL|method|handleRequest
 name|void
 name|handleRequest
@@ -33,6 +48,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|)
 throws|throws
 name|Exception

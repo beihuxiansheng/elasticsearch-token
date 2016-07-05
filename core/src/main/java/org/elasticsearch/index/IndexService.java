@@ -1535,10 +1535,10 @@ block|}
 comment|/**      * Return the shard with the provided id, or null if there is no such shard.      */
 annotation|@
 name|Override
-DECL|method|getShardOrNull
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|getShardOrNull
+specifier|public
 name|IndexShard
 name|getShardOrNull
 parameter_list|(
@@ -1737,8 +1737,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1747,7 +1747,7 @@ name|warn
 argument_list|(
 literal|"failed to close shard"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2041,19 +2041,19 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
-name|t
+name|ex
 operator|.
 name|addSuppressed
 argument_list|(
-name|ex
+name|inner
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|ex
 throw|;
 block|}
 block|}
@@ -2764,7 +2764,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2808,7 +2808,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -4511,8 +4511,8 @@ block|}
 block|}
 block|}
 DECL|class|BaseAsyncTask
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseAsyncTask
 implements|implements
@@ -4989,8 +4989,8 @@ block|}
 block|}
 comment|/**      * FSyncs the translog for all shards of this index in a defined interval.      */
 DECL|class|AsyncTranslogFSync
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|AsyncTranslogFSync
 extends|extends

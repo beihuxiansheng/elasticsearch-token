@@ -645,8 +645,8 @@ argument_list|>
 block|{
 DECL|field|OP_TYPE_UPDATE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|OP_TYPE_UPDATE
 init|=
@@ -654,8 +654,8 @@ literal|"update"
 decl_stmt|;
 DECL|field|OP_TYPE_DELETE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|OP_TYPE_DELETE
 init|=
@@ -1379,7 +1379,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1549,7 +1549,7 @@ name|void
 name|logFailure
 parameter_list|(
 name|Throwable
-name|e
+name|t
 parameter_list|,
 name|String
 name|operation
@@ -1570,7 +1570,7 @@ name|ExceptionsHelper
 operator|.
 name|status
 argument_list|(
-name|e
+name|t
 argument_list|)
 operator|==
 name|RestStatus
@@ -1584,7 +1584,7 @@ name|trace
 argument_list|(
 literal|"{} failed to execute bulk item ({}) {}"
 argument_list|,
-name|e
+name|t
 argument_list|,
 name|shardId
 argument_list|,
@@ -1602,7 +1602,7 @@ name|debug
 argument_list|(
 literal|"{} failed to execute bulk item ({}) {}"
 argument_list|,
-name|e
+name|t
 argument_list|,
 name|shardId
 argument_list|,
@@ -1737,7 +1737,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1999,7 +1999,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -2473,7 +2473,7 @@ argument_list|()
 condition|)
 block|{
 name|Throwable
-name|t
+name|e
 init|=
 name|updateResult
 operator|.
@@ -2531,7 +2531,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2547,7 +2547,7 @@ if|if
 condition|(
 name|retryPrimaryException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -2593,7 +2593,7 @@ throw|throw
 operator|(
 name|ElasticsearchException
 operator|)
-name|t
+name|e
 throw|;
 block|}
 comment|// if its a conflict failure, and we already executed the request on a primary (and we execute it
@@ -2610,7 +2610,7 @@ literal|null
 operator|&&
 name|isConflictException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -2669,7 +2669,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2703,7 +2703,7 @@ argument_list|()
 decl_stmt|;
 name|logFailure
 argument_list|(
-name|t
+name|e
 argument_list|,
 literal|"index"
 argument_list|,
@@ -2749,7 +2749,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2768,7 +2768,7 @@ argument_list|()
 decl_stmt|;
 name|logFailure
 argument_list|(
-name|t
+name|e
 argument_list|,
 literal|"delete"
 argument_list|,
@@ -2814,7 +2814,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2912,7 +2912,7 @@ name|boolean
 name|processed
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|MappingMetaData
 name|mappingMd
@@ -3293,19 +3293,21 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-name|t
-operator|=
+specifier|final
+name|Throwable
+name|cause
+init|=
 name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|t
+name|e
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|boolean
 name|retry
 init|=
@@ -3313,7 +3315,7 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-name|t
+name|cause
 operator|instanceof
 name|VersionConflictEngineException
 condition|)
@@ -3333,7 +3335,7 @@ name|indexRequest
 argument_list|,
 name|retry
 argument_list|,
-name|t
+name|cause
 argument_list|,
 literal|null
 argument_list|)
@@ -3381,19 +3383,21 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-name|t
-operator|=
+specifier|final
+name|Throwable
+name|cause
+init|=
 name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|t
+name|e
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|boolean
 name|retry
 init|=
@@ -3401,7 +3405,7 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-name|t
+name|cause
 operator|instanceof
 name|VersionConflictEngineException
 condition|)
@@ -3421,7 +3425,7 @@ name|deleteRequest
 argument_list|,
 name|retry
 argument_list|,
-name|t
+name|cause
 argument_list|,
 literal|null
 argument_list|)
@@ -3590,7 +3594,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3671,7 +3675,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

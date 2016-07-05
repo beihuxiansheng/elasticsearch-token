@@ -255,9 +255,6 @@ class|class
 name|JvmGcMonitorService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|JvmGcMonitorService
-argument_list|>
 block|{
 DECL|field|threadPool
 specifier|private
@@ -302,8 +299,8 @@ name|scheduledFuture
 decl_stmt|;
 DECL|field|ENABLED_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -325,8 +322,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|REFRESH_INTERVAL_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -368,8 +365,8 @@ literal|"monitor.jvm.gc.collector."
 decl_stmt|;
 DECL|field|GC_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Settings
@@ -389,8 +386,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|GC_OVERHEAD_WARN_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -416,8 +413,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|GC_OVERHEAD_INFO_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -443,8 +440,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|GC_OVERHEAD_DEBUG_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -1226,8 +1223,8 @@ name|Override
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1236,7 +1233,7 @@ name|debug
 argument_list|(
 literal|"failed to monitor"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1986,8 +1983,8 @@ name|doClose
 parameter_list|()
 block|{     }
 DECL|class|JvmMonitor
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|JvmMonitor
 implements|implements
@@ -2221,13 +2218,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onMonitorFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2237,8 +2234,8 @@ specifier|abstract
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 DECL|method|monitorGc

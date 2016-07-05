@@ -814,10 +814,6 @@ name|Collectors
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|IndicesClusterStateService
 specifier|public
@@ -825,9 +821,6 @@ class|class
 name|IndicesClusterStateService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|IndicesClusterStateService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{
@@ -1832,8 +1825,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1842,7 +1835,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to complete pending deletion for index"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|index
 argument_list|)
@@ -2753,8 +2746,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 specifier|final
@@ -2806,7 +2799,7 @@ name|shardRouting
 argument_list|,
 name|failShardReason
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2978,8 +2971,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|indicesService
@@ -3061,7 +3054,7 @@ name|shardRouting
 argument_list|,
 literal|"failed to update mapping for index"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3414,7 +3407,7 @@ assert|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3576,7 +3569,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3586,7 +3579,7 @@ name|shardRouting
 argument_list|,
 literal|true
 argument_list|,
-literal|"failed updating shard of the new meta data"
+literal|"failed updating shard routing entry"
 argument_list|,
 name|e
 argument_list|)
@@ -4093,7 +4086,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|inner
 parameter_list|)
 block|{
@@ -4342,7 +4335,7 @@ parameter_list|,
 name|boolean
 name|sendShardFailure
 parameter_list|,
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -4374,7 +4367,7 @@ name|message
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -4435,17 +4428,24 @@ comment|// the node got closed on us, ignore it
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|failure
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"[{}][{}] failed to remove shard after failure ([{}])"
 argument_list|,
-name|e1
+name|inner
 argument_list|,
 name|shardRouting
 operator|.
@@ -4490,7 +4490,7 @@ name|message
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -4542,17 +4542,30 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+if|if
+condition|(
+name|failure
+operator|!=
+literal|null
+condition|)
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|failure
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"[{}][{}] failed to mark shard as failed (because of [{}])"
 argument_list|,
-name|e1
+name|inner
 argument_list|,
 name|shardRouting
 operator|.

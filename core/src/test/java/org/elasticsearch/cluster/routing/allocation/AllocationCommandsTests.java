@@ -5387,15 +5387,13 @@ expr_stmt|;
 name|StreamInput
 name|in
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|bytes
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 decl_stmt|;
 comment|// Since the commands are named writeable we need to register them and wrap the input stream
 name|NamedWriteableRegistry

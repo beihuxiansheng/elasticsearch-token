@@ -343,6 +343,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 try|try
@@ -427,6 +429,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|module
@@ -493,6 +497,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|CustomHighlighter
@@ -665,6 +671,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|IllegalArgumentException
@@ -731,6 +739,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|List

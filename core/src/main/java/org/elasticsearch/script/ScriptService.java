@@ -160,7 +160,31 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterChangedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterStateListener
 import|;
 end_import
 
@@ -723,6 +747,8 @@ extends|extends
 name|AbstractComponent
 implements|implements
 name|Closeable
+implements|,
+name|ClusterStateListener
 block|{
 DECL|field|DISABLE_DYNAMIC_SCRIPTING_SETTING
 specifier|static
@@ -928,6 +954,11 @@ init|=
 operator|new
 name|ScriptMetrics
 argument_list|()
+decl_stmt|;
+DECL|field|clusterState
+specifier|private
+name|ClusterState
+name|clusterState
 decl_stmt|;
 comment|/**      * @deprecated Use {@link org.elasticsearch.script.Script.ScriptField} instead. This should be removed in      *             2.0      */
 annotation|@
@@ -1504,9 +1535,6 @@ argument_list|,
 name|String
 argument_list|>
 name|params
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 if|if
@@ -1572,8 +1600,6 @@ condition|(
 name|canExecuteScript
 argument_list|(
 name|lang
-argument_list|,
-name|scriptEngineService
 argument_list|,
 name|script
 operator|.
@@ -1688,8 +1714,6 @@ argument_list|(
 name|script
 argument_list|,
 name|params
-argument_list|,
-name|state
 argument_list|)
 return|;
 block|}
@@ -1708,9 +1732,6 @@ argument_list|,
 name|String
 argument_list|>
 name|params
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 if|if
@@ -1897,8 +1918,6 @@ name|code
 operator|=
 name|getScriptFromClusterState
 argument_list|(
-name|state
-argument_list|,
 name|indexedScript
 operator|.
 name|lang
@@ -2109,9 +2128,6 @@ DECL|method|getScriptFromClusterState
 name|String
 name|getScriptFromClusterState
 parameter_list|(
-name|ClusterState
-name|state
-parameter_list|,
 name|String
 name|scriptLang
 parameter_list|,
@@ -2129,7 +2145,7 @@ expr_stmt|;
 name|ScriptMetaData
 name|scriptMetadata
 init|=
-name|state
+name|clusterState
 operator|.
 name|metaData
 argument_list|()
@@ -2302,8 +2318,6 @@ name|isAnyScriptContextEnabled
 argument_list|(
 name|scriptLang
 argument_list|,
-name|scriptEngineService
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -2425,7 +2439,7 @@ literal|"Unable to find script in : "
 operator|+
 name|scriptBytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 throw|;
@@ -2936,9 +2950,6 @@ argument_list|,
 name|String
 argument_list|>
 name|params
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 return|return
@@ -2951,8 +2962,6 @@ argument_list|,
 name|scriptContext
 argument_list|,
 name|params
-argument_list|,
-name|state
 argument_list|)
 argument_list|,
 name|script
@@ -3019,9 +3028,6 @@ argument_list|,
 name|String
 argument_list|>
 name|params
-parameter_list|,
-name|ClusterState
-name|state
 parameter_list|)
 block|{
 name|CompiledScript
@@ -3034,8 +3040,6 @@ argument_list|,
 name|scriptContext
 argument_list|,
 name|params
-argument_list|,
-name|state
 argument_list|)
 decl_stmt|;
 return|return
@@ -3068,9 +3072,6 @@ parameter_list|(
 name|String
 name|lang
 parameter_list|,
-name|ScriptEngineService
-name|scriptEngineService
-parameter_list|,
 name|ScriptType
 name|scriptType
 parameter_list|)
@@ -3091,8 +3092,6 @@ condition|(
 name|canExecuteScript
 argument_list|(
 name|lang
-argument_list|,
-name|scriptEngineService
 argument_list|,
 name|scriptType
 argument_list|,
@@ -3116,9 +3115,6 @@ name|canExecuteScript
 parameter_list|(
 name|String
 name|lang
-parameter_list|,
-name|ScriptEngineService
-name|scriptEngineService
 parameter_list|,
 name|ScriptType
 name|scriptType
@@ -3238,6 +3234,25 @@ name|message
 argument_list|)
 throw|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|clusterChanged
+specifier|public
+name|void
+name|clusterChanged
+parameter_list|(
+name|ClusterChangedEvent
+name|event
+parameter_list|)
+block|{
+name|clusterState
+operator|=
+name|event
+operator|.
+name|state
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * A small listener for the script cache that calls each      * {@code ScriptEngineService}'s {@code scriptRemoved} method when the      * script has been removed from the cache      */
 DECL|class|ScriptCacheRemovalListener
@@ -3528,8 +3543,6 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
-name|engineService
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -3683,7 +3696,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

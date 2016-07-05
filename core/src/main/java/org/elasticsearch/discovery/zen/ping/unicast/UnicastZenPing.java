@@ -128,6 +128,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|UUIDs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -811,9 +823,6 @@ class|class
 name|UnicastZenPing
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|ZenPing
-argument_list|>
 implements|implements
 name|ZenPing
 block|{
@@ -1796,8 +1805,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1806,7 +1815,7 @@ name|debug
 argument_list|(
 literal|"Ping execution failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|sendPingsHandler
@@ -1825,8 +1834,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1835,7 +1844,7 @@ name|debug
 argument_list|(
 literal|"Ping execution failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|sendPingsHandler
@@ -2334,6 +2343,11 @@ argument_list|()
 operator|+
 literal|"#"
 argument_list|,
+name|UUIDs
+operator|.
+name|randomBase64UUID
+argument_list|()
+argument_list|,
 name|nodeToSend
 operator|.
 name|getHostName
@@ -2613,7 +2627,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2876,14 +2890,11 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|getId
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|discoveryNodes
 operator|.
-name|getLocalNodeId
+name|getLocalNode
 argument_list|()
 argument_list|)
 condition|)

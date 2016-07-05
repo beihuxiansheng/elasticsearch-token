@@ -77,7 +77,7 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -123,7 +123,7 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -430,12 +430,12 @@ block|,
 literal|"-s"
 block|}
 decl_stmt|;
-name|UserError
+name|UserException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UserError
+name|UserException
 operator|.
 name|class
 argument_list|,

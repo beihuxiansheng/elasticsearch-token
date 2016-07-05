@@ -1504,10 +1504,6 @@ name|arrayAsArrayList
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|IndicesService
 specifier|public
@@ -1515,9 +1511,6 @@ class|class
 name|IndicesService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|IndicesService
-argument_list|>
 implements|implements
 name|IndicesClusterStateService
 operator|.
@@ -2182,7 +2175,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2719,10 +2712,10 @@ block|}
 comment|/**      * Returns an IndexService for the specified index if exists otherwise returns<code>null</code>.      */
 annotation|@
 name|Override
-DECL|method|indexService
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|indexService
+specifier|public
 name|IndexService
 name|indexService
 parameter_list|(
@@ -3259,7 +3252,7 @@ name|indicesFieldDataCache
 argument_list|)
 return|;
 block|}
-comment|/**      * This method verifies that the given {@link IndexMetaData} holds sane values to create an {@link IndexService}. This method will throw an      * exception if the creation fails. The created {@link IndexService} will not be registered and will be closed immediately.      */
+comment|/**      * This method verifies that the given {@code metaData} holds sane values to create an {@link IndexService}.      * This method tries to update the meta data of the created {@link IndexService} if the given {@code metaDataUpdate} is different from the given {@code metaData}.      * This method will throw an exception if the creation or the update fails.      * The created {@link IndexService} will not be registered and will be closed immediately.      */
 DECL|method|verifyIndexMetadata
 specifier|public
 specifier|synchronized
@@ -3272,6 +3265,9 @@ name|nodeServicesProvider
 parameter_list|,
 name|IndexMetaData
 name|metaData
+parameter_list|,
+name|IndexMetaData
+name|metaDataUpdate
 parameter_list|)
 throws|throws
 name|IOException
@@ -3353,9 +3349,25 @@ argument_list|()
 argument_list|,
 name|s
 lambda|->
-block|{}
+block|{                     }
 argument_list|)
 decl_stmt|;
+name|closeables
+operator|.
+name|add
+argument_list|(
+parameter_list|()
+lambda|->
+name|service
+operator|.
+name|close
+argument_list|(
+literal|"metadata verification"
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|ObjectCursor
@@ -3405,22 +3417,26 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|closeables
+if|if
+condition|(
+name|metaData
 operator|.
-name|add
+name|equals
 argument_list|(
-parameter_list|()
-lambda|->
+name|metaDataUpdate
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
 name|service
 operator|.
-name|close
+name|updateMetaData
 argument_list|(
-literal|"metadata verification"
-argument_list|,
-literal|false
-argument_list|)
+name|metaDataUpdate
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -3634,7 +3650,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -4125,7 +4141,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -4952,10 +4968,10 @@ block|}
 comment|/**      * Verify that the contents on disk for the given index is deleted; if not, delete the contents.      * This method assumes that an index is already deleted in the cluster state and/or explicitly      * through index tombstones.      * @param index {@code Index} to make sure its deleted from disk      * @param clusterState {@code ClusterState} to ensure the index is not part of it      * @return IndexMetaData for the index loaded from disk      */
 annotation|@
 name|Override
-DECL|method|verifyIndexIsDeleted
-specifier|public
 annotation|@
 name|Nullable
+DECL|method|verifyIndexIsDeleted
+specifier|public
 name|IndexMetaData
 name|verifyIndexIsDeleted
 parameter_list|(
@@ -6211,8 +6227,8 @@ block|}
 comment|/**      * FieldDataCacheCleaner is a scheduled Runnable used to clean a Guava cache      * periodically. In this case it is the field data cache, because a cache that      * has an entry invalidated may not clean up the entry if it is not read from      * or written to after invalidation.      */
 DECL|class|CacheCleaner
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|CacheCleaner
 implements|implements
@@ -6955,12 +6971,10 @@ init|(
 name|StreamInput
 name|in
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|statsRef
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 init|)
 block|{
 return|return
@@ -7034,8 +7048,8 @@ argument_list|)
 return|;
 block|}
 DECL|class|IndexShardCacheEntity
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|IndexShardCacheEntity
 extends|extends

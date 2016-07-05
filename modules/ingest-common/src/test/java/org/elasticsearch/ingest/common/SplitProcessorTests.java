@@ -560,6 +560,8 @@ operator|)
 operator|.
 name|create
 argument_list|(
+literal|"tag"
+argument_list|,
 name|splitConfig
 argument_list|)
 decl_stmt|;

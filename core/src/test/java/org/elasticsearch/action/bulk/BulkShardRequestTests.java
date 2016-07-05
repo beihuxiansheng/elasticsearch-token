@@ -115,8 +115,6 @@ init|=
 operator|new
 name|BulkShardRequest
 argument_list|(
-literal|null
-argument_list|,
 operator|new
 name|ShardId
 argument_list|(
@@ -161,8 +159,6 @@ operator|=
 operator|new
 name|BulkShardRequest
 argument_list|(
-literal|null
-argument_list|,
 operator|new
 name|ShardId
 argument_list|(
@@ -207,8 +203,6 @@ operator|=
 operator|new
 name|BulkShardRequest
 argument_list|(
-literal|null
-argument_list|,
 operator|new
 name|ShardId
 argument_list|(

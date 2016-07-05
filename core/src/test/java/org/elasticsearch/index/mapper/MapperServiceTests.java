@@ -767,6 +767,8 @@ argument_list|(
 literal|"index2"
 argument_list|)
 decl_stmt|;
+name|e
+operator|=
 name|expectThrows
 argument_list|(
 name|ExecutionException

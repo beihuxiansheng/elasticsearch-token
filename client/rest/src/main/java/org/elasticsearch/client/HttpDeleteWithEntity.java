@@ -69,8 +69,8 @@ extends|extends
 name|HttpEntityEnclosingRequestBase
 block|{
 DECL|field|METHOD_NAME
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|METHOD_NAME
 init|=

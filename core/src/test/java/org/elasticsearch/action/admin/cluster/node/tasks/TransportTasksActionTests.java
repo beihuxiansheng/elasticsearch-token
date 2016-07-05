@@ -1551,8 +1551,8 @@ block|}
 block|}
 comment|/**      * Test class for testing task operations      */
 DECL|class|TestTasksAction
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|TestTasksAction
 extends|extends
@@ -2136,7 +2136,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3708,7 +3708,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

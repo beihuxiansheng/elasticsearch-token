@@ -186,7 +186,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingService
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -839,9 +841,6 @@ class|class
 name|ZenDiscovery
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|Discovery
-argument_list|>
 implements|implements
 name|Discovery
 implements|,
@@ -849,8 +848,8 @@ name|PingContextProvider
 block|{
 DECL|field|PING_TIMEOUT_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -875,8 +874,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|JOIN_TIMEOUT_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -925,8 +924,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|JOIN_RETRY_ATTEMPTS_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -950,8 +949,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|JOIN_RETRY_DELAY_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -978,8 +977,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MAX_PINGS_FROM_ANOTHER_MASTER_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Integer
@@ -1003,8 +1002,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|SEND_LEAVE_REQUEST_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -1026,8 +1025,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_WAIT_FOR_JOINS_TIMEOUT_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue
@@ -1076,8 +1075,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_IGNORE_NON_MASTER_PINGS_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -1118,10 +1117,10 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|routingService
+DECL|field|allocationService
 specifier|private
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 decl_stmt|;
 DECL|field|clusterName
 specifier|private
@@ -1240,7 +1239,7 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-comment|// must initialized in doStart(), when we have the routingService set
+comment|// must initialized in doStart(), when we have the allocationService set
 DECL|field|nodeJoinController
 specifier|private
 specifier|volatile
@@ -1602,8 +1601,6 @@ name|MembershipAction
 argument_list|(
 name|settings
 argument_list|,
-name|clusterService
-argument_list|,
 name|transportService
 argument_list|,
 name|this
@@ -1647,20 +1644,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setRoutingService
+DECL|method|setAllocationService
 specifier|public
 name|void
-name|setRoutingService
+name|setAllocationService
 parameter_list|(
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routingService
+name|allocationService
 operator|=
-name|routingService
+name|allocationService
 expr_stmt|;
 block|}
 annotation|@
@@ -1700,7 +1697,7 @@ name|NodeJoinController
 argument_list|(
 name|clusterService
 argument_list|,
-name|routingService
+name|allocationService
 argument_list|,
 name|electMaster
 argument_list|,
@@ -1779,8 +1776,8 @@ operator|.
 name|common
 operator|.
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1789,7 +1786,7 @@ name|warn
 argument_list|(
 literal|"failed to start initial join process"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2238,8 +2235,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2248,7 +2245,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -2551,7 +2548,9 @@ name|nodeJoinController
 operator|.
 name|stopElectionContext
 argument_list|(
-literal|"not master"
+name|masterNode
+operator|+
+literal|" elected"
 argument_list|)
 expr_stmt|;
 comment|// send join request
@@ -2711,8 +2710,8 @@ name|source
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2721,7 +2720,7 @@ name|error
 argument_list|(
 literal|"unexpected error while trying to finalize cluster join"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|joinThreadControl
@@ -2821,10 +2820,11 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
+specifier|final
 name|Throwable
 name|unwrap
 init|=
@@ -2832,7 +2832,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 if|if
@@ -2864,7 +2864,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|,
 name|joinAttempt
@@ -2888,7 +2888,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|,
 name|joinAttempt
@@ -2912,7 +2912,7 @@ name|trace
 argument_list|(
 literal|"failed to send join request to master [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|masterNode
 argument_list|)
@@ -2932,7 +2932,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3009,7 +3009,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-node_left("
+literal|"zen-disco-node-left("
 operator|+
 name|node
 operator|+
@@ -3103,10 +3103,7 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|routingService
-operator|.
-name|getAllocationService
-argument_list|()
+name|allocationService
 operator|.
 name|reroute
 argument_list|(
@@ -3165,8 +3162,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3175,7 +3172,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -3253,7 +3250,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-node_failed("
+literal|"zen-disco-node-failed("
 operator|+
 name|node
 operator|+
@@ -3286,15 +3283,12 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|get
+name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 operator|==
-literal|null
+literal|false
 condition|)
 block|{
 name|logger
@@ -3328,9 +3322,6 @@ operator|.
 name|remove
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|currentState
@@ -3380,10 +3371,7 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|routingService
-operator|.
-name|getAllocationService
-argument_list|()
+name|allocationService
 operator|.
 name|reroute
 argument_list|(
@@ -3442,8 +3430,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3452,7 +3440,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -3541,7 +3529,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-minimum_master_nodes_changed"
+literal|"zen-disco-mini-master-nodes-changed"
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
@@ -3618,8 +3606,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3628,7 +3616,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -3723,7 +3711,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-master_failed ("
+literal|"master_failed ("
 operator|+
 name|masterNode
 operator|+
@@ -3763,9 +3751,6 @@ condition|(
 operator|!
 name|masterNode
 operator|.
-name|getId
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|currentState
@@ -3773,7 +3758,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|getMasterNodeId
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -3800,9 +3785,6 @@ operator|.
 name|remove
 argument_list|(
 name|masterNode
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 operator|.
 name|masterNodeId
@@ -3865,8 +3847,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3875,7 +3857,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -4356,8 +4338,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4366,7 +4348,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -4389,23 +4371,30 @@ name|markAsFailed
 argument_list|(
 name|newClusterState
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|unexpected
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
 literal|"unexpected exception while failing [{}]"
 argument_list|,
-name|unexpected
+name|inner
 argument_list|,
 name|source
 argument_list|)
@@ -4452,15 +4441,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onFailure
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4851,7 +4840,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -6042,8 +6031,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -6052,7 +6041,7 @@ name|debug
 argument_list|(
 literal|"unexpected error during cluster state update task after pings from another master"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6309,8 +6298,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -6319,7 +6308,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)

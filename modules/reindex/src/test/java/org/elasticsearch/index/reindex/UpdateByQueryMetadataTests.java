@@ -44,22 +44,6 @@ name|SearchRequest
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|RoutingFieldMapper
-import|;
-end_import
-
 begin_class
 DECL|class|UpdateByQueryMetadataTests
 specifier|public
@@ -101,11 +85,10 @@ name|index
 argument_list|)
 argument_list|,
 name|doc
-argument_list|(
-name|RoutingFieldMapper
+argument_list|()
 operator|.
-name|NAME
-argument_list|,
+name|setRouting
+argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|)

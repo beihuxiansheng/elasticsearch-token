@@ -821,8 +821,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -831,7 +831,7 @@ name|warn
 argument_list|(
 literal|"unexpected failure"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1207,15 +1207,13 @@ expr_stmt|;
 name|StreamInput
 name|in
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|out
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 decl_stmt|;
 name|clusterStateHealth
 operator|=

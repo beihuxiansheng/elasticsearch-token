@@ -296,8 +296,8 @@ name|Override
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|invoked
@@ -309,7 +309,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|instanceOf
 argument_list|(
@@ -321,7 +321,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|hasToString
 argument_list|(
@@ -1114,8 +1114,8 @@ name|Override
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{             }
 annotation|@
@@ -1872,8 +1872,8 @@ name|Override
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{             }
 annotation|@
@@ -2310,8 +2310,8 @@ name|void
 name|onMonitorFailure
 parameter_list|(
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{             }
 annotation|@

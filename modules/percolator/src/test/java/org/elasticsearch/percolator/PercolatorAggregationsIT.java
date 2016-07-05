@@ -404,8 +404,8 @@ name|ESIntegTestCase
 block|{
 DECL|field|INDEX_NAME
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|INDEX_NAME
 init|=
@@ -413,8 +413,8 @@ literal|"queries"
 decl_stmt|;
 DECL|field|TYPE_NAME
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TYPE_NAME
 init|=

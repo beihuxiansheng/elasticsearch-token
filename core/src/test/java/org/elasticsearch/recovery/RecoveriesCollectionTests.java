@@ -76,7 +76,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -186,20 +186,6 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|recovery
-operator|.
 name|RecoveryTargetService
 import|;
 end_import
@@ -225,16 +211,6 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 
@@ -273,18 +249,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
 import|;
 end_import
 
@@ -345,8 +309,8 @@ extends|extends
 name|ESSingleNodeTestCase
 block|{
 DECL|field|listener
-specifier|final
 specifier|static
+specifier|final
 name|RecoveryTargetService
 operator|.
 name|RecoveryListener
@@ -906,9 +870,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"id"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

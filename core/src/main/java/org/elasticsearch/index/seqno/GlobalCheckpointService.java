@@ -118,8 +118,8 @@ name|AbstractIndexShardComponent
 block|{
 comment|/**      * This map holds the last known local checkpoint for every shard copy that's active.      * All shard copies in this map participate in determining the global checkpoint      * keyed by allocation ids      */
 DECL|field|activeLocalCheckpoints
-specifier|final
 specifier|private
+specifier|final
 name|ObjectLongMap
 argument_list|<
 name|String
@@ -128,8 +128,8 @@ name|activeLocalCheckpoints
 decl_stmt|;
 comment|/**      * This map holds the last known local checkpoint for every initializing shard copy that's has been brought up      * to speed through recovery. These shards are treated as valid copies and participate in determining the global      * checkpoint.      *<p>      * Keyed by allocation ids.      */
 DECL|field|inSyncLocalCheckpoints
-specifier|final
 specifier|private
+specifier|final
 name|ObjectLongMap
 argument_list|<
 name|String
@@ -139,8 +139,8 @@ decl_stmt|;
 comment|// keyed by allocation ids
 comment|/**      * This map holds the last known local checkpoint for every initializing shard copy that is still undergoing recovery.      * These shards<strong>do not</strong> participate in determining the global checkpoint. This map is needed to make sure that when      * shards are promoted to {@link #inSyncLocalCheckpoints} we use the highest known checkpoint, even if we index concurrently      * while recovering the shard.      * Keyed by allocation ids      */
 DECL|field|trackingLocalCheckpoint
-specifier|final
 specifier|private
+specifier|final
 name|ObjectLongMap
 argument_list|<
 name|String
@@ -223,8 +223,8 @@ expr_stmt|;
 block|}
 comment|/**      * notifies the service of a local checkpoint. if the checkpoint is lower than the currently known one,      * this is a noop. Last, if the allocation id is not yet known, it is ignored. This to prevent late      * arrivals from shards that are removed to be re-added.      */
 DECL|method|updateLocalCheckpoint
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|updateLocalCheckpoint
 parameter_list|(
@@ -599,8 +599,8 @@ return|;
 block|}
 comment|/**      * gets the current global checkpoint. See java docs for {@link GlobalCheckpointService} for more details      */
 DECL|method|getCheckpoint
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|long
 name|getCheckpoint
 parameter_list|()
@@ -668,8 +668,8 @@ block|}
 block|}
 comment|/**      * Notifies the service of the current allocation ids in the cluster state. This method trims any shards that      * have been removed and adds/promotes any active allocations to the {@link #activeLocalCheckpoints}.      *      * @param activeAllocationIds       the allocation ids of the currently active shard copies      * @param initializingAllocationIds the allocation ids of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|updateAllocationIdsFromMaster
 parameter_list|(
@@ -858,8 +858,8 @@ block|}
 block|}
 comment|/**      * marks the allocationId as "in sync" with the primary shard. This should be called at the end of recovery      * where the primary knows all operation bellow the global checkpoint have been completed on this shard.      *      * @param allocationId    allocationId of the recovering shard      * @param localCheckpoint the local checkpoint of the shard in question      */
 DECL|method|markAllocationIdAsInSync
-specifier|synchronized
 specifier|public
+specifier|synchronized
 name|void
 name|markAllocationIdAsInSync
 parameter_list|(

@@ -63,8 +63,8 @@ argument_list|>
 block|{
 DECL|field|logger
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=

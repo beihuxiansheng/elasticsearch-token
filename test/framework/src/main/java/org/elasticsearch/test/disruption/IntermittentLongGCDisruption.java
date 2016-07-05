@@ -254,8 +254,8 @@ name|delayDurationMax
 expr_stmt|;
 block|}
 DECL|field|thread_ids
-specifier|final
 specifier|static
+specifier|final
 name|AtomicInteger
 name|thread_ids
 init|=

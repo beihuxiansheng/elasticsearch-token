@@ -170,10 +170,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|JavaScriptScriptMultiThreadedTests
 specifier|public
@@ -444,8 +440,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failed
@@ -461,7 +457,7 @@ name|error
 argument_list|(
 literal|"failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -790,8 +786,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failed
@@ -807,7 +803,7 @@ name|error
 argument_list|(
 literal|"failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1131,8 +1127,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failed
@@ -1148,7 +1144,7 @@ name|error
 argument_list|(
 literal|"failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

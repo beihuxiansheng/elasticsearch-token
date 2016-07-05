@@ -222,7 +222,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|IngestDocument
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocument
+name|Processor
 import|;
 end_import
 
@@ -1276,13 +1276,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
-argument_list|<
-name|GeoIpProcessor
-argument_list|>
 implements|implements
-name|Closeable
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|DEFAULT_CITY_PROPERTIES
 specifier|static
@@ -1373,10 +1370,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|GeoIpProcessor
-name|doCreate
+name|create
 parameter_list|(
 name|String
 name|processorTag
@@ -1643,35 +1640,14 @@ name|properties
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|databaseReaders
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// Geoip2's AddressNotFoundException is checked and due to the fact that we need run their code
 comment|// inside a PrivilegedAction code block, we are forced to catch any checked exception and rethrow
 comment|// it with an unchecked exception.
 DECL|class|AddressNotFoundRuntimeException
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|AddressNotFoundRuntimeException
 extends|extends

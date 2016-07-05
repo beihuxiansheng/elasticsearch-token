@@ -589,9 +589,6 @@ class|class
 name|IndicesTTLService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|IndicesTTLService
-argument_list|>
 block|{
 DECL|field|INDICES_TTL_INTERVAL_SETTING
 specifier|public
@@ -963,7 +960,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1868,7 +1865,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

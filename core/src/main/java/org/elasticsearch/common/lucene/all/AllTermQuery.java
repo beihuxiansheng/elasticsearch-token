@@ -739,7 +739,6 @@ block|{
 annotation|@
 name|Override
 specifier|public
-specifier|final
 name|float
 name|getValueForNormalization
 parameter_list|()
@@ -756,7 +755,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-specifier|final
 name|void
 name|normalize
 parameter_list|(

@@ -280,7 +280,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -691,9 +691,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"local_node"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -723,9 +724,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"remote_node"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1009,6 +1011,8 @@ operator|.
 name|SAME
 argument_list|,
 name|listener
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1133,11 +1137,11 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 name|exception
 init|=
 operator|new
-name|Throwable
+name|Exception
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1676,11 +1680,11 @@ name|localNode
 argument_list|,
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 name|localNode
 argument_list|,
 name|remoteNode
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|allNodes
@@ -2502,7 +2506,7 @@ name|allNodes
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Throwable
+name|Exception
 name|failure
 init|=
 name|randomBoolean

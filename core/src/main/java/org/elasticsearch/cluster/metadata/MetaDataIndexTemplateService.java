@@ -250,7 +250,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|NodeServicesProvider
+name|IndexService
 import|;
 end_import
 
@@ -262,7 +262,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|NodeServicesProvider
 import|;
 end_import
 
@@ -581,15 +581,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -884,7 +884,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -960,15 +960,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1025,8 +1025,6 @@ argument_list|,
 name|indicesService
 argument_list|,
 name|nodeServicesProvider
-argument_list|,
-name|metaDataCreateIndexService
 argument_list|)
 expr_stmt|;
 for|for
@@ -1227,9 +1225,6 @@ name|indicesService
 parameter_list|,
 name|NodeServicesProvider
 name|nodeServicesProvider
-parameter_list|,
-name|MetaDataCreateIndexService
-name|metaDataCreateIndexService
 parameter_list|)
 throws|throws
 name|Exception
@@ -1874,7 +1869,6 @@ block|}
 block|}
 DECL|interface|PutListener
 specifier|public
-specifier|static
 interface|interface
 name|PutListener
 block|{
@@ -1890,8 +1884,8 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 block|}
@@ -2366,7 +2360,6 @@ block|}
 block|}
 DECL|interface|RemoveListener
 specifier|public
-specifier|static
 interface|interface
 name|RemoveListener
 block|{
@@ -2382,8 +2375,8 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 block|}

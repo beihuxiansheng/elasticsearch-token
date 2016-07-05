@@ -72,20 +72,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNodeService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|SuppressForbidden
@@ -115,6 +101,18 @@ operator|.
 name|env
 operator|.
 name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|NodeEnvironment
 import|;
 end_import
 
@@ -358,7 +356,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiscoveryNodeService
+name|NodeEnvironment
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.
@@ -410,7 +408,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiscoveryNodeService
+name|NodeEnvironment
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.

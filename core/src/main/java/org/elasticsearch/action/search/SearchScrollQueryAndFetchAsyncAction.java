@@ -695,21 +695,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Node ["
-operator|+
+literal|"Node [{}] not available for scroll request [{}]"
+argument_list|,
 name|target
 operator|.
 name|getNode
 argument_list|()
-operator|+
-literal|"] not available for scroll request ["
-operator|+
+argument_list|,
 name|scrollId
 operator|.
 name|getSource
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -777,21 +773,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Node ["
-operator|+
+literal|"Node [{}] not available for scroll request [{}]"
+argument_list|,
 name|target
 operator|.
 name|getNode
 argument_list|()
-operator|+
-literal|"] not available for scroll request ["
-operator|+
+argument_list|,
 name|scrollId
 operator|.
 name|getSource
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -901,7 +893,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -924,8 +916,8 @@ specifier|private
 name|void
 name|onPhaseFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|,
 name|long
 name|searchId
@@ -948,7 +940,7 @@ name|debug
 argument_list|(
 literal|"[{}] Failed to execute query phase"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|searchId
 argument_list|)
@@ -961,7 +953,7 @@ argument_list|,
 operator|new
 name|ShardSearchFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1001,7 +993,7 @@ literal|"query_fetch"
 argument_list|,
 literal|"all shards failed"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|buildShardFailures
 argument_list|()
@@ -1031,7 +1023,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

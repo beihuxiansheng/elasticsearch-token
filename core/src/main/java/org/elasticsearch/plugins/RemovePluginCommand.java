@@ -118,18 +118,6 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|Command
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cli
-operator|.
 name|ExitCodes
 import|;
 end_import
@@ -154,7 +142,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|UserError
+name|UserException
 import|;
 end_import
 
@@ -329,7 +317,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -436,7 +424,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -498,7 +486,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.

@@ -30,8 +30,6 @@ name|BigArray
 block|{
 comment|/**      * Get an element given its index.      */
 DECL|method|get
-specifier|public
-specifier|abstract
 name|long
 name|get
 parameter_list|(
@@ -41,8 +39,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Set a value at the given index and return the previous value.      */
 DECL|method|set
-specifier|public
-specifier|abstract
 name|long
 name|set
 parameter_list|(
@@ -55,8 +51,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Increment value at the given index by<code>inc</code> and return the value.      */
 DECL|method|increment
-specifier|public
-specifier|abstract
 name|long
 name|increment
 parameter_list|(
@@ -69,8 +63,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Fill slots between<code>fromIndex</code> inclusive to<code>toIndex</code> exclusive with<code>value</code>.      */
 DECL|method|fill
-specifier|public
-specifier|abstract
 name|void
 name|fill
 parameter_list|(

@@ -216,6 +216,10 @@ return|return
 operator|new
 name|WrapperQueryBuilder
 argument_list|(
+name|BytesReference
+operator|.
+name|toBytes
+argument_list|(
 operator|(
 operator|(
 name|ToXContentToBytes
@@ -225,9 +229,7 @@ operator|)
 operator|.
 name|buildAsBytes
 argument_list|()
-operator|.
-name|toBytes
-argument_list|()
+argument_list|)
 argument_list|)
 return|;
 case|case

@@ -753,7 +753,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for creating snapshots  *<p>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotsInProgress.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link SnapshotShardsService#processIndexShardSnapshots(ClusterChangedEvent)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link SnapshotShardsService#updateIndexShardSnapshotStatus} method</li>  *<li>When last shard is completed master node in {@link SnapshotShardsService#innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotsInProgress.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(Snapshot, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
+comment|/**  * Service responsible for creating snapshots  *<p>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotsInProgress.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link SnapshotShardsService#processIndexShardSnapshots(ClusterChangedEvent)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link SnapshotShardsService#updateIndexShardSnapshotStatus} method</li>  *<li>When last shard is completed master node in {@link SnapshotShardsService#innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotsInProgress.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(Snapshot, SnapshotInfo, Exception)} to remove snapshot from cluster state</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -763,9 +763,6 @@ class|class
 name|SnapshotsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SnapshotsService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{
@@ -1548,8 +1545,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1558,7 +1555,7 @@ name|warn
 argument_list|(
 literal|"[{}][{}] failed to create snapshot"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|repositoryName
 argument_list|,
@@ -1573,7 +1570,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2453,8 +2450,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2463,7 +2460,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to create snapshot"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|snapshot
 operator|.
@@ -2483,7 +2480,7 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-name|t
+name|e
 argument_list|,
 operator|new
 name|CleanupAfterErrorListener
@@ -2494,7 +2491,7 @@ literal|true
 argument_list|,
 name|userCreateSnapshotListener
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2553,8 +2550,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2563,7 +2560,7 @@ name|warn
 argument_list|(
 literal|"failed to create snapshot [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|snapshot
 operator|.
@@ -2583,7 +2580,7 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-name|t
+name|e
 argument_list|,
 operator|new
 name|CleanupAfterErrorListener
@@ -2594,7 +2591,7 @@ name|snapshotCreated
 argument_list|,
 name|userCreateSnapshotListener
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2630,11 +2627,11 @@ specifier|final
 name|CreateSnapshotListener
 name|userCreateSnapshotListener
 decl_stmt|;
-DECL|field|t
+DECL|field|e
 specifier|private
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|e
 decl_stmt|;
 DECL|method|CleanupAfterErrorListener
 specifier|public
@@ -2651,8 +2648,8 @@ parameter_list|,
 name|CreateSnapshotListener
 name|userCreateSnapshotListener
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|this
@@ -2675,9 +2672,9 @@ name|userCreateSnapshotListener
 expr_stmt|;
 name|this
 operator|.
-name|t
+name|e
 operator|=
-name|t
+name|e
 expr_stmt|;
 block|}
 annotation|@
@@ -2692,7 +2689,11 @@ name|snapshotInfo
 parameter_list|)
 block|{
 name|cleanupAfterError
-argument_list|()
+argument_list|(
+name|this
+operator|.
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -2702,19 +2703,33 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|addSuppressed
+argument_list|(
+name|this
+operator|.
+name|e
+argument_list|)
+expr_stmt|;
 name|cleanupAfterError
-argument_list|()
+argument_list|(
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|cleanupAfterError
 specifier|private
 name|void
 name|cleanupAfterError
-parameter_list|()
+parameter_list|(
+name|Exception
+name|exception
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -2760,7 +2775,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|exception
 argument_list|)
 argument_list|,
 literal|0
@@ -2774,15 +2789,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t2
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|exception
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"[{}] failed to close snapshot in repository"
+argument_list|,
+name|inner
 argument_list|,
 name|snapshot
 operator|.
@@ -2796,7 +2820,7 @@ name|userCreateSnapshotListener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3493,8 +3517,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3503,7 +3527,7 @@ name|warn
 argument_list|(
 literal|"Failed to update snapshot state "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3941,8 +3965,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4046,8 +4070,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4338,8 +4362,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4348,7 +4372,7 @@ name|warn
 argument_list|(
 literal|"failed to update snapshot state after shards started from [{}] "
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -5431,8 +5455,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -5441,7 +5465,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to finalize snapshot"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|snapshot
 argument_list|)
@@ -5452,7 +5476,7 @@ name|snapshot
 argument_list|,
 literal|null
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5461,7 +5485,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes record of running snapshot from cluster state      *      * @param snapshot       snapshot      * @param snapshotInfo   snapshot info if snapshot was successful      * @param t              exception if snapshot failed      */
+comment|/**      * Removes record of running snapshot from cluster state      *  @param snapshot       snapshot      * @param snapshotInfo   snapshot info if snapshot was successful      * @param e              exception if snapshot failed      */
 DECL|method|removeSnapshotFromClusterState
 specifier|private
 name|void
@@ -5476,8 +5500,8 @@ name|SnapshotInfo
 name|snapshotInfo
 parameter_list|,
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|removeSnapshotFromClusterState
@@ -5486,13 +5510,13 @@ name|snapshot
 argument_list|,
 name|snapshotInfo
 argument_list|,
-name|t
+name|e
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes record of running snapshot from cluster state and notifies the listener when this action is complete      *      * @param snapshot   snapshot      * @param snapshot   snapshot info if snapshot was successful      * @param t          exception if snapshot failed      * @param listener   listener to notify when snapshot information is removed from the cluster state      */
+comment|/**      * Removes record of running snapshot from cluster state and notifies the listener when this action is complete      *  @param snapshot   snapshot      * @param failure          exception if snapshot failed      * @param listener   listener to notify when snapshot information is removed from the cluster state      */
 DECL|method|removeSnapshotFromClusterState
 specifier|private
 name|void
@@ -5507,8 +5531,8 @@ name|SnapshotInfo
 name|snapshotInfo
 parameter_list|,
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|failure
 parameter_list|,
 annotation|@
 name|Nullable
@@ -5680,8 +5704,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -5690,7 +5714,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to remove snapshot metadata"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|snapshot
 argument_list|)
@@ -5706,7 +5730,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5762,14 +5786,14 @@ name|onSnapshotFailure
 argument_list|(
 name|snapshot
 argument_list|,
-name|t
+name|failure
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -6408,15 +6432,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6507,8 +6531,8 @@ parameter_list|(
 name|Snapshot
 name|failedSnapshot
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -6527,7 +6551,7 @@ name|trace
 argument_list|(
 literal|"deleted snapshot failed - deleting files"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|removeListener
@@ -6706,7 +6730,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -7580,8 +7604,8 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 block|}
@@ -7602,8 +7626,8 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 block|}
@@ -7630,8 +7654,8 @@ parameter_list|(
 name|Snapshot
 name|snapshot
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 block|}

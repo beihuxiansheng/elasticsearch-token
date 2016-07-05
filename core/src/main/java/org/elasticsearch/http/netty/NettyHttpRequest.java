@@ -50,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|transport
 operator|.
-name|bytes
+name|netty
 operator|.
-name|ChannelBufferBytesReference
+name|NettyUtils
 import|;
 end_import
 
@@ -264,8 +264,9 @@ name|this
 operator|.
 name|content
 operator|=
-operator|new
-name|ChannelBufferBytesReference
+name|NettyUtils
+operator|.
+name|toBytesReference
 argument_list|(
 name|request
 operator|.

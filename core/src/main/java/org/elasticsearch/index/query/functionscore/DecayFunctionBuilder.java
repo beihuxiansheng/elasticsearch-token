@@ -3222,8 +3222,8 @@ block|}
 comment|/**      * This is the base class for scoring a single field.      *      * */
 DECL|class|AbstractDistanceScoreFunction
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|AbstractDistanceScoreFunction
 extends|extends

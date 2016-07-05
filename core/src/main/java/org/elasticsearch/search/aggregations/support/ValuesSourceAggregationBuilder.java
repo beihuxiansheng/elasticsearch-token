@@ -356,8 +356,8 @@ argument_list|>
 block|{
 DECL|class|LeafOnly
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|LeafOnly
 parameter_list|<
@@ -1938,14 +1938,6 @@ argument_list|,
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
-argument_list|,
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
-operator|.
-name|getClusterState
 argument_list|()
 argument_list|)
 return|;

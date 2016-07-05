@@ -492,8 +492,8 @@ extends|extends
 name|ESIntegTestCase
 block|{
 DECL|field|PURGE_INTERVAL
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|long
 name|PURGE_INTERVAL

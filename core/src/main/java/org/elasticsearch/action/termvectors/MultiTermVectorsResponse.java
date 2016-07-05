@@ -185,7 +185,7 @@ name|id
 decl_stmt|;
 DECL|field|cause
 specifier|private
-name|Throwable
+name|Exception
 name|cause
 decl_stmt|;
 DECL|method|Failure
@@ -205,7 +205,7 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|Throwable
+name|Exception
 name|cause
 parameter_list|)
 block|{
@@ -272,7 +272,7 @@ block|}
 comment|/**          * The failure cause.          */
 DECL|method|getCause
 specifier|public
-name|Throwable
+name|Exception
 name|getCause
 parameter_list|()
 block|{
@@ -350,7 +350,7 @@ name|cause
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}
@@ -390,7 +390,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|cause
 argument_list|)
@@ -557,7 +557,7 @@ argument_list|)
 expr_stmt|;
 name|ElasticsearchException
 operator|.
-name|renderThrowable
+name|renderException
 argument_list|(
 name|builder
 argument_list|,

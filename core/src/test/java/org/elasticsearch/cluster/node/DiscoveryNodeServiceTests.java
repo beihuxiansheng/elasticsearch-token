@@ -22,7 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
+name|common
+operator|.
+name|UUIDs
 import|;
 end_import
 
@@ -50,7 +52,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -306,9 +308,20 @@ name|discoveryNodeService
 operator|.
 name|buildLocalNode
 argument_list|(
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
+argument_list|,
+parameter_list|()
+lambda|->
+name|UUIDs
+operator|.
+name|randomBase64UUID
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -514,9 +527,20 @@ name|discoveryNodeService
 operator|.
 name|buildLocalNode
 argument_list|(
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
+argument_list|,
+parameter_list|()
+lambda|->
+name|UUIDs
+operator|.
+name|randomBase64UUID
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat

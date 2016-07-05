@@ -6378,9 +6378,6 @@ operator|.
 name|value
 argument_list|()
 operator|)
-operator|.
-name|toBytesArray
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(

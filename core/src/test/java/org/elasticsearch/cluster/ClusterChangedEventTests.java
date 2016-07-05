@@ -172,7 +172,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -2089,9 +2089,19 @@ name|nodeId
 argument_list|,
 name|nodeId
 argument_list|,
-name|DummyTransportAddress
-operator|.
-name|INSTANCE
+name|nodeId
+argument_list|,
+literal|"host"
+argument_list|,
+literal|"host_address"
+argument_list|,
+operator|new
+name|LocalTransportAddress
+argument_list|(
+literal|"_test_"
+operator|+
+name|nodeId
+argument_list|)
 argument_list|,
 name|Collections
 operator|.

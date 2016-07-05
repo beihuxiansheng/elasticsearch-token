@@ -817,8 +817,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -827,7 +827,7 @@ name|ElasticsearchException
 argument_list|(
 literal|"failure in background thread"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1298,8 +1298,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -1308,7 +1308,7 @@ name|ElasticsearchException
 argument_list|(
 literal|"failure in background thread"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}

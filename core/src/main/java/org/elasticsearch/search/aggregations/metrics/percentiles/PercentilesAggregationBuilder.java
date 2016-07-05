@@ -118,13 +118,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|metrics
+name|InternalAggregation
 operator|.
-name|percentiles
-operator|.
-name|hdr
-operator|.
-name|HDRPercentilesAggregatorFactory
+name|Type
 import|;
 end_import
 
@@ -142,9 +138,9 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|tdigest
+name|hdr
 operator|.
-name|InternalTDigestPercentiles
+name|HDRPercentilesAggregatorFactory
 import|;
 end_import
 
@@ -352,12 +348,22 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|InternalTDigestPercentiles
+name|Percentiles
 operator|.
+name|TYPE_NAME
+decl_stmt|;
+DECL|field|TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
 name|TYPE
-operator|.
-name|name
-argument_list|()
+init|=
+operator|new
+name|Type
+argument_list|(
+name|NAME
+argument_list|)
 decl_stmt|;
 DECL|field|AGGREGATION_NAME_FIELD
 specifier|public
@@ -424,8 +430,6 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|InternalTDigestPercentiles
-operator|.
 name|TYPE
 argument_list|,
 name|ValuesSourceType
@@ -453,8 +457,6 @@ name|super
 argument_list|(
 name|in
 argument_list|,
-name|InternalTDigestPercentiles
-operator|.
 name|TYPE
 argument_list|,
 name|ValuesSourceType

@@ -993,7 +993,7 @@ decl_stmt|;
 DECL|field|failedEngine
 specifier|protected
 specifier|volatile
-name|Throwable
+name|Exception
 name|failedEngine
 init|=
 literal|null
@@ -1742,8 +1742,8 @@ DECL|enum constant|PENDING_OPERATIONS
 name|PENDING_OPERATIONS
 block|}
 DECL|method|getFromSearcher
-specifier|final
 specifier|protected
+specifier|final
 name|GetResult
 name|getFromSearcher
 parameter_list|(
@@ -1800,7 +1800,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2085,7 +2085,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -2861,8 +2861,8 @@ expr_stmt|;
 block|}
 comment|/** How much heap is used that would be freed by a refresh.  Note that this may throw {@link AlreadyClosedException}. */
 DECL|method|getIndexBufferRAMBytesUsed
-specifier|abstract
 specifier|public
+specifier|abstract
 name|long
 name|getIndexBufferRAMBytesUsed
 parameter_list|()
@@ -3569,7 +3569,7 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -3720,10 +3720,23 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
+if|if
+condition|(
+name|failure
+operator|!=
+literal|null
+condition|)
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|failure
+argument_list|)
+expr_stmt|;
 comment|// don't bubble up these exceptions up
 name|logger
 operator|.
@@ -3731,7 +3744,7 @@ name|warn
 argument_list|(
 literal|"failEngine threw exception"
 argument_list|,
-name|t
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -3768,8 +3781,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -3778,7 +3791,7 @@ name|Lucene
 operator|.
 name|isCorruptionException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -3790,7 +3803,7 @@ name|source
 operator|+
 literal|"])"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -3804,7 +3817,7 @@ name|ExceptionsHelper
 operator|.
 name|isOOM
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -3816,7 +3829,7 @@ name|source
 operator|+
 literal|"])"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -3843,8 +3856,8 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{         }
 block|}
@@ -3977,8 +3990,8 @@ block|}
 block|}
 DECL|class|Operation
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Operation
 block|{

@@ -659,9 +659,6 @@ class|class
 name|SnapshotShardsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SnapshotShardsService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{
@@ -1084,8 +1081,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1094,7 +1091,7 @@ name|warn
 argument_list|(
 literal|"Failed to update snapshot state "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1991,8 +1988,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2001,7 +1998,7 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to create snapshot"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 argument_list|,
@@ -2037,7 +2034,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2049,8 +2046,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|updateIndexShardSnapshotStatus
@@ -2079,7 +2076,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2362,7 +2359,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3061,8 +3058,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3071,7 +3068,7 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to update snapshot state"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -3555,8 +3552,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -3573,7 +3570,7 @@ name|warn
 argument_list|(
 literal|"[{}][{}] failed to update snapshot status to [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.

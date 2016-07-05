@@ -2598,8 +2598,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node "
-operator|+
+literal|"--> stopping node {}"
+argument_list|,
 name|node_2
 argument_list|)
 expr_stmt|;
@@ -4020,8 +4020,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{             }
 block|}

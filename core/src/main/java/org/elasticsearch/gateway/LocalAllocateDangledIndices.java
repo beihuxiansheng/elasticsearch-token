@@ -666,7 +666,6 @@ expr_stmt|;
 block|}
 DECL|interface|Listener
 specifier|public
-specifier|static
 interface|interface
 name|Listener
 block|{
@@ -1202,8 +1201,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1212,7 +1211,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -1223,23 +1222,30 @@ name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"failed send response for allocating dangled"
 argument_list|,
-name|e
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

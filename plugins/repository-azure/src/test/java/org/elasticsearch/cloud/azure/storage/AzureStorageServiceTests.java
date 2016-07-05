@@ -145,8 +145,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|settings
-specifier|final
 specifier|static
+specifier|final
 name|Settings
 name|settings
 init|=

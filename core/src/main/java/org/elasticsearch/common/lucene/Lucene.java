@@ -1679,8 +1679,8 @@ block|}
 comment|/**      * Wraps<code>delegate</code> with count based early termination collector with a threshold of<code>maxCountHits</code>      */
 DECL|method|wrapCountBasedEarlyTerminatingCollector
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|EarlyTerminatingCollector
 name|wrapCountBasedEarlyTerminatingCollector
 parameter_list|(
@@ -1705,8 +1705,8 @@ block|}
 comment|/**      * Wraps<code>delegate</code> with a time limited collector with a timeout of<code>timeoutInMillis</code>      */
 DECL|method|wrapTimeLimitingCollector
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|TimeLimitingCollector
 name|wrapTimeLimitingCollector
 parameter_list|(
@@ -3575,8 +3575,8 @@ block|}
 comment|/**      * This exception is thrown when {@link org.elasticsearch.common.lucene.Lucene.EarlyTerminatingCollector}      * reaches early termination      * */
 DECL|class|EarlyTerminationException
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|EarlyTerminationException
 extends|extends
@@ -3616,8 +3616,8 @@ block|}
 comment|/**      * A collector that terminates early by throwing {@link org.elasticsearch.common.lucene.Lucene.EarlyTerminationException}      * when count of matched documents has reached<code>maxCountHits</code>      */
 DECL|class|EarlyTerminatingCollector
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|EarlyTerminatingCollector
 extends|extends

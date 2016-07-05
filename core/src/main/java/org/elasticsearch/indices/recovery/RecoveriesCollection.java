@@ -180,18 +180,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class holds a collection of all on going recoveries on the current node (i.e., the node is the target node  * of those recoveries). The class is used to guarantee concurrent semantics such that once a recoveries was done/cancelled/failed  * no other thread will be able to find it. Last, the {@link RecoveryRef} inner class verifies that recovery temporary files  * and store will only be cleared once on going usage is finished.  */
 end_comment
@@ -220,14 +208,14 @@ name|newConcurrentMap
 argument_list|()
 decl_stmt|;
 DECL|field|logger
-specifier|final
 specifier|private
+specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
 DECL|field|threadPool
-specifier|final
 specifier|private
+specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
@@ -889,8 +877,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -899,7 +887,7 @@ name|error
 argument_list|(
 literal|"unexpected error while monitoring recovery [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|recoveryId
 argument_list|)

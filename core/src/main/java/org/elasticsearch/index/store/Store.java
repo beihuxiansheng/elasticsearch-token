@@ -334,6 +334,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRefBuilder
 import|;
 end_import
@@ -1907,7 +1921,7 @@ parameter_list|)
 block|{                 }
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -2921,7 +2935,6 @@ block|}
 DECL|method|failIfCorrupted
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|failIfCorrupted
 parameter_list|(
@@ -3056,12 +3069,12 @@ argument_list|(
 name|buffer
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 decl_stmt|;
 if|if
@@ -3732,8 +3745,8 @@ block|}
 comment|/**      * Represents a snapshot of the current directory build from the latest Lucene commit.      * Only files that are part of the last commit are considered in this datastrucutre.      * For backwards compatibility the snapshot might include legacy checksums that      * are derived from a dedicated checksum file written by older elasticsearch version pre 1.3      *<p>      * Note: This class will ignore the<tt>segments.gen</tt> file since it's optional and might      * change concurrently for safety reasons.      *      * @see StoreFileMetaData      */
 DECL|class|MetadataSnapshot
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|MetadataSnapshot
 implements|implements
@@ -4559,7 +4572,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -4592,6 +4605,9 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ex
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -4616,15 +4632,21 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e
+name|Exception
+name|inner
 parameter_list|)
 block|{
-comment|// ignore...
-block|}
+name|ex
+operator|.
+name|addSuppressed
+argument_list|(
+name|inner
+argument_list|)
+expr_stmt|;
 throw|throw
 name|ex
 throw|;
+block|}
 block|}
 return|return
 operator|new
@@ -4816,7 +4838,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -5650,7 +5672,6 @@ return|;
 block|}
 DECL|method|numSegmentFiles
 specifier|private
-specifier|final
 name|int
 name|numSegmentFiles
 parameter_list|()
@@ -7011,11 +7032,11 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// ignore
+comment|// ignore :(
 block|}
 block|}
 block|}
@@ -7091,7 +7112,7 @@ argument_list|()
 decl_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|exception
 argument_list|)
@@ -7114,24 +7135,29 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|BytesRef
+name|ref
+init|=
+name|bytes
+operator|.
+name|toBytesRef
+argument_list|()
+decl_stmt|;
 name|output
 operator|.
 name|writeBytes
 argument_list|(
-name|bytes
+name|ref
 operator|.
-name|array
-argument_list|()
-argument_list|,
 name|bytes
+argument_list|,
+name|ref
 operator|.
-name|arrayOffset
-argument_list|()
+name|offset
 argument_list|,
-name|bytes
+name|ref
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|CodecUtil
@@ -7176,7 +7202,6 @@ block|}
 comment|/**      * A listener that is executed once the store is closed and all references to it are released      */
 DECL|interface|OnClose
 specifier|public
-specifier|static
 interface|interface
 name|OnClose
 extends|extends
@@ -7186,8 +7211,6 @@ name|ShardLock
 argument_list|>
 block|{
 DECL|field|EMPTY
-specifier|static
-specifier|final
 name|OnClose
 name|EMPTY
 init|=

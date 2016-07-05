@@ -1296,15 +1296,6 @@ specifier|private
 name|Field
 name|seqNo
 decl_stmt|;
-DECL|field|stringBuilder
-specifier|private
-name|StringBuilder
-name|stringBuilder
-init|=
-operator|new
-name|StringBuilder
-argument_list|()
-decl_stmt|;
 DECL|field|allEntries
 specifier|private
 specifier|final

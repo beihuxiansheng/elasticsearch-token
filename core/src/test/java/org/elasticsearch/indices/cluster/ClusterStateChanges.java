@@ -1567,11 +1567,9 @@ name|IndexScopedSettings
 operator|.
 name|DEFAULT_SCOPED_SETTINGS
 argument_list|,
-operator|new
-name|IndexNameExpressionResolver
-argument_list|(
-name|settings
-argument_list|)
+name|indicesService
+argument_list|,
+name|nodeServicesProvider
 argument_list|)
 decl_stmt|;
 name|MetaDataCreateIndexService

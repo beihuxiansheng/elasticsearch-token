@@ -782,7 +782,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|checkFailed
 parameter_list|)
 block|{
@@ -886,7 +886,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|weTried
 parameter_list|)
 block|{

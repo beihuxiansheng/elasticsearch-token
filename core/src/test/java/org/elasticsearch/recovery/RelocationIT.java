@@ -64,6 +64,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|English
 import|;
 end_import
@@ -3778,13 +3792,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/18553"
-argument_list|)
 DECL|method|testIndexAndRelocateConcurrently
 specifier|public
 name|void
@@ -3795,6 +3802,16 @@ name|ExecutionException
 throws|,
 name|InterruptedException
 block|{
+name|int
+name|halfNodes
+init|=
+name|randomIntBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|3
+argument_list|)
+decl_stmt|;
 name|Settings
 name|blueSetting
 init|=
@@ -3829,7 +3846,7 @@ argument_list|()
 operator|.
 name|startNodesAsync
 argument_list|(
-name|blueSetting
+name|halfNodes
 argument_list|,
 name|blueSetting
 argument_list|)
@@ -3872,7 +3889,7 @@ argument_list|()
 operator|.
 name|startNodesAsync
 argument_list|(
-name|redSetting
+name|halfNodes
 argument_list|,
 name|redSetting
 argument_list|)
@@ -3913,7 +3930,9 @@ argument_list|)
 expr_stmt|;
 name|ensureStableCluster
 argument_list|(
-literal|4
+name|halfNodes
+operator|*
+literal|2
 argument_list|)
 expr_stmt|;
 name|assertAcked
@@ -3939,18 +3958,19 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_NUMBER_OF_REPLICAS
-argument_list|,
-literal|1
+name|indexSettings
+argument_list|()
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|indexSettings
-argument_list|()
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_REPLICAS
+argument_list|,
+literal|0
 argument_list|)
+comment|// NORELEASE: set to randomInt(halfNodes - 1) once replica data loss is fixed
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4265,8 +4285,6 @@ operator|.
 name|info
 argument_list|(
 literal|" --> waiting for relocation to complete"
-argument_list|,
-name|numDocs
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -4274,7 +4292,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-comment|// move all shards to the new node (it waits on relocation)
+comment|// move all shards to the new nodes (it waits on relocation)
 specifier|final
 name|int
 name|numIters
@@ -4301,6 +4319,15 @@ name|i
 operator|++
 control|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|" --> checking iteration {}"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
 name|SearchResponse
 name|afterRelocation
 init|=
@@ -4465,6 +4492,29 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+assert|assert
+name|chunkRequest
+operator|.
+name|content
+argument_list|()
+operator|.
+name|toBytesRef
+argument_list|()
+operator|.
+name|bytes
+operator|==
+name|chunkRequest
+operator|.
+name|content
+argument_list|()
+operator|.
+name|toBytesRef
+argument_list|()
+operator|.
+name|bytes
+operator|:
+literal|"no internal reference!!"
+assert|;
 name|byte
 index|[]
 name|array
@@ -4474,8 +4524,10 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|array
+name|toBytesRef
 argument_list|()
+operator|.
+name|bytes
 decl_stmt|;
 name|array
 index|[

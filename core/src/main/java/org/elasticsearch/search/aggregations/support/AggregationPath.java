@@ -182,8 +182,8 @@ name|AggregationPath
 block|{
 DECL|field|AGG_DELIM
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|AGG_DELIM
 init|=

@@ -535,10 +535,6 @@ argument_list|,
 name|Property
 operator|.
 name|Dynamic
-argument_list|,
-name|Property
-operator|.
-name|Filtered
 argument_list|)
 decl_stmt|;
 DECL|field|HTTP_READ_TIMEOUT

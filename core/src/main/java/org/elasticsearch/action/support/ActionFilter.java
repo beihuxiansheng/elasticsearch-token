@@ -183,8 +183,8 @@ function_decl|;
 comment|/**      * A simple base class for injectable action filters that spares the implementation from handling the      * filter chain. This base class should serve any action filter implementations that doesn't require      * to apply async filtering logic.      */
 DECL|class|Simple
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Simple
 extends|extends

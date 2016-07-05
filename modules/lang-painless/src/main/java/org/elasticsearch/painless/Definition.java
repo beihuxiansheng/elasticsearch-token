@@ -4003,7 +4003,6 @@ block|}
 block|}
 DECL|method|addStruct
 specifier|private
-specifier|final
 name|void
 name|addStruct
 parameter_list|(
@@ -4113,7 +4112,6 @@ expr_stmt|;
 block|}
 DECL|method|addConstructorInternal
 specifier|private
-specifier|final
 name|void
 name|addConstructorInternal
 parameter_list|(
@@ -4562,7 +4560,6 @@ block|}
 comment|/**      * Adds a new signature to the definition.      *<p>      * Signatures have the following forms:      *<ul>      *<li>{@code void method(String,int)}      *<li>{@code boolean field}      *<li>{@code Class<init>(String)}      *</ul>      * no spaces allowed.      */
 DECL|method|addSignature
 specifier|private
-specifier|final
 name|void
 name|addSignature
 parameter_list|(
@@ -4874,7 +4871,6 @@ block|}
 block|}
 DECL|method|addMethodInternal
 specifier|private
-specifier|final
 name|void
 name|addMethodInternal
 parameter_list|(
@@ -5474,7 +5470,6 @@ block|}
 block|}
 DECL|method|addFieldInternal
 specifier|private
-specifier|final
 name|void
 name|addFieldInternal
 parameter_list|(

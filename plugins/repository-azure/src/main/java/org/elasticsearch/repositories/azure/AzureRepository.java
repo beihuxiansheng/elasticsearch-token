@@ -425,8 +425,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TYPE
 init|=

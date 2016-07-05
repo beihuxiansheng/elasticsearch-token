@@ -79,8 +79,8 @@ argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|NAME
 init|=

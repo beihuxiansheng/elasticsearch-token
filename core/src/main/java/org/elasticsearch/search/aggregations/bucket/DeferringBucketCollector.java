@@ -127,11 +127,6 @@ name|DeferringBucketCollector
 extends|extends
 name|BucketCollector
 block|{
-DECL|field|collector
-specifier|private
-name|BucketCollector
-name|collector
-decl_stmt|;
 comment|/** Sole constructor. */
 DECL|method|DeferringBucketCollector
 specifier|public
@@ -141,6 +136,7 @@ block|{}
 comment|/** Set the deferred collectors. */
 DECL|method|setDeferredCollector
 specifier|public
+specifier|abstract
 name|void
 name|setDeferredCollector
 parameter_list|(
@@ -150,19 +146,7 @@ name|BucketCollector
 argument_list|>
 name|deferredCollectors
 parameter_list|)
-block|{
-name|this
-operator|.
-name|collector
-operator|=
-name|BucketCollector
-operator|.
-name|wrap
-argument_list|(
-name|deferredCollectors
-argument_list|)
-expr_stmt|;
-block|}
+function_decl|;
 DECL|method|replay
 specifier|public
 specifier|final

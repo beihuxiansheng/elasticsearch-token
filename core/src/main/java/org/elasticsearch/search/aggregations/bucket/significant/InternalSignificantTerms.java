@@ -317,8 +317,8 @@ literal|"PMD.ConstructorCallsOverridableMethod"
 argument_list|)
 DECL|class|Bucket
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Bucket
 extends|extends
@@ -340,8 +340,8 @@ name|double
 name|score
 decl_stmt|;
 DECL|field|format
-specifier|transient
 specifier|final
+specifier|transient
 name|DocValueFormat
 name|format
 decl_stmt|;

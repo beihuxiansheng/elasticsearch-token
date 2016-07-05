@@ -402,7 +402,11 @@ parameter_list|(
 name|registry
 parameter_list|)
 lambda|->
+parameter_list|(
+name|tag
+parameter_list|,
 name|config
+parameter_list|)
 lambda|->
 block|{
 name|String
@@ -497,7 +501,11 @@ parameter_list|(
 name|registry
 parameter_list|)
 lambda|->
+parameter_list|(
+name|tag
+parameter_list|,
 name|config
+parameter_list|)
 lambda|->
 block|{
 name|String
@@ -2006,7 +2014,11 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Processor type [remove] is not installed on node [{_node_id2}{local}{local[_id]}]"
+literal|"Processor type [remove] is not installed on node ["
+operator|+
+name|node2
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;

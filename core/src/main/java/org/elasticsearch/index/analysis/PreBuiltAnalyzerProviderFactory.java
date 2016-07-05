@@ -131,6 +131,9 @@ operator|.
 name|AnalysisProvider
 argument_list|<
 name|AnalyzerProvider
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 DECL|field|analyzerProvider
@@ -169,6 +172,9 @@ block|}
 DECL|method|create
 specifier|public
 name|AnalyzerProvider
+argument_list|<
+name|?
+argument_list|>
 name|create
 parameter_list|(
 name|String
@@ -254,6 +260,9 @@ name|Override
 DECL|method|get
 specifier|public
 name|AnalyzerProvider
+argument_list|<
+name|?
+argument_list|>
 name|get
 parameter_list|(
 name|IndexSettings

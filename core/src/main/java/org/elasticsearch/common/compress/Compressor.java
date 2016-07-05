@@ -118,14 +118,6 @@ name|BytesReference
 name|bytes
 parameter_list|)
 function_decl|;
-DECL|method|isCompressed
-name|boolean
-name|isCompressed
-parameter_list|(
-name|ChannelBuffer
-name|buffer
-parameter_list|)
-function_decl|;
 DECL|method|streamInput
 name|StreamInput
 name|streamInput
@@ -142,32 +134,6 @@ name|streamOutput
 parameter_list|(
 name|StreamOutput
 name|out
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * @deprecated Used for backward comp. since we now use Lucene compressed codec.      */
-annotation|@
-name|Deprecated
-DECL|method|isCompressed
-name|boolean
-name|isCompressed
-parameter_list|(
-name|IndexInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * @deprecated Used for backward comp. since we now use Lucene compressed codec.      */
-annotation|@
-name|Deprecated
-DECL|method|indexInput
-name|CompressedIndexInput
-name|indexInput
-parameter_list|(
-name|IndexInput
-name|in
 parameter_list|)
 throws|throws
 name|IOException

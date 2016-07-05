@@ -341,9 +341,6 @@ class|class
 name|AzureStorageServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AzureStorageServiceImpl
-argument_list|>
 implements|implements
 name|AzureStorageService
 block|{

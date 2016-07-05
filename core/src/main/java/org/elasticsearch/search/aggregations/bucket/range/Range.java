@@ -60,8 +60,6 @@ name|MultiBucketsAggregation
 block|{
 comment|/**      * A bucket associated with a specific range      */
 DECL|interface|Bucket
-specifier|public
-specifier|static
 interface|interface
 name|Bucket
 extends|extends

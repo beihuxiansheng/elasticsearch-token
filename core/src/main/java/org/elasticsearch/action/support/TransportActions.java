@@ -104,10 +104,6 @@ name|ShardNotFoundException
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|TransportActions
 specifier|public
@@ -120,10 +116,12 @@ specifier|static
 name|boolean
 name|isShardNotAvailableException
 parameter_list|(
+specifier|final
 name|Throwable
-name|t
+name|e
 parameter_list|)
 block|{
+specifier|final
 name|Throwable
 name|actual
 init|=
@@ -131,11 +129,11 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|t
+name|e
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
+operator|(
 name|actual
 operator|instanceof
 name|ShardNotFoundException
@@ -159,14 +157,7 @@ operator|||
 name|actual
 operator|instanceof
 name|AlreadyClosedException
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
+operator|)
 return|;
 block|}
 comment|/**      * If a failure is already present, should this failure override it or not for read operations.      */
@@ -176,24 +167,16 @@ specifier|static
 name|boolean
 name|isReadOverrideException
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
+operator|!
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 block|}

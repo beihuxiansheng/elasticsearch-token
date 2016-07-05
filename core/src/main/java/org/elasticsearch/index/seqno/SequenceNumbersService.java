@@ -80,8 +80,8 @@ name|AbstractIndexShardComponent
 block|{
 DECL|field|UNASSIGNED_SEQ_NO
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|long
 name|UNASSIGNED_SEQ_NO
 init|=
@@ -91,8 +91,8 @@ decl_stmt|;
 comment|/**      * Represents no operations have been performed on the shard.      */
 DECL|field|NO_OPS_PERFORMED
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|long
 name|NO_OPS_PERFORMED
 init|=

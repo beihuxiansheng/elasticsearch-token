@@ -144,8 +144,6 @@ interface|interface
 name|State
 block|{
 DECL|field|NONE
-specifier|static
-specifier|final
 name|State
 name|NONE
 init|=

@@ -316,8 +316,8 @@ name|PipelineAggregator
 block|{
 DECL|field|TYPE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Type
 name|TYPE
 init|=
@@ -329,8 +329,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|STREAM
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|PipelineAggregatorStreams
 operator|.
 name|Stream
@@ -574,11 +574,6 @@ argument_list|,
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
-argument_list|,
-name|reduceContext
-operator|.
-name|clusterState
 argument_list|()
 argument_list|)
 decl_stmt|;

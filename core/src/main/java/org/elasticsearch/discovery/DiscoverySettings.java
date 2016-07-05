@@ -164,8 +164,8 @@ name|AbstractComponent
 block|{
 DECL|field|NO_MASTER_BLOCK_ID
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|NO_MASTER_BLOCK_ID
 init|=
@@ -173,8 +173,8 @@ literal|2
 decl_stmt|;
 DECL|field|NO_MASTER_BLOCK_ALL
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|ClusterBlock
 name|NO_MASTER_BLOCK_ALL
 init|=
@@ -200,8 +200,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|NO_MASTER_BLOCK_WRITES
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|ClusterBlock
 name|NO_MASTER_BLOCK_WRITES
 init|=

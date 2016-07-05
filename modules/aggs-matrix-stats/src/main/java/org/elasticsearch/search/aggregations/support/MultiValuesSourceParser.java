@@ -1174,7 +1174,6 @@ return|;
 block|}
 DECL|method|parseMissingAndAdd
 specifier|private
-specifier|final
 name|void
 name|parseMissingAndAdd
 parameter_list|(

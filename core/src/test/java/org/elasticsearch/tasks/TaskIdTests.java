@@ -288,12 +288,10 @@ init|(
 name|StreamInput
 name|in
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|bytes
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 init|)
 block|{
 return|return

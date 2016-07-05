@@ -872,8 +872,8 @@ block|}
 block|}
 DECL|class|TermVectorsFetchSubPhase
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|TermVectorsFetchSubPhase
 implements|implements

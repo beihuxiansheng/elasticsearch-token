@@ -517,10 +517,10 @@ name|consistencyLevel
 return|;
 block|}
 comment|/**      * @return the shardId of the shard where this operation should be executed on.      * can be null if the shardID has not yet been resolved      */
-specifier|public
 annotation|@
 name|Nullable
 DECL|method|shardId
+specifier|public
 name|ShardId
 name|shardId
 parameter_list|()

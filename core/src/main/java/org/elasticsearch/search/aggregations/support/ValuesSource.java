@@ -537,8 +537,8 @@ return|;
 block|}
 DECL|class|Bytes
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Bytes
 extends|extends
@@ -715,8 +715,8 @@ block|}
 block|}
 DECL|class|WithOrdinals
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|WithOrdinals
 extends|extends
@@ -1350,8 +1350,8 @@ block|}
 block|}
 DECL|class|Numeric
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Numeric
 extends|extends
@@ -2637,8 +2637,8 @@ block|}
 block|}
 DECL|class|GeoPoint
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|GeoPoint
 extends|extends

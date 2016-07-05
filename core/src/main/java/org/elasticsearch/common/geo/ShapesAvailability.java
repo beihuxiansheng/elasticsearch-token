@@ -61,8 +61,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|ClassNotFoundException
+name|ignored
 parameter_list|)
 block|{
 name|xSPATIAL4J_AVAILABLE
@@ -93,8 +93,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|ClassNotFoundException
+name|ignored
 parameter_list|)
 block|{
 name|xJTS_AVAILABLE

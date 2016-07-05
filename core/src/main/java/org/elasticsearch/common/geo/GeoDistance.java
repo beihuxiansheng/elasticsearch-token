@@ -482,8 +482,6 @@ argument_list|(
 name|sourceLatitude
 argument_list|,
 name|sourceLongitude
-argument_list|,
-name|unit
 argument_list|)
 return|;
 block|}
@@ -1232,7 +1230,6 @@ throw|;
 block|}
 DECL|interface|FixedSourceDistance
 specifier|public
-specifier|static
 interface|interface
 name|FixedSourceDistance
 block|{
@@ -1250,7 +1247,6 @@ function_decl|;
 block|}
 DECL|interface|DistanceBoundingCheck
 specifier|public
-specifier|static
 interface|interface
 name|DistanceBoundingCheck
 block|{
@@ -1721,9 +1717,6 @@ name|sourceLatitude
 parameter_list|,
 name|double
 name|sourceLongitude
-parameter_list|,
-name|DistanceUnit
-name|unit
 parameter_list|)
 block|{
 name|this
@@ -1841,8 +1834,8 @@ block|}
 comment|/**      * Basic implementation of {@link FixedSourceDistance}. This class keeps the basic parameters for a distance      * functions based on a fixed source. Namely latitude, longitude and unit.      */
 DECL|class|FixedSourceDistanceBase
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|FixedSourceDistanceBase
 implements|implements

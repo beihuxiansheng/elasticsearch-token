@@ -1695,6 +1695,36 @@ literal|"] not found"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|response
+operator|.
+name|isSourceEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Shape with ID ["
+operator|+
+name|getRequest
+operator|.
+name|id
+argument_list|()
+operator|+
+literal|"] in type ["
+operator|+
+name|getRequest
+operator|.
+name|type
+argument_list|()
+operator|+
+literal|"] source disabled"
+argument_list|)
+throw|;
+block|}
 name|String
 index|[]
 name|pathElements

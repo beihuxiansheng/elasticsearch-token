@@ -971,8 +971,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -981,7 +981,7 @@ name|warn
 argument_list|(
 literal|"failed to create repository [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -994,7 +994,7 @@ name|onFailure
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1411,8 +1411,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1421,7 +1421,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to finish repository verification"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|repositoryName
 argument_list|)
@@ -1430,7 +1430,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1449,7 +1449,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1467,8 +1467,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -1483,17 +1483,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"[{}] failed to finish repository verification"
 argument_list|,
-name|t1
+name|inner
 argument_list|,
 name|repositoryName
 argument_list|)
@@ -1503,7 +1510,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1535,15 +1542,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1958,7 +1965,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -2368,8 +2375,6 @@ operator|.
 name|settings
 argument_list|()
 argument_list|,
-name|repositoryInjector
-argument_list|,
 name|repository
 argument_list|,
 name|indexShardRepository
@@ -2378,8 +2383,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2388,7 +2393,7 @@ name|warn
 argument_list|(
 literal|"failed to create repository [{}][{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|repositoryMetaData
 operator|.
@@ -2412,7 +2417,7 @@ argument_list|()
 argument_list|,
 literal|"failed to create repository"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2596,7 +2601,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2630,7 +2635,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2683,9 +2688,6 @@ name|type
 parameter_list|,
 name|Settings
 name|settings
-parameter_list|,
-name|Injector
-name|injector
 parameter_list|,
 name|Repository
 name|repository
