@@ -937,6 +937,12 @@ name|HttpInfo
 name|httpInfo
 init|=
 name|httpServer
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|httpServer
 operator|.
 name|info
 argument_list|()
