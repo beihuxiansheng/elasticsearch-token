@@ -981,7 +981,7 @@ literal|"moshe"
 argument_list|)
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -1146,7 +1146,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -1446,7 +1446,7 @@ argument_list|>
 name|responseHandler
 init|=
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -2112,7 +2112,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|TransportResponse
 operator|.
@@ -2400,7 +2400,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -2631,7 +2631,7 @@ literal|"moshe"
 argument_list|)
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -3099,7 +3099,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -3402,7 +3402,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -3582,7 +3582,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -3845,7 +3845,7 @@ name|TransportResponseHandler
 name|noopResponseHandler
 init|=
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -5561,7 +5561,7 @@ argument_list|,
 name|version0Request
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|Version0Response
 argument_list|>
@@ -5782,7 +5782,7 @@ argument_list|,
 name|version1Request
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|Version1Response
 argument_list|>
@@ -6046,7 +6046,7 @@ argument_list|,
 name|version1Request
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|Version1Response
 argument_list|>
@@ -6285,7 +6285,7 @@ argument_list|,
 name|version0Request
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|Version0Response
 argument_list|>
@@ -6486,7 +6486,7 @@ literal|"moshe"
 argument_list|)
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>
@@ -6766,7 +6766,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|StringMessageResponse
 argument_list|>

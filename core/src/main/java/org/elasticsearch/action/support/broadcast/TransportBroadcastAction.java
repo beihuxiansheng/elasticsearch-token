@@ -266,7 +266,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -1166,7 +1166,7 @@ argument_list|,
 name|shardRequest
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|ShardResponse
 argument_list|>

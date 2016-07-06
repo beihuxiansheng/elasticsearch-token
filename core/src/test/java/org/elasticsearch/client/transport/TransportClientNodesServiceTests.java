@@ -166,7 +166,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -1203,7 +1203,7 @@ operator|.
 name|EMPTY
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|TestResponse
 argument_list|>

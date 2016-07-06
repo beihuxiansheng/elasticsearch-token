@@ -46,7 +46,9 @@ specifier|public
 class|class
 name|FastStringReader
 extends|extends
-name|CharSequenceReader
+name|Reader
+implements|implements
+name|CharSequence
 block|{
 DECL|field|str
 specifier|private

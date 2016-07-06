@@ -352,18 +352,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|TransportException
 import|;
 end_import
@@ -377,6 +365,18 @@ operator|.
 name|transport
 operator|.
 name|TransportRequestOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -768,7 +768,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|GetTaskResponse
 argument_list|>
