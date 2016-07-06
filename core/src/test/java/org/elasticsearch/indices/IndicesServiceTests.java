@@ -2350,19 +2350,6 @@ name|alias
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// cleanup
-name|indicesService
-operator|.
-name|deleteIndex
-argument_list|(
-name|test
-operator|.
-name|index
-argument_list|()
-argument_list|,
-literal|"finished with test"
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * This test checks an edge case where, if a node had an index (lets call it A with UUID 1), then      * deleted it (so a tombstone entry for A will exist in the cluster state), then created      * a new index A with UUID 2, then shutdown, when the node comes back online, it will look at the      * tombstones for deletions, and it should proceed with trying to delete A with UUID 1 and not      * throw any errors that the index still exists in the cluster state.  This is a case of ensuring      * that tombstones that have the same name as current valid indices don't cause confusion by      * trying to delete an index that exists.      * See https://github.com/elastic/elasticsearch/issues/18054      */
 DECL|method|testIndexAndTombstoneWithSameNameOnStartup
