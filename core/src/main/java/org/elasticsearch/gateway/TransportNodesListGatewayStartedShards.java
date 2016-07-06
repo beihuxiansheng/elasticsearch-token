@@ -1388,7 +1388,7 @@ literal|false
 decl_stmt|;
 DECL|field|storeException
 specifier|private
-name|Throwable
+name|Exception
 name|storeException
 init|=
 literal|null
@@ -1445,7 +1445,7 @@ parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
-name|Throwable
+name|Exception
 name|storeException
 parameter_list|)
 block|{
@@ -1517,7 +1517,7 @@ return|;
 block|}
 DECL|method|storeException
 specifier|public
-name|Throwable
+name|Exception
 name|storeException
 parameter_list|()
 block|{
@@ -1580,7 +1580,7 @@ name|storeException
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}
@@ -1642,7 +1642,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|storeException
 argument_list|)

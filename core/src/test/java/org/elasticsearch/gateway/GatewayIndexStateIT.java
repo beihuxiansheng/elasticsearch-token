@@ -3084,7 +3084,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.add_id_to_custom_path"
+literal|"node.add_lock_id_to_custom_path"
 argument_list|,
 literal|false
 argument_list|)
@@ -3704,11 +3704,6 @@ name|write
 argument_list|(
 name|brokenMeta
 argument_list|,
-name|brokenMeta
-operator|.
-name|getVersion
-argument_list|()
-argument_list|,
 name|services
 operator|.
 name|indexPaths
@@ -4165,11 +4160,6 @@ name|write
 argument_list|(
 name|brokenMeta
 argument_list|,
-name|brokenMeta
-operator|.
-name|getVersion
-argument_list|()
-argument_list|,
 name|services
 operator|.
 name|indexPaths
@@ -4545,11 +4535,6 @@ operator|.
 name|write
 argument_list|(
 name|brokenMeta
-argument_list|,
-name|metaData
-operator|.
-name|version
-argument_list|()
 argument_list|,
 name|nodeEnv
 operator|.

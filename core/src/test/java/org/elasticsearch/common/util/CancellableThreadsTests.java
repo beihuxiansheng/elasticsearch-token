@@ -621,12 +621,12 @@ name|length
 index|]
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 index|[]
-name|throwables
+name|exceptions
 init|=
 operator|new
-name|Throwable
+name|Exception
 index|[
 name|threads
 operator|.
@@ -793,18 +793,18 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-name|throwables
+name|exceptions
 index|[
 name|plan
 operator|.
 name|id
 index|]
 operator|=
-name|t
+name|e
 expr_stmt|;
 block|}
 if|if
@@ -951,7 +951,7 @@ condition|)
 block|{
 name|assertThat
 argument_list|(
-name|throwables
+name|exceptions
 index|[
 name|i
 index|]
@@ -975,7 +975,7 @@ condition|)
 block|{
 name|assertNull
 argument_list|(
-name|throwables
+name|exceptions
 index|[
 name|i
 index|]
@@ -987,7 +987,7 @@ block|{
 comment|// in all other cases, we expect a cancellation exception.
 name|assertThat
 argument_list|(
-name|throwables
+name|exceptions
 index|[
 name|i
 index|]
@@ -1013,7 +1013,7 @@ condition|)
 block|{
 name|assertThat
 argument_list|(
-name|throwables
+name|exceptions
 index|[
 name|i
 index|]
@@ -1039,7 +1039,7 @@ else|else
 block|{
 name|assertThat
 argument_list|(
-name|throwables
+name|exceptions
 index|[
 name|i
 index|]

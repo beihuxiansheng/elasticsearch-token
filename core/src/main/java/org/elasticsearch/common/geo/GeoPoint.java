@@ -439,7 +439,6 @@ return|;
 block|}
 DECL|method|lat
 specifier|public
-specifier|final
 name|double
 name|lat
 parameter_list|()
@@ -452,7 +451,6 @@ return|;
 block|}
 DECL|method|getLat
 specifier|public
-specifier|final
 name|double
 name|getLat
 parameter_list|()
@@ -465,7 +463,6 @@ return|;
 block|}
 DECL|method|lon
 specifier|public
-specifier|final
 name|double
 name|lon
 parameter_list|()
@@ -478,7 +475,6 @@ return|;
 block|}
 DECL|method|getLon
 specifier|public
-specifier|final
 name|double
 name|getLon
 parameter_list|()
@@ -491,7 +487,6 @@ return|;
 block|}
 DECL|method|geohash
 specifier|public
-specifier|final
 name|String
 name|geohash
 parameter_list|()
@@ -507,7 +502,6 @@ return|;
 block|}
 DECL|method|getGeohash
 specifier|public
-specifier|final
 name|String
 name|getGeohash
 parameter_list|()

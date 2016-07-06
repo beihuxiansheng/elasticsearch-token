@@ -374,18 +374,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -978,7 +966,7 @@ specifier|public
 name|void
 name|onFailure
 argument_list|(
-name|Throwable
+name|Exception
 name|e
 argument_list|)
 block|{
@@ -998,7 +986,7 @@ specifier|public
 name|void
 name|onFailure
 argument_list|(
-name|Throwable
+name|Exception
 name|t
 argument_list|)
 block|{
@@ -1047,7 +1035,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

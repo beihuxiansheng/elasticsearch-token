@@ -1399,7 +1399,6 @@ block|}
 comment|/** Evaluates with reduced privileges */
 DECL|method|evalRestricted
 specifier|private
-specifier|final
 name|PyObject
 name|evalRestricted
 parameter_list|(

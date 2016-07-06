@@ -6065,7 +6065,6 @@ block|}
 DECL|method|assertEquivalent
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|assertEquivalent
 parameter_list|(

@@ -480,7 +480,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 operator|!=
 literal|null
@@ -490,7 +490,7 @@ name|e
 operator|=
 name|addValidationError
 argument_list|(
-literal|"fields is not supported in this context"
+literal|"stored_fields is not supported in this context"
 argument_list|,
 name|e
 argument_list|)

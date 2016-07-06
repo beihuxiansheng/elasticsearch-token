@@ -1738,7 +1738,6 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the current size of the cache      */
 DECL|method|count
-specifier|final
 name|int
 name|count
 parameter_list|()
@@ -1751,7 +1750,6 @@ argument_list|()
 return|;
 block|}
 DECL|method|numRegisteredCloseListeners
-specifier|final
 name|int
 name|numRegisteredCloseListeners
 parameter_list|()

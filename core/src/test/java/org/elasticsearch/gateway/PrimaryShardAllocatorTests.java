@@ -84,18 +84,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|snapshots
-operator|.
-name|SnapshotId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|node
@@ -313,6 +301,18 @@ operator|.
 name|snapshots
 operator|.
 name|Snapshot
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|snapshots
+operator|.
+name|SnapshotId
 import|;
 end_import
 
@@ -5202,7 +5202,7 @@ name|primary
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|storeException
 parameter_list|)
 block|{

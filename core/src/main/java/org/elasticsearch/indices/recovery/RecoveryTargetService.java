@@ -513,18 +513,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1089,7 +1077,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1809,7 +1797,7 @@ end_expr_stmt
 begin_catch
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2038,39 +2026,6 @@ name|retryDelayNetwork
 argument_list|()
 argument_list|,
 name|request
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
-name|cause
-operator|instanceof
-name|IndexShardClosedException
-condition|)
-block|{
-name|onGoingRecoveries
-operator|.
-name|failRecovery
-argument_list|(
-name|recoveryTarget
-operator|.
-name|recoveryId
-argument_list|()
-argument_list|,
-operator|new
-name|RecoveryFailedException
-argument_list|(
-name|request
-argument_list|,
-literal|"source shard is "
-operator|+
-literal|"closed"
-argument_list|,
-name|cause
-argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3076,8 +3031,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -3108,7 +3063,7 @@ name|error
 argument_list|(
 literal|"unexpected error during recovery [{}], failing shard"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|recoveryId
 argument_list|)
@@ -3132,7 +3087,7 @@ argument_list|()
 argument_list|,
 literal|"unexpected error"
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|,
 literal|true
@@ -3148,7 +3103,7 @@ name|debug
 argument_list|(
 literal|"unexpected error during recovery, but recovery id [{}] is finished"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|recoveryId
 argument_list|)

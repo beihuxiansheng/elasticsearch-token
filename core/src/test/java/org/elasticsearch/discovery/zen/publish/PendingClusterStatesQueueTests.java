@@ -114,7 +114,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -1848,9 +1848,10 @@ index|[
 name|masterIndex
 index|]
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -1956,13 +1957,13 @@ specifier|public
 name|void
 name|onNewClusterStateFailed
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failure
 operator|=
-name|t
+name|e
 expr_stmt|;
 block|}
 block|}

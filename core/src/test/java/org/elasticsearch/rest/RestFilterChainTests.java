@@ -944,7 +944,6 @@ expr_stmt|;
 block|}
 DECL|enum|Operation
 specifier|private
-specifier|static
 enum|enum
 name|Operation
 implements|implements
@@ -1026,7 +1025,6 @@ block|}
 block|}
 DECL|interface|Callback
 specifier|private
-specifier|static
 interface|interface
 name|Callback
 block|{

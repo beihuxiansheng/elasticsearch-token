@@ -7312,7 +7312,13 @@ init|=
 operator|new
 name|long
 index|[
-name|bucketsCount
+name|valueCounts
+operator|.
+name|length
+operator|+
+name|addedBucketsLeft
+operator|+
+name|addedBucketsRight
 index|]
 decl_stmt|;
 name|System

@@ -140,7 +140,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|UserError
+name|UserException
 import|;
 end_import
 
@@ -1149,7 +1149,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -1613,7 +1613,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2194,7 +2194,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2250,7 +2250,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2284,7 +2284,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|UserError
+name|UserException
 block|{
 comment|// unzip plugin to a staging temp dir
 specifier|final
@@ -2536,7 +2536,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2747,7 +2747,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3010,7 +3010,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3286,7 +3286,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3353,7 +3353,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3449,7 +3449,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3564,7 +3564,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.

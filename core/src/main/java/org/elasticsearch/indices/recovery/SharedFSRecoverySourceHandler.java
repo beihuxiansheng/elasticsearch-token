@@ -237,8 +237,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -264,7 +264,7 @@ name|failShard
 argument_list|(
 literal|"primary relocation failed on shared filesystem"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -276,12 +276,12 @@ name|info
 argument_list|(
 literal|"recovery failed on shared filesystem"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}

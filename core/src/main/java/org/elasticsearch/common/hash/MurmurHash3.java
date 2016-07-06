@@ -47,14 +47,19 @@ specifier|static
 class|class
 name|Hash128
 block|{
+comment|/** lower 64 bits part **/
 DECL|field|h1
-DECL|field|h2
 specifier|public
 name|long
 name|h1
-operator|,
+decl_stmt|;
+comment|/** higher 64 bits part **/
+DECL|field|h2
+specifier|public
+name|long
 name|h2
-block|;     }
+decl_stmt|;
+block|}
 DECL|field|C1
 specifier|private
 specifier|static

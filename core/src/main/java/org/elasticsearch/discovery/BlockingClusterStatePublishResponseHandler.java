@@ -205,8 +205,8 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|boolean

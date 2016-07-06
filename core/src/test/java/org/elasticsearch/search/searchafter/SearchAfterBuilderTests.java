@@ -405,7 +405,6 @@ expr_stmt|;
 block|}
 DECL|method|randomSearchFromBuilder
 specifier|private
-specifier|final
 name|SearchAfterBuilder
 name|randomSearchFromBuilder
 parameter_list|()
@@ -617,7 +616,6 @@ comment|// This is not a problem because the final type of each field value is e
 comment|// This little trick ensure that equals and hashcode are the same when using the xcontent serialization.
 DECL|method|randomJsonSearchFromBuilder
 specifier|private
-specifier|final
 name|SearchAfterBuilder
 name|randomJsonSearchFromBuilder
 parameter_list|()

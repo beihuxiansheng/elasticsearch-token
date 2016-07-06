@@ -341,14 +341,6 @@ operator|.
 name|client
 argument_list|()
 decl_stmt|;
-name|TransportClientNodesService
-name|nodeService
-init|=
-name|client
-operator|.
-name|nodeService
-argument_list|()
-decl_stmt|;
 name|Node
 name|node
 init|=
@@ -457,7 +449,7 @@ expr_stmt|;
 comment|// since we force transport clients there has to be one node started that we connect to.
 name|assertThat
 argument_list|(
-name|nodeService
+name|client
 operator|.
 name|connectedNodes
 argument_list|()
@@ -477,7 +469,7 @@ control|(
 name|DiscoveryNode
 name|discoveryNode
 range|:
-name|nodeService
+name|client
 operator|.
 name|connectedNodes
 argument_list|()
@@ -504,7 +496,7 @@ control|(
 name|DiscoveryNode
 name|discoveryNode
 range|:
-name|nodeService
+name|client
 operator|.
 name|listedNodes
 argument_list|()
@@ -544,7 +536,7 @@ expr_stmt|;
 block|}
 name|assertThat
 argument_list|(
-name|nodeService
+name|client
 operator|.
 name|filteredNodes
 argument_list|()
@@ -563,7 +555,7 @@ control|(
 name|DiscoveryNode
 name|discoveryNode
 range|:
-name|nodeService
+name|client
 operator|.
 name|filteredNodes
 argument_list|()

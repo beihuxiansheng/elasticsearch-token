@@ -174,7 +174,7 @@ decl_stmt|;
 DECL|field|reason
 specifier|private
 specifier|final
-name|Throwable
+name|Exception
 name|reason
 decl_stmt|;
 DECL|field|status
@@ -193,8 +193,8 @@ parameter_list|,
 name|long
 name|taskId
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|this
@@ -213,7 +213,7 @@ name|this
 operator|.
 name|reason
 operator|=
-name|t
+name|e
 expr_stmt|;
 name|status
 operator|=
@@ -221,7 +221,7 @@ name|ExceptionsHelper
 operator|.
 name|status
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -254,7 +254,7 @@ name|reason
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 name|status
@@ -296,7 +296,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|reason
 argument_list|)

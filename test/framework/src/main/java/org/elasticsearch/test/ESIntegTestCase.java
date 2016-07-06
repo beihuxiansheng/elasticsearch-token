@@ -6110,7 +6110,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -8240,7 +8240,7 @@ name|Tuple
 argument_list|<
 name|IndexRequestBuilder
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 argument_list|>
 name|errors
@@ -8552,7 +8552,7 @@ block|}
 specifier|final
 name|List
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|actualErrors
 init|=
@@ -8567,7 +8567,7 @@ name|Tuple
 argument_list|<
 name|IndexRequestBuilder
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 name|tuple
 range|:
@@ -9364,7 +9364,7 @@ specifier|final
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -9399,8 +9399,8 @@ specifier|protected
 name|void
 name|addError
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{         }
 block|}
@@ -9428,7 +9428,7 @@ name|Tuple
 argument_list|<
 name|T
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 argument_list|>
 name|errors
@@ -9455,7 +9455,7 @@ name|Tuple
 argument_list|<
 name|T
 argument_list|,
-name|Throwable
+name|Exception
 argument_list|>
 argument_list|>
 name|errors
@@ -9486,8 +9486,8 @@ specifier|protected
 name|void
 name|addError
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|errors
@@ -9500,7 +9500,7 @@ argument_list|<>
 argument_list|(
 name|builder
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

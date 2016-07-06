@@ -673,18 +673,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|OutOfMemoryError
-name|err
-parameter_list|)
-block|{
-throw|throw
-name|err
-throw|;
-comment|// rethrow
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -952,8 +941,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// buffer pools are not available

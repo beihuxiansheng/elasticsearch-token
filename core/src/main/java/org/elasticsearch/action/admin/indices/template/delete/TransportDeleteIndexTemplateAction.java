@@ -425,8 +425,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -435,7 +435,7 @@ name|debug
 argument_list|(
 literal|"failed to delete templates [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -447,7 +447,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

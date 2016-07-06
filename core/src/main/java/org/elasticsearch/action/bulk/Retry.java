@@ -631,7 +631,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -823,6 +823,7 @@ name|isFailed
 argument_list|()
 condition|)
 block|{
+specifier|final
 name|Throwable
 name|cause
 init|=
@@ -834,6 +835,7 @@ operator|.
 name|getCause
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Throwable
 name|rootCause
 init|=

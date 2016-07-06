@@ -205,14 +205,10 @@ annotation|@
 name|FunctionalInterface
 DECL|interface|Parser
 specifier|public
-specifier|static
 interface|interface
 name|Parser
 block|{
 DECL|field|BUCKETS_PATH
-specifier|public
-specifier|static
-specifier|final
 name|ParseField
 name|BUCKETS_PATH
 init|=
@@ -223,9 +219,6 @@ literal|"buckets_path"
 argument_list|)
 decl_stmt|;
 DECL|field|FORMAT
-specifier|public
-specifier|static
-specifier|final
 name|ParseField
 name|FORMAT
 init|=
@@ -236,9 +229,6 @@ literal|"format"
 argument_list|)
 decl_stmt|;
 DECL|field|GAP_POLICY
-specifier|public
-specifier|static
-specifier|final
 name|ParseField
 name|GAP_POLICY
 init|=

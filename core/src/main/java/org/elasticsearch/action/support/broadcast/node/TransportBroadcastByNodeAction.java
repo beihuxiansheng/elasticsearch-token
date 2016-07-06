@@ -402,7 +402,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -733,6 +733,8 @@ argument_list|(
 name|settings
 argument_list|,
 name|actionName
+argument_list|,
+name|canTripCircuitBreaker
 argument_list|,
 name|threadPool
 argument_list|,
@@ -1638,7 +1640,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1798,7 +1800,7 @@ argument_list|,
 name|nodeRequest
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|NodeResponse
 argument_list|>
@@ -1878,7 +1880,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2098,8 +2100,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2108,14 +2110,14 @@ name|debug
 argument_list|(
 literal|"failed to combine responses from nodes"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2138,15 +2140,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2452,12 +2454,12 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|BroadcastShardOperationFailedException
-name|e
+name|failure
 init|=
 operator|new
 name|BroadcastShardOperationFailedException
@@ -2473,10 +2475,10 @@ name|actionName
 operator|+
 literal|" failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 decl_stmt|;
-name|e
+name|failure
 operator|.
 name|setIndex
 argument_list|(
@@ -2486,7 +2488,7 @@ name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|e
+name|failure
 operator|.
 name|setShard
 argument_list|(
@@ -2501,7 +2503,7 @@ index|[
 name|shardIndex
 index|]
 operator|=
-name|e
+name|failure
 expr_stmt|;
 if|if
 condition|(
@@ -2509,7 +2511,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -2527,7 +2529,7 @@ name|trace
 argument_list|(
 literal|"[{}] failed to execute operation for shard [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|actionName
 argument_list|,
@@ -2555,7 +2557,7 @@ name|debug
 argument_list|(
 literal|"[{}] failed to execute operation for shard [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|actionName
 argument_list|,

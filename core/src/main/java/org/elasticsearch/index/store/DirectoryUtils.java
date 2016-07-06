@@ -77,7 +77,6 @@ block|{}
 comment|// no instance
 DECL|method|getLeafDirectory
 specifier|static
-specifier|final
 parameter_list|<
 name|T
 extends|extends

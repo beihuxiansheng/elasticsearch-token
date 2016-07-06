@@ -306,7 +306,7 @@ name|failure
 range|:
 name|response
 operator|.
-name|getIndexingFailures
+name|getBulkFailures
 argument_list|()
 control|)
 block|{
@@ -438,7 +438,7 @@ name|failure
 range|:
 name|response
 operator|.
-name|getIndexingFailures
+name|getBulkFailures
 argument_list|()
 control|)
 block|{

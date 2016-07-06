@@ -1293,7 +1293,12 @@ decl_stmt|;
 name|int
 name|numClientNodes
 init|=
+name|randomIntBetween
+argument_list|(
 literal|0
+argument_list|,
+literal|2
+argument_list|)
 decl_stmt|;
 name|boolean
 name|enableHttpPipelining

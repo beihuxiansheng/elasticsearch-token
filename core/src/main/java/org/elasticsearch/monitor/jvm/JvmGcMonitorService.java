@@ -1223,8 +1223,8 @@ name|Override
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1233,7 +1233,7 @@ name|debug
 argument_list|(
 literal|"failed to monitor"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2218,13 +2218,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onMonitorFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2234,8 +2234,8 @@ specifier|abstract
 name|void
 name|onMonitorFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 DECL|method|monitorGc

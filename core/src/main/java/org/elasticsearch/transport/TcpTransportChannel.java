@@ -210,7 +210,6 @@ annotation|@
 name|Override
 DECL|method|getProfileName
 specifier|public
-specifier|final
 name|String
 name|getProfileName
 parameter_list|()
@@ -223,7 +222,6 @@ annotation|@
 name|Override
 DECL|method|action
 specifier|public
-specifier|final
 name|String
 name|action
 parameter_list|()
@@ -238,7 +236,6 @@ annotation|@
 name|Override
 DECL|method|sendResponse
 specifier|public
-specifier|final
 name|void
 name|sendResponse
 parameter_list|(
@@ -262,7 +259,6 @@ annotation|@
 name|Override
 DECL|method|sendResponse
 specifier|public
-specifier|final
 name|void
 name|sendResponse
 parameter_list|(
@@ -303,8 +299,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
@@ -320,7 +316,7 @@ name|version
 argument_list|,
 name|channel
 argument_list|,
-name|error
+name|exception
 argument_list|,
 name|requestId
 argument_list|,
@@ -373,7 +369,6 @@ annotation|@
 name|Override
 DECL|method|getRequestId
 specifier|public
-specifier|final
 name|long
 name|getRequestId
 parameter_list|()
@@ -386,7 +381,6 @@ annotation|@
 name|Override
 DECL|method|getChannelType
 specifier|public
-specifier|final
 name|String
 name|getChannelType
 parameter_list|()

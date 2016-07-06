@@ -3260,8 +3260,10 @@ comment|// fine - semaphore interrupt
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|AssertionError
+decl||
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3270,7 +3272,7 @@ name|info
 argument_list|(
 literal|"unexpected exception in background thread of [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -4479,8 +4481,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4489,7 +4491,7 @@ name|warn
 argument_list|(
 literal|"failure [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -6160,8 +6162,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|success

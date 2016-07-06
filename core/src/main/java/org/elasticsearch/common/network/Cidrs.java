@@ -189,8 +189,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -213,7 +213,7 @@ literal|0
 index|]
 argument_list|)
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
