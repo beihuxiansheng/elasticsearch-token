@@ -56,22 +56,8 @@ name|ExtensionPoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
-name|IndexShardRepository
-import|;
-end_import
-
 begin_comment
-comment|/**  * A mapping from type name to implementations of {@link Repository} and {@link IndexShardRepository}.  */
+comment|/**  * A mapping from type name to implementations of {@link Repository}.  */
 end_comment
 
 begin_class
@@ -105,30 +91,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|shardRepositoryTypes
-specifier|private
-specifier|final
-name|ExtensionPoint
-operator|.
-name|SelectedType
-argument_list|<
-name|IndexShardRepository
-argument_list|>
-name|shardRepositoryTypes
-init|=
-operator|new
-name|ExtensionPoint
-operator|.
-name|SelectedType
-argument_list|<>
-argument_list|(
-literal|"index_repository"
-argument_list|,
-name|IndexShardRepository
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/** Adds a new repository type to the registry, bound to the given implementation classes. */
 DECL|method|registerRepository
 specifier|public
@@ -145,14 +107,6 @@ extends|extends
 name|Repository
 argument_list|>
 name|repositoryType
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|IndexShardRepository
-argument_list|>
-name|shardRepositoryType
 parameter_list|)
 block|{
 name|repositoryTypes
@@ -162,15 +116,6 @@ argument_list|(
 name|name
 argument_list|,
 name|repositoryType
-argument_list|)
-expr_stmt|;
-name|shardRepositoryTypes
-operator|.
-name|registerExtension
-argument_list|(
-name|name
-argument_list|,
-name|shardRepositoryType
 argument_list|)
 expr_stmt|;
 block|}
@@ -206,19 +151,6 @@ name|build
 argument_list|()
 decl_stmt|;
 name|repositoryTypes
-operator|.
-name|bindType
-argument_list|(
-name|binder
-argument_list|,
-name|settings
-argument_list|,
-literal|"type"
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|shardRepositoryTypes
 operator|.
 name|bindType
 argument_list|(

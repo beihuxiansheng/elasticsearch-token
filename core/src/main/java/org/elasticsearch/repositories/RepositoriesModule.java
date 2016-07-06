@@ -54,36 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
-name|IndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
-name|blobstore
-operator|.
-name|BlobStoreIndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|repositories
 operator|.
 name|fs
@@ -143,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sets up classes for Snapshot/Restore.  *  * Plugins can add custom repository types by calling {@link #registerRepository(String, Class, Class)}.  */
+comment|/**  * Sets up classes for Snapshot/Restore.  *  * Plugins can add custom repository types by calling {@link #registerRepository(String, Class)}.  */
 end_comment
 
 begin_class
@@ -178,10 +148,6 @@ argument_list|,
 name|FsRepository
 operator|.
 name|class
-argument_list|,
-name|BlobStoreIndexShardRepository
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 name|registerRepository
@@ -193,14 +159,10 @@ argument_list|,
 name|URLRepository
 operator|.
 name|class
-argument_list|,
-name|BlobStoreIndexShardRepository
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Registers a custom repository type to the given {@link Repository} and {@link IndexShardRepository}. */
+comment|/** Registers a custom repository type to the given {@link Repository}. */
 DECL|method|registerRepository
 specifier|public
 name|void
@@ -216,14 +178,6 @@ extends|extends
 name|Repository
 argument_list|>
 name|repositoryType
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|IndexShardRepository
-argument_list|>
-name|shardRepositoryType
 parameter_list|)
 block|{
 name|repositoryTypes
@@ -233,8 +187,6 @@ argument_list|(
 name|type
 argument_list|,
 name|repositoryType
-argument_list|,
-name|shardRepositoryType
 argument_list|)
 expr_stmt|;
 block|}
