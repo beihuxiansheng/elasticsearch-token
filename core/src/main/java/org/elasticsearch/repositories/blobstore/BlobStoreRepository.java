@@ -1155,7 +1155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BlobStore - based implementation of Snapshot Repository  *<p>  * This repository works with any {@link BlobStore} implementation. The blobStore should be initialized in the derived  * class before {@link #doStart()} is called.  *<p>  * BlobStoreRepository maintains the following structure in the blob store  *<pre>  * {@code  *   STORE_ROOT  *   |- index-N           - list of all snapshot name as JSON array, N is the generation of the file  *   |- index-latest      - contains the numeric value of the latest generation of the index file (i.e. N from above)  *   |- snapshot-20131010 - JSON serialized Snapshot for snapshot "20131010"  *   |- meta-20131010.dat - JSON serialized MetaData for snapshot "20131010" (includes only global metadata)  *   |- snapshot-20131011 - JSON serialized Snapshot for snapshot "20131011"  *   |- meta-20131011.dat - JSON serialized MetaData for snapshot "20131011"  *   .....  *   |- indices/ - data for all indices  *      |- foo/ - data for index "foo"  *      |  |- meta-20131010.dat - JSON Serialized IndexMetaData for index "foo"  *      |  |- 0/ - data for shard "0" of index "foo"  *      |  |  |- __1 \  *      |  |  |- __2 |  *      |  |  |- __3 |- files from different segments see snapshot-* for their mappings to real segment files  *      |  |  |- __4 |  *      |  |  |- __5 /  *      |  |  .....  *      |  |  |- snap-20131010.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131010"  *      |  |  |- snap-20131011.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  |- list-123 - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  *      |  |- 1/ - data for shard "1" of index "foo"  *      |  |  |- __1  *      |  |  .....  *      |  |  *      |  |-2/  *      |  ......  *      |  *      |- bar/ - data for index bar  *      ......  * }  *</pre>  */
+comment|/**  * BlobStore - based implementation of Snapshot Repository  *<p>  * This repository works with any {@link BlobStore} implementation. The blobStore should be initialized in the derived  * class before {@link #doStart()} is called.  *<p>  * BlobStoreRepository maintains the following structure in the blob store  *<pre>  * {@code  *   STORE_ROOT  *   |- index-N           - list of all snapshot name as JSON array, N is the generation of the file  *   |- index.latest      - contains the numeric value of the latest generation of the index file (i.e. N from above)  *   |- snapshot-20131010 - JSON serialized Snapshot for snapshot "20131010"  *   |- meta-20131010.dat - JSON serialized MetaData for snapshot "20131010" (includes only global metadata)  *   |- snapshot-20131011 - JSON serialized Snapshot for snapshot "20131011"  *   |- meta-20131011.dat - JSON serialized MetaData for snapshot "20131011"  *   .....  *   |- indices/ - data for all indices  *      |- foo/ - data for index "foo"  *      |  |- meta-20131010.dat - JSON Serialized IndexMetaData for index "foo"  *      |  |- 0/ - data for shard "0" of index "foo"  *      |  |  |- __1 \  *      |  |  |- __2 |  *      |  |  |- __3 |- files from different segments see snapshot-* for their mappings to real segment files  *      |  |  |- __4 |  *      |  |  |- __5 /  *      |  |  .....  *      |  |  |- snap-20131010.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131010"  *      |  |  |- snap-20131011.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  |- list-123 - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  *      |  |- 1/ - data for shard "1" of index "foo"  *      |  |  |- __1  *      |  |  .....  *      |  |  *      |  |-2/  *      |  ......  *      |  *      |- bar/ - data for index bar  *      ......  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -1977,7 +1977,10 @@ name|clusterMetadata
 argument_list|,
 name|snapshotsBlobContainer
 argument_list|,
-name|snapshotName
+name|blobId
+argument_list|(
+name|snapshotId
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -2036,7 +2039,10 @@ name|indexMetaData
 argument_list|,
 name|indexMetaDataBlobContainer
 argument_list|,
-name|snapshotName
+name|blobId
+argument_list|(
+name|snapshotId
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2284,10 +2290,10 @@ name|safeGlobalMetaDataBlobDelete
 argument_list|(
 name|snapshot
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Now delete all indices
@@ -2340,10 +2346,10 @@ name|delete
 argument_list|(
 name|indexMetaDataBlobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3151,10 +3157,10 @@ name|exists
 argument_list|(
 name|snapshotsBlobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -3225,10 +3231,10 @@ name|read
 argument_list|(
 name|snapshotsBlobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3340,10 +3346,10 @@ name|read
 argument_list|(
 name|indexMetaDataBlobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 argument_list|,
 literal|false
@@ -4462,8 +4468,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// Package private for testing
 DECL|method|blobId
+specifier|public
 specifier|static
 name|String
 name|blobId
@@ -4503,13 +4509,6 @@ argument_list|()
 return|;
 block|}
 return|return
-name|snapshotId
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"-"
-operator|+
 name|uuid
 return|;
 block|}
@@ -5589,10 +5588,10 @@ name|delete
 argument_list|(
 name|blobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5692,10 +5691,10 @@ name|read
 argument_list|(
 name|blobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -6290,7 +6289,10 @@ name|readBlob
 argument_list|(
 name|blobContainer
 argument_list|,
-name|name
+name|blobId
+argument_list|(
+name|snapshotId
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -7049,10 +7051,10 @@ name|snapshot
 argument_list|,
 name|blobContainer
 argument_list|,
+name|blobId
+argument_list|(
 name|snapshotId
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

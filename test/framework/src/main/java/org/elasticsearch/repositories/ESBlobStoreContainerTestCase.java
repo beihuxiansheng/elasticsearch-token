@@ -1072,10 +1072,10 @@ name|bugUrl
 operator|=
 literal|"https://github.com/elastic/elasticsearch/issues/15579"
 argument_list|)
-DECL|method|testOverwriteFails
+DECL|method|testVerifyOverwriteFails
 specifier|public
 name|void
-name|testOverwriteFails
+name|testVerifyOverwriteFails
 parameter_list|()
 throws|throws
 name|IOException
@@ -1149,6 +1149,7 @@ argument_list|,
 name|bytesArray
 argument_list|)
 expr_stmt|;
+comment|// should not be able to overwrite existing blob
 name|expectThrows
 argument_list|(
 name|IOException
@@ -1183,7 +1184,7 @@ argument_list|,
 name|bytesArray
 argument_list|)
 expr_stmt|;
-comment|// deleted it, so should be able to write it again
+comment|// after deleting the previous blob, we should be able to write to it again
 block|}
 block|}
 DECL|method|newBlobStore

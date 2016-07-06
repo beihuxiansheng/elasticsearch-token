@@ -1492,13 +1492,11 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"abc123-"
-operator|+
 name|uuid
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// snapshot name + '-' + uuid
+comment|// uuid only
 name|uuid
 operator|=
 name|UUIDs
@@ -1525,13 +1523,11 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"abc-123-"
-operator|+
 name|uuid
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// snapshot name + '-' + uuid
+comment|// uuid only
 block|}
 DECL|method|setupRepo
 specifier|private

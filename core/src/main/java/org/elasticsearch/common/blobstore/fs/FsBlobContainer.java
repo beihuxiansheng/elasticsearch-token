@@ -214,6 +214,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|StandardOpenOption
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|attribute
 operator|.
 name|BasicFileAttributes
@@ -614,7 +626,6 @@ argument_list|(
 name|blobName
 argument_list|)
 decl_stmt|;
-comment|// TODO: why is this not specifying CREATE_NEW? Do we really need to be able to truncate existing files?
 try|try
 init|(
 name|OutputStream
@@ -625,6 +636,10 @@ operator|.
 name|newOutputStream
 argument_list|(
 name|file
+argument_list|,
+name|StandardOpenOption
+operator|.
+name|CREATE_NEW
 argument_list|)
 init|)
 block|{
