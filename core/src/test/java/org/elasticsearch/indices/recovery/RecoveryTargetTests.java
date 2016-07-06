@@ -110,7 +110,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -495,7 +495,7 @@ DECL|field|error
 specifier|final
 name|AtomicReference
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|error
 init|=
@@ -573,7 +573,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|Throwable
+name|Exception
 name|t
 init|=
 name|error
@@ -714,15 +714,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|error
 operator|.
 name|set
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2506,9 +2506,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"1"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

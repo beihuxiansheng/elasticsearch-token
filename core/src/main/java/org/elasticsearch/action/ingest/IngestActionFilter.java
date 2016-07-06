@@ -740,7 +740,7 @@ argument_list|,
 parameter_list|(
 name|indexRequest
 parameter_list|,
-name|throwable
+name|exception
 parameter_list|)
 lambda|->
 block|{
@@ -750,7 +750,7 @@ name|debug
 argument_list|(
 literal|"failed to execute pipeline [{}] for document [{}/{}/{}]"
 argument_list|,
-name|throwable
+name|exception
 argument_list|,
 name|indexRequest
 operator|.
@@ -777,19 +777,19 @@ name|bulkRequestModifier
 operator|.
 name|markCurrentItemAsFailed
 argument_list|(
-name|throwable
+name|exception
 argument_list|)
 argument_list|;
 block|}
 operator|,
 parameter_list|(
-name|throwable
+name|exception
 parameter_list|)
 lambda|->
 block|{
 if|if
 condition|(
-name|throwable
+name|exception
 operator|!=
 literal|null
 condition|)
@@ -800,14 +800,14 @@ name|error
 argument_list|(
 literal|"failed to execute pipeline for a bulk request"
 argument_list|,
-name|throwable
+name|exception
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|throwable
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
@@ -1276,7 +1276,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1312,7 +1312,7 @@ DECL|method|markCurrentItemAsFailed
 name|void
 name|markCurrentItemAsFailed
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1575,7 +1575,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

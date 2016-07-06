@@ -611,7 +611,6 @@ annotation|@
 name|Override
 DECL|method|doHashCode
 specifier|protected
-specifier|final
 name|int
 name|doHashCode
 parameter_list|()

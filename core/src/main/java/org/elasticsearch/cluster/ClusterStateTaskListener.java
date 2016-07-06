@@ -38,8 +38,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 comment|/**      * called when the task was rejected because the local node is no longer master      */

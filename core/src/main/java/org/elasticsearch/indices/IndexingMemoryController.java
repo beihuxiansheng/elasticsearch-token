@@ -1051,8 +1051,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1061,7 +1061,7 @@ name|warn
 argument_list|(
 literal|"failed to write indexing buffer for shard [{}]; ignoring"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 operator|.

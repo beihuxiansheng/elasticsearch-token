@@ -1163,7 +1163,7 @@ argument_list|)
 decl_stmt|;
 name|request
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"foo.token_count"
 argument_list|)
@@ -1175,7 +1175,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"foo"
 argument_list|)

@@ -2926,8 +2926,8 @@ name|source
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|countDownLatch

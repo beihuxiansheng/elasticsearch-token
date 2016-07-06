@@ -259,13 +259,11 @@ block|;     }
 comment|/**      * A callback interface that allows to throw certain exceptions for      * methods called on the IndexReader that is wrapped by {@link ThrowingLeafReaderWrapper}      */
 DECL|interface|Thrower
 specifier|public
-specifier|static
 interface|interface
 name|Thrower
 block|{
 comment|/**          * Maybe throws an exception ;)          */
 DECL|method|maybeThrow
-specifier|public
 name|void
 name|maybeThrow
 parameter_list|(
@@ -277,7 +275,6 @@ name|IOException
 function_decl|;
 comment|/**          * If this method returns true the {@link Terms} instance for the given field          * is wrapped with Thrower support otherwise no exception will be thrown for          * the current {@link Terms} instance or any other instance obtained from it.          */
 DECL|method|wrapTerms
-specifier|public
 name|boolean
 name|wrapTerms
 parameter_list|(

@@ -590,24 +590,6 @@ name|listSetting
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1367,8 +1349,8 @@ specifier|public
 name|void
 name|onRejection
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// if we get rejected during node shutdown we don't wanna bubble it up
@@ -1378,7 +1360,7 @@ name|debug
 argument_list|(
 literal|"failed to notify response handler on rejection, action: {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|holderToNotify
 operator|.
@@ -1393,8 +1375,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1403,7 +1385,7 @@ name|warn
 argument_list|(
 literal|"failed to notify response handler on exception, action: {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|holderToNotify
 operator|.
@@ -2627,7 +2609,7 @@ block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2696,8 +2678,8 @@ specifier|public
 name|void
 name|onRejection
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// if we get rejected during node shutdown we don't wanna bubble it up
@@ -2707,7 +2689,7 @@ name|debug
 argument_list|(
 literal|"failed to notify response handler on rejection, action: {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|holderToNotify
 operator|.
@@ -2722,8 +2704,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2732,7 +2714,7 @@ name|warn
 argument_list|(
 literal|"failed to notify response handler on exception, action: {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|holderToNotify
 operator|.
@@ -2925,7 +2907,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2941,28 +2923,26 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
-name|logger
+name|inner
 operator|.
-name|warn
+name|addSuppressed
 argument_list|(
-literal|"failed to notify channel of error message for action [{}]"
-argument_list|,
-name|e1
-argument_list|,
-name|action
+name|e
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"actual exception"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
-name|e
+name|inner
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 block|}
@@ -2974,7 +2954,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2990,28 +2970,26 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
-name|logger
+name|inner
 operator|.
-name|warn
+name|addSuppressed
 argument_list|(
-literal|"failed to notify channel of error message for action [{}]"
-argument_list|,
-name|e1
-argument_list|,
-name|action
+name|e
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"actual exception"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
-name|e1
+name|inner
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 block|}
@@ -3556,8 +3534,8 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -3577,7 +3555,7 @@ name|requestId
 argument_list|,
 name|action
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3593,8 +3571,8 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|tracerLog
@@ -3603,7 +3581,7 @@ name|trace
 argument_list|(
 literal|"[{}][{}] sent error response"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|requestId
 argument_list|,
@@ -5194,7 +5172,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -5221,8 +5199,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
@@ -5252,7 +5230,7 @@ name|rtx
 init|=
 name|wrapInRemote
 argument_list|(
-name|error
+name|exception
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -5337,13 +5315,13 @@ specifier|protected
 name|RemoteTransportException
 name|wrapInRemote
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
 condition|(
-name|t
+name|e
 operator|instanceof
 name|RemoteTransportException
 condition|)
@@ -5352,7 +5330,7 @@ return|return
 operator|(
 name|RemoteTransportException
 operator|)
-name|t
+name|e
 return|;
 block|}
 return|return
@@ -5371,7 +5349,7 @@ argument_list|()
 argument_list|,
 name|action
 argument_list|,
-name|t
+name|e
 argument_list|)
 return|;
 block|}
@@ -5401,7 +5379,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

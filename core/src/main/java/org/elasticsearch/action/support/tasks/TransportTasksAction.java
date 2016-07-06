@@ -1526,8 +1526,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1536,14 +1536,14 @@ name|debug
 argument_list|(
 literal|"failed to generate empty response"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1792,8 +1792,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onFailure
@@ -1802,7 +1802,7 @@ name|idx
 argument_list|,
 name|nodeId
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1959,8 +1959,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1969,14 +1969,14 @@ name|debug
 argument_list|(
 literal|"failed to combine responses from nodes"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return;

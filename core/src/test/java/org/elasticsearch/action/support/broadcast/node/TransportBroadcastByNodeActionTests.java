@@ -442,7 +442,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -1845,9 +1845,10 @@ literal|"node_"
 operator|+
 name|nodeId
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3575,8 +3576,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException

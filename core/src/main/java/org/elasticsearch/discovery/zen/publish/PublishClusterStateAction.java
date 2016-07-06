@@ -1029,8 +1029,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -1041,7 +1041,7 @@ name|FailedToCommitClusterStateException
 argument_list|(
 literal|"unexpected error while preparing to publish"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1077,8 +1077,8 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// try to fail committing, in cause it's still on going
@@ -1090,7 +1090,7 @@ name|markAsFailed
 argument_list|(
 literal|"unexpected error"
 argument_list|,
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1103,14 +1103,14 @@ name|FailedToCommitClusterStateException
 argument_list|(
 literal|"unexpected error"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
 else|else
 block|{
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1219,9 +1219,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1453,9 +1450,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1650,7 +1644,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2002,8 +1996,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2012,7 +2006,7 @@ name|warn
 argument_list|(
 literal|"error sending cluster state to {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -2023,7 +2017,7 @@ name|onNodeSendFailed
 argument_list|(
 name|node
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2214,7 +2208,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -2885,7 +2879,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2911,8 +2905,8 @@ specifier|public
 name|void
 name|onNewClusterStateFailed
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -2921,23 +2915,30 @@ name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
 literal|"failed to send response on cluster state processed"
 argument_list|,
-name|e
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -3618,8 +3619,8 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -3658,7 +3659,7 @@ name|onFailure
 argument_list|(
 name|node
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3715,7 +3716,7 @@ parameter_list|(
 name|String
 name|details
 parameter_list|,
-name|Throwable
+name|Exception
 name|reason
 parameter_list|)
 block|{

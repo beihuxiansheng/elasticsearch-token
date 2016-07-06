@@ -238,7 +238,6 @@ return|;
 block|}
 DECL|method|load
 specifier|private
-specifier|final
 parameter_list|<
 name|T
 extends|extends

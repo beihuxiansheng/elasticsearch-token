@@ -271,7 +271,7 @@ decl_stmt|;
 DECL|field|error
 specifier|public
 specifier|volatile
-name|Throwable
+name|Exception
 name|error
 decl_stmt|;
 DECL|field|latch
@@ -316,7 +316,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

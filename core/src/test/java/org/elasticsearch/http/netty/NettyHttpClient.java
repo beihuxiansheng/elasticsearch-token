@@ -838,7 +838,6 @@ annotation|@
 name|SafeVarargs
 comment|// Safe not because it doesn't do anything with the type parameters but because it won't leak them into other methods.
 DECL|method|processRequestsWithBody
-specifier|private
 specifier|final
 name|Collection
 argument_list|<

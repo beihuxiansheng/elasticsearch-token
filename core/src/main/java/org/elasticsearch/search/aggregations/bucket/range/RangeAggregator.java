@@ -2113,7 +2113,6 @@ return|;
 block|}
 DECL|method|subBucketOrdinal
 specifier|private
-specifier|final
 name|long
 name|subBucketOrdinal
 parameter_list|(
@@ -2433,7 +2432,6 @@ block|}
 DECL|method|sortRanges
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|sortRanges
 parameter_list|(

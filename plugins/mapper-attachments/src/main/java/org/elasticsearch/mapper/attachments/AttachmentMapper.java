@@ -2971,7 +2971,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3126,8 +3126,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3136,7 +3136,7 @@ name|debug
 argument_list|(
 literal|"Cannot detect language: [{}]"
 argument_list|,
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()

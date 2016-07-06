@@ -771,8 +771,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|ex
 parameter_list|)
 block|{
 if|if
@@ -785,7 +785,7 @@ name|nonCriticalExceptions
 operator|.
 name|add
 argument_list|(
-name|t
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -795,7 +795,7 @@ name|thrownExceptions
 operator|.
 name|add
 argument_list|(
-name|t
+name|ex
 argument_list|)
 expr_stmt|;
 block|}

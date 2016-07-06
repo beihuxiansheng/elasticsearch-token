@@ -1921,7 +1921,7 @@ parameter_list|)
 block|{                 }
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -2935,7 +2935,6 @@ block|}
 DECL|method|failIfCorrupted
 specifier|private
 specifier|static
-specifier|final
 name|void
 name|failIfCorrupted
 parameter_list|(
@@ -3070,12 +3069,12 @@ argument_list|(
 name|buffer
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 decl_stmt|;
 if|if
@@ -4573,7 +4572,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -4606,6 +4605,9 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+throw|throw
+name|ex
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -4630,15 +4632,21 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e
+name|Exception
+name|inner
 parameter_list|)
 block|{
-comment|// ignore...
-block|}
+name|ex
+operator|.
+name|addSuppressed
+argument_list|(
+name|inner
+argument_list|)
+expr_stmt|;
 throw|throw
 name|ex
 throw|;
+block|}
 block|}
 return|return
 operator|new
@@ -4830,7 +4838,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -5664,7 +5672,6 @@ return|;
 block|}
 DECL|method|numSegmentFiles
 specifier|private
-specifier|final
 name|int
 name|numSegmentFiles
 parameter_list|()
@@ -7025,11 +7032,11 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// ignore
+comment|// ignore :(
 block|}
 block|}
 block|}
@@ -7105,7 +7112,7 @@ argument_list|()
 decl_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|exception
 argument_list|)
@@ -7195,7 +7202,6 @@ block|}
 comment|/**      * A listener that is executed once the store is closed and all references to it are released      */
 DECL|interface|OnClose
 specifier|public
-specifier|static
 interface|interface
 name|OnClose
 extends|extends
@@ -7205,8 +7211,6 @@ name|ShardLock
 argument_list|>
 block|{
 DECL|field|EMPTY
-specifier|static
-specifier|final
 name|OnClose
 name|EMPTY
 init|=

@@ -889,7 +889,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -3691,7 +3691,7 @@ name|void
 name|testPrimaryRelocationWithConcurrentIndexing
 parameter_list|()
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|Path
 name|dataPath
@@ -3911,7 +3911,7 @@ decl_stmt|;
 specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|exceptions
 init|=
@@ -4000,15 +4000,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|exceptions
 operator|.
 name|add
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4217,7 +4217,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.add_id_to_custom_path"
+literal|"node.add_lock_id_to_custom_path"
 argument_list|,
 literal|false
 argument_list|)
@@ -5946,7 +5946,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|addFieldDataField
+name|addDocValueField
 argument_list|(
 literal|"foo"
 argument_list|)

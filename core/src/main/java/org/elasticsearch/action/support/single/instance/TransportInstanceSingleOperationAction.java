@@ -656,7 +656,7 @@ specifier|protected
 name|boolean
 name|retryOnFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -927,7 +927,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1093,6 +1093,7 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{
+specifier|final
 name|Throwable
 name|cause
 init|=
@@ -1120,6 +1121,9 @@ condition|)
 block|{
 name|retry
 argument_list|(
+operator|(
+name|Exception
+operator|)
 name|cause
 argument_list|)
 expr_stmt|;
@@ -1146,7 +1150,7 @@ parameter_list|(
 annotation|@
 name|Nullable
 specifier|final
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{
@@ -1159,7 +1163,7 @@ argument_list|()
 condition|)
 block|{
 comment|// we running as a last attempt after a timeout has happened. don't retry
-name|Throwable
+name|Exception
 name|listenFailure
 init|=
 name|failure
@@ -1377,7 +1381,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1394,7 +1398,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1411,16 +1415,23 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e1
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"failed to send response for get"
 argument_list|,
-name|e1
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

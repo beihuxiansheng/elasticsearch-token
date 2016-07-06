@@ -138,13 +138,10 @@ return|;
 block|}
 DECL|interface|ValuesHolder
 specifier|public
-specifier|static
 interface|interface
 name|ValuesHolder
 block|{
 DECL|method|lookupOrd
-specifier|public
-specifier|abstract
 name|BytesRef
 name|lookupOrd
 parameter_list|(

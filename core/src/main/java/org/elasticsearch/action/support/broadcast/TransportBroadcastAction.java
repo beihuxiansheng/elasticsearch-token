@@ -935,7 +935,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1248,7 +1248,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1344,8 +1344,8 @@ parameter_list|,
 name|int
 name|shardIndex
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we set the shard failure always, even if its the first in the replication group, and the next one
@@ -1356,7 +1356,7 @@ name|shardIt
 argument_list|,
 name|shardIndex
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|ShardRouting
@@ -1376,7 +1376,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|t
+name|e
 operator|!=
 literal|null
 condition|)
@@ -1396,7 +1396,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1406,7 +1406,7 @@ name|trace
 argument_list|(
 literal|"{}: failed to execute [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1450,7 +1450,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|t
+name|e
 operator|!=
 literal|null
 condition|)
@@ -1462,7 +1462,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1472,7 +1472,7 @@ name|debug
 argument_list|(
 literal|"{}: failed to execute [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1535,7 +1535,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1558,8 +1558,8 @@ parameter_list|,
 name|int
 name|shardIndex
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we don't aggregate shard failures on non active shards (but do keep the header counts right)
@@ -1569,7 +1569,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1579,13 +1579,13 @@ if|if
 condition|(
 operator|!
 operator|(
-name|t
+name|e
 operator|instanceof
 name|BroadcastShardOperationFailedException
 operator|)
 condition|)
 block|{
-name|t
+name|e
 operator|=
 operator|new
 name|BroadcastShardOperationFailedException
@@ -1595,7 +1595,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1623,7 +1623,7 @@ name|set
 argument_list|(
 name|shardIndex
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1648,7 +1648,7 @@ name|TransportActions
 operator|.
 name|isReadOverrideException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1658,7 +1658,7 @@ name|set
 argument_list|(
 name|shardIndex
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

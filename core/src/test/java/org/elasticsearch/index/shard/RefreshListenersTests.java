@@ -900,8 +900,8 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we don't need to notify anybody in this test
@@ -1814,7 +1814,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -2098,7 +2098,7 @@ decl_stmt|;
 DECL|field|error
 specifier|private
 specifier|volatile
-name|Throwable
+name|Exception
 name|error
 decl_stmt|;
 annotation|@
@@ -2141,7 +2141,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

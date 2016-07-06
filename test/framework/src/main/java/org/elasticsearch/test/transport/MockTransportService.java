@@ -32,18 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -207,20 +195,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|SettingsModule
 import|;
 end_import
 
@@ -445,18 +419,6 @@ operator|.
 name|transport
 operator|.
 name|TransportRequestOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportService
 import|;
 end_import
 
@@ -2037,7 +1999,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3054,8 +3016,8 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|super
@@ -3066,7 +3028,7 @@ name|requestId
 argument_list|,
 name|action
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 for|for
@@ -3085,7 +3047,7 @@ name|requestId
 argument_list|,
 name|action
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -655,7 +655,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ignored
 parameter_list|)
 block|{
@@ -1048,7 +1048,7 @@ argument_list|>
 name|esSettings
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 comment|// Set the system property before anything has a chance to trigger its use
 name|initLoggerPrefix
@@ -1178,7 +1178,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

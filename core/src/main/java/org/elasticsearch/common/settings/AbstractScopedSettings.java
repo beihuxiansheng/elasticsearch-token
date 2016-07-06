@@ -2530,7 +2530,6 @@ block|}
 DECL|method|applyDeletes
 specifier|private
 specifier|static
-specifier|final
 name|boolean
 name|applyDeletes
 parameter_list|(

@@ -416,7 +416,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -1669,9 +1669,10 @@ name|id
 argument_list|,
 name|id
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -3316,8 +3317,8 @@ parameter_list|(
 name|String
 name|message
 parameter_list|,
-name|Throwable
-name|throwable
+name|Exception
+name|exception
 parameter_list|)
 block|{
 throw|throw
@@ -3494,7 +3495,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -3523,21 +3524,21 @@ parameter_list|,
 name|String
 name|message
 parameter_list|,
-name|Throwable
-name|throwable
+name|Exception
+name|exception
 parameter_list|,
 name|Runnable
 name|onSuccess
 parameter_list|,
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|onPrimaryDemoted
 parameter_list|,
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|onIgnoredFailure
 parameter_list|)

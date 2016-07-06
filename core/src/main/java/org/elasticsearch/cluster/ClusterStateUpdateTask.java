@@ -167,6 +167,25 @@ name|result
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|describeTasks
+specifier|public
+name|String
+name|describeTasks
+parameter_list|(
+name|List
+argument_list|<
+name|ClusterStateUpdateTask
+argument_list|>
+name|tasks
+parameter_list|)
+block|{
+return|return
+literal|""
+return|;
+comment|// one of task, source is enough
+block|}
 comment|/**      * Update the cluster state based on the current state. Return the *same instance* if no state      * should be changed.      */
 DECL|method|execute
 specifier|public
@@ -190,11 +209,11 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(String, Throwable)}. May return null to indicate no timeout is needed (default).      */
+comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link ClusterStateTaskListener#onFailure(String, Exception)}. May return null to indicate no timeout is needed (default).      */
 annotation|@
 name|Nullable
 DECL|method|timeout

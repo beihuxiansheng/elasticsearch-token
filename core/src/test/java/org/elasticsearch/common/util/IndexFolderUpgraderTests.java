@@ -497,7 +497,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -761,7 +761,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -1091,7 +1091,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -1315,7 +1315,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -2203,8 +2203,6 @@ name|write
 argument_list|(
 name|indexState
 argument_list|,
-literal|1
-argument_list|,
 name|nodeEnvironment
 operator|.
 name|indexPaths
@@ -2693,8 +2691,6 @@ operator|.
 name|getIndexMetaData
 argument_list|()
 argument_list|,
-literal|1
-argument_list|,
 name|oldIndexPaths
 argument_list|)
 expr_stmt|;
@@ -2819,8 +2815,6 @@ operator|.
 name|write
 argument_list|(
 name|state
-argument_list|,
-literal|1
 argument_list|,
 name|oldIndexPath
 operator|.

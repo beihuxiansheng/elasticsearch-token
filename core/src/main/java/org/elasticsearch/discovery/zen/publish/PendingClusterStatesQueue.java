@@ -121,8 +121,8 @@ DECL|method|onNewClusterStateFailed
 name|void
 name|onNewClusterStateFailed
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 block|}
@@ -351,7 +351,7 @@ parameter_list|(
 name|ClusterState
 name|state
 parameter_list|,
-name|Throwable
+name|Exception
 name|reason
 parameter_list|)
 block|{
@@ -985,14 +985,14 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** clear the incoming queue. any committed state will be failed */
+comment|/** clear the incoming queue. any committed state will be failed      */
 DECL|method|failAllStatesAndClear
 specifier|public
 specifier|synchronized
 name|void
 name|failAllStatesAndClear
 parameter_list|(
-name|Throwable
+name|Exception
 name|reason
 parameter_list|)
 block|{

@@ -164,7 +164,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingService
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -262,7 +264,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -430,11 +432,11 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|routingService
+DECL|field|allocationService
 specifier|private
 specifier|final
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 decl_stmt|;
 DECL|field|electMaster
 specifier|private
@@ -474,8 +476,8 @@ parameter_list|(
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 parameter_list|,
 name|ElectMasterService
 name|electMaster
@@ -500,9 +502,9 @@ name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|routingService
+name|allocationService
 operator|=
-name|routingService
+name|allocationService
 expr_stmt|;
 name|this
 operator|.
@@ -706,8 +708,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -716,7 +718,7 @@ name|error
 argument_list|(
 literal|"unexpected failure while waiting for incoming joins"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -732,7 +734,7 @@ name|myElectionContext
 argument_list|,
 literal|"unexpected failure while waiting for pending joins ["
 operator|+
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()
@@ -890,11 +892,7 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"zen-disco-join(node "
-operator|+
-name|node
-operator|+
-literal|"])"
+literal|"zen-disco-node-join"
 argument_list|,
 name|node
 argument_list|,
@@ -1368,7 +1366,7 @@ specifier|final
 name|String
 name|source
 init|=
-literal|"zen-disco-join(elected_as_master, ["
+literal|"zen-disco-elected-as-master (["
 operator|+
 name|tasks
 operator|.
@@ -1435,11 +1433,11 @@ specifier|final
 name|String
 name|source
 init|=
-literal|"zen-disco-join(election stopped ["
+literal|"zen-disco-process-pending-joins ["
 operator|+
 name|reason
 operator|+
-literal|"] nodes joined"
+literal|"]"
 decl_stmt|;
 name|tasks
 operator|.
@@ -1672,8 +1670,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|ElectionContext
@@ -1682,7 +1680,7 @@ name|this
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1775,8 +1773,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -1795,21 +1793,23 @@ name|callback
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|inner
 parameter_list|)
 block|{
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"error during task failure"
+literal|"error handling task failure [{}]"
+argument_list|,
+name|inner
 argument_list|,
 name|e
 argument_list|)
@@ -1886,9 +1886,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"_BECOME_MASTER_TASK_"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1904,6 +1905,20 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+comment|// this is not really task , so don't log anything about it...
+block|}
+block|}
 decl_stmt|;
 comment|// a task that is used to process pending joins without explicitly becoming a master and listening to the results
 comment|// this task is used when election is stop without the local node becoming a master per se (though it might
@@ -1919,9 +1934,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"_NOT_MASTER_TASK_"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1937,6 +1953,20 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+comment|// this is not really task , so don't log anything about it...
+block|}
+block|}
 decl_stmt|;
 DECL|class|JoinTaskExecutor
 class|class
@@ -2085,83 +2115,9 @@ argument_list|(
 name|clusterBlocks
 argument_list|)
 expr_stmt|;
-name|newState
-operator|.
-name|nodes
-argument_list|(
-name|nodesBuilder
-argument_list|)
-expr_stmt|;
 name|nodesChanged
 operator|=
 literal|true
-expr_stmt|;
-comment|// reroute now to remove any dead nodes (master may have stepped down when they left and didn't update the routing table)
-comment|// Note: also do it now to avoid assigning shards to these nodes. We will have another reroute after the cluster
-comment|// state is published.
-comment|// TODO: this publishing of a cluster state with no nodes assigned to joining nodes shouldn't be needed anymore. remove.
-specifier|final
-name|ClusterState
-name|tmpState
-init|=
-name|newState
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
-name|RoutingAllocation
-operator|.
-name|Result
-name|result
-init|=
-name|routingService
-operator|.
-name|getAllocationService
-argument_list|()
-operator|.
-name|reroute
-argument_list|(
-name|tmpState
-argument_list|,
-literal|"nodes joined"
-argument_list|)
-decl_stmt|;
-name|newState
-operator|=
-name|ClusterState
-operator|.
-name|builder
-argument_list|(
-name|tmpState
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|.
-name|changed
-argument_list|()
-condition|)
-block|{
-name|newState
-operator|.
-name|routingResult
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
-block|}
-name|nodesBuilder
-operator|=
-name|DiscoveryNodes
-operator|.
-name|builder
-argument_list|(
-name|tmpState
-operator|.
-name|nodes
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -2237,9 +2193,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2255,10 +2208,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|nodesChanged
-operator|=
-literal|true
-expr_stmt|;
+try|try
+block|{
 name|nodesBuilder
 operator|.
 name|put
@@ -2266,52 +2217,27 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|DiscoveryNode
-name|existingNode
-range|:
-name|currentNodes
-control|)
-block|{
-if|if
-condition|(
-name|node
-operator|.
-name|getAddress
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|existingNode
-operator|.
-name|getAddress
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|nodesBuilder
-operator|.
-name|remove
-argument_list|(
-name|existingNode
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"received join request from node [{}], but found existing node {} with same address, removing existing node"
-argument_list|,
-name|node
-argument_list|,
-name|existingNode
-argument_list|)
+name|nodesChanged
+operator|=
+literal|true
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|results
+operator|.
+name|failure
+argument_list|(
+name|node
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+continue|continue;
 block|}
 block|}
 name|results
@@ -2334,6 +2260,54 @@ argument_list|(
 name|nodesBuilder
 argument_list|)
 expr_stmt|;
+specifier|final
+name|ClusterState
+name|tmpState
+init|=
+name|newState
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|RoutingAllocation
+operator|.
+name|Result
+name|result
+init|=
+name|allocationService
+operator|.
+name|reroute
+argument_list|(
+name|tmpState
+argument_list|,
+literal|"node_join"
+argument_list|)
+decl_stmt|;
+name|newState
+operator|=
+name|ClusterState
+operator|.
+name|builder
+argument_list|(
+name|tmpState
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|.
+name|changed
+argument_list|()
+condition|)
+block|{
+name|newState
+operator|.
+name|routingResult
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// we must return a new cluster state instance to force publishing. This is important
 comment|// for the joining node to finalize its join and set us as a master
@@ -2373,28 +2347,6 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
-if|if
-condition|(
-name|event
-operator|.
-name|nodesDelta
-argument_list|()
-operator|.
-name|hasChanges
-argument_list|()
-condition|)
-block|{
-comment|// we reroute not in the same cluster state update since in certain areas we rely on
-comment|// the node to be in the cluster state (sampled from ClusterService#state) to be there, also
-comment|// shard transitions need to better be handled in such cases
-name|routingService
-operator|.
-name|reroute
-argument_list|(
-literal|"post_node_add"
-argument_list|)
-expr_stmt|;
-block|}
 name|NodeJoinController
 operator|.
 name|this

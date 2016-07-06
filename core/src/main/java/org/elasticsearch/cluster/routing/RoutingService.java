@@ -266,18 +266,6 @@ name|void
 name|doClose
 parameter_list|()
 block|{     }
-DECL|method|getAllocationService
-specifier|public
-name|AllocationService
-name|getAllocationService
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|allocationService
-return|;
-block|}
 comment|/**      * Initiates a reroute.      */
 DECL|method|reroute
 specifier|public
@@ -461,8 +449,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|rerouting
@@ -494,7 +482,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}], current state:\n{}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|,
@@ -513,7 +501,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}], current state version [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|,
@@ -531,7 +519,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

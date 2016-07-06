@@ -691,7 +691,6 @@ expr_stmt|;
 block|}
 DECL|method|randomSliceBuilder
 specifier|private
-specifier|final
 name|SliceBuilder
 name|randomSliceBuilder
 parameter_list|()

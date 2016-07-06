@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for {@link Runnable}s that need to call {@link ActionListener#onFailure(Throwable)} in case an uncaught  * exception or error is thrown while the actual action is run.  */
+comment|/**  * Base class for {@link Runnable}s that need to call {@link ActionListener#onFailure(Exception)} in case an uncaught  * exception or error is thrown while the actual action is run.  */
 end_comment
 
 begin_class
@@ -73,7 +73,7 @@ operator|=
 name|listener
 expr_stmt|;
 block|}
-comment|/**      * Calls the action listeners {@link ActionListener#onFailure(Throwable)} method with the given exception.      * This method is invoked for all exception thrown by {@link #doRun()}      */
+comment|/**      * Calls the action listeners {@link ActionListener#onFailure(Exception)} method with the given exception.      * This method is invoked for all exception thrown by {@link #doRun()}      */
 annotation|@
 name|Override
 DECL|method|onFailure
@@ -81,15 +81,15 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

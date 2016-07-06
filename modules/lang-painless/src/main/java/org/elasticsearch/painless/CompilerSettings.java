@@ -82,7 +82,6 @@ decl_stmt|;
 comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
 specifier|public
-specifier|final
 name|int
 name|getMaxLoopCounter
 parameter_list|()
@@ -94,7 +93,6 @@ block|}
 comment|/**      * Set the cumulative total number of statements that can be made in all loops.      * @see #getMaxLoopCounter      */
 DECL|method|setMaxLoopCounter
 specifier|public
-specifier|final
 name|void
 name|setMaxLoopCounter
 parameter_list|(

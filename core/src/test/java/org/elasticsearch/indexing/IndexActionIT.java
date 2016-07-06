@@ -282,7 +282,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Throwable
+name|Exception
 name|firstError
 init|=
 literal|null
@@ -434,8 +434,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -444,7 +444,7 @@ name|error
 argument_list|(
 literal|"search for all docs types failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -456,7 +456,7 @@ condition|)
 block|{
 name|firstError
 operator|=
-name|t
+name|e
 expr_stmt|;
 block|}
 block|}
@@ -493,8 +493,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -503,7 +503,7 @@ name|error
 argument_list|(
 literal|"search for all docs of a specific type failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -515,7 +515,7 @@ condition|)
 block|{
 name|firstError
 operator|=
-name|t
+name|e
 expr_stmt|;
 block|}
 block|}

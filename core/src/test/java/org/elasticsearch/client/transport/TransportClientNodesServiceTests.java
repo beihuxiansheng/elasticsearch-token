@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -868,6 +858,11 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
+name|node
+operator|.
+name|getEphemeralId
+argument_list|()
+argument_list|,
 literal|"liveness-hostname"
 operator|+
 name|node
@@ -1126,7 +1121,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

@@ -3732,7 +3732,6 @@ block|}
 DECL|method|top
 specifier|private
 specifier|static
-specifier|final
 name|int
 name|top
 parameter_list|(
@@ -3851,7 +3850,6 @@ block|}
 DECL|method|range
 specifier|private
 specifier|static
-specifier|final
 name|double
 index|[]
 name|range

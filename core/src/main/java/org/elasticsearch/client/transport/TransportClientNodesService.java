@@ -232,6 +232,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Randomness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Setting
@@ -701,7 +713,15 @@ name|randomNodeGenerator
 init|=
 operator|new
 name|AtomicInteger
+argument_list|(
+name|Randomness
+operator|.
+name|get
 argument_list|()
+operator|.
+name|nextInt
+argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|field|ignoreClusterName
 specifier|private
@@ -813,8 +833,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|TransportClientNodesService
 specifier|public
 name|TransportClientNodesService
@@ -1504,8 +1522,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|//this exception can't come from the TransportService as it doesn't throw exception at all
@@ -1513,7 +1531,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1648,7 +1666,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1729,16 +1747,23 @@ block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 comment|// this exception can't come from the TransportService as it doesn't throw exceptions at all
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -1756,6 +1781,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -2021,7 +2048,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2200,7 +2227,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2368,6 +2395,11 @@ argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
+name|getEphemeralId
+argument_list|()
+argument_list|,
+name|nodeWithInfo
+operator|.
 name|getHostName
 argument_list|()
 argument_list|,
@@ -2423,7 +2455,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2828,7 +2860,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

@@ -105,6 +105,18 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -121,18 +133,6 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|Scope
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 import|;
 end_import
 

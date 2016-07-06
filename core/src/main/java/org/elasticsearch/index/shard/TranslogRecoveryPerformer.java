@@ -404,8 +404,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -418,7 +418,7 @@ literal|"failed to apply batch translog operation"
 argument_list|,
 name|numOps
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}

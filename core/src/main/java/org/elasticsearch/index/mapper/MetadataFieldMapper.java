@@ -81,7 +81,6 @@ name|FieldMapper
 block|{
 DECL|interface|TypeParser
 specifier|public
-specifier|static
 interface|interface
 name|TypeParser
 extends|extends

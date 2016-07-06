@@ -1077,8 +1077,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// this is likely to happen unless the kernel is newish, its a best effort at the moment
@@ -1097,7 +1097,7 @@ name|debug
 argument_list|(
 literal|"unable to install syscall filter"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1107,7 +1107,7 @@ name|warn
 argument_list|(
 literal|"unable to install syscall filter: "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
