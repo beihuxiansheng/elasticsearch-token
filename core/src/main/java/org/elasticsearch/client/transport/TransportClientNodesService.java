@@ -833,8 +833,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|TransportClientNodesService
 specifier|public
 name|TransportClientNodesService
@@ -1783,6 +1781,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
