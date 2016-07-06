@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.messy.tests
+DECL|package|org.elasticsearch.search.aggregations.metrics
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|messy
+name|search
 operator|.
-name|tests
+name|aggregations
+operator|.
+name|metrics
 package|;
 end_package
 
@@ -88,11 +90,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
+name|search
 operator|.
-name|groovy
+name|aggregations
 operator|.
-name|GroovyPlugin
+name|AggregationTestScriptsPlugin
 import|;
 end_import
 
@@ -185,22 +187,6 @@ operator|.
 name|terms
 operator|.
 name|Terms
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|metrics
-operator|.
-name|AbstractNumericTestCase
 import|;
 end_import
 
@@ -315,6 +301,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -522,15 +520,11 @@ name|sameInstance
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-DECL|class|HDRPercentileRanksTests
+DECL|class|HDRPercentileRanksIT
 specifier|public
 class|class
-name|HDRPercentileRanksTests
+name|HDRPercentileRanksIT
 extends|extends
 name|AbstractNumericTestCase
 block|{
@@ -555,7 +549,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|GroovyPlugin
+name|AggregationTestScriptsPlugin
 operator|.
 name|class
 argument_list|)
@@ -677,7 +671,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|HDRPercentileRanksTests
+name|HDRPercentileRanksIT
 operator|.
 name|class
 argument_list|)
@@ -1701,9 +1695,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|PercentileRanks
-operator|)
 name|global
 operator|.
 name|getProperty
@@ -2035,6 +2026,17 @@ operator|new
 name|Script
 argument_list|(
 literal|"_value - 1"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2195,7 +2197,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
 argument_list|,
 name|params
 argument_list|)
@@ -2447,6 +2451,17 @@ operator|new
 name|Script
 argument_list|(
 literal|"_value - 1"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2578,6 +2593,17 @@ operator|new
 name|Script
 argument_list|(
 literal|"20 - _value"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2738,7 +2764,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
 argument_list|,
 name|params
 argument_list|)
@@ -2865,6 +2893,17 @@ operator|new
 name|Script
 argument_list|(
 literal|"doc['value'].value"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2953,6 +2992,25 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"doc['value'].value - dec"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|params
+argument_list|)
+decl_stmt|;
 specifier|final
 name|double
 index|[]
@@ -3007,19 +3065,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"doc['value'].value - dec"
-argument_list|,
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-name|params
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|values
@@ -3101,6 +3147,26 @@ argument_list|,
 name|maxValues
 argument_list|)
 decl_stmt|;
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"doc['values'].values"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -3139,11 +3205,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"doc['values'].values"
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|values
@@ -3231,6 +3293,33 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// Equivalent to:
+comment|//
+comment|// List values = doc['values'].values;
+comment|// double[] res = new double[values.size()];
+comment|// for (int i = 0; i< res.length; i++) {
+comment|//      res[i] = values.get(i) - dec;
+comment|// };
+comment|// return res;
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"decrement all values"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|params
+argument_list|)
+decl_stmt|;
 specifier|final
 name|double
 index|[]
@@ -3285,19 +3374,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"List values = doc['values'].values; double[] res = new double[values.size()]; for (int i = 0; i< res.length; i++) { res[i] = values.get(i) - dec; }; return res;"
-argument_list|,
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-name|params
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|values
