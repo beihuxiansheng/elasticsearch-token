@@ -277,8 +277,15 @@ name|Object
 argument_list|>
 name|config
 parameter_list|,
-name|ProcessorsRegistry
-name|processorRegistry
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|processorFactories
 parameter_list|)
 throws|throws
 name|Exception
@@ -340,7 +347,7 @@ name|readProcessorConfigs
 argument_list|(
 name|processorConfigs
 argument_list|,
-name|processorRegistry
+name|processorFactories
 argument_list|)
 decl_stmt|;
 name|List
@@ -384,7 +391,7 @@ name|readProcessorConfigs
 argument_list|(
 name|onFailureProcessorConfigs
 argument_list|,
-name|processorRegistry
+name|processorFactories
 argument_list|)
 decl_stmt|;
 if|if

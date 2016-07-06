@@ -719,7 +719,7 @@ name|pipelineConfig
 argument_list|,
 name|pipelineStore
 operator|.
-name|getProcessorRegistry
+name|getProcessorFactories
 argument_list|()
 argument_list|)
 decl_stmt|;

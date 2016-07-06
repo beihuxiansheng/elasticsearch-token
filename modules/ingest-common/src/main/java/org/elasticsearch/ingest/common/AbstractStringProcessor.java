@@ -231,8 +231,18 @@ specifier|public
 name|AbstractStringProcessor
 name|create
 parameter_list|(
+name|Map
+argument_list|<
 name|String
-name|processorTag
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|registry
+parameter_list|,
+name|String
+name|tag
 parameter_list|,
 name|Map
 argument_list|<
@@ -254,7 +264,7 @@ name|readStringProperty
 argument_list|(
 name|processorType
 argument_list|,
-name|processorTag
+name|tag
 argument_list|,
 name|config
 argument_list|,
@@ -264,7 +274,7 @@ decl_stmt|;
 return|return
 name|newProcessor
 argument_list|(
-name|processorTag
+name|tag
 argument_list|,
 name|field
 argument_list|)

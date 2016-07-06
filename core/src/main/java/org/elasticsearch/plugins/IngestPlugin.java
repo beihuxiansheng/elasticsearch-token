@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|plugins
 package|;
 end_package
 
@@ -40,6 +40,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -52,9 +66,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|ingest
 operator|.
-name|IngestPlugin
+name|Processor
 import|;
 end_import
 
@@ -64,9 +78,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|ingest
 operator|.
-name|Plugin
+name|TemplateService
 import|;
 end_import
 
@@ -83,23 +97,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Adds an ingest processor to be used in tests.  */
+comment|/**  * An extension point for {@link Plugin} implementations to add custom ingest processors  */
 end_comment
 
-begin_class
-DECL|class|IngestTestPlugin
+begin_interface
+DECL|interface|IngestPlugin
 specifier|public
-class|class
-name|IngestTestPlugin
-extends|extends
-name|Plugin
-implements|implements
+interface|interface
 name|IngestPlugin
 block|{
-annotation|@
-name|Override
+comment|/**      * Returns additional ingest processor types added by this plugin.      *      * The key of the returned {@link Map} is the unique name for the processor which is specified      * in pipeline configurations, and the value is a {@link org.elasticsearch.ingest.Processor.Factory}      * to create the processor from a given pipeline configuration.      */
 DECL|method|getProcessors
-specifier|public
+specifier|default
 name|Map
 argument_list|<
 name|String
@@ -123,73 +132,12 @@ block|{
 return|return
 name|Collections
 operator|.
-name|singletonMap
-argument_list|(
-literal|"test"
-argument_list|,
-parameter_list|(
-name|factories
-parameter_list|,
-name|tag
-parameter_list|,
-name|config
-parameter_list|)
-lambda|->
-operator|new
-name|TestProcessor
-argument_list|(
-literal|"id"
-argument_list|,
-literal|"test"
-argument_list|,
-name|doc
-lambda|->
-block|{
-name|doc
-operator|.
-name|setFieldValue
-argument_list|(
-literal|"processed"
-argument_list|,
-literal|true
-argument_list|)
-argument_list|;                 if
-operator|(
-name|doc
-operator|.
-name|hasField
-argument_list|(
-literal|"fail"
-argument_list|)
-operator|&&
-name|doc
-operator|.
-name|getFieldValue
-argument_list|(
-literal|"fail"
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-operator|)
-block|{
-throw|throw
-argument_list|new
-name|IllegalArgumentException
-argument_list|(
-literal|"test processor failed"
-argument_list|)
-block|;                 }
+name|emptyMap
+argument_list|()
+return|;
 block|}
-block|)
-end_class
+block|}
+end_interface
 
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-
-unit|} }
 end_unit
 

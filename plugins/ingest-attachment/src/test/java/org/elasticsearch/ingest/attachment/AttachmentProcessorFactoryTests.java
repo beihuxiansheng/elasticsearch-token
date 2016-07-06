@@ -246,6 +246,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|processorTag
 argument_list|,
 name|config
@@ -372,6 +374,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 name|processorTag
 argument_list|,
 name|config
@@ -450,6 +454,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -632,6 +638,8 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
@@ -712,6 +720,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
@@ -807,6 +817,8 @@ name|factory
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|config
