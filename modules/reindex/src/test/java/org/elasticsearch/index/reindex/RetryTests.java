@@ -362,6 +362,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -740,7 +752,6 @@ name|nodeSettings
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// Use pools of size 1 so we can block them
 name|settings
 operator|.
 name|put
@@ -750,6 +761,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// Use pools of size 1 so we can block them
 name|settings
 operator|.
 name|put
@@ -975,6 +987,9 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ReindexRequestBuilder

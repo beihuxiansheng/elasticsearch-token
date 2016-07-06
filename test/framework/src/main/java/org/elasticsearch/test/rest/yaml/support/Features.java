@@ -91,6 +91,8 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+literal|"catch_unauthorized"
+argument_list|,
 literal|"embedded_stash_key"
 argument_list|,
 literal|"groovy_scripting"

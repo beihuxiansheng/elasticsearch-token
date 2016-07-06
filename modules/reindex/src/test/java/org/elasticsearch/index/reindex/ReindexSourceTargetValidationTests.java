@@ -218,6 +218,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -646,6 +658,9 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"does_not_exist"
@@ -677,6 +692,9 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"target"
