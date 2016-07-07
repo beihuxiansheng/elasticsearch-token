@@ -14990,8 +14990,8 @@ block|}
 comment|/** A dummy repository for testing which just needs restore overridden */
 DECL|class|RestoreOnlyRepository
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|RestoreOnlyRepository
 extends|extends
