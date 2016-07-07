@@ -3634,8 +3634,8 @@ end_function
 begin_class
 DECL|class|BaseNamedWriteable
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseNamedWriteable
 implements|implements
