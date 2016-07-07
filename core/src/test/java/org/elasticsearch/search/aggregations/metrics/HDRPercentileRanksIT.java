@@ -3271,54 +3271,12 @@ init|=
 name|randomSignificantDigits
 argument_list|()
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|params
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
-name|params
-operator|.
-name|put
-argument_list|(
-literal|"dec"
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// Equivalent to:
-comment|//
-comment|// List values = doc['values'].values;
-comment|// double[] res = new double[values.size()];
-comment|// for (int i = 0; i< res.length; i++) {
-comment|//      res[i] = values.get(i) - dec;
-comment|// };
-comment|// return res;
 name|Script
 name|script
 init|=
-operator|new
-name|Script
-argument_list|(
-literal|"decrement all values"
-argument_list|,
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
-name|NAME
-argument_list|,
-name|params
-argument_list|)
+name|DECREMENT_ALL_VALUES
 decl_stmt|;
 specifier|final
 name|double

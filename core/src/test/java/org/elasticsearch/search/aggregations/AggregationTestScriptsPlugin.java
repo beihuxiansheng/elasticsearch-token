@@ -44,6 +44,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -74,6 +86,32 @@ name|Function
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
+operator|.
+name|ScriptType
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class contains various mocked scripts that are used in aggregations integration tests.  */
 end_comment
@@ -86,6 +124,40 @@ name|AggregationTestScriptsPlugin
 extends|extends
 name|MockScriptPlugin
 block|{
+comment|// Equivalent to:
+comment|//
+comment|// List values = doc['values'].values;
+comment|// double[] res = new double[values.size()];
+comment|// for (int i = 0; i< res.length; i++) {
+comment|//      res[i] = values.get(i) - dec;
+comment|// };
+comment|// return res;
+DECL|field|DECREMENT_ALL_VALUES
+specifier|public
+specifier|static
+specifier|final
+name|Script
+name|DECREMENT_ALL_VALUES
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"decrement all values"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|NAME
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"dec"
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|pluginScripts
@@ -383,7 +455,10 @@ name|scripts
 operator|.
 name|put
 argument_list|(
-literal|"decrement all values"
+name|DECREMENT_ALL_VALUES
+operator|.
+name|getScript
+argument_list|()
 argument_list|,
 name|vars
 lambda|->
@@ -485,6 +560,28 @@ return|return
 name|res
 return|;
 block|}
+argument_list|)
+expr_stmt|;
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"_value * -1"
+argument_list|,
+name|vars
+lambda|->
+operator|(
+name|double
+operator|)
+name|vars
+operator|.
+name|get
+argument_list|(
+literal|"_value"
+argument_list|)
+operator|*
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
