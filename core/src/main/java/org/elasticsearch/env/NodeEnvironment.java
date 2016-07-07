@@ -4697,13 +4697,6 @@ argument_list|(
 literal|"__es__.tmp"
 argument_list|)
 decl_stmt|;
-name|Files
-operator|.
-name|createFile
-argument_list|(
-name|src
-argument_list|)
-expr_stmt|;
 specifier|final
 name|Path
 name|target
@@ -4719,6 +4712,13 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|Files
+operator|.
+name|createFile
+argument_list|(
+name|src
+argument_list|)
+expr_stmt|;
 name|Files
 operator|.
 name|move
@@ -4757,6 +4757,8 @@ throw|;
 block|}
 finally|finally
 block|{
+try|try
+block|{
 name|Files
 operator|.
 name|deleteIfExists
@@ -4764,6 +4766,9 @@ argument_list|(
 name|src
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|Files
 operator|.
 name|deleteIfExists
@@ -4771,6 +4776,7 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
