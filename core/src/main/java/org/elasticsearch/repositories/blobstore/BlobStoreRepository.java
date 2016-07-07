@@ -1831,7 +1831,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|readOnly
+name|isReadOnly
 argument_list|()
 condition|)
 block|{
@@ -1861,7 +1861,7 @@ decl_stmt|;
 comment|// check if the snapshot name already exists in the repository
 if|if
 condition|(
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|stream
@@ -2035,7 +2035,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|readOnly
+name|isReadOnly
 argument_list|()
 condition|)
 block|{
@@ -2071,7 +2071,7 @@ try|try
 block|{
 name|snapshot
 operator|=
-name|readSnapshot
+name|getSnapshotInfo
 argument_list|(
 name|snapshotId
 argument_list|)
@@ -2287,7 +2287,7 @@ name|SnapshotId
 argument_list|>
 name|snapshotIds
 init|=
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|stream
@@ -2595,7 +2595,7 @@ name|SnapshotId
 argument_list|>
 name|snapshotIds
 init|=
-name|snapshots
+name|getSnapshots
 argument_list|()
 decl_stmt|;
 if|if
@@ -2667,13 +2667,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|snapshots
+DECL|method|getSnapshots
 specifier|public
 name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
-name|snapshots
+name|getSnapshots
 parameter_list|()
 block|{
 try|try
@@ -2725,10 +2725,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|readSnapshotMetaData
+DECL|method|getSnapshotMetaData
 specifier|public
 name|MetaData
-name|readSnapshotMetaData
+name|getSnapshotMetaData
 parameter_list|(
 name|SnapshotInfo
 name|snapshot
@@ -2763,10 +2763,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|readSnapshot
+DECL|method|getSnapshotInfo
 specifier|public
 name|SnapshotInfo
-name|readSnapshot
+name|getSnapshotInfo
 parameter_list|(
 specifier|final
 name|SnapshotId
@@ -3370,10 +3370,10 @@ literal|"uuid"
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|snapshotThrottleTimeInNanos
+DECL|method|getSnapshotThrottleTimeInNanos
 specifier|public
 name|long
-name|snapshotThrottleTimeInNanos
+name|getSnapshotThrottleTimeInNanos
 parameter_list|()
 block|{
 return|return
@@ -3385,10 +3385,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|restoreThrottleTimeInNanos
+DECL|method|getRestoreThrottleTimeInNanos
 specifier|public
 name|long
-name|restoreThrottleTimeInNanos
+name|getRestoreThrottleTimeInNanos
 parameter_list|()
 block|{
 return|return
@@ -3410,7 +3410,7 @@ try|try
 block|{
 if|if
 condition|(
-name|readOnly
+name|isReadOnly
 argument_list|()
 condition|)
 block|{
@@ -3534,7 +3534,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|readOnly
+name|isReadOnly
 argument_list|()
 condition|)
 block|{
@@ -3606,10 +3606,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|readOnly
+DECL|method|isReadOnly
 specifier|public
 name|boolean
-name|readOnly
+name|isReadOnly
 parameter_list|()
 block|{
 return|return
@@ -3642,7 +3642,7 @@ throws|throws
 name|IOException
 block|{
 assert|assert
-name|readOnly
+name|isReadOnly
 argument_list|()
 operator|==
 literal|false
@@ -3794,7 +3794,7 @@ expr_stmt|;
 comment|// delete the N-2 index file if it exists, keep the previous one around as a backup
 if|if
 condition|(
-name|readOnly
+name|isReadOnly
 argument_list|()
 operator|==
 literal|false
@@ -4566,10 +4566,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|snapshot
+DECL|method|snapshotShard
 specifier|public
 name|void
-name|snapshot
+name|snapshotShard
 parameter_list|(
 name|IndexShard
 name|shard
@@ -4720,10 +4720,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|restore
+DECL|method|restoreShard
 specifier|public
 name|void
-name|restore
+name|restoreShard
 parameter_list|(
 name|IndexShard
 name|shard
@@ -4795,10 +4795,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|snapshotStatus
+DECL|method|getShardSnapshotStatus
 specifier|public
 name|IndexShardSnapshotStatus
-name|snapshotStatus
+name|getShardSnapshotStatus
 parameter_list|(
 name|SnapshotId
 name|snapshotId

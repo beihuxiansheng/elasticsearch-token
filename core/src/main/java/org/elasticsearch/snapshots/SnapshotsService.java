@@ -894,7 +894,7 @@ comment|// should only be called once we've validated the repository exists
 return|return
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 return|;
 block|}
@@ -966,7 +966,7 @@ argument_list|(
 name|repositoryName
 argument_list|)
 operator|.
-name|readSnapshot
+name|getSnapshotInfo
 argument_list|(
 name|snapshotId
 argument_list|)
@@ -1119,7 +1119,7 @@ name|add
 argument_list|(
 name|repository
 operator|.
-name|readSnapshot
+name|getSnapshotInfo
 argument_list|(
 name|snapshotId
 argument_list|)
@@ -3204,7 +3204,7 @@ name|metaData
 init|=
 name|repository
 operator|.
-name|readSnapshotMetaData
+name|getSnapshotMetaData
 argument_list|(
 name|snapshotInfo
 argument_list|,
@@ -3347,7 +3347,7 @@ name|shardSnapshotStatus
 init|=
 name|repository
 operator|.
-name|snapshotStatus
+name|getShardSnapshotStatus
 argument_list|(
 name|snapshotInfo
 operator|.
@@ -5845,7 +5845,7 @@ name|matchedEntry
 init|=
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|stream

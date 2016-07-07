@@ -1383,7 +1383,7 @@ name|matchingSnapshotId
 init|=
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|stream
@@ -1450,7 +1450,7 @@ name|snapshotInfo
 init|=
 name|repository
 operator|.
-name|readSnapshot
+name|getSnapshotInfo
 argument_list|(
 name|snapshotId
 argument_list|)
@@ -1500,7 +1500,7 @@ name|metaDataIn
 init|=
 name|repository
 operator|.
-name|readSnapshotMetaData
+name|getSnapshotMetaData
 argument_list|(
 name|snapshotInfo
 argument_list|,

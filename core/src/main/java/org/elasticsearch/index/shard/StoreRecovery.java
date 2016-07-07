@@ -2584,7 +2584,7 @@ expr_stmt|;
 block|}
 name|repository
 operator|.
-name|restore
+name|restoreShard
 argument_list|(
 name|indexShard
 argument_list|,

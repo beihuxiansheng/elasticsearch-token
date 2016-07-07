@@ -2220,7 +2220,7 @@ try|try
 block|{
 name|repository
 operator|.
-name|snapshot
+name|snapshotShard
 argument_list|(
 name|indexShard
 argument_list|,

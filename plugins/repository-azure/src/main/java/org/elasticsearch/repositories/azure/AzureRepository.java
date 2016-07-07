@@ -1173,10 +1173,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|readOnly
+DECL|method|isReadOnly
 specifier|public
 name|boolean
-name|readOnly
+name|isReadOnly
 parameter_list|()
 block|{
 return|return
