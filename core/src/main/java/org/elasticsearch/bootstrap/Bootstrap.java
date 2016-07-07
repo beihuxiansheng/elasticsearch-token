@@ -1134,6 +1134,29 @@ comment|// fail if somebody replaced the lucene jars
 name|checkLucene
 argument_list|()
 expr_stmt|;
+comment|// install the default uncaught exception handler; must be done before security is
+comment|// initialized as we do not want to grant the runtime permission
+comment|// setDefaultUncaughtExceptionHandler
+name|Thread
+operator|.
+name|setDefaultUncaughtExceptionHandler
+argument_list|(
+operator|new
+name|ElasticsearchUncaughtExceptionHandler
+argument_list|(
+parameter_list|()
+lambda|->
+name|Node
+operator|.
+name|NODE_NAME_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|INSTANCE
 operator|.
 name|setup
