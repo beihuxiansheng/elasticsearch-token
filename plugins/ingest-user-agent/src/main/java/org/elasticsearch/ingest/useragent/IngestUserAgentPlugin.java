@@ -316,7 +316,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"ingest-useragent"
+literal|"ingest-user-agent"
 argument_list|)
 decl_stmt|;
 if|if
