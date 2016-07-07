@@ -18,6 +18,14 @@ begin_import
 import|import
 name|joptsimple
 operator|.
+name|OptionException
+import|;
+end_import
+
+begin_import
+import|import
+name|joptsimple
+operator|.
 name|OptionSet
 import|;
 end_import
@@ -430,12 +438,12 @@ block|,
 literal|"-s"
 block|}
 decl_stmt|;
-name|UserException
+name|OptionException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UserException
+name|OptionException
 operator|.
 name|class
 argument_list|,
@@ -468,7 +476,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Cannot specify -s and -v together"
+literal|"Option(s) [v/verbose] are unavailable given other options on the command line"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -42,6 +42,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -107,7 +119,7 @@ name|boolean
 name|foreground
 parameter_list|,
 specifier|final
-name|String
+name|Path
 name|pidFile
 parameter_list|,
 specifier|final
@@ -193,7 +205,7 @@ name|boolean
 name|daemonize
 parameter_list|,
 specifier|final
-name|String
+name|Path
 name|pidFile
 parameter_list|,
 specifier|final

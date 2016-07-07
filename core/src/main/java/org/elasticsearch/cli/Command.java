@@ -184,6 +184,11 @@ argument_list|)
 argument_list|,
 literal|"show verbose output"
 argument_list|)
+operator|.
+name|availableUnless
+argument_list|(
+name|silentOption
+argument_list|)
 decl_stmt|;
 DECL|method|Command
 specifier|public
@@ -368,29 +373,6 @@ name|silentOption
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|options
-operator|.
-name|has
-argument_list|(
-name|verboseOption
-argument_list|)
-condition|)
-block|{
-comment|// mutually exclusive, we can remove this with jopt-simple 5.0, which natively supports it
-throw|throw
-operator|new
-name|UserException
-argument_list|(
-name|ExitCodes
-operator|.
-name|USAGE
-argument_list|,
-literal|"Cannot specify -s and -v together"
-argument_list|)
-throw|;
-block|}
 name|terminal
 operator|.
 name|setVerbosity
