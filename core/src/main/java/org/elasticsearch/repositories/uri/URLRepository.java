@@ -136,20 +136,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
-name|IndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|repositories
 operator|.
 name|RepositoryException
@@ -473,7 +459,7 @@ specifier|final
 name|BlobPath
 name|basePath
 decl_stmt|;
-comment|/**      * Constructs new read-only URL-based repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository shard repository      */
+comment|/**      * Constructs new read-only URL-based repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      */
 annotation|@
 name|Inject
 DECL|method|URLRepository
@@ -485,9 +471,6 @@ name|name
 parameter_list|,
 name|RepositorySettings
 name|repositorySettings
-parameter_list|,
-name|IndexShardRepository
-name|indexShardRepository
 parameter_list|,
 name|Environment
 name|environment
@@ -503,8 +486,6 @@ name|getName
 argument_list|()
 argument_list|,
 name|repositorySettings
-argument_list|,
-name|indexShardRepository
 argument_list|)
 expr_stmt|;
 if|if
@@ -632,7 +613,6 @@ name|cleanPath
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|blobStore
@@ -847,10 +827,10 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|readOnly
+DECL|method|isReadOnly
 specifier|public
 name|boolean
-name|readOnly
+name|isReadOnly
 parameter_list|()
 block|{
 return|return

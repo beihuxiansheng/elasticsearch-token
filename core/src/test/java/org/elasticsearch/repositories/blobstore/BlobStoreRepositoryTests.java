@@ -731,7 +731,7 @@ name|snapshotIds
 init|=
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|stream
@@ -798,7 +798,7 @@ name|assertThat
 argument_list|(
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|size
@@ -824,7 +824,7 @@ name|assertThat
 argument_list|(
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|size
@@ -908,7 +908,7 @@ name|assertThat
 argument_list|(
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1313,7 +1313,7 @@ name|newHashSet
 argument_list|(
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1390,7 +1390,7 @@ name|newHashSet
 argument_list|(
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 argument_list|)
 argument_list|,

@@ -14165,7 +14165,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 operator|.
-name|snapshotThrottleTimeInNanos
+name|getSnapshotThrottleTimeInNanos
 argument_list|()
 expr_stmt|;
 name|restorePause
@@ -14177,7 +14177,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 operator|.
-name|restoreThrottleTimeInNanos
+name|getRestoreThrottleTimeInNanos
 argument_list|()
 expr_stmt|;
 block|}

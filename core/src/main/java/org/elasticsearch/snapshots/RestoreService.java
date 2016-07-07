@@ -634,20 +634,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
-name|IndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|repositories
 operator|.
 name|RepositoriesService
@@ -1055,7 +1041,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for restoring snapshots  *<p>  * Restore operation is performed in several stages.  *<p>  * First {@link #restoreSnapshot(RestoreRequest, org.elasticsearch.action.ActionListener)}  * method reads information about snapshot and metadata from repository. In update cluster state task it checks restore  * preconditions, restores global state if needed, creates {@link RestoreInProgress} record with list of shards that needs  * to be restored and adds this shard to the routing table using {@link org.elasticsearch.cluster.routing.RoutingTable.Builder#addAsRestore(IndexMetaData, RestoreSource)}  * method.  *<p>  * Individual shards are getting restored as part of normal recovery process in  * {@link IndexShard#restoreFromRepository(IndexShardRepository)} )}  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking  * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property.  *<p>  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(Snapshot, ShardId)},  * which updates {@link RestoreInProgress} in cluster state or removes it when all shards are completed. In case of  * restore failure a normal recovery fail-over process kicks in.  */
+comment|/**  * Service responsible for restoring snapshots  *<p>  * Restore operation is performed in several stages.  *<p>  * First {@link #restoreSnapshot(RestoreRequest, org.elasticsearch.action.ActionListener)}  * method reads information about snapshot and metadata from repository. In update cluster state task it checks restore  * preconditions, restores global state if needed, creates {@link RestoreInProgress} record with list of shards that needs  * to be restored and adds this shard to the routing table using {@link org.elasticsearch.cluster.routing.RoutingTable.Builder#addAsRestore(IndexMetaData, RestoreSource)}  * method.  *<p>  * Individual shards are getting restored as part of normal recovery process in  * {@link IndexShard#restoreFromRepository(Repository)} )}  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking  * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property.  *<p>  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(Snapshot, ShardId)},  * which updates {@link RestoreInProgress} in cluster state or removes it when all shards are completed. In case of  * restore failure a normal recovery fail-over process kicks in.  */
 end_comment
 
 begin_class
@@ -1397,7 +1383,7 @@ name|matchingSnapshotId
 init|=
 name|repository
 operator|.
-name|snapshots
+name|getSnapshots
 argument_list|()
 operator|.
 name|stream
@@ -1464,7 +1450,7 @@ name|snapshotInfo
 init|=
 name|repository
 operator|.
-name|readSnapshot
+name|getSnapshotInfo
 argument_list|(
 name|snapshotId
 argument_list|)
@@ -1514,7 +1500,7 @@ name|metaDataIn
 init|=
 name|repository
 operator|.
-name|readSnapshotMetaData
+name|getSnapshotMetaData
 argument_list|(
 name|snapshotInfo
 argument_list|,

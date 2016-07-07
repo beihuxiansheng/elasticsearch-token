@@ -34,11 +34,63 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
 operator|.
 name|MetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|recovery
+operator|.
+name|RecoveryState
 import|;
 end_import
 
@@ -140,20 +192,8 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
 begin_comment
-comment|/**  * Snapshot repository interface.  *<p>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(SnapshotId, ShardId, IndexCommit, IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
+comment|/**  * An interface for interacting with a repository in snapshot and restore.  *<p>  * Implementations are responsible for reading and writing both metadata and actual shard data to and from  * a repository backend.  *<p>  * To perform a snapshot:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link Repository#snapshotShard(IndexShard, SnapshotId, IndexCommit, IndexShardSnapshotStatus)}  * for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot} with possible list of failures</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -165,18 +205,18 @@ extends|extends
 name|LifecycleComponent
 block|{
 comment|/**      * Reads snapshot description from repository.      *      * @param snapshotId  snapshot id      * @return information about snapshot      */
-DECL|method|readSnapshot
+DECL|method|getSnapshotInfo
 name|SnapshotInfo
-name|readSnapshot
+name|getSnapshotInfo
 parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|)
 function_decl|;
 comment|/**      * Returns global metadata associate with the snapshot.      *<p>      * The returned meta data contains global metadata as well as metadata for all indices listed in the indices parameter.      *      * @param snapshot snapshot      * @param indices    list of indices      * @return information about snapshot      */
-DECL|method|readSnapshotMetaData
+DECL|method|getSnapshotMetaData
 name|MetaData
-name|readSnapshotMetaData
+name|getSnapshotMetaData
 parameter_list|(
 name|SnapshotInfo
 name|snapshot
@@ -191,12 +231,12 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Returns the list of snapshots currently stored in the repository that match the given predicate on the snapshot name.      * To get all snapshots, the predicate filter should return true regardless of the input.      *      * @return snapshot list      */
-DECL|method|snapshots
+DECL|method|getSnapshots
 name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
-name|snapshots
+name|getSnapshots
 parameter_list|()
 function_decl|;
 comment|/**      * Starts snapshotting process      *      * @param snapshotId snapshot id      * @param indices    list of indices to be snapshotted      * @param metaData   cluster metadata      */
@@ -257,15 +297,15 @@ name|snapshotId
 parameter_list|)
 function_decl|;
 comment|/**      * Returns snapshot throttle time in nanoseconds      */
-DECL|method|snapshotThrottleTimeInNanos
+DECL|method|getSnapshotThrottleTimeInNanos
 name|long
-name|snapshotThrottleTimeInNanos
+name|getSnapshotThrottleTimeInNanos
 parameter_list|()
 function_decl|;
 comment|/**      * Returns restore throttle time in nanoseconds      */
-DECL|method|restoreThrottleTimeInNanos
+DECL|method|getRestoreThrottleTimeInNanos
 name|long
-name|restoreThrottleTimeInNanos
+name|getRestoreThrottleTimeInNanos
 parameter_list|()
 function_decl|;
 comment|/**      * Verifies repository on the master node and returns the verification token.      *<p>      * If the verification token is not null, it's passed to all data nodes for verification. If it's null - no      * additional verification is required      *      * @return verification token that should be passed to all Index Shard Repositories for additional verification or null      */
@@ -283,11 +323,77 @@ name|String
 name|verificationToken
 parameter_list|)
 function_decl|;
+comment|/**      * Verifies repository settings on data node.      * @param verificationToken value returned by {@link org.elasticsearch.repositories.Repository#startVerification()}      * @param localNode         the local node information, for inclusion in verification errors      */
+DECL|method|verify
+name|void
+name|verify
+parameter_list|(
+name|String
+name|verificationToken
+parameter_list|,
+name|DiscoveryNode
+name|localNode
+parameter_list|)
+function_decl|;
 comment|/**      * Returns true if the repository supports only read operations      * @return true if the repository is read/only      */
-DECL|method|readOnly
+DECL|method|isReadOnly
 name|boolean
-name|readOnly
+name|isReadOnly
 parameter_list|()
+function_decl|;
+comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.Engine#snapshotIndex} method.      * Repository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param shard               shard to be snapshotted      * @param snapshotId          snapshot id      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
+DECL|method|snapshotShard
+name|void
+name|snapshotShard
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|,
+name|SnapshotId
+name|snapshotId
+parameter_list|,
+name|IndexCommit
+name|snapshotIndexCommit
+parameter_list|,
+name|IndexShardSnapshotStatus
+name|snapshotStatus
+parameter_list|)
+function_decl|;
+comment|/**      * Restores snapshot of the shard.      *<p>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param shard           the shard to restore the index into      * @param snapshotId      snapshot id      * @param version         version of elasticsearch that created this snapshot      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryState   recovery state      */
+DECL|method|restoreShard
+name|void
+name|restoreShard
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|,
+name|SnapshotId
+name|snapshotId
+parameter_list|,
+name|Version
+name|version
+parameter_list|,
+name|ShardId
+name|snapshotShardId
+parameter_list|,
+name|RecoveryState
+name|recoveryState
+parameter_list|)
+function_decl|;
+comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param version    version of elasticsearch that created this snapshot      * @param shardId    shard id      * @return snapshot status      */
+DECL|method|getShardSnapshotStatus
+name|IndexShardSnapshotStatus
+name|getShardSnapshotStatus
+parameter_list|(
+name|SnapshotId
+name|snapshotId
+parameter_list|,
+name|Version
+name|version
+parameter_list|,
+name|ShardId
+name|shardId
+parameter_list|)
 function_decl|;
 block|}
 end_interface
