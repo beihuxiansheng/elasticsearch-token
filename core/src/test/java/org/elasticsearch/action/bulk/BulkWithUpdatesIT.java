@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.messy.tests
+DECL|package|org.elasticsearch.action.bulk
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|messy
+name|action
 operator|.
-name|tests
+name|bulk
 package|;
 end_package
 
@@ -31,62 +31,6 @@ operator|.
 name|alias
 operator|.
 name|Alias
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|bulk
-operator|.
-name|BulkItemResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|bulk
-operator|.
-name|BulkRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|bulk
-operator|.
-name|BulkRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|bulk
-operator|.
-name|BulkResponse
 import|;
 end_import
 
@@ -292,6 +236,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|MockScriptPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|Script
 import|;
 end_import
@@ -304,21 +260,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|groovy
-operator|.
-name|GroovyPlugin
+name|ScriptException
 import|;
 end_import
 
@@ -370,9 +312,41 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CyclicBarrier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
 import|;
 end_import
 
@@ -389,6 +363,20 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
+operator|.
+name|ScriptType
 import|;
 end_import
 
@@ -505,13 +493,53 @@ import|;
 end_import
 
 begin_class
-DECL|class|BulkTests
+DECL|class|BulkWithUpdatesIT
 specifier|public
 class|class
-name|BulkTests
+name|BulkWithUpdatesIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|Override
+DECL|method|nodeSettings
+specifier|protected
+name|Settings
+name|nodeSettings
+parameter_list|(
+name|int
+name|nodeOrdinal
+parameter_list|)
+block|{
+return|return
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|super
+operator|.
+name|nodeSettings
+argument_list|(
+name|nodeOrdinal
+argument_list|)
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"script.default_lang"
+argument_list|,
+name|CustomScriptPlugin
+operator|.
+name|NAME
+argument_list|)
+operator|.
+name|build
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|nodePlugins
@@ -533,14 +561,397 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|GroovyPlugin
+name|CustomScriptPlugin
 operator|.
 name|class
 argument_list|)
 return|;
 block|}
-DECL|method|testBulkUpdateSimple
+DECL|class|CustomScriptPlugin
 specifier|public
+specifier|static
+class|class
+name|CustomScriptPlugin
+extends|extends
+name|MockScriptPlugin
+block|{
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|pluginScripts
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Function
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|pluginScripts
+parameter_list|()
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Function
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|scripts
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"ctx._source.field += 1"
+argument_list|,
+name|vars
+lambda|->
+name|srcScript
+argument_list|(
+name|vars
+argument_list|,
+name|source
+lambda|->
+block|{
+name|Integer
+name|field
+operator|=
+operator|(
+name|Integer
+operator|)
+name|source
+operator|.
+name|get
+argument_list|(
+literal|"field"
+argument_list|)
+argument_list|;                 return
+name|source
+operator|.
+name|replace
+argument_list|(
+literal|"field"
+argument_list|,
+name|field
+operator|+
+literal|1
+argument_list|)
+argument_list|;
+block|}
+block|)
+block|)
+class|;
+end_class
+
+begin_expr_stmt
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"ctx._source.counter += 1"
+argument_list|,
+name|vars
+lambda|->
+name|srcScript
+argument_list|(
+name|vars
+argument_list|,
+name|source
+lambda|->
+block|{
+name|Integer
+name|counter
+operator|=
+operator|(
+name|Integer
+operator|)
+name|source
+operator|.
+name|get
+argument_list|(
+literal|"counter"
+argument_list|)
+argument_list|;                 return
+name|source
+operator|.
+name|replace
+argument_list|(
+literal|"counter"
+argument_list|,
+name|counter
+operator|+
+literal|1
+argument_list|)
+argument_list|;
+end_expr_stmt
+
+begin_empty_stmt
+unit|}))
+empty_stmt|;
+end_empty_stmt
+
+begin_expr_stmt
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"ctx._source.field2 = 'value2'"
+argument_list|,
+name|vars
+lambda|->
+name|srcScript
+argument_list|(
+name|vars
+argument_list|,
+name|source
+lambda|->
+name|source
+operator|.
+name|replace
+argument_list|(
+literal|"field2"
+argument_list|,
+literal|"value2"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"throw script exception on unknown var"
+argument_list|,
+name|vars
+lambda|->
+block|{
+throw|throw
+operator|new
+name|ScriptException
+argument_list|(
+literal|"message"
+argument_list|,
+literal|null
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|,
+literal|"exception on unknown var"
+argument_list|,
+name|CustomScriptPlugin
+operator|.
+name|NAME
+argument_list|)
+throw|;
+block|}
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"ctx.op = \"none\""
+argument_list|,
+name|vars
+lambda|->
+operator|(
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
+name|vars
+operator|.
+name|get
+argument_list|(
+literal|"ctx"
+argument_list|)
+operator|)
+operator|.
+name|put
+argument_list|(
+literal|"op"
+argument_list|,
+literal|"none"
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
+name|scripts
+operator|.
+name|put
+argument_list|(
+literal|"ctx.op = \"delete\""
+argument_list|,
+name|vars
+lambda|->
+operator|(
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
+name|vars
+operator|.
+name|get
+argument_list|(
+literal|"ctx"
+argument_list|)
+operator|)
+operator|.
+name|put
+argument_list|(
+literal|"op"
+argument_list|,
+literal|"delete"
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_return
+return|return
+name|scripts
+return|;
+end_return
+
+begin_expr_stmt
+unit|}          @
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|srcScript
+specifier|static
+name|Object
+name|srcScript
+argument_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|vars
+argument_list|,
+name|Function
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|,
+name|Object
+argument_list|>
+name|f
+argument_list|)
+block|{
+name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+name|ctx
+operator|=
+operator|(
+name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+operator|)
+name|vars
+operator|.
+name|get
+argument_list|(
+literal|"ctx"
+argument_list|)
+block|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|source
+operator|=
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
+name|ctx
+operator|.
+name|get
+argument_list|(
+literal|"_source"
+argument_list|)
+block|;
+return|return
+name|f
+operator|.
+name|apply
+argument_list|(
+name|source
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+
+begin_function
+unit|}      public
+DECL|method|testBulkUpdateSimple
 name|void
 name|testBulkUpdateSimple
 parameter_list|()
@@ -797,6 +1208,26 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|CustomScriptPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 name|bulkResponse
 operator|=
 name|client
@@ -831,21 +1262,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 argument_list|)
 operator|.
@@ -875,21 +1292,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|setRetryOnConflict
@@ -942,10 +1345,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -1000,10 +1400,6 @@ expr_stmt|;
 block|}
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1014,7 +1410,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -1027,10 +1422,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1041,7 +1432,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -1054,10 +1444,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1068,7 +1454,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -1081,10 +1466,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1095,7 +1476,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -1108,10 +1488,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1122,7 +1498,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -1135,10 +1510,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1149,7 +1520,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -1448,21 +1818,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|setUpsert
@@ -1511,21 +1867,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 argument_list|)
 operator|.
@@ -1555,28 +1897,11 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -1609,10 +1934,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1623,7 +1944,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -1636,10 +1956,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1650,7 +1966,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -1746,10 +2061,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1760,7 +2071,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -1773,10 +2083,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1787,7 +2093,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getIndex
 argument_list|()
@@ -1800,10 +2105,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -1814,7 +2115,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2045,6 +2345,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testBulkVersioning
 specifier|public
 name|void
@@ -2173,10 +2476,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|IndexResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2187,7 +2486,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2222,10 +2520,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|IndexResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2236,7 +2530,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2271,10 +2564,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|IndexResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2285,7 +2574,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2404,10 +2692,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2418,7 +2702,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2431,10 +2714,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2445,7 +2724,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2593,10 +2871,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|IndexResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2607,7 +2881,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2642,10 +2915,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|IndexResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2656,7 +2925,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2691,10 +2959,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|IndexResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2705,7 +2969,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2844,10 +3107,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2858,7 +3117,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2871,10 +3129,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -2885,7 +3139,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -2897,6 +3150,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testBulkUpdateMalformedScripts
 specifier|public
 name|void
@@ -3080,28 +3336,28 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
+name|setFields
+argument_list|(
+literal|"field"
+argument_list|)
+operator|.
 name|setScript
 argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.field += a"
+literal|"throw script exception on unknown var"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|CustomScriptPlugin
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
-argument_list|)
-operator|.
-name|setFields
-argument_list|(
-literal|"field"
 argument_list|)
 argument_list|)
 operator|.
@@ -3128,6 +3384,11 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
+name|setFields
+argument_list|(
+literal|"field"
+argument_list|)
+operator|.
 name|setScript
 argument_list|(
 operator|new
@@ -3135,21 +3396,16 @@ name|Script
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|CustomScriptPlugin
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
-argument_list|)
-operator|.
-name|setFields
-argument_list|(
-literal|"field"
 argument_list|)
 argument_list|)
 operator|.
@@ -3176,28 +3432,28 @@ argument_list|(
 literal|"3"
 argument_list|)
 operator|.
+name|setFields
+argument_list|(
+literal|"field"
+argument_list|)
+operator|.
 name|setScript
 argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.field += a"
+literal|"throw script exception on unknown var"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|CustomScriptPlugin
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
-argument_list|)
-operator|.
-name|setFields
-argument_list|(
-literal|"field"
 argument_list|)
 argument_list|)
 operator|.
@@ -3298,10 +3554,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -3312,7 +3564,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -3325,10 +3576,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|bulkResponse
 operator|.
 name|getItems
@@ -3339,7 +3586,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -3353,10 +3599,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|(
-call|(
-name|Integer
-call|)
-argument_list|(
 operator|(
 name|UpdateResponse
 operator|)
@@ -3370,7 +3612,7 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-argument_list|)
+operator|)
 operator|.
 name|getGetResult
 argument_list|()
@@ -3382,7 +3624,6 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
-operator|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3469,6 +3710,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testBulkUpdateLargerVolume
 specifier|public
 name|void
@@ -3509,15 +3753,26 @@ operator|++
 expr_stmt|;
 comment|// this test needs an even num of docs
 block|}
-name|logger
-operator|.
-name|info
+specifier|final
+name|Script
+name|script
+init|=
+operator|new
+name|Script
 argument_list|(
-literal|"Bulk-Indexing {} docs"
+literal|"ctx._source.counter += 1"
 argument_list|,
-name|numDocs
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|CustomScriptPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|null
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|BulkRequestBuilder
 name|builder
 init|=
@@ -3572,28 +3827,14 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
-argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.counter += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-operator|.
 name|setFields
 argument_list|(
 literal|"counter"
+argument_list|)
+operator|.
+name|setScript
+argument_list|(
+name|script
 argument_list|)
 operator|.
 name|setUpsert
@@ -3622,10 +3863,7 @@ name|response
 init|=
 name|builder
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -3773,10 +4011,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|response
 operator|.
 name|getItems
@@ -3787,7 +4021,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -3805,10 +4038,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|response
 operator|.
 name|getItems
@@ -3819,7 +4048,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -3833,10 +4061,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|(
-call|(
-name|Integer
-call|)
-argument_list|(
 operator|(
 name|UpdateResponse
 operator|)
@@ -3850,7 +4074,7 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-argument_list|)
+operator|)
 operator|.
 name|getGetResult
 argument_list|()
@@ -3862,7 +4086,6 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
-operator|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4040,21 +4263,7 @@ name|updateBuilder
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.counter += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 expr_stmt|;
 block|}
@@ -4262,10 +4471,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|response
 operator|.
 name|getItems
@@ -4276,7 +4481,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getId
 argument_list|()
@@ -4294,10 +4498,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|UpdateResponse
-operator|)
 name|response
 operator|.
 name|getItems
@@ -4308,7 +4508,6 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-operator|)
 operator|.
 name|getVersion
 argument_list|()
@@ -4322,10 +4521,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|(
-call|(
-name|Integer
-call|)
-argument_list|(
 operator|(
 name|UpdateResponse
 operator|)
@@ -4339,7 +4534,7 @@ index|]
 operator|.
 name|getResponse
 argument_list|()
-argument_list|)
+operator|)
 operator|.
 name|getGetResult
 argument_list|()
@@ -4351,7 +4546,6 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
-operator|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -4428,21 +4622,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"ctx._source.counter += 1"
-argument_list|,
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+name|script
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4736,13 +4916,13 @@ name|Script
 argument_list|(
 literal|"ctx.op = \"none\""
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|CustomScriptPlugin
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -4969,13 +5149,13 @@ name|Script
 argument_list|(
 literal|"ctx.op = \"delete\""
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|CustomScriptPlugin
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -5198,6 +5378,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|testBulkIndexingWhileInitializing
 specifier|public
 name|void
@@ -5417,7 +5600,13 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/*     Test for https://github.com/elastic/elasticsearch/issues/3444      */
+end_comment
+
+begin_function
 DECL|method|testBulkUpdateDocAsUpsertWithParent
 specifier|public
 name|void
@@ -5472,6 +5661,7 @@ operator|.
 name|prepareBulk
 argument_list|()
 decl_stmt|;
+comment|// It's important to use JSON parsing here and request objects: issue 3444 is related to incomplete option parsing
 name|byte
 index|[]
 name|addParent
@@ -5479,9 +5669,29 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"index\" : { \"_index\" : \"test\", \"_type\" : \"parent\", \"_id\" : \"parent1\"}}\n"
+literal|"{"
 operator|+
-literal|"{\"field1\" : \"value1\"}\n"
+literal|"  \"index\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"parent\","
+operator|+
+literal|"    \"_id\"    : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"field1\" : \"value1\""
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5494,9 +5704,37 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{ \"update\" : { \"_index\" : \"test\", \"_type\" : \"child\", \"_id\" : \"child1\", \"parent\" : \"parent1\"}}\n"
+literal|"{"
 operator|+
-literal|"{\"doc\" : { \"field1\" : \"value1\"}, \"doc_as_upsert\" : \"true\"}\n"
+literal|"  \"update\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"child\","
+operator|+
+literal|"    \"_id\"    : \"child1\","
+operator|+
+literal|"    \"parent\" : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"doc\" : {"
+operator|+
+literal|"    \"field1\" : \"value1\""
+operator|+
+literal|"  },"
+operator|+
+literal|"  \"doc_as_upsert\" : \"true\""
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5651,7 +5889,13 @@ literal|"child1"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/*     Test for https://github.com/elastic/elasticsearch/issues/3444      */
+end_comment
+
+begin_function
 DECL|method|testBulkUpdateUpsertWithParent
 specifier|public
 name|void
@@ -5701,9 +5945,29 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"index\" : { \"_index\" : \"test\", \"_type\" : \"parent\", \"_id\" : \"parent1\"}}\n"
+literal|"{"
 operator|+
-literal|"{\"field1\" : \"value1\"}\n"
+literal|"  \"index\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"parent\","
+operator|+
+literal|"    \"_id\"    : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"field1\" : \"value1\""
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5716,9 +5980,41 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"update\" : { \"_id\" : \"child1\", \"_type\" : \"child\", \"_index\" : \"test\", \"parent\" : \"parent1\"} }\n"
+literal|"{"
 operator|+
-literal|"{ \"script\" : {\"inline\" : \"ctx._source.field2 = 'value2'\"}, \"upsert\" : {\"field1\" : \"value1\"}}\n"
+literal|"  \"update\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"child\","
+operator|+
+literal|"    \"_id\"    : \"child1\","
+operator|+
+literal|"    \"parent\" : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"script\" : {"
+operator|+
+literal|"    \"inline\" : \"ctx._source.field2 = 'value2'\""
+operator|+
+literal|"  },"
+operator|+
+literal|"  \"upsert\" : {"
+operator|+
+literal|"    \"field1\" : \"value1'\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5731,9 +6027,37 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"update\" : { \"_id\" : \"child1\", \"_type\" : \"child\", \"_index\" : \"test\", \"parent\" : \"parent1\"} }\n"
+literal|"{"
 operator|+
-literal|"{ \"script\" : \"ctx._source.field2 = 'value2'\", \"upsert\" : {\"field1\" : \"value1\"}}\n"
+literal|"  \"update\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"child\","
+operator|+
+literal|"    \"_id\"    : \"child1\","
+operator|+
+literal|"    \"parent\" : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"script\" : \"ctx._source.field2 = 'value2'\","
+operator|+
+literal|"  \"upsert\" : {"
+operator|+
+literal|"    \"field1\" : \"value1'\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5914,7 +6238,13 @@ literal|"child1"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/*      * Test for https://github.com/elastic/elasticsearch/issues/8365      */
+end_comment
+
+begin_function
 DECL|method|testBulkUpdateChildMissingParentRouting
 specifier|public
 name|void
@@ -5964,9 +6294,29 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"index\" : { \"_index\" : \"test\", \"_type\" : \"parent\", \"_id\" : \"parent1\"}}\n"
+literal|"{"
 operator|+
-literal|"{\"field1\" : \"value1\"}\n"
+literal|"  \"index\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"parent\","
+operator|+
+literal|"    \"_id\"    : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"field1\" : \"value1\""
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5979,9 +6329,31 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"index\" : { \"_id\" : \"child1\", \"_type\" : \"child\", \"_index\" : \"test\", \"parent\" : \"parent1\"} }\n"
+literal|"{"
 operator|+
-literal|"{ \"field1\" : \"value1\"}\n"
+literal|"  \"index\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"child\","
+operator|+
+literal|"    \"_id\"    : \"child1\","
+operator|+
+literal|"    \"parent\" : \"parent1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"field1\" : \"value1\""
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -5994,9 +6366,29 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"index\" : { \"_id\" : \"child2\", \"_type\" : \"child\", \"_index\" : \"test\"} }\n"
+literal|"{"
 operator|+
-literal|"{ \"field1\" : \"value1\"}\n"
+literal|"  \"index\" : {"
+operator|+
+literal|"    \"_index\" : \"test\","
+operator|+
+literal|"    \"_type\"  : \"child\","
+operator|+
+literal|"    \"_id\"    : \"child1\""
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
+operator|+
+literal|"{"
+operator|+
+literal|"  \"field1\" : \"value1\""
+operator|+
+literal|"}"
+operator|+
+literal|"\n"
 argument_list|)
 operator|.
 name|array
@@ -6154,6 +6546,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testFailingVersionedUpdatedOnBulk
 specifier|public
 name|void
@@ -6246,16 +6641,8 @@ operator|=
 operator|new
 name|Thread
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 try|try
 block|{
@@ -6321,7 +6708,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -6398,7 +6784,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|// issue 4987
+end_comment
+
+begin_function
 DECL|method|testThatInvalidIndexNamesShouldNotBreakCompleteBulkRequest
 specifier|public
 name|void
@@ -6640,7 +7032,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|// issue 6630
+end_comment
+
+begin_function
 DECL|method|testThatFailedUpdateRequestReturnsCorrectType
 specifier|public
 name|void
@@ -6990,6 +7388,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|indexOrAlias
 specifier|private
 specifier|static
@@ -7006,7 +7407,13 @@ else|:
 literal|"alias"
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// issue 6410
+end_comment
+
+begin_function
 DECL|method|testThatMissingIndexDoesNotAbortFullBulkRequest
 specifier|public
 name|void
@@ -7221,7 +7628,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|// issue 9821
+end_comment
+
+begin_function
 DECL|method|testFailedRequestsOnClosedIndex
 specifier|public
 name|void
@@ -7440,7 +7853,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|// issue 9821
+end_comment
+
+begin_function
 DECL|method|testInvalidIndexNamesCorrectOpType
 specifier|public
 name|void
@@ -7619,8 +8038,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

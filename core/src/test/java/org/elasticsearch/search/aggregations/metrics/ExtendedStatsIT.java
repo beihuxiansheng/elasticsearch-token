@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.messy.tests
+DECL|package|org.elasticsearch.search.aggregations.metrics
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|messy
+name|search
 operator|.
-name|tests
+name|aggregations
+operator|.
+name|metrics
 package|;
 end_package
 
@@ -74,11 +76,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
+name|search
 operator|.
-name|groovy
+name|aggregations
 operator|.
-name|GroovyPlugin
+name|AggregationTestScriptsPlugin
 import|;
 end_import
 
@@ -189,22 +191,6 @@ operator|.
 name|Terms
 operator|.
 name|Order
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|metrics
-operator|.
-name|AbstractNumericTestCase
 import|;
 end_import
 
@@ -492,15 +478,11 @@ name|sameInstance
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-DECL|class|ExtendedStatsTests
+DECL|class|ExtendedStatsIT
 specifier|public
 class|class
-name|ExtendedStatsTests
+name|ExtendedStatsIT
 extends|extends
 name|AbstractNumericTestCase
 block|{
@@ -525,7 +507,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|GroovyPlugin
+name|AggregationTestScriptsPlugin
 operator|.
 name|class
 argument_list|)
@@ -3476,6 +3458,16 @@ operator|new
 name|Script
 argument_list|(
 literal|"_value + 1"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 operator|.
@@ -3838,7 +3830,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
 argument_list|,
 name|params
 argument_list|)
@@ -4602,6 +4596,16 @@ operator|new
 name|Script
 argument_list|(
 literal|"_value - 1"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 operator|.
@@ -5064,7 +5068,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
 argument_list|,
 name|params
 argument_list|)
@@ -5076,10 +5082,7 @@ name|sigma
 argument_list|)
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertHitCount
@@ -5497,6 +5500,16 @@ operator|new
 name|Script
 argument_list|(
 literal|"doc['value'].value"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 operator|.
@@ -5806,6 +5819,25 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"doc['value'].value + inc"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|params
+argument_list|)
+decl_stmt|;
 name|double
 name|sigma
 init|=
@@ -5845,19 +5877,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"doc['value'].value + inc"
-argument_list|,
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-name|params
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|sigma
@@ -6187,6 +6207,16 @@ operator|new
 name|Script
 argument_list|(
 literal|"doc['values'].values"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 operator|.
@@ -6596,6 +6626,25 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+literal|"[ doc['value'].value, doc['value'].value - dec ]"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|AggregationTestScriptsPlugin
+operator|.
+name|NAME
+argument_list|,
+name|params
+argument_list|)
+decl_stmt|;
 name|double
 name|sigma
 init|=
@@ -6635,19 +6684,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"[ doc['value'].value, doc['value'].value - dec ]"
-argument_list|,
-name|ScriptType
-operator|.
-name|INLINE
-argument_list|,
-literal|null
-argument_list|,
-name|params
-argument_list|)
+name|script
 argument_list|)
 operator|.
 name|sigma
