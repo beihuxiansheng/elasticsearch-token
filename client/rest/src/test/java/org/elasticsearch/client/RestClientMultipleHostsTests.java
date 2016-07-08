@@ -22,18 +22,6 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
-name|RandomizedTest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
 name|generators
 operator|.
 name|RandomInts
@@ -863,8 +851,6 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 init|)
 block|{
@@ -1044,8 +1030,6 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 init|)
 block|{
@@ -1266,8 +1250,6 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1699,8 +1681,6 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1951,8 +1931,6 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 init|)
 block|{
@@ -2075,8 +2053,6 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|fail
