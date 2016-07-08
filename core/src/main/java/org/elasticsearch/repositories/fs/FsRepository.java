@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|RepositoryMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|blobstore
@@ -57,20 +71,6 @@ operator|.
 name|fs
 operator|.
 name|FsBlobStore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -139,30 +139,6 @@ operator|.
 name|repositories
 operator|.
 name|RepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|RepositoryName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|RepositorySettings
 import|;
 end_import
 
@@ -405,18 +381,13 @@ specifier|private
 name|boolean
 name|compress
 decl_stmt|;
-comment|/**      * Constructs new shared file system repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      */
-annotation|@
-name|Inject
+comment|/**      * Constructs a shared file system repository.      */
 DECL|method|FsRepository
 specifier|public
 name|FsRepository
 parameter_list|(
-name|RepositoryName
-name|name
-parameter_list|,
-name|RepositorySettings
-name|repositorySettings
+name|RepositoryMetaData
+name|metadata
 parameter_list|,
 name|Environment
 name|environment
@@ -426,17 +397,14 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|name
-operator|.
-name|getName
-argument_list|()
+name|metadata
 argument_list|,
-name|repositorySettings
+name|environment
+operator|.
+name|settings
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|Path
-name|locationFile
-decl_stmt|;
 name|String
 name|location
 init|=
@@ -444,7 +412,7 @@ name|REPOSITORIES_LOCATION_SETTING
 operator|.
 name|get
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -469,7 +437,7 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|name
+name|metadata
 operator|.
 name|name
 argument_list|()
@@ -478,15 +446,16 @@ literal|"missing location"
 argument_list|)
 throw|;
 block|}
+name|Path
 name|locationFile
-operator|=
+init|=
 name|environment
 operator|.
 name|resolveRepoFile
 argument_list|(
 name|location
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|locationFile
@@ -524,7 +493,7 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|name
+name|metadata
 operator|.
 name|name
 argument_list|()
@@ -552,7 +521,7 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|name
+name|metadata
 operator|.
 name|name
 argument_list|()
@@ -582,7 +551,7 @@ name|CHUNK_SIZE_SETTING
 operator|.
 name|exists
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -597,7 +566,7 @@ name|CHUNK_SIZE_SETTING
 operator|.
 name|get
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -644,7 +613,7 @@ name|COMPRESS_SETTING
 operator|.
 name|exists
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -654,7 +623,7 @@ name|COMPRESS_SETTING
 operator|.
 name|get
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -677,7 +646,6 @@ name|cleanPath
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|blobStore
@@ -690,7 +658,6 @@ return|return
 name|blobStore
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|isCompress
@@ -703,7 +670,6 @@ return|return
 name|compress
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|chunkSize

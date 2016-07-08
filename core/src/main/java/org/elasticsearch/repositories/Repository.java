@@ -60,9 +60,49 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|RepositoryMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|Environment
 import|;
 end_import
 
@@ -193,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface for interacting with a repository in snapshot and restore.  *<p>  * Implementations are responsible for reading and writing both metadata and actual shard data to and from  * a repository backend.  *<p>  * To perform a snapshot:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link Repository#snapshotShard(IndexShard, SnapshotId, IndexCommit, IndexShardSnapshotStatus)}  * for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot} with possible list of failures</li>  *</ul>  */
+comment|/**  * An interface for interacting with a repository in snapshot and restore.  *<p>  * Implementations are responsible for reading and writing both metadata and shard data to and from  * a repository backend.  *<p>  * To perform a snapshot:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link Repository#snapshotShard(IndexShard, SnapshotId, IndexCommit, IndexShardSnapshotStatus)}  * for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot} with possible list of failures</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -204,6 +244,29 @@ name|Repository
 extends|extends
 name|LifecycleComponent
 block|{
+comment|/**      * An factory interface for constructing repositories.      * See {@link org.elasticsearch.plugins.RepositoryPlugin}.      */
+DECL|interface|Factory
+interface|interface
+name|Factory
+block|{
+comment|/**          * Constructs a repository.          * @param metadata    metadata for the repository including name and settings          */
+DECL|method|create
+name|Repository
+name|create
+parameter_list|(
+name|RepositoryMetaData
+name|metadata
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+block|}
+comment|/**      * Returns metadata about this repository.      */
+DECL|method|getMetadata
+name|RepositoryMetaData
+name|getMetadata
+parameter_list|()
+function_decl|;
 comment|/**      * Reads snapshot description from repository.      *      * @param snapshotId  snapshot id      * @return information about snapshot      */
 DECL|method|getSnapshotInfo
 name|SnapshotInfo

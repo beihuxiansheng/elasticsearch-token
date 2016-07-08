@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|RepositoryMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|blobstore
@@ -57,20 +71,6 @@ operator|.
 name|url
 operator|.
 name|URLBlobStore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -139,30 +139,6 @@ operator|.
 name|repositories
 operator|.
 name|RepositoryException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|RepositoryName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|RepositorySettings
 import|;
 end_import
 
@@ -459,18 +435,13 @@ specifier|final
 name|BlobPath
 name|basePath
 decl_stmt|;
-comment|/**      * Constructs new read-only URL-based repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      */
-annotation|@
-name|Inject
+comment|/**      * Constructs a read-only URL-based repository      */
 DECL|method|URLRepository
 specifier|public
 name|URLRepository
 parameter_list|(
-name|RepositoryName
-name|name
-parameter_list|,
-name|RepositorySettings
-name|repositorySettings
+name|RepositoryMetaData
+name|metadata
 parameter_list|,
 name|Environment
 name|environment
@@ -480,12 +451,12 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|name
-operator|.
-name|getName
-argument_list|()
+name|metadata
 argument_list|,
-name|repositorySettings
+name|environment
+operator|.
+name|settings
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -494,7 +465,7 @@ name|URL_SETTING
 operator|.
 name|exists
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -516,7 +487,7 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|name
+name|metadata
 operator|.
 name|name
 argument_list|()
@@ -564,7 +535,7 @@ name|URL_SETTING
 operator|.
 name|exists
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -574,7 +545,7 @@ name|URL_SETTING
 operator|.
 name|get
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -666,7 +637,11 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|repositoryName
+name|getMetadata
+argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"unknown url protocol from URL ["
 operator|+
@@ -736,7 +711,11 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|repositoryName
+name|getMetadata
+argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"cannot parse the specified url ["
 operator|+
@@ -787,7 +766,11 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|repositoryName
+name|getMetadata
+argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"file url ["
 operator|+
@@ -811,7 +794,11 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|repositoryName
+name|getMetadata
+argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"unsupported url protocol ["
 operator|+

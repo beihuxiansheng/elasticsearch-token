@@ -264,11 +264,7 @@ name|p
 init|=
 operator|new
 name|AzureRepositoryPlugin
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|SettingsModule
 name|module

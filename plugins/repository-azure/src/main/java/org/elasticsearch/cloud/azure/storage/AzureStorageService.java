@@ -629,11 +629,6 @@ name|URISyntaxException
 throws|,
 name|StorageException
 function_decl|;
-DECL|method|start
-name|void
-name|start
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
