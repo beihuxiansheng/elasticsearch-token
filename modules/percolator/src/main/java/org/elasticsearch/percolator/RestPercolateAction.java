@@ -221,6 +221,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RestPercolateAction
 specifier|public
 class|class

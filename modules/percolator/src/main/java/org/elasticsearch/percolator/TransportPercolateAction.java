@@ -501,6 +501,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TransportPercolateAction
 specifier|public
 class|class

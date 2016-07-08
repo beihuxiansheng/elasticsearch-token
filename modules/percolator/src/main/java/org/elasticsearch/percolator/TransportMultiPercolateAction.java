@@ -369,6 +369,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TransportMultiPercolateAction
 specifier|public
 class|class
