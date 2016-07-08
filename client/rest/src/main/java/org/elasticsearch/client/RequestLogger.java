@@ -463,7 +463,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|logger
+name|tracer
 operator|.
 name|isTraceEnabled
 argument_list|()
