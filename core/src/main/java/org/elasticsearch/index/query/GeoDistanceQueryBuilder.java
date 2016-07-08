@@ -1548,6 +1548,19 @@ name|TermEncoding
 operator|.
 name|PREFIX
 decl_stmt|;
+comment|// Lucene 6.0 and earlier requires a radial restriction
+if|if
+condition|(
+name|indexVersionCreated
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_alpha4
+argument_list|)
+condition|)
+block|{
 name|normDistance
 operator|=
 name|GeoUtils
@@ -1559,6 +1572,7 @@ argument_list|,
 name|normDistance
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|GeoPointDistanceQuery
