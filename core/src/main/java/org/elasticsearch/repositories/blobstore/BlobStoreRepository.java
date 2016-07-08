@@ -264,6 +264,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|RepositoryMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -323,6 +337,20 @@ operator|.
 name|store
 operator|.
 name|InputStreamIndexInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -914,18 +942,6 @@ name|elasticsearch
 operator|.
 name|repositories
 operator|.
-name|RepositorySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
 name|RepositoryVerificationException
 import|;
 end_import
@@ -1158,11 +1174,11 @@ specifier|private
 name|BlobContainer
 name|snapshotsBlobContainer
 decl_stmt|;
-DECL|field|repositoryName
+DECL|field|metadata
 specifier|protected
 specifier|final
-name|String
-name|repositoryName
+name|RepositoryMetaData
+name|metadata
 decl_stmt|;
 DECL|field|BUFFER_SIZE
 specifier|private
@@ -1451,31 +1467,28 @@ name|BlobStoreIndexShardSnapshots
 argument_list|>
 name|indexShardSnapshotsFormat
 decl_stmt|;
-comment|/**      * Constructs new BlobStoreRepository      *      * @param repositoryName       repository name      * @param repositorySettings   repository settings      */
+comment|/**      * Constructs new BlobStoreRepository      *      * @param metadata       The metadata for this repository including name and settings      * @param globalSettings Settings for the node this repository object is created on      */
 DECL|method|BlobStoreRepository
 specifier|protected
 name|BlobStoreRepository
 parameter_list|(
-name|String
-name|repositoryName
+name|RepositoryMetaData
+name|metadata
 parameter_list|,
-name|RepositorySettings
-name|repositorySettings
+name|Settings
+name|globalSettings
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|repositorySettings
-operator|.
 name|globalSettings
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|repositoryName
+name|metadata
 operator|=
-name|repositoryName
+name|metadata
 expr_stmt|;
 name|parseFieldMatcher
 operator|=
@@ -1489,7 +1502,10 @@ name|snapshotRateLimiter
 operator|=
 name|getRateLimiter
 argument_list|(
-name|repositorySettings
+name|metadata
+operator|.
+name|settings
+argument_list|()
 argument_list|,
 literal|"max_snapshot_bytes_per_sec"
 argument_list|,
@@ -1508,7 +1524,10 @@ name|restoreRateLimiter
 operator|=
 name|getRateLimiter
 argument_list|(
-name|repositorySettings
+name|metadata
+operator|.
+name|settings
+argument_list|()
 argument_list|,
 literal|"max_restore_bytes_per_sec"
 argument_list|,
@@ -1525,7 +1544,7 @@ argument_list|)
 expr_stmt|;
 name|readOnly
 operator|=
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -1811,6 +1830,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getMetadata
+specifier|public
+name|RepositoryMetaData
+name|getMetadata
+parameter_list|()
+block|{
+return|return
+name|metadata
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|initializeSnapshot
 specifier|public
 name|void
@@ -1826,7 +1857,7 @@ argument_list|>
 name|indices
 parameter_list|,
 name|MetaData
-name|metaData
+name|clusterMetadata
 parameter_list|)
 block|{
 if|if
@@ -1839,9 +1870,10 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|this
+name|metadata
 operator|.
-name|repositoryName
+name|name
+argument_list|()
 argument_list|,
 literal|"cannot create snapshot in a readonly repository"
 argument_list|)
@@ -1887,7 +1919,10 @@ throw|throw
 argument_list|new
 name|SnapshotCreationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -1922,7 +1957,10 @@ throw|throw
 operator|new
 name|SnapshotCreationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -1935,7 +1973,7 @@ name|globalMetaDataFormat
 operator|.
 name|write
 argument_list|(
-name|metaData
+name|clusterMetadata
 argument_list|,
 name|snapshotsBlobContainer
 argument_list|,
@@ -1954,7 +1992,7 @@ specifier|final
 name|IndexMetaData
 name|indexMetaData
 init|=
-name|metaData
+name|clusterMetadata
 operator|.
 name|index
 argument_list|(
@@ -2013,7 +2051,10 @@ throw|throw
 operator|new
 name|SnapshotCreationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -2043,9 +2084,10 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|this
+name|metadata
 operator|.
-name|repositoryName
+name|name
+argument_list|()
 argument_list|,
 literal|"cannot delete snapshot from a readonly repository"
 argument_list|)
@@ -2500,9 +2542,10 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|this
+name|metadata
 operator|.
-name|repositoryName
+name|name
+argument_list|()
 argument_list|,
 literal|"failed to update snapshot in repository"
 argument_list|,
@@ -2654,9 +2697,10 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|this
+name|metadata
 operator|.
-name|repositoryName
+name|name
+argument_list|()
 argument_list|,
 literal|"failed to update snapshot in repository"
 argument_list|,
@@ -2714,7 +2758,10 @@ throw|throw
 operator|new
 name|RepositoryException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"failed to list snapshots in repository"
 argument_list|,
@@ -2826,7 +2873,10 @@ throw|throw
 operator|new
 name|SnapshotMissingException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -2846,7 +2896,10 @@ throw|throw
 operator|new
 name|SnapshotException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -2869,7 +2922,10 @@ throw|throw
 operator|new
 name|SnapshotException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -2960,7 +3016,10 @@ throw|throw
 operator|new
 name|SnapshotException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -2974,7 +3033,10 @@ throw|throw
 operator|new
 name|SnapshotMissingException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|)
@@ -3013,7 +3075,10 @@ throw|throw
 operator|new
 name|SnapshotMissingException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -3031,7 +3096,10 @@ throw|throw
 operator|new
 name|SnapshotException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|snapshotId
 argument_list|,
@@ -3161,7 +3229,7 @@ specifier|private
 name|RateLimiter
 name|getRateLimiter
 parameter_list|(
-name|RepositorySettings
+name|Settings
 name|repositorySettings
 parameter_list|,
 name|String
@@ -3175,9 +3243,6 @@ name|ByteSizeValue
 name|maxSnapshotBytesPerSec
 init|=
 name|repositorySettings
-operator|.
-name|settings
-argument_list|()
 operator|.
 name|getAsBytesSize
 argument_list|(
@@ -3507,7 +3572,10 @@ throw|throw
 operator|new
 name|RepositoryVerificationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"path "
 operator|+
@@ -3576,7 +3644,10 @@ throw|throw
 operator|new
 name|RepositoryVerificationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"cannot delete test data at "
 operator|+
@@ -4489,7 +4560,10 @@ name|debug
 argument_list|(
 literal|"[{}] Unknown blob in the repository: {}"
 argument_list|,
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|blobName
 argument_list|)
@@ -4981,7 +5055,10 @@ throw|throw
 operator|new
 name|RepositoryVerificationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"store location ["
 operator|+
@@ -5005,7 +5082,10 @@ throw|throw
 operator|new
 name|RepositoryVerificationException
 argument_list|(
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 literal|"a file written by master to the store ["
 operator|+
@@ -5080,7 +5160,10 @@ literal|"BlobStoreRepository["
 operator|+
 literal|"["
 operator|+
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 operator|+
 literal|"], ["
 operator|+
@@ -6242,7 +6325,10 @@ name|shardId
 argument_list|,
 name|snapshotId
 argument_list|,
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|store
@@ -7779,7 +7865,10 @@ literal|"[{}] [{}] restoring to [{}] ..."
 argument_list|,
 name|snapshotId
 argument_list|,
-name|repositoryName
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|shardId
 argument_list|)

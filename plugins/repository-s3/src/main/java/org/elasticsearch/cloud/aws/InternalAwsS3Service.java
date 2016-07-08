@@ -293,8 +293,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|InternalAwsS3Service
 specifier|public
 name|InternalAwsS3Service
