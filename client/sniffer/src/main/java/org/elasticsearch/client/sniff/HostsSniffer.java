@@ -892,6 +892,10 @@ DECL|field|scheme
 specifier|private
 name|Scheme
 name|scheme
+init|=
+name|Scheme
+operator|.
+name|HTTP
 decl_stmt|;
 DECL|method|Builder
 specifier|private
