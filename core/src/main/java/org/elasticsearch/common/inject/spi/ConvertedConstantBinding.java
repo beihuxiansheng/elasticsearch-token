@@ -82,7 +82,7 @@ name|T
 name|getValue
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the key for the source binding. That binding can e retrieved from an injector using      * {@link org.elasticsearch.common.inject.Injector#getBinding(Key) Injector.getBinding(key)}.      */
+comment|/**      * Returns the key for the source binding.      */
 DECL|method|getSourceKey
 name|Key
 argument_list|<
