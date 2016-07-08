@@ -424,6 +424,14 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -452,6 +460,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|logger
