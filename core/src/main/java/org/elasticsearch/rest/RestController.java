@@ -682,6 +682,87 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Registers a REST handler to be executed when the provided {@code method} and {@code path} match the request, or when provided      * with {@code deprecatedMethod} and {@code deprecatedPath}. Expected usage:      *<pre><code>      * // remove deprecation in next major release      * controller.registerWithDeprecatedHandler(POST, "/_forcemerge", this,      *                                          POST, "/_optimize", deprecationLogger);      * controller.registerWithDeprecatedHandler(POST, "/{index}/_forcemerge", this,      *                                          POST, "/{index}/_optimize", deprecationLogger);      *</code></pre>      *<p>      * The registered REST handler ({@code method} with {@code path}) is a normal REST handler that is not deprecated and it is      * replacing the deprecated REST handler ({@code deprecatedMethod} with {@code deprecatedPath}) that is using the<em>same</em>      * {@code handler}.      *<p>      * Deprecated REST handlers without a direct replacement should be deprecated directly using {@link #registerAsDeprecatedHandler}      * and a specific message.      *      * @param method GET, POST, etc.      * @param path Path to handle (e.g., "/_forcemerge")      * @param handler The handler to actually execute      * @param deprecatedMethod GET, POST, etc.      * @param deprecatedPath<em>Deprecated</em> path to handle (e.g., "/_optimize")      * @param logger The existing deprecation logger to use      */
+DECL|method|registerWithDeprecatedHandler
+specifier|public
+name|void
+name|registerWithDeprecatedHandler
+parameter_list|(
+name|RestRequest
+operator|.
+name|Method
+name|method
+parameter_list|,
+name|String
+name|path
+parameter_list|,
+name|RestHandler
+name|handler
+parameter_list|,
+name|RestRequest
+operator|.
+name|Method
+name|deprecatedMethod
+parameter_list|,
+name|String
+name|deprecatedPath
+parameter_list|,
+name|DeprecationLogger
+name|logger
+parameter_list|)
+block|{
+comment|// e.g., [POST /_optimize] is deprecated! Use [POST /_forcemerge] instead.
+specifier|final
+name|String
+name|deprecationMessage
+init|=
+literal|"["
+operator|+
+name|deprecatedMethod
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|deprecatedPath
+operator|+
+literal|"] is deprecated! Use ["
+operator|+
+name|method
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|path
+operator|+
+literal|"] instead."
+decl_stmt|;
+name|registerHandler
+argument_list|(
+name|method
+argument_list|,
+name|path
+argument_list|,
+name|handler
+argument_list|)
+expr_stmt|;
+name|registerAsDeprecatedHandler
+argument_list|(
+name|deprecatedMethod
+argument_list|,
+name|deprecatedPath
+argument_list|,
+name|handler
+argument_list|,
+name|deprecationMessage
+argument_list|,
+name|logger
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Registers a REST handler to be executed when the provided method and path match the request.      *      * @param method GET, POST, etc.      * @param path Path to handle (e.g., "/{index}/{type}/_bulk")      * @param handler The handler to actually execute      */
 DECL|method|registerHandler
 specifier|public
