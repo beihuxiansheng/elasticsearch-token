@@ -7408,6 +7408,13 @@ operator|-
 literal|90
 return|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"http://github.com/elastic/elasticsearch/issues/19263"
+argument_list|)
 DECL|method|testDuelOptimizations
 specifier|public
 name|void
