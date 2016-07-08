@@ -95,16 +95,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -229,13 +219,6 @@ literal|"GET"
 argument_list|,
 literal|"/"
 argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|BasicHeader
 argument_list|(
@@ -319,13 +302,6 @@ argument_list|(
 literal|"GET"
 argument_list|,
 literal|"/"
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 init|)
 block|{

@@ -1793,13 +1793,6 @@ name|queryIndex
 operator|+
 literal|"/_search"
 argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|BasicHeader
 argument_list|(
