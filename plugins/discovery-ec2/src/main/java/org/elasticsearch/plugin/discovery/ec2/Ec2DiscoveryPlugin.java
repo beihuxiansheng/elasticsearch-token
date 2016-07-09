@@ -783,6 +783,32 @@ name|Settings
 name|additionalSettings
 parameter_list|()
 block|{
+return|return
+name|getAvailabilityZoneNodeAttributes
+argument_list|(
+name|settings
+argument_list|,
+name|AwsEc2ServiceImpl
+operator|.
+name|EC2_METADATA_URL
+operator|+
+literal|"placement/availability-zone"
+argument_list|)
+return|;
+block|}
+comment|// pkg private for testing
+DECL|method|getAvailabilityZoneNodeAttributes
+specifier|static
+name|Settings
+name|getAvailabilityZoneNodeAttributes
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|,
+name|String
+name|azMetadataUrl
+parameter_list|)
+block|{
 if|if
 condition|(
 name|AwsEc2Service
@@ -828,11 +854,7 @@ operator|=
 operator|new
 name|URL
 argument_list|(
-name|AwsEc2ServiceImpl
-operator|.
-name|EC2_METADATA_URL
-operator|+
-literal|"placement/availability-zone"
+name|azMetadataUrl
 argument_list|)
 expr_stmt|;
 name|logger
@@ -926,7 +948,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalStateException
 argument_list|(
 literal|"no ec2 metadata returned from "
 operator|+
