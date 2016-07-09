@@ -78,7 +78,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Returns the key used to resolve the provider's binding. That binding can be retrieved from an      * injector using {@link org.elasticsearch.common.inject.Injector#getBinding(Key)      * Injector.getBinding(providerKey)}      */
+comment|/**      * Returns the key used to resolve the provider's binding.      */
 DECL|method|getProviderKey
 name|Key
 argument_list|<
