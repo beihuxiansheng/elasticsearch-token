@@ -2052,6 +2052,18 @@ name|readByte
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|offset
+operator|==
+name|length
+operator|-
+literal|1
+condition|)
+block|{
+continue|continue;
+comment|// no more bytes to retrieve!
+block|}
 specifier|final
 name|int
 name|nextOffset
