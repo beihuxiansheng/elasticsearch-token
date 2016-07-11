@@ -540,6 +540,7 @@ specifier|protected
 name|InternalAggregation
 parameter_list|()
 block|{}
+comment|// NORELEASE remove when removing Streamable
 comment|/**      * Constructs an get with a given name.      *      * @param name The name of the get.      */
 DECL|method|InternalAggregation
 specifier|protected
