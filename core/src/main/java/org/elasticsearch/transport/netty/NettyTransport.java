@@ -634,6 +634,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -2612,6 +2622,8 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|NodeChannels
@@ -3487,6 +3499,7 @@ name|execute
 argument_list|(
 parameter_list|()
 lambda|->
+block|{
 name|disconnectFromNode
 argument_list|(
 name|node
@@ -3498,6 +3511,8 @@ argument_list|()
 argument_list|,
 literal|"channel closed event"
 argument_list|)
+expr_stmt|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -3114,27 +3114,6 @@ argument_list|(
 name|mockPlugins
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isLocalTransportConfigured
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-comment|// this is crazy we must do this here...we should really just always be using local transport...
-name|plugins
-operator|.
-name|remove
-argument_list|(
-name|AssertingLocalTransport
-operator|.
-name|TestPlugin
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|plugins
 return|;

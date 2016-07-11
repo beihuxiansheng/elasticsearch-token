@@ -2836,6 +2836,8 @@ specifier|synchronized
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|closeChannels
 argument_list|(
@@ -3246,10 +3248,12 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
-name|nodeChannels
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeWhileHandlingException
+argument_list|(
+name|nodeChannels
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
@@ -3311,6 +3315,8 @@ lambda|->
 block|{
 try|try
 block|{
+try|try
+block|{
 name|closeChannels
 argument_list|(
 name|Collections
@@ -3357,6 +3363,23 @@ comment|// the rest of the nodes
 break|break;
 block|}
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to close channel"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -3470,10 +3493,12 @@ argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
-name|nodeChannels
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeWhileHandlingException
+argument_list|(
+name|nodeChannels
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
@@ -5265,10 +5290,12 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-name|nodeChannels
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeWhileHandlingException
+argument_list|(
+name|nodeChannels
+argument_list|)
 expr_stmt|;
 block|}
 for|for
@@ -5369,10 +5396,12 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-name|nodeChannels
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeWhileHandlingException
+argument_list|(
+name|nodeChannels
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -5435,6 +5464,8 @@ parameter_list|,
 name|Exception
 name|e
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -5656,6 +5687,8 @@ parameter_list|,
 name|InetSocketAddress
 name|address
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Closes all channels in this list      */
 DECL|method|closeChannels
@@ -5670,6 +5703,8 @@ name|Channel
 argument_list|>
 name|channel
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Connects to the given node in a light way. This means we are not creating multiple connections like we do      * for production connections. This connection is for pings or handshakes      */
 DECL|method|connectToChannelsLight
@@ -5681,6 +5716,8 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|sendMessage
 specifier|protected
@@ -5700,6 +5737,8 @@ parameter_list|,
 name|boolean
 name|close
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Connects to the node in a<tt>heavy</tt> way.      *      * @see #connectToChannelsLight(DiscoveryNode)      */
 DECL|method|connectToChannels
@@ -5711,6 +5750,8 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Called to tear down internal resources      */
 DECL|method|stopInternal
@@ -6676,7 +6717,7 @@ name|zeroCopyBuffer
 argument_list|)
 return|;
 block|}
-comment|/**      * Validates the first N bytes of the message header and returns<code>true</code> if the message is      * a ping message and has no payload ie. isn't a real user level message.      *      * @throws IllegalStateException if the message is too short, less than the header or less that the header plus the message size      * @throws HttpOnTransportException if the message has no valid header and appears to be a HTTP message      * @throws IllegalArgumentException if the message is greater that the maximum allowed frame size. This is dependent on the available      * memory.      */
+comment|/**      * Validates the first N bytes of the message header and returns<code>false</code> if the message is      * a ping message and has no payload ie. isn't a real user level message.      *      * @throws IllegalStateException if the message is too short, less than the header or less that the header plus the message size      * @throws HttpOnTransportException if the message has no valid header and appears to be a HTTP message      * @throws IllegalArgumentException if the message is greater that the maximum allowed frame size. This is dependent on the available      * memory.      */
 DECL|method|validateMessageHeader
 specifier|public
 specifier|static
