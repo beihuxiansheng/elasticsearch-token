@@ -3745,8 +3745,8 @@ name|CodepointSetGenerator
 block|{
 DECL|field|ASCII_SET
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|char
 index|[]
 name|ASCII_SET
