@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport
+DECL|package|org.elasticsearch.http
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|http
 package|;
 end_package
 
@@ -797,13 +797,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"script.stored"
-argument_list|,
-literal|"true"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|NetworkModule
 operator|.
 name|HTTP_ENABLED
@@ -816,6 +809,18 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|ignoreExternalCluster
+specifier|protected
+name|boolean
+name|ignoreExternalCluster
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 annotation|@

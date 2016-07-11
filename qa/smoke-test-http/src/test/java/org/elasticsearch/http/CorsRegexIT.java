@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest
+DECL|package|org.elasticsearch.http
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|http
 package|;
 end_package
 
@@ -275,22 +275,6 @@ name|CorsRegexIT
 extends|extends
 name|ESIntegTestCase
 block|{
-DECL|field|logger
-specifier|protected
-specifier|static
-specifier|final
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|CorsRegexIT
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|nodeSettings
@@ -372,6 +356,18 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|ignoreExternalCluster
+specifier|protected
+name|boolean
+name|ignoreExternalCluster
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 DECL|method|testThatRegularExpressionWorksOnMatch

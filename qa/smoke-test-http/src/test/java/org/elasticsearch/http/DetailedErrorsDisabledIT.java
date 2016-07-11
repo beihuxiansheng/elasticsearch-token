@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.options.detailederrors
+DECL|package|org.elasticsearch.http
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|options
-operator|.
-name|detailederrors
+name|http
 package|;
 end_package
 
@@ -74,6 +72,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|http
+operator|.
+name|HttpTransportSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -126,24 +136,12 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
+name|is
 import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that by default the error_trace parameter can be used to show stacktraces  */
+comment|/**  * Tests that when disabling detailed errors, a request with the error_trace parameter returns a HTTP 400  */
 end_comment
 
 begin_class
@@ -164,13 +162,14 @@ name|numDataNodes
 operator|=
 literal|1
 argument_list|)
-DECL|class|DetailedErrorsEnabledIT
+DECL|class|DetailedErrorsDisabledIT
 specifier|public
 class|class
-name|DetailedErrorsEnabledIT
+name|DetailedErrorsDisabledIT
 extends|extends
 name|ESIntegTestCase
 block|{
+comment|// Build our cluster settings
 annotation|@
 name|Override
 DECL|method|nodeSettings
@@ -210,14 +209,38 @@ argument_list|,
 literal|true
 argument_list|)
 operator|.
+name|put
+argument_list|(
+name|HttpTransportSettings
+operator|.
+name|SETTING_HTTP_DETAILED_ERRORS_ENABLED
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
 block|}
-DECL|method|testThatErrorTraceWorksByDefault
+annotation|@
+name|Override
+DECL|method|ignoreExternalCluster
+specifier|protected
+name|boolean
+name|ignoreExternalCluster
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+DECL|method|testThatErrorTraceParamReturns400
 specifier|public
 name|void
-name|testThatErrorTraceWorksByDefault
+name|testThatErrorTraceParamReturns400
 parameter_list|()
 throws|throws
 name|Exception
@@ -272,7 +295,7 @@ argument_list|(
 literal|"Content-Type"
 argument_list|)
 argument_list|,
-name|containsString
+name|is
 argument_list|(
 literal|"application/json"
 argument_list|)
@@ -285,77 +308,25 @@ operator|.
 name|getResponseBody
 argument_list|()
 argument_list|,
-name|containsString
+name|is
 argument_list|(
-literal|"\"stack_trace\":\"[Validation Failed: 1: index / indices is missing;]; "
-operator|+
-literal|"nested: ActionRequestValidationException[Validation Failed: 1:"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
-name|getRestClient
-argument_list|()
-operator|.
-name|performRequest
-argument_list|(
-literal|"DELETE"
-argument_list|,
-literal|"/"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"request should have failed"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ResponseException
-name|e
-parameter_list|)
-block|{
-name|Response
-name|response
-init|=
-name|e
-operator|.
-name|getResponse
-argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|response
-operator|.
-name|getHeader
-argument_list|(
-literal|"Content-Type"
-argument_list|)
-argument_list|,
-name|containsString
-argument_list|(
-literal|"application/json"
+literal|"{\"error\":\"error traces in responses are disabled.\"}"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|e
+name|response
 operator|.
-name|getResponseBody
+name|getStatusLine
+argument_list|()
+operator|.
+name|getStatusCode
 argument_list|()
 argument_list|,
-name|not
+name|is
 argument_list|(
-name|containsString
-argument_list|(
-literal|"\"stack_trace\":\"[Validation Failed: 1: index / indices is missing;]; "
-operator|+
-literal|"nested: ActionRequestValidationException[Validation Failed: 1:"
-argument_list|)
+literal|400
 argument_list|)
 argument_list|)
 expr_stmt|;
