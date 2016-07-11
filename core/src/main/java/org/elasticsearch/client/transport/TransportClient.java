@@ -1257,7 +1257,7 @@ name|List
 argument_list|<
 name|LifecycleComponent
 argument_list|>
-name|pluginLifecycles
+name|pluginLifecycleComponents
 init|=
 name|pluginComponents
 operator|.
@@ -1291,7 +1291,7 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|pluginLifecycles
+name|pluginLifecycleComponents
 operator|.
 name|addAll
 argument_list|(
@@ -1323,7 +1323,7 @@ name|resourcesToClose
 operator|.
 name|addAll
 argument_list|(
-name|pluginLifecycles
+name|pluginLifecycleComponents
 argument_list|)
 expr_stmt|;
 name|transportService
@@ -1344,7 +1344,7 @@ name|TransportClient
 argument_list|(
 name|injector
 argument_list|,
-name|pluginLifecycles
+name|pluginLifecycleComponents
 argument_list|,
 name|nodesService
 argument_list|,
