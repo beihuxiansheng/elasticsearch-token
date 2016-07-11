@@ -6088,6 +6088,9 @@ argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
+operator|new
+name|AggregationSpec
+argument_list|(
 name|GeoGridAggregationBuilder
 operator|::
 operator|new
@@ -6099,6 +6102,14 @@ argument_list|,
 name|GeoGridAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
+argument_list|)
+operator|.
+name|addResultReader
+argument_list|(
+name|InternalGeoHashGrid
+operator|::
+operator|new
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|registerAggregation
@@ -6148,6 +6159,9 @@ argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
+operator|new
+name|AggregationSpec
+argument_list|(
 name|GeoBoundsAggregationBuilder
 operator|::
 operator|new
@@ -6159,6 +6173,14 @@ argument_list|,
 name|GeoBoundsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIED
+argument_list|)
+operator|.
+name|addResultReader
+argument_list|(
+name|InternalGeoBounds
+operator|::
+operator|new
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|registerAggregation
@@ -8677,11 +8699,6 @@ block|}
 static|static
 block|{
 comment|// buckets
-name|InternalGeoHashGrid
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
 name|InternalBinaryRange
 operator|.
 name|registerStream
@@ -8705,11 +8722,6 @@ expr_stmt|;
 name|InternalTopHits
 operator|.
 name|registerStreams
-argument_list|()
-expr_stmt|;
-name|InternalGeoBounds
-operator|.
-name|registerStream
 argument_list|()
 expr_stmt|;
 name|InternalChildren
