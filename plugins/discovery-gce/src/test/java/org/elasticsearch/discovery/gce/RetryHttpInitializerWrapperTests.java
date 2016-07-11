@@ -341,8 +341,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|class|FailThenSuccessBackoffTransport
-specifier|static
 specifier|private
+specifier|static
 class|class
 name|FailThenSuccessBackoffTransport
 extends|extends

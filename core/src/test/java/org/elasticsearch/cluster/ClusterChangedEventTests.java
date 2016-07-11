@@ -172,7 +172,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -790,7 +790,7 @@ literal|3
 decl_stmt|;
 specifier|final
 name|ClusterState
-name|originalState
+name|state
 init|=
 name|createState
 argument_list|(
@@ -800,27 +800,6 @@ name|randomBoolean
 argument_list|()
 argument_list|,
 name|initialIndices
-argument_list|)
-decl_stmt|;
-specifier|final
-name|ClusterState
-name|newState
-init|=
-name|originalState
-decl_stmt|;
-comment|// doesn't matter for this test, just need a non-null value
-specifier|final
-name|ClusterChangedEvent
-name|event
-init|=
-operator|new
-name|ClusterChangedEvent
-argument_list|(
-literal|"_na_"
-argument_list|,
-name|originalState
-argument_list|,
-name|newState
 argument_list|)
 decl_stmt|;
 comment|// test when its not the same IndexMetaData
@@ -839,7 +818,7 @@ specifier|final
 name|IndexMetaData
 name|originalIndexMeta
 init|=
-name|originalState
+name|state
 operator|.
 name|metaData
 argument_list|()
@@ -880,10 +859,12 @@ name|assertTrue
 argument_list|(
 literal|"IndexMetaData with different version numbers must be considered changed"
 argument_list|,
-name|event
+name|ClusterChangedEvent
 operator|.
 name|indexMetaDataChanged
 argument_list|(
+name|originalIndexMeta
+argument_list|,
 name|newIndexMeta
 argument_list|)
 argument_list|)
@@ -909,10 +890,12 @@ name|assertTrue
 argument_list|(
 literal|"IndexMetaData that didn't previously exist should be considered changed"
 argument_list|,
-name|event
+name|ClusterChangedEvent
 operator|.
 name|indexMetaDataChanged
 argument_list|(
+name|originalIndexMeta
+argument_list|,
 name|newIndexMeta
 argument_list|)
 argument_list|)
@@ -922,10 +905,12 @@ name|assertFalse
 argument_list|(
 literal|"IndexMetaData should be the same"
 argument_list|,
-name|event
+name|ClusterChangedEvent
 operator|.
 name|indexMetaDataChanged
 argument_list|(
+name|originalIndexMeta
+argument_list|,
 name|originalIndexMeta
 argument_list|)
 argument_list|)
@@ -2104,9 +2089,19 @@ name|nodeId
 argument_list|,
 name|nodeId
 argument_list|,
-name|DummyTransportAddress
-operator|.
-name|INSTANCE
+name|nodeId
+argument_list|,
+literal|"host"
+argument_list|,
+literal|"host_address"
+argument_list|,
+operator|new
+name|LocalTransportAddress
+argument_list|(
+literal|"_test_"
+operator|+
+name|nodeId
+argument_list|)
 argument_list|,
 name|Collections
 operator|.

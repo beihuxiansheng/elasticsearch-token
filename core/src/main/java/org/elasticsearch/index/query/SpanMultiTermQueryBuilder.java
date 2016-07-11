@@ -210,6 +210,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Query that allows wraping a {@link MultiTermQueryBuilder} (one of wildcard, fuzzy, prefix, term, range or regexp query)  * as a {@link SpanQueryBuilder} so it can be nested.  */
 end_comment
@@ -226,9 +236,6 @@ name|SpanMultiTermQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanMultiTermQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -269,9 +276,6 @@ DECL|field|multiTermQueryBuilder
 specifier|private
 specifier|final
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|multiTermQueryBuilder
 decl_stmt|;
 DECL|method|SpanMultiTermQueryBuilder
@@ -279,9 +283,6 @@ specifier|public
 name|SpanMultiTermQueryBuilder
 parameter_list|(
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|multiTermQueryBuilder
 parameter_list|)
 block|{
@@ -327,9 +328,6 @@ name|multiTermQueryBuilder
 operator|=
 operator|(
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.
@@ -365,9 +363,6 @@ block|}
 DECL|method|innerQuery
 specifier|public
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|()
 block|{
@@ -433,7 +428,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|SpanMultiTermQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -541,8 +539,11 @@ name|MATCH_FIELD
 argument_list|)
 condition|)
 block|{
+name|Optional
+argument_list|<
 name|QueryBuilder
-name|innerQuery
+argument_list|>
+name|query
 init|=
 name|parseContext
 operator|.
@@ -551,7 +552,17 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|innerQuery
+name|query
+operator|.
+name|isPresent
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|query
+operator|.
+name|get
+argument_list|()
 operator|instanceof
 name|MultiTermQueryBuilder
 operator|==
@@ -583,7 +594,10 @@ operator|=
 operator|(
 name|MultiTermQueryBuilder
 operator|)
-name|innerQuery
+name|query
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -715,6 +729,10 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 operator|new
 name|SpanMultiTermQueryBuilder
 argument_list|(
@@ -729,6 +747,7 @@ operator|.
 name|boost
 argument_list|(
 name|boost
+argument_list|)
 argument_list|)
 return|;
 block|}

@@ -318,6 +318,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|either
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -333,10 +345,6 @@ operator|.
 name|notNullValue
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 annotation|@
@@ -1316,12 +1324,24 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
+name|either
+argument_list|(
 name|containsString
 argument_list|(
 literal|"unsupported url protocol [netdoc]"
 argument_list|)
 argument_list|)
+operator|.
+name|or
+argument_list|(
+name|containsString
+argument_list|(
+literal|"unknown protocol: netdoc"
+argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
+comment|// newer versions of JDK 9
 block|}
 name|logger
 operator|.

@@ -32,6 +32,38 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
+name|aggregation
+operator|.
+name|AggregationProfiler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
+name|query
+operator|.
+name|QueryProfiler
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -61,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Wrapper around several {@link Profiler}s that makes management easier. */
+comment|/** Wrapper around all the profilers that makes management easier. */
 end_comment
 
 begin_class
@@ -77,16 +109,22 @@ specifier|final
 name|ContextIndexSearcher
 name|searcher
 decl_stmt|;
-DECL|field|profilers
+DECL|field|queryProfilers
 specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Profiler
+name|QueryProfiler
 argument_list|>
-name|profilers
+name|queryProfilers
 decl_stmt|;
-comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link Profiler}. */
+DECL|field|aggProfiler
+specifier|private
+specifier|final
+name|AggregationProfiler
+name|aggProfiler
+decl_stmt|;
+comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link QueryProfiler}. */
 DECL|method|Profilers
 specifier|public
 name|Profilers
@@ -103,29 +141,37 @@ name|searcher
 expr_stmt|;
 name|this
 operator|.
-name|profilers
+name|queryProfilers
 operator|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
-name|addProfiler
+name|this
+operator|.
+name|aggProfiler
+operator|=
+operator|new
+name|AggregationProfiler
+argument_list|()
+expr_stmt|;
+name|addQueryProfiler
 argument_list|()
 expr_stmt|;
 block|}
 comment|/** Switch to a new profile. */
-DECL|method|addProfiler
+DECL|method|addQueryProfiler
 specifier|public
-name|Profiler
-name|addProfiler
+name|QueryProfiler
+name|addQueryProfiler
 parameter_list|()
 block|{
-name|Profiler
+name|QueryProfiler
 name|profiler
 init|=
 operator|new
-name|Profiler
+name|QueryProfiler
 argument_list|()
 decl_stmt|;
 name|searcher
@@ -135,7 +181,7 @@ argument_list|(
 name|profiler
 argument_list|)
 expr_stmt|;
-name|profilers
+name|queryProfilers
 operator|.
 name|add
 argument_list|(
@@ -147,18 +193,18 @@ name|profiler
 return|;
 block|}
 comment|/** Get the current profiler. */
-DECL|method|getCurrent
+DECL|method|getCurrentQueryProfiler
 specifier|public
-name|Profiler
-name|getCurrent
+name|QueryProfiler
+name|getCurrentQueryProfiler
 parameter_list|()
 block|{
 return|return
-name|profilers
+name|queryProfilers
 operator|.
 name|get
 argument_list|(
-name|profilers
+name|queryProfilers
 operator|.
 name|size
 argument_list|()
@@ -167,14 +213,14 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** Return the list of all created {@link Profiler}s so far. */
-DECL|method|getProfilers
+comment|/** Return the list of all created {@link QueryProfiler}s so far. */
+DECL|method|getQueryProfilers
 specifier|public
 name|List
 argument_list|<
-name|Profiler
+name|QueryProfiler
 argument_list|>
-name|getProfilers
+name|getQueryProfilers
 parameter_list|()
 block|{
 return|return
@@ -182,8 +228,19 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
-name|profilers
+name|queryProfilers
 argument_list|)
+return|;
+block|}
+comment|/** Return the {@link AggregationProfiler}. */
+DECL|method|getAggregationProfiler
+specifier|public
+name|AggregationProfiler
+name|getAggregationProfiler
+parameter_list|()
+block|{
+return|return
+name|aggProfiler
 return|;
 block|}
 block|}

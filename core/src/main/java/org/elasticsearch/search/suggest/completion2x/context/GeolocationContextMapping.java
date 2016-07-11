@@ -1788,7 +1788,6 @@ block|}
 DECL|method|parsePrecision
 specifier|private
 specifier|static
-specifier|final
 name|int
 name|parsePrecision
 parameter_list|(

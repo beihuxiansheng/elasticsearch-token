@@ -2056,7 +2056,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Failed to parse setting [index.gc_deletes] with value [42] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.gc_deletes] with value [42] as a time value: unit is missing or unrecognized"
 argument_list|)
 argument_list|)
 expr_stmt|;

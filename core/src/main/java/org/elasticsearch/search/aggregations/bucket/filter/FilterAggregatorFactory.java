@@ -224,9 +224,6 @@ name|Type
 name|type
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterBuilder
 parameter_list|,
 name|AggregationContext

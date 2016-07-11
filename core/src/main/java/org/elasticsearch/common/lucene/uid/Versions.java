@@ -200,17 +200,7 @@ init|=
 operator|-
 literal|1L
 decl_stmt|;
-comment|/**      * used when the document is old and doesn't contain any version information in the index      * see {@link PerThreadIDAndVersionLookup#lookup}      */
-DECL|field|NOT_SET
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|NOT_SET
-init|=
-operator|-
-literal|2L
-decl_stmt|;
+comment|// -2 was used for docs that can be found in the index but do not have a version
 comment|/**      * used to indicate that the write operation should be executed if the document is currently deleted      * i.e., not found in the index and/or found as deleted (with version) in the version map      */
 DECL|field|MATCH_DELETED
 specifier|public
@@ -483,7 +473,7 @@ name|context
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Load the internal doc ID and version for the uid from the reader, returning<ul>      *<li>null if the uid wasn't found,      *<li>a doc ID and a version otherwise, the version being potentially set to {@link #NOT_SET} if the uid has no associated version      *</ul>      */
+comment|/**      * Load the internal doc ID and version for the uid from the reader, returning<ul>      *<li>null if the uid wasn't found,      *<li>a doc ID and a version otherwise      *</ul>      */
 DECL|method|loadDocIdAndVersion
 specifier|public
 specifier|static
@@ -619,7 +609,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Load the version for the uid from the reader, returning<ul>      *<li>{@link #NOT_FOUND} if no matching doc exists,      *<li>{@link #NOT_SET} if no version is available,      *<li>the version associated with the provided uid otherwise      *</ul>      */
+comment|/**      * Load the version for the uid from the reader, returning<ul>      *<li>{@link #NOT_FOUND} if no matching doc exists,      *<li>the version associated with the provided uid otherwise      *</ul>      */
 DECL|method|loadVersion
 specifier|public
 specifier|static

@@ -281,8 +281,8 @@ block|}
 block|}
 DECL|class|Builder
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Builder
 parameter_list|<

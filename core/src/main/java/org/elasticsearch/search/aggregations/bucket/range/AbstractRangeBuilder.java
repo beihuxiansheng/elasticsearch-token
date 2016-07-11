@@ -48,7 +48,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInputReader
+name|StreamOutput
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamOutput
+name|Writeable
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -195,7 +195,7 @@ extends|extends
 name|Range
 parameter_list|>
 extends|extends
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|ValuesSource
 operator|.
@@ -300,7 +300,9 @@ name|?
 argument_list|>
 name|rangeFactory
 parameter_list|,
-name|StreamInputReader
+name|Writeable
+operator|.
+name|Reader
 argument_list|<
 name|R
 argument_list|>

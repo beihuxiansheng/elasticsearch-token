@@ -571,12 +571,10 @@ expr_stmt|;
 block|}
 DECL|interface|ToFiniteStrings
 specifier|public
-specifier|static
 interface|interface
 name|ToFiniteStrings
 block|{
 DECL|method|toFiniteStrings
-specifier|public
 name|Set
 argument_list|<
 name|IntsRef
@@ -646,13 +644,11 @@ block|{
 comment|// marker interface
 comment|/**          * Return the builder from which the term is derived.          */
 DECL|method|builder
-specifier|public
 name|BytesRefBuilder
 name|builder
 parameter_list|()
 function_decl|;
 DECL|method|toUTF16
-specifier|public
 name|CharSequence
 name|toUTF16
 parameter_list|()

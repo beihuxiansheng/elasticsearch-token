@@ -20,6 +20,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -42,411 +52,6 @@ name|NoSemiColonTests
 extends|extends
 name|ScriptTestCase
 block|{
-DECL|method|testIfStatement
-specifier|public
-name|void
-name|testIfStatement
-parameter_list|()
-block|{
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = 5 if (x == 5) return 1 return 0"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = 4 if (x == 5) return 1 else return 0"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = 4 if (x == 5) return 1 else if (x == 4) return 2 else return 0"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = 4 if (x == 5) return 1 else if (x == 4) return 1 else return 0"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|3
-argument_list|,
-name|exec
-argument_list|(
-literal|"int x = 5\n"
-operator|+
-literal|"if (x == 5) {\n"
-operator|+
-literal|"    int y = 2\n"
-operator|+
-literal|"    \n"
-operator|+
-literal|"    if (y == 2) {\n"
-operator|+
-literal|"        x = 3\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"    \n"
-operator|+
-literal|"}\n"
-operator|+
-literal|"\n"
-operator|+
-literal|"return x\n"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testWhileStatement
-specifier|public
-name|void
-name|testWhileStatement
-parameter_list|()
-block|{
-name|assertEquals
-argument_list|(
-literal|"aaaaaa"
-argument_list|,
-name|exec
-argument_list|(
-literal|"String c = \"a\" int x while (x< 5) { ++x c += \"a\" } return c"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Object
-name|value
-init|=
-name|exec
-argument_list|(
-literal|" byte[][] b = new byte[5][5]       \n"
-operator|+
-literal|" byte x = 0, y                     \n"
-operator|+
-literal|"                                   \n"
-operator|+
-literal|" while (x< 5) {                   \n"
-operator|+
-literal|"     y = 0                         \n"
-operator|+
-literal|"                                   \n"
-operator|+
-literal|"     while (y< 5) {               \n"
-operator|+
-literal|"         b[x][y] = (byte)(x*y)     \n"
-operator|+
-literal|"         ++y                       \n"
-operator|+
-literal|"     }                             \n"
-operator|+
-literal|"                                   \n"
-operator|+
-literal|"     ++x                           \n"
-operator|+
-literal|" }                                 \n"
-operator|+
-literal|"                                   \n"
-operator|+
-literal|" return b                          \n"
-argument_list|)
-decl_stmt|;
-name|byte
-index|[]
-index|[]
-name|b
-init|=
-operator|(
-name|byte
-index|[]
-index|[]
-operator|)
-name|value
-decl_stmt|;
-for|for
-control|(
-name|byte
-name|x
-init|=
-literal|0
-init|;
-name|x
-operator|<
-literal|5
-condition|;
-operator|++
-name|x
-control|)
-block|{
-for|for
-control|(
-name|byte
-name|y
-init|=
-literal|0
-init|;
-name|y
-operator|<
-literal|5
-condition|;
-operator|++
-name|y
-control|)
-block|{
-name|assertEquals
-argument_list|(
-name|x
-operator|*
-name|y
-argument_list|,
-name|b
-index|[
-name|x
-index|]
-index|[
-name|y
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-DECL|method|testDoWhileStatement
-specifier|public
-name|void
-name|testDoWhileStatement
-parameter_list|()
-block|{
-name|assertEquals
-argument_list|(
-literal|"aaaaaa"
-argument_list|,
-name|exec
-argument_list|(
-literal|"String c = \"a\" int x do { c += \"a\"; ++x } while (x< 5) return c"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Object
-name|value
-init|=
-name|exec
-argument_list|(
-literal|" long[][] l = new long[5][5]      \n"
-operator|+
-literal|" long x = 0, y                    \n"
-operator|+
-literal|"                                  \n"
-operator|+
-literal|" do {                             \n"
-operator|+
-literal|"     y = 0                        \n"
-operator|+
-literal|"                                  \n"
-operator|+
-literal|"     do {                         \n"
-operator|+
-literal|"         l[(int)x][(int)y] = x*y; \n"
-operator|+
-literal|"         ++y                      \n"
-operator|+
-literal|"     } while (y< 5)              \n"
-operator|+
-literal|"                                  \n"
-operator|+
-literal|"     ++x                          \n"
-operator|+
-literal|" } while (x< 5)                  \n"
-operator|+
-literal|"                                  \n"
-operator|+
-literal|" return l                         \n"
-argument_list|)
-decl_stmt|;
-name|long
-index|[]
-index|[]
-name|l
-init|=
-operator|(
-name|long
-index|[]
-index|[]
-operator|)
-name|value
-decl_stmt|;
-for|for
-control|(
-name|long
-name|x
-init|=
-literal|0
-init|;
-name|x
-operator|<
-literal|5
-condition|;
-operator|++
-name|x
-control|)
-block|{
-for|for
-control|(
-name|long
-name|y
-init|=
-literal|0
-init|;
-name|y
-operator|<
-literal|5
-condition|;
-operator|++
-name|y
-control|)
-block|{
-name|assertEquals
-argument_list|(
-name|x
-operator|*
-name|y
-argument_list|,
-name|l
-index|[
-operator|(
-name|int
-operator|)
-name|x
-index|]
-index|[
-operator|(
-name|int
-operator|)
-name|y
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-DECL|method|testForStatement
-specifier|public
-name|void
-name|testForStatement
-parameter_list|()
-block|{
-name|assertEquals
-argument_list|(
-literal|"aaaaaa"
-argument_list|,
-name|exec
-argument_list|(
-literal|"String c = \"a\" for (int x = 0; x< 5; ++x) c += \"a\" return c"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Object
-name|value
-init|=
-name|exec
-argument_list|(
-literal|" int[][] i = new int[5][5]         \n"
-operator|+
-literal|" for (int x = 0; x< 5; ++x) {     \n"
-operator|+
-literal|"     for (int y = 0; y< 5; ++y) { \n"
-operator|+
-literal|"         i[x][y] = x*y             \n"
-operator|+
-literal|"     }                             \n"
-operator|+
-literal|" }                                 \n"
-operator|+
-literal|"                                   \n"
-operator|+
-literal|" return i                          \n"
-argument_list|)
-decl_stmt|;
-name|int
-index|[]
-index|[]
-name|i
-init|=
-operator|(
-name|int
-index|[]
-index|[]
-operator|)
-name|value
-decl_stmt|;
-for|for
-control|(
-name|int
-name|x
-init|=
-literal|0
-init|;
-name|x
-operator|<
-literal|5
-condition|;
-operator|++
-name|x
-control|)
-block|{
-for|for
-control|(
-name|int
-name|y
-init|=
-literal|0
-init|;
-name|y
-operator|<
-literal|5
-condition|;
-operator|++
-name|y
-control|)
-block|{
-name|assertEquals
-argument_list|(
-name|x
-operator|*
-name|y
-argument_list|,
-name|i
-index|[
-name|x
-index|]
-index|[
-name|y
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
 DECL|method|testDeclarationStatement
 specifier|public
 name|void
@@ -462,7 +67,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte a = 2 return a"
+literal|"byte a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -475,7 +80,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"short a = 2 return a"
+literal|"short a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -488,7 +93,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"char a = 2 return a"
+literal|"char a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -498,7 +103,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int a = 2 return a"
+literal|"int a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -508,7 +113,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"long a = 2 return a"
+literal|"long a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -518,7 +123,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"float a = 2 return a"
+literal|"float a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -528,7 +133,7 @@ literal|2.0
 argument_list|,
 name|exec
 argument_list|(
-literal|"double a = 2 return a"
+literal|"double a = 2; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -538,7 +143,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"boolean a = false return a"
+literal|"boolean a = false; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -548,7 +153,7 @@ literal|"string"
 argument_list|,
 name|exec
 argument_list|(
-literal|"String a = \"string\" return a"
+literal|"String a = \"string\"; return a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -560,7 +165,7 @@ name|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String, Object> a = new HashMap<String, Object>() return a"
+literal|"Map a = new HashMap(); return a"
 argument_list|)
 operator|.
 name|getClass
@@ -576,7 +181,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte[] a = new byte[1] return a"
+literal|"byte[] a = new byte[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -592,7 +197,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"short[] a = new short[1] return a"
+literal|"short[] a = new short[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -608,7 +213,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"char[] a = new char[1] return a"
+literal|"char[] a = new char[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -624,7 +229,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"int[] a = new int[1] return a"
+literal|"int[] a = new int[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -640,7 +245,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"long[] a = new long[1] return a"
+literal|"long[] a = new long[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -656,7 +261,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"float[] a = new float[1] return a"
+literal|"float[] a = new float[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -672,7 +277,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"double[] a = new double[1] return a"
+literal|"double[] a = new double[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -688,7 +293,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"boolean[] a = new boolean[1] return a"
+literal|"boolean[] a = new boolean[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -704,7 +309,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"String[] a = new String[1] return a"
+literal|"String[] a = new String[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -720,7 +325,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object>[] a = new Map<String,Object>[1] return a"
+literal|"Map[] a = new Map[1]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -737,7 +342,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"byte[][] a = new byte[1][2] return a"
+literal|"byte[][] a = new byte[1][2]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -755,7 +360,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"short[][][] a = new short[1][2][3] return a"
+literal|"short[][][] a = new short[1][2][3]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -774,7 +379,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"char[][][][] a = new char[1][2][3][4] return a"
+literal|"char[][][][] a = new char[1][2][3][4]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -794,7 +399,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"int[][][][][] a = new int[1][2][3][4][5] return a"
+literal|"int[][][][][] a = new int[1][2][3][4][5]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -811,7 +416,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"long[][] a = new long[1][2] return a"
+literal|"long[][] a = new long[1][2]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -829,7 +434,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"float[][][] a = new float[1][2][3] return a"
+literal|"float[][][] a = new float[1][2][3]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -848,7 +453,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"double[][][][] a = new double[1][2][3][4] return a"
+literal|"double[][][][] a = new double[1][2][3][4]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -868,7 +473,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"boolean[][][][][] a = new boolean[1][2][3][4][5] return a"
+literal|"boolean[][][][][] a = new boolean[1][2][3][4][5]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -885,7 +490,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"String[][] a = new String[1][2] return a"
+literal|"String[][] a = new String[1][2]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -903,7 +508,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object>[][][] a = new Map<String,Object>[1][2][3] return a"
+literal|"Map[][][] a = new Map[1][2][3]; return a"
 argument_list|)
 operator|.
 name|getClass
@@ -911,40 +516,67 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testContinueStatement
+DECL|method|testExpression
 specifier|public
 name|void
-name|testContinueStatement
+name|testExpression
 parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|9
+literal|10
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 0, y = 0 while (x< 10) { ++x if (x == 1) continue ++y } return y"
+literal|"10"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|testBreakStatement
-specifier|public
-name|void
-name|testBreakStatement
-parameter_list|()
-block|{
 name|assertEquals
 argument_list|(
-literal|4
+literal|10
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 0, y = 0 while (x< 10) { ++x if (x == 5) break ++y } return y"
+literal|"5 + 5"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"5 + 5"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"params.param == 'yes' ? 10 : 5"
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+literal|"param"
+argument_list|,
+literal|"yes"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|testReturnStatement
 specifier|public
 name|void
@@ -967,7 +599,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"int x = 5 return x"
+literal|"int x = 5; return x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -977,7 +609,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"int[] x = new int[2] x[1] = 4 return x[1]"
+literal|"int[] x = new int[2]; x[1] = 4; return x[1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -992,7 +624,7 @@ index|[]
 operator|)
 name|exec
 argument_list|(
-literal|"short[] s = new short[3] s[1] = 5 return s"
+literal|"short[] s = new short[3]; s[1] = 5; return s"
 argument_list|)
 operator|)
 index|[
@@ -1010,7 +642,7 @@ name|Map
 operator|)
 name|exec
 argument_list|(
-literal|"Map<String,Object> s = new HashMap< String,Object>() s.put(\"x\", 10) return s"
+literal|"Map s = new HashMap(); s.put(\"x\", 10); return s"
 argument_list|)
 operator|)
 operator|.

@@ -146,10 +146,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|MonitorService
 specifier|public
@@ -157,9 +153,6 @@ class|class
 name|MonitorService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|MonitorService
-argument_list|>
 block|{
 DECL|field|jvmGcMonitorService
 specifier|private

@@ -457,15 +457,15 @@ return|;
 block|}
 DECL|class|Object
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Object
 block|{
 DECL|class|Integer
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Integer
 block|{

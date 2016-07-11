@@ -26,6 +26,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Defines a query parser that is able to parse {@link QueryBuilder}s from {@link org.elasticsearch.common.xcontent.XContent}.  */
 end_comment
@@ -41,14 +51,14 @@ parameter_list|<
 name|QB
 extends|extends
 name|QueryBuilder
-parameter_list|<
-name|QB
-parameter_list|>
 parameter_list|>
 block|{
 comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryParseContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
 DECL|method|fromXContent
+name|Optional
+argument_list|<
 name|QB
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

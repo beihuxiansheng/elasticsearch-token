@@ -341,14 +341,8 @@ operator|.
 name|client
 argument_list|()
 decl_stmt|;
-name|TransportClientNodesService
-name|nodeService
-init|=
-name|client
-operator|.
-name|nodeService
-argument_list|()
-decl_stmt|;
+try|try
+init|(
 name|Node
 name|node
 init|=
@@ -415,29 +409,13 @@ argument_list|,
 literal|"foobar"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-comment|// make sure we get what we set :)
-operator|.
 name|build
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|node
 operator|.
 name|start
 argument_list|()
-expr_stmt|;
-try|try
+init|)
 block|{
 name|TransportAddress
 name|transportAddress
@@ -470,7 +448,7 @@ expr_stmt|;
 comment|// since we force transport clients there has to be one node started that we connect to.
 name|assertThat
 argument_list|(
-name|nodeService
+name|client
 operator|.
 name|connectedNodes
 argument_list|()
@@ -490,7 +468,7 @@ control|(
 name|DiscoveryNode
 name|discoveryNode
 range|:
-name|nodeService
+name|client
 operator|.
 name|connectedNodes
 argument_list|()
@@ -517,7 +495,7 @@ control|(
 name|DiscoveryNode
 name|discoveryNode
 range|:
-name|nodeService
+name|client
 operator|.
 name|listedNodes
 argument_list|()
@@ -557,7 +535,7 @@ expr_stmt|;
 block|}
 name|assertThat
 argument_list|(
-name|nodeService
+name|client
 operator|.
 name|filteredNodes
 argument_list|()
@@ -576,7 +554,7 @@ control|(
 name|DiscoveryNode
 name|discoveryNode
 range|:
-name|nodeService
+name|client
 operator|.
 name|filteredNodes
 argument_list|()
@@ -601,14 +579,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|node
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|testThatTransportClientSettingIsSet

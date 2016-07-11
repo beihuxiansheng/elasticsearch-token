@@ -28,7 +28,6 @@ name|Lifecycle
 block|{
 DECL|enum|State
 specifier|public
-specifier|static
 enum|enum
 name|State
 block|{
@@ -363,7 +362,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't move to started state when closed"
+literal|"Can't move to stopped state when closed"
 argument_list|)
 throw|;
 block|}
@@ -371,7 +370,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't move to started with unknown state"
+literal|"Can't move to stopped with unknown state"
 argument_list|)
 throw|;
 block|}
@@ -439,7 +438,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't move to started state when closed"
+literal|"Can't move to stopped state when closed"
 argument_list|)
 throw|;
 block|}
@@ -447,7 +446,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't move to started with unknown state"
+literal|"Can't move to stopped with unknown state"
 argument_list|)
 throw|;
 block|}

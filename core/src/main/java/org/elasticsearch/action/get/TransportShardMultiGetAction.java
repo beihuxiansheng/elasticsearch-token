@@ -608,8 +608,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -618,7 +618,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -626,7 +626,7 @@ throw|throw
 operator|(
 name|ElasticsearchException
 operator|)
-name|t
+name|e
 throw|;
 block|}
 else|else
@@ -637,7 +637,7 @@ name|debug
 argument_list|(
 literal|"{} failed to execute multi_get for [{}]/[{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 argument_list|,
@@ -685,7 +685,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

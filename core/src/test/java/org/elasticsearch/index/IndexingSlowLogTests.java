@@ -24,37 +24,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
-operator|.
-name|Store
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|LegacyIntField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|StringField
+name|NumericDocValuesField
 import|;
 end_import
 
@@ -273,27 +243,11 @@ operator|new
 name|ParsedDocument
 argument_list|(
 operator|new
-name|StringField
-argument_list|(
-literal|"uid"
-argument_list|,
-literal|"test:id"
-argument_list|,
-name|Store
-operator|.
-name|YES
-argument_list|)
-argument_list|,
-operator|new
-name|LegacyIntField
+name|NumericDocValuesField
 argument_list|(
 literal|"version"
 argument_list|,
 literal|1
-argument_list|,
-name|Store
-operator|.
-name|YES
 argument_list|)
 argument_list|,
 literal|"id"
@@ -1695,7 +1649,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1748,7 +1702,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1801,7 +1755,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1854,7 +1808,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.indexing.slowlog.threshold.index.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.indexing.slowlog.threshold.index.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}

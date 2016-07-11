@@ -71,15 +71,15 @@ name|DiscoveryNode
 name|discoveryNode
 parameter_list|)
 function_decl|;
-comment|/**      * Called once all the nodes have acknowledged the cluster state update request. Must be      * very lightweight execution, since it gets executed on the cluster service thread.      *      * @param t optional error that might have been thrown      */
+comment|/**      * Called once all the nodes have acknowledged the cluster state update request. Must be      * very lightweight execution, since it gets executed on the cluster service thread.      *      * @param e optional error that might have been thrown      */
 DECL|method|onAllNodesAcked
 name|void
 name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 comment|/**      * Called once the acknowledgement timeout defined by      * {@link AckedClusterStateUpdateTask#ackTimeout()} has expired      */

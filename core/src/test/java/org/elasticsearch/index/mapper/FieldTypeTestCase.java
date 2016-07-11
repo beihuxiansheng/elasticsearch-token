@@ -132,8 +132,8 @@ block|{
 comment|/** Abstraction for mutating a property of a MappedFieldType */
 DECL|class|Modifier
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Modifier
 block|{
@@ -1536,7 +1536,7 @@ name|MappedFieldType
 name|bogus
 init|=
 operator|new
-name|MappedFieldType
+name|TermBasedFieldType
 argument_list|()
 block|{
 annotation|@
@@ -1626,7 +1626,7 @@ name|MappedFieldType
 name|other
 init|=
 operator|new
-name|MappedFieldType
+name|TermBasedFieldType
 argument_list|()
 block|{
 annotation|@

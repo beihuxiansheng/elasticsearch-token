@@ -62,7 +62,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -231,8 +231,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|class|PublishResponder
-specifier|static
 specifier|private
+specifier|static
 class|class
 name|PublishResponder
 extends|extends
@@ -321,8 +321,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -331,7 +331,7 @@ name|error
 argument_list|(
 literal|"unexpected error"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -434,9 +434,10 @@ literal|"node_"
 operator|+
 name|i
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

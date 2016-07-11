@@ -112,6 +112,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|ReadableDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -178,8 +190,8 @@ parameter_list|()
 function_decl|;
 DECL|class|Strings
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Strings
 extends|extends
@@ -509,7 +521,7 @@ return|;
 block|}
 DECL|method|getDate
 specifier|public
-name|MutableDateTime
+name|ReadableDateTime
 name|getDate
 parameter_list|()
 block|{

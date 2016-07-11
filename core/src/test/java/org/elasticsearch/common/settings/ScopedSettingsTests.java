@@ -823,7 +823,7 @@ try|try
 block|{
 name|service
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|Settings
 operator|.
@@ -914,7 +914,7 @@ argument_list|)
 expr_stmt|;
 name|service
 operator|.
-name|dryRun
+name|validateUpdate
 argument_list|(
 name|Settings
 operator|.
@@ -1822,6 +1822,13 @@ operator|.
 name|BUILT_IN_INDEX_SETTINGS
 argument_list|)
 decl_stmt|;
+name|String
+name|unknownMsgSuffix
+init|=
+literal|" please check that any required plugins are installed, or check the breaking changes documentation for"
+operator|+
+literal|" removed settings"
+decl_stmt|;
 name|settings
 operator|.
 name|validate
@@ -1895,6 +1902,8 @@ block|{
 name|assertEquals
 argument_list|(
 literal|"unknown setting [i.am.not.a.setting]"
+operator|+
+name|unknownMsgSuffix
 argument_list|,
 name|e
 operator|.
@@ -1942,6 +1951,8 @@ block|{
 name|assertEquals
 argument_list|(
 literal|"unknown setting [i.am.not.a.setting]"
+operator|+
+name|unknownMsgSuffix
 argument_list|,
 name|e
 operator|.
@@ -2546,12 +2557,18 @@ decl_stmt|;
 name|String
 name|property
 init|=
-name|System
-operator|.
-name|getProperty
+name|randomFrom
 argument_list|(
-literal|"es.logger.level"
+name|ESLoggerFactory
+operator|.
+name|LogLevel
+operator|.
+name|values
+argument_list|()
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 decl_stmt|;
 name|Settings
 operator|.
@@ -2562,15 +2579,6 @@ name|Settings
 operator|.
 name|builder
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|property
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
 operator|.
 name|put
 argument_list|(
@@ -2578,8 +2586,7 @@ literal|"logger.level"
 argument_list|,
 name|property
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 try|try
 block|{
 name|ClusterSettings
@@ -2702,7 +2709,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|level
+name|property
 argument_list|,
 name|ESLoggerFactory
 operator|.

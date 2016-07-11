@@ -47,8 +47,6 @@ interface|interface
 name|CharMatcher
 block|{
 DECL|class|ByUnicodeCategory
-specifier|public
-specifier|static
 class|class
 name|ByUnicodeCategory
 implements|implements
@@ -301,6 +299,11 @@ name|Character
 operator|.
 name|OTHER_SYMBOL
 case|:
+case|case
+name|Character
+operator|.
+name|MODIFIER_SYMBOL
+case|:
 return|return
 literal|true
 return|;
@@ -459,7 +462,6 @@ block|}
 block|}
 comment|/** Returns true if, and only if, the provided character matches this character class. */
 DECL|method|isTokenChar
-specifier|public
 name|boolean
 name|isTokenChar
 parameter_list|(

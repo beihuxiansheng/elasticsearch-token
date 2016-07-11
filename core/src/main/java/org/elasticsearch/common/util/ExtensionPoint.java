@@ -673,8 +673,8 @@ block|}
 comment|/**      * A set based extension point which allows to register extended classes that might be used to chain additional functionality etc.      */
 DECL|class|ClassSet
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|ClassSet
 parameter_list|<
@@ -750,7 +750,6 @@ block|}
 comment|/**          * Registers a new extension          *          * @param extension the extension to register          * @throws IllegalArgumentException iff the class is already registered          */
 DECL|method|registerExtension
 specifier|public
-specifier|final
 name|void
 name|registerExtension
 parameter_list|(
@@ -806,7 +805,6 @@ annotation|@
 name|Override
 DECL|method|bindExtensions
 specifier|protected
-specifier|final
 name|void
 name|bindExtensions
 parameter_list|(
@@ -868,8 +866,8 @@ block|}
 comment|/**      * A an instance of a map, mapping one instance value to another. Both key and value are instances, not classes      * like with other extension points.      */
 DECL|class|InstanceMap
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|InstanceMap
 parameter_list|<
@@ -965,7 +963,6 @@ block|}
 comment|/**          * Registers a mapping from {@code key} to {@code value}          *          * @throws IllegalArgumentException iff the key is already registered          */
 DECL|method|registerExtension
 specifier|public
-specifier|final
 name|void
 name|registerExtension
 parameter_list|(

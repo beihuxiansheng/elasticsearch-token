@@ -4193,7 +4193,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to parse value [11] for setting [foo.bar] must be =< 10"
+literal|"Failed to parse value [11] for setting [foo.bar] must be<= 10"
 argument_list|,
 name|ex
 operator|.
@@ -4504,7 +4504,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"properties can not be null for setting"
+literal|"properties cannot be null for setting"
 argument_list|)
 argument_list|)
 expr_stmt|;

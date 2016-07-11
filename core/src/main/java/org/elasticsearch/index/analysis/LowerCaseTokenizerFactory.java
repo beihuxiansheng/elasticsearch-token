@@ -95,6 +95,8 @@ class|class
 name|LowerCaseTokenizerFactory
 extends|extends
 name|AbstractTokenizerFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|method|LowerCaseTokenizerFactory
 specifier|public
@@ -135,6 +137,18 @@ return|return
 operator|new
 name|LowerCaseTokenizer
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}

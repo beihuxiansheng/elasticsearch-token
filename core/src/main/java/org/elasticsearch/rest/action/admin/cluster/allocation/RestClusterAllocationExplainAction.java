@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -76,7 +86,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -86,9 +98,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|common
 operator|.
-name|Requests
+name|bytes
+operator|.
+name|BytesArray
 import|;
 end_import
 
@@ -306,16 +320,6 @@ name|RestBuilderListener
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Class handling cluster allocation explanation at the REST level  */
 end_comment
@@ -339,16 +343,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|controller
@@ -398,7 +397,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -493,6 +492,14 @@ name|status
 argument_list|(
 name|e
 argument_list|)
+argument_list|,
+name|BytesRestResponse
+operator|.
+name|TEXT_CONTENT_TYPE
+argument_list|,
+name|BytesArray
+operator|.
+name|EMPTY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -609,6 +616,14 @@ name|status
 argument_list|(
 name|e
 argument_list|)
+argument_list|,
+name|BytesRestResponse
+operator|.
+name|TEXT_CONTENT_TYPE
+argument_list|,
+name|BytesArray
+operator|.
+name|EMPTY
 argument_list|)
 argument_list|)
 expr_stmt|;

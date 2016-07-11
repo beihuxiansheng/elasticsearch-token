@@ -24,6 +24,24 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
+name|geopoint
+operator|.
+name|document
+operator|.
+name|GeoPointField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BitUtil
@@ -62,42 +80,6 @@ name|stringEncode
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoEncodingUtils
-operator|.
-name|mortonUnhashLat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|util
-operator|.
-name|GeoEncodingUtils
-operator|.
-name|mortonUnhashLon
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -124,7 +106,7 @@ specifier|public
 name|GeoPoint
 parameter_list|()
 block|{     }
-comment|/**      * Create a new Geopointform a string. This String must either be a geohash      * or a lat-lon tuple.      *      * @param value String to create the point from      */
+comment|/**      * Create a new Geopoint from a string. This String must either be a geohash      * or a lat-lon tuple.      *      * @param value String to create the point from      */
 DECL|method|GeoPoint
 specifier|public
 name|GeoPoint
@@ -342,14 +324,18 @@ parameter_list|)
 block|{
 name|lon
 operator|=
-name|mortonUnhashLon
+name|GeoPointField
+operator|.
+name|decodeLongitude
 argument_list|(
 name|hash
 argument_list|)
 expr_stmt|;
 name|lat
 operator|=
-name|mortonUnhashLat
+name|GeoPointField
+operator|.
+name|decodeLatitude
 argument_list|(
 name|hash
 argument_list|)
@@ -381,12 +367,16 @@ name|this
 operator|.
 name|reset
 argument_list|(
-name|mortonUnhashLat
+name|GeoPointField
+operator|.
+name|decodeLatitude
 argument_list|(
 name|hash
 argument_list|)
 argument_list|,
-name|mortonUnhashLon
+name|GeoPointField
+operator|.
+name|decodeLongitude
 argument_list|(
 name|hash
 argument_list|)
@@ -449,7 +439,6 @@ return|;
 block|}
 DECL|method|lat
 specifier|public
-specifier|final
 name|double
 name|lat
 parameter_list|()
@@ -462,7 +451,6 @@ return|;
 block|}
 DECL|method|getLat
 specifier|public
-specifier|final
 name|double
 name|getLat
 parameter_list|()
@@ -475,7 +463,6 @@ return|;
 block|}
 DECL|method|lon
 specifier|public
-specifier|final
 name|double
 name|lon
 parameter_list|()
@@ -488,7 +475,6 @@ return|;
 block|}
 DECL|method|getLon
 specifier|public
-specifier|final
 name|double
 name|getLon
 parameter_list|()
@@ -501,7 +487,6 @@ return|;
 block|}
 DECL|method|geohash
 specifier|public
-specifier|final
 name|String
 name|geohash
 parameter_list|()
@@ -517,7 +502,6 @@ return|;
 block|}
 DECL|method|getGeohash
 specifier|public
-specifier|final
 name|String
 name|getGeohash
 parameter_list|()
@@ -766,27 +750,6 @@ operator|.
 name|resetFromGeoHash
 argument_list|(
 name|geohashLong
-argument_list|)
-return|;
-block|}
-DECL|method|fromIndexLong
-specifier|public
-specifier|static
-name|GeoPoint
-name|fromIndexLong
-parameter_list|(
-name|long
-name|indexLong
-parameter_list|)
-block|{
-return|return
-operator|new
-name|GeoPoint
-argument_list|()
-operator|.
-name|resetFromIndexHash
-argument_list|(
-name|indexLong
 argument_list|)
 return|;
 block|}

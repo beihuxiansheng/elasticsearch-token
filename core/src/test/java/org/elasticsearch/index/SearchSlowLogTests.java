@@ -44,20 +44,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cache
-operator|.
-name|recycler
-operator|.
-name|PageCacheRecycler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -159,18 +145,6 @@ operator|.
 name|script
 operator|.
 name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Template
 import|;
 end_import
 
@@ -321,22 +295,6 @@ operator|.
 name|getThreadPool
 argument_list|()
 decl_stmt|;
-name|PageCacheRecycler
-name|pageCacheRecycler
-init|=
-name|node
-argument_list|()
-operator|.
-name|injector
-argument_list|()
-operator|.
-name|getInstance
-argument_list|(
-name|PageCacheRecycler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|ScriptService
 name|scriptService
 init|=
@@ -358,8 +316,6 @@ operator|new
 name|TestSearchContext
 argument_list|(
 name|threadPool
-argument_list|,
-name|pageCacheRecycler
 argument_list|,
 name|bigArrays
 argument_list|,
@@ -475,17 +431,6 @@ parameter_list|()
 block|{
 return|return
 literal|0
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|Template
-name|template
-parameter_list|()
-block|{
-return|return
-literal|null
 return|;
 block|}
 annotation|@
@@ -1859,7 +1804,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.query.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.query.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1912,7 +1857,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.query.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.query.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1965,7 +1910,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.query.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.query.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2018,7 +1963,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.query.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.query.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2590,7 +2535,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.fetch.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.fetch.trace] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2643,7 +2588,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.fetch.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.fetch.debug] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2696,7 +2641,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.fetch.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.fetch.info] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2749,7 +2694,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [index.search.slowlog.threshold.fetch.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
+literal|"failed to parse setting [index.search.slowlog.threshold.fetch.warn] with value [NOT A TIME VALUE] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}

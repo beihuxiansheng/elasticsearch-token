@@ -230,6 +230,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -434,9 +452,9 @@ argument_list|,
 literal|5
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
@@ -754,7 +772,7 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"assert false"
+literal|"null.foo"
 argument_list|,
 name|ScriptType
 operator|.
@@ -840,7 +858,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained an assert error"
+literal|"should have contained a NullPointerException"
 argument_list|,
 name|e
 operator|.
@@ -849,7 +867,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"AssertionError[assert false"
+literal|"NullPointerException[Cannot get property 'foo' on null object]"
 argument_list|)
 argument_list|,
 name|equalTo

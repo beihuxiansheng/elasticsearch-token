@@ -118,6 +118,24 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -148,7 +166,7 @@ specifier|public
 class|class
 name|UpdateByQueryWhileModifyingTests
 extends|extends
-name|UpdateByQueryTestCase
+name|ReindexTestCase
 block|{
 DECL|field|MAX_MUTATIONS
 specifier|private
@@ -222,7 +240,7 @@ argument_list|)
 expr_stmt|;
 name|AtomicReference
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failure
 init|=
@@ -259,9 +277,10 @@ condition|)
 block|{
 try|try
 block|{
-name|assertThat
-argument_list|(
-name|request
+name|BulkIndexByScrollResponse
+name|response
+init|=
+name|updateByQuery
 argument_list|()
 operator|.
 name|source
@@ -281,8 +300,12 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|response
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -327,15 +350,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failure
 operator|.
 name|set
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -437,9 +460,9 @@ name|get
 argument_list|()
 argument_list|)
 operator|.
-name|setRefresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|IMMEDIATE
 argument_list|)
 decl_stmt|;
 comment|/*                  * Update by query increments the version number so concurrent                  * indexes might get version conflict exceptions so we just                  * blindly retry.                  */

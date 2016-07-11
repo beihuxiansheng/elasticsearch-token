@@ -232,6 +232,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Randomness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Setting
@@ -348,7 +360,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -409,6 +421,16 @@ operator|.
 name|transport
 operator|.
 name|TransportService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
 import|;
 end_import
 
@@ -569,6 +591,8 @@ class|class
 name|TransportClientNodesService
 extends|extends
 name|AbstractComponent
+implements|implements
+name|Closeable
 block|{
 DECL|field|nodesSamplerInterval
 specifier|private
@@ -689,7 +713,15 @@ name|randomNodeGenerator
 init|=
 operator|new
 name|AtomicInteger
+argument_list|(
+name|Randomness
+operator|.
+name|get
 argument_list|()
+operator|.
+name|nextInt
+argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|field|ignoreClusterName
 specifier|private
@@ -801,8 +833,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|TransportClientNodesService
 specifier|public
 name|TransportClientNodesService
@@ -810,17 +840,11 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -832,7 +856,14 @@ name|this
 operator|.
 name|clusterName
 operator|=
-name|clusterName
+name|ClusterName
+operator|.
+name|CLUSTER_NAME_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -850,7 +881,9 @@ name|this
 operator|.
 name|minCompatibilityVersion
 operator|=
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -1396,6 +1429,15 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+comment|// we first read nodes before checking the closed state; this
+comment|// is because otherwise we could be subject to a race where we
+comment|// read the state as not being closed, and then the client is
+comment|// closed and the nodes list is cleared, and then a
+comment|// NoNodeAvailableException is thrown
+comment|// it is important that the order of first setting the state of
+comment|// closed and then clearing the list of nodes is maintained in
+comment|// the close method
+specifier|final
 name|List
 argument_list|<
 name|DiscoveryNode
@@ -1406,6 +1448,19 @@ name|this
 operator|.
 name|nodes
 decl_stmt|;
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"transport client is closed"
+argument_list|)
+throw|;
+block|}
 name|ensureNodesAreAvailable
 argument_list|(
 name|nodes
@@ -1467,8 +1522,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|//this exception can't come from the TransportService as it doesn't throw exception at all
@@ -1476,7 +1531,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1611,7 +1666,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1692,16 +1747,23 @@ block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 comment|// this exception can't come from the TransportService as it doesn't throw exceptions at all
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -1719,6 +1781,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1984,7 +2048,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2163,7 +2227,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2175,6 +2239,13 @@ literal|"failed to connect to node [{}], removed from nodes list"
 argument_list|,
 name|e
 argument_list|,
+name|listedNode
+argument_list|)
+expr_stmt|;
+name|newFilteredNodes
+operator|.
+name|add
+argument_list|(
 name|listedNode
 argument_list|)
 expr_stmt|;
@@ -2324,6 +2395,11 @@ argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
+name|getEphemeralId
+argument_list|()
+argument_list|,
+name|nodeWithInfo
+operator|.
 name|getHostName
 argument_list|()
 argument_list|,
@@ -2379,7 +2455,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2685,7 +2761,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|ClusterStateResponse
 argument_list|>
@@ -2784,7 +2860,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

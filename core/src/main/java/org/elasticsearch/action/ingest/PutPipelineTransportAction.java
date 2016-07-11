@@ -268,8 +268,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestInfo
 import|;
 end_import
@@ -557,6 +555,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodeInfos
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|ingestInfos
@@ -608,7 +609,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

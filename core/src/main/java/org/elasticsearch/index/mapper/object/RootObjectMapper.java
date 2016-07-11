@@ -1664,7 +1664,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|findTemplate
-specifier|public
+specifier|private
 name|DynamicTemplate
 name|findTemplate
 parameter_list|(

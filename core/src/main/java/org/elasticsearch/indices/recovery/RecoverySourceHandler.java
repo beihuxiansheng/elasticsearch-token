@@ -296,20 +296,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IllegalIndexShardStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|IndexShard
 import|;
 end_import
@@ -551,7 +537,7 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
+name|Exception
 name|suppressedException
 parameter_list|)
 block|{
@@ -771,7 +757,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -811,7 +797,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -891,7 +877,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1953,7 +1939,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2300,9 +2286,30 @@ name|isPrimaryRelocation
 argument_list|()
 condition|)
 block|{
-comment|/**              * if the recovery process fails after setting the shard state to RELOCATED, both relocation source and              * target are failed (see {@link IndexShard#updateRoutingEntry}).              */
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}][{}] performing relocation hand-off to {}"
+argument_list|,
+name|indexName
+argument_list|,
+name|shardId
+argument_list|,
+name|request
+operator|.
+name|targetNode
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
+name|cancellableThreads
+operator|.
+name|execute
+argument_list|(
+parameter_list|()
+lambda|->
 name|shard
 operator|.
 name|relocated
@@ -2314,18 +2321,38 @@ operator|.
 name|targetNode
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalIndexShardStateException
+name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// we can ignore this exception since, on the other node, when it moved to phase3
-comment|// it will also send shard started, which might cause the index shard we work against
-comment|// to move be closed by the time we get to the relocated method
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}][{}] completing relocation hand-off to {} failed"
+argument_list|,
+name|e
+argument_list|,
+name|indexName
+argument_list|,
+name|shardId
+argument_list|,
+name|request
+operator|.
+name|targetNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
+comment|/**              * if the recovery process fails after setting the shard state to RELOCATED, both relocation source and              * target are failed (see {@link IndexShard#updateRoutingEntry}).              */
 block|}
 name|stopWatch
 operator|.
@@ -2822,7 +2849,6 @@ annotation|@
 name|Override
 DECL|method|write
 specifier|public
-specifier|final
 name|void
 name|write
 parameter_list|(
@@ -2844,7 +2870,6 @@ annotation|@
 name|Override
 DECL|method|write
 specifier|public
-specifier|final
 name|void
 name|write
 parameter_list|(
@@ -2998,7 +3023,7 @@ argument_list|>
 name|outputStreamFactory
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|store
 operator|.
@@ -3114,8 +3139,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 specifier|final
@@ -3131,7 +3156,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCorruption
 argument_list|(
-name|t
+name|e
 argument_list|)
 operator|)
 operator|!=
@@ -3191,7 +3216,7 @@ name|exception
 operator|.
 name|addSuppressed
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|logger
@@ -3220,7 +3245,7 @@ block|}
 else|else
 block|{
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}

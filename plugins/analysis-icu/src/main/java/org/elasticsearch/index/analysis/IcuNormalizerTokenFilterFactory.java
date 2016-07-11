@@ -93,6 +93,8 @@ class|class
 name|IcuNormalizerTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|field|name
 specifier|private
@@ -182,6 +184,18 @@ operator|.
 name|COMPOSE
 argument_list|)
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}

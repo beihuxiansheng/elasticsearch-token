@@ -46,6 +46,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -69,9 +81,6 @@ DECL|method|createQuery
 specifier|public
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|createQuery
 parameter_list|(
 name|Random
@@ -88,7 +97,7 @@ name|r
 argument_list|,
 literal|0
 argument_list|,
-literal|4
+literal|3
 argument_list|)
 condition|)
 block|{
@@ -134,14 +143,6 @@ argument_list|(
 name|r
 argument_list|)
 return|;
-case|case
-literal|4
-case|:
-return|return
-operator|new
-name|EmptyQueryBuilder
-argument_list|()
-return|;
 default|default:
 throw|throw
 operator|new
@@ -164,9 +165,6 @@ block|{
 comment|// for now, only use String Rangequeries for MultiTerm test, numeric and date makes little sense
 comment|// see issue #12123 for discussion
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|multiTermQueryBuilder
 decl_stmt|;
 switch|switch

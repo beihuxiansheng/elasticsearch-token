@@ -870,6 +870,8 @@ operator|.
 name|EMPTY
 argument_list|,
 name|registry
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// populates the registry through side effects
@@ -1181,6 +1183,10 @@ argument_list|,
 name|InternalAggregations
 operator|.
 name|EMPTY
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1197,6 +1203,10 @@ argument_list|,
 literal|20
 argument_list|,
 literal|"some_name"
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|,
 literal|1
 argument_list|,
@@ -1787,6 +1797,10 @@ name|supersetSize
 argument_list|,
 literal|"sig_terms"
 argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
+argument_list|,
 literal|2
 argument_list|,
 operator|-
@@ -1929,6 +1943,10 @@ argument_list|,
 name|InternalAggregations
 operator|.
 name|EMPTY
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|)
 return|;
 block|}
@@ -1985,6 +2003,8 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|ParseFieldRegistry
@@ -2427,7 +2447,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|stBuilder
 init|=
 name|significantTerms
@@ -2542,11 +2562,11 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|aggregatorFactory
 init|=
 operator|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|)
 operator|new
 name|SignificantTermsParser

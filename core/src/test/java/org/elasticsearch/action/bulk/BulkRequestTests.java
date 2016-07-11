@@ -90,6 +90,22 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|support
+operator|.
+name|WriteRequest
+operator|.
+name|RefreshPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|update
 operator|.
 name|UpdateRequest
@@ -396,9 +412,6 @@ operator|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|toBytes
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -407,9 +420,6 @@ name|BytesArray
 argument_list|(
 literal|"{ \"field1\" : \"value1\" }"
 argument_list|)
-operator|.
-name|toBytes
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -452,9 +462,6 @@ operator|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|toBytes
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -463,9 +470,6 @@ name|BytesArray
 argument_list|(
 literal|"{ \"field1\" : \"value3\" }"
 argument_list|)
-operator|.
-name|toBytes
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -730,7 +734,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -868,7 +872,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"js"
+literal|"javascript"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -949,7 +953,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1667,9 +1671,11 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1703,9 +1709,11 @@ argument_list|,
 literal|"id"
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1728,9 +1736,11 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1753,9 +1763,11 @@ argument_list|(
 literal|"{}"
 argument_list|)
 operator|.
-name|refresh
+name|setRefreshPolicy
 argument_list|(
-literal|true
+name|RefreshPolicy
+operator|.
+name|IMMEDIATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1798,17 +1810,17 @@ argument_list|()
 argument_list|,
 name|contains
 argument_list|(
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|,
 literal|"id is missing"
 argument_list|,
 literal|"type is missing"
 argument_list|,
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|,
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|,
-literal|"Refresh is not supported on an item request, set the refresh flag on the BulkRequest instead."
+literal|"RefreshPolicy is not supported on an item request. Set it on the BulkRequest instead."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1901,6 +1913,79 @@ argument_list|(
 literal|"script or doc is missing"
 argument_list|,
 literal|"source is missing"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testCannotAddNullRequests
+specifier|public
+name|void
+name|testCannotAddNullRequests
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|BulkRequest
+name|bulkRequest
+init|=
+operator|new
+name|BulkRequest
+argument_list|()
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|bulkRequest
+operator|.
+name|add
+argument_list|(
+operator|(
+name|IndexRequest
+operator|)
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|bulkRequest
+operator|.
+name|add
+argument_list|(
+operator|(
+name|UpdateRequest
+operator|)
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|bulkRequest
+operator|.
+name|add
+argument_list|(
+operator|(
+name|DeleteRequest
+operator|)
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

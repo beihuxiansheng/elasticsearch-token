@@ -204,6 +204,20 @@ name|index
 operator|.
 name|translog
 operator|.
+name|Translog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
 name|TranslogStats
 import|;
 end_import
@@ -250,6 +264,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
+import|;
+end_import
+
 begin_comment
 comment|/**  * ShadowIndexShard extends {@link IndexShard} to add file synchronization  * from the primary when a flush happens. It also ensures that a replica being  * promoted to a primary causes the shard to fail, kicking off a re-allocation  * of the primary shard.  */
 end_comment
@@ -267,8 +293,8 @@ DECL|method|ShadowIndexShard
 specifier|public
 name|ShadowIndexShard
 parameter_list|(
-name|ShardId
-name|shardId
+name|ShardRouting
+name|shardRouting
 parameter_list|,
 name|IndexSettings
 name|indexSettings
@@ -324,7 +350,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|shardId
+name|shardRouting
 argument_list|,
 name|indexSettings
 argument_list|,
@@ -361,7 +387,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(ShardRouting, boolean)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
+comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(ShardRouting)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
 annotation|@
 name|Override
 DECL|method|updateRoutingEntry
@@ -371,9 +397,6 @@ name|updateRoutingEntry
 parameter_list|(
 name|ShardRouting
 name|newRouting
-parameter_list|,
-name|boolean
-name|persistState
 parameter_list|)
 throws|throws
 name|IOException
@@ -402,8 +425,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-name|persistState
 argument_list|)
 expr_stmt|;
 block|}
@@ -477,6 +498,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|buildRefreshListeners
+specifier|protected
+name|RefreshListeners
+name|buildRefreshListeners
+parameter_list|()
+block|{
+comment|// ShadowEngine doesn't have a translog so it shouldn't try to support RefreshListeners.
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|shouldFlush
 specifier|public
 name|boolean
@@ -484,16 +518,6 @@ name|shouldFlush
 parameter_list|()
 block|{
 comment|// we don't need to flush since we don't write - all dominated by the primary
-return|return
-literal|false
-return|;
-block|}
-DECL|method|allowsPrimaryPromotion
-specifier|public
-name|boolean
-name|allowsPrimaryPromotion
-parameter_list|()
-block|{
 return|return
 literal|false
 return|;
@@ -510,6 +534,33 @@ return|return
 literal|null
 return|;
 comment|// shadow engine has no translog
+block|}
+annotation|@
+name|Override
+DECL|method|addRefreshListener
+specifier|public
+name|void
+name|addRefreshListener
+parameter_list|(
+name|Translog
+operator|.
+name|Location
+name|location
+parameter_list|,
+name|Consumer
+argument_list|<
+name|Boolean
+argument_list|>
+name|listener
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Can't listen for a refresh on a shadow engine because it doesn't have a translog"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

@@ -120,20 +120,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|SnapshotId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -368,20 +354,6 @@ name|index
 operator|.
 name|snapshots
 operator|.
-name|IndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
 name|IndexShardSnapshotFailedException
 import|;
 end_import
@@ -409,6 +381,18 @@ operator|.
 name|indices
 operator|.
 name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|Repository
 import|;
 end_import
 
@@ -673,9 +657,6 @@ class|class
 name|SnapshotShardsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SnapshotShardsService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{
@@ -744,7 +725,7 @@ specifier|private
 specifier|volatile
 name|Map
 argument_list|<
-name|SnapshotId
+name|Snapshot
 argument_list|,
 name|SnapshotShards
 argument_list|>
@@ -1098,8 +1079,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1108,12 +1089,12 @@ name|warn
 argument_list|(
 literal|"Failed to update snapshot state "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns status of shards that are snapshotted on the node and belong to the given snapshot      *<p>      * This method is executed on data node      *</p>      *      * @param snapshotId snapshot id      * @return map of shard id to snapshot status      */
+comment|/**      * Returns status of shards that are snapshotted on the node and belong to the given snapshot      *<p>      * This method is executed on data node      *</p>      *      * @param snapshot  snapshot      * @return map of shard id to snapshot status      */
 DECL|method|currentSnapshotShards
 specifier|public
 name|Map
@@ -1124,8 +1105,8 @@ name|IndexShardSnapshotStatus
 argument_list|>
 name|currentSnapshotShards
 parameter_list|(
-name|SnapshotId
-name|snapshotId
+name|Snapshot
+name|snapshot
 parameter_list|)
 block|{
 name|SnapshotShards
@@ -1135,7 +1116,7 @@ name|shardSnapshots
 operator|.
 name|get
 argument_list|(
-name|snapshotId
+name|snapshot
 argument_list|)
 decl_stmt|;
 if|if
@@ -1185,7 +1166,7 @@ argument_list|)
 decl_stmt|;
 name|Map
 argument_list|<
-name|SnapshotId
+name|Snapshot
 argument_list|,
 name|SnapshotShards
 argument_list|>
@@ -1203,7 +1184,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|SnapshotId
+name|Snapshot
 argument_list|,
 name|SnapshotShards
 argument_list|>
@@ -1215,6 +1196,15 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+specifier|final
+name|Snapshot
+name|snapshot
+init|=
+name|entry
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|snapshotsInProgress
@@ -1225,10 +1215,7 @@ name|snapshotsInProgress
 operator|.
 name|snapshot
 argument_list|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|snapshot
 argument_list|)
 operator|!=
 literal|null
@@ -1255,7 +1242,7 @@ comment|// For now we will be mostly dealing with a single snapshot at a time bu
 comment|// snapshots in the future
 name|Map
 argument_list|<
-name|SnapshotId
+name|Snapshot
 argument_list|,
 name|Map
 argument_list|<
@@ -1340,7 +1327,7 @@ name|get
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1454,7 +1441,7 @@ name|put
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|startedShards
@@ -1505,7 +1492,7 @@ name|put
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 operator|new
@@ -1528,7 +1515,7 @@ name|put
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 operator|new
@@ -1569,7 +1556,7 @@ name|get
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1650,7 +1637,7 @@ literal|"[{}] trying to cancel snapshot on shard [{}] that is finalizing, lettin
 argument_list|,
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shard
@@ -1670,7 +1657,7 @@ literal|"[{}] trying to cancel snapshot on the shard [{}] that is already done, 
 argument_list|,
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shard
@@ -1682,7 +1669,7 @@ name|updateIndexShardSnapshotStatus
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shard
@@ -1725,7 +1712,7 @@ literal|"[{}] trying to cancel snapshot on the shard [{}] that has already faile
 argument_list|,
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shard
@@ -1737,7 +1724,7 @@ name|updateIndexShardSnapshotStatus
 argument_list|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shard
@@ -1866,7 +1853,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|SnapshotId
+name|Snapshot
 argument_list|,
 name|Map
 argument_list|<
@@ -1999,8 +1986,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2009,7 +1996,7 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to create snapshot"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 argument_list|,
@@ -2045,7 +2032,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2057,8 +2044,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|updateIndexShardSnapshotStatus
@@ -2087,7 +2074,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2097,7 +2084,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Creates shard snapshot      *      * @param snapshotId     snapshot id      * @param snapshotStatus snapshot status      */
+comment|/**      * Creates shard snapshot      *      * @param snapshot       snapshot      * @param snapshotStatus snapshot status      */
 DECL|method|snapshot
 specifier|private
 name|void
@@ -2108,25 +2095,25 @@ name|IndexShard
 name|indexShard
 parameter_list|,
 specifier|final
-name|SnapshotId
-name|snapshotId
+name|Snapshot
+name|snapshot
 parameter_list|,
 specifier|final
 name|IndexShardSnapshotStatus
 name|snapshotStatus
 parameter_list|)
 block|{
-name|IndexShardRepository
-name|indexShardRepository
+name|Repository
+name|repository
 init|=
 name|snapshotsService
 operator|.
 name|getRepositoriesService
 argument_list|()
 operator|.
-name|indexShardRepository
+name|repository
 argument_list|(
-name|snapshotId
+name|snapshot
 operator|.
 name|getRepository
 argument_list|()
@@ -2231,13 +2218,16 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|indexShardRepository
+name|repository
 operator|.
-name|snapshot
+name|snapshotShard
 argument_list|(
-name|snapshotId
+name|indexShard
 argument_list|,
-name|shardId
+name|snapshot
+operator|.
+name|getSnapshotId
+argument_list|()
 argument_list|,
 name|snapshotIndexCommit
 argument_list|,
@@ -2315,12 +2305,9 @@ name|debug
 argument_list|(
 literal|"snapshot ({}) completed to {}, took [{}]\n{}"
 argument_list|,
-name|snapshotId
-operator|.
-name|getSnapshot
-argument_list|()
+name|snapshot
 argument_list|,
-name|indexShardRepository
+name|repository
 argument_list|,
 name|TimeValue
 operator|.
@@ -2370,7 +2357,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2471,7 +2458,7 @@ name|currentSnapshotShards
 argument_list|(
 name|snapshot
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2584,7 +2571,7 @@ literal|"[{}] new master thinks the shard [{}] is not completed but the shard is
 argument_list|,
 name|snapshot
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardId
@@ -2594,7 +2581,7 @@ name|updateIndexShardSnapshotStatus
 argument_list|(
 name|snapshot
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardId
@@ -2651,7 +2638,7 @@ literal|"[{}] new master thinks the shard [{}] is not completed but the shard fa
 argument_list|,
 name|snapshot
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardId
@@ -2661,7 +2648,7 @@ name|updateIndexShardSnapshotStatus
 argument_list|(
 name|snapshot
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardId
@@ -2750,10 +2737,10 @@ name|UpdateIndexShardSnapshotStatusRequest
 extends|extends
 name|TransportRequest
 block|{
-DECL|field|snapshotId
+DECL|field|snapshot
 specifier|private
-name|SnapshotId
-name|snapshotId
+name|Snapshot
+name|snapshot
 decl_stmt|;
 DECL|field|shardId
 specifier|private
@@ -2783,8 +2770,8 @@ DECL|method|UpdateIndexShardSnapshotStatusRequest
 specifier|public
 name|UpdateIndexShardSnapshotStatusRequest
 parameter_list|(
-name|SnapshotId
-name|snapshotId
+name|Snapshot
+name|snapshot
 parameter_list|,
 name|ShardId
 name|shardId
@@ -2797,9 +2784,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|snapshotId
+name|snapshot
 operator|=
-name|snapshotId
+name|snapshot
 expr_stmt|;
 name|this
 operator|.
@@ -2834,11 +2821,10 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|snapshotId
+name|snapshot
 operator|=
-name|SnapshotId
-operator|.
-name|readSnapshotId
+operator|new
+name|Snapshot
 argument_list|(
 name|in
 argument_list|)
@@ -2884,7 +2870,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|snapshotId
+name|snapshot
 operator|.
 name|writeTo
 argument_list|(
@@ -2906,14 +2892,14 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|snapshotId
+DECL|method|snapshot
 specifier|public
-name|SnapshotId
-name|snapshotId
+name|Snapshot
+name|snapshot
 parameter_list|()
 block|{
 return|return
-name|snapshotId
+name|snapshot
 return|;
 block|}
 DECL|method|shardId
@@ -2949,7 +2935,7 @@ block|{
 return|return
 literal|""
 operator|+
-name|snapshotId
+name|snapshot
 operator|+
 literal|", shardId ["
 operator|+
@@ -2993,8 +2979,8 @@ specifier|public
 name|void
 name|updateIndexShardSnapshotStatus
 parameter_list|(
-name|SnapshotId
-name|snapshotId
+name|Snapshot
+name|snapshot
 parameter_list|,
 name|ShardId
 name|shardId
@@ -3011,7 +2997,7 @@ init|=
 operator|new
 name|UpdateIndexShardSnapshotStatusRequest
 argument_list|(
-name|snapshotId
+name|snapshot
 argument_list|,
 name|shardId
 argument_list|,
@@ -3070,8 +3056,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3080,11 +3066,11 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to update snapshot state"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|request
@@ -3305,14 +3291,14 @@ if|if
 condition|(
 name|entry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|updateSnapshotState
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|)
 condition|)
@@ -3325,7 +3311,7 @@ literal|"[{}] Updating shard [{}] with status [{}]"
 argument_list|,
 name|updateSnapshotState
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|updateSnapshotState
@@ -3472,7 +3458,7 @@ literal|"snapshot [{}] is done"
 argument_list|,
 name|updatedEntry
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3564,8 +3550,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -3582,11 +3568,11 @@ name|warn
 argument_list|(
 literal|"[{}][{}] failed to update snapshot status to [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|request

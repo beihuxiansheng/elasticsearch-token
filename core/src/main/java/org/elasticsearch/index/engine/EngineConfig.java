@@ -124,6 +124,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Setting
@@ -143,20 +155,6 @@ operator|.
 name|Setting
 operator|.
 name|Property
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
 import|;
 end_import
 
@@ -238,6 +236,20 @@ name|index
 operator|.
 name|shard
 operator|.
+name|RefreshListeners
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
 name|ShardId
 import|;
 end_import
@@ -305,18 +317,6 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
 import|;
 end_import
 
@@ -444,6 +444,14 @@ specifier|private
 specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
+decl_stmt|;
+annotation|@
+name|Nullable
+DECL|field|refreshListeners
+specifier|private
+specifier|final
+name|RefreshListeners
+name|refreshListeners
 decl_stmt|;
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      * This setting is also settable on the node and the index level, it's commonly used in hot/cold node archs where index is likely      * allocated on both `kind` of nodes.      */
 DECL|field|INDEX_CODEC_SETTING
@@ -596,6 +604,9 @@ name|translogConfig
 parameter_list|,
 name|TimeValue
 name|flushMergesAfter
+parameter_list|,
+name|RefreshListeners
+name|refreshListeners
 parameter_list|)
 block|{
 if|if
@@ -748,6 +759,12 @@ operator|.
 name|openMode
 operator|=
 name|openMode
+expr_stmt|;
+name|this
+operator|.
+name|refreshListeners
+operator|=
+name|refreshListeners
 expr_stmt|;
 block|}
 comment|/**      * Enables / disables gc deletes      *      * @see #isEnableGcDeletes()      */
@@ -1000,6 +1017,17 @@ block|,
 DECL|enum constant|OPEN_INDEX_AND_TRANSLOG
 name|OPEN_INDEX_AND_TRANSLOG
 block|;     }
+comment|/**      * {@linkplain RefreshListeners} instance to configure.      */
+DECL|method|getRefreshListeners
+specifier|public
+name|RefreshListeners
+name|getRefreshListeners
+parameter_list|()
+block|{
+return|return
+name|refreshListeners
+return|;
+block|}
 block|}
 end_class
 

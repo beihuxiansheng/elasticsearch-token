@@ -16,6 +16,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -73,18 +85,6 @@ operator|.
 name|charset
 operator|.
 name|Charset
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|SuppressForbidden
 import|;
 end_import
 
@@ -253,6 +253,30 @@ name|String
 name|msg
 parameter_list|)
 block|{
+name|print
+argument_list|(
+name|verbosity
+argument_list|,
+name|msg
+operator|+
+name|lineSeparator
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Prints message to the terminal at {@code verbosity} level, without a newline. */
+DECL|method|print
+specifier|public
+specifier|final
+name|void
+name|print
+parameter_list|(
+name|Verbosity
+name|verbosity
+parameter_list|,
+name|String
+name|msg
+parameter_list|)
+block|{
 if|if
 condition|(
 name|this
@@ -274,8 +298,6 @@ operator|.
 name|print
 argument_list|(
 name|msg
-operator|+
-name|lineSeparator
 argument_list|)
 expr_stmt|;
 name|getWriter

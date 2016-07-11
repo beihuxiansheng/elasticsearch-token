@@ -934,8 +934,7 @@ name|compressedStreamOutput
 init|=
 name|CompressorFactory
 operator|.
-name|defaultCompressor
-argument_list|()
+name|COMPRESSOR
 operator|.
 name|streamOutput
 argument_list|(
@@ -2307,6 +2306,14 @@ name|buffer
 argument_list|)
 condition|)
 do|;
+name|blobContainer
+operator|.
+name|deleteBlob
+argument_list|(
+name|blobName
+argument_list|)
+expr_stmt|;
+comment|// delete original before writing new blob
 name|blobContainer
 operator|.
 name|writeBlob

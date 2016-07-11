@@ -188,14 +188,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.search.size"
+literal|"thread_pool.search.size"
 argument_list|,
 literal|1
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.search.queue_size"
+literal|"thread_pool.search.queue_size"
 argument_list|,
 literal|1
 argument_list|)
@@ -444,7 +444,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{             }

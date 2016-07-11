@@ -79,6 +79,7 @@ end_comment
 begin_class
 DECL|class|ReleasablePagedBytesReference
 specifier|public
+specifier|final
 class|class
 name|ReleasablePagedBytesReference
 extends|extends

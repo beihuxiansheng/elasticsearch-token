@@ -118,7 +118,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -655,11 +655,7 @@ expr_stmt|;
 name|ShardRouting
 name|newRouting
 init|=
-operator|new
-name|ShardRouting
-argument_list|(
 name|shardRouting
-argument_list|)
 decl_stmt|;
 name|String
 name|nodeId
@@ -669,6 +665,8 @@ operator|.
 name|currentNodeId
 argument_list|()
 decl_stmt|;
+name|newRouting
+operator|=
 name|ShardRoutingHelper
 operator|.
 name|moveToUnassigned
@@ -688,6 +686,8 @@ literal|"boom"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|newRouting
+operator|=
 name|ShardRoutingHelper
 operator|.
 name|initialize
@@ -712,8 +712,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -725,9 +723,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"foo"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -777,18 +776,10 @@ expr_stmt|;
 name|shard
 operator|.
 name|recoverFromStore
-argument_list|(
-name|localNode
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|newRouting
 operator|=
-operator|new
-name|ShardRouting
-argument_list|(
-name|newRouting
-argument_list|)
-expr_stmt|;
 name|ShardRoutingHelper
 operator|.
 name|moveToStarted
@@ -801,8 +792,6 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 name|newRouting
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

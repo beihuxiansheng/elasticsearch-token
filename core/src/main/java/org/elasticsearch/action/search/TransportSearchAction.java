@@ -282,10 +282,6 @@ name|QUERY_THEN_FETCH
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TransportSearchAction
 specifier|public
@@ -588,6 +584,32 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|searchAsyncAction
+argument_list|(
+name|searchRequest
+argument_list|,
+name|listener
+argument_list|)
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|searchAsyncAction
+specifier|private
+name|AbstractSearchAsyncAction
+name|searchAsyncAction
+parameter_list|(
+name|SearchRequest
+name|searchRequest
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|SearchResponse
+argument_list|>
+name|listener
+parameter_list|)
+block|{
 name|AbstractSearchAsyncAction
 name|searchAsyncAction
 decl_stmt|;
@@ -719,11 +741,9 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+return|return
 name|searchAsyncAction
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

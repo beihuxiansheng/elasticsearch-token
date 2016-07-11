@@ -2071,8 +2071,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|holder
@@ -2082,7 +2082,7 @@ argument_list|(
 operator|(
 name|IllegalStateException
 operator|)
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2247,10 +2247,6 @@ operator|.
 name|startNode
 argument_list|(
 name|nodeSettings
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|ZenDiscovery
@@ -2358,8 +2354,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|holder
@@ -2369,7 +2365,7 @@ argument_list|(
 operator|(
 name|IllegalStateException
 operator|)
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2432,10 +2428,6 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode
@@ -2640,7 +2632,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2655,9 +2648,11 @@ name|statsResponse
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|.
 name|getDiscoveryStats
 argument_list|()

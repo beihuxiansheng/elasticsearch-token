@@ -99,8 +99,8 @@ name|Writeable
 block|{
 DECL|field|EMPTY_TASK_ID
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|TaskId
 name|EMPTY_TASK_ID
 init|=

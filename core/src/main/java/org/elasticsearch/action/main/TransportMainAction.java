@@ -211,12 +211,6 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|version
-specifier|private
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportMainAction
@@ -240,9 +234,6 @@ name|indexNameExpressionResolver
 parameter_list|,
 name|ClusterService
 name|clusterService
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -271,12 +262,6 @@ operator|.
 name|clusterService
 operator|=
 name|clusterService
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 block|}
 annotation|@
@@ -348,7 +333,9 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|,
-name|version
+name|Version
+operator|.
+name|CURRENT
 argument_list|,
 name|clusterState
 operator|.

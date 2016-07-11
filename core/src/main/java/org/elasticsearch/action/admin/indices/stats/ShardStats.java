@@ -160,22 +160,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRouting
-operator|.
-name|readShardRoutingEntry
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -407,7 +391,8 @@ name|IOException
 block|{
 name|shardRouting
 operator|=
-name|readShardRoutingEntry
+operator|new
+name|ShardRouting
 argument_list|(
 name|in
 argument_list|)

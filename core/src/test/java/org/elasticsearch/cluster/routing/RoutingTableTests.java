@@ -286,8 +286,8 @@ name|totalNumberOfShards
 decl_stmt|;
 DECL|field|DEFAULT_SETTINGS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Settings
 name|DEFAULT_SETTINGS
 init|=
@@ -564,7 +564,14 @@ name|cluster
 operator|.
 name|ClusterName
 operator|.
-name|DEFAULT
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getDefault
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
 argument_list|)
 operator|.
 name|metaData

@@ -942,8 +942,10 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-name|randomInt
+name|between
 argument_list|(
+literal|1
+argument_list|,
 literal|5
 argument_list|)
 argument_list|)

@@ -230,6 +230,20 @@ name|common
 operator|.
 name|component
 operator|.
+name|AbstractComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|component
+operator|.
 name|AbstractLifecycleComponent
 import|;
 end_import
@@ -340,10 +354,7 @@ specifier|public
 class|class
 name|AzureStorageServiceImpl
 extends|extends
-name|AbstractLifecycleComponent
-argument_list|<
-name|AzureStorageServiceImpl
-argument_list|>
+name|AbstractComponent
 implements|implements
 name|AzureStorageService
 block|{
@@ -372,8 +383,6 @@ name|CloudBlobClient
 argument_list|>
 name|clients
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|AzureStorageServiceImpl
 specifier|public
 name|AzureStorageServiceImpl
@@ -434,6 +443,79 @@ name|HashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"starting azure storage client instance"
+argument_list|)
+expr_stmt|;
+comment|// We register the primary client if any
+if|if
+condition|(
+name|primaryStorageSettings
+operator|!=
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"registering primary client for account [{}]"
+argument_list|,
+name|primaryStorageSettings
+operator|.
+name|getAccount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|createClient
+argument_list|(
+name|primaryStorageSettings
+argument_list|)
+expr_stmt|;
+block|}
+comment|// We register all secondary clients
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|AzureStorageSettings
+argument_list|>
+name|azureStorageSettingsEntry
+range|:
+name|secondariesStorageSettings
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"registering secondary client for account [{}]"
+argument_list|,
+name|azureStorageSettingsEntry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|createClient
+argument_list|(
+name|azureStorageSettingsEntry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|createClient
 name|void
@@ -816,7 +898,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -826,7 +908,7 @@ name|container
 argument_list|)
 decl_stmt|;
 return|return
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -886,7 +968,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -896,7 +978,7 @@ name|container
 argument_list|)
 decl_stmt|;
 comment|// TODO Should we set some timeout and retry options?
-comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blob_container.deleteIfExists(options, null);         */
+comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blobContainer.deleteIfExists(options, null);         */
 name|logger
 operator|.
 name|trace
@@ -906,7 +988,7 @@ argument_list|,
 name|container
 argument_list|)
 expr_stmt|;
-name|blob_container
+name|blobContainer
 operator|.
 name|deleteIfExists
 argument_list|()
@@ -948,7 +1030,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -966,7 +1048,7 @@ argument_list|,
 name|container
 argument_list|)
 expr_stmt|;
-name|blob_container
+name|blobContainer
 operator|.
 name|createIfNotExists
 argument_list|()
@@ -1052,7 +1134,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1063,30 +1145,46 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
 condition|)
 block|{
+comment|// We list the blobs using a flat blob listing mode
 for|for
 control|(
 name|ListBlobItem
 name|blobItem
 range|:
-name|blob_container
+name|blobContainer
 operator|.
 name|listBlobs
 argument_list|(
 name|path
+argument_list|,
+literal|true
 argument_list|)
 control|)
 block|{
+name|String
+name|blobName
+init|=
+name|blobNameFromUri
+argument_list|(
+name|blobItem
+operator|.
+name|getUri
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"removing blob [{}]"
+literal|"removing blob [{}] full URI was [{}]"
+argument_list|,
+name|blobName
 argument_list|,
 name|blobItem
 operator|.
@@ -1102,17 +1200,56 @@ name|mode
 argument_list|,
 name|container
 argument_list|,
-name|blobItem
-operator|.
-name|getUri
-argument_list|()
-operator|.
-name|toString
-argument_list|()
+name|blobName
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Extract the blob name from a URI like https://myservice.azure.net/container/path/to/myfile      * It should remove the container part (first part of the path) and gives path/to/myfile      * @param uri URI to parse      * @return The blob name relative to the container      */
+DECL|method|blobNameFromUri
+specifier|public
+specifier|static
+name|String
+name|blobNameFromUri
+parameter_list|(
+name|URI
+name|uri
+parameter_list|)
+block|{
+name|String
+name|path
+init|=
+name|uri
+operator|.
+name|getPath
+argument_list|()
+decl_stmt|;
+comment|// We remove the container name from the path
+comment|// The 3 magic number cames from the fact if path is /container/path/to/myfile
+comment|// First occurrence is empty "/"
+comment|// Second occurrence is "container
+comment|// Last part contains "path/to/myfile" which is what we want to get
+name|String
+index|[]
+name|splits
+init|=
+name|path
+operator|.
+name|split
+argument_list|(
+literal|"/"
+argument_list|,
+literal|3
+argument_list|)
+decl_stmt|;
+comment|// We return the remaining end of the string
+return|return
+name|splits
+index|[
+literal|2
+index|]
+return|;
 block|}
 annotation|@
 name|Override
@@ -1152,7 +1289,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1163,7 +1300,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -1172,7 +1309,7 @@ block|{
 name|CloudBlockBlob
 name|azureBlob
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1239,7 +1376,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1250,7 +1387,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -1270,7 +1407,7 @@ expr_stmt|;
 name|CloudBlockBlob
 name|azureBlob
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1699,7 +1836,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1711,7 +1848,7 @@ decl_stmt|;
 name|CloudBlockBlob
 name|blobSource
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1729,7 +1866,7 @@ block|{
 name|CloudBlockBlob
 name|blobTarget
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1763,120 +1900,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doStart
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|ElasticsearchException
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"starting azure storage client instance"
-argument_list|)
-expr_stmt|;
-comment|// We register the primary client if any
-if|if
-condition|(
-name|primaryStorageSettings
-operator|!=
-literal|null
-condition|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"registering primary client for account [{}]"
-argument_list|,
-name|primaryStorageSettings
-operator|.
-name|getAccount
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|createClient
-argument_list|(
-name|primaryStorageSettings
-argument_list|)
-expr_stmt|;
-block|}
-comment|// We register all secondary clients
-for|for
-control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
-name|AzureStorageSettings
-argument_list|>
-name|azureStorageSettingsEntry
-range|:
-name|secondariesStorageSettings
-operator|.
-name|entrySet
-argument_list|()
-control|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"registering secondary client for account [{}]"
-argument_list|,
-name|azureStorageSettingsEntry
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|createClient
-argument_list|(
-name|azureStorageSettingsEntry
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|doStop
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|ElasticsearchException
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"stopping azure storage client instance"
-argument_list|)
-expr_stmt|;
-comment|// We should stop all clients but it does sound like CloudBlobClient has
-comment|// any shutdown method...
-block|}
-annotation|@
-name|Override
-DECL|method|doClose
-specifier|protected
-name|void
-name|doClose
-parameter_list|()
-throws|throws
-name|ElasticsearchException
-block|{     }
 block|}
 end_class
 

@@ -34,11 +34,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
-operator|.
-name|util
+name|common
 operator|.
 name|SuppressForbidden
 import|;
@@ -278,8 +276,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 return|return
@@ -323,8 +321,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 return|return
@@ -368,8 +366,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 return|return
@@ -413,8 +411,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 return|return
@@ -537,8 +535,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 return|return
@@ -685,8 +683,8 @@ name|OsProbeHolder
 block|{
 DECL|field|INSTANCE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|OsProbe
 name|INSTANCE
 init|=
@@ -911,8 +909,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// not available

@@ -666,9 +666,9 @@ return|;
 block|}
 comment|/**      * Builder for Index objects.  Used by ObjectParser instances only.      */
 DECL|class|Builder
-specifier|final
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|Builder
 block|{

@@ -215,22 +215,6 @@ specifier|private
 name|GroovyScriptEngineService
 name|se
 decl_stmt|;
-static|static
-block|{
-comment|// ensure we load all the timezones in the parent classloader with all permissions
-comment|// relates to https://github.com/elastic/elasticsearch/issues/14524
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTimeZone
-operator|.
-name|getDefault
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|setUp
@@ -658,6 +642,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|script
 argument_list|,
 name|Collections

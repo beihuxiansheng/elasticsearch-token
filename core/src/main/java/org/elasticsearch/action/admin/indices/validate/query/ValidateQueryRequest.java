@@ -186,9 +186,6 @@ block|{
 DECL|field|query
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 operator|new
@@ -307,9 +304,6 @@ comment|/**      * The query to validate.      */
 DECL|method|query
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|()
 block|{
@@ -323,9 +317,6 @@ name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|)
 block|{

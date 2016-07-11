@@ -112,18 +112,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -292,7 +280,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -512,12 +500,6 @@ argument_list|,
 name|TasksResponse
 argument_list|>
 block|{
-DECL|field|clusterName
-specifier|protected
-specifier|final
-name|ClusterName
-name|clusterName
-decl_stmt|;
 DECL|field|clusterService
 specifier|protected
 specifier|final
@@ -563,9 +545,6 @@ name|settings
 parameter_list|,
 name|String
 name|actionName
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|,
 name|ThreadPool
 name|threadPool
@@ -614,12 +593,6 @@ name|indexNameExpressionResolver
 argument_list|,
 name|requestSupplier
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterName
-operator|=
-name|clusterName
 expr_stmt|;
 name|this
 operator|.
@@ -928,7 +901,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|resolveNodesIds
+name|resolveNodes
 argument_list|(
 name|request
 operator|.
@@ -1553,8 +1526,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1563,14 +1536,14 @@ name|debug
 argument_list|(
 literal|"failed to generate empty response"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1737,7 +1710,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|NodeTasksResponse
 argument_list|>
@@ -1819,8 +1792,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onFailure
@@ -1829,7 +1802,7 @@ name|idx
 argument_list|,
 name|nodeId
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1986,8 +1959,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1996,14 +1969,14 @@ name|debug
 argument_list|(
 literal|"failed to combine responses from nodes"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 return|return;

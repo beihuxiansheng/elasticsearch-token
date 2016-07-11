@@ -90,7 +90,7 @@ name|pipeline
 operator|.
 name|bucketselector
 operator|.
-name|BucketSelectorPipelineAggregatorBuilder
+name|BucketSelectorPipelineAggregationBuilder
 import|;
 end_import
 
@@ -122,14 +122,14 @@ name|BucketSelectorTests
 extends|extends
 name|BasePipelineAggregationTestCase
 argument_list|<
-name|BucketSelectorPipelineAggregatorBuilder
+name|BucketSelectorPipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|BucketSelectorPipelineAggregatorBuilder
+name|BucketSelectorPipelineAggregationBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -284,11 +284,11 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-name|BucketSelectorPipelineAggregatorBuilder
+name|BucketSelectorPipelineAggregationBuilder
 name|factory
 init|=
 operator|new
-name|BucketSelectorPipelineAggregatorBuilder
+name|BucketSelectorPipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,

@@ -496,21 +496,6 @@ block|{
 comment|// combine suggestion entries from participating shards on the coordinating node
 comment|// the global top<code>size</code> entries are collected from the shard results
 comment|// using a priority queue
-name|Comparator
-argument_list|<
-name|Suggest
-operator|.
-name|Suggestion
-operator|.
-name|Entry
-operator|.
-name|Option
-argument_list|>
-name|optionComparator
-init|=
-name|sortComparator
-argument_list|()
-decl_stmt|;
 name|OptionPriorityQueue
 name|priorityQueue
 init|=
@@ -654,8 +639,8 @@ return|;
 block|}
 DECL|class|Entry
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|Entry
 extends|extends

@@ -364,6 +364,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  * */
 end_comment
@@ -491,6 +501,11 @@ name|ParseField
 argument_list|(
 literal|"ignore_malformed"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use validation_method instead"
+argument_list|)
 decl_stmt|;
 DECL|field|COERCE_FIELD
 specifier|private
@@ -505,6 +520,11 @@ argument_list|(
 literal|"coerce"
 argument_list|,
 literal|"normalize"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use validation_method instead"
 argument_list|)
 decl_stmt|;
 DECL|field|OPTIMIZE_BBOX_FIELD
@@ -1528,6 +1548,19 @@ name|TermEncoding
 operator|.
 name|PREFIX
 decl_stmt|;
+comment|// Lucene 6.0 and earlier requires a radial restriction
+if|if
+condition|(
+name|indexVersionCreated
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_alpha4
+argument_list|)
+condition|)
+block|{
 name|normDistance
 operator|=
 name|GeoUtils
@@ -1539,6 +1572,7 @@ argument_list|,
 name|normDistance
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|GeoPointDistanceQuery
@@ -1697,7 +1731,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|GeoDistanceQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -2658,7 +2695,12 @@ name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|qb
+argument_list|)
 return|;
 block|}
 annotation|@

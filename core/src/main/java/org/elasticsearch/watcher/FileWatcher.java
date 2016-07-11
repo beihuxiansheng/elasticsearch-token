@@ -1119,8 +1119,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1129,7 +1129,7 @@ name|warn
 argument_list|(
 literal|"cannot notify file changes listener"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1162,8 +1162,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1172,7 +1172,7 @@ name|warn
 argument_list|(
 literal|"cannot notify file changes listener"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1205,8 +1205,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1215,7 +1215,7 @@ name|warn
 argument_list|(
 literal|"cannot notify file changes listener"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1269,8 +1269,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1279,7 +1279,7 @@ name|warn
 argument_list|(
 literal|"cannot notify file changes listener"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1343,8 +1343,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1353,7 +1353,7 @@ name|warn
 argument_list|(
 literal|"cannot notify file changes listener"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

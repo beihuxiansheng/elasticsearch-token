@@ -586,6 +586,9 @@ name|NodeHotThreads
 name|ht
 range|:
 name|nodeHotThreads
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|assertNotNull
@@ -632,7 +635,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

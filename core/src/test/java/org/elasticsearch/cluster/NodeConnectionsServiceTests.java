@@ -118,7 +118,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -501,9 +501,10 @@ literal|""
 operator|+
 name|i
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1023,6 +1024,10 @@ operator|=
 operator|new
 name|TransportService
 argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
 name|transport
 argument_list|,
 name|THREAD_POOL
@@ -1394,26 +1399,18 @@ annotation|@
 name|Override
 DECL|method|start
 specifier|public
-name|Transport
+name|void
 name|start
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|stop
 specifier|public
-name|Transport
+name|void
 name|stop
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|close
@@ -1421,7 +1418,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{          }
+block|{}
 block|}
 block|}
 end_class

@@ -354,7 +354,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -896,9 +896,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|current
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|ClusterInfo
 operator|.
@@ -908,6 +905,8 @@ name|System
 operator|.
 name|nanoTime
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|allocator
@@ -1078,9 +1077,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"_non_existent"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -1270,8 +1270,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{              }
 block|}
@@ -1385,8 +1385,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{              }
 block|}
@@ -2111,7 +2111,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2323,7 +2323,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2889,7 +2889,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3064,7 +3064,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

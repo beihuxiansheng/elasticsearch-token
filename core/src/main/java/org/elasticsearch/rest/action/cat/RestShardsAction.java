@@ -134,7 +134,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -405,18 +407,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|controller
@@ -484,7 +479,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -1063,15 +1058,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"percolate.queries"
-argument_list|,
-literal|"alias:pq,percolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"refresh.total"
 argument_list|,
 literal|"alias:rto,refreshTotal;default:false;text-align:right;desc:total refreshes"
@@ -1201,15 +1187,6 @@ argument_list|(
 literal|"segments.index_writer_memory"
 argument_list|,
 literal|"alias:siwm,segmentsIndexWriterMemory;default:false;text-align:right;desc:memory used by index writer"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-literal|"segments.index_writer_max_memory"
-argument_list|,
-literal|"alias:siwmx,segmentsIndexWriterMaxMemory;default:false;text-align:right;desc:maximum memory index writer may use before it must write buffered documents to a new segment"
 argument_list|)
 expr_stmt|;
 name|table
@@ -2430,25 +2407,6 @@ literal|null
 else|:
 name|commonStats
 operator|.
-name|getPercolatorCache
-argument_list|()
-operator|.
-name|getNumQueries
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|commonStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|commonStats
-operator|.
 name|getRefresh
 argument_list|()
 operator|.
@@ -2746,25 +2704,6 @@ name|getSegments
 argument_list|()
 operator|.
 name|getIndexWriterMemory
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|commonStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|commonStats
-operator|.
-name|getSegments
-argument_list|()
-operator|.
-name|getIndexWriterMaxMemory
 argument_list|()
 argument_list|)
 expr_stmt|;

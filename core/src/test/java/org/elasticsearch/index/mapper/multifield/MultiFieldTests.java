@@ -2519,6 +2519,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 name|MapperService
 name|mapperService

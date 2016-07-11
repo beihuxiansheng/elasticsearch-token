@@ -397,8 +397,6 @@ name|searchType
 argument_list|()
 argument_list|,
 name|firstResults
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -435,8 +433,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|ReduceSearchPhaseException
@@ -449,7 +447,7 @@ literal|"merge"
 argument_list|,
 literal|""
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|buildShardFailures
 argument_list|()

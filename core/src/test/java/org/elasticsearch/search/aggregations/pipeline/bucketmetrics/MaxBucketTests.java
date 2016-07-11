@@ -36,7 +36,7 @@ name|bucketmetrics
 operator|.
 name|max
 operator|.
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 import|;
 end_import
 
@@ -48,14 +48,14 @@ name|MaxBucketTests
 extends|extends
 name|AbstractBucketMetricsTestCase
 argument_list|<
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
 name|String
@@ -67,7 +67,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,

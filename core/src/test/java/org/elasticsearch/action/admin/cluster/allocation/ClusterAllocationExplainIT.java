@@ -158,18 +158,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESSingleNodeTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -231,18 +219,6 @@ operator|.
 name|Matchers
 operator|.
 name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThanOrEqualTo
 import|;
 end_import
 
@@ -318,16 +294,8 @@ argument_list|)
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|NodesStatsResponse
 name|resp
@@ -354,7 +322,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -362,7 +331,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -855,6 +823,14 @@ name|isAssigned
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|cae
+operator|.
+name|isStillFetchingShardData
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|UnassignedInfo
@@ -907,12 +883,6 @@ name|cae
 operator|.
 name|getNodeExplanations
 argument_list|()
-decl_stmt|;
-name|Float
-name|noAttrWeight
-init|=
-operator|-
-literal|1f
 decl_stmt|;
 name|Float
 name|barAttrWeight
@@ -976,14 +946,6 @@ init|=
 name|explanation
 operator|.
 name|getFinalDecision
-argument_list|()
-decl_stmt|;
-name|String
-name|finalExplanation
-init|=
-name|explanation
-operator|.
-name|getFinalExplanation
 argument_list|()
 decl_stmt|;
 name|ClusterAllocationExplanation
@@ -1058,10 +1020,6 @@ argument_list|(
 literal|"node does not match index include filters [foo:\"bar\"]"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|noAttrWeight
-operator|=
-name|weight
 expr_stmt|;
 name|assertNull
 argument_list|(

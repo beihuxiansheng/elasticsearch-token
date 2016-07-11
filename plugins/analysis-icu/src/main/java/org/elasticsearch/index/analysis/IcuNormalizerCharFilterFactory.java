@@ -105,6 +105,8 @@ class|class
 name|IcuNormalizerCharFilterFactory
 extends|extends
 name|AbstractCharFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|field|name
 specifier|private
@@ -243,6 +245,18 @@ name|reader
 argument_list|,
 name|normalizer
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}

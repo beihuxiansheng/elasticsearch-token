@@ -1504,8 +1504,6 @@ argument_list|,
 operator|new
 name|AnalysisKuromojiPlugin
 argument_list|()
-operator|::
-name|onModule
 argument_list|)
 return|;
 block|}

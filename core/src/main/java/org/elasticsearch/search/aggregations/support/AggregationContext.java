@@ -38,20 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cache
-operator|.
-name|recycler
-operator|.
-name|PageCacheRecycler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -234,10 +220,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|AggregationContext
 specifier|public
@@ -273,19 +255,6 @@ parameter_list|()
 block|{
 return|return
 name|searchContext
-return|;
-block|}
-DECL|method|pageCacheRecycler
-specifier|public
-name|PageCacheRecycler
-name|pageCacheRecycler
-parameter_list|()
-block|{
-return|return
-name|searchContext
-operator|.
-name|pageCacheRecycler
-argument_list|()
 return|;
 block|}
 DECL|method|bigArrays
@@ -326,14 +295,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
+if|if
+condition|(
+operator|!
 name|config
 operator|.
 name|valid
 argument_list|()
-operator|:
-literal|"value source config is invalid - must have either a field context or a script or marked as unmapped"
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"value source config is invalid; must have either a field context or a script or marked as unwrapped"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|VS
 name|vs
@@ -343,6 +321,7 @@ condition|(
 name|config
 operator|.
 name|unmapped
+argument_list|()
 condition|)
 block|{
 if|if
@@ -350,6 +329,7 @@ condition|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -366,6 +346,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -390,6 +371,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -414,6 +396,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -422,6 +405,7 @@ operator|||
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -453,6 +437,7 @@ operator|+
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -474,6 +459,7 @@ condition|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -501,6 +487,7 @@ argument_list|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -580,6 +567,7 @@ condition|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|instanceof
 name|Number
 condition|)
@@ -592,6 +580,7 @@ operator|)
 name|config
 operator|.
 name|missing
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -601,12 +590,14 @@ condition|(
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|fieldType
 argument_list|()
@@ -619,6 +610,7 @@ operator|=
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|fieldType
 argument_list|()
@@ -637,6 +629,7 @@ argument_list|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -661,6 +654,7 @@ argument_list|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -709,6 +703,7 @@ argument_list|(
 name|config
 operator|.
 name|missing
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -783,6 +778,7 @@ condition|(
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|==
 literal|null
 condition|)
@@ -792,6 +788,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -813,6 +810,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -838,6 +836,7 @@ operator|+
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|.
 name|name
 argument_list|()
@@ -851,6 +850,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -872,6 +872,7 @@ condition|(
 name|config
 operator|.
 name|valueSourceType
+argument_list|()
 operator|==
 name|ValuesSourceType
 operator|.
@@ -926,10 +927,12 @@ argument_list|(
 name|config
 operator|.
 name|script
+argument_list|()
 argument_list|,
 name|config
 operator|.
 name|scriptValueType
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -956,6 +959,7 @@ operator|(
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|indexFieldData
 argument_list|()
@@ -973,6 +977,7 @@ operator|+
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|field
 argument_list|()
@@ -982,6 +987,7 @@ operator|+
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|fieldType
 argument_list|()
@@ -1011,6 +1017,7 @@ operator|)
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|indexFieldData
 argument_list|()
@@ -1021,6 +1028,7 @@ condition|(
 name|config
 operator|.
 name|script
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -1039,6 +1047,7 @@ argument_list|,
 name|config
 operator|.
 name|script
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1070,6 +1079,7 @@ init|=
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|indexFieldData
 argument_list|()
@@ -1148,6 +1158,7 @@ condition|(
 name|config
 operator|.
 name|script
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -1164,6 +1175,7 @@ argument_list|,
 name|config
 operator|.
 name|script
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1198,6 +1210,7 @@ argument_list|(
 name|config
 operator|.
 name|script
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1224,6 +1237,7 @@ operator|(
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|indexFieldData
 argument_list|()
@@ -1241,6 +1255,7 @@ operator|+
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|field
 argument_list|()
@@ -1250,6 +1265,7 @@ operator|+
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|fieldType
 argument_list|()
@@ -1275,6 +1291,7 @@ operator|)
 name|config
 operator|.
 name|fieldContext
+argument_list|()
 operator|.
 name|indexFieldData
 argument_list|()

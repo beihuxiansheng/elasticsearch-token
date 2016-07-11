@@ -152,7 +152,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -455,6 +455,10 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|PingRequestHandler
 argument_list|()
@@ -544,9 +548,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|monitoredNode
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1023,9 +1024,6 @@ operator|new
 name|PingRequest
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|,
 name|clusterName
 argument_list|,
@@ -1073,7 +1071,7 @@ argument_list|,
 name|options
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|PingResponse
 argument_list|>
@@ -1315,14 +1313,12 @@ condition|(
 operator|!
 name|localNode
 operator|.
-name|getId
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|request
 operator|.
-name|nodeId
+name|targetNode
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1330,20 +1326,16 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Got pinged as node ["
+literal|"Got pinged as node "
 operator|+
 name|request
 operator|.
-name|nodeId
-operator|+
-literal|"], but I am node ["
-operator|+
-name|localNode
-operator|.
-name|getId
+name|targetNode
 argument_list|()
 operator|+
-literal|"]"
+literal|"], but I am node "
+operator|+
+name|localNode
 argument_list|)
 throw|;
 block|}
@@ -1410,11 +1402,11 @@ name|PingRequest
 extends|extends
 name|TransportRequest
 block|{
-comment|// the (assumed) node id we are pinging
-DECL|field|nodeId
+comment|// the (assumed) node we are pinging
+DECL|field|targetNode
 specifier|private
-name|String
-name|nodeId
+name|DiscoveryNode
+name|targetNode
 decl_stmt|;
 DECL|field|clusterName
 specifier|private
@@ -1443,8 +1435,8 @@ block|{         }
 DECL|method|PingRequest
 name|PingRequest
 parameter_list|(
-name|String
-name|nodeId
+name|DiscoveryNode
+name|targetNode
 parameter_list|,
 name|ClusterName
 name|clusterName
@@ -1458,9 +1450,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|nodeId
+name|targetNode
 operator|=
-name|nodeId
+name|targetNode
 expr_stmt|;
 name|this
 operator|.
@@ -1481,14 +1473,14 @@ operator|=
 name|clusterStateVersion
 expr_stmt|;
 block|}
-DECL|method|nodeId
+DECL|method|targetNode
 specifier|public
-name|String
-name|nodeId
+name|DiscoveryNode
+name|targetNode
 parameter_list|()
 block|{
 return|return
-name|nodeId
+name|targetNode
 return|;
 block|}
 DECL|method|clusterName
@@ -1541,18 +1533,18 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|nodeId
+name|targetNode
 operator|=
+operator|new
+name|DiscoveryNode
+argument_list|(
 name|in
-operator|.
-name|readString
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|clusterName
 operator|=
+operator|new
 name|ClusterName
-operator|.
-name|readClusterName
 argument_list|(
 name|in
 argument_list|)
@@ -1593,11 +1585,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|out
+name|targetNode
 operator|.
-name|writeString
+name|writeTo
 argument_list|(
-name|nodeId
+name|out
 argument_list|)
 expr_stmt|;
 name|clusterName

@@ -46,18 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|Base64
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ingest
 operator|.
 name|RandomDocumentPicks
@@ -71,8 +59,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocument
 import|;
@@ -127,6 +113,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Base64
 import|;
 end_import
 
@@ -1659,7 +1655,10 @@ decl_stmt|;
 return|return
 name|Base64
 operator|.
-name|encodeBytes
+name|getEncoder
+argument_list|()
+operator|.
+name|encodeToString
 argument_list|(
 name|bytes
 argument_list|)

@@ -268,10 +268,6 @@ name|Collectors
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|IcuTokenizerFactory
 specifier|public
@@ -633,8 +629,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -643,7 +639,7 @@ name|ElasticsearchException
 argument_list|(
 literal|"failed to load ICU rule files"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}

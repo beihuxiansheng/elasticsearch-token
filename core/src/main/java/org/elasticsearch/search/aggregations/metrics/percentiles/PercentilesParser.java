@@ -62,7 +62,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -104,8 +104,8 @@ expr_stmt|;
 block|}
 DECL|field|DEFAULT_PERCENTS
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|double
 index|[]
 name|DEFAULT_PERCENTS
@@ -145,7 +145,7 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|Numeric
 argument_list|,
@@ -173,11 +173,11 @@ name|Boolean
 name|keyed
 parameter_list|)
 block|{
-name|PercentilesAggregatorBuilder
+name|PercentilesAggregationBuilder
 name|factory
 init|=
 operator|new
-name|PercentilesAggregatorBuilder
+name|PercentilesAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

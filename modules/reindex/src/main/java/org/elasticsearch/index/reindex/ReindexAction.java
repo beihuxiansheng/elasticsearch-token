@@ -50,7 +50,7 @@ name|Action
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|,
 name|ReindexRequestBuilder
 argument_list|>
@@ -111,13 +111,13 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|public
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|newResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|()
 return|;
 block|}

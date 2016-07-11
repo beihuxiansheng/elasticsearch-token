@@ -94,8 +94,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 import|;
 end_import
@@ -108,8 +106,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 import|;
 end_import
@@ -121,8 +117,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|Pipeline
 import|;
@@ -197,8 +191,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocument
 operator|.
@@ -627,6 +619,25 @@ argument_list|(
 name|pipelineId
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|pipeline
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"pipeline ["
+operator|+
+name|pipelineId
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 name|List
 argument_list|<
 name|IngestDocument
@@ -708,7 +719,7 @@ name|pipelineConfig
 argument_list|,
 name|pipelineStore
 operator|.
-name|getProcessorRegistry
+name|getProcessorFactories
 argument_list|()
 argument_list|)
 decl_stmt|;

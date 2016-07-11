@@ -2344,12 +2344,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// fuzzy queries will be removed in 4.0
 DECL|method|testFuzzyQuerySupportsName
 specifier|public
 name|void
@@ -3115,7 +3109,7 @@ operator|.
 name|buildAsBytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 block|,
@@ -3138,7 +3132,7 @@ operator|.
 name|buildAsBytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 argument_list|)

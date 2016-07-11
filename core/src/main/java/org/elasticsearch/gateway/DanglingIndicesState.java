@@ -38,6 +38,20 @@ name|cluster
 operator|.
 name|metadata
 operator|.
+name|IndexGraveyard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
 name|IndexMetaData
 import|;
 end_import
@@ -349,6 +363,7 @@ specifier|public
 name|void
 name|processDanglingIndices
 parameter_list|(
+specifier|final
 name|MetaData
 name|metaData
 parameter_list|)
@@ -517,6 +532,7 @@ DECL|method|findNewAndAddDanglingIndices
 name|void
 name|findNewAndAddDanglingIndices
 parameter_list|(
+specifier|final
 name|MetaData
 name|metaData
 parameter_list|)
@@ -542,6 +558,7 @@ name|IndexMetaData
 argument_list|>
 name|findNewDanglingIndices
 parameter_list|(
+specifier|final
 name|MetaData
 name|metaData
 parameter_list|)
@@ -668,6 +685,15 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
+name|IndexGraveyard
+name|graveyard
+init|=
+name|metaData
+operator|.
+name|indexGraveyard
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|IndexMetaData
@@ -705,13 +731,46 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|graveyard
+operator|.
+name|containsIndex
+argument_list|(
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] can not be imported as a dangling index, as an index with the same name and UUID exist in the "
+operator|+
+literal|"index tombstones.  This situation is likely caused by copying over the data directory for an index "
+operator|+
+literal|"that was previously deleted."
+argument_list|,
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] dangling index, exists on local file system, but not in cluster metadata, auto import to cluster state"
+literal|"[{}] dangling index exists on local file system, but not in cluster metadata, "
+operator|+
+literal|"auto import to cluster state"
 argument_list|,
 name|indexMetaData
 operator|.
@@ -850,7 +909,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

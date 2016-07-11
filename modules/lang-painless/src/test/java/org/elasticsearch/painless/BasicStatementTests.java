@@ -10,6 +10,16 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
@@ -441,6 +451,330 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|testIterableForEachStatement
+specifier|public
+name|void
+name|testIterableForEachStatement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (int x : l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (x in l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (String x : l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (x in l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (Map.Entry e : m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (e in m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testIterableForEachStatementDef
+specifier|public
+name|void
+name|testIterableForEachStatementDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (int x : l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add(1); l.add(2); l.add(3); int total = 0;"
+operator|+
+literal|" for (x in l) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (String x : l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def l = new ArrayList(); l.add('1'); l.add('2'); l.add('3'); String cat = '';"
+operator|+
+literal|" for (x in l) cat += x; return cat"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (Map.Entry e : m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1236"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def m = new HashMap(); m.put('1', 1); m.put('2', 2); m.put('3', 3);"
+operator|+
+literal|" String cat = ''; int total = 0;"
+operator|+
+literal|" for (e in m.entrySet()) { cat += e.getKey(); total += e.getValue(); } return cat + total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayForEachStatement
+specifier|public
+name|void
+name|testArrayForEachStatement
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (int x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[] a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (x in a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String[] a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (String x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"String[] a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (x in a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[][] i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (int[] j : i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"int[][] i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (j in i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayForEachStatementDef
+specifier|public
+name|void
+name|testArrayForEachStatementDef
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (int x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new int[3]; a[0] = 1; a[1] = 2; a[2] = 3; int total = 0;"
+operator|+
+literal|" for (x in a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (String x : a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"123"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = new String[3]; a[0] = '1'; a[1] = '2'; a[2] = '3'; def total = '';"
+operator|+
+literal|" for (x in a) total += x; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (int[] j : i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = new int[3][1]; i[0][0] = 1; i[1][0] = 2; i[2][0] = 3; int total = 0;"
+operator|+
+literal|" for (j in i) total += j[0]; return total"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDeclarationStatement
 specifier|public
 name|void
@@ -554,7 +888,7 @@ name|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object> a = new HashMap<String,Object>(); return a;"
+literal|"Map a = new HashMap(); return a;"
 argument_list|)
 operator|.
 name|getClass
@@ -714,7 +1048,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object>[] a = new Map<String,Object>[1]; return a;"
+literal|"Map[] a = new Map[1]; return a;"
 argument_list|)
 operator|.
 name|getClass
@@ -897,7 +1231,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object>[][][] a = new Map<String,Object>[1][2][3]; return a;"
+literal|"Map[][][] a = new Map[1][2][3]; return a;"
 argument_list|)
 operator|.
 name|getClass
@@ -939,6 +1273,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|testReturnStatement
 specifier|public
 name|void
@@ -1004,13 +1343,159 @@ name|Map
 operator|)
 name|exec
 argument_list|(
-literal|"Map<String, Object> s = new HashMap< String , Object>(); s.put(\"x\", 10); return s;"
+literal|"Map s = new HashMap(); s.put(\"x\", 10); return s;"
 argument_list|)
 operator|)
 operator|.
 name|get
 argument_list|(
 literal|"x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testLastInBlockDoesntNeedSemi
+specifier|public
+name|void
+name|testLastInBlockDoesntNeedSemi
+parameter_list|()
+block|{
+comment|// One statement in the block in case that is a special case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Two statements in the block, in case that is the general case
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|10
+argument_list|,
+name|exec
+argument_list|(
+literal|"def i = 1; if (i == 1) {i = 2; return 10} else {return 12}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testArrayLoopWithoutCounter
+specifier|public
+name|void
+name|testArrayLoopWithoutCounter
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|6L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long sum = 0; long[] array = new long[] { 1, 2, 3 };"
+operator|+
+literal|"for (int i = 0; i< array.length; i++) { sum += array[i] } return sum"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+name|CompilerSettings
+operator|.
+name|MAX_LOOP_COUNTER
+argument_list|,
+literal|"0"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long sum = 0; long[] array = new long[] { 1, 2, 3 };"
+operator|+
+literal|"int i = 0; while (i< array.length) { sum += array[i++] } return sum"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+name|CompilerSettings
+operator|.
+name|MAX_LOOP_COUNTER
+argument_list|,
+literal|"0"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6L
+argument_list|,
+name|exec
+argument_list|(
+literal|"long sum = 0; long[] array = new long[] { 1, 2, 3 };"
+operator|+
+literal|"int i = 0; do { sum += array[i++] } while (i< array.length); return sum"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+name|CompilerSettings
+operator|.
+name|MAX_LOOP_COUNTER
+argument_list|,
+literal|"0"
+argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

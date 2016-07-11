@@ -41,7 +41,7 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 function_decl|;

@@ -455,12 +455,6 @@ specifier|private
 name|NetworkService
 name|networkService
 decl_stmt|;
-DECL|field|version
-specifier|private
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|project
 specifier|private
 specifier|final
@@ -521,9 +515,6 @@ name|transportService
 parameter_list|,
 name|NetworkService
 name|networkService
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|super
@@ -548,12 +539,6 @@ operator|.
 name|networkService
 operator|=
 name|networkService
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 name|this
 operator|.
@@ -1439,7 +1424,9 @@ argument_list|,
 name|emptySet
 argument_list|()
 argument_list|,
-name|version
+name|Version
+operator|.
+name|CURRENT
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -1473,7 +1460,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1481,14 +1468,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Exception caught during discovery: {}"
+literal|"exception caught during discovery"
 argument_list|,
 name|e
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

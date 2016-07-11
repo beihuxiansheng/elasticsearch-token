@@ -222,7 +222,6 @@ expr_stmt|;
 block|}
 DECL|method|getPluginName
 specifier|public
-specifier|final
 name|String
 name|getPluginName
 parameter_list|()
@@ -233,7 +232,6 @@ return|;
 block|}
 DECL|method|getOperation
 specifier|public
-specifier|final
 name|String
 name|getOperation
 parameter_list|()
@@ -246,7 +244,6 @@ annotation|@
 name|Override
 DECL|method|getKey
 specifier|public
-specifier|final
 name|String
 name|getKey
 parameter_list|()
@@ -259,7 +256,6 @@ annotation|@
 name|Override
 DECL|method|toString
 specifier|public
-specifier|final
 name|String
 name|toString
 parameter_list|()

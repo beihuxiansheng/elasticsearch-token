@@ -212,6 +212,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"x + y"
 argument_list|,
 name|Collections
@@ -448,8 +450,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failed
@@ -465,7 +467,7 @@ name|error
 argument_list|(
 literal|"failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -557,9 +559,9 @@ comment|//                            runtimeVars.put("y", y);
 comment|//                            long result = ((Number) script.run(runtimeVars)).longValue();
 comment|//                            assertThat(result, equalTo(addition));
 comment|//                        }
-comment|//                    } catch (Throwable t) {
+comment|//                    } catch (Exception e) {
 comment|//                        failed.set(true);
-comment|//                        logger.error("failed", t);
+comment|//                        logger.error("failed", e);
 comment|//                    } finally {
 comment|//                        latch.countDown();
 comment|//                    }
@@ -603,6 +605,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"x + y"
 argument_list|,
 name|Collections
@@ -834,8 +838,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failed
@@ -851,7 +855,7 @@ name|error
 argument_list|(
 literal|"failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

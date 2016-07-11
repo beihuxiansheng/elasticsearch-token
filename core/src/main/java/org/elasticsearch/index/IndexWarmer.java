@@ -965,8 +965,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|indexShard
@@ -981,7 +981,7 @@ name|warn
 argument_list|(
 literal|"failed to warm-up global ordinals for [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|fieldType
 operator|.

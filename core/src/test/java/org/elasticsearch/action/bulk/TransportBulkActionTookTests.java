@@ -278,6 +278,18 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
+name|TestThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
 name|ThreadPool
 import|;
 end_import
@@ -400,9 +412,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -457,8 +467,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|threadPool
-specifier|static
 specifier|private
+specifier|static
 name|ThreadPool
 name|threadPool
 decl_stmt|;
@@ -479,7 +489,7 @@ block|{
 name|threadPool
 operator|=
 operator|new
-name|ThreadPool
+name|TestThreadPool
 argument_list|(
 literal|"TransportBulkActionTookTests"
 argument_list|)
@@ -581,6 +591,11 @@ init|=
 operator|new
 name|TransportService
 argument_list|(
+name|clusterService
+operator|.
+name|getSettings
+argument_list|()
+argument_list|,
 name|capturingTransport
 argument_list|,
 name|threadPool
@@ -1113,7 +1128,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{              }

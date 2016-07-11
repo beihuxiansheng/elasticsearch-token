@@ -125,7 +125,7 @@ parameter_list|(
 name|String
 name|msg
 parameter_list|,
-name|Throwable
+name|Exception
 name|cause
 parameter_list|,
 name|Object

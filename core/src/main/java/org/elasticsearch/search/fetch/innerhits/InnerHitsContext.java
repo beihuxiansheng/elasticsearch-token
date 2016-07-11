@@ -669,8 +669,8 @@ expr_stmt|;
 block|}
 DECL|class|BaseInnerHits
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseInnerHits
 extends|extends
@@ -1010,6 +1010,8 @@ name|create
 argument_list|(
 name|sort
 argument_list|()
+operator|.
+name|sort
 argument_list|,
 name|topN
 argument_list|,
@@ -1184,9 +1186,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|super
-operator|.
-name|equals
+name|sameClassAs
 argument_list|(
 name|obj
 argument_list|)
@@ -1255,9 +1255,7 @@ block|{
 name|int
 name|hash
 init|=
-name|super
-operator|.
-name|hashCode
+name|classHash
 argument_list|()
 decl_stmt|;
 name|hash
@@ -2009,6 +2007,8 @@ name|create
 argument_list|(
 name|sort
 argument_list|()
+operator|.
+name|sort
 argument_list|,
 name|topN
 argument_list|,

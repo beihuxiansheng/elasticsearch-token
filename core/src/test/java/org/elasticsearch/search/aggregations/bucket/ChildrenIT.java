@@ -530,8 +530,8 @@ name|ESIntegTestCase
 block|{
 DECL|field|categoryToControl
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -1274,7 +1274,7 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-literal|0
+literal|10000
 argument_list|)
 operator|.
 name|subAggregation
@@ -1300,7 +1300,7 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-literal|0
+literal|10000
 argument_list|)
 operator|.
 name|subAggregation
@@ -1735,7 +1735,7 @@ argument_list|)
 operator|.
 name|size
 argument_list|(
-literal|0
+literal|10000
 argument_list|)
 operator|.
 name|subAggregation

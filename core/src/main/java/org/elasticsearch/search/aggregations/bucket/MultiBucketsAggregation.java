@@ -30,7 +30,39 @@ name|io
 operator|.
 name|stream
 operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
 name|Streamable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Writeable
 import|;
 end_import
 
@@ -124,6 +156,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -153,7 +195,10 @@ extends|,
 name|ToXContent
 extends|,
 name|Streamable
+extends|,
+name|Writeable
 block|{
+comment|// NORELEASE remove Streamable
 comment|/**          * @return The key associated with the bucket          */
 DECL|method|getKey
 name|Object
@@ -194,6 +239,28 @@ argument_list|>
 name|path
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|readFrom
+specifier|default
+name|void
+name|readFrom
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// NORELEASE remove me when no Buckets override it
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Prefer the Writeable interface"
+argument_list|)
+throw|;
+block|}
 DECL|class|SubAggregationComparator
 specifier|static
 class|class

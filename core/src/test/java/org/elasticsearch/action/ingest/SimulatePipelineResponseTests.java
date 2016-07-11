@@ -56,8 +56,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 import|;
 end_import
@@ -133,8 +131,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|IngestDocumentTests
 operator|.
@@ -453,15 +449,13 @@ expr_stmt|;
 name|StreamInput
 name|streamInput
 init|=
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|out
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 decl_stmt|;
 name|SimulatePipelineResponse
 name|otherResponse

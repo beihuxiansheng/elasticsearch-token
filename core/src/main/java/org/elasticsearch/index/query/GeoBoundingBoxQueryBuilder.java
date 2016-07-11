@@ -336,6 +336,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Creates a Lucene query that will filter for all documents that lie within the specified  * bounding box.  *  * This query can only operate on fields of type geo_point that have latitude and longitude  * enabled.  * */
 end_comment
@@ -398,19 +408,6 @@ name|DEFAULT_IGNORE_UNMAPPED
 init|=
 literal|false
 decl_stmt|;
-DECL|field|IGNORE_MALFORMED_FIELD
-specifier|private
-specifier|static
-specifier|final
-name|ParseField
-name|IGNORE_MALFORMED_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"ignore_malformed"
-argument_list|)
-decl_stmt|;
 DECL|field|TYPE_FIELD
 specifier|private
 specifier|static
@@ -450,6 +447,29 @@ argument_list|(
 literal|"coerce"
 argument_list|,
 literal|"normalize"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use field validation_method instead"
+argument_list|)
+decl_stmt|;
+DECL|field|IGNORE_MALFORMED_FIELD
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|IGNORE_MALFORMED_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"ignore_malformed"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use field validation_method instead"
 argument_list|)
 decl_stmt|;
 DECL|field|FIELD_FIELD
@@ -1964,7 +1984,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|GeoBoundingBoxQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -2829,7 +2852,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|builder
+argument_list|)
 return|;
 block|}
 annotation|@

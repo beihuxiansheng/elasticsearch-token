@@ -517,14 +517,6 @@ name|logger
 operator|=
 name|logger
 expr_stmt|;
-name|IndexScopedSettings
-name|scopedSettings
-init|=
-name|indexSettings
-operator|.
-name|getScopedSettings
-argument_list|()
-decl_stmt|;
 name|double
 name|forceMergeDeletesPctAllowed
 init|=

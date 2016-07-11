@@ -104,8 +104,8 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
 comment|/**      * called by the {@link Transport} implementation when a response or an exception has been received for a previously      * sent request (before any processing or deserialization was done). Returns the appropriate response handler or null if not      * found.      */

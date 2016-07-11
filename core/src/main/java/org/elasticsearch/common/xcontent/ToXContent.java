@@ -59,8 +59,6 @@ interface|interface
 name|ToXContent
 block|{
 DECL|interface|Params
-specifier|public
-specifier|static
 interface|interface
 name|Params
 block|{
@@ -107,9 +105,6 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|field|EMPTY_PARAMS
-specifier|public
-specifier|static
-specifier|final
 name|Params
 name|EMPTY_PARAMS
 init|=
@@ -185,8 +180,6 @@ block|}
 block|}
 decl_stmt|;
 DECL|class|MapParams
-specifier|public
-specifier|static
 class|class
 name|MapParams
 implements|implements
@@ -340,8 +333,6 @@ return|;
 block|}
 block|}
 DECL|class|DelegatingMapParams
-specifier|public
-specifier|static
 class|class
 name|DelegatingMapParams
 extends|extends

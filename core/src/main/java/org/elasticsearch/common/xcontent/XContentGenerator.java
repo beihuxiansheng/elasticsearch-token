@@ -82,6 +82,11 @@ name|void
 name|usePrettyPrint
 parameter_list|()
 function_decl|;
+DECL|method|isPrettyPrint
+name|boolean
+name|isPrettyPrint
+parameter_list|()
+function_decl|;
 DECL|method|usePrintLineFeedAtEnd
 name|void
 name|usePrintLineFeedAtEnd

@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -187,6 +167,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -281,7 +281,7 @@ specifier|final
 name|int
 name|DEFAULT_SCROLL_SIZE
 init|=
-literal|100
+literal|1000
 decl_stmt|;
 comment|/**      * The search to be executed.      */
 DECL|field|searchRequest
@@ -352,13 +352,21 @@ name|maxRetries
 init|=
 literal|11
 decl_stmt|;
-comment|/**      * The throttle for this request in sub-requests per second. 0 means set no throttle and that is the default. Throttling is done between      * batches, as we start the next scroll requests. That way we can increase the scroll's timeout to make sure that it contains any time      * that we might wait.      */
+comment|/**      * The throttle for this request in sub-requests per second. {@link Float#POSITIVE_INFINITY} means set no throttle and that is the      * default. Throttling is done between batches, as we start the next scroll requests. That way we can increase the scroll's timeout to      * make sure that it contains any time that we might wait.      */
 DECL|field|requestsPerSecond
 specifier|private
 name|float
 name|requestsPerSecond
 init|=
-literal|0
+name|Float
+operator|.
+name|POSITIVE_INFINITY
+decl_stmt|;
+comment|/**      * Should this task persist its result?      */
+DECL|field|shouldPersistResult
+specifier|private
+name|boolean
+name|shouldPersistResult
 decl_stmt|;
 DECL|method|AbstractBulkByScrollRequest
 specifier|public
@@ -472,7 +480,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 operator|!=
 literal|null
@@ -482,7 +490,7 @@ name|e
 operator|=
 name|addValidationError
 argument_list|(
-literal|"fields is not supported in this context"
+literal|"stored_fields is not supported in this context"
 argument_list|,
 name|e
 argument_list|)
@@ -821,7 +829,7 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * The throttle for this request in sub-requests per second. 0 means set no throttle and that is the default.      */
+comment|/**      * The throttle for this request in sub-requests per second. {@link Float#POSITIVE_INFINITY} means set no throttle and that is the      * default. Throttling is done between batches, as we start the next scroll requests. That way we can increase the scroll's timeout to      * make sure that it contains any time that we might wait.      */
 DECL|method|getRequestsPerSecond
 specifier|public
 name|float
@@ -832,7 +840,7 @@ return|return
 name|requestsPerSecond
 return|;
 block|}
-comment|/**      * Set the throttle for this request in sub-requests per second. 0 means set no throttle and that is the default.      */
+comment|/**      * Set the throttle for this request in sub-requests per second. {@link Float#POSITIVE_INFINITY} means set no throttle and that is the      * default. Throttling is done between batches, as we start the next scroll requests. That way we can increase the scroll's timeout to      * make sure that it contains any time that we might wait.      */
 DECL|method|setRequestsPerSecond
 specifier|public
 name|Self
@@ -842,6 +850,21 @@ name|float
 name|requestsPerSecond
 parameter_list|)
 block|{
+if|if
+condition|(
+name|requestsPerSecond
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[requests_per_second] must be greater than 0. Use Float.POSITIVE_INFINITY to disable throttling."
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|requestsPerSecond
@@ -851,6 +874,39 @@ expr_stmt|;
 return|return
 name|self
 argument_list|()
+return|;
+block|}
+comment|/**      * Should this task persist its result after it has finished?      */
+DECL|method|setShouldPersistResult
+specifier|public
+name|Self
+name|setShouldPersistResult
+parameter_list|(
+name|boolean
+name|shouldPersistResult
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shouldPersistResult
+operator|=
+name|shouldPersistResult
+expr_stmt|;
+return|return
+name|self
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getShouldPersistResult
+specifier|public
+name|boolean
+name|getShouldPersistResult
+parameter_list|()
+block|{
+return|return
+name|shouldPersistResult
 return|;
 block|}
 annotation|@
@@ -948,9 +1004,8 @@ argument_list|()
 expr_stmt|;
 name|timeout
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)
@@ -969,9 +1024,8 @@ argument_list|)
 expr_stmt|;
 name|retryBackoffInitialTime
 operator|=
+operator|new
 name|TimeValue
-operator|.
-name|readTimeValue
 argument_list|(
 name|in
 argument_list|)

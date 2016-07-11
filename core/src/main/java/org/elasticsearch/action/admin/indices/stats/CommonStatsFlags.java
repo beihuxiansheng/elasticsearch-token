@@ -114,8 +114,8 @@ name|Cloneable
 block|{
 DECL|field|ALL
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|CommonStatsFlags
 name|ALL
 init|=
@@ -128,8 +128,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|NONE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|CommonStatsFlags
 name|NONE
 init|=
@@ -984,12 +984,6 @@ DECL|enum constant|Warmer
 name|Warmer
 argument_list|(
 literal|"warmer"
-argument_list|)
-block|,
-DECL|enum constant|PercolatorCache
-name|PercolatorCache
-argument_list|(
-literal|"percolator_cache"
 argument_list|)
 block|,
 DECL|enum constant|Completion

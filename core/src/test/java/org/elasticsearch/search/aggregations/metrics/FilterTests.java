@@ -60,7 +60,7 @@ name|bucket
 operator|.
 name|filter
 operator|.
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 import|;
 end_import
 
@@ -72,22 +72,22 @@ name|FilterTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 name|factory
 init|=
 operator|new
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

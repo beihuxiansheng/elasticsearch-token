@@ -283,9 +283,6 @@ class|class
 name|InternalAwsS3Service
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|AwsS3Service
-argument_list|>
 implements|implements
 name|AwsS3Service
 block|{
@@ -310,8 +307,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|InternalAwsS3Service
 specifier|public
 name|InternalAwsS3Service
@@ -351,6 +346,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|boolean
+name|useThrottleRetries
 parameter_list|,
 name|Boolean
 name|pathStyleAccess
@@ -416,6 +414,8 @@ name|key
 argument_list|,
 name|maxRetries
 argument_list|,
+name|useThrottleRetries
+argument_list|,
 name|pathStyleAccess
 argument_list|)
 return|;
@@ -440,6 +440,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|boolean
+name|useThrottleRetries
 parameter_list|,
 name|Boolean
 name|pathStyleAccess
@@ -603,6 +606,13 @@ name|maxRetries
 argument_list|)
 expr_stmt|;
 block|}
+name|clientConfiguration
+operator|.
+name|setUseThrottleRetries
+argument_list|(
+name|useThrottleRetries
+argument_list|)
+expr_stmt|;
 comment|// #155: we might have 3rd party users using older S3 API version
 name|String
 name|awsSigner
@@ -919,6 +929,21 @@ condition|)
 block|{
 return|return
 literal|"s3-us-west-2.amazonaws.com"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|region
+operator|.
+name|equals
+argument_list|(
+literal|"ap-south-1"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"s3-ap-south-1.amazonaws.com"
 return|;
 block|}
 elseif|else

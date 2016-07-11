@@ -442,7 +442,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -507,6 +507,18 @@ operator|.
 name|transport
 operator|.
 name|CapturingTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|TestThreadPool
 import|;
 end_import
 
@@ -746,9 +758,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -762,9 +772,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -1350,7 +1358,7 @@ block|{
 name|THREAD_POOL
 operator|=
 operator|new
-name|ThreadPool
+name|TestThreadPool
 argument_list|(
 name|TransportBroadcastByNodeActionTests
 operator|.
@@ -1396,6 +1404,11 @@ init|=
 operator|new
 name|TransportService
 argument_list|(
+name|clusterService
+operator|.
+name|getSettings
+argument_list|()
+argument_list|,
 name|transport
 argument_list|,
 name|THREAD_POOL
@@ -1832,9 +1845,10 @@ literal|"node_"
 operator|+
 name|nodeId
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3562,8 +3576,8 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException

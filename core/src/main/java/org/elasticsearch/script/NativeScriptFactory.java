@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory to create instances of either {@link ExecutableScript} or {@link SearchScript}. Note,  * if this factory creates {@link SearchScript}, it must extend {@link AbstractSearchScript}.  *  * @see AbstractExecutableScript  * @see AbstractSearchScript  * @see AbstractFloatSearchScript  * @see AbstractLongSearchScript  * @see AbstractDoubleSearchScript  */
+comment|/**  * A factory to create instances of either {@link ExecutableScript} or {@link SearchScript}. Note,  * if this factory creates {@link SearchScript}, it must extend {@link AbstractSearchScript}.  *  * @see AbstractExecutableScript  * @see AbstractSearchScript  * @see AbstractLongSearchScript  * @see AbstractDoubleSearchScript  */
 end_comment
 
 begin_interface
@@ -62,10 +62,16 @@ argument_list|>
 name|params
 parameter_list|)
 function_decl|;
-comment|/**      * Indicates if document scores may be needed by the produced scripts.      *       * @return {@code true} if scores are needed.      */
+comment|/**      * Indicates if document scores may be needed by the produced scripts.      *      * @return {@code true} if scores are needed.      */
 DECL|method|needsScores
 name|boolean
 name|needsScores
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the name of the script factory      */
+DECL|method|getName
+name|String
+name|getName
 parameter_list|()
 function_decl|;
 block|}

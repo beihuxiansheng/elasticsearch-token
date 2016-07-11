@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -140,7 +142,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestToXContentListener
+name|RestActions
+operator|.
+name|NodesResponseRestListener
 import|;
 end_import
 
@@ -167,16 +171,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|controller
@@ -226,7 +225,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -274,13 +273,25 @@ argument_list|(
 name|clusterStatsRequest
 argument_list|,
 operator|new
-name|RestToXContentListener
+name|NodesResponseRestListener
 argument_list|<>
 argument_list|(
 name|channel
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|canTripCircuitBreaker
+specifier|public
+name|boolean
+name|canTripCircuitBreaker
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class

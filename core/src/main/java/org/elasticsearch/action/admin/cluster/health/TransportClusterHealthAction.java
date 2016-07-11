@@ -84,18 +84,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -325,12 +313,6 @@ argument_list|,
 name|ClusterHealthResponse
 argument_list|>
 block|{
-DECL|field|clusterName
-specifier|private
-specifier|final
-name|ClusterName
-name|clusterName
-decl_stmt|;
 DECL|field|gatewayAllocator
 specifier|private
 specifier|final
@@ -355,9 +337,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|ClusterName
-name|clusterName
-parameter_list|,
 name|ActionFilters
 name|actionFilters
 parameter_list|,
@@ -376,6 +355,8 @@ name|ClusterHealthAction
 operator|.
 name|NAME
 argument_list|,
+literal|false
+argument_list|,
 name|transportService
 argument_list|,
 name|clusterService
@@ -390,12 +371,6 @@ name|ClusterHealthRequest
 operator|::
 operator|new
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterName
-operator|=
-name|clusterName
 expr_stmt|;
 name|this
 operator|.
@@ -692,8 +667,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -702,7 +677,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -711,7 +686,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1966,7 +1941,10 @@ init|=
 operator|new
 name|ClusterHealthResponse
 argument_list|(
-name|clusterName
+name|clusterState
+operator|.
+name|getClusterName
+argument_list|()
 operator|.
 name|value
 argument_list|()
@@ -2008,7 +1986,10 @@ return|return
 operator|new
 name|ClusterHealthResponse
 argument_list|(
-name|clusterName
+name|clusterState
+operator|.
+name|getClusterName
+argument_list|()
 operator|.
 name|value
 argument_list|()

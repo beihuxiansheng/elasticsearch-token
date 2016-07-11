@@ -2322,8 +2322,8 @@ block|}
 block|}
 block|;
 DECL|method|create
-specifier|abstract
 specifier|public
+specifier|abstract
 name|TokenStream
 name|create
 parameter_list|(

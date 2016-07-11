@@ -105,7 +105,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * The hits of the search request (based on the search type, and from / size provided).      */
 DECL|method|getHits
-specifier|public
 name|SearchHit
 index|[]
 name|getHits

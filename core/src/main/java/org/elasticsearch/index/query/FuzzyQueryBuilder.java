@@ -246,6 +246,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Query that does fuzzy matching for a specific value.  *  * @deprecated Fuzzy queries are not useful enough. This class will be removed with Elasticsearch 4.0. In most cases you may want to use  * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.  */
 end_comment
@@ -264,9 +274,6 @@ name|FuzzyQueryBuilder
 argument_list|>
 implements|implements
 name|MultiTermQueryBuilder
-argument_list|<
-name|FuzzyQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -1124,7 +1131,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|FuzzyQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1582,6 +1592,10 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 operator|new
 name|FuzzyQueryBuilder
 argument_list|(
@@ -1623,6 +1637,7 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
+argument_list|)
 argument_list|)
 return|;
 block|}

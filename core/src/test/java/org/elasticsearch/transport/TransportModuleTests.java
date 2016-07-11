@@ -30,6 +30,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|ClusterName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|inject
@@ -156,9 +168,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 parameter_list|)
@@ -170,8 +179,6 @@ argument_list|,
 name|circuitBreakerService
 argument_list|,
 name|threadPool
-argument_list|,
-name|version
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

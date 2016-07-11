@@ -20,13 +20,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|util
-operator|.
-name|SuppressForbidden
+name|Classes
 import|;
 end_import
 
@@ -38,7 +36,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Classes
+name|SuppressForbidden
 import|;
 end_import
 
@@ -162,8 +160,8 @@ name|Loggers
 block|{
 DECL|field|commonPrefix
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|commonPrefix
 init|=

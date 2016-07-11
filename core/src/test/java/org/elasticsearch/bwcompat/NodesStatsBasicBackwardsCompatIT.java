@@ -80,26 +80,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|stats
-operator|.
-name|NodesStatsResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|transport
@@ -285,9 +265,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Just verify that the NS can be sent and serialized/deserialized between nodes with basic indices
-name|NodesStatsResponse
-name|ns
-init|=
 name|tc
 operator|.
 name|admin
@@ -309,7 +286,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|tc
 operator|.
 name|close
@@ -540,9 +517,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|NodesStatsResponse
-name|ns
-init|=
 name|nsBuilder
 operator|.
 name|execute
@@ -550,7 +524,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|tc
 operator|.
 name|close

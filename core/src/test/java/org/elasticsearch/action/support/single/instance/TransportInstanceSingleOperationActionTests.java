@@ -350,6 +350,18 @@ name|elasticsearch
 operator|.
 name|threadpool
 operator|.
+name|TestThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
 name|ThreadPool
 import|;
 end_import
@@ -514,9 +526,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -530,9 +540,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -877,7 +885,7 @@ block|{
 name|THREAD_POOL
 operator|=
 operator|new
-name|ThreadPool
+name|TestThreadPool
 argument_list|(
 name|TransportInstanceSingleOperationActionTests
 operator|.
@@ -921,6 +929,11 @@ operator|=
 operator|new
 name|TransportService
 argument_list|(
+name|clusterService
+operator|.
+name|getSettings
+argument_list|()
+argument_list|,
 name|transport
 argument_list|,
 name|THREAD_POOL
@@ -1129,8 +1142,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -1139,7 +1152,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrap
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|ClusterBlockException
 operator|.
@@ -1155,7 +1168,7 @@ name|info
 argument_list|(
 literal|"expected ClusterBlockException  but got "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|fail
@@ -2272,8 +2285,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -2282,7 +2295,7 @@ name|ExceptionsHelper
 operator|.
 name|unwrap
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|IllegalStateException
 operator|.
@@ -2298,7 +2311,7 @@ name|info
 argument_list|(
 literal|"expected IllegalStateException  but got "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|fail

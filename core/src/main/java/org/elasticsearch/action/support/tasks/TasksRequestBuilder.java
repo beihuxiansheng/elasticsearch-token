@@ -68,6 +68,18 @@ name|TimeValue
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskId
+import|;
+end_import
+
 begin_comment
 comment|/**  * Builder for task-based requests  */
 end_comment
@@ -140,6 +152,36 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Set the task to lookup.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|setTaskId
+specifier|public
+specifier|final
+name|RequestBuilder
+name|setTaskId
+parameter_list|(
+name|TaskId
+name|taskId
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setTaskId
+argument_list|(
+name|taskId
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|RequestBuilder
+operator|)
+name|this
+return|;
 block|}
 annotation|@
 name|SuppressWarnings

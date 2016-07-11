@@ -280,7 +280,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -369,6 +369,18 @@ operator|.
 name|transport
 operator|.
 name|CapturingTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|TestThreadPool
 import|;
 end_import
 
@@ -508,9 +520,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -524,9 +534,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -615,7 +623,7 @@ block|{
 name|threadPool
 operator|=
 operator|new
-name|ThreadPool
+name|TestThreadPool
 argument_list|(
 literal|"TransportMasterNodeActionTests"
 argument_list|)
@@ -656,6 +664,11 @@ operator|=
 operator|new
 name|TransportService
 argument_list|(
+name|clusterService
+operator|.
+name|getSettings
+argument_list|()
+argument_list|,
 name|transport
 argument_list|,
 name|threadPool
@@ -678,9 +691,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"local_node"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -710,9 +724,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"remote_node"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -996,6 +1011,8 @@ operator|.
 name|SAME
 argument_list|,
 name|listener
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1120,11 +1137,11 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Throwable
+name|Exception
 name|exception
 init|=
 operator|new
-name|Throwable
+name|Exception
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1663,11 +1680,11 @@ name|localNode
 argument_list|,
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 name|localNode
 argument_list|,
 name|remoteNode
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|allNodes
@@ -2489,7 +2506,7 @@ name|allNodes
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Throwable
+name|Exception
 name|failure
 init|=
 name|randomBoolean

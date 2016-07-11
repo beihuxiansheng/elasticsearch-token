@@ -411,6 +411,9 @@ specifier|static
 name|void
 name|write
 parameter_list|(
+name|ChannelFactory
+name|factory
+parameter_list|,
 name|Path
 name|checkpointFile
 parameter_list|,
@@ -429,7 +432,7 @@ init|(
 name|FileChannel
 name|channel
 init|=
-name|FileChannel
+name|factory
 operator|.
 name|open
 argument_list|(

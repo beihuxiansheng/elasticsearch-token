@@ -194,6 +194,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|geo
 operator|.
 name|RandomShapeGenerator
@@ -750,13 +762,31 @@ operator|.
 name|points
 argument_list|()
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|geoQuery
+operator|.
+name|getPolygons
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 name|double
 index|[]
 name|lats
 init|=
 name|geoQuery
 operator|.
-name|getLats
+name|getPolygons
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getPolyLats
 argument_list|()
 decl_stmt|;
 name|double
@@ -765,7 +795,13 @@ name|lons
 init|=
 name|geoQuery
 operator|.
-name|getLons
+name|getPolygons
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getPolyLons
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1442,7 +1478,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Deprecated field [normalize] used, expected [coerce] instead"
+literal|"Deprecated field [normalize] used, replaced by [use validation_method instead]"
 argument_list|,
 name|ex
 operator|.
@@ -1997,6 +2033,18 @@ name|GEO_POINT_FIELD_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|q
+operator|.
+name|getPolygons
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 specifier|final
 name|double
 index|[]
@@ -2004,7 +2052,13 @@ name|lats
 init|=
 name|q
 operator|.
-name|getLats
+name|getPolygons
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getPolyLats
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -2014,7 +2068,13 @@ name|lons
 init|=
 name|q
 operator|.
-name|getLons
+name|getPolygons
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getPolyLons
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2201,9 +2261,7 @@ literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ],
 operator|+
 literal|"    },\n"
 operator|+
-literal|"    \"coerce\" : false,\n"
-operator|+
-literal|"    \"ignore_malformed\" : false,\n"
+literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
 literal|"    \"ignore_unmapped\" : false,\n"
 operator|+
@@ -2244,6 +2302,128 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonIgnoreMalformedDeprecated
+specifier|public
+name|void
+name|testFromJsonIgnoreMalformedDeprecated
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"ignore_malformed\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonCoerceDeprecated
+specifier|public
+name|void
+name|testFromJsonCoerceDeprecated
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"coerce\" : false,\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

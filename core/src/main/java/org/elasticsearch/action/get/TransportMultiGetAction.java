@@ -633,11 +633,6 @@ name|concreteSingleIndex
 argument_list|,
 name|item
 operator|.
-name|type
-argument_list|()
-argument_list|,
-name|item
-operator|.
 name|id
 argument_list|()
 argument_list|,
@@ -868,7 +863,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

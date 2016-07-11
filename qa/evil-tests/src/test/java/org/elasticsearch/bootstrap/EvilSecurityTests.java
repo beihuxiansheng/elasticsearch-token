@@ -356,6 +356,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** test generated permissions for all configured paths */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// needs to check settings for deprecated path
 DECL|method|testEnvironmentPaths
 specifier|public
 name|void
@@ -451,28 +457,6 @@ operator|.
 name|resolve
 argument_list|(
 literal|"scripts"
-argument_list|)
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|settingsBuilder
-operator|.
-name|put
-argument_list|(
-name|Environment
-operator|.
-name|PATH_PLUGINS_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|esHome
-operator|.
-name|resolve
-argument_list|(
-literal|"plugins"
 argument_list|)
 operator|.
 name|toString

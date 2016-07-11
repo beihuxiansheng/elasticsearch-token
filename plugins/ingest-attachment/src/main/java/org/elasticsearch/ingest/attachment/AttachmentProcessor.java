@@ -88,8 +88,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|AbstractProcessor
 import|;
 end_import
@@ -102,9 +100,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
-name|AbstractProcessorFactory
+name|IngestDocument
 import|;
 end_import
 
@@ -116,9 +112,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
-name|IngestDocument
+name|Processor
 import|;
 end_import
 
@@ -210,8 +204,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 operator|.
 name|newConfigurationException
@@ -225,8 +217,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|ConfigurationUtils
 operator|.
@@ -242,8 +232,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|ConfigurationUtils
 operator|.
 name|readOptionalList
@@ -257,8 +245,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|core
 operator|.
 name|ConfigurationUtils
 operator|.
@@ -828,7 +814,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -911,11 +897,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
-argument_list|<
-name|AttachmentProcessor
-argument_list|>
+implements|implements
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|DEFAULT_PROPERTIES
 specifier|static
@@ -937,11 +922,21 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|AttachmentProcessor
-name|doCreate
+name|create
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|registry
+parameter_list|,
 name|String
 name|processorTag
 parameter_list|,

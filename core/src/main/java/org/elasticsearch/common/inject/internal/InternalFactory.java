@@ -49,8 +49,6 @@ parameter_list|>
 block|{
 comment|/**      * ES:      * An factory that returns a pre created instance.      */
 DECL|class|Instance
-specifier|public
-specifier|static
 class|class
 name|Instance
 parameter_list|<

@@ -222,19 +222,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|ProfileBreakdown
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|profile
+name|query
 operator|.
 name|ProfileWeight
 import|;
@@ -250,7 +238,41 @@ name|search
 operator|.
 name|profile
 operator|.
-name|Profiler
+name|query
+operator|.
+name|QueryProfileBreakdown
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
+name|query
+operator|.
+name|QueryProfiler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
+name|query
+operator|.
+name|QueryTimingType
 import|;
 end_import
 
@@ -301,7 +323,7 @@ decl_stmt|;
 comment|// TODO revisit moving the profiler to inheritance or wrapping model in the future
 DECL|field|profiler
 specifier|private
-name|Profiler
+name|QueryProfiler
 name|profiler
 decl_stmt|;
 DECL|method|ContextIndexSearcher
@@ -376,7 +398,7 @@ specifier|public
 name|void
 name|setProfiler
 parameter_list|(
-name|Profiler
+name|QueryProfiler
 name|profiler
 parameter_list|)
 block|{
@@ -556,7 +578,7 @@ block|{
 comment|// createWeight() is called for each query in the tree, so we tell the queryProfiler
 comment|// each invocation so that it can build an internal representation of the query
 comment|// tree
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|profile
 init|=
 name|profiler
@@ -570,9 +592,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|CREATE_WEIGHT
 argument_list|)
@@ -604,7 +624,7 @@ argument_list|()
 expr_stmt|;
 name|profiler
 operator|.
-name|pollLastQuery
+name|pollLastElement
 argument_list|()
 expr_stmt|;
 block|}

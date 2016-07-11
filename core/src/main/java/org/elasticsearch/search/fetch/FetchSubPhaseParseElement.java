@@ -77,8 +77,8 @@ block|{
 annotation|@
 name|Override
 DECL|method|parse
-specifier|final
 specifier|public
+specifier|final
 name|void
 name|parse
 parameter_list|(

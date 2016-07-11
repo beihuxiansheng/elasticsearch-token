@@ -272,9 +272,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|QueryBuilder
-argument_list|<
-name|QB
-argument_list|>
 block|{
 comment|/** Default for boost to apply to resulting Lucene query. Defaults to 1.0*/
 DECL|field|DEFAULT_BOOST
@@ -623,14 +620,16 @@ init|=
 name|context
 operator|.
 name|isFilter
+argument_list|()
 decl_stmt|;
 try|try
 block|{
 name|context
 operator|.
-name|isFilter
-operator|=
+name|setIsFilter
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 name|result
 operator|=
@@ -644,9 +643,10 @@ finally|finally
 block|{
 name|context
 operator|.
-name|isFilter
-operator|=
+name|setIsFilter
+argument_list|(
 name|originalIsFilter
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -990,9 +990,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queryBuilders
 parameter_list|,
@@ -1023,9 +1020,6 @@ decl_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 range|:
 name|queryBuilders
@@ -1077,6 +1071,7 @@ return|;
 block|}
 DECL|method|writeQueries
 specifier|protected
+specifier|static
 specifier|final
 name|void
 name|writeQueries
@@ -1089,9 +1084,6 @@ argument_list|<
 name|?
 extends|extends
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 parameter_list|)
@@ -1111,9 +1103,6 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 range|:
 name|queries
@@ -1130,13 +1119,11 @@ block|}
 block|}
 DECL|method|readQueries
 specifier|protected
+specifier|static
 specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|readQueries
 parameter_list|(
@@ -1149,9 +1136,6 @@ block|{
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 init|=
@@ -1208,9 +1192,6 @@ DECL|method|rewrite
 specifier|public
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -1220,9 +1201,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|doRewrite
@@ -1297,9 +1275,6 @@ block|}
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext

@@ -152,7 +152,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|InternalProfileShardResults
+name|ProfileShardResult
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|ProfileShardResult
+name|SearchProfileShardResults
 import|;
 end_import
 
@@ -201,16 +201,6 @@ operator|.
 name|util
 operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -299,7 +289,7 @@ name|suggest
 decl_stmt|;
 DECL|field|profileResults
 specifier|private
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 name|profileResults
 decl_stmt|;
 DECL|field|timedOut
@@ -332,7 +322,7 @@ parameter_list|,
 name|Suggest
 name|suggest
 parameter_list|,
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 name|profileResults
 parameter_list|,
 name|boolean
@@ -440,10 +430,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|List
-argument_list|<
 name|ProfileShardResult
-argument_list|>
 argument_list|>
 name|profile
 parameter_list|()
@@ -672,7 +659,7 @@ block|{
 name|profileResults
 operator|=
 operator|new
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 argument_list|(
 name|in
 argument_list|)

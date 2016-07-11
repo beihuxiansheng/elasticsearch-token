@@ -182,9 +182,6 @@ decl_stmt|;
 DECL|field|query
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 decl_stmt|;
 DECL|field|fields
@@ -389,9 +386,6 @@ block|}
 DECL|method|query
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|()
 block|{
@@ -405,9 +399,6 @@ name|ExplainRequest
 name|query
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|)
 block|{

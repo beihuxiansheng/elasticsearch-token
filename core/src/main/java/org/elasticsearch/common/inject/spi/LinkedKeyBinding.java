@@ -64,7 +64,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Returns the linked key used to resolve injections. That binding can be retrieved from an      * injector using {@link org.elasticsearch.common.inject.Injector#getBinding(Key) Injector.getBinding(key)}.      */
+comment|/**      * Returns the linked key used to resolve injections.      */
 DECL|method|getLinkedKey
 name|Key
 argument_list|<

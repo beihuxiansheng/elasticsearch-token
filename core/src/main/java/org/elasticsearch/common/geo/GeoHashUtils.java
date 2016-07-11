@@ -46,9 +46,11 @@ name|lucene
 operator|.
 name|spatial
 operator|.
-name|util
+name|geopoint
 operator|.
-name|GeoEncodingUtils
+name|document
+operator|.
+name|GeoPointField
 import|;
 end_import
 
@@ -181,7 +183,7 @@ name|short
 name|MORTON_OFFSET
 init|=
 operator|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
 name|BITS
 operator|<<
@@ -250,9 +252,9 @@ name|BitUtil
 operator|.
 name|flipFlop
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 name|lat
 argument_list|,
@@ -634,9 +636,9 @@ name|ghLong
 init|=
 name|fromMorton
 argument_list|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
-name|mortonHash
+name|encodeLatLon
 argument_list|(
 name|lat
 argument_list|,
@@ -720,7 +722,7 @@ name|short
 name|msf
 init|=
 operator|(
-name|GeoEncodingUtils
+name|GeoPointField
 operator|.
 name|BITS
 operator|<<
@@ -943,7 +945,6 @@ block|}
 DECL|method|encode
 specifier|private
 specifier|static
-specifier|final
 name|char
 name|encode
 parameter_list|(
@@ -1049,8 +1050,8 @@ block|}
 comment|/**      * Calculate the geohash of a neighbor of a geohash      *      * @param geohash the geohash of a cell      * @param level   level of the geohash      * @param dx      delta of the first grid coordinate (must be -1, 0 or +1)      * @param dy      delta of the second grid coordinate (must be -1, 0 or +1)      * @return geohash of the defined cell      */
 DECL|method|neighbor
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|neighbor
 parameter_list|(

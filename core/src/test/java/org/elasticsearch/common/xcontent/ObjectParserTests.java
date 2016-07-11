@@ -170,8 +170,8 @@ name|ESTestCase
 block|{
 DECL|field|STRICT_PARSING
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ParseFieldMatcherSupplier
 name|STRICT_PARSING
 init|=

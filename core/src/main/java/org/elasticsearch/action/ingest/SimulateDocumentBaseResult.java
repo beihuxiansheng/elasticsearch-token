@@ -80,8 +80,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
 name|IngestDocument
 import|;
 end_import
@@ -190,7 +188,7 @@ name|failure
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 block|}
@@ -256,7 +254,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|failure
 argument_list|)
@@ -339,7 +337,7 @@ else|else
 block|{
 name|ElasticsearchException
 operator|.
-name|renderThrowable
+name|renderException
 argument_list|(
 name|builder
 argument_list|,

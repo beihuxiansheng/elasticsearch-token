@@ -554,20 +554,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2967,7 +2953,6 @@ annotation|@
 name|Override
 DECL|method|toString
 specifier|public
-specifier|final
 name|String
 name|toString
 parameter_list|()
@@ -4561,7 +4546,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|MoreLikeThisQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -5966,7 +5954,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|moreLikeThisQueryBuilder
+argument_list|)
 return|;
 block|}
 DECL|method|parseLikeField
@@ -7570,9 +7563,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
