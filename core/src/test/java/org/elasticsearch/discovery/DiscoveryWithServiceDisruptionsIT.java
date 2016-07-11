@@ -1489,14 +1489,6 @@ literal|"1s"
 argument_list|)
 comment|//<-- for hitting simulated network failures quickly
 operator|.
-name|put
-argument_list|(
-literal|"http.enabled"
-argument_list|,
-literal|false
-argument_list|)
-comment|// just to make test quicker
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
