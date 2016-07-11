@@ -1414,13 +1414,6 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|scrollContext
-operator|==
-literal|null
-condition|)
-block|{
 name|long
 name|from
 init|=
@@ -1474,6 +1467,13 @@ operator|>
 name|maxResultWindow
 condition|)
 block|{
+if|if
+condition|(
+name|scrollContext
+operator|==
+literal|null
+condition|)
+block|{
 throw|throw
 operator|new
 name|QueryPhaseExecutionException
@@ -1503,6 +1503,32 @@ literal|"] index level setting."
 argument_list|)
 throw|;
 block|}
+throw|throw
+operator|new
+name|QueryPhaseExecutionException
+argument_list|(
+name|this
+argument_list|,
+literal|"Batch size is too large, size must be less than or equal to: ["
+operator|+
+name|maxResultWindow
+operator|+
+literal|"] but was ["
+operator|+
+name|resultWindow
+operator|+
+literal|"]. Scroll batch sizes cost as much memory as result windows so they are controlled by the ["
+operator|+
+name|IndexSettings
+operator|.
+name|MAX_RESULT_WINDOW_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] index level setting."
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
