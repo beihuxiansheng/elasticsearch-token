@@ -616,7 +616,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|allOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -653,6 +689,18 @@ operator|.
 name|Matchers
 operator|.
 name|hasKey
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasToString
 import|;
 end_import
 
@@ -4027,9 +4075,13 @@ argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
+specifier|final
+name|IllegalStateException
+name|e
+init|=
 name|expectThrows
 argument_list|(
-name|IllegalArgumentException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|,
@@ -4055,6 +4107,19 @@ argument_list|,
 name|executor
 argument_list|,
 name|listener
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+argument_list|,
+name|hasToString
+argument_list|(
+name|containsString
+argument_list|(
+literal|"task [1] with source [second time] is already queued"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5233,6 +5298,23 @@ operator|.
 name|equals
 argument_list|(
 name|obj
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|id
 argument_list|)
 return|;
 block|}
