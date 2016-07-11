@@ -1590,7 +1590,7 @@ name|PATH_STYLE_ACCESS_SETTING
 operator|.
 name|exists
 argument_list|(
-name|repositorySettings
+name|metadata
 operator|.
 name|settings
 argument_list|()
@@ -1602,10 +1602,7 @@ name|PATH_STYLE_ACCESS_SETTING
 operator|.
 name|exists
 argument_list|(
-name|repositorySettings
-operator|.
-name|globalSettings
-argument_list|()
+name|settings
 argument_list|)
 condition|)
 block|{
@@ -1613,7 +1610,12 @@ name|pathStyleAccess
 operator|=
 name|getValue
 argument_list|(
-name|repositorySettings
+name|metadata
+operator|.
+name|settings
+argument_list|()
+argument_list|,
+name|settings
 argument_list|,
 name|Repository
 operator|.
