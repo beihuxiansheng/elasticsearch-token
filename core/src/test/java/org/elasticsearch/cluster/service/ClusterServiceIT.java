@@ -3825,7 +3825,7 @@ name|Plugin
 block|{
 annotation|@
 name|Override
-DECL|method|nodeServices
+DECL|method|getGuiceServiceClasses
 specifier|public
 name|Collection
 argument_list|<
@@ -3836,7 +3836,7 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|nodeServices
+name|getGuiceServiceClasses
 parameter_list|()
 block|{
 name|List
