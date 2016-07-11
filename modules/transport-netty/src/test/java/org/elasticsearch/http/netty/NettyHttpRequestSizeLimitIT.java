@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ESNettyIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|collect
@@ -283,7 +293,7 @@ specifier|public
 class|class
 name|NettyHttpRequestSizeLimitIT
 extends|extends
-name|ESIntegTestCase
+name|ESNettyIntegTestCase
 block|{
 DECL|field|LIMIT
 specifier|private
