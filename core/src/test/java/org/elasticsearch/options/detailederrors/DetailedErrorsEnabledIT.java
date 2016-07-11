@@ -241,8 +241,6 @@ literal|"error_trace"
 argument_list|,
 literal|"true"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -306,13 +304,6 @@ argument_list|(
 literal|"DELETE"
 argument_list|,
 literal|"/"
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|fail

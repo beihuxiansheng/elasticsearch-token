@@ -358,8 +358,6 @@ argument_list|,
 literal|"/_nodes/http"
 argument_list|,
 name|sniffRequestParams
-argument_list|,
-literal|null
 argument_list|)
 init|)
 block|{
