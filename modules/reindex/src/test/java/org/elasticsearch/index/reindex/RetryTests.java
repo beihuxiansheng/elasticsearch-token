@@ -477,7 +477,7 @@ name|BogusPlugin
 extends|extends
 name|Plugin
 block|{
-comment|// se NettyUtils.... this runs without the permission from the netty module so it will fail since reindex can't set the property
+comment|// se NettyPlugin.... this runs without the permission from the netty module so it will fail since reindex can't set the property
 comment|// to make it still work we disable that check but need to register the setting first
 DECL|field|ASSERT_NETTY_BUGLEVEL
 specifier|private
