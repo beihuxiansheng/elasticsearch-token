@@ -1447,8 +1447,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-init|(
 name|org
 operator|.
 name|elasticsearch
@@ -1470,8 +1468,7 @@ name|params
 argument_list|,
 name|entity
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|InputStream
 name|markSupportedInputStream
 init|=
@@ -1494,7 +1491,6 @@ argument_list|(
 name|markSupportedInputStream
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

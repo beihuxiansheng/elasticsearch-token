@@ -4,54 +4,43 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.rest.section
+DECL|package|org.elasticsearch.client
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|section
+name|client
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|RestTestExecutionContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents a test fragment that can be executed (e.g. api call, assertion)  */
+comment|/**  * Listener to be provided when calling async performRequest methods provided by {@link RestClient}.  * Those methods that do accept a listener will return immediately, execute asynchronously, and notify  * the listener whenever the request yielded a response, or failed with an exception.  */
 end_comment
 
 begin_interface
-DECL|interface|ExecutableSection
+DECL|interface|ResponseListener
 specifier|public
 interface|interface
-name|ExecutableSection
+name|ResponseListener
 block|{
-comment|/**      * Executes the section passing in the execution context      */
-DECL|method|execute
+comment|/**      * Method invoked if the request yielded a successful response      */
+DECL|method|onSuccess
 name|void
-name|execute
+name|onSuccess
 parameter_list|(
-name|RestTestExecutionContext
-name|executionContext
+name|Response
+name|response
 parameter_list|)
-throws|throws
+function_decl|;
+comment|/**      * Method invoked if the request failed. There are two main categories of failures: connection failures (usually      * {@link java.io.IOException}s, or responses that were treated as errors based on their error response code      * ({@link ResponseException}s).      */
+DECL|method|onFailure
+name|void
+name|onFailure
+parameter_list|(
 name|Exception
+name|exception
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -78,9 +78,11 @@ name|http
 operator|.
 name|impl
 operator|.
+name|nio
+operator|.
 name|client
 operator|.
-name|HttpClientBuilder
+name|HttpAsyncClientBuilder
 import|;
 end_import
 
@@ -642,7 +644,7 @@ specifier|public
 name|void
 name|customizeHttpClient
 parameter_list|(
-name|HttpClientBuilder
+name|HttpAsyncClientBuilder
 name|httpClientBuilder
 parameter_list|)
 block|{                 }

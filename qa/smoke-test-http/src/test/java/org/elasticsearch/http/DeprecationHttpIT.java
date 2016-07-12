@@ -518,7 +518,7 @@ name|void
 name|testUniqueDeprecationResponsesMergedTogether
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 specifier|final
 name|String
@@ -685,8 +685,6 @@ operator|+
 literal|"\":{}}]}}}"
 decl_stmt|;
 comment|// trigger all index deprecations
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -718,8 +716,7 @@ operator|.
 name|JSON_CONTENT_TYPE
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -838,14 +835,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 DECL|method|testDeprecationWarningsAppearInHeaders
 specifier|public
 name|void
 name|testDeprecationWarningsAppearInHeaders
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|doTestDeprecationWarningsAppearInHeaders
 argument_list|()
@@ -857,7 +853,7 @@ name|void
 name|testDeprecationHeadersDoNotGetStuck
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|doTestDeprecationWarningsAppearInHeaders
 argument_list|()
@@ -883,7 +879,7 @@ name|void
 name|doTestDeprecationWarningsAppearInHeaders
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 specifier|final
 name|boolean
@@ -962,8 +958,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// trigger all deprecations
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -988,8 +982,7 @@ argument_list|,
 name|useDeprecatedField
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -1149,7 +1142,6 @@ name|headerMatcher
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getWarningHeaders

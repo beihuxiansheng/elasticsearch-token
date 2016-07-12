@@ -1764,8 +1764,6 @@ name|IRRELEVANT_HEADER
 init|=
 literal|"SomeIrrelevantHeader"
 decl_stmt|;
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -1798,8 +1796,7 @@ argument_list|,
 name|randomHeaderValue
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -1885,7 +1882,6 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getRequests

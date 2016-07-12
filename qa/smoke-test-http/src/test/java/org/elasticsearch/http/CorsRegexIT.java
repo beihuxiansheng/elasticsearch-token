@@ -121,6 +121,24 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpHeaders
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -337,8 +355,6 @@ name|corsValue
 init|=
 literal|"http://localhost:9200"
 decl_stmt|;
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -367,8 +383,7 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertResponseWithOriginheader
 argument_list|(
 name|response
@@ -376,16 +391,12 @@ argument_list|,
 name|corsValue
 argument_list|)
 expr_stmt|;
-block|}
 name|corsValue
 operator|=
 literal|"https://localhost:9200"
 expr_stmt|;
-try|try
-init|(
-name|Response
 name|response
-init|=
+operator|=
 name|getRestClient
 argument_list|()
 operator|.
@@ -411,9 +422,7 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-init|;
-init|)
-block|{
+expr_stmt|;
 name|assertResponseWithOriginheader
 argument_list|(
 name|response
@@ -436,7 +445,6 @@ literal|"true"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testThatRegularExpressionReturnsForbiddenOnNonMatch
 specifier|public
@@ -534,8 +542,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -556,8 +562,7 @@ argument_list|,
 literal|"Mozilla Bar"
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -588,7 +593,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 DECL|method|testThatRegularExpressionIsNotAppliedWithoutCorrectBrowserOnMatch
 specifier|public
 name|void
@@ -597,8 +601,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -611,8 +613,7 @@ literal|"GET"
 argument_list|,
 literal|"/"
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -642,7 +643,6 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testThatPreFlightRequestWorksOnMatch
 specifier|public
@@ -657,8 +657,6 @@ name|corsValue
 init|=
 literal|"http://localhost:9200"
 decl_stmt|;
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -690,14 +688,16 @@ argument_list|,
 operator|new
 name|BasicHeader
 argument_list|(
-literal|"Access-Control-Request-Method"
+name|HttpHeaders
+operator|.
+name|Names
+operator|.
+name|ACCESS_CONTROL_REQUEST_METHOD
 argument_list|,
 literal|"GET"
 argument_list|)
 argument_list|)
-init|;
-init|)
-block|{
+decl_stmt|;
 name|assertResponseWithOriginheader
 argument_list|(
 name|response
@@ -715,7 +715,6 @@ literal|"Access-Control-Allow-Methods"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testThatPreFlightRequestReturnsNullOnNonMatch
 specifier|public

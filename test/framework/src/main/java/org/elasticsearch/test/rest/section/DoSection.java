@@ -361,7 +361,7 @@ name|RestTestExecutionContext
 name|executionContext
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(
@@ -512,6 +512,9 @@ operator|new
 name|RestTestResponse
 argument_list|(
 name|e
+operator|.
+name|getResponse
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

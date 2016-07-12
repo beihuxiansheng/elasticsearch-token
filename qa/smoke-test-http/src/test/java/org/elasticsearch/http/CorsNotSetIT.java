@@ -97,8 +97,6 @@ name|corsValue
 init|=
 literal|"http://localhost:9200"
 decl_stmt|;
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -127,8 +125,7 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -172,7 +169,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 DECL|method|testThatOmittingCorsHeaderDoesNotReturnAnything
 specifier|public
 name|void
@@ -181,8 +177,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -195,8 +189,7 @@ literal|"GET"
 argument_list|,
 literal|"/"
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -239,7 +232,6 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

@@ -308,7 +308,7 @@ argument_list|>
 name|headers
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|//makes a copy of the parameters before modifying them for this specific request
 name|HashMap
@@ -429,6 +429,9 @@ operator|new
 name|RestTestResponse
 argument_list|(
 name|e
+operator|.
+name|getResponse
+argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -601,7 +604,7 @@ argument_list|>
 name|headers
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|restTestClient
@@ -655,7 +658,7 @@ name|Settings
 name|settings
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(

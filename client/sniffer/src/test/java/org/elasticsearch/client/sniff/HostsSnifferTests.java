@@ -304,16 +304,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -602,9 +592,7 @@ name|void
 name|testSniffNodes
 parameter_list|()
 throws|throws
-name|IOException
-throws|,
-name|URISyntaxException
+name|Exception
 block|{
 name|HttpHost
 name|httpHost

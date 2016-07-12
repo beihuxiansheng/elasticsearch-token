@@ -1864,9 +1864,7 @@ name|void
 name|logIfThereAreRunningTasks
 parameter_list|()
 throws|throws
-name|InterruptedException
-throws|,
-name|IOException
+name|Exception
 block|{
 name|RestTestResponse
 name|tasks
@@ -2028,7 +2026,7 @@ name|void
 name|reset
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// admin context must be available for @After always, regardless of whether the test was blacklisted
 name|adminExecutionContext
@@ -2323,7 +2321,7 @@ name|void
 name|test
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|//let's check that there is something to run, otherwise there might be a problem with the test section
 if|if
