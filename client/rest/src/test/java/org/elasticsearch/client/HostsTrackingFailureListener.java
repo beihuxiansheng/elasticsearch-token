@@ -83,13 +83,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.elasticsearch.client.RestClient.FailureListener} impl that allows to track when it gets called  */
+comment|/**  * {@link org.elasticsearch.client.RestClient.FailureListener} impl that allows to track when it gets called for which host.  */
 end_comment
 
 begin_class
-DECL|class|TrackingFailureListener
+DECL|class|HostsTrackingFailureListener
 class|class
-name|TrackingFailureListener
+name|HostsTrackingFailureListener
 extends|extends
 name|RestClient
 operator|.

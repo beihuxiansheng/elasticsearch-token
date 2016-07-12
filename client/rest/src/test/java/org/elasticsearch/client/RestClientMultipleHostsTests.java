@@ -495,7 +495,7 @@ name|httpHosts
 decl_stmt|;
 DECL|field|failureListener
 specifier|private
-name|TrackingFailureListener
+name|HostsTrackingFailureListener
 name|failureListener
 decl_stmt|;
 annotation|@
@@ -856,7 +856,7 @@ block|}
 name|failureListener
 operator|=
 operator|new
-name|TrackingFailureListener
+name|HostsTrackingFailureListener
 argument_list|()
 expr_stmt|;
 name|restClient

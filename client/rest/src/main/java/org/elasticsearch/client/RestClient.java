@@ -1194,11 +1194,11 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
-name|FailureTrackingListener
-name|failureTrackingListener
+name|FailureTrackingResponseListener
+name|failureTrackingResponseListener
 init|=
 operator|new
-name|FailureTrackingListener
+name|FailureTrackingResponseListener
 argument_list|(
 name|responseListener
 argument_list|)
@@ -1225,7 +1225,7 @@ name|request
 argument_list|,
 name|responseConsumer
 argument_list|,
-name|failureTrackingListener
+name|failureTrackingResponseListener
 argument_list|)
 expr_stmt|;
 block|}
@@ -1257,7 +1257,7 @@ argument_list|>
 name|responseConsumer
 parameter_list|,
 specifier|final
-name|FailureTrackingListener
+name|FailureTrackingResponseListener
 name|listener
 parameter_list|)
 block|{
@@ -2529,11 +2529,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|class|FailureTrackingListener
+DECL|class|FailureTrackingResponseListener
 specifier|private
 specifier|static
 class|class
-name|FailureTrackingListener
+name|FailureTrackingResponseListener
 block|{
 DECL|field|responseListener
 specifier|private
@@ -2547,8 +2547,8 @@ specifier|volatile
 name|Exception
 name|exception
 decl_stmt|;
-DECL|method|FailureTrackingListener
-name|FailureTrackingListener
+DECL|method|FailureTrackingResponseListener
+name|FailureTrackingResponseListener
 parameter_list|(
 name|ResponseListener
 name|responseListener
