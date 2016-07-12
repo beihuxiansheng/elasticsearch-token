@@ -214,6 +214,18 @@ name|ThreadPool
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|watcher
+operator|.
+name|ResourceWatcherService
+import|;
+end_import
+
 begin_comment
 comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * Implement any of these interfaces to extend Elasticsearch:  *<ul>  *<li>{@link ActionPlugin}  *<li>{@link AnalysisPlugin}  *<li>{@link MapperPlugin}  *<li>{@link ScriptPlugin}  *<li>{@link SearchPlugin}  *</ul>  */
 end_comment
@@ -264,7 +276,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      */
+comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      * @param resourceWatcherService A service to watch for changes to node local files      */
 DECL|method|createComponents
 specifier|public
 name|Collection
@@ -281,6 +293,9 @@ name|clusterService
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ResourceWatcherService
+name|resourceWatcherService
 parameter_list|)
 block|{
 return|return

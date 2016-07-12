@@ -2830,6 +2830,8 @@ argument_list|,
 name|clusterService
 argument_list|,
 name|threadPool
+argument_list|,
+name|resourceWatcherService
 argument_list|)
 operator|.
 name|stream
