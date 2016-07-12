@@ -498,7 +498,7 @@ name|String
 name|index
 decl_stmt|;
 DECL|class|BogusPlugin
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 class|class
