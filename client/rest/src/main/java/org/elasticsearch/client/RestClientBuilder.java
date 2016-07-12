@@ -564,6 +564,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|requestConfigBuilder
+operator|=
 name|requestConfigCallback
 operator|.
 name|customizeRequestConfig
@@ -606,6 +608,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|httpClientBuilder
+operator|=
 name|httpClientConfigCallback
 operator|.
 name|customizeHttpClient
@@ -629,7 +633,9 @@ name|RequestConfigCallback
 block|{
 comment|/**          * Allows to customize the {@link RequestConfig} that will be used with each request.          * It is common to customize the different timeout values through this method without losing any other useful default          * value that the {@link RestClientBuilder} internally sets.          */
 DECL|method|customizeRequestConfig
-name|void
+name|RequestConfig
+operator|.
+name|Builder
 name|customizeRequestConfig
 parameter_list|(
 name|RequestConfig
@@ -647,7 +653,7 @@ name|HttpClientConfigCallback
 block|{
 comment|/**          * Allows to customize the {@link CloseableHttpAsyncClient} being created and used by the {@link RestClient}.          * Commonly used to customize the default {@link org.apache.http.client.CredentialsProvider} for authentication          * or the {@link SchemeIOSessionStrategy} for communication through ssl without losing any other useful default          * value that the {@link RestClientBuilder} internally sets, like connection pooling.          */
 DECL|method|customizeHttpClient
-name|void
+name|HttpAsyncClientBuilder
 name|customizeHttpClient
 parameter_list|(
 name|HttpAsyncClientBuilder

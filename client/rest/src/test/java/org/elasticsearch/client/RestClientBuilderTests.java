@@ -639,13 +639,17 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|void
+name|HttpAsyncClientBuilder
 name|customizeHttpClient
 parameter_list|(
 name|HttpAsyncClientBuilder
 name|httpClientBuilder
 parameter_list|)
-block|{                 }
+block|{
+return|return
+name|httpClientBuilder
+return|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -672,7 +676,9 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|void
+name|RequestConfig
+operator|.
+name|Builder
 name|customizeRequestConfig
 parameter_list|(
 name|RequestConfig
@@ -680,7 +686,11 @@ operator|.
 name|Builder
 name|requestConfigBuilder
 parameter_list|)
-block|{                 }
+block|{
+return|return
+name|requestConfigBuilder
+return|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
