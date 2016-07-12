@@ -246,6 +246,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryBuilders
@@ -645,7 +657,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Tests for scrolling.  */
 end_comment
 
 begin_class
@@ -4329,6 +4341,7 @@ name|NOT_FOUND
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Tests that we use an optimization shrinking the batch to the size of the shard. Thus the Integer.MAX_VALUE window doesn't OOM us.      */
 DECL|method|testDeepScrollingDoesNotBlowUp
 specifier|public
 name|void
@@ -4363,6 +4376,46 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+comment|/*          * Disable the max result window setting for this test because it'll reject the search's unreasonable batch size. We want          * unreasonable batch sizes to just OOM.          */
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareUpdateSettings
+argument_list|(
+literal|"index"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|IndexSettings
+operator|.
+name|MAX_RESULT_WINDOW_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+argument_list|)
 operator|.
 name|get
 argument_list|()

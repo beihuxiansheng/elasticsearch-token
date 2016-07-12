@@ -393,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Integration test for registering a custom suggester.  */
 end_comment
 
 begin_class

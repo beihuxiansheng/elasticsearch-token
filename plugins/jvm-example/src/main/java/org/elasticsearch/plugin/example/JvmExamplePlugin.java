@@ -193,13 +193,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|nodeModules
+DECL|method|createGuiceModules
 specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
-name|nodeModules
+name|createGuiceModules
 parameter_list|()
 block|{
 return|return
@@ -224,7 +224,7 @@ argument_list|(
 literal|"rawtypes"
 argument_list|)
 comment|// Plugin use a rawtype
-DECL|method|nodeServices
+DECL|method|getGuiceServiceClasses
 specifier|public
 name|Collection
 argument_list|<
@@ -235,7 +235,7 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|nodeServices
+name|getGuiceServiceClasses
 parameter_list|()
 block|{
 name|Collection

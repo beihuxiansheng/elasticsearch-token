@@ -353,13 +353,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|nodeModules
+DECL|method|createGuiceModules
 specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
-name|nodeModules
+name|createGuiceModules
 parameter_list|()
 block|{
 return|return

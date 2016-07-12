@@ -36,6 +36,20 @@ name|common
 operator|.
 name|component
 operator|.
+name|AbstractComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|component
+operator|.
 name|LifecycleComponent
 import|;
 end_import
@@ -177,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * A plugin can be register custom extensions to builtin behavior by implementing<tt>onModule(AnyModule)</tt>,  * and registering the extension with the given module.  */
+comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * Implement any of these interfaces to extend Elasticsearch:  *<ul>  *<li>{@link ActionPlugin}  *<li>{@link AnalysisPlugin}  *<li>{@link MapperPlugin}  *<li>{@link ScriptPlugin}  *<li>{@link SearchPlugin}  *</ul>  */
 end_comment
 
 begin_class
@@ -187,14 +201,14 @@ specifier|abstract
 class|class
 name|Plugin
 block|{
-comment|/**      * Node level modules.      */
-DECL|method|nodeModules
+comment|/**      * Node level guice modules.      */
+DECL|method|createGuiceModules
 specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
-name|nodeModules
+name|createGuiceModules
 parameter_list|()
 block|{
 return|return
@@ -204,8 +218,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Node level services that will be automatically started/stopped/closed.      */
-DECL|method|nodeServices
+comment|/**      * Node level services that will be automatically started/stopped/closed. This classes must be constructed      * by injection with guice.      */
+DECL|method|getGuiceServiceClasses
 specifier|public
 name|Collection
 argument_list|<
@@ -216,7 +230,24 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|nodeServices
+name|getGuiceServiceClasses
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns components maintained by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      */
+DECL|method|createComponents
+specifier|public
+name|Collection
+argument_list|<
+name|Object
+argument_list|>
+name|createComponents
 parameter_list|()
 block|{
 return|return
