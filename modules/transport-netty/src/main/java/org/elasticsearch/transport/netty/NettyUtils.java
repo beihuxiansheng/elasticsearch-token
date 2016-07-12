@@ -310,7 +310,7 @@ specifier|static
 name|void
 name|setup
 parameter_list|()
-block|{      }
+block|{     }
 comment|/**      * Turns the given BytesReference into a ChannelBuffer. Note: the returned ChannelBuffer will reference the internal      * pages of the BytesReference. Don't free the bytes of reference before the ChannelBuffer goes out of scope.      */
 DECL|method|toChannelBuffer
 specifier|public

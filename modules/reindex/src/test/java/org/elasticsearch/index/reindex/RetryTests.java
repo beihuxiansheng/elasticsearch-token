@@ -254,6 +254,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|NettyPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -420,8 +432,13 @@ argument_list|(
 name|ReindexPlugin
 operator|.
 name|class
+argument_list|,
+name|NettyPlugin
+operator|.
+name|class
 argument_list|)
 return|;
+comment|// we need netty here to http communication
 block|}
 comment|/**      * Lower the queue sizes to be small enough that both bulk and searches will time out and have to be retried.      */
 annotation|@

@@ -840,6 +840,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|AccessController
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|PrivilegedAction
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -2397,6 +2417,20 @@ argument_list|(
 name|logger
 argument_list|)
 expr_stmt|;
+comment|// this doPrivileged is for SelectorUtil.java that tries to set "sun.nio.ch.bugLevel"
+name|AccessController
+operator|.
+name|doPrivileged
+argument_list|(
+call|(
+name|PrivilegedAction
+argument_list|<
+name|Object
+argument_list|>
+call|)
+argument_list|()
+operator|->
+block|{
 if|if
 condition|(
 name|blockingServer
@@ -2476,6 +2510,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|return
+literal|null
+argument_list|;
+block|}
+block|)
+class|;
+end_class
+
+begin_assert
+assert|assert
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"sun.nio.ch.bugLevel"
+argument_list|)
+operator|!=
+literal|null
+operator|:
+literal|"sun.nio.ch.bugLevel is null somebody pulls in SelectorUtil without doing stuff in a doPrivileged block?"
+assert|;
+end_assert
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setPipelineFactory
@@ -2484,6 +2542,9 @@ name|configureServerChannelPipelineFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setOption
@@ -2493,6 +2554,9 @@ argument_list|,
 name|tcpNoDelay
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setOption
@@ -2502,6 +2566,9 @@ argument_list|,
 name|tcpKeepAlive
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_if
 if|if
 condition|(
 name|tcpSendBufferSize
@@ -2525,6 +2592,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_if
+
+begin_if
 if|if
 condition|(
 name|tcpReceiveBufferSize
@@ -2548,6 +2618,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_if
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setOption
@@ -2557,6 +2630,9 @@ argument_list|,
 name|receiveBufferSizePredictorFactory
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setOption
@@ -2566,6 +2642,9 @@ argument_list|,
 name|receiveBufferSizePredictorFactory
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setOption
@@ -2575,6 +2654,9 @@ argument_list|,
 name|reuseAddress
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|serverBootstrap
 operator|.
 name|setOption
@@ -2584,6 +2666,9 @@ argument_list|,
 name|reuseAddress
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|boundAddress
@@ -2591,9 +2676,11 @@ operator|=
 name|createBoundHttpAddress
 argument_list|()
 expr_stmt|;
-block|}
+end_expr_stmt
+
+begin_function
+unit|}      private
 DECL|method|createBoundHttpAddress
-specifier|private
 name|BoundTransportAddress
 name|createBoundHttpAddress
 parameter_list|()
@@ -2754,7 +2841,13 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// package private for tests
+end_comment
+
+begin_function
 DECL|method|resolvePublishPort
 specifier|static
 name|int
@@ -2935,6 +3028,9 @@ return|return
 name|publishPort
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|buildCorsConfig
 specifier|private
 name|CorsConfig
@@ -3167,6 +3263,9 @@ name|build
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|bindAddress
 specifier|private
 name|InetSocketTransportAddress
@@ -3353,6 +3452,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doStop
@@ -3431,6 +3533,9 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doClose
@@ -3439,6 +3544,9 @@ name|void
 name|doClose
 parameter_list|()
 block|{     }
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|boundAddress
@@ -3453,6 +3561,9 @@ operator|.
 name|boundAddress
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|info
@@ -3491,6 +3602,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|stats
@@ -3532,6 +3646,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getCorsConfig
 specifier|public
 name|CorsConfig
@@ -3542,6 +3659,9 @@ return|return
 name|corsConfig
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|dispatchRequest
 specifier|protected
 name|void
@@ -3569,6 +3689,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|exceptionCaught
 specifier|protected
 name|void
@@ -3710,6 +3833,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|configureServerChannelPipelineFactory
 specifier|public
 name|ChannelPipelineFactory
@@ -3731,6 +3857,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|HttpChannelPipelineFactory
 specifier|protected
 specifier|static
@@ -4094,8 +4223,8 @@ name|pipeline
 return|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
