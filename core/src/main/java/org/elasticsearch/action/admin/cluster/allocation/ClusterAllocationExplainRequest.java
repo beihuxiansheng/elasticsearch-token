@@ -292,6 +292,13 @@ name|includeYesDecisions
 init|=
 literal|false
 decl_stmt|;
+DECL|field|includeDiskInfo
+specifier|private
+name|boolean
+name|includeDiskInfo
+init|=
+literal|false
+decl_stmt|;
 comment|/** Explain the first unassigned shard */
 DECL|method|ClusterAllocationExplainRequest
 specifier|public
@@ -589,6 +596,36 @@ return|return
 name|this
 operator|.
 name|includeYesDecisions
+return|;
+block|}
+comment|/** {@code true} to include information about the gathered disk information of nodes in the cluster */
+DECL|method|includeDiskInfo
+specifier|public
+name|void
+name|includeDiskInfo
+parameter_list|(
+name|boolean
+name|includeDiskInfo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeDiskInfo
+operator|=
+name|includeDiskInfo
+expr_stmt|;
+block|}
+comment|/** Returns true if information about disk usage and shard sizes should also be returned */
+DECL|method|includeDiskInfo
+specifier|public
+name|boolean
+name|includeDiskInfo
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|includeDiskInfo
 return|;
 block|}
 annotation|@
