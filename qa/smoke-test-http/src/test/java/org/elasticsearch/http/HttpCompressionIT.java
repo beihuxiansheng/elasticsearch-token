@@ -198,7 +198,7 @@ specifier|public
 class|class
 name|HttpCompressionIT
 extends|extends
-name|HttpSmokeTestCase
+name|ESIntegTestCase
 block|{
 DECL|field|GZIP_ENCODING
 specifier|private
