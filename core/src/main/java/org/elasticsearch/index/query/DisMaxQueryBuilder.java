@@ -228,19 +228,6 @@ name|NAME
 init|=
 literal|"dis_max"
 decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
 comment|/** Default multiplication factor for breaking ties in document scores.*/
 DECL|field|DEFAULT_TIE_BREAKER
 specifier|public

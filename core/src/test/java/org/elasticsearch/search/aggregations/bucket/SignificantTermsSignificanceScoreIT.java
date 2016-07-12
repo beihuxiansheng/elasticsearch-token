@@ -1477,7 +1477,7 @@ DECL|method|getSignificanceHeuristics
 specifier|public
 name|List
 argument_list|<
-name|SearchPluginSpec
+name|SearchExtensionSpec
 argument_list|<
 name|SignificanceHeuristic
 argument_list|,
@@ -1491,7 +1491,7 @@ return|return
 name|singletonList
 argument_list|(
 operator|new
-name|SearchPluginSpec
+name|SearchExtensionSpec
 argument_list|<
 name|SignificanceHeuristic
 argument_list|,

@@ -389,7 +389,6 @@ argument_list|<
 name|GeoBoundingBoxQueryBuilder
 argument_list|>
 block|{
-comment|/** Name of the query. */
 DECL|field|NAME
 specifier|public
 specifier|static
