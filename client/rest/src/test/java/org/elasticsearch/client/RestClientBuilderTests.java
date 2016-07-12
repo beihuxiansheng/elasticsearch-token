@@ -607,9 +607,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|RestClient
-operator|.
-name|Builder
+name|RestClientBuilder
 name|builder
 init|=
 name|RestClient
@@ -633,7 +631,7 @@ operator|.
 name|setHttpClientConfigCallback
 argument_list|(
 operator|new
-name|RestClient
+name|RestClientBuilder
 operator|.
 name|HttpClientConfigCallback
 argument_list|()
@@ -666,7 +664,7 @@ operator|.
 name|setRequestConfigCallback
 argument_list|(
 operator|new
-name|RestClient
+name|RestClientBuilder
 operator|.
 name|RequestConfigCallback
 argument_list|()

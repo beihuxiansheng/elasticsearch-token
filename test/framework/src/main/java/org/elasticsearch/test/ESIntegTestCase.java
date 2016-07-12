@@ -160,6 +160,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|RestClientBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|transport
 operator|.
 name|MockTcpTransportPlugin
@@ -12434,7 +12446,7 @@ specifier|static
 name|RestClient
 name|createRestClient
 parameter_list|(
-name|RestClient
+name|RestClientBuilder
 operator|.
 name|HttpClientConfigCallback
 name|httpClientConfigCallback
@@ -12455,7 +12467,7 @@ specifier|static
 name|RestClient
 name|createRestClient
 parameter_list|(
-name|RestClient
+name|RestClientBuilder
 operator|.
 name|HttpClientConfigCallback
 name|httpClientConfigCallback
@@ -12597,9 +12609,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|RestClient
-operator|.
-name|Builder
+name|RestClientBuilder
 name|builder
 init|=
 name|RestClient
