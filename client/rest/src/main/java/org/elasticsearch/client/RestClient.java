@@ -2238,6 +2238,11 @@ specifier|private
 name|HttpClientConfigCallback
 name|httpClientConfigCallback
 decl_stmt|;
+DECL|field|requestConfigCallback
+specifier|private
+name|RequestConfigCallback
+name|requestConfigCallback
+decl_stmt|;
 comment|/**          * Creates a new builder instance and sets the hosts that the client will send requests to.          */
 DECL|method|Builder
 specifier|private
@@ -2417,6 +2422,35 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the {@link RequestConfigCallback} to be used to customize http client configuration          */
+DECL|method|setRequestConfigCallback
+specifier|public
+name|Builder
+name|setRequestConfigCallback
+parameter_list|(
+name|RequestConfigCallback
+name|requestConfigCallback
+parameter_list|)
+block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|requestConfigCallback
+argument_list|,
+literal|"requestConfigCallback must not be null"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|requestConfigCallback
+operator|=
+name|requestConfigCallback
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Creates a new {@link RestClient} based on the provided configuration.          */
 DECL|method|build
 specifier|public
@@ -2494,14 +2528,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|httpClientConfigCallback
+name|requestConfigCallback
 operator|!=
 literal|null
 condition|)
 block|{
-name|httpClientConfigCallback
+name|requestConfigCallback
 operator|.
-name|customizeDefaultRequestConfig
+name|customizeRequestConfig
 argument_list|(
 name|requestConfigBuilder
 argument_list|)
@@ -2578,16 +2612,16 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Callback used to customize the {@link CloseableHttpClient} instance used by a {@link RestClient} instance.      * Allows to customize default {@link RequestConfig} being set to the client and any parameter that      * can be set through {@link HttpClientBuilder}      */
-DECL|interface|HttpClientConfigCallback
+comment|/**      * Callback used the default {@link RequestConfig} being set to the {@link CloseableHttpClient}      * @see HttpClientBuilder#setDefaultRequestConfig      */
+DECL|interface|RequestConfigCallback
 specifier|public
 interface|interface
-name|HttpClientConfigCallback
+name|RequestConfigCallback
 block|{
-comment|/**          * Allows to customize the {@link RequestConfig} that will be used with each request.          * It is common to customize the different timeout values through this method without losing any other useful default          * value that the {@link RestClient.Builder} sets internally.          */
-DECL|method|customizeDefaultRequestConfig
+comment|/**          * Allows to customize the {@link RequestConfig} that will be used with each request.          * It is common to customize the different timeout values through this method without losing any other useful default          * value that the {@link RestClient.Builder} internally sets.          */
+DECL|method|customizeRequestConfig
 name|void
-name|customizeDefaultRequestConfig
+name|customizeRequestConfig
 parameter_list|(
 name|RequestConfig
 operator|.
@@ -2595,7 +2629,14 @@ name|Builder
 name|requestConfigBuilder
 parameter_list|)
 function_decl|;
-comment|/**          * Allows to customize the {@link CloseableHttpClient} being created and used by the {@link RestClient}.          * It is common to customzie the default {@link org.apache.http.client.CredentialsProvider} through this method,          * or the {@link org.apache.http.conn.HttpClientConnectionManager} being used without losing any other useful default          * value that the {@link RestClient.Builder} sets internally.          */
+block|}
+comment|/**      * Callback used to customize the {@link CloseableHttpClient} instance used by a {@link RestClient} instance.      * Allows to customize default {@link RequestConfig} being set to the client and any parameter that      * can be set through {@link HttpClientBuilder}      */
+DECL|interface|HttpClientConfigCallback
+specifier|public
+interface|interface
+name|HttpClientConfigCallback
+block|{
+comment|/**          * Allows to customize the {@link CloseableHttpClient} being created and used by the {@link RestClient}.          * It is common to customzie the default {@link org.apache.http.client.CredentialsProvider} through this method,          * without losing any other useful default value that the {@link RestClient.Builder} internally sets.          * Also useful to setup ssl through {@link SSLSocketFactoryHttpConfigCallback}.          */
 DECL|method|customizeHttpClient
 name|void
 name|customizeHttpClient
