@@ -6026,6 +6026,8 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+try|try
+block|{
 name|sendMessage
 argument_list|(
 name|targetChannel
@@ -6037,6 +6039,41 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|nodeConnected
+argument_list|(
+name|node
+argument_list|)
+condition|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+else|else
+block|{
+comment|// we might got disconnected in between the nodeChannel(node, options) call and the sending -
+comment|// in that case throw a subclass of ConnectTransportException since some code retries based on this
+comment|// see TransportMasterNodeAction for instance
+throw|throw
+operator|new
+name|NodeNotConnectedException
+argument_list|(
+name|node
+argument_list|,
+literal|"Node not connected"
+argument_list|)
+throw|;
+block|}
+block|}
 name|addedReleaseListener
 operator|=
 literal|true
