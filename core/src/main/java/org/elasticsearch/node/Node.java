@@ -1448,18 +1448,6 @@ name|Collectors
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
-import|;
-end_import
-
 begin_comment
 comment|/**  * A node represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  */
 end_comment
@@ -2548,7 +2536,7 @@ name|pluginModule
 range|:
 name|pluginsService
 operator|.
-name|nodeModules
+name|createGuiceModules
 argument_list|()
 control|)
 block|{

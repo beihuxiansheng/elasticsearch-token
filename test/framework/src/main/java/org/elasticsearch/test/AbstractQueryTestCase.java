@@ -5856,7 +5856,7 @@ name|pluginModule
 range|:
 name|pluginsService
 operator|.
-name|nodeModules
+name|createGuiceModules
 argument_list|()
 control|)
 block|{
