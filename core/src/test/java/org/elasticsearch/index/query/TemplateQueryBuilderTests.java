@@ -552,7 +552,7 @@ decl_stmt|;
 name|String
 name|query
 init|=
-literal|"{\"template\": {\"query\": \"{\\\"match_{{template}}\\\": {}}\\\"\",\"params\" : {\"template\" : \"all\"}}}"
+literal|"{\"template\": {\"inline\": \"{\\\"match_{{template}}\\\": {}}\\\"\",\"params\" : {\"template\" : \"all\"}}}"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -623,7 +623,7 @@ decl_stmt|;
 name|String
 name|query
 init|=
-literal|"{\"template\": {\"query\": {\"match_{{template}}\": {}},\"params\" : {\"template\" : \"all\"}}}"
+literal|"{\"template\": {\"inline\": {\"match_{{template}}\": {}},\"params\" : {\"template\" : \"all\"}}}"
 decl_stmt|;
 name|Map
 argument_list|<

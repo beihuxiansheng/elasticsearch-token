@@ -1246,7 +1246,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|parseInlineScript
-specifier|protected
+specifier|public
 name|String
 name|parseInlineScript
 parameter_list|(

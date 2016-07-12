@@ -1388,7 +1388,7 @@ name|templateString
 init|=
 literal|"{"
 operator|+
-literal|"\"query\":{\"match_{{template}}\": {}},"
+literal|"\"inline\":{\"match_{{template}}\": {}},"
 operator|+
 literal|"\"params\":{\"template\":\"all\"}"
 operator|+

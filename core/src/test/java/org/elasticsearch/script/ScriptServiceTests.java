@@ -342,16 +342,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -3607,7 +3597,7 @@ expr_stmt|;
 comment|// allowed
 name|scriptService
 operator|.
-name|validate
+name|validateStoredScript
 argument_list|(
 literal|"_id"
 argument_list|,
@@ -3644,7 +3634,7 @@ lambda|->
 block|{
 name|scriptService
 operator|.
-name|validate
+name|validateStoredScript
 argument_list|(
 literal|"_id"
 argument_list|,
