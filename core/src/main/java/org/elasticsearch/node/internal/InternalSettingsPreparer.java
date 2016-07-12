@@ -316,8 +316,6 @@ block|,
 literal|".yaml"
 block|,
 literal|".json"
-block|,
-literal|".properties"
 block|}
 decl_stmt|;
 DECL|field|PROPERTY_DEFAULTS_PREFIX
