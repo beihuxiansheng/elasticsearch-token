@@ -5582,17 +5582,6 @@ argument_list|(
 name|snapshots
 argument_list|)
 decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|blobsToDelete
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
 comment|// delete old index files first
 for|for
 control|(
@@ -5605,7 +5594,6 @@ name|keySet
 argument_list|()
 control|)
 block|{
-comment|// delete old file lists
 if|if
 condition|(
 name|indexShardSnapshotsFormat
@@ -5623,22 +5611,13 @@ name|SNAPSHOT_INDEX_PREFIX
 argument_list|)
 condition|)
 block|{
-name|blobsToDelete
-operator|.
-name|add
-argument_list|(
-name|blobName
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 try|try
 block|{
 name|blobContainer
 operator|.
-name|deleteBlobs
+name|deleteBlob
 argument_list|(
-name|blobsToDelete
+name|blobName
 argument_list|)
 expr_stmt|;
 block|}
@@ -5656,20 +5635,19 @@ name|IndexShardSnapshotFailedException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"error deleting index files during cleanup"
+literal|"error deleting index file ["
+operator|+
+name|blobName
+operator|+
+literal|"] during cleanup"
 argument_list|,
 name|e
 argument_list|)
 throw|;
 block|}
-name|blobsToDelete
-operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-expr_stmt|;
-comment|// now go over all the blobs, and if they don't exists in a snapshot, delete them
+block|}
+block|}
+comment|// now go over all the blobs, and if they don't exist in a snapshot, delete them
 for|for
 control|(
 name|String
@@ -5711,23 +5689,13 @@ operator|==
 literal|null
 condition|)
 block|{
-name|blobsToDelete
-operator|.
-name|add
-argument_list|(
-name|blobName
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
 try|try
 block|{
 name|blobContainer
 operator|.
-name|deleteBlobs
+name|deleteBlob
 argument_list|(
-name|blobsToDelete
+name|blobName
 argument_list|)
 expr_stmt|;
 block|}
@@ -5737,11 +5705,12 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// TODO: don't catch and let the user handle it?
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] [{}] error deleting some of the blobs [{}] during cleanup"
+literal|"[{}] [{}] error deleting blob [{}] during cleanup"
 argument_list|,
 name|e
 argument_list|,
@@ -5749,9 +5718,12 @@ name|snapshotId
 argument_list|,
 name|shardId
 argument_list|,
-name|blobsToDelete
+name|blobName
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 comment|// If we deleted all snapshots - we don't need to create the index file
 if|if
