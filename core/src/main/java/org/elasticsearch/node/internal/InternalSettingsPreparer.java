@@ -572,7 +572,7 @@ throw|throw
 operator|new
 name|SettingsException
 argument_list|(
-literal|"Failed to settings from "
+literal|"Failed to load settings from "
 operator|+
 name|path
 operator|.
