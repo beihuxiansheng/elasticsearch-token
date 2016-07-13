@@ -167,7 +167,7 @@ specifier|public
 class|class
 name|DetailedErrorsDisabledIT
 extends|extends
-name|ESIntegTestCase
+name|HttpSmokeTestCase
 block|{
 comment|// Build our cluster settings
 annotation|@

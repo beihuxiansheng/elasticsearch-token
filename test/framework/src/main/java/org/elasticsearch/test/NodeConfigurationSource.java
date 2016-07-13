@@ -89,7 +89,9 @@ name|nodeOrdinal
 parameter_list|)
 block|{
 return|return
-literal|null
+name|Settings
+operator|.
+name|EMPTY
 return|;
 block|}
 annotation|@
@@ -100,7 +102,9 @@ name|transportClientSettings
 parameter_list|()
 block|{
 return|return
-literal|null
+name|Settings
+operator|.
+name|EMPTY
 return|;
 block|}
 block|}
@@ -140,11 +144,16 @@ return|;
 block|}
 DECL|method|transportClientSettings
 specifier|public
-specifier|abstract
 name|Settings
 name|transportClientSettings
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Settings
+operator|.
+name|EMPTY
+return|;
+block|}
 comment|/** Returns plugins that should be loaded in the transport client */
 DECL|method|transportClientPlugins
 specifier|public

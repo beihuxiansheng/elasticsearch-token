@@ -10792,6 +10792,17 @@ decl_stmt|;
 if|if
 condition|(
 name|isNetwork
+operator|&&
+name|plugins
+operator|.
+name|contains
+argument_list|(
+name|MockTcpTransportPlugin
+operator|.
+name|class
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 name|plugins

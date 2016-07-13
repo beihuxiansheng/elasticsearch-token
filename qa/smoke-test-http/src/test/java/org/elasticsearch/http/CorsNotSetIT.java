@@ -82,7 +82,7 @@ specifier|public
 class|class
 name|CorsNotSetIT
 extends|extends
-name|ESIntegTestCase
+name|HttpSmokeTestCase
 block|{
 DECL|method|testCorsSettingDefaultBehaviourDoesNotReturnAnything
 specifier|public

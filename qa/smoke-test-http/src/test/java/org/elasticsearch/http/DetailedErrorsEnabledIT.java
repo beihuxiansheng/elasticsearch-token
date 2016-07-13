@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|DetailedErrorsEnabledIT
 extends|extends
-name|ESIntegTestCase
+name|HttpSmokeTestCase
 block|{
 DECL|method|testThatErrorTraceWorksByDefault
 specifier|public
