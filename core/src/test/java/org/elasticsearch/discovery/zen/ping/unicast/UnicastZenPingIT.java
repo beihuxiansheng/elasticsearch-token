@@ -1536,8 +1536,6 @@ init|=
 operator|new
 name|MockTcpTransport
 argument_list|(
-literal|"mock"
-argument_list|,
 name|settings
 argument_list|,
 name|threadPool

@@ -541,9 +541,6 @@ DECL|method|MockTcpTransport
 specifier|public
 name|MockTcpTransport
 parameter_list|(
-name|String
-name|transportName
-parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -565,8 +562,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|transportName
-argument_list|,
 name|settings
 argument_list|,
 name|threadPool
@@ -589,9 +584,6 @@ DECL|method|MockTcpTransport
 specifier|public
 name|MockTcpTransport
 parameter_list|(
-name|String
-name|transportName
-parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -616,7 +608,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|transportName
+literal|"mock-tcp-transport"
 argument_list|,
 name|settings
 argument_list|,
