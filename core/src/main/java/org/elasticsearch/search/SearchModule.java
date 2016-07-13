@@ -5831,6 +5831,9 @@ argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
+operator|new
+name|AggregationSpec
+argument_list|(
 name|DiversifiedAggregationBuilder
 operator|::
 operator|new
@@ -5842,6 +5845,7 @@ argument_list|,
 name|DiversifiedAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|registerAggregation
@@ -6069,6 +6073,9 @@ argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
+operator|new
+name|AggregationSpec
+argument_list|(
 name|DateHistogramAggregationBuilder
 operator|::
 operator|new
@@ -6080,6 +6087,7 @@ argument_list|,
 name|DateHistogramAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|registerAggregation
