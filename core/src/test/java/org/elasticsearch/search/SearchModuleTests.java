@@ -1664,8 +1664,6 @@ literal|"span_term"
 block|,
 literal|"span_within"
 block|,
-literal|"template"
-block|,
 literal|"term"
 block|,
 literal|"terms"

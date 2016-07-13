@@ -227,11 +227,10 @@ decl_stmt|;
 name|Script
 name|script
 init|=
-name|mock
-argument_list|(
+operator|new
 name|Script
-operator|.
-name|class
+argument_list|(
+literal|"_script"
 argument_list|)
 decl_stmt|;
 name|when

@@ -408,9 +408,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|script
 operator|.
-name|query
+name|mustache
 operator|.
 name|TemplateQueryBuilder
 import|;

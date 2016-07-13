@@ -5415,36 +5415,7 @@ argument_list|,
 literal|123
 argument_list|)
 block|,
-DECL|enum constant|SCRIPT_PARSE_EXCEPTION
-name|SCRIPT_PARSE_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Script
-operator|.
-name|ScriptParseException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Script
-operator|.
-name|ScriptParseException
-operator|::
-operator|new
-argument_list|,
-literal|124
-argument_list|)
-block|,
+comment|// 124 used to be Script.ScriptParseException
 DECL|enum constant|HTTP_ON_TRANSPORT_EXCEPTION
 name|HTTP_ON_TRANSPORT_EXCEPTION
 argument_list|(
