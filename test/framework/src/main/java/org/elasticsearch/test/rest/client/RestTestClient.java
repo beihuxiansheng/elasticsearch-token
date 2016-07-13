@@ -1016,6 +1016,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// And everything else is a url parameter!
+try|try
+block|{
 name|Response
 name|response
 init|=
@@ -1039,6 +1041,21 @@ argument_list|(
 name|response
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|ResponseException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RestTestResponseException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 name|List
 argument_list|<
@@ -1786,7 +1803,11 @@ argument_list|)
 return|;
 block|}
 throw|throw
+operator|new
+name|RestTestResponseException
+argument_list|(
 name|e
+argument_list|)
 throw|;
 block|}
 block|}

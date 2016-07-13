@@ -152,7 +152,6 @@ name|ObjectPath
 name|parsedResponse
 decl_stmt|;
 DECL|method|RestTestResponse
-specifier|public
 name|RestTestResponse
 parameter_list|(
 name|Response
