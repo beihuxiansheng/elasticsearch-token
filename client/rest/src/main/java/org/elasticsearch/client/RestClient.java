@@ -730,6 +730,26 @@ name|hosts
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns a new {@link RestClientBuilder} to help with {@link RestClient} creation.      */
+DECL|method|builder
+specifier|public
+specifier|static
+name|RestClientBuilder
+name|builder
+parameter_list|(
+name|HttpHost
+modifier|...
+name|hosts
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RestClientBuilder
+argument_list|(
+name|hosts
+argument_list|)
+return|;
+block|}
 comment|/**      * Replaces the hosts that the client communicates with.      * @see HttpHost      */
 DECL|method|setHosts
 specifier|public
@@ -2735,26 +2755,6 @@ throw|throw
 name|exception
 throw|;
 block|}
-block|}
-comment|/**      * Returns a new {@link RestClientBuilder} to help with {@link RestClient} creation.      */
-DECL|method|builder
-specifier|public
-specifier|static
-name|RestClientBuilder
-name|builder
-parameter_list|(
-name|HttpHost
-modifier|...
-name|hosts
-parameter_list|)
-block|{
-return|return
-operator|new
-name|RestClientBuilder
-argument_list|(
-name|hosts
-argument_list|)
-return|;
 block|}
 comment|/**      * Listener that allows to be notified whenever a failure happens. Useful when sniffing is enabled, so that we can sniff on failure.      * The default implementation is a no-op.      */
 DECL|class|FailureListener
