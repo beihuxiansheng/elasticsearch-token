@@ -615,11 +615,6 @@ operator|.
 name|getTarget
 argument_list|()
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|FutureCallback
 argument_list|<
 name|HttpResponse
