@@ -399,7 +399,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**          * @return  The name of the stream type (used for registering the aggregation stream          *          (see {@link AggregationStreams#registerStream(AggregationStreams.Stream, org.elasticsearch.common.bytes.BytesReference...)}).          */
+comment|/**          * @return  The name of the stream type (used for registering the aggregation stream          *          (see {@link AggregationStreams#registerStream(AggregationStreams.Stream, BytesReference...)}).          */
 DECL|method|stream
 specifier|public
 name|BytesReference
@@ -918,7 +918,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-comment|// NORELEASE remote writing the name? it is automatically handled with writeNamedWriteable
 name|out
 operator|.
 name|writeGenericValue

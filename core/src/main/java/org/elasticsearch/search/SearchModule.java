@@ -5165,7 +5165,7 @@ name|aggregationName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Register a pipeline aggregation.      *      * @param reader reads the aggregation builder from a stream      * @param internalReader reads the {@link PipelineAggregator} from a stream      * @param internalReader reads the {@link InternalAggregation} that represents a bucket in this aggregation from a stream      * @param aggregationParser reads the aggregation builder from XContent      * @param aggregationName names by which the aggregation may be parsed. The first name is special because it is the name that the reader      *        is registered under.      */
+comment|/**      * Register a pipeline aggregation.      *      * @param reader reads the aggregation builder from a stream      * @param internalReader reads the {@link PipelineAggregator} from a stream      * @param bucketReader reads the {@link InternalAggregation} that represents a bucket in this aggregation from a stream      * @param aggregationParser reads the aggregation builder from XContent      * @param aggregationName names by which the aggregation may be parsed. The first name is special because it is the name that the reader      *        is registered under.      */
 DECL|method|registerPipelineAggregation
 specifier|public
 name|void
@@ -6319,6 +6319,14 @@ expr_stmt|;
 name|registerPipelineAggregation
 argument_list|(
 name|DerivativePipelineAggregationBuilder
+operator|::
+operator|new
+argument_list|,
+name|DerivativePipelineAggregator
+operator|::
+operator|new
+argument_list|,
+name|InternalDerivative
 operator|::
 operator|new
 argument_list|,
@@ -8765,16 +8773,6 @@ block|}
 static|static
 block|{
 comment|// Pipeline Aggregations
-name|DerivativePipelineAggregator
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
-name|InternalDerivative
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
 name|InternalSimpleValue
 operator|.
 name|registerStreams

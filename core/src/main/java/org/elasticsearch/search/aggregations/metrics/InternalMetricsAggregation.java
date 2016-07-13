@@ -108,7 +108,7 @@ specifier|protected
 name|InternalMetricsAggregation
 parameter_list|()
 block|{}
-comment|// for serialization
+comment|// NORELEASE remove when we remove streamable
 DECL|method|InternalMetricsAggregation
 specifier|protected
 name|InternalMetricsAggregation
