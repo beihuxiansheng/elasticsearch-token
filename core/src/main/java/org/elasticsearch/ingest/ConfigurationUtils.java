@@ -1284,7 +1284,7 @@ name|processors
 return|;
 block|}
 DECL|method|readProcessor
-specifier|private
+specifier|public
 specifier|static
 name|Processor
 name|readProcessor
