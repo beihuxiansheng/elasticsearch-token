@@ -307,15 +307,10 @@ name|Priority
 argument_list|>
 name|priorities
 init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|Priority
 operator|.
 name|values
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Collections
 operator|.
