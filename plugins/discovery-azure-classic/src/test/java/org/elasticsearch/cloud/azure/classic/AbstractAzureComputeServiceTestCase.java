@@ -233,19 +233,6 @@ literal|"discovery.type"
 argument_list|,
 literal|"azure"
 argument_list|)
-comment|// We need the network to make the mock working
-operator|.
-name|put
-argument_list|(
-name|Node
-operator|.
-name|NODE_MODE_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|"network"
-argument_list|)
 decl_stmt|;
 comment|// We add a fake subscription_id to start mock compute service
 name|builder

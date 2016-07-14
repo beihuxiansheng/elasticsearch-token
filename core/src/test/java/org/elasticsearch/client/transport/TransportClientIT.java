@@ -399,6 +399,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"transport.type"
+argument_list|,
+literal|"local"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|NetworkModule
 operator|.
 name|HTTP_ENABLED
@@ -675,6 +682,13 @@ argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"transport.type"
+argument_list|,
+literal|"local"
 argument_list|)
 operator|.
 name|build

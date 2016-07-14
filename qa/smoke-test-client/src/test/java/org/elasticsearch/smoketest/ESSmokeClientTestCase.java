@@ -621,20 +621,7 @@ argument_list|()
 argument_list|,
 name|tempDir
 argument_list|)
-operator|.
-name|put
-argument_list|(
-name|Node
-operator|.
-name|NODE_MODE_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|"network"
-argument_list|)
 decl_stmt|;
-comment|// we require network here!
 if|if
 condition|(
 name|random

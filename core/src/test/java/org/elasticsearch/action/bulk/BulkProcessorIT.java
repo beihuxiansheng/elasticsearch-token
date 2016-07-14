@@ -1263,6 +1263,13 @@ name|toString
 argument_list|()
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"transport.type"
+argument_list|,
+literal|"local"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

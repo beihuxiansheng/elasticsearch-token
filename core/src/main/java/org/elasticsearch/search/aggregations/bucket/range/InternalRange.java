@@ -1074,7 +1074,11 @@ name|R
 operator|)
 operator|new
 name|InternalRange
-argument_list|<>
+argument_list|<
+name|B
+argument_list|,
+name|R
+argument_list|>
 argument_list|(
 name|name
 argument_list|,
@@ -1171,7 +1175,11 @@ name|R
 operator|)
 operator|new
 name|InternalRange
-argument_list|<>
+argument_list|<
+name|B
+argument_list|,
+name|R
+argument_list|>
 argument_list|(
 name|prototype
 operator|.
@@ -1736,9 +1744,7 @@ index|]
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

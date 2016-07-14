@@ -254,7 +254,7 @@ argument_list|>
 name|extensionClass
 decl_stmt|;
 DECL|field|extensions
-specifier|private
+specifier|protected
 specifier|final
 name|Map
 argument_list|<
@@ -625,7 +625,12 @@ literal|"] type ["
 operator|+
 name|type
 operator|+
-literal|"]"
+literal|"] possible values: "
+operator|+
+name|extensions
+operator|.
+name|keySet
+argument_list|()
 argument_list|)
 throw|;
 block|}

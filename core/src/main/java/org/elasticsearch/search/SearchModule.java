@@ -4850,13 +4850,6 @@ name|AggregationSpec
 name|spec
 parameter_list|)
 block|{
-if|if
-condition|(
-literal|false
-operator|==
-name|transportClient
-condition|)
-block|{
 name|namedWriteableRegistry
 operator|.
 name|register
@@ -4890,7 +4883,6 @@ operator|.
 name|aggregationName
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|Map
@@ -5051,7 +5043,7 @@ operator|=
 name|aggregationName
 expr_stmt|;
 block|}
-comment|/**          * Add a reader for the shard level results of the aggregation with {@linkplain aggregationName}'s          * {@link ParseField#getPreferredName()} as the {@link NamedWriteable#getWriteableName()}.          */
+comment|/**          * Add a reader for the shard level results of the aggregation with {@linkplain #aggregationName}'s          * {@link ParseField#getPreferredName()} as the {@link NamedWriteable#getWriteableName()}.          */
 DECL|method|addResultReader
 specifier|public
 name|AggregationSpec
@@ -5166,6 +5158,16 @@ operator|==
 name|transportClient
 condition|)
 block|{
+name|pipelineAggregationParserRegistry
+operator|.
+name|register
+argument_list|(
+name|aggregationParser
+argument_list|,
+name|aggregationName
+argument_list|)
+expr_stmt|;
+block|}
 name|namedWriteableRegistry
 operator|.
 name|register
@@ -5182,16 +5184,6 @@ argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;
-name|pipelineAggregationParserRegistry
-operator|.
-name|register
-argument_list|(
-name|aggregationParser
-argument_list|,
-name|aggregationName
-argument_list|)
-expr_stmt|;
-block|}
 name|namedWriteableRegistry
 operator|.
 name|register
@@ -5320,9 +5312,6 @@ expr_stmt|;
 name|configureSearch
 argument_list|()
 expr_stmt|;
-name|configureShapes
-argument_list|()
-expr_stmt|;
 name|bind
 argument_list|(
 name|AggregatorParsers
@@ -5336,6 +5325,9 @@ name|aggregatorParsers
 argument_list|)
 expr_stmt|;
 block|}
+name|configureShapes
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|registerBuiltinAggregations
 specifier|private
