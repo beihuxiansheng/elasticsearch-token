@@ -296,11 +296,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
 name|SearchResponse
 name|resp
 init|=
@@ -780,11 +775,6 @@ argument_list|(
 literal|"foobar"
 argument_list|,
 literal|0
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"idx"
 argument_list|)
 expr_stmt|;
 specifier|final

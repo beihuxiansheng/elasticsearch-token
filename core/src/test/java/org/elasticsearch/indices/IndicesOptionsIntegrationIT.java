@@ -750,9 +750,6 @@ literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// Verify defaults
 name|verify
 argument_list|(
@@ -1474,9 +1471,6 @@ argument_list|(
 literal|"test2"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|verify
 argument_list|(
@@ -2996,9 +2990,6 @@ argument_list|(
 literal|"test1"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|options
 operator|=
@@ -5037,9 +5028,6 @@ argument_list|(
 literal|"test1"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 name|client
@@ -5438,9 +5426,6 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|verify
 argument_list|(
 name|client
@@ -5573,9 +5558,6 @@ literal|"bar"
 argument_list|,
 literal|"barbaz"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|verify
 argument_list|(
@@ -5872,9 +5854,6 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|verify
 argument_list|(
 name|client
@@ -5951,9 +5930,6 @@ literal|"bar"
 argument_list|,
 literal|"barbaz"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|verify
 argument_list|(
@@ -6348,9 +6324,6 @@ literal|"bar"
 argument_list|,
 literal|"barbaz"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|verify
 argument_list|(

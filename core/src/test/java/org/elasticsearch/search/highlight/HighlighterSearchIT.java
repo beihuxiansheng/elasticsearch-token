@@ -1135,9 +1135,6 @@ name|mappings
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -1394,9 +1391,6 @@ name|mappings
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -1613,9 +1607,6 @@ name|randomBoolean
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|StringBuilder
 name|builder
@@ -2010,9 +2001,6 @@ literal|"wordDelimiter"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -2837,9 +2825,6 @@ literal|"type=text,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3191,9 +3176,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|IndexRequestBuilder
 index|[]
@@ -3590,9 +3572,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|IndexRequestBuilder
 index|[]
 name|indexRequestBuilders
@@ -3988,9 +3967,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|IndexRequestBuilder
 index|[]
@@ -4403,9 +4379,6 @@ argument_list|,
 literal|"type=text,store=false,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -9175,9 +9148,6 @@ literal|"type=text,store=true,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|IndexRequestBuilder
 index|[]
 name|indexRequestBuilders
@@ -9342,9 +9312,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|IndexRequestBuilder
 index|[]
 name|indexRequestBuilders
@@ -9507,9 +9474,6 @@ argument_list|,
 literal|"type=text,store=true"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|IndexRequestBuilder
 index|[]
@@ -9681,9 +9645,6 @@ argument_list|,
 literal|"type=text,store=true,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|IndexRequestBuilder
 index|[]
@@ -18873,9 +18834,6 @@ literal|"index_options=offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|IndexRequestBuilder
 index|[]
 name|indexRequestBuilders
@@ -23035,9 +22993,6 @@ name|mappings
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -23297,9 +23252,6 @@ name|mappings
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -23528,9 +23480,6 @@ name|V_2_3_2
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()

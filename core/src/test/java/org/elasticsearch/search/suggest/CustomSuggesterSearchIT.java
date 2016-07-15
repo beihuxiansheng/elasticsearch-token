@@ -519,9 +519,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|String
 name|randomText
 init|=

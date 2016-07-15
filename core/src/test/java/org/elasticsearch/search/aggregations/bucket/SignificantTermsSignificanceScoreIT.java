@@ -3533,9 +3533,6 @@ init|=
 name|getScriptSignificanceHeuristic
 argument_list|()
 decl_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|response
 init|=

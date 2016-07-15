@@ -7022,9 +7022,6 @@ argument_list|,
 literal|"bulkindex2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|BulkRequest
 name|bulkRequest
 init|=
@@ -7237,9 +7234,6 @@ name|createIndex
 argument_list|(
 literal|"bulkindex1"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()

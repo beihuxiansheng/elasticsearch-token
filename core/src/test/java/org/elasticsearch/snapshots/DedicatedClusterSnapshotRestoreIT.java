@@ -1860,9 +1860,6 @@ argument_list|(
 literal|"test-idx"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -8292,11 +8289,6 @@ literal|6
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|name
 argument_list|)
 expr_stmt|;
 name|logger

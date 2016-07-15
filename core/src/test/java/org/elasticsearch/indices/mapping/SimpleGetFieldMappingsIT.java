@@ -347,9 +347,6 @@ argument_list|(
 literal|"index"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|GetFieldMappingsResponse
 name|response
 init|=
@@ -581,9 +578,6 @@ literal|"typeB"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// Get mappings by full name
 name|GetFieldMappingsResponse
@@ -1617,9 +1611,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|GetFieldMappingsResponse
 name|response
 init|=
@@ -1899,9 +1890,6 @@ literal|"pretty"
 argument_list|,
 literal|"true"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|GetFieldMappingsResponse
 name|response
@@ -2184,9 +2172,6 @@ literal|"typeB"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 for|for
 control|(

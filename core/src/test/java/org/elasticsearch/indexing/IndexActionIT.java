@@ -369,11 +369,6 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info

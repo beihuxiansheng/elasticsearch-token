@@ -272,16 +272,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"Running Cluster Health"
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.

@@ -293,9 +293,6 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|testThatCustomHighlightersAreSupported
 specifier|public

@@ -197,9 +197,6 @@ argument_list|(
 literal|"Running Cluster Health"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.

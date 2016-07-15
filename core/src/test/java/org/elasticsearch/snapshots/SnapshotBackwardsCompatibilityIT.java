@@ -624,9 +624,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -1837,9 +1834,6 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.

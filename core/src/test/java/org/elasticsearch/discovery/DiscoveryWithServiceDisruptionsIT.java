@@ -7208,9 +7208,6 @@ literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 specifier|final
 name|String
 name|masterNode1

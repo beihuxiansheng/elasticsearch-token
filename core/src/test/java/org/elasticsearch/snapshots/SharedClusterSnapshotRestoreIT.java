@@ -8805,9 +8805,6 @@ argument_list|,
 literal|"test-idx-2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -9157,9 +9154,6 @@ argument_list|,
 literal|"test-idx-2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -9461,9 +9455,6 @@ literal|"test-idx-1"
 argument_list|,
 literal|"test-idx-2"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -20980,9 +20971,6 @@ literal|"test-idx-2"
 argument_list|,
 literal|"test-idx-3"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.

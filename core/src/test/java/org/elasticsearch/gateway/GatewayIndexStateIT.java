@@ -681,16 +681,6 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for yellow status"
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
 literal|"--> verify meta _routing required exists"
 argument_list|)
 expr_stmt|;
@@ -2200,16 +2190,6 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
-argument_list|()
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> waiting for test index to be created"
-argument_list|)
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|client
