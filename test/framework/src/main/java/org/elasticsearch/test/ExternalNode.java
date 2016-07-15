@@ -364,7 +364,7 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-literal|"netty"
+literal|"netty3"
 argument_list|)
 operator|.
 name|build

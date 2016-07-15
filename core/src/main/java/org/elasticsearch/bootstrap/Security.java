@@ -1480,7 +1480,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// loop through all profiles and add permissions for each one, if its valid.
-comment|// (otherwise NettyTransport is lenient and ignores it)
+comment|// (otherwise Netty transports are lenient and ignores it)
 for|for
 control|(
 name|Map

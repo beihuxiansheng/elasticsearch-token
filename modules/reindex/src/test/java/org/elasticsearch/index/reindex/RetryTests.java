@@ -272,7 +272,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|NettyPlugin
+name|Netty3Plugin
 import|;
 end_import
 
@@ -457,7 +457,7 @@ name|ReindexPlugin
 operator|.
 name|class
 argument_list|,
-name|NettyPlugin
+name|Netty3Plugin
 operator|.
 name|class
 argument_list|,
@@ -477,7 +477,7 @@ name|BogusPlugin
 extends|extends
 name|Plugin
 block|{
-comment|// se NettyPlugin.... this runs without the permission from the netty module so it will fail since reindex can't set the property
+comment|// se Netty3Plugin.... this runs without the permission from the netty3 module so it will fail since reindex can't set the property
 comment|// to make it still work we disable that check but need to register the setting first
 DECL|field|ASSERT_NETTY_BUGLEVEL
 specifier|private

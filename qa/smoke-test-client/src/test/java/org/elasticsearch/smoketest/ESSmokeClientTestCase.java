@@ -188,47 +188,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|internal
-operator|.
-name|InternalSettingsPreparer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|Plugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 import|;
 end_import
 
@@ -252,7 +214,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|NettyPlugin
+name|Netty3Plugin
 import|;
 end_import
 
@@ -506,7 +468,7 @@ name|BogusPlugin
 extends|extends
 name|Plugin
 block|{
-comment|// se NettyPlugin.... this runs without the permission from the netty module so it will fail since reindex can't set the property
+comment|// se Netty3Plugin.... this runs without the permission from the netty3 module so it will fail since reindex can't set the property
 comment|// to make it still work we disable that check but need to register the setting first
 DECL|field|ASSERT_NETTY_BUGLEVEL
 specifier|private
@@ -639,7 +601,7 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|NettyPlugin
+name|Netty3Plugin
 operator|.
 name|NETTY_TRANSPORT_NAME
 argument_list|)
@@ -648,7 +610,7 @@ name|transportClientBuilder
 operator|.
 name|addPlugin
 argument_list|(
-name|NettyPlugin
+name|Netty3Plugin
 operator|.
 name|class
 argument_list|)
