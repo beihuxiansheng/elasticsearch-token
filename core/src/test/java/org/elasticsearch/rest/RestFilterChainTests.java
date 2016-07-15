@@ -223,6 +223,11 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
+argument_list|,
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -791,6 +796,11 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
+argument_list|,
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|restController
