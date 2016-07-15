@@ -256,10 +256,6 @@ name|is
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|PrioritizedExecutorsTests
 specifier|public
@@ -307,9 +303,9 @@ name|Priority
 argument_list|>
 name|priorities
 init|=
-operator|new
-name|ArrayList
-argument_list|<>
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|Priority
 operator|.
