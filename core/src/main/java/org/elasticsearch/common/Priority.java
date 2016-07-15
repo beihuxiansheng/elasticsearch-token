@@ -72,7 +72,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|Collections
 import|;
 end_import
 
@@ -83,16 +83,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
 import|;
 end_import
 
@@ -327,7 +317,7 @@ operator|)
 literal|4
 argument_list|)
 decl_stmt|;
-DECL|field|values
+DECL|field|VALUES
 specifier|private
 specifier|static
 specifier|final
@@ -335,8 +325,12 @@ name|List
 argument_list|<
 name|Priority
 argument_list|>
-name|values
+name|VALUES
 init|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|Arrays
 operator|.
 name|asList
@@ -352,6 +346,7 @@ argument_list|,
 name|LOW
 argument_list|,
 name|LANGUID
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|value
@@ -375,7 +370,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * @return a list of all available priorities, sorted from the highest to the lowest.      */
+comment|/**      * All priorities, sorted from highest priority to lowest priority. The returned list is      * unmodifiable.      *      * @return an unmodifiable list of priorities, sorted from highest priority to lowest priority.      */
 DECL|method|values
 specifier|public
 specifier|static
@@ -387,7 +382,7 @@ name|values
 parameter_list|()
 block|{
 return|return
-name|values
+name|VALUES
 return|;
 block|}
 annotation|@
