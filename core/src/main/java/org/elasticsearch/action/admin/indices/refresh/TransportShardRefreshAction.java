@@ -478,10 +478,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|checkWriteConsistency
+DECL|method|checkActiveShardCount
 specifier|protected
 name|boolean
-name|checkWriteConsistency
+name|checkActiveShardCount
 parameter_list|()
 block|{
 return|return

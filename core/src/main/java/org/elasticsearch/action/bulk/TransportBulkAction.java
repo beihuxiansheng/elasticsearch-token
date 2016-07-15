@@ -2711,11 +2711,11 @@ argument_list|)
 decl_stmt|;
 name|bulkShardRequest
 operator|.
-name|consistencyLevel
+name|waitForActiveShards
 argument_list|(
 name|bulkRequest
 operator|.
-name|consistencyLevel
+name|waitForActiveShards
 argument_list|()
 argument_list|)
 expr_stmt|;

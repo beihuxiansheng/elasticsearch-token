@@ -72,7 +72,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|support
+operator|.
+name|ActionFilters
 import|;
 end_import
 
@@ -86,7 +88,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|ActionFilters
+name|ActiveShardCount
 import|;
 end_import
 
@@ -434,6 +436,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -747,11 +761,11 @@ specifier|final
 name|ShardStateAction
 name|shardStateAction
 decl_stmt|;
-DECL|field|defaultWriteConsistencyLevel
+DECL|field|defaultWaitForActiveShards
 specifier|private
 specifier|final
-name|WriteConsistencyLevel
-name|defaultWriteConsistencyLevel
+name|ActiveShardCount
+name|defaultWaitForActiveShards
 decl_stmt|;
 DECL|field|transportOptions
 specifier|private
@@ -956,20 +970,15 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|defaultWriteConsistencyLevel
+name|defaultWaitForActiveShards
 operator|=
-name|WriteConsistencyLevel
+name|IndexSettings
 operator|.
-name|fromString
-argument_list|(
-name|settings
+name|WAIT_FOR_ACTIVE_SHARDS_SETTING
 operator|.
 name|get
 argument_list|(
-literal|"action.write_consistency"
-argument_list|,
-literal|"quorum"
-argument_list|)
+name|settings
 argument_list|)
 expr_stmt|;
 name|this
@@ -1091,11 +1100,11 @@ name|ReplicaRequest
 name|shardRequest
 parameter_list|)
 function_decl|;
-comment|/**      * True if write consistency should be checked for an implementation      */
-DECL|method|checkWriteConsistency
+comment|/**      * True if the active shard count should be checked before proceeding with the replication action.      */
+DECL|method|checkActiveShardCount
 specifier|protected
 name|boolean
-name|checkWriteConsistency
+name|checkActiveShardCount
 parameter_list|()
 block|{
 return|return
@@ -2001,7 +2010,7 @@ name|listener
 argument_list|,
 name|executeOnReplicas
 argument_list|,
-name|checkWriteConsistency
+name|checkActiveShardCount
 argument_list|()
 argument_list|,
 name|replicasProxy
@@ -3024,19 +3033,19 @@ if|if
 condition|(
 name|request
 operator|.
-name|consistencyLevel
+name|waitForActiveShards
 argument_list|()
 operator|==
-name|WriteConsistencyLevel
+name|ActiveShardCount
 operator|.
 name|DEFAULT
 condition|)
 block|{
 name|request
 operator|.
-name|consistencyLevel
+name|waitForActiveShards
 argument_list|(
-name|defaultWriteConsistencyLevel
+name|defaultWaitForActiveShards
 argument_list|)
 expr_stmt|;
 block|}

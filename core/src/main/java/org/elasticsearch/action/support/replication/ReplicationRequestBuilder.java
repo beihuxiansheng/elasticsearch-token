@@ -62,7 +62,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|support
+operator|.
+name|ActiveShardCount
 import|;
 end_import
 
@@ -255,26 +257,26 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sets the consistency level of write. Defaults to {@link org.elasticsearch.action.WriteConsistencyLevel#DEFAULT}      */
+comment|/**      * Sets the number of shard copies that must be active before proceeding with the write.      * See {@link ReplicationRequest#waitForActiveShards(ActiveShardCount)} for details.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|setConsistencyLevel
+DECL|method|setWaitForActiveShards
 specifier|public
 name|RequestBuilder
-name|setConsistencyLevel
+name|setWaitForActiveShards
 parameter_list|(
-name|WriteConsistencyLevel
-name|consistencyLevel
+name|ActiveShardCount
+name|activeShardCount
 parameter_list|)
 block|{
 name|request
 operator|.
-name|consistencyLevel
+name|waitForActiveShards
 argument_list|(
-name|consistencyLevel
+name|activeShardCount
 argument_list|)
 expr_stmt|;
 return|return

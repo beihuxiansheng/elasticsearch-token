@@ -789,6 +789,10 @@ name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
 argument_list|,
+name|IndexSettings
+operator|.
+name|WAIT_FOR_ACTIVE_SHARDS_SETTING
+argument_list|,
 comment|// validate that built-in similarities don't get redefined
 name|Setting
 operator|.

@@ -1318,11 +1318,11 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|consistencyLevel
+name|waitForActiveShards
 argument_list|(
 name|mainRequest
 operator|.
-name|getConsistency
+name|getWaitForActiveShards
 argument_list|()
 argument_list|)
 expr_stmt|;

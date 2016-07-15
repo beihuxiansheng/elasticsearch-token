@@ -6855,9 +6855,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"action.write_consistency"
+name|IndexSettings
+operator|.
+name|WAIT_FOR_ACTIVE_SHARDS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
-literal|"one"
+literal|"1"
 argument_list|)
 operator|.
 name|build
