@@ -68,8 +68,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-operator|-
-literal|1
+literal|0
 argument_list|)
 block|,
 DECL|enum constant|URGENT
@@ -78,7 +77,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|0
+literal|1
 argument_list|)
 block|,
 DECL|enum constant|HIGH
@@ -87,7 +86,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|1
+literal|2
 argument_list|)
 block|,
 DECL|enum constant|NORMAL
@@ -96,7 +95,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|2
+literal|3
 argument_list|)
 block|,
 DECL|enum constant|LOW
@@ -105,7 +104,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|3
+literal|4
 argument_list|)
 block|,
 DECL|enum constant|LANGUID
@@ -114,7 +113,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|4
+literal|5
 argument_list|)
 block|;
 DECL|method|readFrom
@@ -180,38 +179,37 @@ name|b
 condition|)
 block|{
 case|case
-operator|-
-literal|1
+literal|0
 case|:
 return|return
 name|IMMEDIATE
 return|;
 case|case
-literal|0
+literal|1
 case|:
 return|return
 name|URGENT
 return|;
 case|case
-literal|1
+literal|2
 case|:
 return|return
 name|HIGH
 return|;
 case|case
-literal|2
+literal|3
 case|:
 return|return
 name|NORMAL
 return|;
 case|case
-literal|3
+literal|4
 case|:
 return|return
 name|LOW
 return|;
 case|case
-literal|4
+literal|5
 case|:
 return|return
 name|LANGUID

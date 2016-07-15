@@ -319,8 +319,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-operator|-
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -337,7 +336,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -354,7 +353,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|4
+literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -371,7 +370,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|3
+literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -388,7 +387,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|2
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -405,7 +404,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|0
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
