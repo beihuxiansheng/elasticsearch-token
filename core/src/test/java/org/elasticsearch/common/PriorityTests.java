@@ -58,16 +58,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Arrays
 import|;
 end_import
@@ -157,7 +147,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"no such priority: foobar"
+literal|"No enum constant org.elasticsearch.common.Priority.foobar"
 argument_list|,
 name|exception
 operator|.
@@ -253,8 +243,7 @@ operator|.
 name|values
 argument_list|()
 operator|.
-name|size
-argument_list|()
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -429,8 +418,7 @@ operator|.
 name|values
 argument_list|()
 operator|.
-name|size
-argument_list|()
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -630,9 +618,9 @@ name|Priority
 argument_list|>
 name|shuffeledAndSorted
 init|=
-operator|new
-name|ArrayList
-argument_list|<>
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|Priority
 operator|.
@@ -671,10 +659,15 @@ name|asList
 argument_list|(
 name|shuffeledAndSorted
 argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|Priority
 operator|.
 name|values
 argument_list|()
+argument_list|)
 argument_list|)
 control|)
 block|{
