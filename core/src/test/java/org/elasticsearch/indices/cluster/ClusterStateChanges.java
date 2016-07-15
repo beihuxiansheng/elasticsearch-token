@@ -1532,6 +1532,8 @@ argument_list|,
 name|IndexScopedSettings
 operator|.
 name|DEFAULT_SCOPED_SETTINGS
+argument_list|,
+name|threadPool
 argument_list|)
 decl_stmt|;
 name|transportCloseIndexAction
