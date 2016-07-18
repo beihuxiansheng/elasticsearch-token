@@ -2743,13 +2743,6 @@ literal|"_root:DEBUG,action.index:TRACE,action.get:TRACE,discovery:TRACE,cluster
 operator|+
 literal|"indices.recovery:TRACE,indices.cluster:TRACE"
 argument_list|)
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/pull/19416"
-argument_list|)
 DECL|method|testAckedIndexing
 specifier|public
 name|void
