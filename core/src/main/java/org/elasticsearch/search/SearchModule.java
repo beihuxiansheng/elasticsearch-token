@@ -6786,6 +6786,9 @@ argument_list|)
 expr_stmt|;
 name|registerPipelineAggregation
 argument_list|(
+operator|new
+name|PipelineAggregationSpec
+argument_list|(
 name|SerialDiffPipelineAggregationBuilder
 operator|::
 operator|new
@@ -6797,6 +6800,14 @@ argument_list|,
 name|SerialDiffPipelineAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
+argument_list|)
+operator|.
+name|addResultReader
+argument_list|(
+name|SerialDiffPipelineAggregator
+operator|::
+operator|new
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -9055,11 +9066,6 @@ name|registerStreams
 argument_list|()
 expr_stmt|;
 name|BucketSelectorPipelineAggregator
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
-name|SerialDiffPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()
