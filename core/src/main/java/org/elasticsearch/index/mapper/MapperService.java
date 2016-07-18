@@ -3494,9 +3494,13 @@ argument_list|(
 name|index
 argument_list|()
 argument_list|,
-name|type
-argument_list|,
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"trying to auto create mapping, but dynamic mapping is disabled"
+argument_list|)
+argument_list|,
+name|type
 argument_list|)
 throw|;
 block|}

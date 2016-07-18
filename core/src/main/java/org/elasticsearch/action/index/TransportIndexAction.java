@@ -663,16 +663,6 @@ argument_list|)
 expr_stmt|;
 name|createIndexRequest
 operator|.
-name|mapping
-argument_list|(
-name|request
-operator|.
-name|type
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|createIndexRequest
-operator|.
 name|cause
 argument_list|(
 literal|"auto(index api)"
