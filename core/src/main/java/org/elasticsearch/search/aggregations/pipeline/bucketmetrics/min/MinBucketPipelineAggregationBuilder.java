@@ -208,12 +208,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|MinBucketPipelineAggregator
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+literal|"min_bucket"
 decl_stmt|;
 DECL|field|AGGREGATION_FIELD_NAME
 specifier|public
@@ -243,12 +238,7 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|MinBucketPipelineAggregator
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+name|NAME
 argument_list|,
 operator|new
 name|String

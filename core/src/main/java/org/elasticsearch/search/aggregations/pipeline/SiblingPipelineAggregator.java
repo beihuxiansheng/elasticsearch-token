@@ -218,7 +218,7 @@ specifier|protected
 name|SiblingPipelineAggregator
 parameter_list|()
 block|{
-comment|// for Serialisation
+comment|// NOCOMMIT remove me
 name|super
 argument_list|()
 expr_stmt|;
