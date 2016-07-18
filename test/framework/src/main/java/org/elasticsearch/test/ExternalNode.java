@@ -220,9 +220,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|transport
 operator|.
-name|Node
+name|MockTransportClient
 import|;
 end_import
 
@@ -1299,18 +1299,11 @@ decl_stmt|;
 name|TransportClient
 name|client
 init|=
-name|TransportClient
-operator|.
-name|builder
-argument_list|()
-operator|.
-name|settings
+operator|new
+name|MockTransportClient
 argument_list|(
 name|clientSettings
 argument_list|)
-operator|.
-name|build
-argument_list|()
 decl_stmt|;
 name|client
 operator|.
