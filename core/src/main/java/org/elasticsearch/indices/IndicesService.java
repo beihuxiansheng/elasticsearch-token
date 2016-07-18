@@ -6490,21 +6490,6 @@ name|SearchContext
 name|context
 parameter_list|)
 block|{
-comment|// for now, only enable it for requests with no hits
-if|if
-condition|(
-name|context
-operator|.
-name|size
-argument_list|()
-operator|!=
-literal|0
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|// We cannot cache with DFS because results depend not only on the content of the index but also
 comment|// on the overridden statistics. So if you ran two queries on the same index with different stats
 comment|// (because an other shard was updated) you would get wrong results because of the scores
@@ -6563,6 +6548,23 @@ operator|==
 literal|false
 condition|)
 block|{
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|context
+operator|.
+name|size
+argument_list|()
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// If no request cache query parameter and shard request cache
+comment|// is enabled in settings don't cache for requests with size> 0
 return|return
 literal|false
 return|;
