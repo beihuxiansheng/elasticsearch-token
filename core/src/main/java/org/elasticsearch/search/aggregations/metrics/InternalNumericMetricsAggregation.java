@@ -139,12 +139,6 @@ block|{
 DECL|method|SingleValue
 specifier|protected
 name|SingleValue
-parameter_list|()
-block|{}
-comment|// NORELEASE remove when we remove Streamable
-DECL|method|SingleValue
-specifier|protected
-name|SingleValue
 parameter_list|(
 name|String
 name|name
@@ -298,11 +292,6 @@ block|{
 DECL|method|MultiValue
 specifier|protected
 name|MultiValue
-parameter_list|()
-block|{}
-DECL|method|MultiValue
-specifier|protected
-name|MultiValue
 parameter_list|(
 name|String
 name|name
@@ -448,12 +437,6 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|InternalNumericMetricsAggregation
-specifier|private
-name|InternalNumericMetricsAggregation
-parameter_list|()
-block|{}
-comment|// NORELEASE remove when we remove Streamable
 DECL|method|InternalNumericMetricsAggregation
 specifier|private
 name|InternalNumericMetricsAggregation

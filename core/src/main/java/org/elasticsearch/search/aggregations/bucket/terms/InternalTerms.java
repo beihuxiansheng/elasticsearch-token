@@ -1130,31 +1130,16 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Merging/Reducing the aggregations failed "
-operator|+
-literal|"when computing the aggregation [ Name: "
+literal|"Merging/Reducing the aggregations failed when computing the aggregation ["
 operator|+
 name|referenceTerms
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", Type: "
+literal|"] because the field you gave in the aggregation query existed as two different "
 operator|+
-name|referenceTerms
-operator|.
-name|type
-argument_list|()
-operator|+
-literal|" ]"
-operator|+
-literal|" because: "
-operator|+
-literal|"the field you gave in the aggregation query "
-operator|+
-literal|"existed as two different types "
-operator|+
-literal|"in two different indices"
+literal|"types in two different indices"
 argument_list|)
 throw|;
 block|}

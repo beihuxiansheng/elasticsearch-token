@@ -194,11 +194,8 @@ name|HasAggregations
 extends|,
 name|ToXContent
 extends|,
-name|Streamable
-extends|,
 name|Writeable
 block|{
-comment|// NORELEASE remove Streamable
 comment|/**          * @return The key associated with the bucket          */
 DECL|method|getKey
 name|Object
@@ -239,28 +236,6 @@ argument_list|>
 name|path
 parameter_list|)
 function_decl|;
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|default
-name|void
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// NORELEASE remove me when no Buckets override it
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Prefer the Writeable interface"
-argument_list|)
-throw|;
-block|}
 DECL|class|SubAggregationComparator
 specifier|static
 class|class
