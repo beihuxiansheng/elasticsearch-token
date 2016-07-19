@@ -577,6 +577,12 @@ name|Repositories
 operator|.
 name|USE_THROTTLE_RETRIES_SETTING
 argument_list|,
+name|S3Repository
+operator|.
+name|Repositories
+operator|.
+name|PATH_STYLE_ACCESS_SETTING
+argument_list|,
 comment|// Register S3 single repository settings
 name|S3Repository
 operator|.
@@ -661,6 +667,12 @@ operator|.
 name|Repository
 operator|.
 name|BASE_PATH_SETTING
+argument_list|,
+name|S3Repository
+operator|.
+name|Repository
+operator|.
+name|PATH_STYLE_ACCESS_SETTING
 argument_list|)
 return|;
 block|}
