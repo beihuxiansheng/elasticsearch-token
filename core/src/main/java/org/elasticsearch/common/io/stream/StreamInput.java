@@ -621,6 +621,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads an optional bytes reference from this stream. It might hold an actual reference to the underlying bytes of the stream. Use this      * only if you must differentiate null from empty. Use {@link StreamInput#readBytesReference()} and      * {@link StreamOutput#writeBytesReference(BytesReference)} if you do not.      */
+annotation|@
+name|Nullable
 DECL|method|readOptionalBytesReference
 specifier|public
 name|BytesReference
@@ -1439,6 +1441,31 @@ return|;
 block|}
 annotation|@
 name|Nullable
+DECL|method|readOptionalLong
+specifier|public
+name|Long
+name|readOptionalLong
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|readBoolean
+argument_list|()
+condition|)
+block|{
+return|return
+name|readLong
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Nullable
 DECL|method|readOptionalText
 specifier|public
 name|Text
@@ -1793,6 +1820,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|readOptionalDouble
 specifier|public
 specifier|final
@@ -1966,6 +1995,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Nullable
 DECL|method|readOptionalStringArray
 specifier|public
 name|String
@@ -3135,6 +3166,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Serializes a potential null value.      */
+annotation|@
+name|Nullable
 DECL|method|readOptionalStreamable
 specifier|public
 parameter_list|<
@@ -3186,6 +3219,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Nullable
 DECL|method|readOptionalWriteable
 specifier|public
 parameter_list|<
@@ -3967,6 +4002,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Reads an optional {@link NamedWriteable}.      */
+annotation|@
+name|Nullable
 DECL|method|readOptionalNamedWriteable
 specifier|public
 parameter_list|<

@@ -2223,6 +2223,16 @@ argument_list|,
 name|VALUE_STRING
 argument_list|)
 operator|,
+DECL|enum constant|LONG_OR_NULL
+name|LONG_OR_NULL
+argument_list|(
+name|VALUE_NUMBER
+argument_list|,
+name|VALUE_STRING
+argument_list|,
+name|VALUE_NULL
+argument_list|)
+operator|,
 DECL|enum constant|INT
 name|INT
 argument_list|(

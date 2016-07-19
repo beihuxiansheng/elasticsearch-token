@@ -837,9 +837,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|context
-operator|.
-name|nowCallable
-argument_list|()
+operator|::
+name|nowInMillis
 argument_list|)
 expr_stmt|;
 block|}
@@ -861,9 +860,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|context
-operator|.
-name|nowCallable
-argument_list|()
+operator|::
+name|nowInMillis
 argument_list|)
 expr_stmt|;
 block|}
