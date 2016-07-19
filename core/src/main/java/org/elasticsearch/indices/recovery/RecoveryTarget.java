@@ -615,12 +615,10 @@ argument_list|(
 name|copyFrom
 operator|.
 name|indexShard
-argument_list|()
 argument_list|,
 name|copyFrom
 operator|.
 name|sourceNode
-argument_list|()
 argument_list|,
 name|copyFrom
 operator|.
@@ -633,7 +631,6 @@ argument_list|,
 name|copyFrom
 operator|.
 name|recoveryId
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,7 +940,7 @@ name|tempFileNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Closes the current recovery target and returns a      * clone to reset the ongoing recovery      */
+comment|/**      * Closes the current recovery target and returns a      * clone to reset the ongoing recovery.      * Note: the returned target must be canceled, failed or finished      * in order to release all it's reference.      */
 DECL|method|resetRecovery
 name|RecoveryTarget
 name|resetRecovery
@@ -954,15 +951,6 @@ block|{
 name|ensureRefCount
 argument_list|()
 expr_stmt|;
-name|RecoveryTarget
-name|copy
-init|=
-operator|new
-name|RecoveryTarget
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|finished
@@ -986,7 +974,11 @@ name|performRecoveryRestart
 argument_list|()
 expr_stmt|;
 return|return
-name|copy
+operator|new
+name|RecoveryTarget
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 comment|/**      * cancel the recovery. calling this method will clean temporary files and release the store      * unless this object is in use (in which case it will be cleaned once all ongoing users call      * {@link #decRef()}      *<p>      * if {@link #CancellableThreads()} was used, the threads will be interrupted.      */

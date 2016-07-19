@@ -445,6 +445,7 @@ argument_list|(
 literal|"replace failed"
 argument_list|)
 expr_stmt|;
+comment|// this is important otherwise we leak a reference to the store
 throw|throw
 operator|new
 name|IllegalStateException
