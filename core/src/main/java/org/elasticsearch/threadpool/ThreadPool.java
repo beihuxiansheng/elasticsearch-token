@@ -232,6 +232,22 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|EsRejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|EsThreadPoolExecutor
 import|;
 end_import
@@ -409,18 +425,6 @@ operator|.
 name|concurrent
 operator|.
 name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|RejectedExecutionException
 import|;
 end_import
 
@@ -2395,7 +2399,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Schedules a one-shot command to run after a given delay. The command is not run in the context of the calling thread. To preserve the      * context of the calling thread you may call<code>threadPool.getThreadContext().preserveContext</code> on the runnable before passing      * it to this method.      *      * @param delay delay before the task executes      * @param executor the name of the thread pool on which to execute this task. SAME means "execute on the scheduler thread" which changes the      *        meaning of the ScheduledFuture returned by this method. In that case the ScheduledFuture will complete only when the command      *        completes.      * @param command the command to run      * @return a ScheduledFuture who's get will return when the task is has been added to its target thread pool and throw an exception if      *         the task is canceled before it was added to its target thread pool. Once the task has been added to its target thread pool      *         the ScheduledFuture will cannot interact with it.      * @throws java.util.concurrent.RejectedExecutionException {@inheritDoc}      */
+comment|/**      * Schedules a one-shot command to run after a given delay. The command is not run in the context of the calling thread. To preserve the      * context of the calling thread you may call<code>threadPool.getThreadContext().preserveContext</code> on the runnable before passing      * it to this method.      *      * @param delay delay before the task executes      * @param executor the name of the thread pool on which to execute this task. SAME means "execute on the scheduler thread" which changes the      *        meaning of the ScheduledFuture returned by this method. In that case the ScheduledFuture will complete only when the command      *        completes.      * @param command the command to run      * @return a ScheduledFuture who's get will return when the task is has been added to its target thread pool and throw an exception if      *         the task is canceled before it was added to its target thread pool. Once the task has been added to its target thread pool      *         the ScheduledFuture will cannot interact with it.      * @throws org.elasticsearch.common.util.concurrent.EsRejectedExecutionException      */
 DECL|method|schedule
 specifier|public
 name|ScheduledFuture
@@ -4379,7 +4383,7 @@ block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|RejectedExecutionException
+name|EsRejectedExecutionException
 name|e
 parameter_list|)
 block|{
