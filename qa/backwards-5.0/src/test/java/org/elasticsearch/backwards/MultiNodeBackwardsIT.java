@@ -66,7 +66,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|MultiNodeBackwardsIT
 extends|extends
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 block|{
 DECL|method|MultiNodeBackwardsIT
 specifier|public

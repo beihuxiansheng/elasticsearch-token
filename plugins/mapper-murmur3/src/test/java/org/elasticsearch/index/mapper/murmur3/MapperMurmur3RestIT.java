@@ -56,7 +56,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|MapperMurmur3RestIT
 extends|extends
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 block|{
 DECL|method|MapperMurmur3RestIT
 specifier|public

@@ -104,7 +104,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -246,7 +246,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_BLACKLIST
 import|;
@@ -262,7 +262,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_SPEC
 import|;
@@ -278,7 +278,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_SUITE
 import|;
@@ -457,10 +457,10 @@ name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Rest tests are a special case as they allow for additional parameters
+comment|// Client yaml suite tests are a special case as they allow for additional parameters
 if|if
 condition|(
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|class
 operator|.
@@ -478,7 +478,7 @@ condition|)
 block|{
 name|gradleMessageBuilder
 operator|.
-name|appendRestTestsProperties
+name|appendClientYamlSuiteProperties
 argument_list|()
 expr_stmt|;
 block|}
@@ -788,10 +788,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|appendRestTestsProperties
+DECL|method|appendClientYamlSuiteProperties
 specifier|public
 name|ReproduceErrorMessageBuilder
-name|appendRestTestsProperties
+name|appendClientYamlSuiteProperties
 parameter_list|()
 block|{
 return|return
