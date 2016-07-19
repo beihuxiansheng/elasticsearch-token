@@ -226,6 +226,20 @@ name|common
 operator|.
 name|util
 operator|.
+name|Callback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
 name|CancellableThreads
 import|;
 end_import
@@ -459,7 +473,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Represents a recovery where the current node is the target node of the recovery. To track recoveries in a central place, instances of  * this class are created through {@link RecoveriesCollection}.  */
 end_comment
 
 begin_class
@@ -540,6 +554,15 @@ name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
+decl_stmt|;
+DECL|field|ensureClusterStateVersionCallback
+specifier|private
+specifier|final
+name|Callback
+argument_list|<
+name|Long
+argument_list|>
+name|ensureClusterStateVersionCallback
 decl_stmt|;
 DECL|field|finished
 specifier|private
@@ -631,6 +654,10 @@ argument_list|,
 name|copyFrom
 operator|.
 name|recoveryId
+argument_list|,
+name|copyFrom
+operator|.
+name|ensureClusterStateVersionCallback
 argument_list|)
 expr_stmt|;
 block|}
@@ -648,6 +675,12 @@ name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
+parameter_list|,
+name|Callback
+argument_list|<
+name|Long
+argument_list|>
+name|ensureClusterStateVersionCallback
 parameter_list|)
 block|{
 name|this
@@ -666,9 +699,12 @@ name|idGenerator
 operator|.
 name|incrementAndGet
 argument_list|()
+argument_list|,
+name|ensureClusterStateVersionCallback
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * creates a new recovery target object that represents a recovery to the provided indexShard      *      * @param indexShard local shard where we want to recover to      * @param sourceNode source node of the recovery where we recover from      * @param listener called when recovery is completed / failed      * @param ensureClusterStateVersionCallback callback to ensure that the current node is at least on a cluster state with the provided      *                                          version. Necessary for primary relocation so that new primary knows about all other ongoing      *                                          replica recoveries when replicating documents (see {@link RecoverySourceHandler}).      */
 DECL|method|RecoveryTarget
 specifier|private
 name|RecoveryTarget
@@ -689,6 +725,12 @@ name|cancellableThreads
 parameter_list|,
 name|long
 name|recoveryId
+parameter_list|,
+name|Callback
+argument_list|<
+name|Long
+argument_list|>
+name|ensureClusterStateVersionCallback
 parameter_list|)
 block|{
 name|super
@@ -781,6 +823,12 @@ name|indexShard
 operator|.
 name|store
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|ensureClusterStateVersionCallback
+operator|=
+name|ensureClusterStateVersionCallback
 expr_stmt|;
 comment|// make sure the store is not released until we are done.
 name|store
@@ -1546,6 +1594,25 @@ argument_list|()
 operator|.
 name|finalizeRecovery
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|ensureClusterStateVersion
+specifier|public
+name|void
+name|ensureClusterStateVersion
+parameter_list|(
+name|long
+name|clusterStateVersion
+parameter_list|)
+block|{
+name|ensureClusterStateVersionCallback
+operator|.
+name|handle
+argument_list|(
+name|clusterStateVersion
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

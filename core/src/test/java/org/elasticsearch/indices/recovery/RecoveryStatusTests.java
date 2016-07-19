@@ -308,6 +308,10 @@ name|sendShardFailure
 parameter_list|)
 block|{             }
 block|}
+argument_list|,
+name|version
+lambda|->
+block|{}
 argument_list|)
 decl_stmt|;
 try|try

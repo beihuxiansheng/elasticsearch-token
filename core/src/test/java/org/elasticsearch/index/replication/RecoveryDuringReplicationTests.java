@@ -455,6 +455,10 @@ argument_list|,
 name|sourceNode
 argument_list|,
 name|listener
+argument_list|,
+name|version
+lambda|->
+block|{}
 argument_list|)
 expr_stmt|;
 name|this
