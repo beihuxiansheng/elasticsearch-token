@@ -313,7 +313,7 @@ name|index
 decl_stmt|;
 comment|/**      * The number of shard copies that must be active before proceeding with the replication action.      */
 DECL|field|waitForActiveShards
-specifier|private
+specifier|protected
 name|ActiveShardCount
 name|waitForActiveShards
 init|=

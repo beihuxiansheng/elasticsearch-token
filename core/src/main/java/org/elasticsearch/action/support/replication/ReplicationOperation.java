@@ -422,12 +422,6 @@ specifier|final
 name|boolean
 name|executeOnReplicas
 decl_stmt|;
-DECL|field|checkActiveShardCount
-specifier|private
-specifier|final
-name|boolean
-name|checkActiveShardCount
-decl_stmt|;
 DECL|field|primary
 specifier|private
 specifier|final
@@ -526,9 +520,6 @@ parameter_list|,
 name|boolean
 name|executeOnReplicas
 parameter_list|,
-name|boolean
-name|checkActiveShardCount
-parameter_list|,
 name|Replicas
 argument_list|<
 name|ReplicaRequest
@@ -548,12 +539,6 @@ name|String
 name|opType
 parameter_list|)
 block|{
-name|this
-operator|.
-name|checkActiveShardCount
-operator|=
-name|checkActiveShardCount
-expr_stmt|;
 name|this
 operator|.
 name|executeOnReplicas
@@ -616,11 +601,7 @@ name|String
 name|activeShardCountFailure
 init|=
 name|checkActiveShardCount
-condition|?
-name|checkActiveShardCount
 argument_list|()
-else|:
-literal|null
 decl_stmt|;
 specifier|final
 name|ShardRouting

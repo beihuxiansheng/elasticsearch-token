@@ -1205,8 +1205,6 @@ name|listener
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 operator|new
 name|TestReplicaProxy
 argument_list|()
@@ -2486,8 +2484,6 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
 operator|new
 name|TestReplicaProxy
 argument_list|()
@@ -2779,6 +2775,14 @@ name|shardId
 operator|.
 name|getIndexName
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|waitForActiveShards
+operator|=
+name|ActiveShardCount
+operator|.
+name|NONE
 expr_stmt|;
 comment|// keep things simple
 block|}
@@ -3368,8 +3372,6 @@ name|listener
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|replicas
 argument_list|,
 name|clusterStateSupplier
@@ -3414,9 +3416,6 @@ parameter_list|,
 name|boolean
 name|executeOnReplicas
 parameter_list|,
-name|boolean
-name|checkActiveShardCount
-parameter_list|,
 name|Replicas
 argument_list|<
 name|Request
@@ -3445,8 +3444,6 @@ argument_list|,
 name|listener
 argument_list|,
 name|executeOnReplicas
-argument_list|,
-name|checkActiveShardCount
 argument_list|,
 name|replicas
 argument_list|,

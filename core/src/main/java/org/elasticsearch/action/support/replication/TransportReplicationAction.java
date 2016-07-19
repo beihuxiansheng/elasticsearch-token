@@ -1100,17 +1100,6 @@ name|ReplicaRequest
 name|shardRequest
 parameter_list|)
 function_decl|;
-comment|/**      * True if the active shard count should be checked before proceeding with the replication action.      */
-DECL|method|checkActiveShardCount
-specifier|protected
-name|boolean
-name|checkActiveShardCount
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Cluster level block to check before request execution      */
 DECL|method|globalBlockLevel
 specifier|protected
@@ -2009,9 +1998,6 @@ argument_list|,
 name|listener
 argument_list|,
 name|executeOnReplicas
-argument_list|,
-name|checkActiveShardCount
-argument_list|()
 argument_list|,
 name|replicasProxy
 argument_list|,
