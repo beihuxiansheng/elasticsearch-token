@@ -31,6 +31,7 @@ end_comment
 begin_class
 DECL|class|ResponseException
 specifier|public
+specifier|final
 class|class
 name|ResponseException
 extends|extends
