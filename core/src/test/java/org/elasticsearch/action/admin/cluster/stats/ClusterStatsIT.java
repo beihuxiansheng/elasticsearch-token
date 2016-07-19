@@ -955,9 +955,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|response
 operator|=
 name|client
@@ -1471,12 +1468,6 @@ argument_list|,
 literal|"f"
 argument_list|,
 literal|"f"
-argument_list|)
-expr_stmt|;
-comment|/*          * Ensure at least one shard is allocated otherwise the FS stats might          * return 0. This happens if the File#getTotalSpace() and friends is called          * on a directory that doesn't exist or has not yet been created.          */
-name|ensureYellow
-argument_list|(
-literal|"test1"
 argument_list|)
 expr_stmt|;
 name|ClusterStatsResponse

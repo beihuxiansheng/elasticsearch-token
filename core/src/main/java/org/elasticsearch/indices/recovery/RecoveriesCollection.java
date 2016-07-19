@@ -158,6 +158,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|UncheckedIOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -353,6 +373,88 @@ operator|.
 name|recoveryId
 argument_list|()
 return|;
+block|}
+comment|/**      * Resets the recovery and performs a recovery restart on the currently recovering index shard      *      * @see IndexShard#performRecoveryRestart()      */
+DECL|method|resetRecovery
+specifier|public
+name|void
+name|resetRecovery
+parameter_list|(
+name|long
+name|id
+parameter_list|,
+name|ShardId
+name|shardId
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+try|try
+init|(
+name|RecoveryRef
+name|ref
+init|=
+name|getRecoverySafe
+argument_list|(
+name|id
+argument_list|,
+name|shardId
+argument_list|)
+init|)
+block|{
+comment|// instead of adding complicated state to RecoveryTarget we just flip the
+comment|// target instance when we reset a recovery, that way we have only one cleanup
+comment|// path on the RecoveryTarget and are always within the bounds of ref-counting
+comment|// which is important since we verify files are on disk etc. after we have written them etc.
+name|RecoveryTarget
+name|status
+init|=
+name|ref
+operator|.
+name|status
+argument_list|()
+decl_stmt|;
+name|RecoveryTarget
+name|resetRecovery
+init|=
+name|status
+operator|.
+name|resetRecovery
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|onGoingRecoveries
+operator|.
+name|replace
+argument_list|(
+name|id
+argument_list|,
+name|status
+argument_list|,
+name|resetRecovery
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|resetRecovery
+operator|.
+name|cancel
+argument_list|(
+literal|"replace failed"
+argument_list|)
+expr_stmt|;
+comment|// this is important otherwise we leak a reference to the store
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"failed to replace recovery target"
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 comment|/**      * gets the {@link RecoveryTarget } for a given id. The RecoveryStatus returned has it's ref count already incremented      * to make sure it's safe to use. However, you must call {@link RecoveryTarget#decRef()} when you are done with it, typically      * by using this method in a try-with-resources clause.      *<p>      * Returns null if recovery is not found      */
 DECL|method|getRecovery

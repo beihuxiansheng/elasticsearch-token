@@ -2738,6 +2738,12 @@ name|currentTimeMillis
 argument_list|()
 argument_list|,
 name|delayed
+argument_list|,
+name|UnassignedInfo
+operator|.
+name|AllocationStatus
+operator|.
+name|NO_ATTEMPT
 argument_list|)
 argument_list|)
 argument_list|)

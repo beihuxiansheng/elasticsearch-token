@@ -2495,11 +2495,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|IDX
-argument_list|)
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3131,11 +3126,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|IDX
-argument_list|)
 expr_stmt|;
 name|client
 argument_list|()
@@ -3808,11 +3798,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|IDX
-argument_list|)
-expr_stmt|;
 comment|// Node1 has the primary, now node2 has the replica
 name|String
 name|node2
@@ -4337,11 +4322,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|IDX
-argument_list|)
 expr_stmt|;
 comment|// Node1 has the primary, now node2 has the replica
 name|String
@@ -7377,11 +7357,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|IDX
-argument_list|)
 expr_stmt|;
 name|client
 argument_list|()

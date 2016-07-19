@@ -177,9 +177,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|Map
 argument_list|<
 name|String

@@ -3449,6 +3449,28 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * A functional interface that people can use to reference {@link #shardLock(ShardId, long)}      */
+annotation|@
+name|FunctionalInterface
+DECL|interface|ShardLocker
+specifier|public
+interface|interface
+name|ShardLocker
+block|{
+DECL|method|lock
+name|ShardLock
+name|lock
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|long
+name|lockTimeoutMS
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+block|}
 comment|/**      * Returns all currently lock shards.      *      * Note: the shard ids return do not contain a valid Index UUID      */
 DECL|method|lockedShards
 specifier|public

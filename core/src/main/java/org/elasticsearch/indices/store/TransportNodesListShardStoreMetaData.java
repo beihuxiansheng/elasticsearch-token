@@ -1064,6 +1064,10 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+comment|// note that this may fail if it can't get access to the shard lock. Since we check above there is an active shard, this means:
+comment|// 1) a shard is being constructed, which means the master will not use a copy of this replica
+comment|// 2) A shard is shutting down and has not cleared it's content within lock timeout. In this case the master may not
+comment|//    reuse local resources.
 return|return
 operator|new
 name|StoreFilesMetaData
@@ -1080,6 +1084,10 @@ name|resolveIndex
 argument_list|()
 argument_list|,
 name|shardId
+argument_list|,
+name|nodeEnv
+operator|::
+name|shardLock
 argument_list|,
 name|logger
 argument_list|)

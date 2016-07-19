@@ -316,8 +316,6 @@ block|,
 literal|".yaml"
 block|,
 literal|".json"
-block|,
-literal|".properties"
 block|}
 decl_stmt|;
 DECL|field|PROPERTY_DEFAULTS_PREFIX
@@ -574,7 +572,7 @@ throw|throw
 operator|new
 name|SettingsException
 argument_list|(
-literal|"Failed to settings from "
+literal|"Failed to load settings from "
 operator|+
 name|path
 operator|.

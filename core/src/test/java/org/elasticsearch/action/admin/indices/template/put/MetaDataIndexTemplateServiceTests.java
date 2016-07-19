@@ -1325,6 +1325,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|MetaDataIndexTemplateService
@@ -1485,6 +1487,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|nodeServicesProvider
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

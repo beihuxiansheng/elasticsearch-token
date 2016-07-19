@@ -421,6 +421,8 @@ name|ValuesSource
 operator|.
 name|Bytes
 operator|.
+name|WithOrdinals
+operator|.
 name|EMPTY
 expr_stmt|;
 block|}

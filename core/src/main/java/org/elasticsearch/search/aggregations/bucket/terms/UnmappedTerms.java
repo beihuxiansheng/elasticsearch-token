@@ -320,7 +320,9 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+comment|// Nothing to write
+block|}
 annotation|@
 name|Override
 DECL|method|getWriteableName

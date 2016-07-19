@@ -609,7 +609,7 @@ DECL|method|FetchPhase
 specifier|public
 name|FetchPhase
 parameter_list|(
-name|Set
+name|List
 argument_list|<
 name|FetchSubPhase
 argument_list|>

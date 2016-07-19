@@ -361,7 +361,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// We already got the task created on the netty layer - no need to create it again on the transport layer
+comment|// We already got the task created on the network layer - no need to create it again on the transport layer
 name|execute
 argument_list|(
 name|task

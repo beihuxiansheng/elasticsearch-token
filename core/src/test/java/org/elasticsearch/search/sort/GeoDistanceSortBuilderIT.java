@@ -627,9 +627,6 @@ name|d2Builder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|GeoPoint
 index|[]
 name|q
@@ -1561,9 +1558,6 @@ name|d2Builder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|GeoPoint
 name|q
 init|=
@@ -2217,9 +2211,6 @@ name|d2Builder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|String
@@ -2815,9 +2806,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|String
 name|hashPoint
@@ -3555,13 +3543,6 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test1"
-argument_list|,
-literal|"test2"
 argument_list|)
 expr_stmt|;
 name|SearchResponse

@@ -2265,11 +2265,6 @@ argument_list|,
 literal|"test2"
 argument_list|)
 expr_stmt|;
-comment|// This is important. The test assumes all nodes are aware of all indices. Due to initializing shard throttling
-comment|// not all shards are allocated with the initial create index. Wait for it..
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 specifier|final
 name|AtomicReference
 argument_list|<

@@ -56,11 +56,16 @@ name|ShrinkResponse
 parameter_list|(
 name|boolean
 name|acknowledged
+parameter_list|,
+name|boolean
+name|shardsAcked
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|acknowledged
+argument_list|,
+name|shardsAcked
 argument_list|)
 expr_stmt|;
 block|}

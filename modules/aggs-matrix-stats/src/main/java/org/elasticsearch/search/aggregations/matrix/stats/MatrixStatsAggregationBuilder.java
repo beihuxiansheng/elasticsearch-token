@@ -142,6 +142,22 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|InternalAggregation
+operator|.
+name|Type
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|support
 operator|.
 name|AggregationContext
@@ -266,10 +282,6 @@ name|Map
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|MatrixStatsAggregationBuilder
 specifier|public
@@ -294,12 +306,20 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|InternalMatrixStats
-operator|.
+literal|"matrix_stats"
+decl_stmt|;
+DECL|field|TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
 name|TYPE
-operator|.
-name|name
-argument_list|()
+init|=
+operator|new
+name|Type
+argument_list|(
+name|NAME
+argument_list|)
 decl_stmt|;
 DECL|field|AGGREGATION_NAME_FIELD
 specifier|public
@@ -335,8 +355,6 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|InternalMatrixStats
-operator|.
 name|TYPE
 argument_list|,
 name|ValuesSourceType
@@ -364,8 +382,6 @@ name|super
 argument_list|(
 name|in
 argument_list|,
-name|InternalMatrixStats
-operator|.
 name|TYPE
 argument_list|,
 name|ValuesSourceType

@@ -560,9 +560,6 @@ name|mapping
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -773,9 +770,6 @@ name|mapping
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// when indexing a field that simply has a question mark, the term vectors will be null
 name|client
 argument_list|()
@@ -980,9 +974,6 @@ name|mapping
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// when indexing a field that simply has a question mark, the term vectors will be null
 name|client
 argument_list|()
@@ -1181,9 +1172,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// yes tvs
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|IndexRequestBuilder
@@ -1566,9 +1554,6 @@ literal|"lowercase"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -2047,9 +2032,6 @@ literal|"lowercase"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -3337,9 +3319,6 @@ literal|"delimited_payload_filter"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -8277,9 +8256,6 @@ literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|int
 name|numTerms
 init|=
@@ -8560,9 +8536,6 @@ argument_list|,
 literal|"type=text"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -8871,9 +8844,6 @@ argument_list|,
 literal|"type=text"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|int
 name|numDocs

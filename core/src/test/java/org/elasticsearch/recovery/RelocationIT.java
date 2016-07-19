@@ -2536,10 +2536,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-comment|// make sure the first shard is started.
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -3968,9 +3964,6 @@ argument_list|)
 comment|// NORELEASE: set to randomInt(halfNodes - 1) once replica data loss is fixed
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|assertAllShardsOnNodes
 argument_list|(

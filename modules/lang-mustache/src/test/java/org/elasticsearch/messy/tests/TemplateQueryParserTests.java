@@ -408,9 +408,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|script
 operator|.
-name|query
+name|mustache
 operator|.
 name|TemplateQueryBuilder
 import|;
@@ -1121,6 +1121,9 @@ name|NamedWriteableRegistry
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|emptyList
+argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -1385,7 +1388,7 @@ name|templateString
 init|=
 literal|"{"
 operator|+
-literal|"\"query\":{\"match_{{template}}\": {}},"
+literal|"\"inline\":{\"match_{{template}}\": {}},"
 operator|+
 literal|"\"params\":{\"template\":\"all\"}"
 operator|+

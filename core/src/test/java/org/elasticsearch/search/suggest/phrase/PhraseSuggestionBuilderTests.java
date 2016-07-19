@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|Template
+name|Script
 import|;
 end_import
 
@@ -629,7 +629,7 @@ break|break;
 case|case
 literal|6
 case|:
-name|Template
+name|Script
 name|collateQuery
 init|=
 name|builder

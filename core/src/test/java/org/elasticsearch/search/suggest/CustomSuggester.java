@@ -164,6 +164,7 @@ block|{
 DECL|field|INSTANCE
 specifier|public
 specifier|static
+specifier|final
 name|CustomSuggester
 name|INSTANCE
 init|=

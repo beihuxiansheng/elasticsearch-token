@@ -539,8 +539,6 @@ init|=
 name|getNodeTime
 argument_list|(
 name|timings
-argument_list|,
-name|childrenProfileResults
 argument_list|)
 decl_stmt|;
 name|String
@@ -643,7 +641,7 @@ name|parentNode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Internal helper to calculate the time of a node, inclusive of children      *      * @param timings      *            A map of breakdown timing for the node      * @param children      *            All children profile results at this node      * @return The total time at this node, inclusive of children      */
+comment|/**      * Internal helper to calculate the time of a node, inclusive of children      *      * @param timings      *            A map of breakdown timing for the node      * @return The total time at this node, inclusive of children      */
 DECL|method|getNodeTime
 specifier|private
 specifier|static
@@ -657,12 +655,6 @@ argument_list|,
 name|Long
 argument_list|>
 name|timings
-parameter_list|,
-name|List
-argument_list|<
-name|ProfileResult
-argument_list|>
-name|children
 parameter_list|)
 block|{
 name|long
@@ -684,31 +676,6 @@ block|{
 name|nodeTime
 operator|+=
 name|time
-expr_stmt|;
-block|}
-comment|// Then add up our children
-for|for
-control|(
-name|ProfileResult
-name|child
-range|:
-name|children
-control|)
-block|{
-name|nodeTime
-operator|+=
-name|getNodeTime
-argument_list|(
-name|child
-operator|.
-name|getTimeBreakdown
-argument_list|()
-argument_list|,
-name|child
-operator|.
-name|getProfiledChildren
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return

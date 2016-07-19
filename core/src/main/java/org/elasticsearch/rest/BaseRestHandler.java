@@ -84,8 +84,20 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugins
+operator|.
+name|ActionPlugin
+import|;
+end_import
+
 begin_comment
-comment|/**  * Base handler for REST requests.  *<p>  * This handler makes sure that the headers&amp; context of the handled {@link RestRequest requests} are copied over to  * the transport requests executed by the associated client. While the context is fully copied over, not all the headers  * are copied, but a selected few. It is possible to control what headers are copied over by registering them using  * {@link org.elasticsearch.rest.RestController#registerRelevantHeaders(String...)}  */
+comment|/**  * Base handler for REST requests.  *<p>  * This handler makes sure that the headers&amp; context of the handled {@link RestRequest requests} are copied over to  * the transport requests executed by the associated client. While the context is fully copied over, not all the headers  * are copied, but a selected few. It is possible to control what headers are copied over by returning them in  * {@link ActionPlugin#getRestHeaders()}.  */
 end_comment
 
 begin_class

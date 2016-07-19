@@ -313,9 +313,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|index
 argument_list|(
 literal|"test"

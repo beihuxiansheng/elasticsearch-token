@@ -816,10 +816,6 @@ name|daemonThreadFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ClusterService
 specifier|public
@@ -2004,7 +2000,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Submits a cluster state update task; unlike {@link #submitStateUpdateTask(String, Object, ClusterStateTaskConfig,      * ClusterStateTaskExecutor, ClusterStateTaskListener)}, submitted updates will not be batched.      *      * @param source     the source of the cluster state update task      * @param updateTask the full context for the cluster state update      *                   task      */
+comment|/**      * Submits a cluster state update task; unlike {@link #submitStateUpdateTask(String, Object, ClusterStateTaskConfig,      * ClusterStateTaskExecutor, ClusterStateTaskListener)}, submitted updates will not be batched.      *      * @param source     the source of the cluster state update task      * @param updateTask the full context for the cluster state update      *                   task      *      */
 DECL|method|submitStateUpdateTask
 specifier|public
 name|void
@@ -2033,7 +2029,7 @@ name|updateTask
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Submits a cluster state update task; submitted updates will be      * batched across the same instance of executor. The exact batching      * semantics depend on the underlying implementation but a rough      * guideline is that if the update task is submitted while there      * are pending update tasks for the same executor, these update      * tasks will all be executed on the executor in a single batch      *      * @param source   the source of the cluster state update task      * @param task     the state needed for the cluster state update task      * @param config   the cluster state update task configuration      * @param executor the cluster state update task executor; tasks      *                 that share the same executor will be executed      *                 batches on this executor      * @param listener callback after the cluster state update task      *                 completes      * @param<T>      the type of the cluster state update task state      */
+comment|/**      * Submits a cluster state update task; submitted updates will be      * batched across the same instance of executor. The exact batching      * semantics depend on the underlying implementation but a rough      * guideline is that if the update task is submitted while there      * are pending update tasks for the same executor, these update      * tasks will all be executed on the executor in a single batch      *      * @param source   the source of the cluster state update task      * @param task     the state needed for the cluster state update task      * @param config   the cluster state update task configuration      * @param executor the cluster state update task executor; tasks      *                 that share the same executor will be executed      *                 batches on this executor      * @param listener callback after the cluster state update task      *                 completes      * @param<T>      the type of the cluster state update task state      *      */
 DECL|method|submitStateUpdateTask
 specifier|public
 parameter_list|<
@@ -2085,7 +2081,7 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Submits a batch of cluster state update tasks; submitted updates are guaranteed to be processed together,      * potentially with more tasks of the same executor.      *      * @param source   the source of the cluster state update task      * @param tasks    a map of update tasks and their corresponding listeners      * @param config   the cluster state update task configuration      * @param executor the cluster state update task executor; tasks      *                 that share the same executor will be executed      *                 batches on this executor      * @param<T>      the type of the cluster state update task state      */
+comment|/**      * Submits a batch of cluster state update tasks; submitted updates are guaranteed to be processed together,      * potentially with more tasks of the same executor.      *      * @param source   the source of the cluster state update task      * @param tasks    a map of update tasks and their corresponding listeners      * @param config   the cluster state update task configuration      * @param executor the cluster state update task executor; tasks      *                 that share the same executor will be executed      *                 batches on this executor      * @param<T>      the type of the cluster state update task state      *      */
 DECL|method|submitStateUpdateTasks
 specifier|public
 parameter_list|<
@@ -2271,13 +2267,17 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"task ["
 operator|+
 name|existing
 operator|.
 name|task
+operator|+
+literal|"] with source ["
+operator|+
+name|source
 operator|+
 literal|"] is already queued"
 argument_list|)

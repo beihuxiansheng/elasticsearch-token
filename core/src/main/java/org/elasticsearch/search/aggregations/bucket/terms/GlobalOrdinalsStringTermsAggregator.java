@@ -663,8 +663,6 @@ operator|.
 name|acceptedGlobalOrdinals
 argument_list|(
 name|globalOrds
-argument_list|,
-name|valuesSource
 argument_list|)
 expr_stmt|;
 block|}

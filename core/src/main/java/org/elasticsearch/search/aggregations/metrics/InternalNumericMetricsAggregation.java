@@ -141,6 +141,7 @@ specifier|protected
 name|SingleValue
 parameter_list|()
 block|{}
+comment|// NORELEASE remove when we remove Streamable
 DECL|method|SingleValue
 specifier|protected
 name|SingleValue
@@ -452,7 +453,7 @@ specifier|private
 name|InternalNumericMetricsAggregation
 parameter_list|()
 block|{}
-comment|// for serialization
+comment|// NORELEASE remove when we remove Streamable
 DECL|method|InternalNumericMetricsAggregation
 specifier|private
 name|InternalNumericMetricsAggregation

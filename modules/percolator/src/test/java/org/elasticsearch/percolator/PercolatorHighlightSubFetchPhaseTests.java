@@ -184,18 +184,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|Highlighters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|highlight
 operator|.
 name|SearchContextHighlight
@@ -255,6 +243,18 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -354,13 +354,8 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|Highlighters
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchContext
