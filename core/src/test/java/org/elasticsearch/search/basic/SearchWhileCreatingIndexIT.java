@@ -240,22 +240,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: add a smarter choice based on varying active shard count (when that is randomized)
-name|internalCluster
-argument_list|()
-operator|.
-name|ensureAtLeastNumDataNodes
-argument_list|(
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-name|numberOfReplicas
-operator|+
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// TODO: randomize the wait for active shards value on index creation and ensure the appropriate
+comment|// number of data nodes are started for the randomized active shard count value
 name|String
 name|id
 init|=

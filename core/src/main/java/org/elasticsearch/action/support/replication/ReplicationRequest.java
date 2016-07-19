@@ -312,10 +312,10 @@ name|String
 name|index
 decl_stmt|;
 comment|/**      * The number of shard copies that must be active before proceeding with the replication action.      */
-DECL|field|activeShardCount
+DECL|field|waitForActiveShards
 specifier|private
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 init|=
 name|ActiveShardCount
 operator|.
@@ -512,7 +512,7 @@ block|{
 return|return
 name|this
 operator|.
-name|activeShardCount
+name|waitForActiveShards
 return|;
 block|}
 comment|/**      * @return the shardId of the shard where this operation should be executed on.      * can be null if the shardID has not yet been resolved      */
@@ -541,14 +541,14 @@ name|Request
 name|waitForActiveShards
 parameter_list|(
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 parameter_list|)
 block|{
 name|this
 operator|.
-name|activeShardCount
+name|waitForActiveShards
 operator|=
-name|activeShardCount
+name|waitForActiveShards
 expr_stmt|;
 return|return
 operator|(
@@ -698,7 +698,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-name|activeShardCount
+name|waitForActiveShards
 operator|=
 name|ActiveShardCount
 operator|.
@@ -789,7 +789,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-name|activeShardCount
+name|waitForActiveShards
 operator|.
 name|writeTo
 argument_list|(

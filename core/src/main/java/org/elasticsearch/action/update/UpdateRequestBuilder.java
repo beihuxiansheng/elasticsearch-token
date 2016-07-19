@@ -471,14 +471,14 @@ name|UpdateRequestBuilder
 name|setWaitForActiveShards
 parameter_list|(
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 parameter_list|)
 block|{
 name|request
 operator|.
 name|waitForActiveShards
 argument_list|(
-name|activeShardCount
+name|waitForActiveShards
 argument_list|)
 expr_stmt|;
 return|return

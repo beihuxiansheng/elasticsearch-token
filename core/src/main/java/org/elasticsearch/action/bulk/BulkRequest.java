@@ -438,10 +438,10 @@ name|BulkShardRequest
 operator|.
 name|DEFAULT_TIMEOUT
 decl_stmt|;
-DECL|field|activeShardCount
+DECL|field|waitForActiveShards
 specifier|private
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 init|=
 name|ActiveShardCount
 operator|.
@@ -2746,14 +2746,14 @@ name|BulkRequest
 name|waitForActiveShards
 parameter_list|(
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 parameter_list|)
 block|{
 name|this
 operator|.
-name|activeShardCount
+name|waitForActiveShards
 operator|=
-name|activeShardCount
+name|waitForActiveShards
 expr_stmt|;
 return|return
 name|this
@@ -2768,7 +2768,7 @@ block|{
 return|return
 name|this
 operator|.
-name|activeShardCount
+name|waitForActiveShards
 return|;
 block|}
 annotation|@
@@ -3117,7 +3117,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|activeShardCount
+name|waitForActiveShards
 operator|=
 name|ActiveShardCount
 operator|.
@@ -3285,7 +3285,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|activeShardCount
+name|waitForActiveShards
 operator|.
 name|writeTo
 argument_list|(

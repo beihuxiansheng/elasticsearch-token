@@ -495,10 +495,10 @@ name|RefreshPolicy
 operator|.
 name|NONE
 decl_stmt|;
-DECL|field|activeShardCount
+DECL|field|waitForActiveShards
 specifier|private
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 init|=
 name|ActiveShardCount
 operator|.
@@ -1757,7 +1757,7 @@ block|{
 return|return
 name|this
 operator|.
-name|activeShardCount
+name|waitForActiveShards
 return|;
 block|}
 comment|/**      * Sets the number of shard copies that must be active before proceeding with the write.      * See {@link ReplicationRequest#waitForActiveShards(ActiveShardCount)} for details.      */
@@ -1767,14 +1767,14 @@ name|UpdateRequest
 name|waitForActiveShards
 parameter_list|(
 name|ActiveShardCount
-name|activeShardCount
+name|waitForActiveShards
 parameter_list|)
 block|{
 name|this
 operator|.
-name|activeShardCount
+name|waitForActiveShards
 operator|=
-name|activeShardCount
+name|waitForActiveShards
 expr_stmt|;
 return|return
 name|this
@@ -2839,7 +2839,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|activeShardCount
+name|waitForActiveShards
 operator|=
 name|ActiveShardCount
 operator|.
@@ -3064,7 +3064,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|activeShardCount
+name|waitForActiveShards
 operator|.
 name|writeTo
 argument_list|(
