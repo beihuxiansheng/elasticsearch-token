@@ -526,6 +526,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|TimeUnit
 import|;
 end_import
@@ -1651,7 +1663,21 @@ specifier|public
 name|void
 name|cancelled
 parameter_list|()
-block|{             }
+block|{
+name|listener
+operator|.
+name|onDefinitiveFailure
+argument_list|(
+operator|new
+name|ExecutionException
+argument_list|(
+literal|"request was cancelled"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
