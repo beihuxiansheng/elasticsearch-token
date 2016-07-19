@@ -2255,6 +2255,14 @@ argument_list|)
 operator|.
 name|waitForActiveShards
 argument_list|(
+name|activeShardCount
+operator|==
+name|totalShards
+condition|?
+name|ActiveShardCount
+operator|.
+name|ALL
+else|:
 name|ActiveShardCount
 operator|.
 name|from

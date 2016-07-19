@@ -1173,6 +1173,28 @@ name|waitForActiveShards
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A shortcut for {@link #setWaitForActiveShards(ActiveShardCount)} where the numerical      * shard count is passed in, instead of having to first call {@link ActiveShardCount#from(int)}      * to get the ActiveShardCount.      */
+DECL|method|setWaitForActiveShards
+specifier|public
+name|void
+name|setWaitForActiveShards
+parameter_list|(
+specifier|final
+name|int
+name|waitForActiveShards
+parameter_list|)
+block|{
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|from
+argument_list|(
+name|waitForActiveShards
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

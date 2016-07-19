@@ -1171,6 +1171,7 @@ expr_stmt|;
 block|}
 comment|/**      * Checks whether we can perform a write based on the required active shard count setting.      * Returns **null* if OK to proceed, or a string describing the reason to stop      */
 DECL|method|checkActiveShardCount
+specifier|protected
 name|String
 name|checkActiveShardCount
 parameter_list|()
@@ -1205,6 +1206,13 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+assert|assert
+name|state
+operator|!=
+literal|null
+operator|:
+literal|"replication operation must have access to the cluster state"
+assert|;
 specifier|final
 name|ActiveShardCount
 name|waitForActiveShards

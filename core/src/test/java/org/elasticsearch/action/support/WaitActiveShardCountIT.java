@@ -274,17 +274,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ActiveShardCount
-name|activeShardCount
-init|=
-name|ActiveShardCount
-operator|.
-name|from
-argument_list|(
-literal|2
-argument_list|)
-decl_stmt|;
-comment|// wait for two active shard copies
 try|try
 block|{
 name|client
@@ -311,8 +300,9 @@ argument_list|)
 operator|.
 name|setWaitForActiveShards
 argument_list|(
-name|activeShardCount
+literal|2
 argument_list|)
+comment|// wait for 2 active shard copies
 operator|.
 name|setTimeout
 argument_list|(
@@ -364,11 +354,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet shard count of ["
-operator|+
-name|activeShardCount
-operator|+
-literal|"] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
+literal|"[test][0] Not enough active copies to meet shard count of [2] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -482,7 +468,7 @@ argument_list|)
 operator|.
 name|setWaitForActiveShards
 argument_list|(
-name|activeShardCount
+literal|2
 argument_list|)
 operator|.
 name|setTimeout

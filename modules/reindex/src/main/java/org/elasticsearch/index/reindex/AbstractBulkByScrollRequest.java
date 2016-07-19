@@ -757,6 +757,29 @@ name|self
 argument_list|()
 return|;
 block|}
+comment|/**      * A shortcut for {@link #setWaitForActiveShards(ActiveShardCount)} where the numerical      * shard count is passed in, instead of having to first call {@link ActiveShardCount#from(int)}      * to get the ActiveShardCount.      */
+DECL|method|setWaitForActiveShards
+specifier|public
+name|Self
+name|setWaitForActiveShards
+parameter_list|(
+specifier|final
+name|int
+name|waitForActiveShards
+parameter_list|)
+block|{
+return|return
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|from
+argument_list|(
+name|waitForActiveShards
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Initial delay after a rejection before retrying request.      */
 DECL|method|getRetryBackoffInitialTime
 specifier|public

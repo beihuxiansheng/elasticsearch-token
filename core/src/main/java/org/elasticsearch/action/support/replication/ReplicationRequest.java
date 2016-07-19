@@ -557,6 +557,35 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * A shortcut for {@link #waitForActiveShards(ActiveShardCount)} where the numerical      * shard count is passed in, instead of having to first call {@link ActiveShardCount#from(int)}      * to get the ActiveShardCount.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|waitForActiveShards
+specifier|public
+specifier|final
+name|Request
+name|waitForActiveShards
+parameter_list|(
+specifier|final
+name|int
+name|waitForActiveShards
+parameter_list|)
+block|{
+return|return
+name|waitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|from
+argument_list|(
+name|waitForActiveShards
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Sets the minimum version of the cluster state that is required on the next node before we redirect to another primary.      * Used to prevent redirect loops, see also {@link TransportReplicationAction.ReroutePhase#doRun()}      */
 annotation|@
 name|SuppressWarnings

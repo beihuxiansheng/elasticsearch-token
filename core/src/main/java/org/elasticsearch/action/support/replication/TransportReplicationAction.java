@@ -436,18 +436,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -761,12 +749,6 @@ specifier|final
 name|ShardStateAction
 name|shardStateAction
 decl_stmt|;
-DECL|field|defaultWaitForActiveShards
-specifier|private
-specifier|final
-name|ActiveShardCount
-name|defaultWaitForActiveShards
-decl_stmt|;
 DECL|field|transportOptions
 specifier|private
 specifier|final
@@ -970,19 +952,6 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|defaultWaitForActiveShards
-operator|=
-name|IndexSettings
-operator|.
-name|WAIT_FOR_ACTIVE_SHARDS_SETTING
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|replicasProxy
 operator|=
 operator|new
@@ -1075,7 +1044,33 @@ parameter_list|,
 name|Request
 name|request
 parameter_list|)
-block|{     }
+block|{
+if|if
+condition|(
+name|request
+operator|.
+name|waitForActiveShards
+argument_list|()
+operator|==
+name|ActiveShardCount
+operator|.
+name|DEFAULT
+condition|)
+block|{
+comment|// if the wait for active shard count has not been set in the request,
+comment|// resolve it from the index settings
+name|request
+operator|.
+name|waitForActiveShards
+argument_list|(
+name|indexMetaData
+operator|.
+name|getWaitForActiveShards
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Primary operation on node with primary copy.      *      * @param shardRequest the request to the primary shard      */
 DECL|method|shardOperationOnPrimary
 specifier|protected
@@ -3015,26 +3010,6 @@ expr_stmt|;
 return|return;
 block|}
 comment|// resolve all derived request fields, so we can route and apply it
-if|if
-condition|(
-name|request
-operator|.
-name|waitForActiveShards
-argument_list|()
-operator|==
-name|ActiveShardCount
-operator|.
-name|DEFAULT
-condition|)
-block|{
-name|request
-operator|.
-name|waitForActiveShards
-argument_list|(
-name|defaultWaitForActiveShards
-argument_list|)
-expr_stmt|;
-block|}
 name|resolveRequest
 argument_list|(
 name|state
@@ -3056,6 +3031,18 @@ operator|!=
 literal|null
 operator|:
 literal|"request shardId must be set in resolveRequest"
+assert|;
+assert|assert
+name|request
+operator|.
+name|waitForActiveShards
+argument_list|()
+operator|!=
+name|ActiveShardCount
+operator|.
+name|DEFAULT
+operator|:
+literal|"request waitForActiveShards must be set in resolveRequest"
 assert|;
 specifier|final
 name|ShardRouting

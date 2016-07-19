@@ -1780,6 +1780,29 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A shortcut for {@link #waitForActiveShards(ActiveShardCount)} where the numerical      * shard count is passed in, instead of having to first call {@link ActiveShardCount#from(int)}      * to get the ActiveShardCount.      */
+DECL|method|waitForActiveShards
+specifier|public
+name|UpdateRequest
+name|waitForActiveShards
+parameter_list|(
+specifier|final
+name|int
+name|waitForActiveShards
+parameter_list|)
+block|{
+return|return
+name|waitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|from
+argument_list|(
+name|waitForActiveShards
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Sets the doc to use for updates when a script is not specified.      */
 DECL|method|doc
 specifier|public
