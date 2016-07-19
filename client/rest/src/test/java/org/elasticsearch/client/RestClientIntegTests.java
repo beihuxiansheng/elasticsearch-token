@@ -967,7 +967,7 @@ name|void
 name|testHeaders
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 for|for
 control|(
@@ -1342,7 +1342,7 @@ name|void
 name|testDeleteWithBody
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|bodyTest
 argument_list|(
@@ -1357,7 +1357,7 @@ name|void
 name|testGetWithBody
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|bodyTest
 argument_list|(
@@ -1374,7 +1374,7 @@ name|String
 name|method
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|requestBody

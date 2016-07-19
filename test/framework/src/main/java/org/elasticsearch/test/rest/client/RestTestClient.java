@@ -672,7 +672,7 @@ index|[]
 name|urls
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 assert|assert
 name|urls
@@ -729,7 +729,7 @@ index|[]
 name|urls
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|RestApi
 name|restApi
@@ -933,7 +933,7 @@ argument_list|>
 name|headers
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(

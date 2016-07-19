@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|RestTestResponseException
 extends|extends
-name|Exception
+name|IOException
 block|{
 DECL|field|restTestResponse
 specifier|private

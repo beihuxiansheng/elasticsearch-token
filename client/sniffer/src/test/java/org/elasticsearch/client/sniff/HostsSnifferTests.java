@@ -592,7 +592,7 @@ name|void
 name|testSniffNodes
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|HttpHost
 name|httpHost

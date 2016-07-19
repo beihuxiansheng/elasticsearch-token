@@ -520,7 +520,7 @@ name|void
 name|testUniqueDeprecationResponsesMergedTogether
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 specifier|final
 name|String
@@ -881,7 +881,7 @@ name|void
 name|doTestDeprecationWarningsAppearInHeaders
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 specifier|final
 name|boolean

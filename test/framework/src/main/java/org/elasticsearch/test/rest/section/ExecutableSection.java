@@ -32,6 +32,16 @@ name|RestTestExecutionContext
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a test fragment that can be executed (e.g. api call, assertion)  */
 end_comment
@@ -51,7 +61,7 @@ name|RestTestExecutionContext
 name|executionContext
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 function_decl|;
 block|}
 end_interface

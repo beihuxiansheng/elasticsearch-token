@@ -139,6 +139,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -348,7 +358,7 @@ name|void
 name|testThatRegularExpressionWorksOnMatch
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|corsValue
@@ -452,7 +462,7 @@ name|void
 name|testThatRegularExpressionReturnsForbiddenOnNonMatch
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 try|try
 block|{
@@ -540,7 +550,7 @@ name|void
 name|testThatSendingNoOriginHeaderReturnsNoAccessControlHeader
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|Response
 name|response
@@ -599,7 +609,7 @@ name|void
 name|testThatRegularExpressionIsNotAppliedWithoutCorrectBrowserOnMatch
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|Response
 name|response
@@ -650,7 +660,7 @@ name|void
 name|testThatPreFlightRequestWorksOnMatch
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|corsValue
@@ -722,7 +732,7 @@ name|void
 name|testThatPreFlightRequestReturnsNullOnNonMatch
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 try|try
 block|{

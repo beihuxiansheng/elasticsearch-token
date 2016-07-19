@@ -124,6 +124,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -245,7 +255,7 @@ name|void
 name|testThatErrorTraceParamReturns400
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 try|try
 block|{

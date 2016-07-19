@@ -122,6 +122,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -355,7 +365,7 @@ name|RestTestExecutionContext
 name|executionContext
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 if|if
 condition|(

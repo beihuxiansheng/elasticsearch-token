@@ -120,6 +120,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -273,7 +283,7 @@ name|void
 name|testThatSettingHeadersWorks
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|ensureGreen
 argument_list|()

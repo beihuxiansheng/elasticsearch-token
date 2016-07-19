@@ -1600,7 +1600,7 @@ name|void
 name|testOkStatusCodes
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 for|for
 control|(
@@ -1663,7 +1663,7 @@ name|void
 name|testErrorStatusCodes
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 for|for
 control|(
@@ -1815,7 +1815,7 @@ name|void
 name|testIOExceptions
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 for|for
 control|(
@@ -1918,7 +1918,7 @@ name|void
 name|testBody
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|body
@@ -2198,7 +2198,7 @@ name|void
 name|testNullHeaders
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|method
@@ -2304,7 +2304,7 @@ name|void
 name|testNullParams
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|method
@@ -2421,7 +2421,7 @@ name|void
 name|testHeaders
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 for|for
 control|(
@@ -3225,7 +3225,7 @@ modifier|...
 name|headers
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 switch|switch
 condition|(

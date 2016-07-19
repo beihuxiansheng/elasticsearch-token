@@ -312,7 +312,7 @@ argument_list|>
 name|headers
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|//makes a copy of the parameters before modifying them for this specific request
 name|HashMap
@@ -607,7 +607,7 @@ argument_list|>
 name|headers
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|restTestClient

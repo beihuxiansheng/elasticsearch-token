@@ -881,7 +881,7 @@ name|void
 name|testRoundRobinOkStatusCodes
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|int
 name|numIters
@@ -1038,7 +1038,7 @@ name|void
 name|testRoundRobinNoRetryErrors
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|int
 name|numIters
@@ -1318,7 +1318,7 @@ name|void
 name|testRoundRobinRetryErrors
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|retryEndpoint

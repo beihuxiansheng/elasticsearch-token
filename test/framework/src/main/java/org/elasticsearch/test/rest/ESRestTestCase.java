@@ -1699,7 +1699,7 @@ name|void
 name|wipeCluster
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// wipe indices
 name|Map
@@ -1871,7 +1871,7 @@ name|void
 name|logIfThereAreRunningTasks
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|RestTestResponse
 name|tasks
@@ -2328,7 +2328,7 @@ name|void
 name|test
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|//let's check that there is something to run, otherwise there might be a problem with the test section
 if|if

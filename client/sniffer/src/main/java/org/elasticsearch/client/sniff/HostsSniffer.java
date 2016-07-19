@@ -342,7 +342,7 @@ argument_list|>
 name|sniffHosts
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|Response
 name|response
