@@ -2379,11 +2379,16 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} removing shard (recovery source changed), current [{}], global [{}])"
+literal|"{} removing shard (recovery source changed), current [{}], global [{}], shard [{}])"
 argument_list|,
 name|shardId
 argument_list|,
-name|currentRoutingEntry
+name|recoveryState
+operator|.
+name|getSourceNode
+argument_list|()
+argument_list|,
+name|sourceNode
 argument_list|,
 name|newShardRouting
 argument_list|)

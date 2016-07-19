@@ -3959,9 +3959,13 @@ name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
-literal|0
+name|randomInt
+argument_list|(
+name|halfNodes
+operator|-
+literal|1
 argument_list|)
-comment|// NORELEASE: set to randomInt(halfNodes - 1) once replica data loss is fixed
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
