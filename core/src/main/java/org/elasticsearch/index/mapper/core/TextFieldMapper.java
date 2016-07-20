@@ -665,6 +665,35 @@ operator|!=
 name|POSITION_INCREMENT_GAP_USE_ANALYZER
 condition|)
 block|{
+if|if
+condition|(
+name|fieldType
+operator|.
+name|indexOptions
+argument_list|()
+operator|.
+name|compareTo
+argument_list|(
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
+argument_list|)
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot set position_increment_gap on field ["
+operator|+
+name|name
+operator|+
+literal|"] without positions enabled"
+argument_list|)
+throw|;
+block|}
 name|fieldType
 operator|.
 name|setIndexAnalyzer
