@@ -779,14 +779,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"access_key"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * secret_key          * @see  Repositories#SECRET_SETTING          */
@@ -802,14 +794,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"secret_key"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * bucket          * @see  Repositories#BUCKET_SETTING          */
@@ -825,10 +809,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"bucket"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * endpoint          * @see  Repositories#ENDPOINT_SETTING          */
@@ -844,10 +824,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"endpoint"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * protocol          * @see  Repositories#PROTOCOL_SETTING          */
@@ -881,10 +857,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * region          * @see  Repositories#REGION_SETTING          */
@@ -913,10 +885,6 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * server_side_encryption          * @see  Repositories#SERVER_SIDE_ENCRYPTION_SETTING          */
@@ -934,10 +902,6 @@ argument_list|(
 literal|"server_side_encryption"
 argument_list|,
 literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * buffer_size          * @see  Repositories#BUFFER_SIZE_SETTING          */
@@ -983,10 +947,6 @@ name|ByteSizeUnit
 operator|.
 name|TB
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * max_retries          * @see  Repositories#MAX_RETRIES_SETTING          */
@@ -1004,10 +964,6 @@ argument_list|(
 literal|"max_retries"
 argument_list|,
 literal|3
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * use_throttle_retries          * @see  Repositories#USE_THROTTLE_RETRIES_SETTING          */
@@ -1027,10 +983,6 @@ argument_list|,
 name|ClientConfiguration
 operator|.
 name|DEFAULT_THROTTLE_RETRIES
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * chunk_size          * @see  Repositories#CHUNK_SIZE_SETTING          */
@@ -1076,10 +1028,6 @@ name|ByteSizeUnit
 operator|.
 name|TB
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * compress          * @see  Repositories#COMPRESS_SETTING          */
@@ -1097,10 +1045,6 @@ argument_list|(
 literal|"compress"
 argument_list|,
 literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * storage_class          * @see  Repositories#STORAGE_CLASS_SETTING          */
@@ -1116,10 +1060,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"storage_class"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * canned_acl          * @see  Repositories#CANNED_ACL_SETTING          */
@@ -1135,10 +1075,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"canned_acl"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * base_path          * @see  Repositories#BASE_PATH_SETTING          */
@@ -1154,10 +1090,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"base_path"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * path_style_access          * @see  Repositories#PATH_STYLE_ACCESS_SETTING          */
@@ -1175,10 +1107,6 @@ argument_list|(
 literal|"path_style_access"
 argument_list|,
 literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 block|}
