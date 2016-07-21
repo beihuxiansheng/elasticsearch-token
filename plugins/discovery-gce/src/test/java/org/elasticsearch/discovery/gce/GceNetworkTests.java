@@ -391,11 +391,7 @@ argument_list|)
 decl_stmt|;
 name|networkService
 operator|.
-name|setCustomNameResolvers
-argument_list|(
-name|Collections
-operator|.
-name|singletonList
+name|addCustomNameResolver
 argument_list|(
 operator|new
 name|GceNameResolver
@@ -403,7 +399,6 @@ argument_list|(
 name|nodeSettings
 argument_list|,
 name|mock
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

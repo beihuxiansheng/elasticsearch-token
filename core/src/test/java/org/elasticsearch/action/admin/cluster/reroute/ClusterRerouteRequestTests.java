@@ -408,6 +408,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -441,18 +451,6 @@ operator|.
 name|function
 operator|.
 name|Supplier
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
 import|;
 end_import
 
@@ -711,6 +709,11 @@ argument_list|,
 literal|true
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 operator|.
 name|getAllocationCommandRegistry
