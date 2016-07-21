@@ -277,6 +277,21 @@ name|int
 name|bufferLimit
 parameter_list|)
 block|{
+if|if
+condition|(
+name|bufferLimit
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"bufferLimit must be greater than 0"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|bufferLimit
