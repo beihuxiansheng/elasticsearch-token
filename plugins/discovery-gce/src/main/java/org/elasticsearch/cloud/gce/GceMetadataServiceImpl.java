@@ -283,9 +283,6 @@ class|class
 name|GceMetadataServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|GceMetadataServiceImpl
-argument_list|>
 block|{
 comment|// Forcing Google Token API URL as set in GCE SDK to
 comment|//      http://metadata/computeMetadata/v1/instance/service-accounts/default/token
