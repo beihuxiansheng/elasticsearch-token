@@ -617,17 +617,11 @@ function_decl|;
 block|}
 DECL|field|customNameResolvers
 specifier|private
-specifier|final
 name|List
 argument_list|<
 name|CustomNameResolver
 argument_list|>
 name|customNameResolvers
-init|=
-operator|new
-name|CopyOnWriteArrayList
-argument_list|<>
-argument_list|()
 decl_stmt|;
 DECL|method|NetworkService
 specifier|public
@@ -648,22 +642,23 @@ name|logIfNecessary
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Add a custom name resolver.      */
-DECL|method|addCustomNameResolver
+DECL|method|setCustomNameResolvers
 specifier|public
 name|void
-name|addCustomNameResolver
+name|setCustomNameResolvers
 parameter_list|(
+name|List
+argument_list|<
 name|CustomNameResolver
-name|customNameResolver
+argument_list|>
+name|customNameResolvers
 parameter_list|)
 block|{
-name|customNameResolvers
+name|this
 operator|.
-name|add
-argument_list|(
-name|customNameResolver
-argument_list|)
+name|customNameResolvers
+operator|=
+name|customNameResolvers
 expr_stmt|;
 block|}
 comment|/**      * Resolves {@code bindHosts} to a list of internet addresses. The list will      * not contain duplicate addresses.      *      * @param bindHosts list of hosts to bind to. this may contain special pseudo-hostnames      *                  such as _local_ (see the documentation). if it is null, it will be populated      *                  based on global default settings.      * @return unique set of internet addresses      */
@@ -731,7 +726,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// next check any registered custom resolvers
+comment|// next check any registered custom resolvers if any
+if|if
+condition|(
+name|customNameResolvers
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|CustomNameResolver
@@ -759,6 +761,7 @@ block|{
 return|return
 name|addresses
 return|;
+block|}
 block|}
 block|}
 comment|// we know it's not here. get the defaults
@@ -925,7 +928,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// next check any registered custom resolvers
+comment|// next check any registered custom resolvers if any
+if|if
+condition|(
+name|customNameResolvers
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|CustomNameResolver
@@ -956,6 +966,7 @@ index|[
 literal|0
 index|]
 return|;
+block|}
 block|}
 block|}
 comment|// we know it's not here. get the defaults
@@ -1313,7 +1324,14 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// allow custom resolvers to have special names
+comment|// next check any registered custom resolvers if any
+if|if
+condition|(
+name|customNameResolvers
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|CustomNameResolver
@@ -1343,6 +1361,7 @@ block|{
 return|return
 name|addresses
 return|;
+block|}
 block|}
 block|}
 switch|switch

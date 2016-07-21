@@ -117,16 +117,11 @@ name|GceMetadataServiceMock
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|NetworkService
-name|networkService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|networkService
 argument_list|)
 expr_stmt|;
 name|this

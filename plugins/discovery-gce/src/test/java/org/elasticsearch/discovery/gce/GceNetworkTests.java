@@ -93,6 +93,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -367,13 +387,15 @@ operator|new
 name|GceMetadataServiceMock
 argument_list|(
 name|nodeSettings
-argument_list|,
-name|networkService
 argument_list|)
 decl_stmt|;
 name|networkService
 operator|.
-name|addCustomNameResolver
+name|setCustomNameResolvers
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 operator|new
 name|GceNameResolver
@@ -381,6 +403,7 @@ argument_list|(
 name|nodeSettings
 argument_list|,
 name|mock
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
