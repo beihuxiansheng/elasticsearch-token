@@ -210,7 +210,6 @@ annotation|@
 name|Override
 DECL|method|getProfileName
 specifier|public
-specifier|final
 name|String
 name|getProfileName
 parameter_list|()
@@ -223,7 +222,6 @@ annotation|@
 name|Override
 DECL|method|action
 specifier|public
-specifier|final
 name|String
 name|action
 parameter_list|()
@@ -238,7 +236,6 @@ annotation|@
 name|Override
 DECL|method|sendResponse
 specifier|public
-specifier|final
 name|void
 name|sendResponse
 parameter_list|(
@@ -262,7 +259,6 @@ annotation|@
 name|Override
 DECL|method|sendResponse
 specifier|public
-specifier|final
 name|void
 name|sendResponse
 parameter_list|(
@@ -275,9 +271,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|release
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 name|transport
 operator|.
 name|sendResponse
@@ -296,6 +291,13 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|release
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|sendResponse
@@ -303,15 +305,14 @@ specifier|public
 name|void
 name|sendResponse
 parameter_list|(
-name|Throwable
-name|error
+name|Exception
+name|exception
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|release
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 name|transport
 operator|.
 name|sendErrorResponse
@@ -320,7 +321,7 @@ name|version
 argument_list|,
 name|channel
 argument_list|,
-name|error
+name|exception
 argument_list|,
 name|requestId
 argument_list|,
@@ -328,6 +329,18 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|release
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|field|releaseBy
+specifier|private
+name|Exception
+name|releaseBy
+decl_stmt|;
 DECL|method|release
 specifier|private
 name|void
@@ -354,8 +367,25 @@ operator|new
 name|IllegalStateException
 argument_list|(
 literal|"reserved bytes are already released"
+argument_list|,
+name|releaseBy
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+assert|assert
+operator|(
+name|releaseBy
+operator|=
+operator|new
+name|Exception
+argument_list|()
+operator|)
+operator|!=
+literal|null
+assert|;
+comment|// easier to debug if it's already closed
 block|}
 name|transport
 operator|.
@@ -373,7 +403,6 @@ annotation|@
 name|Override
 DECL|method|getRequestId
 specifier|public
-specifier|final
 name|long
 name|getRequestId
 parameter_list|()
@@ -386,7 +415,6 @@ annotation|@
 name|Override
 DECL|method|getChannelType
 specifier|public
-specifier|final
 name|String
 name|getChannelType
 parameter_list|()

@@ -344,6 +344,8 @@ argument_list|(
 name|shardId
 argument_list|,
 name|shardRoutingTable
+argument_list|,
+name|indexMetaData
 argument_list|)
 argument_list|)
 expr_stmt|;

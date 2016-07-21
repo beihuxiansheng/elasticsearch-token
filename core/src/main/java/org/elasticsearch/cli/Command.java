@@ -184,6 +184,11 @@ argument_list|)
 argument_list|,
 literal|"show verbose output"
 argument_list|)
+operator|.
+name|availableUnless
+argument_list|(
+name|silentOption
+argument_list|)
 decl_stmt|;
 DECL|method|Command
 specifier|public
@@ -264,7 +269,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|UserError
+name|UserException
 name|e
 parameter_list|)
 block|{
@@ -368,29 +373,6 @@ name|silentOption
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|options
-operator|.
-name|has
-argument_list|(
-name|verboseOption
-argument_list|)
-condition|)
-block|{
-comment|// mutually exclusive, we can remove this with jopt-simple 5.0, which natively supports it
-throw|throw
-operator|new
-name|UserError
-argument_list|(
-name|ExitCodes
-operator|.
-name|USAGE
-argument_list|,
-literal|"Cannot specify -s and -v together"
-argument_list|)
-throw|;
-block|}
 name|terminal
 operator|.
 name|setVerbosity
@@ -525,7 +507,7 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Executes this command.      *      * Any runtime user errors (like an input file that does not exist), should throw a {@link UserError}. */
+comment|/**      * Executes this command.      *      * Any runtime user errors (like an input file that does not exist), should throw a {@link UserException}. */
 DECL|method|execute
 specifier|protected
 specifier|abstract

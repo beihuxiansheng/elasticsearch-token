@@ -1460,7 +1460,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1468,14 +1468,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Exception caught during discovery: {}"
+literal|"exception caught during discovery"
 argument_list|,
 name|e
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

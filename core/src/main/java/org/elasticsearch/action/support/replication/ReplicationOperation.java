@@ -357,20 +357,20 @@ parameter_list|>
 parameter_list|>
 block|{
 DECL|field|logger
-specifier|final
 specifier|private
+specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
 DECL|field|request
-specifier|final
 specifier|private
+specifier|final
 name|Request
 name|request
 decl_stmt|;
 DECL|field|clusterStateSupplier
-specifier|final
 specifier|private
+specifier|final
 name|Supplier
 argument_list|<
 name|ClusterState
@@ -378,14 +378,14 @@ argument_list|>
 name|clusterStateSupplier
 decl_stmt|;
 DECL|field|opType
-specifier|final
 specifier|private
+specifier|final
 name|String
 name|opType
 decl_stmt|;
 DECL|field|totalShards
-specifier|final
 specifier|private
+specifier|final
 name|AtomicInteger
 name|totalShards
 init|=
@@ -395,8 +395,8 @@ argument_list|()
 decl_stmt|;
 comment|/**      * The number of pending sub-operations in this operation. This is incremented when the following operations start and decremented when      * they complete:      *<ul>      *<li>The operation on the primary</li>      *<li>The operation on each replica</li>      *<li>Coordination of the operation as a whole. This prevents the operation from terminating early if we haven't started any replica      * operations and the primary finishes.</li>      *</ul>      */
 DECL|field|pendingShards
-specifier|final
 specifier|private
+specifier|final
 name|AtomicInteger
 name|pendingShards
 init|=
@@ -405,8 +405,8 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|field|successfulShards
-specifier|final
 specifier|private
+specifier|final
 name|AtomicInteger
 name|successfulShards
 init|=
@@ -415,20 +415,20 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|field|executeOnReplicas
-specifier|final
 specifier|private
+specifier|final
 name|boolean
 name|executeOnReplicas
 decl_stmt|;
 DECL|field|checkWriteConsistency
-specifier|final
 specifier|private
+specifier|final
 name|boolean
 name|checkWriteConsistency
 decl_stmt|;
 DECL|field|primary
-specifier|final
 specifier|private
+specifier|final
 name|Primary
 argument_list|<
 name|Request
@@ -440,8 +440,8 @@ argument_list|>
 name|primary
 decl_stmt|;
 DECL|field|replicasProxy
-specifier|final
 specifier|private
+specifier|final
 name|Replicas
 argument_list|<
 name|ReplicaRequest
@@ -449,8 +449,8 @@ argument_list|>
 name|replicasProxy
 decl_stmt|;
 DECL|field|finished
-specifier|final
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|finished
 init|=
@@ -459,8 +459,8 @@ name|AtomicBoolean
 argument_list|()
 decl_stmt|;
 DECL|field|resultListener
-specifier|final
 specifier|protected
+specifier|final
 name|ActionListener
 argument_list|<
 name|PrimaryResultT
@@ -978,7 +978,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|replicaException
 parameter_list|)
 block|{
@@ -1133,7 +1133,7 @@ specifier|private
 name|void
 name|onPrimaryDemoted
 parameter_list|(
-name|Throwable
+name|Exception
 name|demotionFailure
 parameter_list|)
 block|{
@@ -1614,8 +1614,8 @@ specifier|private
 name|void
 name|finishAsFailed
 parameter_list|(
-name|Throwable
-name|throwable
+name|Exception
+name|exception
 parameter_list|)
 block|{
 if|if
@@ -1634,7 +1634,7 @@ name|resultListener
 operator|.
 name|onFailure
 argument_list|(
-name|throwable
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
@@ -1646,7 +1646,7 @@ specifier|static
 name|boolean
 name|ignoreReplicaException
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1689,9 +1689,10 @@ name|boolean
 name|isConflictException
 parameter_list|(
 name|Throwable
-name|e
+name|t
 parameter_list|)
 block|{
+specifier|final
 name|Throwable
 name|cause
 init|=
@@ -1699,24 +1700,15 @@ name|ExceptionsHelper
 operator|.
 name|unwrapCause
 argument_list|(
-name|e
+name|t
 argument_list|)
 decl_stmt|;
 comment|// on version conflict or document missing, it means
 comment|// that a new change has crept into the replica, and it's fine
-if|if
-condition|(
+return|return
 name|cause
 operator|instanceof
 name|VersionConflictEngineException
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 DECL|interface|Primary
@@ -1760,8 +1752,8 @@ parameter_list|(
 name|String
 name|message
 parameter_list|,
-name|Throwable
-name|throwable
+name|Exception
+name|exception
 parameter_list|)
 function_decl|;
 comment|/**          * Performs the given request on this primary. Yes, this returns as soon as it can with the request for the replicas and calls a          * listener when the primary request is completed. Yes, the primary request might complete before the method returns. Yes, it might          * also complete after. Deal with it.          *          * @param request the request to perform          * @return the request to send to the repicas          */
@@ -1809,7 +1801,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**          * Fail the specified shard, removing it from the current set of active shards          *          * @param replica          shard to fail          * @param primary          the primary shard that requested the failure          * @param message          a (short) description of the reason          * @param throwable        the original exception which caused the ReplicationOperation to request the shard to be failed          * @param onSuccess        a callback to call when the shard has been successfully removed from the active set.          * @param onPrimaryDemoted a callback to call when the shard can not be failed because the current primary has been demoted          *                         by the master.          * @param onIgnoredFailure a callback to call when failing a shard has failed, but it that failure can be safely ignored and the          *                         replication operation can finish processing          *                         Note: this callback should be used in extreme situations, typically node shutdown.          */
+comment|/**          * Fail the specified shard, removing it from the current set of active shards          * @param replica          shard to fail          * @param primary          the primary shard that requested the failure          * @param message          a (short) description of the reason          * @param exception        the original exception which caused the ReplicationOperation to request the shard to be failed          * @param onSuccess        a callback to call when the shard has been successfully removed from the active set.          * @param onPrimaryDemoted a callback to call when the shard can not be failed because the current primary has been demoted *                         by the master.          * @param onIgnoredFailure a callback to call when failing a shard has failed, but it that failure can be safely ignored and the          */
 DECL|method|failShard
 name|void
 name|failShard
@@ -1823,21 +1815,21 @@ parameter_list|,
 name|String
 name|message
 parameter_list|,
-name|Throwable
-name|throwable
+name|Exception
+name|exception
 parameter_list|,
 name|Runnable
 name|onSuccess
 parameter_list|,
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|onPrimaryDemoted
 parameter_list|,
 name|Consumer
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|onIgnoredFailure
 parameter_list|)

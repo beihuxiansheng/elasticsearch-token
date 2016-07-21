@@ -530,8 +530,8 @@ name|ESIntegTestCase
 block|{
 DECL|field|categoryToControl
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

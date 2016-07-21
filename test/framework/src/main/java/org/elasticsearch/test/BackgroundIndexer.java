@@ -342,7 +342,7 @@ DECL|field|failures
 specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failures
 decl_stmt|;
@@ -988,7 +988,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

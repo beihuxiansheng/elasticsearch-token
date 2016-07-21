@@ -211,8 +211,8 @@ extends|extends
 name|Rounding
 block|{
 DECL|field|ID
-specifier|final
 specifier|static
+specifier|final
 name|byte
 name|ID
 init|=
@@ -520,8 +520,8 @@ extends|extends
 name|Rounding
 block|{
 DECL|field|ID
-specifier|final
 specifier|static
+specifier|final
 name|byte
 name|ID
 init|=
@@ -820,8 +820,8 @@ extends|extends
 name|Rounding
 block|{
 DECL|field|ID
-specifier|final
 specifier|static
+specifier|final
 name|byte
 name|ID
 init|=

@@ -393,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Integration test for registering a custom suggester.  */
 end_comment
 
 begin_class
@@ -431,6 +431,31 @@ name|Plugin
 argument_list|>
 argument_list|>
 name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|pluginList
+argument_list|(
+name|CustomSuggesterPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|transportClientPlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|transportClientPlugins
 parameter_list|()
 block|{
 return|return
@@ -492,9 +517,6 @@ name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|String

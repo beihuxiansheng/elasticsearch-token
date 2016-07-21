@@ -474,10 +474,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -688,8 +684,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|allNodesAcked
@@ -819,8 +815,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -829,7 +825,7 @@ name|error
 argument_list|(
 literal|"failed to execute callback in test {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -1090,8 +1086,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|allNodesAcked
@@ -1213,8 +1209,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1223,7 +1219,7 @@ name|error
 argument_list|(
 literal|"failed to execute callback in test {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -1488,8 +1484,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|allNodesAcked
@@ -1613,8 +1609,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1623,7 +1619,7 @@ name|error
 argument_list|(
 literal|"failed to execute callback in test {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -1879,8 +1875,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|allNodesAcked
@@ -2010,8 +2006,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2020,7 +2016,7 @@ name|error
 argument_list|(
 literal|"failed to execute callback in test {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -2277,8 +2273,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|invoked1
@@ -2361,8 +2357,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -2776,8 +2772,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|invoked3
@@ -2850,8 +2846,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -3829,7 +3825,7 @@ name|Plugin
 block|{
 annotation|@
 name|Override
-DECL|method|nodeServices
+DECL|method|getGuiceServiceClasses
 specifier|public
 name|Collection
 argument_list|<
@@ -3840,7 +3836,7 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|nodeServices
+name|getGuiceServiceClasses
 parameter_list|()
 block|{
 name|List
@@ -3884,9 +3880,6 @@ class|class
 name|MasterAwareService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|MasterAwareService
-argument_list|>
 implements|implements
 name|LocalNodeMasterListener
 block|{

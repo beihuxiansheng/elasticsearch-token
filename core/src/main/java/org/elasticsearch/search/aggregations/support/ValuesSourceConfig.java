@@ -97,11 +97,6 @@ name|unmapped
 init|=
 literal|false
 decl_stmt|;
-DECL|field|formatPattern
-specifier|private
-name|String
-name|formatPattern
-decl_stmt|;
 DECL|field|format
 specifier|private
 name|DocValueFormat

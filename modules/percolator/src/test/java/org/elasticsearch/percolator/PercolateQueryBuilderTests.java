@@ -1371,10 +1371,6 @@ catch|catch
 parameter_list|(
 name|ParsingException
 decl||
-name|Script
-operator|.
-name|ScriptParseException
-decl||
 name|ElasticsearchParseException
 name|e
 parameter_list|)

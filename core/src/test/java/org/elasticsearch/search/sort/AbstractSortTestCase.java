@@ -742,6 +742,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -990,6 +1002,11 @@ operator|.
 name|EMPTY
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+literal|false
+argument_list|,
+name|emptyList
+argument_list|()
 argument_list|)
 operator|.
 name|getQueryParserRegistry
@@ -2041,15 +2058,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

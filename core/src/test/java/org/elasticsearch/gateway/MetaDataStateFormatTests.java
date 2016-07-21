@@ -862,8 +862,6 @@ name|write
 argument_list|(
 name|state
 argument_list|,
-name|version
-argument_list|,
 name|dirs
 argument_list|)
 expr_stmt|;
@@ -1048,8 +1046,6 @@ operator|.
 name|write
 argument_list|(
 name|state2
-argument_list|,
-name|version2
 argument_list|,
 name|dirs
 argument_list|)
@@ -1319,8 +1315,6 @@ name|write
 argument_list|(
 name|state
 argument_list|,
-name|version
-argument_list|,
 name|dirs
 argument_list|)
 expr_stmt|;
@@ -1584,8 +1578,6 @@ operator|.
 name|write
 argument_list|(
 name|state
-argument_list|,
-name|version
 argument_list|,
 name|dirs
 argument_list|)
@@ -2515,8 +2507,6 @@ name|get
 argument_list|(
 name|j
 argument_list|)
-argument_list|,
-name|j
 argument_list|,
 name|dirs
 index|[

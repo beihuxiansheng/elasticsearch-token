@@ -238,7 +238,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -1609,9 +1609,10 @@ name|DiscoveryNode
 argument_list|(
 name|nodeId
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -1788,6 +1789,8 @@ operator|new
 name|HashSet
 argument_list|<>
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

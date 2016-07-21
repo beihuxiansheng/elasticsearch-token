@@ -14,6 +14,20 @@ name|rest
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|node
+operator|.
+name|NodeClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * A filter chain allowing to continue and process the rest request.  */
 end_comment
@@ -34,6 +48,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|)
 function_decl|;
 block|}

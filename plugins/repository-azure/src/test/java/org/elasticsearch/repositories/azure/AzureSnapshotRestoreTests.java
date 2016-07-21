@@ -4271,14 +4271,14 @@ specifier|final
 name|AzureStorageService
 name|storageService
 init|=
+operator|new
+name|AzureStorageServiceImpl
+argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|getInstance
-argument_list|(
-name|AzureStorageService
-operator|.
-name|class
+name|getDefaultSettings
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// It could happen that we run this test really close to a previous one

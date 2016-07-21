@@ -47,8 +47,8 @@ block|{     ;
 comment|/** threads whose name is prefixed by this string will be considered network threads, even though they aren't */
 DECL|field|TEST_MOCK_TRANSPORT_THREAD_PREFIX
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TEST_MOCK_TRANSPORT_THREAD_PREFIX
 init|=

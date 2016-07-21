@@ -32,8 +32,8 @@ name|KoelnerPhonetik
 block|{
 DECL|field|HAASE_VARIATIONS_PATTERNS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 index|[]
 name|HAASE_VARIATIONS_PATTERNS
@@ -66,8 +66,8 @@ block|}
 decl_stmt|;
 DECL|field|HAASE_VARIATIONS_REPLACEMENTS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|String
 index|[]
 name|HAASE_VARIATIONS_REPLACEMENTS

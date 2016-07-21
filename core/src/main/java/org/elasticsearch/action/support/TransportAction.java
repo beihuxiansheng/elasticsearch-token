@@ -484,7 +484,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -511,6 +511,7 @@ return|return
 name|task
 return|;
 block|}
+comment|/**      * Execute the transport action on the local node, returning the {@link Task} used to track its execution and accepting a      * {@link TaskListener} which listens for the completion of the action.      */
 DECL|method|execute
 specifier|public
 specifier|final
@@ -595,7 +596,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -724,8 +725,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -734,14 +735,14 @@ name|trace
 argument_list|(
 literal|"Error during transport action execution."
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1037,8 +1038,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1047,14 +1048,14 @@ name|trace
 argument_list|(
 literal|"Error during transport action execution."
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1284,8 +1285,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1294,14 +1295,14 @@ name|trace
 argument_list|(
 literal|"Error during transport action execution."
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1420,7 +1421,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1534,7 +1535,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1554,7 +1555,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1574,15 +1575,22 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|delegate
 operator|.
 name|onFailure
 argument_list|(
-name|e1
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

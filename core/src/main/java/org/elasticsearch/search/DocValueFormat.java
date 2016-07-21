@@ -373,9 +373,6 @@ name|value
 parameter_list|)
 function_decl|;
 DECL|field|RAW
-specifier|public
-specifier|static
-specifier|final
 name|DocValueFormat
 name|RAW
 init|=
@@ -575,8 +572,6 @@ block|}
 block|}
 decl_stmt|;
 DECL|class|DateTime
-specifier|public
-specifier|static
 specifier|final
 class|class
 name|DateTime
@@ -883,9 +878,6 @@ throw|;
 block|}
 block|}
 DECL|field|GEOHASH
-specifier|public
-specifier|static
-specifier|final
 name|DocValueFormat
 name|GEOHASH
 init|=
@@ -1040,9 +1032,6 @@ block|}
 block|}
 decl_stmt|;
 DECL|field|BOOLEAN
-specifier|public
-specifier|static
-specifier|final
 name|DocValueFormat
 name|BOOLEAN
 init|=
@@ -1238,9 +1227,6 @@ block|}
 block|}
 decl_stmt|;
 DECL|field|IP
-specifier|public
-specifier|static
-specifier|final
 name|DocValueFormat
 name|IP
 init|=
@@ -1438,8 +1424,6 @@ block|}
 block|}
 decl_stmt|;
 DECL|class|Decimal
-specifier|public
-specifier|static
 specifier|final
 class|class
 name|Decimal

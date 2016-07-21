@@ -284,8 +284,8 @@ return|;
 block|}
 DECL|field|CURRENT
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|JavaVersion
 name|CURRENT
 init|=

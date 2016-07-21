@@ -334,9 +334,6 @@ argument_list|,
 literal|"barbaz"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
@@ -488,9 +485,6 @@ name|createIndex
 argument_list|(
 literal|"ro"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// Request is not blocked
 for|for

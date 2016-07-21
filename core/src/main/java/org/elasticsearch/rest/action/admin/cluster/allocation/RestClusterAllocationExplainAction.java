@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -76,19 +86,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|node
 operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Requests
+name|NodeClient
 import|;
 end_import
 
@@ -320,16 +320,6 @@ name|RestBuilderListener
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Class handling cluster allocation explanation at the REST level  */
 end_comment
@@ -353,16 +343,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|controller
@@ -412,7 +397,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -532,6 +517,20 @@ operator|.
 name|paramAsBoolean
 argument_list|(
 literal|"include_yes_decisions"
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|includeDiskInfo
+argument_list|(
+name|request
+operator|.
+name|paramAsBoolean
+argument_list|(
+literal|"include_disk_info"
 argument_list|,
 literal|false
 argument_list|)

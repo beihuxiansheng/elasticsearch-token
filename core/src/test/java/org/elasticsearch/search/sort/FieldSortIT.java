@@ -871,9 +871,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -1366,9 +1363,6 @@ literal|true
 argument_list|,
 name|builders
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|allDocsResponse
@@ -9318,9 +9312,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()

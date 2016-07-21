@@ -115,6 +115,15 @@ name|void
 name|finalizeRecovery
 parameter_list|()
 function_decl|;
+comment|/**      * Blockingly waits for cluster state with at least clusterStateVersion to be available      */
+DECL|method|ensureClusterStateVersion
+name|void
+name|ensureClusterStateVersion
+parameter_list|(
+name|long
+name|clusterStateVersion
+parameter_list|)
+function_decl|;
 comment|/**      * Index a set of translog operations on the target      * @param operations operations to index      * @param totalTranslogOps current number of total operations expected to be indexed      */
 DECL|method|indexTranslogOperations
 name|void

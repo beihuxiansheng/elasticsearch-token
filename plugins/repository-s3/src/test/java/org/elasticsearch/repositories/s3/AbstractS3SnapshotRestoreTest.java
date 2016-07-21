@@ -378,10 +378,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -405,8 +401,8 @@ operator|=
 literal|0.0
 argument_list|)
 DECL|class|AbstractS3SnapshotRestoreTest
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|AbstractS3SnapshotRestoreTest
 extends|extends
@@ -2034,6 +2030,8 @@ literal|null
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -4493,6 +4491,8 @@ literal|null
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 try|try
@@ -4692,7 +4692,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{

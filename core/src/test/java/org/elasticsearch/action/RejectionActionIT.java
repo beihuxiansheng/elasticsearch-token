@@ -459,7 +459,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -564,11 +564,11 @@ block|}
 block|}
 else|else
 block|{
-name|Throwable
+name|Exception
 name|t
 init|=
 operator|(
-name|Throwable
+name|Exception
 operator|)
 name|response
 decl_stmt|;

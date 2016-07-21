@@ -135,8 +135,8 @@ block|}
 block|}
 block|;
 DECL|method|create
-specifier|abstract
 specifier|public
+specifier|abstract
 name|Reader
 name|create
 parameter_list|(

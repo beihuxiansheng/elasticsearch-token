@@ -921,7 +921,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -940,7 +940,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1460,6 +1460,19 @@ name|snapshots
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|currentSnapshotNames
+operator|.
+name|contains
+argument_list|(
+name|snapshotName
+argument_list|)
+condition|)
+block|{
+comment|// we've already found this snapshot in the current snapshot entries, so skip over
+continue|continue;
+block|}
 name|SnapshotId
 name|snapshotId
 init|=
@@ -1477,21 +1490,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|currentSnapshotNames
-operator|.
-name|contains
-argument_list|(
-name|snapshotName
-argument_list|)
-condition|)
-block|{
-comment|// we've already found this snapshot in the current snapshot entries, so skip over
-continue|continue;
-block|}
-else|else
-block|{
 comment|// neither in the current snapshot entries nor found in the repository
 throw|throw
 operator|new
@@ -1502,7 +1500,6 @@ argument_list|,
 name|snapshotName
 argument_list|)
 throw|;
-block|}
 block|}
 name|SnapshotInfo
 name|snapshotInfo

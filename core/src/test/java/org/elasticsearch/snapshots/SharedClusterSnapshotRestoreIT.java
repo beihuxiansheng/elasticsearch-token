@@ -370,6 +370,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Client
@@ -8031,6 +8045,13 @@ literal|3
 argument_list|)
 argument_list|)
 operator|.
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|NONE
+argument_list|)
+operator|.
 name|get
 argument_list|()
 expr_stmt|;
@@ -8662,7 +8683,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> make sure that number of files is back to what it was when the first snapshot was made"
+literal|"--> make sure that number of files is back to what it was when the first snapshot was made, "
+operator|+
+literal|"plus one because one backup index-N file should remain"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8678,6 +8701,8 @@ name|numberOfFiles
 index|[
 literal|0
 index|]
+operator|+
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8779,9 +8804,6 @@ literal|"test-idx-1"
 argument_list|,
 literal|"test-idx-2"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -9132,9 +9154,6 @@ argument_list|,
 literal|"test-idx-2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -9436,9 +9455,6 @@ literal|"test-idx-1"
 argument_list|,
 literal|"test-idx-2"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -14161,7 +14177,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 operator|.
-name|snapshotThrottleTimeInNanos
+name|getSnapshotThrottleTimeInNanos
 argument_list|()
 expr_stmt|;
 name|restorePause
@@ -14173,7 +14189,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 operator|.
-name|restoreThrottleTimeInNanos
+name|getRestoreThrottleTimeInNanos
 argument_list|()
 expr_stmt|;
 block|}
@@ -19927,8 +19943,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -20955,9 +20971,6 @@ literal|"test-idx-2"
 argument_list|,
 literal|"test-idx-3"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.

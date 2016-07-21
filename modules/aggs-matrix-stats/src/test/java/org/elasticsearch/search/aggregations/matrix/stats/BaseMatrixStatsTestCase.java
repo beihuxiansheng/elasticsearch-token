@@ -142,8 +142,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|fieldAKey
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|fieldAKey
 init|=
@@ -151,8 +151,8 @@ literal|"fieldA"
 decl_stmt|;
 DECL|field|fieldBKey
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|fieldBKey
 init|=

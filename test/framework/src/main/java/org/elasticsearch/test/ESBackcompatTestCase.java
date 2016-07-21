@@ -166,6 +166,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|DiscoveryModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|node
 operator|.
 name|Node
@@ -1250,7 +1262,7 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-literal|"netty"
+literal|"netty3"
 argument_list|)
 expr_stmt|;
 comment|// run same transport  / disco as external
@@ -1258,14 +1270,14 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|Node
+name|DiscoveryModule
 operator|.
-name|NODE_MODE_SETTING
+name|DISCOVERY_TYPE_SETTING
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"network"
+literal|"zen"
 argument_list|)
 expr_stmt|;
 return|return

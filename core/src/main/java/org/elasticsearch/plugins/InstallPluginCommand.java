@@ -140,7 +140,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|UserError
+name|UserException
 import|;
 end_import
 
@@ -1123,50 +1123,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: in jopt-simple 5.0 we can enforce a min/max number of positional args
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|args
-init|=
-name|arguments
-operator|.
-name|values
-argument_list|(
-name|options
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|args
-operator|.
-name|size
-argument_list|()
-operator|!=
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|UserError
-argument_list|(
-name|ExitCodes
-operator|.
-name|USAGE
-argument_list|,
-literal|"Must supply a single plugin id argument"
-argument_list|)
-throw|;
-block|}
 name|String
 name|pluginId
 init|=
-name|args
+name|arguments
 operator|.
-name|get
+name|value
 argument_list|(
-literal|0
+name|options
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1613,7 +1577,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2194,7 +2158,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2250,7 +2214,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2284,7 +2248,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|UserError
+name|UserException
 block|{
 comment|// unzip plugin to a staging temp dir
 specifier|final
@@ -2536,7 +2500,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -2747,7 +2711,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3010,7 +2974,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3286,7 +3250,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3353,7 +3317,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3449,7 +3413,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -3564,7 +3528,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.

@@ -635,8 +635,8 @@ name|onAllNodesAcked
 parameter_list|(
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 if|if
@@ -656,7 +656,7 @@ name|super
 operator|.
 name|onAllNodesAcked
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -864,8 +864,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|//if the reroute fails we only log
@@ -875,7 +875,7 @@ name|debug
 argument_list|(
 literal|"failed to perform [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -889,7 +889,7 @@ name|ElasticsearchException
 argument_list|(
 literal|"reroute after update settings failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -963,8 +963,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -973,7 +973,7 @@ name|debug
 argument_list|(
 literal|"failed to perform [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -984,7 +984,7 @@ name|onFailure
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

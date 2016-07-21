@@ -922,33 +922,23 @@ argument_list|()
 operator|+
 literal|"] of type ["
 operator|+
-name|FieldStats
-operator|.
-name|typeName
-argument_list|(
 name|fields
 index|[
 literal|0
 index|]
 operator|.
-name|getType
+name|getDisplayType
 argument_list|()
-argument_list|)
 operator|+
 literal|"] conflicts with existing field of type ["
 operator|+
-name|FieldStats
-operator|.
-name|typeName
-argument_list|(
 name|fields
 index|[
 literal|1
 index|]
 operator|.
-name|getType
+name|getDisplayType
 argument_list|()
-argument_list|)
 operator|+
 literal|"] in other index."
 argument_list|)

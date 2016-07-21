@@ -154,13 +154,6 @@ name|numPrimaries2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test1"
-argument_list|,
-literal|"test2"
-argument_list|)
-expr_stmt|;
 comment|// no exception
 name|client
 argument_list|()

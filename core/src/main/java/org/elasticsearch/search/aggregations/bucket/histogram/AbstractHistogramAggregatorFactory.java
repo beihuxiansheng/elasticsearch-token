@@ -664,10 +664,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// we need to process& validate here using the parser
+comment|// parse any string bounds to longs and round them
+name|roundedBounds
+operator|=
 name|extendedBounds
 operator|.
-name|processAndValidate
+name|parseAndValidate
 argument_list|(
 name|name
 argument_list|,
@@ -681,10 +683,6 @@ operator|.
 name|format
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|roundedBounds
-operator|=
-name|extendedBounds
 operator|.
 name|round
 argument_list|(

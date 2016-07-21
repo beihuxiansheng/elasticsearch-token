@@ -479,8 +479,8 @@ expr_stmt|;
 block|}
 DECL|class|AbstractArrayWrapper
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|AbstractArrayWrapper
 extends|extends

@@ -1595,8 +1595,6 @@ operator|.
 name|setCorners
 argument_list|(
 name|smallestGeoHash
-argument_list|,
-name|smallestGeoHash
 argument_list|)
 operator|.
 name|queryName

@@ -312,8 +312,8 @@ name|AbstractComponent
 block|{
 DECL|field|HUNSPELL_LAZY_LOAD
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -337,8 +337,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|HUNSPELL_IGNORE_CASE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Boolean
@@ -362,8 +362,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|HUNSPELL_DICTIONARY_OPTIONS
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|Settings
@@ -515,7 +515,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -717,7 +717,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

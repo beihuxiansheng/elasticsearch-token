@@ -137,6 +137,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -564,6 +576,11 @@ operator|.
 name|EMPTY
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+literal|false
+argument_list|,
+name|emptyList
+argument_list|()
 argument_list|)
 operator|.
 name|getQueryParserRegistry
@@ -1781,7 +1798,7 @@ argument_list|)
 expr_stmt|;
 name|innerHits
 operator|.
-name|setFieldNames
+name|setStoredFieldNames
 argument_list|(
 name|randomListStuff
 argument_list|(
@@ -1800,7 +1817,7 @@ argument_list|)
 expr_stmt|;
 name|innerHits
 operator|.
-name|setFieldDataFields
+name|setDocValueFields
 argument_list|(
 name|randomListStuff
 argument_list|(
@@ -2349,13 +2366,13 @@ condition|)
 block|{
 name|instance
 operator|.
-name|setFieldDataFields
+name|setDocValueFields
 argument_list|(
 name|randomValueOtherThan
 argument_list|(
 name|instance
 operator|.
-name|getFieldDataFields
+name|getDocValueFields
 argument_list|()
 argument_list|,
 parameter_list|()
@@ -2385,7 +2402,7 @@ else|else
 block|{
 name|instance
 operator|.
-name|addFieldDataField
+name|addDocValueField
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -2669,7 +2686,7 @@ if|if
 condition|(
 name|instance
 operator|.
-name|getFieldNames
+name|getStoredFieldNames
 argument_list|()
 operator|==
 literal|null
@@ -2680,13 +2697,13 @@ condition|)
 block|{
 name|instance
 operator|.
-name|setFieldNames
+name|setStoredFieldNames
 argument_list|(
 name|randomValueOtherThan
 argument_list|(
 name|instance
 operator|.
-name|getFieldNames
+name|getStoredFieldNames
 argument_list|()
 argument_list|,
 parameter_list|()
@@ -2716,7 +2733,7 @@ else|else
 block|{
 name|instance
 operator|.
-name|getFieldNames
+name|getStoredFieldNames
 argument_list|()
 operator|.
 name|add
@@ -2992,15 +3009,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

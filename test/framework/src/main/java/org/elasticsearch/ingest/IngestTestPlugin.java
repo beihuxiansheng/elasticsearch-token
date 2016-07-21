@@ -16,13 +16,33 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|plugins
 operator|.
-name|NodeModule
+name|IngestPlugin
 import|;
 end_import
 
@@ -49,27 +69,43 @@ class|class
 name|IngestTestPlugin
 extends|extends
 name|Plugin
+implements|implements
+name|IngestPlugin
 block|{
-DECL|method|onModule
+annotation|@
+name|Override
+DECL|method|getProcessors
 specifier|public
-name|void
-name|onModule
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|getProcessors
 parameter_list|(
-name|NodeModule
-name|nodeModule
+name|Processor
+operator|.
+name|Parameters
+name|parameters
 parameter_list|)
 block|{
-name|nodeModule
+return|return
+name|Collections
 operator|.
-name|registerProcessor
+name|singletonMap
 argument_list|(
 literal|"test"
 argument_list|,
 parameter_list|(
-name|registry
-parameter_list|)
-lambda|->
+name|factories
+parameter_list|,
+name|tag
+parameter_list|,
 name|config
+parameter_list|)
 lambda|->
 operator|new
 name|TestProcessor
@@ -89,7 +125,7 @@ literal|"processed"
 argument_list|,
 literal|true
 argument_list|)
-argument_list|;                     if
+argument_list|;                 if
 operator|(
 name|doc
 operator|.
@@ -116,7 +152,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"test processor failed"
 argument_list|)
-block|;                     }
+block|;                 }
 block|}
 block|)
 end_class

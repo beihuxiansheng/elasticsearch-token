@@ -171,9 +171,6 @@ interface|interface
 name|ZenPing
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|ZenPing
-argument_list|>
 block|{
 DECL|method|setPingContextProvider
 name|void

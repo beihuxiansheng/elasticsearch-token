@@ -148,31 +148,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Deletes blobs with the given names.  If any subset of the names do not exist in the container, this method has no      * effect for those names, and will delete the blobs for those names that do exist.  If any of the blobs failed      * to delete, those blobs that were processed before it and successfully deleted will remain deleted.  An exception      * is thrown at the first blob entry that fails to delete (TODO: is this the right behavior?  Should we collect      * all the failed deletes into a single IOException instead?)      *      * TODO: remove, see https://github.com/elastic/elasticsearch/issues/18529      *      * @param   blobNames      *          The collection of blob names to delete from the container.      * @throws  IOException if any of the blobs in the collection exists but could not be deleted.      */
-DECL|method|deleteBlobs
-name|void
-name|deleteBlobs
-parameter_list|(
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|blobNames
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Deletes all blobs in the container that match the specified prefix.  If any of the blobs failed to delete,      * those blobs that were processed before it and successfully deleted will remain deleted.  An exception is      * thrown at the first blob entry that fails to delete (TODO: is this the right behavior?  Should we collect      * all the failed deletes into a single IOException instead?)      *      * TODO: remove, see: https://github.com/elastic/elasticsearch/issues/18529      *      * @param   blobNamePrefix      *          The prefix to match against blob names in the container.  Any blob whose name has the prefix will be deleted.      * @throws  IOException if any of the matching blobs failed to delete.      */
-DECL|method|deleteBlobsByPrefix
-name|void
-name|deleteBlobsByPrefix
-parameter_list|(
-name|String
-name|blobNamePrefix
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Lists all blobs in the container.      *      * @return  A map of all the blobs in the container.  The keys in the map are the names of the blobs and      *          the values are {@link BlobMetaData}, containing basic information about each blob.      * @throws  IOException if there were any failures in reading from the blob container.      */
 DECL|method|listBlobs
 name|Map

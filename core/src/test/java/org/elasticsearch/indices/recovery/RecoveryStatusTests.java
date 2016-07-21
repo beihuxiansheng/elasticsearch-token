@@ -206,10 +206,6 @@ name|emptySet
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|RecoveryStatusTests
 specifier|public
@@ -312,6 +308,10 @@ name|sendShardFailure
 parameter_list|)
 block|{             }
 block|}
+argument_list|,
+name|version
+lambda|->
+block|{}
 argument_list|)
 decl_stmt|;
 try|try
@@ -487,7 +487,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"recovery[.]\\d+[.]foo[.]bar"
+literal|"recovery[.][\\w-]+[.]foo[.]bar"
 argument_list|)
 operator|.
 name|matcher

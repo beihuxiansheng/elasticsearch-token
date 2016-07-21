@@ -632,7 +632,6 @@ name|IncludeInAll
 block|{
 comment|// this is private since it has a different default
 DECL|field|COERCE_SETTING
-specifier|private
 specifier|static
 specifier|final
 name|Setting

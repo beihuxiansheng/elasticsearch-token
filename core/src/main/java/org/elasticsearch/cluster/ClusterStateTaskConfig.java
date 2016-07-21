@@ -62,7 +62,7 @@ specifier|public
 interface|interface
 name|ClusterStateTaskConfig
 block|{
-comment|/**      * The timeout for this cluster state update task configuration. If      * the cluster state update task isn't processed within this      * timeout, the associated {@link ClusterStateTaskListener#onFailure(String, Throwable)}      * is invoked.      *      * @return the timeout, or null if one is not set      */
+comment|/**      * The timeout for this cluster state update task configuration. If      * the cluster state update task isn't processed within this      * timeout, the associated {@link ClusterStateTaskListener#onFailure(String, Exception)}      * is invoked.      *      * @return the timeout, or null if one is not set      */
 annotation|@
 name|Nullable
 DECL|method|timeout

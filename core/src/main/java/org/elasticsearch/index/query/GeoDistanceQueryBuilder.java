@@ -375,7 +375,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  * */
+comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  */
 end_comment
 
 begin_class
@@ -389,7 +389,6 @@ argument_list|<
 name|GeoDistanceQueryBuilder
 argument_list|>
 block|{
-comment|/** Name of the query in the query dsl. */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -398,19 +397,6 @@ name|String
 name|NAME
 init|=
 literal|"geo_distance"
-decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 comment|/** Default for latitude normalization (as of this writing true).*/
 DECL|field|DEFAULT_NORMALIZE_LAT
@@ -1548,6 +1534,19 @@ name|TermEncoding
 operator|.
 name|PREFIX
 decl_stmt|;
+comment|// Lucene 6.0 and earlier requires a radial restriction
+if|if
+condition|(
+name|indexVersionCreated
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_alpha4
+argument_list|)
+condition|)
+block|{
 name|normDistance
 operator|=
 name|GeoUtils
@@ -1559,6 +1558,7 @@ argument_list|,
 name|normDistance
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|GeoPointDistanceQuery

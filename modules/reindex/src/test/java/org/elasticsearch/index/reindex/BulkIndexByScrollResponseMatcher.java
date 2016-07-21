@@ -543,7 +543,7 @@ name|matches
 argument_list|(
 name|item
 operator|.
-name|getIndexingFailures
+name|getBulkFailures
 argument_list|()
 operator|.
 name|size

@@ -220,10 +220,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|AggregationContext
 specifier|public
@@ -299,14 +295,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
+if|if
+condition|(
+operator|!
 name|config
 operator|.
 name|valid
 argument_list|()
-operator|:
-literal|"value source config is invalid - must have either a field context or a script or marked as unmapped"
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"value source config is invalid; must have either a field context or a script or marked as unwrapped"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|VS
 name|vs
@@ -415,6 +420,8 @@ operator|)
 name|ValuesSource
 operator|.
 name|Bytes
+operator|.
+name|WithOrdinals
 operator|.
 name|EMPTY
 expr_stmt|;
@@ -632,9 +639,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|context
-operator|.
-name|nowCallable
-argument_list|()
+operator|::
+name|nowInMillis
 argument_list|)
 expr_stmt|;
 block|}

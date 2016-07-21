@@ -169,8 +169,8 @@ name|cache
 decl_stmt|;
 DECL|field|REFRESH_INTERVAL_SETTING
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|Setting
 argument_list|<
 name|TimeValue

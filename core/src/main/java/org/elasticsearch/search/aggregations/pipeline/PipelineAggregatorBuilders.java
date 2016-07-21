@@ -305,7 +305,6 @@ block|{     }
 DECL|method|derivative
 specifier|public
 specifier|static
-specifier|final
 name|DerivativePipelineAggregationBuilder
 name|derivative
 parameter_list|(
@@ -329,7 +328,6 @@ block|}
 DECL|method|maxBucket
 specifier|public
 specifier|static
-specifier|final
 name|MaxBucketPipelineAggregationBuilder
 name|maxBucket
 parameter_list|(
@@ -353,7 +351,6 @@ block|}
 DECL|method|minBucket
 specifier|public
 specifier|static
-specifier|final
 name|MinBucketPipelineAggregationBuilder
 name|minBucket
 parameter_list|(
@@ -377,7 +374,6 @@ block|}
 DECL|method|avgBucket
 specifier|public
 specifier|static
-specifier|final
 name|AvgBucketPipelineAggregationBuilder
 name|avgBucket
 parameter_list|(
@@ -401,7 +397,6 @@ block|}
 DECL|method|sumBucket
 specifier|public
 specifier|static
-specifier|final
 name|SumBucketPipelineAggregationBuilder
 name|sumBucket
 parameter_list|(
@@ -425,7 +420,6 @@ block|}
 DECL|method|statsBucket
 specifier|public
 specifier|static
-specifier|final
 name|StatsBucketPipelineAggregationBuilder
 name|statsBucket
 parameter_list|(
@@ -449,7 +443,6 @@ block|}
 DECL|method|extendedStatsBucket
 specifier|public
 specifier|static
-specifier|final
 name|ExtendedStatsBucketPipelineAggregationBuilder
 name|extendedStatsBucket
 parameter_list|(
@@ -473,7 +466,6 @@ block|}
 DECL|method|percentilesBucket
 specifier|public
 specifier|static
-specifier|final
 name|PercentilesBucketPipelineAggregationBuilder
 name|percentilesBucket
 parameter_list|(
@@ -497,7 +489,6 @@ block|}
 DECL|method|movingAvg
 specifier|public
 specifier|static
-specifier|final
 name|MovAvgPipelineAggregationBuilder
 name|movingAvg
 parameter_list|(
@@ -521,7 +512,6 @@ block|}
 DECL|method|bucketScript
 specifier|public
 specifier|static
-specifier|final
 name|BucketScriptPipelineAggregationBuilder
 name|bucketScript
 parameter_list|(
@@ -555,7 +545,6 @@ block|}
 DECL|method|bucketScript
 specifier|public
 specifier|static
-specifier|final
 name|BucketScriptPipelineAggregationBuilder
 name|bucketScript
 parameter_list|(
@@ -585,7 +574,6 @@ block|}
 DECL|method|bucketSelector
 specifier|public
 specifier|static
-specifier|final
 name|BucketSelectorPipelineAggregationBuilder
 name|bucketSelector
 parameter_list|(
@@ -619,7 +607,6 @@ block|}
 DECL|method|bucketSelector
 specifier|public
 specifier|static
-specifier|final
 name|BucketSelectorPipelineAggregationBuilder
 name|bucketSelector
 parameter_list|(
@@ -649,7 +636,6 @@ block|}
 DECL|method|cumulativeSum
 specifier|public
 specifier|static
-specifier|final
 name|CumulativeSumPipelineAggregationBuilder
 name|cumulativeSum
 parameter_list|(
@@ -673,7 +659,6 @@ block|}
 DECL|method|diff
 specifier|public
 specifier|static
-specifier|final
 name|SerialDiffPipelineAggregationBuilder
 name|diff
 parameter_list|(

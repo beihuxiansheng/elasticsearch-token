@@ -317,9 +317,6 @@ name|jsonOs
 operator|.
 name|bytes
 argument_list|()
-operator|.
-name|toBytes
-argument_list|()
 argument_list|)
 argument_list|,
 name|XContentFactory
@@ -336,9 +333,6 @@ argument_list|(
 name|xsonOs
 operator|.
 name|bytes
-argument_list|()
-operator|.
-name|toBytes
 argument_list|()
 argument_list|)
 argument_list|)

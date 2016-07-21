@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|UserError
+name|UserException
 import|;
 end_import
 
@@ -415,12 +415,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|UserError
+name|UserException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UserError
+name|UserException
 operator|.
 name|class
 argument_list|,
@@ -722,12 +722,12 @@ literal|"elasticsearch"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|UserError
+name|UserException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UserError
+name|UserException
 operator|.
 name|class
 argument_list|,

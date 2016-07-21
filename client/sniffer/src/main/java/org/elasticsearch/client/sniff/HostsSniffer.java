@@ -358,8 +358,6 @@ argument_list|,
 literal|"/_nodes/http"
 argument_list|,
 name|sniffRequestParams
-argument_list|,
-literal|null
 argument_list|)
 init|)
 block|{
@@ -892,6 +890,10 @@ DECL|field|scheme
 specifier|private
 name|Scheme
 name|scheme
+init|=
+name|Scheme
+operator|.
+name|HTTP
 decl_stmt|;
 DECL|method|Builder
 specifier|private

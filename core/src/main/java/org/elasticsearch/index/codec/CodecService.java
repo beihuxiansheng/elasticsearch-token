@@ -167,8 +167,8 @@ name|codecs
 decl_stmt|;
 DECL|field|DEFAULT_CODEC
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|DEFAULT_CODEC
 init|=
@@ -176,8 +176,8 @@ literal|"default"
 decl_stmt|;
 DECL|field|BEST_COMPRESSION_CODEC
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|BEST_COMPRESSION_CODEC
 init|=
@@ -186,8 +186,8 @@ decl_stmt|;
 comment|/** the raw unfiltered lucene default. useful for testing */
 DECL|field|LUCENE_DEFAULT_CODEC
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|LUCENE_DEFAULT_CODEC
 init|=

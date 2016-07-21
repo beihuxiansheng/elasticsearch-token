@@ -240,7 +240,7 @@ argument_list|)
 expr_stmt|;
 name|AtomicReference
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|failure
 init|=
@@ -350,15 +350,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|failure
 operator|.
 name|set
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

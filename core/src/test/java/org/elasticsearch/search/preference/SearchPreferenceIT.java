@@ -927,7 +927,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-literal|"number_of_replicas=1"
+literal|"{\"number_of_replicas\": 1}"
 argument_list|)
 operator|.
 name|get
@@ -1398,7 +1398,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-literal|"number_of_replicas=0"
+literal|"{\"number_of_replicas\": 0}"
 argument_list|)
 operator|.
 name|get
@@ -1530,7 +1530,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-literal|"number_of_replicas=1"
+literal|"{\"number_of_replicas\": 1}"
 argument_list|)
 operator|.
 name|get

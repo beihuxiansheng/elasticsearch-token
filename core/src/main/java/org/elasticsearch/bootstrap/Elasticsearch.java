@@ -32,6 +32,34 @@ end_import
 
 begin_import
 import|import
+name|joptsimple
+operator|.
+name|OptionSpecBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|joptsimple
+operator|.
+name|util
+operator|.
+name|PathConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|joptsimple
+operator|.
+name|util
+operator|.
+name|PathProperties
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -84,7 +112,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|UserError
+name|UserException
 import|;
 end_import
 
@@ -109,6 +137,18 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -146,19 +186,13 @@ block|{
 DECL|field|versionOption
 specifier|private
 specifier|final
-name|OptionSpec
-argument_list|<
-name|Void
-argument_list|>
+name|OptionSpecBuilder
 name|versionOption
 decl_stmt|;
 DECL|field|daemonizeOption
 specifier|private
 specifier|final
-name|OptionSpec
-argument_list|<
-name|Void
-argument_list|>
+name|OptionSpecBuilder
 name|daemonizeOption
 decl_stmt|;
 DECL|field|pidfileOption
@@ -166,7 +200,7 @@ specifier|private
 specifier|final
 name|OptionSpec
 argument_list|<
-name|String
+name|Path
 argument_list|>
 name|pidfileOption
 decl_stmt|;
@@ -180,7 +214,6 @@ argument_list|(
 literal|"starts elasticsearch"
 argument_list|)
 expr_stmt|;
-comment|// TODO: in jopt-simple 5.0, make this mutually exclusive with all other options
 name|versionOption
 operator|=
 name|parser
@@ -216,8 +249,12 @@ argument_list|)
 argument_list|,
 literal|"Starts Elasticsearch in the background"
 argument_list|)
+operator|.
+name|availableUnless
+argument_list|(
+name|versionOption
+argument_list|)
 expr_stmt|;
-comment|// TODO: in jopt-simple 5.0 this option type can be a Path
 name|pidfileOption
 operator|=
 name|parser
@@ -236,8 +273,20 @@ argument_list|,
 literal|"Creates a pid file in the specified path on start"
 argument_list|)
 operator|.
+name|availableUnless
+argument_list|(
+name|versionOption
+argument_list|)
+operator|.
 name|withRequiredArg
 argument_list|()
+operator|.
+name|withValuesConvertedBy
+argument_list|(
+operator|new
+name|PathConverter
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Main entry point for starting elasticsearch      */
@@ -364,7 +413,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -408,7 +457,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UserError
+name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
@@ -475,7 +524,7 @@ name|daemonizeOption
 argument_list|)
 decl_stmt|;
 specifier|final
-name|String
+name|Path
 name|pidFile
 init|=
 name|pidfileOption
@@ -504,7 +553,7 @@ name|boolean
 name|daemonize
 parameter_list|,
 specifier|final
-name|String
+name|Path
 name|pidFile
 parameter_list|,
 specifier|final

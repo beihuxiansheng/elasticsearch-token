@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|AbstractProcessorFactory
+name|IngestDocument
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocument
+name|Processor
 import|;
 end_import
 
@@ -451,11 +451,10 @@ specifier|static
 specifier|final
 class|class
 name|Factory
-extends|extends
-name|AbstractProcessorFactory
-argument_list|<
-name|ScriptProcessor
-argument_list|>
+implements|implements
+name|Processor
+operator|.
+name|Factory
 block|{
 DECL|field|scriptService
 specifier|private
@@ -480,11 +479,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doCreate
+DECL|method|create
 specifier|public
 name|ScriptProcessor
-name|doCreate
+name|create
 parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|>
+name|registry
+parameter_list|,
 name|String
 name|processorTag
 parameter_list|,

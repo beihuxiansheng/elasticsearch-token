@@ -68,16 +68,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -223,6 +213,8 @@ name|IngestDocument
 argument_list|(
 name|ingestDocument
 argument_list|)
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -132,8 +132,8 @@ block|{
 comment|/** Abstraction for mutating a property of a MappedFieldType */
 DECL|class|Modifier
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Modifier
 block|{

@@ -202,18 +202,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|not
 import|;
 end_import
@@ -254,10 +242,6 @@ name|when
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|BytesRestResponseTests
 specifier|public
@@ -266,6 +250,34 @@ name|BytesRestResponseTests
 extends|extends
 name|ESTestCase
 block|{
+DECL|class|UnknownException
+class|class
+name|UnknownException
+extends|extends
+name|Exception
+block|{
+DECL|method|UnknownException
+specifier|public
+name|UnknownException
+parameter_list|(
+specifier|final
+name|String
+name|message
+parameter_list|,
+specifier|final
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testWithHeaders
 specifier|public
 name|void
@@ -409,7 +421,7 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 operator|new
@@ -443,7 +455,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -520,7 +532,7 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 operator|new
@@ -554,7 +566,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -602,11 +614,11 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 operator|new
-name|Throwable
+name|UnknownException
 argument_list|(
 literal|"an error occurred reading data"
 argument_list|,
@@ -636,7 +648,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -647,7 +659,7 @@ name|not
 argument_list|(
 name|containsString
 argument_list|(
-literal|"Throwable[an error occurred reading data]"
+literal|"UnknownException[an error occurred reading data]"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -725,11 +737,11 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|Throwable
+name|Exception
 name|t
 init|=
 operator|new
-name|Throwable
+name|UnknownException
 argument_list|(
 literal|"an error occurred reading data"
 argument_list|,
@@ -759,7 +771,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -768,7 +780,7 @@ name|text
 argument_list|,
 name|containsString
 argument_list|(
-literal|"\"type\":\"throwable\",\"reason\":\"an error occurred reading data\""
+literal|"\"type\":\"unknown_exception\",\"reason\":\"an error occurred reading data\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -818,8 +830,8 @@ name|request
 argument_list|)
 decl_stmt|;
 block|{
-name|Throwable
-name|t
+name|Exception
+name|e
 init|=
 operator|new
 name|ElasticsearchException
@@ -841,7 +853,7 @@ name|BytesRestResponse
 argument_list|(
 name|channel
 argument_list|,
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 name|String
@@ -852,7 +864,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -867,8 +879,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-name|Throwable
-name|t
+name|Exception
+name|e
 init|=
 operator|new
 name|FileNotFoundException
@@ -884,7 +896,7 @@ name|BytesRestResponse
 argument_list|(
 name|channel
 argument_list|,
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 name|String
@@ -895,7 +907,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -953,7 +965,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1119,7 +1131,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|String
@@ -1262,7 +1274,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1357,7 +1369,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat

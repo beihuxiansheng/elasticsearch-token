@@ -669,8 +669,8 @@ expr_stmt|;
 block|}
 DECL|class|BaseInnerHits
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|BaseInnerHits
 extends|extends

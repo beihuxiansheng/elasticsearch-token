@@ -191,8 +191,8 @@ name|ProcessProbeHolder
 block|{
 DECL|field|INSTANCE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ProcessProbe
 name|INSTANCE
 init|=
@@ -254,7 +254,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -299,7 +299,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -374,7 +374,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -432,7 +432,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -594,7 +594,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -633,7 +633,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{

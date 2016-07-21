@@ -322,8 +322,8 @@ end_comment
 
 begin_class
 DECL|class|IndexGraveyard
-specifier|final
 specifier|public
+specifier|final
 class|class
 name|IndexGraveyard
 implements|implements
@@ -977,9 +977,9 @@ return|;
 block|}
 comment|/**      * A class to build an IndexGraveyard.      */
 DECL|class|Builder
-specifier|final
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Builder
 block|{
@@ -1264,9 +1264,9 @@ block|}
 block|}
 comment|/**      * A class representing a diff of two IndexGraveyard objects.      */
 DECL|class|IndexGraveyardDiff
-specifier|final
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|IndexGraveyardDiff
 implements|implements
@@ -1741,9 +1741,9 @@ block|}
 block|}
 comment|/**      * An individual tombstone entry for representing a deleted index.      */
 DECL|class|Tombstone
-specifier|final
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Tombstone
 implements|implements
@@ -2272,9 +2272,9 @@ return|;
 block|}
 comment|/**          * A builder for building tombstone entries.          */
 DECL|class|Builder
-specifier|final
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|Builder
 block|{

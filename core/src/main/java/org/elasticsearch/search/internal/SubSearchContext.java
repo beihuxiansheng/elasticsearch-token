@@ -262,8 +262,8 @@ comment|// By default return 3 hits per bucket. A higher default would make the 
 comment|// the to hits are returned per bucket.
 DECL|field|DEFAULT_SIZE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|DEFAULT_SIZE
 init|=

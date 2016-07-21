@@ -267,9 +267,6 @@ class|class
 name|NodeConnectionsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|NodeConnectionsService
-argument_list|>
 block|{
 DECL|field|CLUSTER_NODE_RECONNECT_INTERVAL_SETTING
 specifier|public
@@ -327,8 +324,8 @@ name|newConcurrentMap
 argument_list|()
 decl_stmt|;
 DECL|field|nodeLocks
-specifier|final
 specifier|private
+specifier|final
 name|KeyedLock
 argument_list|<
 name|DiscoveryNode
@@ -543,7 +540,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -704,8 +701,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -714,7 +711,7 @@ name|warn
 argument_list|(
 literal|"unexpected error while checking for node reconnects"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

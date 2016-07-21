@@ -244,6 +244,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -348,6 +358,11 @@ operator|new
 name|RestController
 argument_list|(
 name|settings
+argument_list|,
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -362,8 +377,6 @@ argument_list|,
 name|restController
 argument_list|,
 name|restController
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 specifier|final

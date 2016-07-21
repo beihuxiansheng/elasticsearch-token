@@ -508,8 +508,8 @@ name|Values
 block|{
 DECL|field|TRUE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|BytesRef
 name|TRUE
 init|=
@@ -521,8 +521,8 @@ argument_list|)
 decl_stmt|;
 DECL|field|FALSE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|BytesRef
 name|FALSE
 init|=

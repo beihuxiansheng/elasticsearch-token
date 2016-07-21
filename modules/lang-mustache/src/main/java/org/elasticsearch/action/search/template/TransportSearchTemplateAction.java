@@ -120,20 +120,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -339,16 +325,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -727,7 +703,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -746,7 +722,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -765,7 +741,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{

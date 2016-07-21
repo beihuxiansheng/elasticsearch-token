@@ -474,9 +474,6 @@ argument_list|(
 name|INDEX
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|index
 argument_list|(
 name|INDEX
@@ -604,9 +601,6 @@ name|createIndex
 argument_list|(
 name|INDEX
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|index
 argument_list|(
@@ -822,9 +816,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|refresh
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|float
@@ -1174,9 +1165,6 @@ argument_list|,
 name|docs
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|Script
 name|script
 init|=
@@ -1474,9 +1462,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|index
 argument_list|(

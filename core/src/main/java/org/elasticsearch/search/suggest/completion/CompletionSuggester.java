@@ -1827,8 +1827,8 @@ comment|// TODO: this should be refactored and moved to lucene
 comment|// see https://issues.apache.org/jira/browse/LUCENE-6880
 DECL|class|TopDocumentsCollector
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|TopDocumentsCollector
 extends|extends
@@ -1837,8 +1837,8 @@ block|{
 comment|/**          * Holds a list of suggest meta data for a doc          */
 DECL|class|SuggestDoc
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|SuggestDoc
 extends|extends
@@ -2110,8 +2110,8 @@ block|}
 block|}
 DECL|class|SuggestDocPriorityQueue
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|SuggestDocPriorityQueue
 extends|extends

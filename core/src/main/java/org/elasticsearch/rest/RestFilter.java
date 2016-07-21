@@ -24,6 +24,20 @@ name|Closeable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|node
+operator|.
+name|NodeClient
+import|;
+end_import
+
 begin_comment
 comment|/**  * A filter allowing to filter rest operations.  */
 end_comment
@@ -70,6 +84,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|,
 name|RestFilterChain
 name|filterChain

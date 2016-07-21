@@ -386,10 +386,6 @@ name|ToLongBiFunction
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|IndicesFieldDataCache
 specifier|public
@@ -708,7 +704,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1037,7 +1033,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1211,7 +1207,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

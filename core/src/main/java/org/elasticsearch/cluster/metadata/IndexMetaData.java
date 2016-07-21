@@ -2017,8 +2017,8 @@ name|activeAllocationIds
 decl_stmt|;
 DECL|field|totalNumberOfShards
 specifier|private
-specifier|transient
 specifier|final
+specifier|transient
 name|int
 name|totalNumberOfShards
 decl_stmt|;

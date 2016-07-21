@@ -11110,9 +11110,6 @@ argument_list|(
 literal|"index2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|assertAcked
 argument_list|(
 name|admin

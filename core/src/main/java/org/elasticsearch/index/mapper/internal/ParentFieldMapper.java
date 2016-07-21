@@ -516,10 +516,6 @@ name|nodeMapValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ParentFieldMapper
 specifier|public
@@ -709,13 +705,8 @@ name|boolean
 name|eagerGlobalOrdinals
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|ParentFieldType
-operator|)
 name|fieldType
 argument_list|()
-operator|)
 operator|.
 name|setEagerGlobalOrdinals
 argument_list|(
@@ -1087,21 +1078,23 @@ decl_stmt|;
 name|MappedFieldType
 name|childJoinFieldType
 init|=
+operator|new
+name|ParentFieldType
+argument_list|(
 name|Defaults
 operator|.
 name|FIELD_TYPE
-operator|.
-name|clone
-argument_list|()
+argument_list|,
+name|typeName
+argument_list|)
 decl_stmt|;
 name|childJoinFieldType
 operator|.
 name|setName
 argument_list|(
-name|joinField
-argument_list|(
-literal|null
-argument_list|)
+name|ParentFieldMapper
+operator|.
+name|NAME
 argument_list|)
 expr_stmt|;
 return|return

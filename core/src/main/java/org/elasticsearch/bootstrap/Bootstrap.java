@@ -108,18 +108,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|SuppressForbidden
 import|;
 end_import
@@ -655,7 +643,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|ignored
 parameter_list|)
 block|{
@@ -877,7 +865,7 @@ parameter_list|(
 name|boolean
 name|foreground
 parameter_list|,
-name|String
+name|Path
 name|pidFile
 parameter_list|,
 name|Map
@@ -912,12 +900,9 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|Strings
-operator|.
-name|hasLength
-argument_list|(
 name|pidFile
-argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder
@@ -1035,7 +1020,7 @@ name|boolean
 name|foreground
 parameter_list|,
 specifier|final
-name|String
+name|Path
 name|pidFile
 parameter_list|,
 specifier|final
@@ -1048,7 +1033,7 @@ argument_list|>
 name|esSettings
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 comment|// Set the system property before anything has a chance to trigger its use
 name|initLoggerPrefix
@@ -1149,6 +1134,29 @@ comment|// fail if somebody replaced the lucene jars
 name|checkLucene
 argument_list|()
 expr_stmt|;
+comment|// install the default uncaught exception handler; must be done before security is
+comment|// initialized as we do not want to grant the runtime permission
+comment|// setDefaultUncaughtExceptionHandler
+name|Thread
+operator|.
+name|setDefaultUncaughtExceptionHandler
+argument_list|(
+operator|new
+name|ElasticsearchUncaughtExceptionHandler
+argument_list|(
+parameter_list|()
+lambda|->
+name|Node
+operator|.
+name|NODE_NAME_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|INSTANCE
 operator|.
 name|setup
@@ -1178,7 +1186,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

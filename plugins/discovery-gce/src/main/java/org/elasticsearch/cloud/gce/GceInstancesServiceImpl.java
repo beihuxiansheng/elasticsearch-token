@@ -401,9 +401,6 @@ class|class
 name|GceInstancesServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|GceInstancesService
-argument_list|>
 implements|implements
 name|GceInstancesService
 block|{

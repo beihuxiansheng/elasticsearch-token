@@ -257,6 +257,30 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|IntStream
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -681,15 +705,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|ExecutionException
+name|e
 parameter_list|)
 block|{
 name|assertThat
 argument_list|(
 literal|"shouldn't get here if an error is not expected "
 operator|+
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()
@@ -1275,15 +1299,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|ExecutionException
+name|e
 parameter_list|)
 block|{
 name|assertThat
 argument_list|(
 literal|"shouldn't get here if an error is not expected "
 operator|+
-name|t
+name|e
 operator|.
 name|getMessage
 argument_list|()
@@ -1794,7 +1818,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2182,7 +2206,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3078,7 +3102,6 @@ block|}
 block|}
 DECL|interface|RequestCallback
 specifier|private
-specifier|static
 interface|interface
 name|RequestCallback
 block|{
@@ -3125,7 +3148,6 @@ function_decl|;
 block|}
 DECL|interface|ResponseCallback
 specifier|private
-specifier|static
 interface|interface
 name|ResponseCallback
 block|{

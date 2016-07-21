@@ -131,15 +131,15 @@ name|Writeable
 block|{
 comment|/** object holding results - computes results in place */
 DECL|field|results
-specifier|final
 specifier|protected
+specifier|final
 name|RunningStats
 name|results
 decl_stmt|;
 comment|/** pearson product correlation coefficients */
 DECL|field|correlation
-specifier|final
 specifier|protected
+specifier|final
 name|Map
 argument_list|<
 name|String

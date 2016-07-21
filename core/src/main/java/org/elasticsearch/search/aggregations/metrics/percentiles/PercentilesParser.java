@@ -104,8 +104,8 @@ expr_stmt|;
 block|}
 DECL|field|DEFAULT_PERCENTS
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|double
 index|[]
 name|DEFAULT_PERCENTS

@@ -94,8 +94,8 @@ end_import
 
 begin_class
 DECL|class|AbstractAzureFsTestCase
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|AbstractAzureFsTestCase
 extends|extends

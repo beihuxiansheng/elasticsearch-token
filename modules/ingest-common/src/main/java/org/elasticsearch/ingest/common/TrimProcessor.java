@@ -96,9 +96,6 @@ extends|extends
 name|AbstractStringProcessor
 operator|.
 name|Factory
-argument_list|<
-name|TrimProcessor
-argument_list|>
 block|{
 DECL|method|Factory
 specifier|public

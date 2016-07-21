@@ -267,11 +267,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test-idx"
-argument_list|)
-expr_stmt|;
 name|index
 argument_list|(
 literal|"test-idx"
@@ -721,11 +716,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test-idx"
-argument_list|)
-expr_stmt|;
 name|index
 argument_list|(
 literal|"test-idx"
@@ -1097,11 +1087,6 @@ argument_list|()
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test-idx"
-argument_list|)
 expr_stmt|;
 name|index
 argument_list|(

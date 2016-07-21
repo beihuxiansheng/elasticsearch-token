@@ -89,33 +89,19 @@ literal|false
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|resourceName
-operator|.
-name|endsWith
-argument_list|(
-literal|".properties"
-argument_list|)
-condition|)
-block|{
-return|return
-operator|new
-name|PropertiesSettingsLoader
-argument_list|()
-return|;
-block|}
 else|else
 block|{
-comment|// lets default to the json one
-return|return
+throw|throw
 operator|new
-name|JsonSettingsLoader
+name|IllegalArgumentException
 argument_list|(
-literal|false
+literal|"unable to detect content type from resource name ["
+operator|+
+name|resourceName
+operator|+
+literal|"]"
 argument_list|)
-return|;
+throw|;
 block|}
 block|}
 comment|/**      * Returns a {@link SettingsLoader} based on the source content.      * This factory method assumes that if the underlying content      * contains an opening and closing brace ('{' and '}') then the      * content should be parsed as JSON, else if the underlying content      * fails this condition but contains a ':' then the content should      * be parsed as YAML, and otherwise should be parsed as properties.      * Note that the JSON and YAML parsers returned by this method will      * accept null-valued keys.      *      * @param source The underlying settings content.      * @return A settings loader.      */
@@ -160,6 +146,7 @@ literal|true
 argument_list|)
 return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|source
@@ -181,11 +168,20 @@ literal|true
 argument_list|)
 return|;
 block|}
-return|return
+else|else
+block|{
+throw|throw
 operator|new
-name|PropertiesSettingsLoader
-argument_list|()
-return|;
+name|IllegalArgumentException
+argument_list|(
+literal|"unable to detect content type from source ["
+operator|+
+name|source
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

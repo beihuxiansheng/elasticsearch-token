@@ -137,9 +137,6 @@ block|{     }
 DECL|method|BulkShardRequest
 name|BulkShardRequest
 parameter_list|(
-name|BulkRequest
-name|bulkRequest
-parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,

@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Round trip tests for {@link PersistedTaskInfo} and those classes that it includes like {@link TaskInfo} and {@link RawTaskStatus}.   */
+comment|/**  * Round trip tests for {@link PersistedTaskInfo} and those classes that it includes like {@link TaskInfo} and {@link RawTaskStatus}.  */
 end_comment
 
 begin_class
@@ -294,15 +294,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|out
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|registry
 argument_list|)

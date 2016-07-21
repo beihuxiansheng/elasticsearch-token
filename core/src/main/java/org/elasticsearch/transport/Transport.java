@@ -169,9 +169,6 @@ interface|interface
 name|Transport
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|Transport
-argument_list|>
 block|{
 DECL|field|TRANSPORT_TCP_COMPRESS
 name|Setting
@@ -287,7 +284,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the request to the node.      */
+comment|/**      * Sends the request to the node.      * @throws NodeNotConnectedException if the given node is not connected      */
 DECL|method|sendRequest
 name|void
 name|sendRequest

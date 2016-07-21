@@ -352,7 +352,9 @@ block|{
 return|return
 name|pluginList
 argument_list|(
-name|S3RepositoryPlugin
+name|TestAwsS3Service
+operator|.
+name|TestPlugin
 operator|.
 name|class
 argument_list|)

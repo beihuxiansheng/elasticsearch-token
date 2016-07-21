@@ -50,7 +50,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingService
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -152,13 +154,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setRoutingService
+DECL|method|setAllocationService
 specifier|public
 name|void
-name|setRoutingService
+name|setAllocationService
 parameter_list|(
-name|RoutingService
-name|routingService
+name|AllocationService
+name|allocationService
 parameter_list|)
 block|{      }
 annotation|@
@@ -260,26 +262,18 @@ annotation|@
 name|Override
 DECL|method|start
 specifier|public
-name|Discovery
+name|void
 name|start
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|stop
 specifier|public
-name|Discovery
+name|void
 name|stop
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|close
@@ -287,7 +281,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{      }
+block|{}
 block|}
 end_class
 

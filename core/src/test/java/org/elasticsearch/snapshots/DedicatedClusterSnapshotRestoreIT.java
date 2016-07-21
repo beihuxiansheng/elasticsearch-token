@@ -198,6 +198,24 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|create
+operator|.
+name|CreateIndexResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|index
 operator|.
 name|IndexRequestBuilder
@@ -210,9 +228,37 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -393,6 +439,18 @@ operator|.
 name|elect
 operator|.
 name|ElectMasterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -1802,9 +1860,6 @@ argument_list|(
 literal|"test-idx"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -2912,8 +2967,8 @@ name|source
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|countDownLatch
@@ -2955,12 +3010,10 @@ expr_stmt|;
 block|}
 DECL|interface|ClusterStateUpdater
 specifier|private
-specifier|static
 interface|interface
 name|ClusterStateUpdater
 block|{
 DECL|method|execute
-specifier|public
 name|ClusterState
 name|execute
 parameter_list|(
@@ -3796,7 +3849,10 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// Subtract index file from the count
+comment|// Subtract three files that will remain in the repository:
+comment|//   (1) index-1
+comment|//   (2) index-0 (because we keep the previous version) and
+comment|//   (3) index-latest
 name|assertThat
 argument_list|(
 literal|"not all files were deleted during snapshot cancellation"
@@ -3810,7 +3866,7 @@ argument_list|(
 name|repo
 argument_list|)
 operator|-
-literal|1
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4272,13 +4328,39 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|)
+operator|.
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|NONE
+argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|logger
-operator|.
-name|info
+name|assertTrue
 argument_list|(
-literal|"--> create repository"
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareExists
+argument_list|(
+literal|"test-idx-none"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|.
+name|isExists
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
@@ -6396,6 +6478,19 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|NodeClient
+name|nodeClient
+init|=
+name|internalCluster
+argument_list|()
+operator|.
+name|getInstance
+argument_list|(
+name|NodeClient
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|RestGetRepositoriesAction
 name|getRepoAction
 init|=
@@ -6483,7 +6578,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|containsString
@@ -6499,7 +6594,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|not
@@ -6533,6 +6628,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+argument_list|,
+name|nodeClient
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -6641,7 +6738,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|containsString
@@ -6657,7 +6754,7 @@ operator|.
 name|content
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|not
@@ -6691,6 +6788,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+argument_list|,
+name|nodeClient
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -8190,11 +8289,6 @@ literal|6
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|name
 argument_list|)
 expr_stmt|;
 name|logger

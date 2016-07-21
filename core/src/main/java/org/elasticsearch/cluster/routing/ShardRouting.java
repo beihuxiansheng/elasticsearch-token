@@ -802,11 +802,30 @@ return|return
 literal|true
 return|;
 block|}
-comment|// unassigned info is only cleared when a shard moves to started, so
-comment|// for unassigned and initializing (we checked for active() before),
-comment|// we can safely assume it is there
+comment|// initializing replica might not have unassignedInfo
+assert|assert
+name|unassignedInfo
+operator|!=
+literal|null
+operator|||
+operator|(
+name|primary
+operator|==
+literal|false
+operator|&&
+name|state
+operator|==
+name|ShardRoutingState
+operator|.
+name|INITIALIZING
+operator|)
+assert|;
 if|if
 condition|(
+name|unassignedInfo
+operator|!=
+literal|null
+operator|&&
 name|unassignedInfo
 operator|.
 name|getReason

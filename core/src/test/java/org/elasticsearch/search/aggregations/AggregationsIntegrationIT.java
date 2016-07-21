@@ -203,11 +203,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"index"
-argument_list|)
-expr_stmt|;
 name|numDocs
 operator|=
 name|randomIntBetween

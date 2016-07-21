@@ -975,6 +975,18 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|addMockTransportService
+specifier|protected
+name|boolean
+name|addMockTransportService
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|nodePlugins
 specifier|protected
 name|Collection
@@ -5639,7 +5651,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

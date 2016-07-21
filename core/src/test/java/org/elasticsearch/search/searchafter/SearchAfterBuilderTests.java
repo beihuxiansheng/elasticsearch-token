@@ -379,7 +379,7 @@ name|parser
 argument_list|,
 name|MatchAllQueryBuilder
 operator|.
-name|QUERY_NAME_FIELD
+name|NAME
 argument_list|)
 expr_stmt|;
 block|}
@@ -405,7 +405,6 @@ expr_stmt|;
 block|}
 DECL|method|randomSearchFromBuilder
 specifier|private
-specifier|final
 name|SearchAfterBuilder
 name|randomSearchFromBuilder
 parameter_list|()
@@ -617,7 +616,6 @@ comment|// This is not a problem because the final type of each field value is e
 comment|// This little trick ensure that equals and hashcode are the same when using the xcontent serialization.
 DECL|method|randomJsonSearchFromBuilder
 specifier|private
-specifier|final
 name|SearchAfterBuilder
 name|randomJsonSearchFromBuilder
 parameter_list|()
@@ -906,15 +904,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

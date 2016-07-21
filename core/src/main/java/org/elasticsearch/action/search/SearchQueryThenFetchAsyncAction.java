@@ -685,7 +685,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -724,8 +724,8 @@ DECL|method|onFetchFailure
 name|void
 name|onFetchFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|,
 name|ShardFetchSearchRequest
 name|fetchSearchRequest
@@ -754,7 +754,7 @@ name|debug
 argument_list|(
 literal|"[{}] Failed to execute fetch phase"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|fetchSearchRequest
 operator|.
@@ -771,7 +771,7 @@ name|shardIndex
 argument_list|,
 name|shardTarget
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|successfulOps
@@ -916,8 +916,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -932,7 +932,7 @@ literal|"fetch"
 argument_list|,
 literal|""
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|buildShardFailures
 argument_list|()

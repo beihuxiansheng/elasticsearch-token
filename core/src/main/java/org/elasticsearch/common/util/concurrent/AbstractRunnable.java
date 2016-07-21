@@ -59,7 +59,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -92,23 +92,23 @@ specifier|abstract
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 function_decl|;
-comment|/**      * This should be executed if the thread-pool executing this action rejected the execution.      * The default implementation forwards to {@link #onFailure(Throwable)}      */
+comment|/**      * This should be executed if the thread-pool executing this action rejected the execution.      * The default implementation forwards to {@link #onFailure(Exception)}      */
 DECL|method|onRejection
 specifier|public
 name|void
 name|onRejection
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

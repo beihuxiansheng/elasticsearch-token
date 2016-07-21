@@ -314,20 +314,6 @@ name|index
 operator|.
 name|snapshots
 operator|.
-name|IndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
 name|IndexShardRestoreFailedException
 import|;
 end_import
@@ -357,6 +343,18 @@ operator|.
 name|recovery
 operator|.
 name|RecoveryState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|Repository
 import|;
 end_import
 
@@ -940,7 +938,6 @@ literal|false
 return|;
 block|}
 DECL|method|addIndices
-specifier|final
 name|void
 name|addIndices
 parameter_list|(
@@ -1421,7 +1418,7 @@ assert|;
 block|}
 block|}
 block|}
-comment|/**      * Recovers an index from a given {@link IndexShardRepository}. This method restores a      * previously created index snapshot into an existing initializing shard.      * @param indexShard the index shard instance to recovery the snapshot from      * @param repository the repository holding the physical files the shard should be recovered from      * @return<code>true</code> if the shard has been recovered successfully,<code>false</code> if the recovery      * has been ignored due to a concurrent modification of if the clusters state has changed due to async updates.      */
+comment|/**      * Recovers an index from a given {@link Repository}. This method restores a      * previously created index snapshot into an existing initializing shard.      * @param indexShard the index shard instance to recovery the snapshot from      * @param repository the repository holding the physical files the shard should be recovered from      * @return<code>true</code> if the shard has been recovered successfully,<code>false</code> if the recovery      * has been ignored due to a concurrent modification of if the clusters state has changed due to async updates.      */
 DECL|method|recoverFromRepository
 name|boolean
 name|recoverFromRepository
@@ -1430,7 +1427,7 @@ specifier|final
 name|IndexShard
 name|indexShard
 parameter_list|,
-name|IndexShardRepository
+name|Repository
 name|repository
 parameter_list|)
 block|{
@@ -2097,7 +2094,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2126,10 +2123,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|files
 operator|+=
 literal|" (failure="
@@ -2138,7 +2142,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|e1
+name|inner
 argument_list|)
 operator|+
 literal|")"
@@ -2210,7 +2214,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -2445,8 +2449,8 @@ name|IndexShard
 name|indexShard
 parameter_list|,
 specifier|final
-name|IndexShardRepository
-name|indexShardRepository
+name|Repository
+name|repository
 parameter_list|)
 block|{
 name|RestoreSource
@@ -2578,10 +2582,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|indexShardRepository
+name|repository
 operator|.
-name|restore
+name|restoreShard
 argument_list|(
+name|indexShard
+argument_list|,
 name|restoreSource
 operator|.
 name|snapshot
@@ -2594,8 +2600,6 @@ name|restoreSource
 operator|.
 name|version
 argument_list|()
-argument_list|,
-name|shardId
 argument_list|,
 name|snapshotShardId
 argument_list|,
@@ -2625,8 +2629,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
@@ -2637,7 +2641,7 @@ name|shardId
 argument_list|,
 literal|"restore failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}

@@ -733,8 +733,8 @@ expr_stmt|;
 block|}
 DECL|class|NXYParser
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|NXYParser
 implements|implements

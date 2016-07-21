@@ -399,7 +399,8 @@ literal|"script1.mockscript"
 argument_list|,
 name|executable
 operator|.
-name|name
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

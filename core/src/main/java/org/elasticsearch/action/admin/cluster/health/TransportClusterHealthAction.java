@@ -667,8 +667,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -677,7 +677,7 @@ name|error
 argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -686,7 +686,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

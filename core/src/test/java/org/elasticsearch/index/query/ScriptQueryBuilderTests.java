@@ -240,10 +240,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFromJson
+DECL|method|testFromJsonVerbose
 specifier|public
 name|void
-name|testFromJson
+name|testFromJsonVerbose
 parameter_list|()
 throws|throws
 name|IOException
@@ -303,6 +303,58 @@ name|script
 argument_list|()
 operator|.
 name|getLang
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"script\" : {\n"
+operator|+
+literal|"    \"script\" : \"5\","
+operator|+
+literal|"    \"boost\" : 1.0,\n"
+operator|+
+literal|"    \"_name\" : \"PcKdEyPOmR\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ScriptQueryBuilder
+name|parsed
+init|=
+operator|(
+name|ScriptQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"5"
+argument_list|,
+name|parsed
+operator|.
+name|script
+argument_list|()
+operator|.
+name|getScript
 argument_list|()
 argument_list|)
 expr_stmt|;

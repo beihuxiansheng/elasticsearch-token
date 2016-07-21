@@ -651,9 +651,6 @@ comment|// never flush - always recover from translog
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// Index some documents
 name|int
 name|numDocs

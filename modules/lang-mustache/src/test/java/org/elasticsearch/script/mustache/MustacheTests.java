@@ -544,7 +544,7 @@ name|run
 argument_list|()
 operator|)
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -682,7 +682,7 @@ name|assertThat
 argument_list|(
 name|bytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -771,7 +771,7 @@ name|assertThat
 argument_list|(
 name|bytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|both
@@ -948,7 +948,7 @@ name|assertThat
 argument_list|(
 name|bytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1111,7 +1111,7 @@ name|assertThat
 argument_list|(
 name|bytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1210,7 +1210,7 @@ name|assertThat
 argument_list|(
 name|bytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|both
@@ -1333,7 +1333,7 @@ name|result
 init|=
 name|rawResult
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1416,7 +1416,7 @@ name|result
 operator|=
 name|rawResult
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -1626,7 +1626,7 @@ name|assertThat
 argument_list|(
 name|bytes
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3269,7 +3269,7 @@ operator|)
 name|result
 operator|)
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|matcher

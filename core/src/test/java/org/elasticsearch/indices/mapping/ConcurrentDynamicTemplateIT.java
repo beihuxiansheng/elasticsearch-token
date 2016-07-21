@@ -285,9 +285,6 @@ name|mapping
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|int
 name|numDocs
 init|=
@@ -416,7 +413,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

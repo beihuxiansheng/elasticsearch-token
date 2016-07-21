@@ -114,7 +114,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Connection reset by peer"
+literal|"Connection reset"
 argument_list|)
 condition|)
 block|{

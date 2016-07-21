@@ -142,7 +142,7 @@ decl_stmt|;
 DECL|field|failure
 specifier|public
 specifier|final
-name|Throwable
+name|Exception
 name|failure
 decl_stmt|;
 DECL|method|FailedShard
@@ -155,7 +155,7 @@ parameter_list|,
 name|String
 name|message
 parameter_list|,
-name|Throwable
+name|Exception
 name|failure
 parameter_list|)
 block|{

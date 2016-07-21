@@ -2066,7 +2066,6 @@ annotation|@
 name|Override
 DECL|method|apply
 specifier|public
-specifier|final
 name|void
 name|apply
 parameter_list|(

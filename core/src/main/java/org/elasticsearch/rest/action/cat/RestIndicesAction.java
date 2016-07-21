@@ -166,7 +166,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -299,6 +301,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -474,9 +488,6 @@ parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|)
@@ -484,10 +495,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|this
@@ -561,7 +568,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -697,13 +704,13 @@ name|getState
 argument_list|()
 decl_stmt|;
 specifier|final
-name|String
+name|Index
 index|[]
 name|concreteIndices
 init|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndexNames
+name|concreteIndices
 argument_list|(
 name|state
 argument_list|,
@@ -949,6 +956,15 @@ argument_list|(
 literal|"index"
 argument_list|,
 literal|"alias:i,idx;desc:index name"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"uuid"
+argument_list|,
+literal|"alias:id,uuid;desc:index uuid"
 argument_list|)
 expr_stmt|;
 name|table
@@ -2040,15 +2056,15 @@ return|return
 name|table
 return|;
 block|}
+comment|// package private for testing
 DECL|method|buildTable
-specifier|private
 name|Table
 name|buildTable
 parameter_list|(
 name|RestRequest
 name|request
 parameter_list|,
-name|String
+name|Index
 index|[]
 name|indices
 parameter_list|,
@@ -2072,12 +2088,22 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|String
+specifier|final
+name|Index
 name|index
 range|:
 name|indices
 control|)
 block|{
+specifier|final
+name|String
+name|indexName
+init|=
+name|index
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 name|ClusterIndexHealth
 name|indexHealth
 init|=
@@ -2088,7 +2114,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|index
+name|indexName
 argument_list|)
 decl_stmt|;
 name|IndexStats
@@ -2101,7 +2127,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|index
+name|indexName
 argument_list|)
 decl_stmt|;
 name|IndexMetaData
@@ -2114,7 +2140,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|index
+name|indexName
 argument_list|)
 decl_stmt|;
 name|IndexMetaData
@@ -2191,7 +2217,17 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+name|indexName
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|table

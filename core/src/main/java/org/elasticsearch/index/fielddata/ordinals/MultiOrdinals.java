@@ -223,15 +223,6 @@ name|OFFSETS_PAGE_SIZE
 init|=
 literal|1024
 decl_stmt|;
-DECL|field|OFFSET_INIT_PAGE_COUNT
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|OFFSET_INIT_PAGE_COUNT
-init|=
-literal|16
-decl_stmt|;
 comment|/**      * Return true if this impl is going to be smaller than {@link SinglePackedOrdinals} by at least 20%.      */
 DECL|method|significantlySmallerThanSinglePackedOrdinals
 specifier|public

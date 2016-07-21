@@ -264,7 +264,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -616,7 +616,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|allOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -653,6 +689,18 @@ operator|.
 name|Matchers
 operator|.
 name|hasKey
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasToString
 import|;
 end_import
 
@@ -834,9 +882,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"node1"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -1061,15 +1110,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1129,8 +1178,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|timedOut
@@ -1218,15 +1267,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1347,8 +1396,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|taskFailed
@@ -1457,8 +1506,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|taskFailed
@@ -1674,8 +1723,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{                 }
 block|}
@@ -1894,8 +1943,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1904,7 +1953,7 @@ name|error
 argument_list|(
 literal|"unexpected failure: [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -1919,7 +1968,7 @@ argument_list|<>
 argument_list|(
 name|source
 argument_list|,
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2298,8 +2347,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -2308,7 +2357,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3172,8 +3221,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -3182,7 +3231,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3724,15 +3773,6 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|Priority
-index|[]
-name|priorities
-init|=
-name|Priority
-operator|.
-name|values
-argument_list|()
-decl_stmt|;
 comment|// will hold all the tasks in the order in which they were executed
 name|List
 argument_list|<
@@ -3774,19 +3814,13 @@ block|{
 name|Priority
 name|priority
 init|=
-name|priorities
-index|[
-name|randomIntBetween
+name|randomFrom
 argument_list|(
-literal|0
-argument_list|,
-name|priorities
+name|Priority
 operator|.
-name|length
-operator|-
-literal|1
+name|values
+argument_list|()
 argument_list|)
-index|]
 decl_stmt|;
 name|clusterService
 operator|.
@@ -3987,8 +4021,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -3997,7 +4031,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4026,9 +4060,13 @@ argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
+specifier|final
+name|IllegalStateException
+name|e
+init|=
 name|expectThrows
 argument_list|(
-name|IllegalArgumentException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|,
@@ -4054,6 +4092,19 @@ argument_list|,
 name|executor
 argument_list|,
 name|listener
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+argument_list|,
+name|hasToString
+argument_list|(
+name|containsString
+argument_list|(
+literal|"task [1] with source [second time] is already queued"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4297,8 +4348,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -4379,8 +4430,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|latch
@@ -4472,8 +4523,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -4540,8 +4591,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -4803,8 +4854,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -4892,8 +4943,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|latch
@@ -4987,8 +5038,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -5069,8 +5120,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -5137,8 +5188,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
@@ -5235,6 +5286,23 @@ name|obj
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|id
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
@@ -5307,8 +5375,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{         }
 DECL|method|close
@@ -5424,8 +5492,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|latch

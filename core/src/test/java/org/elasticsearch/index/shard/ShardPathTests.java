@@ -303,8 +303,6 @@ name|newInitializing
 argument_list|()
 argument_list|)
 argument_list|,
-literal|2
-argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
@@ -541,8 +539,6 @@ name|newInitializing
 argument_list|()
 argument_list|)
 argument_list|,
-name|id
-argument_list|,
 name|paths
 argument_list|)
 expr_stmt|;
@@ -722,8 +718,6 @@ operator|.
 name|newInitializing
 argument_list|()
 argument_list|)
-argument_list|,
-name|id
 argument_list|,
 name|path
 argument_list|)
@@ -1075,7 +1069,7 @@ name|put
 argument_list|(
 name|NodeEnvironment
 operator|.
-name|ADD_NODE_ID_TO_CUSTOM_PATH
+name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
 operator|.
 name|getKey
 argument_list|()
@@ -1203,8 +1197,6 @@ operator|.
 name|newInitializing
 argument_list|()
 argument_list|)
-argument_list|,
-literal|2
 argument_list|,
 name|path
 argument_list|)

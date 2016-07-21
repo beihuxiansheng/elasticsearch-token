@@ -795,9 +795,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -1147,9 +1144,6 @@ literal|"the quick lazy huge brown fox jumps over the tree"
 argument_list|)
 operator|.
 name|get
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|refresh
@@ -1996,9 +1990,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -2678,9 +2669,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3346,9 +3334,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3604,8 +3589,8 @@ comment|// This comparator uses a custom tie in case the scores are equal, so th
 comment|// are sorted equally. This is fine since tests only care about the fact the scores should be equal, not ordering.
 DECL|field|searchHitsComparator
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Comparator
 argument_list|<
 name|SearchHit
@@ -4757,9 +4742,6 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|refresh
