@@ -420,9 +420,7 @@ name|SnapshotId
 argument_list|(
 literal|"test_1"
 argument_list|,
-name|SnapshotId
-operator|.
-name|UNASSIGNED_UUID
+literal|"test_1"
 argument_list|)
 argument_list|)
 argument_list|)

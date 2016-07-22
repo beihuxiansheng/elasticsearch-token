@@ -139,16 +139,6 @@ name|Writeable
 implements|,
 name|ToXContent
 block|{
-comment|/**      * This value is for older snapshots that don't have a UUID.      */
-DECL|field|UNASSIGNED_UUID
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|UNASSIGNED_UUID
-init|=
-literal|"_na_"
-decl_stmt|;
 DECL|field|NAME
 specifier|private
 specifier|static
@@ -592,21 +582,25 @@ name|uuid
 argument_list|)
 return|;
 block|}
-comment|// the old format pre 5.0 that only contains the snapshot name, use the name as the uuid too
 else|else
 block|{
-return|return
-operator|new
-name|SnapshotId
-argument_list|(
+comment|// the old format pre 5.0 that only contains the snapshot name, use the name as the uuid too
+specifier|final
+name|String
+name|name
+init|=
 name|parser
 operator|.
 name|text
 argument_list|()
-argument_list|,
+decl_stmt|;
+return|return
+operator|new
 name|SnapshotId
-operator|.
-name|UNASSIGNED_UUID
+argument_list|(
+name|name
+argument_list|,
+name|name
 argument_list|)
 return|;
 block|}
