@@ -2599,6 +2599,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Listener used in any async call to wrap the provided user listener (or SyncResponseListener in sync calls).      * Allows to track potential failures coming from the different retry attempts and returning to the original listener      * only when we got a response (successful or not to be retried) or there are no hosts to retry against.      */
 DECL|class|FailureTrackingResponseListener
 specifier|static
 class|class
@@ -2630,6 +2631,7 @@ operator|=
 name|responseListener
 expr_stmt|;
 block|}
+comment|/**          * Notifies the caller of a response through the wrapped listener          */
 DECL|method|onSuccess
 name|void
 name|onSuccess
@@ -2646,6 +2648,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * Tracks one last definitive failure and returns to the caller by notifying the wrapped listener          */
 DECL|method|onDefinitiveFailure
 name|void
 name|onDefinitiveFailure
@@ -2669,6 +2672,7 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * Tracks an exception, which caused a retry hence we should not return yet to the caller          */
 DECL|method|trackFailure
 name|void
 name|trackFailure
@@ -2692,6 +2696,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Listener used in any sync performRequest calls, it waits for a response or an exception back up to a timeout      */
 DECL|class|SyncResponseListener
 specifier|static
 class|class
@@ -2874,6 +2879,7 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**          * Waits (up to a timeout) for some result of the request: either a response, or an exception.          */
 DECL|method|get
 name|Response
 name|get
