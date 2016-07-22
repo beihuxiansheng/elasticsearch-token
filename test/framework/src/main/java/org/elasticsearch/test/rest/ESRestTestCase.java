@@ -70,18 +70,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|ResponseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -153,6 +141,22 @@ operator|.
 name|client
 operator|.
 name|RestTestResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|client
+operator|.
+name|RestTestResponseException
 import|;
 end_import
 
@@ -1695,7 +1699,7 @@ name|void
 name|wipeCluster
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 comment|// wipe indices
 name|Map
@@ -1744,7 +1748,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ResponseException
+name|RestTestResponseException
 name|e
 parameter_list|)
 block|{
@@ -1752,6 +1756,9 @@ comment|// 404 here just means we had no indexes
 if|if
 condition|(
 name|e
+operator|.
+name|getResponseException
+argument_list|()
 operator|.
 name|getResponse
 argument_list|()
@@ -1864,8 +1871,6 @@ name|void
 name|logIfThereAreRunningTasks
 parameter_list|()
 throws|throws
-name|InterruptedException
-throws|,
 name|IOException
 block|{
 name|RestTestResponse
@@ -2028,7 +2033,7 @@ name|void
 name|reset
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// admin context must be available for @After always, regardless of whether the test was blacklisted
 name|adminExecutionContext

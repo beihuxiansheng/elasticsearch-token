@@ -120,6 +120,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -273,7 +283,7 @@ name|void
 name|testThatSettingHeadersWorks
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|ensureGreen
 argument_list|()
@@ -342,8 +352,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-init|(
 name|Response
 name|authResponse
 init|=
@@ -364,8 +372,7 @@ argument_list|,
 literal|"password"
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|authResponse
@@ -397,7 +404,6 @@ literal|"granted"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

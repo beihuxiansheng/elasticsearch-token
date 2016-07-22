@@ -30,16 +30,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashSet
@@ -93,13 +83,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.elasticsearch.client.RestClient.FailureListener} impl that allows to track when it gets called  */
+comment|/**  * {@link org.elasticsearch.client.RestClient.FailureListener} impl that allows to track when it gets called for which host.  */
 end_comment
 
 begin_class
-DECL|class|TrackingFailureListener
+DECL|class|HostsTrackingFailureListener
 class|class
-name|TrackingFailureListener
+name|HostsTrackingFailureListener
 extends|extends
 name|RestClient
 operator|.
@@ -107,6 +97,7 @@ name|FailureListener
 block|{
 DECL|field|hosts
 specifier|private
+specifier|volatile
 name|Set
 argument_list|<
 name|HttpHost
@@ -128,8 +119,6 @@ parameter_list|(
 name|HttpHost
 name|host
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|hosts
 operator|.
