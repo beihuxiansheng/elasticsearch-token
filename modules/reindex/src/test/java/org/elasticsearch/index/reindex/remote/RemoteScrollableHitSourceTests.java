@@ -3352,9 +3352,14 @@ operator|.
 name|openStream
 argument_list|()
 argument_list|,
+name|randomBoolean
+argument_list|()
+condition|?
 name|ContentType
 operator|.
 name|APPLICATION_JSON
+else|:
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
