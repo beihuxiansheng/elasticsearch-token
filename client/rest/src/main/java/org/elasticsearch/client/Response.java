@@ -103,6 +103,7 @@ end_comment
 begin_class
 DECL|class|Response
 specifier|public
+specifier|final
 class|class
 name|Response
 block|{
