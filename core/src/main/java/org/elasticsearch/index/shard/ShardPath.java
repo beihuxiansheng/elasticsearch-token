@@ -1004,12 +1004,19 @@ control|)
 block|{
 name|totFreeSpace
 operator|+=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
 name|nodePath
 operator|.
 name|fileStore
 operator|.
 name|getUsableSpace
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: this is a hack!!  We should instead keep track of incoming (relocated) shards since we know
@@ -1079,13 +1086,22 @@ name|nodePath
 operator|.
 name|fileStore
 decl_stmt|;
+comment|// Apparently, FileStore.getUsableSpace() can sometimes be negative, even possibly Long.MIN_VALUE, which can lead to NPE
+comment|// below since we would fail to set bestPath:
 name|long
 name|usableBytes
 init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
 name|fileStore
 operator|.
 name|getUsableSpace
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// Deduct estimated reserved bytes from usable space:
 name|Integer
@@ -1108,10 +1124,22 @@ literal|null
 condition|)
 block|{
 name|usableBytes
-operator|-=
+operator|=
+name|Math
+operator|.
+name|subtractExact
+argument_list|(
+name|usableBytes
+argument_list|,
+name|Math
+operator|.
+name|multiplyExact
+argument_list|(
 name|estShardSizeInBytes
-operator|*
+argument_list|,
 name|count
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 if|if
