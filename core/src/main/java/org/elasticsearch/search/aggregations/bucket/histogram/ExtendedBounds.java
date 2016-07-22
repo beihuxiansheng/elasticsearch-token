@@ -286,11 +286,9 @@ specifier|final
 name|ParseField
 name|EXTENDED_BOUNDS_FIELD
 init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"extended_bounds"
-argument_list|)
+name|Histogram
+operator|.
+name|EXTENDED_BOUNDS_FIELD
 decl_stmt|;
 DECL|field|MIN_FIELD
 specifier|static
