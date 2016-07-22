@@ -947,19 +947,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|readFrom
-specifier|public
-name|void
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{          }
-annotation|@
-name|Override
 DECL|method|writeTo
 specifier|public
 name|void
@@ -970,7 +957,7 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{          }
+block|{         }
 block|}
 DECL|class|Factory
 specifier|public

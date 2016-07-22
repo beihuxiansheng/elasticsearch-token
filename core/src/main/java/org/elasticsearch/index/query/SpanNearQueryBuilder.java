@@ -232,19 +232,6 @@ name|NAME
 init|=
 literal|"span_near"
 decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
 comment|/** Default for flag controlling whether matches are required to be in-order */
 DECL|field|DEFAULT_IN_ORDER
 specifier|public

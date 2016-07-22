@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -353,7 +341,6 @@ argument_list|<
 name|TemplateQueryBuilder
 argument_list|>
 block|{
-comment|/** Name to reference this type of query. */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -362,19 +349,6 @@ name|String
 name|NAME
 init|=
 literal|"template"
-decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 comment|/** Template to fill. */
 DECL|field|template

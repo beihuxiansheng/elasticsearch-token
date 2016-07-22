@@ -500,6 +500,7 @@ argument_list|,
 name|compoundProcessorException
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}

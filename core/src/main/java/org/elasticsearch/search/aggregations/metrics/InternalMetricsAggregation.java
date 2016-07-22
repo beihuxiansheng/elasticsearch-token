@@ -106,12 +106,6 @@ block|{
 DECL|method|InternalMetricsAggregation
 specifier|protected
 name|InternalMetricsAggregation
-parameter_list|()
-block|{}
-comment|// NORELEASE remove when we remove streamable
-DECL|method|InternalMetricsAggregation
-specifier|protected
-name|InternalMetricsAggregation
 parameter_list|(
 name|String
 name|name

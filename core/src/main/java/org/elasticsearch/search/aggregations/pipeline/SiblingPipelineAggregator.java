@@ -216,16 +216,6 @@ block|{
 DECL|method|SiblingPipelineAggregator
 specifier|protected
 name|SiblingPipelineAggregator
-parameter_list|()
-block|{
-comment|// for Serialisation
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|SiblingPipelineAggregator
-specifier|protected
-name|SiblingPipelineAggregator
 parameter_list|(
 name|String
 name|name
@@ -579,10 +569,7 @@ literal|"] must be a bucket aggregation ["
 operator|+
 name|aggregation
 operator|.
-name|type
-argument_list|()
-operator|.
-name|name
+name|getWriteableName
 argument_list|()
 operator|+
 literal|"]"

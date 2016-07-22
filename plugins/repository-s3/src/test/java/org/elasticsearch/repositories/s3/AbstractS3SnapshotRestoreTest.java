@@ -2030,6 +2030,8 @@ literal|null
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -4489,6 +4491,8 @@ literal|null
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 try|try

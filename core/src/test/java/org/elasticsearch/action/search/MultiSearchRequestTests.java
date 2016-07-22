@@ -2002,7 +2002,7 @@ name|parser
 argument_list|,
 name|MatchAllQueryBuilder
 operator|.
-name|QUERY_NAME_FIELD
+name|NAME
 argument_list|)
 expr_stmt|;
 return|return

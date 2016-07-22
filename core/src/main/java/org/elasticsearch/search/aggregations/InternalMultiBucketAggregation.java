@@ -119,11 +119,6 @@ block|{
 DECL|method|InternalMultiBucketAggregation
 specifier|public
 name|InternalMultiBucketAggregation
-parameter_list|()
-block|{     }
-DECL|method|InternalMultiBucketAggregation
-specifier|public
-name|InternalMultiBucketAggregation
 parameter_list|(
 name|String
 name|name

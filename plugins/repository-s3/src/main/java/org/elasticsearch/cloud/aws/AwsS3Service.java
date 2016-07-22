@@ -721,6 +721,9 @@ name|maxRetries
 parameter_list|,
 name|boolean
 name|useThrottleRetries
+parameter_list|,
+name|Boolean
+name|pathStyleAccess
 parameter_list|)
 function_decl|;
 block|}

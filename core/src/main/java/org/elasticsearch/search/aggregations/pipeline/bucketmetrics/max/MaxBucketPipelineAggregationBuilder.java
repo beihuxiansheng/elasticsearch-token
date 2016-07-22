@@ -208,12 +208,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|MaxBucketPipelineAggregator
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+literal|"max_bucket"
 decl_stmt|;
 DECL|field|AGGREGATION_NAME_FIELD
 specifier|public
@@ -243,12 +238,7 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|MaxBucketPipelineAggregator
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+name|NAME
 argument_list|,
 operator|new
 name|String

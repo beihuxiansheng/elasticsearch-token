@@ -234,6 +234,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+operator|.
+name|Cancellable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -309,18 +323,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledFuture
 import|;
 end_import
 
@@ -944,10 +946,7 @@ annotation|@
 name|Override
 DECL|method|scheduleTask
 specifier|protected
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
+name|Cancellable
 name|scheduleTask
 parameter_list|(
 name|ThreadPool
@@ -2350,10 +2349,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
+name|Cancellable
 name|scheduleTask
 parameter_list|(
 name|ThreadPool

@@ -173,8 +173,6 @@ operator|new
 name|Type
 argument_list|(
 literal|"date_histogram"
-argument_list|,
-literal|"dhisto"
 argument_list|)
 decl_stmt|;
 DECL|class|Bucket

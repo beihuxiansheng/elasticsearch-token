@@ -360,19 +360,6 @@ name|NAME
 init|=
 literal|"geo_polygon"
 decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
 comment|/**      * The default value for ignore_unmapped.      */
 DECL|field|DEFAULT_IGNORE_UNMAPPED
 specifier|public

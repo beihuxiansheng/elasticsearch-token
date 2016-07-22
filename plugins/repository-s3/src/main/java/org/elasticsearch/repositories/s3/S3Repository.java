@@ -22,6 +22,20 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|AmazonS3
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|ClientConfiguration
 import|;
 end_import
@@ -724,6 +738,27 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
+comment|/**          * repositories.s3.path_style_access: When set to true configures the client to use path-style access for all requests.          Amazon S3 supports virtual-hosted-style and path-style access in all Regions. The path-style syntax, however,          requires that you use the region-specific endpoint when attempting to access a bucket.          The default behaviour is to detect which access style to use based on the configured endpoint (an IP will result          in path-style access) and the bucket being accessed (some buckets are not valid DNS names). Setting this flag          will result in path-style access being used for all requests.          */
+DECL|field|PATH_STYLE_ACCESS_SETTING
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|PATH_STYLE_ACCESS_SETTING
+init|=
+name|Setting
+operator|.
+name|boolSetting
+argument_list|(
+literal|"repositories.s3.path_style_access"
+argument_list|,
+literal|false
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
+argument_list|)
+decl_stmt|;
 block|}
 comment|/**      * Per S3 repository specific settings. Same settings as Repositories settings but without the repositories.s3 prefix.      * If undefined, they use the repositories.s3.xxx equivalent setting.      */
 DECL|interface|Repository
@@ -744,14 +779,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"access_key"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * secret_key          * @see  Repositories#SECRET_SETTING          */
@@ -767,14 +794,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"secret_key"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * bucket          * @see  Repositories#BUCKET_SETTING          */
@@ -790,10 +809,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"bucket"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * endpoint          * @see  Repositories#ENDPOINT_SETTING          */
@@ -809,10 +824,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"endpoint"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * protocol          * @see  Repositories#PROTOCOL_SETTING          */
@@ -846,10 +857,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * region          * @see  Repositories#REGION_SETTING          */
@@ -878,10 +885,6 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * server_side_encryption          * @see  Repositories#SERVER_SIDE_ENCRYPTION_SETTING          */
@@ -899,10 +902,6 @@ argument_list|(
 literal|"server_side_encryption"
 argument_list|,
 literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * buffer_size          * @see  Repositories#BUFFER_SIZE_SETTING          */
@@ -948,10 +947,6 @@ name|ByteSizeUnit
 operator|.
 name|TB
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * max_retries          * @see  Repositories#MAX_RETRIES_SETTING          */
@@ -969,10 +964,6 @@ argument_list|(
 literal|"max_retries"
 argument_list|,
 literal|3
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * use_throttle_retries          * @see  Repositories#USE_THROTTLE_RETRIES_SETTING          */
@@ -992,10 +983,6 @@ argument_list|,
 name|ClientConfiguration
 operator|.
 name|DEFAULT_THROTTLE_RETRIES
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * chunk_size          * @see  Repositories#CHUNK_SIZE_SETTING          */
@@ -1041,10 +1028,6 @@ name|ByteSizeUnit
 operator|.
 name|TB
 argument_list|)
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * compress          * @see  Repositories#COMPRESS_SETTING          */
@@ -1062,10 +1045,6 @@ argument_list|(
 literal|"compress"
 argument_list|,
 literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * storage_class          * @see  Repositories#STORAGE_CLASS_SETTING          */
@@ -1081,10 +1060,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"storage_class"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * canned_acl          * @see  Repositories#CANNED_ACL_SETTING          */
@@ -1100,10 +1075,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"canned_acl"
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * base_path          * @see  Repositories#BASE_PATH_SETTING          */
@@ -1119,10 +1090,23 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"base_path"
-argument_list|,
-name|Property
+argument_list|)
+decl_stmt|;
+comment|/**          * path_style_access          * @see  Repositories#PATH_STYLE_ACCESS_SETTING          */
+DECL|field|PATH_STYLE_ACCESS_SETTING
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|PATH_STYLE_ACCESS_SETTING
+init|=
+name|Setting
 operator|.
-name|NodeScope
+name|boolSetting
+argument_list|(
+literal|"path_style_access"
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 block|}
@@ -1519,13 +1503,65 @@ operator|.
 name|CANNED_ACL_SETTING
 argument_list|)
 decl_stmt|;
+comment|// If the user defined a path style access setting, we rely on it otherwise we use the default
+comment|// value set by the SDK
+name|Boolean
+name|pathStyleAccess
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|Repository
+operator|.
+name|PATH_STYLE_ACCESS_SETTING
+operator|.
+name|exists
+argument_list|(
+name|metadata
+operator|.
+name|settings
+argument_list|()
+argument_list|)
+operator|||
+name|Repositories
+operator|.
+name|PATH_STYLE_ACCESS_SETTING
+operator|.
+name|exists
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
+name|pathStyleAccess
+operator|=
+name|getValue
+argument_list|(
+name|metadata
+operator|.
+name|settings
+argument_list|()
+argument_list|,
+name|settings
+argument_list|,
+name|Repository
+operator|.
+name|PATH_STYLE_ACCESS_SETTING
+argument_list|,
+name|Repositories
+operator|.
+name|PATH_STYLE_ACCESS_SETTING
+argument_list|)
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|debug
 argument_list|(
 literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], "
 operator|+
-literal|"buffer_size [{}], max_retries [{}], use_throttle_retries [{}], cannedACL [{}], storageClass [{}]"
+literal|"buffer_size [{}], max_retries [{}], use_throttle_retries [{}], cannedACL [{}], storageClass [{}], path_style_access [{}]"
 argument_list|,
 name|bucket
 argument_list|,
@@ -1548,6 +1584,8 @@ argument_list|,
 name|cannedACL
 argument_list|,
 name|storageClass
+argument_list|,
+name|pathStyleAccess
 argument_list|)
 expr_stmt|;
 name|String
@@ -1616,6 +1654,8 @@ argument_list|,
 name|maxRetries
 argument_list|,
 name|useThrottleRetries
+argument_list|,
+name|pathStyleAccess
 argument_list|)
 argument_list|,
 name|bucket

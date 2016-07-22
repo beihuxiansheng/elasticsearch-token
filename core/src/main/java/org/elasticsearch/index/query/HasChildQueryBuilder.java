@@ -373,7 +373,6 @@ argument_list|<
 name|HasChildQueryBuilder
 argument_list|>
 block|{
-comment|/**      * The queries name      */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -382,19 +381,6 @@ name|String
 name|NAME
 init|=
 literal|"has_child"
-decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 comment|/**      * The default maximum number of children that are required to match for the parent to be considered a match.      */
 DECL|field|DEFAULT_MAX_CHILDREN

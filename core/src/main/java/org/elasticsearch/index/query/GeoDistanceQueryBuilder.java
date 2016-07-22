@@ -375,7 +375,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  * */
+comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  */
 end_comment
 
 begin_class
@@ -389,7 +389,6 @@ argument_list|<
 name|GeoDistanceQueryBuilder
 argument_list|>
 block|{
-comment|/** Name of the query in the query dsl. */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -398,19 +397,6 @@ name|String
 name|NAME
 init|=
 literal|"geo_distance"
-decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 comment|/** Default for latitude normalization (as of this writing true).*/
 DECL|field|DEFAULT_NORMALIZE_LAT

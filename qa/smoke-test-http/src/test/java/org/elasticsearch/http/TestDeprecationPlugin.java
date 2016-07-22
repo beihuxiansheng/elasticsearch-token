@@ -58,9 +58,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|plugins
 operator|.
-name|RestHandler
+name|SearchPlugin
 import|;
 end_import
 
@@ -70,9 +70,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|rest
 operator|.
-name|SearchModule
+name|RestHandler
 import|;
 end_import
 
@@ -106,6 +106,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
+import|;
+end_import
+
 begin_comment
 comment|/**  * Adds {@link TestDeprecationHeaderRestAction} for testing deprecation requests via HTTP.  */
 end_comment
@@ -119,6 +131,8 @@ extends|extends
 name|Plugin
 implements|implements
 name|ActionPlugin
+implements|,
+name|SearchPlugin
 block|{
 annotation|@
 name|Override
@@ -180,19 +194,31 @@ name|TEST_NOT_DEPRECATED_SETTING
 argument_list|)
 return|;
 block|}
-DECL|method|onModule
+annotation|@
+name|Override
+DECL|method|getQueries
 specifier|public
-name|void
-name|onModule
-parameter_list|(
-name|SearchModule
-name|module
-parameter_list|)
+name|List
+argument_list|<
+name|QuerySpec
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getQueries
+parameter_list|()
 block|{
-name|module
-operator|.
-name|registerQuery
+return|return
+name|singletonList
 argument_list|(
+operator|new
+name|QuerySpec
+argument_list|<>
+argument_list|(
+name|TestDeprecatedQueryBuilder
+operator|.
+name|NAME
+argument_list|,
 name|TestDeprecatedQueryBuilder
 operator|::
 operator|new
@@ -200,12 +226,9 @@ argument_list|,
 name|TestDeprecatedQueryBuilder
 operator|::
 name|fromXContent
-argument_list|,
-name|TestDeprecatedQueryBuilder
-operator|.
-name|QUERY_NAME_FIELD
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 block|}
 end_class
