@@ -1445,7 +1445,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mayRetry
+name|isRetryStatus
 argument_list|(
 name|statusCode
 argument_list|)
@@ -2193,11 +2193,11 @@ literal|404
 operator|)
 return|;
 block|}
-DECL|method|mayRetry
+DECL|method|isRetryStatus
 specifier|private
 specifier|static
 name|boolean
-name|mayRetry
+name|isRetryStatus
 parameter_list|(
 name|int
 name|statusCode
