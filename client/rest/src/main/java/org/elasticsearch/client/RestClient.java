@@ -1772,7 +1772,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns an iterator of hosts to be used for a request call.      * Ideally, the first host is retrieved from the iterator and used successfully for the request.      * Otherwise, after each failure the next host should be retrieved from the iterator so that the request can be retried until      * the iterator is exhausted. The maximum total of attempts is equal to the number of hosts that are available in the iterator.      * The iterator returned will never be empty, rather an {@link IllegalStateException} in case there are no hosts.      * In case there are no healthy hosts available, or dead ones to be be retried, one dead host gets returned.      */
+comment|/**      * Returns an {@link Iterable} of hosts to be used for a request call.      * Ideally, the first host is retrieved from the iterable and used successfully for the request.      * Otherwise, after each failure the next host has to be retrieved from the iterator so that the request can be retried until      * there are no more hosts available to retry against. The maximum total of attempts is equal to the number of hosts in the iterable.      * The iterator returned will never be empty. In case there are no healthy hosts available, or dead ones to be be retried,      * one dead host gets returned so that it can be retried.      */
 DECL|method|nextHost
 specifier|private
 name|Iterable
