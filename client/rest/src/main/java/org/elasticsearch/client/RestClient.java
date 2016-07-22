@@ -2600,7 +2600,6 @@ throw|;
 block|}
 block|}
 DECL|class|FailureTrackingResponseListener
-specifier|private
 specifier|static
 class|class
 name|FailureTrackingResponseListener
