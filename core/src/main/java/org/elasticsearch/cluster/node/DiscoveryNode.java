@@ -251,18 +251,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -871,7 +859,7 @@ name|TransportAddress
 name|publishAddress
 parameter_list|,
 name|String
-name|nodeIdSupplier
+name|nodeId
 parameter_list|)
 block|{
 name|Map
@@ -997,7 +985,7 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|,
-name|nodeIdSupplier
+name|nodeId
 argument_list|,
 name|publishAddress
 argument_list|,
