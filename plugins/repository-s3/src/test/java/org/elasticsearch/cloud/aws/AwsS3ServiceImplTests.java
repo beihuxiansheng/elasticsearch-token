@@ -266,6 +266,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|is
 import|;
 end_import
@@ -284,47 +296,6 @@ name|void
 name|testAWSCredentialsWithSystemProviders
 parameter_list|()
 block|{
-comment|// Testing this is hard as it depends on the order of Credential Providers we have in the DefaultAWSCredentialsProviderChain class:
-comment|//     EnvironmentVariableCredentialsProvider:
-comment|//          Env vars: (AWS_ACCESS_KEY_ID or AWS_ACCESS_KEY) and (AWS_SECRET_KEY or AWS_SECRET_ACCESS_KEY)
-comment|//     SystemPropertiesCredentialsProvider:
-comment|//          Sys props: aws.accessKeyId and aws.secretKey
-comment|//     ProfileCredentialsProvider: Profile file
-comment|//     InstanceProfileCredentialsProvider: EC2 Metadata
-comment|// We don't want to test all the behavior but just that when we don't provide any KEY/SECRET they
-comment|// will be loaded from the default chain using DefaultAWSCredentialsProviderChain
-name|assumeFalse
-argument_list|(
-literal|"Running test from the IDE does not work as system properties are eventually undefined"
-argument_list|,
-name|StringUtils
-operator|.
-name|isNullOrEmpty
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-name|ACCESS_KEY_SYSTEM_PROPERTY
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|DefaultAWSCredentialsProviderChain
-name|providerChain
-init|=
-operator|new
-name|DefaultAWSCredentialsProviderChain
-argument_list|()
-decl_stmt|;
-name|AWSCredentials
-name|expectedCredentials
-init|=
-name|providerChain
-operator|.
-name|getCredentials
-argument_list|()
-decl_stmt|;
 name|AWSCredentialsProvider
 name|credentialsProvider
 init|=
@@ -339,43 +310,15 @@ argument_list|,
 literal|""
 argument_list|)
 decl_stmt|;
-name|AWSCredentials
-name|credentials
-init|=
+name|assertThat
+argument_list|(
 name|credentialsProvider
-operator|.
-name|getCredentials
-argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|credentials
-operator|.
-name|getAWSAccessKeyId
-argument_list|()
 argument_list|,
-name|is
+name|instanceOf
 argument_list|(
-name|expectedCredentials
+name|DefaultAWSCredentialsProviderChain
 operator|.
-name|getAWSAccessKeyId
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|credentials
-operator|.
-name|getAWSSecretKey
-argument_list|()
-argument_list|,
-name|is
-argument_list|(
-name|expectedCredentials
-operator|.
-name|getAWSSecretKey
-argument_list|()
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
