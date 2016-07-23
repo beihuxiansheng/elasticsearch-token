@@ -52,22 +52,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|BigArrays
@@ -127,11 +111,11 @@ specifier|final
 name|BigArrays
 name|bigarrays
 decl_stmt|;
-DECL|field|bytearray
+DECL|field|byteArray
 specifier|protected
 specifier|final
 name|ByteArray
-name|bytearray
+name|byteArray
 decl_stmt|;
 DECL|field|offset
 specifier|private
@@ -153,7 +137,7 @@ name|BigArrays
 name|bigarrays
 parameter_list|,
 name|ByteArray
-name|bytearray
+name|byteArray
 parameter_list|,
 name|int
 name|length
@@ -163,7 +147,7 @@ name|this
 argument_list|(
 name|bigarrays
 argument_list|,
-name|bytearray
+name|byteArray
 argument_list|,
 literal|0
 argument_list|,
@@ -179,7 +163,7 @@ name|BigArrays
 name|bigarrays
 parameter_list|,
 name|ByteArray
-name|bytearray
+name|byteArray
 parameter_list|,
 name|int
 name|from
@@ -196,9 +180,9 @@ name|bigarrays
 expr_stmt|;
 name|this
 operator|.
-name|bytearray
+name|byteArray
 operator|=
-name|bytearray
+name|byteArray
 expr_stmt|;
 name|this
 operator|.
@@ -225,7 +209,7 @@ name|index
 parameter_list|)
 block|{
 return|return
-name|bytearray
+name|byteArray
 operator|.
 name|get
 argument_list|(
@@ -304,7 +288,7 @@ name|PagedBytesReference
 argument_list|(
 name|bigarrays
 argument_list|,
-name|bytearray
+name|byteArray
 argument_list|,
 name|offset
 operator|+
@@ -330,7 +314,7 @@ name|BytesRef
 argument_list|()
 decl_stmt|;
 comment|// if length<= pagesize this will dereference the page, or materialize the byte[]
-name|bytearray
+name|byteArray
 operator|.
 name|get
 argument_list|(
@@ -443,7 +427,7 @@ specifier|final
 name|boolean
 name|materialized
 init|=
-name|bytearray
+name|byteArray
 operator|.
 name|get
 argument_list|(
@@ -521,7 +505,7 @@ name|ramBytesUsed
 parameter_list|()
 block|{
 return|return
-name|bytearray
+name|byteArray
 operator|.
 name|ramBytesUsed
 argument_list|()

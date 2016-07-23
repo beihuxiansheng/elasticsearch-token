@@ -976,6 +976,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Matcher
@@ -7296,7 +7308,7 @@ name|MESSAGE_LENGTH_SIZE
 decl_stmt|;
 name|transportServiceAdapter
 operator|.
-name|received
+name|addBytesReceived
 argument_list|(
 name|totalMessageSize
 argument_list|)

@@ -1546,7 +1546,7 @@ argument_list|)
 decl_stmt|;
 name|transportServiceAdapter
 operator|.
-name|sent
+name|addBytesSent
 argument_list|(
 name|data
 operator|.
@@ -1749,7 +1749,7 @@ try|try
 block|{
 name|transportServiceAdapter
 operator|.
-name|received
+name|addBytesReceived
 argument_list|(
 name|data
 operator|.
