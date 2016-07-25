@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.fetch.fielddata
+DECL|package|org.elasticsearch.search.fetch.docvalues
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|fielddata
+name|docvalues
 package|;
 end_package
 
@@ -135,31 +135,26 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Query sub phase which pulls data from field data (using the cache if  * available, building it if not).  *  * Specifying {@code "fielddata_fields": ["field1", "field2"]}  */
+comment|/**  * Query sub phase which pulls data from doc values  *  * Specifying {@code "docvalue_fields": ["field1", "field2"]}  */
 end_comment
 
 begin_class
-DECL|class|FieldDataFieldsFetchSubPhase
+DECL|class|DocValueFieldsFetchSubPhase
 specifier|public
 specifier|final
 class|class
-name|FieldDataFieldsFetchSubPhase
+name|DocValueFieldsFetchSubPhase
 implements|implements
 name|FetchSubPhase
 block|{
-DECL|field|NAMES
+DECL|field|NAME
 specifier|public
 specifier|static
 specifier|final
 name|String
-index|[]
-name|NAMES
+name|NAME
 init|=
-block|{
-literal|"fielddata_fields"
-block|,
-literal|"fielddataFields"
-block|}
+literal|"docvalue_fields"
 decl_stmt|;
 DECL|field|CONTEXT_FACTORY
 specifier|public
@@ -167,14 +162,14 @@ specifier|static
 specifier|final
 name|ContextFactory
 argument_list|<
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 argument_list|>
 name|CONTEXT_FACTORY
 init|=
 operator|new
 name|ContextFactory
 argument_list|<
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 argument_list|>
 argument_list|()
 block|{
@@ -186,22 +181,19 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|NAMES
-index|[
-literal|0
-index|]
+name|NAME
 return|;
 block|}
 annotation|@
 name|Override
 specifier|public
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 name|newContextInstance
 parameter_list|()
 block|{
 return|return
 operator|new
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 argument_list|()
 return|;
 block|}
@@ -240,9 +232,9 @@ return|return;
 block|}
 for|for
 control|(
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 operator|.
-name|FieldDataField
+name|DocValueField
 name|field
 range|:
 name|context

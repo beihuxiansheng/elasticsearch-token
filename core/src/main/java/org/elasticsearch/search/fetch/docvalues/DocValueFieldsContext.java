@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.fetch.fielddata
+DECL|package|org.elasticsearch.search.fetch.docvalues
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|fielddata
+name|docvalues
 package|;
 end_package
 
@@ -53,22 +53,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * All the required context to pull a field from the field data cache.  */
+comment|/**  * All the required context to pull a field from the doc values.  */
 end_comment
 
 begin_class
-DECL|class|FieldDataFieldsContext
+DECL|class|DocValueFieldsContext
 specifier|public
 class|class
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 extends|extends
 name|FetchSubPhaseContext
 block|{
-DECL|class|FieldDataField
+DECL|class|DocValueField
 specifier|public
 specifier|static
 class|class
-name|FieldDataField
+name|DocValueField
 block|{
 DECL|field|name
 specifier|private
@@ -76,9 +76,9 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|method|FieldDataField
+DECL|method|DocValueField
 specifier|public
-name|FieldDataField
+name|DocValueField
 parameter_list|(
 name|String
 name|name
@@ -106,7 +106,7 @@ DECL|field|fields
 specifier|private
 name|List
 argument_list|<
-name|FieldDataField
+name|DocValueField
 argument_list|>
 name|fields
 init|=
@@ -115,9 +115,9 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|FieldDataFieldsContext
+DECL|method|DocValueFieldsContext
 specifier|public
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 parameter_list|()
 block|{     }
 DECL|method|add
@@ -125,7 +125,7 @@ specifier|public
 name|void
 name|add
 parameter_list|(
-name|FieldDataField
+name|DocValueField
 name|field
 parameter_list|)
 block|{
@@ -143,7 +143,7 @@ DECL|method|fields
 specifier|public
 name|List
 argument_list|<
-name|FieldDataField
+name|DocValueField
 argument_list|>
 name|fields
 parameter_list|()
