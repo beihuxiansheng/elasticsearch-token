@@ -307,9 +307,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -740,9 +737,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -983,9 +977,6 @@ literal|"alias"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|BytesReference
 name|sourceBytesRef
@@ -1420,9 +1411,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 specifier|final
 name|String

@@ -401,8 +401,6 @@ argument_list|)
 argument_list|,
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 name|Boolean
 operator|.
 name|TRUE
@@ -410,6 +408,8 @@ argument_list|,
 name|Boolean
 operator|.
 name|FALSE
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|,
@@ -438,8 +438,6 @@ argument_list|)
 argument_list|,
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 name|Boolean
 operator|.
 name|TRUE
@@ -447,6 +445,8 @@ argument_list|,
 name|Boolean
 operator|.
 name|FALSE
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|,
@@ -480,8 +480,6 @@ argument_list|)
 argument_list|,
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 name|Boolean
 operator|.
 name|TRUE
@@ -489,6 +487,8 @@ argument_list|,
 name|Boolean
 operator|.
 name|FALSE
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|,
@@ -741,13 +741,13 @@ name|parseBooleanExact
 argument_list|(
 name|randomFrom
 argument_list|(
-literal|null
-argument_list|,
 literal|"fred"
 argument_list|,
 literal|"foo"
 argument_list|,
 literal|"barney"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

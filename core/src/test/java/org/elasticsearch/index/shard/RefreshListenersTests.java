@@ -532,6 +532,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+operator|.
+name|Cancellable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+operator|.
+name|Names
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -900,8 +928,8 @@ name|reason
 parameter_list|,
 annotation|@
 name|Nullable
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we don't need to notify anybody in this test
@@ -1511,10 +1539,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 comment|// This thread just refreshes every once in a while to cause trouble.
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
+name|Cancellable
 name|refresher
 init|=
 name|threadPool
@@ -1534,6 +1559,10 @@ name|timeValueMillis
 argument_list|(
 literal|100
 argument_list|)
+argument_list|,
+name|Names
+operator|.
+name|SAME
 argument_list|)
 decl_stmt|;
 comment|// These threads add and block until the refresh makes the change visible and then do a non-realtime get.
@@ -1814,7 +1843,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -1863,12 +1892,10 @@ name|join
 argument_list|()
 expr_stmt|;
 block|}
-name|FutureUtils
+name|refresher
 operator|.
 name|cancel
-argument_list|(
-name|refresher
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|index
@@ -2098,7 +2125,7 @@ decl_stmt|;
 DECL|field|error
 specifier|private
 specifier|volatile
-name|Throwable
+name|Exception
 name|error
 decl_stmt|;
 annotation|@
@@ -2141,7 +2168,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

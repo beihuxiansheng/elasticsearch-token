@@ -354,20 +354,6 @@ name|index
 operator|.
 name|snapshots
 operator|.
-name|IndexShardRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|snapshots
-operator|.
 name|IndexShardSnapshotFailedException
 import|;
 end_import
@@ -395,6 +381,18 @@ operator|.
 name|indices
 operator|.
 name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|Repository
 import|;
 end_import
 
@@ -659,9 +657,6 @@ class|class
 name|SnapshotShardsService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|SnapshotShardsService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{
@@ -1084,8 +1079,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1094,7 +1089,7 @@ name|warn
 argument_list|(
 literal|"Failed to update snapshot state "
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1991,8 +1986,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2001,7 +1996,7 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to create snapshot"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 argument_list|,
@@ -2037,7 +2032,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2049,8 +2044,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|updateIndexShardSnapshotStatus
@@ -2079,7 +2074,7 @@ name|ExceptionsHelper
 operator|.
 name|detailedMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2108,15 +2103,15 @@ name|IndexShardSnapshotStatus
 name|snapshotStatus
 parameter_list|)
 block|{
-name|IndexShardRepository
-name|indexShardRepository
+name|Repository
+name|repository
 init|=
 name|snapshotsService
 operator|.
 name|getRepositoriesService
 argument_list|()
 operator|.
-name|indexShardRepository
+name|repository
 argument_list|(
 name|snapshot
 operator|.
@@ -2223,16 +2218,16 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|indexShardRepository
+name|repository
 operator|.
-name|snapshot
+name|snapshotShard
 argument_list|(
+name|indexShard
+argument_list|,
 name|snapshot
 operator|.
 name|getSnapshotId
 argument_list|()
-argument_list|,
-name|shardId
 argument_list|,
 name|snapshotIndexCommit
 argument_list|,
@@ -2312,7 +2307,7 @@ literal|"snapshot ({}) completed to {}, took [{}]\n{}"
 argument_list|,
 name|snapshot
 argument_list|,
-name|indexShardRepository
+name|repository
 argument_list|,
 name|TimeValue
 operator|.
@@ -2362,7 +2357,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -3061,8 +3056,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3071,7 +3066,7 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to update snapshot state"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.
@@ -3555,8 +3550,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -3573,7 +3568,7 @@ name|warn
 argument_list|(
 literal|"[{}][{}] failed to update snapshot status to [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|request
 operator|.

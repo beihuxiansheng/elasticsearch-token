@@ -1014,7 +1014,7 @@ operator|.
 name|getSource
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1077,7 +1077,7 @@ operator|.
 name|getSource
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1154,7 +1154,7 @@ operator|.
 name|getSource
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1274,7 +1274,7 @@ operator|.
 name|getSource
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo

@@ -324,8 +324,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -334,7 +334,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke shard touring changed callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|indexShard
 operator|.
@@ -379,8 +379,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -389,7 +389,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke after shard created callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|indexShard
 operator|.
@@ -401,7 +401,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -437,8 +437,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -447,7 +447,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke after shard started callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|indexShard
 operator|.
@@ -459,7 +459,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -507,8 +507,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -517,7 +517,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke before shard closed callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 operator|.
@@ -526,7 +526,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -574,8 +574,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -584,7 +584,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke after shard closed callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 operator|.
@@ -593,7 +593,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -629,8 +629,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -639,7 +639,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke on shard inactive callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|indexShard
 operator|.
@@ -651,7 +651,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -709,8 +709,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -719,7 +719,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke index shard state changed callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|indexShard
 operator|.
@@ -731,7 +731,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -772,8 +772,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -782,11 +782,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke before index created callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -822,8 +822,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -832,11 +832,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke after index created callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -877,8 +877,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -887,13 +887,13 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke before shard created callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -929,8 +929,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -939,11 +939,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke before index closed callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -979,8 +979,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -989,11 +989,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke before index deleted callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1034,8 +1034,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1044,11 +1044,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke after index deleted callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1089,8 +1089,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1099,11 +1099,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke after index closed callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1144,8 +1144,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1154,7 +1154,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke before shard deleted callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 operator|.
@@ -1163,7 +1163,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1204,8 +1204,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1214,7 +1214,7 @@ name|warn
 argument_list|(
 literal|"[{}] failed to invoke after shard deleted callback"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardId
 operator|.
@@ -1223,7 +1223,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1264,8 +1264,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1274,11 +1274,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke before index added to cluster callback"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}
@@ -1314,8 +1314,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1324,11 +1324,11 @@ name|warn
 argument_list|(
 literal|"failed to invoke on store closed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
-name|t
+name|e
 throw|;
 block|}
 block|}

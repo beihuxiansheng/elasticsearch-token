@@ -330,8 +330,8 @@ parameter_list|(
 name|RestChannel
 name|channel
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 throws|throws
 name|IOException
@@ -344,10 +344,10 @@ name|ExceptionsHelper
 operator|.
 name|status
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -361,8 +361,8 @@ parameter_list|,
 name|RestStatus
 name|status
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 throws|throws
 name|IOException
@@ -416,7 +416,7 @@ name|channel
 argument_list|,
 name|status
 argument_list|,
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 name|this
@@ -443,7 +443,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|t
+name|e
 operator|instanceof
 name|ElasticsearchException
 condition|)
@@ -454,7 +454,7 @@ operator|(
 operator|(
 name|ElasticsearchException
 operator|)
-name|t
+name|e
 operator|)
 argument_list|)
 expr_stmt|;
@@ -528,8 +528,8 @@ parameter_list|,
 name|RestStatus
 name|status
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 throws|throws
 name|IOException
@@ -547,7 +547,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|t
+name|e
 operator|==
 literal|null
 condition|)
@@ -638,7 +638,7 @@ name|debug
 argument_list|(
 literal|"path: {}, params: {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|channel
 operator|.
@@ -666,7 +666,7 @@ name|warn
 argument_list|(
 literal|"path: {}, params: {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|channel
 operator|.
@@ -715,7 +715,7 @@ name|ElasticsearchException
 operator|.
 name|guessRootCauses
 argument_list|(
-name|t
+name|e
 argument_list|)
 decl_stmt|;
 name|builder
@@ -788,7 +788,7 @@ name|builder
 argument_list|,
 name|params
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|builder
@@ -807,7 +807,7 @@ literal|"error"
 argument_list|,
 name|simpleMessage
 argument_list|(
-name|t
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

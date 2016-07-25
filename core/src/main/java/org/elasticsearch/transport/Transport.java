@@ -36,6 +36,34 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|breaker
+operator|.
+name|CircuitBreaker
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|breaker
+operator|.
+name|NoopCircuitBreaker
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|LifecycleComponent
@@ -141,9 +169,6 @@ interface|interface
 name|Transport
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|Transport
-argument_list|>
 block|{
 DECL|field|TRANSPORT_TCP_COMPRESS
 name|Setting
@@ -259,7 +284,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the request to the node.      */
+comment|/**      * Sends the request to the node.      * @throws NodeNotConnectedException if the given node is not connected      */
 DECL|method|sendRequest
 name|void
 name|sendRequest
@@ -298,6 +323,20 @@ argument_list|>
 name|getLocalAddresses
 parameter_list|()
 function_decl|;
+DECL|method|getInFlightRequestBreaker
+specifier|default
+name|CircuitBreaker
+name|getInFlightRequestBreaker
+parameter_list|()
+block|{
+return|return
+operator|new
+name|NoopCircuitBreaker
+argument_list|(
+literal|"in-flight-noop"
+argument_list|)
+return|;
+block|}
 block|}
 end_interface
 

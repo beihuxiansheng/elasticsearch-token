@@ -426,8 +426,8 @@ name|ESTestCase
 block|{
 DECL|field|NOT_STARTED_STATES
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ShardRoutingState
 index|[]
 name|NOT_STARTED_STATES

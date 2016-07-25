@@ -864,7 +864,6 @@ function_decl|;
 comment|/** Checks this type is the same type as other. Adds a conflict if they are different. */
 DECL|method|checkTypeName
 specifier|private
-specifier|final
 name|void
 name|checkTypeName
 parameter_list|(

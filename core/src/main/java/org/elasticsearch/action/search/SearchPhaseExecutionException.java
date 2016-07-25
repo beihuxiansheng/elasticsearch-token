@@ -146,10 +146,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SearchPhaseExecutionException
 specifier|public
@@ -364,7 +360,6 @@ block|}
 DECL|method|deduplicateCause
 specifier|private
 specifier|static
-specifier|final
 name|Throwable
 name|deduplicateCause
 parameter_list|(

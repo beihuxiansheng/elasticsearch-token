@@ -308,8 +308,8 @@ block|}
 comment|/**      * Abstraction of a node, implemented by both inner and leaf nodes.      */
 DECL|class|Node
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Node
 parameter_list|<

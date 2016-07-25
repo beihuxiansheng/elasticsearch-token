@@ -268,12 +268,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|PercentilesBucketPipelineAggregator
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+literal|"percentiles_bucket"
 decl_stmt|;
 DECL|field|AGGREGATION_NAME_FIELD
 specifier|public
@@ -341,12 +336,7 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|PercentilesBucketPipelineAggregator
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+name|NAME
 argument_list|,
 operator|new
 name|String

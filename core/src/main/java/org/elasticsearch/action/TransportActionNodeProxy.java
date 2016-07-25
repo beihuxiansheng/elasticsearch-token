@@ -138,8 +138,6 @@ specifier|final
 name|TransportRequestOptions
 name|transportOptions
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|TransportActionNodeProxy
 specifier|public
 name|TransportActionNodeProxy

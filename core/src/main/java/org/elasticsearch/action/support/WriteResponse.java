@@ -110,8 +110,6 @@ name|WriteResponse
 block|{
 comment|/**      * Mark the response as having forced a refresh? Requests that set {@link WriteRequest#setRefreshPolicy(RefreshPolicy)} to      * {@link RefreshPolicy#IMMEDIATE} should always mark this as true. Requests that set it to {@link RefreshPolicy#WAIT_UNTIL} will only      * set this to true if they run out of refresh listener slots (see {@link IndexSettings#MAX_REFRESH_LISTENERS_PER_SHARD}).      */
 DECL|method|setForcedRefresh
-specifier|public
-specifier|abstract
 name|void
 name|setForcedRefresh
 parameter_list|(

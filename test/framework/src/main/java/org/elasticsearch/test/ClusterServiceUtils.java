@@ -54,18 +54,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -174,7 +162,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -305,9 +293,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"node"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -621,15 +610,15 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|fail
 argument_list|(
 literal|"unexpected exception"
 operator|+
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

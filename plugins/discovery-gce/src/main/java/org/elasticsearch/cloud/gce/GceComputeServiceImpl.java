@@ -499,9 +499,6 @@ class|class
 name|GceComputeServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|GceComputeService
-argument_list|>
 implements|implements
 name|GceComputeService
 block|{
@@ -755,6 +752,13 @@ name|instanceList
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|instanceList
+operator|.
+name|getItems
+argument_list|()
+operator|==
+literal|null
 condition|?
 name|Collections
 operator|.

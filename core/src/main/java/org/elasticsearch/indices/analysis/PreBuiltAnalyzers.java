@@ -2344,8 +2344,8 @@ block|}
 block|}
 block|;
 DECL|method|create
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|Analyzer
 name|create
 parameter_list|(

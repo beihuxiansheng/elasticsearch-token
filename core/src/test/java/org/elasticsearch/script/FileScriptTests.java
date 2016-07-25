@@ -375,8 +375,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -401,7 +399,8 @@ literal|"script1.mockscript"
 argument_list|,
 name|executable
 operator|.
-name|name
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -545,8 +544,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|fail

@@ -108,7 +108,7 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{}
@@ -153,7 +153,7 @@ operator|.
 name|Delete
 name|delete
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{}
@@ -247,8 +247,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -257,7 +257,7 @@ name|warn
 argument_list|(
 literal|"preIndex listener [{}] failed"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|listener
 argument_list|)
@@ -311,8 +311,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -321,7 +321,7 @@ name|warn
 argument_list|(
 literal|"postIndex listener [{}] failed"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|listener
 argument_list|)
@@ -341,7 +341,7 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -376,17 +376,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|ex
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"postIndex listener [{}] failed"
 argument_list|,
-name|t
+name|inner
 argument_list|,
 name|listener
 argument_list|)
@@ -434,8 +441,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -444,7 +451,7 @@ name|warn
 argument_list|(
 literal|"preDelete listener [{}] failed"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|listener
 argument_list|)
@@ -493,8 +500,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -503,7 +510,7 @@ name|warn
 argument_list|(
 literal|"postDelete listener [{}] failed"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|listener
 argument_list|)
@@ -523,7 +530,7 @@ operator|.
 name|Delete
 name|delete
 parameter_list|,
-name|Throwable
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -558,17 +565,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|ex
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"postDelete listener [{}] failed"
 argument_list|,
-name|t
+name|inner
 argument_list|,
 name|listener
 argument_list|)

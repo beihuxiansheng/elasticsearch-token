@@ -26,18 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -105,18 +93,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Template
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -160,9 +136,6 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
@@ -172,8 +145,6 @@ argument_list|,
 name|controller
 argument_list|,
 literal|false
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|controller
@@ -200,9 +171,7 @@ name|request
 parameter_list|)
 block|{
 return|return
-name|Template
-operator|.
-name|DEFAULT_LANG
+literal|"mustache"
 return|;
 block|}
 annotation|@

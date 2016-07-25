@@ -100,14 +100,14 @@ name|int
 name|expectedSize
 parameter_list|,
 name|BigArrays
-name|bigarrays
+name|bigArrays
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|expectedSize
 argument_list|,
-name|bigarrays
+name|bigArrays
 argument_list|)
 expr_stmt|;
 block|}
@@ -123,7 +123,7 @@ return|return
 operator|new
 name|ReleasablePagedBytesReference
 argument_list|(
-name|bigarrays
+name|bigArrays
 argument_list|,
 name|bytes
 argument_list|,

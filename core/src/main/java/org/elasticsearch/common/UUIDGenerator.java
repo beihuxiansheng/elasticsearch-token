@@ -24,7 +24,6 @@ interface|interface
 name|UUIDGenerator
 block|{
 DECL|method|getBase64UUID
-specifier|public
 name|String
 name|getBase64UUID
 parameter_list|()

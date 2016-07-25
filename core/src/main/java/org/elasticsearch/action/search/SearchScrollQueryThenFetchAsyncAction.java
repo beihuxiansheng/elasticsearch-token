@@ -798,7 +798,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -913,7 +913,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -931,7 +931,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -967,8 +967,8 @@ specifier|final
 name|long
 name|searchId
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|failure
 parameter_list|)
 block|{
 if|if
@@ -985,7 +985,7 @@ name|debug
 argument_list|(
 literal|"[{}] Failed to execute query phase"
 argument_list|,
-name|t
+name|failure
 argument_list|,
 name|searchId
 argument_list|)
@@ -998,7 +998,7 @@ argument_list|,
 operator|new
 name|ShardSearchFailure
 argument_list|(
-name|t
+name|failure
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1038,7 +1038,7 @@ literal|"query"
 argument_list|,
 literal|"all shards failed"
 argument_list|,
-name|t
+name|failure
 argument_list|,
 name|buildShardFailures
 argument_list|()
@@ -1056,10 +1056,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|addSuppressed
+argument_list|(
+name|failure
+argument_list|)
+expr_stmt|;
 name|listener
 operator|.
 name|onFailure
@@ -1322,7 +1329,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -1383,7 +1390,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1396,7 +1403,7 @@ name|ReduceSearchPhaseException
 argument_list|(
 literal|"fetch"
 argument_list|,
-literal|""
+literal|"inner finish failed"
 argument_list|,
 name|e
 argument_list|,

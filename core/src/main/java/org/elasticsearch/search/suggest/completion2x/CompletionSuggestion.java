@@ -419,7 +419,7 @@ block|{
 return|return
 name|payload
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 return|;
 block|}
@@ -436,7 +436,7 @@ name|parseLong
 argument_list|(
 name|payload
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 return|;
@@ -454,7 +454,7 @@ name|parseDouble
 argument_list|(
 name|payload
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 return|;
@@ -568,7 +568,7 @@ literal|"payload"
 argument_list|,
 name|payload
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;

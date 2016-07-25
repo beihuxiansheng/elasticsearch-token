@@ -754,6 +754,14 @@ name|currentTimeMillis
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|shardRouting
+operator|.
+name|unassignedInfo
+argument_list|()
+operator|.
+name|getLastAllocationStatus
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

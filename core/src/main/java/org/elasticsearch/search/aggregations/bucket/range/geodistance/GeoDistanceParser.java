@@ -336,7 +336,7 @@ init|=
 operator|new
 name|GeoPointParser
 argument_list|(
-name|InternalGeoDistance
+name|GeoDistanceAggregationBuilder
 operator|.
 name|TYPE
 argument_list|,

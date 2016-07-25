@@ -691,10 +691,6 @@ block|{
 comment|// these properties only make sense for integration tests
 name|appendProperties
 argument_list|(
-literal|"tests.es.node.mode"
-argument_list|,
-literal|"tests.es.node.local"
-argument_list|,
 name|TESTS_CLUSTER
 argument_list|,
 name|ESIntegTestCase

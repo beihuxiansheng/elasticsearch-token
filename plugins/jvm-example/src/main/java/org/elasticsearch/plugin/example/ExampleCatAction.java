@@ -24,7 +24,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -194,9 +196,6 @@ parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|ExamplePluginConfiguration
 name|config
 parameter_list|)
@@ -204,10 +203,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|this
@@ -244,7 +239,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{
@@ -295,7 +290,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -317,17 +312,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
 literal|"failed to send failure response"
 argument_list|,
-name|e1
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

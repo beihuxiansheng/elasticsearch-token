@@ -245,8 +245,8 @@ block|{
 comment|/** how long to wait for an index to exist */
 DECL|field|NONEXISTENT_INDEX_RETRY_WAIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|NONEXISTENT_INDEX_RETRY_WAIT
 init|=
@@ -254,8 +254,8 @@ literal|"index.shadow.wait_for_initial_commit"
 decl_stmt|;
 DECL|field|DEFAULT_NONEXISTENT_INDEX_RETRY_WAIT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|TimeValue
 name|DEFAULT_NONEXISTENT_INDEX_RETRY_WAIT
 init|=
@@ -440,7 +440,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -655,7 +655,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -932,24 +932,41 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
+block|{
+try|try
 block|{
 name|failEngine
 argument_list|(
 literal|"refresh failed"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|inner
+parameter_list|)
+block|{
+name|e
+operator|.
+name|addSuppressed
+argument_list|(
+name|inner
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|RefreshFailedEngineException
 argument_list|(
 name|shardId
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1034,8 +1051,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -1044,7 +1061,7 @@ name|warn
 argument_list|(
 literal|"shadow replica failed to close searcher manager"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

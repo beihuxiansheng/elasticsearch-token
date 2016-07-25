@@ -412,9 +412,6 @@ operator|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|toBytes
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -423,9 +420,6 @@ name|BytesArray
 argument_list|(
 literal|"{ \"field1\" : \"value1\" }"
 argument_list|)
-operator|.
-name|toBytes
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -468,9 +462,6 @@ operator|)
 operator|.
 name|source
 argument_list|()
-operator|.
-name|toBytes
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -479,9 +470,6 @@ name|BytesArray
 argument_list|(
 literal|"{ \"field1\" : \"value3\" }"
 argument_list|)
-operator|.
-name|toBytes
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -746,7 +734,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -965,7 +953,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo

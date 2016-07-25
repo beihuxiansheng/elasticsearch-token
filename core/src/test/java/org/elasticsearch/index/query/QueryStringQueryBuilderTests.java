@@ -4309,7 +4309,7 @@ literal|"    \"tie_breaker\" : 0.0,\n"
 operator|+
 literal|"    \"default_operator\" : \"or\",\n"
 operator|+
-literal|"    \"auto_generated_phrase_queries\" : false,\n"
+literal|"    \"auto_generate_phrase_queries\" : false,\n"
 operator|+
 literal|"    \"max_determined_states\" : 10000,\n"
 operator|+

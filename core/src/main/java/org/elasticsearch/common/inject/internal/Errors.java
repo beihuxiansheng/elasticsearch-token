@@ -2718,8 +2718,8 @@ return|;
 block|}
 DECL|class|Converter
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Converter
 parameter_list|<

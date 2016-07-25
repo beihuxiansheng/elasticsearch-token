@@ -8725,9 +8725,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|createIndexAndMapping
 specifier|private
@@ -9155,9 +9152,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// can cause stack overflow without the default max_input_length
 name|String
 name|longString
@@ -9307,9 +9301,6 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// can cause stack overflow without the default max_input_length
 name|String
@@ -9481,9 +9472,6 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|String
 name|string

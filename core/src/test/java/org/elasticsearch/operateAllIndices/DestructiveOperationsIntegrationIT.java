@@ -454,10 +454,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
-comment|// wait for primaries to be allocated
 comment|// Should succeed, since no wildcards
 name|assertAcked
 argument_list|(

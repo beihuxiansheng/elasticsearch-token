@@ -212,8 +212,8 @@ name|ActionResponse
 block|{
 DECL|field|EMPTY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|ReplicationResponse
 operator|.
 name|ShardInfo
@@ -814,7 +814,7 @@ name|nodeId
 decl_stmt|;
 DECL|field|cause
 specifier|private
-name|Throwable
+name|Exception
 name|cause
 decl_stmt|;
 DECL|field|status
@@ -839,7 +839,7 @@ name|Nullable
 name|String
 name|nodeId
 parameter_list|,
-name|Throwable
+name|Exception
 name|cause
 parameter_list|,
 name|RestStatus
@@ -1026,7 +1026,7 @@ name|cause
 operator|=
 name|in
 operator|.
-name|readThrowable
+name|readException
 argument_list|()
 expr_stmt|;
 name|status
@@ -1075,7 +1075,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeThrowable
+name|writeException
 argument_list|(
 name|cause
 argument_list|)
@@ -1312,15 +1312,6 @@ name|String
 name|SUCCESSFUL
 init|=
 literal|"successful"
-decl_stmt|;
-DECL|field|PENDING
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PENDING
-init|=
-literal|"pending"
 decl_stmt|;
 DECL|field|FAILED
 specifier|private

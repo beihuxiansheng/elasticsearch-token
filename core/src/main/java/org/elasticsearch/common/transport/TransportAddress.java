@@ -81,7 +81,6 @@ name|isLoopbackOrLinkLocalAddress
 parameter_list|()
 function_decl|;
 DECL|method|toString
-specifier|public
 name|String
 name|toString
 parameter_list|()

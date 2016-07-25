@@ -266,9 +266,9 @@ specifier|final
 name|Float
 name|nodeWeight
 parameter_list|,
-specifier|final
 annotation|@
 name|Nullable
+specifier|final
 name|IndicesShardStoresResponse
 operator|.
 name|StoreStatus

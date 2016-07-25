@@ -917,7 +917,7 @@ operator|.
 name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
-comment|// make sure the cluster state is green, and all has been recovered
+comment|// make sure the cluster state is yellow, and all has been recovered
 name|assertTimeout
 argument_list|(
 name|client

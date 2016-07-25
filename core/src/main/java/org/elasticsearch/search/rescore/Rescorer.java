@@ -118,14 +118,12 @@ name|Rescorer
 block|{
 comment|/**      * Returns the name of this rescorer      */
 DECL|method|name
-specifier|public
 name|String
 name|name
 parameter_list|()
 function_decl|;
 comment|/**      * Modifies the result of the previously executed search ({@link TopDocs})      * in place based on the given {@link RescoreSearchContext}.      *      * @param topDocs        the result of the previously executed search      * @param context        the current {@link SearchContext}. This will never be<code>null</code>.      * @param rescoreContext the {@link RescoreSearchContext}. This will never be<code>null</code>      * @throws IOException if an {@link IOException} occurs during rescoring      */
 DECL|method|rescore
-specifier|public
 name|TopDocs
 name|rescore
 parameter_list|(
@@ -143,7 +141,6 @@ name|IOException
 function_decl|;
 comment|/**      * Executes an {@link Explanation} phase on the rescorer.      *      * @param topLevelDocId the global / top-level document ID to explain      * @param context the explanation for the results being fed to this rescorer      * @param rescoreContext context for this rescorer      * @param sourceExplanation explanation of the source of the documents being fed into this rescore      * @return the explain for the given top level document ID.      * @throws IOException if an {@link IOException} occurs      */
 DECL|method|explain
-specifier|public
 name|Explanation
 name|explain
 parameter_list|(
@@ -164,7 +161,6 @@ name|IOException
 function_decl|;
 comment|/**      * Extracts all terms needed to execute this {@link Rescorer}. This method      * is executed in a distributed frequency collection roundtrip for      * {@link SearchType#DFS_QUERY_AND_FETCH} and      * {@link SearchType#DFS_QUERY_THEN_FETCH}      */
 DECL|method|extractTerms
-specifier|public
 name|void
 name|extractTerms
 parameter_list|(

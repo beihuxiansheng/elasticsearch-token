@@ -1785,7 +1785,7 @@ operator|.
 name|sourceRef
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|,
 name|xContentBuilder
@@ -1793,7 +1793,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1835,7 +1835,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|.
-name|toUtf8
+name|utf8ToString
 argument_list|()
 argument_list|)
 operator|.

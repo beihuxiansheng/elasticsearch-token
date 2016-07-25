@@ -674,7 +674,7 @@ argument_list|,
 name|order
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"_timestamp"
 argument_list|)

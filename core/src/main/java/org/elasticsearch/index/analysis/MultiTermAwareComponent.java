@@ -28,7 +28,6 @@ name|MultiTermAwareComponent
 block|{
 comment|/** Returns an analysis component to handle analysis if multi-term queries.      * The returned component must be a TokenizerFactory, TokenFilterFactory or CharFilterFactory.      */
 DECL|method|getMultiTermComponent
-specifier|public
 name|Object
 name|getMultiTermComponent
 parameter_list|()

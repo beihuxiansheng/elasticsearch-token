@@ -715,6 +715,7 @@ name|DiscoveryNodes
 name|discoveryNodes
 parameter_list|)
 block|{
+comment|//WTF is this? Why isn't this set by default;
 name|this
 operator|.
 name|discoveryNodes

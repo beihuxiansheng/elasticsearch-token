@@ -492,8 +492,8 @@ extends|extends
 name|ESIntegTestCase
 block|{
 DECL|field|PURGE_INTERVAL
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|long
 name|PURGE_INTERVAL
@@ -723,11 +723,6 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2329,11 +2324,6 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test"
 argument_list|)
 expr_stmt|;
 name|long

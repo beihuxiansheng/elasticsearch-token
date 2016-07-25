@@ -76,20 +76,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -108,7 +94,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -248,6 +234,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+operator|.
+name|Cancellable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -323,18 +323,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledFuture
 import|;
 end_import
 
@@ -513,15 +501,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|100
-operator|*
-literal|1024
-operator|*
-literal|1024
 argument_list|)
 expr_stmt|;
-comment|// fix jvm mem size to 100mb
 block|}
 DECL|method|deleteShard
 specifier|public
@@ -965,10 +946,7 @@ annotation|@
 name|Override
 DECL|method|scheduleTask
 specifier|protected
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
+name|Cancellable
 name|scheduleTask
 parameter_list|(
 name|ThreadPool
@@ -2371,10 +2349,7 @@ block|}
 annotation|@
 name|Override
 specifier|protected
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
+name|Cancellable
 name|scheduleTask
 parameter_list|(
 name|ThreadPool
@@ -2784,9 +2759,10 @@ name|DiscoveryNode
 argument_list|(
 literal|"foo"
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

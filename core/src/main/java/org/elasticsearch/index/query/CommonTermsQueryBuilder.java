@@ -326,19 +326,6 @@ name|NAME
 init|=
 literal|"common"
 decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
 DECL|field|DEFAULT_CUTOFF_FREQ
 specifier|public
 specifier|static
@@ -2252,11 +2239,6 @@ throws|throws
 name|IOException
 block|{
 comment|// Logic similar to QueryParser#getFieldQuery
-name|int
-name|count
-init|=
-literal|0
-decl_stmt|;
 try|try
 init|(
 name|TokenStream
@@ -2330,9 +2312,6 @@ name|toBytesRef
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|count
-operator|++
 expr_stmt|;
 block|}
 block|}

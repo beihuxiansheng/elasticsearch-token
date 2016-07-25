@@ -460,6 +460,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+comment|// workaround for dangling index loading issue when node is master
 specifier|final
 name|String
 name|node
@@ -472,7 +473,6 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-comment|// workaround for dangling index loading issue when node is master
 name|Path
 index|[]
 name|nodePaths
@@ -632,12 +632,12 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"_source"
 argument_list|)
 operator|.
-name|addField
+name|addStoredField
 argument_list|(
 literal|"_size"
 argument_list|)

@@ -255,7 +255,7 @@ operator|.
 name|EMPTY
 argument_list|)
 decl_stmt|;
-name|assertNotNull
+name|assertNull
 argument_list|(
 name|settings
 operator|.
@@ -265,7 +265,7 @@ literal|"node.name"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// a name was set
+comment|// a name was not set
 name|assertNotNull
 argument_list|(
 name|settings
@@ -312,7 +312,7 @@ operator|.
 name|settings
 argument_list|()
 expr_stmt|;
-name|assertNotNull
+name|assertNull
 argument_list|(
 name|settings
 operator|.
@@ -322,7 +322,7 @@ literal|"node.name"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// a name was set
+comment|// a name was not set
 name|assertNotNull
 argument_list|(
 name|settings

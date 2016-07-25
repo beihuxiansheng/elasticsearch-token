@@ -351,7 +351,6 @@ expr_stmt|;
 block|}
 DECL|method|getFieldName
 specifier|public
-specifier|final
 name|String
 name|getFieldName
 parameter_list|()
@@ -362,7 +361,6 @@ return|;
 block|}
 DECL|method|clear
 specifier|public
-specifier|final
 name|void
 name|clear
 parameter_list|()
@@ -371,7 +369,6 @@ comment|// nothing to do
 block|}
 DECL|method|clear
 specifier|public
-specifier|final
 name|void
 name|clear
 parameter_list|(
@@ -383,7 +380,6 @@ comment|// nothing to do
 block|}
 DECL|method|index
 specifier|public
-specifier|final
 name|Index
 name|index
 parameter_list|()

@@ -211,8 +211,8 @@ name|sizeInBytes
 parameter_list|()
 function_decl|;
 DECL|method|totalOperations
-specifier|abstract
 specifier|public
+specifier|abstract
 name|int
 name|totalOperations
 parameter_list|()
@@ -575,8 +575,8 @@ return|;
 block|}
 comment|/**      * reads bytes at position into the given buffer, filling it.      */
 DECL|method|readBytes
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|void
 name|readBytes
 parameter_list|(

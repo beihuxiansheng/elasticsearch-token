@@ -622,6 +622,20 @@ name|test
 operator|.
 name|disruption
 operator|.
+name|BridgePartition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|disruption
+operator|.
 name|IntermittentLongGCDisruption
 import|;
 end_import
@@ -1418,8 +1432,8 @@ name|nodes
 return|;
 block|}
 DECL|field|DEFAULT_SETTINGS
-specifier|final
 specifier|static
+specifier|final
 name|Settings
 name|DEFAULT_SETTINGS
 init|=
@@ -1474,14 +1488,6 @@ argument_list|,
 literal|"1s"
 argument_list|)
 comment|//<-- for hitting simulated network failures quickly
-operator|.
-name|put
-argument_list|(
-literal|"http.enabled"
-argument_list|,
-literal|false
-argument_list|)
-comment|// just to make test quicker
 operator|.
 name|build
 argument_list|()
@@ -2769,7 +2775,6 @@ name|seconds
 operator|+
 literal|"s"
 decl_stmt|;
-comment|// TODO: add node count randomizaion
 specifier|final
 name|List
 argument_list|<
@@ -2779,6 +2784,11 @@ name|nodes
 init|=
 name|startCluster
 argument_list|(
+name|rarely
+argument_list|()
+condition|?
+literal|5
+else|:
 literal|3
 argument_list|)
 decl_stmt|;
@@ -3242,8 +3252,10 @@ comment|// fine - semaphore interrupt
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|AssertionError
+decl||
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -3252,7 +3264,7 @@ name|info
 argument_list|(
 literal|"unexpected exception in background thread of [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -3511,7 +3523,10 @@ control|)
 block|{
 name|ensureStableCluster
 argument_list|(
-literal|3
+name|nodes
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -3563,9 +3578,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"validating through node [{}]"
+literal|"validating through node [{}] ([{}] acked docs)"
 argument_list|,
 name|node
+argument_list|,
+name|ackedDocs
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -4453,8 +4473,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -4463,7 +4483,7 @@ name|warn
 argument_list|(
 literal|"failure [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|source
 argument_list|)
@@ -6134,8 +6154,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|success
@@ -7188,9 +7208,6 @@ literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 specifier|final
 name|String
 name|masterNode1
@@ -7557,6 +7574,16 @@ operator|new
 name|SlowClusterStateProcessing
 argument_list|(
 name|random
+argument_list|()
+argument_list|)
+argument_list|,
+operator|new
+name|BridgePartition
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|randomBoolean
 argument_list|()
 argument_list|)
 argument_list|)

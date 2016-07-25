@@ -114,7 +114,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Connection reset by peer"
+literal|"Connection reset"
 argument_list|)
 condition|)
 block|{
@@ -183,6 +183,23 @@ operator|.
 name|contains
 argument_list|(
 literal|"Connection timed out"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Socket is closed"
 argument_list|)
 condition|)
 block|{

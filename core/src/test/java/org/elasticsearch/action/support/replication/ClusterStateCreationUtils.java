@@ -216,7 +216,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -1568,11 +1568,6 @@ name|ClusterState
 name|stateWithNoShard
 parameter_list|()
 block|{
-name|int
-name|numberOfNodes
-init|=
-literal|2
-decl_stmt|;
 name|DiscoveryNodes
 operator|.
 name|Builder
@@ -1798,9 +1793,10 @@ literal|"node_"
 operator|+
 name|nodeId
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1831,8 +1827,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|selectAndRemove
-specifier|static
 specifier|private
+specifier|static
 name|String
 name|selectAndRemove
 parameter_list|(

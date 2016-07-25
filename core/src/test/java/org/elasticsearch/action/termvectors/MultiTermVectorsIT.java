@@ -359,8 +359,6 @@ index|[
 name|i
 index|]
 decl_stmt|;
-try|try
-block|{
 name|MultiTermVectorsItemResponse
 name|item
 init|=
@@ -436,28 +434,6 @@ argument_list|,
 name|test
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|Exception
-argument_list|(
-literal|"Test exception while running "
-operator|+
-name|test
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|t
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 DECL|method|testMissingIndexThrowsMissingIndex

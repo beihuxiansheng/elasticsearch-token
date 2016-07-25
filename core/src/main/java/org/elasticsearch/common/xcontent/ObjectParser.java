@@ -2199,11 +2199,21 @@ parameter_list|,
 name|VALUE_STRING
 parameter_list|)
 operator|,
-DECL|enum constant|DOUBLE
-constructor|DOUBLE(VALUE_NUMBER
+DECL|enum constant|FLOAT_OR_NULL
+constructor|FLOAT_OR_NULL(VALUE_NUMBER
 operator|,
 constructor|VALUE_STRING
+operator|,
+constructor|VALUE_NULL
 block|)
+operator|,
+DECL|enum constant|DOUBLE
+name|DOUBLE
+argument_list|(
+name|VALUE_NUMBER
+argument_list|,
+name|VALUE_STRING
+argument_list|)
 operator|,
 DECL|enum constant|LONG
 name|LONG
@@ -2211,6 +2221,16 @@ argument_list|(
 name|VALUE_NUMBER
 argument_list|,
 name|VALUE_STRING
+argument_list|)
+operator|,
+DECL|enum constant|LONG_OR_NULL
+name|LONG_OR_NULL
+argument_list|(
+name|VALUE_NUMBER
+argument_list|,
+name|VALUE_STRING
+argument_list|,
+name|VALUE_NULL
 argument_list|)
 operator|,
 DECL|enum constant|INT

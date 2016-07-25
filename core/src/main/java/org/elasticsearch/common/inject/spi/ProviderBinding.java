@@ -83,7 +83,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Returns the key whose binding is used to {@link Provider#get provide instances}. That binding      * can be retrieved from an injector using {@link org.elasticsearch.common.inject.Injector#getBinding(Key)      * Injector.getBinding(providedKey)}      */
+comment|/**      * Returns the key whose binding is used to {@link Provider#get provide instances}.      */
 DECL|method|getProvidedKey
 name|Key
 argument_list|<

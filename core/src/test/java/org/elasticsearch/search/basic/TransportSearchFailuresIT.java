@@ -371,9 +371,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|NumShards
 name|test
 init|=

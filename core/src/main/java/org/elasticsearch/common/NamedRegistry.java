@@ -181,11 +181,11 @@ name|IllegalArgumentException
 argument_list|(
 name|targetName
 operator|+
-literal|" for name "
+literal|" for name ["
 operator|+
 name|name
 operator|+
-literal|" already registered"
+literal|"] already registered"
 argument_list|)
 throw|;
 block|}

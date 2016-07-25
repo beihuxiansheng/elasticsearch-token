@@ -234,7 +234,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -270,15 +270,15 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|error
 operator|.
 name|set
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|listenerCalled

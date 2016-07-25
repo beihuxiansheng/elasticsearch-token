@@ -434,6 +434,34 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|enforceLimits
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"bound or publishing to a non-loopback or non-link-local address, enforcing bootstrap checks"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|enforceLimits
+operator|&&
+name|ignoreSystemChecks
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"enforcing bootstrap checks but ignoring system bootstrap checks, consider not ignoring system checks"
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 specifier|final
@@ -1903,8 +1931,8 @@ return|;
 block|}
 block|}
 DECL|class|MightForkCheck
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|MightForkCheck
 implements|implements

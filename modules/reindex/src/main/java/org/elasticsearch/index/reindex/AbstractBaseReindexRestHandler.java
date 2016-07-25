@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|GenericAction
 import|;
 end_import
 
@@ -48,9 +48,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|TransportAction
+name|WriteConsistencyLevel
 import|;
 end_import
 
@@ -62,7 +60,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -278,9 +278,9 @@ parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
-name|TA
+name|A
 extends|extends
-name|TransportAction
+name|GenericAction
 parameter_list|<
 name|Request
 parameter_list|,
@@ -317,7 +317,7 @@ decl_stmt|;
 DECL|field|action
 specifier|private
 specifier|final
-name|TA
+name|A
 name|action
 decl_stmt|;
 DECL|method|AbstractBaseReindexRestHandler
@@ -326,9 +326,6 @@ name|AbstractBaseReindexRestHandler
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Client
-name|client
 parameter_list|,
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
@@ -342,15 +339,13 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|TA
+name|A
 name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|this
@@ -394,6 +389,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|NodeClient
+name|client
 parameter_list|,
 name|boolean
 name|includeCreated
@@ -480,15 +478,16 @@ name|includeUpdated
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|action
+name|client
 operator|.
-name|execute
+name|executeLocally
 argument_list|(
+name|action
+argument_list|,
 name|internal
 argument_list|,
 operator|new
 name|BulkIndexByScrollResponseContentListener
-argument_list|<>
 argument_list|(
 name|channel
 argument_list|,
@@ -508,7 +507,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*          * Lets try and validate before forking so the user gets some error. The          * task can't totally validate until it starts but this is better than          * nothing.          */
+comment|/*          * Let's try and validate before forking so the user gets some error. The          * task can't totally validate until it starts but this is better than          * nothing.          */
 name|ActionRequestValidationException
 name|validationException
 init|=
@@ -543,10 +542,12 @@ name|sendTask
 argument_list|(
 name|channel
 argument_list|,
-name|action
+name|client
 operator|.
-name|execute
+name|executeLocally
 argument_list|(
+name|action
+argument_list|,
 name|internal
 argument_list|,
 name|LoggingTaskListener
@@ -794,22 +795,6 @@ return|return
 literal|null
 return|;
 block|}
-if|if
-condition|(
-literal|"unlimited"
-operator|.
-name|equals
-argument_list|(
-name|requestsPerSecondString
-argument_list|)
-condition|)
-block|{
-return|return
-name|Float
-operator|.
-name|POSITIVE_INFINITY
-return|;
-block|}
 name|float
 name|requestsPerSecond
 decl_stmt|;
@@ -835,7 +820,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[requests_per_second] must be a float greater than 0. Use \"unlimited\" to disable throttling."
+literal|"[requests_per_second] must be a float greater than 0. Use -1 to disable throttling."
 argument_list|,
 name|e
 argument_list|)
@@ -844,16 +829,30 @@ block|}
 if|if
 condition|(
 name|requestsPerSecond
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+name|Float
+operator|.
+name|POSITIVE_INFINITY
+return|;
+block|}
+if|if
+condition|(
+name|requestsPerSecond
 operator|<=
 literal|0
 condition|)
 block|{
-comment|// We validate here and in the setters because the setters use "Float.POSITIVE_INFINITY" instead of "unlimited"
+comment|// We validate here and in the setters because the setters use "Float.POSITIVE_INFINITY" instead of -1
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[requests_per_second] must be a float greater than 0. Use \"unlimited\" to disable throttling."
+literal|"[requests_per_second] must be a float greater than 0. Use -1 to disable throttling."
 argument_list|)
 throw|;
 block|}

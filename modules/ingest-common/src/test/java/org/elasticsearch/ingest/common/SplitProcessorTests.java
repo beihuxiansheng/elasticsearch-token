@@ -560,6 +560,10 @@ operator|)
 operator|.
 name|create
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|splitConfig
 argument_list|)
 decl_stmt|;

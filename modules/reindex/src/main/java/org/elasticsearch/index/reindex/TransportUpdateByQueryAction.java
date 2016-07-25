@@ -330,18 +330,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|SearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|tasks
 operator|.
 name|Task
@@ -649,11 +637,6 @@ name|threadPool
 argument_list|,
 name|request
 argument_list|,
-name|request
-operator|.
-name|getSearchRequest
-argument_list|()
-argument_list|,
 name|listener
 argument_list|,
 name|scriptService
@@ -673,7 +656,9 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|,
-name|SearchHit
+name|ScrollableHitSource
+operator|.
+name|Hit
 argument_list|,
 name|RequestWrapper
 argument_list|<
@@ -708,8 +693,6 @@ name|scriptService
 argument_list|,
 name|script
 argument_list|,
-name|clusterState
-argument_list|,
 name|script
 operator|.
 name|getParams
@@ -734,7 +717,9 @@ name|IndexRequest
 argument_list|>
 name|buildRequest
 parameter_list|(
-name|SearchHit
+name|ScrollableHitSource
+operator|.
+name|Hit
 name|doc
 parameter_list|)
 block|{
@@ -751,7 +736,7 @@ name|index
 argument_list|(
 name|doc
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -761,7 +746,7 @@ name|type
 argument_list|(
 name|doc
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -771,7 +756,7 @@ name|id
 argument_list|(
 name|doc
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -781,7 +766,7 @@ name|source
 argument_list|(
 name|doc
 operator|.
-name|sourceRef
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -800,7 +785,7 @@ name|version
 argument_list|(
 name|doc
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -839,9 +824,6 @@ parameter_list|,
 name|Script
 name|script
 parameter_list|,
-name|ClusterState
-name|state
-parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -858,8 +840,6 @@ argument_list|,
 name|scriptService
 argument_list|,
 name|script
-argument_list|,
-name|state
 argument_list|,
 name|params
 argument_list|)

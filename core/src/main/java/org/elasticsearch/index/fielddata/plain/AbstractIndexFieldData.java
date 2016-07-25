@@ -174,10 +174,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|AbstractIndexFieldData
 specifier|public
@@ -337,7 +333,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -386,7 +382,6 @@ name|PerValueEstimator
 block|{
 comment|/**          * @return the number of bytes for the given term          */
 DECL|method|bytesPerValue
-specifier|public
 name|long
 name|bytesPerValue
 parameter_list|(
@@ -396,7 +391,6 @@ parameter_list|)
 function_decl|;
 comment|/**          * Execute any pre-loading estimations for the terms. May also          * optionally wrap a {@link TermsEnum} in a          * {@link RamAccountingTermsEnum}          * which will estimate the memory on a per-term basis.          *          * @param terms terms to be estimated          * @return A TermsEnum for the given terms          */
 DECL|method|beforeLoad
-specifier|public
 name|TermsEnum
 name|beforeLoad
 parameter_list|(
@@ -408,7 +402,6 @@ name|IOException
 function_decl|;
 comment|/**          * Possibly adjust a circuit breaker after field data has been loaded,          * now that the actual amount of memory used by the field data is known          *          * @param termsEnum  terms that were loaded          * @param actualUsed actual field data memory usage          */
 DECL|method|afterLoad
-specifier|public
 name|void
 name|afterLoad
 parameter_list|(

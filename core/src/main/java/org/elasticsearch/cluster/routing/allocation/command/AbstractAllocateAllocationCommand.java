@@ -284,30 +284,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
-import|;
-end_import
-
 begin_comment
 comment|/**  * Abstract base class for allocating an unassigned shard to a node  */
 end_comment
@@ -438,8 +414,8 @@ block|}
 comment|/**      * Works around ObjectParser not supporting constructor arguments.      */
 DECL|class|Builder
 specifier|protected
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|Builder
 parameter_list|<

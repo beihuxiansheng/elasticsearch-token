@@ -406,7 +406,14 @@ name|setSecurityManager
 argument_list|(
 operator|new
 name|SecureSM
-argument_list|()
+argument_list|(
+operator|new
+name|String
+index|[]
+block|{
+literal|"org.elasticsearch.bootstrap."
+block|}
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// do some basic tests
@@ -1473,7 +1480,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// loop through all profiles and add permissions for each one, if its valid.
-comment|// (otherwise NettyTransport is lenient and ignores it)
+comment|// (otherwise Netty transports are lenient and ignores it)
 for|for
 control|(
 name|Map

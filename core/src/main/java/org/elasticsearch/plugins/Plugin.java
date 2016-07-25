@@ -16,6 +16,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -23,6 +53,32 @@ operator|.
 name|action
 operator|.
 name|ActionModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -148,36 +204,30 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|Collection
+name|threadpool
+operator|.
+name|ThreadPool
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|watcher
 operator|.
-name|util
-operator|.
-name|List
+name|ResourceWatcherService
 import|;
 end_import
 
 begin_comment
-comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * A plugin can be register custom extensions to builtin behavior by implementing<tt>onModule(AnyModule)</tt>,  * and registering the extension with the given module.  */
+comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * Implement any of these interfaces to extend Elasticsearch:  *<ul>  *<li>{@link ActionPlugin}  *<li>{@link AnalysisPlugin}  *<li>{@link MapperPlugin}  *<li>{@link ScriptPlugin}  *<li>{@link SearchPlugin}  *</ul>  */
 end_comment
 
 begin_class
@@ -187,14 +237,14 @@ specifier|abstract
 class|class
 name|Plugin
 block|{
-comment|/**      * Node level modules.      */
-DECL|method|nodeModules
+comment|/**      * Node level guice modules.      */
+DECL|method|createGuiceModules
 specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
-name|nodeModules
+name|createGuiceModules
 parameter_list|()
 block|{
 return|return
@@ -204,8 +254,8 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Node level services that will be automatically started/stopped/closed.      */
-DECL|method|nodeServices
+comment|/**      * Node level services that will be automatically started/stopped/closed. This classes must be constructed      * by injection with guice.      */
+DECL|method|getGuiceServiceClasses
 specifier|public
 name|Collection
 argument_list|<
@@ -216,8 +266,37 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|nodeServices
+name|getGuiceServiceClasses
 parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      * @param resourceWatcherService A service to watch for changes to node local files      */
+DECL|method|createComponents
+specifier|public
+name|Collection
+argument_list|<
+name|Object
+argument_list|>
+name|createComponents
+parameter_list|(
+name|Client
+name|client
+parameter_list|,
+name|ClusterService
+name|clusterService
+parameter_list|,
+name|ThreadPool
+name|threadPool
+parameter_list|,
+name|ResourceWatcherService
+name|resourceWatcherService
+parameter_list|)
 block|{
 return|return
 name|Collections

@@ -60,8 +60,8 @@ block|{}
 block|}
 DECL|class|DummyAbstractTests
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|DummyAbstractTests
 extends|extends

@@ -2955,9 +2955,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true

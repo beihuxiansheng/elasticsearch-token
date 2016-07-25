@@ -467,8 +467,8 @@ literal|"serial"
 argument_list|)
 DECL|class|KeyLock
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|KeyLock
 extends|extends

@@ -861,11 +861,10 @@ name|System
 operator|.
 name|setSecurityManager
 argument_list|(
-operator|new
 name|SecureSM
-argument_list|(
-literal|true
-argument_list|)
+operator|.
+name|createTestSecureSM
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Security

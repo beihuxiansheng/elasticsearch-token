@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|netty
-operator|.
-name|NettyTransport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -61,8 +47,8 @@ block|{     ;
 comment|/** threads whose name is prefixed by this string will be considered network threads, even though they aren't */
 DECL|field|TEST_MOCK_TRANSPORT_THREAD_PREFIX
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|TEST_MOCK_TRANSPORT_THREAD_PREFIX
 init|=
@@ -102,19 +88,19 @@ name|LocalTransport
 operator|.
 name|LOCAL_TRANSPORT_THREAD_NAME_PREFIX
 argument_list|,
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|HTTP_SERVER_BOSS_THREAD_NAME_PREFIX
 argument_list|,
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
 argument_list|,
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|TRANSPORT_CLIENT_WORKER_THREAD_NAME_PREFIX
 argument_list|,
-name|NettyTransport
+name|TcpTransport
 operator|.
 name|TRANSPORT_CLIENT_BOSS_THREAD_NAME_PREFIX
 argument_list|,

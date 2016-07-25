@@ -79,6 +79,7 @@ end_comment
 begin_class
 DECL|class|ReleasablePagedBytesReference
 specifier|public
+specifier|final
 class|class
 name|ReleasablePagedBytesReference
 extends|extends
@@ -94,7 +95,7 @@ name|BigArrays
 name|bigarrays
 parameter_list|,
 name|ByteArray
-name|bytearray
+name|byteArray
 parameter_list|,
 name|int
 name|length
@@ -104,7 +105,7 @@ name|super
 argument_list|(
 name|bigarrays
 argument_list|,
-name|bytearray
+name|byteArray
 argument_list|,
 name|length
 argument_list|)
@@ -122,7 +123,7 @@ name|Releasables
 operator|.
 name|close
 argument_list|(
-name|bytearray
+name|byteArray
 argument_list|)
 expr_stmt|;
 block|}

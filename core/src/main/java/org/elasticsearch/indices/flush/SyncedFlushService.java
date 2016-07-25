@@ -466,7 +466,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -852,7 +852,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1158,7 +1158,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1517,7 +1517,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1550,7 +1550,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1579,15 +1579,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|actionListener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1825,7 +1825,7 @@ name|shardId
 argument_list|)
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|InFlightOpsResponse
 argument_list|>
@@ -1910,15 +1910,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2175,7 +2175,7 @@ name|expectedCommitId
 argument_list|)
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|ShardSyncedFlushResponse
 argument_list|>
@@ -2554,7 +2554,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|PreSyncedFlushResponse
 argument_list|>
@@ -3041,8 +3041,8 @@ return|;
 block|}
 DECL|class|PreShardSyncedFlushRequest
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|PreShardSyncedFlushRequest
 extends|extends
@@ -3164,8 +3164,8 @@ block|}
 block|}
 comment|/**      * Response for first step of synced flush (flush) for one shard copy      */
 DECL|class|PreSyncedFlushResponse
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|PreSyncedFlushResponse
 extends|extends

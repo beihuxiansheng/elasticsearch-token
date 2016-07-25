@@ -239,8 +239,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -249,7 +249,7 @@ name|warn
 argument_list|(
 literal|"failed to notify task manager listener about unregistering the task with id {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|task
 operator|.
@@ -312,8 +312,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -322,7 +322,7 @@ name|warn
 argument_list|(
 literal|"failed to notify task manager listener about unregistering the task with id {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|task
 operator|.
@@ -386,8 +386,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -396,7 +396,7 @@ name|warn
 argument_list|(
 literal|"failed to notify task manager listener about waitForTaskCompletion the task with id {}"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|task
 operator|.

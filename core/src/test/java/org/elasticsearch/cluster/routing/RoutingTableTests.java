@@ -286,8 +286,8 @@ name|totalNumberOfShards
 decl_stmt|;
 DECL|field|DEFAULT_SETTINGS
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Settings
 name|DEFAULT_SETTINGS
 init|=

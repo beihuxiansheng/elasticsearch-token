@@ -146,6 +146,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|replication
 operator|.
 name|ClusterStateCreationUtils
@@ -304,7 +318,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|DummyTransportAddress
+name|LocalTransportAddress
 import|;
 end_import
 
@@ -980,9 +994,6 @@ operator|.
 name|nodeExists
 argument_list|(
 name|node
-operator|.
-name|getId
-argument_list|()
 argument_list|)
 operator|==
 literal|false
@@ -1104,6 +1115,13 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|)
+operator|.
+name|waitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|NONE
 argument_list|)
 decl_stmt|;
 name|state
@@ -2137,9 +2155,10 @@ argument_list|(
 literal|8
 argument_list|)
 argument_list|,
-name|DummyTransportAddress
+name|LocalTransportAddress
 operator|.
-name|INSTANCE
+name|buildUnique
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -2290,8 +2309,6 @@ argument_list|,
 name|clusterService
 argument_list|,
 name|transportService
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)

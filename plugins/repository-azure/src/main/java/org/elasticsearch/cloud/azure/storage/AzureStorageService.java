@@ -138,6 +138,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -542,6 +552,8 @@ throws|throws
 name|URISyntaxException
 throws|,
 name|StorageException
+throws|,
+name|IOException
 function_decl|;
 DECL|method|getOutputStream
 name|OutputStream
@@ -616,11 +628,6 @@ throws|throws
 name|URISyntaxException
 throws|,
 name|StorageException
-function_decl|;
-DECL|method|start
-name|AzureStorageService
-name|start
-parameter_list|()
 function_decl|;
 block|}
 end_interface

@@ -130,8 +130,8 @@ argument_list|>
 block|{
 DECL|field|logger
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
@@ -235,6 +235,8 @@ operator|.
 name|LISTENER
 argument_list|,
 name|listener
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -481,7 +483,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

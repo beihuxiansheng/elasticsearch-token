@@ -1071,8 +1071,8 @@ return|;
 block|}
 DECL|method|writeQueries
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|void
 name|writeQueries
 parameter_list|(
@@ -1119,8 +1119,8 @@ block|}
 block|}
 DECL|method|readQueries
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|List
 argument_list|<
 name|QueryBuilder

@@ -689,7 +689,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -734,8 +734,8 @@ DECL|method|onQueryFailure
 name|void
 name|onQueryFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|,
 name|QuerySearchRequest
 name|querySearchRequest
@@ -764,7 +764,7 @@ name|debug
 argument_list|(
 literal|"[{}] Failed to execute query phase"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|querySearchRequest
 operator|.
@@ -784,7 +784,7 @@ operator|.
 name|shardTarget
 argument_list|()
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|successfulOps
@@ -850,7 +850,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1125,7 +1125,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -1164,8 +1164,8 @@ DECL|method|onFetchFailure
 name|void
 name|onFetchFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|,
 name|ShardFetchSearchRequest
 name|fetchSearchRequest
@@ -1194,7 +1194,7 @@ name|debug
 argument_list|(
 literal|"[{}] Failed to execute fetch phase"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|fetchSearchRequest
 operator|.
@@ -1211,7 +1211,7 @@ name|shardIndex
 argument_list|,
 name|shardTarget
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|successfulOps
@@ -1356,8 +1356,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 try|try
@@ -1372,7 +1372,7 @@ literal|"merge"
 argument_list|,
 literal|""
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|buildShardFailures
 argument_list|()

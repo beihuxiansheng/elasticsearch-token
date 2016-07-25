@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Highlights a search result.  */
 end_comment
 
 begin_interface

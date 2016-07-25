@@ -226,6 +226,18 @@ name|nullValue
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|sameInstance
+import|;
+end_import
+
 begin_class
 DECL|class|TrackingResultProcessorTests
 specifier|public
@@ -1239,8 +1251,10 @@ operator|.
 name|getFailure
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|sameInstance
+argument_list|(
+name|exception
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat

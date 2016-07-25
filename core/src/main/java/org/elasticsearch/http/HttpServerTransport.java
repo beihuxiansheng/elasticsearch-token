@@ -42,10 +42,6 @@ name|BoundTransportAddress
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|HttpServerTransport
 specifier|public
@@ -53,9 +49,6 @@ interface|interface
 name|HttpServerTransport
 extends|extends
 name|LifecycleComponent
-argument_list|<
-name|HttpServerTransport
-argument_list|>
 block|{
 DECL|method|boundAddress
 name|BoundTransportAddress

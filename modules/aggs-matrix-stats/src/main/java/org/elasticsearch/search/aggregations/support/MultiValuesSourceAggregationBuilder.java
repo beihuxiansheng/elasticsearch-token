@@ -371,8 +371,8 @@ argument_list|)
 decl_stmt|;
 DECL|class|LeafOnly
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|LeafOnly
 parameter_list|<

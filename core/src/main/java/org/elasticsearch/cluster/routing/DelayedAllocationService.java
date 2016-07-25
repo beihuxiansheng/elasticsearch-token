@@ -261,9 +261,6 @@ class|class
 name|DelayedAllocationService
 extends|extends
 name|AbstractLifecycleComponent
-argument_list|<
-name|DelayedAllocationService
-argument_list|>
 implements|implements
 name|ClusterStateListener
 block|{
@@ -463,8 +460,8 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -473,7 +470,7 @@ name|warn
 argument_list|(
 literal|"failed to submit schedule/execute reroute post unassigned shard"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|removeIfSameTask
@@ -599,8 +596,8 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|removeIfSameTask
@@ -614,7 +611,7 @@ name|warn
 argument_list|(
 literal|"failed to schedule/execute reroute post unassigned shard"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -342,9 +342,6 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 specifier|final
 name|int
 name|iterations

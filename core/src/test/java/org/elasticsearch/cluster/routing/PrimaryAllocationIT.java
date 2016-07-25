@@ -72,6 +72,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -1368,6 +1382,12 @@ argument_list|(
 literal|"--> explicitly promote old primary shard"
 argument_list|)
 expr_stmt|;
+specifier|final
+name|String
+name|idxName
+init|=
+literal|"test"
+decl_stmt|;
 name|ImmutableOpenIntMap
 argument_list|<
 name|List
@@ -1390,7 +1410,7 @@ argument_list|()
 operator|.
 name|prepareShardStores
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|)
 operator|.
 name|get
@@ -1401,7 +1421,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|)
 decl_stmt|;
 name|ClusterRerouteRequestBuilder
@@ -1476,7 +1496,7 @@ argument_list|(
 operator|new
 name|AllocateStalePrimaryAllocationCommand
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|,
 name|shardId
 argument_list|,
@@ -1502,7 +1522,7 @@ argument_list|(
 operator|new
 name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|,
 name|shardId
 argument_list|,
@@ -1534,9 +1554,46 @@ argument_list|)
 expr_stmt|;
 name|ensureYellow
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useStaleReplica
+operator|==
+literal|false
+condition|)
+block|{
+comment|// When invoking AllocateEmptyPrimaryAllocationCommand, due to the UnassignedInfo.Reason being changed to INDEX_CREATION,
+comment|// its possible that the shard has not completed initialization, even though the cluster health is yellow, so the
+comment|// search can throw an "all shards failed" exception.  We will wait until the shard initialization has completed before
+comment|// verifying the search hit count.
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+name|assertTrue
+argument_list|(
+name|clusterService
+argument_list|()
+operator|.
+name|state
+argument_list|()
+operator|.
+name|routingTable
+argument_list|()
+operator|.
+name|index
+argument_list|(
+name|idxName
+argument_list|)
+operator|.
+name|allPrimaryShardsActive
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|assertHitCount
 argument_list|(
 name|client
@@ -1544,7 +1601,7 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|)
 operator|.
 name|setSize
@@ -1600,6 +1657,13 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|NONE
 argument_list|)
 operator|.
 name|setSettings

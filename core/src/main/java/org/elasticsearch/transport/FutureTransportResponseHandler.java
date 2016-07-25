@@ -41,8 +41,8 @@ name|T
 extends|extends
 name|TransportResponse
 parameter_list|>
-extends|extends
-name|BaseTransportResponseHandler
+implements|implements
+name|TransportResponseHandler
 argument_list|<
 name|T
 argument_list|>

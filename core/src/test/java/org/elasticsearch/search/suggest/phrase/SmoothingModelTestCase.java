@@ -386,9 +386,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|suggest
-operator|.
-name|Suggesters
+name|SearchModule
 import|;
 end_import
 
@@ -516,8 +514,9 @@ operator|new
 name|NamedWriteableRegistry
 argument_list|()
 expr_stmt|;
-operator|new
-name|Suggesters
+name|SearchModule
+operator|.
+name|registerSmoothingModels
 argument_list|(
 name|namedWriteableRegistry
 argument_list|)
@@ -1222,15 +1221,13 @@ init|=
 operator|new
 name|NamedWriteableAwareStreamInput
 argument_list|(
-name|StreamInput
-operator|.
-name|wrap
-argument_list|(
 name|output
 operator|.
 name|bytes
 argument_list|()
-argument_list|)
+operator|.
+name|streamInput
+argument_list|()
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)

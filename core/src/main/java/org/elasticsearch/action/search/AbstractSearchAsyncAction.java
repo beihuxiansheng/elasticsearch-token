@@ -1190,7 +1190,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -1306,7 +1306,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1405,8 +1405,8 @@ specifier|final
 name|ShardIterator
 name|shardIt
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we always add the shard failure for a specific shard instance
@@ -1442,7 +1442,7 @@ name|shardIndex
 argument_list|,
 name|shardTarget
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -1465,7 +1465,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|t
+name|e
 operator|!=
 literal|null
 operator|&&
@@ -1474,7 +1474,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1484,7 +1484,7 @@ name|debug
 argument_list|(
 literal|"{}: Failed to execute [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1519,7 +1519,7 @@ name|trace
 argument_list|(
 literal|"{}: Failed to execute [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 argument_list|,
@@ -1560,7 +1560,7 @@ name|debug
 argument_list|(
 literal|"All shards failed for phase: [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|firstPhaseName
 argument_list|()
@@ -1578,7 +1578,7 @@ argument_list|()
 argument_list|,
 literal|"all shards failed"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shardSearchFailures
 argument_list|)
@@ -1595,10 +1595,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|e
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|raiseEarlyFailure
 argument_list|(
 operator|new
@@ -1609,7 +1616,7 @@ argument_list|()
 argument_list|,
 literal|""
 argument_list|,
-name|e
+name|inner
 argument_list|,
 name|shardSearchFailures
 argument_list|)
@@ -1652,7 +1659,7 @@ name|trace
 argument_list|(
 literal|"{}: Failed to execute [{}] lastShard [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1694,10 +1701,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|onFirstPhaseResult
 argument_list|(
 name|shardIndex
@@ -1711,7 +1725,7 @@ argument_list|()
 argument_list|,
 name|shardIt
 argument_list|,
-name|t1
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -1736,7 +1750,7 @@ block|{
 comment|// do not double log this exception
 if|if
 condition|(
-name|t
+name|e
 operator|!=
 literal|null
 operator|&&
@@ -1745,7 +1759,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1755,7 +1769,7 @@ name|debug
 argument_list|(
 literal|"{}: Failed to execute [{}] lastShard [{}]"
 argument_list|,
-name|t
+name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1892,8 +1906,8 @@ name|Nullable
 name|SearchShardTarget
 name|shardTarget
 parameter_list|,
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 comment|// we don't aggregate shard failures on non active shards (but do keep the header counts right)
@@ -1903,7 +1917,7 @@ name|TransportActions
 operator|.
 name|isShardNotAvailableException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -1970,7 +1984,7 @@ argument_list|,
 operator|new
 name|ShardSearchFailure
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|shardTarget
 argument_list|)
@@ -1987,7 +2001,7 @@ name|TransportActions
 operator|.
 name|isReadOverrideException
 argument_list|(
-name|t
+name|e
 argument_list|)
 condition|)
 block|{
@@ -2000,7 +2014,7 @@ argument_list|,
 operator|new
 name|ShardSearchFailure
 argument_list|(
-name|t
+name|e
 argument_list|,
 name|shardTarget
 argument_list|)
@@ -2014,8 +2028,8 @@ specifier|private
 name|void
 name|raiseEarlyFailure
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 for|for
@@ -2069,17 +2083,24 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t1
+name|Exception
+name|inner
 parameter_list|)
 block|{
+name|inner
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|trace
 argument_list|(
 literal|"failed to release context"
 argument_list|,
-name|t1
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -2088,7 +2109,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2237,8 +2258,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t1
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -2247,7 +2268,7 @@ name|trace
 argument_list|(
 literal|"failed to release context"
 argument_list|,
-name|t1
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -5168,11 +5168,6 @@ argument_list|(
 literal|"movavg_npe"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"movavg_npe"
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int

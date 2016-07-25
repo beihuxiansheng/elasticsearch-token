@@ -437,7 +437,7 @@ decl_stmt|;
 specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
-name|Throwable
+name|Exception
 argument_list|>
 name|exceptions
 init|=
@@ -526,7 +526,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

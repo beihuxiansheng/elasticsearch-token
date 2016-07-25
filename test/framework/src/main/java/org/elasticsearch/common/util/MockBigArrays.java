@@ -1531,8 +1531,8 @@ return|;
 block|}
 DECL|class|AbstractArrayWrapper
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|AbstractArrayWrapper
 block|{

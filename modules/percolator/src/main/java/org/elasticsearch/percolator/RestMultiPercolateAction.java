@@ -36,7 +36,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -193,6 +195,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RestMultiPercolateAction
 specifier|public
 class|class
@@ -206,12 +210,6 @@ specifier|final
 name|boolean
 name|allowExplicitIndex
 decl_stmt|;
-DECL|field|action
-specifier|private
-specifier|final
-name|TransportMultiPercolateAction
-name|action
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RestMultiPercolateAction
@@ -223,26 +221,12 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|Client
-name|client
-parameter_list|,
-name|TransportMultiPercolateAction
-name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|action
-operator|=
-name|action
 expr_stmt|;
 name|controller
 operator|.
@@ -338,7 +322,7 @@ name|RestChannel
 name|restChannel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 throws|throws
@@ -411,10 +395,14 @@ argument_list|,
 name|allowExplicitIndex
 argument_list|)
 expr_stmt|;
-name|action
+name|client
 operator|.
 name|execute
 argument_list|(
+name|MultiPercolateAction
+operator|.
+name|INSTANCE
+argument_list|,
 name|multiPercolateRequest
 argument_list|,
 operator|new

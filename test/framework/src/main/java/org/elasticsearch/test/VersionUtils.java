@@ -232,7 +232,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|IllegalAccessException
 name|e
 parameter_list|)
 block|{

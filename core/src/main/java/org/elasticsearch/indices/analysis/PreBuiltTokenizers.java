@@ -641,8 +641,8 @@ block|}
 block|}
 block|;
 DECL|method|create
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|Tokenizer
 name|create
 parameter_list|(

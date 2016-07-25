@@ -26,7 +26,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -207,16 +209,11 @@ argument_list|<
 name|AbstractCatAction
 argument_list|>
 name|catActions
-parameter_list|,
-name|Client
-name|client
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|client
 argument_list|)
 expr_stmt|;
 name|controller
@@ -284,7 +281,7 @@ name|RestChannel
 name|channel
 parameter_list|,
 specifier|final
-name|Client
+name|NodeClient
 name|client
 parameter_list|)
 block|{

@@ -467,8 +467,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|threadPool
-specifier|static
 specifier|private
+specifier|static
 name|ThreadPool
 name|threadPool
 decl_stmt|;
@@ -1128,7 +1128,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{              }
