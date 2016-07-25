@@ -3892,9 +3892,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|fielddata
+name|docvalues
 operator|.
-name|FieldDataFieldsFetchSubPhase
+name|DocValueFieldsFetchSubPhase
 import|;
 end_import
 
@@ -8039,7 +8039,7 @@ expr_stmt|;
 name|registerFetchSubPhase
 argument_list|(
 operator|new
-name|FieldDataFieldsFetchSubPhase
+name|DocValueFieldsFetchSubPhase
 argument_list|()
 argument_list|)
 expr_stmt|;

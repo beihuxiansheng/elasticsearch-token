@@ -16,8 +16,24 @@ name|fetch
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|docvalues
+operator|.
+name|DocValueFieldsContext
+import|;
+end_import
+
 begin_comment
-comment|/**  * All configuration and context needed by the FetchSubPhase to execute on hits.  * The only required information in this base class is whether or not the sub phase needs to be run at all.  * It can be extended by FetchSubPhases to hold information the phase needs to execute on hits.  * See {@link org.elasticsearch.search.fetch.FetchSubPhase.ContextFactory} and also {@link org.elasticsearch.search.fetch.fielddata.FieldDataFieldsContext} for an example.  */
+comment|/**  * All configuration and context needed by the FetchSubPhase to execute on hits.  * The only required information in this base class is whether or not the sub phase needs to be run at all.  * It can be extended by FetchSubPhases to hold information the phase needs to execute on hits.  * See {@link org.elasticsearch.search.fetch.FetchSubPhase.ContextFactory} and also {@link DocValueFieldsContext} for an example.  */
 end_comment
 
 begin_class
