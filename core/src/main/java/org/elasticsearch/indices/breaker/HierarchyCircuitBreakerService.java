@@ -383,7 +383,7 @@ name|byteSizeSetting
 argument_list|(
 literal|"indices.breaker.request.limit"
 argument_list|,
-literal|"40%"
+literal|"60%"
 argument_list|,
 name|Property
 operator|.
