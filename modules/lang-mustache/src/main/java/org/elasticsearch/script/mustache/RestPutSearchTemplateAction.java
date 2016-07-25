@@ -4,19 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest.action.search.template
+DECL|package|org.elasticsearch.script.mustache
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|script
 operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|template
+name|mustache
 package|;
 end_package
 

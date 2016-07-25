@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.search.template
+DECL|package|org.elasticsearch.script.mustache
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|script
 operator|.
-name|search
-operator|.
-name|template
+name|mustache
 package|;
 end_package
 
@@ -245,20 +243,6 @@ operator|.
 name|script
 operator|.
 name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
 import|;
 end_import
 

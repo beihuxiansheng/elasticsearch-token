@@ -318,22 +318,6 @@ name|mustache
 operator|.
 name|MustacheScriptEngineService
 operator|.
-name|JSON_CONTENT_TYPE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
-operator|.
 name|PLAIN_TEXT_CONTENT_TYPE
 import|;
 end_import
@@ -1238,31 +1222,6 @@ name|testEscaping
 parameter_list|()
 block|{
 comment|// json string escaping enabled:
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
-init|=
-name|randomBoolean
-argument_list|()
-condition|?
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-else|:
-name|Collections
-operator|.
-name|singletonMap
-argument_list|(
-name|CONTENT_TYPE_PARAM
-argument_list|,
-name|JSON_CONTENT_TYPE
-argument_list|)
-decl_stmt|;
 name|Mustache
 name|mustache
 init|=
@@ -2166,7 +2125,9 @@ name|ctx
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"ctx\":{\"first\":{\"name\":\"John Smith\",\"age\":42,\"height\":1.84},\"second\":{\"name\":\"Dave Smith\",\"age\":27,\"height\":1.71}}}"
+literal|"{\"ctx\":{\"first\":{\"name\":\"John Smith\",\"age\":42,\"height\":1.84},\"second\":"
+operator|+
+literal|"{\"name\":\"Dave Smith\",\"age\":27,\"height\":1.71}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2178,7 +2139,9 @@ name|ctx
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"first\":{\"name\":\"John Smith\",\"age\":42,\"height\":1.84},\"second\":{\"name\":\"Dave Smith\",\"age\":27,\"height\":1.71}}"
+literal|"{\"first\":{\"name\":\"John Smith\",\"age\":42,\"height\":1.84},\"second\":"
+operator|+
+literal|"{\"name\":\"Dave Smith\",\"age\":27,\"height\":1.71}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
