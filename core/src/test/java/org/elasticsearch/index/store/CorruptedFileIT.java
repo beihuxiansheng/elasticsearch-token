@@ -762,6 +762,22 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|store
 operator|.
 name|MockFSIndexStore
@@ -4282,6 +4298,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Tests that restoring of a corrupted shard fails and we get a partial snapshot.      * TODO once checksum verification on snapshotting is implemented this test needs to be fixed or split into several      * parts... We should also corrupt files on the actual snapshot and check that we don't restore the corrupted shard.      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"monitor.fs:DEBUG"
+argument_list|)
 DECL|method|testCorruptFileThenSnapshotAndRestore
 specifier|public
 name|void
