@@ -2481,6 +2481,21 @@ argument_list|,
 literal|"1b"
 argument_list|)
 expr_stmt|;
+comment|// Some tests make use of scripting quite a bit, so increase the limit for integration tests
+name|builder
+operator|.
+name|put
+argument_list|(
+name|ScriptService
+operator|.
+name|SCRIPT_MAX_COMPILATIONS_PER_MINUTE
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|1000
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|TEST_NIGHTLY
