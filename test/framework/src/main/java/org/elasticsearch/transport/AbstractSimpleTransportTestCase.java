@@ -2996,6 +2996,14 @@ name|TestLogging
 argument_list|(
 literal|"transport:DEBUG,transport.tracer:TRACE"
 argument_list|)
+comment|// boaz is on this
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-os-compatibility/os=oraclelinux/835"
+argument_list|)
 DECL|method|testConcurrentSendRespondAndDisconnect
 specifier|public
 name|void
