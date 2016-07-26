@@ -672,7 +672,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[_na] query malformed, no field after start_object"
+literal|"[_na] query malformed, no start_object after query name"
 argument_list|)
 throw|;
 block|}
