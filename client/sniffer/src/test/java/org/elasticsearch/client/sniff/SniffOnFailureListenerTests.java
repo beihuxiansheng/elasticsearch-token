@@ -195,7 +195,10 @@ operator|.
 name|builder
 argument_list|(
 name|restClient
-argument_list|,
+argument_list|)
+operator|.
+name|setHostsSniffer
+argument_list|(
 operator|new
 name|MockHostsSniffer
 argument_list|()
