@@ -1399,6 +1399,13 @@ name|settings
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|socket
+operator|.
+name|setSoTimeout
+argument_list|(
+literal|15000
+argument_list|)
+expr_stmt|;
 name|ByteSizeValue
 name|tcpSendBufferSize
 init|=

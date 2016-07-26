@@ -2974,11 +2974,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"transport:DEBUG"
-argument_list|)
 DECL|method|testConcurrentSendRespondAndDisconnect
 specifier|public
 name|void
