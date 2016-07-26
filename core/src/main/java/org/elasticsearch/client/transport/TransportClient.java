@@ -560,6 +560,22 @@ name|TransportService
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|network
+operator|.
+name|NetworkService
+operator|.
+name|registerCustomNameResolvers
+import|;
+end_import
+
 begin_comment
 comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.  *<p>  * The transport client important modules used is the {@link org.elasticsearch.common.network.NetworkModule} which is  * started in client mode (only connects, no bind).  */
 end_comment
@@ -927,6 +943,20 @@ operator|new
 name|NetworkService
 argument_list|(
 name|settings
+argument_list|,
+name|registerCustomNameResolvers
+argument_list|(
+name|settings
+argument_list|,
+name|pluginsService
+operator|.
+name|filterPlugins
+argument_list|(
+name|DiscoveryPlugin
+operator|.
+name|class
+argument_list|)
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|NamedWriteableRegistry
@@ -1065,15 +1095,6 @@ argument_list|,
 literal|true
 argument_list|,
 name|namedWriteableRegistry
-argument_list|,
-name|pluginsService
-operator|.
-name|filterPlugins
-argument_list|(
-name|DiscoveryPlugin
-operator|.
-name|class
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

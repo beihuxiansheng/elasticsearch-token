@@ -5437,11 +5437,6 @@ argument_list|,
 literal|true
 argument_list|,
 name|namedWriteableRegistry
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|in
@@ -6087,11 +6082,6 @@ literal|true
 argument_list|,
 operator|new
 name|NamedWriteableRegistry
-argument_list|()
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
 argument_list|()
 argument_list|)
 operator|.

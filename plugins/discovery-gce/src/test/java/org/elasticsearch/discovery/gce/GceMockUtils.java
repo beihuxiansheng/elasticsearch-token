@@ -240,8 +240,8 @@ name|GceMockUtils
 block|{
 DECL|field|logger
 specifier|protected
-specifier|final
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
