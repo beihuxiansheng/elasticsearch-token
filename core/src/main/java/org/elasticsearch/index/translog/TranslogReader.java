@@ -680,15 +680,29 @@ throw|throw
 operator|new
 name|TranslogCorruptedException
 argument_list|(
-literal|"expected shard UUID ["
+literal|"expected shard UUID "
 operator|+
 name|uuidBytes
 operator|+
-literal|"] but got: ["
+literal|"/"
+operator|+
+name|uuidBytes
+operator|.
+name|utf8ToString
+argument_list|()
+operator|+
+literal|" but got: "
 operator|+
 name|ref
 operator|+
-literal|"] this translog file belongs to a different translog. path:"
+literal|"/"
+operator|+
+name|ref
+operator|.
+name|utf8ToString
+argument_list|()
+operator|+
+literal|" this translog file belongs to a different translog. path:"
 operator|+
 name|path
 argument_list|)
