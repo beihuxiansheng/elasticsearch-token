@@ -146,16 +146,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -231,34 +221,6 @@ operator|.
 name|component
 operator|.
 name|AbstractComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|component
-operator|.
-name|AbstractLifecycleComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -977,8 +939,6 @@ argument_list|(
 name|container
 argument_list|)
 decl_stmt|;
-comment|// TODO Should we set some timeout and retry options?
-comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blobContainer.deleteIfExists(options, null);         */
 name|logger
 operator|.
 name|trace

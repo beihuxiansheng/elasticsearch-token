@@ -25,12 +25,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Exception thrown when an elasticsearch node responds to a request with a status code that indicates an error.  * Note that the response body gets passed in as a string and read eagerly, which means that the Response object  * is expected to be closed and available only to read metadata like status line, request line, response headers.  */
+comment|/**  * Exception thrown when an elasticsearch node responds to a request with a status code that indicates an error.  * Holds the response that was returned.  */
 end_comment
 
 begin_class
 DECL|class|ResponseException
 specifier|public
+specifier|final
 class|class
 name|ResponseException
 extends|extends
@@ -41,20 +42,11 @@ specifier|private
 name|Response
 name|response
 decl_stmt|;
-DECL|field|responseBody
-specifier|private
-specifier|final
-name|String
-name|responseBody
-decl_stmt|;
 DECL|method|ResponseException
 name|ResponseException
 parameter_list|(
 name|Response
 name|response
-parameter_list|,
-name|String
-name|responseBody
 parameter_list|)
 throws|throws
 name|IOException
@@ -64,8 +56,6 @@ argument_list|(
 name|buildMessage
 argument_list|(
 name|response
-argument_list|,
-name|responseBody
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -74,12 +64,6 @@ operator|.
 name|response
 operator|=
 name|response
-expr_stmt|;
-name|this
-operator|.
-name|responseBody
-operator|=
-name|responseBody
 expr_stmt|;
 block|}
 DECL|method|buildMessage
@@ -90,14 +74,9 @@ name|buildMessage
 parameter_list|(
 name|Response
 name|response
-parameter_list|,
-name|String
-name|responseBody
 parameter_list|)
 block|{
-name|String
-name|message
-init|=
+return|return
 name|response
 operator|.
 name|getRequestLine
@@ -130,26 +109,9 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|responseBody
-operator|!=
-literal|null
-condition|)
-block|{
-name|message
-operator|+=
-literal|"\n"
-operator|+
-name|responseBody
-expr_stmt|;
-block|}
-return|return
-name|message
 return|;
 block|}
-comment|/**      * Returns the {@link Response} that caused this exception to be thrown.      * Expected to be used only to read metadata like status line, request line, response headers. The response body should      * be retrieved using {@link #getResponseBody()}      */
+comment|/**      * Returns the {@link Response} that caused this exception to be thrown.      */
 DECL|method|getResponse
 specifier|public
 name|Response
@@ -158,17 +120,6 @@ parameter_list|()
 block|{
 return|return
 name|response
-return|;
-block|}
-comment|/**      * Returns the response body as a string or null if there wasn't any.      * The body is eagerly consumed when an ResponseException gets created, and its corresponding Response      * gets closed straightaway so this method is the only way to get back the response body that was returned.      */
-DECL|method|getResponseBody
-specifier|public
-name|String
-name|getResponseBody
-parameter_list|()
-block|{
-return|return
-name|responseBody
 return|;
 block|}
 block|}

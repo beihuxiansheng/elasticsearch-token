@@ -344,8 +344,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -359,8 +357,7 @@ literal|"/_nodes/http"
 argument_list|,
 name|sniffRequestParams
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 return|return
 name|readHosts
 argument_list|(
@@ -370,7 +367,6 @@ name|getEntity
 argument_list|()
 argument_list|)
 return|;
-block|}
 block|}
 DECL|method|readHosts
 specifier|private

@@ -3385,10 +3385,10 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|received
+DECL|method|addBytesReceived
 specifier|public
 name|void
-name|received
+name|addBytesReceived
 parameter_list|(
 name|long
 name|size
@@ -3404,10 +3404,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|sent
+DECL|method|addBytesSent
 specifier|public
 name|void
-name|sent
+name|addBytesSent
 parameter_list|(
 name|long
 name|size

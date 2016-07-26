@@ -420,7 +420,7 @@ parameter_list|,
 name|HttpHost
 name|host
 parameter_list|,
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{

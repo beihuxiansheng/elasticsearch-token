@@ -50,6 +50,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableList
+import|;
+end_import
+
 begin_comment
 comment|/**  * Allows to register additional features supported by the tests runner.  * This way any runner can add extra features and use proper skip sections to avoid  * breaking others runners till they have implemented the new feature as well.  *  * Once all runners have implemented the feature, it can be removed from the list  * and the related skip sections can be removed from the tests as well.  */
 end_comment
@@ -71,19 +83,22 @@ name|String
 argument_list|>
 name|SUPPORTED
 init|=
+name|unmodifiableList
+argument_list|(
 name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|"stash_in_path"
+literal|"embedded_stash_key"
 argument_list|,
 literal|"groovy_scripting"
 argument_list|,
 literal|"headers"
 argument_list|,
-literal|"embedded_stash_key"
+literal|"stash_in_path"
 argument_list|,
 literal|"yaml"
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|method|Features

@@ -2529,6 +2529,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|hasDifferentSearchAnalyzer
 operator|||
 name|hasDifferentSearchQuoteAnalyzer
@@ -2552,6 +2554,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|includeDefaults
+operator|||
 name|hasDifferentSearchQuoteAnalyzer
 condition|)
 block|{

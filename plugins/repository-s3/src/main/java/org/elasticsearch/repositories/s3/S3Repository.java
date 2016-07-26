@@ -1260,23 +1260,6 @@ operator|.
 name|REGION_SETTING
 argument_list|)
 decl_stmt|;
-comment|// If no region is defined either in region, repositories.s3.region, cloud.aws.s3.region or cloud.aws.region
-comment|// we fallback to Default bucket - null
-if|if
-condition|(
-name|Strings
-operator|.
-name|isEmpty
-argument_list|(
-name|region
-argument_list|)
-condition|)
-block|{
-name|region
-operator|=
-literal|null
-expr_stmt|;
-block|}
 name|boolean
 name|serverSideEncryption
 init|=

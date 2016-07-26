@@ -66,7 +66,7 @@ specifier|public
 class|class
 name|RestIT
 extends|extends
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 block|{
 DECL|method|RestIT
 specifier|public

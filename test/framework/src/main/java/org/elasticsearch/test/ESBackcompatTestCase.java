@@ -1262,7 +1262,12 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
+name|randomBoolean
+argument_list|()
+condition|?
 literal|"netty3"
+else|:
+literal|"netty4"
 argument_list|)
 expr_stmt|;
 comment|// run same transport  / disco as external

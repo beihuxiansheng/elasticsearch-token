@@ -239,7 +239,7 @@ name|Exception
 block|{
 name|transportServiceAdapter
 operator|.
-name|sent
+name|addBytesSent
 argument_list|(
 name|e
 operator|.
