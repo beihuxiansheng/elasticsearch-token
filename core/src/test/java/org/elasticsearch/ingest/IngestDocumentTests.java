@@ -7134,7 +7134,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|ingestMetadata
 init|=
@@ -7316,7 +7316,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|otherIngestMetadata
 decl_stmt|;
@@ -7572,6 +7572,9 @@ decl_stmt|;
 name|String
 name|timestampString
 init|=
+operator|(
+name|String
+operator|)
 name|ingestDocument
 operator|.
 name|getIngestMetadata
