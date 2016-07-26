@@ -1580,6 +1580,13 @@ argument_list|,
 name|shardsAcked
 lambda|->
 block|{
+if|if
+condition|(
+name|shardsAcked
+operator|==
+literal|false
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -1594,6 +1601,7 @@ name|index
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|listener
 operator|.
 name|onResponse
