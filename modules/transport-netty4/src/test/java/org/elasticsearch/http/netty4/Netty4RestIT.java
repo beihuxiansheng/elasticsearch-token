@@ -46,6 +46,34 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|TimeoutSuite
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TimeUnits
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -54,7 +82,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -98,13 +126,28 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|//TODO: This is a *temporary* workaround to ensure a timeout does not mask other problems
+end_comment
+
 begin_class
+annotation|@
+name|TimeoutSuite
+argument_list|(
+name|millis
+operator|=
+literal|30
+operator|*
+name|TimeUnits
+operator|.
+name|MINUTE
+argument_list|)
 DECL|class|Netty4RestIT
 specifier|public
 class|class
 name|Netty4RestIT
 extends|extends
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 block|{
 DECL|method|Netty4RestIT
 specifier|public
@@ -143,7 +186,7 @@ throws|,
 name|RestTestParseException
 block|{
 return|return
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|createParameters
 argument_list|(

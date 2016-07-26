@@ -2974,6 +2974,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"transport:DEBUG"
+argument_list|)
 DECL|method|testConcurrentSendRespondAndDisconnect
 specifier|public
 name|void
@@ -3471,11 +3476,18 @@ literal|"_"
 operator|+
 name|iter
 decl_stmt|;
+specifier|final
+name|DiscoveryNode
+name|node
+init|=
+name|nodeB
+decl_stmt|;
+comment|// capture now
 name|serviceA
 operator|.
 name|sendRequest
 argument_list|(
-name|nodeB
+name|node
 argument_list|,
 literal|"test"
 argument_list|,
@@ -3527,7 +3539,7 @@ literal|"caught exception while sending to node {}"
 argument_list|,
 name|e
 argument_list|,
-name|nodeB
+name|node
 argument_list|)
 expr_stmt|;
 name|sendingErrors

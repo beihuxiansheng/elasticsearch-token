@@ -56,7 +56,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|AzureDiscoveryRestIT
 extends|extends
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 block|{
 DECL|method|AzureDiscoveryRestIT
 specifier|public
@@ -145,7 +145,7 @@ throws|,
 name|RestTestParseException
 block|{
 return|return
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|createParameters
 argument_list|(

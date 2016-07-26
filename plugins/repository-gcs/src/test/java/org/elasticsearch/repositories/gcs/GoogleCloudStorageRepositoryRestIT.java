@@ -54,7 +54,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -104,7 +104,7 @@ specifier|public
 class|class
 name|GoogleCloudStorageRepositoryRestIT
 extends|extends
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 block|{
 DECL|method|GoogleCloudStorageRepositoryRestIT
 specifier|public
