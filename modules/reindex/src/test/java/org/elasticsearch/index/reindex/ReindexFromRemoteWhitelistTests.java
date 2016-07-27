@@ -144,18 +144,6 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|emptyList
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
 name|emptyMap
 import|;
 end_import
