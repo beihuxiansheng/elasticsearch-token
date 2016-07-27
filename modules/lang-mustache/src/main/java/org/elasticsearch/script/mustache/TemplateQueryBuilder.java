@@ -430,9 +430,7 @@ name|params
 parameter_list|)
 block|{
 name|this
-operator|.
-name|template
-operator|=
+argument_list|(
 operator|new
 name|Script
 argument_list|(
@@ -443,6 +441,7 @@ argument_list|,
 literal|"mustache"
 argument_list|,
 name|params
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -471,9 +470,7 @@ name|ct
 parameter_list|)
 block|{
 name|this
-operator|.
-name|template
-operator|=
+argument_list|(
 operator|new
 name|Script
 argument_list|(
@@ -487,9 +484,9 @@ name|params
 argument_list|,
 name|ct
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-comment|// for tests, so that mock script can be used:
 DECL|method|TemplateQueryBuilder
 name|TemplateQueryBuilder
 parameter_list|(
