@@ -110,11 +110,13 @@ extends|extends
 name|AExpression
 block|{
 DECL|field|type
+specifier|private
 specifier|final
 name|String
 name|type
 decl_stmt|;
 DECL|field|child
+specifier|private
 name|AExpression
 name|child
 decl_stmt|;

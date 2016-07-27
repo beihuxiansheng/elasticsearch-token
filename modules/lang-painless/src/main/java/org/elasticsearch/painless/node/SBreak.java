@@ -113,7 +113,9 @@ name|String
 argument_list|>
 name|variables
 parameter_list|)
-block|{}
+block|{
+comment|// Do nothing.
+block|}
 annotation|@
 name|Override
 DECL|method|analyze

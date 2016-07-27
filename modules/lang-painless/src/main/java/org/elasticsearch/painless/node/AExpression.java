@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|AnalyzerCaster
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Cast
@@ -52,7 +64,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Globals
+name|Locals
 import|;
 end_import
 
@@ -70,54 +82,16 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|painless
-operator|.
-name|AnalyzerCaster
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|Locals
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Label
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|MethodWriter
+name|Objects
 import|;
 end_import
 
 begin_comment
-comment|/**  * The superclass for all E* (expression) nodes.  */
+comment|/**  * The superclass for all E* (expression) and P* (postfix) nodes.  */
 end_comment
 
 begin_class
@@ -129,9 +103,13 @@ name|AExpression
 extends|extends
 name|ANode
 block|{
+comment|/**      * Prefix is the predecessor to this node in a variable chain.      * This is used to analyze and write variable chains in a      * more natural order since the parent node of a variable      * chain will want the data from the final postfix to be      * analyzed.      */
+DECL|field|prefix
+name|AExpression
+name|prefix
+decl_stmt|;
 comment|/**      * Set to false when an expression will not be read from such as      * a basic assignment.  Note this variable is always set by the parent      * as input.      */
 DECL|field|read
-specifier|protected
 name|boolean
 name|read
 init|=
@@ -139,7 +117,6 @@ literal|true
 decl_stmt|;
 comment|/**      * Set to true when an expression can be considered a stand alone      * statement.  Used to prevent extraneous bytecode. This is always      * set by the node as output.      */
 DECL|field|statement
-specifier|protected
 name|boolean
 name|statement
 init|=
@@ -147,7 +124,6 @@ literal|false
 decl_stmt|;
 comment|/**      * Set to the expected type this node needs to be.  Note this variable      * is always set by the parent as input and should never be read from.      */
 DECL|field|expected
-specifier|protected
 name|Type
 name|expected
 init|=
@@ -155,7 +131,6 @@ literal|null
 decl_stmt|;
 comment|/**      * Set to the actual type this node is.  Note this variable is always      * set by the node as output and should only be read from outside of the      * node itself.<b>Also, actual can always be read after a cast is      * called on this node to get the type of the node after the cast.</b>      */
 DECL|field|actual
-specifier|protected
 name|Type
 name|actual
 init|=
@@ -163,7 +138,6 @@ literal|null
 decl_stmt|;
 comment|/**      * Set by {@link EExplicit} if a cast made on an expression node should be      * explicit.      */
 DECL|field|explicit
-specifier|protected
 name|boolean
 name|explicit
 init|=
@@ -171,7 +145,6 @@ literal|false
 decl_stmt|;
 comment|/**      * Set to true if a cast is allowed to boxed/unboxed.  This is used      * for method arguments because casting may be required.      */
 DECL|field|internal
-specifier|protected
 name|boolean
 name|internal
 init|=
@@ -179,7 +152,6 @@ literal|false
 decl_stmt|;
 comment|/**      * Set to the value of the constant this expression node represents if      * and only if the node represents a constant.  If this is not null      * this node will be replaced by an {@link EConstant} during casting      * if it's not already one.      */
 DECL|field|constant
-specifier|protected
 name|Object
 name|constant
 init|=
@@ -187,30 +159,13 @@ literal|null
 decl_stmt|;
 comment|/**      * Set to true by {@link ENull} to represent a null value.      */
 DECL|field|isNull
-specifier|protected
 name|boolean
 name|isNull
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * If an expression represents a branch statement, represents the jump should      * the expression evaluate to a true value.  It should always be the case that only      * one of tru and fals are non-null or both are null.  Only used during the writing phase.      */
-DECL|field|tru
-specifier|protected
-name|Label
-name|tru
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * If an expression represents a branch statement, represents the jump should      * the expression evaluate to a false value.  It should always be the case that only      * one of tru and fals are non-null or both are null.  Only used during the writing phase.      */
-DECL|field|fals
-specifier|protected
-name|Label
-name|fals
-init|=
-literal|null
-decl_stmt|;
+comment|/**      * Standard constructor with location used for error tracking.      */
 DECL|method|AExpression
-specifier|public
 name|AExpression
 parameter_list|(
 name|Location
@@ -222,30 +177,39 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
+name|prefix
+operator|=
+literal|null
+expr_stmt|;
 block|}
-comment|/**      * Checks for errors and collects data for the writing phase.      */
-DECL|method|analyze
-specifier|abstract
-name|void
-name|analyze
+comment|/**      * This constructor is used by variable/method chains when postfixes are specified.      */
+DECL|method|AExpression
+name|AExpression
 parameter_list|(
-name|Locals
-name|locals
-parameter_list|)
-function_decl|;
-comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
-DECL|method|write
-specifier|abstract
-name|void
-name|write
-parameter_list|(
-name|MethodWriter
-name|writer
+name|Location
+name|location
 parameter_list|,
-name|Globals
-name|globals
+name|AExpression
+name|prefix
 parameter_list|)
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|location
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|prefix
+operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Inserts {@link ECast} nodes into the tree for implicit casts.  Also replaces      * nodes with the constant variable set to a non-null value with {@link EConstant}.      * @return The new child node for the parent node calling this method.      */
 DECL|method|cast
 name|AExpression
@@ -255,7 +219,6 @@ name|Locals
 name|locals
 parameter_list|)
 block|{
-specifier|final
 name|Cast
 name|cast
 init|=

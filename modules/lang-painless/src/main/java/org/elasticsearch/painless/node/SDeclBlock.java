@@ -108,6 +108,7 @@ extends|extends
 name|AStatement
 block|{
 DECL|field|declarations
+specifier|private
 specifier|final
 name|List
 argument_list|<

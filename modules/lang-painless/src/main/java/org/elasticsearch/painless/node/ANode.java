@@ -24,7 +24,43 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Globals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Locals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|MethodWriter
 import|;
 end_import
 
@@ -49,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The superclass for all other nodes.  */
+comment|/**  * The superclass for all nodes.  */
 end_comment
 
 begin_class
@@ -65,6 +101,7 @@ specifier|final
 name|Location
 name|location
 decl_stmt|;
+comment|/**      * Standard constructor with location used for error tracking.      */
 DECL|method|ANode
 name|ANode
 parameter_list|(
@@ -97,8 +134,30 @@ argument_list|>
 name|variables
 parameter_list|)
 function_decl|;
+comment|/**      * Checks for errors and collects data for the writing phase.      */
+DECL|method|analyze
+specifier|abstract
+name|void
+name|analyze
+parameter_list|(
+name|Locals
+name|locals
+parameter_list|)
+function_decl|;
+comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
+DECL|method|write
+specifier|abstract
+name|void
+name|write
+parameter_list|(
+name|MethodWriter
+name|writer
+parameter_list|,
+name|Globals
+name|globals
+parameter_list|)
+function_decl|;
 DECL|method|createError
-specifier|public
 name|RuntimeException
 name|createError
 parameter_list|(

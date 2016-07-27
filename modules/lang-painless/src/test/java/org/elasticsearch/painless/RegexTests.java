@@ -594,6 +594,8 @@ literal|"s"
 argument_list|,
 literal|"fooasdfdf"
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -611,6 +613,8 @@ literal|"s"
 argument_list|,
 literal|"11f2ooasdfdf"
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -959,6 +963,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1010,6 +1016,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1088,6 +1096,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1139,6 +1149,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1320,13 +1332,7 @@ name|exec
 argument_list|(
 literal|"/asdf/b"
 argument_list|,
-name|emptyMap
-argument_list|()
-argument_list|,
-name|emptyMap
-argument_list|()
-argument_list|,
-literal|null
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Not picky so we get a non-assertion error

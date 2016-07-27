@@ -594,6 +594,8 @@ literal|"x"
 argument_list|,
 literal|4
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -614,6 +616,8 @@ literal|"x"
 argument_list|,
 literal|4
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -634,6 +638,8 @@ literal|"x"
 argument_list|,
 literal|4
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

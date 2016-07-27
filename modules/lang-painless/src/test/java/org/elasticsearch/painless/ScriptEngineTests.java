@@ -240,6 +240,8 @@ argument_list|(
 literal|"return params['obj1'];"
 argument_list|,
 name|vars
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|obj1
@@ -300,6 +302,8 @@ argument_list|(
 literal|"return params.obj1.l.0;"
 argument_list|,
 name|vars
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -417,6 +421,8 @@ argument_list|(
 literal|"return params.l.size();"
 argument_list|,
 name|vars
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -429,6 +435,8 @@ argument_list|(
 literal|"return params.l.0;"
 argument_list|,
 name|vars
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -440,6 +448,8 @@ argument_list|(
 literal|"return params.l.3;"
 argument_list|,
 name|vars
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|obj1
@@ -502,6 +512,8 @@ argument_list|(
 literal|"return params.l.3.prop1;"
 argument_list|,
 name|vars
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

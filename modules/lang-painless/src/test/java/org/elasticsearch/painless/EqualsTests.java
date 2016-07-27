@@ -44,6 +44,16 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; boolean y = true; return x === y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|true
 argument_list|,
 name|exec
@@ -199,6 +209,16 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"return false == false;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = false; boolean y = true; return x == y;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -371,6 +391,16 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true; boolean y = false; return x !== y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|false
 argument_list|,
 name|exec
@@ -526,6 +556,16 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"return true != true;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"boolean x = true; boolean y = false; return x != y;"
 argument_list|)
 argument_list|)
 expr_stmt|;

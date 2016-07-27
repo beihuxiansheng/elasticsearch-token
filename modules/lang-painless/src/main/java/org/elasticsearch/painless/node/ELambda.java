@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Definition
+operator|.
+name|Type
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Locals
 import|;
 end_import
@@ -146,18 +160,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Type
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -243,12 +245,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lambda expression node.  *<p>  * This can currently only be the direct argument of a call (method/constructor).  * When the argument is of a known type, it uses  *<a href="http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html">  * Java's lambda translation</a>. However, if its a def call, then we don't have   * enough information, and have to defer this until link time. In that case a placeholder  * and all captures are pushed onto the stack and folded into the signature of the parent call.  *<p>  * For example:  *<br>  * {@code def list = new ArrayList(); int capture = 0; list.sort((x,y) -> x - y + capture)}  *<br>  * is converted into a call (pseudocode) such as:  *<br>  * {@code sort(list, lambda$0, capture)}  *<br>  * At link time, when we know the interface type, this is decomposed with MethodHandle  * combinators back into (pseudocode):  *<br>  * {@code sort(list, lambda$0(capture))}  */
+comment|/**  * Lambda expression node.  *<p>  * This can currently only be the direct argument of a call (method/constructor).  * When the argument is of a known type, it uses  *<a href="http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html">  * Java's lambda translation</a>. However, if its a def call, then we don't have  * enough information, and have to defer this until link time. In that case a placeholder  * and all captures are pushed onto the stack and folded into the signature of the parent call.  *<p>  * For example:  *<br>  * {@code def list = new ArrayList(); int capture = 0; list.sort((x,y) -> x - y + capture)}  *<br>  * is converted into a call (pseudocode) such as:  *<br>  * {@code sort(list, lambda$0, capture)}  *<br>  * At link time, when we know the interface type, this is decomposed with MethodHandle  * combinators back into (pseudocode):  *<br>  * {@code sort(list, lambda$0(capture))}  */
 end_comment
 
 begin_class
 DECL|class|ELambda
 specifier|public
+specifier|final
 class|class
 name|ELambda
 extends|extends
@@ -257,16 +260,19 @@ implements|implements
 name|ILambda
 block|{
 DECL|field|name
+specifier|private
 specifier|final
 name|String
 name|name
 decl_stmt|;
 DECL|field|reserved
+specifier|private
 specifier|final
 name|FunctionReserved
 name|reserved
 decl_stmt|;
 DECL|field|paramTypeStrs
+specifier|private
 specifier|final
 name|List
 argument_list|<
@@ -275,6 +281,7 @@ argument_list|>
 name|paramTypeStrs
 decl_stmt|;
 DECL|field|paramNameStrs
+specifier|private
 specifier|final
 name|List
 argument_list|<
@@ -283,6 +290,7 @@ argument_list|>
 name|paramNameStrs
 decl_stmt|;
 DECL|field|statements
+specifier|private
 specifier|final
 name|List
 argument_list|<
@@ -292,11 +300,13 @@ name|statements
 decl_stmt|;
 comment|// desugared synthetic method (lambda body)
 DECL|field|desugared
+specifier|private
 name|SFunction
 name|desugared
 decl_stmt|;
 comment|// captured variables
 DECL|field|captures
+specifier|private
 name|List
 argument_list|<
 name|Variable
@@ -305,11 +315,13 @@ name|captures
 decl_stmt|;
 comment|// static parent, static lambda
 DECL|field|ref
+specifier|private
 name|FunctionRef
 name|ref
 decl_stmt|;
 comment|// dynamic parent, deferred until link time
 DECL|field|defPointer
+specifier|private
 name|String
 name|defPointer
 decl_stmt|;
@@ -447,8 +459,6 @@ name|locals
 parameter_list|)
 block|{
 specifier|final
-name|Definition
-operator|.
 name|Type
 name|returnType
 decl_stmt|;
@@ -829,7 +839,7 @@ argument_list|)
 expr_stmt|;
 name|desugared
 operator|.
-name|generate
+name|generateSignature
 argument_list|()
 expr_stmt|;
 name|desugared
@@ -1023,9 +1033,21 @@ operator|.
 name|toMethodDescriptorString
 argument_list|()
 decl_stmt|;
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 name|samMethodType
 init|=
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 operator|.
 name|getMethodType
@@ -1038,9 +1060,21 @@ name|toMethodDescriptorString
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 name|interfaceType
 init|=
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 operator|.
 name|getMethodType
@@ -1190,16 +1224,34 @@ annotation|@
 name|Override
 DECL|method|getCaptures
 specifier|public
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 index|[]
 name|getCaptures
 parameter_list|()
 block|{
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 index|[]
 name|types
 init|=
 operator|new
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
 name|Type
 index|[
 name|captures
