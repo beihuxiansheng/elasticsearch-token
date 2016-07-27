@@ -2528,7 +2528,7 @@ name|NetworkService
 argument_list|(
 name|settings
 argument_list|,
-name|generateCustomNameResolvers
+name|getCustomNameResolvers
 argument_list|(
 name|pluginsService
 operator|.
@@ -5665,8 +5665,8 @@ name|circuitBreakerService
 argument_list|)
 return|;
 block|}
-comment|/**      * Generate Custom Name Resolvers list based on a Discovery Plugins list      * @param discoveryPlugins Discovery plugins list      */
-DECL|method|generateCustomNameResolvers
+comment|/**      * Get Custom Name Resolvers list based on a Discovery Plugins list      * @param discoveryPlugins Discovery plugins list      */
+DECL|method|getCustomNameResolvers
 specifier|private
 name|List
 argument_list|<
@@ -5674,7 +5674,7 @@ name|NetworkService
 operator|.
 name|CustomNameResolver
 argument_list|>
-name|generateCustomNameResolvers
+name|getCustomNameResolvers
 parameter_list|(
 name|List
 argument_list|<
