@@ -3147,7 +3147,7 @@ DECL|class|ScriptChangesListener
 specifier|private
 class|class
 name|ScriptChangesListener
-extends|extends
+implements|implements
 name|FileChangesListener
 block|{
 DECL|method|getScriptNameExt
