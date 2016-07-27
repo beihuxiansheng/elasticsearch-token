@@ -566,13 +566,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|node
 operator|.
-name|network
+name|Node
 operator|.
-name|NetworkService
-operator|.
-name|registerCustomNameResolvers
+name|generateCustomNameResolvers
 import|;
 end_import
 
@@ -986,7 +984,7 @@ name|NetworkService
 argument_list|(
 name|settings
 argument_list|,
-name|registerCustomNameResolvers
+name|generateCustomNameResolvers
 argument_list|(
 name|settings
 argument_list|,
