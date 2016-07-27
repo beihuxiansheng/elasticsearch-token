@@ -146,14 +146,22 @@ name|RestChannel
 name|channel
 parameter_list|)
 block|{
-comment|// TODO switch this to throwing an exception?
 name|this
 argument_list|(
 name|channel
 argument_list|,
 name|r
 lambda|->
+block|{
+assert|assert
+literal|false
+operator|:
+literal|"Returned a 201 CREATED but not set up to support a Location header"
+assert|;
+return|return
 literal|null
+return|;
+block|}
 argument_list|)
 expr_stmt|;
 block|}
