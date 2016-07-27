@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.rest.yaml.client
+DECL|package|org.elasticsearch.test.rest.yaml
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|rest
 operator|.
 name|yaml
-operator|.
-name|client
 package|;
 end_package
 
@@ -209,22 +207,6 @@ operator|.
 name|set
 operator|.
 name|Sets
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|ESClientYamlSuiteTestCase
 import|;
 end_import
 

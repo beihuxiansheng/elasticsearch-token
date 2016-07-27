@@ -54,8 +54,6 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|support
-operator|.
 name|Features
 import|;
 end_import

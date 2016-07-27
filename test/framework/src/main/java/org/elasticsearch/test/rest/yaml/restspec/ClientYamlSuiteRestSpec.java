@@ -62,8 +62,6 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|support
-operator|.
 name|FileUtils
 import|;
 end_import

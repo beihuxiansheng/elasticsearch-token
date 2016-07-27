@@ -102,8 +102,6 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|client
-operator|.
 name|ClientYamlTestResponse
 import|;
 end_import
@@ -119,8 +117,6 @@ operator|.
 name|rest
 operator|.
 name|yaml
-operator|.
-name|client
 operator|.
 name|ClientYamlTestResponseException
 import|;
