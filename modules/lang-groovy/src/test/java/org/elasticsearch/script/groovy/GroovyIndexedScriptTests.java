@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.messy.tests
+DECL|package|org.elasticsearch.script.groovy
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|messy
+name|script
 operator|.
-name|tests
+name|groovy
 package|;
 end_package
 
@@ -367,10 +367,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IndexedScriptTests
+DECL|class|GroovyIndexedScriptTests
 specifier|public
 class|class
-name|IndexedScriptTests
+name|GroovyIndexedScriptTests
 extends|extends
 name|ESIntegTestCase
 block|{

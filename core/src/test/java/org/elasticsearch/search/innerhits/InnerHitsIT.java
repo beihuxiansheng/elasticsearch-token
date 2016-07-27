@@ -779,8 +779,14 @@ block|{
 return|return
 name|Collections
 operator|.
-name|emptyMap
-argument_list|()
+name|singletonMap
+argument_list|(
+literal|"5"
+argument_list|,
+name|script
+lambda|->
+literal|"5"
+argument_list|)
 return|;
 block|}
 block|}

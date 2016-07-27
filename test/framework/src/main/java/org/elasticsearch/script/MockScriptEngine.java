@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A mocked script engine that can be used for testing purpose.  */
+comment|/**  * A mocked script engine that can be used for testing purpose.  *  * This script engine allows to define a set of predefined scripts that basically a combination of a key and a  * function:  *  * The key can be anything as long as it is a {@link String} and is used to resolve the scripts  * at compilation time. For inline scripts, the key can be a description of the script. For stored and file scripts,  * the source must match a key in the predefined set of scripts.  *  * The function is used to provide the result of the script execution and can return anything.  */
 end_comment
 
 begin_class
@@ -303,6 +303,8 @@ argument_list|>
 name|params
 parameter_list|)
 block|{
+comment|// Scripts are always resolved using the script's source. For inline scripts, it's easy because they don't have names and the
+comment|// source is always provided. For stored and file scripts, the source of the script must match the key of a predefined script.
 name|Function
 argument_list|<
 name|Map
@@ -323,6 +325,31 @@ argument_list|(
 name|source
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|script
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No pre defined script matching ["
+operator|+
+name|source
+operator|+
+literal|"] for script with name ["
+operator|+
+name|name
+operator|+
+literal|"], "
+operator|+
+literal|"did you declare the mocked script?"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|MockCompiledScript

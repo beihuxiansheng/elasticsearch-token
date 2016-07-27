@@ -1201,7 +1201,7 @@ case|:
 name|String
 name|script
 init|=
-literal|"5"
+literal|"1"
 decl_stmt|;
 name|Map
 argument_list|<
