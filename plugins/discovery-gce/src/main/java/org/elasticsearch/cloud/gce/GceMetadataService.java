@@ -277,10 +277,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GceMetadataServiceImpl
+DECL|class|GceMetadataService
 specifier|public
 class|class
-name|GceMetadataServiceImpl
+name|GceMetadataService
 extends|extends
 name|AbstractLifecycleComponent
 block|{
@@ -326,9 +326,9 @@ name|gceHttpTransport
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|GceMetadataServiceImpl
+DECL|method|GceMetadataService
 specifier|public
-name|GceMetadataServiceImpl
+name|GceMetadataService
 parameter_list|(
 name|Settings
 name|settings

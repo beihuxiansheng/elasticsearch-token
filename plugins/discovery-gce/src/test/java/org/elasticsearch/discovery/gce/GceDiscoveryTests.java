@@ -36,19 +36,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceInstancesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterName
+name|GceInstancesServiceImpl
 import|;
 end_import
 
@@ -275,7 +263,7 @@ name|transportService
 decl_stmt|;
 DECL|field|mock
 specifier|protected
-name|GceInstancesService
+name|GceInstancesServiceMock
 name|mock
 decl_stmt|;
 DECL|field|projectName
@@ -434,7 +422,7 @@ name|DiscoveryNode
 argument_list|>
 name|buildDynamicNodes
 parameter_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 name|gceInstancesService
 parameter_list|,
 name|Settings
@@ -507,7 +495,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -519,7 +507,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -580,7 +568,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -592,7 +580,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -683,7 +671,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -695,7 +683,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -788,7 +776,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -800,7 +788,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -861,7 +849,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -873,7 +861,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -946,7 +934,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -958,7 +946,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1033,7 +1021,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1045,7 +1033,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1108,7 +1096,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1120,7 +1108,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1184,7 +1172,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1196,7 +1184,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1316,7 +1304,7 @@ argument_list|()
 operator|.
 name|putArray
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -1391,7 +1379,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1465,7 +1453,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -1477,7 +1465,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceInstancesService
+name|GceInstancesServiceImpl
 operator|.
 name|ZONE_SETTING
 operator|.

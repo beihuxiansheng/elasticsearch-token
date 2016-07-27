@@ -945,7 +945,7 @@ comment|// See https://developers.google.com/compute/docs/metadata#metadataserve
 name|String
 name|tokenServerEncodedUrl
 init|=
-name|GceMetadataServiceImpl
+name|GceMetadataService
 operator|.
 name|GCE_HOST
 operator|.

@@ -96,7 +96,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceMetadataServiceImpl
+name|GceMetadataService
 import|;
 end_import
 
@@ -179,20 +179,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|SettingsModule
 import|;
 end_import
 
@@ -520,7 +506,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|GceMetadataServiceImpl
+name|GceMetadataService
 operator|.
 name|GCE_HOST
 argument_list|,
