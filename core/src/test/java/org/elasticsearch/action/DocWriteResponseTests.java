@@ -20,6 +20,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|DocWriteResponse
+operator|.
+name|Operation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|shard
@@ -75,6 +89,10 @@ argument_list|,
 literal|"id"
 argument_list|,
 literal|0
+argument_list|,
+name|Operation
+operator|.
+name|CREATE
 argument_list|)
 block|{
 comment|// DocWriteResponse is abstract so we have to sneak a subclass in here to test it.

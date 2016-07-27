@@ -340,16 +340,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|UncheckedIOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|InetSocketAddress

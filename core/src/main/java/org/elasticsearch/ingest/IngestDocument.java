@@ -344,7 +344,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|ingestMetadata
 decl_stmt|;
@@ -641,7 +641,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|ingestMetadata
 parameter_list|)
@@ -2916,7 +2916,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|getIngestMetadata
 parameter_list|()

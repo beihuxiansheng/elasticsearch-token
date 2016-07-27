@@ -104,6 +104,8 @@ name|test
 operator|.
 name|rest
 operator|.
+name|yaml
+operator|.
 name|ESClientYamlSuiteTestCase
 import|;
 end_import
@@ -246,6 +248,8 @@ name|test
 operator|.
 name|rest
 operator|.
+name|yaml
+operator|.
 name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_BLACKLIST
@@ -262,6 +266,8 @@ name|test
 operator|.
 name|rest
 operator|.
+name|yaml
+operator|.
 name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_SPEC
@@ -277,6 +283,8 @@ operator|.
 name|test
 operator|.
 name|rest
+operator|.
+name|yaml
 operator|.
 name|ESClientYamlSuiteTestCase
 operator|.

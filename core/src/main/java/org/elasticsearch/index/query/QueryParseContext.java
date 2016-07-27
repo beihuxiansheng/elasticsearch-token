@@ -437,26 +437,6 @@ throw|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|queryBuilder
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ParsingException
-argument_list|(
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
-argument_list|,
-literal|"Required query is missing"
-argument_list|)
-throw|;
-block|}
 return|return
 name|queryBuilder
 return|;
@@ -692,7 +672,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[_na] query malformed, no field after start_object"
+literal|"[_na] query malformed, no start_object after query name"
 argument_list|)
 throw|;
 block|}

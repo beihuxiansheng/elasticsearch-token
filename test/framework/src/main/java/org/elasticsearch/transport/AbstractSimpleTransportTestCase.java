@@ -200,6 +200,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -909,7 +921,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+name|Node
+operator|.
+name|NODE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|name
 argument_list|)
@@ -2977,7 +2994,15 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"transport:DEBUG"
+literal|"transport:DEBUG,transport.tracer:TRACE"
+argument_list|)
+comment|// boaz is on this
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-os-compatibility/os=oraclelinux/835"
 argument_list|)
 DECL|method|testConcurrentSendRespondAndDisconnect
 specifier|public
@@ -3118,7 +3143,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"caught exception while res    ponding from node B"
+literal|"caught exception while responding from node B"
 argument_list|,
 name|e
 argument_list|)
@@ -3609,7 +3634,9 @@ name|newService
 init|=
 name|buildService
 argument_list|(
-literal|"TS_B"
+literal|"TS_B_"
+operator|+
+name|i
 argument_list|,
 name|version1
 argument_list|)
@@ -3642,6 +3669,10 @@ operator|=
 operator|new
 name|DiscoveryNode
 argument_list|(
+literal|"TS_B_"
+operator|+
+name|i
+argument_list|,
 literal|"TS_B"
 argument_list|,
 name|serviceB
@@ -4729,7 +4760,7 @@ name|TestLogging
 argument_list|(
 name|value
 operator|=
-literal|"test. transport.tracer:TRACE"
+literal|"test.transport.tracer:TRACE"
 argument_list|)
 DECL|method|testTracerLog
 specifier|public

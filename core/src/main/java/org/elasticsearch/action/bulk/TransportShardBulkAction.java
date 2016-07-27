@@ -2137,7 +2137,7 @@ argument_list|()
 argument_list|,
 name|indexResponse
 operator|.
-name|isCreated
+name|getOperation
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2327,7 +2327,10 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-literal|false
+name|response
+operator|.
+name|getOperation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|updateResponse

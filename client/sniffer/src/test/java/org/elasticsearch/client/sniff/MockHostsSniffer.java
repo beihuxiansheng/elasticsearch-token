@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collections
 import|;
 end_import
 
@@ -58,28 +58,17 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Mock implementation of {@link HostsSniffer}. Useful to prevent any connection attempt while testing builders etc.  */
+end_comment
+
 begin_class
 DECL|class|MockHostsSniffer
 class|class
 name|MockHostsSniffer
-extends|extends
+implements|implements
 name|HostsSniffer
 block|{
-DECL|method|MockHostsSniffer
-name|MockHostsSniffer
-parameter_list|()
-block|{
-name|super
-argument_list|(
-literal|null
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|sniffHosts
@@ -93,20 +82,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|List
-argument_list|<
-name|HttpHost
-argument_list|>
-name|hosts
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
-name|hosts
+return|return
+name|Collections
 operator|.
-name|add
+name|singletonList
 argument_list|(
 operator|new
 name|HttpHost
@@ -116,9 +95,6 @@ argument_list|,
 literal|9200
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-name|hosts
 return|;
 block|}
 block|}

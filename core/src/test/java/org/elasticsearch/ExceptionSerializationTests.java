@@ -1294,9 +1294,11 @@ name|test
 operator|.
 name|rest
 operator|.
+name|yaml
+operator|.
 name|parser
 operator|.
-name|RestTestParseException
+name|ClientYamlTestParseException
 operator|.
 name|class
 argument_list|,

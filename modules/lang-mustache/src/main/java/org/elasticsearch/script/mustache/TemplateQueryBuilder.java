@@ -96,6 +96,34 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -331,6 +359,9 @@ comment|/**  * Facilitates creating template query requests.  * */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
+comment|// TODO remove this class in 6.0
 DECL|class|TemplateQueryBuilder
 specifier|public
 class|class
@@ -349,6 +380,26 @@ name|String
 name|NAME
 init|=
 literal|"template"
+decl_stmt|;
+DECL|field|DEPRECATION_LOGGER
+specifier|private
+specifier|static
+specifier|final
+name|DeprecationLogger
+name|DEPRECATION_LOGGER
+init|=
+operator|new
+name|DeprecationLogger
+argument_list|(
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|TemplateQueryBuilder
+operator|.
+name|class
+argument_list|)
+argument_list|)
 decl_stmt|;
 comment|/** Template to fill. */
 DECL|field|template
@@ -379,9 +430,7 @@ name|params
 parameter_list|)
 block|{
 name|this
-operator|.
-name|template
-operator|=
+argument_list|(
 operator|new
 name|Script
 argument_list|(
@@ -392,6 +441,7 @@ argument_list|,
 literal|"mustache"
 argument_list|,
 name|params
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -420,9 +470,7 @@ name|ct
 parameter_list|)
 block|{
 name|this
-operator|.
-name|template
-operator|=
+argument_list|(
 operator|new
 name|Script
 argument_list|(
@@ -436,9 +484,9 @@ name|params
 argument_list|,
 name|ct
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-comment|// for tests, so that mock script can be used:
 DECL|method|TemplateQueryBuilder
 name|TemplateQueryBuilder
 parameter_list|(
@@ -446,6 +494,15 @@ name|Script
 name|template
 parameter_list|)
 block|{
+name|DEPRECATION_LOGGER
+operator|.
+name|deprecated
+argument_list|(
+literal|"[{}] query is deprecated, use search template api instead"
+argument_list|,
+name|NAME
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|template

@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -86,30 +98,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ValidateActions
-operator|.
-name|addValidationError
-import|;
-end_import
-
 begin_class
 DECL|class|GetPipelineRequest
 specifier|public
@@ -141,19 +129,13 @@ condition|(
 name|ids
 operator|==
 literal|null
-operator|||
-name|ids
-operator|.
-name|length
-operator|==
-literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No ids specified"
+literal|"ids cannot be null"
 argument_list|)
 throw|;
 block|}
@@ -167,7 +149,16 @@ block|}
 DECL|method|GetPipelineRequest
 name|GetPipelineRequest
 parameter_list|()
-block|{     }
+block|{
+name|this
+operator|.
+name|ids
+operator|=
+name|Strings
+operator|.
+name|EMPTY_ARRAY
+expr_stmt|;
+block|}
 DECL|method|getIds
 specifier|public
 name|String
