@@ -1236,17 +1236,24 @@ name|LockObtainFailedException
 name|lofe
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|ElasticsearchException
+name|logger
+operator|.
+name|info
 argument_list|(
-literal|"Still waiting for lock release at ["
+literal|"--> failed acquiring lock for {}"
+argument_list|,
+name|idxLocation
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"still waiting for lock release at ["
 operator|+
 name|idxLocation
 operator|+
 literal|"]"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
