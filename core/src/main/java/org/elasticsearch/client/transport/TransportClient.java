@@ -566,9 +566,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|plugins
 operator|.
-name|Node
+name|DiscoveryPlugin
 operator|.
 name|generateCustomNameResolvers
 import|;
