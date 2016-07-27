@@ -148,6 +148,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|HasChildQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -480,17 +494,30 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// skip all geo queries, see https://issues.apache.org/jira/browse/LUCENE-7293 and
-comment|// https://github.com/elastic/elasticsearch/issues/17537
 if|if
 condition|(
 name|query
 operator|instanceof
 name|GeoPointInBBoxQuery
-operator|==
-literal|false
 condition|)
 block|{
+comment|// skip all geo queries, see https://issues.apache.org/jira/browse/LUCENE-7293 and
+comment|// https://github.com/elastic/elasticsearch/issues/17537
+return|return;
+block|}
+elseif|else
+if|if
+condition|(
+name|query
+operator|instanceof
+name|HasChildQueryBuilder
+operator|.
+name|LateParsingQuery
+condition|)
+block|{
+comment|// skip has_child or has_parent queries, see: https://github.com/elastic/elasticsearch/issues/14999
+return|return;
+block|}
 name|super
 operator|.
 name|extract
@@ -502,7 +529,6 @@ argument_list|,
 name|terms
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

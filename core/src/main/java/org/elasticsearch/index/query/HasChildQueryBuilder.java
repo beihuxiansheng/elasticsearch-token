@@ -2095,7 +2095,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that rewrites into another query using      * {@link JoinUtil#createJoinQuery(String, Query, Query, IndexSearcher, ScoreMode, MultiDocValues.OrdinalMap, int, int)}      * that executes the actual join.      *      * This query is exclusively used by the {@link HasChildQueryBuilder} and {@link HasParentQueryBuilder} to get access      * to the {@link DirectoryReader} used by the current search in order to retrieve the {@link MultiDocValues.OrdinalMap}.      * The {@link MultiDocValues.OrdinalMap} is required by {@link JoinUtil} to execute the join.      */
+comment|// TODO: Find a way to remove this query and let doToQuery(...) just return the query from JoinUtil.createJoinQuery(...)
 DECL|class|LateParsingQuery
+specifier|public
 specifier|static
 specifier|final
 class|class
