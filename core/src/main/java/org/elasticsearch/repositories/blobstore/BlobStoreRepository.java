@@ -1531,13 +1531,6 @@ name|BlobStoreIndexShardSnapshots
 argument_list|>
 name|indexShardSnapshotsFormat
 decl_stmt|;
-comment|// flag to indicate if the index gen file has been checked for updating from pre 5.0 versions
-DECL|field|indexGenChecked
-specifier|private
-specifier|volatile
-name|boolean
-name|indexGenChecked
-decl_stmt|;
 comment|/**      * Constructs new BlobStoreRepository      *      * @param metadata       The metadata for this repository including name and settings      * @param globalSettings Settings for the node this repository object is created on      */
 DECL|method|BlobStoreRepository
 specifier|protected
@@ -2148,60 +2141,27 @@ throw|;
 block|}
 block|}
 comment|// Older repository index files (index-N) only contain snapshot info, not indices info,
-comment|// so if the index file is of the older format, populate it with the indices entries
+comment|// so if the repository data is of the older format, populate it with the indices entries
 comment|// so we know which indices of snapshots have blob ids in the older format.
-DECL|method|updateIndexGenIfNecessary
+DECL|method|upgradeRepositoryData
 specifier|private
 name|RepositoryData
-name|updateIndexGenIfNecessary
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|indexGenChecked
-condition|)
-block|{
-comment|// an optimization to avoid the blobExists call (which can be expensive
-comment|// especially for cloud based storage repositories) if the index gen file
-comment|// has already been updated
-return|return
-literal|null
-return|;
-block|}
-if|if
-condition|(
-name|isReadOnly
-argument_list|()
-operator|||
-name|snapshotsBlobContainer
-operator|.
-name|blobExists
-argument_list|(
-name|SNAPSHOTS_FILE
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-comment|// pre 5.0 repositories have a single index file instead of generational index-N files,
-comment|// so if the single index file is missing, we already have an up to date repository.
-name|indexGenChecked
-operator|=
-literal|true
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
+name|upgradeRepositoryData
+parameter_list|(
 specifier|final
 name|RepositoryData
 name|repositoryData
-init|=
-name|readIndexGen
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+assert|assert
+name|repositoryData
+operator|.
+name|isLegacyFormat
 argument_list|()
-decl_stmt|;
+assert|;
+comment|// should not be called on non-legacy repositories
 specifier|final
 name|Map
 argument_list|<
@@ -2347,7 +2307,6 @@ block|}
 block|}
 try|try
 block|{
-comment|// write the new index gen file with the indices included
 specifier|final
 name|RepositoryData
 name|updatedRepoData
@@ -2359,15 +2318,21 @@ argument_list|(
 name|indexToSnapshots
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|isReadOnly
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// write the new index gen file with the indices included
 name|writeIndexGen
 argument_list|(
 name|updatedRepoData
 argument_list|)
 expr_stmt|;
-name|indexGenChecked
-operator|=
-literal|true
-expr_stmt|;
+block|}
 return|return
 name|updatedRepoData
 return|;
@@ -4120,20 +4085,24 @@ block|{
 name|RepositoryData
 name|repositoryData
 init|=
-name|updateIndexGenIfNecessary
+name|readIndexGen
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|repositoryData
-operator|==
-literal|null
+operator|.
+name|isLegacyFormat
+argument_list|()
 condition|)
 block|{
+comment|// pre 5.0 repository data needs to be updated to include the indices
 name|repositoryData
 operator|=
-name|readIndexGen
-argument_list|()
+name|upgradeRepositoryData
+argument_list|(
+name|repositoryData
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -4463,6 +4432,10 @@ specifier|final
 name|String
 name|snapshotsIndexBlobName
 decl_stmt|;
+specifier|final
+name|boolean
+name|legacyFormat
+decl_stmt|;
 if|if
 condition|(
 name|indexGen
@@ -4477,6 +4450,10 @@ name|snapshotsIndexBlobName
 operator|=
 name|SNAPSHOTS_FILE
 expr_stmt|;
+name|legacyFormat
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -4490,6 +4467,10 @@ name|toString
 argument_list|(
 name|indexGen
 argument_list|)
+expr_stmt|;
+name|legacyFormat
+operator|=
+literal|false
 expr_stmt|;
 block|}
 try|try
@@ -4543,6 +4524,8 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
+argument_list|,
+name|legacyFormat
 argument_list|)
 return|;
 block|}
