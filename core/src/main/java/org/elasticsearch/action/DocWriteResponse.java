@@ -972,6 +972,13 @@ operator|.
 name|getLowercase
 argument_list|()
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|forcedRefresh
+condition|)
+block|{
+name|builder
 operator|.
 name|field
 argument_list|(
@@ -980,6 +987,7 @@ argument_list|,
 name|forcedRefresh
 argument_list|)
 expr_stmt|;
+block|}
 name|shardInfo
 operator|.
 name|toXContent
