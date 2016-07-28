@@ -287,6 +287,15 @@ name|getEntity
 argument_list|()
 return|;
 block|}
+DECL|method|getHttpResponse
+name|HttpResponse
+name|getHttpResponse
+parameter_list|()
+block|{
+return|return
+name|response
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString
