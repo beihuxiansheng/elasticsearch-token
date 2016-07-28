@@ -611,6 +611,13 @@ operator|.
 name|all
 argument_list|()
 expr_stmt|;
+name|indicesStatsRequest
+operator|.
+name|indices
+argument_list|(
+name|indices
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|admin
