@@ -1697,7 +1697,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|normalized
+name|sValue
 operator|.
 name|endsWith
 argument_list|(
@@ -1705,6 +1705,9 @@ literal|"m"
 argument_list|)
 condition|)
 block|{
+comment|// parsing minutes should be case sensitive as `M` is generally
+comment|// accepted to mean months not minutes. This is the only case where
+comment|// the upper and lower case forms indicate different time units
 return|return
 operator|new
 name|TimeValue
