@@ -74,18 +74,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|util
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -107,18 +95,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|SDKGlobalConfiguration
-operator|.
-name|ACCESS_KEY_SYSTEM_PROPERTY
 import|;
 end_import
 
