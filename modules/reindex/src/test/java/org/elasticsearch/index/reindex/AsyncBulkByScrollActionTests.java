@@ -5687,7 +5687,11 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 argument_list|,
-literal|true
+name|DocWriteResponse
+operator|.
+name|Operation
+operator|.
+name|CREATE
 argument_list|)
 expr_stmt|;
 block|}

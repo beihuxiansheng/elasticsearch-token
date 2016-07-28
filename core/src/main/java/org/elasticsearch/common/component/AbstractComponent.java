@@ -84,6 +84,18 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|Node
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -202,13 +214,13 @@ name|nodeName
 parameter_list|()
 block|{
 return|return
-name|settings
+name|Node
+operator|.
+name|NODE_NAME_SETTING
 operator|.
 name|get
 argument_list|(
-literal|"node.name"
-argument_list|,
-literal|""
+name|settings
 argument_list|)
 return|;
 block|}

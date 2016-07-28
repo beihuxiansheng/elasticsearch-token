@@ -279,16 +279,6 @@ name|getMessage
 argument_list|()
 expr_stmt|;
 block|}
-name|threadContext
-operator|.
-name|copyHeaders
-argument_list|(
-name|request
-operator|.
-name|headers
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
 comment|// when reading, or using a cumalation buffer
 name|Netty3HttpRequest

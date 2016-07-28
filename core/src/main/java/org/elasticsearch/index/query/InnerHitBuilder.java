@@ -250,9 +250,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|fielddata
+name|docvalues
 operator|.
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 import|;
 end_import
 
@@ -266,9 +266,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|fielddata
+name|docvalues
 operator|.
-name|FieldDataFieldsFetchSubPhase
+name|DocValueFieldsFetchSubPhase
 import|;
 end_import
 
@@ -3203,14 +3203,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|FieldDataFieldsContext
-name|fieldDataFieldsContext
+name|DocValueFieldsContext
+name|docValueFieldsContext
 init|=
 name|innerHitsContext
 operator|.
 name|getFetchSubPhaseContext
 argument_list|(
-name|FieldDataFieldsFetchSubPhase
+name|DocValueFieldsFetchSubPhase
 operator|.
 name|CONTEXT_FACTORY
 argument_list|)
@@ -3223,21 +3223,21 @@ range|:
 name|docValueFields
 control|)
 block|{
-name|fieldDataFieldsContext
+name|docValueFieldsContext
 operator|.
 name|add
 argument_list|(
 operator|new
-name|FieldDataFieldsContext
+name|DocValueFieldsContext
 operator|.
-name|FieldDataField
+name|DocValueField
 argument_list|(
 name|field
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|fieldDataFieldsContext
+name|docValueFieldsContext
 operator|.
 name|setHitExecutionNeeded
 argument_list|(

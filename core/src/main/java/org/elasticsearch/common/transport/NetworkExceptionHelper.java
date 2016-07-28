@@ -207,6 +207,23 @@ return|return
 literal|true
 return|;
 block|}
+if|if
+condition|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Socket closed"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 return|return
 literal|false

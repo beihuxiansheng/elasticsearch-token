@@ -356,7 +356,7 @@ name|id
 operator|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 expr_stmt|;
 name|verbose
@@ -396,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|id
 argument_list|)

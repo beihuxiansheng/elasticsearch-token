@@ -1016,6 +1016,11 @@ argument_list|,
 name|forcedRefresh
 lambda|->
 block|{
+if|if
+condition|(
+name|forcedRefresh
+condition|)
+block|{
 name|logger
 operator|.
 name|warn
@@ -1025,6 +1030,7 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
+block|}
 name|respond
 operator|.
 name|respondAfterAsyncAction

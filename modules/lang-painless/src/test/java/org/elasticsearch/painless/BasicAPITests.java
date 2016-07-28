@@ -291,6 +291,8 @@ argument_list|(
 literal|"ctx._source['load'].5 = ctx._source['load'].remove('load5')"
 argument_list|,
 name|params
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

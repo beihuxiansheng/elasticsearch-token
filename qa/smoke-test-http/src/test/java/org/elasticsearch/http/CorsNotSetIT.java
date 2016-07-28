@@ -53,6 +53,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -90,15 +100,13 @@ name|void
 name|testCorsSettingDefaultBehaviourDoesNotReturnAnything
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|corsValue
 init|=
 literal|"http://localhost:9200"
 decl_stmt|;
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -127,8 +135,7 @@ argument_list|,
 name|corsValue
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -172,17 +179,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 DECL|method|testThatOmittingCorsHeaderDoesNotReturnAnything
 specifier|public
 name|void
 name|testThatOmittingCorsHeaderDoesNotReturnAnything
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -195,8 +199,7 @@ literal|"GET"
 argument_list|,
 literal|"/"
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -239,7 +242,6 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

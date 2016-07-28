@@ -238,6 +238,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1288,13 +1300,13 @@ argument_list|)
 expr_stmt|;
 name|nodeName
 operator|=
-name|settings
+name|Node
+operator|.
+name|NODE_NAME_SETTING
 operator|.
 name|get
 argument_list|(
-literal|"node.name"
-argument_list|,
-literal|""
+name|settings
 argument_list|)
 expr_stmt|;
 name|this

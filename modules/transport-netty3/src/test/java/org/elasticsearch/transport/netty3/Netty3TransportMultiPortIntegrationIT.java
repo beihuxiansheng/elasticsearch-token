@@ -567,7 +567,9 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-literal|"netty3"
+name|Netty3Plugin
+operator|.
+name|NETTY_TRANSPORT_NAME
 argument_list|)
 operator|.
 name|put

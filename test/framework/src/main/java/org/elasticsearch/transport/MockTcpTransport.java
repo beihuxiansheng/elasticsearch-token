@@ -1009,6 +1009,7 @@ argument_list|(
 name|buffer
 argument_list|)
 expr_stmt|;
+specifier|final
 name|BytesReference
 name|bytes
 init|=
@@ -1019,6 +1020,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|TcpTransport
+operator|.
 name|validateMessageHeader
 argument_list|(
 name|bytes

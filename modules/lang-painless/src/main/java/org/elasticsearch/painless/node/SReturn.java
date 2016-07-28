@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Location
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
 name|Globals
 import|;
 end_import
@@ -49,6 +37,18 @@ operator|.
 name|painless
 operator|.
 name|Locals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Location
 import|;
 end_import
 
@@ -98,6 +98,7 @@ extends|extends
 name|AStatement
 block|{
 DECL|field|expression
+specifier|private
 name|AExpression
 name|expression
 decl_stmt|;

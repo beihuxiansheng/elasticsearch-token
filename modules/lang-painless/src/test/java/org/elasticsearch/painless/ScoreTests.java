@@ -173,6 +173,8 @@ literal|2.5f
 return|;
 block|}
 block|}
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -223,6 +225,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -290,6 +294,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

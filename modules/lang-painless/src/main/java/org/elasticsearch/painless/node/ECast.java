@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an implicit cast in most cases, though it will replace  * explicit casts in the tree for simplicity.  (Internal only.)  */
+comment|/**  * Represents a cast that is inserted into the tree replacing other casts.  (Internal only.)  */
 end_comment
 
 begin_class
@@ -110,20 +110,16 @@ name|ECast
 extends|extends
 name|AExpression
 block|{
-DECL|field|type
-specifier|final
-name|String
-name|type
-decl_stmt|;
 DECL|field|child
+specifier|private
 name|AExpression
 name|child
 decl_stmt|;
 DECL|field|cast
+specifier|private
+specifier|final
 name|Cast
 name|cast
-init|=
-literal|null
 decl_stmt|;
 DECL|method|ECast
 name|ECast
@@ -142,12 +138,6 @@ name|super
 argument_list|(
 name|location
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|type
-operator|=
-literal|null
 expr_stmt|;
 name|this
 operator|.
@@ -185,13 +175,13 @@ argument_list|>
 name|variables
 parameter_list|)
 block|{
-name|child
-operator|.
-name|extractVariables
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-name|variables
+literal|"Illegal tree structure."
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 annotation|@
 name|Override
@@ -248,15 +238,6 @@ operator|.
 name|writeCast
 argument_list|(
 name|cast
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|writeBranch
-argument_list|(
-name|tru
-argument_list|,
-name|fals
 argument_list|)
 expr_stmt|;
 block|}

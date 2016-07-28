@@ -110,6 +110,7 @@ extends|extends
 name|AExpression
 block|{
 DECL|field|value
+specifier|private
 specifier|final
 name|String
 name|value
@@ -165,6 +166,27 @@ name|Locals
 name|locals
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|read
+condition|)
+block|{
+throw|throw
+name|createError
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Must read from constant ["
+operator|+
+name|value
+operator|+
+literal|"]."
+argument_list|)
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|value

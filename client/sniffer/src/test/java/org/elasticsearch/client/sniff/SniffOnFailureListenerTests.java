@@ -163,6 +163,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|RestClient
 name|restClient
 init|=
@@ -181,7 +183,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 try|try
 init|(
 name|Sniffer
@@ -192,7 +195,10 @@ operator|.
 name|builder
 argument_list|(
 name|restClient
-argument_list|,
+argument_list|)
+operator|.
+name|setHostsSniffer
+argument_list|(
 operator|new
 name|MockHostsSniffer
 argument_list|()
@@ -254,6 +260,7 @@ literal|9200
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

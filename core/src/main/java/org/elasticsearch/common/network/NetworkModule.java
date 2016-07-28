@@ -40,20 +40,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|routing
 operator|.
 name|allocation
@@ -672,7 +658,7 @@ specifier|final
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 decl_stmt|;
-comment|/**      * Creates a network module that custom networking classes can be plugged into.      *      * @param networkService A constructed network service object to bind.      * @param settings The settings for the node      * @param transportClient True if only transport classes should be allowed to be registered, false otherwise.      * @param namedWriteableRegistry registry for named writeables for use during streaming      */
+comment|/**      * Creates a network module that custom networking classes can be plugged into.      *  @param networkService A constructed network service object to bind.      * @param settings The settings for the node      * @param transportClient True if only transport classes should be allowed to be registered, false otherwise.      * @param namedWriteableRegistry registry for named writeables for use during streaming      */
 DECL|method|NetworkModule
 specifier|public
 name|NetworkModule

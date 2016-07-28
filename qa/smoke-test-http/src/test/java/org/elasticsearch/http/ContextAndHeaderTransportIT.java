@@ -432,6 +432,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1756,7 +1766,7 @@ name|void
 name|testThatRelevantHttpHeadersBecomeRequestHeaders
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 specifier|final
 name|String
@@ -1764,8 +1774,6 @@ name|IRRELEVANT_HEADER
 init|=
 literal|"SomeIrrelevantHeader"
 decl_stmt|;
-try|try
-init|(
 name|Response
 name|response
 init|=
@@ -1798,8 +1806,7 @@ argument_list|,
 name|randomHeaderValue
 argument_list|)
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|response
@@ -1885,7 +1892,6 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getRequests

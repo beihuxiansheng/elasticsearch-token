@@ -360,6 +360,8 @@ literal|"bogusParameterValue"
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -645,6 +647,8 @@ block|{
 name|exec
 argument_list|(
 literal|"try { int x; } catch (PainlessError error) {}"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|fail
@@ -987,6 +991,8 @@ name|emptyMap
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -994,7 +1000,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"invalid sequence of tokens near ['}']."
+literal|"unexpected token ['}'] was expecting one of [<EOF>]."
 argument_list|,
 name|e
 operator|.

@@ -134,7 +134,9 @@ name|String
 argument_list|>
 name|variables
 parameter_list|)
-block|{}
+block|{
+comment|// Do nothing.
+block|}
 annotation|@
 name|Override
 DECL|method|analyze
@@ -145,6 +147,27 @@ name|Locals
 name|locals
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|read
+condition|)
+block|{
+throw|throw
+name|createError
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Must read from constant ["
+operator|+
+name|constant
+operator|+
+literal|"]."
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|actual
 operator|=
 name|Definition
