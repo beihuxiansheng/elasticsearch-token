@@ -976,6 +976,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|//test a non repeatable entity
 name|entity
 operator|=
 operator|new
