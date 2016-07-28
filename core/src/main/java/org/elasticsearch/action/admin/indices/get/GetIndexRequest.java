@@ -644,21 +644,6 @@ return|return
 name|features
 return|;
 block|}
-comment|/**      * @deprecated use {@link #features()} instead      */
-annotation|@
-name|Deprecated
-DECL|method|featuresAsEnums
-specifier|public
-name|Feature
-index|[]
-name|featuresAsEnums
-parameter_list|()
-block|{
-return|return
-name|features
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|validate

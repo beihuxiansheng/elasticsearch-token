@@ -656,10 +656,6 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|alias
-operator|.
-name|delete
-operator|.
 name|AliasesNotFoundException
 import|;
 end_import
@@ -7497,10 +7493,6 @@ operator|.
 name|admin
 operator|.
 name|indices
-operator|.
-name|alias
-operator|.
-name|delete
 operator|.
 name|AliasesNotFoundException
 operator|.
