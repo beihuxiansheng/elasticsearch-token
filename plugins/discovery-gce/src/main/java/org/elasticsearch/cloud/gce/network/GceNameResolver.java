@@ -28,7 +28,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeService
+name|GceMetadataService
 import|;
 end_import
 
@@ -108,6 +108,16 @@ name|InetAddress
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
 begin_comment
 comment|/**  *<p>Resolves certain GCE related 'meta' hostnames into an actual hostname  * obtained from gce meta-data.</p>  * Valid config values for {@link GceAddressResolverType}s are -  *<ul>  *<li>_gce_ - maps to privateIp</li>  *<li>_gce:privateIp_</li>  *<li>_gce:hostname_</li>  *</ul>  */
 end_comment
@@ -122,11 +132,11 @@ name|AbstractComponent
 implements|implements
 name|CustomNameResolver
 block|{
-DECL|field|gceComputeService
+DECL|field|gceMetadataService
 specifier|private
 specifier|final
-name|GceComputeService
-name|gceComputeService
+name|GceMetadataService
+name|gceMetadataService
 decl_stmt|;
 comment|/**      * enum that can be added to over time with more meta-data types      */
 DECL|enum|GceAddressResolverType
@@ -205,8 +215,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|GceComputeService
-name|gceComputeService
+name|GceMetadataService
+name|gceMetadataService
 parameter_list|)
 block|{
 name|super
@@ -216,9 +226,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|gceComputeService
+name|gceMetadataService
 operator|=
-name|gceComputeService
+name|gceMetadataService
 expr_stmt|;
 block|}
 comment|/**      * @param value the gce hostname type to discover.      * @return the appropriate host resolved from gce meta-data.      * @see CustomNameResolver#resolveIfPossible(String)      */
@@ -329,10 +339,6 @@ decl_stmt|;
 if|if
 condition|(
 name|privateIpConfig
-operator|!=
-literal|null
-operator|&&
-name|privateIpConfig
 operator|.
 name|length
 operator|==
@@ -387,7 +393,7 @@ block|{
 name|String
 name|metadataResult
 init|=
-name|gceComputeService
+name|gceMetadataService
 operator|.
 name|metadata
 argument_list|(
@@ -442,6 +448,8 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
+decl||
+name|URISyntaxException
 name|e
 parameter_list|)
 block|{

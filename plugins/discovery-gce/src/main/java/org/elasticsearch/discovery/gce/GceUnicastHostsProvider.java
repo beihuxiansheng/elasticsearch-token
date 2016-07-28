@@ -90,7 +90,7 @@ name|cloud
 operator|.
 name|gce
 operator|.
-name|GceComputeService
+name|GceInstancesService
 import|;
 end_import
 
@@ -439,11 +439,11 @@ init|=
 literal|"TERMINATED"
 decl_stmt|;
 block|}
-DECL|field|gceComputeService
+DECL|field|gceInstancesService
 specifier|private
 specifier|final
-name|GceComputeService
-name|gceComputeService
+name|GceInstancesService
+name|gceInstancesService
 decl_stmt|;
 DECL|field|transportService
 specifier|private
@@ -507,8 +507,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|GceComputeService
-name|gceComputeService
+name|GceInstancesService
+name|gceInstancesService
 parameter_list|,
 name|TransportService
 name|transportService
@@ -524,9 +524,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|gceComputeService
+name|gceInstancesService
 operator|=
-name|gceComputeService
+name|gceInstancesService
 expr_stmt|;
 name|this
 operator|.
@@ -544,7 +544,7 @@ name|this
 operator|.
 name|refreshInterval
 operator|=
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|REFRESH_SETTING
 operator|.
@@ -557,7 +557,7 @@ name|this
 operator|.
 name|project
 operator|=
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -570,7 +570,7 @@ name|this
 operator|.
 name|zones
 operator|=
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -661,7 +661,7 @@ literal|"one or more gce discovery settings are missing. "
 operator|+
 literal|"Check elasticsearch.yml file. Should have ["
 operator|+
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|PROJECT_SETTING
 operator|.
@@ -670,7 +670,7 @@ argument_list|()
 operator|+
 literal|"] and ["
 operator|+
-name|GceComputeService
+name|GceInstancesService
 operator|.
 name|ZONE_SETTING
 operator|.
@@ -813,7 +813,7 @@ name|Instance
 argument_list|>
 name|instances
 init|=
-name|gceComputeService
+name|gceInstancesService
 operator|.
 name|instances
 argument_list|()

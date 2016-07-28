@@ -348,26 +348,11 @@ name|AwsEc2ServiceImpl
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|NetworkService
-name|networkService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|)
-expr_stmt|;
-comment|// add specific ec2 name resolver
-name|networkService
-operator|.
-name|addCustomNameResolver
-argument_list|(
-operator|new
-name|Ec2NameResolver
-argument_list|(
-name|settings
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
