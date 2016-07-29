@@ -287,9 +287,6 @@ name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|List
-argument_list|<
-name|String
-argument_list|>
 name|result
 init|=
 name|ingestDocument
@@ -1415,6 +1412,11 @@ argument_list|(
 name|ingestDocument
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|List
 argument_list|<
 name|String
@@ -1612,9 +1614,6 @@ name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|List
-argument_list|<
-name|Object
-argument_list|>
 name|result
 init|=
 name|ingestDocument
@@ -1674,9 +1673,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|List
-argument_list|<
-name|String
-argument_list|>
 name|errors
 init|=
 name|ingestDocument
@@ -1846,9 +1842,6 @@ name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|List
-argument_list|<
-name|String
-argument_list|>
 name|result
 init|=
 name|ingestDocument
@@ -2123,9 +2116,6 @@ name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|List
-argument_list|<
-name|String
-argument_list|>
 name|result
 init|=
 name|ingestDocument
