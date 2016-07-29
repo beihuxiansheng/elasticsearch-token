@@ -24,8 +24,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|support
-operator|.
 name|RestUtils
 import|;
 end_import

@@ -368,10 +368,6 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|tasks
-operator|.
 name|RestListTasksAction
 operator|.
 name|generateListTasksRequest

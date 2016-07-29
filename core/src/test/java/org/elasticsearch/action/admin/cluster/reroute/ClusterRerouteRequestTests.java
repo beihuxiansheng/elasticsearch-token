@@ -350,8 +350,6 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|reroute
-operator|.
 name|RestClusterRerouteAction
 import|;
 end_import

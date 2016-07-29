@@ -582,11 +582,7 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|repositories
-operator|.
-name|get
-operator|.
-name|RestGetRepositoriesAction
+name|RestClusterStateAction
 import|;
 end_import
 
@@ -604,9 +600,7 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|state
-operator|.
-name|RestClusterStateAction
+name|RestGetRepositoriesAction
 import|;
 end_import
 

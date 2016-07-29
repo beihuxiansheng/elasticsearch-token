@@ -82,8 +82,6 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|storedscripts
-operator|.
 name|RestDeleteStoredScriptAction
 import|;
 end_import
