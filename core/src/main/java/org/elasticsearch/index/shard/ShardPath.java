@@ -1090,8 +1090,9 @@ name|BigInteger
 operator|.
 name|valueOf
 argument_list|(
-operator|-
-literal|1
+name|Long
+operator|.
+name|MIN_VALUE
 argument_list|)
 decl_stmt|;
 for|for
@@ -1178,6 +1179,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|bestPath
+operator|==
+literal|null
+operator|||
 name|usableBytes
 operator|.
 name|compareTo
