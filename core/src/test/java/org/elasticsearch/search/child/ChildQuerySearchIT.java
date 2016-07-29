@@ -3513,9 +3513,7 @@ name|previousParentId
 argument_list|,
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -21354,10 +21352,10 @@ literal|"parent-id"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testHighlighersIgnoreParentChild
+DECL|method|testHighlightersIgnoreParentChild
 specifier|public
 name|void
-name|testHighlighersIgnoreParentChild
+name|testHighlightersIgnoreParentChild
 parameter_list|()
 block|{
 name|assertAcked
