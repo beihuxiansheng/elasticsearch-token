@@ -4090,6 +4090,163 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|testAggsParsing
+specifier|public
+name|void
+name|testAggsParsing
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+block|{
+name|String
+name|restContent
+init|=
+literal|"{\n"
+operator|+
+literal|"    "
+operator|+
+literal|"\"aggs\": {"
+operator|+
+literal|"        \"test_agg\": {\n"
+operator|+
+literal|"            "
+operator|+
+literal|"\"terms\" : {\n"
+operator|+
+literal|"                \"field\": \"foo\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+try|try
+init|(
+name|XContentParser
+name|parser
+init|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|restContent
+argument_list|)
+operator|.
+name|createParser
+argument_list|(
+name|restContent
+argument_list|)
+init|)
+block|{
+name|SearchSourceBuilder
+name|searchSourceBuilder
+init|=
+name|SearchSourceBuilder
+operator|.
+name|fromXContent
+argument_list|(
+name|createParseContext
+argument_list|(
+name|parser
+argument_list|)
+argument_list|,
+name|aggParsers
+argument_list|,
+name|suggesters
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|searchSourceBuilder
+operator|.
+name|aggregations
+argument_list|()
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|{
+name|String
+name|restContent
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"aggregations\": {"
+operator|+
+literal|"        \"test_agg\": {\n"
+operator|+
+literal|"            \"terms\" : {\n"
+operator|+
+literal|"                \"field\": \"foo\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+try|try
+init|(
+name|XContentParser
+name|parser
+init|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|restContent
+argument_list|)
+operator|.
+name|createParser
+argument_list|(
+name|restContent
+argument_list|)
+init|)
+block|{
+name|SearchSourceBuilder
+name|searchSourceBuilder
+init|=
+name|SearchSourceBuilder
+operator|.
+name|fromXContent
+argument_list|(
+name|createParseContext
+argument_list|(
+name|parser
+argument_list|)
+argument_list|,
+name|aggParsers
+argument_list|,
+name|suggesters
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|searchSourceBuilder
+operator|.
+name|aggregations
+argument_list|()
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      * test that we can parse the `rescore` element either as single object or as array      */
 DECL|method|testParseRescore
 specifier|public
