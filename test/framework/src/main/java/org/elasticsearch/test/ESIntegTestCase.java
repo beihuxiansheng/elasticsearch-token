@@ -148,6 +148,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|DocWriteResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|DiscoveryModule
@@ -8667,7 +8679,7 @@ range|:
 name|bogusIds
 control|)
 block|{
-name|assertTrue
+name|assertEquals
 argument_list|(
 literal|"failed to delete a dummy doc ["
 operator|+
@@ -8684,6 +8696,12 @@ name|v2
 argument_list|()
 operator|+
 literal|"]"
+argument_list|,
+name|DocWriteResponse
+operator|.
+name|Operation
+operator|.
+name|DELETE
 argument_list|,
 name|client
 argument_list|()
@@ -8706,7 +8724,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|isFound
+name|getOperation
 argument_list|()
 argument_list|)
 expr_stmt|;

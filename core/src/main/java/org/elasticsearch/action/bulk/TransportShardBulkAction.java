@@ -2059,7 +2059,7 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|UPSERT
+name|CREATE
 case|:
 case|case
 name|INDEX
@@ -2419,7 +2419,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|NONE
+name|NOOP
 case|:
 name|setResponse
 argument_list|(
@@ -2675,7 +2675,7 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|UPSERT
+name|CREATE
 case|:
 case|case
 name|INDEX
@@ -3235,7 +3235,7 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|UPSERT
+name|CREATE
 case|:
 case|case
 name|INDEX
@@ -3419,7 +3419,7 @@ argument_list|)
 return|;
 block|}
 case|case
-name|NONE
+name|NOOP
 case|:
 name|UpdateResponse
 name|updateResponse

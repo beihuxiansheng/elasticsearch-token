@@ -46,6 +46,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|DocWriteResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|get
 operator|.
 name|GetResponse
@@ -3147,17 +3159,17 @@ argument_list|(
 name|timeout
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"doc ["
-operator|+
-name|id
-operator|+
-literal|"] should have been created"
+name|DocWriteResponse
+operator|.
+name|Operation
+operator|.
+name|CREATE
 argument_list|,
 name|response
 operator|.
-name|isCreated
+name|getOperation
 argument_list|()
 argument_list|)
 expr_stmt|;

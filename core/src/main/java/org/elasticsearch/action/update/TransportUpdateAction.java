@@ -1376,7 +1376,7 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|UPSERT
+name|CREATE
 case|:
 name|IndexRequest
 name|upsertRequest
@@ -2165,7 +2165,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|NONE
+name|NOOP
 case|:
 name|UpdateResponse
 name|update
