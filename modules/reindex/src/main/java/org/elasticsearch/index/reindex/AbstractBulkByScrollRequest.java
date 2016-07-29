@@ -409,16 +409,6 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|version
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|source
-operator|.
-name|source
-argument_list|()
-operator|.
 name|size
 argument_list|(
 name|DEFAULT_SCROLL_SIZE

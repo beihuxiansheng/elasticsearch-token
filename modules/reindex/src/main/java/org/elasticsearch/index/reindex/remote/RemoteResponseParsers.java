@@ -424,11 +424,11 @@ name|i
 operator|++
 index|]
 decl_stmt|;
-name|long
+name|Long
 name|version
 init|=
 operator|(
-name|long
+name|Long
 operator|)
 name|a
 index|[
@@ -446,6 +446,13 @@ name|type
 argument_list|,
 name|id
 argument_list|,
+name|version
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
 name|version
 argument_list|)
 return|;
@@ -500,7 +507,7 @@ name|HIT_PARSER
 operator|.
 name|declareLong
 argument_list|(
-name|constructorArg
+name|optionalConstructorArg
 argument_list|()
 argument_list|,
 operator|new

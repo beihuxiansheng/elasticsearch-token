@@ -647,6 +647,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|needsSourceDocumentVersions
+specifier|protected
+name|boolean
+name|needsSourceDocumentVersions
+parameter_list|()
+block|{
+comment|/*              * We always need the version of the source document so we can report a version conflict if we try to delete it and it has been              * changed.              */
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|buildScriptApplier
 specifier|protected
 name|BiFunction
