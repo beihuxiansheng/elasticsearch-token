@@ -4072,9 +4072,7 @@ argument_list|,
 name|fieldsBoosts
 argument_list|)
 decl_stmt|;
-name|Query
-name|query
-init|=
+return|return
 name|multiMatchQuery
 operator|.
 name|parse
@@ -4087,9 +4085,6 @@ name|value
 argument_list|,
 name|minimumShouldMatch
 argument_list|)
-decl_stmt|;
-return|return
-name|query
 return|;
 block|}
 DECL|method|handleFieldsMatchPattern
