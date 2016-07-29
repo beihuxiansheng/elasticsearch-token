@@ -281,7 +281,7 @@ name|RepositoriesModule
 name|repositoriesModule
 parameter_list|)
 block|{     }
-comment|/**      * Module decalaring some example configuration and a _cat action that uses      * it.      */
+comment|/**      * Module declaring some example configuration and a _cat action that uses      * it.      */
 DECL|class|ConfiguredExampleModule
 specifier|public
 specifier|static
