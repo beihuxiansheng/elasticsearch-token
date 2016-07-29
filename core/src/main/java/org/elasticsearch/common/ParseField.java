@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds a field that can be found in a request while parsing and its different variants, which may be deprecated.  */
+comment|/**  * Holds a field that can be found in a request while parsing and its different  * variants, which may be deprecated.  */
 end_comment
 
 begin_class
@@ -129,6 +129,7 @@ name|String
 index|[]
 name|allNames
 decl_stmt|;
+comment|/**      * @param name      *            the primary name for this field. This will be returned by      *            {@link #getPreferredName()}      * @param deprecatedNames      *            names for this field which are deprecated and will not be      *            accepted when strict matching is used.      */
 DECL|method|ParseField
 specifier|public
 name|ParseField
@@ -259,6 +260,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @return the preferred name used for this field      */
 DECL|method|getPreferredName
 specifier|public
 name|String
@@ -269,6 +271,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * @return All names for this field regardless of whether they are      *         deprecated      */
 DECL|method|getAllNamesIncludedDeprecated
 specifier|public
 name|String
@@ -280,6 +283,7 @@ return|return
 name|allNames
 return|;
 block|}
+comment|/**      * @param deprecatedNames      *            deprecated names to include with the returned      *            {@link ParseField}      * @return a new {@link ParseField} using the preferred name from this one      *         but with the specified deprecated names      */
 DECL|method|withDeprecation
 specifier|public
 name|ParseField
@@ -302,7 +306,7 @@ name|deprecatedNames
 argument_list|)
 return|;
 block|}
-comment|/**      * Return a new ParseField where all field names are deprecated and replaced with {@code allReplacedWith}.      */
+comment|/**      * Return a new ParseField where all field names are deprecated and replaced      * with {@code allReplacedWith}.      */
 DECL|method|withAllDeprecated
 specifier|public
 name|ParseField
@@ -333,24 +337,27 @@ return|return
 name|parseField
 return|;
 block|}
+comment|/**      * @param fieldName      *            the field name to match against this {@link ParseField}      * @param strict      *            if true an exception will be thrown if a deprecated field name      *            is given. If false the deprecated name will be matched but a      *            message will also be logged to the {@link DeprecationLogger}      * @return true if<code>fieldName</code> matches any of the acceptable      *         names for this {@link ParseField}.      */
 DECL|method|match
 name|boolean
 name|match
 parameter_list|(
 name|String
-name|currentFieldName
+name|fieldName
 parameter_list|,
 name|boolean
 name|strict
 parameter_list|)
 block|{
+comment|// if this parse field has not been completely deprecated then try to
+comment|// match the preferred name
 if|if
 condition|(
 name|allReplacedWith
 operator|==
 literal|null
 operator|&&
-name|currentFieldName
+name|fieldName
 operator|.
 name|equals
 argument_list|(
@@ -362,6 +369,9 @@ return|return
 literal|true
 return|;
 block|}
+comment|// Now try to match against one of the deprecated names. Note that if
+comment|// the parse field is entirely deprecated (allReplacedWith != null) all
+comment|// fields will be in the deprecatedNames array
 name|String
 name|msg
 decl_stmt|;
@@ -375,7 +385,7 @@ control|)
 block|{
 if|if
 condition|(
-name|currentFieldName
+name|fieldName
 operator|.
 name|equals
 argument_list|(
@@ -387,7 +397,7 @@ name|msg
 operator|=
 literal|"Deprecated field ["
 operator|+
-name|currentFieldName
+name|fieldName
 operator|+
 literal|"] used, expected ["
 operator|+
@@ -402,11 +412,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// If the field is entirely deprecated then there is no
+comment|// preferred name so instead use the `allReplaceWith`
+comment|// message to indicate what should be used instead
 name|msg
 operator|=
 literal|"Deprecated field ["
 operator|+
-name|currentFieldName
+name|fieldName
 operator|+
 literal|"] used, replaced by ["
 operator|+
@@ -460,6 +473,7 @@ name|getPreferredName
 argument_list|()
 return|;
 block|}
+comment|/**      * @return the message to use if this {@link ParseField} has been entirely      *         deprecated in favor of something else. This method will return      *<code>null</code> if the ParseField has not been completely      *         deprecated.      */
 DECL|method|getAllReplacedWith
 specifier|public
 name|String
@@ -470,6 +484,7 @@ return|return
 name|allReplacedWith
 return|;
 block|}
+comment|/**      * @return an array of the names for the {@link ParseField} which are      *         deprecated.      */
 DECL|method|getDeprecatedNames
 specifier|public
 name|String
