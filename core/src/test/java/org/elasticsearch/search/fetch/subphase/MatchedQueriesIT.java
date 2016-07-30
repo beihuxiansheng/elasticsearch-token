@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.matchedqueries
+DECL|package|org.elasticsearch.search.fetch.subphase
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|matchedqueries
+name|fetch
+operator|.
+name|subphase
 package|;
 end_package
 

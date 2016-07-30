@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Context used to fetch the {@code _source}.  */
 end_comment
 
 begin_class

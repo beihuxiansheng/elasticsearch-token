@@ -306,22 +306,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|MatchQuery
-operator|.
-name|Type
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -363,60 +347,6 @@ operator|.
 name|builder
 operator|.
 name|SearchSourceBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
-name|subphase
-operator|.
-name|highlight
-operator|.
-name|HighlightBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
-name|subphase
-operator|.
-name|highlight
-operator|.
-name|HighlightField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
-name|subphase
-operator|.
-name|highlight
-operator|.
-name|HighlightUtils
 import|;
 end_import
 
@@ -2293,7 +2223,13 @@ name|setSource
 argument_list|(
 literal|"body"
 argument_list|,
-literal|"Test: http://www.facebook.com http://elasticsearch.org http://xing.com http://cnn.com http://quora.com http://twitter.com this is a test for highlighting feature Test: http://www.facebook.com http://elasticsearch.org http://xing.com http://cnn.com http://quora.com http://twitter.com this is a test for highlighting feature"
+literal|"Test: http://www.facebook.com http://elasticsearch.org http://xing.com "
+operator|+
+literal|"http://cnn.com http://quora.com http://twitter.com this is a test for highlighting feature Test: "
+operator|+
+literal|"http://www.facebook.com http://elasticsearch.org http://xing.com http://cnn.com http://quora.com "
+operator|+
+literal|"http://twitter.com this is a test for highlighting feature"
 argument_list|)
 operator|.
 name|get
@@ -2313,18 +2249,11 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|matchQuery
+name|matchPhraseQuery
 argument_list|(
 literal|"body"
 argument_list|,
 literal|"Test: http://www.facebook.com "
-argument_list|)
-operator|.
-name|type
-argument_list|(
-name|Type
-operator|.
-name|PHRASE
 argument_list|)
 argument_list|)
 operator|.
@@ -2372,18 +2301,17 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|matchQuery
+name|matchPhraseQuery
 argument_list|(
 literal|"body"
 argument_list|,
-literal|"Test: http://www.facebook.com http://elasticsearch.org http://xing.com http://cnn.com http://quora.com http://twitter.com this is a test for highlighting feature Test: http://www.facebook.com http://elasticsearch.org http://xing.com http://cnn.com http://quora.com http://twitter.com this is a test for highlighting feature"
-argument_list|)
-operator|.
-name|type
-argument_list|(
-name|Type
-operator|.
-name|PHRASE
+literal|"Test: http://www.facebook.com http://elasticsearch.org http://xing.com "
+operator|+
+literal|"http://cnn.com http://quora.com http://twitter.com this is a test for highlighting feature Test: "
+operator|+
+literal|"http://www.facebook.com http://elasticsearch.org http://xing.com http://cnn.com http://quora.com "
+operator|+
+literal|"http://twitter.com this is a test for highlighting feature"
 argument_list|)
 argument_list|)
 operator|.
@@ -2417,7 +2345,9 @@ literal|0
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"<em>Test</em>:<em>http://www.facebook.com</em><em>http://elasticsearch.org</em><em>http://xing.com</em><em>http://cnn.com</em> http://quora.com"
+literal|"<em>Test</em>:<em>http://www.facebook.com</em> "
+operator|+
+literal|"<em>http://elasticsearch.org</em><em>http://xing.com</em><em>http://cnn.com</em> http://quora.com"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2443,11 +2373,15 @@ literal|"test"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=text,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
+literal|"type=text,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,"
+operator|+
+literal|"term_vector=with_positions_offsets"
 argument_list|,
 literal|"name2"
 argument_list|,
-literal|"type=text,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
+literal|"type=text,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,"
+operator|+
+literal|"term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|setSettings
@@ -2919,7 +2853,9 @@ literal|"This is a test where foo is highlighed and should be highlighted"
 argument_list|,
 literal|"long_term"
 argument_list|,
-literal|"This is a test thisisaverylongwordandmakessurethisfails where foo is highlighed and should be highlighted"
+literal|"This is a test thisisaverylongwordandmakessurethisfails where foo is highlighed "
+operator|+
+literal|"and should be highlighted"
 argument_list|)
 operator|.
 name|get
@@ -2994,18 +2930,11 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|matchQuery
+name|matchPhraseQuery
 argument_list|(
 literal|"no_long_term"
 argument_list|,
 literal|"test foo highlighed"
-argument_list|)
-operator|.
-name|type
-argument_list|(
-name|Type
-operator|.
-name|PHRASE
 argument_list|)
 operator|.
 name|slop
@@ -3062,18 +2991,11 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|matchQuery
+name|matchPhraseQuery
 argument_list|(
 literal|"no_long_term"
 argument_list|,
 literal|"test foo highlighed"
-argument_list|)
-operator|.
-name|type
-argument_list|(
-name|Type
-operator|.
-name|PHRASE
 argument_list|)
 operator|.
 name|slop
@@ -4454,6 +4376,19 @@ literal|"type=text,store=false,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|String
+index|[]
+name|titles
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"This is a test on the highlighting bug present in elasticsearch"
+block|,
+literal|"The bug is bugging us"
+block|}
+decl_stmt|;
 name|indexRandom
 argument_list|(
 literal|false
@@ -4474,25 +4409,11 @@ name|setSource
 argument_list|(
 literal|"title"
 argument_list|,
-operator|new
-name|String
-index|[]
-block|{
-literal|"This is a test on the highlighting bug present in elasticsearch"
-block|,
-literal|"The bug is bugging us"
-block|}
+name|titles
 argument_list|,
 literal|"titleTV"
 argument_list|,
-operator|new
-name|String
-index|[]
-block|{
-literal|"This is a test on the highlighting bug present in elasticsearch"
-block|,
-literal|"The bug is bugging us"
-block|}
+name|titles
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11156,7 +11077,9 @@ name|BAD_REQUEST
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the field [title] should be indexed with term vector with position offsets to be used with fast vector highlighter"
+literal|"the field [title] should be indexed with term vector with position offsets to be "
+operator|+
+literal|"used with fast vector highlighter"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17800,11 +17723,15 @@ name|setSource
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|"The quick brown fox jumps over the lazy dog. The lazy red fox jumps over the quick dog. The quick brown dog jumps over the lazy fox."
+literal|"The quick brown fox jumps over the lazy dog. The lazy red fox jumps over the quick dog. "
+operator|+
+literal|"The quick brown dog jumps over the lazy fox."
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"The quick brown fox jumps over the lazy dog. The lazy red fox jumps over the quick dog. The quick brown dog jumps over the lazy fox."
+literal|"The quick brown fox jumps over the lazy dog. The lazy red fox jumps over the quick dog. "
+operator|+
+literal|"The quick brown dog jumps over the lazy fox."
 argument_list|)
 operator|.
 name|get
@@ -18085,7 +18012,11 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"The quick brown<field1>fox</field1> jumps over the lazy dog. The lazy red<field1>fox</field1> jumps over the quick dog. The quick brown dog jumps over the lazy<field1>fox</field1>."
+literal|"The quick brown<field1>fox</field1> jumps over the lazy dog. "
+operator|+
+literal|"The lazy red<field1>fox</field1> jumps over the quick dog. "
+operator|+
+literal|"The quick brown dog jumps over the lazy<field1>fox</field1>."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -18401,7 +18332,7 @@ name|highlighterType
 argument_list|)
 condition|)
 block|{
-comment|//phrase_prefix is not supported by postings highlighter, as it rewrites against an empty reader, the prefix will never match any term
+comment|/*                  * phrase_prefix is not supported by postings highlighter, as it rewrites against an empty reader, the prefix will never                  * match any term                  */
 name|supportedQueryTypes
 operator|=
 operator|new
@@ -18463,7 +18394,6 @@ argument_list|,
 name|supportedQueryTypes
 argument_list|)
 decl_stmt|;
-specifier|final
 name|MultiMatchQueryBuilder
 name|multiMatchQueryBuilder
 init|=
@@ -18648,11 +18578,17 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"This sentence contains one match, not that short. This sentence contains two sentence matches. This one contains no matches."
+literal|"This sentence contains one match, not that short. This sentence contains two sentence matches. "
+operator|+
+literal|"This one contains no matches."
 block|,
-literal|"This is the second value's first sentence. This one contains no matches. This sentence contains three sentence occurrences (sentence)."
+literal|"This is the second value's first sentence. This one contains no matches. "
+operator|+
+literal|"This sentence contains three sentence occurrences (sentence)."
 block|,
-literal|"One sentence match here and scored lower since the text is quite long, not that appealing. This one contains no matches."
+literal|"One sentence match here and scored lower since the text is quite long, not that appealing. "
+operator|+
+literal|"This one contains no matches."
 block|}
 argument_list|)
 operator|.
@@ -19816,7 +19752,9 @@ name|BAD_REQUEST
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the field [title] should be indexed with positions and offsets in the postings list to be used with postings highlighter"
+literal|"the field [title] should be indexed with positions and offsets in the "
+operator|+
+literal|"postings list to be used with postings highlighter"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19861,7 +19799,9 @@ name|BAD_REQUEST
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the field [title] should be indexed with positions and offsets in the postings list to be used with postings highlighter"
+literal|"the field [title] should be indexed with positions and offsets in the "
+operator|+
+literal|"postings list to be used with postings highlighter"
 argument_list|)
 argument_list|)
 expr_stmt|;

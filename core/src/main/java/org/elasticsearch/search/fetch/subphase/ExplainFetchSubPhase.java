@@ -70,20 +70,6 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
 name|SearchContext
 import|;
 end_import
@@ -113,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Explains the scoring calculations for the top hits.  */
 end_comment
 
 begin_class

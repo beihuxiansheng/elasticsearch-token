@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_comment
-comment|/**  * Search phase that fetches the top resutls from the shards after the results of the query phase have been merged. Pluggable by  * implementing {@link org.elasticsearch.search.fetch.FetchSubPhase} and  * {@link org.elasticsearch.plugins.SearchPlugin#getFetchSubPhases(org.elasticsearch.plugins.SearchPlugin.FetchPhaseConstructionContext)}.  */
+comment|/**  * Search phase that fetches the top hits from the shards after the results of the query phase have been merged. Pluggable by implementing  * {@link org.elasticsearch.search.fetch.FetchSubPhase} and  * {@link org.elasticsearch.plugins.SearchPlugin#getFetchSubPhases(org.elasticsearch.plugins.SearchPlugin.FetchPhaseConstructionContext)}.  */
 end_comment
 
 begin_package

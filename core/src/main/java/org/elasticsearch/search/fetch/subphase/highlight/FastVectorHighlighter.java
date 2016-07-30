@@ -585,7 +585,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we use top level reader to rewrite the query against all readers, with use caching it across hits (and across readers...)
+comment|/*                      * we use top level reader to rewrite the query against all readers, with use caching it across hits (and across                      * readers...)                      */
 name|cache
 operator|.
 name|fieldMatchFieldQuery
@@ -632,7 +632,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we use top level reader to rewrite the query against all readers, with use caching it across hits (and across readers...)
+comment|/*                      * we use top level reader to rewrite the query against all readers, with use caching it across hits (and across                      * readers...)                      */
 name|cache
 operator|.
 name|noFieldMatchFieldQuery
@@ -1591,21 +1591,6 @@ DECL|field|fragmentsBuilder
 specifier|public
 name|FragmentsBuilder
 name|fragmentsBuilder
-decl_stmt|;
-DECL|field|highlighter
-specifier|public
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|highlight
-operator|.
-name|Highlighter
-name|highlighter
 decl_stmt|;
 block|}
 DECL|class|HighlighterEntry

@@ -211,7 +211,9 @@ specifier|private
 name|HighlightUtils
 parameter_list|()
 block|{      }
+comment|/**      * Load field values for highlighting.      */
 DECL|method|loadFieldValues
+specifier|public
 specifier|static
 name|List
 argument_list|<
@@ -402,6 +404,7 @@ name|Encoders
 block|{
 DECL|field|DEFAULT
 specifier|static
+specifier|final
 name|Encoder
 name|DEFAULT
 init|=
@@ -411,6 +414,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|HTML
 specifier|static
+specifier|final
 name|Encoder
 name|HTML
 init|=
