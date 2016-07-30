@@ -337,8 +337,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
