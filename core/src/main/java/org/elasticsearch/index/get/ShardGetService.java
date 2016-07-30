@@ -456,9 +456,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|parent
+name|subphase
 operator|.
-name|ParentFieldSubFetchPhase
+name|FetchSourceContext
 import|;
 end_import
 
@@ -472,9 +472,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|source
+name|subphase
 operator|.
-name|FetchSourceContext
+name|ParentFieldSubFetchPhase
 import|;
 end_import
 

@@ -358,7 +358,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|innerhits
+name|subphase
 operator|.
 name|InnerHitsContext
 import|;

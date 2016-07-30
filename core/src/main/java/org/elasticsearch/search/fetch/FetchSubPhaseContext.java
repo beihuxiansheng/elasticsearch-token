@@ -26,7 +26,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|docvalues
+name|subphase
 operator|.
 name|DocValueFieldsContext
 import|;

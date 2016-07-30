@@ -244,7 +244,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+operator|.
+name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
 operator|.
 name|highlight
 operator|.
@@ -371,20 +389,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
-name|ScriptType
 import|;
 end_import
 

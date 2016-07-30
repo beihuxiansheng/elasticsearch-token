@@ -382,9 +382,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|innerhits
+name|subphase
 operator|.
-name|InnerHitsFetchSubPhase
+name|FetchSourceContext
 import|;
 end_import
 
@@ -398,9 +398,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|source
+name|subphase
 operator|.
-name|FetchSourceContext
+name|InnerHitsFetchSubPhase
 import|;
 end_import
 

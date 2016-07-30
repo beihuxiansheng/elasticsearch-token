@@ -306,7 +306,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|explain
+name|subphase
 operator|.
 name|ExplainFetchSubPhase
 import|;
@@ -319,6 +319,10 @@ operator|.
 name|elasticsearch
 operator|.
 name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
 operator|.
 name|highlight
 operator|.
@@ -334,6 +338,10 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|subphase
+operator|.
 name|highlight
 operator|.
 name|FastVectorHighlighter
@@ -347,6 +355,10 @@ operator|.
 name|elasticsearch
 operator|.
 name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
 operator|.
 name|highlight
 operator|.
@@ -362,6 +374,10 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|subphase
+operator|.
 name|highlight
 operator|.
 name|PlainHighlighter
@@ -375,6 +391,10 @@ operator|.
 name|elasticsearch
 operator|.
 name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
 operator|.
 name|highlight
 operator|.

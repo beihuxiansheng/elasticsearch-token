@@ -182,6 +182,10 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|subphase
+operator|.
 name|highlight
 operator|.
 name|HighlightBuilder

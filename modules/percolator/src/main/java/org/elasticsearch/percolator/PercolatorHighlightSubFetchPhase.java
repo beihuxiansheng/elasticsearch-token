@@ -236,6 +236,10 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|subphase
+operator|.
 name|highlight
 operator|.
 name|HighlightPhase
@@ -250,6 +254,10 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|subphase
+operator|.
 name|highlight
 operator|.
 name|Highlighter
@@ -263,6 +271,10 @@ operator|.
 name|elasticsearch
 operator|.
 name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
 operator|.
 name|highlight
 operator|.

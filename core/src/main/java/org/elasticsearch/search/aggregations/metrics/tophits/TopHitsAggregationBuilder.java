@@ -298,7 +298,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|source
+name|subphase
 operator|.
 name|FetchSourceContext
 import|;
@@ -311,6 +311,10 @@ operator|.
 name|elasticsearch
 operator|.
 name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
 operator|.
 name|highlight
 operator|.
