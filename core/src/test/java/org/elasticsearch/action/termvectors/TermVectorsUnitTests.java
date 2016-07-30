@@ -442,7 +442,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|termvectors
+name|document
 operator|.
 name|RestTermVectorsAction
 import|;

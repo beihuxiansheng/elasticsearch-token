@@ -242,8 +242,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestResponseListener
 import|;
 end_import

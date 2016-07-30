@@ -280,8 +280,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestActions
 import|;
 end_import
@@ -295,8 +293,6 @@ operator|.
 name|rest
 operator|.
 name|action
-operator|.
-name|support
 operator|.
 name|RestStatusToXContentListener
 import|;

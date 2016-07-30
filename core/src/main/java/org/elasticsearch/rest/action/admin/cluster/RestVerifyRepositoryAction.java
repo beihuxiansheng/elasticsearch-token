@@ -140,8 +140,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestToXContentListener
 import|;
 end_import

@@ -190,9 +190,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|RestSearchAction
+name|RestActions
 import|;
 end_import
 
@@ -206,9 +204,9 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
+name|search
 operator|.
-name|RestActions
+name|RestSearchAction
 import|;
 end_import
 

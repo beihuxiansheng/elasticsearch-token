@@ -334,8 +334,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestActionListener
 import|;
 end_import
@@ -350,25 +348,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestResponseListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestTable
 import|;
 end_import
 
