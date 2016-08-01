@@ -1071,14 +1071,14 @@ if|if
 condition|(
 name|indexResponse
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 operator|==
 name|DocWriteResponse
 operator|.
-name|Operation
+name|Result
 operator|.
-name|CREATE
+name|CREATED
 condition|)
 block|{
 name|numCreated

@@ -237,35 +237,42 @@ name|WriteResponse
 implements|,
 name|StatusToXContent
 block|{
-DECL|enum|Operation
+comment|/**      * An enum that represents the the results of CRUD operations, primarily used to communicate the type of      * operation that occurred.      */
+DECL|enum|Result
 specifier|public
 enum|enum
-name|Operation
+name|Result
 implements|implements
 name|Writeable
 block|{
-DECL|enum constant|CREATE
-name|CREATE
+DECL|enum constant|CREATED
+name|CREATED
 argument_list|(
 literal|0
 argument_list|)
 block|,
-DECL|enum constant|INDEX
-name|INDEX
+DECL|enum constant|UPDATED
+name|UPDATED
 argument_list|(
 literal|1
 argument_list|)
 block|,
-DECL|enum constant|DELETE
-name|DELETE
+DECL|enum constant|DELETED
+name|DELETED
 argument_list|(
 literal|2
+argument_list|)
+block|,
+DECL|enum constant|NOT_FOUND
+name|NOT_FOUND
+argument_list|(
+literal|3
 argument_list|)
 block|,
 DECL|enum constant|NOOP
 name|NOOP
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 block|;
 DECL|field|op
@@ -280,8 +287,8 @@ specifier|final
 name|String
 name|lowercase
 decl_stmt|;
-DECL|method|Operation
-name|Operation
+DECL|method|Result
+name|Result
 parameter_list|(
 name|int
 name|op
@@ -336,7 +343,7 @@ block|}
 DECL|method|readFrom
 specifier|public
 specifier|static
-name|Operation
+name|Result
 name|readFrom
 parameter_list|(
 name|StreamInput
@@ -362,22 +369,28 @@ case|case
 literal|0
 case|:
 return|return
-name|CREATE
+name|CREATED
 return|;
 case|case
 literal|1
 case|:
 return|return
-name|INDEX
+name|UPDATED
 return|;
 case|case
 literal|2
 case|:
 return|return
-name|DELETE
+name|DELETED
 return|;
 case|case
 literal|3
+case|:
+return|return
+name|NOT_FOUND
+return|;
+case|case
+literal|4
 case|:
 return|return
 name|NOOP
@@ -387,7 +400,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown operation code: "
+literal|"Unknown result code: "
 operator|+
 name|opcode
 argument_list|)
@@ -441,10 +454,10 @@ specifier|private
 name|boolean
 name|forcedRefresh
 decl_stmt|;
-DECL|field|operation
+DECL|field|result
 specifier|protected
-name|Operation
-name|operation
+name|Result
+name|result
 decl_stmt|;
 DECL|method|DocWriteResponse
 specifier|public
@@ -462,8 +475,8 @@ parameter_list|,
 name|long
 name|version
 parameter_list|,
-name|Operation
-name|operation
+name|Result
+name|result
 parameter_list|)
 block|{
 name|this
@@ -492,9 +505,9 @@ name|version
 expr_stmt|;
 name|this
 operator|.
-name|operation
+name|result
 operator|=
-name|operation
+name|result
 expr_stmt|;
 block|}
 comment|// needed for deserialization
@@ -504,14 +517,14 @@ name|DocWriteResponse
 parameter_list|()
 block|{     }
 comment|/**      * The change that occurred to the document.      */
-DECL|method|getOperation
+DECL|method|getResult
 specifier|public
-name|Operation
-name|getOperation
+name|Result
+name|getResult
 parameter_list|()
 block|{
 return|return
-name|operation
+name|result
 return|;
 block|}
 comment|/**      * The index the document was changed in.      */
@@ -832,9 +845,9 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
-name|operation
+name|result
 operator|=
-name|Operation
+name|Result
 operator|.
 name|readFrom
 argument_list|(
@@ -897,7 +910,7 @@ argument_list|(
 name|forcedRefresh
 argument_list|)
 expr_stmt|;
-name|operation
+name|result
 operator|.
 name|writeTo
 argument_list|(
@@ -964,9 +977,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"_operation"
+literal|"result"
 argument_list|,
-name|getOperation
+name|getResult
 argument_list|()
 operator|.
 name|getLowercase

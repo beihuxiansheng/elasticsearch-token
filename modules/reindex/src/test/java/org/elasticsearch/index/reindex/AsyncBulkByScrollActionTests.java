@@ -5702,9 +5702,9 @@ argument_list|)
 argument_list|,
 name|DocWriteResponse
 operator|.
-name|Operation
+name|Result
 operator|.
-name|CREATE
+name|CREATED
 argument_list|)
 expr_stmt|;
 block|}

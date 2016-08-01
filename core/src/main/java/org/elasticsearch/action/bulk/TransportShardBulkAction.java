@@ -2054,15 +2054,15 @@ name|updateResult
 operator|.
 name|result
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 condition|)
 block|{
 case|case
-name|CREATE
+name|CREATED
 case|:
 case|case
-name|INDEX
+name|UPDATED
 case|:
 annotation|@
 name|SuppressWarnings
@@ -2137,7 +2137,7 @@ argument_list|()
 argument_list|,
 name|indexResponse
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2264,7 +2264,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DELETE
+name|DELETED
 case|:
 annotation|@
 name|SuppressWarnings
@@ -2329,7 +2329,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2448,6 +2448,21 @@ argument_list|()
 expr_stmt|;
 comment|// no need to go to the replica
 break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Illegal operation "
+operator|+
+name|updateResult
+operator|.
+name|result
+operator|.
+name|getResponseResult
+argument_list|()
+argument_list|)
+throw|;
 block|}
 comment|// NOTE: Breaking out of the retry_on_conflict loop!
 break|break;
@@ -2670,15 +2685,15 @@ name|updateResult
 operator|.
 name|result
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 condition|)
 block|{
 case|case
-name|CREATE
+name|CREATED
 case|:
 case|case
-name|INDEX
+name|UPDATED
 case|:
 name|IndexRequest
 name|indexRequest
@@ -2743,7 +2758,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DELETE
+name|DELETED
 case|:
 name|DeleteRequest
 name|deleteRequest
@@ -2807,6 +2822,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Illegal operation "
+operator|+
+name|updateResult
+operator|.
+name|result
+operator|.
+name|getResponseResult
+argument_list|()
+argument_list|)
+throw|;
 block|}
 block|}
 comment|// NOTE: Breaking out of the retry_on_conflict loop!
@@ -3230,15 +3260,15 @@ switch|switch
 condition|(
 name|translate
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 condition|)
 block|{
 case|case
-name|CREATE
+name|CREATED
 case|:
 case|case
-name|INDEX
+name|UPDATED
 case|:
 name|IndexRequest
 name|indexRequest
@@ -3329,7 +3359,7 @@ argument_list|)
 return|;
 block|}
 case|case
-name|DELETE
+name|DELETED
 case|:
 name|DeleteRequest
 name|deleteRequest
@@ -3457,7 +3487,7 @@ literal|"Illegal update operation "
 operator|+
 name|translate
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 argument_list|)
 throw|;

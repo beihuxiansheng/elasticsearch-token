@@ -1317,13 +1317,13 @@ name|assertEquals
 argument_list|(
 name|DocWriteResponse
 operator|.
-name|Operation
+name|Result
 operator|.
-name|CREATE
+name|CREATED
 argument_list|,
 name|indexResponse
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -24,7 +24,7 @@ name|action
 operator|.
 name|DocWriteResponse
 operator|.
-name|Operation
+name|Result
 import|;
 end_import
 
@@ -212,9 +212,9 @@ literal|"id"
 argument_list|,
 literal|0
 argument_list|,
-name|Operation
+name|Result
 operator|.
-name|CREATE
+name|CREATED
 argument_list|)
 block|{
 comment|// DocWriteResponse is abstract so we have to sneak a subclass in here to test it.
@@ -276,9 +276,9 @@ literal|"id"
 argument_list|,
 literal|0
 argument_list|,
-name|Operation
+name|Result
 operator|.
-name|CREATE
+name|CREATED
 argument_list|)
 block|{
 comment|// DocWriteResponse is abstract so we have to sneak a subclass in here to test it.

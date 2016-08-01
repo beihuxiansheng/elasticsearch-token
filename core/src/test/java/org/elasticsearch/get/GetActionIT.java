@@ -1965,13 +1965,13 @@ name|assertEquals
 argument_list|(
 name|DocWriteResponse
 operator|.
-name|Operation
+name|Result
 operator|.
-name|DELETE
+name|DELETED
 argument_list|,
 name|deleteResponse
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 expr_stmt|;

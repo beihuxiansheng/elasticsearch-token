@@ -58,18 +58,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|RoutingMissingException
 import|;
 end_import
@@ -1371,12 +1359,12 @@ switch|switch
 condition|(
 name|result
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 condition|)
 block|{
 case|case
-name|CREATE
+name|CREATED
 case|:
 name|IndexRequest
 name|upsertRequest
@@ -1452,7 +1440,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1699,7 +1687,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|INDEX
+name|UPDATED
 case|:
 name|IndexRequest
 name|indexRequest
@@ -1775,7 +1763,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1937,7 +1925,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DELETE
+name|DELETED
 case|:
 name|DeleteRequest
 name|deleteRequest
@@ -2003,7 +1991,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2240,11 +2228,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Illegal operation "
+literal|"Illegal result "
 operator|+
 name|result
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 argument_list|)
 throw|;

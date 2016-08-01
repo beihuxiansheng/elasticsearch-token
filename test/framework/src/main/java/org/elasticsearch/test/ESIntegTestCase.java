@@ -8699,9 +8699,9 @@ literal|"]"
 argument_list|,
 name|DocWriteResponse
 operator|.
-name|Operation
+name|Result
 operator|.
-name|DELETE
+name|DELETED
 argument_list|,
 name|client
 argument_list|()
@@ -8724,7 +8724,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getOperation
+name|getResult
 argument_list|()
 argument_list|)
 expr_stmt|;
