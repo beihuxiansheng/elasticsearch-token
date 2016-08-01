@@ -1381,7 +1381,23 @@ name|put
 argument_list|(
 name|BECOME_MASTER_TASK
 argument_list|,
-name|joinProcessedListener
+parameter_list|(
+name|source1
+parameter_list|,
+name|e
+parameter_list|)
+lambda|->
+block|{}
+argument_list|)
+expr_stmt|;
+comment|// noop listener, the election finished listener determines result
+name|tasks
+operator|.
+name|put
+argument_list|(
+name|FINISH_ELECTION_TASK
+argument_list|,
+name|electionFinishedListener
 argument_list|)
 expr_stmt|;
 name|clusterService
@@ -1433,7 +1449,7 @@ specifier|final
 name|String
 name|source
 init|=
-literal|"zen-disco-process-pending-joins ["
+literal|"zen-disco-election-stop ["
 operator|+
 name|reason
 operator|+
@@ -1443,9 +1459,9 @@ name|tasks
 operator|.
 name|put
 argument_list|(
-name|FINISH_ELECTION_NOT_MASTER_TASK
+name|FINISH_ELECTION_TASK
 argument_list|,
-name|joinProcessedListener
+name|electionFinishedListener
 argument_list|)
 expr_stmt|;
 name|clusterService
@@ -1613,11 +1629,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|field|joinProcessedListener
+DECL|field|electionFinishedListener
 specifier|private
 specifier|final
 name|ClusterStateTaskListener
-name|joinProcessedListener
+name|electionFinishedListener
 init|=
 operator|new
 name|ClusterStateTaskListener
@@ -1639,7 +1655,8 @@ name|ClusterState
 name|newState
 parameter_list|)
 block|{
-assert|assert
+if|if
+condition|(
 name|newState
 operator|.
 name|nodes
@@ -1647,19 +1664,36 @@ argument_list|()
 operator|.
 name|isLocalNodeElectedMaster
 argument_list|()
-operator|:
-literal|"should have become a master but isn't "
-operator|+
-name|newState
+condition|)
+block|{
+name|ElectionContext
 operator|.
-name|prettyPrint
-argument_list|()
-assert|;
+name|this
+operator|.
 name|onElectedAsMaster
 argument_list|(
 name|newState
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|onFailure
+argument_list|(
+name|source
+argument_list|,
+operator|new
+name|NotMasterException
+argument_list|(
+literal|"election stopped ["
+operator|+
+name|source
+operator|+
+literal|"]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1873,7 +1907,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// a task indicated that the current node should become master, if no current master is known
+comment|/**      * a task indicated that the current node should become master, if no current master is known      */
 DECL|field|BECOME_MASTER_TASK
 specifier|private
 specifier|static
@@ -1920,19 +1954,18 @@ comment|// this is not really task , so don't log anything about it...
 block|}
 block|}
 decl_stmt|;
-comment|// a task that is used to process pending joins without explicitly becoming a master and listening to the results
-comment|// this task is used when election is stop without the local node becoming a master per se (though it might
-DECL|field|FINISH_ELECTION_NOT_MASTER_TASK
+comment|/**      * a task that is used to signal the election is stopped and we should process pending joins.      * it may be use in combination with {@link #BECOME_MASTER_TASK}      */
+DECL|field|FINISH_ELECTION_TASK
 specifier|private
 specifier|static
 specifier|final
 name|DiscoveryNode
-name|FINISH_ELECTION_NOT_MASTER_TASK
+name|FINISH_ELECTION_TASK
 init|=
 operator|new
 name|DiscoveryNode
 argument_list|(
-literal|"_NOT_MASTER_TASK_"
+literal|"_FINISH_ELECTION_"
 argument_list|,
 name|LocalTransportAddress
 operator|.
@@ -2000,15 +2033,6 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|DiscoveryNodes
-name|currentNodes
-init|=
-name|currentState
-operator|.
-name|nodes
-argument_list|()
-decl_stmt|;
-specifier|final
 name|BatchResult
 operator|.
 name|Builder
@@ -2020,6 +2044,15 @@ init|=
 name|BatchResult
 operator|.
 name|builder
+argument_list|()
+decl_stmt|;
+specifier|final
+name|DiscoveryNodes
+name|currentNodes
+init|=
+name|currentState
+operator|.
+name|nodes
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -2053,6 +2086,43 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|joiningNodes
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+operator|&&
+name|joiningNodes
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+name|FINISH_ELECTION_TASK
+argument_list|)
+condition|)
+block|{
+return|return
+name|results
+operator|.
+name|successes
+argument_list|(
+name|joiningNodes
+argument_list|)
+operator|.
+name|build
+argument_list|(
+name|currentState
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|currentNodes
 operator|.
 name|getMasterNode
@@ -2068,6 +2138,18 @@ name|BECOME_MASTER_TASK
 argument_list|)
 condition|)
 block|{
+assert|assert
+name|joiningNodes
+operator|.
+name|contains
+argument_list|(
+name|FINISH_ELECTION_TASK
+argument_list|)
+operator|:
+literal|"becoming a master but election is not finished "
+operator|+
+name|joiningNodes
+assert|;
 comment|// use these joins to try and become the master.
 comment|// Note that we don't have to do any validation of the amount of joining nodes - the commit
 comment|// during the cluster state publishing guarantees that we have enough
@@ -2120,6 +2202,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|nodesBuilder
@@ -2157,6 +2240,13 @@ literal|"] not master for join request"
 argument_list|)
 throw|;
 block|}
+assert|assert
+name|nodesBuilder
+operator|.
+name|isLocalNodeElectedMaster
+argument_list|()
+assert|;
+comment|// processing any joins
 for|for
 control|(
 specifier|final
@@ -2179,7 +2269,7 @@ name|node
 operator|.
 name|equals
 argument_list|(
-name|FINISH_ELECTION_NOT_MASTER_TASK
+name|FINISH_ELECTION_TASK
 argument_list|)
 condition|)
 block|{
