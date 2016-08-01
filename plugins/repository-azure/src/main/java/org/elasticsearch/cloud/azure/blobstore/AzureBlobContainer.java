@@ -713,7 +713,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|NoSuchFileException
 argument_list|(
 literal|"Blob ["
 operator|+
