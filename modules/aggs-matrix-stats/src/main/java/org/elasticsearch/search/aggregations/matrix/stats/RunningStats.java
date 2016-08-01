@@ -358,6 +358,17 @@ block|{
 name|this
 argument_list|()
 expr_stmt|;
+comment|// read doc count
+name|docCount
+operator|=
+operator|(
+name|Long
+operator|)
+name|in
+operator|.
+name|readGenericValue
+argument_list|()
+expr_stmt|;
 comment|// read fieldSum
 name|fieldSum
 operator|=
@@ -489,6 +500,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// marshall doc count
+name|out
+operator|.
+name|writeGenericValue
+argument_list|(
+name|docCount
+argument_list|)
+expr_stmt|;
 comment|// marshall fieldSum
 name|out
 operator|.
