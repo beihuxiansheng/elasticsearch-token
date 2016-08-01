@@ -366,6 +366,18 @@ name|elasticsearch
 operator|.
 name|repositories
 operator|.
+name|IndexId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
 name|fs
 operator|.
 name|FsRepository
@@ -774,7 +786,7 @@ name|snapshotId
 parameter_list|,
 name|List
 argument_list|<
-name|String
+name|IndexId
 argument_list|>
 name|indices
 parameter_list|,

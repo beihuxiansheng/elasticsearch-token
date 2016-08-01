@@ -2499,9 +2499,7 @@ block|{
 comment|// the old format where there wasn't a UUID
 name|uuid
 operator|=
-name|SnapshotId
-operator|.
-name|UNASSIGNED_UUID
+name|name
 expr_stmt|;
 block|}
 return|return

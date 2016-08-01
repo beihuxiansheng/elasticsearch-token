@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface for interacting with a repository in snapshot and restore.  *<p>  * Implementations are responsible for reading and writing both metadata and shard data to and from  * a repository backend.  *<p>  * To perform a snapshot:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link Repository#snapshotShard(IndexShard, SnapshotId, IndexCommit, IndexShardSnapshotStatus)}  * for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot} with possible list of failures</li>  *</ul>  */
+comment|/**  * An interface for interacting with a repository in snapshot and restore.  *<p>  * Implementations are responsible for reading and writing both metadata and shard data to and from  * a repository backend.  *<p>  * To perform a snapshot:  *<ul>  *<li>Master calls {@link #initializeSnapshot(SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link Repository#snapshotShard(IndexShard, SnapshotId, IndexId, IndexCommit, IndexShardSnapshotStatus)}  * for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot} with possible list of failures</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -286,20 +286,17 @@ name|snapshot
 parameter_list|,
 name|List
 argument_list|<
-name|String
+name|IndexId
 argument_list|>
 name|indices
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the list of snapshots currently stored in the repository that match the given predicate on the snapshot name.      * To get all snapshots, the predicate filter should return true regardless of the input.      *      * @return snapshot list      */
-DECL|method|getSnapshots
-name|List
-argument_list|<
-name|SnapshotId
-argument_list|>
-name|getSnapshots
+comment|/**      * Returns a {@link RepositoryData} to describe the data in the repository, including the snapshots      * and the indices across all snapshots found in the repository.  Throws a {@link RepositoryException}      * if there was an error in reading the data.      */
+DECL|method|getRepositoryData
+name|RepositoryData
+name|getRepositoryData
 parameter_list|()
 function_decl|;
 comment|/**      * Starts snapshotting process      *      * @param snapshotId snapshot id      * @param indices    list of indices to be snapshotted      * @param metaData   cluster metadata      */
@@ -312,7 +309,7 @@ name|snapshotId
 parameter_list|,
 name|List
 argument_list|<
-name|String
+name|IndexId
 argument_list|>
 name|indices
 parameter_list|,
@@ -320,7 +317,7 @@ name|MetaData
 name|metaData
 parameter_list|)
 function_decl|;
-comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
+comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param indices       list of indices in the snapshot      * @param startTime     start time of the snapshot      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
 DECL|method|finalizeSnapshot
 name|SnapshotInfo
 name|finalizeSnapshot
@@ -330,7 +327,7 @@ name|snapshotId
 parameter_list|,
 name|List
 argument_list|<
-name|String
+name|IndexId
 argument_list|>
 name|indices
 parameter_list|,
@@ -404,7 +401,7 @@ name|boolean
 name|isReadOnly
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.Engine#snapshotIndex} method.      * Repository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param shard               shard to be snapshotted      * @param snapshotId          snapshot id      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
+comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.Engine#snapshotIndex} method.      * Repository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param shard               shard to be snapshotted      * @param snapshotId          snapshot id      * @param indexId             id for the index being snapshotted      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
 DECL|method|snapshotShard
 name|void
 name|snapshotShard
@@ -415,6 +412,9 @@ parameter_list|,
 name|SnapshotId
 name|snapshotId
 parameter_list|,
+name|IndexId
+name|indexId
+parameter_list|,
 name|IndexCommit
 name|snapshotIndexCommit
 parameter_list|,
@@ -422,7 +422,7 @@ name|IndexShardSnapshotStatus
 name|snapshotStatus
 parameter_list|)
 function_decl|;
-comment|/**      * Restores snapshot of the shard.      *<p>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param shard           the shard to restore the index into      * @param snapshotId      snapshot id      * @param version         version of elasticsearch that created this snapshot      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryState   recovery state      */
+comment|/**      * Restores snapshot of the shard.      *<p>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param shard           the shard to restore the index into      * @param snapshotId      snapshot id      * @param version         version of elasticsearch that created this snapshot      * @param indexId         id of the index in the repository from which the restore is occurring      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryState   recovery state      */
 DECL|method|restoreShard
 name|void
 name|restoreShard
@@ -436,6 +436,9 @@ parameter_list|,
 name|Version
 name|version
 parameter_list|,
+name|IndexId
+name|indexId
+parameter_list|,
 name|ShardId
 name|snapshotShardId
 parameter_list|,
@@ -443,7 +446,7 @@ name|RecoveryState
 name|recoveryState
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param version    version of elasticsearch that created this snapshot      * @param shardId    shard id      * @return snapshot status      */
+comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param version    version of elasticsearch that created this snapshot      * @param indexId    the snapshotted index id for the shard to get status for      * @param shardId    shard id      * @return snapshot status      */
 DECL|method|getShardSnapshotStatus
 name|IndexShardSnapshotStatus
 name|getShardSnapshotStatus
@@ -453,6 +456,9 @@ name|snapshotId
 parameter_list|,
 name|Version
 name|version
+parameter_list|,
+name|IndexId
+name|indexId
 parameter_list|,
 name|ShardId
 name|shardId

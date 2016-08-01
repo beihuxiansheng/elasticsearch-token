@@ -268,16 +268,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -299,6 +289,18 @@ operator|.
 name|io
 operator|.
 name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 
@@ -591,7 +593,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FileNotFoundException
+name|NoSuchFileException
 argument_list|(
 literal|"Blob object ["
 operator|+
@@ -722,6 +724,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchFileException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|blobStore
