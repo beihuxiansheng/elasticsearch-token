@@ -4120,10 +4120,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test ensures that index creation adheres to the {@link IndexMetaData#SETTING_WAIT_FOR_ACTIVE_SHARDS}.      */
-DECL|method|testChangeWaitForActiveShardsSetting
+DECL|method|testDefaultWaitForActiveShardsUsesIndexSetting
 specifier|public
 name|void
-name|testChangeWaitForActiveShardsSetting
+name|testDefaultWaitForActiveShardsUsesIndexSetting
 parameter_list|()
 throws|throws
 name|Exception
