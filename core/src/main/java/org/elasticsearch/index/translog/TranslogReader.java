@@ -684,23 +684,9 @@ literal|"expected shard UUID "
 operator|+
 name|uuidBytes
 operator|+
-literal|"/"
-operator|+
-name|uuidBytes
-operator|.
-name|utf8ToString
-argument_list|()
-operator|+
 literal|" but got: "
 operator|+
 name|ref
-operator|+
-literal|"/"
-operator|+
-name|ref
-operator|.
-name|utf8ToString
-argument_list|()
 operator|+
 literal|" this translog file belongs to a different translog. path:"
 operator|+
