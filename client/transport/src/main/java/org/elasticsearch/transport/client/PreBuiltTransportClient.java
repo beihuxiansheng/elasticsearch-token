@@ -403,7 +403,7 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|Netty3Plugin
+name|Netty4Plugin
 operator|.
 name|NETTY_TRANSPORT_NAME
 argument_list|)
@@ -414,7 +414,7 @@ name|NetworkModule
 operator|.
 name|HTTP_TYPE_KEY
 argument_list|,
-name|Netty3Plugin
+name|Netty4Plugin
 operator|.
 name|NETTY_HTTP_TRANSPORT_NAME
 argument_list|)
