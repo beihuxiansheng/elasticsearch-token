@@ -3891,6 +3891,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|HttpChannelHandler
+specifier|protected
 specifier|static
 class|class
 name|HttpChannelHandler
@@ -3913,6 +3914,7 @@ name|Netty4HttpRequestHandler
 name|requestHandler
 decl_stmt|;
 DECL|method|HttpChannelHandler
+specifier|protected
 name|HttpChannelHandler
 parameter_list|(
 specifier|final
