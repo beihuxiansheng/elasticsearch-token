@@ -653,14 +653,6 @@ operator|.
 name|Token
 operator|.
 name|START_OBJECT
-operator|&&
-name|token
-operator|!=
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_ARRAY
 condition|)
 block|{
 throw|throw
@@ -672,7 +664,11 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[_na] query malformed, no start_object after query name"
+literal|"["
+operator|+
+name|queryName
+operator|+
+literal|"] query malformed, no start_object after query name"
 argument_list|)
 throw|;
 block|}
@@ -724,17 +720,6 @@ operator|.
 name|Token
 operator|.
 name|END_OBJECT
-operator|||
-name|parser
-operator|.
-name|currentToken
-argument_list|()
-operator|==
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|END_ARRAY
 condition|)
 block|{
 comment|// if we are at END_OBJECT, move to the next one...
