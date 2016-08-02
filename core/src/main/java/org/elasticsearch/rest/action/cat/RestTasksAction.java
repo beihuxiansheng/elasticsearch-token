@@ -698,7 +698,7 @@ name|addCell
 argument_list|(
 literal|"description"
 argument_list|,
-literal|"default:false;alias:desc;desc:task action"
+literal|"default:true;alias:desc;desc:task action"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,10 +1050,10 @@ name|Table
 name|table
 parameter_list|,
 name|boolean
-name|detailed
+name|fullId
 parameter_list|,
 name|boolean
-name|fullId
+name|detailed
 parameter_list|,
 name|List
 argument_list|<
