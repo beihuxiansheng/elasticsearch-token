@@ -3096,6 +3096,7 @@ return|return
 name|nodeChannels
 return|;
 block|}
+comment|/**      * Allows for logic to be executed after a connection has been made on all channels. While this method is being executed, the node is      * not listed as being connected to.      * @param nodeChannels the {@link NodeChannels} that have been connected      */
 DECL|method|onAfterChannelsConnected
 specifier|protected
 name|void
@@ -3104,7 +3105,7 @@ parameter_list|(
 name|NodeChannels
 name|nodeChannels
 parameter_list|)
-block|{      }
+block|{     }
 DECL|class|ChannelCloseListener
 specifier|private
 class|class
