@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -121,20 +107,6 @@ name|inputStream
 parameter_list|,
 name|long
 name|blobSize
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Writes the input bytes to a new blob in the container with the given name.  This method assumes the      * container does not already contain a blob of the same blobName.  If a blob by the same name already      * exists, the operation will fail and an {@link IOException} will be thrown.      *      * TODO: Remove this in favor of a single {@link #writeBlob(String, InputStream, long)} method.      *       See https://github.com/elastic/elasticsearch/issues/18528      *      * @param   blobName      *          The name of the blob to write the contents of the input stream to.      * @param   bytes      *          The bytes to write to the blob.      * @throws  IOException if a blob by the same name already exists, or the target blob could not be written to.      */
-DECL|method|writeBlob
-name|void
-name|writeBlob
-parameter_list|(
-name|String
-name|blobName
-parameter_list|,
-name|BytesReference
-name|bytes
 parameter_list|)
 throws|throws
 name|IOException
