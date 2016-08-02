@@ -1065,13 +1065,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/15579"
-argument_list|)
 DECL|method|testVerifyOverwriteFails
 specifier|public
 name|void

@@ -100,6 +100,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|FileAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -300,6 +312,26 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|FileAlreadyExistsException
+argument_list|(
+literal|"blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] already exists, cannot overwrite"
+argument_list|)
+throw|;
+block|}
 name|blobStore
 operator|.
 name|writeBlob
