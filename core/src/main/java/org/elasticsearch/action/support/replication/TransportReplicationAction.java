@@ -72,7 +72,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|support
+operator|.
+name|ActionFilters
 import|;
 end_import
 
@@ -86,7 +88,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|ActionFilters
+name|ActiveShardCount
 import|;
 end_import
 
@@ -747,12 +749,6 @@ specifier|final
 name|ShardStateAction
 name|shardStateAction
 decl_stmt|;
-DECL|field|defaultWriteConsistencyLevel
-specifier|private
-specifier|final
-name|WriteConsistencyLevel
-name|defaultWriteConsistencyLevel
-decl_stmt|;
 DECL|field|transportOptions
 specifier|private
 specifier|final
@@ -956,24 +952,6 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|defaultWriteConsistencyLevel
-operator|=
-name|WriteConsistencyLevel
-operator|.
-name|fromString
-argument_list|(
-name|settings
-operator|.
-name|get
-argument_list|(
-literal|"action.write_consistency"
-argument_list|,
-literal|"quorum"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|replicasProxy
 operator|=
 operator|new
@@ -1066,7 +1044,33 @@ parameter_list|,
 name|Request
 name|request
 parameter_list|)
-block|{     }
+block|{
+if|if
+condition|(
+name|request
+operator|.
+name|waitForActiveShards
+argument_list|()
+operator|==
+name|ActiveShardCount
+operator|.
+name|DEFAULT
+condition|)
+block|{
+comment|// if the wait for active shard count has not been set in the request,
+comment|// resolve it from the index settings
+name|request
+operator|.
+name|waitForActiveShards
+argument_list|(
+name|indexMetaData
+operator|.
+name|getWaitForActiveShards
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Primary operation on node with primary copy.      *      * @param shardRequest the request to the primary shard      */
 DECL|method|shardOperationOnPrimary
 specifier|protected
@@ -1091,17 +1095,6 @@ name|ReplicaRequest
 name|shardRequest
 parameter_list|)
 function_decl|;
-comment|/**      * True if write consistency should be checked for an implementation      */
-DECL|method|checkWriteConsistency
-specifier|protected
-name|boolean
-name|checkWriteConsistency
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Cluster level block to check before request execution      */
 DECL|method|globalBlockLevel
 specifier|protected
@@ -2000,9 +1993,6 @@ argument_list|,
 name|listener
 argument_list|,
 name|executeOnReplicas
-argument_list|,
-name|checkWriteConsistency
-argument_list|()
 argument_list|,
 name|replicasProxy
 argument_list|,
@@ -3020,26 +3010,6 @@ expr_stmt|;
 return|return;
 block|}
 comment|// resolve all derived request fields, so we can route and apply it
-if|if
-condition|(
-name|request
-operator|.
-name|consistencyLevel
-argument_list|()
-operator|==
-name|WriteConsistencyLevel
-operator|.
-name|DEFAULT
-condition|)
-block|{
-name|request
-operator|.
-name|consistencyLevel
-argument_list|(
-name|defaultWriteConsistencyLevel
-argument_list|)
-expr_stmt|;
-block|}
 name|resolveRequest
 argument_list|(
 name|state
@@ -3061,6 +3031,18 @@ operator|!=
 literal|null
 operator|:
 literal|"request shardId must be set in resolveRequest"
+assert|;
+assert|assert
+name|request
+operator|.
+name|waitForActiveShards
+argument_list|()
+operator|!=
+name|ActiveShardCount
+operator|.
+name|DEFAULT
+operator|:
+literal|"request waitForActiveShards must be set in resolveRequest"
 assert|;
 specifier|final
 name|ShardRouting

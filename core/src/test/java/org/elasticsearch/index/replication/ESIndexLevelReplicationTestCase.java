@@ -3300,8 +3300,6 @@ name|listener
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 operator|new
 name|ReplicasRef
 argument_list|(
@@ -3360,6 +3358,18 @@ name|replicationGroup
 operator|.
 name|shardRoutings
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|checkActiveShardCount
+specifier|protected
+name|String
+name|checkActiveShardCount
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 block|}

@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.consistencylevel
+DECL|package|org.elasticsearch.action.support
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|consistencylevel
+name|action
+operator|.
+name|support
 package|;
 end_package
 
@@ -23,18 +25,6 @@ operator|.
 name|action
 operator|.
 name|UnavailableShardsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|WriteConsistencyLevel
 import|;
 end_import
 
@@ -199,21 +189,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Tests setting the active shard count for replication operations (e.g. index) operates correctly.  */
 end_comment
 
 begin_class
-DECL|class|WriteConsistencyLevelIT
+DECL|class|WaitActiveShardCountIT
 specifier|public
 class|class
-name|WriteConsistencyLevelIT
+name|WaitActiveShardCountIT
 extends|extends
 name|ESIntegTestCase
 block|{
-DECL|method|testWriteConsistencyLevelReplication2
+DECL|method|testReplicationWaitsForActiveShardCount
 specifier|public
 name|void
-name|testWriteConsistencyLevelReplication2
+name|testReplicationWaitsForActiveShardCount
 parameter_list|()
 throws|throws
 name|Exception
@@ -255,7 +245,7 @@ argument_list|(
 name|createIndexResponse
 argument_list|)
 expr_stmt|;
-comment|// indexing, by default, will work (ONE consistency level)
+comment|// indexing, by default, will work (waiting for one shard copy only)
 name|client
 argument_list|()
 operator|.
@@ -276,13 +266,6 @@ literal|"1"
 argument_list|,
 literal|"test"
 argument_list|)
-argument_list|)
-operator|.
-name|setConsistencyLevel
-argument_list|(
-name|WriteConsistencyLevel
-operator|.
-name|ONE
 argument_list|)
 operator|.
 name|execute
@@ -315,12 +298,11 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setConsistencyLevel
+name|setWaitForActiveShards
 argument_list|(
-name|WriteConsistencyLevel
-operator|.
-name|QUORUM
+literal|2
 argument_list|)
+comment|// wait for 2 active shard copies
 operator|.
 name|setTimeout
 argument_list|(
@@ -338,7 +320,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"can't index, does not match consistency"
+literal|"can't index, does not enough active shard copies"
 argument_list|)
 expr_stmt|;
 block|}
@@ -372,7 +354,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet write consistency of [QUORUM] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
+literal|"[test][0] Not enough active copies to meet shard count of [2] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -461,7 +443,7 @@ name|YELLOW
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// this should work, since we now have
+comment|// this should work, since we now have two
 name|client
 argument_list|()
 operator|.
@@ -484,11 +466,9 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setConsistencyLevel
+name|setWaitForActiveShards
 argument_list|(
-name|WriteConsistencyLevel
-operator|.
-name|QUORUM
+literal|2
 argument_list|)
 operator|.
 name|setTimeout
@@ -529,9 +509,9 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setConsistencyLevel
+name|setWaitForActiveShards
 argument_list|(
-name|WriteConsistencyLevel
+name|ActiveShardCount
 operator|.
 name|ALL
 argument_list|)
@@ -552,7 +532,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"can't index, does not match consistency"
+literal|"can't index, not enough active shard copies"
 argument_list|)
 expr_stmt|;
 block|}
@@ -586,7 +566,13 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet write consistency of [ALL] (have 2, needed 3). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
+literal|"[test][0] Not enough active copies to meet shard count of ["
+operator|+
+name|ActiveShardCount
+operator|.
+name|ALL
+operator|+
+literal|"] (have 2, needed 3). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -674,7 +660,7 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// this should work, since we now have
+comment|// this should work, since we now have all shards started
 name|client
 argument_list|()
 operator|.
@@ -697,9 +683,9 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|setConsistencyLevel
+name|setWaitForActiveShards
 argument_list|(
-name|WriteConsistencyLevel
+name|ActiveShardCount
 operator|.
 name|ALL
 argument_list|)

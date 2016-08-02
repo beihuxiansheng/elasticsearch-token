@@ -387,7 +387,7 @@ argument_list|()
 argument_list|,
 name|contains
 argument_list|(
-literal|"consistency"
+literal|"wait_for_active_shards"
 argument_list|,
 literal|"op_type"
 argument_list|,
@@ -1097,13 +1097,11 @@ literal|"      }   ,\n"
 operator|+
 literal|"      \"params\": {\n"
 operator|+
-literal|"        \"consistency\": {\n"
+literal|"        \"wait_for_active_shards\": {\n"
 operator|+
-literal|"          \"type\" : \"enum\",\n"
+literal|"          \"type\" : \"string\",\n"
 operator|+
-literal|"          \"options\" : [\"one\", \"quorum\", \"all\"],\n"
-operator|+
-literal|"          \"description\" : \"Explicit write consistency setting for the operation\"\n"
+literal|"          \"description\" : \"The number of active shard copies required to perform the operation\"\n"
 operator|+
 literal|"        },\n"
 operator|+
