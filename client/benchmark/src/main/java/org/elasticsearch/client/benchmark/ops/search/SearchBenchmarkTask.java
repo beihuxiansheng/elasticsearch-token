@@ -311,8 +311,6 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// Thread.sleep() time is not very accurate (it's most of the time around 1 - 2 ms off)
-comment|// so we rather busy spin for the last few microseconds. Still not entirely accurate but way closer
 name|waitMicros
 argument_list|(
 name|waitTime
@@ -332,39 +330,12 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|int
-name|millis
-init|=
-name|waitTime
-operator|/
-literal|1000
-decl_stmt|;
-name|int
-name|micros
-init|=
-name|waitTime
-operator|%
-literal|1000
-decl_stmt|;
+comment|// Thread.sleep() time is not very accurate (it's most of the time around 1 - 2 ms off)
+comment|// we busy spin all the time to avoid introducing additional measurement artifacts (noticed 100% skew on 99.9th percentile)
+comment|// this approach is not suitable for low throughput rates (in the second range) though
 if|if
 condition|(
-name|millis
-operator|>
-literal|0
-condition|)
-block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-name|millis
-argument_list|)
-expr_stmt|;
-block|}
-comment|// busy spin for the rest of the time
-if|if
-condition|(
-name|micros
+name|waitTime
 operator|>
 literal|0
 condition|)
@@ -379,7 +350,7 @@ argument_list|()
 operator|+
 literal|1000L
 operator|*
-name|micros
+name|waitTime
 decl_stmt|;
 while|while
 condition|(
