@@ -3898,7 +3898,7 @@ name|HttpChannelHandler
 extends|extends
 name|ChannelInitializer
 argument_list|<
-name|SocketChannel
+name|Channel
 argument_list|>
 block|{
 DECL|field|transport
@@ -3958,7 +3958,7 @@ specifier|protected
 name|void
 name|initChannel
 parameter_list|(
-name|SocketChannel
+name|Channel
 name|ch
 parameter_list|)
 throws|throws
