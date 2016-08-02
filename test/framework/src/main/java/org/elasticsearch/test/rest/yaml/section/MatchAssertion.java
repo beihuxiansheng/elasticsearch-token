@@ -62,6 +62,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentLocation
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -218,6 +232,9 @@ DECL|method|MatchAssertion
 specifier|public
 name|MatchAssertion
 parameter_list|(
+name|XContentLocation
+name|location
+parameter_list|,
 name|String
 name|field
 parameter_list|,
@@ -227,6 +244,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|location
+argument_list|,
 name|field
 argument_list|,
 name|expectedValue

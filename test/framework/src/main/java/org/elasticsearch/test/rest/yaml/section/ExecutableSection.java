@@ -26,6 +26,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentLocation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|rest
@@ -56,6 +70,12 @@ specifier|public
 interface|interface
 name|ExecutableSection
 block|{
+comment|/**      * Get the location in the test that this was defined.       */
+DECL|method|getLocation
+name|XContentLocation
+name|getLocation
+parameter_list|()
+function_decl|;
 comment|/**      * Executes the section passing in the execution context      */
 DECL|method|execute
 name|void

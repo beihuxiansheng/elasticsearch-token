@@ -115,7 +115,12 @@ name|setSection
 init|=
 operator|new
 name|SetSection
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
 argument_list|()
+argument_list|)
 decl_stmt|;
 while|while
 condition|(

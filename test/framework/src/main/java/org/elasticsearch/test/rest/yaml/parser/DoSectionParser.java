@@ -181,7 +181,15 @@ name|doSection
 init|=
 operator|new
 name|DoSection
+argument_list|(
+name|parseContext
+operator|.
+name|parser
 argument_list|()
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|ApiCallSection
 name|apiCallSection
