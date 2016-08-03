@@ -714,7 +714,7 @@ name|parser
 operator|.
 name|currentToken
 argument_list|()
-operator|==
+operator|!=
 name|XContentParser
 operator|.
 name|Token
@@ -722,13 +722,35 @@ operator|.
 name|END_OBJECT
 condition|)
 block|{
-comment|// if we are at END_OBJECT, move to the next one...
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|queryName
+operator|+
+literal|"] malformed query, expected [END_OBJECT] but found ["
+operator|+
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|parser
 operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|result
 return|;
