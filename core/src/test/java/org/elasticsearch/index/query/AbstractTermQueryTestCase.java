@@ -153,7 +153,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"field name is null or empty"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -176,7 +185,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"value cannot be null"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
