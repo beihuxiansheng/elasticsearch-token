@@ -74,18 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|bwcompat
-operator|.
-name|OldIndexBackwardsCompatibilityIT
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -273,6 +261,18 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|OldIndexUtils
 import|;
 end_import
 
@@ -1876,7 +1876,7 @@ argument_list|,
 name|indicesPath
 argument_list|)
 expr_stmt|;
-name|OldIndexBackwardsCompatibilityIT
+name|OldIndexUtils
 operator|.
 name|copyIndex
 argument_list|(

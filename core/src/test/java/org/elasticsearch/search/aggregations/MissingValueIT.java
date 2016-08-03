@@ -1219,7 +1219,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|10L
+literal|10d
 argument_list|,
 name|histogram
 operator|.
@@ -1330,7 +1330,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0L
+literal|0d
 argument_list|,
 name|histogram
 operator|.
@@ -1366,7 +1366,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5L
+literal|5d
 argument_list|,
 name|histogram
 operator|.
@@ -1468,7 +1468,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0L
+literal|0d
 argument_list|,
 name|histogram
 operator|.

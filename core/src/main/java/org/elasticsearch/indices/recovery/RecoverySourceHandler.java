@@ -836,7 +836,7 @@ name|phase1Snapshot
 operator|=
 name|shard
 operator|.
-name|snapshotIndex
+name|acquireIndexCommit
 argument_list|(
 literal|false
 argument_list|)
@@ -911,7 +911,7 @@ try|try
 block|{
 name|shard
 operator|.
-name|releaseSnapshot
+name|releaseIndexCommit
 argument_list|(
 name|phase1Snapshot
 argument_list|)

@@ -865,6 +865,14 @@ init|=
 literal|0x7FFF0000
 decl_stmt|;
 comment|// some errno constants for error checking/handling
+DECL|field|EPERM
+specifier|static
+specifier|final
+name|int
+name|EPERM
+init|=
+literal|0x01
+decl_stmt|;
 DECL|field|EACCES
 specifier|static
 specifier|final
@@ -1290,15 +1298,51 @@ literal|999
 argument_list|)
 operator|>=
 literal|0
-operator|||
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp unavailable: your kernel is buggy and you should upgrade"
+argument_list|)
+throw|;
+block|}
+switch|switch
+condition|(
 name|Native
 operator|.
 name|getLastError
 argument_list|()
-operator|!=
-name|ENOSYS
 condition|)
 block|{
+case|case
+name|ENOSYS
+case|:
+break|break;
+comment|// ok
+case|case
+name|EPERM
+case|:
+comment|// NOT ok, but likely a docker container
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"syscall(BOGUS) bogusly gets EPERM instead of ENOSYS"
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
+default|default:
 throw|throw
 operator|new
 name|UnsupportedOperationException

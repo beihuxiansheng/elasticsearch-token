@@ -525,7 +525,6 @@ return|;
 block|}
 comment|/**      * Specification of custom {@link ScoreFunction}.      */
 DECL|class|ScoreFunctionSpec
-specifier|public
 class|class
 name|ScoreFunctionSpec
 parameter_list|<
@@ -610,7 +609,6 @@ block|}
 block|}
 comment|/**      * Specification of custom {@link Query}.      */
 DECL|class|QuerySpec
-specifier|public
 class|class
 name|QuerySpec
 parameter_list|<
@@ -694,7 +692,6 @@ block|}
 block|}
 comment|/**      * Specification of search time behavior extension like a custom {@link MovAvgModel} or {@link ScoreFunction}.      *      * @param W the type of the main {@link NamedWriteable} for this spec. All specs have this but it isn't always *for* the same thing      *        though, usually it is some sort of builder sent from the coordinating node to the data nodes executing the behavior      * @param P the type of the parser for this spec. The parser runs on the coordinating node, converting {@link XContent} into the      *        behavior to execute      */
 DECL|class|SearchExtensionSpec
-specifier|public
 class|class
 name|SearchExtensionSpec
 parameter_list|<
@@ -842,7 +839,6 @@ block|}
 block|}
 comment|/**      * Context available during fetch phase construction.      */
 DECL|class|FetchPhaseConstructionContext
-specifier|public
 class|class
 name|FetchPhaseConstructionContext
 block|{

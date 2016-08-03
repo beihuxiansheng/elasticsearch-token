@@ -128,24 +128,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
-operator|.
-name|histogram
-operator|.
-name|InternalHistogram
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|metrics
 operator|.
 name|sum
@@ -991,7 +973,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -1413,7 +1395,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -1984,7 +1966,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -2371,7 +2353,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -2758,7 +2740,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -3221,7 +3203,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|histo
 init|=
 name|response
@@ -4038,7 +4020,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -4629,7 +4611,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response
@@ -4747,7 +4729,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
+name|Histogram
 name|deriv
 init|=
 name|response

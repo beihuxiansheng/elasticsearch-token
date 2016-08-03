@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A rounding strategy for dates. It is typically used to group together dates  * that are part of the same hour/day/month, taking into account time zones and  * daylight saving times.  */
 end_comment
 
 begin_class
@@ -543,10 +543,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|roundKey
+DECL|method|round
 specifier|public
 name|long
-name|roundKey
+name|round
 parameter_list|(
 name|long
 name|utcMillis
@@ -616,29 +616,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|valueForKey
-specifier|public
-name|long
-name|valueForKey
-parameter_list|(
-name|long
-name|time
-parameter_list|)
-block|{
-assert|assert
-name|roundKey
-argument_list|(
-name|time
-argument_list|)
-operator|==
-name|time
-assert|;
-return|return
-name|time
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|nextRoundingValue
 specifier|public
 name|long
@@ -651,7 +628,7 @@ block|{
 name|long
 name|floor
 init|=
-name|roundKey
+name|round
 argument_list|(
 name|utcMillis
 argument_list|)
@@ -660,7 +637,7 @@ comment|// add one unit and round to get to next rounded value
 name|long
 name|next
 init|=
-name|roundKey
+name|round
 argument_list|(
 name|field
 operator|.
@@ -682,7 +659,7 @@ block|{
 comment|// in rare case we need to add more than one unit
 name|next
 operator|=
-name|roundKey
+name|round
 argument_list|(
 name|field
 operator|.
@@ -970,10 +947,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|roundKey
+DECL|method|round
 specifier|public
 name|long
-name|roundKey
+name|round
 parameter_list|(
 name|long
 name|utcMillis
@@ -1062,7 +1039,7 @@ condition|)
 block|{
 name|roundedUTC
 operator|=
-name|roundKey
+name|round
 argument_list|(
 name|transition
 operator|-
@@ -1220,29 +1197,6 @@ block|}
 block|}
 return|return
 literal|false
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|valueForKey
-specifier|public
-name|long
-name|valueForKey
-parameter_list|(
-name|long
-name|time
-parameter_list|)
-block|{
-assert|assert
-name|roundKey
-argument_list|(
-name|time
-argument_list|)
-operator|==
-name|time
-assert|;
-return|return
-name|time
 return|;
 block|}
 annotation|@
