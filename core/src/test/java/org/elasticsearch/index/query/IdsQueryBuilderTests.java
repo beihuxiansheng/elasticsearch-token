@@ -533,7 +533,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|//all good
+name|assertEquals
+argument_list|(
+literal|"[ids] types cannot be null"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -562,7 +571,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|//all good
+name|assertEquals
+argument_list|(
+literal|"[ids] ids cannot be null"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// see #7686.
