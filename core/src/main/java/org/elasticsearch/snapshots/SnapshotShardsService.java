@@ -2349,7 +2349,7 @@ name|snapshotIndexCommit
 init|=
 name|indexShard
 operator|.
-name|snapshotIndex
+name|acquireIndexCommit
 argument_list|(
 literal|true
 argument_list|)
@@ -2468,7 +2468,7 @@ finally|finally
 block|{
 name|indexShard
 operator|.
-name|releaseSnapshot
+name|releaseIndexCommit
 argument_list|(
 name|snapshotIndexCommit
 argument_list|)

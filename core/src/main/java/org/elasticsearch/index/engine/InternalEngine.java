@@ -4967,10 +4967,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|snapshotIndex
+DECL|method|acquireIndexCommit
 specifier|public
 name|IndexCommit
-name|snapshotIndex
+name|acquireIndexCommit
 parameter_list|(
 specifier|final
 name|boolean

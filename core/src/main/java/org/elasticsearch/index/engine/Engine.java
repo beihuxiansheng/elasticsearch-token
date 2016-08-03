@@ -3524,11 +3524,11 @@ throws|,
 name|IOException
 function_decl|;
 comment|/**      * Snapshots the index and returns a handle to it. If needed will try and "commit" the      * lucene index to make sure we have a "fresh" copy of the files to snapshot.      *      * @param flushFirst indicates whether the engine should flush before returning the snapshot      */
-DECL|method|snapshotIndex
+DECL|method|acquireIndexCommit
 specifier|public
 specifier|abstract
 name|IndexCommit
-name|snapshotIndex
+name|acquireIndexCommit
 parameter_list|(
 name|boolean
 name|flushFirst

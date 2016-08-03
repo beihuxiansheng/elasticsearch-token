@@ -1008,6 +1008,11 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+name|writer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|Store
 operator|.
 name|MetadataSnapshot
@@ -1016,7 +1021,9 @@ init|=
 name|store
 operator|.
 name|getMetadata
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
@@ -1161,7 +1168,9 @@ init|=
 name|targetStore
 operator|.
 name|getMetadata
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|Store
 operator|.
@@ -1242,8 +1251,6 @@ operator|.
 name|close
 argument_list|(
 name|reader
-argument_list|,
-name|writer
 argument_list|,
 name|store
 argument_list|,
@@ -1568,7 +1575,9 @@ init|=
 name|store
 operator|.
 name|getMetadata
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
@@ -2116,7 +2125,9 @@ init|=
 name|store
 operator|.
 name|getMetadata
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
