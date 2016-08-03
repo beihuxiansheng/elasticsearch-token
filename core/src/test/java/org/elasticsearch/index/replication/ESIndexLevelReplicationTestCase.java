@@ -2745,7 +2745,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} failed read store, treating as empty"
+literal|"failed read store, treating as empty"
 argument_list|,
 name|e
 argument_list|)
