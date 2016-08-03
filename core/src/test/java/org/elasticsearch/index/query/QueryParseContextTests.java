@@ -800,7 +800,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[_na] query malformed, no start_object after query name"
+literal|"[foo] query malformed, no start_object after query name"
 argument_list|,
 name|exception
 operator|.
