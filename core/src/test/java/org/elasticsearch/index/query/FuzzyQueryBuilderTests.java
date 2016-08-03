@@ -80,6 +80,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|Fuzziness
@@ -115,6 +127,26 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -269,6 +301,93 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getAlternateVersions
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|FuzzyQueryBuilder
+argument_list|>
+name|getAlternateVersions
+parameter_list|()
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|FuzzyQueryBuilder
+argument_list|>
+name|alternateVersions
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|FuzzyQueryBuilder
+name|fuzzyQuery
+init|=
+operator|new
+name|FuzzyQueryBuilder
+argument_list|(
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|,
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|String
+name|contentString
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"fuzzy\" : {\n"
+operator|+
+literal|"        \""
+operator|+
+name|fuzzyQuery
+operator|.
+name|fieldName
+argument_list|()
+operator|+
+literal|"\" : \""
+operator|+
+name|fuzzyQuery
+operator|.
+name|value
+argument_list|()
+operator|+
+literal|"\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|alternateVersions
+operator|.
+name|put
+argument_list|(
+name|contentString
+argument_list|,
+name|fuzzyQuery
+argument_list|)
+expr_stmt|;
+return|return
+name|alternateVersions
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doAssertLuceneQuery
 specifier|protected
 name|void
@@ -327,7 +446,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"field name cannot be null or empty"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -351,7 +479,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"field name cannot be null or empty"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -375,7 +512,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"query value cannot be null"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testUnsupportedFuzzinessForStringType
@@ -801,6 +947,68 @@ argument_list|,
 literal|0f
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"fuzzy\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"value\" : \"this is a test\"\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"message2\" : {\n"
+operator|+
+literal|"      \"value\" : \"this is a test\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parseQuery should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"[fuzzy] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
