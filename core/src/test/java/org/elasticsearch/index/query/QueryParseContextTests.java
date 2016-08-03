@@ -226,10 +226,6 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
-argument_list|,
 literal|false
 argument_list|,
 name|emptyList

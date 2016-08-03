@@ -296,7 +296,12 @@ name|namedWriteableRegistry
 init|=
 operator|new
 name|NamedWriteableRegistry
+argument_list|(
+name|Collections
+operator|.
+name|emptyList
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Transport
 name|transport

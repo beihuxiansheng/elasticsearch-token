@@ -613,12 +613,6 @@ name|MAX_SLICE
 init|=
 literal|20
 decl_stmt|;
-DECL|field|namedWriteableRegistry
-specifier|private
-specifier|static
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
-decl_stmt|;
 DECL|field|indicesQueriesRegistry
 specifier|private
 specifier|static
@@ -635,12 +629,6 @@ name|void
 name|init
 parameter_list|()
 block|{
-name|namedWriteableRegistry
-operator|=
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
-expr_stmt|;
 name|indicesQueriesRegistry
 operator|=
 operator|new
@@ -680,10 +668,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|namedWriteableRegistry
-operator|=
-literal|null
-expr_stmt|;
 name|indicesQueriesRegistry
 operator|=
 literal|null
@@ -773,9 +757,6 @@ init|(
 name|StreamInput
 name|in
 init|=
-operator|new
-name|NamedWriteableAwareStreamInput
-argument_list|(
 name|output
 operator|.
 name|bytes
@@ -783,9 +764,6 @@ argument_list|()
 operator|.
 name|streamInput
 argument_list|()
-argument_list|,
-name|namedWriteableRegistry
-argument_list|)
 init|)
 block|{
 return|return

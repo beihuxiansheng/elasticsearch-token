@@ -1565,7 +1565,12 @@ argument_list|()
 argument_list|,
 operator|new
 name|NamedWriteableRegistry
+argument_list|(
+name|Collections
+operator|.
+name|emptyList
 argument_list|()
+argument_list|)
 argument_list|,
 name|networkService
 argument_list|,
