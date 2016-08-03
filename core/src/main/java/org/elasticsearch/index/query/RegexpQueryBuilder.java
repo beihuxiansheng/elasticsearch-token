@@ -464,7 +464,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"value cannot be null."
+literal|"value cannot be null"
 argument_list|)
 throw|;
 block|}
@@ -910,10 +910,7 @@ decl_stmt|;
 name|String
 name|fieldName
 init|=
-name|parser
-operator|.
-name|currentName
-argument_list|()
+literal|null
 decl_stmt|;
 name|String
 name|rewrite
@@ -1023,6 +1020,34 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"[regexp] query doesn't support multiple fields, found ["
+operator|+
+name|fieldName
+operator|+
+literal|"] and ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName
@@ -1309,26 +1334,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ParsingException
-argument_list|(
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
-argument_list|,
-literal|"No value specified for regexp query"
-argument_list|)
-throw|;
 block|}
 return|return
 name|Optional
