@@ -1512,6 +1512,34 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"[range] query doesn't support multiple fields, found ["
+operator|+
+name|fieldName
+operator|+
+literal|"] and ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName

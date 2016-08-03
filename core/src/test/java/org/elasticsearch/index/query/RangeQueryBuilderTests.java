@@ -130,6 +130,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|BytesRefs
@@ -3384,6 +3396,72 @@ name|query
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"range\": {\n"
+operator|+
+literal|"      \"age\": {\n"
+operator|+
+literal|"        \"gte\": 30,\n"
+operator|+
+literal|"        \"lte\": 40\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"price\": {\n"
+operator|+
+literal|"        \"gte\": 10,\n"
+operator|+
+literal|"        \"lte\": 30\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parseQuery should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"[range] query doesn't support multiple fields, found [age] and [price]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
