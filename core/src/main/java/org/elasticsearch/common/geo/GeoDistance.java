@@ -222,7 +222,10 @@ name|GeoDistance
 implements|implements
 name|Writeable
 block|{
-comment|/**      * Calculates distance as points on a plane. Faster, but less accurate than {@link #ARC}.      */
+comment|/**      * Calculates distance as points on a plane. Faster, but less accurate than {@link #ARC}.      * @deprecated use {@link GeoUtils#planeDistance}      */
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enum constant|PLANE
 name|PLANE
 block|{
@@ -329,7 +332,10 @@ return|;
 block|}
 block|}
 block|,
-comment|/**      * Calculates distance factor.      */
+comment|/**      * Calculates distance factor.      * Note: {@code calculate} is simply returning the RHS of the spherical law of cosines from 2 lat,lon points.      * {@code normalize} also returns the RHS of the spherical law of cosines for a given distance      * @deprecated use {@link SloppyMath#haversinMeters} to get distance in meters, law of cosines is being removed      */
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enum constant|FACTOR
 name|FACTOR
 block|{
@@ -487,7 +493,10 @@ return|;
 block|}
 block|}
 block|,
-comment|/**      * Calculates distance as points on a globe.      */
+comment|/**      * Calculates distance as points on a globe.      * @deprecated use {@link GeoUtils#arcDistance}      */
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enum constant|ARC
 name|ARC
 block|{
@@ -762,6 +771,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Default {@link GeoDistance} function. This method should be used, If no specific function has been selected.      * This is an alias for<code>SLOPPY_ARC</code>      */
+annotation|@
+name|Deprecated
 DECL|field|DEFAULT
 specifier|public
 specifier|static
