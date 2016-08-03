@@ -80,6 +80,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|geo
 operator|.
 name|GeoDistance
@@ -2726,6 +2738,68 @@ literal|"failed to find geo_point field [unmapped]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance\" : {\n"
+operator|+
+literal|"    \"point1\" : {\n"
+operator|+
+literal|"      \"lat\" : 30, \"lon\" : 12\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"point2\" : {\n"
+operator|+
+literal|"      \"lat\" : 30, \"lon\" : 12\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parseQuery should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"[geo_distance] query doesn't support multiple fields, found [point1] and [point2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
