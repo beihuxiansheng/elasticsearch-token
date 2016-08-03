@@ -78,6 +78,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -91,6 +103,26 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -153,6 +185,110 @@ name|PrefixQueryBuilder
 name|doCreateTestQueryBuilder
 parameter_list|()
 block|{
+name|PrefixQueryBuilder
+name|query
+init|=
+name|randomPrefixQuery
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|query
+operator|.
+name|rewrite
+argument_list|(
+name|getRandomRewriteMethod
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|query
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getAlternateVersions
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PrefixQueryBuilder
+argument_list|>
+name|getAlternateVersions
+parameter_list|()
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|PrefixQueryBuilder
+argument_list|>
+name|alternateVersions
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|PrefixQueryBuilder
+name|prefixQuery
+init|=
+name|randomPrefixQuery
+argument_list|()
+decl_stmt|;
+name|String
+name|contentString
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"prefix\" : {\n"
+operator|+
+literal|"        \""
+operator|+
+name|prefixQuery
+operator|.
+name|fieldName
+argument_list|()
+operator|+
+literal|"\" : \""
+operator|+
+name|prefixQuery
+operator|.
+name|value
+argument_list|()
+operator|+
+literal|"\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|alternateVersions
+operator|.
+name|put
+argument_list|(
+name|contentString
+argument_list|,
+name|prefixQuery
+argument_list|)
+expr_stmt|;
+return|return
+name|alternateVersions
+return|;
+block|}
+DECL|method|randomPrefixQuery
+specifier|private
+specifier|static
+name|PrefixQueryBuilder
+name|randomPrefixQuery
+parameter_list|()
+block|{
 name|String
 name|fieldName
 init|=
@@ -178,9 +314,7 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|PrefixQueryBuilder
-name|query
-init|=
+return|return
 operator|new
 name|PrefixQueryBuilder
 argument_list|(
@@ -188,24 +322,6 @@ name|fieldName
 argument_list|,
 name|value
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|query
-operator|.
-name|rewrite
-argument_list|(
-name|getRandomRewriteMethod
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|query
 return|;
 block|}
 annotation|@
@@ -322,7 +438,7 @@ expr_stmt|;
 block|}
 name|fail
 argument_list|(
-literal|"cannot be null or empty"
+literal|"field name is null or empty"
 argument_list|)
 expr_stmt|;
 block|}
@@ -332,7 +448,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"field name is null or empty"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -346,7 +471,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"cannot be null or empty"
+literal|"value cannot be null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -356,7 +481,16 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"value cannot be null"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testBlendedRewriteMethod
@@ -591,6 +725,68 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"prefix\": {\n"
+operator|+
+literal|"      \"user1\": {\n"
+operator|+
+literal|"        \"value\": \"ki\"\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"user2\": {\n"
+operator|+
+literal|"        \"value\": \"ki\"\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parseQuery should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"[prefix] query doesn't support multiple fields, found [user1] and [user2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
