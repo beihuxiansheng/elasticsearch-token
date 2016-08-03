@@ -4129,12 +4129,6 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|String
-name|indexName
-init|=
-literal|"test"
-decl_stmt|;
-specifier|final
 name|int
 name|numReplicas
 init|=
@@ -4207,7 +4201,7 @@ argument_list|()
 operator|.
 name|prepareCreate
 argument_list|(
-name|indexName
+literal|"test-idx-1"
 argument_list|)
 operator|.
 name|setSettings
@@ -4217,23 +4211,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertAcked
-argument_list|(
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|(
-name|indexName
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// all should fail
@@ -4275,7 +4252,7 @@ argument_list|()
 operator|.
 name|prepareCreate
 argument_list|(
-name|indexName
+literal|"test-idx-2"
 argument_list|)
 operator|.
 name|setSettings
@@ -4293,23 +4270,6 @@ argument_list|()
 operator|.
 name|isShardsAcked
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertAcked
-argument_list|(
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|(
-name|indexName
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// the numeric equivalent of all should also fail
@@ -4358,7 +4318,7 @@ argument_list|()
 operator|.
 name|prepareCreate
 argument_list|(
-name|indexName
+literal|"test-idx-3"
 argument_list|)
 operator|.
 name|setSettings
