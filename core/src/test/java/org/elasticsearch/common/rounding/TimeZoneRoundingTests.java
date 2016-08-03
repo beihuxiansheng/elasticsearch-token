@@ -40,7 +40,7 @@ name|common
 operator|.
 name|rounding
 operator|.
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 import|;
@@ -56,7 +56,7 @@ name|common
 operator|.
 name|rounding
 operator|.
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 import|;
@@ -281,7 +281,7 @@ block|{
 name|Rounding
 name|tzRounding
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -348,7 +348,7 @@ argument_list|)
 expr_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -408,7 +408,7 @@ argument_list|)
 expr_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -490,7 +490,7 @@ block|{
 name|Rounding
 name|tzRounding
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -606,7 +606,7 @@ argument_list|)
 expr_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -714,11 +714,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * test TimeIntervalTimeZoneRounding, (interval&lt; 12h) with time zone shift      */
-DECL|method|testTimeIntervalTimeZoneRounding
+comment|/**      * test TimeIntervalRounding, (interval&lt; 12h) with time zone shift      */
+DECL|method|testTimeIntervalRounding
 specifier|public
 name|void
-name|testTimeIntervalTimeZoneRounding
+name|testTimeIntervalRounding
 parameter_list|()
 block|{
 name|DateTimeZone
@@ -735,7 +735,7 @@ decl_stmt|;
 name|Rounding
 name|tzRounding
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -848,11 +848,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * test DayIntervalTimeZoneRounding, (interval&gt;= 12h) with time zone shift      */
-DECL|method|testDayIntervalTimeZoneRounding
+comment|/**      * test DayIntervalRounding, (interval&gt;= 12h) with time zone shift      */
+DECL|method|testDayIntervalRounding
 specifier|public
 name|void
-name|testDayIntervalTimeZoneRounding
+name|testDayIntervalRounding
 parameter_list|()
 block|{
 name|DateTimeZone
@@ -869,7 +869,7 @@ decl_stmt|;
 name|Rounding
 name|tzRounding
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -982,10 +982,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDayTimeZoneRounding
+DECL|method|testDayRounding
 specifier|public
 name|void
-name|testDayTimeZoneRounding
+name|testDayRounding
 parameter_list|()
 block|{
 name|int
@@ -997,7 +997,7 @@ decl_stmt|;
 name|Rounding
 name|tzRounding
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1095,7 +1095,7 @@ argument_list|)
 decl_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1137,7 +1137,7 @@ argument_list|)
 expr_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1187,7 +1187,7 @@ argument_list|)
 expr_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1253,7 +1253,7 @@ expr_stmt|;
 comment|// date in Feb-3rd, also in -02:00 timezone
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1317,10 +1317,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTimeTimeZoneRounding
+DECL|method|testTimeRounding
 specifier|public
 name|void
-name|testTimeTimeZoneRounding
+name|testTimeRounding
 parameter_list|()
 block|{
 comment|// hour unit
@@ -1338,7 +1338,7 @@ decl_stmt|;
 name|Rounding
 name|tzRounding
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1462,7 +1462,7 @@ argument_list|)
 decl_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1557,7 +1557,7 @@ expr_stmt|;
 comment|// testing non savings to savings switch
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1667,7 +1667,7 @@ decl_stmt|;
 name|Rounding
 name|tzRounding_utc
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1716,7 +1716,7 @@ expr_stmt|;
 name|Rounding
 name|tzRounding_chg
 init|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -1871,11 +1871,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Randomized test on TimeUnitRounding.      * Test uses random {@link DateTimeUnit} and {@link DateTimeZone} and often (50% of the time) chooses      * test dates that are exactly on or close to offset changes (e.g. DST) in the chosen time zone.      *      * It rounds the test date down and up and performs various checks on the rounding unit interval that is      * defined by this. Assumptions tested are described in {@link #assertInterval(long, long, long, TimeZoneRounding, DateTimeZone)}      */
-DECL|method|testTimeZoneRoundingRandom
+comment|/**      * Randomized test on TimeUnitRounding. Test uses random      * {@link DateTimeUnit} and {@link DateTimeZone} and often (50% of the time)      * chooses test dates that are exactly on or close to offset changes (e.g.      * DST) in the chosen time zone.      *      * It rounds the test date down and up and performs various checks on the      * rounding unit interval that is defined by this. Assumptions tested are      * described in      * {@link #assertInterval(long, long, long, Rounding, DateTimeZone)}      */
+DECL|method|testRoundingRandom
 specifier|public
 name|void
-name|testTimeZoneRoundingRandom
+name|testRoundingRandom
 parameter_list|()
 block|{
 for|for
@@ -1905,11 +1905,11 @@ init|=
 name|randomDateTimeZone
 argument_list|()
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 argument_list|(
@@ -2151,7 +2151,7 @@ argument_list|(
 literal|"CET"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
@@ -2377,7 +2377,7 @@ argument_list|(
 literal|"CET"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
@@ -2511,7 +2511,7 @@ argument_list|(
 literal|"Asia/Kathmandu"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
@@ -2719,11 +2719,11 @@ argument_list|(
 literal|14
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(
@@ -2923,11 +2923,11 @@ argument_list|(
 literal|12
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(
@@ -3141,11 +3141,11 @@ init|=
 name|randomDateTimeZone
 argument_list|()
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(
@@ -3429,11 +3429,11 @@ argument_list|(
 literal|"CET"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(
@@ -3455,14 +3455,7 @@ name|expectedDates
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// first date is the date to be rounded, second the expected result
@@ -3739,7 +3732,7 @@ argument_list|)
 decl_stmt|;
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -3870,7 +3863,7 @@ expr_stmt|;
 comment|// Day interval
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -4001,7 +3994,7 @@ expr_stmt|;
 comment|// Month interval
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -4076,7 +4069,7 @@ expr_stmt|;
 comment|// Year interval
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -4123,7 +4116,7 @@ expr_stmt|;
 comment|// Two timestamps in same year and different timezone offset ("Double buckets" issue - #9491)
 name|tzRounding
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -4214,7 +4207,7 @@ name|Rounding
 name|tzRounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 argument_list|(
@@ -4229,7 +4222,7 @@ name|Rounding
 name|dayTzRounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(
@@ -4313,11 +4306,11 @@ argument_list|(
 literal|"CET"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 argument_list|(
@@ -4469,11 +4462,11 @@ argument_list|(
 literal|"Asia/Kathmandu"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 argument_list|(
@@ -4561,11 +4554,11 @@ argument_list|(
 literal|"Australia/Lord_Howe"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 argument_list|(
@@ -4713,11 +4706,11 @@ argument_list|(
 literal|"Pacific/Chatham"
 argument_list|)
 decl_stmt|;
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeUnitRounding
 argument_list|(
@@ -4856,7 +4849,7 @@ parameter_list|,
 name|long
 name|nextRoundingValue
 parameter_list|,
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 parameter_list|,
 name|int
@@ -4914,7 +4907,7 @@ parameter_list|,
 name|long
 name|nextRoundingValue
 parameter_list|,
-name|TimeZoneRounding
+name|Rounding
 name|rounding
 parameter_list|,
 name|DateTimeZone

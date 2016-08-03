@@ -56,20 +56,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|rounding
-operator|.
-name|TimeZoneRounding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -691,7 +677,7 @@ name|Rounding
 name|createRounding
 parameter_list|()
 block|{
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|Builder
 name|tzRoundingBuilder
@@ -725,7 +711,7 @@ condition|)
 block|{
 name|tzRoundingBuilder
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -738,7 +724,7 @@ block|{
 comment|// the interval is a time value?
 name|tzRoundingBuilder
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(
@@ -770,7 +756,7 @@ block|{
 comment|// the interval is an integer time value in millis?
 name|tzRoundingBuilder
 operator|=
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|builder
 argument_list|(

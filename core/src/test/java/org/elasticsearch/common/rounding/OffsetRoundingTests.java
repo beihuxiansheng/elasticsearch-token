@@ -114,7 +114,7 @@ operator|.
 name|OffsetRounding
 argument_list|(
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(
@@ -252,7 +252,7 @@ name|Rounding
 name|internalRounding
 init|=
 operator|new
-name|TimeZoneRounding
+name|Rounding
 operator|.
 name|TimeIntervalRounding
 argument_list|(

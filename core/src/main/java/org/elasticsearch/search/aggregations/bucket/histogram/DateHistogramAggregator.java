@@ -114,20 +114,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|rounding
-operator|.
-name|TimeZoneRounding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|LongHash
@@ -331,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An aggregator for date values. Every date is rounded down using a configured  * {@link TimeZoneRounding}.  * @see TimeZoneRounding  */
+comment|/**  * An aggregator for date values. Every date is rounded down using a configured  * {@link Rounding}.  *   * @see Rounding  */
 end_comment
 
 begin_class
