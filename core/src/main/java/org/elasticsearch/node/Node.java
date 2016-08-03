@@ -2949,6 +2949,11 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|resourceWatcherService
+argument_list|,
+name|scriptModule
+operator|.
+name|getScriptService
+argument_list|()
 argument_list|)
 operator|.
 name|stream

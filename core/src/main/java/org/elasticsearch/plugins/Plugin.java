@@ -196,6 +196,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ExecutorBuilder
@@ -276,7 +288,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      * @param resourceWatcherService A service to watch for changes to node local files      */
+comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      * @param resourceWatcherService A service to watch for changes to node local files      * @param scriptService A service to allow running scripts on the local node      */
 DECL|method|createComponents
 specifier|public
 name|Collection
@@ -296,6 +308,9 @@ name|threadPool
 parameter_list|,
 name|ResourceWatcherService
 name|resourceWatcherService
+parameter_list|,
+name|ScriptService
+name|scriptService
 parameter_list|)
 block|{
 return|return
