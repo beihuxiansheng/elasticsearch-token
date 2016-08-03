@@ -82,6 +82,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|BytesRefs
@@ -606,6 +618,68 @@ argument_list|,
 literal|0.0001
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_term\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"term\" : \"this\"\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"message2\" : {\n"
+operator|+
+literal|"      \"term\" : \"this\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parseQuery should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"[span_term] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
