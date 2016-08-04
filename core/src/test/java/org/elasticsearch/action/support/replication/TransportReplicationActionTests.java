@@ -4463,7 +4463,7 @@ name|replica
 argument_list|,
 name|randomIntBetween
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 literal|10
 argument_list|)
