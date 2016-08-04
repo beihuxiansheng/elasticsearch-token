@@ -791,11 +791,6 @@ name|rounding
 init|=
 name|tzRoundingBuilder
 operator|.
-name|offset
-argument_list|(
-name|offset
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -957,6 +952,8 @@ argument_list|,
 name|factories
 argument_list|,
 name|rounding
+argument_list|,
+name|offset
 argument_list|,
 name|order
 argument_list|,
