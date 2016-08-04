@@ -1395,6 +1395,26 @@ name|sb
 operator|.
 name|append
 argument_list|(
+literal|"cluster uuid: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|metaData
+operator|.
+name|clusterUUID
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|"version: "
 argument_list|)
 operator|.
