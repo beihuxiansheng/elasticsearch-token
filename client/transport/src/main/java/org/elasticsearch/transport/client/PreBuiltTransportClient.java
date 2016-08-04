@@ -462,7 +462,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_SETTING
@@ -471,6 +470,8 @@ name|exists
 argument_list|(
 name|settings
 argument_list|)
+operator|==
+literal|false
 operator|||
 name|NetworkModule
 operator|.
