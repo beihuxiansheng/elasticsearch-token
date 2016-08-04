@@ -86,6 +86,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -701,6 +715,9 @@ DECL|method|client
 name|AmazonS3
 name|client
 parameter_list|(
+name|Settings
+name|repositorySettings
+parameter_list|,
 name|String
 name|endpoint
 parameter_list|,
@@ -709,12 +726,6 @@ name|protocol
 parameter_list|,
 name|String
 name|region
-parameter_list|,
-name|String
-name|account
-parameter_list|,
-name|String
-name|key
 parameter_list|,
 name|Integer
 name|maxRetries
