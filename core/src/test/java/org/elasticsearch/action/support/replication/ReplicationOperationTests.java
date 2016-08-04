@@ -689,7 +689,7 @@ name|primaryShard
 operator|=
 name|primaryShard
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 expr_stmt|;
 block|}
@@ -1466,7 +1466,7 @@ name|primaryShard
 operator|=
 name|primaryShard
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 expr_stmt|;
 block|}
@@ -1577,8 +1577,8 @@ parameter_list|(
 name|ShardRouting
 name|replica
 parameter_list|,
-name|ShardRouting
-name|primary
+name|long
+name|primaryTerm
 parameter_list|,
 name|String
 name|message
@@ -2710,7 +2710,7 @@ name|add
 argument_list|(
 name|shardRouting
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3217,8 +3217,8 @@ parameter_list|(
 name|ShardRouting
 name|replica
 parameter_list|,
-name|ShardRouting
-name|primary
+name|long
+name|primaryTerm
 parameter_list|,
 name|String
 name|message

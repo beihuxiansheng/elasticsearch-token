@@ -115,8 +115,6 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|?
-extends|extends
 name|ShardRouting
 argument_list|>
 name|startedShards
@@ -136,8 +134,6 @@ name|clusterState
 parameter_list|,
 name|List
 argument_list|<
-name|?
-extends|extends
 name|ShardRouting
 argument_list|>
 name|startedShards
@@ -176,8 +172,6 @@ DECL|method|startedShards
 specifier|public
 name|List
 argument_list|<
-name|?
-extends|extends
 name|ShardRouting
 argument_list|>
 name|startedShards

@@ -1469,10 +1469,8 @@ argument_list|)
 expr_stmt|;
 name|shardStateAction
 operator|.
-name|shardFailed
+name|localShardFailed
 argument_list|(
-name|matchedRouting
-argument_list|,
 name|matchedRouting
 argument_list|,
 name|message
@@ -4351,10 +4349,8 @@ argument_list|)
 expr_stmt|;
 name|shardStateAction
 operator|.
-name|shardFailed
+name|localShardFailed
 argument_list|(
-name|shardRouting
-argument_list|,
 name|shardRouting
 argument_list|,
 name|message

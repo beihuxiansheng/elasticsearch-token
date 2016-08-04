@@ -857,7 +857,7 @@ name|performOnReplica
 argument_list|(
 name|shard
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 argument_list|,
 name|replicaRequest
@@ -1078,9 +1078,9 @@ name|failShard
 argument_list|(
 name|shard
 argument_list|,
-name|primary
+name|replicaRequest
 operator|.
-name|routingEntry
+name|primaryTerm
 argument_list|()
 argument_list|,
 name|message
@@ -1778,7 +1778,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**          * Fail the specified shard, removing it from the current set of active shards          * @param replica          shard to fail          * @param primary          the primary shard that requested the failure          * @param message          a (short) description of the reason          * @param exception        the original exception which caused the ReplicationOperation to request the shard to be failed          * @param onSuccess        a callback to call when the shard has been successfully removed from the active set.          * @param onPrimaryDemoted a callback to call when the shard can not be failed because the current primary has been demoted *                         by the master.          * @param onIgnoredFailure a callback to call when failing a shard has failed, but it that failure can be safely ignored and the          */
+comment|/**          * Fail the specified shard, removing it from the current set of active shards          * @param replica          shard to fail          * @param primaryTerm      the primary term of the primary shard when requesting the failure          * @param message          a (short) description of the reason          * @param exception        the original exception which caused the ReplicationOperation to request the shard to be failed          * @param onSuccess        a callback to call when the shard has been successfully removed from the active set.          * @param onPrimaryDemoted a callback to call when the shard can not be failed because the current primary has been demoted *                         by the master.          * @param onIgnoredFailure a callback to call when failing a shard has failed, but it that failure can be safely ignored and the          */
 DECL|method|failShard
 name|void
 name|failShard
@@ -1786,8 +1786,8 @@ parameter_list|(
 name|ShardRouting
 name|replica
 parameter_list|,
-name|ShardRouting
-name|primary
+name|long
+name|primaryTerm
 parameter_list|,
 name|String
 name|message

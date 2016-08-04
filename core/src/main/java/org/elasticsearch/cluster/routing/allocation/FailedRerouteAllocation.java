@@ -100,6 +100,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -127,11 +141,11 @@ specifier|static
 class|class
 name|FailedShard
 block|{
-DECL|field|shard
+DECL|field|routingEntry
 specifier|public
 specifier|final
 name|ShardRouting
-name|shard
+name|routingEntry
 decl_stmt|;
 DECL|field|message
 specifier|public
@@ -150,7 +164,7 @@ specifier|public
 name|FailedShard
 parameter_list|(
 name|ShardRouting
-name|shard
+name|routingEntry
 parameter_list|,
 name|String
 name|message
@@ -159,11 +173,21 @@ name|Exception
 name|failure
 parameter_list|)
 block|{
+assert|assert
+name|routingEntry
+operator|.
+name|assignedToNode
+argument_list|()
+operator|:
+literal|"only assigned shards can be failed "
+operator|+
+name|routingEntry
+assert|;
 name|this
 operator|.
-name|shard
+name|routingEntry
 operator|=
-name|shard
+name|routingEntry
 expr_stmt|;
 name|this
 operator|.
@@ -189,7 +213,7 @@ block|{
 return|return
 literal|"failed shard, shard "
 operator|+
-name|shard
+name|routingEntry
 operator|+
 literal|", message ["
 operator|+

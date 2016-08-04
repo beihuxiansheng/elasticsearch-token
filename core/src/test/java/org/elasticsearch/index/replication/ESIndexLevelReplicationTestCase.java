@@ -3721,8 +3721,8 @@ parameter_list|(
 name|ShardRouting
 name|replica
 parameter_list|,
-name|ShardRouting
-name|primary
+name|long
+name|primaryTerm
 parameter_list|,
 name|String
 name|message

@@ -2868,7 +2868,7 @@ name|test_0
 argument_list|,
 name|test_1
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 argument_list|,
 name|test_2
@@ -3113,14 +3113,14 @@ name|test_0
 argument_list|,
 name|test_1
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 argument_list|,
 name|test_2
 argument_list|,
 name|other_0
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 argument_list|)
 expr_stmt|;

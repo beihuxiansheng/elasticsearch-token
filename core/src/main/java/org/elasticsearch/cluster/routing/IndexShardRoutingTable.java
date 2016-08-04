@@ -570,7 +570,7 @@ name|add
 argument_list|(
 name|shard
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 argument_list|)
 expr_stmt|;

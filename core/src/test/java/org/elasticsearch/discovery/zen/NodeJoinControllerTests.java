@@ -4051,8 +4051,6 @@ name|clusterState
 parameter_list|,
 name|List
 argument_list|<
-name|?
-extends|extends
 name|ShardRouting
 argument_list|>
 name|startedShards

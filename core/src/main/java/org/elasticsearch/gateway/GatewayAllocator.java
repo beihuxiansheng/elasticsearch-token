@@ -803,7 +803,7 @@ name|remove
 argument_list|(
 name|shard
 operator|.
-name|shard
+name|routingEntry
 operator|.
 name|shardId
 argument_list|()
@@ -820,7 +820,7 @@ name|remove
 argument_list|(
 name|shard
 operator|.
-name|shard
+name|routingEntry
 operator|.
 name|shardId
 argument_list|()

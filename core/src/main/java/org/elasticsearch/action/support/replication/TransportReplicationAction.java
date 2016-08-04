@@ -4693,8 +4693,8 @@ parameter_list|(
 name|ShardRouting
 name|replica
 parameter_list|,
-name|ShardRouting
-name|primary
+name|long
+name|primaryTerm
 parameter_list|,
 name|String
 name|message
@@ -4720,11 +4720,11 @@ parameter_list|)
 block|{
 name|shardStateAction
 operator|.
-name|shardFailed
+name|remoteShardFailed
 argument_list|(
 name|replica
 argument_list|,
-name|primary
+name|primaryTerm
 argument_list|,
 name|message
 argument_list|,
