@@ -1036,6 +1036,10 @@ name|Entry
 operator|.
 name|Option
 argument_list|(
+name|suggestDoc
+operator|.
+name|doc
+argument_list|,
 operator|new
 name|Text
 argument_list|(

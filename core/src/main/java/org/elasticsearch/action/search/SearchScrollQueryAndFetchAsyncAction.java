@@ -1057,7 +1057,7 @@ name|Exception
 block|{
 name|ScoreDoc
 index|[]
-name|sortedShardList
+name|sortedShardDocs
 init|=
 name|searchPhaseController
 operator|.
@@ -1076,7 +1076,9 @@ name|searchPhaseController
 operator|.
 name|merge
 argument_list|(
-name|sortedShardList
+literal|true
+argument_list|,
+name|sortedShardDocs
 argument_list|,
 name|queryFetchResults
 argument_list|,
