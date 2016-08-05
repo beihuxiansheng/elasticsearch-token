@@ -5966,7 +5966,7 @@ name|plugins
 init|=
 name|node
 operator|.
-name|getPlugins
+name|getClasspathPlugins
 argument_list|()
 decl_stmt|;
 name|node

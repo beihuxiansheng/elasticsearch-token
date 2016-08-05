@@ -28,18 +28,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -168,7 +156,9 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregationBuilder
+name|ValuesSource
+operator|.
+name|Numeric
 import|;
 end_import
 
@@ -184,9 +174,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSource
-operator|.
-name|Numeric
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -290,19 +278,6 @@ name|TYPE
 operator|.
 name|name
 argument_list|()
-decl_stmt|;
-DECL|field|AGGREGATION_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|AGGREGATION_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 DECL|field|interval
 specifier|private

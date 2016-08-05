@@ -28,18 +28,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -186,9 +174,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
-operator|.
-name|Type
+name|AggregatorFactory
 import|;
 end_import
 
@@ -202,7 +188,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|InternalAggregation
+operator|.
+name|Type
 import|;
 end_import
 
@@ -271,19 +259,6 @@ name|TYPE
 init|=
 operator|new
 name|Type
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
-DECL|field|AGGREGATION_FIELD_NAME
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|AGGREGATION_FIELD_NAME
-init|=
-operator|new
-name|ParseField
 argument_list|(
 name|NAME
 argument_list|)
