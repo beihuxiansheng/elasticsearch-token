@@ -159,33 +159,7 @@ DECL|method|ShardFetchSearchRequest
 specifier|public
 name|ShardFetchSearchRequest
 parameter_list|()
-block|{     }
-DECL|method|ShardFetchSearchRequest
-specifier|public
-name|ShardFetchSearchRequest
-parameter_list|(
-name|SearchRequest
-name|request
-parameter_list|,
-name|long
-name|id
-parameter_list|,
-name|IntArrayList
-name|list
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|request
-argument_list|,
-name|id
-argument_list|,
-name|list
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
+block|{      }
 DECL|method|ShardFetchSearchRequest
 specifier|public
 name|ShardFetchSearchRequest

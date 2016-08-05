@@ -355,12 +355,12 @@ name|FetchSearchResult
 argument_list|>
 name|fetchResults
 decl_stmt|;
-DECL|field|sortedShardList
+DECL|field|sortedShardDocs
 specifier|private
 specifier|volatile
 name|ScoreDoc
 index|[]
-name|sortedShardList
+name|sortedShardDocs
 decl_stmt|;
 DECL|field|successfulOps
 specifier|private
@@ -1098,7 +1098,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sortedShardList
+name|sortedShardDocs
 operator|=
 name|searchPhaseController
 operator|.
@@ -1131,7 +1131,7 @@ name|fillDocIdsToLoad
 argument_list|(
 name|docIdsToLoad
 argument_list|,
-name|sortedShardList
+name|sortedShardDocs
 argument_list|)
 expr_stmt|;
 if|if
@@ -1159,7 +1159,12 @@ name|searchPhaseController
 operator|.
 name|getLastEmittedDocPerShard
 argument_list|(
-name|sortedShardList
+name|queryResults
+operator|.
+name|asList
+argument_list|()
+argument_list|,
+name|sortedShardDocs
 argument_list|,
 name|queryResults
 operator|.
@@ -1427,7 +1432,9 @@ name|searchPhaseController
 operator|.
 name|merge
 argument_list|(
-name|sortedShardList
+literal|true
+argument_list|,
+name|sortedShardDocs
 argument_list|,
 name|queryResults
 argument_list|,
