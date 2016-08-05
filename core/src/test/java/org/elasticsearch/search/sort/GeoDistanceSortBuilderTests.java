@@ -1562,7 +1562,7 @@ literal|"  } ],\n"
 operator|+
 literal|"  \"unit\" : \"m\",\n"
 operator|+
-literal|"  \"distance_type\" : \"sloppy_arc\",\n"
+literal|"  \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"  \"mode\" : \"MAX\",\n"
 operator|+
@@ -1634,7 +1634,7 @@ literal|"  } ],\n"
 operator|+
 literal|"  \"unit\" : \"m\",\n"
 operator|+
-literal|"  \"distance_type\" : \"sloppy_arc\",\n"
+literal|"  \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"  \"mode\" : \"MAX\",\n"
 operator|+
@@ -1706,7 +1706,7 @@ literal|"  } ],\n"
 operator|+
 literal|"  \"unit\" : \"m\",\n"
 operator|+
-literal|"  \"distance_type\" : \"sloppy_arc\",\n"
+literal|"  \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"  \"mode\" : \"SUM\"\n"
 operator|+
@@ -1789,7 +1789,7 @@ literal|"    \"ezu09wxw6v4c\", \"kc7s3515p6k6\", \"jgeuvjwrmfzn\", \"kcpcfj7ruyf
 operator|+
 literal|"    \"unit\" : \"m\",\n"
 operator|+
-literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+literal|"    \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"    \"mode\" : \"MAX\",\n"
 operator|+

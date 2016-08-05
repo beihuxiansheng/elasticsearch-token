@@ -344,7 +344,7 @@ name|DEFAULT_GEO_DISTANCE
 init|=
 name|GeoDistance
 operator|.
-name|DEFAULT
+name|ARC
 decl_stmt|;
 comment|/** Default for optimising query through pre computed bounding box query. */
 annotation|@
@@ -527,7 +527,9 @@ specifier|private
 name|GeoDistance
 name|geoDistance
 init|=
-name|DEFAULT_GEO_DISTANCE
+name|GeoDistance
+operator|.
+name|ARC
 decl_stmt|;
 comment|/** Whether or not to use a bbox for pre-filtering. TODO change to enum? */
 DECL|field|optimizeBbox
@@ -1305,22 +1307,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|double
-name|normDistance
-init|=
-name|geoDistance
-operator|.
-name|normalize
-argument_list|(
-name|this
-operator|.
-name|distance
-argument_list|,
-name|DistanceUnit
-operator|.
-name|DEFAULT
-argument_list|)
-decl_stmt|;
 return|return
 name|LatLonPoint
 operator|.
@@ -1341,7 +1327,9 @@ operator|.
 name|lon
 argument_list|()
 argument_list|,
-name|normDistance
+name|this
+operator|.
+name|distance
 argument_list|)
 return|;
 block|}

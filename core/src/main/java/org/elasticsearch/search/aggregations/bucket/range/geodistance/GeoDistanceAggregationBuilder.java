@@ -1547,7 +1547,7 @@ name|distanceType
 init|=
 name|GeoDistance
 operator|.
-name|DEFAULT
+name|ARC
 decl_stmt|;
 DECL|field|keyed
 specifier|private

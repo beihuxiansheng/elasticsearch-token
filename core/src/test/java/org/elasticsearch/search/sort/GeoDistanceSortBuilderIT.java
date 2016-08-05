@@ -774,7 +774,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -820,7 +820,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -920,7 +920,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -966,7 +966,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1066,7 +1066,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1112,7 +1112,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1212,7 +1212,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1258,7 +1258,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1595,7 +1595,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1641,7 +1641,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1741,7 +1741,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -1787,7 +1787,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -2370,7 +2370,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -2416,7 +2416,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -2510,7 +2510,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -2556,7 +2556,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -3091,7 +3091,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(
@@ -3137,7 +3137,7 @@ name|closeTo
 argument_list|(
 name|GeoDistance
 operator|.
-name|SLOPPY_ARC
+name|ARC
 operator|.
 name|calculate
 argument_list|(

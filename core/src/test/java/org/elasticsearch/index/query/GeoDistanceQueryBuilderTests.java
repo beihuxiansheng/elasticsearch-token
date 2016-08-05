@@ -1649,7 +1649,7 @@ literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
 operator|+
 literal|"    \"distance\" : 12000.0,\n"
 operator|+
-literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+literal|"    \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
@@ -1748,7 +1748,7 @@ literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
 operator|+
 literal|"    \"distance\" : 12000.0,\n"
 operator|+
-literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+literal|"    \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"    \"optimize_bbox\" : \"memory\",\n"
 operator|+
@@ -1794,7 +1794,7 @@ literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
 operator|+
 literal|"    \"distance\" : 12000.0,\n"
 operator|+
-literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+literal|"    \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"    \"coerce\" : true,\n"
 operator|+
@@ -1836,7 +1836,7 @@ literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
 operator|+
 literal|"    \"distance\" : 12000.0,\n"
 operator|+
-literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+literal|"    \"distance_type\" : \"arc\",\n"
 operator|+
 literal|"    \"ignore_malformed\" : true,\n"
 operator|+
