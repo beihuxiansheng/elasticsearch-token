@@ -144,18 +144,6 @@ name|containsString
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
 begin_class
 DECL|class|IdsQueryBuilderTests
 specifier|public
@@ -181,25 +169,23 @@ name|noIdsFieldQuery
 init|=
 literal|"{\"ids\" : { \"type\" : \"my_type\"  }"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|noIdsFieldQuery
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -213,7 +199,6 @@ literal|"no ids values provided"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -509,8 +494,17 @@ name|void
 name|testIllegalArguments
 parameter_list|()
 block|{
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|IdsQueryBuilder
 argument_list|(
@@ -520,19 +514,8 @@ index|[]
 operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"must be not null"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"[ids] types cannot be null"
@@ -543,12 +526,24 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
+name|IdsQueryBuilder
+name|idsQueryBuilder
+init|=
 operator|new
 name|IdsQueryBuilder
 argument_list|()
+decl_stmt|;
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|idsQueryBuilder
 operator|.
 name|addIds
 argument_list|(
@@ -558,19 +553,8 @@ index|[]
 operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"must be not null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"[ids] ids cannot be null"
@@ -581,7 +565,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// see #7686.
 DECL|method|testIdsQueryWithInvalidValues
@@ -597,39 +580,33 @@ name|query
 init|=
 literal|"{ \"ids\": { \"values\": [[1]] } }"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|query
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
-name|assertThat
+decl_stmt|;
+name|assertEquals
 argument_list|(
+literal|"Illegal value for id, expecting a string or number, got: START_ARRAY"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|"Illegal value for id, expecting a string or number, got: START_ARRAY"
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testFromJson
 specifier|public
@@ -761,6 +738,7 @@ name|type
 argument_list|)
 decl_stmt|;
 comment|//single value type can also be called _type
+specifier|final
 name|String
 name|contentString
 init|=
@@ -802,25 +780,23 @@ argument_list|,
 name|parsed
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|contentString
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"parse should have failed"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Deprecated field [_type] used, expected [type] instead"
@@ -831,10 +807,11 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|//array of types can also be called type rather than types
-name|contentString
-operator|=
+specifier|final
+name|String
+name|contentString2
+init|=
 literal|"{\n"
 operator|+
 literal|"    \"ids\" : {\n"
@@ -850,7 +827,7 @@ operator|+
 literal|"    }\n"
 operator|+
 literal|"}"
-expr_stmt|;
+decl_stmt|;
 name|parsed
 operator|=
 operator|(
@@ -872,25 +849,22 @@ argument_list|,
 name|parsed
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
-name|contentString
+name|contentString2
+argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"parse should have failed"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"Deprecated field [types] used, expected [type] instead"
@@ -901,7 +875,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

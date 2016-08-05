@@ -112,16 +112,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -147,6 +137,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -424,8 +426,17 @@ name|void
 name|testIllegalArguments
 parameter_list|()
 block|{
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|FuzzyQueryBuilder
 argument_list|(
@@ -433,19 +444,8 @@ literal|null
 argument_list|,
 literal|"text"
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"must not be null"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"field name cannot be null or empty"
@@ -456,9 +456,16 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|FuzzyQueryBuilder
 argument_list|(
@@ -466,19 +473,8 @@ literal|""
 argument_list|,
 literal|"text"
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"must not be empty"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"field name cannot be null or empty"
@@ -489,9 +485,16 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|FuzzyQueryBuilder
 argument_list|(
@@ -499,19 +502,8 @@ literal|"field"
 argument_list|,
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"must not be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"query value cannot be null"
@@ -522,7 +514,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testUnsupportedFuzzinessForStringType
 specifier|public
@@ -575,27 +566,25 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|NumberFormatException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|NumberFormatException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|fuzzyQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have failed with NumberFormatException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NumberFormatException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -603,15 +592,12 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|Matchers
-operator|.
 name|containsString
 argument_list|(
 literal|"For input string"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testToQueryWithStringField
 specifier|public
@@ -979,25 +965,23 @@ literal|"  }\n"
 operator|+
 literal|"}"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"parseQuery should have failed"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"[fuzzy] query doesn't support multiple fields, found [message1] and [message2]"
@@ -1008,7 +992,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

@@ -649,29 +649,22 @@ operator|new
 name|DisMaxQueryBuilder
 argument_list|()
 decl_stmt|;
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|disMaxQuery
 operator|.
 name|add
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 DECL|method|testToQueryInnerPrefixQuery
 specifier|public

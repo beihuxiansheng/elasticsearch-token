@@ -572,7 +572,7 @@ block|{
 name|String
 name|json
 init|=
-literal|"{    \"span_term\" : { \"user\" : { \"value\" : \"kimchy\", \"boost\" : 2.0 } }}    "
+literal|"{    \"span_term\" : { \"user\" : { \"value\" : \"kimchy\", \"boost\" : 2.0 } }}"
 decl_stmt|;
 name|SpanTermQueryBuilder
 name|parsed
@@ -650,25 +650,23 @@ literal|"  }\n"
 operator|+
 literal|"}"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"parseQuery should have failed"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"[span_term] query doesn't support multiple fields, found [message1] and [message2]"
@@ -679,7 +677,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

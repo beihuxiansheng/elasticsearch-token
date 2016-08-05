@@ -2036,8 +2036,17 @@ name|qb
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
@@ -2046,19 +2055,8 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected query to fail with strict parsing"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2072,7 +2070,6 @@ literal|"Deprecated field [type] used, replaced by [match_phrase and match_phras
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testLegacyMatchPhraseQuery
 specifier|public
@@ -2181,8 +2178,17 @@ name|qb
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
@@ -2191,19 +2197,8 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected query to fail with strict parsing"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2217,7 +2212,6 @@ literal|"Deprecated field [type] used, replaced by [match_phrase and match_phras
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testLegacyFuzzyMatchQuery
 specifier|public
@@ -2311,8 +2305,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
@@ -2321,19 +2324,8 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected query to fail with strict parsing"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2351,7 +2343,6 @@ literal|"] used, expected [match] instead"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testFuzzinessOnNonStringField
 specifier|public
@@ -2609,25 +2600,23 @@ literal|"  }\n"
 operator|+
 literal|"}"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"parseQuery should have failed"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"[match] query doesn't support multiple fields, found [message1] and [message2]"
@@ -2638,7 +2627,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
