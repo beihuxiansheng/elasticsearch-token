@@ -7333,6 +7333,13 @@ name|interval
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/19833"
+argument_list|)
 DECL|method|testEmptyWithExtendedBounds
 specifier|public
 name|void
