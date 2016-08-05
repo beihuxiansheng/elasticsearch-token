@@ -467,7 +467,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -498,7 +498,7 @@ name|CURRENT
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -698,7 +698,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode

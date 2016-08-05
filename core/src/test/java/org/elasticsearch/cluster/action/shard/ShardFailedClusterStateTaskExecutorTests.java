@@ -1418,7 +1418,7 @@ name|forEach
 argument_list|(
 name|nodes
 operator|::
-name|put
+name|add
 argument_list|)
 expr_stmt|;
 name|ClusterState

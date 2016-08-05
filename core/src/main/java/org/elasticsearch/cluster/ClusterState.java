@@ -3611,6 +3611,16 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|nodes
+specifier|public
+name|DiscoveryNodes
+name|nodes
+parameter_list|()
+block|{
+return|return
+name|nodes
+return|;
+block|}
 DECL|method|routingResult
 specifier|public
 name|Builder

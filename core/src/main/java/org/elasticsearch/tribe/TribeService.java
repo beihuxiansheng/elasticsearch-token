@@ -2856,7 +2856,7 @@ expr_stmt|;
 comment|// remove any existing node with the same id but different ephemeral id
 name|nodes
 operator|.
-name|put
+name|add
 argument_list|(
 name|discoNode
 argument_list|)

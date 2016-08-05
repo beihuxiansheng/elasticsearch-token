@@ -5243,7 +5243,7 @@ control|)
 block|{
 name|discoNodes
 operator|.
-name|put
+name|add
 argument_list|(
 name|testNode
 operator|.

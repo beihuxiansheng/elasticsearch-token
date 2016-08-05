@@ -1114,7 +1114,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1122,7 +1122,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1684,7 +1684,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1899,7 +1899,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2683,7 +2683,7 @@ control|)
 block|{
 name|nodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -3141,7 +3141,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3154,7 +3154,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3167,7 +3167,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3209,7 +3209,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3222,7 +3222,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3235,7 +3235,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3272,7 +3272,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3285,7 +3285,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3293,7 +3293,7 @@ literal|"new1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3330,7 +3330,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3338,7 +3338,7 @@ literal|"new2"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3346,7 +3346,7 @@ literal|"new1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -4028,17 +4028,17 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|oldNode1
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|oldNode2
 argument_list|)
@@ -4416,17 +4416,17 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|oldNode1
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|oldNode2
 argument_list|)
@@ -4595,9 +4595,11 @@ name|routingTable
 init|=
 name|service
 operator|.
-name|reroute
+name|deassociateDeadNodes
 argument_list|(
 name|clusterState
+argument_list|,
+literal|true
 argument_list|,
 literal|"reroute"
 argument_list|)

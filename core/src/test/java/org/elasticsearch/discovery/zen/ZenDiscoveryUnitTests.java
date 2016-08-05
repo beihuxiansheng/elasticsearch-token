@@ -300,7 +300,7 @@ argument_list|(
 literal|"a"
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -341,7 +341,7 @@ argument_list|(
 literal|"a"
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -519,7 +519,7 @@ argument_list|(
 literal|"b"
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode

@@ -753,7 +753,7 @@ control|)
 block|{
 name|nb
 operator|.
-name|put
+name|add
 argument_list|(
 name|Allocators
 operator|.

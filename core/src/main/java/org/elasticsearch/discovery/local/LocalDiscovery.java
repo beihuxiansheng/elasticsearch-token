@@ -859,7 +859,7 @@ control|)
 block|{
 name|nodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|discovery
 operator|.
@@ -1051,7 +1051,7 @@ control|)
 block|{
 name|nodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|discovery
 operator|.
@@ -1459,7 +1459,7 @@ name|master
 operator|.
 name|allocationService
 operator|.
-name|reroute
+name|deassociateDeadNodes
 argument_list|(
 name|ClusterState
 operator|.
@@ -1471,7 +1471,9 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-literal|"elected as master"
+literal|true
+argument_list|,
+literal|"node stopped"
 argument_list|)
 decl_stmt|;
 return|return

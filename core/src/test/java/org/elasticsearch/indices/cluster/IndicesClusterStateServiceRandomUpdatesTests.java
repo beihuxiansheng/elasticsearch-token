@@ -2358,7 +2358,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|createNode
 argument_list|()
@@ -2515,16 +2515,15 @@ name|state
 operator|=
 name|cluster
 operator|.
-name|reroute
+name|deassociateDeadNodes
 argument_list|(
 name|state
 argument_list|,
-operator|new
-name|ClusterRerouteRequest
-argument_list|()
+literal|true
+argument_list|,
+literal|"removed and added a node"
 argument_list|)
 expr_stmt|;
-comment|// always reroute after node join
 name|updateNodes
 argument_list|(
 name|state

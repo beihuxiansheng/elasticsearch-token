@@ -1070,7 +1070,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -1305,7 +1305,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// inject a node
 name|ClusterState
 operator|.
 name|Builder
@@ -1352,9 +1351,11 @@ name|result
 init|=
 name|allocationService
 operator|.
-name|reroute
+name|deassociateDeadNodes
 argument_list|(
 name|currentState
+argument_list|,
+literal|true
 argument_list|,
 literal|"reroute"
 argument_list|)

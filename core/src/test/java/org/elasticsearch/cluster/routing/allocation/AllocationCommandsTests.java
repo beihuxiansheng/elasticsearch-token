@@ -506,31 +506,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|DiscoveryPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESAllocationTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -814,7 +792,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -822,7 +800,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1443,7 +1421,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1451,7 +1429,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1459,7 +1437,7 @@ literal|"node2"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1467,7 +1445,7 @@ literal|"node3"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2738,7 +2716,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2746,7 +2724,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2754,7 +2732,7 @@ literal|"node2"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
