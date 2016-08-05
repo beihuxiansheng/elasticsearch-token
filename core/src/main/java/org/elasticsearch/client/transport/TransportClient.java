@@ -1535,6 +1535,8 @@ argument_list|,
 name|nodesService
 argument_list|,
 name|proxy
+argument_list|,
+name|namedWriteableRegistry
 argument_list|)
 decl_stmt|;
 name|resourcesToClose
@@ -1590,6 +1592,12 @@ specifier|final
 name|TransportProxyClient
 name|proxy
 decl_stmt|;
+DECL|field|namedWriteableRegistry
+specifier|private
+specifier|final
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
+decl_stmt|;
 DECL|method|ClientTemplate
 specifier|private
 name|ClientTemplate
@@ -1608,6 +1616,9 @@ name|nodesService
 parameter_list|,
 name|TransportProxyClient
 name|proxy
+parameter_list|,
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|this
@@ -1633,6 +1644,12 @@ operator|.
 name|proxy
 operator|=
 name|proxy
+expr_stmt|;
+name|this
+operator|.
+name|namedWriteableRegistry
+operator|=
+name|namedWriteableRegistry
 expr_stmt|;
 block|}
 DECL|method|getSettings
@@ -1681,6 +1698,11 @@ DECL|field|injector
 specifier|final
 name|Injector
 name|injector
+decl_stmt|;
+DECL|field|namedWriteableRegistry
+specifier|final
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
 decl_stmt|;
 DECL|field|pluginLifecycleComponents
 specifier|private
@@ -1831,6 +1853,14 @@ operator|=
 name|template
 operator|.
 name|proxy
+expr_stmt|;
+name|this
+operator|.
+name|namedWriteableRegistry
+operator|=
+name|template
+operator|.
+name|namedWriteableRegistry
 expr_stmt|;
 block|}
 comment|/**      * Returns the current registered transport addresses to use (added using      * {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.      */
