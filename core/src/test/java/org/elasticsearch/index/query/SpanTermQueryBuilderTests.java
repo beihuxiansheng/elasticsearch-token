@@ -82,6 +82,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|BytesRefs
@@ -560,7 +572,7 @@ block|{
 name|String
 name|json
 init|=
-literal|"{    \"span_term\" : { \"user\" : { \"value\" : \"kimchy\", \"boost\" : 2.0 } }}    "
+literal|"{    \"span_term\" : { \"user\" : { \"value\" : \"kimchy\", \"boost\" : 2.0 } }}"
 decl_stmt|;
 name|SpanTermQueryBuilder
 name|parsed
@@ -604,6 +616,65 @@ name|boost
 argument_list|()
 argument_list|,
 literal|0.0001
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_term\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"term\" : \"this\"\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"message2\" : {\n"
+operator|+
+literal|"      \"term\" : \"this\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[span_term] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

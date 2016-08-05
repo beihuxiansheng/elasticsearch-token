@@ -2132,25 +2132,23 @@ operator|+
 literal|"\", \"bogusField\" : \"someValue\""
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|queryAsString
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"ParsingException expected."
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 comment|// we'd like to see the offending field name here
 name|assertThat
 argument_list|(
@@ -2165,7 +2163,6 @@ literal|"bogusField"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Test that adding additional object into otherwise correct query string      * should always trigger some kind of Parsing Exception.      */
 DECL|method|testUnknownObjectException
@@ -2452,27 +2449,23 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|testQuery
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"some parsing exception expected for query: "
-operator|+
-name|testQuery
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"["
@@ -2487,7 +2480,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Returns alternate string representation of the query that need to be tested as they are never used as output      * of {@link QueryBuilder#toXContent(XContentBuilder, ToXContent.Params)}. By default there are no alternate versions.      */
 DECL|method|getAlternateVersions

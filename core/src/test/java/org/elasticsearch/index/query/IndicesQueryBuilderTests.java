@@ -274,8 +274,14 @@ name|void
 name|testIllegalArguments
 parameter_list|()
 block|{
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|IndicesQueryBuilder
 argument_list|(
@@ -283,21 +289,8 @@ literal|null
 argument_list|,
 literal|"index"
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|expectThrows
 argument_list|(
 name|IllegalArgumentException

@@ -1917,6 +1917,34 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"[geo_distance] query doesn't support multiple fields, found ["
+operator|+
+name|fieldName
+operator|+
+literal|"] and ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 comment|// the json in the format of -> field : { lat : 30, lon : 12 }
 name|String
 name|currentName
@@ -1926,11 +1954,6 @@ operator|.
 name|currentName
 argument_list|()
 decl_stmt|;
-assert|assert
-name|currentFieldName
-operator|!=
-literal|null
-assert|;
 name|fieldName
 operator|=
 name|currentFieldName

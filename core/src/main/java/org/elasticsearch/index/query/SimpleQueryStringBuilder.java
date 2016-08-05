@@ -946,7 +946,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"supplied field is null or empty."
+literal|"supplied field is null or empty"
 argument_list|)
 throw|;
 block|}
@@ -994,7 +994,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"supplied field is null or empty."
+literal|"supplied field is null or empty"
 argument_list|)
 throw|;
 block|}

@@ -318,25 +318,23 @@ name|NAME
 operator|+
 literal|"\" : {} }"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|queryString
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -350,7 +348,6 @@ literal|"requires a 'filter' element"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * test that multiple "filter" elements causes {@link ParsingException}      */
 DECL|method|testMultipleFilterElements
@@ -378,25 +375,23 @@ literal|"\"filter\" : { \"term\": { \"foo\": \"x\" } },\n"
 operator|+
 literal|"} }"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|queryString
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -410,7 +405,6 @@ literal|"accepts only one 'filter' element"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * test that "filter" does not accept an array of queries, throws {@link ParsingException}      */
 DECL|method|testNoArrayAsFilterElements
@@ -438,25 +432,23 @@ literal|"{ \"term\": { \"foo\": \"x\" } } ]\n"
 operator|+
 literal|"} }"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|queryString
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -470,7 +462,6 @@ literal|"unexpected token [START_ARRAY]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testIllegalArguments
 specifier|public

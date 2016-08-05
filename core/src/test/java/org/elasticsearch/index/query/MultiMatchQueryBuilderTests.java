@@ -1076,8 +1076,14 @@ name|void
 name|testIllegaArguments
 parameter_list|()
 block|{
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|MultiMatchQueryBuilder
 argument_list|(
@@ -1085,23 +1091,16 @@ literal|null
 argument_list|,
 literal|"field"
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"value must not be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|MultiMatchQueryBuilder
 argument_list|(
@@ -1113,23 +1112,16 @@ index|[]
 operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"initial fields must be supplied at construction time must not be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|MultiMatchQueryBuilder
 argument_list|(
@@ -1142,23 +1134,16 @@ block|{
 literal|""
 block|}
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"field names cannot be empty"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|MultiMatchQueryBuilder
 argument_list|(
@@ -1171,21 +1156,8 @@ name|type
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"type must not be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 DECL|method|testToQueryBoost
 specifier|public
