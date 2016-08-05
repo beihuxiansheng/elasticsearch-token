@@ -392,18 +392,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -585,6 +573,7 @@ name|BytesReference
 name|documentSource
 decl_stmt|;
 DECL|field|indexedDocumentExists
+specifier|private
 name|boolean
 name|indexedDocumentExists
 init|=
