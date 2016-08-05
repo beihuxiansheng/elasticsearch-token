@@ -272,6 +272,45 @@ literal|" concrete index: [[foo/bar]] and indices: [myindex];"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBuildFromSimplifiedDef
+specifier|public
+name|void
+name|testBuildFromSimplifiedDef
+parameter_list|()
+block|{
+comment|// test that method rejects input where input varargs fieldname/properites are not paired correctly
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|PutMappingRequest
+operator|.
+name|buildFromSimplifiedDef
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"only_field"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mapping source must be pairs of fieldnames and properties definition."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
