@@ -114,20 +114,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|rounding
-operator|.
-name|TimeZoneRounding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|LongHash
@@ -331,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An aggregator for date values. Every date is rounded down using a configured  * {@link TimeZoneRounding}.  * @see TimeZoneRounding  */
+comment|/**  * An aggregator for date values. Every date is rounded down using a configured  * {@link Rounding}.  *  * @see Rounding  */
 end_comment
 
 begin_class
@@ -391,6 +377,11 @@ specifier|final
 name|LongHash
 name|bucketOrds
 decl_stmt|;
+DECL|field|offset
+specifier|private
+name|long
+name|offset
+decl_stmt|;
 DECL|method|DateHistogramAggregator
 specifier|public
 name|DateHistogramAggregator
@@ -403,6 +394,9 @@ name|factories
 parameter_list|,
 name|Rounding
 name|rounding
+parameter_list|,
+name|long
+name|offset
 parameter_list|,
 name|InternalOrder
 name|order
@@ -471,6 +465,12 @@ operator|.
 name|rounding
 operator|=
 name|rounding
+expr_stmt|;
+name|this
+operator|.
+name|offset
+operator|=
+name|offset
 expr_stmt|;
 name|this
 operator|.
@@ -674,7 +674,11 @@ operator|.
 name|round
 argument_list|(
 name|value
+operator|-
+name|offset
 argument_list|)
+operator|+
+name|offset
 decl_stmt|;
 assert|assert
 name|rounded
@@ -888,6 +892,8 @@ name|order
 argument_list|,
 name|minDocCount
 argument_list|,
+name|offset
+argument_list|,
 name|emptyBucketInfo
 argument_list|,
 name|formatter
@@ -948,6 +954,8 @@ argument_list|,
 name|order
 argument_list|,
 name|minDocCount
+argument_list|,
+name|offset
 argument_list|,
 name|emptyBucketInfo
 argument_list|,
