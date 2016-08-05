@@ -93,10 +93,12 @@ extends|extends
 name|AcknowledgedResponse
 block|{
 DECL|method|PutMappingResponse
+specifier|protected
 name|PutMappingResponse
 parameter_list|()
 block|{      }
 DECL|method|PutMappingResponse
+specifier|protected
 name|PutMappingResponse
 parameter_list|(
 name|boolean
