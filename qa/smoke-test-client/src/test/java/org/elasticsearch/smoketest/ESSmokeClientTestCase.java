@@ -378,20 +378,6 @@ name|randomizedtesting
 operator|.
 name|RandomizedTest
 operator|.
-name|randomBoolean
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
 name|randomIntBetween
 import|;
 end_import

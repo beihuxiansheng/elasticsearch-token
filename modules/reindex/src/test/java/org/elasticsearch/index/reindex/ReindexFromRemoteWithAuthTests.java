@@ -474,12 +474,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|RetryTests
-operator|.
-name|BogusPlugin
-operator|.
-name|class
-argument_list|,
 name|Netty4Plugin
 operator|.
 name|class
@@ -523,15 +517,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Weird incantation required to test with netty
-name|settings
-operator|.
-name|put
-argument_list|(
-literal|"netty.assert.buglevel"
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 name|settings
 operator|.
 name|put
