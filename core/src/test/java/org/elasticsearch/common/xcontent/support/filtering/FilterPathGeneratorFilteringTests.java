@@ -93,6 +93,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -966,12 +976,12 @@ argument_list|,
 operator|new
 name|FilterPathBasedFilter
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
+name|Collections
+operator|.
+name|singleton
+argument_list|(
 name|filter
-block|}
+argument_list|)
 argument_list|,
 name|inclusive
 argument_list|)
