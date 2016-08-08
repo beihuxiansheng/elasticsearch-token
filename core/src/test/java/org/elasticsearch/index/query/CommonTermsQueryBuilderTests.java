@@ -1161,6 +1161,47 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|shortJson
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"common\" : {\n"
+operator|+
+literal|"    \"message1\" : \"nelly the elephant not as a cartoon\",\n"
+operator|+
+literal|"    \"message2\" : \"nelly the elephant not as a cartoon\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|shortJson
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[common] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
