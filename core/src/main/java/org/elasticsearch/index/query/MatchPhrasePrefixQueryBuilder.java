@@ -1297,6 +1297,39 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"[match_phrase_prefix] query doesn't support multiple "
+operator|+
+literal|"fields, found ["
+operator|+
+name|fieldName
+operator|+
+literal|"] and ["
+operator|+
+name|parser
+operator|.
+name|currentName
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|parser
