@@ -649,6 +649,47 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|shortJson
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"wildcard\": {\n"
+operator|+
+literal|"      \"user1\": \"ki*y\",\n"
+operator|+
+literal|"      \"user2\": \"ki*y\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|shortJson
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[wildcard] query doesn't support multiple fields, found [user1] and [user2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
