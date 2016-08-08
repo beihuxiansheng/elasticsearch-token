@@ -323,7 +323,7 @@ name|minBound
 init|=
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 decl_stmt|;
 DECL|field|maxBound
 specifier|private
@@ -332,7 +332,7 @@ name|maxBound
 init|=
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 decl_stmt|;
 DECL|field|order
 specifier|private
@@ -670,7 +670,7 @@ return|return
 name|maxBound
 return|;
 block|}
-comment|/** Set extended bounds on this builder: buckets between {@code minBound}      *  and {@code maxBound} will be created even if no documents fell into      *  these buckets. It is possible to create half-open bounds by providing      *  {@link Double#POSITIVE_INFINITY} as a {@code minBound} or       *  {@link Double#NEGATIVE_INFINITY} as a {@code maxBound}. */
+comment|/**      * Set extended bounds on this builder: buckets between {@code minBound} and      * {@code maxBound} will be created even if no documents fell into these      * buckets.      *      * @throws IllegalArgumentException      *             if maxBound is less that minBound, or if either of the bounds      *             are not finite.      */
 DECL|method|extendedBounds
 specifier|public
 name|HistogramAggregationBuilder
@@ -685,18 +685,21 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|minBound
-operator|==
 name|Double
 operator|.
-name|NEGATIVE_INFINITY
+name|isFinite
+argument_list|(
+name|minBound
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"minBound must not be -Infinity, got: "
+literal|"minBound must be finite, got: "
 operator|+
 name|minBound
 argument_list|)
@@ -704,20 +707,46 @@ throw|;
 block|}
 if|if
 condition|(
-name|maxBound
-operator|==
 name|Double
 operator|.
-name|POSITIVE_INFINITY
+name|isFinite
+argument_list|(
+name|maxBound
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"maxBound must not be +Infinity, got: "
+literal|"maxBound must be finite, got: "
 operator|+
 name|maxBound
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|maxBound
+operator|<
+name|minBound
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"maxBound ["
+operator|+
+name|maxBound
+operator|+
+literal|"] must be greater than minBound ["
+operator|+
+name|minBound
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
