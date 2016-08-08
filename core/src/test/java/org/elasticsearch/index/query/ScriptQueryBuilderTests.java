@@ -387,7 +387,14 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-literal|"params"
+name|Script
+operator|.
+name|ScriptField
+operator|.
+name|PARAMS
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 return|;
 block|}

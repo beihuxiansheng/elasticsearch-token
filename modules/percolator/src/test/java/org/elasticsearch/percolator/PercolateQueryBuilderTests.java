@@ -1213,7 +1213,12 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-literal|"document"
+name|PercolateQueryBuilder
+operator|.
+name|DOCUMENT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 return|;
 block|}

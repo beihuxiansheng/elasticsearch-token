@@ -1279,7 +1279,16 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-literal|"doc"
+name|MoreLikeThisQueryBuilder
+operator|.
+name|Item
+operator|.
+name|Field
+operator|.
+name|DOC
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 return|;
 block|}
