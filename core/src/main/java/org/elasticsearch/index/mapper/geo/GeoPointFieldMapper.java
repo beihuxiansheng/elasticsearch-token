@@ -406,7 +406,7 @@ parameter_list|,
 name|FieldMapper
 name|lonMapper
 parameter_list|,
-name|KeywordFieldMapper
+name|FieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
@@ -630,7 +630,7 @@ parameter_list|,
 name|FieldMapper
 name|lonMapper
 parameter_list|,
-name|KeywordFieldMapper
+name|FieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
