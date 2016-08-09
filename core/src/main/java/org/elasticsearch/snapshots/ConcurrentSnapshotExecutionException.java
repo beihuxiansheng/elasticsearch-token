@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thrown when a user tries to start multiple snapshots at the same time  */
+comment|/**  * Thrown when a user tries to multiple conflicting snapshot/restore operations at the same time.  */
 end_comment
 
 begin_class
