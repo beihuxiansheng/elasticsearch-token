@@ -798,7 +798,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[term] query does not support different field names, use [bool] query instead"
+literal|"[term] query doesn't support multiple fields, found [message1] and [message2]"
 argument_list|,
 name|e
 operator|.
@@ -839,7 +839,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[term] query does not support different field names, use [bool] query instead"
+literal|"[term] query doesn't support multiple fields, found [message1] and [message2]"
 argument_list|,
 name|e
 operator|.
