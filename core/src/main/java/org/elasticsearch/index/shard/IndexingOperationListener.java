@@ -20,13 +20,29 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
 import|;
 end_import
 
@@ -177,7 +193,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|CompositeListener
@@ -190,7 +206,7 @@ name|IndexingOperationListener
 argument_list|>
 name|listeners
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -255,11 +271,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"preIndex listener [{}] failed"
 argument_list|,
-name|e
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -319,11 +339,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"postIndex listener [{}] failed"
 argument_list|,
-name|e
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -391,11 +415,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"postIndex listener [{}] failed"
 argument_list|,
-name|inner
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -449,11 +477,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"preDelete listener [{}] failed"
 argument_list|,
-name|e
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -508,11 +540,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"postDelete listener [{}] failed"
 argument_list|,
-name|e
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -580,11 +616,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"postDelete listener [{}] failed"
 argument_list|,
-name|inner
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

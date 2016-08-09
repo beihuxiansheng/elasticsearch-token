@@ -18,6 +18,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -967,9 +983,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"found dangled index [{}] on node [{}]. This index cannot be upgraded to the latest version, adding as closed"
-argument_list|,
-name|ex
 argument_list|,
 name|indexMetaData
 operator|.
@@ -979,6 +996,9 @@ argument_list|,
 name|request
 operator|.
 name|fromNode
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 name|upgradedIndexMetaData
@@ -1209,11 +1229,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 try|try

@@ -20,6 +20,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -2219,11 +2235,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to close node {} on failed start"
 argument_list|,
-name|inner
-argument_list|,
 name|otherNode
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -2298,11 +2318,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to close node {}"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2418,11 +2442,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to process [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 argument_list|)
 expr_stmt|;

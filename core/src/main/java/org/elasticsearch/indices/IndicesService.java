@@ -34,6 +34,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|index
@@ -451,20 +481,6 @@ operator|.
 name|lease
 operator|.
 name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -2181,11 +2197,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to remove index on stop [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2611,14 +2631,18 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} ignoring shard stats"
-argument_list|,
-name|e
 argument_list|,
 name|indexShard
 operator|.
 name|shardId
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3634,11 +3658,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to remove index ({})"
 argument_list|,
-name|e
-argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4125,11 +4153,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to delete index ({})"
 argument_list|,
-name|e
-argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4248,9 +4280,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to delete unassigned index (reason [{}])"
-argument_list|,
-name|e
 argument_list|,
 name|metaData
 operator|.
@@ -4258,6 +4291,9 @@ name|getIndex
 argument_list|()
 argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4567,11 +4603,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} failed to delete index store - at least one shards is still locked"
 argument_list|,
-name|ex
-argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -4585,11 +4625,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} failed to delete index"
 argument_list|,
-name|ex
-argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -5036,11 +5080,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to load state file from a stale deleted index, folders will be left on disk"
 argument_list|,
-name|e
-argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -5082,14 +5130,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to delete index on disk"
-argument_list|,
-name|e
 argument_list|,
 name|metaData
 operator|.
 name|getIndex
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5902,11 +5954,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} retry pending delete"
 argument_list|,
-name|ex
-argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -5977,14 +6033,18 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} retry pending delete"
-argument_list|,
-name|ex
 argument_list|,
 name|shardLock
 operator|.
 name|getShardId
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -6225,7 +6285,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|threadPool
@@ -6268,7 +6328,7 @@ parameter_list|,
 name|IndicesRequestCache
 name|requestCache
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|ThreadPool

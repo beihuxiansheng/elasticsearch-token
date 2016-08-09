@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -174,7 +190,9 @@ name|support
 operator|.
 name|replication
 operator|.
-name|TransportWriteAction
+name|ReplicationResponse
+operator|.
+name|ShardInfo
 import|;
 end_import
 
@@ -190,9 +208,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationResponse
-operator|.
-name|ShardInfo
+name|TransportWriteAction
 import|;
 end_import
 
@@ -1580,15 +1596,19 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} failed to execute bulk item ({}) {}"
-argument_list|,
-name|t
 argument_list|,
 name|shardId
 argument_list|,
 name|operation
 argument_list|,
 name|request
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}
@@ -1598,15 +1618,19 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} failed to execute bulk item ({}) {}"
-argument_list|,
-name|t
 argument_list|,
 name|shardId
 argument_list|,
 name|operation
 argument_list|,
 name|request
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}

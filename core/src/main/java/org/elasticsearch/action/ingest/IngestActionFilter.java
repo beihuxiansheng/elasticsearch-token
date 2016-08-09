@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -640,14 +656,18 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to execute pipeline [{}]"
-argument_list|,
-name|t
 argument_list|,
 name|indexRequest
 operator|.
 name|getPipeline
 argument_list|()
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 name|listener
@@ -748,9 +768,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to execute pipeline [{}] for document [{}/{}/{}]"
-argument_list|,
-name|exception
 argument_list|,
 name|indexRequest
 operator|.
@@ -771,6 +792,9 @@ name|indexRequest
 operator|.
 name|id
 argument_list|()
+argument_list|)
+argument_list|,
+name|exception
 argument_list|)
 argument_list|;
 name|bulkRequestModifier

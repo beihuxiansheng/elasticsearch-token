@@ -22,6 +22,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|index
@@ -239,20 +269,6 @@ operator|.
 name|lease
 operator|.
 name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -523,7 +539,7 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 comment|// Shard that is going to be recovered (the "source")
@@ -720,7 +736,7 @@ name|int
 name|fileChunkSizeInBytes
 parameter_list|,
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -1994,9 +2010,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} Remote file corruption during finalization of recovery on node {}. local checksum OK"
-argument_list|,
-name|corruptIndexException
 argument_list|,
 name|shard
 operator|.
@@ -2007,6 +2024,9 @@ name|request
 operator|.
 name|targetNode
 argument_list|()
+argument_list|)
+argument_list|,
+name|corruptIndexException
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -3362,9 +3382,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} Remote file corruption on node {}, recovering {}. local checksum OK"
-argument_list|,
-name|corruptIndexException
 argument_list|,
 name|shardId
 argument_list|,
@@ -3374,6 +3395,9 @@ name|targetNode
 argument_list|()
 argument_list|,
 name|md
+argument_list|)
+argument_list|,
+name|corruptIndexException
 argument_list|)
 expr_stmt|;
 throw|throw

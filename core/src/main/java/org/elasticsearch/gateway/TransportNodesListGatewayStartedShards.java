@@ -18,6 +18,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -903,9 +919,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} can't open index for shard [{}] in path [{}]"
-argument_list|,
-name|exception
 argument_list|,
 name|shardId
 argument_list|,
@@ -923,6 +940,9 @@ name|resolveIndex
 argument_list|()
 else|:
 literal|""
+argument_list|)
+argument_list|,
+name|exception
 argument_list|)
 expr_stmt|;
 name|String

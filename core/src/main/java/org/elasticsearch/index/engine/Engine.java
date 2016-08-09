@@ -22,6 +22,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|index
@@ -419,20 +449,6 @@ operator|.
 name|lease
 operator|.
 name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -887,7 +903,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|engineConfig
@@ -2083,11 +2099,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to acquire searcher, source {}"
 argument_list|,
-name|ex
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -2526,9 +2546,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Error when opening compound reader for Directory [{}] and SegmentCommitInfo [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|segmentReader
 operator|.
@@ -2536,6 +2557,9 @@ name|directory
 argument_list|()
 argument_list|,
 name|segmentCommitInfo
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -2590,11 +2614,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Couldn't list Compound Reader Directory [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|directory
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -2638,9 +2666,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Couldn't list Directory from SegmentReader [{}] and SegmentInfo [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|segmentReader
 argument_list|,
@@ -2648,6 +2677,9 @@ name|segmentReader
 operator|.
 name|getSegmentInfo
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -2740,13 +2772,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Error when trying to query fileLength [{}] [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|directory
 argument_list|,
 name|file
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2796,11 +2832,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Error when closing compound reader on Directory [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|directory
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3013,15 +3053,19 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to get size for [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|info
 operator|.
 name|info
 operator|.
 name|name
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3219,15 +3263,19 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to get size for [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|info
 operator|.
 name|info
 operator|.
 name|name
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3593,11 +3641,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"tried to fail engine but engine is already failed. ignoring. [{}]"
 argument_list|,
-name|failure
-argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3606,11 +3658,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed engine [{}]"
 argument_list|,
-name|failure
-argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 comment|// we must set a failure exception, generate one if not supplied
@@ -3742,11 +3798,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"tried to fail engine but could not acquire lock - engine should be failed by now [{}]"
 argument_list|,
-name|failure
-argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 block|}

@@ -22,6 +22,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|store
@@ -1023,9 +1039,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"will retry recovery with id [{}] in [{}]"
-argument_list|,
-name|reason
 argument_list|,
 name|recoveryTarget
 operator|.
@@ -1033,6 +1050,9 @@ name|recoveryId
 argument_list|()
 argument_list|,
 name|retryAfter
+argument_list|)
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|retryRecovery
@@ -1931,9 +1951,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}][{}] Got exception on recovery"
-argument_list|,
-name|e
 argument_list|,
 name|request
 operator|.
@@ -1953,6 +1974,9 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2616,14 +2640,18 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"delaying recovery due to missing mapping changes (rolling back stats for [{}] ops)"
-argument_list|,
-name|exception
 argument_list|,
 name|exception
 operator|.
 name|completedOperations
 argument_list|()
+argument_list|)
+argument_list|,
+name|exception
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -3017,9 +3045,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed waiting for cluster state with version {} (current: {})"
-argument_list|,
-name|e
 argument_list|,
 name|clusterStateVersion
 argument_list|,
@@ -3027,6 +3056,9 @@ name|observer
 operator|.
 name|observedState
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -3517,11 +3549,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected error during recovery [{}], failing shard"
 argument_list|,
-name|e
-argument_list|,
 name|recoveryId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|onGoingRecoveries
@@ -3557,11 +3593,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected error during recovery, but recovery id [{}] is finished"
 argument_list|,
-name|e
-argument_list|,
 name|recoveryId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

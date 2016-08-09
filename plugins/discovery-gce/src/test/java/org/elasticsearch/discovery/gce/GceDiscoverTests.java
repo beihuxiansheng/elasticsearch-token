@@ -76,6 +76,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cloud
@@ -123,20 +137,6 @@ operator|.
 name|io
 operator|.
 name|FileSystemUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -922,7 +922,7 @@ argument_list|,
 literal|"application/json; charset=UTF-8"
 argument_list|)
 expr_stmt|;
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers

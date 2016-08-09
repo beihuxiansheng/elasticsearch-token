@@ -22,6 +22,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|codecs
@@ -501,20 +531,6 @@ operator|.
 name|stream
 operator|.
 name|Writeable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -1573,7 +1589,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * Note that this method requires the caller verify it has the right to access the store and      * no concurrent file changes are happening. If in doubt, you probably want to use one of the following:      *      * {@link #readMetadataSnapshot(Path, ShardId, NodeEnvironment.ShardLocker, ESLogger)} to read a meta data while locking      * {@link IndexShard#snapshotStoreMetadata()} to safely read from an existing shard      * {@link IndexShard#acquireIndexCommit(boolean)} to get an {@link IndexCommit} which is safe to use but has to be freed      *      * @throws CorruptIndexException      if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                    unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException if the lucene index is too new to be opened.      * @throws FileNotFoundException      if one or more files referenced by a commit are not present.      * @throws NoSuchFileException        if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException     if the commit point can't be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * Note that this method requires the caller verify it has the right to access the store and      * no concurrent file changes are happening. If in doubt, you probably want to use one of the following:      *      * {@link #readMetadataSnapshot(Path, ShardId, NodeEnvironment.ShardLocker, Logger)} to read a meta data while locking      * {@link IndexShard#snapshotStoreMetadata()} to safely read from an existing shard      * {@link IndexShard#acquireIndexCommit(boolean)} to get an {@link IndexCommit} which is safe to use but has to be freed      *      * @throws CorruptIndexException      if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                    unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException if the lucene index is too new to be opened.      * @throws FileNotFoundException      if one or more files referenced by a commit are not present.      * @throws NoSuchFileException        if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException     if the commit point can't be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1915,11 +1931,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to delete file [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|origFile
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -2146,7 +2166,7 @@ operator|.
 name|ShardLocker
 name|shardLocker
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 throws|throws
@@ -2257,7 +2277,7 @@ specifier|static
 name|boolean
 name|canOpenIndex
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Path
@@ -2298,11 +2318,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Can't open index for path [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|indexLocation
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 return|return
@@ -2331,7 +2355,7 @@ operator|.
 name|ShardLocker
 name|shardLocker
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 throws|throws
@@ -3445,11 +3469,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to delete file [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|existingFile
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 comment|// ignore, we don't really care, will get deleted later on
@@ -3675,7 +3703,7 @@ block|{
 DECL|field|deletesLogger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|deletesLogger
 decl_stmt|;
 DECL|method|StoreDirectory
@@ -3684,7 +3712,7 @@ parameter_list|(
 name|Directory
 name|delegateDirectory
 parameter_list|,
-name|ESLogger
+name|Logger
 name|deletesLogger
 parameter_list|)
 throws|throws
@@ -3931,7 +3959,7 @@ parameter_list|,
 name|Directory
 name|directory
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 throws|throws
@@ -4343,7 +4371,7 @@ parameter_list|,
 name|Directory
 name|directory
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 throws|throws
@@ -4649,9 +4677,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to build store metadata. checking segment info integrity (with commit [{}])"
-argument_list|,
-name|ex
 argument_list|,
 name|commit
 operator|==
@@ -4660,6 +4689,9 @@ condition|?
 literal|"no"
 else|:
 literal|"yes"
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 name|Lucene
@@ -4750,7 +4782,7 @@ name|StoreFileMetaData
 argument_list|>
 name|builder
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Version
@@ -4910,11 +4942,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Can retrieve checksum from file [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|file
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 throw|throw

@@ -24,6 +24,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -296,18 +312,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|TransportResponseHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|TransportChannel
 import|;
 end_import
@@ -333,6 +337,18 @@ operator|.
 name|transport
 operator|.
 name|TransportRequestHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -1045,9 +1061,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: failed to execute [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shardRouting
 argument_list|,
@@ -1055,6 +1072,9 @@ name|internalRequest
 operator|.
 name|request
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1178,9 +1198,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: failed to execute [{}]"
-argument_list|,
-name|failure
 argument_list|,
 literal|null
 argument_list|,
@@ -1188,6 +1209,9 @@ name|internalRequest
 operator|.
 name|request
 argument_list|()
+argument_list|)
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 block|}

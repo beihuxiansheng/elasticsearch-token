@@ -44,6 +44,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -2218,11 +2234,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to send ping transport message"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|failedPings
@@ -2237,11 +2257,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to send ping transport message (channel closed)"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3051,11 +3075,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to connect to [{}], cleaning dangling connections"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -5297,14 +5325,18 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Error closing serverChannel for profile [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5445,11 +5477,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"close connection exception caught on transport layer [{}], disconnecting from relevant node"
 argument_list|,
-name|e
-argument_list|,
 name|channel
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// close the channel, which will cause a node to be disconnected if relevant
@@ -5474,11 +5510,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"connect exception caught on transport layer [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|channel
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// close the channel as safe measure, which will cause a node to be disconnected if relevant
@@ -5502,11 +5542,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"bind exception caught on transport layer [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|channel
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// close the channel as safe measure, which will cause a node to be disconnected if relevant
@@ -5530,11 +5574,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"cancelled key exception caught on transport layer [{}], disconnecting from relevant node"
 argument_list|,
-name|e
-argument_list|,
 name|channel
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// close the channel as safe measure, which will cause a node to be disconnected if relevant
@@ -5600,11 +5648,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"exception caught on transport layer [{}], closing connection"
 argument_list|,
-name|e
-argument_list|,
 name|channel
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// close the channel, which will cause a node to be disconnected if relevant
@@ -8023,11 +8075,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to handle exception response [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|handler
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -8295,11 +8351,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Failed to send error message back to client for action [{}]"
 argument_list|,
-name|inner
-argument_list|,
 name|action
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -8518,14 +8578,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Failed to send error message back to client for action [{}]"
-argument_list|,
-name|inner
 argument_list|,
 name|reg
 operator|.
 name|getAction
 argument_list|()
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

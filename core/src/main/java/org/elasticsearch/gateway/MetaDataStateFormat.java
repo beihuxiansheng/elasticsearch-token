@@ -20,6 +20,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|codecs
@@ -175,20 +205,6 @@ operator|.
 name|bytes
 operator|.
 name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -1573,13 +1589,13 @@ return|return
 name|maxId
 return|;
 block|}
-comment|/**      * Tries to load the latest state from the given data-locations. It tries to load the latest state determined by      * the states version from one or more data directories and if none of the latest states can be loaded an exception      * is thrown to prevent accidentally loading a previous state and silently omitting the latest state.      *      * @param logger an elasticsearch logger instance      * @param dataLocations the data-locations to try.      * @return the latest state or<code>null</code> if no state was found.      */
+comment|/**      * Tries to load the latest state from the given data-locations. It tries to load the latest state determined by      * the states version from one or more data directories and if none of the latest states can be loaded an exception      * is thrown to prevent accidentally loading a previous state and silently omitting the latest state.      *      * @param logger a logger instance      * @param dataLocations the data-locations to try.      * @return the latest state or<code>null</code> if no state was found.      */
 DECL|method|loadLatestState
 specifier|public
 name|T
 name|loadLatestState
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Path
@@ -2019,9 +2035,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: failed to read [{}], ignoring..."
-argument_list|,
-name|e
 argument_list|,
 name|pathAndStateId
 operator|.
@@ -2031,6 +2048,9 @@ name|toAbsolutePath
 argument_list|()
 argument_list|,
 name|prefix
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

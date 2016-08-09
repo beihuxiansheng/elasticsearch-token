@@ -20,11 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|action
+name|logging
 operator|.
-name|ActionListener
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -34,11 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|logging
-operator|.
-name|ESLogger
+name|ActionListener
 import|;
 end_import
 
@@ -104,7 +104,7 @@ comment|// where the settings don't matter that much
 DECL|field|logger
 specifier|private
 specifier|static
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers

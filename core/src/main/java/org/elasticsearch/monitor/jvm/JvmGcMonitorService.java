@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|component
+name|log4j
 operator|.
-name|AbstractLifecycleComponent
+name|Logger
 import|;
 end_import
 
@@ -38,9 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|component
 operator|.
-name|ESLogger
+name|AbstractLifecycleComponent
 import|;
 end_import
 
@@ -113,22 +113,6 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|FutureUtils
 import|;
 end_import
 
@@ -225,18 +209,6 @@ operator|.
 name|util
 operator|.
 name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ScheduledFuture
 import|;
 end_import
 
@@ -1360,7 +1332,7 @@ name|void
 name|logSlowGc
 parameter_list|(
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 specifier|final
@@ -1845,7 +1817,7 @@ name|void
 name|logGcOverhead
 parameter_list|(
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 specifier|final

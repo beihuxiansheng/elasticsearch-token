@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -51,20 +65,6 @@ operator|.
 name|transport
 operator|.
 name|TransportClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -151,7 +151,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|threadPool
@@ -170,7 +170,7 @@ DECL|method|Wrapper
 specifier|public
 name|Wrapper
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Settings
@@ -293,7 +293,7 @@ block|}
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|threadPool
@@ -327,7 +327,7 @@ DECL|method|ThreadedActionListener
 specifier|public
 name|ThreadedActionListener
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|ThreadPool

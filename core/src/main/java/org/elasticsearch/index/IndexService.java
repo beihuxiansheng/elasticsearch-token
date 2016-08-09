@@ -20,6 +20,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|index
@@ -939,10 +955,6 @@ operator|.
 name|newMapBuilder
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|IndexService
@@ -2751,11 +2763,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to close index shard"
 argument_list|,
-name|e
-argument_list|,
 name|shardId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2795,13 +2811,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to close store on shard removal (reason: [{}])"
-argument_list|,
-name|e
 argument_list|,
 name|shardId
 argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2906,9 +2926,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to delete shard content - scheduled a retry"
-argument_list|,
-name|e
 argument_list|,
 name|lock
 operator|.
@@ -2917,6 +2938,9 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3965,9 +3989,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to notify shard about setting change"
-argument_list|,
-name|e
 argument_list|,
 name|shard
 operator|.
@@ -3976,6 +4001,9 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4650,12 +4678,16 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to run task {} - suppressing re-occurring exceptions unless the exception changes"
-argument_list|,
-name|ex
 argument_list|,
 name|toString
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 name|lastThrownException

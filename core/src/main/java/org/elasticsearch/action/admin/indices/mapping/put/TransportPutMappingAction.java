@@ -26,6 +26,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -582,9 +598,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to put mappings on indices [{}], type [{}]"
-argument_list|,
-name|t
 argument_list|,
 name|concreteIndices
 argument_list|,
@@ -592,6 +609,9 @@ name|request
 operator|.
 name|type
 argument_list|()
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 name|listener
@@ -616,9 +636,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to put mappings on indices [{}], type [{}]"
-argument_list|,
-name|ex
 argument_list|,
 name|request
 operator|.
@@ -629,6 +650,9 @@ name|request
 operator|.
 name|type
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 throw|throw

@@ -48,6 +48,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -1180,11 +1196,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to get snapshot [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|snapshotId
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -1605,13 +1625,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}][{}] failed to create snapshot"
-argument_list|,
-name|e
 argument_list|,
 name|repositoryName
 argument_list|,
 name|snapshotName
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|newSnapshot
@@ -2513,9 +2537,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to create snapshot"
-argument_list|,
-name|e
 argument_list|,
 name|snapshot
 operator|.
@@ -2524,6 +2549,9 @@ argument_list|()
 operator|.
 name|getSnapshotId
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|removeSnapshotFromClusterState
@@ -2613,9 +2641,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to create snapshot [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|snapshot
 operator|.
@@ -2624,6 +2653,9 @@ argument_list|()
 operator|.
 name|getSnapshotId
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|removeSnapshotFromClusterState
@@ -2859,14 +2891,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to close snapshot in repository"
-argument_list|,
-name|inner
 argument_list|,
 name|snapshot
 operator|.
 name|snapshot
 argument_list|()
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -4458,11 +4494,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to update snapshot state after shards started from [{}] "
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -5551,11 +5591,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to finalize snapshot"
 argument_list|,
-name|e
-argument_list|,
 name|snapshot
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|removeSnapshotFromClusterState
@@ -5800,11 +5844,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to remove snapshot metadata"
 argument_list|,
-name|e
-argument_list|,
 name|snapshot
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -5889,11 +5937,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to notify listener [{}]"
 argument_list|,
-name|t
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}

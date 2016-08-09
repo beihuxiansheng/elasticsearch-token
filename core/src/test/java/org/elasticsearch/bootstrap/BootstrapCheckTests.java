@@ -20,11 +20,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|util
+name|log4j
 operator|.
-name|Constants
+name|Logger
 import|;
 end_import
 
@@ -32,13 +32,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|logging
+name|util
 operator|.
-name|ESLogger
+name|Constants
 import|;
 end_import
 
@@ -487,12 +487,12 @@ name|testNoLogMessageInNonProductionMode
 parameter_list|()
 block|{
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|mock
 argument_list|(
-name|ESLogger
+name|Logger
 operator|.
 name|class
 argument_list|)
@@ -527,12 +527,12 @@ name|testLogMessageInProductionMode
 parameter_list|()
 block|{
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|mock
 argument_list|(
-name|ESLogger
+name|Logger
 operator|.
 name|class
 argument_list|)
@@ -3185,12 +3185,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|mock
 argument_list|(
-name|ESLogger
+name|Logger
 operator|.
 name|class
 argument_list|)

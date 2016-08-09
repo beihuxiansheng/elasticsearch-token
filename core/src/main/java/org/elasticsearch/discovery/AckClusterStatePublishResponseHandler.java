@@ -18,13 +18,29 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|cluster
+name|logging
 operator|.
-name|node
+name|log4j
 operator|.
-name|DiscoveryNode
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
 import|;
 end_import
 
@@ -34,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|logging
+name|node
 operator|.
-name|ESLogger
+name|DiscoveryNode
 import|;
 end_import
 
@@ -82,7 +98,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|ESLoggerFactory
@@ -250,11 +266,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"error while processing ack for node [{}]"
 argument_list|,
-name|inner
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

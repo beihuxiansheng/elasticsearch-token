@@ -20,11 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|SuppressLoggerChecks
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -36,9 +38,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
+name|SuppressLoggerChecks
 import|;
 end_import
 
@@ -78,13 +78,13 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|Netty3InternalESLogger
 name|Netty3InternalESLogger
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

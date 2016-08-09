@@ -18,6 +18,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -906,13 +922,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to create repository [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|request
 operator|.
 name|name
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|super
@@ -1346,11 +1366,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to finish repository verification"
 argument_list|,
-name|e
-argument_list|,
 name|repositoryName
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
@@ -1425,11 +1449,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to finish repository verification"
 argument_list|,
-name|inner
-argument_list|,
 name|repositoryName
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -1805,14 +1833,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to change repository [{}]"
-argument_list|,
-name|ex
 argument_list|,
 name|repositoryMetaData
 operator|.
 name|name
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -1840,14 +1872,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to create repository [{}]"
-argument_list|,
-name|ex
 argument_list|,
 name|repositoryMetaData
 operator|.
 name|name
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -2225,9 +2261,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to create repository [{}][{}]"
-argument_list|,
-name|e
 argument_list|,
 name|repositoryMetaData
 operator|.
@@ -2238,6 +2275,9 @@ name|repositoryMetaData
 operator|.
 name|name
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw

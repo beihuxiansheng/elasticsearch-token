@@ -22,6 +22,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -1652,11 +1668,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to serialize cluster_state before publishing it to node {}"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|sendingController
@@ -1972,11 +1992,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send cluster state to {}"
 argument_list|,
-name|exp
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|exp
 argument_list|)
 expr_stmt|;
 name|sendingController
@@ -2004,11 +2028,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"error sending cluster state to {}"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|sendingController
@@ -2172,9 +2200,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to commit cluster state (uuid [{}], version [{}]) to {}"
-argument_list|,
-name|exp
 argument_list|,
 name|clusterState
 operator|.
@@ -2187,6 +2216,9 @@ name|version
 argument_list|()
 argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|exp
 argument_list|)
 expr_stmt|;
 name|sendingController
@@ -2216,9 +2248,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"error sending cluster state commit (uuid [{}], version [{}]) to {}"
-argument_list|,
-name|t
 argument_list|,
 name|clusterState
 operator|.
@@ -2231,6 +2264,9 @@ name|version
 argument_list|()
 argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 name|sendingController
@@ -3736,9 +3772,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to commit version [{}]. {}"
-argument_list|,
-name|reason
 argument_list|,
 name|clusterState
 operator|.
@@ -3746,6 +3783,9 @@ name|version
 argument_list|()
 argument_list|,
 name|details
+argument_list|)
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|committed

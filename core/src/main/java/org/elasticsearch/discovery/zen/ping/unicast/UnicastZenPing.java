@@ -40,6 +40,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -410,18 +426,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|TransportResponseHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|ConnectTransportException
 import|;
 end_import
@@ -507,6 +511,18 @@ operator|.
 name|transport
 operator|.
 name|TransportResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -2588,9 +2604,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to connect to {}"
-argument_list|,
-name|e
 argument_list|,
 name|sendPingsHandler
 operator|.
@@ -2598,6 +2615,9 @@ name|id
 argument_list|()
 argument_list|,
 name|finalNodeToSend
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2612,9 +2632,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] received a remote error as a response to ping {}"
-argument_list|,
-name|e
 argument_list|,
 name|sendPingsHandler
 operator|.
@@ -2622,6 +2643,9 @@ name|id
 argument_list|()
 argument_list|,
 name|finalNodeToSend
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2635,9 +2659,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed send ping to {}"
-argument_list|,
-name|e
 argument_list|,
 name|sendPingsHandler
 operator|.
@@ -2645,6 +2670,9 @@ name|id
 argument_list|()
 argument_list|,
 name|finalNodeToSend
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2994,11 +3022,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to connect to {}"
 argument_list|,
-name|exp
-argument_list|,
 name|nodeToSend
+argument_list|)
+argument_list|,
+name|exp
 argument_list|)
 expr_stmt|;
 block|}
@@ -3008,11 +3040,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send ping to [{}]"
 argument_list|,
-name|exp
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|exp
 argument_list|)
 expr_stmt|;
 block|}

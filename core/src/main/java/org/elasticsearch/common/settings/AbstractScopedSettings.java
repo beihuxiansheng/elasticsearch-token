@@ -22,13 +22,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|search
+name|log4j
 operator|.
-name|spell
+name|message
 operator|.
-name|LevensteinDistance
+name|ParameterizedMessage
 import|;
 end_import
 
@@ -40,9 +40,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|search
 operator|.
-name|ArrayUtil
+name|spell
+operator|.
+name|LevensteinDistance
 import|;
 end_import
 
@@ -189,16 +191,6 @@ operator|.
 name|util
 operator|.
 name|SortedMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|SortedSet
 import|;
 end_import
 
@@ -890,11 +882,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to prepareCommit settings for [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|settingUpdater
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -1042,11 +1038,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to prepareCommit settings for [{}]"
 argument_list|,
-name|ex
-argument_list|,
 name|settingUpdater
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -2924,9 +2924,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"found invalid setting: {} value: {} - archiving"
-argument_list|,
-name|ex
 argument_list|,
 name|entry
 operator|.
@@ -2937,6 +2938,9 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 comment|/*                  * We put them back in here such that tools can check from the outside if there are any indices with broken settings. The                  * setting can remain there but we want users to be aware that some of their setting are broken and they can research why                  * and what they need to do to replace them.                  */

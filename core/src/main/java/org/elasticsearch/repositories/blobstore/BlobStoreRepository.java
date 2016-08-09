@@ -22,6 +22,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|index
@@ -2248,13 +2264,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] repository is on a pre-5.0 format with an index file that contains snapshot [{}] but "
 operator|+
 literal|"the corresponding snap-{}.dat file cannot be read. The snapshot will no longer be included in "
 operator|+
 literal|"the repository but its data directories will remain."
-argument_list|,
-name|e
 argument_list|,
 name|getMetadata
 argument_list|()
@@ -2268,6 +2285,9 @@ name|snapshotId
 operator|.
 name|getUUID
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -2694,13 +2714,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to delete metadata for index [{}]"
-argument_list|,
-name|ex
 argument_list|,
 name|snapshotId
 argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -2782,15 +2806,19 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to delete shard data for shard [{}][{}]"
-argument_list|,
-name|ex
 argument_list|,
 name|snapshotId
 argument_list|,
 name|index
 argument_list|,
 name|shardId
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -2886,11 +2914,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] index [{}] no longer part of any snapshots in the repository, but failed to clean up "
 operator|+
 literal|"its index folder due to the directory not being empty."
-argument_list|,
-name|dnee
 argument_list|,
 name|metadata
 operator|.
@@ -2898,6 +2927,9 @@ name|name
 argument_list|()
 argument_list|,
 name|indexId
+argument_list|)
+argument_list|,
+name|dnee
 argument_list|)
 expr_stmt|;
 block|}
@@ -2912,11 +2944,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] index [{}] no longer part of any snapshots in the repository, but failed to clean up "
 operator|+
 literal|"its index folder."
-argument_list|,
-name|ioe
 argument_list|,
 name|metadata
 operator|.
@@ -2924,6 +2957,9 @@ name|name
 argument_list|()
 argument_list|,
 name|indexId
+argument_list|)
+argument_list|,
+name|ioe
 argument_list|)
 expr_stmt|;
 block|}
@@ -3001,9 +3037,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] Unable to delete snapshot file [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|snapshotInfo
 operator|.
@@ -3011,6 +3048,9 @@ name|snapshotId
 argument_list|()
 argument_list|,
 name|blobId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3060,11 +3100,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Unable to delete snapshot file [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|blobId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3121,9 +3165,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] Unable to delete global metadata file [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|snapshotInfo
 operator|.
@@ -3131,6 +3176,9 @@ name|snapshotId
 argument_list|()
 argument_list|,
 name|blobId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3180,11 +3228,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"Unable to delete global metadata file [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|blobId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6140,15 +6192,19 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] [{}] error deleting blob [{}] during cleanup"
-argument_list|,
-name|e
 argument_list|,
 name|snapshotId
 argument_list|,
 name|shardId
 argument_list|,
 name|blobName
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6492,13 +6548,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to read index file  [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|SNAPSHOT_INDEX_PREFIX
 operator|+
 name|latest
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6619,11 +6679,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to read commit point [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|name
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -7038,9 +7102,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} Can't calculate hash from blob for file [{}] [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shardId
 argument_list|,
@@ -7053,6 +7118,9 @@ name|fileInfo
 operator|.
 name|metadata
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -8462,11 +8530,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} Can't read metadata from store, will not reuse any local file while restoring"
 argument_list|,
-name|e
-argument_list|,
 name|shardId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|recoveryTargetMetadata
@@ -8563,9 +8635,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{} Can't calculate hash from blog for file [{}] [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shardId
 argument_list|,
@@ -8578,6 +8651,9 @@ name|fileInfo
 operator|.
 name|metadata
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

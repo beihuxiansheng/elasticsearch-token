@@ -22,19 +22,31 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
 
 begin_class
 DECL|class|LoggingRunnable
@@ -53,14 +65,14 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|LoggingRunnable
 specifier|public
 name|LoggingRunnable
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Runnable
@@ -106,14 +118,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to execute [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|runnable
 operator|.
 name|toString
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

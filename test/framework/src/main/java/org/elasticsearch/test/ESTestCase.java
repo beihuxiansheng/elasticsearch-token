@@ -174,6 +174,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|uninverting
@@ -341,36 +355,6 @@ operator|.
 name|io
 operator|.
 name|PathUtilsForTesting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|NamedWriteableRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -622,7 +606,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|MapperPlugin
+name|AnalysisPlugin
 import|;
 end_import
 
@@ -634,7 +618,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AnalysisPlugin
+name|MapperPlugin
 import|;
 end_import
 
@@ -1198,6 +1182,36 @@ name|LuceneTestCase
 block|{
 static|static
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"log4j.shutdownHookEnabled"
+argument_list|,
+literal|"false"
+argument_list|)
+expr_stmt|;
+comment|// we can not shutdown logging when tests are running or the next test that runs within the
+comment|// same JVM will try to initialize logging after a security manager has been installed and
+comment|// this will fail
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"es.log4j.shutdownEnabled"
+argument_list|,
+literal|"false"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"log4j2.disable.jmx"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
 name|BootstrapForTesting
 operator|.
 name|ensureInitialized
@@ -1207,7 +1221,7 @@ block|}
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers

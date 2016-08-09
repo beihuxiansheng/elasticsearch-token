@@ -18,13 +18,29 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
 import|;
 end_import
 
@@ -85,7 +101,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|channel
@@ -113,7 +129,7 @@ DECL|method|TransportChannelResponseHandler
 specifier|public
 name|TransportChannelResponseHandler
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|TransportChannel
@@ -238,9 +254,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send failure {}"
-argument_list|,
-name|e
 argument_list|,
 name|extraInfoOnError
 operator|==
@@ -253,6 +270,9 @@ operator|+
 name|extraInfoOnError
 operator|+
 literal|")"
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

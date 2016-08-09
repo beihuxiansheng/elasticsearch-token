@@ -20,6 +20,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -357,20 +387,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -1960,14 +1976,18 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send leave request to master [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|nodes
 operator|.
 name|getMasterNode
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2042,9 +2062,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send leave request from master [{}] to possible master [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|nodes
 operator|.
@@ -2052,6 +2073,9 @@ name|getMasterNode
 argument_list|()
 argument_list|,
 name|possibleMaster
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2311,11 +2335,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2835,11 +2863,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to connect to master [{}], retrying..."
 argument_list|,
-name|e
-argument_list|,
 name|masterNode
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -2978,11 +3010,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send join request to master [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|masterNode
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3085,7 +3121,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|class|Task
@@ -3191,7 +3227,7 @@ argument_list|>
 name|rejoin
 parameter_list|,
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -3507,11 +3543,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3860,11 +3900,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3944,13 +3988,17 @@ name|logger
 operator|.
 name|info
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"master_left [{}], reason [{}]"
-argument_list|,
-name|cause
 argument_list|,
 name|masterNode
 argument_list|,
 name|reason
+argument_list|)
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 name|clusterService
@@ -4101,11 +4149,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4592,11 +4644,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 if|if
@@ -4638,11 +4694,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected exception while failing [{}]"
 argument_list|,
-name|inner
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -4711,7 +4771,7 @@ specifier|static
 name|boolean
 name|shouldIgnoreOrRejectNewClusterState
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|ClusterState
@@ -4853,7 +4913,7 @@ specifier|static
 name|void
 name|validateStateIsFromCurrentMaster
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|DiscoveryNodes
@@ -5094,11 +5154,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to validate incoming join request from node [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|node
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|callback
@@ -5550,7 +5614,7 @@ parameter_list|,
 name|boolean
 name|masterElectionIgnoreNonMasters
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -5977,11 +6041,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send rejoin request to [{}]"
 argument_list|,
-name|exp
-argument_list|,
 name|otherMaster
+argument_list|)
+argument_list|,
+name|exp
 argument_list|)
 expr_stmt|;
 block|}
@@ -5999,11 +6067,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to send rejoin request to [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|otherMaster
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -6552,11 +6624,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure during [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

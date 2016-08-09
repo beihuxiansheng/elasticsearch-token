@@ -70,6 +70,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -627,18 +643,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|IndexId
 import|;
 end_import
 
@@ -3493,11 +3497,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to restore snapshot"
 argument_list|,
-name|e
-argument_list|,
 name|snapshotId
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
@@ -3560,9 +3568,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to restore snapshot"
-argument_list|,
-name|e
 argument_list|,
 name|request
 operator|.
@@ -3573,6 +3582,9 @@ operator|+
 name|request
 operator|.
 name|snapshotName
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
@@ -4286,9 +4298,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}][{}] failed to update snapshot status to [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|request
 operator|.
@@ -4304,6 +4317,9 @@ name|request
 operator|.
 name|status
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4763,11 +4779,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to update snapshot status for [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|listener
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

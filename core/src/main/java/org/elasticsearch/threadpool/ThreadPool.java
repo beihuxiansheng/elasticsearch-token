@@ -20,6 +20,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -2855,14 +2871,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to run {}"
-argument_list|,
-name|e
 argument_list|,
 name|runnable
 operator|.
 name|toString
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4297,9 +4317,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to run scheduled task [{}] on thread pool [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|runnable
 operator|.
@@ -4307,6 +4328,9 @@ name|toString
 argument_list|()
 argument_list|,
 name|executor
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4341,13 +4365,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"scheduled task [{}] was rejected on thread pool [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|runnable
 argument_list|,
 name|executor
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

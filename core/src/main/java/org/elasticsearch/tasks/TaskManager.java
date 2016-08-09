@@ -18,6 +18,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -311,6 +327,18 @@ operator|.
 name|function
 operator|.
 name|Consumer
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ExceptionsHelper
+operator|.
+name|detailedMessage
 import|;
 end_import
 
@@ -948,9 +976,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"couldn't store error {}"
-argument_list|,
-name|ex
 argument_list|,
 name|ExceptionsHelper
 operator|.
@@ -958,6 +987,9 @@ name|detailedMessage
 argument_list|(
 name|error
 argument_list|)
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 name|listener
@@ -1014,9 +1046,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"couldn't store error {}"
-argument_list|,
-name|e
 argument_list|,
 name|ExceptionsHelper
 operator|.
@@ -1024,6 +1057,9 @@ name|detailedMessage
 argument_list|(
 name|error
 argument_list|)
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|listener
@@ -1124,11 +1160,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"couldn't store response {}"
 argument_list|,
-name|ex
-argument_list|,
 name|response
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 name|listener
@@ -1185,11 +1225,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"couldn't store response {}"
 argument_list|,
-name|e
-argument_list|,
 name|response
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|listener

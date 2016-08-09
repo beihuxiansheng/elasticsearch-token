@@ -20,6 +20,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -321,20 +351,6 @@ operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -3192,9 +3208,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to execute cluster state update in [{}], state:\nversion [{}], source [{}]\n{}{}{}"
-argument_list|,
-name|e
 argument_list|,
 name|executionTime
 argument_list|,
@@ -3228,6 +3245,9 @@ argument_list|()
 operator|.
 name|prettyPrint
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3474,9 +3494,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"cluster state update task {} failed"
-argument_list|,
-name|ex
 argument_list|,
 name|updateTask
 operator|.
@@ -3484,6 +3505,9 @@ name|toString
 argument_list|(
 name|executor
 argument_list|)
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 argument_list|;
 name|updateTask
@@ -4072,9 +4096,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failing [{}]: failed to commit cluster state version [{}]"
-argument_list|,
-name|t
 argument_list|,
 name|tasksSummary
 argument_list|,
@@ -4082,6 +4107,9 @@ name|newClusterState
 operator|.
 name|version
 argument_list|()
+argument_list|)
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 name|proccessedListeners
@@ -4316,9 +4344,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"error while processing ack for master node [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|newClusterState
 operator|.
@@ -4327,6 +4356,9 @@ argument_list|()
 operator|.
 name|getLocalNode
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4378,11 +4410,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"exception thrown while notifying executor of new cluster state publication [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|tasksSummary
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4478,9 +4514,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}"
-argument_list|,
-name|e
 argument_list|,
 name|executionTime
 argument_list|,
@@ -4500,6 +4537,9 @@ name|newClusterState
 operator|.
 name|prettyPrint
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 comment|// TODO: do we want to call updateTask.onFailure here?
@@ -4537,7 +4577,7 @@ parameter_list|(
 name|ClusterStateTaskListener
 name|listener
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -4594,7 +4634,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|SafeClusterStateTaskListener
@@ -4604,7 +4644,7 @@ parameter_list|(
 name|ClusterStateTaskListener
 name|listener
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -4664,11 +4704,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"exception thrown by listener notifying of failure from [{}]"
 argument_list|,
-name|inner
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -4704,11 +4748,15 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"exception thrown by listener while notifying no longer master from [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4754,11 +4802,12 @@ name|logger
 operator|.
 name|error
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"exception thrown by listener while notifying of cluster state processed from [{}], old cluster state:\n"
 operator|+
 literal|"{}\nnew cluster state:\n{}"
-argument_list|,
-name|e
 argument_list|,
 name|source
 argument_list|,
@@ -4771,6 +4820,9 @@ name|newState
 operator|.
 name|prettyPrint
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -4798,7 +4850,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|SafeAckedClusterStateTaskListener
@@ -4808,7 +4860,7 @@ parameter_list|(
 name|AckedClusterStateTaskListener
 name|listener
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -5703,7 +5755,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
@@ -5962,13 +6014,17 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"ack received from node [{}], cluster_state update (version: {})"
-argument_list|,
-name|e
 argument_list|,
 name|node
 argument_list|,
 name|clusterStateVersion
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

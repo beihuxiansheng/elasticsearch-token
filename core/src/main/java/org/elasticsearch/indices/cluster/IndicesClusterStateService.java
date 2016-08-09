@@ -22,6 +22,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|store
@@ -265,20 +295,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -1795,11 +1811,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] failed to complete pending deletion for index"
 argument_list|,
-name|e
-argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -3506,7 +3526,7 @@ specifier|static
 name|DiscoveryNode
 name|findSourceNodeForPeerRecovery
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|RoutingTable
@@ -4002,9 +4022,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}][{}] failed to remove shard after failure ([{}])"
-argument_list|,
-name|inner
 argument_list|,
 name|shardRouting
 operator|.
@@ -4017,6 +4038,9 @@ name|getId
 argument_list|()
 argument_list|,
 name|message
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}
@@ -4059,9 +4083,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}] marking and sending shard failed due to [{}]"
-argument_list|,
-name|failure
 argument_list|,
 name|shardRouting
 operator|.
@@ -4069,6 +4094,9 @@ name|shardId
 argument_list|()
 argument_list|,
 name|message
+argument_list|)
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 name|failedShardsCache
@@ -4120,9 +4148,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"[{}][{}] failed to mark shard as failed (because of [{}])"
-argument_list|,
-name|inner
 argument_list|,
 name|shardRouting
 operator|.
@@ -4135,6 +4164,9 @@ name|getId
 argument_list|()
 argument_list|,
 name|message
+argument_list|)
+argument_list|,
+name|inner
 argument_list|)
 expr_stmt|;
 block|}

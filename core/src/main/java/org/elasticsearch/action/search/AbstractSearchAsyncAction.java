@@ -34,6 +34,36 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|search
@@ -227,20 +257,6 @@ operator|.
 name|common
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -484,7 +500,7 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|searchTransportService
@@ -615,7 +631,7 @@ DECL|method|AbstractSearchAsyncAction
 specifier|protected
 name|AbstractSearchAsyncAction
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|SearchTransportService
@@ -1336,9 +1352,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: Failed to execute [{}] while moving to second phase"
-argument_list|,
-name|e
 argument_list|,
 name|shardIt
 operator|.
@@ -1346,6 +1363,9 @@ name|shardId
 argument_list|()
 argument_list|,
 name|request
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1496,9 +1516,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: Failed to execute [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1516,6 +1537,9 @@ argument_list|()
 argument_list|,
 name|request
 argument_list|)
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -1531,13 +1555,17 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: Failed to execute [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shard
 argument_list|,
 name|request
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1572,12 +1600,16 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"All shards failed for phase: [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|firstPhaseName
 argument_list|()
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1659,21 +1691,16 @@ operator|==
 literal|null
 decl_stmt|;
 comment|// trace log this exception
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: Failed to execute [{}] lastShard [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1693,8 +1720,10 @@ name|request
 argument_list|,
 name|lastShard
 argument_list|)
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1781,9 +1810,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"{}: Failed to execute [{}] lastShard [{}]"
-argument_list|,
-name|e
 argument_list|,
 name|shard
 operator|!=
@@ -1802,6 +1832,9 @@ argument_list|,
 name|request
 argument_list|,
 name|lastShard
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
