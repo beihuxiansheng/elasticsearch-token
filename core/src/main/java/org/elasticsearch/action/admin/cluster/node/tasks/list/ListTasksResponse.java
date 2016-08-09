@@ -305,6 +305,7 @@ name|groups
 decl_stmt|;
 DECL|field|discoveryNodes
 specifier|private
+specifier|final
 name|DiscoveryNodes
 name|discoveryNodes
 decl_stmt|;
