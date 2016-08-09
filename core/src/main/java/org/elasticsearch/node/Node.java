@@ -2536,6 +2536,16 @@ argument_list|,
 name|additionalSettingsFilter
 argument_list|)
 decl_stmt|;
+name|scriptModule
+operator|.
+name|registerClusterSettingsListeners
+argument_list|(
+name|settingsModule
+operator|.
+name|getClusterSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|resourcesToClose
 operator|.
 name|add
