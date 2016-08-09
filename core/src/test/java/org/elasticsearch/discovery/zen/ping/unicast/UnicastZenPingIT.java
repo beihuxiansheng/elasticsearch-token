@@ -888,7 +888,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|handleA
 operator|.
@@ -963,7 +963,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|handleB
 operator|.
@@ -1051,7 +1051,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|handleC
 operator|.
@@ -1126,7 +1126,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|handleD
 operator|.

@@ -517,7 +517,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -525,7 +525,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -533,7 +533,7 @@ literal|"node2"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1227,7 +1227,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1303,7 +1303,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1562,7 +1562,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2211,7 +2211,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2219,7 +2219,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2227,7 +2227,7 @@ literal|"node2"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3765,9 +3765,11 @@ name|routingTable
 operator|=
 name|strategy
 operator|.
-name|reroute
+name|deassociateDeadNodes
 argument_list|(
 name|clusterState
+argument_list|,
+literal|true
 argument_list|,
 literal|"reroute"
 argument_list|)

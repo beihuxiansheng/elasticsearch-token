@@ -467,7 +467,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -475,7 +475,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(

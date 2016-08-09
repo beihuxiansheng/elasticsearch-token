@@ -50,6 +50,8 @@ name|elasticsearch
 operator|.
 name|repositories
 operator|.
+name|blobstore
+operator|.
 name|ESBlobStoreRepositoryIntegTestCase
 import|;
 end_import

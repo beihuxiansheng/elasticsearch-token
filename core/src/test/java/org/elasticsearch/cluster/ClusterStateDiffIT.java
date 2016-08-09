@@ -755,12 +755,12 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|masterNode
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|otherNode
 argument_list|)
@@ -1788,7 +1788,7 @@ condition|)
 block|{
 name|nodes
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -1848,7 +1848,7 @@ control|)
 block|{
 name|nodes
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode

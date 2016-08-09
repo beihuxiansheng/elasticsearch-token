@@ -18,6 +18,22 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|core
+operator|.
+name|io
+operator|.
+name|JsonStringEncoder
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -114,39 +130,11 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|JsonStringEncoder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|either
 import|;
 end_import
 
@@ -182,7 +170,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|is
+name|either
 import|;
 end_import
 
@@ -607,39 +595,33 @@ literal|"    }\n"
 operator|+
 literal|"}"
 decl_stmt|;
-try|try
-block|{
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|queryAsString
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParsingException
-name|e
-parameter_list|)
-block|{
-name|assertThat
+decl_stmt|;
+name|assertEquals
 argument_list|(
+literal|"[term] query does not support array of values"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|"[term] query does not support array of values"
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testFromJson
 specifier|public
@@ -758,6 +740,106 @@ decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Geo fields do not support exact searching, use dedicated geo queries instead: [mapped_geo_point]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"term\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"value\" : \"this\"\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"message2\" : {\n"
+operator|+
+literal|"      \"value\" : \"this\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[term] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|String
+name|shortJson
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"term\" : {\n"
+operator|+
+literal|"    \"message1\" : \"this\",\n"
+operator|+
+literal|"    \"message2\" : \"this\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|shortJson
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[term] query doesn't support multiple fields, found [message1] and [message2]"
 argument_list|,
 name|e
 operator|.

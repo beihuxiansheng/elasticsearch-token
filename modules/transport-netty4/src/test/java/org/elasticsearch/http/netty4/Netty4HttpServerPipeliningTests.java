@@ -48,6 +48,18 @@ name|netty
 operator|.
 name|channel
 operator|.
+name|Channel
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
 name|ChannelHandler
 import|;
 end_import
@@ -1230,7 +1242,7 @@ specifier|protected
 name|void
 name|initChannel
 parameter_list|(
-name|SocketChannel
+name|Channel
 name|ch
 parameter_list|)
 throws|throws

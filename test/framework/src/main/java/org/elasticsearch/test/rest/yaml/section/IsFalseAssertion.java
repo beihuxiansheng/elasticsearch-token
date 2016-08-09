@@ -49,6 +49,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentLocation
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -128,12 +142,17 @@ DECL|method|IsFalseAssertion
 specifier|public
 name|IsFalseAssertion
 parameter_list|(
+name|XContentLocation
+name|location
+parameter_list|,
 name|String
 name|field
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|location
+argument_list|,
 name|field
 argument_list|,
 literal|false

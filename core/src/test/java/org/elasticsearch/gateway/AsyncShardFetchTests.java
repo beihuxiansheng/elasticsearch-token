@@ -487,7 +487,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|node1
 argument_list|)
@@ -629,7 +629,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|node1
 argument_list|)
@@ -799,7 +799,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|node1
 argument_list|)
@@ -1075,12 +1075,12 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|node1
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|node2
 argument_list|)
@@ -1330,12 +1330,12 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|node1
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|node2
 argument_list|)
@@ -1568,7 +1568,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|node1
 argument_list|)
@@ -1656,7 +1656,7 @@ argument_list|(
 name|nodes
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|node2
 argument_list|)

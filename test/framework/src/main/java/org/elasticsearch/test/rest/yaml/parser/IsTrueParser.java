@@ -84,6 +84,14 @@ name|IsTrueAssertion
 argument_list|(
 name|parseContext
 operator|.
+name|parser
+argument_list|()
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+name|parseContext
+operator|.
 name|parseField
 argument_list|()
 argument_list|)

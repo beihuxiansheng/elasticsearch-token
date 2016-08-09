@@ -248,24 +248,6 @@ name|allocation
 operator|.
 name|decider
 operator|.
-name|AwarenessAllocationDecider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|decider
-operator|.
 name|ClusterRebalanceAllocationDecider
 import|;
 end_import
@@ -2353,7 +2335,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2366,7 +2348,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2826,7 +2808,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -2843,7 +2825,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3638,7 +3620,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -3646,7 +3628,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -4444,7 +4426,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -4452,7 +4434,7 @@ literal|"node1"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -4460,7 +4442,7 @@ literal|"node2"
 argument_list|)
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(

@@ -1269,7 +1269,7 @@ expr_stmt|;
 comment|// also deletes shards of deleted indices
 name|removeUnallocatedIndices
 argument_list|(
-name|state
+name|event
 argument_list|)
 expr_stmt|;
 comment|// also removes shards of removed indices
@@ -1469,10 +1469,8 @@ argument_list|)
 expr_stmt|;
 name|shardStateAction
 operator|.
-name|shardFailed
+name|localShardFailed
 argument_list|(
-name|matchedRouting
-argument_list|,
 name|matchedRouting
 argument_list|,
 name|message
@@ -1834,112 +1832,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// delete local indices that do neither exist in previous cluster state nor part of tombstones
-for|for
-control|(
-name|AllocatedIndex
-argument_list|<
-name|?
-extends|extends
-name|Shard
-argument_list|>
-name|indexService
-range|:
-name|indicesService
-control|)
-block|{
-name|Index
-name|index
-init|=
-name|indexService
-operator|.
-name|index
-argument_list|()
-decl_stmt|;
-name|IndexMetaData
-name|indexMetaData
-init|=
-name|event
-operator|.
-name|state
-argument_list|()
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|index
-argument_list|(
-name|index
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|indexMetaData
-operator|==
-literal|null
-condition|)
-block|{
-assert|assert
-literal|false
-operator|:
-literal|"index"
-operator|+
-name|index
-operator|+
-literal|" exists locally, doesn't have a metadata but is not part"
-operator|+
-literal|" of the delete index list. \nprevious state: "
-operator|+
-name|event
-operator|.
-name|previousState
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-operator|+
-literal|"\n current state:\n"
-operator|+
-name|event
-operator|.
-name|state
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-assert|;
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"[{}] isn't part of metadata but is part of in memory structures. removing"
-argument_list|,
-name|index
-argument_list|)
-expr_stmt|;
-name|indicesService
-operator|.
-name|deleteIndex
-argument_list|(
-name|index
-argument_list|,
-literal|"isn't part of metadata (explicit check)"
-argument_list|)
-expr_stmt|;
 block|}
-block|}
-block|}
-comment|/**      * Removes indices that have no shards allocated to this node. This does not delete the shard data as we wait for enough      * shard copies to exist in the cluster before deleting shard data (triggered by {@link org.elasticsearch.indices.store.IndicesStore}).      *      * @param state new cluster state      */
+comment|/**      * Removes indices that have no shards allocated to this node. This does not delete the shard data as we wait for enough      * shard copies to exist in the cluster before deleting shard data (triggered by {@link org.elasticsearch.indices.store.IndicesStore}).      *      * @param event the cluster changed event      */
 DECL|method|removeUnallocatedIndices
 specifier|private
 name|void
 name|removeUnallocatedIndices
 parameter_list|(
 specifier|final
-name|ClusterState
-name|state
+name|ClusterChangedEvent
+name|event
 parameter_list|)
 block|{
+specifier|final
+name|ClusterState
+name|state
+init|=
+name|event
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
 specifier|final
 name|String
 name|localNodeId
@@ -2042,6 +1955,36 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// if the cluster change indicates a brand new cluster, we only want
+comment|// to remove the in-memory structures for the index and not delete the
+comment|// contents on disk because the index will later be re-imported as a
+comment|// dangling index
+assert|assert
+name|state
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|index
+argument_list|(
+name|index
+argument_list|)
+operator|!=
+literal|null
+operator|||
+name|event
+operator|.
+name|isNewCluster
+argument_list|()
+operator|:
+literal|"index "
+operator|+
+name|index
+operator|+
+literal|" does not exist in the cluster state, it should either "
+operator|+
+literal|"have been deleted or the cluster must be new"
+assert|;
 name|logger
 operator|.
 name|debug
@@ -4351,10 +4294,8 @@ argument_list|)
 expr_stmt|;
 name|shardStateAction
 operator|.
-name|shardFailed
+name|localShardFailed
 argument_list|(
-name|shardRouting
-argument_list|,
 name|shardRouting
 argument_list|,
 name|message

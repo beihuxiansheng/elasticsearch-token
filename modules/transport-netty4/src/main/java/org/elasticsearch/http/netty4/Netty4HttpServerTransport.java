@@ -3891,13 +3891,14 @@ argument_list|)
 return|;
 block|}
 DECL|class|HttpChannelHandler
+specifier|protected
 specifier|static
 class|class
 name|HttpChannelHandler
 extends|extends
 name|ChannelInitializer
 argument_list|<
-name|SocketChannel
+name|Channel
 argument_list|>
 block|{
 DECL|field|transport
@@ -3913,6 +3914,7 @@ name|Netty4HttpRequestHandler
 name|requestHandler
 decl_stmt|;
 DECL|method|HttpChannelHandler
+specifier|protected
 name|HttpChannelHandler
 parameter_list|(
 specifier|final
@@ -3956,7 +3958,7 @@ specifier|protected
 name|void
 name|initChannel
 parameter_list|(
-name|SocketChannel
+name|Channel
 name|ch
 parameter_list|)
 throws|throws

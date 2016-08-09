@@ -910,7 +910,7 @@ control|)
 block|{
 name|builderDiscoNodes
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(

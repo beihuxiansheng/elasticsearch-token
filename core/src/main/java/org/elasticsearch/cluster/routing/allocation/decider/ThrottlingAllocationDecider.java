@@ -978,7 +978,7 @@ operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 expr_stmt|;
 block|}
@@ -1003,7 +1003,7 @@ operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
 operator|.
-name|buildTargetRelocatingShard
+name|getTargetRelocatingShard
 argument_list|()
 expr_stmt|;
 block|}

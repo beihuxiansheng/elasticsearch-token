@@ -99,6 +99,8 @@ literal|"headers"
 argument_list|,
 literal|"stash_in_path"
 argument_list|,
+literal|"warnings"
+argument_list|,
 literal|"yaml"
 argument_list|)
 argument_list|)

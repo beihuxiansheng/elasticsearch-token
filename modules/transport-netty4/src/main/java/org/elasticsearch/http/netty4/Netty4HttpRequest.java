@@ -174,6 +174,7 @@ end_import
 
 begin_class
 DECL|class|Netty4HttpRequest
+specifier|public
 class|class
 name|Netty4HttpRequest
 extends|extends

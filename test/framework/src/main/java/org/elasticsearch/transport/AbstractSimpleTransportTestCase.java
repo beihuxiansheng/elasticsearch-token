@@ -566,11 +566,13 @@ argument_list|()
 decl_stmt|;
 DECL|field|nodeA
 specifier|protected
+specifier|volatile
 name|DiscoveryNode
 name|nodeA
 decl_stmt|;
 DECL|field|serviceA
 specifier|protected
+specifier|volatile
 name|MockTransportService
 name|serviceA
 decl_stmt|;
@@ -596,11 +598,13 @@ argument_list|)
 decl_stmt|;
 DECL|field|nodeB
 specifier|protected
+specifier|volatile
 name|DiscoveryNode
 name|nodeB
 decl_stmt|;
 DECL|field|serviceB
 specifier|protected
+specifier|volatile
 name|MockTransportService
 name|serviceB
 decl_stmt|;
@@ -2991,19 +2995,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"transport:DEBUG,transport.tracer:TRACE"
-argument_list|)
-comment|// boaz is on this
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+multijob-os-compatibility/os=oraclelinux/835"
-argument_list|)
 DECL|method|testConcurrentSendRespondAndDisconnect
 specifier|public
 name|void

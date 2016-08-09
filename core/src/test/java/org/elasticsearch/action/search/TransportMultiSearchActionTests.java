@@ -242,37 +242,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -325,18 +295,6 @@ operator|.
 name|Matchers
 operator|.
 name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|sameInstance
 import|;
 end_import
 
@@ -858,7 +816,7 @@ control|)
 block|{
 name|builder
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -900,7 +858,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -937,7 +895,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode

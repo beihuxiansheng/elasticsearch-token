@@ -538,7 +538,7 @@ name|discoBuilder
 operator|=
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -1088,7 +1088,7 @@ name|discoBuilder
 operator|=
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -1698,7 +1698,7 @@ control|)
 block|{
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)

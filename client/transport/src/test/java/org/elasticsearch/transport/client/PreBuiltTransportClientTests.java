@@ -130,7 +130,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|Netty3Plugin
+name|Netty4Plugin
 import|;
 end_import
 
@@ -163,6 +163,18 @@ operator|.
 name|Assert
 operator|.
 name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -218,13 +230,29 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|Netty3Plugin
+name|Netty4Plugin
 operator|.
 name|NETTY_TRANSPORT_NAME
 argument_list|,
 name|NetworkModule
 operator|.
 name|HTTP_DEFAULT_TYPE_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|Netty4Plugin
+operator|.
+name|NETTY_TRANSPORT_NAME
+argument_list|,
+name|NetworkModule
+operator|.
+name|TRANSPORT_DEFAULT_TYPE_SETTING
 operator|.
 name|get
 argument_list|(
@@ -294,14 +322,26 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"plugin is already installed"
+literal|"Expected message to start with [plugin already exists: ] but was instead ["
+operator|+
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|ex
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"plugin already exists: "
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

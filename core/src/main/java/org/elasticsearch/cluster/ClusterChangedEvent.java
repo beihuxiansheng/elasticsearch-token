@@ -725,11 +725,9 @@ name|nodesAdded
 argument_list|()
 return|;
 block|}
-comment|// Determines whether or not the current cluster state represents an entirely
-comment|// different cluster from the previous cluster state, which will happen when a
-comment|// master node is elected that has never been part of the cluster before.
+comment|/**      * Determines whether or not the current cluster state represents an entirely      * new cluster, either when a node joins a cluster for the first time or when      * the node receives a cluster state update from a brand new cluster (different      * UUID from the previous cluster), which will happen when a master node is      * elected that has never been part of the cluster before.      */
 DECL|method|isNewCluster
-specifier|private
+specifier|public
 name|boolean
 name|isNewCluster
 parameter_list|()

@@ -909,7 +909,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|discoveryNode
 argument_list|)
@@ -1843,7 +1843,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeB
 operator|.
@@ -2058,7 +2058,7 @@ argument_list|(
 name|discoveryNodes
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeC
 operator|.
@@ -2344,21 +2344,21 @@ argument_list|(
 name|discoveryNodes
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeA
 operator|.
 name|discoveryNode
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeB
 operator|.
 name|discoveryNode
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeC
 operator|.
@@ -2518,7 +2518,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeB
 operator|.
@@ -2748,7 +2748,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeA
 operator|.
@@ -2806,7 +2806,7 @@ argument_list|(
 name|discoveryNodes
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeB
 operator|.
@@ -3088,7 +3088,7 @@ argument_list|)
 decl_stmt|;
 name|discoveryNodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 operator|.
@@ -3364,7 +3364,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|nodeB
 operator|.
@@ -3640,7 +3640,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|master
 operator|.
@@ -3664,7 +3664,7 @@ control|)
 block|{
 name|discoveryNodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|createMockNode
 argument_list|(
@@ -3729,7 +3729,7 @@ control|)
 block|{
 name|discoveryNodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|createMockNode
 argument_list|(
@@ -4098,7 +4098,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 name|master
 operator|.
@@ -4135,7 +4135,7 @@ argument_list|)
 decl_stmt|;
 name|discoveryNodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|mockNode
 operator|.
@@ -4242,7 +4242,7 @@ argument_list|)
 decl_stmt|;
 name|discoveryNodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|mockNode
 operator|.
@@ -4920,7 +4920,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|otherNode
 operator|.
@@ -5593,7 +5593,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 operator|.

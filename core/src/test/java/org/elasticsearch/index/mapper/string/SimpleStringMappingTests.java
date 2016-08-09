@@ -2673,6 +2673,11 @@ operator|.
 name|jsonBuilder
 argument_list|()
 decl_stmt|;
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
 name|mapper
 operator|.
 name|toXContent
@@ -2694,6 +2699,11 @@ literal|"true"
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 name|String
 name|mappingString

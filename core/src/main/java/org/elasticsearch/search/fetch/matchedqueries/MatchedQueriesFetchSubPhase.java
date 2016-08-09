@@ -289,6 +289,14 @@ operator|.
 name|length
 operator|==
 literal|0
+operator|||
+comment|// in case the request has only suggest, parsed query is null
+name|context
+operator|.
+name|parsedQuery
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return;

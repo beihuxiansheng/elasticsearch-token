@@ -977,7 +977,7 @@ name|forEach
 argument_list|(
 name|builderA
 operator|::
-name|put
+name|add
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1039,7 +1039,7 @@ name|forEach
 argument_list|(
 name|builderB
 operator|::
-name|put
+name|add
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1589,7 +1589,7 @@ name|discoBuilder
 operator|=
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)

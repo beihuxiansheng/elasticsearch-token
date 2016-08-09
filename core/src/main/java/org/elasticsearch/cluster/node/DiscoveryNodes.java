@@ -1580,7 +1580,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -1610,7 +1610,7 @@ argument_list|(
 name|this
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -2659,7 +2659,7 @@ comment|// some one already built this and validated it's OK, skip the n2 scans
 assert|assert
 name|builder
 operator|.
-name|validatePut
+name|validateAdd
 argument_list|(
 name|node
 argument_list|)
@@ -2670,7 +2670,7 @@ literal|"building disco nodes from network doesn't pass preflight: "
 operator|+
 name|builder
 operator|.
-name|validatePut
+name|validateAdd
 argument_list|(
 name|node
 argument_list|)
@@ -2827,11 +2827,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * adds a disco node to the builder. Will throw an {@link IllegalArgumentException} if          * the supplied node doesn't pass the pre-flight checks performed by {@link #validatePut(DiscoveryNode)}          */
-DECL|method|put
+comment|/**          * adds a disco node to the builder. Will throw an {@link IllegalArgumentException} if          * the supplied node doesn't pass the pre-flight checks performed by {@link #validateAdd(DiscoveryNode)}          */
+DECL|method|add
 specifier|public
 name|Builder
-name|put
+name|add
 parameter_list|(
 name|DiscoveryNode
 name|node
@@ -2841,7 +2841,7 @@ specifier|final
 name|String
 name|preflight
 init|=
-name|validatePut
+name|validateAdd
 argument_list|(
 name|node
 argument_list|)
@@ -2868,6 +2868,27 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**          * Get a node by its id          *          * @param nodeId id of the wanted node          * @return wanted node if it exists. Otherwise<code>null</code>          */
+DECL|method|get
+annotation|@
+name|Nullable
+specifier|public
+name|DiscoveryNode
+name|get
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+block|{
+return|return
+name|nodes
+operator|.
+name|get
+argument_list|(
+name|nodeId
+argument_list|)
 return|;
 block|}
 DECL|method|putUnsafe
@@ -2992,11 +3013,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Checks that a node can be safely added to this node collection.          *          * @return null if all is OK or an error message explaining why a node can not be added.          *          * Note: if this method returns a non-null value, calling {@link #put(DiscoveryNode)} will fail with an          * exception          */
-DECL|method|validatePut
+comment|/**          * Checks that a node can be safely added to this node collection.          *          * @return null if all is OK or an error message explaining why a node can not be added.          *          * Note: if this method returns a non-null value, calling {@link #add(DiscoveryNode)} will fail with an          * exception          */
+DECL|method|validateAdd
 specifier|private
 name|String
-name|validatePut
+name|validateAdd
 parameter_list|(
 name|DiscoveryNode
 name|node
@@ -3084,15 +3105,9 @@ argument_list|)
 operator|&&
 name|node
 operator|.
-name|getAddress
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|existingNode
-operator|.
-name|getAddress
-argument_list|()
 argument_list|)
 operator|==
 literal|false
@@ -3107,7 +3122,7 @@ literal|", found existing node "
 operator|+
 name|existingNode
 operator|+
-literal|" with the same id, but a different address"
+literal|" with the same id but is a different node instance"
 return|;
 block|}
 block|}

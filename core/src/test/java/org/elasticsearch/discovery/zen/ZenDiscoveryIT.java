@@ -1660,7 +1660,7 @@ name|nodes
 argument_list|()
 argument_list|)
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode

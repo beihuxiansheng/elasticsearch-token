@@ -93,10 +93,12 @@ extends|extends
 name|AcknowledgedResponse
 block|{
 DECL|method|PutIndexTemplateResponse
+specifier|protected
 name|PutIndexTemplateResponse
 parameter_list|()
 block|{     }
 DECL|method|PutIndexTemplateResponse
+specifier|protected
 name|PutIndexTemplateResponse
 parameter_list|(
 name|boolean

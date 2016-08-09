@@ -666,7 +666,7 @@ name|discoBuilder
 operator|=
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
@@ -1335,7 +1335,7 @@ control|)
 block|{
 name|nodesBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(

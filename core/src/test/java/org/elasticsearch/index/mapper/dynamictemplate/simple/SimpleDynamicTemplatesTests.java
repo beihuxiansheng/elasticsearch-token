@@ -52,6 +52,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -722,12 +736,16 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|stringValue
+name|binaryValue
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 literal|"some name"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -889,12 +907,16 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|stringValue
+name|binaryValue
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 literal|"multi 1"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1055,12 +1077,16 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|stringValue
+name|binaryValue
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 literal|"multi 2"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1286,12 +1312,16 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|stringValue
+name|binaryValue
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 literal|"some name"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1453,12 +1483,16 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|stringValue
+name|binaryValue
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 literal|"multi 1"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1619,12 +1653,16 @@ name|assertThat
 argument_list|(
 name|f
 operator|.
-name|stringValue
+name|binaryValue
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 literal|"multi 2"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

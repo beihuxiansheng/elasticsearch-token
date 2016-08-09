@@ -568,18 +568,6 @@ name|startsWith
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
 begin_class
 DECL|class|HasChildQueryBuilderTests
 specifier|public
@@ -2865,41 +2853,35 @@ name|void
 name|testThatNullFromStringThrowsException
 parameter_list|()
 block|{
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|HasChildQueryBuilder
 operator|.
 name|parseScoreMode
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected IllegalArgumentException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertThat
+decl_stmt|;
+name|assertEquals
 argument_list|(
+literal|"No score mode for child query [null] found"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|"No score mode for child query [null] found"
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Failure should not change (and the value should never match anything...).      */
 DECL|method|testThatUnrecognizedFromStringThrowsException
@@ -2908,41 +2890,35 @@ name|void
 name|testThatUnrecognizedFromStringThrowsException
 parameter_list|()
 block|{
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|HasChildQueryBuilder
 operator|.
 name|parseScoreMode
 argument_list|(
 literal|"unrecognized value"
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected IllegalArgumentException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertThat
+decl_stmt|;
+name|assertEquals
 argument_list|(
+literal|"No score mode for child query [unrecognized value] found"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|"No score mode for child query [unrecognized value] found"
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testIgnoreUnmapped
 specifier|public

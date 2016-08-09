@@ -3418,9 +3418,11 @@ name|routingResult
 init|=
 name|allocationService
 operator|.
-name|reroute
+name|deassociateDeadNodes
 argument_list|(
 name|remainingNodesClusterState
+argument_list|,
+literal|true
 argument_list|,
 name|describeTasks
 argument_list|(

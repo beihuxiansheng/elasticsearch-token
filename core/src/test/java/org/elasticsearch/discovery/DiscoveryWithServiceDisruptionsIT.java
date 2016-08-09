@@ -6115,10 +6115,8 @@ argument_list|()
 expr_stmt|;
 name|service
 operator|.
-name|shardFailed
+name|localShardFailed
 argument_list|(
-name|failedShard
-argument_list|,
 name|failedShard
 argument_list|,
 literal|"simulated"

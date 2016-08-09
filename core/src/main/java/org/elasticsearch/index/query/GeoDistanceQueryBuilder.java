@@ -1917,6 +1917,20 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+name|throwParsingExceptionOnMultipleFields
+argument_list|(
+name|NAME
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+name|fieldName
+argument_list|,
+name|currentFieldName
+argument_list|)
+expr_stmt|;
 comment|// the json in the format of -> field : { lat : 30, lon : 12 }
 name|String
 name|currentName
@@ -1926,11 +1940,6 @@ operator|.
 name|currentName
 argument_list|()
 decl_stmt|;
-assert|assert
-name|currentFieldName
-operator|!=
-literal|null
-assert|;
 name|fieldName
 operator|=
 name|currentFieldName

@@ -897,7 +897,7 @@ control|)
 block|{
 name|discoveryNodes
 operator|.
-name|put
+name|add
 argument_list|(
 name|newNode
 argument_list|(
