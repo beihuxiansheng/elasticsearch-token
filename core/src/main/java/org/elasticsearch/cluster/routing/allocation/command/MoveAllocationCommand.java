@@ -738,7 +738,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|relocate
+name|relocateShard
 argument_list|(
 name|shardRouting
 argument_list|,

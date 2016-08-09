@@ -2669,7 +2669,7 @@ name|relocatingShards
 init|=
 name|routingNodes
 operator|.
-name|relocate
+name|relocateShard
 argument_list|(
 name|shardRouting
 argument_list|,
@@ -3650,7 +3650,7 @@ name|shard
 operator|=
 name|routingNodes
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|shard
 argument_list|,
@@ -4309,7 +4309,7 @@ name|addShard
 argument_list|(
 name|routingNodes
 operator|.
-name|relocate
+name|relocateShard
 argument_list|(
 name|candidate
 argument_list|,

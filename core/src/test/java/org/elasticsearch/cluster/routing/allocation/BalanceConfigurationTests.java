@@ -2757,7 +2757,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2777,7 +2777,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2807,7 +2807,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2827,7 +2827,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2857,7 +2857,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2877,7 +2877,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2907,7 +2907,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2927,7 +2927,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2957,7 +2957,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,
@@ -2977,7 +2977,7 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|initialize
+name|initializeShard
 argument_list|(
 name|sr
 argument_list|,

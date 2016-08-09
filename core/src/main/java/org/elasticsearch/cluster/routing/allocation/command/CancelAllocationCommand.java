@@ -621,6 +621,11 @@ name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|IndexMetaData
+name|indexMetaData
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|routingNode
@@ -628,9 +633,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|IndexMetaData
 name|indexMetaData
-init|=
+operator|=
 name|allocation
 operator|.
 name|metaData
@@ -641,7 +645,7 @@ argument_list|(
 name|index
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|indexMetaData
@@ -849,9 +853,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|AllocationService
+name|routingNodes
 operator|.
-name|cancelShard
+name|failShard
 argument_list|(
 name|Loggers
 operator|.
@@ -876,7 +880,7 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|,
-name|routingNodes
+name|indexMetaData
 argument_list|)
 expr_stmt|;
 return|return
