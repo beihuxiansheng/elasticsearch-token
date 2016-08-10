@@ -70,20 +70,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|phrase
 operator|.
 name|DirectCandidateGenerator
@@ -260,8 +246,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SuggestUtils
-operator|.
 name|join
 argument_list|(
 name|separator
@@ -347,8 +331,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SuggestUtils
-operator|.
 name|join
 argument_list|(
 name|separator
@@ -396,8 +378,6 @@ name|w_1
 argument_list|)
 return|;
 block|}
-name|SuggestUtils
-operator|.
 name|join
 argument_list|(
 name|separator

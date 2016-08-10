@@ -222,8 +222,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|TextFieldMapper
 import|;
 end_import

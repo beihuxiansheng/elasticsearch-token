@@ -118,8 +118,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|DateFieldMapper
 import|;
 end_import

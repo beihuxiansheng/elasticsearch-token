@@ -648,8 +648,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|SourceFieldMapper
 import|;
 end_import
@@ -663,8 +661,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|TypeFieldMapper
 import|;

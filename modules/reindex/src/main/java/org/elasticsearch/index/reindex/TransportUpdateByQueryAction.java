@@ -198,8 +198,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|IdFieldMapper
 import|;
 end_import
@@ -213,8 +211,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|IndexFieldMapper
 import|;
@@ -230,8 +226,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|ParentFieldMapper
 import|;
 end_import
@@ -245,8 +239,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|RoutingFieldMapper
 import|;
@@ -262,8 +254,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TTLFieldMapper
 import|;
 end_import
@@ -278,8 +268,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TimestampFieldMapper
 import|;
 end_import
@@ -293,8 +281,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|TypeFieldMapper
 import|;

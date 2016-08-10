@@ -322,8 +322,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TimestampFieldMapper
 import|;
 end_import

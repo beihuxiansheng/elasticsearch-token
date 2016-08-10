@@ -154,7 +154,6 @@ end_comment
 
 begin_class
 DECL|class|TermBasedFieldType
-specifier|public
 specifier|abstract
 class|class
 name|TermBasedFieldType

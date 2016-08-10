@@ -112,8 +112,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TypeFieldMapper
 import|;
 end_import

@@ -98,8 +98,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|FieldNamesFieldMapper
 import|;
 end_import

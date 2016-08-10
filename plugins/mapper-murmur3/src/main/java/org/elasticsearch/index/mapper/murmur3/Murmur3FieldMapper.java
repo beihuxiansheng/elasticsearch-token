@@ -296,8 +296,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|TypeParsers
 import|;
 end_import

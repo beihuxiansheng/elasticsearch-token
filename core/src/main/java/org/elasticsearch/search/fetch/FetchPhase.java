@@ -306,9 +306,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
-name|SourceFieldMapper
+name|ObjectMapper
 import|;
 end_import
 
@@ -322,9 +320,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|SourceFieldMapper
 import|;
 end_import
 
