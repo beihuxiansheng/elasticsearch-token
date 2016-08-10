@@ -2461,7 +2461,8 @@ operator|new
 name|LevensteinDistance
 argument_list|()
 return|;
-comment|//TODO Jaro and Winkler are 2 people - so apply same naming logic as damerau_levenshtein
+comment|// TODO Jaro and Winkler are 2 people - so apply same naming logic
+comment|// as damerau_levenshtein
 block|}
 elseif|else
 if|if

@@ -70,20 +70,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|phrase
 operator|.
 name|DirectCandidateGenerator
@@ -187,8 +173,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SuggestUtils
-operator|.
 name|join
 argument_list|(
 name|separator
@@ -265,8 +249,6 @@ name|IOException
 block|{
 comment|// First see if there are bigrams.  If there aren't then skip looking up the trigram.  This saves lookups
 comment|// when the bigrams and trigrams are rare and we need both anyway.
-name|SuggestUtils
-operator|.
 name|join
 argument_list|(
 name|separator
@@ -309,8 +291,6 @@ name|w
 argument_list|)
 return|;
 block|}
-name|SuggestUtils
-operator|.
 name|join
 argument_list|(
 name|separator
