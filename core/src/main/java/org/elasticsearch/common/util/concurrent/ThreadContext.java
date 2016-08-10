@@ -421,15 +421,12 @@ expr_stmt|;
 return|return
 parameter_list|()
 lambda|->
-block|{
 name|threadLocal
 operator|.
 name|set
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-block|}
 return|;
 block|}
 comment|/**      * Removes the current context and resets a new context that contains a merge of the current headers and the given headers. The removed context can be      * restored when closing the returned {@link StoredContext}. The merge strategy is that headers that are already existing are preserved unless they are defaults.      */
@@ -495,15 +492,12 @@ expr_stmt|;
 return|return
 parameter_list|()
 lambda|->
-block|{
 name|threadLocal
 operator|.
 name|set
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-block|}
 return|;
 block|}
 comment|/**      * Just like {@link #stashContext()} but no default context is set.      */
@@ -525,15 +519,12 @@ decl_stmt|;
 return|return
 parameter_list|()
 lambda|->
-block|{
 name|threadLocal
 operator|.
 name|set
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-block|}
 return|;
 block|}
 annotation|@
@@ -1092,6 +1083,8 @@ return|return
 name|command
 return|;
 block|}
+annotation|@
+name|FunctionalInterface
 DECL|interface|StoredContext
 specifier|public
 interface|interface
@@ -1118,6 +1111,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ThreadContextStruct
+specifier|private
 specifier|static
 specifier|final
 class|class
@@ -2126,6 +2120,7 @@ block|}
 block|}
 comment|/**      * Wraps a Runnable to preserve the thread context.      */
 DECL|class|ContextPreservingRunnable
+specifier|private
 class|class
 name|ContextPreservingRunnable
 implements|implements
@@ -2146,6 +2141,7 @@ name|StoredContext
 name|ctx
 decl_stmt|;
 DECL|method|ContextPreservingRunnable
+specifier|private
 name|ContextPreservingRunnable
 parameter_list|(
 name|Runnable
@@ -2264,7 +2260,7 @@ block|}
 block|}
 comment|/**      * Wraps an AbstractRunnable to preserve the thread context.      */
 DECL|class|ContextPreservingAbstractRunnable
-specifier|public
+specifier|private
 class|class
 name|ContextPreservingAbstractRunnable
 extends|extends
