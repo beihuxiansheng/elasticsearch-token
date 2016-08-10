@@ -689,7 +689,7 @@ name|directSpellChecker
 init|=
 name|generator
 operator|.
-name|getDirectSpellChecker
+name|createDirectSpellChecker
 argument_list|()
 decl_stmt|;
 name|Terms

@@ -340,7 +340,7 @@ operator|.
 name|getDirectSpellCheckerSettings
 argument_list|()
 operator|.
-name|getDirectSpellChecker
+name|createDirectSpellChecker
 argument_list|()
 decl_stmt|;
 specifier|final

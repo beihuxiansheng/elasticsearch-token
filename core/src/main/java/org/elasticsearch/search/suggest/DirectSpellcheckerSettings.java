@@ -592,10 +592,10 @@ operator|=
 name|minDocFreq
 expr_stmt|;
 block|}
-DECL|method|getDirectSpellChecker
+DECL|method|createDirectSpellChecker
 specifier|public
 name|DirectSpellChecker
-name|getDirectSpellChecker
+name|createDirectSpellChecker
 parameter_list|()
 block|{
 name|DirectSpellChecker
