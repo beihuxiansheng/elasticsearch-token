@@ -1814,14 +1814,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|Tuple
-argument_list|<
-name|Set
-argument_list|<
-name|String
-argument_list|>
-argument_list|,
-name|DirectCandidateGeneratorBuilder
-argument_list|>
+argument_list|<>
 argument_list|(
 name|tmpFieldName
 argument_list|,
