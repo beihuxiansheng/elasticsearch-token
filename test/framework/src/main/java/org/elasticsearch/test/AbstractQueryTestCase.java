@@ -2371,7 +2371,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test that adding an additional object within each object of the otherwise correct query always triggers some kind of      * parse exception. Some specific objects do not cause any exception as they can hold arbitray content; they can be      * declared by overriding {@link #getObjectsHoldingArbitraryContent()}      */
+comment|/**      * Test that adding an additional object within each object of the otherwise correct query always triggers some kind of      * parse exception. Some specific objects do not cause any exception as they can hold arbitrary content; they can be      * declared by overriding {@link #getObjectsHoldingArbitraryContent()}      */
 DECL|method|testUnknownObjectException
 specifier|public
 specifier|final
@@ -2414,6 +2414,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Traverses the json tree of the valid query provided as argument and mutates it by adding one object within each object      * encountered. Every mutation is a separate iteration, which will be followed by its corresponding assertions to verify that      * a parse exception is thrown when parsing the modified query. Some specific objects do not cause any exception as they can      * hold arbitrary content; they can be declared by overriding {@link #getObjectsHoldingArbitraryContent()}, and for those we      * will verify that no exception gets thrown instead.      *      * For instance given the following valid term query:      * {      *     "term" : {      *         "field" : {      *             "value" : "foo"      *         }      *     }      * }      *      * The following two mutations will be generated, and an exception is expected when trying to parse them:      * {      *     "term" : {      *         "newField" : {      *             "field" : {      *                 "value" : "foo"      *             }      *         }      *     }      * }      *      * {      *     "term" : {      *         "field" : {      *             "newField" : {      *                 "value" : "foo"      *             }      *         }      *     }      * }      */
 DECL|method|unknownObjectExceptionTest
 specifier|private
 name|void
@@ -2441,6 +2442,7 @@ name|level
 init|=
 literal|0
 decl_stmt|;
+comment|//track whether we are within quotes as we may have randomly generated strings containing curly brackets
 name|boolean
 name|withinQuotes
 init|=
@@ -2556,26 +2558,30 @@ operator|==
 literal|'{'
 condition|)
 block|{
+comment|//keep track of which level we are within the json so that we can properly close the additional object
 name|level
 operator|++
 expr_stmt|;
+comment|//if we don't expect an exception, it means that we are within an object that can contain arbitrary content.
+comment|//in that case we ignore the whole object including its children, no need to even check where we are.
 if|if
 condition|(
 name|expectedException
 condition|)
 block|{
 name|int
-name|start
+name|startCurrentObjectName
 init|=
 operator|-
 literal|1
 decl_stmt|;
 name|int
-name|end
+name|endCurrentObjectName
 init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|//look backwards for the current object name, to find out whether we expect an exception following its mutation
 for|for
 control|(
 name|int
@@ -2620,13 +2626,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|end
+name|endCurrentObjectName
 operator|==
 operator|-
 literal|1
 condition|)
 block|{
-name|end
+name|endCurrentObjectName
 operator|=
 name|i
 expr_stmt|;
@@ -2634,13 +2640,13 @@ block|}
 elseif|else
 if|if
 condition|(
-name|start
+name|startCurrentObjectName
 operator|==
 operator|-
 literal|1
 condition|)
 block|{
-name|start
+name|startCurrentObjectName
 operator|=
 name|i
 operator|+
@@ -2655,25 +2661,25 @@ block|}
 block|}
 if|if
 condition|(
-name|start
+name|startCurrentObjectName
 operator|>=
 literal|0
 operator|&&
-name|end
+name|endCurrentObjectName
 operator|>
 literal|0
 condition|)
 block|{
 name|String
-name|objectName
+name|currentObjectName
 init|=
 name|validQuery
 operator|.
 name|substring
 argument_list|(
-name|start
+name|startCurrentObjectName
 argument_list|,
-name|end
+name|endCurrentObjectName
 argument_list|)
 decl_stmt|;
 name|expectedException
@@ -2683,7 +2689,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|objectName
+name|currentObjectName
 argument_list|)
 operator|==
 literal|false
@@ -2701,6 +2707,7 @@ name|objectHoldingArbitraryContentLevel
 operator|++
 expr_stmt|;
 block|}
+comment|//inject the start of the new object
 name|String
 name|testQuery
 init|=
@@ -2820,6 +2827,7 @@ operator|==
 name|level
 condition|)
 block|{
+comment|//close the additional object in the right place
 name|testQuery
 operator|+=
 name|secondPart
