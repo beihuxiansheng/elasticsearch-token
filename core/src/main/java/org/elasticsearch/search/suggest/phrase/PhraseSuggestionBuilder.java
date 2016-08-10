@@ -354,20 +354,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|SuggestionBuilder
 import|;
 end_import
@@ -3323,11 +3309,7 @@ name|ElasticsearchParseException
 argument_list|(
 literal|"the required field option ["
 operator|+
-name|SuggestUtils
-operator|.
-name|Fields
-operator|.
-name|FIELD
+name|FIELDNAME_FIELD
 operator|.
 name|getPreferredName
 argument_list|()

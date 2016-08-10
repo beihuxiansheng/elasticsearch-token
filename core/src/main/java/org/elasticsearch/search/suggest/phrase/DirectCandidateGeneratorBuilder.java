@@ -397,6 +397,7 @@ init|=
 literal|"direct_generator"
 decl_stmt|;
 DECL|field|DIRECT_GENERATOR_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -409,6 +410,7 @@ name|TYPE
 argument_list|)
 decl_stmt|;
 DECL|field|FIELDNAME_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -421,6 +423,7 @@ literal|"field"
 argument_list|)
 decl_stmt|;
 DECL|field|PREFILTER_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -433,6 +436,7 @@ literal|"pre_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|POSTFILTER_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -445,6 +449,7 @@ literal|"post_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|SUGGESTMODE_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -457,6 +462,7 @@ literal|"suggest_mode"
 argument_list|)
 decl_stmt|;
 DECL|field|MIN_DOC_FREQ_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -469,6 +475,7 @@ literal|"min_doc_freq"
 argument_list|)
 decl_stmt|;
 DECL|field|ACCURACY_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -481,6 +488,7 @@ literal|"accuracy"
 argument_list|)
 decl_stmt|;
 DECL|field|SIZE_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -493,6 +501,7 @@ literal|"size"
 argument_list|)
 decl_stmt|;
 DECL|field|SORT_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -505,6 +514,7 @@ literal|"sort"
 argument_list|)
 decl_stmt|;
 DECL|field|STRING_DISTANCE_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -517,6 +527,7 @@ literal|"string_distance"
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_EDITS_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -529,6 +540,7 @@ literal|"max_edits"
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_INSPECTIONS_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -541,6 +553,7 @@ literal|"max_inspections"
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_TERM_FREQ_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -553,6 +566,7 @@ literal|"max_term_freq"
 argument_list|)
 decl_stmt|;
 DECL|field|PREFIX_LENGTH_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -565,6 +579,7 @@ literal|"prefix_length"
 argument_list|)
 decl_stmt|;
 DECL|field|MIN_WORD_LENGTH_FIELD
+specifier|public
 specifier|static
 specifier|final
 name|ParseField

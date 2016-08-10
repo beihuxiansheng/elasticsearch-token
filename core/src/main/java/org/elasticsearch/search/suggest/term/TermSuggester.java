@@ -202,20 +202,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|Suggester
 import|;
 end_import
@@ -538,6 +524,7 @@ return|;
 block|}
 DECL|method|queryTerms
 specifier|private
+specifier|static
 name|List
 argument_list|<
 name|Token
@@ -591,7 +578,7 @@ argument_list|,
 name|field
 argument_list|,
 operator|new
-name|SuggestUtils
+name|DirectCandidateGenerator
 operator|.
 name|TokenConsumer
 argument_list|()
