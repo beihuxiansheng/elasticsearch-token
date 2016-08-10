@@ -395,7 +395,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|SuggestUtils
+name|DirectCandidateGenerator
 operator|.
 name|analyze
 argument_list|(

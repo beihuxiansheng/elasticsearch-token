@@ -252,6 +252,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|phrase
+operator|.
+name|DirectCandidateGenerator
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -558,7 +574,7 @@ operator|.
 name|getField
 argument_list|()
 decl_stmt|;
-name|SuggestUtils
+name|DirectCandidateGenerator
 operator|.
 name|analyze
 argument_list|(
