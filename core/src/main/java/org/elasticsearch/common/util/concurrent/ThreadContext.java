@@ -2182,7 +2182,7 @@ init|(
 name|ThreadContext
 operator|.
 name|StoredContext
-name|ingore
+name|ignore
 init|=
 name|stashContext
 argument_list|()
@@ -2391,7 +2391,7 @@ init|(
 name|ThreadContext
 operator|.
 name|StoredContext
-name|ingore
+name|ignore
 init|=
 name|stashContext
 argument_list|()

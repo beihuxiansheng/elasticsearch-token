@@ -204,7 +204,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -218,9 +218,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
-operator|.
-name|GeoPointFieldMapper
+name|MappedFieldType
 import|;
 end_import
 

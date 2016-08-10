@@ -170,8 +170,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|UidFieldMapper
 import|;
 end_import
@@ -185,8 +183,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|VersionFieldMapper
 import|;

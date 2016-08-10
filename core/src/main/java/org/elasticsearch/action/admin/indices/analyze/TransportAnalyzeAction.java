@@ -486,7 +486,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|AllFieldMapper
 import|;
 end_import
 
@@ -500,9 +500,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
-name|AllFieldMapper
+name|MappedFieldType
 import|;
 end_import
 

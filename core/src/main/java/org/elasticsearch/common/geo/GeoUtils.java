@@ -130,8 +130,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
-operator|.
 name|GeoPointFieldMapper
 import|;
 end_import

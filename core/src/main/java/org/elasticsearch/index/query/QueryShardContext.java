@@ -406,9 +406,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|TextFieldMapper
+name|ObjectMapper
 import|;
 end_import
 
@@ -422,9 +420,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|TextFieldMapper
 import|;
 end_import
 

@@ -380,7 +380,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|Uid
+name|ObjectMapper
 import|;
 end_import
 
@@ -393,8 +393,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|ParentFieldMapper
 import|;
@@ -410,9 +408,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
-name|UidFieldMapper
+name|Uid
 import|;
 end_import
 
@@ -426,9 +422,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|UidFieldMapper
 import|;
 end_import
 

@@ -18,38 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|object
-operator|.
-name|ObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|object
-operator|.
-name|RootObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -60,7 +28,6 @@ end_import
 
 begin_enum
 DECL|enum|MapperUtils
-specifier|public
 enum|enum
 name|MapperUtils
 block|{     ;

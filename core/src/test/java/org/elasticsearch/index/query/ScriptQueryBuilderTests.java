@@ -111,6 +111,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -358,6 +368,35 @@ name|getScript
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getObjectsHoldingArbitraryContent
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getObjectsHoldingArbitraryContent
+parameter_list|()
+block|{
+comment|//script_score.script.params can contain arbitrary parameters. no error is expected when
+comment|//adding additional objects within the params object.
+return|return
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|Script
+operator|.
+name|ScriptField
+operator|.
+name|PARAMS
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|)
+return|;
 block|}
 block|}
 end_class

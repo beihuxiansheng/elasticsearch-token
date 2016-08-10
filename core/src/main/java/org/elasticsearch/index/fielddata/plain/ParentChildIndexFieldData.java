@@ -434,8 +434,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|ParentFieldMapper
 import|;
 end_import

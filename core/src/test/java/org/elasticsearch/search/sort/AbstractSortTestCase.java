@@ -334,9 +334,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|Mapper
-operator|.
-name|BuilderContext
+name|ObjectMapper
 import|;
 end_import
 
@@ -349,8 +347,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|core
 operator|.
 name|LegacyDoubleFieldMapper
 operator|.
@@ -368,9 +364,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
+name|Mapper
 operator|.
-name|ObjectMapper
+name|BuilderContext
 import|;
 end_import
 
@@ -383,8 +379,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|object
 operator|.
 name|ObjectMapper
 operator|.

@@ -168,22 +168,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|object
-operator|.
-name|RootObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -1991,7 +1975,7 @@ name|NONE
 argument_list|)
 return|;
 block|}
-comment|/**      * Is all included or not. Will always disable it if {@link org.elasticsearch.index.mapper.internal.AllFieldMapper#enabled()}      * is<tt>false</tt>. If its enabled, then will return<tt>true</tt> only if the specific flag is<tt>null</tt> or      * its actual value (so, if not set, defaults to "true") and the field is indexed.      */
+comment|/**      * Is all included or not. Will always disable it if {@link org.elasticsearch.index.mapper.AllFieldMapper#enabled()}      * is<tt>false</tt>. If its enabled, then will return<tt>true</tt> only if the specific flag is<tt>null</tt> or      * its actual value (so, if not set, defaults to "true") and the field is indexed.      */
 DECL|method|includeInAll
 specifier|private
 name|boolean

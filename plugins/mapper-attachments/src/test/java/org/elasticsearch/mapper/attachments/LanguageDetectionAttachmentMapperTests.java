@@ -122,8 +122,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|StringFieldMapper
 import|;
 end_import
@@ -137,8 +135,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|core
 operator|.
 name|TextFieldMapper
 import|;

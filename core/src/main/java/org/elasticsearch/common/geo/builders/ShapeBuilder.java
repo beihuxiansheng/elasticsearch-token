@@ -302,8 +302,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
-operator|.
 name|GeoShapeFieldMapper
 import|;
 end_import
