@@ -182,8 +182,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|NumberFieldMapper
 import|;
 end_import

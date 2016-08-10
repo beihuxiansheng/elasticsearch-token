@@ -548,7 +548,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperParsingException
+name|FieldNamesFieldMapper
 import|;
 end_import
 
@@ -562,9 +562,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
-name|FieldNamesFieldMapper
+name|MapperParsingException
 import|;
 end_import
 

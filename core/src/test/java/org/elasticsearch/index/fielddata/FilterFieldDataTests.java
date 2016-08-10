@@ -124,9 +124,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|Mapper
-operator|.
-name|BuilderContext
+name|TextFieldMapper
 import|;
 end_import
 
@@ -140,9 +138,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
+name|Mapper
 operator|.
-name|TextFieldMapper
+name|BuilderContext
 import|;
 end_import
 

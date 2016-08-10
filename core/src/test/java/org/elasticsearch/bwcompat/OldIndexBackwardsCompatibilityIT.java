@@ -396,8 +396,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|string
-operator|.
 name|StringFieldMapperPositionIncrementGapTests
 import|;
 end_import

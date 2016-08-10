@@ -226,8 +226,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|UidFieldMapper
 import|;
 end_import

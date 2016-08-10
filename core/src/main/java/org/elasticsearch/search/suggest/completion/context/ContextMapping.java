@@ -114,7 +114,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParseContext
+name|CompletionFieldMapper
 import|;
 end_import
 
@@ -128,9 +128,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|CompletionFieldMapper
+name|ParseContext
 import|;
 end_import
 

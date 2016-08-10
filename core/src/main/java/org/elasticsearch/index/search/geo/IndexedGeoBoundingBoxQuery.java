@@ -100,8 +100,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
-operator|.
 name|GeoPointFieldMapperLegacy
 import|;
 end_import
