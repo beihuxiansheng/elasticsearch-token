@@ -1005,6 +1005,8 @@ parameter_list|(
 name|CompiledScript
 name|compiledScript
 parameter_list|,
+annotation|@
+name|Nullable
 name|Map
 argument_list|<
 name|String
@@ -1048,6 +1050,13 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|vars
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -1083,6 +1092,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 operator|new

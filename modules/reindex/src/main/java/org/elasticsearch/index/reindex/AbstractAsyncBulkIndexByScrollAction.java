@@ -2020,6 +2020,14 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|context
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 name|context
 operator|.
 name|put
@@ -2281,7 +2289,7 @@ expr_stmt|;
 name|Object
 name|newValue
 init|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2315,7 +2323,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2349,7 +2357,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2383,7 +2391,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2416,7 +2424,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2450,7 +2458,7 @@ block|}
 comment|/*              * Its important that routing comes after parent in case you want to              * change them both.              */
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2483,7 +2491,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2516,7 +2524,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2579,7 +2587,7 @@ if|if
 condition|(
 literal|false
 operator|==
-name|context
+name|resultCtx
 operator|.
 name|isEmpty
 argument_list|()
@@ -2597,7 +2605,7 @@ name|join
 argument_list|(
 literal|","
 argument_list|,
-name|context
+name|resultCtx
 operator|.
 name|keySet
 argument_list|()
