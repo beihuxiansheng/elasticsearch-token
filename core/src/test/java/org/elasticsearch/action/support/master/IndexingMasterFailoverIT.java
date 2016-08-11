@@ -136,7 +136,7 @@ name|test
 operator|.
 name|disruption
 operator|.
-name|NetworkDisconnectPartition
+name|NetworkDisruption
 import|;
 end_import
 
@@ -150,7 +150,25 @@ name|test
 operator|.
 name|disruption
 operator|.
-name|NetworkPartition
+name|NetworkDisruption
+operator|.
+name|NetworkDisconnect
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|disruption
+operator|.
+name|NetworkDisruption
+operator|.
+name|TwoPartitions
 import|;
 end_import
 
@@ -691,11 +709,14 @@ argument_list|(
 name|master
 argument_list|)
 expr_stmt|;
-name|NetworkPartition
+name|NetworkDisruption
 name|partition
 init|=
 operator|new
-name|NetworkDisconnectPartition
+name|NetworkDisruption
+argument_list|(
+operator|new
+name|TwoPartitions
 argument_list|(
 name|Collections
 operator|.
@@ -705,8 +726,10 @@ name|master
 argument_list|)
 argument_list|,
 name|otherNodes
+argument_list|)
 argument_list|,
-name|random
+operator|new
+name|NetworkDisconnect
 argument_list|()
 argument_list|)
 decl_stmt|;
