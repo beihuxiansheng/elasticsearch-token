@@ -488,7 +488,7 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-name|parseIndexContraints
+name|parseIndexConstraints
 argument_list|(
 name|indexConstraints
 argument_list|,
@@ -644,10 +644,11 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|parseIndexContraints
+DECL|method|parseIndexConstraints
 specifier|private
+specifier|static
 name|void
-name|parseIndexContraints
+name|parseIndexConstraints
 parameter_list|(
 name|List
 argument_list|<
