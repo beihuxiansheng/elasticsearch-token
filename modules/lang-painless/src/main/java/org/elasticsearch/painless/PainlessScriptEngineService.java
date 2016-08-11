@@ -691,9 +691,14 @@ argument_list|,
 name|COMPILATION_CONTEXT
 argument_list|)
 return|;
+comment|// Note that it is safe to catch any of the following errors since Painless is stateless.
 block|}
 catch|catch
 parameter_list|(
+name|OutOfMemoryError
+decl||
+name|StackOverflowError
+decl||
 name|Exception
 name|e
 parameter_list|)
