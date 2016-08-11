@@ -5302,7 +5302,6 @@ argument_list|(
 name|dataPath
 argument_list|)
 expr_stmt|;
-comment|//norelease
 comment|//TODO: uncomment the test below when https://github.com/elastic/elasticsearch/issues/17695 is resolved.
 comment|//assertIndicesDirsDeleted(nodes);
 block|}
@@ -5719,7 +5718,6 @@ argument_list|(
 name|dataPath
 argument_list|)
 expr_stmt|;
-comment|//norelease
 comment|//TODO: uncomment the test below when https://github.com/elastic/elasticsearch/issues/17695 is resolved.
 comment|//assertIndicesDirsDeleted(nodes);
 block|}
