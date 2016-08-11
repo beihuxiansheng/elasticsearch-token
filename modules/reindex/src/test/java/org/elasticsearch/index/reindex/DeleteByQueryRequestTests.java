@@ -73,17 +73,17 @@ import|;
 end_import
 
 begin_class
-DECL|class|UpdateByQueryRequestTests
+DECL|class|DeleteByQueryRequestTests
 specifier|public
 class|class
-name|UpdateByQueryRequestTests
+name|DeleteByQueryRequestTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|method|testUpdateByQueryRequestImplementsIndicesRequestReplaceable
+DECL|method|testDeleteteByQueryRequestImplementsIndicesRequestReplaceable
 specifier|public
 name|void
-name|testUpdateByQueryRequestImplementsIndicesRequestReplaceable
+name|testDeleteteByQueryRequestImplementsIndicesRequestReplaceable
 parameter_list|()
 block|{
 name|int
@@ -173,11 +173,11 @@ argument_list|(
 name|indicesOptions
 argument_list|)
 expr_stmt|;
-name|UpdateByQueryRequest
+name|DeleteByQueryRequest
 name|request
 init|=
 operator|new
-name|UpdateByQueryRequest
+name|DeleteByQueryRequest
 argument_list|(
 name|searchRequest
 argument_list|)

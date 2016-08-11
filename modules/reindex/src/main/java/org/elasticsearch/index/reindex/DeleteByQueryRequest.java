@@ -98,6 +98,8 @@ name|DeleteByQueryRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|method|DeleteByQueryRequest
 specifier|public
@@ -250,6 +252,38 @@ name|b
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+comment|//delete by query deletes all documents that match a query. The indices and indices options that affect how
+comment|//indices are resolved depend entirely on the inner search request. That's why the following methods delegate to it.
+annotation|@
+name|Override
+DECL|method|indices
+specifier|public
+name|IndicesRequest
+name|indices
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+block|{
+assert|assert
+name|getSearchRequest
+argument_list|()
+operator|!=
+literal|null
+assert|;
+name|getSearchRequest
+argument_list|()
+operator|.
+name|indices
+argument_list|(
+name|indices
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 annotation|@
