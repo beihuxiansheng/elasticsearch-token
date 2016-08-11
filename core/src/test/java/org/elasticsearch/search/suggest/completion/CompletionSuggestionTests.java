@@ -120,6 +120,13 @@ name|CompletionSuggestionTests
 extends|extends
 name|ESTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/19896"
+argument_list|)
 DECL|method|testToReduce
 specifier|public
 name|void
