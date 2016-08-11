@@ -286,6 +286,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -457,7 +467,9 @@ parameter_list|()
 block|{
 comment|// disruption tests need MockTransportService
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|MockTransportService
 operator|.

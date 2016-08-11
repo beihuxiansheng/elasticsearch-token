@@ -188,6 +188,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -311,7 +321,9 @@ parameter_list|()
 block|{
 comment|// Use the mock internal cluster info service, which has fake-able disk usages
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|MockInternalClusterInfoService
 operator|.

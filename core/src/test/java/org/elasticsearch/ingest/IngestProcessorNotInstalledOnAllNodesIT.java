@@ -106,6 +106,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -300,7 +310,9 @@ block|{
 return|return
 name|installPlugin
 condition|?
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|IngestTestPlugin
 operator|.

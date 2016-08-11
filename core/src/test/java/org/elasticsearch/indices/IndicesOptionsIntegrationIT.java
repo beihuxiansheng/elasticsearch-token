@@ -725,14 +725,15 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|TestPlugin
 operator|.
 name|class
 argument_list|)
 return|;
-comment|//
 block|}
 DECL|method|testSpecifiedIndexUnavailableMultipleIndices
 specifier|public

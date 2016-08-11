@@ -240,7 +240,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|SettingsListenerPlugin
 operator|.
