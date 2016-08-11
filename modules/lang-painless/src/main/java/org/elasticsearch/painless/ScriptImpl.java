@@ -353,6 +353,7 @@ argument_list|,
 name|aggregationValue
 argument_list|)
 return|;
+comment|// Note that it is safe to catch any of the following errors since Painless is stateless.
 block|}
 catch|catch
 parameter_list|(
@@ -360,16 +361,18 @@ name|PainlessError
 decl||
 name|BootstrapMethodError
 decl||
-name|IllegalAccessError
+name|OutOfMemoryError
+decl||
+name|StackOverflowError
 decl||
 name|Exception
-name|t
+name|e
 parameter_list|)
 block|{
 throw|throw
 name|convertToScriptException
 argument_list|(
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
