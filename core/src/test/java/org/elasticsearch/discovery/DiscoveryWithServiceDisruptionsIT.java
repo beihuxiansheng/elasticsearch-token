@@ -6589,8 +6589,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// don't use DEFAULT settings (which can cause node disconnects on a slow CI machine)
 name|configureUnicastCluster
 argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
 literal|3
 argument_list|,
 literal|null
