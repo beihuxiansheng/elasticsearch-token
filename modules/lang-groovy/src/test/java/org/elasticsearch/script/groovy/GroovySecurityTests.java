@@ -525,6 +525,43 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testGroovyScriptsThatThrowErrors
+specifier|public
+name|void
+name|testGroovyScriptsThatThrowErrors
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertFailure
+argument_list|(
+literal|"assert false, \"msg\";"
+argument_list|,
+name|AssertionError
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertFailure
+argument_list|(
+literal|"def foo=false; assert foo;"
+argument_list|,
+name|AssertionError
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// Groovy's asserts require org.codehaus.groovy.runtime.InvokerHelper, so they are denied
+name|assertFailure
+argument_list|(
+literal|"def foo=false; assert foo, \"msg2\";"
+argument_list|,
+name|NoClassDefFoundError
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** runs a script */
 DECL|method|doTest
 specifier|private
@@ -723,7 +760,7 @@ name|script
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** asserts that a script triggers securityexception */
+comment|/** asserts that a script triggers the given exceptionclass */
 DECL|method|assertFailure
 specifier|private
 name|void
