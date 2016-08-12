@@ -714,6 +714,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|ShardLockObtainFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|http
 operator|.
 name|HttpServerTransport
@@ -11947,7 +11959,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|ShardLockObtainFailedException
 name|ex
 parameter_list|)
 block|{

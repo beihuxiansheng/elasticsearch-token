@@ -222,6 +222,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|ShardLockObtainFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|gateway
 operator|.
 name|GatewayMetaState
@@ -1382,7 +1394,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|LockObtainFailedException
+name|ShardLockObtainFailedException
 name|ex
 parameter_list|)
 block|{          }
