@@ -2917,7 +2917,7 @@ condition|)
 block|{
 comment|// promote active replica to primary if active replica exists
 name|ShardRouting
-name|candidate
+name|activeReplica
 init|=
 name|activeReplica
 argument_list|(
@@ -2929,7 +2929,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|candidate
+name|activeReplica
 operator|==
 literal|null
 condition|)
@@ -2944,6 +2944,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// if the activeReplica was relocating before this call to failShard, its relocation was cancelled above when we
+comment|// failed initializing replica shards (and moved replica relocation source back to started)
+assert|assert
+name|activeReplica
+operator|.
+name|started
+argument_list|()
+operator|:
+literal|"replica relocation should have been cancelled: "
+operator|+
+name|activeReplica
+assert|;
 name|movePrimaryToUnassignedAndDemoteToReplica
 argument_list|(
 name|failedShard
@@ -2954,80 +2966,11 @@ expr_stmt|;
 name|ShardRouting
 name|primarySwappedCandidate
 init|=
-name|promoteAssignedReplicaShardToPrimary
+name|promoteActiveReplicaShardToPrimary
 argument_list|(
-name|candidate
+name|activeReplica
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|primarySwappedCandidate
-operator|.
-name|relocatingNodeId
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// its also relocating, make sure to move the other routing to primary
-name|RoutingNode
-name|node
-init|=
-name|node
-argument_list|(
-name|primarySwappedCandidate
-operator|.
-name|relocatingNodeId
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|node
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|ShardRouting
-name|shardRouting
-range|:
-name|node
-control|)
-block|{
-if|if
-condition|(
-name|shardRouting
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|primarySwappedCandidate
-operator|.
-name|shardId
-argument_list|()
-argument_list|)
-operator|&&
-operator|!
-name|shardRouting
-operator|.
-name|primary
-argument_list|()
-condition|)
-block|{
-name|promoteAssignedReplicaShardToPrimary
-argument_list|(
-name|shardRouting
-argument_list|)
-expr_stmt|;
-break|break;
-block|}
-block|}
-block|}
-block|}
 if|if
 condition|(
 name|IndexMetaData
@@ -3215,10 +3158,10 @@ name|cancelledShard
 return|;
 block|}
 comment|/**      * moves the assigned replica shard to primary.      *      * @param replicaShard the replica shard to be promoted to primary      * @return             the resulting primary shard      */
-DECL|method|promoteAssignedReplicaShardToPrimary
+DECL|method|promoteActiveReplicaShardToPrimary
 specifier|private
 name|ShardRouting
-name|promoteAssignedReplicaShardToPrimary
+name|promoteActiveReplicaShardToPrimary
 parameter_list|(
 name|ShardRouting
 name|replicaShard
@@ -3227,12 +3170,10 @@ block|{
 assert|assert
 name|replicaShard
 operator|.
-name|unassigned
+name|active
 argument_list|()
-operator|==
-literal|false
 operator|:
-literal|"unassigned shard cannot be promoted to primary: "
+literal|"non-active shard cannot be promoted to primary: "
 operator|+
 name|replicaShard
 assert|;
@@ -3871,7 +3812,7 @@ return|return
 name|unassigned
 return|;
 block|}
-comment|/**      * Moves assigned primary to unassigned and demotes it to a replica.      * Used in conjunction with {@link #promoteAssignedReplicaShardToPrimary} when an active replica is promoted to primary.      */
+comment|/**      * Moves assigned primary to unassigned and demotes it to a replica.      * Used in conjunction with {@link #promoteActiveReplicaShardToPrimary} when an active replica is promoted to primary.      */
 DECL|method|movePrimaryToUnassignedAndDemoteToReplica
 specifier|private
 name|ShardRouting
