@@ -581,12 +581,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|NodeEnvironment
-operator|.
-name|MAX_LOCAL_STORAGE_NODES_SETTING
-operator|.
-name|getKey
-argument_list|()
+literal|"node.max_local_storage_nodes"
 argument_list|,
 literal|1
 argument_list|)
@@ -618,9 +613,18 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 comment|// Reuse the same location and attempt to lock again
+name|IllegalStateException
+name|ex
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|NodeEnvironment
 argument_list|(
@@ -632,19 +636,8 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"env has already locked all the data directories it is allowed"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|ex
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|ex
@@ -654,11 +647,10 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Failed to obtain node lock"
+literal|"failed to obtain node lock"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Close the environment that holds the lock and make sure we can get the lock after release
 name|env
 operator|.
@@ -882,7 +874,18 @@ name|buildEnvSettings
 argument_list|(
 name|Settings
 operator|.
-name|EMPTY
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"node.max_local_storage_nodes"
+argument_list|,
+literal|2
+argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final

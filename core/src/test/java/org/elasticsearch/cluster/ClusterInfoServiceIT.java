@@ -288,6 +288,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|NodeEnvironment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexService
@@ -870,6 +882,18 @@ operator|.
 name|builder
 argument_list|()
 comment|// manual collection or upon cluster forming.
+operator|.
+name|put
+argument_list|(
+name|NodeEnvironment
+operator|.
+name|MAX_LOCAL_STORAGE_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|2
+argument_list|)
 operator|.
 name|put
 argument_list|(

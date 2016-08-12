@@ -184,6 +184,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|NodeEnvironment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|ScriptService
@@ -9980,6 +9992,20 @@ name|Settings
 operator|.
 name|builder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|NodeEnvironment
+operator|.
+name|MAX_LOCAL_STORAGE_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
 comment|// Default the watermarks to absurdly low to prevent the tests
 comment|// from failing on nodes without enough disk space
 operator|.

@@ -632,6 +632,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -1041,7 +1051,7 @@ name|intSetting
 argument_list|(
 literal|"node.max_local_storage_nodes"
 argument_list|,
-literal|50
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -1581,12 +1591,22 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
 argument_list|(
-literal|"Failed to obtain node lock, is the following location writable?: "
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"failed to obtain node locks, tried [%s] with lock id%s;"
 operator|+
+literal|" maybe these locations are not writable or multiple nodes were started without increasing [%s] (was [%d])?"
+argument_list|,
 name|Arrays
 operator|.
 name|toString
@@ -1596,6 +1616,36 @@ operator|.
 name|dataWithClusterFiles
 argument_list|()
 argument_list|)
+argument_list|,
+name|maxLocalStorageNodes
+operator|==
+literal|1
+condition|?
+literal|" [0]"
+else|:
+literal|"s [0--"
+operator|+
+operator|(
+name|maxLocalStorageNodes
+operator|-
+literal|1
+operator|)
+operator|+
+literal|"]"
+argument_list|,
+name|MAX_LOCAL_STORAGE_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|maxLocalStorageNodes
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|message
 argument_list|,
 name|lastException
 argument_list|)
