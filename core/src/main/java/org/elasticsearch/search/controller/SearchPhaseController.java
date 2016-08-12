@@ -1508,14 +1508,8 @@ operator|.
 name|queryResult
 argument_list|()
 operator|.
-name|topDocs
+name|hasHits
 argument_list|()
-operator|.
-name|scoreDocs
-operator|.
-name|length
-operator|>
-literal|0
 condition|)
 block|{
 if|if
