@@ -1180,7 +1180,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskPersistenceService
+name|TaskResultsService
 import|;
 end_import
 
@@ -3902,7 +3902,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|class
 argument_list|)

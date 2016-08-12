@@ -442,21 +442,21 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * Should this task persist its result after it has finished?      */
-DECL|method|setShouldPersistResult
+comment|/**      * Should this task store its result after it has finished?      */
+DECL|method|setShouldStoreResult
 specifier|public
 name|Self
-name|setShouldPersistResult
+name|setShouldStoreResult
 parameter_list|(
 name|boolean
-name|shouldPersistResult
+name|shouldStoreResult
 parameter_list|)
 block|{
 name|request
 operator|.
-name|setShouldPersistResult
+name|setShouldStoreResult
 argument_list|(
-name|shouldPersistResult
+name|shouldStoreResult
 argument_list|)
 expr_stmt|;
 return|return

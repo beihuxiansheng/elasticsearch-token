@@ -503,7 +503,7 @@ else|else
 block|{
 name|internal
 operator|.
-name|setShouldPersistResult
+name|setShouldStoreResult
 argument_list|(
 literal|true
 argument_list|)

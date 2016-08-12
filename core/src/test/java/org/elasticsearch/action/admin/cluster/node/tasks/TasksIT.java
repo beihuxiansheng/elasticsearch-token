@@ -450,7 +450,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|PersistedTaskInfo
+name|TaskResult
 import|;
 end_import
 
@@ -498,7 +498,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskPersistenceService
+name|TaskResultsService
 import|;
 end_import
 
@@ -3630,10 +3630,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testGetTaskWaitForCompletionNoPersist
+DECL|method|testGetTaskWaitForCompletionWithoutStoringResult
 specifier|public
 name|void
-name|testGetTaskWaitForCompletionNoPersist
+name|testGetTaskWaitForCompletionWithoutStoringResult
 parameter_list|()
 throws|throws
 name|Exception
@@ -3695,7 +3695,7 @@ name|isCompleted
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// We didn't persist the result so it won't come back when we wait
+comment|// We didn't store the result so it won't come back when we wait
 name|assertNull
 argument_list|(
 name|response
@@ -3711,10 +3711,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testGetTaskWaitForCompletionWithPersist
+DECL|method|testGetTaskWaitForCompletionWithStoringResult
 specifier|public
 name|void
-name|testGetTaskWaitForCompletionWithPersist
+name|testGetTaskWaitForCompletionWithStoringResult
 parameter_list|()
 throws|throws
 name|Exception
@@ -3776,7 +3776,7 @@ name|isCompleted
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// We persisted the task so we should get its results
+comment|// We stored the task so we should get its results
 name|assertEquals
 argument_list|(
 literal|0
@@ -3799,7 +3799,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test wait for completion.      * @param persist should the task persist its results      * @param wait start waiting for a task. Accepts that id of the task to wait for and returns a future waiting for it.      * @param validator validate the response and return the task ids that were found      */
+comment|/**      * Test wait for completion.      * @param storeResult should the task store its results      * @param wait start waiting for a task. Accepts that id of the task to wait for and returns a future waiting for it.      * @param validator validate the response and return the task ids that were found      */
 DECL|method|waitForCompletionTestCase
 specifier|private
 parameter_list|<
@@ -3809,7 +3809,7 @@ name|void
 name|waitForCompletionTestCase
 parameter_list|(
 name|boolean
-name|persist
+name|storeResult
 parameter_list|,
 name|Function
 argument_list|<
@@ -3852,9 +3852,9 @@ name|client
 argument_list|()
 argument_list|)
 operator|.
-name|setShouldPersistResult
+name|setShouldStoreResult
 argument_list|(
-name|persist
+name|storeResult
 argument_list|)
 operator|.
 name|execute
@@ -4666,10 +4666,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTaskResultPersistence
+DECL|method|testTaskStoringSuccesfulResult
 specifier|public
 name|void
-name|testTaskResultPersistence
+name|testTaskStoringSuccesfulResult
 parameter_list|()
 throws|throws
 name|Exception
@@ -4701,7 +4701,7 @@ argument_list|()
 operator|.
 name|prepareCreate
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|)
@@ -4731,7 +4731,7 @@ name|client
 argument_list|()
 argument_list|)
 operator|.
-name|setShouldPersistResult
+name|setShouldStoreResult
 argument_list|(
 literal|true
 argument_list|)
@@ -4799,11 +4799,11 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|,
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_TYPE
 argument_list|,
@@ -4987,7 +4987,7 @@ argument_list|()
 operator|.
 name|prepareRefresh
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|)
@@ -5004,14 +5004,14 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|)
 operator|.
 name|setTypes
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_TYPE
 argument_list|)
@@ -5062,14 +5062,14 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|)
 operator|.
 name|setTypes
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_TYPE
 argument_list|)
@@ -5149,10 +5149,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTaskFailurePersistence
+DECL|method|testTaskStoringFailureResult
 specifier|public
 name|void
-name|testTaskFailurePersistence
+name|testTaskStoringFailureResult
 parameter_list|()
 throws|throws
 name|Exception
@@ -5187,7 +5187,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setShouldPersistResult
+name|setShouldStoreResult
 argument_list|(
 literal|true
 argument_list|)
@@ -5257,11 +5257,11 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|,
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_TYPE
 argument_list|,
@@ -5560,7 +5560,7 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-name|TaskPersistenceService
+name|TaskResultsService
 name|resultsService
 init|=
 name|internalCluster
@@ -5568,17 +5568,17 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|resultsService
 operator|.
-name|persist
+name|storeResult
 argument_list|(
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 operator|new
 name|TaskInfo

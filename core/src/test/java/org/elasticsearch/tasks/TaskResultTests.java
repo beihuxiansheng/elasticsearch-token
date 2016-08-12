@@ -225,14 +225,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Round trip tests for {@link PersistedTaskInfo} and those classes that it includes like {@link TaskInfo} and {@link RawTaskStatus}.  */
+comment|/**  * Round trip tests for {@link TaskResult} and those classes that it includes like {@link TaskInfo} and {@link RawTaskStatus}.  */
 end_comment
 
 begin_class
-DECL|class|PersistedTaskInfoTests
+DECL|class|TaskResultTests
 specifier|public
 class|class
-name|PersistedTaskInfoTests
+name|TaskResultTests
 extends|extends
 name|ESTestCase
 block|{
@@ -276,13 +276,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|PersistedTaskInfo
+name|TaskResult
 name|result
 init|=
 name|randomTaskResult
 argument_list|()
 decl_stmt|;
-name|PersistedTaskInfo
+name|TaskResult
 name|read
 decl_stmt|;
 try|try
@@ -325,7 +325,7 @@ block|{
 name|read
 operator|=
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|in
 argument_list|)
@@ -369,13 +369,13 @@ throws|throws
 name|IOException
 block|{
 comment|/*          * Note that this round trip isn't 100% perfect - status will always be read as RawTaskStatus. Since this test uses RawTaskStatus          * as the status we randomly generate then we can assert the round trip with .equals.          */
-name|PersistedTaskInfo
+name|TaskResult
 name|result
 init|=
 name|randomTaskResult
 argument_list|()
 decl_stmt|;
-name|PersistedTaskInfo
+name|TaskResult
 name|read
 decl_stmt|;
 try|try
@@ -437,7 +437,7 @@ init|)
 block|{
 name|read
 operator|=
-name|PersistedTaskInfo
+name|TaskResult
 operator|.
 name|PARSER
 operator|.
@@ -485,7 +485,7 @@ block|}
 DECL|method|randomTaskResult
 specifier|private
 specifier|static
-name|PersistedTaskInfo
+name|TaskResult
 name|randomTaskResult
 parameter_list|()
 throws|throws
@@ -506,7 +506,7 @@ literal|0
 case|:
 return|return
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|randomBoolean
 argument_list|()
@@ -520,7 +520,7 @@ literal|1
 case|:
 return|return
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|randomTaskInfo
 argument_list|()
@@ -537,7 +537,7 @@ literal|2
 case|:
 return|return
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|randomTaskInfo
 argument_list|()

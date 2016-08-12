@@ -684,14 +684,14 @@ literal|null
 operator|&&
 name|request
 operator|.
-name|getShouldPersistResult
+name|getShouldStoreResult
 argument_list|()
 condition|)
 block|{
 name|listener
 operator|=
 operator|new
-name|PersistentActionListener
+name|TaskResultStoringActionListener
 argument_list|<>
 argument_list|(
 name|taskManager
@@ -1434,12 +1434,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Wrapper for an action listener that persists the result at the end of the execution      */
-DECL|class|PersistentActionListener
+comment|/**      * Wrapper for an action listener that stores the result at the end of the execution      */
+DECL|class|TaskResultStoringActionListener
 specifier|private
 specifier|static
 class|class
-name|PersistentActionListener
+name|TaskResultStoringActionListener
 parameter_list|<
 name|Response
 extends|extends
@@ -1472,9 +1472,9 @@ specifier|final
 name|TaskManager
 name|taskManager
 decl_stmt|;
-DECL|method|PersistentActionListener
+DECL|method|TaskResultStoringActionListener
 specifier|private
-name|PersistentActionListener
+name|TaskResultStoringActionListener
 parameter_list|(
 name|TaskManager
 name|taskManager
@@ -1523,7 +1523,7 @@ try|try
 block|{
 name|taskManager
 operator|.
-name|persistResult
+name|storeResult
 argument_list|(
 name|task
 argument_list|,
@@ -1563,7 +1563,7 @@ try|try
 block|{
 name|taskManager
 operator|.
-name|persistResult
+name|storeResult
 argument_list|(
 name|task
 argument_list|,

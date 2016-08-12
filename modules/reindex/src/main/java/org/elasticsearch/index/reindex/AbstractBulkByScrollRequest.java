@@ -364,11 +364,11 @@ name|Float
 operator|.
 name|POSITIVE_INFINITY
 decl_stmt|;
-comment|/**      * Should this task persist its result?      */
-DECL|field|shouldPersistResult
+comment|/**      * Should this task store its result?      */
+DECL|field|shouldStoreResult
 specifier|private
 name|boolean
-name|shouldPersistResult
+name|shouldStoreResult
 decl_stmt|;
 DECL|method|AbstractBulkByScrollRequest
 specifier|public
@@ -891,21 +891,21 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * Should this task persist its result after it has finished?      */
-DECL|method|setShouldPersistResult
+comment|/**      * Should this task store its result after it has finished?      */
+DECL|method|setShouldStoreResult
 specifier|public
 name|Self
-name|setShouldPersistResult
+name|setShouldStoreResult
 parameter_list|(
 name|boolean
-name|shouldPersistResult
+name|shouldStoreResult
 parameter_list|)
 block|{
 name|this
 operator|.
-name|shouldPersistResult
+name|shouldStoreResult
 operator|=
-name|shouldPersistResult
+name|shouldStoreResult
 expr_stmt|;
 return|return
 name|self
@@ -914,14 +914,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getShouldPersistResult
+DECL|method|getShouldStoreResult
 specifier|public
 name|boolean
-name|getShouldPersistResult
+name|getShouldStoreResult
 parameter_list|()
 block|{
 return|return
-name|shouldPersistResult
+name|shouldStoreResult
 return|;
 block|}
 annotation|@

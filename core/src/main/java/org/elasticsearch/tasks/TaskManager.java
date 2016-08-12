@@ -412,7 +412,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|taskResultsService
 specifier|private
-name|TaskPersistenceService
+name|TaskResultsService
 name|taskResultsService
 decl_stmt|;
 DECL|field|lastDiscoveryNodes
@@ -443,7 +443,7 @@ specifier|public
 name|void
 name|setTaskResultsService
 parameter_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 name|taskResultsService
 parameter_list|)
 block|{
@@ -872,7 +872,7 @@ return|;
 block|}
 block|}
 comment|/**      * Stores the task failure      */
-DECL|method|persistResult
+DECL|method|storeResult
 specifier|public
 parameter_list|<
 name|Response
@@ -880,7 +880,7 @@ extends|extends
 name|ActionResponse
 parameter_list|>
 name|void
-name|persistResult
+name|storeResult
 parameter_list|(
 name|Task
 name|task
@@ -910,7 +910,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// too early to persist anything, shouldn't really be here - just pass the error along
+comment|// too early to store anything, shouldn't really be here - just pass the error along
 name|listener
 operator|.
 name|onFailure
@@ -921,7 +921,7 @@ expr_stmt|;
 return|return;
 block|}
 specifier|final
-name|PersistedTaskInfo
+name|TaskResult
 name|taskResult
 decl_stmt|;
 try|try
@@ -948,7 +948,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"couldn't persist error {}"
+literal|"couldn't store error {}"
 argument_list|,
 name|ex
 argument_list|,
@@ -971,7 +971,7 @@ return|return;
 block|}
 name|taskResultsService
 operator|.
-name|persist
+name|storeResult
 argument_list|(
 name|taskResult
 argument_list|,
@@ -1014,7 +1014,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"couldn't persist error {}"
+literal|"couldn't store error {}"
 argument_list|,
 name|e
 argument_list|,
@@ -1039,7 +1039,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Stores the task result      */
-DECL|method|persistResult
+DECL|method|storeResult
 specifier|public
 parameter_list|<
 name|Response
@@ -1047,7 +1047,7 @@ extends|extends
 name|ActionResponse
 parameter_list|>
 name|void
-name|persistResult
+name|storeResult
 parameter_list|(
 name|Task
 name|task
@@ -1077,12 +1077,12 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// too early to persist anything, shouldn't really be here - just pass the response along
+comment|// too early to store anything, shouldn't really be here - just pass the response along
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"couldn't persist response {}, the node didn't join the cluster yet"
+literal|"couldn't store response {}, the node didn't join the cluster yet"
 argument_list|,
 name|response
 argument_list|)
@@ -1097,7 +1097,7 @@ expr_stmt|;
 return|return;
 block|}
 specifier|final
-name|PersistedTaskInfo
+name|TaskResult
 name|taskResult
 decl_stmt|;
 try|try
@@ -1124,7 +1124,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"couldn't persist response {}"
+literal|"couldn't store response {}"
 argument_list|,
 name|ex
 argument_list|,
@@ -1142,7 +1142,7 @@ return|return;
 block|}
 name|taskResultsService
 operator|.
-name|persist
+name|storeResult
 argument_list|(
 name|taskResult
 argument_list|,
@@ -1185,7 +1185,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"couldn't persist response {}"
+literal|"couldn't store response {}"
 argument_list|,
 name|e
 argument_list|,

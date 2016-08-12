@@ -367,14 +367,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service that can persist tasks and their results.  */
+comment|/**  * Service that can store task results.  */
 end_comment
 
 begin_class
-DECL|class|TaskPersistenceService
+DECL|class|TaskResultsService
 specifier|public
 class|class
-name|TaskPersistenceService
+name|TaskResultsService
 extends|extends
 name|AbstractComponent
 block|{
@@ -425,9 +425,9 @@ name|createIndexAction
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|TaskPersistenceService
+DECL|method|TaskResultsService
 specifier|public
-name|TaskPersistenceService
+name|TaskResultsService
 parameter_list|(
 name|Settings
 name|settings
@@ -466,12 +466,12 @@ operator|=
 name|createIndexAction
 expr_stmt|;
 block|}
-DECL|method|persist
+DECL|method|storeResult
 specifier|public
 name|void
-name|persist
+name|storeResult
 parameter_list|(
-name|PersistedTaskInfo
+name|TaskResult
 name|taskResult
 parameter_list|,
 name|ActionListener
@@ -568,7 +568,7 @@ name|CreateIndexResponse
 name|result
 parameter_list|)
 block|{
-name|doPersist
+name|doStoreResult
 argument_list|(
 name|taskResult
 argument_list|,
@@ -601,7 +601,7 @@ block|{
 comment|// we have the index, do it
 try|try
 block|{
-name|doPersist
+name|doStoreResult
 argument_list|(
 name|taskResult
 argument_list|,
@@ -720,7 +720,7 @@ name|PutMappingResponse
 name|putMappingResponse
 parameter_list|)
 block|{
-name|doPersist
+name|doStoreResult
 argument_list|(
 name|taskResult
 argument_list|,
@@ -752,7 +752,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|doPersist
+name|doStoreResult
 argument_list|(
 name|taskResult
 argument_list|,
@@ -762,12 +762,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|doPersist
+DECL|method|doStoreResult
 specifier|private
 name|void
-name|doPersist
+name|doStoreResult
 parameter_list|(
-name|PersistedTaskInfo
+name|TaskResult
 name|taskResult
 parameter_list|,
 name|ActionListener

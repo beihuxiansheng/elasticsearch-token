@@ -319,15 +319,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about a persisted or running task. Running tasks just have a {@link #getTask()} while persisted tasks will have either a  * {@link #getError()} or {@link #getResponse()}.  */
+comment|/**  * Information about a running task or a task that stored its result. Running tasks just have a {@link #getTask()} while  * tasks with stored result will have either a {@link #getError()} or {@link #getResponse()}.  */
 end_comment
 
 begin_class
-DECL|class|PersistedTaskInfo
+DECL|class|TaskResult
 specifier|public
 specifier|final
 class|class
-name|PersistedTaskInfo
+name|TaskResult
 implements|implements
 name|Writeable
 implements|,
@@ -361,10 +361,10 @@ specifier|final
 name|BytesReference
 name|response
 decl_stmt|;
-comment|/**      * Construct a {@linkplain PersistedTaskInfo} for a task for which we don't have a result or error. That usually means that the task      * is incomplete, but it could also mean that we waited for the task to complete but it didn't save any error information.      */
-DECL|method|PersistedTaskInfo
+comment|/**      * Construct a {@linkplain TaskResult} for a task for which we don't have a result or error. That usually means that the task      * is incomplete, but it could also mean that we waited for the task to complete but it didn't save any error information.      */
+DECL|method|TaskResult
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 parameter_list|(
 name|boolean
 name|completed
@@ -385,10 +385,10 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a {@linkplain PersistedTaskInfo} for a task that completed with an error.      */
-DECL|method|PersistedTaskInfo
+comment|/**      * Construct a {@linkplain TaskResult} for a task that completed with an error.      */
+DECL|method|TaskResult
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 parameter_list|(
 name|TaskInfo
 name|task
@@ -414,10 +414,10 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a {@linkplain PersistedTaskInfo} for a task that completed successfully.      */
-DECL|method|PersistedTaskInfo
+comment|/**      * Construct a {@linkplain TaskResult} for a task that completed successfully.      */
+DECL|method|TaskResult
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 parameter_list|(
 name|TaskInfo
 name|task
@@ -443,9 +443,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|PersistedTaskInfo
+DECL|method|TaskResult
 specifier|private
-name|PersistedTaskInfo
+name|TaskResult
 parameter_list|(
 name|boolean
 name|completed
@@ -495,9 +495,9 @@ name|result
 expr_stmt|;
 block|}
 comment|/**      * Read from a stream.      */
-DECL|method|PersistedTaskInfo
+DECL|method|TaskResult
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 parameter_list|(
 name|StreamInput
 name|in
@@ -588,7 +588,7 @@ return|return
 name|task
 return|;
 block|}
-comment|/**      * Get the error that finished this task. Will return null if the task didn't finish with an error, it hasn't yet finished, or didn't      * persist its result.      */
+comment|/**      * Get the error that finished this task. Will return null if the task didn't finish with an error, it hasn't yet finished, or didn't      * store its result.      */
 DECL|method|getError
 specifier|public
 name|BytesReference
@@ -599,7 +599,7 @@ return|return
 name|error
 return|;
 block|}
-comment|/**      * Convert {@link #getError()} from XContent to a Map for easy processing. Will return an empty map if the task didn't finish with an      * error, hasn't yet finished, or didn't persist its result.      */
+comment|/**      * Convert {@link #getError()} from XContent to a Map for easy processing. Will return an empty map if the task didn't finish with an      * error, hasn't yet finished, or didn't store its result.      */
 DECL|method|getErrorAsMap
 specifier|public
 name|Map
@@ -635,7 +635,7 @@ name|v2
 argument_list|()
 return|;
 block|}
-comment|/**      * Get the response that this task finished with. Will return null if the task was finished by an error, it hasn't yet finished, or      * didn't persist its result.      */
+comment|/**      * Get the response that this task finished with. Will return null if the task was finished by an error, it hasn't yet finished, or      * didn't store its result.      */
 DECL|method|getResponse
 specifier|public
 name|BytesReference
@@ -646,7 +646,7 @@ return|return
 name|response
 return|;
 block|}
-comment|/**      * Convert {@link #getResponse()} from XContent to a Map for easy processing. Will return an empty map if the task was finished with an      * error, hasn't yet finished, or didn't persist its result.      */
+comment|/**      * Convert {@link #getResponse()} from XContent to a Map for easy processing. Will return an empty map if the task was finished with an      * error, hasn't yet finished, or didn't store its result.      */
 DECL|method|getResponseAsMap
 specifier|public
 name|Map
@@ -811,7 +811,7 @@ specifier|static
 specifier|final
 name|ConstructingObjectParser
 argument_list|<
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|,
 name|ParseFieldMatcherSupplier
 argument_list|>
@@ -821,7 +821,7 @@ operator|new
 name|ConstructingObjectParser
 argument_list|<>
 argument_list|(
-literal|"persisted_task_info"
+literal|"stored_task_result"
 argument_list|,
 name|a
 lambda|->
@@ -881,7 +881,7 @@ index|]
 decl_stmt|;
 return|return
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|completed
 argument_list|,
@@ -998,7 +998,7 @@ operator|.
 name|getClass
 argument_list|()
 operator|!=
-name|PersistedTaskInfo
+name|TaskResult
 operator|.
 name|class
 condition|)
@@ -1007,11 +1007,11 @@ return|return
 literal|false
 return|;
 block|}
-name|PersistedTaskInfo
+name|TaskResult
 name|other
 init|=
 operator|(
-name|PersistedTaskInfo
+name|TaskResult
 operator|)
 name|obj
 decl_stmt|;
