@@ -690,7 +690,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specification of search time behavior extension like a custom {@link MovAvgModel} or {@link ScoreFunction}.      *      * @param W the type of the main {@link NamedWriteable} for this spec. All specs have this but it isn't always *for* the same thing      *        though, usually it is some sort of builder sent from the coordinating node to the data nodes executing the behavior      * @param P the type of the parser for this spec. The parser runs on the coordinating node, converting {@link XContent} into the      *        behavior to execute      */
+comment|/**      * Specification of search time behavior extension like a custom {@link MovAvgModel} or {@link ScoreFunction}.      *      * @param<W> the type of the main {@link NamedWriteable} for this spec. All specs have this but it isn't always *for* the same thing      *        though, usually it is some sort of builder sent from the coordinating node to the data nodes executing the behavior      * @param<P> the type of the parser for this spec. The parser runs on the coordinating node, converting {@link XContent} into the      *        behavior to execute      */
 DECL|class|SearchExtensionSpec
 class|class
 name|SearchExtensionSpec
