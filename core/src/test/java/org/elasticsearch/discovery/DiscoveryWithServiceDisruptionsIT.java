@@ -1706,7 +1706,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|4
+name|numberOfNodes
 argument_list|)
 operator|.
 name|put
