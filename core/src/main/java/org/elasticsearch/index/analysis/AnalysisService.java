@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -60,9 +62,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|util
 operator|.
-name|Settings
+name|set
+operator|.
+name|Sets
 import|;
 end_import
 
@@ -120,27 +124,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
 import|;
 end_import
 
@@ -979,11 +963,22 @@ argument_list|,
 name|analyzer
 argument_list|)
 expr_stmt|;
+comment|// TODO: remove alias support completely when we no longer support pre 5.0 indices
+specifier|final
 name|String
-name|strAliases
+name|analyzerAliasKey
 init|=
-name|this
+literal|"index.analysis.analyzer."
+operator|+
+name|analyzerFactory
 operator|.
+name|name
+argument_list|()
+operator|+
+literal|".alias"
+decl_stmt|;
+if|if
+condition|(
 name|indexSettings
 operator|.
 name|getSettings
@@ -991,57 +986,68 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"index.analysis.analyzer."
-operator|+
-name|analyzerFactory
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|".alias"
+name|analyzerAliasKey
 argument_list|)
-decl_stmt|;
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_alpha6
+argument_list|)
+condition|)
+block|{
+comment|// do not allow alias creation if the index was created on or after v5.0 alpha6
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"setting ["
+operator|+
+name|analyzerAliasKey
+operator|+
+literal|"] is not supported"
+argument_list|)
+throw|;
+block|}
+comment|// the setting is now removed but we only support it for loading indices created before v5.0
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"setting [{}] is only allowed on index [{}] because it was created before 5.x; "
+operator|+
+literal|"analyzer aliases can no longer be created on new indices."
+argument_list|,
+name|analyzerAliasKey
+argument_list|,
+name|index
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|aliases
 init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|strAliases
-operator|!=
-literal|null
-condition|)
-block|{
-name|aliases
+name|Sets
 operator|.
-name|addAll
+name|newHashSet
 argument_list|(
-name|Strings
-operator|.
-name|commaDelimitedListToSet
-argument_list|(
-name|strAliases
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|aliases
-operator|.
-name|addAll
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|this
-operator|.
 name|indexSettings
 operator|.
 name|getSettings
@@ -1049,18 +1055,10 @@ argument_list|()
 operator|.
 name|getAsArray
 argument_list|(
-literal|"index.analysis.analyzer."
-operator|+
-name|analyzerFactory
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|".alias"
+name|analyzerAliasKey
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|String
@@ -1106,6 +1104,7 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
@@ -1156,6 +1155,9 @@ parameter_list|)
 block|{
 comment|// because analyzers are aliased, they might be closed several times
 comment|// an NPE is thrown in this case, so ignore....
+comment|// TODO: Analyzer's can no longer have aliases in indices created in 5.x and beyond,
+comment|// so we only allow the aliases for analyzers on indices created pre 5.x for backwards
+comment|// compatibility.  Once pre 5.0 indices are no longer supported, this check should be removed.
 block|}
 catch|catch
 parameter_list|(
