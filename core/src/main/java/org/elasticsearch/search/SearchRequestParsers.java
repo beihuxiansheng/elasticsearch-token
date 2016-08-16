@@ -82,6 +82,7 @@ name|SearchRequestParsers
 block|{
 comment|// TODO: this class should be renamed to SearchRequestParser, and all the parse
 comment|// methods split across RestSearchAction and SearchSourceBuilder should be moved here
+comment|// TODO: make all members private once parsing functions are moved here
 comment|// TODO: IndicesQueriesRegistry should be removed and just have the map of query parsers here
 comment|/**      * Query parsers that may be used in search requests.      * @see org.elasticsearch.index.query.QueryParseContext      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers, Suggesters)      */
 DECL|field|queryParsers
