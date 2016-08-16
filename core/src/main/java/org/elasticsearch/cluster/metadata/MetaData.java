@@ -2886,6 +2886,34 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** Returns true iff existing index has the same {@link IndexMetaData} instance */
+DECL|method|hasIndexMetaData
+specifier|public
+name|boolean
+name|hasIndexMetaData
+parameter_list|(
+specifier|final
+name|IndexMetaData
+name|indexMetaData
+parameter_list|)
+block|{
+return|return
+name|indices
+operator|.
+name|get
+argument_list|(
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|==
+name|indexMetaData
+return|;
+block|}
 comment|/**      * Returns the {@link IndexMetaData} for this index.      * @throws IndexNotFoundException if no metadata for this index is found      */
 DECL|method|getIndexSafe
 specifier|public
