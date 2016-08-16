@@ -11739,13 +11739,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Broken now that BoostingQuery does not extend BooleanQuery anymore"
-argument_list|)
 DECL|method|testBoostingQueryTermVector
 specifier|public
 name|void
@@ -22318,13 +22311,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Broken now that BoostingQuery does not extend BooleanQuery anymore"
-argument_list|)
 DECL|method|testFastVectorHighlighterPhraseBoost
 specifier|public
 name|void
