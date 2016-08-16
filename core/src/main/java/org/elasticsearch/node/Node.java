@@ -3078,6 +3078,11 @@ name|scriptModule
 operator|.
 name|getScriptService
 argument_list|()
+argument_list|,
+name|searchModule
+operator|.
+name|getSearchRequestParsers
+argument_list|()
 argument_list|)
 operator|.
 name|stream
