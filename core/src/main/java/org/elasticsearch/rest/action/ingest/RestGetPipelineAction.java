@@ -144,8 +144,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestStatusToXContentListener
 import|;
 end_import

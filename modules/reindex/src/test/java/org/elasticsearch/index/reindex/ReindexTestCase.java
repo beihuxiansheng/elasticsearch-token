@@ -90,6 +90,10 @@ name|SUITE
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base test case for integration tests against the reindex plugin.  */
+end_comment
+
 begin_class
 annotation|@
 name|ClusterScope
@@ -97,10 +101,6 @@ argument_list|(
 name|scope
 operator|=
 name|SUITE
-argument_list|,
-name|transportClientRatio
-operator|=
-literal|0
 argument_list|)
 DECL|class|ReindexTestCase
 specifier|public
@@ -124,6 +124,33 @@ name|Plugin
 argument_list|>
 argument_list|>
 name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|ReindexPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|transportClientPlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|transportClientPlugins
 parameter_list|()
 block|{
 return|return

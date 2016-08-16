@@ -235,12 +235,18 @@ parameter_list|(
 name|Type
 name|type
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|label
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|explanation
 parameter_list|,
+annotation|@
+name|Nullable
 name|Object
 modifier|...
 name|explanationParams
@@ -675,6 +681,7 @@ name|Type
 name|type
 parameter_list|()
 function_decl|;
+comment|/**      * Get the description label for this decision.      */
 annotation|@
 name|Nullable
 DECL|method|label

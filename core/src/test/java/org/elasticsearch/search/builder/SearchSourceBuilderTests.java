@@ -1624,8 +1624,8 @@ literal|null
 expr_stmt|;
 block|}
 DECL|method|createSearchSourceBuilder
-specifier|protected
-specifier|final
+specifier|public
+specifier|static
 name|SearchSourceBuilder
 name|createSearchSourceBuilder
 parameter_list|()
@@ -3625,9 +3625,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//we use the streaming infra to create a copy of the query provided as argument
+comment|//we use the streaming infra to create a copy of the builder provided as argument
 DECL|method|copyBuilder
 specifier|protected
+specifier|static
 name|SearchSourceBuilder
 name|copyBuilder
 parameter_list|(

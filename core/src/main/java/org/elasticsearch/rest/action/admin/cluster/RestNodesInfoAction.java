@@ -182,8 +182,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestActions
 operator|.
 name|NodesResponseRestListener

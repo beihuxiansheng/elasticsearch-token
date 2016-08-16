@@ -140,8 +140,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|AcknowledgedRestListener
 import|;
 end_import

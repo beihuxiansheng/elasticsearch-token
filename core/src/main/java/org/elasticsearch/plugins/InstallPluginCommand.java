@@ -847,7 +847,6 @@ argument_list|>
 name|arguments
 decl_stmt|;
 DECL|field|DIR_AND_EXECUTABLE_PERMS
-specifier|public
 specifier|static
 specifier|final
 name|Set
@@ -857,7 +856,6 @@ argument_list|>
 name|DIR_AND_EXECUTABLE_PERMS
 decl_stmt|;
 DECL|field|FILE_PERMS
-specifier|public
 specifier|static
 specifier|final
 name|Set
@@ -1356,13 +1354,13 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"https://download.elastic.co/elasticsearch/staging/%1$s-%2$s/org/elasticsearch/plugin/%3$s/%1$s/%3$s-%1$s.zip"
-argument_list|,
-name|version
+literal|"https://staging.elastic.co/%1$s/download/elasticsearch-plugins/%2$s/%2$s-%3$s.zip"
 argument_list|,
 name|stagingHash
 argument_list|,
 name|pluginId
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 block|}
@@ -1378,7 +1376,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"https://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%1$s/%2$s/%1$s-%2$s.zip"
+literal|"https://artifacts.elastic.co/download/elasticsearch-plugins/%1$s/%1$s-%2$s.zip"
 argument_list|,
 name|pluginId
 argument_list|,
