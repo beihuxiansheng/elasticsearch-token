@@ -278,6 +278,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|SearchRequestParsers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -1165,10 +1177,12 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|AggregatorParsers
+name|SearchRequestParsers
 operator|.
 name|class
 argument_list|)
+operator|.
+name|aggParsers
 expr_stmt|;
 comment|// create some random type with some default field, those types will
 comment|// stick around for all of the subclasses

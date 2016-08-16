@@ -252,6 +252,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|SearchRequestParsers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|pipeline
@@ -503,10 +515,12 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|AggregatorParsers
+name|SearchRequestParsers
 operator|.
 name|class
 argument_list|)
+operator|.
+name|aggParsers
 expr_stmt|;
 comment|//create some random type with some default field, those types will stick around for all of the subclasses
 name|currentTypes
