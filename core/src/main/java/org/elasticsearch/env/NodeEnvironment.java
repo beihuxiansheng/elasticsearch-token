@@ -2646,6 +2646,8 @@ name|indexSettings
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ShardLockObtainFailedException
 block|{
 specifier|final
 name|Path
@@ -2823,6 +2825,8 @@ operator|+
 literal|" for "
 operator|+
 name|p
+argument_list|,
+name|ex
 argument_list|)
 throw|;
 block|}
@@ -3021,7 +3025,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|ShardLockObtainFailedException
 name|ex
 parameter_list|)
 block|{
@@ -3047,6 +3051,8 @@ name|indexSettings
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ShardLockObtainFailedException
 block|{
 specifier|final
 name|List
@@ -3168,7 +3174,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Tries to lock all local shards for the given index. If any of the shard locks can't be acquired      * an {@link LockObtainFailedException} is thrown and all previously acquired locks are released.      *      * @param index the index to lock shards for      * @param lockTimeoutMS how long to wait for acquiring the indices shard locks      * @return the {@link ShardLock} instances for this index.      * @throws IOException if an IOException occurs.      */
+comment|/**      * Tries to lock all local shards for the given index. If any of the shard locks can't be acquired      * a {@link ShardLockObtainFailedException} is thrown and all previously acquired locks are released.      *      * @param index the index to lock shards for      * @param lockTimeoutMS how long to wait for acquiring the indices shard locks      * @return the {@link ShardLock} instances for this index.      * @throws IOException if an IOException occurs.      */
 DECL|method|lockAllForIndex
 specifier|public
 name|List
@@ -3188,6 +3194,8 @@ name|lockTimeoutMS
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|ShardLockObtainFailedException
 block|{
 specifier|final
 name|int
@@ -3348,7 +3356,7 @@ return|return
 name|allLocks
 return|;
 block|}
-comment|/**      * Tries to lock the given shards ID. A shard lock is required to perform any kind of      * write operation on a shards data directory like deleting files, creating a new index writer      * or recover from a different shard instance into it. If the shard lock can not be acquired      * an {@link LockObtainFailedException} is thrown.      *      * Note: this method will return immediately if the lock can't be acquired.      *      * @param id the shard ID to lock      * @return the shard lock. Call {@link ShardLock#close()} to release the lock      * @throws IOException if an IOException occurs.      */
+comment|/**      * Tries to lock the given shards ID. A shard lock is required to perform any kind of      * write operation on a shards data directory like deleting files, creating a new index writer      * or recover from a different shard instance into it. If the shard lock can not be acquired      * a {@link ShardLockObtainFailedException} is thrown.      *      * Note: this method will return immediately if the lock can't be acquired.      *      * @param id the shard ID to lock      * @return the shard lock. Call {@link ShardLock#close()} to release the lock      */
 DECL|method|shardLock
 specifier|public
 name|ShardLock
@@ -3358,7 +3366,7 @@ name|ShardId
 name|id
 parameter_list|)
 throws|throws
-name|IOException
+name|ShardLockObtainFailedException
 block|{
 return|return
 name|shardLock
@@ -3369,7 +3377,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Tries to lock the given shards ID. A shard lock is required to perform any kind of      * write operation on a shards data directory like deleting files, creating a new index writer      * or recover from a different shard instance into it. If the shard lock can not be acquired      * an {@link org.apache.lucene.store.LockObtainFailedException} is thrown      * @param shardId the shard ID to lock      * @param lockTimeoutMS the lock timeout in milliseconds      * @return the shard lock. Call {@link ShardLock#close()} to release the lock      * @throws IOException if an IOException occurs.      */
+comment|/**      * Tries to lock the given shards ID. A shard lock is required to perform any kind of      * write operation on a shards data directory like deleting files, creating a new index writer      * or recover from a different shard instance into it. If the shard lock can not be acquired      * a {@link ShardLockObtainFailedException} is thrown      * @param shardId the shard ID to lock      * @param lockTimeoutMS the lock timeout in milliseconds      * @return the shard lock. Call {@link ShardLock#close()} to release the lock      */
 DECL|method|shardLock
 specifier|public
 name|ShardLock
@@ -3383,7 +3391,7 @@ name|long
 name|lockTimeoutMS
 parameter_list|)
 throws|throws
-name|IOException
+name|ShardLockObtainFailedException
 block|{
 name|logger
 operator|.
@@ -3567,7 +3575,7 @@ name|long
 name|lockTimeoutMS
 parameter_list|)
 throws|throws
-name|IOException
+name|ShardLockObtainFailedException
 function_decl|;
 block|}
 comment|/**      * Returns all currently lock shards.      *      * Note: the shard ids return do not contain a valid Index UUID      */
@@ -3774,7 +3782,7 @@ name|long
 name|timeoutInMillis
 parameter_list|)
 throws|throws
-name|LockObtainFailedException
+name|ShardLockObtainFailedException
 block|{
 try|try
 block|{
@@ -3796,13 +3804,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|LockObtainFailedException
+name|ShardLockObtainFailedException
 argument_list|(
-literal|"Can't lock shard "
-operator|+
 name|shardId
-operator|+
-literal|", timed out after "
+argument_list|,
+literal|"obtaining shard lock timed out after "
 operator|+
 name|timeoutInMillis
 operator|+
@@ -3827,13 +3833,11 @@ argument_list|()
 expr_stmt|;
 throw|throw
 operator|new
-name|LockObtainFailedException
+name|ShardLockObtainFailedException
 argument_list|(
-literal|"Can't lock shard "
-operator|+
 name|shardId
-operator|+
-literal|", interrupted"
+argument_list|,
+literal|"thread interrupted while trying to obtain shard lock"
 argument_list|,
 name|e
 argument_list|)

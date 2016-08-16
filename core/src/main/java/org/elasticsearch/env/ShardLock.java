@@ -128,8 +128,6 @@ specifier|final
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

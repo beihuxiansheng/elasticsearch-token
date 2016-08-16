@@ -344,6 +344,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|ShardLockObtainFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|gateway
 operator|.
 name|GatewayService
@@ -4733,6 +4745,8 @@ throws|throws
 name|IOException
 throws|,
 name|InterruptedException
+throws|,
+name|ShardLockObtainFailedException
 function_decl|;
 block|}
 block|}
