@@ -212,20 +212,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|BeforeClass
@@ -334,22 +320,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
-operator|.
-name|SUITE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -427,17 +397,6 @@ comment|/**  * Test that you can actually cancel a reindex/update-by-query/delet
 end_comment
 
 begin_class
-annotation|@
-name|ClusterScope
-argument_list|(
-name|scope
-operator|=
-name|SUITE
-argument_list|,
-name|transportClientRatio
-operator|=
-literal|0
-argument_list|)
 DECL|class|CancelTests
 specifier|public
 class|class
@@ -707,7 +666,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Scroll 1 by 1 so that cancellation is easier to control
+comment|// Scroll by 1 so that cancellation is easier to control
 name|builder
 operator|.
 name|source
@@ -1469,17 +1428,17 @@ operator|.
 name|addIndexOperationListener
 argument_list|(
 operator|new
-name|BlockingDeleteListener
+name|BlockingOperationListener
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|BlockingDeleteListener
+DECL|class|BlockingOperationListener
 specifier|public
 specifier|static
 class|class
-name|BlockingDeleteListener
+name|BlockingOperationListener
 implements|implements
 name|IndexingOperationListener
 block|{
