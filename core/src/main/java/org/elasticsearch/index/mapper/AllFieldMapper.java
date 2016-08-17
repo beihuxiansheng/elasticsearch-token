@@ -310,36 +310,6 @@ name|AllFieldMapper
 extends|extends
 name|MetadataFieldMapper
 block|{
-DECL|interface|IncludeInAll
-specifier|public
-interface|interface
-name|IncludeInAll
-block|{
-comment|/**          * If {@code includeInAll} is not null then return a copy of this mapper          * that will include values in the _all field according to {@code includeInAll}.          */
-DECL|method|includeInAll
-name|Mapper
-name|includeInAll
-parameter_list|(
-name|Boolean
-name|includeInAll
-parameter_list|)
-function_decl|;
-comment|/**          * If {@code includeInAll} is not null and not set on this mapper yet, then          * return a copy of this mapper that will include values in the _all field          * according to {@code includeInAll}.          */
-DECL|method|includeInAllIfNotSet
-name|Mapper
-name|includeInAllIfNotSet
-parameter_list|(
-name|Boolean
-name|includeInAll
-parameter_list|)
-function_decl|;
-comment|/**          * If {@code includeInAll} was already set on this mapper then return a copy          * of this mapper that has {@code includeInAll} not set.          */
-DECL|method|unsetIncludeInAll
-name|Mapper
-name|unsetIncludeInAll
-parameter_list|()
-function_decl|;
-block|}
 DECL|field|NAME
 specifier|public
 specifier|static

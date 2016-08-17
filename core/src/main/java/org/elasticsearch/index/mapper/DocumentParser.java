@@ -2071,6 +2071,32 @@ name|mapper
 argument_list|)
 expr_stmt|;
 block|}
+comment|// update the default value of include_in_all if necessary
+name|Boolean
+name|includeInAll
+init|=
+name|mapper
+operator|.
+name|includeInAll
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|includeInAll
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|=
+name|context
+operator|.
+name|setIncludeInAllDefault
+argument_list|(
+name|includeInAll
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if we are at the end of the previous object, advance
 if|if
 condition|(
