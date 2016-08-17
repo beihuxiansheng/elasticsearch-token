@@ -300,6 +300,22 @@ name|routing
 operator|.
 name|allocation
 operator|.
+name|DiskThresholdSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
 name|RoutingAllocation
 import|;
 end_import
@@ -387,6 +403,20 @@ operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ClusterSettings
 import|;
 end_import
 
@@ -628,6 +658,32 @@ name|DiskThresholdDeciderTests
 extends|extends
 name|ESAllocationTestCase
 block|{
+DECL|method|makeDecider
+name|DiskThresholdDecider
+name|makeDecider
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DiskThresholdDecider
+argument_list|(
+name|settings
+argument_list|,
+operator|new
+name|ClusterSettings
+argument_list|(
+name|settings
+argument_list|,
+name|ClusterSettings
+operator|.
+name|BUILT_IN_CLUSTER_SETTINGS
+argument_list|)
+argument_list|)
+return|;
+block|}
 DECL|method|testDiskThreshold
 specifier|public
 name|void
@@ -644,7 +700,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -656,7 +712,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -668,7 +724,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -884,8 +940,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -1637,7 +1692,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -1649,7 +1704,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -1661,7 +1716,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -1699,8 +1754,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -1905,7 +1959,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -1917,7 +1971,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -1929,7 +1983,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -1967,8 +2021,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -2427,7 +2480,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -2439,7 +2492,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -2451,7 +2504,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -2689,8 +2742,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -3658,7 +3710,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -3670,7 +3722,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -3682,7 +3734,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -3720,8 +3772,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -3926,7 +3977,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -3938,7 +3989,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -3950,7 +4001,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -3988,8 +4039,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -4778,7 +4828,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -4790,7 +4840,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -4802,7 +4852,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -4965,8 +5015,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -5352,7 +5401,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -5364,7 +5413,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -5376,7 +5425,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -5549,8 +5598,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -5967,8 +6015,7 @@ decl_stmt|;
 name|DiskThresholdDecider
 name|decider
 init|=
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|Settings
 operator|.
@@ -6099,8 +6146,7 @@ decl_stmt|;
 name|DiskThresholdDecider
 name|decider
 init|=
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|Settings
 operator|.
@@ -6215,7 +6261,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -6227,7 +6273,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_INCLUDE_RELOCATIONS_SETTING
 operator|.
@@ -6239,7 +6285,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -6251,7 +6297,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -6464,8 +6510,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -7079,7 +7124,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -7091,7 +7136,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_INCLUDE_RELOCATIONS_SETTING
 operator|.
@@ -7103,7 +7148,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -7115,7 +7160,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -7264,8 +7309,7 @@ decl_stmt|;
 name|DiskThresholdDecider
 name|diskThresholdDecider
 init|=
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)
@@ -8212,7 +8256,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -8224,7 +8268,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_INCLUDE_RELOCATIONS_SETTING
 operator|.
@@ -8236,7 +8280,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -8248,7 +8292,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -8409,8 +8453,7 @@ decl_stmt|;
 name|DiskThresholdDecider
 name|diskThresholdDecider
 init|=
-operator|new
-name|DiskThresholdDecider
+name|makeDecider
 argument_list|(
 name|diskSettings
 argument_list|)

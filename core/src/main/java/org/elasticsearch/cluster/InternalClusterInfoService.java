@@ -272,9 +272,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|decider
-operator|.
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 import|;
 end_import
 
@@ -833,7 +831,7 @@ name|this
 operator|.
 name|enabled
 operator|=
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 operator|.
@@ -868,7 +866,7 @@ name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
 argument_list|,

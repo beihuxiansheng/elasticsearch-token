@@ -380,9 +380,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|decider
-operator|.
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 import|;
 end_import
 
@@ -2487,7 +2485,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -2501,7 +2499,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
