@@ -1942,7 +1942,7 @@ condition|)
 block|{
 comment|// Index doesn't exist - create it and start recovery
 comment|// Make sure that the index we are about to create has a validate name
-name|createIndexService
+name|MetaDataCreateIndexService
 operator|.
 name|validateIndexName
 argument_list|(

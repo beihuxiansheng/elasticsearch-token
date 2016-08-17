@@ -1254,6 +1254,7 @@ expr_stmt|;
 block|}
 DECL|method|validateIndexName
 specifier|public
+specifier|static
 name|void
 name|validateIndexName
 parameter_list|(
@@ -1383,6 +1384,24 @@ literal|0
 argument_list|)
 operator|==
 literal|'_'
+operator|||
+name|index
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|'-'
+operator|||
+name|index
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|'+'
 condition|)
 block|{
 throw|throw
@@ -1391,7 +1410,7 @@ name|InvalidIndexNameException
 argument_list|(
 name|index
 argument_list|,
-literal|"must not start with '_'"
+literal|"must not start with '_', '-', or '+'"
 argument_list|)
 throw|;
 block|}
