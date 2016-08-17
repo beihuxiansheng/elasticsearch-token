@@ -134,7 +134,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|cluster
 operator|.
 name|ESAllocationTestCase
 import|;

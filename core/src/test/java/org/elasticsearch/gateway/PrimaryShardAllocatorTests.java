@@ -428,7 +428,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|cluster
 operator|.
 name|ESAllocationTestCase
 import|;
@@ -441,6 +441,16 @@ operator|.
 name|junit
 operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -1716,10 +1726,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|AllocationDecider
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 comment|// since the deciders return a NO decision for allocating a shard (due to the guaranteed NO decision from the second decider),
 comment|// the allocator will see if it can force assign the primary, where the decision will be YES
 operator|new
@@ -1736,10 +1746,10 @@ name|Decision
 operator|.
 name|NO
 argument_list|)
-block|,
+argument_list|,
 name|getNoDeciderThatAllowsForceAllocate
 argument_list|()
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation
@@ -1883,10 +1893,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|AllocationDecider
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 comment|// since both deciders here return a NO decision for allocating a shard,
 comment|// the allocator will see if it can force assign the primary, where the decision will be either NO or THROTTLE,
 comment|// so the shard will remain un-initialized
@@ -1897,7 +1907,7 @@ name|Decision
 operator|.
 name|NO
 argument_list|)
-block|,
+argument_list|,
 name|forceDecisionNo
 condition|?
 name|getNoDeciderThatDeniesForceAllocate
@@ -1905,7 +1915,7 @@ argument_list|()
 else|:
 name|getNoDeciderThatThrottlesForceAllocate
 argument_list|()
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation
@@ -2049,10 +2059,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|AllocationDecider
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 comment|// since we have a NO decision for allocating a shard (because the second decider returns a NO decision),
 comment|// the allocator will see if it can force assign the primary, and in this case,
 comment|// the TestAllocateDecision's decision for force allocating is to THROTTLE (using
@@ -2065,10 +2075,10 @@ name|Decision
 operator|.
 name|THROTTLE
 argument_list|)
-block|,
+argument_list|,
 name|getNoDeciderThatAllowsForceAllocate
 argument_list|()
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation

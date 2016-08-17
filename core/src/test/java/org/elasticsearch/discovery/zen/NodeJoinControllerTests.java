@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -832,7 +818,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|cluster
 operator|.
 name|ESAllocationTestCase
 operator|.
