@@ -1545,6 +1545,17 @@ literal|"geohash"
 argument_list|)
 condition|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+name|CONTENT_TYPE
+operator|+
+literal|" geohash parameter is deprecated and will be removed "
+operator|+
+literal|"in the next major release"
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|enableGeoHash
@@ -1574,6 +1585,17 @@ literal|"geohash_prefix"
 argument_list|)
 condition|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+name|CONTENT_TYPE
+operator|+
+literal|" geohash_prefix parameter is deprecated and will be removed "
+operator|+
+literal|"in the next major release"
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|geoHashPrefix
@@ -1621,6 +1643,17 @@ literal|"geohash_precision"
 argument_list|)
 condition|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+name|CONTENT_TYPE
+operator|+
+literal|" geohash_precision parameter is deprecated and will be removed "
+operator|+
+literal|"in the next major release"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|propNode
