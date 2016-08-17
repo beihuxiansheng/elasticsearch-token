@@ -301,6 +301,7 @@ literal|"disk_threshold"
 decl_stmt|;
 DECL|field|diskThresholdSettings
 specifier|private
+specifier|final
 name|DiskThresholdSettings
 name|diskThresholdSettings
 decl_stmt|;
