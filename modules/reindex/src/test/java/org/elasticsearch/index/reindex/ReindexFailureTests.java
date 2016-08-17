@@ -595,6 +595,14 @@ argument_list|(
 literal|"No search context found"
 argument_list|)
 argument_list|)
+operator|.
+name|or
+argument_list|(
+name|containsString
+argument_list|(
+literal|"no such index"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
