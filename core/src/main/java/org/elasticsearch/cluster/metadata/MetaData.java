@@ -158,9 +158,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|decider
-operator|.
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 import|;
 end_import
 
@@ -4547,7 +4545,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_REROUTE_INTERVAL_SETTING
 operator|.
