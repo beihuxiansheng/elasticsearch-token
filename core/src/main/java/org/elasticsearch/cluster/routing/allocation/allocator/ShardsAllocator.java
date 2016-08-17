@@ -84,9 +84,9 @@ specifier|public
 interface|interface
 name|ShardsAllocator
 block|{
-comment|/**      * Allocates shards to nodes in the cluster. An implementation of this method should:      * - assign unassigned shards      * - relocate shards that cannot stay on a node anymore      * - relocate shards to find a good shard balance in the cluster      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+comment|/**      * Allocates shards to nodes in the cluster. An implementation of this method should:      * - assign unassigned shards      * - relocate shards that cannot stay on a node anymore      * - relocate shards to find a good shard balance in the cluster      *      * @param allocation current node allocation      */
 DECL|method|allocate
-name|boolean
+name|void
 name|allocate
 parameter_list|(
 name|RoutingAllocation

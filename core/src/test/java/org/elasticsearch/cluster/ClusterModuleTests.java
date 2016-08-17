@@ -379,16 +379,14 @@ annotation|@
 name|Override
 DECL|method|allocate
 specifier|public
-name|boolean
+name|void
 name|allocate
 parameter_list|(
 name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-return|return
-literal|false
-return|;
+comment|// noop
 block|}
 annotation|@
 name|Override

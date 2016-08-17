@@ -371,7 +371,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The primary shard allocator allocates unassigned primary shards to nodes that hold  * valid copies of the unassigned primaries.  It does this by iterating over all unassigned  * primary shards in the routing table and fetching shard metadata from each node in the cluster  * that holds a copy of the shard.  The shard metadata from each node is compared against the  * set of valid allocation IDs and for all valid shard copies (if any), the primary shard allocator  * executes the allocation deciders to chose a copy to assign the primary shard to.  *  * Note that the PrimaryShardAllocator does *not* allocate primaries on index creation  * (see {@link org.elasticsearch.cluster.routing.allocation.allocator.BalancedShardsAllocator}),  * nor does it allocate primaries when a primary shard failed and there is a valid replica  * copy that can immediately be promoted to primary, as this takes place in  * {@link RoutingNodes#failShard(ESLogger, ShardRouting, UnassignedInfo, IndexMetaData)}.  */
+comment|/**  * The primary shard allocator allocates unassigned primary shards to nodes that hold  * valid copies of the unassigned primaries.  It does this by iterating over all unassigned  * primary shards in the routing table and fetching shard metadata from each node in the cluster  * that holds a copy of the shard.  The shard metadata from each node is compared against the  * set of valid allocation IDs and for all valid shard copies (if any), the primary shard allocator  * executes the allocation deciders to chose a copy to assign the primary shard to.  *  * Note that the PrimaryShardAllocator does *not* allocate primaries on index creation  * (see {@link org.elasticsearch.cluster.routing.allocation.allocator.BalancedShardsAllocator}),  * nor does it allocate primaries when a primary shard failed and there is a valid replica  * copy that can immediately be promoted to primary, as this takes place in {@link RoutingNodes#failShard}.  */
 end_comment
 
 begin_class
@@ -557,18 +557,13 @@ expr_stmt|;
 block|}
 DECL|method|allocateUnassigned
 specifier|public
-name|boolean
+name|void
 name|allocateUnassigned
 parameter_list|(
 name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 specifier|final
 name|RoutingNodes
 name|routingNodes
@@ -703,8 +698,6 @@ operator|.
 name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -712,6 +705,11 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|FETCHING_SHARD_DATA
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1011,8 +1009,6 @@ block|}
 else|else
 block|{
 comment|// we can't really allocate, so ignore it and continue
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1020,6 +1016,11 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|NO_VALID_SHARD_COPY
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1111,10 +1112,6 @@ name|getNode
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 name|unassignedIterator
 operator|.
 name|initialize
@@ -1135,6 +1132,11 @@ argument_list|,
 name|ShardRouting
 operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1227,10 +1229,6 @@ name|getNode
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 name|unassignedIterator
 operator|.
 name|initialize
@@ -1251,6 +1249,11 @@ argument_list|,
 name|ShardRouting
 operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1290,8 +1293,6 @@ operator|.
 name|throttleNodeShards
 argument_list|)
 expr_stmt|;
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1299,6 +1300,11 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|DECIDERS_THROTTLED
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1323,8 +1329,6 @@ argument_list|,
 name|shard
 argument_list|)
 expr_stmt|;
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1332,6 +1336,11 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|DECIDERS_NO
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1362,8 +1371,6 @@ operator|.
 name|throttleNodeShards
 argument_list|)
 expr_stmt|;
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1371,13 +1378,15 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|DECIDERS_THROTTLED
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|changed
-return|;
 block|}
 comment|/**      * Builds a list of nodes. If matchAnyShard is set to false, only nodes that have an allocation id matching      * lastActiveAllocationIds are added to the list. Otherwise, any node that has a shard is added to the list, but      * entries with matching allocation id are always at the front of the list.      */
 DECL|method|buildAllocationIdBasedNodeShardsResult

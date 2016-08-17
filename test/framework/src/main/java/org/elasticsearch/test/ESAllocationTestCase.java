@@ -1792,7 +1792,7 @@ annotation|@
 name|Override
 DECL|method|allocateUnassigned
 specifier|public
-name|boolean
+name|void
 name|allocateUnassigned
 parameter_list|(
 name|RoutingAllocation
@@ -1876,12 +1876,14 @@ argument_list|(
 name|unassignedIterator
 argument_list|,
 name|shard
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|false
-return|;
 block|}
 block|}
 block|}

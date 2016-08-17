@@ -831,7 +831,7 @@ block|}
 block|}
 DECL|method|allocateUnassigned
 specifier|public
-name|boolean
+name|void
 name|allocateUnassigned
 parameter_list|(
 specifier|final
@@ -839,11 +839,6 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 name|RoutingNodes
 operator|.
 name|UnassignedShards
@@ -870,8 +865,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// sort for priority ordering
-name|changed
-operator||=
 name|primaryShardAllocator
 operator|.
 name|allocateUnassigned
@@ -879,8 +872,6 @@ argument_list|(
 name|allocation
 argument_list|)
 expr_stmt|;
-name|changed
-operator||=
 name|replicaShardAllocator
 operator|.
 name|processExistingRecoveries
@@ -888,8 +879,6 @@ argument_list|(
 name|allocation
 argument_list|)
 expr_stmt|;
-name|changed
-operator||=
 name|replicaShardAllocator
 operator|.
 name|allocateUnassigned
@@ -897,9 +886,6 @@ argument_list|(
 name|allocation
 argument_list|)
 expr_stmt|;
-return|return
-name|changed
-return|;
 block|}
 DECL|class|InternalAsyncFetch
 class|class

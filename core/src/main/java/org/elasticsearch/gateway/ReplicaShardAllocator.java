@@ -190,9 +190,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|allocation
-operator|.
-name|AllocationService
+name|RoutingChangesObserver
 import|;
 end_import
 
@@ -239,20 +237,6 @@ operator|.
 name|common
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 
@@ -396,18 +380,13 @@ block|}
 comment|/**      * Process existing recoveries of replicas and see if we need to cancel them if we find a better      * match. Today, a better match is one that has full sync id match compared to not having one in      * the previous recovery.      */
 DECL|method|processExistingRecoveries
 specifier|public
-name|boolean
+name|void
 name|processExistingRecoveries
 parameter_list|(
 name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 name|MetaData
 name|metaData
 init|=
@@ -814,12 +793,13 @@ argument_list|,
 name|unassignedInfo
 argument_list|,
 name|indexMetaData
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|changed
-operator|=
-literal|true
 expr_stmt|;
 block|}
 block|}
@@ -839,24 +819,16 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-return|return
-name|changed
-return|;
 block|}
 DECL|method|allocateUnassigned
 specifier|public
-name|boolean
+name|void
 name|allocateUnassigned
 parameter_list|(
 name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 specifier|final
 name|RoutingNodes
 name|routingNodes
@@ -978,8 +950,6 @@ argument_list|,
 name|shard
 argument_list|)
 expr_stmt|;
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -992,6 +962,11 @@ name|fromDecision
 argument_list|(
 name|decision
 argument_list|)
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1037,8 +1012,6 @@ operator|.
 name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1046,6 +1019,11 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|FETCHING_SHARD_DATA
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1206,8 +1184,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we are throttling this, but we have enough to allocate to this node, ignore it for now
-name|changed
-operator||=
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1220,6 +1196,11 @@ name|fromDecision
 argument_list|(
 name|decision
 argument_list|)
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1250,10 +1231,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we found a match
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 name|unassignedIterator
 operator|.
 name|initialize
@@ -1278,6 +1255,11 @@ name|ShardRouting
 operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1294,25 +1276,25 @@ literal|false
 condition|)
 block|{
 comment|// if we didn't manage to find *any* data (regardless of matching sizes), check if the allocation of the replica shard needs to be delayed
-name|changed
-operator||=
 name|ignoreUnassignedIfDelayed
 argument_list|(
 name|unassignedIterator
 argument_list|,
 name|shard
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|changed
-return|;
 block|}
-comment|/**      * Check if the allocation of the replica is to be delayed. Compute the delay and if it is delayed, add it to the ignore unassigned list      * Note: we only care about replica in delayed allocation, since if we have an unassigned primary it      *       will anyhow wait to find an existing copy of the shard to be allocated      * Note: the other side of the equation is scheduling a reroute in a timely manner, which happens in the RoutingService      *      * PUBLIC FOR TESTS!      *      * @param unassignedIterator iterator over unassigned shards      * @param shard the shard which might be delayed      * @return true iff there was a change to the unassigned info      */
+comment|/**      * Check if the allocation of the replica is to be delayed. Compute the delay and if it is delayed, add it to the ignore unassigned list      * Note: we only care about replica in delayed allocation, since if we have an unassigned primary it      *       will anyhow wait to find an existing copy of the shard to be allocated      * Note: the other side of the equation is scheduling a reroute in a timely manner, which happens in the RoutingService      *      * PUBLIC FOR TESTS!      *      * @param unassignedIterator iterator over unassigned shards      * @param shard the shard which might be delayed      */
 DECL|method|ignoreUnassignedIfDelayed
 specifier|public
-name|boolean
+name|void
 name|ignoreUnassignedIfDelayed
 parameter_list|(
 name|RoutingNodes
@@ -1324,6 +1306,9 @@ name|unassignedIterator
 parameter_list|,
 name|ShardRouting
 name|shard
+parameter_list|,
+name|RoutingChangesObserver
+name|changes
 parameter_list|)
 block|{
 if|if
@@ -1351,7 +1336,6 @@ argument_list|,
 name|shard
 argument_list|)
 expr_stmt|;
-return|return
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
@@ -1359,12 +1343,11 @@ argument_list|(
 name|AllocationStatus
 operator|.
 name|DELAYED_ALLOCATION
+argument_list|,
+name|changes
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-return|return
-literal|false
-return|;
 block|}
 comment|/**      * Determines if the shard can be allocated on at least one node based on the allocation deciders.      *      * Returns the best allocation decision for allocating the shard on any node (i.e. YES if at least one      * node decided YES, THROTTLE if at least one node decided THROTTLE, and NO if none of the nodes decided      * YES or THROTTLE.      */
 DECL|method|canBeAllocatedToAtLeastOneNode

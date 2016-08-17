@@ -160,16 +160,14 @@ annotation|@
 name|Override
 DECL|method|allocateUnassigned
 specifier|public
-name|boolean
+name|void
 name|allocateUnassigned
 parameter_list|(
 name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-return|return
-literal|false
-return|;
+comment|// noop
 block|}
 block|}
 end_class

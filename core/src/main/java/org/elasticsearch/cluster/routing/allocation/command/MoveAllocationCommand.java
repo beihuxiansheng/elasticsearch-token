@@ -760,6 +760,11 @@ name|ShardRouting
 operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

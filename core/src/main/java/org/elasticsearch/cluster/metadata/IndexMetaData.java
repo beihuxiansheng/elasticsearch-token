@@ -182,23 +182,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingTable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|allocation
 operator|.
-name|AllocationService
+name|IndexMetaDataUpdater
 import|;
 end_import
 
@@ -2472,7 +2458,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * The term of the current selected primary. This is a non-negative number incremented when      * a primary shard is assigned after a full cluster restart or a replica shard is promoted to a primary.      *      * Note: since we increment the term every time a shard is assigned, the term for any operational shard (i.e., a shard      * that can be indexed into) is larger than 0.      * See {@link AllocationService#updateMetaDataWithRoutingTable(MetaData, RoutingTable, RoutingTable)}.      **/
+comment|/**      * The term of the current selected primary. This is a non-negative number incremented when      * a primary shard is assigned after a full cluster restart or a replica shard is promoted to a primary.      *      * Note: since we increment the term every time a shard is assigned, the term for any operational shard (i.e., a shard      * that can be indexed into) is larger than 0. See {@link IndexMetaDataUpdater#applyChanges(MetaData)}.      **/
 DECL|method|primaryTerm
 specifier|public
 name|long

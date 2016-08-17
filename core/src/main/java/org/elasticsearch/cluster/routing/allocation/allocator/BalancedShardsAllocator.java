@@ -762,7 +762,7 @@ annotation|@
 name|Override
 DECL|method|allocate
 specifier|public
-name|boolean
+name|void
 name|allocate
 parameter_list|(
 name|RoutingAllocation
@@ -783,9 +783,7 @@ literal|0
 condition|)
 block|{
 comment|/* with no nodes this is pointless */
-return|return
-literal|false
-return|;
+return|return;
 block|}
 specifier|final
 name|Balancer
@@ -803,31 +801,21 @@ argument_list|,
 name|threshold
 argument_list|)
 decl_stmt|;
-name|boolean
-name|changed
-init|=
 name|balancer
 operator|.
 name|allocateUnassigned
 argument_list|()
-decl_stmt|;
-name|changed
-operator||=
+expr_stmt|;
 name|balancer
 operator|.
 name|moveShards
 argument_list|()
 expr_stmt|;
-name|changed
-operator||=
 name|balancer
 operator|.
 name|balance
 argument_list|()
 expr_stmt|;
-return|return
-name|changed
-return|;
 block|}
 comment|/**      * Returns the currently configured delta threshold      */
 DECL|method|getThreshold
@@ -1403,10 +1391,10 @@ literal|0.001f
 operator|)
 return|;
 block|}
-comment|/**          * Balances the nodes on the cluster model according to the weight function.          * The actual balancing is delegated to {@link #balanceByWeights()}          *          * @return<code>true</code> if the current configuration has been          *         changed, otherwise<code>false</code>          */
+comment|/**          * Balances the nodes on the cluster model according to the weight function.          * The actual balancing is delegated to {@link #balanceByWeights()}          */
 DECL|method|balance
 specifier|private
-name|boolean
+name|void
 name|balance
 parameter_list|()
 block|{
@@ -1442,9 +1430,7 @@ argument_list|(
 literal|"skipping rebalance due to in-flight shard/store fetches"
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -1473,9 +1459,7 @@ argument_list|(
 literal|"skipping rebalance as it is disabled"
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -1495,14 +1479,11 @@ argument_list|(
 literal|"skipping rebalance as single node only"
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
-return|return
 name|balanceByWeights
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 DECL|method|weighShard
 specifier|public
@@ -1668,18 +1649,13 @@ return|return
 name|nodes
 return|;
 block|}
-comment|/**          * Balances the nodes on the cluster model according to the weight          * function. The configured threshold is the minimum delta between the          * weight of the maximum node and the minimum node according to the          * {@link WeightFunction}. This weight is calculated per index to          * distribute shards evenly per index. The balancer tries to relocate          * shards only if the delta exceeds the threshold. If the default case          * the threshold is set to<tt>1.0</tt> to enforce gaining relocation          * only, or in other words relocations that move the weight delta closer          * to<tt>0.0</tt>          *          * @return<code>true</code> if the current configuration has been          *         changed, otherwise<code>false</code>          */
+comment|/**          * Balances the nodes on the cluster model according to the weight          * function. The configured threshold is the minimum delta between the          * weight of the maximum node and the minimum node according to the          * {@link WeightFunction}. This weight is calculated per index to          * distribute shards evenly per index. The balancer tries to relocate          * shards only if the delta exceeds the threshold. If the default case          * the threshold is set to<tt>1.0</tt> to enforce gaining relocation          * only, or in other words relocations that move the weight delta closer          * to<tt>0.0</tt>          */
 DECL|method|balanceByWeights
 specifier|private
-name|boolean
+name|void
 name|balanceByWeights
 parameter_list|()
 block|{
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 specifier|final
 name|NodeSorter
 name|sorter
@@ -2103,10 +2079,6 @@ name|relevantNodes
 operator|-
 literal|1
 expr_stmt|;
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 continue|continue;
 block|}
 block|}
@@ -2148,9 +2120,6 @@ break|break;
 block|}
 block|}
 block|}
-return|return
-name|changed
-return|;
 block|}
 comment|/**          * This builds a initial index ordering where the indices are returned          * in most unbalanced first. We need this in order to prevent over          * allocations on added nodes from one index when the weight parameters          * for global balance overrule the index balance at an intermediate          * state. For example this can happen if we have 3 nodes and 3 indices          * with 3 shards and 1 shard. At the first stage all three nodes hold          * 2 shard for each index. now we add another node and the first index          * is balanced moving 3 two of the nodes over to the new node since it          * has no shards yet and global balance for the node is way below          * average. To re-balance we need to move shards back eventually likely          * to the nodes we relocated them from.          */
 DECL|method|buildWeightOrderedIndices
@@ -2397,21 +2366,16 @@ return|return
 name|indices
 return|;
 block|}
-comment|/**          * Move started shards that can not be allocated to a node anymore          *          * For each shard to be moved this function executes a move operation          * to the minimal eligible node with respect to the          * weight function. If a shard is moved the shard will be set to          * {@link ShardRoutingState#RELOCATING} and a shadow instance of this          * shard is created with an incremented version in the state          * {@link ShardRoutingState#INITIALIZING}.          *          * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>          */
+comment|/**          * Move started shards that can not be allocated to a node anymore          *          * For each shard to be moved this function executes a move operation          * to the minimal eligible node with respect to the          * weight function. If a shard is moved the shard will be set to          * {@link ShardRoutingState#RELOCATING} and a shadow instance of this          * shard is created with an incremented version in the state          * {@link ShardRoutingState#INITIALIZING}.          */
 DECL|method|moveShards
 specifier|public
-name|boolean
+name|void
 name|moveShards
 parameter_list|()
 block|{
 comment|// Iterate over the started shards interleaving between nodes, and check if they can remain. In the presence of throttling
 comment|// shard movements, the goal of this iteration order is to achieve a fairer movement of shards from the nodes that are
 comment|// offloading the shards.
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 specifier|final
 name|NodeSorter
 name|sorter
@@ -2524,8 +2488,6 @@ operator|.
 name|NO
 condition|)
 block|{
-name|changed
-operator||=
 name|moveShard
 argument_list|(
 name|sorter
@@ -2540,14 +2502,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-return|return
-name|changed
-return|;
 block|}
-comment|/**          * Move started shard to the minimal eligible node with respect to the weight function          *          * @return<code>true</code> if the shard was moved successfully, otherwise<code>false</code>          */
+comment|/**          * Move started shard to the minimal eligible node with respect to the weight function          */
 DECL|method|moveShard
 specifier|private
-name|boolean
+name|void
 name|moveShard
 parameter_list|(
 name|NodeSorter
@@ -2691,6 +2650,11 @@ name|ShardRouting
 operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|currentNode
@@ -2726,9 +2690,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|true
-return|;
+return|return;
 block|}
 block|}
 block|}
@@ -2749,9 +2711,6 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
 block|}
 comment|/**          * Builds the internal model from all shards in the given          * {@link Iterable}. All shards in the {@link Iterable} must be assigned          * to a node. This method will skip shards in the state          * {@link ShardRoutingState#RELOCATING} since each relocating shard has          * a shadow shard in the state {@link ShardRoutingState#INITIALIZING}          * on the target node which we respect during the allocation / balancing          * process. In short, this method recreates the status-quo in the cluster.          */
 DECL|method|buildModelFromAssigned
@@ -2856,10 +2815,10 @@ block|}
 block|}
 block|}
 block|}
-comment|/**          * Allocates all given shards on the minimal eligible node for the shards index          * with respect to the weight function. All given shards must be unassigned.          * @return<code>true</code> if the current configuration has been          *         changed, otherwise<code>false</code>          */
+comment|/**          * Allocates all given shards on the minimal eligible node for the shards index          * with respect to the weight function. All given shards must be unassigned.          */
 DECL|method|allocateUnassigned
 specifier|private
-name|boolean
+name|void
 name|allocateUnassigned
 parameter_list|()
 block|{
@@ -2904,15 +2863,8 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return
-literal|false
-return|;
+return|return;
 block|}
-name|boolean
-name|changed
-init|=
-literal|false
-decl_stmt|;
 comment|/*              * TODO: We could be smarter here and group the shards by index and then              * use the sorter to save some iterations.              */
 specifier|final
 name|AllocationDeciders
@@ -3179,8 +3131,6 @@ argument_list|(
 name|decision
 argument_list|)
 decl_stmt|;
-name|changed
-operator||=
 name|unassigned
 operator|.
 name|ignoreShard
@@ -3188,6 +3138,11 @@ argument_list|(
 name|shard
 argument_list|,
 name|allocationStatus
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 while|while
@@ -3218,8 +3173,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|changed
-operator||=
 name|unassigned
 operator|.
 name|ignoreShard
@@ -3231,6 +3184,11 @@ name|i
 index|]
 argument_list|,
 name|allocationStatus
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3662,6 +3620,11 @@ argument_list|,
 literal|null
 argument_list|,
 name|shardSize
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|minNode
@@ -3670,10 +3633,6 @@ name|addShard
 argument_list|(
 name|shard
 argument_list|)
-expr_stmt|;
-name|changed
-operator|=
-literal|true
 expr_stmt|;
 continue|continue;
 comment|// don't add to ignoreUnassigned
@@ -3855,8 +3814,6 @@ argument_list|(
 name|decision
 argument_list|)
 decl_stmt|;
-name|changed
-operator||=
 name|unassigned
 operator|.
 name|ignoreShard
@@ -3864,6 +3821,11 @@ argument_list|(
 name|shard
 argument_list|,
 name|allocationStatus
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -3899,8 +3861,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|changed
-operator||=
 name|unassigned
 operator|.
 name|ignoreShard
@@ -3912,6 +3872,11 @@ name|secondaryLength
 index|]
 argument_list|,
 name|allocationStatus
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3948,9 +3913,6 @@ literal|0
 condition|)
 do|;
 comment|// clear everything we have either added it or moved to ignoreUnassigned
-return|return
-name|changed
-return|;
 block|}
 comment|/**          * Tries to find a relocation from the max node to the minimal node for an arbitrary shard of the given index on the          * balance model. Iff this method returns a<code>true</code> the relocation has already been executed on the          * simulation model as well as on the cluster.          */
 DECL|method|tryRelocateShard
@@ -4319,6 +4281,11 @@ name|getNodeId
 argument_list|()
 argument_list|,
 name|shardSize
+argument_list|,
+name|allocation
+operator|.
+name|changes
+argument_list|()
 argument_list|)
 operator|.
 name|v1
