@@ -152,16 +152,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -263,18 +253,6 @@ operator|.
 name|Matchers
 operator|.
 name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|startsWith
 import|;
 end_import
 
@@ -3334,6 +3312,14 @@ operator|.
 name|writeMapOfLists
 argument_list|(
 name|expected
+argument_list|,
+name|StreamOutput
+operator|::
+name|writeString
+argument_list|,
+name|StreamOutput
+operator|::
+name|writeString
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -3370,7 +3356,15 @@ init|=
 name|in
 operator|.
 name|readMapOfLists
-argument_list|()
+argument_list|(
+name|StreamInput
+operator|::
+name|readString
+argument_list|,
+name|StreamInput
+operator|::
+name|readString
+argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
