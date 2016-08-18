@@ -252,7 +252,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|Collection
 import|;
 end_import
 
@@ -262,14 +262,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
 name|stream
 operator|.
 name|Collectors
+operator|.
+name|toSet
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Deletes indices.  */
 end_comment
 
 begin_class
@@ -425,6 +437,43 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
+return|return
+name|deleteIndices
+argument_list|(
+name|currentState
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|request
+operator|.
+name|indices
+argument_list|()
+argument_list|)
+argument_list|)
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Delete some indices from the cluster state.      */
+DECL|method|deleteIndices
+specifier|public
+name|ClusterState
+name|deleteIndices
+parameter_list|(
+name|ClusterState
+name|currentState
+parameter_list|,
+name|Collection
+argument_list|<
+name|Index
+argument_list|>
+name|indices
+parameter_list|)
+block|{
 specifier|final
 name|MetaData
 name|meta
@@ -435,28 +484,13 @@ name|metaData
 argument_list|()
 decl_stmt|;
 specifier|final
-name|Index
-index|[]
-name|indices
-init|=
-name|request
-operator|.
-name|indices
-argument_list|()
-decl_stmt|;
-specifier|final
 name|Set
 argument_list|<
 name|IndexMetaData
 argument_list|>
 name|metaDatas
 init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|indices
-argument_list|)
 operator|.
 name|stream
 argument_list|()
@@ -475,8 +509,6 @@ argument_list|)
 operator|.
 name|collect
 argument_list|(
-name|Collectors
-operator|.
 name|toSet
 argument_list|()
 argument_list|)
@@ -740,10 +772,6 @@ operator|.
 name|build
 argument_list|()
 return|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
