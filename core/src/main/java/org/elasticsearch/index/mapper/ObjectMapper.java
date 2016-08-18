@@ -2471,6 +2471,14 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|this
+operator|.
+name|includeInAll
+operator|=
+name|mergeWith
+operator|.
+name|includeInAll
+expr_stmt|;
 if|if
 condition|(
 name|mergeWith
