@@ -186,7 +186,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|cluster
 operator|.
 name|ESAllocationTestCase
 import|;
@@ -433,7 +433,9 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^(.+)\\s+(\\d)\\s+([rp])\\s+(STARTED|RELOCATING|INITIALIZING|UNASSIGNED)\\s+\\d+\\s+[0-9.a-z]+\\s+(\\d+\\.\\d+\\.\\d+\\.\\d+).*$"
+literal|"^(.+)\\s+(\\d)\\s+([rp])\\s+(STARTED|RELOCATING|INITIALIZING|UNASSIGNED)"
+operator|+
+literal|"\\s+\\d+\\s+[0-9.a-z]+\\s+(\\d+\\.\\d+\\.\\d+\\.\\d+).*$"
 argument_list|)
 decl_stmt|;
 while|while
