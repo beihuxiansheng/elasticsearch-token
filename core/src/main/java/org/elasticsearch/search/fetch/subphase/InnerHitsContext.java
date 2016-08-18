@@ -644,7 +644,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"] already exists. Use a different inner_hit name"
+literal|"] already exists. Use a different inner_hit name or define one explicitly"
 argument_list|)
 throw|;
 block|}
