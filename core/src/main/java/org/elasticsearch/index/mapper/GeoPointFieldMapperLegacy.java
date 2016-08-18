@@ -104,6 +104,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|geo
 operator|.
 name|GeoDistance
@@ -511,7 +523,7 @@ parameter_list|,
 name|FieldMapper
 name|lonMapper
 parameter_list|,
-name|FieldMapper
+name|KeywordFieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
@@ -1445,7 +1457,7 @@ parameter_list|,
 name|FieldMapper
 name|lonMapper
 parameter_list|,
-name|FieldMapper
+name|KeywordFieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
