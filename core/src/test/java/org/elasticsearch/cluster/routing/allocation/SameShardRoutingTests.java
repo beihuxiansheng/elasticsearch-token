@@ -341,7 +341,10 @@ name|put
 argument_list|(
 name|SameShardAllocationDecider
 operator|.
-name|SAME_HOST_SETTING
+name|CLUSTER_ROUTING_ALLOCATION_SAME_HOST_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
