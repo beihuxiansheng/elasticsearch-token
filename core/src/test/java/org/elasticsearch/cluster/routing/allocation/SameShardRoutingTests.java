@@ -533,8 +533,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -543,10 +546,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -556,9 +556,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -591,7 +591,7 @@ argument_list|(
 literal|"--> start all primary shards, no replica will be started since its on the same host"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -609,9 +609,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -622,9 +619,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -733,7 +730,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -743,9 +740,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -756,9 +750,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
