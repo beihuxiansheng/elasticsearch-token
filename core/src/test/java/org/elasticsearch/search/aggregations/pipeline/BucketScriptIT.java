@@ -1861,10 +1861,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|testInlineScript3
+DECL|method|testInlineScriptWithDateRange
 specifier|public
 name|void
-name|testInlineScript3
+name|testInlineScriptWithDateRange
 parameter_list|()
 block|{
 name|SearchResponse
