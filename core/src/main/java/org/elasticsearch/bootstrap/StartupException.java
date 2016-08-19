@@ -67,10 +67,10 @@ comment|//this is horrible, but its what we must do
 end_comment
 
 begin_class
-DECL|class|StartupError
+DECL|class|StartupException
 specifier|final
 class|class
-name|StartupError
+name|StartupException
 extends|extends
 name|RuntimeException
 block|{
@@ -92,9 +92,9 @@ name|GUICE_PACKAGE
 init|=
 literal|"org.elasticsearch.common.inject"
 decl_stmt|;
-comment|/**       * Create a new StartupError that will format {@code cause}      * to the console on failure.      */
-DECL|method|StartupError
-name|StartupError
+comment|/**      * Create a new StartupException that will format {@code cause}      * to the console on failure.      */
+DECL|method|StartupException
+name|StartupException
 parameter_list|(
 name|Throwable
 name|cause
@@ -369,7 +369,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**       * Returns first cause from a guice error (it can have multiple).      */
+comment|/**      * Returns first cause from a guice error (it can have multiple).      */
 DECL|method|getFirstGuiceCause
 specifier|static
 name|Throwable

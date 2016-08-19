@@ -50,16 +50,6 @@ end_import
 
 begin_import
 import|import
-name|joptsimple
-operator|.
-name|util
-operator|.
-name|PathProperties
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -592,7 +582,7 @@ comment|// format exceptions to the console in a special way
 comment|// to avoid 2MB stacktraces from guice, etc.
 throw|throw
 operator|new
-name|StartupError
+name|StartupException
 argument_list|(
 name|t
 argument_list|)
