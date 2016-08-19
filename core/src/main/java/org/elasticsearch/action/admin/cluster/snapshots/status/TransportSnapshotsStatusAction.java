@@ -1491,6 +1491,30 @@ literal|null
 condition|)
 block|{
 comment|// neither in the current snapshot entries nor found in the repository
+if|if
+condition|(
+name|request
+operator|.
+name|ignoreUnavailable
+argument_list|()
+condition|)
+block|{
+comment|// ignoring unavailable snapshots, so skip over
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"snapshot status request ignoring snapshot [{}], not found in repository [{}]"
+argument_list|,
+name|snapshotName
+argument_list|,
+name|repositoryName
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|SnapshotMissingException
@@ -1500,6 +1524,7 @@ argument_list|,
 name|snapshotName
 argument_list|)
 throw|;
+block|}
 block|}
 name|SnapshotInfo
 name|snapshotInfo
