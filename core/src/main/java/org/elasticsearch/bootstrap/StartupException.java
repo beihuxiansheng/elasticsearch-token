@@ -54,6 +54,28 @@ name|PrintStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|PrintWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
+import|;
+end_import
+
 begin_comment
 comment|/**  * Wraps an exception in a special way that it gets formatted  * "reasonably". This means limits on stacktrace frames and  * cleanup for guice, and some guidance about consulting full  * logs for the whole exception.  */
 end_comment
@@ -67,10 +89,10 @@ comment|//this is horrible, but its what we must do
 end_comment
 
 begin_class
-DECL|class|StartupError
+DECL|class|StartupException
 specifier|final
 class|class
-name|StartupError
+name|StartupException
 extends|extends
 name|RuntimeException
 block|{
@@ -92,9 +114,9 @@ name|GUICE_PACKAGE
 init|=
 literal|"org.elasticsearch.common.inject"
 decl_stmt|;
-comment|/**       * Create a new StartupError that will format {@code cause}      * to the console on failure.      */
-DECL|method|StartupError
-name|StartupError
+comment|/**      * Create a new StartupException that will format {@code cause}      * to the console on failure.      */
+DECL|method|StartupException
+name|StartupException
 parameter_list|(
 name|Throwable
 name|cause
@@ -116,6 +138,45 @@ name|printStackTrace
 parameter_list|(
 name|PrintStream
 name|s
+parameter_list|)
+block|{
+name|printStackTrace
+argument_list|(
+name|s
+operator|::
+name|println
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|printStackTrace
+specifier|public
+name|void
+name|printStackTrace
+parameter_list|(
+name|PrintWriter
+name|s
+parameter_list|)
+block|{
+name|printStackTrace
+argument_list|(
+name|s
+operator|::
+name|println
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|printStackTrace
+specifier|private
+name|void
+name|printStackTrace
+parameter_list|(
+name|Consumer
+argument_list|<
+name|String
+argument_list|>
+name|consumer
 parameter_list|)
 block|{
 name|Throwable
@@ -155,9 +216,9 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|s
+name|consumer
 operator|.
-name|println
+name|accept
 argument_list|(
 name|message
 argument_list|)
@@ -210,9 +271,9 @@ literal|false
 operator|)
 condition|)
 block|{
-name|s
+name|consumer
 operator|.
-name|println
+name|accept
 argument_list|(
 literal|"Likely root cause: "
 operator|+
@@ -259,9 +320,9 @@ operator|==
 name|STACKTRACE_LIMIT
 condition|)
 block|{
-name|s
+name|consumer
 operator|.
-name|println
+name|accept
 argument_list|(
 literal|"\t<<<truncated>>>"
 argument_list|)
@@ -320,9 +381,9 @@ name|i
 operator|++
 expr_stmt|;
 block|}
-name|s
+name|consumer
 operator|.
-name|println
+name|accept
 argument_list|(
 literal|"\tat<<<guice>>>"
 argument_list|)
@@ -332,9 +393,9 @@ operator|++
 expr_stmt|;
 continue|continue;
 block|}
-name|s
+name|consumer
 operator|.
-name|println
+name|accept
 argument_list|(
 literal|"\tat "
 operator|+
@@ -360,16 +421,16 @@ operator|==
 literal|false
 condition|)
 block|{
-name|s
+name|consumer
 operator|.
-name|println
+name|accept
 argument_list|(
 literal|"Refer to the log for complete error details."
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**       * Returns first cause from a guice error (it can have multiple).      */
+comment|/**      * Returns first cause from a guice error (it can have multiple).      */
 DECL|method|getFirstGuiceCause
 specifier|static
 name|Throwable
