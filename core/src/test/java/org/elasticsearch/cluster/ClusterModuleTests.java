@@ -720,13 +720,19 @@ name|clusterService
 argument_list|,
 name|Collections
 operator|.
-name|singletonList
+block|<ClusterPlugin>singletonList(new ClusterPlugin(
+argument_list|)
+block|{                     @
+name|Override
+specifier|public
+name|Collection
+argument_list|<
+name|AllocationDecider
+argument_list|>
+name|createAllocationDeciders
 argument_list|(
-operator|new
-name|ClusterPlugin
-argument_list|()
-block|{
-block|@Override                     public Collection<AllocationDecider> createAllocationDeciders(Settings settings
+name|Settings
+name|settings
 argument_list|,
 name|ClusterSettings
 name|clusterSettings
@@ -747,16 +753,10 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-block|}
-block|)
-end_class
-
-begin_empty_stmt
-unit|))
-empty_stmt|;
-end_empty_stmt
-
-begin_expr_stmt
+expr|}
+block|))
+init|)
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|e
@@ -776,11 +776,9 @@ operator|+
 literal|"] twice"
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-
-begin_function
-unit|}      public
+block|}
 DECL|method|testRegisterAllocationDecider
+specifier|public
 name|void
 name|testRegisterAllocationDecider
 parameter_list|()
@@ -866,9 +864,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|testRegisterShardsAllocator
 specifier|public
 name|void
@@ -939,9 +934,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|testRegisterShardsAllocatorAlreadyRegistered
 specifier|public
 name|void
@@ -1000,9 +992,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|testUnknownShardsAllocator
 specifier|public
 name|void
@@ -1056,9 +1045,6 @@ literal|"Unknown [shards_allocator]"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|testEvenShardsAllocatorBackcompat
 specifier|public
 name|void
@@ -1120,9 +1106,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|testRegisterIndexTemplateFilterDuplicate
 specifier|public
 name|void
@@ -1195,9 +1178,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|testRegisterIndexTemplateFilter
 specifier|public
 name|void
@@ -1245,8 +1225,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 
