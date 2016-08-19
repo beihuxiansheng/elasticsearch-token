@@ -484,7 +484,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -536,7 +536,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -599,8 +599,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -609,10 +612,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -622,9 +622,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -658,7 +658,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -676,9 +676,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -689,9 +686,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -704,7 +701,7 @@ argument_list|(
 literal|"--> start the shards (replicas)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -722,9 +719,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -735,9 +729,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -813,7 +807,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -823,9 +817,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -836,9 +827,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -925,7 +916,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -943,9 +934,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -956,9 +944,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1064,7 +1052,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -1074,21 +1062,13 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
-name|routingTable
-argument_list|,
-name|sameInstance
-argument_list|(
-name|clusterState
+name|routingResult
 operator|.
-name|routingTable
+name|changed
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterState
@@ -1100,9 +1080,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1225,7 +1205,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -1277,7 +1257,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -1355,8 +1335,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -1365,10 +1348,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -1378,9 +1358,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1414,7 +1394,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -1432,9 +1412,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -1445,9 +1422,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1460,7 +1437,7 @@ argument_list|(
 literal|"--> start the shards (replicas)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -1478,9 +1455,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -1491,9 +1465,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1569,7 +1543,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -1579,9 +1553,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -1592,9 +1563,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1681,7 +1652,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -1699,9 +1670,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -1712,9 +1680,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -1820,7 +1788,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -1830,21 +1798,13 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
-name|routingTable
-argument_list|,
-name|sameInstance
-argument_list|(
-name|clusterState
+name|routingResult
 operator|.
-name|routingTable
+name|changed
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterState
@@ -1856,9 +1816,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2017,7 +1977,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -2069,7 +2029,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -2132,8 +2092,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -2142,10 +2105,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -2155,9 +2115,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2259,7 +2219,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2277,9 +2237,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2290,9 +2247,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2305,7 +2262,7 @@ argument_list|(
 literal|"--> start the shards (replicas)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2323,9 +2280,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2336,9 +2290,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2414,7 +2368,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2424,9 +2378,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2437,9 +2388,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2549,7 +2500,7 @@ argument_list|(
 literal|"--> complete initializing"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2567,9 +2518,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2580,9 +2528,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2595,7 +2543,7 @@ argument_list|(
 literal|"--> run it again, since we still might have relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2613,9 +2561,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2626,9 +2571,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2734,7 +2679,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2744,9 +2689,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2757,9 +2699,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -2793,7 +2735,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -2811,9 +2753,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -2824,9 +2763,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3026,7 +2965,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -3088,7 +3027,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -3151,8 +3090,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -3161,10 +3103,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -3174,9 +3113,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3210,7 +3149,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3228,9 +3167,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3241,9 +3177,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3256,7 +3192,7 @@ argument_list|(
 literal|"--> start the shards (replicas)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3274,9 +3210,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3287,9 +3220,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3365,7 +3298,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3375,9 +3308,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3388,9 +3318,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3524,7 +3454,7 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3542,9 +3472,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3555,16 +3482,16 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
 argument_list|()
 expr_stmt|;
 block|}
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3582,9 +3509,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3595,9 +3519,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3766,7 +3690,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3776,9 +3700,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3789,9 +3710,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -3849,7 +3770,7 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -3867,9 +3788,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -3880,9 +3798,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4122,7 +4040,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -4174,7 +4092,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -4237,8 +4155,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -4247,10 +4168,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -4260,9 +4178,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4296,7 +4214,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -4314,9 +4232,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -4327,9 +4242,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4342,7 +4257,7 @@ argument_list|(
 literal|"--> start the shards (replicas)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -4360,9 +4275,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -4373,9 +4285,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4451,7 +4363,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -4461,9 +4373,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -4474,9 +4383,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4563,7 +4472,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -4581,9 +4490,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -4594,9 +4500,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4702,7 +4608,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -4712,9 +4618,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -4725,9 +4628,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -4812,7 +4715,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -4830,9 +4733,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -4843,9 +4743,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5000,7 +4900,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -5052,7 +4952,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -5145,8 +5045,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -5155,10 +5058,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -5168,9 +5068,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5204,7 +5104,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -5222,9 +5122,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -5235,9 +5132,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5250,7 +5147,7 @@ argument_list|(
 literal|"--> start the shards (replicas)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -5268,9 +5165,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -5281,9 +5175,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5359,7 +5253,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -5369,9 +5263,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -5382,9 +5273,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5471,7 +5362,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -5489,9 +5380,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -5502,9 +5390,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5610,7 +5498,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -5620,9 +5508,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -5633,9 +5518,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5720,7 +5605,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -5738,9 +5623,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -5751,9 +5633,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -5915,7 +5797,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -5967,7 +5849,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -6030,8 +5912,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -6040,10 +5925,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -6053,9 +5935,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6089,7 +5971,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -6107,9 +5989,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -6120,9 +5999,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6224,7 +6103,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -6234,9 +6113,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -6247,9 +6123,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6336,7 +6212,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -6354,9 +6230,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -6367,9 +6240,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6475,7 +6348,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -6485,21 +6358,13 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
-name|routingTable
-argument_list|,
-name|sameInstance
-argument_list|(
-name|clusterState
+name|routingResult
 operator|.
-name|routingTable
+name|changed
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterState
@@ -6511,9 +6376,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6643,7 +6508,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -6695,7 +6560,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -6773,8 +6638,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -6783,10 +6651,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -6796,9 +6661,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6832,7 +6697,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -6850,9 +6715,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -6863,9 +6725,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -6967,7 +6829,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -6977,9 +6839,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -6990,9 +6849,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7079,7 +6938,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -7097,9 +6956,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -7110,9 +6966,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7218,7 +7074,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -7228,21 +7084,13 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
-name|routingTable
-argument_list|,
-name|sameInstance
-argument_list|(
-name|clusterState
+name|routingResult
 operator|.
-name|routingTable
+name|changed
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterState
@@ -7254,9 +7102,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7452,7 +7300,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -7514,7 +7362,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -7577,8 +7425,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -7587,10 +7438,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -7600,9 +7448,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7636,7 +7484,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -7654,9 +7502,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -7667,9 +7512,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7745,7 +7590,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -7755,9 +7600,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -7768,9 +7610,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7857,7 +7699,7 @@ argument_list|(
 literal|"--> complete initializing"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -7875,9 +7717,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -7888,9 +7727,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -7903,7 +7742,7 @@ argument_list|(
 literal|"--> run it again, since we still might have relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -7921,9 +7760,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -7934,9 +7770,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8042,7 +7878,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -8052,9 +7888,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -8065,9 +7898,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8101,7 +7934,7 @@ argument_list|(
 literal|"--> complete relocation"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -8119,9 +7952,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -8132,9 +7962,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8311,7 +8141,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -8363,7 +8193,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -8426,8 +8256,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -8436,10 +8269,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -8449,9 +8279,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8506,7 +8336,7 @@ argument_list|(
 literal|"--> start the shards (primaries)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -8524,9 +8354,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -8537,9 +8364,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8587,7 +8414,7 @@ literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -8605,9 +8432,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -8618,9 +8442,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8722,7 +8546,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -8732,9 +8556,6 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -8745,9 +8566,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -8834,7 +8655,7 @@ argument_list|(
 literal|"--> starting initializing shards on the new node"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -8852,9 +8673,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -8865,9 +8683,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -9055,7 +8873,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|RoutingTable
-name|routingTable
+name|initialRoutingTable
 init|=
 name|RoutingTable
 operator|.
@@ -9107,7 +8925,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|routingTable
+name|initialRoutingTable
 argument_list|)
 operator|.
 name|build
@@ -9230,8 +9048,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|routingTable
-operator|=
+name|RoutingAllocation
+operator|.
+name|Result
+name|routingResult
+init|=
 name|strategy
 operator|.
 name|reroute
@@ -9240,10 +9061,7 @@ name|clusterState
 argument_list|,
 literal|"reroute"
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|clusterState
 operator|=
 name|ClusterState
@@ -9253,9 +9071,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -9310,7 +9128,7 @@ argument_list|(
 literal|"--> start the shard (primary)"
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -9328,9 +9146,6 @@ argument_list|(
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -9341,9 +9156,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build
@@ -9431,7 +9246,10 @@ control|(
 name|ShardRouting
 name|routing
 range|:
+name|clusterState
+operator|.
 name|routingTable
+argument_list|()
 operator|.
 name|allShards
 argument_list|()
@@ -9510,7 +9328,7 @@ literal|"A-4"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|routingTable
+name|routingResult
 operator|=
 name|strategy
 operator|.
@@ -9524,9 +9342,6 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
 name|clusterState
 operator|=
@@ -9537,9 +9352,9 @@ argument_list|(
 name|clusterState
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
-name|routingTable
+name|routingResult
 argument_list|)
 operator|.
 name|build

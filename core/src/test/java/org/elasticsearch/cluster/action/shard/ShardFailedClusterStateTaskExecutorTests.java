@@ -1480,7 +1480,9 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 decl_stmt|;
-name|RoutingTable
+name|RoutingAllocation
+operator|.
+name|Result
 name|afterStart
 init|=
 name|allocationService
@@ -1498,9 +1500,6 @@ operator|.
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 decl_stmt|;
 return|return
 name|ClusterState
@@ -1510,7 +1509,7 @@ argument_list|(
 name|stateAfterReroute
 argument_list|)
 operator|.
-name|routingTable
+name|routingResult
 argument_list|(
 name|afterStart
 argument_list|)
