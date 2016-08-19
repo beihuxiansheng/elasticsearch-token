@@ -3173,7 +3173,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|updateActiveAllocations
-specifier|private
+specifier|public
+specifier|static
 name|IndexMetaData
 name|updateActiveAllocations
 parameter_list|(
