@@ -1315,11 +1315,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -1478,11 +1473,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
