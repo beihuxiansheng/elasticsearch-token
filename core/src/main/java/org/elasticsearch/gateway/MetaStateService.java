@@ -180,8 +180,6 @@ specifier|final
 name|NodeEnvironment
 name|nodeEnv
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|MetaStateService
 specifier|public
 name|MetaStateService
