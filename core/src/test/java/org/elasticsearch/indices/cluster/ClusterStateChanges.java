@@ -1616,11 +1616,6 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|,
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
-argument_list|,
 name|environment
 argument_list|,
 name|nodeServicesProvider
