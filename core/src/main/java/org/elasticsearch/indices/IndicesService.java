@@ -1758,8 +1758,6 @@ name|cacheCleaner
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Inject
 DECL|method|IndicesService
 specifier|public
 name|IndicesService

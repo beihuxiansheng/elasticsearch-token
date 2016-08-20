@@ -1280,7 +1280,7 @@ literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 operator|new
-name|StartupError
+name|StartupException
 argument_list|(
 name|e
 argument_list|)
