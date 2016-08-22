@@ -2677,11 +2677,23 @@ name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
-name|context
+name|originalContext
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Numeric fields, by default, will not be included in _all
+specifier|final
+name|ParseContext
+name|context
+init|=
+name|originalContext
+operator|.
+name|setIncludeInAllDefault
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|Shape
