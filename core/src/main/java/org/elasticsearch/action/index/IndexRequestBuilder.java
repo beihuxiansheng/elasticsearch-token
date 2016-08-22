@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|DocumentRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|WriteRequestBuilder
@@ -696,7 +708,7 @@ specifier|public
 name|IndexRequestBuilder
 name|setOpType
 parameter_list|(
-name|IndexRequest
+name|DocumentRequest
 operator|.
 name|OpType
 name|opType
@@ -713,7 +725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a string representation of the {@link #setOpType(org.elasticsearch.action.index.IndexRequest.OpType)}. Can      * be either "index" or "create".      */
+comment|/**      * Sets a string representation of the {@link #setOpType(DocumentRequest.OpType)}. Can      * be either "index" or "create".      */
 DECL|method|setOpType
 specifier|public
 name|IndexRequestBuilder
@@ -727,14 +739,7 @@ name|request
 operator|.
 name|opType
 argument_list|(
-name|IndexRequest
-operator|.
-name|OpType
-operator|.
-name|fromString
-argument_list|(
 name|opType
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

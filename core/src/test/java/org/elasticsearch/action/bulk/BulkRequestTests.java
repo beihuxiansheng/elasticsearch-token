@@ -38,7 +38,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|ActionRequestValidationException
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequestValidationException
+name|DocumentRequest
 import|;
 end_import
 
@@ -1067,7 +1067,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ActionRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>

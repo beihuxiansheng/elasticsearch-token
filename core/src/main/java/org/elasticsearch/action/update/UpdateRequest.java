@@ -1651,7 +1651,8 @@ operator|.
 name|retryOnConflict
 return|;
 block|}
-comment|/**      * Sets the version, which will cause the index operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|UpdateRequest
@@ -1671,6 +1672,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|long
@@ -1683,7 +1686,8 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * Sets the versioning type. Defaults to {@link VersionType#INTERNAL}.      */
+annotation|@
+name|Override
 DECL|method|versionType
 specifier|public
 name|UpdateRequest
@@ -1703,6 +1707,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|versionType
 specifier|public
 name|VersionType
@@ -1713,6 +1719,20 @@ return|return
 name|this
 operator|.
 name|versionType
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|opType
+specifier|public
+name|OpType
+name|opType
+parameter_list|()
+block|{
+return|return
+name|OpType
+operator|.
+name|UPDATE
 return|;
 block|}
 annotation|@

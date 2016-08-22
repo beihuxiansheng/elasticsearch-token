@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -864,14 +864,14 @@ name|routing
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Wrapper for the {@link ActionRequest} that are used in this action class.      */
+comment|/**      * Wrapper for the {@link DocumentRequest} that are used in this action class.      */
 DECL|interface|RequestWrapper
 interface|interface
 name|RequestWrapper
 parameter_list|<
 name|Self
 extends|extends
-name|ActionRequest
+name|DocumentRequest
 parameter_list|<
 name|Self
 parameter_list|>

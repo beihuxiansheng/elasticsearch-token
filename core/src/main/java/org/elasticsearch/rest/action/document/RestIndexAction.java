@@ -635,14 +635,7 @@ name|indexRequest
 operator|.
 name|opType
 argument_list|(
-name|IndexRequest
-operator|.
-name|OpType
-operator|.
-name|fromString
-argument_list|(
 name|sOpType
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

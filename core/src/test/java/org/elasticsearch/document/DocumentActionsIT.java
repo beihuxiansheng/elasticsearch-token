@@ -244,6 +244,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|DocumentRequest
+operator|.
+name|OpType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Requests
@@ -1983,7 +1997,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2079,7 +2095,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"create"
+name|OpType
+operator|.
+name|CREATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2175,7 +2193,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2266,7 +2286,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"delete"
+name|OpType
+operator|.
+name|DELETE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2362,7 +2384,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;

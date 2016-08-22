@@ -28,8 +28,30 @@ name|IndicesOptions
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|VersionType
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
-comment|/**  * Generic interface to group ActionRequest, which work on single document level  *  * Forces this class return index/type/id getters  */
+comment|/**  * Generic interface to group ActionRequest, which perform writes to a single document  * Action requests implementing this can be part of {@link org.elasticsearch.action.bulk.BulkRequest}  */
 end_comment
 
 begin_interface
@@ -88,6 +110,194 @@ name|String
 name|parent
 parameter_list|()
 function_decl|;
+comment|/**      * Get the document version for this request      * @return the document version      */
+DECL|method|version
+name|long
+name|version
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the version, which will perform the operation only if a matching      * version exists and no changes happened on the doc since then.      */
+DECL|method|version
+name|T
+name|version
+parameter_list|(
+name|long
+name|version
+parameter_list|)
+function_decl|;
+comment|/**      * Get the document version type for this request      * @return the document version type      */
+DECL|method|versionType
+name|VersionType
+name|versionType
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the versioning type. Defaults to {@link VersionType#INTERNAL}.      */
+DECL|method|versionType
+name|T
+name|versionType
+parameter_list|(
+name|VersionType
+name|versionType
+parameter_list|)
+function_decl|;
+comment|/**      * Get the requested document operation type of the request      * @return the operation type {@link OpType}      */
+DECL|method|opType
+name|OpType
+name|opType
+parameter_list|()
+function_decl|;
+comment|/**      * Requested operation type to perform on the document      */
+DECL|enum|OpType
+enum|enum
+name|OpType
+block|{
+comment|/**          * Creates the resource. Simply adds it to the index, if there is an existing          * document with the id, then it won't be removed.          */
+DECL|enum constant|CREATE
+name|CREATE
+argument_list|(
+literal|0
+argument_list|)
+block|,
+comment|/**          * Index the source. If there an existing document with the id, it will          * be replaced.          */
+DECL|enum constant|INDEX
+name|INDEX
+argument_list|(
+literal|1
+argument_list|)
+block|,
+comment|/** Updates a document */
+DECL|enum constant|UPDATE
+name|UPDATE
+argument_list|(
+literal|2
+argument_list|)
+block|,
+comment|/** Deletes a document */
+DECL|enum constant|DELETE
+name|DELETE
+argument_list|(
+literal|3
+argument_list|)
+block|;
+DECL|field|op
+specifier|private
+specifier|final
+name|byte
+name|op
+decl_stmt|;
+DECL|field|lowercase
+specifier|private
+specifier|final
+name|String
+name|lowercase
+decl_stmt|;
+DECL|method|OpType
+name|OpType
+parameter_list|(
+name|int
+name|op
+parameter_list|)
+block|{
+name|this
+operator|.
+name|op
+operator|=
+operator|(
+name|byte
+operator|)
+name|op
+expr_stmt|;
+name|this
+operator|.
+name|lowercase
+operator|=
+name|this
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getId
+specifier|public
+name|byte
+name|getId
+parameter_list|()
+block|{
+return|return
+name|op
+return|;
+block|}
+DECL|method|getLowercase
+specifier|public
+name|String
+name|getLowercase
+parameter_list|()
+block|{
+return|return
+name|lowercase
+return|;
+block|}
+DECL|method|fromId
+specifier|public
+specifier|static
+name|OpType
+name|fromId
+parameter_list|(
+name|byte
+name|id
+parameter_list|)
+block|{
+switch|switch
+condition|(
+name|id
+condition|)
+block|{
+case|case
+literal|0
+case|:
+return|return
+name|CREATE
+return|;
+case|case
+literal|1
+case|:
+return|return
+name|INDEX
+return|;
+case|case
+literal|2
+case|:
+return|return
+name|UPDATE
+return|;
+case|case
+literal|3
+case|:
+return|return
+name|DELETE
+return|;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown opType: ["
+operator|+
+name|id
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
 block|}
 end_interface
 

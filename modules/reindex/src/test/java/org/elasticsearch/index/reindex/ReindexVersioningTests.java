@@ -38,9 +38,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
-operator|.
-name|IndexRequest
+name|DocumentRequest
 operator|.
 name|OpType
 operator|.
