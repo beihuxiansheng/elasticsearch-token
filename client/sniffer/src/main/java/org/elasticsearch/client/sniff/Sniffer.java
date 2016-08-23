@@ -179,7 +179,6 @@ end_comment
 begin_class
 DECL|class|Sniffer
 specifier|public
-specifier|final
 class|class
 name|Sniffer
 implements|implements
