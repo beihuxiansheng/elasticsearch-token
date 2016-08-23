@@ -133,7 +133,7 @@ specifier|final
 name|String
 name|DEFAULT_LANG
 init|=
-literal|"groovy"
+literal|"painless"
 decl_stmt|;
 DECL|field|SCRIPT_TYPE_SETTING_MAP
 specifier|private
@@ -348,7 +348,7 @@ block|{
 if|if
 condition|(
 operator|!
-literal|"groovy"
+name|DEFAULT_LANG
 operator|.
 name|equals
 argument_list|(

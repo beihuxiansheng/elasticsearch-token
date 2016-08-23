@@ -498,7 +498,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -778,7 +780,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -992,7 +996,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -1148,7 +1154,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -1215,7 +1223,9 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)

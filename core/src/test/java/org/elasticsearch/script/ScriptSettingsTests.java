@@ -118,10 +118,10 @@ name|ScriptSettingsTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|method|testDefaultLanguageIsGroovy
+DECL|method|testDefaultLanguageIsPainless
 specifier|public
 name|void
-name|testDefaultLanguageIsGroovy
+name|testDefaultLanguageIsPainless
 parameter_list|()
 block|{
 name|ScriptEngineRegistry
@@ -179,7 +179,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"groovy"
+literal|"painless"
 argument_list|)
 argument_list|)
 expr_stmt|;
