@@ -3363,12 +3363,13 @@ comment|/*               we need to inc the store here since searcherManager.isS
 try|try
 block|{
 return|return
-operator|!
 name|getSearcherManager
 argument_list|()
 operator|.
 name|isSearcherCurrent
 argument_list|()
+operator|==
+literal|false
 return|;
 block|}
 catch|catch

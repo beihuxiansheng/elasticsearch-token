@@ -272,7 +272,14 @@ name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{
-comment|/* this one can happen if we already closed the                  * underlying store / directory and we call into the                  * IndexWriter to free up pending files. */
+comment|// This means there's a bug somewhere: don't suppress it
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 finally|finally
 block|{
