@@ -3041,7 +3041,7 @@ name|void
 name|parseCreateField
 parameter_list|(
 name|ParseContext
-name|originalContext
+name|context
 parameter_list|,
 name|List
 argument_list|<
@@ -3052,18 +3052,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Date fields, by default, will not be included in _all
-specifier|final
-name|ParseContext
-name|context
-init|=
-name|originalContext
-operator|.
-name|setIncludeInAllDefault
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 name|String
 name|dateAsString
 decl_stmt|;
