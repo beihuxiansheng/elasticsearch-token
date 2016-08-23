@@ -301,15 +301,6 @@ name|GeoDistanceRangeQueryBuilder
 name|doCreateTestQueryBuilder
 parameter_list|()
 block|{
-name|Version
-name|version
-init|=
-name|createShardContext
-argument_list|()
-operator|.
-name|indexVersionCreated
-argument_list|()
-decl_stmt|;
 name|GeoDistanceRangeQueryBuilder
 name|builder
 decl_stmt|;
@@ -686,36 +677,6 @@ name|GeoDistance
 operator|.
 name|values
 argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-operator|&&
-name|version
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_2_2_0
-argument_list|)
-condition|)
-block|{
-name|builder
-operator|.
-name|optimizeBbox
-argument_list|(
-name|randomFrom
-argument_list|(
-literal|"none"
-argument_list|,
-literal|"memory"
-argument_list|,
-literal|"indexed"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1863,83 +1824,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testInvalidOptimizeBBox
-specifier|public
-name|void
-name|testInvalidOptimizeBBox
-parameter_list|()
-block|{
-name|GeoDistanceRangeQueryBuilder
-name|builder
-init|=
-operator|new
-name|GeoDistanceRangeQueryBuilder
-argument_list|(
-name|GEO_POINT_FIELD_NAME
-argument_list|,
-operator|new
-name|GeoPoint
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|builder
-operator|.
-name|optimizeBbox
-argument_list|(
-literal|null
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"optimizeBbox must not be null"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|e
-operator|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|builder
-operator|.
-name|optimizeBbox
-argument_list|(
-literal|"foo"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"optimizeBbox must be one of [none, memory, indexed]"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testInvalidGeoDistance
 specifier|public
 name|void
@@ -2172,8 +2056,6 @@ literal|"    \"unit\" : \"m\",\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
 operator|+
-literal|"    \"optimize_bbox\" : \"memory\",\n"
-operator|+
 literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
 literal|"    \"ignore_unmapped\" : false,\n"
@@ -2221,6 +2103,76 @@ literal|0.0001
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJsonOptimizeBboxFails
+specifier|public
+name|void
+name|testFromJsonOptimizeBboxFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance_range\" : {\n"
+operator|+
+literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
+operator|+
+literal|"    \"from\" : \"200km\",\n"
+operator|+
+literal|"    \"to\" : \"400km\",\n"
+operator|+
+literal|"    \"include_lower\" : true,\n"
+operator|+
+literal|"    \"include_upper\" : true,\n"
+operator|+
+literal|"    \"unit\" : \"m\",\n"
+operator|+
+literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+operator|+
+literal|"    \"optimize_bbox\" : \"memory\",\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testFromJsonCoerceFails
 specifier|public
 name|void
@@ -2249,8 +2201,6 @@ operator|+
 literal|"    \"unit\" : \"m\",\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
-operator|+
-literal|"    \"optimize_bbox\" : \"memory\",\n"
 operator|+
 literal|"    \"coerce\" : true,\n"
 operator|+
@@ -2321,8 +2271,6 @@ operator|+
 literal|"    \"unit\" : \"m\",\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
-operator|+
-literal|"    \"optimize_bbox\" : \"memory\",\n"
 operator|+
 literal|"    \"ignore_malformed\" : true,\n"
 operator|+

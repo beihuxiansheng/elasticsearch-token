@@ -437,6 +437,8 @@ operator|.
 name|DEFAULT
 decl_stmt|;
 comment|/** Default for optimising query through pre computed bounding box query. */
+annotation|@
+name|Deprecated
 DECL|field|DEFAULT_OPTIMIZE_BBOX
 specifier|public
 specifier|static
@@ -507,6 +509,8 @@ argument_list|(
 literal|"use validation_method instead"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|OPTIMIZE_BBOX_FIELD
 specifier|private
 specifier|static
@@ -518,6 +522,11 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"optimize_bbox"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"no replacement: `optimize_bbox` is no longer supported due to recent improvements"
 argument_list|)
 decl_stmt|;
 DECL|field|DISTANCE_TYPE_FIELD
@@ -616,7 +625,7 @@ specifier|private
 name|String
 name|optimizeBbox
 init|=
-name|DEFAULT_OPTIMIZE_BBOX
+literal|null
 decl_stmt|;
 comment|/** How strict should geo coordinate validation be? */
 DECL|field|validationMethod
@@ -719,7 +728,7 @@ name|optimizeBbox
 operator|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 expr_stmt|;
 name|geoDistance
@@ -782,7 +791,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|optimizeBbox
 argument_list|)
@@ -1127,7 +1136,9 @@ operator|.
 name|geoDistance
 return|;
 block|}
-comment|/**      * Set this to memory or indexed if before running the distance      * calculation you want to limit the candidates to hits in the      * enclosing bounding box.      **/
+comment|/**      * Set this to memory or indexed if before running the distance      * calculation you want to limit the candidates to hits in the      * enclosing bounding box.      * @deprecated      **/
+annotation|@
+name|Deprecated
 DECL|method|optimizeBbox
 specifier|public
 name|GeoDistanceQueryBuilder
@@ -1137,45 +1148,6 @@ name|String
 name|optimizeBbox
 parameter_list|)
 block|{
-if|if
-condition|(
-name|optimizeBbox
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"optimizeBbox must not be null"
-argument_list|)
-throw|;
-block|}
-switch|switch
-condition|(
-name|optimizeBbox
-condition|)
-block|{
-case|case
-literal|"none"
-case|:
-case|case
-literal|"memory"
-case|:
-case|case
-literal|"indexed"
-case|:
-break|break;
-default|default:
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"optimizeBbox must be one of [none, memory, indexed]"
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|optimizeBbox
@@ -1186,7 +1158,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Returns whether or not to run a BoundingBox query prior to      * distance query for optimization purposes.*/
+comment|/**      * Returns whether or not to run a BoundingBox query prior to      * distance query for optimization purposes.      * @deprecated      **/
+annotation|@
+name|Deprecated
 DECL|method|optimizeBbox
 specifier|public
 name|String
@@ -1473,6 +1447,20 @@ argument_list|(
 name|fieldType
 argument_list|)
 decl_stmt|;
+name|String
+name|bboxOptimization
+init|=
+name|Strings
+operator|.
+name|isEmpty
+argument_list|(
+name|optimizeBbox
+argument_list|)
+condition|?
+name|DEFAULT_OPTIMIZE_BBOX
+else|:
+name|optimizeBbox
+decl_stmt|;
 return|return
 operator|new
 name|GeoDistanceRangeQuery
@@ -1493,7 +1481,7 @@ name|geoFieldType
 argument_list|,
 name|indexFieldData
 argument_list|,
-name|optimizeBbox
+name|bboxOptimization
 argument_list|)
 return|;
 block|}
@@ -1661,6 +1649,18 @@ name|ROOT
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|isEmpty
+argument_list|(
+name|optimizeBbox
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1673,6 +1673,7 @@ argument_list|,
 name|optimizeBbox
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field
@@ -1795,9 +1796,7 @@ decl_stmt|;
 name|String
 name|optimizeBbox
 init|=
-name|GeoDistanceQueryBuilder
-operator|.
-name|DEFAULT_OPTIMIZE_BBOX
+literal|null
 decl_stmt|;
 name|boolean
 name|coerce

@@ -267,10 +267,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Query geo_point fields by distance ranges. Used for indexes created prior to 2.2  * @deprecated  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GeoDistanceRangeQuery
 specifier|public
 class|class
