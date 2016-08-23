@@ -923,7 +923,8 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|createBuilder
+operator|new
+name|Builder
 argument_list|(
 name|name
 argument_list|)
@@ -1880,23 +1881,6 @@ argument_list|,
 literal|"DocType mapping definition has unsupported parameters: "
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|createBuilder
-specifier|protected
-name|Builder
-name|createBuilder
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-operator|new
-name|Builder
-argument_list|(
-name|name
-argument_list|)
-return|;
 block|}
 block|}
 DECL|field|fullPath
