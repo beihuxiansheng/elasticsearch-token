@@ -2045,11 +2045,6 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setRealtime
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setFields
 argument_list|(
 literal|"foo"
@@ -2071,11 +2066,6 @@ argument_list|,
 literal|"doc"
 argument_list|,
 literal|"2"
-argument_list|)
-operator|.
-name|setRealtime
-argument_list|(
-literal|true
 argument_list|)
 operator|.
 name|setFields

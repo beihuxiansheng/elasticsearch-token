@@ -1117,7 +1117,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/** Returns how much RAM would be freed up by refreshing. This is {@link ramBytesUsed} except does not include tombstones because they      *  don't clear on refresh. */
+comment|/** Returns how much RAM would be freed up by refreshing. This is {@link #ramBytesUsed} except does not include tombstones because they      *  don't clear on refresh. */
 DECL|method|ramBytesUsedForRefresh
 name|long
 name|ramBytesUsedForRefresh

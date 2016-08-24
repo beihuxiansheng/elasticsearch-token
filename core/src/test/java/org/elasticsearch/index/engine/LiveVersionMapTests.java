@@ -140,8 +140,6 @@ name|VersionValue
 argument_list|(
 name|randomLong
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|map
@@ -247,8 +245,6 @@ name|VersionValue
 argument_list|(
 name|randomLong
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|map

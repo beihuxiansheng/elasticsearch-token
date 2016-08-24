@@ -2737,11 +2737,6 @@ argument_list|(
 literal|"_ttl"
 argument_list|)
 operator|.
-name|setRealtime
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
