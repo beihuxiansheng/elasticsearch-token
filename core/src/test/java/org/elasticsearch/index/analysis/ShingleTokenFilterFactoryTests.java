@@ -27,6 +27,8 @@ operator|.
 name|annotations
 operator|.
 name|ThreadLeakScope
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -41,8 +43,20 @@ operator|.
 name|annotations
 operator|.
 name|ThreadLeakScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Scope
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|StopFilter
 import|;
 end_import
 
@@ -71,22 +85,6 @@ operator|.
 name|analysis
 operator|.
 name|Tokenizer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|core
-operator|.
-name|StopFilter
 import|;
 end_import
 

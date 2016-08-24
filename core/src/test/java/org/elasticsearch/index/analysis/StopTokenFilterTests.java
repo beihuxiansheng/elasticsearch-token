@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|StopFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|TokenStream
 import|;
 end_import
@@ -41,22 +55,6 @@ operator|.
 name|analysis
 operator|.
 name|Tokenizer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|core
-operator|.
-name|StopFilter
 import|;
 end_import
 
@@ -119,6 +117,8 @@ operator|.
 name|settings
 operator|.
 name|Settings
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -133,8 +133,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-operator|.
-name|Builder
 import|;
 end_import
 

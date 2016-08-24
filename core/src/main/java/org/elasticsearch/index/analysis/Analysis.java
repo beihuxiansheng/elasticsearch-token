@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|CharArraySet
 import|;
 end_import
 
@@ -55,6 +55,20 @@ operator|.
 name|analysis
 operator|.
 name|LegacyNumericTokenStream
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|TokenStream
 import|;
 end_import
 
@@ -583,22 +597,6 @@ operator|.
 name|tr
 operator|.
 name|TurkishAnalyzer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|util
-operator|.
-name|CharArraySet
 import|;
 end_import
 

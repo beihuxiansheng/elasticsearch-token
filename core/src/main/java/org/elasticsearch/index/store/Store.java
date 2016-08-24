@@ -1644,7 +1644,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Renames all the given files form the key of the map to the      * value of the map. All successfully renamed files are removed from the map in-place.      */
+comment|/**      * Renames all the given files from the key of the map to the      * value of the map. All successfully renamed files are removed from the map in-place.      */
 DECL|method|renameTempFilesSafe
 specifier|public
 name|void
@@ -1924,9 +1924,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now, rename the files... and fail it it won't work
-name|this
+name|directory
 operator|.
-name|renameFile
+name|rename
 argument_list|(
 name|tempFile
 argument_list|,
@@ -1950,6 +1950,11 @@ operator|!=
 literal|null
 assert|;
 block|}
+name|directory
+operator|.
+name|syncMetaData
+argument_list|()
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -1998,6 +2003,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+comment|// TODO: switch to directory.rename?  but caller needs to syncMetaData!
 name|directory
 operator|.
 name|renameFile

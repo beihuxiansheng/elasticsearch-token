@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|br
-operator|.
-name|BrazilianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|br
 operator|.
-name|CharArraySet
+name|BrazilianAnalyzer
 import|;
 end_import
 

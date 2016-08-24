@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|cz
-operator|.
-name|CzechAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|cz
 operator|.
-name|CharArraySet
+name|CzechAnalyzer
 import|;
 end_import
 
