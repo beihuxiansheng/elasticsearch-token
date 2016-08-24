@@ -16,6 +16,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -31,6 +41,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -1506,12 +1526,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// tests both single break and multiple breaks used in a script
 DECL|method|testForWithBreak
 specifier|public
 name|void
 name|testForWithBreak
 parameter_list|()
 block|{
+comment|// single break test
 name|assertEquals
 argument_list|(
 literal|1
@@ -1520,15 +1542,13 @@ name|exec
 argument_list|(
 literal|"Map settings = ['test1' : '1'];"
 operator|+
-literal|"int setting = 0;"
+literal|"int i = 0;"
 operator|+
 literal|"List keys = ['test0', 'test1', 'test2'];"
 operator|+
-literal|"for (int i = 0; i< keys.size(); ++i) {"
+literal|"for (; i< keys.size(); ++i) {"
 operator|+
 literal|"    if (settings.containsKey(keys[i])) {"
-operator|+
-literal|"        setting = Integer.parseInt(settings[keys[i]]);"
 operator|+
 literal|"        break;"
 operator|+
@@ -1536,17 +1556,210 @@ literal|"    }"
 operator|+
 literal|"}"
 operator|+
-literal|"return setting;"
+literal|"return i;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|List
+argument_list|<
+name|Integer
+argument_list|>
+name|expected
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|expected
+operator|.
+name|add
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// multiple breaks test
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map outer = ['test1' : '1'];"
+operator|+
+literal|"Map inner = ['test0' : '2'];"
+operator|+
+literal|"boolean found = false;"
+operator|+
+literal|"int i = 0, j = 0;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (; i< keys.size(); ++i) {"
+operator|+
+literal|"    if (outer.containsKey(keys[i])) {"
+operator|+
+literal|"        for (; j< keys.size(); ++j) {"
+operator|+
+literal|"            if (inner.containsKey(keys[j])) {"
+operator|+
+literal|"                found = true;"
+operator|+
+literal|"                break;"
+operator|+
+literal|"            }"
+operator|+
+literal|"        }"
+operator|+
+literal|"        if (found) {"
+operator|+
+literal|"            break;"
+operator|+
+literal|"        }"
+operator|+
+literal|"    }"
+operator|+
+literal|"}"
+operator|+
+literal|"[i, j];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|1
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+comment|// multiple breaks test, ignore inner break
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map outer = ['test1' : '1'];"
+operator|+
+literal|"Map inner = ['test3' : '2'];"
+operator|+
+literal|"int i = 0, j = 0;"
+operator|+
+literal|"boolean found = false;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (; i< keys.size(); ++i) {"
+operator|+
+literal|"    if (outer.containsKey(keys[i])) {"
+operator|+
+literal|"        for (; j< keys.size(); ++j) {"
+operator|+
+literal|"            if (found) {"
+operator|+
+literal|"                break;"
+operator|+
+literal|"            }"
+operator|+
+literal|"        }"
+operator|+
+literal|"        found = true;"
+operator|+
+literal|"        if (found) {"
+operator|+
+literal|"            break;"
+operator|+
+literal|"        }"
+operator|+
+literal|"    }"
+operator|+
+literal|"}"
+operator|+
+literal|"[i, j];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// multiple breaks test, ignore outer break
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map outer = ['test3' : '1'];"
+operator|+
+literal|"Map inner = ['test1' : '2'];"
+operator|+
+literal|"int i = 0, j = 0;"
+operator|+
+literal|"boolean found = false;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (; i< keys.size(); ++i) {"
+operator|+
+literal|"    if (outer.containsKey('test3')) {"
+operator|+
+literal|"        for (; j< keys.size(); ++j) {"
+operator|+
+literal|"            if (inner.containsKey(keys[j])) {"
+operator|+
+literal|"                break;"
+operator|+
+literal|"            }"
+operator|+
+literal|"        }"
+operator|+
+literal|"        if (found) {"
+operator|+
+literal|"            break;"
+operator|+
+literal|"        }"
+operator|+
+literal|"    }"
+operator|+
+literal|"}"
+operator|+
+literal|"[i, j];"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// tests both single break and multiple breaks used in a script
 DECL|method|testForEachWithBreak
 specifier|public
 name|void
 name|testForEachWithBreak
 parameter_list|()
 block|{
+comment|// single break test
 name|assertEquals
 argument_list|(
 literal|1
@@ -1555,7 +1768,7 @@ name|exec
 argument_list|(
 literal|"Map settings = ['test1' : '1'];"
 operator|+
-literal|"int setting = 0;"
+literal|"int i = 0;"
 operator|+
 literal|"List keys = ['test0', 'test1', 'test2'];"
 operator|+
@@ -1563,15 +1776,227 @@ literal|"for (String key : keys) {"
 operator|+
 literal|"    if (settings.containsKey(key)) {"
 operator|+
-literal|"        setting = Integer.parseInt(settings[key]);"
-operator|+
 literal|"        break;"
 operator|+
 literal|"    }"
 operator|+
+literal|"    ++i;"
+operator|+
 literal|"}"
 operator|+
-literal|"return setting;"
+literal|"return i;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|List
+argument_list|<
+name|Integer
+argument_list|>
+name|expected
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|expected
+operator|.
+name|add
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// multiple breaks test
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map outer = ['test1' : '1'];"
+operator|+
+literal|"Map inner = ['test0' : '2'];"
+operator|+
+literal|"int i = 0, j = 0;"
+operator|+
+literal|"boolean found = false;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (String okey : keys) {"
+operator|+
+literal|"    if (outer.containsKey(okey)) {"
+operator|+
+literal|"        for (String ikey : keys) {"
+operator|+
+literal|"            if (inner.containsKey(ikey)) {"
+operator|+
+literal|"                found = true;"
+operator|+
+literal|"                break;"
+operator|+
+literal|"            }"
+operator|+
+literal|"            ++j;"
+operator|+
+literal|"        }"
+operator|+
+literal|"        if (found) {"
+operator|+
+literal|"            break;"
+operator|+
+literal|"        }"
+operator|+
+literal|"    }"
+operator|+
+literal|"    ++i;"
+operator|+
+literal|"}"
+operator|+
+literal|"[i, j];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// multiple breaks test, ignore outer break
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map outer = ['test1' : '1'];"
+operator|+
+literal|"Map inner = ['test1' : '1'];"
+operator|+
+literal|"int i = 0, j = 0;"
+operator|+
+literal|"boolean found = false;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (String okey : keys) {"
+operator|+
+literal|"    if (outer.containsKey(okey)) {"
+operator|+
+literal|"        for (String ikey : keys) {"
+operator|+
+literal|"            if (inner.containsKey(ikey)) {"
+operator|+
+literal|"                break;"
+operator|+
+literal|"            }"
+operator|+
+literal|"            ++j;"
+operator|+
+literal|"        }"
+operator|+
+literal|"        if (found) {"
+operator|+
+literal|"            break;"
+operator|+
+literal|"        }"
+operator|+
+literal|"    }"
+operator|+
+literal|"    ++i;"
+operator|+
+literal|"}"
+operator|+
+literal|"[i, j];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|set
+argument_list|(
+literal|1
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+comment|// multiple breaks test, ignore inner break
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map outer = ['test1' : '1'];"
+operator|+
+literal|"Map inner = ['test1' : '1'];"
+operator|+
+literal|"int i = 0, j = 0;"
+operator|+
+literal|"boolean found = false;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (String okey : keys) {"
+operator|+
+literal|"    if (outer.containsKey(okey)) {"
+operator|+
+literal|"        for (String ikey : keys) {"
+operator|+
+literal|"            if (found) {"
+operator|+
+literal|"                break;"
+operator|+
+literal|"            }"
+operator|+
+literal|"            ++j;"
+operator|+
+literal|"        }"
+operator|+
+literal|"        found = true;"
+operator|+
+literal|"        if (found) {"
+operator|+
+literal|"            break;"
+operator|+
+literal|"        }"
+operator|+
+literal|"    }"
+operator|+
+literal|"    ++i;"
+operator|+
+literal|"}"
+operator|+
+literal|"[i, j];"
 argument_list|)
 argument_list|)
 expr_stmt|;
