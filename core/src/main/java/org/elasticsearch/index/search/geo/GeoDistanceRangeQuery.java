@@ -252,7 +252,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
@@ -361,7 +361,7 @@ parameter_list|,
 name|GeoDistance
 name|geoDistance
 parameter_list|,
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -591,7 +591,7 @@ condition|)
 block|{
 name|boundingBoxFilter
 operator|=
-name|IndexedGeoBoundingBoxQuery
+name|LegacyIndexedGeoBoundingBoxQuery
 operator|.
 name|create
 argument_list|(

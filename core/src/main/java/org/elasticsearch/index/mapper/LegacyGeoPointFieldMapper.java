@@ -104,18 +104,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|geo
 operator|.
 name|GeoDistance
@@ -257,10 +245,10 @@ comment|/**  * Parsing: We handle:  *<p>  * - "field" : "geo_hash"  * - "field" 
 end_comment
 
 begin_class
-DECL|class|GeoPointFieldMapperLegacy
+DECL|class|LegacyGeoPointFieldMapper
 specifier|public
 class|class
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 extends|extends
 name|BaseGeoPointFieldMapper
 implements|implements
@@ -379,7 +367,7 @@ name|Builder
 argument_list|<
 name|Builder
 argument_list|,
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 argument_list|>
 block|{
 DECL|field|coerce
@@ -499,7 +487,7 @@ annotation|@
 name|Override
 DECL|method|build
 specifier|public
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 name|build
 parameter_list|(
 name|BuilderContext
@@ -567,7 +555,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 argument_list|(
 name|simpleName
 argument_list|,
@@ -600,7 +588,7 @@ annotation|@
 name|Override
 DECL|method|build
 specifier|public
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 name|build
 parameter_list|(
 name|BuilderContext
@@ -849,7 +837,7 @@ return|return
 name|instance
 return|;
 block|}
-comment|/** Get an instance based on the expected precision. Here are examples of the number of required bytes per value depending on the          *  expected precision:<ul>          *<li>1km: 4 bytes</li>          *<li>3m: 6 bytes</li>          *<li>1m: 8 bytes</li>          *<li>1cm: 8 bytes</li>          *<li>1mm: 10 bytes</li></ul> */
+comment|/** Get an instance based on the expected precision. Here are examples of the number of required bytes per value          * depending on the          *  expected precision:<ul>          *<li>1km: 4 bytes</li>          *<li>3m: 6 bytes</li>          *<li>1m: 8 bytes</li>          *<li>1cm: 8 bytes</li>          *<li>1mm: 10 bytes</li></ul> */
 DECL|method|of
 specifier|public
 specifier|static
@@ -1050,6 +1038,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// factor/2 because we use Math.round instead of a cast to convert the double to a long
 name|precision
 operator|=
 operator|new
@@ -1080,7 +1069,6 @@ operator|.
 name|DEFAULT
 argument_list|)
 argument_list|,
-comment|// factor/2 because we use Math.round instead of a cast to convert the double to a long
 name|DistanceUnit
 operator|.
 name|DEFAULT
@@ -1435,9 +1423,9 @@ name|Boolean
 argument_list|>
 name|coerce
 decl_stmt|;
-DECL|method|GeoPointFieldMapperLegacy
+DECL|method|LegacyGeoPointFieldMapper
 specifier|public
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 parameter_list|(
 name|String
 name|simpleName
@@ -1532,11 +1520,11 @@ argument_list|,
 name|updateAllTypes
 argument_list|)
 expr_stmt|;
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 name|gpfmMergeWith
 init|=
 operator|(
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|)
 name|mergeWith
 decl_stmt|;

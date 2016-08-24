@@ -165,14 +165,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  *  * @deprecated This query is no longer used for geo_point indexes created after version 2.1  */
 end_comment
 
 begin_class
-DECL|class|InMemoryGeoBoundingBoxQuery
+annotation|@
+name|Deprecated
+DECL|class|LegacyInMemoryGeoBoundingBoxQuery
 specifier|public
 class|class
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 extends|extends
 name|Query
 block|{
@@ -194,9 +196,9 @@ specifier|final
 name|IndexGeoPointFieldData
 name|indexFieldData
 decl_stmt|;
-DECL|method|InMemoryGeoBoundingBoxQuery
+DECL|method|LegacyInMemoryGeoBoundingBoxQuery
 specifier|public
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 parameter_list|(
 name|GeoPoint
 name|topLeft
@@ -424,11 +426,11 @@ return|return
 literal|false
 return|;
 block|}
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 name|other
 init|=
 operator|(
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 operator|)
 name|obj
 decl_stmt|;

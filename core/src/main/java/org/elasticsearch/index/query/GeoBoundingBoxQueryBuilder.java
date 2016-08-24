@@ -290,7 +290,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
@@ -320,7 +320,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 import|;
 end_import
 
@@ -336,7 +336,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|IndexedGeoBoundingBoxQuery
+name|LegacyIndexedGeoBoundingBoxQuery
 import|;
 end_import
 
@@ -1905,14 +1905,14 @@ block|{
 case|case
 name|INDEXED
 case|:
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|geoFieldType
 init|=
 operator|(
 operator|(
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
@@ -1921,7 +1921,7 @@ operator|)
 decl_stmt|;
 name|query
 operator|=
-name|IndexedGeoBoundingBoxQuery
+name|LegacyIndexedGeoBoundingBoxQuery
 operator|.
 name|create
 argument_list|(
@@ -1949,7 +1949,7 @@ decl_stmt|;
 name|query
 operator|=
 operator|new
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 argument_list|(
 name|luceneTopLeft
 argument_list|,

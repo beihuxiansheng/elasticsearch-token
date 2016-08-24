@@ -294,7 +294,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
@@ -1936,14 +1936,14 @@ name|V_2_2_0
 argument_list|)
 condition|)
 block|{
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|geoFieldType
 init|=
 operator|(
 operator|(
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)

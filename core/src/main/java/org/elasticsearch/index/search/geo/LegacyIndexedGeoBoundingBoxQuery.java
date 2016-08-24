@@ -100,19 +100,21 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  *  * @deprecated This query is no longer used for geo_point indexes created after version 2.1  */
 end_comment
 
 begin_class
-DECL|class|IndexedGeoBoundingBoxQuery
+annotation|@
+name|Deprecated
+DECL|class|LegacyIndexedGeoBoundingBoxQuery
 specifier|public
 class|class
-name|IndexedGeoBoundingBoxQuery
+name|LegacyIndexedGeoBoundingBoxQuery
 block|{
 DECL|method|create
 specifier|public
@@ -126,7 +128,7 @@ parameter_list|,
 name|GeoPoint
 name|bottomRight
 parameter_list|,
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -207,7 +209,7 @@ parameter_list|,
 name|GeoPoint
 name|bottomRight
 parameter_list|,
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -341,7 +343,7 @@ parameter_list|,
 name|GeoPoint
 name|bottomRight
 parameter_list|,
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType
