@@ -331,7 +331,7 @@ operator|=
 name|hosts
 expr_stmt|;
 block|}
-comment|/**      * Sets the default request headers, which will be sent along with each request      *      * @throws NullPointerException if {@code defaultHeaders} or any header is {@code null}.      */
+comment|/**      * Sets the default request headers, which will be sent along with each request.      *<p>      * Request-time headers will always overwrite any default headers.      *      * @throws NullPointerException if {@code defaultHeaders} or any header is {@code null}.      */
 DECL|method|setDefaultHeaders
 specifier|public
 name|RestClientBuilder
