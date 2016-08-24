@@ -1250,7 +1250,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// we do this on the index level
-comment|//w.setPreventDoubleWrite(preventDoubleWrite);
 comment|// TODO: make this test robust to virus scanner
 name|w
 operator|.

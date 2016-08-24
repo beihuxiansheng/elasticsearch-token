@@ -1986,34 +1986,6 @@ name|getOrRefresh
 argument_list|()
 return|;
 block|}
-DECL|method|renameFile
-specifier|public
-name|void
-name|renameFile
-parameter_list|(
-name|String
-name|from
-parameter_list|,
-name|String
-name|to
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
-comment|// TODO: switch to directory.rename?  but caller needs to syncMetaData!
-name|directory
-operator|.
-name|renameFile
-argument_list|(
-name|from
-argument_list|,
-name|to
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p>      * Note: Close can safely be called multiple times.      *      * @throws AlreadyClosedException iff the reference counter can not be incremented.      * @see #decRef      * @see #tryIncRef()      */
 annotation|@
 name|Override

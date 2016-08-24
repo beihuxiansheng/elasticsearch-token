@@ -9244,7 +9244,8 @@ name|inc
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: why does the target file sometimes already exist?
+comment|// TODO: why does the target file sometimes already exist?  Simon says: I think, this can happen if you fail a shard and
+comment|// it's not cleaned up yet, the restore process tries to reuse files
 name|IOUtils
 operator|.
 name|deleteFilesIgnoringExceptions
