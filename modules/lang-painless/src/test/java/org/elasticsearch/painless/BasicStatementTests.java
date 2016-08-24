@@ -1506,6 +1506,76 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testForWithBreak
+specifier|public
+name|void
+name|testForWithBreak
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map settings = ['test1' : '1'];"
+operator|+
+literal|"int setting = 0;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (int i = 0; i< keys.size(); ++i) {"
+operator|+
+literal|"    if (settings.containsKey(keys[i])) {"
+operator|+
+literal|"        setting = Integer.parseInt(settings[keys[i]]);"
+operator|+
+literal|"        break;"
+operator|+
+literal|"    }"
+operator|+
+literal|"}"
+operator|+
+literal|"return setting;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testForEachWithBreak
+specifier|public
+name|void
+name|testForEachWithBreak
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map settings = ['test1' : '1'];"
+operator|+
+literal|"int setting = 0;"
+operator|+
+literal|"List keys = ['test0', 'test1', 'test2'];"
+operator|+
+literal|"for (String key : keys) {"
+operator|+
+literal|"    if (settings.containsKey(key)) {"
+operator|+
+literal|"        setting = Integer.parseInt(settings[key]);"
+operator|+
+literal|"        break;"
+operator|+
+literal|"    }"
+operator|+
+literal|"}"
+operator|+
+literal|"return setting;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
