@@ -130,7 +130,7 @@ name|bottomRight
 parameter_list|,
 name|LegacyGeoPointFieldMapper
 operator|.
-name|GeoPointFieldType
+name|LegacyGeoPointFieldType
 name|fieldType
 parameter_list|)
 block|{
@@ -211,7 +211,7 @@ name|bottomRight
 parameter_list|,
 name|LegacyGeoPointFieldMapper
 operator|.
-name|GeoPointFieldType
+name|LegacyGeoPointFieldType
 name|fieldType
 parameter_list|)
 block|{
@@ -345,7 +345,7 @@ name|bottomRight
 parameter_list|,
 name|LegacyGeoPointFieldMapper
 operator|.
-name|GeoPointFieldType
+name|LegacyGeoPointFieldType
 name|fieldType
 parameter_list|)
 block|{

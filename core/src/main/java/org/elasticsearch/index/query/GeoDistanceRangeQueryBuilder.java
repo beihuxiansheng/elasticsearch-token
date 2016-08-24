@@ -280,7 +280,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
+operator|.
+name|LegacyGeoPointFieldType
 import|;
 end_import
 
@@ -294,7 +296,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|LegacyGeoPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -1928,6 +1930,33 @@ if|if
 condition|(
 name|indexVersionCreated
 operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_alpha6
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryShardException
+argument_list|(
+name|context
+argument_list|,
+literal|"[{}] queries are no longer supported for geo_point field types. "
+operator|+
+literal|"Use geo_distance sort or aggregations"
+argument_list|,
+name|NAME
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|indexVersionCreated
+operator|.
 name|before
 argument_list|(
 name|Version
@@ -1936,19 +1965,13 @@ name|V_2_2_0
 argument_list|)
 condition|)
 block|{
-name|LegacyGeoPointFieldMapper
-operator|.
-name|GeoPointFieldType
+name|LegacyGeoPointFieldType
 name|geoFieldType
 init|=
 operator|(
-operator|(
-name|LegacyGeoPointFieldMapper
-operator|.
-name|GeoPointFieldType
+name|LegacyGeoPointFieldType
 operator|)
 name|fieldType
-operator|)
 decl_stmt|;
 name|IndexGeoPointFieldData
 name|indexFieldData

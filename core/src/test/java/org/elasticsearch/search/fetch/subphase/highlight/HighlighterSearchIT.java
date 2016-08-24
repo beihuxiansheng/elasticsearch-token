@@ -22958,13 +22958,6 @@ argument_list|,
 literal|"geo_point"
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"geohash"
-argument_list|,
-literal|true
-argument_list|)
-operator|.
 name|endObject
 argument_list|()
 operator|.

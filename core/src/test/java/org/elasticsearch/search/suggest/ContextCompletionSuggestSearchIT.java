@@ -52,6 +52,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|index
@@ -71,6 +81,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
 import|;
 end_import
 
@@ -307,6 +331,18 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
 import|;
 end_import
 
@@ -5027,6 +5063,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//        Version version = VersionUtils.randomVersionBetween(random(), Version.V_2_0_0, Version.V_5_0_0_alpha5);
+comment|//        Settings settings = Settings.builder().put(IndexMetaData.SETTING_VERSION_CREATED, version).build();
 name|XContentBuilder
 name|mapping
 init|=

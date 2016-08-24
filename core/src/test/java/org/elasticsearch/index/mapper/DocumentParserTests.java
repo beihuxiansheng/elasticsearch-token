@@ -2718,6 +2718,13 @@ argument_list|,
 literal|"geo_point"
 argument_list|)
 operator|.
+name|field
+argument_list|(
+literal|"doc_values"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|endObject
 argument_list|()
 operator|.
@@ -3487,6 +3494,13 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"geo_point"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"doc_values"
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|endObject
