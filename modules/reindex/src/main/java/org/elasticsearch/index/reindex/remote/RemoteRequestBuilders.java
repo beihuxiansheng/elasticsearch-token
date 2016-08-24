@@ -683,6 +683,9 @@ operator|.
 name|storedFields
 argument_list|()
 operator|.
+name|fieldNames
+argument_list|()
+operator|.
 name|isEmpty
 argument_list|()
 condition|)
@@ -699,6 +702,9 @@ name|source
 argument_list|()
 operator|.
 name|storedFields
+argument_list|()
+operator|.
+name|fieldNames
 argument_list|()
 operator|.
 name|get
@@ -724,6 +730,9 @@ operator|.
 name|storedFields
 argument_list|()
 operator|.
+name|fieldNames
+argument_list|()
+operator|.
 name|size
 argument_list|()
 condition|;
@@ -746,6 +755,9 @@ name|source
 argument_list|()
 operator|.
 name|storedFields
+argument_list|()
+operator|.
+name|fieldNames
 argument_list|()
 operator|.
 name|get
