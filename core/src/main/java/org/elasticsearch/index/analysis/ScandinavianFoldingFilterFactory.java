@@ -95,6 +95,8 @@ class|class
 name|ScandinavianFoldingFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 DECL|method|ScandinavianFoldingFilterFactory
 specifier|public
@@ -140,6 +142,18 @@ name|ScandinavianFoldingFilter
 argument_list|(
 name|tokenStream
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}
