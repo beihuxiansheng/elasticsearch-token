@@ -58,25 +58,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene54
+name|lucene62
 operator|.
-name|Lucene54Codec
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene60
-operator|.
-name|Lucene60Codec
+name|Lucene62Codec
 import|;
 end_import
 
@@ -239,7 +223,7 @@ argument_list|(
 name|DEFAULT_CODEC
 argument_list|,
 operator|new
-name|Lucene60Codec
+name|Lucene62Codec
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -250,7 +234,7 @@ argument_list|(
 name|BEST_COMPRESSION_CODEC
 argument_list|,
 operator|new
-name|Lucene60Codec
+name|Lucene62Codec
 argument_list|(
 name|Mode
 operator|.

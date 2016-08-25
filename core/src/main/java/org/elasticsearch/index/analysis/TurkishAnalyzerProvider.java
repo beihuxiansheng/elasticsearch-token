@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|tr
-operator|.
-name|TurkishAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|tr
 operator|.
-name|CharArraySet
+name|TurkishAnalyzer
 import|;
 end_import
 

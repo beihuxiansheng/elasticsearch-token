@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|hi
-operator|.
-name|HindiAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|hi
 operator|.
-name|CharArraySet
+name|HindiAnalyzer
 import|;
 end_import
 

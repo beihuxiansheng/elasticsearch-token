@@ -26,8 +26,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
-operator|.
 name|StopwordAnalyzerBase
 import|;
 end_import

@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|fi
-operator|.
-name|FinnishAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|fi
 operator|.
-name|CharArraySet
+name|FinnishAnalyzer
 import|;
 end_import
 

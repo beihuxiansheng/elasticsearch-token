@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|bg
-operator|.
-name|BulgarianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|bg
 operator|.
-name|CharArraySet
+name|BulgarianAnalyzer
 import|;
 end_import
 

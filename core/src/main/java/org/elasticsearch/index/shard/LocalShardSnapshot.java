@@ -440,7 +440,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|renameFile
+name|rename
 parameter_list|(
 name|String
 name|source

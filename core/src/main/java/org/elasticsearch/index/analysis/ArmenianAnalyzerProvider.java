@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|hy
-operator|.
-name|ArmenianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|hy
 operator|.
-name|CharArraySet
+name|ArmenianAnalyzer
 import|;
 end_import
 

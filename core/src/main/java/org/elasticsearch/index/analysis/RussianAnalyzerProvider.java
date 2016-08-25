@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ru
-operator|.
-name|RussianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|ru
 operator|.
-name|CharArraySet
+name|RussianAnalyzer
 import|;
 end_import
 

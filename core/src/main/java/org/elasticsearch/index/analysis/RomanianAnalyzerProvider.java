@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ro
-operator|.
-name|RomanianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|ro
 operator|.
-name|CharArraySet
+name|RomanianAnalyzer
 import|;
 end_import
 

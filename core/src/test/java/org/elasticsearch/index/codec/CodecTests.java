@@ -122,9 +122,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene60
+name|lucene62
 operator|.
-name|Lucene60Codec
+name|Lucene62Codec
 import|;
 end_import
 
@@ -448,7 +448,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|Lucene60Codec
+name|Lucene62Codec
 operator|.
 name|class
 argument_list|)

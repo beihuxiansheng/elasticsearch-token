@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ca
-operator|.
-name|CatalanAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|ca
 operator|.
-name|CharArraySet
+name|CatalanAnalyzer
 import|;
 end_import
 

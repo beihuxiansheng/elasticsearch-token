@@ -565,13 +565,15 @@ name|env
 argument_list|)
 expr_stmt|;
 block|}
-comment|// cjkAsWords is not configurable yet.
+comment|// cjkAsWords nor myanmarAsWords are not configurable yet.
 name|ICUTokenizerConfig
 name|config
 init|=
 operator|new
 name|DefaultICUTokenizerConfig
 argument_list|(
+literal|true
+argument_list|,
 literal|true
 argument_list|)
 block|{
