@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ga
-operator|.
-name|IrishAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|ga
 operator|.
-name|CharArraySet
+name|IrishAnalyzer
 import|;
 end_import
 

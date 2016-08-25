@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|no
-operator|.
-name|NorwegianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|no
 operator|.
-name|CharArraySet
+name|NorwegianAnalyzer
 import|;
 end_import
 

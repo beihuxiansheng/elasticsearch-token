@@ -2013,6 +2013,15 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"minhash"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
+operator|.
 name|immutableMap
 argument_list|()
 decl_stmt|;

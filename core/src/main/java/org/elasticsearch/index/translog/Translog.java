@@ -5889,7 +5889,7 @@ annotation|@
 name|Override
 DECL|method|prepareCommit
 specifier|public
-name|void
+name|long
 name|prepareCommit
 parameter_list|()
 throws|throws
@@ -6063,12 +6063,15 @@ throw|throw
 name|e
 throw|;
 block|}
+return|return
+literal|0L
+return|;
 block|}
 annotation|@
 name|Override
 DECL|method|commit
 specifier|public
-name|void
+name|long
 name|commit
 parameter_list|()
 throws|throws
@@ -6150,6 +6153,9 @@ name|trimUnreferencedReaders
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+literal|0
+return|;
 block|}
 DECL|method|trimUnreferencedReaders
 name|void

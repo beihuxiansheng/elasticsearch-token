@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|da
-operator|.
-name|DanishAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|da
 operator|.
-name|CharArraySet
+name|DanishAnalyzer
 import|;
 end_import
 

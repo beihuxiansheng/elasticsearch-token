@@ -1250,13 +1250,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// we do this on the index level
-name|w
-operator|.
-name|setPreventDoubleWrite
-argument_list|(
-name|preventDoubleWrite
-argument_list|)
-expr_stmt|;
 comment|// TODO: make this test robust to virus scanner
 name|w
 operator|.

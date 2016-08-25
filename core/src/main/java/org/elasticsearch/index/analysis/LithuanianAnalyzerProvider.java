@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|lt
-operator|.
-name|LithuanianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|lt
 operator|.
-name|CharArraySet
+name|LithuanianAnalyzer
 import|;
 end_import
 

@@ -869,7 +869,7 @@ specifier|final
 name|String
 name|LATEST_CODEC
 init|=
-literal|"Lucene60"
+literal|"Lucene62"
 decl_stmt|;
 static|static
 block|{

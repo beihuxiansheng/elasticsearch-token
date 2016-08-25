@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|gl
-operator|.
-name|GalicianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|gl
 operator|.
-name|CharArraySet
+name|GalicianAnalyzer
 import|;
 end_import
 
