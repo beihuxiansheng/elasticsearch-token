@@ -1794,18 +1794,6 @@ name|updateAllTypes
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|isGenerated
-specifier|public
-name|boolean
-name|isGenerated
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 end_class
 

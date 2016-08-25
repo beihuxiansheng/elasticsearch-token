@@ -493,6 +493,19 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|addMapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"field1"
+argument_list|,
+literal|"type=keyword,store=true"
+argument_list|,
+literal|"field2"
+argument_list|,
+literal|"type=keyword,store=true"
+argument_list|)
+operator|.
 name|setSettings
 argument_list|(
 name|Settings
@@ -1042,7 +1055,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> realtime fetch of field (requires fetching parsing source)"
+literal|"--> realtime fetch of field"
 argument_list|)
 expr_stmt|;
 name|response
@@ -1148,7 +1161,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> realtime fetch of field& source (requires fetching parsing source)"
+literal|"--> realtime fetch of field& source"
 argument_list|)
 expr_stmt|;
 name|response
@@ -2043,6 +2056,15 @@ name|Alias
 argument_list|(
 literal|"alias"
 argument_list|)
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"field"
+argument_list|,
+literal|"type=keyword,store=true"
 argument_list|)
 operator|.
 name|setSettings
@@ -6446,6 +6468,10 @@ argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"type=parent"
+argument_list|,
+literal|"field1"
+argument_list|,
+literal|"type=keyword,store=true"
 argument_list|)
 operator|.
 name|addAlias

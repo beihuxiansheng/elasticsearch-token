@@ -127,6 +127,15 @@ argument_list|(
 literal|"test1"
 argument_list|)
 operator|.
+name|mapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"type=keyword,store=true"
+argument_list|)
+operator|.
 name|alias
 argument_list|(
 operator|new

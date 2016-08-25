@@ -959,18 +959,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|isGenerated
-specifier|public
-name|boolean
-name|isGenerated
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 end_class
 
