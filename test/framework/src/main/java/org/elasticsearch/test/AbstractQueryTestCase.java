@@ -1278,6 +1278,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -1298,7 +1308,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedList
 import|;
 end_import
 
@@ -2696,10 +2726,17 @@ condition|(
 literal|true
 condition|)
 block|{
-name|boolean
-name|expectedException
+comment|// Track the objects hierarchy
+name|Deque
+argument_list|<
+name|String
+argument_list|>
+name|hierarchy
 init|=
-literal|true
+operator|new
+name|LinkedList
+argument_list|<>
+argument_list|()
 decl_stmt|;
 name|BytesStreamOutput
 name|out
@@ -2783,24 +2820,20 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-name|hasArbitraryContent
+name|objectIndex
+operator|<=
+name|mutation
 condition|)
 block|{
-comment|// The query has one or more fields that hold arbitrary content. If the current
-comment|// field is one of those, no exception is expected when parsing the mutated query.
-name|expectedException
-operator|=
-name|arbitraryMarkers
+name|hierarchy
 operator|.
-name|contains
+name|push
 argument_list|(
 name|parser
 operator|.
 name|currentName
 argument_list|()
 argument_list|)
-operator|==
-literal|false
 expr_stmt|;
 block|}
 if|if
@@ -2864,19 +2897,57 @@ expr_stmt|;
 if|if
 condition|(
 name|objectIndex
-operator|==
+operator|<
 name|mutation
 condition|)
 block|{
-comment|// We reached the expected insertion point, so next time we'll try one level deeper
+comment|// We did not reached the insertion point, there's no more mutation to try
+break|break;
+block|}
+else|else
+block|{
+comment|// We reached the expected insertion point, so next time we'll try one step further
 name|mutation
 operator|++
 expr_stmt|;
 block|}
-else|else
+block|}
+name|boolean
+name|expectException
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|hasArbitraryContent
+condition|)
 block|{
-comment|// We did not reached the insertion point, there's no more mutation to try
+comment|// The query has one or more fields that hold arbitrary content. If the current
+comment|// field is one (or a child) of those, no exception is expected when parsing the mutated query.
+for|for
+control|(
+name|String
+name|marker
+range|:
+name|arbitraryMarkers
+control|)
+block|{
+if|if
+condition|(
+name|hierarchy
+operator|.
+name|contains
+argument_list|(
+name|marker
+argument_list|)
+condition|)
+block|{
+name|expectException
+operator|=
+literal|false
+expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 name|results
@@ -2895,7 +2966,7 @@ operator|.
 name|utf8ToString
 argument_list|()
 argument_list|,
-name|expectedException
+name|expectException
 argument_list|)
 argument_list|)
 expr_stmt|;

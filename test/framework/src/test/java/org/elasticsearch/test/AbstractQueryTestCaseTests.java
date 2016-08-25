@@ -309,6 +309,82 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|alterations
+operator|=
+name|alterateQueries
+argument_list|(
+name|singleton
+argument_list|(
+literal|"{\"function_score\":"
+operator|+
+literal|"{\"query\": {\"term\":{\"foo\": \"bar\"}}, \"script_score\": {\"script\":\"a + 1\", \"params\": {\"a\":0}}}}"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertAlterations
+argument_list|(
+name|alterations
+argument_list|,
+name|allOf
+argument_list|(
+name|hasEntry
+argument_list|(
+literal|"{\"newField\":{\"function_score\":{\"query\":{\"term\":{\"foo\":\"bar\"}},\"script_score\":{\"script\":\"a + "
+operator|+
+literal|"1\",\"params\":{\"a\":0}}}}}"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
+name|hasEntry
+argument_list|(
+literal|"{\"function_score\":{\"newField\":{\"query\":{\"term\":{\"foo\":\"bar\"}},\"script_score\":{\"script\":\"a + "
+operator|+
+literal|"1\",\"params\":{\"a\":0}}}}}"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
+name|hasEntry
+argument_list|(
+literal|"{\"function_score\":{\"query\":{\"newField\":{\"term\":{\"foo\":\"bar\"}}},\"script_score\":{\"script\":\"a + "
+operator|+
+literal|"1\",\"params\":{\"a\":0}}}}"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
+name|hasEntry
+argument_list|(
+literal|"{\"function_score\":{\"query\":{\"term\":{\"newField\":{\"foo\":\"bar\"}}},\"script_score\":{\"script\":\"a + "
+operator|+
+literal|"1\",\"params\":{\"a\":0}}}}"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
+name|hasEntry
+argument_list|(
+literal|"{\"function_score\":{\"query\":{\"term\":{\"foo\":\"bar\"}},\"script_score\":{\"newField\":{\"script\":\"a + "
+operator|+
+literal|"1\",\"params\":{\"a\":0}}}}}"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
+name|hasEntry
+argument_list|(
+literal|"{\"function_score\":{\"query\":{\"term\":{\"foo\":\"bar\"}},\"script_score\":{\"script\":\"a + 1\","
+operator|+
+literal|"\"params\":{\"newField\":{\"a\":0}}}}}"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testAlterateQueriesWithArbitraryContent
 specifier|public
