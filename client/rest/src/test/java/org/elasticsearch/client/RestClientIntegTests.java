@@ -1588,7 +1588,7 @@ argument_list|)
 decl_stmt|;
 name|restClient
 operator|.
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|method
 argument_list|,

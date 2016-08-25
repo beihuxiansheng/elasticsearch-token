@@ -966,7 +966,7 @@ block|{
 comment|// Need to throw out response....
 name|client
 operator|.
-name|performRequest
+name|performRequestAsync
 argument_list|(
 literal|"DELETE"
 argument_list|,
@@ -1124,7 +1124,7 @@ name|Exception
 block|{
 name|client
 operator|.
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|method
 argument_list|,
