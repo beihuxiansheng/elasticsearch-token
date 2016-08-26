@@ -3944,7 +3944,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 literal|0
 argument_list|,
@@ -4004,7 +4004,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 literal|0
 argument_list|,

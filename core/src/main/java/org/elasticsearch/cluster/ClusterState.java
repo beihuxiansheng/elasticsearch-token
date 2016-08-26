@@ -1604,7 +1604,7 @@ name|append
 argument_list|(
 name|indexMetaData
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|shard
 argument_list|)
@@ -2909,7 +2909,7 @@ name|startObject
 argument_list|(
 name|IndexMetaData
 operator|.
-name|KEY_ACTIVE_ALLOCATIONS
+name|KEY_IN_SYNC_ALLOCATIONS
 argument_list|)
 expr_stmt|;
 for|for
@@ -2925,7 +2925,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|getActiveAllocationIds
+name|getInSyncAllocationIds
 argument_list|()
 control|)
 block|{

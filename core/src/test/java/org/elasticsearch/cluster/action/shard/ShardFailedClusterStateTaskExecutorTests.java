@@ -978,6 +978,14 @@ operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
+parameter_list|,
+name|List
+argument_list|<
+name|FailedRerouteAllocation
+operator|.
+name|StaleShard
+argument_list|>
+name|staleShards
 parameter_list|)
 block|{
 throw|throw

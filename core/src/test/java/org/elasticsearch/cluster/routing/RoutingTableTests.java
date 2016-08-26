@@ -3250,7 +3250,7 @@ argument_list|)
 decl_stmt|;
 name|imdBuilder
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 name|shardRouting
 operator|.

@@ -33,6 +33,9 @@ name|shardInitialized
 parameter_list|(
 name|ShardRouting
 name|unassignedShard
+parameter_list|,
+name|ShardRouting
+name|initializedShard
 parameter_list|)
 function_decl|;
 comment|/**      * Called when an initializing shard is started.      */
@@ -138,6 +141,9 @@ name|shardInitialized
 parameter_list|(
 name|ShardRouting
 name|unassignedShard
+parameter_list|,
+name|ShardRouting
+name|initializedShard
 parameter_list|)
 block|{          }
 annotation|@
@@ -282,6 +288,9 @@ name|shardInitialized
 parameter_list|(
 name|ShardRouting
 name|unassignedShard
+parameter_list|,
+name|ShardRouting
+name|initializedShard
 parameter_list|)
 block|{
 for|for
@@ -297,6 +306,8 @@ operator|.
 name|shardInitialized
 argument_list|(
 name|unassignedShard
+argument_list|,
+name|initializedShard
 argument_list|)
 expr_stmt|;
 block|}

@@ -1041,7 +1041,10 @@ DECL|method|updateMetaDataWithRoutingChanges
 specifier|public
 name|MetaData
 name|updateMetaDataWithRoutingChanges
-parameter_list|()
+parameter_list|(
+name|RoutingTable
+name|newRoutingTable
+parameter_list|)
 block|{
 return|return
 name|indexMetaDataUpdater
@@ -1049,6 +1052,8 @@ operator|.
 name|applyChanges
 argument_list|(
 name|metaData
+argument_list|,
+name|newRoutingTable
 argument_list|)
 return|;
 block|}

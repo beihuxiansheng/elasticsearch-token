@@ -889,7 +889,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|id
 argument_list|()

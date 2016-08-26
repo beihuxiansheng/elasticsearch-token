@@ -2269,6 +2269,8 @@ operator|.
 name|shardInitialized
 argument_list|(
 name|unassignedShard
+argument_list|,
+name|initializedShard
 argument_list|)
 expr_stmt|;
 return|return

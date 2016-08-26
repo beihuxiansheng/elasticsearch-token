@@ -2163,6 +2163,17 @@ operator|.
 name|remoteShardFailed
 argument_list|(
 name|failedShard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|failedShard
+operator|.
+name|allocationId
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|primaryTerm
 operator|+

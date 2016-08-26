@@ -2460,7 +2460,7 @@ condition|)
 block|{
 name|idxMetaWithAllocationIds
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 name|i
 argument_list|,
@@ -3033,7 +3033,7 @@ control|)
 block|{
 name|idxMetaBuilder
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 name|entry
 operator|.
@@ -3459,7 +3459,7 @@ control|)
 block|{
 name|idxMetaBuilder
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 name|entry
 operator|.
@@ -4063,7 +4063,7 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|shardRouting
 operator|.

@@ -723,7 +723,7 @@ name|lastActiveAllocationIds
 init|=
 name|indexMetaData
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|shard
 operator|.

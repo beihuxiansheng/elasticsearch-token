@@ -1760,7 +1760,7 @@ argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|shard
 operator|.

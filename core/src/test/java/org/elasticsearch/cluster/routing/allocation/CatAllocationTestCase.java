@@ -738,7 +738,7 @@ name|allocationIds
 init|=
 name|idxMetaBuilder
 operator|.
-name|getActiveAllocationIds
+name|getInSyncAllocationIds
 argument_list|(
 name|shardRouting
 operator|.
@@ -788,7 +788,7 @@ argument_list|)
 expr_stmt|;
 name|idxMetaBuilder
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 name|shardRouting
 operator|.

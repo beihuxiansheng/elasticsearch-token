@@ -1043,15 +1043,18 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Send a shard failed request to the master node to update the cluster state with the failure of a shard on another node.      *      * @param shardRouting       the shard to fail      * @param primaryTerm        the primary term associated with the primary shard that is failing the shard.      * @param message            the reason for the failure      * @param failure            the underlying cause of the failure      * @param listener           callback upon completion of the request      */
+comment|/**      * Send a shard failed request to the master node to update the cluster state with the failure of a shard on another node. This means      * that the shard should be failed because a write made it into the primary but was not replicated to this shard copy. If the shard      * does not exist anymore but still has an entry in the in-sync set, remove its allocation id from the in-sync set.      *      * @param shardId            shard id of the shard to fail      * @param allocationId       allocation id of the shard to fail      * @param primaryTerm        the primary term associated with the primary shard that is failing the shard. Must be strictly positive.      * @param message            the reason for the failure      * @param failure            the underlying cause of the failure      * @param listener           callback upon completion of the request      */
 DECL|method|remoteShardFailed
 specifier|public
 name|void
 name|remoteShardFailed
 parameter_list|(
 specifier|final
-name|ShardRouting
-name|shardRouting
+name|ShardId
+name|shardId
+parameter_list|,
+name|String
+name|allocationId
 parameter_list|,
 name|long
 name|primaryTerm
@@ -1079,7 +1082,9 @@ literal|"primary term should be strictly positive"
 assert|;
 name|shardFailed
 argument_list|(
-name|shardRouting
+name|shardId
+argument_list|,
+name|allocationId
 argument_list|,
 name|primaryTerm
 argument_list|,
@@ -1118,6 +1123,17 @@ block|{
 name|shardFailed
 argument_list|(
 name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shardRouting
+operator|.
+name|allocationId
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 literal|0L
 argument_list|,
@@ -1135,8 +1151,11 @@ name|void
 name|shardFailed
 parameter_list|(
 specifier|final
-name|ShardRouting
-name|shardRouting
+name|ShardId
+name|shardId
+parameter_list|,
+name|String
+name|allocationId
 parameter_list|,
 name|long
 name|primaryTerm
@@ -1179,18 +1198,9 @@ init|=
 operator|new
 name|ShardEntry
 argument_list|(
-name|shardRouting
-operator|.
 name|shardId
-argument_list|()
 argument_list|,
-name|shardRouting
-operator|.
 name|allocationId
-argument_list|()
-operator|.
-name|getId
-argument_list|()
 argument_list|,
 name|primaryTerm
 argument_list|,
@@ -1776,18 +1786,19 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Set
+name|List
 argument_list|<
-name|ShardRouting
+name|FailedRerouteAllocation
+operator|.
+name|StaleShard
 argument_list|>
-name|seenShardRoutings
+name|staleShardsToBeApplied
 init|=
 operator|new
-name|HashSet
+name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// to prevent duplicates
 for|for
 control|(
 name|ShardEntry
@@ -1821,7 +1832,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// tasks that correspond to non-existent shards are marked as successful
+comment|// tasks that correspond to non-existent indices are marked as successful
 name|logger
 operator|.
 name|debug
@@ -1852,7 +1863,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// non-local requests
+comment|// The primary term is 0 if the shard failed itself. It is> 0 if a write was done on a primary but was failed to be
+comment|// replicated to the shard copy with the provided allocation id. In case where the shard failed itself, it's ok to just
+comment|// remove the corresponding routing entry from the routing table. In case where a write could not be replicated,
+comment|// however, it is important to ensure that the shard copy with the missing write is considered as stale from that point
+comment|// on, which is implemented by removing the allocation id of the shard copy from the in-sync allocations set.
+comment|// We check here that the primary to which the write happened was not already failed in an earlier cluster state update.
+comment|// This prevents situations where a new primary has already been selected and replication failures from an old stale
+comment|// primary unnecessarily fail currently active shards.
 if|if
 condition|(
 name|task
@@ -1992,6 +2010,91 @@ operator|==
 literal|null
 condition|)
 block|{
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|inSyncAllocationIds
+init|=
+name|indexMetaData
+operator|.
+name|inSyncAllocationIds
+argument_list|(
+name|task
+operator|.
+name|shardId
+operator|.
+name|id
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// mark shard copies without routing entries that are in in-sync allocations set only as stale if the reason why
+comment|// they were failed is because a write made it into the primary but not to this copy (which corresponds to
+comment|// the check "primaryTerm> 0").
+if|if
+condition|(
+name|task
+operator|.
+name|primaryTerm
+operator|>
+literal|0
+operator|&&
+name|inSyncAllocationIds
+operator|.
+name|contains
+argument_list|(
+name|task
+operator|.
+name|allocationId
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"{} marking shard {} as stale (shard failed task: [{}])"
+argument_list|,
+name|task
+operator|.
+name|shardId
+argument_list|,
+name|task
+operator|.
+name|allocationId
+argument_list|,
+name|task
+argument_list|)
+expr_stmt|;
+name|tasksToBeApplied
+operator|.
+name|add
+argument_list|(
+name|task
+argument_list|)
+expr_stmt|;
+name|staleShardsToBeApplied
+operator|.
+name|add
+argument_list|(
+operator|new
+name|FailedRerouteAllocation
+operator|.
+name|StaleShard
+argument_list|(
+name|task
+operator|.
+name|shardId
+argument_list|,
+name|task
+operator|.
+name|allocationId
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// tasks that correspond to non-existent shards are marked as successful
 name|logger
 operator|.
@@ -2014,44 +2117,10 @@ name|task
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// remove duplicate actions as allocation service expects a clean list without duplicates
-if|if
-condition|(
-name|seenShardRoutings
-operator|.
-name|contains
-argument_list|(
-name|matched
-argument_list|)
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"{} ignoring shard failed task [{}] (already scheduled to fail {})"
-argument_list|,
-name|task
-operator|.
-name|shardId
-argument_list|,
-name|task
-argument_list|,
-name|matched
-argument_list|)
-expr_stmt|;
-name|tasksToBeApplied
-operator|.
-name|add
-argument_list|(
-name|task
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
+comment|// failing a shard also possibly marks it as stale (see IndexMetaDataUpdater)
 name|logger
 operator|.
 name|debug
@@ -2095,14 +2164,6 @@ name|failure
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|seenShardRoutings
-operator|.
-name|add
-argument_list|(
-name|matched
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -2111,8 +2172,13 @@ name|tasksToBeApplied
 operator|.
 name|size
 argument_list|()
-operator|>=
+operator|==
 name|shardRoutingsToBeApplied
+operator|.
+name|size
+argument_list|()
+operator|+
+name|staleShardsToBeApplied
 operator|.
 name|size
 argument_list|()
@@ -2134,6 +2200,8 @@ argument_list|(
 name|currentState
 argument_list|,
 name|shardRoutingsToBeApplied
+argument_list|,
+name|staleShardsToBeApplied
 argument_list|)
 decl_stmt|;
 if|if
@@ -2225,6 +2293,14 @@ operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
+parameter_list|,
+name|List
+argument_list|<
+name|FailedRerouteAllocation
+operator|.
+name|StaleShard
+argument_list|>
+name|staleShards
 parameter_list|)
 block|{
 return|return
@@ -2235,6 +2311,8 @@ argument_list|(
 name|currentState
 argument_list|,
 name|failedShards
+argument_list|,
+name|staleShards
 argument_list|)
 return|;
 block|}

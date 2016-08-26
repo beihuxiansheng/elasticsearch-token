@@ -718,7 +718,7 @@ argument_list|()
 operator|&&
 name|indexMetaData
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|shardRouting
 operator|.
@@ -748,13 +748,13 @@ literal|"active shard routing "
 operator|+
 name|shardRouting
 operator|+
-literal|" has no corresponding entry in the "
+literal|" has no corresponding entry in the in-sync "
 operator|+
-literal|"in-sync allocation set "
+literal|"allocation set "
 operator|+
 name|indexMetaData
 operator|.
-name|activeAllocationIds
+name|inSyncAllocationIds
 argument_list|(
 name|shardRouting
 operator|.
