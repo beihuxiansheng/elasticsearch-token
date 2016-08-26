@@ -865,23 +865,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
-DECL|method|setNoStoredFields
-specifier|public
-name|NoopSearchRequestBuilder
-name|setNoStoredFields
-parameter_list|()
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|noStoredFields
-argument_list|()
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Indicates whether the response should contain the stored _source for every hit      */
 DECL|method|setFetchSource
 specifier|public
