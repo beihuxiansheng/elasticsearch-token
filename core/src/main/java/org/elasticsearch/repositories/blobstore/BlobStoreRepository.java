@@ -9244,8 +9244,13 @@ name|inc
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: why does the target file sometimes already exist?  Simon says: I think, this can happen if you fail a shard and
-comment|// it's not cleaned up yet, the restore process tries to reuse files
+comment|// A restore could possibly overwrite existing segment files due to any number of reasons,
+comment|// for example if the primary was snapshotted and then the replica was promoted to primary
+comment|// with different segment files. In this case, the goal of the restore is to forget about
+comment|// what is currently in the index and just restore the state to whatever is in the snapshot.
+comment|// Hence, we are deleting files here if they already exist before writing to them. A better
+comment|// long term solution would be to use recovery for restoring, so we have more robust restoring
+comment|// of files (copying to temporary files first and then moving them over).
 name|IOUtils
 operator|.
 name|deleteFilesIgnoringExceptions
