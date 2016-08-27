@@ -871,6 +871,8 @@ index|]
 argument_list|,
 name|httpHosts
 argument_list|,
+literal|null
+argument_list|,
 name|failureListener
 argument_list|)
 expr_stmt|;

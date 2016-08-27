@@ -1230,6 +1230,8 @@ block|{
 name|httpHost
 block|}
 argument_list|,
+literal|null
+argument_list|,
 name|failureListener
 argument_list|)
 expr_stmt|;
