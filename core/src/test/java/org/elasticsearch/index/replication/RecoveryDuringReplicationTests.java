@@ -124,7 +124,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -439,7 +439,7 @@ parameter_list|,
 name|DiscoveryNode
 name|sourceNode
 parameter_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener

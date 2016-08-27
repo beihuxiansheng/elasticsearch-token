@@ -337,10 +337,10 @@ comment|/**  * The source recovery accepts recovery requests from other peer sha
 end_comment
 
 begin_class
-DECL|class|RecoverySource
+DECL|class|PeerRecoverySourceService
 specifier|public
 class|class
-name|RecoverySource
+name|PeerRecoverySourceService
 extends|extends
 name|AbstractComponent
 implements|implements
@@ -398,9 +398,9 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|RecoverySource
+DECL|method|PeerRecoverySourceService
 specifier|public
-name|RecoverySource
+name|PeerRecoverySourceService
 parameter_list|(
 name|Settings
 name|settings
@@ -629,14 +629,8 @@ if|if
 condition|(
 name|request
 operator|.
-name|recoveryType
+name|isPrimaryRelocation
 argument_list|()
-operator|==
-name|RecoveryState
-operator|.
-name|Type
-operator|.
-name|PRIMARY_RELOCATION
 operator|&&
 operator|(
 name|routingEntry

@@ -513,6 +513,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -1299,6 +1309,30 @@ operator|.
 name|numberOfReplicas
 argument_list|(
 literal|1
+argument_list|)
+operator|.
+name|putInSyncAllocationIds
+argument_list|(
+literal|0
+argument_list|,
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+literal|"asdf"
+argument_list|)
+argument_list|)
+operator|.
+name|putInSyncAllocationIds
+argument_list|(
+literal|1
+argument_list|,
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+literal|"qwertz"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

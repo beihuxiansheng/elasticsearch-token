@@ -427,7 +427,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -482,7 +482,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -538,7 +538,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -620,7 +620,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -701,7 +701,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -758,7 +758,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -937,7 +937,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.

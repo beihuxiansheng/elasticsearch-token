@@ -146,7 +146,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -223,13 +223,13 @@ block|{
 DECL|field|listener
 specifier|static
 specifier|final
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
 init|=
 operator|new
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 argument_list|()
@@ -472,7 +472,7 @@ name|addReplica
 argument_list|()
 argument_list|,
 operator|new
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 argument_list|()
@@ -1183,7 +1183,7 @@ parameter_list|,
 name|IndexShard
 name|indexShard
 parameter_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
@@ -1218,16 +1218,8 @@ name|RecoveryState
 argument_list|(
 name|indexShard
 operator|.
-name|shardId
+name|routingEntry
 argument_list|()
-argument_list|,
-literal|false
-argument_list|,
-name|RecoveryState
-operator|.
-name|Type
-operator|.
-name|REPLICA
 argument_list|,
 name|sourceNode
 argument_list|,

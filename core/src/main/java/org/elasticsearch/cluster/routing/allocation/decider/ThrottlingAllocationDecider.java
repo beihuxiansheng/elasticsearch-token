@@ -30,6 +30,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|RecoverySource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|RoutingNode
 import|;
 end_import
@@ -580,10 +594,17 @@ name|nodeId
 argument_list|()
 argument_list|)
 operator|.
-name|isPeerRecovery
+name|recoverySource
 argument_list|()
-operator|==
-literal|false
+operator|.
+name|getType
+argument_list|()
+operator|!=
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|PEER
 assert|;
 comment|// primary is unassigned, means we are going to do recovery from store, snapshot or local shards
 comment|// count *just the primaries* currently doing recovery on the node and check against primariesInitialRecoveries
@@ -684,8 +705,17 @@ name|nodeId
 argument_list|()
 argument_list|)
 operator|.
-name|isPeerRecovery
+name|recoverySource
 argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|PEER
 assert|;
 comment|// Allocating a shard to this node will increase the incoming recoveries
 name|int

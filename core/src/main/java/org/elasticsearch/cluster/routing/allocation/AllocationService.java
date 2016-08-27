@@ -1451,7 +1451,7 @@ condition|)
 block|{
 name|unassignedIterator
 operator|.
-name|updateUnassignedInfo
+name|updateUnassigned
 argument_list|(
 operator|new
 name|UnassignedInfo
@@ -1493,6 +1493,11 @@ operator|.
 name|getLastAllocationStatus
 argument_list|()
 argument_list|)
+argument_list|,
+name|shardRouting
+operator|.
+name|recoverySource
+argument_list|()
 argument_list|,
 name|allocation
 operator|.

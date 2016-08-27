@@ -545,10 +545,10 @@ comment|/**  * The recovery target handles recoveries of peer shards of the shar
 end_comment
 
 begin_class
-DECL|class|RecoveryTargetService
+DECL|class|PeerRecoveryTargetService
 specifier|public
 class|class
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 extends|extends
 name|AbstractComponent
 implements|implements
@@ -656,9 +656,9 @@ name|onGoingRecoveries
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|RecoveryTargetService
+DECL|method|PeerRecoveryTargetService
 specifier|public
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 parameter_list|(
 name|Settings
 name|settings
@@ -952,12 +952,6 @@ parameter_list|(
 specifier|final
 name|IndexShard
 name|indexShard
-parameter_list|,
-specifier|final
-name|RecoveryState
-operator|.
-name|Type
-name|recoveryType
 parameter_list|,
 specifier|final
 name|DiscoveryNode
@@ -1394,7 +1388,7 @@ operator|.
 name|state
 argument_list|()
 operator|.
-name|getType
+name|getPrimary
 argument_list|()
 argument_list|,
 name|recoveryTarget
@@ -1478,7 +1472,7 @@ operator|.
 name|sourceNode
 argument_list|()
 argument_list|,
-name|RecoverySource
+name|PeerRecoverySourceService
 operator|.
 name|Actions
 operator|.

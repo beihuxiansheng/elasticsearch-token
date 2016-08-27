@@ -981,8 +981,6 @@ literal|"xyz"
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|j
 operator|==
 literal|0

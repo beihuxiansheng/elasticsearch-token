@@ -550,7 +550,7 @@ decl_stmt|;
 DECL|field|listener
 specifier|private
 specifier|final
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
@@ -671,7 +671,7 @@ parameter_list|,
 name|DiscoveryNode
 name|sourceNode
 parameter_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
@@ -715,7 +715,7 @@ parameter_list|,
 name|DiscoveryNode
 name|sourceNode
 parameter_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener

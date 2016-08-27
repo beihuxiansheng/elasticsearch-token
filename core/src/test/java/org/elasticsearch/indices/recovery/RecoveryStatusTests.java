@@ -276,7 +276,7 @@ argument_list|,
 name|node
 argument_list|,
 operator|new
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 argument_list|()

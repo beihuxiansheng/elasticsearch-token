@@ -137,22 +137,6 @@ operator|.
 name|stream
 operator|.
 name|NamedWriteableRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|NamedWriteableRegistry
 operator|.
 name|Entry
 import|;
@@ -628,7 +612,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoverySource
+name|PeerRecoverySourceService
 import|;
 end_import
 
@@ -642,7 +626,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -1631,7 +1615,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|class
 argument_list|)
@@ -1641,7 +1625,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|RecoverySource
+name|PeerRecoverySourceService
 operator|.
 name|class
 argument_list|)

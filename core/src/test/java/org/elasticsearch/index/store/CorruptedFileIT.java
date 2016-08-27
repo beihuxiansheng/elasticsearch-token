@@ -652,7 +652,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -3111,7 +3111,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -3787,7 +3787,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.

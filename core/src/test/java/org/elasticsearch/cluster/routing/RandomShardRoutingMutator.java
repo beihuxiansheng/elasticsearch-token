@@ -151,7 +151,7 @@ name|shardRouting
 operator|=
 name|shardRouting
 operator|.
-name|updateUnassignedInfo
+name|updateUnassigned
 argument_list|(
 operator|new
 name|UnassignedInfo
@@ -164,6 +164,11 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|)
+argument_list|,
+name|shardRouting
+operator|.
+name|recoverySource
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

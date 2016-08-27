@@ -392,7 +392,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoverySource
+name|PeerRecoverySourceService
 import|;
 end_import
 
@@ -4410,7 +4410,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoverySource
+name|PeerRecoverySourceService
 operator|.
 name|Actions
 operator|.

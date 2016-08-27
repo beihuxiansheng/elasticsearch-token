@@ -266,6 +266,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|RecoverySource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|RoutingTable
 import|;
 end_import
@@ -3992,7 +4006,7 @@ name|clusterStates
 return|;
 block|}
 comment|// returns true if the inactive primaries in the index are only due to cluster recovery
-comment|// (not because of allocation failure or previously having allocation ids assigned)
+comment|// (not because of allocation of existing shard or previously having allocation ids assigned)
 DECL|method|primaryInactiveDueToRecovery
 specifier|private
 name|boolean
@@ -4084,24 +4098,24 @@ if|if
 condition|(
 name|primaryShard
 operator|.
-name|unassignedInfo
+name|recoverySource
 argument_list|()
 operator|!=
 literal|null
 operator|&&
 name|primaryShard
 operator|.
-name|unassignedInfo
+name|recoverySource
 argument_list|()
 operator|.
-name|getReason
+name|getType
 argument_list|()
 operator|==
-name|UnassignedInfo
+name|RecoverySource
 operator|.
-name|Reason
+name|Type
 operator|.
-name|ALLOCATION_FAILED
+name|EXISTING_STORE
 condition|)
 block|{
 return|return

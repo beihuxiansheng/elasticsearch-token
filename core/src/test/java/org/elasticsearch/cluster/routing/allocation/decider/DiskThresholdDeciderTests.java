@@ -7439,8 +7439,6 @@ literal|"node1"
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -7460,8 +7458,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|"node1"
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -7647,8 +7643,6 @@ literal|"node1"
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -7669,8 +7663,6 @@ argument_list|,
 literal|"node1"
 argument_list|,
 literal|"node2"
-argument_list|,
-literal|null
 argument_list|,
 literal|true
 argument_list|,
@@ -8608,8 +8600,6 @@ literal|"node2"
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -8629,8 +8619,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|"node2"
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -9216,8 +9204,6 @@ literal|"node2"
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -9238,8 +9224,6 @@ argument_list|,
 literal|"node2"
 argument_list|,
 literal|"node3"
-argument_list|,
-literal|null
 argument_list|,
 literal|true
 argument_list|,

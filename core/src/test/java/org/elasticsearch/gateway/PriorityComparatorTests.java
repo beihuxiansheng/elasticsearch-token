@@ -262,8 +262,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,
@@ -295,8 +293,6 @@ argument_list|(
 literal|"newest"
 argument_list|,
 literal|0
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -565,8 +561,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,
@@ -598,8 +592,6 @@ argument_list|(
 literal|"newest"
 argument_list|,
 literal|0
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1039,8 +1031,6 @@ literal|1
 argument_list|,
 literal|5
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

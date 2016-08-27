@@ -414,7 +414,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -2778,11 +2778,11 @@ literal|null
 argument_list|)
 decl_stmt|;
 specifier|final
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 name|recoveryTargetService
 init|=
 operator|new
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 argument_list|(
 name|Settings
 operator|.

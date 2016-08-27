@@ -228,6 +228,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|request
+operator|.
 name|isPrimaryRelocation
 argument_list|()
 condition|)

@@ -104,7 +104,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RestoreSource
+name|RecoverySource
+operator|.
+name|SnapshotRecoverySource
 import|;
 end_import
 
@@ -3851,7 +3853,7 @@ argument_list|(
 name|indexMetaData
 argument_list|,
 operator|new
-name|RestoreSource
+name|SnapshotRecoverySource
 argument_list|(
 operator|new
 name|Snapshot
@@ -3896,7 +3898,7 @@ argument_list|(
 name|indexMetaData
 argument_list|,
 operator|new
-name|RestoreSource
+name|SnapshotRecoverySource
 argument_list|(
 operator|new
 name|Snapshot

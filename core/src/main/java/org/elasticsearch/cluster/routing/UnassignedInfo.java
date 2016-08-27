@@ -392,6 +392,10 @@ block|,
 comment|/**          * Unassigned as a result of a failed primary while the replica was initializing.          */
 DECL|enum constant|PRIMARY_FAILED
 name|PRIMARY_FAILED
+block|,
+comment|/**          * Unassigned after forcing an empty primary          */
+DECL|enum constant|FORCED_EMPTY_PRIMARY
+name|FORCED_EMPTY_PRIMARY
 block|}
 comment|/**      * Captures the status of an unsuccessful allocation attempt for the shard,      * causing it to remain in the unassigned state.      *      * Note, ordering of the enum is important, make sure to add new values      * at the end and handle version serialization properly.      */
 DECL|enum|AllocationStatus

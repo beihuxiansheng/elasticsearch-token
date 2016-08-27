@@ -211,8 +211,6 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|primary
 argument_list|,
 name|ShardRoutingState
@@ -241,8 +239,6 @@ argument_list|(
 name|node_id
 operator|++
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -284,8 +280,6 @@ argument_list|(
 name|node_id
 operator|++
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 name|primary
 argument_list|,
@@ -374,8 +368,6 @@ operator|.
 name|update
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexMetaData
 argument_list|)
 expr_stmt|;
 name|builder
@@ -419,8 +411,6 @@ operator|.
 name|update
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexMetaData
 argument_list|)
 expr_stmt|;
 name|builder
@@ -611,9 +601,6 @@ name|update
 parameter_list|(
 name|ShardRouting
 name|shardRouting
-parameter_list|,
-name|IndexMetaData
-name|indexMetaData
 parameter_list|)
 block|{
 if|if
@@ -676,8 +663,6 @@ operator|=
 name|getInactivePrimaryHealth
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexMetaData
 argument_list|)
 operator|==
 name|ClusterHealthStatus
