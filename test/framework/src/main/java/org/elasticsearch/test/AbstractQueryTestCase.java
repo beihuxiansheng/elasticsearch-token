@@ -1278,16 +1278,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -1465,18 +1455,6 @@ operator|.
 name|Matchers
 operator|.
 name|not
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
 import|;
 end_import
 
@@ -2873,19 +2851,6 @@ condition|)
 block|{
 comment|// The query has one or more fields that hold arbitrary content. If the current
 comment|// field is one (or a child) of those, no exception is expected when parsing the mutated query.
-name|String
-name|h
-init|=
-name|Arrays
-operator|.
-name|toString
-argument_list|(
-name|levels
-operator|.
-name|toArray
-argument_list|()
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|String
@@ -2945,15 +2910,6 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Check that the parser consumed all the tokens
-name|assertThat
-argument_list|(
-name|token
-argument_list|,
-name|nullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|objectIndex
@@ -2961,7 +2917,7 @@ operator|<
 name|mutation
 condition|)
 block|{
-comment|// We did not reached the insertion point, there's no more mutation to try
+comment|// We did not reach the insertion point, there's no more mutations to try
 break|break;
 block|}
 else|else
