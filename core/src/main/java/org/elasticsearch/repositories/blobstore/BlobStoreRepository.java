@@ -8927,6 +8927,36 @@ expr_stmt|;
 block|}
 try|try
 block|{
+comment|// first, delete pre-existing files in the store that have the same name but are
+comment|// different (i.e. different length/checksum) from those being restored in the snapshot
+for|for
+control|(
+specifier|final
+name|StoreFileMetaData
+name|storeFileMetaData
+range|:
+name|diff
+operator|.
+name|different
+control|)
+block|{
+name|IOUtils
+operator|.
+name|deleteFiles
+argument_list|(
+name|store
+operator|.
+name|directory
+argument_list|()
+argument_list|,
+name|storeFileMetaData
+operator|.
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// restore the files from the snapshot to the Lucene store
 for|for
 control|(
 specifier|final
@@ -9244,28 +9274,6 @@ name|inc
 argument_list|)
 expr_stmt|;
 block|}
-comment|// A restore could possibly overwrite existing segment files due to any number of reasons,
-comment|// for example if the primary was snapshotted and then the replica was promoted to primary
-comment|// with different segment files. In this case, the goal of the restore is to forget about
-comment|// what is currently in the index and just restore the state to whatever is in the snapshot.
-comment|// Hence, we are deleting files here if they already exist before writing to them. A better
-comment|// long term solution would be to use recovery for restoring, so we have more robust restoring
-comment|// of files (copying to temporary files first and then moving them over).
-name|IOUtils
-operator|.
-name|deleteFilesIgnoringExceptions
-argument_list|(
-name|store
-operator|.
-name|directory
-argument_list|()
-argument_list|,
-name|fileInfo
-operator|.
-name|physicalName
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 init|(
 specifier|final
