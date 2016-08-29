@@ -2111,7 +2111,7 @@ name|this
 operator|.
 name|settings
 argument_list|,
-name|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
+name|TRANSPORT_SERVER_WORKER_THREAD_NAME_PREFIX
 argument_list|,
 name|name
 argument_list|)

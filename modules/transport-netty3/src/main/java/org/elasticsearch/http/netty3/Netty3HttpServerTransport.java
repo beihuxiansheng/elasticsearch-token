@@ -2470,7 +2470,7 @@ name|daemonThreadFactory
 argument_list|(
 name|settings
 argument_list|,
-literal|"http_server_boss"
+name|HTTP_SERVER_BOSS_THREAD_NAME_PREFIX
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2482,7 +2482,7 @@ name|daemonThreadFactory
 argument_list|(
 name|settings
 argument_list|,
-literal|"http_server_worker"
+name|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2507,7 +2507,7 @@ name|daemonThreadFactory
 argument_list|(
 name|settings
 argument_list|,
-literal|"http_server_boss"
+name|HTTP_SERVER_BOSS_THREAD_NAME_PREFIX
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2519,7 +2519,7 @@ name|daemonThreadFactory
 argument_list|(
 name|settings
 argument_list|,
-literal|"http_server_worker"
+name|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
 argument_list|)
 argument_list|)
 argument_list|,
