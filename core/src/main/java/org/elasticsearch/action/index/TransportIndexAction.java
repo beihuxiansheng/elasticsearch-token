@@ -1379,17 +1379,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-specifier|final
-name|boolean
-name|created
-init|=
 name|indexShard
 operator|.
 name|index
 argument_list|(
 name|operation
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// update the version on request so it will happen on the replicas
 specifier|final
 name|long
@@ -1457,7 +1453,10 @@ operator|.
 name|version
 argument_list|()
 argument_list|,
-name|created
+name|operation
+operator|.
+name|isCreated
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
