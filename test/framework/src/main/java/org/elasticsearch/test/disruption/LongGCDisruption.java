@@ -416,6 +416,15 @@ name|stopped
 operator|=
 literal|true
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"stopping thread [{}]"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
 name|thread
 operator|.
 name|suspend
@@ -485,6 +494,15 @@ operator|!
 name|safe
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"resuming thread [{}] as it is in a critical section"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
 name|thread
 operator|.
 name|resume

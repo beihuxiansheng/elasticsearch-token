@@ -550,6 +550,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|monitor
+operator|.
+name|jvm
+operator|.
+name|HotThreads
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -4134,6 +4148,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that emulates a frozen elected master node that unfreezes and pushes his cluster state to other nodes      * that already are following another elected master node. These nodes should reject this cluster state and prevent      * them from following the stale master.      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,cluster.service:TRACE,test.disruption:TRACE"
+argument_list|)
 DECL|method|testStaleMasterNotHijackingMajority
 specifier|public
 name|void
@@ -4546,11 +4565,60 @@ argument_list|,
 name|oldMasterNode
 argument_list|)
 expr_stmt|;
+comment|// the test is periodically tripping on the following assertion. To find out which threads are blocking the nodes from making
+comment|// progress we print a stack dump
+name|boolean
+name|failed
+init|=
+literal|true
+decl_stmt|;
+try|try
+block|{
 name|assertDiscoveryCompleted
 argument_list|(
 name|majoritySide
 argument_list|)
 expr_stmt|;
+name|failed
+operator|=
+literal|false
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|failed
+condition|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"discovery failed to complete, probably caused by a blocked thread: {}"
+argument_list|,
+operator|new
+name|HotThreads
+argument_list|()
+operator|.
+name|busiestThreads
+argument_list|(
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+operator|.
+name|ignoreIdleThreads
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|detect
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// The old master node is frozen, but here we submit a cluster state update task that doesn't get executed,
 comment|// but will be queued and once the old master node un-freezes it gets executed.
 comment|// The old master node will send this update + the cluster state where he is flagged as master to the other
