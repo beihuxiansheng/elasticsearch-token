@@ -557,6 +557,8 @@ argument_list|,
 name|dateDetection
 argument_list|,
 name|numericDetection
+argument_list|,
+name|settings
 argument_list|)
 return|;
 block|}
@@ -1206,6 +1208,9 @@ argument_list|<
 name|Boolean
 argument_list|>
 name|numericDetection
+parameter_list|,
+name|Settings
+name|settings
 parameter_list|)
 block|{
 name|super
@@ -1225,6 +1230,8 @@ argument_list|,
 name|includeInAll
 argument_list|,
 name|mappers
+argument_list|,
+name|settings
 argument_list|)
 expr_stmt|;
 name|this
