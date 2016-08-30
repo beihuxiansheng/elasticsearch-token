@@ -175,6 +175,8 @@ operator|.
 name|hasField
 argument_list|(
 name|field
+argument_list|,
+literal|true
 argument_list|)
 operator|==
 literal|false
@@ -192,6 +194,10 @@ literal|"] doesn't exist"
 argument_list|)
 throw|;
 block|}
+comment|// We fail here if the target field point to an array slot that is out of range.
+comment|// If we didn't do this then we would fail if we set the value in the target_field
+comment|// and then on failure processors would not see that value we tried to rename as we already
+comment|// removed it.
 if|if
 condition|(
 name|document
@@ -199,6 +205,8 @@ operator|.
 name|hasField
 argument_list|(
 name|targetField
+argument_list|,
+literal|true
 argument_list|)
 condition|)
 block|{
@@ -215,7 +223,7 @@ argument_list|)
 throw|;
 block|}
 name|Object
-name|oldValue
+name|value
 init|=
 name|document
 operator|.
@@ -230,20 +238,20 @@ argument_list|)
 decl_stmt|;
 name|document
 operator|.
-name|setFieldValue
+name|removeField
 argument_list|(
-name|targetField
-argument_list|,
-name|oldValue
+name|field
 argument_list|)
 expr_stmt|;
 try|try
 block|{
 name|document
 operator|.
-name|removeField
+name|setFieldValue
 argument_list|(
-name|field
+name|targetField
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -253,12 +261,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|//remove the new field if the removal of the old one failed
+comment|// setting the value back to the original field shouldn't as we just fetched it from that field:
 name|document
 operator|.
-name|removeField
+name|setFieldValue
 argument_list|(
-name|targetField
+name|field
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 throw|throw
