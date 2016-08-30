@@ -48,6 +48,22 @@ name|ParameterizedMessage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|util
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_class
 DECL|class|LoggingRunnable
 specifier|public
@@ -118,6 +134,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+call|(
+name|Supplier
+argument_list|<
+name|?
+argument_list|>
+call|)
+argument_list|()
+operator|->
 operator|new
 name|ParameterizedMessage
 argument_list|(
