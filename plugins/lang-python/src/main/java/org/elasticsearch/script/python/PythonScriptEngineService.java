@@ -391,6 +391,13 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"Python scripts are deprecated.  Use Painless scripts instead."
+argument_list|)
+expr_stmt|;
 comment|// classloader created here
 specifier|final
 name|SecurityManager

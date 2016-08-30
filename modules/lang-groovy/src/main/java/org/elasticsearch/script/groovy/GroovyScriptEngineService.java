@@ -613,6 +613,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -664,6 +678,18 @@ specifier|private
 specifier|final
 name|ClassLoader
 name|loader
+decl_stmt|;
+comment|/**      * Ensures that the deprecation log entry for Groovy is only written on the first Groovy script compiled.      */
+DECL|field|isDeprecationLogged
+specifier|private
+name|AtomicBoolean
+name|isDeprecationLogged
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 DECL|method|GroovyScriptEngineService
 specifier|public
@@ -884,6 +910,26 @@ argument_list|>
 name|params
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isDeprecationLogged
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"Groovy scripts are deprecated.  Use Painless scripts instead."
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Create the script class name
 name|String
 name|className
