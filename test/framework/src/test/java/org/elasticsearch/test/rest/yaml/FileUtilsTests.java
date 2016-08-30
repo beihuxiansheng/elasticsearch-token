@@ -134,6 +134,13 @@ name|FileUtilsTests
 extends|extends
 name|ESTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/20240"
+argument_list|)
 DECL|method|testLoadSingleYamlSuite
 specifier|public
 name|void
@@ -220,6 +227,13 @@ literal|"10_basic.yaml"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/20240"
+argument_list|)
 DECL|method|testLoadMultipleYamlSuites
 specifier|public
 name|void
