@@ -2715,6 +2715,11 @@ operator|.
 name|getScriptService
 argument_list|()
 argument_list|,
+name|analysisModule
+operator|.
+name|getAnalysisRegistry
+argument_list|()
+argument_list|,
 name|pluginsService
 operator|.
 name|filterPlugins
