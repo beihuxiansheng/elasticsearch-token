@@ -893,9 +893,7 @@ name|Pattern
 operator|.
 name|quote
 argument_list|(
-name|TribeIT
-operator|.
-name|SECOND_CLUSTER_NODE_PREFIX
+literal|"node_tribe2"
 argument_list|)
 operator|+
 literal|")"
