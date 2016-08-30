@@ -525,7 +525,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\\[(.*)\\]\\[(.*)\\(.*\\)\\] \\[\\] (.*)"
+literal|"\\[(.*)\\]\\[(.*)\\(.*\\)\\] (.*)"
 argument_list|)
 operator|.
 name|matcher
