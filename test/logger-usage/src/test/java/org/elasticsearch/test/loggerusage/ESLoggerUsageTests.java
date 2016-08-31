@@ -210,6 +210,13 @@ name|ESLoggerUsageTests
 extends|extends
 name|ESTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/20243"
+argument_list|)
 DECL|method|testLoggerUsageChecks
 specifier|public
 name|void
@@ -393,6 +400,13 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/20243"
+argument_list|)
 DECL|method|testLoggerUsageCheckerCompatibilityWithESLogger
 specifier|public
 name|void
