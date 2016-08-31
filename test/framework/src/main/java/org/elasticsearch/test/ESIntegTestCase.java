@@ -5680,9 +5680,9 @@ operator|.
 name|LANGUID
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -5820,9 +5820,9 @@ operator|.
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -6357,9 +6357,9 @@ argument_list|(
 name|indices
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|waitForYellowStatus
@@ -7195,9 +7195,9 @@ argument_list|(
 name|local
 argument_list|)
 operator|.
-name|setWaitForRelocatingShards
+name|setWaitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|get
