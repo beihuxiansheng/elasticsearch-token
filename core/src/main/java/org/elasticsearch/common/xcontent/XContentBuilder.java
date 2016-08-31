@@ -4709,6 +4709,15 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
+assert|assert
+literal|false
+operator|==
+name|value
+operator|instanceof
+name|TimeValue
+operator|:
+literal|"Use timeValueField instead"
+assert|;
 name|Class
 argument_list|<
 name|?
