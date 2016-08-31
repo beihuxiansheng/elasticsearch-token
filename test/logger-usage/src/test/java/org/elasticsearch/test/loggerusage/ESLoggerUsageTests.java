@@ -210,6 +210,13 @@ name|ESLoggerUsageTests
 extends|extends
 name|ESTestCase
 block|{
+comment|// needed to avoid the test suite from failing for having no tests
+DECL|method|testSoThatTestsDoNotFail
+specifier|public
+name|void
+name|testSoThatTestsDoNotFail
+parameter_list|()
+block|{      }
 annotation|@
 name|AwaitsFix
 argument_list|(
