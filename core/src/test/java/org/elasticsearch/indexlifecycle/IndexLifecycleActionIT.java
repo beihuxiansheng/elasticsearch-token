@@ -744,9 +744,9 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -1109,9 +1109,9 @@ argument_list|(
 literal|"3"
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -1561,9 +1561,9 @@ operator|.
 name|waitForGreenStatus
 argument_list|()
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|waitForNodes

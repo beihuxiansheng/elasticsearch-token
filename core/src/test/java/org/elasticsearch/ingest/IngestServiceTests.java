@@ -196,6 +196,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|Collections
 operator|.
 name|singletonList
@@ -280,6 +282,8 @@ operator|.
 name|EMPTY
 argument_list|,
 name|tp
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

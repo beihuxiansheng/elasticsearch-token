@@ -1044,7 +1044,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|DEBUG
+name|WARN
 argument_list|)
 argument_list|)
 expr_stmt|;

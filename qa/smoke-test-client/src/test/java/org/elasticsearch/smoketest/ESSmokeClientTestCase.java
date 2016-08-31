@@ -200,6 +200,18 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
+name|Netty3Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
 name|Netty4Plugin
 import|;
 end_import
@@ -596,7 +608,7 @@ name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|Netty4Plugin
+name|Netty3Plugin
 operator|.
 name|NETTY_TRANSPORT_NAME
 argument_list|)

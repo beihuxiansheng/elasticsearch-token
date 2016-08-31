@@ -514,6 +514,34 @@ name|index
 operator|.
 name|query
 operator|.
+name|HasChildQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|HasParentQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryBuilder
 import|;
 end_import
@@ -1883,7 +1911,7 @@ name|getTokenLocation
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|verifyRangeQueries
+name|verifyQuery
 argument_list|(
 name|queryBuilder
 argument_list|)
@@ -2420,11 +2448,11 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
-comment|/**      * Fails if a range query with a date range is found based on current time      */
-DECL|method|verifyRangeQueries
+comment|/**      * Fails if a percolator contains an unsupported query. The following queries are not supported:      * 1) a range query with a date range based on current time      * 2) a has_child query      * 3) a has_parent query      */
+DECL|method|verifyQuery
 specifier|static
 name|void
-name|verifyRangeQueries
+name|verifyQuery
 parameter_list|(
 name|QueryBuilder
 name|queryBuilder
@@ -2498,13 +2526,45 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Percolator queries containing time range queries based on the "
+literal|"percolator queries containing time range queries based on the "
 operator|+
-literal|"current time are forbidden"
+literal|"current time is unsupported"
 argument_list|)
 throw|;
 block|}
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|queryBuilder
+operator|instanceof
+name|HasChildQueryBuilder
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"the [has_child] query is unsupported inside a percolator query"
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|queryBuilder
+operator|instanceof
+name|HasParentQueryBuilder
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"the [has_parent] query is unsupported inside a percolator query"
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if
@@ -2581,7 +2641,7 @@ range|:
 name|clauses
 control|)
 block|{
-name|verifyRangeQueries
+name|verifyQuery
 argument_list|(
 name|clause
 argument_list|)
@@ -2596,7 +2656,7 @@ operator|instanceof
 name|ConstantScoreQueryBuilder
 condition|)
 block|{
-name|verifyRangeQueries
+name|verifyQuery
 argument_list|(
 operator|(
 operator|(
@@ -2618,7 +2678,7 @@ operator|instanceof
 name|FunctionScoreQueryBuilder
 condition|)
 block|{
-name|verifyRangeQueries
+name|verifyQuery
 argument_list|(
 operator|(
 operator|(
@@ -2640,7 +2700,7 @@ operator|instanceof
 name|BoostingQueryBuilder
 condition|)
 block|{
-name|verifyRangeQueries
+name|verifyQuery
 argument_list|(
 operator|(
 operator|(
@@ -2653,7 +2713,7 @@ name|negativeQuery
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|verifyRangeQueries
+name|verifyQuery
 argument_list|(
 operator|(
 operator|(

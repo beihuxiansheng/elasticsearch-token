@@ -166,20 +166,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -511,18 +497,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
 import|;
 end_import
 
@@ -1532,9 +1506,9 @@ operator|.
 name|LANGUID
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -1805,9 +1779,9 @@ operator|.
 name|LANGUID
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
