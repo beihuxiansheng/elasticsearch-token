@@ -1706,7 +1706,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|lowerTerm
+name|upperTerm
 operator|!=
 literal|null
 condition|)
