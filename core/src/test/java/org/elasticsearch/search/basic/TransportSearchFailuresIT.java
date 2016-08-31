@@ -670,9 +670,9 @@ operator|.
 name|waitForYellowStatus
 argument_list|()
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|waitForActiveShards

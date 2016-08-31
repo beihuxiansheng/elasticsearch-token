@@ -1697,9 +1697,9 @@ literal|"5m"
 argument_list|)
 comment|// sometimes due to cluster rebalacing and random settings default timeout is just not enough.
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.

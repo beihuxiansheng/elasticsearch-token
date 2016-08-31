@@ -1031,9 +1031,9 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setWaitForRelocatingShards
+name|setWaitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|get

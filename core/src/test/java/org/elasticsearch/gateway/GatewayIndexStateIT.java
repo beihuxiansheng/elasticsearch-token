@@ -3558,9 +3558,9 @@ operator|.
 name|LANGUID
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|waitForNodes
@@ -4035,9 +4035,9 @@ operator|.
 name|LANGUID
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|waitForNodes
@@ -4402,9 +4402,9 @@ operator|.
 name|LANGUID
 argument_list|)
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|waitForNodes
