@@ -161,7 +161,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// initialize default for es.logger.level because we will not read the logging.yml
+comment|// initialize default for es.logger.level because we will not read the log4j2.properties
 name|String
 name|loggerLevel
 init|=
