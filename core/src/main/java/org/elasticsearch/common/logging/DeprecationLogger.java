@@ -136,16 +136,6 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
-DECL|method|getLogger
-specifier|public
-name|Logger
-name|getLogger
-parameter_list|()
-block|{
-return|return
-name|logger
-return|;
-block|}
 comment|/**      * The "Warning" Header comes from RFC-7234. As the RFC describes, it's generally used for caching purposes, but it can be      * used for<em>any</em> warning.      *      * https://tools.ietf.org/html/rfc7234#section-5.5      */
 DECL|field|DEPRECATION_HEADER
 specifier|public
