@@ -375,7 +375,7 @@ block|}
 block|}
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 name|formattedMsg
 argument_list|)
@@ -385,7 +385,7 @@ else|else
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 name|msg
 argument_list|,
