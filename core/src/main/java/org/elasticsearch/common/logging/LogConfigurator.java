@@ -464,6 +464,10 @@ parameter_list|(
 specifier|final
 name|Environment
 name|environment
+parameter_list|,
+specifier|final
+name|boolean
+name|resolveConfig
 parameter_list|)
 throws|throws
 name|IOException
@@ -498,6 +502,11 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|resolveConfig
+condition|)
+block|{
 specifier|final
 name|Set
 argument_list|<
@@ -631,6 +640,7 @@ name|configurations
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ESLoggerFactory
@@ -744,7 +754,7 @@ name|SuppressForbidden
 argument_list|(
 name|reason
 operator|=
-literal|"sets system property for logging configuraton"
+literal|"sets system property for logging configuration"
 argument_list|)
 DECL|method|setLogConfigurationSystemProperty
 specifier|private

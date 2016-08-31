@@ -1074,6 +1074,8 @@ operator|.
 name|configure
 argument_list|(
 name|environment
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|checkForCustomConfFile

@@ -327,6 +327,8 @@ operator|.
 name|configure
 argument_list|(
 name|environment
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|{
@@ -614,6 +616,8 @@ operator|.
 name|configure
 argument_list|(
 name|environment
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -781,6 +785,8 @@ operator|.
 name|configure
 argument_list|(
 name|environment
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// args should overwrite whatever is in the config

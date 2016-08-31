@@ -48,6 +48,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|LogConfigurator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -93,7 +107,7 @@ extends|extends
 name|MultiCommand
 block|{
 DECL|method|TranslogToolCli
-specifier|public
+specifier|private
 name|TranslogToolCli
 parameter_list|()
 block|{
@@ -173,20 +187,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"appender.terminal.type"
-argument_list|,
-literal|"terminal"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"rootLogger"
-argument_list|,
-literal|"${logger.level}, terminal"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"logger.level"
 argument_list|,
 name|loggerLevel
@@ -200,7 +200,15 @@ operator|.
 name|DEFAULT
 argument_list|)
 decl_stmt|;
-comment|// LogConfigurator.configure(loggingEnvironment.settings(), false);
+name|LogConfigurator
+operator|.
+name|configure
+argument_list|(
+name|loggingEnvironment
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|exit
 argument_list|(
 operator|new
