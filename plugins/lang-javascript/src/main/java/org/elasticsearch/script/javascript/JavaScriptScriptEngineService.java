@@ -891,7 +891,7 @@ name|deprecationLogger
 operator|.
 name|deprecated
 argument_list|(
-literal|"Javascript scripts are deprecated.  Use Painless scripts instead."
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
 argument_list|)
 expr_stmt|;
 name|Context
@@ -1037,6 +1037,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=
@@ -1167,6 +1174,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=

@@ -679,18 +679,6 @@ specifier|final
 name|ClassLoader
 name|loader
 decl_stmt|;
-comment|/**      * Ensures that the deprecation log entry for Groovy is only written on the first Groovy script compiled.      */
-DECL|field|isDeprecationLogged
-specifier|private
-name|AtomicBoolean
-name|isDeprecationLogged
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 DECL|method|GroovyScriptEngineService
 specifier|public
 name|GroovyScriptEngineService
@@ -702,6 +690,13 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|)
+expr_stmt|;
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[groovy] scripts are deprecated, use [painless] scripts instead"
 argument_list|)
 expr_stmt|;
 comment|// Creates the classloader here in order to isolate Groovy-land code
@@ -910,26 +905,6 @@ argument_list|>
 name|params
 parameter_list|)
 block|{
-if|if
-condition|(
-name|isDeprecationLogged
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
-name|deprecationLogger
-operator|.
-name|deprecated
-argument_list|(
-literal|"Groovy scripts are deprecated.  Use Painless scripts instead."
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Create the script class name
 name|String
 name|className
@@ -1255,6 +1230,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[groovy] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Map
@@ -1358,6 +1340,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[groovy] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|SearchScript

@@ -395,7 +395,7 @@ name|deprecationLogger
 operator|.
 name|deprecated
 argument_list|(
-literal|"Python scripts are deprecated.  Use Painless scripts instead."
+literal|"[python] scripts are deprecated, use [painless] scripts instead."
 argument_list|)
 expr_stmt|;
 comment|// classloader created here
@@ -685,6 +685,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[python] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|PythonExecutableScript
@@ -728,6 +735,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[python] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|SearchScript
