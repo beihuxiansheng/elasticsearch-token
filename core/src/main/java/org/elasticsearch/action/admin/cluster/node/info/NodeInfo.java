@@ -867,9 +867,8 @@ condition|)
 block|{
 name|http
 operator|=
+operator|new
 name|HttpInfo
-operator|.
-name|readHttpInfo
 argument_list|(
 name|in
 argument_list|)
