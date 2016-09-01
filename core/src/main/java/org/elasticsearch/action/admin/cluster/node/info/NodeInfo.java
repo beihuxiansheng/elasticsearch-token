@@ -883,11 +883,6 @@ name|plugins
 operator|=
 operator|new
 name|PluginsAndModules
-argument_list|()
-expr_stmt|;
-name|plugins
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
