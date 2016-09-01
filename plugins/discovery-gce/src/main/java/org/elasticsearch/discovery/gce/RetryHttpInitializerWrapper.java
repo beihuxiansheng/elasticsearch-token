@@ -188,9 +188,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|SpecialPermission
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -200,11 +204,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
+name|SpecialPermission
 import|;
 end_import
 
@@ -293,7 +293,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|ESLoggerFactory

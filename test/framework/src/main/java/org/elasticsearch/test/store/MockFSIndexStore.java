@@ -20,11 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|Nullable
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -36,9 +38,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
+name|Nullable
 import|;
 end_import
 
@@ -97,20 +97,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|SettingsModule
 import|;
 end_import
 
@@ -652,7 +638,7 @@ operator|.
 name|TRUE
 condition|)
 block|{
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers

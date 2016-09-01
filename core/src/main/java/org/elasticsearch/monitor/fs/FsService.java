@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|component
+name|log4j
 operator|.
-name|AbstractComponent
+name|Logger
 import|;
 end_import
 
@@ -38,9 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|component
 operator|.
-name|ESLogger
+name|AbstractComponent
 import|;
 end_import
 
@@ -293,7 +293,7 @@ parameter_list|,
 name|FsInfo
 name|initialValue
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

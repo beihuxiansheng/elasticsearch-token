@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|cluster
+name|logging
 operator|.
-name|node
+name|log4j
 operator|.
-name|DiscoveryNode
+name|Logger
 import|;
 end_import
 
@@ -36,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|logging
+name|node
 operator|.
-name|ESLogger
+name|DiscoveryNode
 import|;
 end_import
 
@@ -96,6 +96,20 @@ name|indices
 operator|.
 name|recovery
 operator|.
+name|PeerRecoveryTargetService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|recovery
+operator|.
 name|RecoveryState
 import|;
 end_import
@@ -111,20 +125,6 @@ operator|.
 name|recovery
 operator|.
 name|RecoveryTarget
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|recovery
-operator|.
-name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -416,7 +416,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|BlockingTarget
@@ -444,7 +444,7 @@ operator|.
 name|RecoveryListener
 name|listener
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

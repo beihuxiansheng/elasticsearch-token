@@ -150,9 +150,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|ElasticsearchException
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -162,13 +166,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
-name|network
-operator|.
-name|Ec2NameResolver
+name|ElasticsearchException
 import|;
 end_import
 
@@ -221,34 +219,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|network
-operator|.
-name|NetworkService
 import|;
 end_import
 
@@ -399,7 +369,7 @@ specifier|static
 name|AWSCredentialsProvider
 name|buildCredentials
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Settings
@@ -494,7 +464,7 @@ specifier|static
 name|ClientConfiguration
 name|buildConfiguration
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Settings
@@ -772,7 +742,7 @@ specifier|static
 name|String
 name|findEndpoint
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Settings

@@ -22,11 +22,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|util
+name|log4j
 operator|.
-name|IOUtils
+name|Logger
 import|;
 end_import
 
@@ -34,13 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|logging
+name|util
 operator|.
-name|ESLogger
+name|IOUtils
 import|;
 end_import
 
@@ -394,7 +394,7 @@ parameter_list|(
 name|Path
 name|directory
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

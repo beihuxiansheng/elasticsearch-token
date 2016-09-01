@@ -94,11 +94,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|util
+name|log4j
 operator|.
-name|Constants
+name|Logger
 import|;
 end_import
 
@@ -106,13 +106,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|logging
+name|util
 operator|.
-name|ESLogger
+name|Constants
 import|;
 end_import
 
@@ -184,7 +184,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
