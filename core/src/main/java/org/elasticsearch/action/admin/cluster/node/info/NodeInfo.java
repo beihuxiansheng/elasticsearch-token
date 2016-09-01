@@ -796,9 +796,8 @@ condition|)
 block|{
 name|process
 operator|=
+operator|new
 name|ProcessInfo
-operator|.
-name|readProcessInfo
 argument_list|(
 name|in
 argument_list|)
