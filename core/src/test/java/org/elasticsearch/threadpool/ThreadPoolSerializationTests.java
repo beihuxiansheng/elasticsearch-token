@@ -262,10 +262,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ThreadPoolSerializationTests
 specifier|public
@@ -275,6 +271,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|output
+specifier|private
+specifier|final
 name|BytesStreamOutput
 name|output
 init|=

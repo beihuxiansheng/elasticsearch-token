@@ -579,7 +579,8 @@ name|readNodeInfo
 argument_list|)
 expr_stmt|;
 block|}
-comment|// checks all properties that are expected to be unchanged. Once we start changing them between versions this method has to be changed as well
+comment|// checks all properties that are expected to be unchanged.
+comment|// Once we start changing them between versions this method has to be changed as well
 DECL|method|assertExpectedUnchanged
 specifier|private
 name|void
@@ -961,6 +962,7 @@ expr_stmt|;
 block|}
 DECL|method|createNodeInfo
 specifier|private
+specifier|static
 name|NodeInfo
 name|createNodeInfo
 parameter_list|()
@@ -1000,28 +1002,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|serviceAttributes
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
-name|serviceAttributes
-operator|.
-name|put
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"attribute"
-argument_list|)
-expr_stmt|;
 name|Settings
 name|settings
 init|=
