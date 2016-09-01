@@ -244,38 +244,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableMap
-import|;
-end_import
-
 begin_comment
 comment|/**  * Node information (static, does not change over time).  */
 end_comment
@@ -811,9 +779,8 @@ condition|)
 block|{
 name|os
 operator|=
+operator|new
 name|OsInfo
-operator|.
-name|readOsInfo
 argument_list|(
 name|in
 argument_list|)

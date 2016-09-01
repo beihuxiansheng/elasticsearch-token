@@ -118,10 +118,6 @@ name|EsExecutors
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|OsService
 specifier|public
@@ -144,6 +140,7 @@ name|info
 decl_stmt|;
 DECL|field|osStatsCache
 specifier|private
+specifier|final
 name|SingleObjectCache
 argument_list|<
 name|OsStats
@@ -224,32 +221,22 @@ operator|=
 name|probe
 operator|.
 name|osInfo
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|info
-operator|.
-name|refreshInterval
-operator|=
+argument_list|(
 name|refreshInterval
 operator|.
 name|millis
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|info
-operator|.
-name|allocatedProcessors
-operator|=
+argument_list|,
 name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
 argument_list|(
 name|settings
 argument_list|)
+argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|osStatsCache
 operator|=
 operator|new
