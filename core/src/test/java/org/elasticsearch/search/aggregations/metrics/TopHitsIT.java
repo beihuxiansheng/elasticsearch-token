@@ -1922,11 +1922,6 @@ argument_list|,
 literal|"article"
 argument_list|)
 operator|.
-name|setCreate
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setSource
 argument_list|(
 name|builder

@@ -9869,11 +9869,6 @@ argument_list|,
 literal|"my-type"
 argument_list|)
 operator|.
-name|setCreate
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setSource
 argument_list|(
 literal|"timestamp"

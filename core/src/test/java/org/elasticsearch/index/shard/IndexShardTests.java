@@ -16168,6 +16168,23 @@ name|localNode
 parameter_list|)
 block|{}
 block|}
+DECL|method|getEngineFromShard
+specifier|public
+specifier|static
+name|Engine
+name|getEngineFromShard
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|)
+block|{
+return|return
+name|shard
+operator|.
+name|getEngineOrNull
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

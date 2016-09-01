@@ -884,10 +884,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO: document me!  */
-end_comment
-
 begin_class
 DECL|class|ShadowEngineTests
 specifier|public
@@ -9257,6 +9253,11 @@ name|System
 operator|.
 name|nanoTime
 argument_list|()
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|primaryEngine

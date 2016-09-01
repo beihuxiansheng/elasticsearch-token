@@ -961,6 +961,15 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/**      * This method is called before this replication request is retried      * the first time.      */
+DECL|method|onRetry
+specifier|public
+name|void
+name|onRetry
+parameter_list|()
+block|{
+comment|// nothing by default
+block|}
 block|}
 end_class
 
