@@ -724,6 +724,13 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[groovy] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 comment|// Creates the classloader here in order to isolate Groovy-land code
 specifier|final
 name|SecurityManager
@@ -1255,6 +1262,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[groovy] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Map
@@ -1358,6 +1372,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[groovy] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|SearchScript
