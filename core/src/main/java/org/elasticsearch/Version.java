@@ -774,7 +774,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_5_0
+name|LUCENE_5_5_2
 argument_list|)
 decl_stmt|;
 DECL|field|V_5_0_0_alpha1_ID
