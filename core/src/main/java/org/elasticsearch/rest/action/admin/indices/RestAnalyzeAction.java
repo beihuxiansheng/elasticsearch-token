@@ -387,8 +387,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"filter"
-argument_list|,
-literal|"token_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|CHAR_FILTERS
@@ -604,16 +602,9 @@ name|paramAsStringArray
 argument_list|(
 literal|"filter"
 argument_list|,
-name|request
-operator|.
-name|paramAsStringArray
-argument_list|(
-literal|"token_filter"
-argument_list|,
 name|Strings
 operator|.
 name|EMPTY_ARRAY
-argument_list|)
 argument_list|)
 control|)
 block|{
@@ -1259,7 +1250,7 @@ name|IllegalArgumentException
 argument_list|(
 name|currentFieldName
 operator|+
-literal|" array element should contain token_filter's name or setting"
+literal|" array element should contain filter's name or setting"
 argument_list|)
 throw|;
 block|}
