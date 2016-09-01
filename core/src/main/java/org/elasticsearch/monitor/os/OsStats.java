@@ -1460,7 +1460,7 @@ end_class
 
 begin_function
 DECL|method|calculatePercentage
-specifier|private
+specifier|public
 specifier|static
 name|short
 name|calculatePercentage
