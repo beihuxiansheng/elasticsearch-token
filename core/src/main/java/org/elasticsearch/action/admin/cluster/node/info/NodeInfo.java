@@ -831,9 +831,8 @@ condition|)
 block|{
 name|threadPool
 operator|=
+operator|new
 name|ThreadPoolInfo
-operator|.
-name|readThreadPoolInfo
 argument_list|(
 name|in
 argument_list|)
