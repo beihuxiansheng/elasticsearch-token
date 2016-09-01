@@ -814,9 +814,8 @@ condition|)
 block|{
 name|jvm
 operator|=
+operator|new
 name|JvmInfo
-operator|.
-name|readJvmInfo
 argument_list|(
 name|in
 argument_list|)
