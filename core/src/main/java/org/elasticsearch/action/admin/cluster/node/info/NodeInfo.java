@@ -847,9 +847,8 @@ condition|)
 block|{
 name|transport
 operator|=
+operator|new
 name|TransportInfo
-operator|.
-name|readTransportInfo
 argument_list|(
 name|in
 argument_list|)
