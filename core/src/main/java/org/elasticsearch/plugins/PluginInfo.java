@@ -267,6 +267,7 @@ name|classname
 decl_stmt|;
 comment|/**      * Information about plugins      *      * @param name        Its name      * @param description Its description      * @param version     Version number      */
 DECL|method|PluginInfo
+specifier|public
 name|PluginInfo
 parameter_list|(
 name|String
