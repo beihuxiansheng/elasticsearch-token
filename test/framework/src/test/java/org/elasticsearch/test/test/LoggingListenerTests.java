@@ -250,7 +250,7 @@ name|assertEquals
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|,
 name|abcLogger
 operator|.
@@ -269,7 +269,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -284,7 +284,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -306,7 +306,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -321,7 +321,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -398,7 +398,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -420,7 +420,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -435,7 +435,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -459,7 +459,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -474,7 +474,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -537,7 +537,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -552,7 +552,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -574,7 +574,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -625,7 +625,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -662,7 +662,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -701,7 +701,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -716,7 +716,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -779,7 +779,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -794,7 +794,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -816,7 +816,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -930,7 +930,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1044,7 +1044,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1083,7 +1083,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1098,7 +1098,7 @@ name|equalTo
 argument_list|(
 name|Level
 operator|.
-name|ERROR
+name|INFO
 argument_list|)
 argument_list|)
 expr_stmt|;

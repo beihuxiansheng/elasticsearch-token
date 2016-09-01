@@ -344,11 +344,6 @@ comment|// TODO: can we share more code with the non-test side here
 comment|// without making things complex???
 static|static
 block|{
-name|LogConfigurator
-operator|.
-name|init
-argument_list|()
-expr_stmt|;
 comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
 name|Path
 name|javaTmpDir

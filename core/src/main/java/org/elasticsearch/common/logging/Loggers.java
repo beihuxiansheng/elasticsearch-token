@@ -252,15 +252,6 @@ specifier|public
 class|class
 name|Loggers
 block|{
-static|static
-block|{
-comment|// ensure that the status logger is configured before we touch any loggers
-name|LogConfigurator
-operator|.
-name|init
-argument_list|()
-expr_stmt|;
-block|}
 DECL|field|commonPrefix
 specifier|private
 specifier|static
