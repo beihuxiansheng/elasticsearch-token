@@ -272,9 +272,8 @@ name|plugins
 operator|.
 name|add
 argument_list|(
+operator|new
 name|PluginInfo
-operator|.
-name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -332,9 +331,8 @@ name|modules
 operator|.
 name|add
 argument_list|(
+operator|new
 name|PluginInfo
-operator|.
-name|readFromStream
 argument_list|(
 name|in
 argument_list|)
