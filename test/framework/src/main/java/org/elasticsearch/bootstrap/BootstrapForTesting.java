@@ -32,32 +32,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
-operator|.
-name|Java9Hack
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Constants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|lucene
 operator|.
 name|util
@@ -111,6 +85,20 @@ operator|.
 name|io
 operator|.
 name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|LogConfigurator
 import|;
 end_import
 
@@ -356,6 +344,11 @@ comment|// TODO: can we share more code with the non-test side here
 comment|// without making things complex???
 static|static
 block|{
+name|LogConfigurator
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
 comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
 name|Path
 name|javaTmpDir
@@ -455,19 +448,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-if|if
-condition|(
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
-name|Java9Hack
-operator|.
-name|fixLog4j
-argument_list|()
-expr_stmt|;
 block|}
 comment|// install security manager if requested
 if|if

@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -117,7 +117,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers

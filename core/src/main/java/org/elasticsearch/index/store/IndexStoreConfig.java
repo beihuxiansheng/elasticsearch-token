@@ -22,11 +22,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|store
+name|log4j
 operator|.
-name|StoreRateLimiting
+name|Logger
 import|;
 end_import
 
@@ -34,13 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|logging
+name|store
 operator|.
-name|ESLogger
+name|StoreRateLimiting
 import|;
 end_import
 
@@ -228,7 +228,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|IndexStoreConfig

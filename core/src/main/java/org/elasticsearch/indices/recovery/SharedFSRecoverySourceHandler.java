@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|lease
+name|log4j
 operator|.
-name|Releasable
+name|Logger
 import|;
 end_import
 
@@ -38,9 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|lease
 operator|.
-name|ESLogger
+name|Releasable
 import|;
 end_import
 
@@ -157,7 +157,7 @@ name|Releasable
 argument_list|>
 name|delayNewRecoveries
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
