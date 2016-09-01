@@ -126,6 +126,16 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_class
 DECL|class|OsStats
 specifier|public
@@ -187,20 +197,43 @@ name|this
 operator|.
 name|cpu
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|cpu
+argument_list|,
+literal|"cpu must not be null"
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|mem
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|mem
+argument_list|,
+literal|"mem must not be null"
+argument_list|)
 expr_stmt|;
+empty_stmt|;
 name|this
 operator|.
 name|swap
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|swap
+argument_list|,
+literal|"swap must not be null"
+argument_list|)
 expr_stmt|;
+empty_stmt|;
 block|}
 DECL|method|OsStats
 specifier|public
