@@ -2193,6 +2193,16 @@ operator|.
 name|prepareForTranslogOperations
 argument_list|(
 name|totalTranslogOps
+argument_list|,
+name|shard
+operator|.
+name|segmentStats
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|getMaxUnsafeAutoIdTimestamp
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

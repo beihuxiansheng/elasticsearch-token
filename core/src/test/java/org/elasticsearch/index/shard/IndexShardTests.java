@@ -14541,7 +14541,11 @@ expr_stmt|;
 name|newShard
 operator|.
 name|skipTranslogRecovery
-argument_list|()
+argument_list|(
+name|IndexRequest
+operator|.
+name|UNSET_AUTO_GENERATED_TIMESTAMP
+argument_list|)
 expr_stmt|;
 name|newShard
 operator|.
@@ -15047,7 +15051,11 @@ expr_stmt|;
 name|newShard
 operator|.
 name|skipTranslogRecovery
-argument_list|()
+argument_list|(
+name|IndexRequest
+operator|.
+name|UNSET_AUTO_GENERATED_TIMESTAMP
+argument_list|)
 expr_stmt|;
 comment|// Shard is still inactive since we haven't started recovering yet
 name|assertFalse

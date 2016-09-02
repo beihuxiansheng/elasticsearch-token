@@ -1603,6 +1603,9 @@ name|prepareForTranslogOperations
 parameter_list|(
 name|int
 name|totalTranslogOps
+parameter_list|,
+name|long
+name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException
@@ -1622,7 +1625,9 @@ name|indexShard
 argument_list|()
 operator|.
 name|skipTranslogRecovery
-argument_list|()
+argument_list|(
+name|maxUnsafeAutoIdTimestamp
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

@@ -1140,7 +1140,7 @@ return|return
 name|fileSizes
 return|;
 block|}
-comment|/**      * Returns the max timestamp that is used to de-optimize documetns with auto-generated IDs in the engine.      * This is used to ensure we don't add duplicate documents when we assume an append only case based on auto-generated IDs      */
+comment|/**      * Returns the max timestamp that is used to de-optimize documents with auto-generated IDs in the engine.      * This is used to ensure we don't add duplicate documents when we assume an append only case based on auto-generated IDs      */
 DECL|method|getMaxUnsafeAutoIdTimestamp
 specifier|public
 name|long

@@ -352,6 +352,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|index
+operator|.
+name|IndexRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -6011,6 +6025,10 @@ argument_list|(
 literal|false
 argument_list|,
 name|indexExists
+argument_list|,
+name|IndexRequest
+operator|.
+name|UNSET_AUTO_GENERATED_TIMESTAMP
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -6043,6 +6061,9 @@ name|skipTranslogRecovery
 parameter_list|,
 name|boolean
 name|indexExists
+parameter_list|,
+name|long
+name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException
@@ -6182,6 +6203,8 @@ init|=
 name|newEngineConfig
 argument_list|(
 name|openMode
+argument_list|,
+name|maxUnsafeAutoIdTimestamp
 argument_list|)
 decl_stmt|;
 comment|// we disable deletes since we allow for operations to be executed against the shard while recovering
@@ -6236,7 +6259,10 @@ DECL|method|skipTranslogRecovery
 specifier|public
 name|void
 name|skipTranslogRecovery
-parameter_list|()
+parameter_list|(
+name|long
+name|maxUnsafeAutoIdTimestamp
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -6253,6 +6279,8 @@ argument_list|(
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|maxUnsafeAutoIdTimestamp
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -9303,6 +9331,9 @@ name|EngineConfig
 operator|.
 name|OpenMode
 name|openMode
+parameter_list|,
+name|long
+name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 block|{
 specifier|final
@@ -9382,6 +9413,8 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|refreshListeners
+argument_list|,
+name|maxUnsafeAutoIdTimestamp
 argument_list|)
 return|;
 block|}
