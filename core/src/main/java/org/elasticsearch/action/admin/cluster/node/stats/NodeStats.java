@@ -930,15 +930,11 @@ name|discoveryStats
 operator|=
 name|in
 operator|.
-name|readOptionalStreamable
+name|readOptionalWriteable
 argument_list|(
-parameter_list|()
-lambda|->
-operator|new
 name|DiscoveryStats
-argument_list|(
-literal|null
-argument_list|)
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|ingestStats
@@ -1077,7 +1073,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|discoveryStats
 argument_list|)
