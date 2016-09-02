@@ -908,11 +908,13 @@ argument_list|)
 expr_stmt|;
 name|breaker
 operator|=
-name|AllCircuitBreakerStats
-operator|.
-name|readOptionalAllCircuitBreakerStats
-argument_list|(
 name|in
+operator|.
+name|readOptionalWriteable
+argument_list|(
+name|AllCircuitBreakerStats
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|scriptStats
@@ -1059,7 +1061,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|breaker
 argument_list|)
