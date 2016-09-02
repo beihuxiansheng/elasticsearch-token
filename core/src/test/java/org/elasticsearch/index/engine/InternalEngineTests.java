@@ -1429,18 +1429,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|IntFunction
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -1756,6 +1744,9 @@ argument_list|(
 name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1h"
 argument_list|)
@@ -1789,6 +1780,9 @@ argument_list|(
 name|IndexSettings
 operator|.
 name|MAX_REFRESH_LISTENERS_PER_SHARD
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|between
 argument_list|(
