@@ -873,9 +873,8 @@ condition|)
 block|{
 name|jvm
 operator|=
+operator|new
 name|JvmStats
-operator|.
-name|readJvmStats
 argument_list|(
 name|in
 argument_list|)
