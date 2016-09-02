@@ -1271,7 +1271,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|dateValueField
+name|dateField
 argument_list|(
 name|Fields
 operator|.
@@ -1297,7 +1297,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|dateValueField
+name|dateField
 argument_list|(
 name|Fields
 operator|.

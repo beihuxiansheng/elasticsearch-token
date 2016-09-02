@@ -2487,7 +2487,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|dateValueField
+name|dateField
 argument_list|(
 name|Fields
 operator|.
@@ -2601,7 +2601,7 @@ argument_list|()
 expr_stmt|;
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|Fields
 operator|.
@@ -2612,7 +2612,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|Fields
 operator|.

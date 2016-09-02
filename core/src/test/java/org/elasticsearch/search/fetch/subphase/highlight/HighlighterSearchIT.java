@@ -12966,7 +12966,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"tags"
 argument_list|,

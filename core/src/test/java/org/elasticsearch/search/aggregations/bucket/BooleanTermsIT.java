@@ -410,7 +410,7 @@ argument_list|,
 name|singleValue
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 name|MULTI_VALUED_FIELD_NAME
 argument_list|,

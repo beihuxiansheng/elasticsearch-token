@@ -92,20 +92,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|fielddata
@@ -1928,7 +1914,7 @@ argument_list|,
 name|i
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"svalue"
 argument_list|,
@@ -1958,7 +1944,7 @@ operator|)
 block|}
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"lvalue"
 argument_list|,
@@ -1978,7 +1964,7 @@ literal|2
 block|}
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"dvalue"
 argument_list|,

@@ -2608,7 +2608,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -2699,7 +2699,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -2790,7 +2790,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -4542,7 +4542,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -4633,7 +4633,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,

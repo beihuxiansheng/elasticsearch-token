@@ -1019,7 +1019,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -7512,7 +7512,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -7620,7 +7620,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,

@@ -1242,7 +1242,7 @@ name|expectedDate
 init|=
 name|XContentBuilder
 operator|.
-name|defaultDatePrinter
+name|DEFAULT_DATE_PRINTER
 operator|.
 name|print
 argument_list|(
@@ -1275,7 +1275,7 @@ name|expectedCalendar
 init|=
 name|XContentBuilder
 operator|.
-name|defaultDatePrinter
+name|DEFAULT_DATE_PRINTER
 operator|.
 name|print
 argument_list|(
@@ -2592,7 +2592,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"field name cannot be null"
+literal|"Field name cannot be null"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2626,7 +2626,7 @@ try|try
 block|{
 name|builder
 operator|.
-name|value
+name|map
 argument_list|(
 name|Collections
 operator|.
@@ -2659,7 +2659,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"field name cannot be null"
+literal|"Field name cannot be null"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2733,7 +2733,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"field name cannot be null"
+literal|"Field name cannot be null"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2805,7 +2805,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"failed to close the XContentBuilder"
+literal|"Failed to close the XContentBuilder"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2821,7 +2821,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"unclosed object or array found"
+literal|"Unclosed object or array found"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2904,7 +2904,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"failed to close the XContentBuilder"
+literal|"Failed to close the XContentBuilder"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2920,7 +2920,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"unclosed object or array found"
+literal|"Unclosed object or array found"
 argument_list|)
 argument_list|)
 expr_stmt|;

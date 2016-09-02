@@ -1704,7 +1704,7 @@ argument_list|,
 literal|"geo"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"precision"
 argument_list|,
@@ -1853,7 +1853,7 @@ argument_list|,
 literal|"geo"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"precision"
 argument_list|,
@@ -2667,7 +2667,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -2941,7 +2941,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -3263,7 +3263,7 @@ argument_list|(
 literal|"context"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"color"
 argument_list|,
@@ -3309,7 +3309,7 @@ argument_list|(
 literal|"context"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"color"
 argument_list|,
@@ -3903,7 +3903,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -4335,7 +4335,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -4635,7 +4635,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -4955,7 +4955,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -5344,7 +5344,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
