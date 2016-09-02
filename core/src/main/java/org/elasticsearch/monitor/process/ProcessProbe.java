@@ -451,7 +451,10 @@ DECL|method|processInfo
 specifier|public
 name|ProcessInfo
 name|processInfo
-parameter_list|()
+parameter_list|(
+name|long
+name|refreshInterval
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -467,6 +470,8 @@ name|BootstrapInfo
 operator|.
 name|isMemoryLocked
 argument_list|()
+argument_list|,
+name|refreshInterval
 argument_list|)
 return|;
 block|}

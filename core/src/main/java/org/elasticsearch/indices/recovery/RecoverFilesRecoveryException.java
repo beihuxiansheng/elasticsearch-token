@@ -241,9 +241,8 @@ argument_list|()
 expr_stmt|;
 name|totalFilesSize
 operator|=
+operator|new
 name|ByteSizeValue
-operator|.
-name|readBytesSizeValue
 argument_list|(
 name|in
 argument_list|)

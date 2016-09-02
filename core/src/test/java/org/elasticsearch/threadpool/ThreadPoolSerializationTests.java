@@ -262,10 +262,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ThreadPoolSerializationTests
 specifier|public
@@ -275,6 +271,8 @@ extends|extends
 name|ESTestCase
 block|{
 DECL|field|output
+specifier|private
+specifier|final
 name|BytesStreamOutput
 name|output
 init|=
@@ -394,15 +392,10 @@ operator|new
 name|ThreadPool
 operator|.
 name|Info
-argument_list|()
-decl_stmt|;
-name|newInfo
-operator|.
-name|readFrom
 argument_list|(
 name|input
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|newInfo
@@ -492,15 +485,10 @@ operator|new
 name|ThreadPool
 operator|.
 name|Info
-argument_list|()
-decl_stmt|;
-name|newInfo
-operator|.
-name|readFrom
 argument_list|(
 name|input
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|newInfo
@@ -969,15 +957,10 @@ operator|new
 name|ThreadPool
 operator|.
 name|Info
-argument_list|()
-decl_stmt|;
-name|newInfo
-operator|.
-name|readFrom
 argument_list|(
 name|input
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|newInfo
