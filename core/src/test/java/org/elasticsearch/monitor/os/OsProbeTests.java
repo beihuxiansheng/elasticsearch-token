@@ -370,7 +370,8 @@ operator|.
 name|getCpu
 argument_list|()
 operator|.
-name|loadAverage
+name|getLoadAverage
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
