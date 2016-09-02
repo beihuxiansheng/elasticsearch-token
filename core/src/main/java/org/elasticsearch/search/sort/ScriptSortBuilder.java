@@ -1353,6 +1353,11 @@ argument_list|(
 name|parser
 argument_list|,
 name|parseField
+argument_list|,
+name|context
+operator|.
+name|getDefaultScriptLanguage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1532,6 +1537,11 @@ argument_list|(
 name|parser
 argument_list|,
 name|parseField
+argument_list|,
+name|context
+operator|.
+name|getDefaultScriptLanguage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
