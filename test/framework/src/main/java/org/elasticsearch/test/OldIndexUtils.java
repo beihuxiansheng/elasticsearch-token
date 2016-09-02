@@ -508,14 +508,14 @@ specifier|public
 class|class
 name|OldIndexUtils
 block|{
-DECL|method|loadIndexesList
+DECL|method|loadDataFilesList
 specifier|public
 specifier|static
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|loadIndexesList
+name|loadDataFilesList
 parameter_list|(
 name|String
 name|prefix

@@ -898,7 +898,7 @@ name|indexes
 operator|=
 name|OldIndexUtils
 operator|.
-name|loadIndexesList
+name|loadDataFilesList
 argument_list|(
 literal|"index"
 argument_list|,
@@ -910,7 +910,7 @@ name|unsupportedIndexes
 operator|=
 name|OldIndexUtils
 operator|.
-name|loadIndexesList
+name|loadDataFilesList
 argument_list|(
 literal|"unsupported"
 argument_list|,
