@@ -839,9 +839,8 @@ condition|)
 block|{
 name|os
 operator|=
+operator|new
 name|OsStats
-operator|.
-name|readOsStats
 argument_list|(
 name|in
 argument_list|)
