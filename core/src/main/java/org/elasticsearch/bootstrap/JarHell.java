@@ -1458,6 +1458,19 @@ block|{
 return|return;
 comment|// apparently this is intentional... clean this up
 block|}
+if|if
+condition|(
+name|clazz
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.logging.log4j.core.impl.ThrowableProxy"
+argument_list|)
+condition|)
+block|{
+comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://github.com/elastic/elasticsearch/issues/20304                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1560                      */
+return|return;
+block|}
 throw|throw
 operator|new
 name|IllegalStateException
