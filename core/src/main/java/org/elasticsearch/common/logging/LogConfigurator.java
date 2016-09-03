@@ -649,6 +649,11 @@ name|configurations
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|warnIfOldConfigurationFilePresent
+argument_list|(
+name|environment
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -757,11 +762,6 @@ name|level
 argument_list|)
 expr_stmt|;
 block|}
-name|warnIfOldConfigurationFilePresent
-argument_list|(
-name|environment
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|warnIfOldConfigurationFilePresent
 specifier|private
