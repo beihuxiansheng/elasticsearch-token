@@ -2745,6 +2745,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/20318"
+argument_list|)
 DECL|method|testLoggerLevelUpdate
 specifier|public
 name|void
