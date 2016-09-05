@@ -1164,7 +1164,13 @@ argument_list|()
 argument_list|,
 name|first
 argument_list|,
-literal|null
+operator|new
+name|FsInfo
+operator|.
+name|Path
+index|[
+literal|0
+index|]
 argument_list|)
 decl_stmt|;
 specifier|final

@@ -656,7 +656,7 @@ operator|.
 name|getFs
 argument_list|()
 operator|.
-name|total
+name|getTotal
 argument_list|()
 argument_list|)
 expr_stmt|;
