@@ -86,20 +86,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TruncateTranslogCommand
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|node
 operator|.
 name|internal
@@ -121,7 +107,7 @@ extends|extends
 name|MultiCommand
 block|{
 DECL|method|TranslogToolCli
-specifier|public
+specifier|private
 name|TranslogToolCli
 parameter_list|()
 block|{
@@ -155,7 +141,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// initialize default for es.logger.level because we will not read the logging.yml
+comment|// initialize default for es.logger.level because we will not read the log4j2.properties
 name|String
 name|loggerLevel
 init|=
@@ -201,20 +187,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"appender.terminal.type"
-argument_list|,
-literal|"terminal"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"rootLogger"
-argument_list|,
-literal|"${logger.level}, terminal"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"logger.level"
 argument_list|,
 name|loggerLevel
@@ -233,9 +205,6 @@ operator|.
 name|configure
 argument_list|(
 name|loggingEnvironment
-operator|.
-name|settings
-argument_list|()
 argument_list|,
 literal|false
 argument_list|)

@@ -22,11 +22,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|search
+name|log4j
 operator|.
-name|IndexSearcher
+name|Logger
 import|;
 end_import
 
@@ -34,13 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|logging
+name|search
 operator|.
-name|ESLogger
+name|IndexSearcher
 import|;
 end_import
 
@@ -137,7 +137,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|closed
@@ -167,7 +167,7 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

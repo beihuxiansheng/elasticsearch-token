@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -113,20 +127,6 @@ operator|.
 name|component
 operator|.
 name|AbstractComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -872,7 +872,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|RequestFilterChain
@@ -887,7 +887,7 @@ name|Response
 argument_list|>
 name|action
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -1128,7 +1128,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|ResponseFilterChain
@@ -1139,7 +1139,7 @@ name|ActionFilter
 index|[]
 name|filters
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

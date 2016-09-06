@@ -280,6 +280,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|index
+operator|.
+name|IndexRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -883,10 +897,6 @@ operator|.
 name|nullValue
 import|;
 end_import
-
-begin_comment
-comment|/**  * TODO: document me!  */
-end_comment
 
 begin_class
 DECL|class|ShadowEngineTests
@@ -1943,6 +1953,10 @@ literal|5
 argument_list|)
 argument_list|,
 name|refreshListeners
+argument_list|,
+name|IndexRequest
+operator|.
+name|UNSET_AUTO_GENERATED_TIMESTAMP
 argument_list|)
 decl_stmt|;
 return|return
@@ -9257,6 +9271,11 @@ name|System
 operator|.
 name|nanoTime
 argument_list|()
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|primaryEngine

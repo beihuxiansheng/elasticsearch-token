@@ -22,6 +22,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|search
@@ -41,20 +55,6 @@ operator|.
 name|collect
 operator|.
 name|Tuple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -186,7 +186,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 comment|/**      * List of refresh listeners. Defaults to null and built on demand because most refresh cycles won't need it. Entries are never removed      * from it, rather, it is nulled and rebuilt when needed again. The (hopefully) rare entries that didn't make the current refresh cycle      * are just added back to the new list. Both the reference and the contents are always modified while synchronized on {@code this}.      */
@@ -233,7 +233,7 @@ parameter_list|,
 name|Executor
 name|listenerExecutor
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

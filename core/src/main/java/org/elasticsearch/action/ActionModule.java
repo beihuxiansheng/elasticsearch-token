@@ -30,16 +30,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -5173,6 +5163,8 @@ operator|new
 name|AutoCreateIndex
 argument_list|(
 name|settings
+argument_list|,
+name|clusterSettings
 argument_list|,
 name|resolver
 argument_list|)

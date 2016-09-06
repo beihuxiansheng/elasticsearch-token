@@ -1134,8 +1134,12 @@ name|getScript
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
+argument_list|,
 name|builder
 operator|.
 name|script
@@ -1326,8 +1330,12 @@ name|getScript
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
+argument_list|,
 name|builder
 operator|.
 name|script

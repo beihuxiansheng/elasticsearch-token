@@ -22,13 +22,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|collect
+name|log4j
 operator|.
-name|Tuple
+name|Logger
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|collect
 operator|.
-name|ESLogger
+name|Tuple
 import|;
 end_import
 
@@ -139,7 +139,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|queue
@@ -175,7 +175,7 @@ DECL|method|AsyncIOProcessor
 specifier|protected
 name|AsyncIOProcessor
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|int

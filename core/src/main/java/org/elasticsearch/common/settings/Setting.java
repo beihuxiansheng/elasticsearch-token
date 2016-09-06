@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -111,20 +125,6 @@ operator|.
 name|logging
 operator|.
 name|DeprecationLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -1501,7 +1501,7 @@ name|T
 argument_list|>
 name|consumer
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -1536,7 +1536,7 @@ name|T
 argument_list|>
 name|consumer
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Consumer
@@ -1624,7 +1624,7 @@ name|B
 argument_list|>
 name|bSetting
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -1837,7 +1837,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|accept
@@ -1859,7 +1859,7 @@ name|T
 argument_list|>
 name|consumer
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Consumer
@@ -4225,7 +4225,7 @@ name|Settings
 argument_list|>
 name|consumer
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Consumer
@@ -5164,7 +5164,7 @@ name|T
 argument_list|>
 name|consumer
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Consumer

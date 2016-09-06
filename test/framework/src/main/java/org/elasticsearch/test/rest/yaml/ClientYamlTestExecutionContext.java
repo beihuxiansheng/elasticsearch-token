@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -49,20 +63,6 @@ operator|.
 name|client
 operator|.
 name|RestClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -166,7 +166,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
@@ -371,6 +371,21 @@ throw|;
 block|}
 finally|finally
 block|{
+comment|// if we hit a bad exception the response is null
+name|Object
+name|repsponseBody
+init|=
+name|response
+operator|!=
+literal|null
+condition|?
+name|response
+operator|.
+name|getBody
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 comment|//we always stash the last response body
 name|stash
 operator|.
@@ -378,10 +393,7 @@ name|stashValue
 argument_list|(
 literal|"body"
 argument_list|,
-name|response
-operator|.
-name|getBody
-argument_list|()
+name|repsponseBody
 argument_list|)
 expr_stmt|;
 block|}

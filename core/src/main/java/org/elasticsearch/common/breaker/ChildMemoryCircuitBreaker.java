@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -131,7 +131,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|parent
@@ -154,7 +154,7 @@ parameter_list|(
 name|BreakerSettings
 name|settings
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|HierarchyCircuitBreakerService
@@ -189,7 +189,7 @@ parameter_list|,
 name|ChildMemoryCircuitBreaker
 name|oldBreaker
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|HierarchyCircuitBreakerService

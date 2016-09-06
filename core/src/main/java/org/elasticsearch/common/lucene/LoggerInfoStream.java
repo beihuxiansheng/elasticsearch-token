@@ -22,11 +22,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|logging
 operator|.
-name|util
+name|log4j
 operator|.
-name|InfoStream
+name|Logger
 import|;
 end_import
 
@@ -34,13 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|logging
+name|util
 operator|.
-name|ESLogger
+name|InfoStream
 import|;
 end_import
 
@@ -76,21 +76,21 @@ comment|/** Logger for everything */
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 comment|/** Logger for IndexFileDeleter */
 DECL|field|ifdLogger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|ifdLogger
 decl_stmt|;
 DECL|method|LoggerInfoStream
 specifier|public
 name|LoggerInfoStream
 parameter_list|(
-name|ESLogger
+name|Logger
 name|parentLogger
 parameter_list|)
 block|{
@@ -188,7 +188,7 @@ return|;
 block|}
 DECL|method|getLogger
 specifier|private
-name|ESLogger
+name|Logger
 name|getLogger
 parameter_list|(
 name|String
