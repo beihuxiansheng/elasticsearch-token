@@ -232,6 +232,7 @@ end_comment
 
 begin_class
 DECL|class|RemovePluginCommand
+specifier|final
 class|class
 name|RemovePluginCommand
 extends|extends
@@ -366,6 +367,7 @@ operator|+
 literal|"..."
 argument_list|)
 expr_stmt|;
+specifier|final
 name|Path
 name|pluginDir
 init|=
@@ -407,6 +409,7 @@ literal|" not found; run 'elasticsearch-plugin list' to get list of installed pl
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|List
 argument_list|<
 name|Path
@@ -418,6 +421,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Path
 name|pluginBinDir
 init|=
@@ -499,6 +503,7 @@ operator|+
 name|pluginDir
 argument_list|)
 expr_stmt|;
+specifier|final
 name|Path
 name|tmpPluginDir
 init|=
@@ -553,6 +558,44 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we preserve the config files in case the user is upgrading the plugin, but we print
+comment|// a message so the user knows in case they want to remove manually
+specifier|final
+name|Path
+name|pluginConfigDir
+init|=
+name|env
+operator|.
+name|configFile
+argument_list|()
+operator|.
+name|resolve
+argument_list|(
+name|pluginName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|pluginConfigDir
+argument_list|)
+condition|)
+block|{
+name|terminal
+operator|.
+name|println
+argument_list|(
+literal|"-> Preserving plugin config files ["
+operator|+
+name|pluginConfigDir
+operator|+
+literal|"] in case of upgrade, delete manually if not needed"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
