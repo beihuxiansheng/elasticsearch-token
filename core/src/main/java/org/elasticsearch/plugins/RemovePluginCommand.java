@@ -558,6 +558,42 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we preserve the config files in case the user is upgrading the plugin, but we print
+comment|// a message so the user knows in case they want to remove manually
+specifier|final
+name|Path
+name|pluginConfigDir
+init|=
+name|env
+operator|.
+name|configFile
+argument_list|()
+operator|.
+name|resolve
+argument_list|(
+name|pluginName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|pluginConfigDir
+argument_list|)
+condition|)
+block|{
+name|terminal
+operator|.
+name|println
+argument_list|(
+literal|"-> Preserving plugin config files: "
+operator|+
+name|pluginConfigDir
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
