@@ -330,7 +330,7 @@ name|LIMIT_HEAP_SETTING
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"cache.recycler.page.limit.heap"
 argument_list|,

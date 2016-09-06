@@ -417,7 +417,7 @@ name|INDICES_FIELDDATA_CACHE_SIZE_KEY
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"indices.fielddata.cache.size"
 argument_list|,

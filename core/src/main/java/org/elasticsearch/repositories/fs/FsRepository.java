@@ -283,7 +283,12 @@ name|byteSizeSetting
 argument_list|(
 literal|"chunk_size"
 argument_list|,
-literal|"-1"
+operator|new
+name|ByteSizeValue
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 argument_list|,
 name|Property
 operator|.
@@ -306,7 +311,12 @@ name|byteSizeSetting
 argument_list|(
 literal|"repositories.fs.chunk_size"
 argument_list|,
-literal|"-1"
+operator|new
+name|ByteSizeValue
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 argument_list|,
 name|Property
 operator|.
