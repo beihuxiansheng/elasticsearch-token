@@ -361,6 +361,8 @@ name|SIMULATED_PIPELINE_ID
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|pipelineCompoundProcessor
 argument_list|)
 decl_stmt|;
