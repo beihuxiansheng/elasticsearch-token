@@ -1437,19 +1437,6 @@ name|clazz
 operator|.
 name|startsWith
 argument_list|(
-literal|"org.apache.log4j"
-argument_list|)
-condition|)
-block|{
-return|return;
-comment|// go figure, jar hell for what should be System.out.println...
-block|}
-if|if
-condition|(
-name|clazz
-operator|.
-name|startsWith
-argument_list|(
 literal|"org.apache.logging.log4j.core.impl.ThrowableProxy"
 argument_list|)
 condition|)
