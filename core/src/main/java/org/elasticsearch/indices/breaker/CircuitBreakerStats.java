@@ -231,7 +231,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// limit is the maximum from the old circuit breaker stats for backwards compatibility
 name|limit
 operator|=
 name|in
