@@ -853,7 +853,6 @@ name|path
 argument_list|)
 expr_stmt|;
 continue|continue;
-comment|// we can't fail because of sheistiness with joda-time
 block|}
 name|logger
 operator|.
@@ -1444,19 +1443,6 @@ condition|)
 block|{
 return|return;
 comment|// go figure, jar hell for what should be System.out.println...
-block|}
-if|if
-condition|(
-name|clazz
-operator|.
-name|equals
-argument_list|(
-literal|"org.joda.time.base.BaseDateTime"
-argument_list|)
-condition|)
-block|{
-return|return;
-comment|// apparently this is intentional... clean this up
 block|}
 if|if
 condition|(
