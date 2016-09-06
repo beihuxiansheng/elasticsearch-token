@@ -920,9 +920,10 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"-> Preserving plugin config files: "
-operator|+
+name|expectedConfigDirPreservedMessage
+argument_list|(
 name|configDir
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -991,13 +992,32 @@ name|not
 argument_list|(
 name|containsString
 argument_list|(
-literal|"-> Preserving plugin config files: "
-operator|+
+name|expectedConfigDirPreservedMessage
+argument_list|(
 name|configDir
 argument_list|)
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
+DECL|method|expectedConfigDirPreservedMessage
+specifier|private
+name|String
+name|expectedConfigDirPreservedMessage
+parameter_list|(
+specifier|final
+name|Path
+name|configDir
+parameter_list|)
+block|{
+return|return
+literal|"-> Preserving plugin config files ["
+operator|+
+name|configDir
+operator|+
+literal|"] in case of upgrade, delete manually if not needed"
+return|;
 block|}
 block|}
 end_class

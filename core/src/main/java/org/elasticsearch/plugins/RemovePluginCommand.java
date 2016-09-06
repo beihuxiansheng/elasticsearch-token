@@ -588,9 +588,11 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"-> Preserving plugin config files: "
+literal|"-> Preserving plugin config files ["
 operator|+
 name|pluginConfigDir
+operator|+
+literal|"] in case of upgrade, delete manually if not needed"
 argument_list|)
 expr_stmt|;
 block|}
