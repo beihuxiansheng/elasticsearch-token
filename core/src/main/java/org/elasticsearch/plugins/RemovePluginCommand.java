@@ -232,6 +232,7 @@ end_comment
 
 begin_class
 DECL|class|RemovePluginCommand
+specifier|final
 class|class
 name|RemovePluginCommand
 extends|extends
@@ -366,6 +367,7 @@ operator|+
 literal|"..."
 argument_list|)
 expr_stmt|;
+specifier|final
 name|Path
 name|pluginDir
 init|=
@@ -407,6 +409,7 @@ literal|" not found; run 'elasticsearch-plugin list' to get list of installed pl
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|List
 argument_list|<
 name|Path
@@ -418,6 +421,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Path
 name|pluginBinDir
 init|=
@@ -499,6 +503,7 @@ operator|+
 name|pluginDir
 argument_list|)
 expr_stmt|;
+specifier|final
 name|Path
 name|tmpPluginDir
 init|=
