@@ -334,7 +334,7 @@ name|clusterSettings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transferring yet.      *      * If subtractShardsMovingAway is set then the size of shards moving away is subtracted from the total size      * of all shards      */
+comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transferring yet.      *      * If subtractShardsMovingAway is true then the size of shards moving away is subtracted from the total size of all shards      */
 DECL|method|sizeOfRelocatingShards
 specifier|static
 name|long
@@ -543,6 +543,8 @@ operator|.
 name|getFreeDiskThresholdHigh
 argument_list|()
 decl_stmt|;
+comment|// subtractLeavingShards is passed as false here, because they still use disk space, and therefore should we should be extra careful
+comment|// and take the size into account
 name|DiskUsage
 name|usage
 init|=
@@ -553,6 +555,8 @@ argument_list|,
 name|allocation
 argument_list|,
 name|usages
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// First, check that the node currently over the low watermark
@@ -1341,6 +1345,8 @@ return|return
 name|decision
 return|;
 block|}
+comment|// subtractLeavingShards is passed as true here, since this is only for shards remaining, we will *eventually* have enough disk
+comment|// since shards are moving away. No new shards will be incoming since in canAllocate we pass false for this check.
 specifier|final
 name|DiskUsage
 name|usage
@@ -1352,6 +1358,8 @@ argument_list|,
 name|allocation
 argument_list|,
 name|usages
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1613,6 +1621,9 @@ argument_list|,
 name|DiskUsage
 argument_list|>
 name|usages
+parameter_list|,
+name|boolean
+name|subtractLeavingShards
 parameter_list|)
 block|{
 name|DiskUsage
@@ -1700,7 +1711,7 @@ name|node
 argument_list|,
 name|allocation
 argument_list|,
-literal|true
+name|subtractLeavingShards
 argument_list|,
 name|usage
 operator|.
