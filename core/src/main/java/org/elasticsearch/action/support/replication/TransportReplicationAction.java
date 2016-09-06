@@ -5366,6 +5366,8 @@ block|}
 block|}
 comment|/** a wrapper class to encapsulate a request when being sent to a specific allocation id **/
 DECL|class|ConcreteShardRequest
+specifier|public
+specifier|static
 specifier|final
 class|class
 name|ConcreteShardRequest
