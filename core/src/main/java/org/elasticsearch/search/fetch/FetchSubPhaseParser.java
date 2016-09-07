@@ -39,14 +39,9 @@ DECL|interface|FetchSubPhaseParser
 specifier|public
 interface|interface
 name|FetchSubPhaseParser
-parameter_list|<
-name|Context
-extends|extends
-name|FetchSubPhaseContext
-parameter_list|>
 block|{
 DECL|method|parse
-name|Context
+name|Object
 name|parse
 parameter_list|(
 name|XContentParser
