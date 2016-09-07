@@ -583,7 +583,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Fetch phase of a search request  */
 end_comment
 
 begin_class
@@ -649,8 +649,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|parseElements
 specifier|public
 name|Map
