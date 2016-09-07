@@ -7414,9 +7414,8 @@ decl_stmt|;
 name|CommonStatsFlags
 name|readStats
 init|=
+operator|new
 name|CommonStatsFlags
-operator|.
-name|readCommonStatsFlags
 argument_list|(
 name|bytes
 operator|.
@@ -7506,9 +7505,8 @@ decl_stmt|;
 name|CommonStatsFlags
 name|readStats
 init|=
+operator|new
 name|CommonStatsFlags
-operator|.
-name|readCommonStatsFlags
 argument_list|(
 name|bytes
 operator|.

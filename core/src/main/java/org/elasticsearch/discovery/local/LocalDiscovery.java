@@ -402,6 +402,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|publish
+operator|.
+name|PendingClusterStateStats
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1757,6 +1773,9 @@ return|return
 operator|new
 name|DiscoveryStats
 argument_list|(
+operator|(
+name|PendingClusterStateStats
+operator|)
 literal|null
 argument_list|)
 return|;
