@@ -16,55 +16,47 @@ name|fetch
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+import|;
+end_import
+
 begin_comment
-comment|/**  * All configuration and context needed by the FetchSubPhase to execute on hits.  * The only required information in this base class is whether or not the sub phase needs to be run at all.  * It can be extended by FetchSubPhases to hold information the phase needs to execute on hits.  */
+comment|/**  * Parser for the ext section of a search request, which can hold custom fetch sub phase  */
 end_comment
 
-begin_class
-DECL|class|FetchSubPhaseContext
+begin_interface
+DECL|interface|FetchSubPhaseParser
 specifier|public
-specifier|abstract
-class|class
+interface|interface
+name|FetchSubPhaseParser
+parameter_list|<
+name|Context
+extends|extends
 name|FetchSubPhaseContext
+parameter_list|>
 block|{
-comment|// This is to store if the FetchSubPhase should be executed at all.
-DECL|field|hitExecutionNeeded
-specifier|private
-name|boolean
-name|hitExecutionNeeded
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * Set if this phase should be executed at all.      */
-DECL|method|setHitExecutionNeeded
-specifier|public
-name|void
-name|setHitExecutionNeeded
+DECL|method|parse
+name|Context
+name|parse
 parameter_list|(
-name|boolean
-name|hitExecutionNeeded
+name|XContentParser
+name|parser
 parameter_list|)
-block|{
-name|this
-operator|.
-name|hitExecutionNeeded
-operator|=
-name|hitExecutionNeeded
-expr_stmt|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-comment|/**      * Returns if this phase be executed at all.      */
-DECL|method|hitExecutionNeeded
-specifier|public
-name|boolean
-name|hitExecutionNeeded
-parameter_list|()
-block|{
-return|return
-name|hitExecutionNeeded
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

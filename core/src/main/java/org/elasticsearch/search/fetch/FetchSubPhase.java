@@ -80,18 +80,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|InternalSearchHit
@@ -316,7 +304,7 @@ name|cache
 return|;
 block|}
 block|}
-DECL|method|parseElements
+DECL|method|parsers
 specifier|default
 name|Map
 argument_list|<
@@ -324,9 +312,9 @@ name|String
 argument_list|,
 name|?
 extends|extends
-name|SearchParseElement
+name|FetchSubPhaseParser
 argument_list|>
-name|parseElements
+name|parsers
 parameter_list|()
 block|{
 return|return
@@ -362,29 +350,6 @@ index|[]
 name|hits
 parameter_list|)
 block|{}
-comment|/**      * This interface is in the fetch phase plugin mechanism.      * Whenever a new search is executed we create a new {@link SearchContext} that holds individual contexts for each {@link org.elasticsearch.search.fetch.FetchSubPhase}.      * Fetch phases that use the plugin mechanism must provide a ContextFactory to the SearchContext that creates the fetch phase context and also associates them with a name.      * See {@link SearchContext#getFetchSubPhaseContext(FetchSubPhase.ContextFactory)}      */
-DECL|interface|ContextFactory
-interface|interface
-name|ContextFactory
-parameter_list|<
-name|SubPhaseContext
-extends|extends
-name|FetchSubPhaseContext
-parameter_list|>
-block|{
-comment|/**          * The name of the context.          */
-DECL|method|getName
-name|String
-name|getName
-parameter_list|()
-function_decl|;
-comment|/**          * Creates a new instance of a FetchSubPhaseContext that holds all information a FetchSubPhase needs to execute on hits.          */
-DECL|method|newContextInstance
-name|SubPhaseContext
-name|newContextInstance
-parameter_list|()
-function_decl|;
-block|}
 block|}
 end_interface
 
