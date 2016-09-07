@@ -285,16 +285,6 @@ name|getIndexReader
 argument_list|()
 return|;
 block|}
-DECL|method|topLevelSearcher
-specifier|public
-name|IndexSearcher
-name|topLevelSearcher
-parameter_list|()
-block|{
-return|return
-name|searcher
-return|;
-block|}
 DECL|method|cache
 specifier|public
 name|Map
