@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sub phase within the fetch phase used to fetch things *about* the documents like highlghting or matched queries.  */
+comment|/**  * Sub phase within the fetch phase used to fetch things *about* the documents like highlighting or matched queries.  */
 end_comment
 
 begin_interface
