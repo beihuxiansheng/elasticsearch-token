@@ -373,6 +373,9 @@ name|bigArrays
 parameter_list|,
 name|FetchPhase
 name|fetchPhase
+parameter_list|,
+name|SearchExtParserRegistry
+name|searchExtParserRegistry
 parameter_list|)
 block|{
 name|super
@@ -392,6 +395,8 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|fetchPhase
+argument_list|,
+name|searchExtParserRegistry
 argument_list|)
 expr_stmt|;
 block|}

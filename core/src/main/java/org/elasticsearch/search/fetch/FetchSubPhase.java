@@ -80,18 +80,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchExtParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|InternalSearchHit
@@ -305,17 +293,6 @@ return|return
 name|cache
 return|;
 block|}
-block|}
-comment|/**      * Returns the parser for the optional config to be put in the ext section of the search request      */
-DECL|method|parser
-specifier|default
-name|SearchExtParser
-name|parser
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
 block|}
 comment|/**      * Executes the hit level phase, with a reader and doc id (note, its a low level reader, and the matching doc).      */
 DECL|method|hitExecute

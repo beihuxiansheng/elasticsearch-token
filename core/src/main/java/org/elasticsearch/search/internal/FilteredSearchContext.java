@@ -2046,10 +2046,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|putFetchSubPhaseBuilder
+DECL|method|putSearchExtBuilder
 specifier|public
 name|void
-name|putFetchSubPhaseBuilder
+name|putSearchExtBuilder
 parameter_list|(
 name|String
 name|name
@@ -2060,7 +2060,7 @@ parameter_list|)
 block|{
 name|in
 operator|.
-name|putFetchSubPhaseBuilder
+name|putSearchExtBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -2070,10 +2070,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getFetchSubPhaseBuilder
+DECL|method|getSearchExtBuilder
 specifier|public
 name|Object
-name|getFetchSubPhaseBuilder
+name|getSearchExtBuilder
 parameter_list|(
 name|String
 name|name
@@ -2082,7 +2082,7 @@ block|{
 return|return
 name|in
 operator|.
-name|getFetchSubPhaseBuilder
+name|getSearchExtBuilder
 argument_list|(
 name|name
 argument_list|)

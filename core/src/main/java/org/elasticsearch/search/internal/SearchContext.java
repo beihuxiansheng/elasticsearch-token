@@ -1078,11 +1078,11 @@ name|SearchContextAggregations
 name|aggregations
 parameter_list|)
 function_decl|;
-DECL|method|putFetchSubPhaseBuilder
+DECL|method|putSearchExtBuilder
 specifier|public
 specifier|abstract
 name|void
-name|putFetchSubPhaseBuilder
+name|putSearchExtBuilder
 parameter_list|(
 name|String
 name|name
@@ -1091,11 +1091,11 @@ name|Object
 name|fetchSubPhaseBuilder
 parameter_list|)
 function_decl|;
-DECL|method|getFetchSubPhaseBuilder
+DECL|method|getSearchExtBuilder
 specifier|public
 specifier|abstract
 name|Object
-name|getFetchSubPhaseBuilder
+name|getSearchExtBuilder
 parameter_list|(
 name|String
 name|name
