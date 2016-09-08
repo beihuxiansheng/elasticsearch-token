@@ -3917,6 +3917,8 @@ specifier|public
 name|Node
 name|start
 parameter_list|()
+throws|throws
+name|NodeValidationException
 block|{
 if|if
 condition|(
@@ -5975,12 +5977,16 @@ specifier|protected
 name|void
 name|validateNodeBeforeAcceptingRequests
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|,
+specifier|final
 name|BoundTransportAddress
 name|boundTransportAddress
 parameter_list|)
+throws|throws
+name|NodeValidationException
 block|{     }
 comment|/** Writes a file to the logs dir containing the ports for the given transport type */
 DECL|method|writePortsFile

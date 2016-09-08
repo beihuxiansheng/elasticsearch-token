@@ -160,6 +160,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|NodeValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -295,6 +307,8 @@ specifier|static
 name|void
 name|createTribes
 parameter_list|()
+throws|throws
+name|NodeValidationException
 block|{
 name|Settings
 name|baseSettings

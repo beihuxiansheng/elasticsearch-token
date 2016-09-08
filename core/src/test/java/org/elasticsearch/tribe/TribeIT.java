@@ -304,6 +304,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|NodeValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -731,6 +743,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|)
+throws|throws
+name|NodeValidationException
 block|{
 name|Map
 argument_list|<

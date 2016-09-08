@@ -122,6 +122,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|NodeValidationException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -386,7 +398,7 @@ argument_list|>
 name|settings
 parameter_list|)
 throws|throws
-name|Exception
+name|UserException
 block|{
 if|if
 condition|(
@@ -524,6 +536,8 @@ argument_list|(
 name|options
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|init
 argument_list|(
 name|daemonize
@@ -533,6 +547,28 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NodeValidationException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UserException
+argument_list|(
+name|ExitCodes
+operator|.
+name|CONFIG
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|init
 name|void
@@ -555,6 +591,8 @@ name|String
 argument_list|>
 name|esSettings
 parameter_list|)
+throws|throws
+name|NodeValidationException
 block|{
 try|try
 block|{
@@ -573,9 +611,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
-name|Throwable
-name|t
+name|BootstrapException
+decl||
+name|RuntimeException
+name|e
 parameter_list|)
 block|{
 comment|// format exceptions to the console in a special way
@@ -584,7 +623,7 @@ throw|throw
 operator|new
 name|StartupException
 argument_list|(
-name|t
+name|e
 argument_list|)
 throw|;
 block|}

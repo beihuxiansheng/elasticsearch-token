@@ -375,7 +375,9 @@ name|boolean
 name|filterBadDefaults
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// enable security policy: union of template and environment-based paths, and possibly plugin permissions
 name|Policy
@@ -412,6 +414,8 @@ name|String
 index|[]
 block|{
 literal|"org.elasticsearch.bootstrap."
+block|,
+literal|"org.elasticsearch.cli"
 block|}
 argument_list|)
 argument_list|)
