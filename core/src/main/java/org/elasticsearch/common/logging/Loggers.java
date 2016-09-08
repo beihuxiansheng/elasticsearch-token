@@ -253,7 +253,6 @@ class|class
 name|Loggers
 block|{
 DECL|field|commonPrefix
-specifier|private
 specifier|static
 specifier|final
 name|String
