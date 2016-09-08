@@ -1776,6 +1776,82 @@ name|Settings
 name|previous
 parameter_list|)
 block|{
+if|if
+condition|(
+name|aSettingUpdater
+operator|.
+name|hasChanged
+argument_list|(
+name|current
+argument_list|,
+name|previous
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|aSetting
+operator|.
+name|key
+argument_list|,
+name|aSetting
+operator|.
+name|getRaw
+argument_list|(
+name|previous
+argument_list|)
+argument_list|,
+name|aSetting
+operator|.
+name|getRaw
+argument_list|(
+name|current
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|bSettingUpdater
+operator|.
+name|hasChanged
+argument_list|(
+name|current
+argument_list|,
+name|previous
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|bSetting
+operator|.
+name|key
+argument_list|,
+name|bSetting
+operator|.
+name|getRaw
+argument_list|(
+name|previous
+argument_list|)
+argument_list|,
+name|bSetting
+operator|.
+name|getRaw
+argument_list|(
+name|current
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|consumer
 operator|.
 name|accept
@@ -3294,7 +3370,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Creates a setting which specifies a memory size. This can either be      * specified as an absolute bytes value or as a percentage of the heap      * memory.      *       * @param key the key for the setting      * @param defaultValue the default value for this setting       * @param properties properties properties for this setting like scope, filtering...      * @return the setting object      */
+comment|/**      * Creates a setting which specifies a memory size. This can either be      * specified as an absolute bytes value or as a percentage of the heap      * memory.      *      * @param key the key for the setting      * @param defaultValue the default value for this setting      * @param properties properties properties for this setting like scope, filtering...      * @return the setting object      */
 end_comment
 
 begin_function
@@ -3339,7 +3415,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Creates a setting which specifies a memory size. This can either be      * specified as an absolute bytes value or as a percentage of the heap      * memory.      *       * @param key the key for the setting      * @param defaultValue a function that supplies the default value for this setting       * @param properties properties properties for this setting like scope, filtering...      * @return the setting object      */
+comment|/**      * Creates a setting which specifies a memory size. This can either be      * specified as an absolute bytes value or as a percentage of the heap      * memory.      *      * @param key the key for the setting      * @param defaultValue a function that supplies the default value for this setting      * @param properties properties properties for this setting like scope, filtering...      * @return the setting object      */
 end_comment
 
 begin_function
@@ -3397,7 +3473,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Creates a setting which specifies a memory size. This can either be      * specified as an absolute bytes value or as a percentage of the heap      * memory.      *       * @param key the key for the setting      * @param defaultPercentage the default value of this setting as a percentage of the heap memory      * @param properties properties properties for this setting like scope, filtering...      * @return the setting object      */
+comment|/**      * Creates a setting which specifies a memory size. This can either be      * specified as an absolute bytes value or as a percentage of the heap      * memory.      *      * @param key the key for the setting      * @param defaultPercentage the default value of this setting as a percentage of the heap memory      * @param properties properties properties for this setting like scope, filtering...      * @return the setting object      */
 end_comment
 
 begin_function
