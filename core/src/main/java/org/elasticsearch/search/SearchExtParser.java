@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.fetch
+DECL|package|org.elasticsearch.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|search
-operator|.
-name|fetch
 package|;
 end_package
 
