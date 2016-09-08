@@ -622,7 +622,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|FetchSubPhaseParser
+name|SearchExtParser
 import|;
 end_import
 
@@ -1350,7 +1350,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|FetchSubPhaseParser
+name|SearchExtParser
 argument_list|>
 name|fetchPhaseParsers
 decl_stmt|;
@@ -5182,8 +5182,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|FetchSubPhaseParser
-name|fetchSubPhaseParser
+name|SearchExtParser
+name|searchExtParser
 init|=
 name|this
 operator|.
@@ -5196,7 +5196,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|fetchSubPhaseParser
+name|searchExtParser
 operator|==
 literal|null
 condition|)
@@ -5254,7 +5254,7 @@ block|{
 name|Object
 name|fetchSubPhaseBuilder
 init|=
-name|fetchSubPhaseParser
+name|searchExtParser
 operator|.
 name|parse
 argument_list|(

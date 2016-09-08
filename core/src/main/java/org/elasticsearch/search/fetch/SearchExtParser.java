@@ -31,15 +31,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser for the ext section of a search request, which can hold custom fetch sub phase  */
+comment|/**  * Parser for the ext section of a search request, which can hold custom fetch sub phases config  */
 end_comment
 
 begin_interface
-DECL|interface|FetchSubPhaseParser
+DECL|interface|SearchExtParser
 specifier|public
 interface|interface
-name|FetchSubPhaseParser
+name|SearchExtParser
 block|{
+comment|/**      * Returns the name of the element that this parser is able to parse      */
+DECL|method|getName
+name|String
+name|getName
+parameter_list|()
+function_decl|;
+comment|/**      * Parses the element whose name is returned by {@link #getName()}      */
 DECL|method|parse
 name|Object
 name|parse

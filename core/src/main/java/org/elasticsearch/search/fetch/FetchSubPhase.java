@@ -106,16 +106,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -304,24 +294,15 @@ name|cache
 return|;
 block|}
 block|}
-DECL|method|parsers
+comment|/**      * Returns the parser for the optional config to be put in the ext section of the search request      */
+DECL|method|parser
 specifier|default
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|FetchSubPhaseParser
-argument_list|>
-name|parsers
+name|SearchExtParser
+name|parser
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
+literal|null
 return|;
 block|}
 comment|/**      * Executes the hit level phase, with a reader and doc id (note, its a low level reader, and the matching doc).      */
