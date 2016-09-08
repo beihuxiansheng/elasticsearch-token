@@ -1280,17 +1280,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// TODO: this should be removed in ES 6.0! We will no longer support data paths with the cluster as a folder
-assert|assert
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|major
-operator|<
-literal|6
-operator|:
-literal|"cluster name is no longer used in data path"
-assert|;
+comment|// https://github.com/elastic/elasticsearch/issues/20391
 for|for
 control|(
 name|Path
