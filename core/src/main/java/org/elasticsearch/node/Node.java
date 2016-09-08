@@ -2346,35 +2346,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: Remove this in Elasticsearch 6.0.0
-if|if
-condition|(
-name|JsonXContent
-operator|.
-name|unquotedFieldNamesSet
-condition|)
-block|{
-name|DeprecationLogger
-name|dLogger
-init|=
-operator|new
-name|DeprecationLogger
-argument_list|(
-name|logger
-argument_list|)
-decl_stmt|;
-name|dLogger
-operator|.
-name|deprecated
-argument_list|(
-literal|"[{}] has been set, but will be removed in Elasticsearch 6.0.0"
-argument_list|,
-name|JsonXContent
-operator|.
-name|JSON_ALLOW_UNQUOTED_FIELD_NAMES
-argument_list|)
-expr_stmt|;
-block|}
 name|this
 operator|.
 name|pluginsService
