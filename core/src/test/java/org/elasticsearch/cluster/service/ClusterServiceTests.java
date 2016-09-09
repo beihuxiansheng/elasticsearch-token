@@ -286,7 +286,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|TestLoggers
+name|Loggers
 import|;
 end_import
 
@@ -4301,7 +4301,7 @@ operator|.
 name|getRootLogger
 argument_list|()
 decl_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
@@ -4664,7 +4664,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|TestLoggers
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(
@@ -4796,7 +4796,7 @@ operator|.
 name|getRootLogger
 argument_list|()
 decl_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
@@ -5265,7 +5265,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|TestLoggers
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(

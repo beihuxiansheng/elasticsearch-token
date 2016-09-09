@@ -274,20 +274,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|TestLoggers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Setting
@@ -3080,7 +3066,7 @@ operator|.
 name|getLevel
 argument_list|()
 decl_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
@@ -3289,7 +3275,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|TestLoggers
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(
@@ -3682,7 +3668,7 @@ operator|.
 name|getLevel
 argument_list|()
 decl_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
@@ -3885,7 +3871,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|TestLoggers
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(
