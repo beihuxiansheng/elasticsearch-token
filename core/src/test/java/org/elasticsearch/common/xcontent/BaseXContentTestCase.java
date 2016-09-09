@@ -3513,6 +3513,8 @@ argument_list|,
 name|randomBytes
 operator|.
 name|length
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -3534,6 +3536,8 @@ operator|.
 name|length
 operator|-
 name|offset
+operator|-
+literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
