@@ -56,6 +56,9 @@ name|processorTag
 parameter_list|,
 name|String
 name|field
+parameter_list|,
+name|boolean
+name|ignoreMissing
 parameter_list|)
 block|{
 name|super
@@ -63,6 +66,8 @@ argument_list|(
 name|processorTag
 argument_list|,
 name|field
+argument_list|,
+name|ignoreMissing
 argument_list|)
 expr_stmt|;
 block|}
@@ -134,6 +139,9 @@ name|tag
 parameter_list|,
 name|String
 name|field
+parameter_list|,
+name|boolean
+name|ignoreMissing
 parameter_list|)
 block|{
 return|return
@@ -143,6 +151,8 @@ argument_list|(
 name|tag
 argument_list|,
 name|field
+argument_list|,
+name|ignoreMissing
 argument_list|)
 return|;
 block|}

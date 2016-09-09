@@ -276,6 +276,8 @@ argument_list|(
 literal|"_tag"
 argument_list|,
 literal|"_ingest._value"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1570,6 +1572,8 @@ argument_list|(
 literal|"_tag_upper"
 argument_list|,
 literal|"_ingest._value"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 argument_list|,

@@ -108,6 +108,12 @@ specifier|final
 name|String
 name|targetField
 decl_stmt|;
+DECL|field|ignoreMissing
+specifier|private
+specifier|final
+name|boolean
+name|ignoreMissing
+decl_stmt|;
 DECL|method|RenameProcessor
 name|RenameProcessor
 parameter_list|(
@@ -119,6 +125,9 @@ name|field
 parameter_list|,
 name|String
 name|targetField
+parameter_list|,
+name|boolean
+name|ignoreMissing
 parameter_list|)
 block|{
 name|super
@@ -138,6 +147,12 @@ name|targetField
 operator|=
 name|targetField
 expr_stmt|;
+name|this
+operator|.
+name|ignoreMissing
+operator|=
+name|ignoreMissing
+expr_stmt|;
 block|}
 DECL|method|getField
 name|String
@@ -155,6 +170,15 @@ parameter_list|()
 block|{
 return|return
 name|targetField
+return|;
+block|}
+DECL|method|isIgnoreMissing
+name|boolean
+name|isIgnoreMissing
+parameter_list|()
+block|{
+return|return
+name|ignoreMissing
 return|;
 block|}
 annotation|@
@@ -182,6 +206,15 @@ operator|==
 literal|false
 condition|)
 block|{
+if|if
+condition|(
+name|ignoreMissing
+condition|)
+block|{
+return|return;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -193,6 +226,7 @@ operator|+
 literal|"] doesn't exist"
 argument_list|)
 throw|;
+block|}
 block|}
 comment|// We fail here if the target field point to an array slot that is out of range.
 comment|// If we didn't do this then we would fail if we set the value in the target_field
@@ -362,6 +396,24 @@ argument_list|,
 literal|"target_field"
 argument_list|)
 decl_stmt|;
+name|boolean
+name|ignoreMissing
+init|=
+name|ConfigurationUtils
+operator|.
+name|readBooleanProperty
+argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
+name|config
+argument_list|,
+literal|"ignore_missing"
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|RenameProcessor
@@ -371,6 +423,8 @@ argument_list|,
 name|field
 argument_list|,
 name|targetField
+argument_list|,
+name|ignoreMissing
 argument_list|)
 return|;
 block|}

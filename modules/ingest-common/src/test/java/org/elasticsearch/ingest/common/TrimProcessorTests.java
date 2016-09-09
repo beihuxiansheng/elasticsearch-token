@@ -33,6 +33,9 @@ name|newProcessor
 parameter_list|(
 name|String
 name|field
+parameter_list|,
+name|boolean
+name|ignoreMissing
 parameter_list|)
 block|{
 return|return
@@ -45,6 +48,8 @@ literal|10
 argument_list|)
 argument_list|,
 name|field
+argument_list|,
+name|ignoreMissing
 argument_list|)
 return|;
 block|}

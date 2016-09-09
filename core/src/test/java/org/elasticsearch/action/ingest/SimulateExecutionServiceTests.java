@@ -172,7 +172,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocumentTests
+name|IngestDocumentMatcher
 operator|.
 name|assertIngestDocument
 import|;
