@@ -28,32 +28,43 @@ name|XContentParser
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**  * Parser for the ext section of a search request, which can hold custom fetch sub phases config  */
+comment|/**  * Defines a parser that is able to parse {@link org.elasticsearch.search.SearchExtBuilder}s  * from {@link org.elasticsearch.common.xcontent.XContent}.  *  * Registration happens through {@link org.elasticsearch.plugins.SearchPlugin#getSearchExts()}, which also needs a {@link SearchExtBuilder}  * implementation which is the object that this parser returns when reading an incoming request form the REST layer.  *  * @see SearchExtBuilder  * @see org.elasticsearch.plugins.SearchPlugin.SearchExtSpec  */
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|SearchExtParser
 specifier|public
 interface|interface
 name|SearchExtParser
+parameter_list|<
+name|T
+extends|extends
+name|SearchExtBuilder
+parameter_list|>
 block|{
-comment|/**      * Returns the name of the element that this parser is able to parse      */
-DECL|method|getName
-name|String
-name|getName
-parameter_list|()
-function_decl|;
-comment|/**      * Parses the element whose name is returned by {@link #getName()}      */
-DECL|method|parse
-name|Object
-name|parse
+comment|/**      * Parses the supported element placed within the ext section of a search request      */
+DECL|method|fromXContent
+name|T
+name|fromXContent
 parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 function_decl|;
 block|}
 end_interface

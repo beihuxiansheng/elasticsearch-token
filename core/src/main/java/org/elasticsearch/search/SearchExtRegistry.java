@@ -33,18 +33,19 @@ comment|/**  * Extensions to ParseFieldRegistry to make Guice happy.  */
 end_comment
 
 begin_class
-DECL|class|SearchExtParserRegistry
+DECL|class|SearchExtRegistry
 specifier|public
 class|class
-name|SearchExtParserRegistry
+name|SearchExtRegistry
 extends|extends
 name|ParseFieldRegistry
 argument_list|<
 name|SearchExtParser
 argument_list|>
 block|{
-DECL|method|SearchExtParserRegistry
-name|SearchExtParserRegistry
+DECL|method|SearchExtRegistry
+specifier|public
+name|SearchExtRegistry
 parameter_list|()
 block|{
 name|super
