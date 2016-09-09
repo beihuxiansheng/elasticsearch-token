@@ -84,7 +84,7 @@ comment|// TODO: this class should be renamed to SearchRequestParser, and all th
 comment|// methods split across RestSearchAction and SearchSourceBuilder should be moved here
 comment|// TODO: make all members private once parsing functions are moved here
 comment|// TODO: IndicesQueriesRegistry should be removed and just have the map of query parsers here
-comment|/**      * Query parsers that may be used in search requests.      * @see org.elasticsearch.index.query.QueryParseContext      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      * Suggesters, SearchExtRegistry)      */
+comment|/**      * Query parsers that may be used in search requests.      * @see org.elasticsearch.index.query.QueryParseContext      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
 DECL|field|queryParsers
 specifier|public
 specifier|final
@@ -93,7 +93,7 @@ name|queryParsers
 decl_stmt|;
 comment|// TODO: AggregatorParsers should be removed and the underlying maps of agg
 comment|// and pipeline agg parsers should be here
-comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      * Suggesters, SearchExtRegistry)      */
+comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
 DECL|field|aggParsers
 specifier|public
 specifier|final
@@ -101,7 +101,7 @@ name|AggregatorParsers
 name|aggParsers
 decl_stmt|;
 comment|// TODO: Suggesters should be removed and the underlying map moved here
-comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      * Suggesters, SearchExtRegistry)      */
+comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
 DECL|field|suggesters
 specifier|public
 specifier|final
