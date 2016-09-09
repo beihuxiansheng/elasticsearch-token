@@ -24,49 +24,38 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
+name|ParseFieldRegistry
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Extensions to ParseFieldRegistry to make Guice happy.  */
 end_comment
 
-begin_interface
-DECL|interface|SearchParseElement
+begin_class
+DECL|class|SearchExtRegistry
 specifier|public
-interface|interface
-name|SearchParseElement
+class|class
+name|SearchExtRegistry
+extends|extends
+name|ParseFieldRegistry
+argument_list|<
+name|SearchExtParser
+argument_list|>
 block|{
-DECL|method|parse
-name|void
-name|parse
-parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
-name|SearchContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
+DECL|method|SearchExtRegistry
+specifier|public
+name|SearchExtRegistry
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"ext"
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

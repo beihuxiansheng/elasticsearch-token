@@ -20,41 +20,51 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|internal
+name|xcontent
 operator|.
-name|SearchContext
+name|XContentParser
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a phase of a search request e.g. query, fetch etc.  */
+comment|/**  * Defines a parser that is able to parse {@link org.elasticsearch.search.SearchExtBuilder}s  * from {@link org.elasticsearch.common.xcontent.XContent}.  *  * Registration happens through {@link org.elasticsearch.plugins.SearchPlugin#getSearchExts()}, which also needs a {@link SearchExtBuilder}  * implementation which is the object that this parser returns when reading an incoming request form the REST layer.  *  * @see SearchExtBuilder  * @see org.elasticsearch.plugins.SearchPlugin.SearchExtSpec  */
 end_comment
 
 begin_interface
-DECL|interface|SearchPhase
+annotation|@
+name|FunctionalInterface
+DECL|interface|SearchExtParser
 specifier|public
 interface|interface
-name|SearchPhase
+name|SearchExtParser
+parameter_list|<
+name|T
+extends|extends
+name|SearchExtBuilder
+parameter_list|>
 block|{
-comment|/**      * Performs pre processing of the search context before the execute.      */
-DECL|method|preProcess
-name|void
-name|preProcess
+comment|/**      * Parses the supported element placed within the ext section of a search request      */
+DECL|method|fromXContent
+name|T
+name|fromXContent
 parameter_list|(
-name|SearchContext
-name|context
+name|XContentParser
+name|parser
 parameter_list|)
-function_decl|;
-comment|/**      * Executes the search phase      */
-DECL|method|execute
-name|void
-name|execute
-parameter_list|(
-name|SearchContext
-name|context
-parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface
