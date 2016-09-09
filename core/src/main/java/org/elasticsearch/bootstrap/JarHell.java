@@ -1458,6 +1458,20 @@ block|{
 comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://github.com/elastic/elasticsearch/issues/20304                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1560                      */
 return|return;
 block|}
+elseif|else
+if|if
+condition|(
+name|clazz
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.logging.log4j.core.jmx.Server"
+argument_list|)
+condition|)
+block|{
+comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1506                      */
+return|return;
+block|}
 throw|throw
 operator|new
 name|IllegalStateException
