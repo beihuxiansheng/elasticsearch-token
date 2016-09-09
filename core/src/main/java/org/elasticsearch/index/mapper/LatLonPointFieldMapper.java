@@ -52,6 +52,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|IndexOptions
@@ -69,6 +83,16 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
 import|;
 end_import
 
@@ -215,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Created by nknize on 8/23/16.  */
+comment|/**  * Field Mapper for geo_point types.  *  * Uses lucene 6 LatLonPoint encoding  */
 end_comment
 
 begin_class
@@ -234,6 +258,17 @@ name|String
 name|CONTENT_TYPE
 init|=
 literal|"geo_point"
+decl_stmt|;
+DECL|field|LAT_LON_FIELD_VERSION
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|LAT_LON_FIELD_VERSION
+init|=
+name|Version
+operator|.
+name|V_5_0_0_alpha6
 decl_stmt|;
 DECL|class|Defaults
 specifier|public
@@ -760,12 +795,6 @@ operator|!=
 name|IndexOptions
 operator|.
 name|NONE
-operator|||
-name|fieldType
-argument_list|()
-operator|.
-name|stored
-argument_list|()
 condition|)
 block|{
 name|context
@@ -792,6 +821,39 @@ argument_list|,
 name|point
 operator|.
 name|lon
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|fieldType
+argument_list|()
+operator|.
+name|stored
+argument_list|()
+condition|)
+block|{
+name|context
+operator|.
+name|doc
+argument_list|()
+operator|.
+name|add
+argument_list|(
+operator|new
+name|StoredField
+argument_list|(
+name|fieldType
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|point
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)

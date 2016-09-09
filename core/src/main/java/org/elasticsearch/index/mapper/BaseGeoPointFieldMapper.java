@@ -929,9 +929,9 @@ argument_list|()
 operator|.
 name|before
 argument_list|(
-name|Version
+name|LatLonPointFieldMapper
 operator|.
-name|V_5_0_0_alpha6
+name|LAT_LON_FIELD_VERSION
 argument_list|)
 condition|)
 block|{
@@ -1541,9 +1541,9 @@ name|indexVersionCreated
 operator|.
 name|onOrAfter
 argument_list|(
-name|Version
+name|LatLonPointFieldMapper
 operator|.
-name|V_5_0_0_alpha6
+name|LAT_LON_FIELD_VERSION
 argument_list|)
 condition|)
 block|{
@@ -1649,9 +1649,9 @@ name|indexVersionCreated
 operator|.
 name|before
 argument_list|(
-name|Version
+name|LatLonPointFieldMapper
 operator|.
-name|V_5_0_0_alpha6
+name|LAT_LON_FIELD_VERSION
 argument_list|)
 condition|)
 block|{

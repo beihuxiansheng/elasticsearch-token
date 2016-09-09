@@ -108,6 +108,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -257,10 +267,6 @@ operator|.
 name|IOException
 import|;
 end_import
-
-begin_comment
-comment|/**  * Created by nknize on 8/23/16.  */
-end_comment
 
 begin_class
 DECL|class|AbstractLatLonPointDVIndexFieldData
