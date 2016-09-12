@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.controller
+DECL|package|org.elasticsearch.action.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|action
 operator|.
-name|controller
+name|search
 package|;
 end_package
 
@@ -809,10 +809,7 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|SearchPhaseController
-specifier|public
 name|SearchPhaseController
 parameter_list|(
 name|Settings

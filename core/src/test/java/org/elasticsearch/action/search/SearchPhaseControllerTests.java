@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.controller
+DECL|package|org.elasticsearch.action.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|action
 operator|.
-name|controller
+name|search
 package|;
 end_package
 
@@ -41,6 +41,20 @@ operator|.
 name|search
 operator|.
 name|TopDocs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchPhaseController
 import|;
 end_import
 

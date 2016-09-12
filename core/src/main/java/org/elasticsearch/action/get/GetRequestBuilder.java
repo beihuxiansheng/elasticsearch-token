@@ -519,26 +519,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setIgnoreErrorsOnGeneratedFields
-specifier|public
-name|GetRequestBuilder
-name|setIgnoreErrorsOnGeneratedFields
-parameter_list|(
-name|Boolean
-name|ignoreErrorsOnGeneratedFields
-parameter_list|)
-block|{
-name|request
-operator|.
-name|ignoreErrorsOnGeneratedFields
-argument_list|(
-name|ignoreErrorsOnGeneratedFields
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the version, which will cause the get operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
 DECL|method|setVersion
 specifier|public

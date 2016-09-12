@@ -596,8 +596,6 @@ argument_list|,
 name|FetchSourceContext
 operator|.
 name|FETCH_SOURCE
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 return|return

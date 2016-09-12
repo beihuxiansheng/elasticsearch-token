@@ -6530,17 +6530,6 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configureSearch
-parameter_list|()
-block|{
-comment|// Skip me
-block|}
-block|}
 expr_stmt|;
 name|IndicesModule
 name|indicesModule

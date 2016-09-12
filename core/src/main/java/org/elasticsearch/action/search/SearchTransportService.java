@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.action
+DECL|package|org.elasticsearch.action.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
 name|action
+operator|.
+name|search
 package|;
 end_package
 
@@ -72,20 +72,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|SearchRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -117,20 +103,6 @@ operator|.
 name|component
 operator|.
 name|AbstractComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -574,10 +546,7 @@ specifier|final
 name|SearchService
 name|searchService
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|SearchTransportService
-specifier|public
 name|SearchTransportService
 parameter_list|(
 name|Settings

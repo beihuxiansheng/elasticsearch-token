@@ -1120,9 +1120,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
 name|action
+operator|.
+name|search
 operator|.
 name|SearchTransportService
 import|;

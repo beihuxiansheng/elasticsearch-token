@@ -208,9 +208,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|action
-operator|.
-name|SearchTransportService
+name|SearchService
 import|;
 end_import
 
@@ -361,8 +359,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|SearchTransportService
-name|searchTransportService
+name|SearchService
+name|searchService
 parameter_list|,
 name|ActionFilters
 name|actionFilters
@@ -402,7 +400,15 @@ name|this
 operator|.
 name|searchTransportService
 operator|=
-name|searchTransportService
+operator|new
+name|SearchTransportService
+argument_list|(
+name|settings
+argument_list|,
+name|transportService
+argument_list|,
+name|searchService
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

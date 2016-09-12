@@ -952,7 +952,10 @@ DECL|method|preProcess
 specifier|public
 name|void
 name|preProcess
-parameter_list|()
+parameter_list|(
+name|boolean
+name|rewrite
+parameter_list|)
 block|{     }
 annotation|@
 name|Override
