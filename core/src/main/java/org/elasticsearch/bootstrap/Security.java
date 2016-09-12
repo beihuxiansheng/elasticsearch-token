@@ -1279,36 +1279,6 @@ literal|"read,readlink,write,delete"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: this should be removed in ES 6.0! We will no longer support data paths with the cluster as a folder
-comment|// https://github.com/elastic/elasticsearch/issues/20391
-for|for
-control|(
-name|Path
-name|path
-range|:
-name|environment
-operator|.
-name|dataWithClusterFiles
-argument_list|()
-control|)
-block|{
-name|addPathIfExists
-argument_list|(
-name|policy
-argument_list|,
-name|Environment
-operator|.
-name|PATH_DATA_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|path
-argument_list|,
-literal|"read,readlink,write,delete"
-argument_list|)
-expr_stmt|;
-block|}
 for|for
 control|(
 name|Path
