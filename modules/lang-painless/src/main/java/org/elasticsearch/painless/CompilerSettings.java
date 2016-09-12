@@ -14,6 +14,36 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
 begin_comment
 comment|/**  * Settings to use when compiling a script.  */
 end_comment
@@ -25,6 +55,30 @@ specifier|final
 class|class
 name|CompilerSettings
 block|{
+comment|/**      * Are regexes enabled? This is a node level setting because regexes break out of painless's lovely sandbox and can cause stack      * overflows and we can't analyze the regex to be sure it won't.      */
+DECL|field|REGEX_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|REGEX_ENABLED
+init|=
+name|Setting
+operator|.
+name|boolSetting
+argument_list|(
+literal|"script.painless.regex.enabled"
+argument_list|,
+literal|false
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
+argument_list|)
+decl_stmt|;
 comment|/**      * Constant to be used when specifying the maximum loop counter when compiling a script.      */
 DECL|field|MAX_LOOP_COUNTER
 specifier|public
@@ -78,6 +132,14 @@ name|int
 name|initialCallSiteDepth
 init|=
 literal|0
+decl_stmt|;
+comment|/**      * Are regexes enabled? They are currently disabled by default because they break out of the loop counter and even fairly simple      *<strong>looking</strong> regexes can cause stack overflows.      */
+DECL|field|regexesEnabled
+specifier|private
+name|boolean
+name|regexesEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
@@ -161,6 +223,34 @@ operator|.
 name|initialCallSiteDepth
 operator|=
 name|depth
+expr_stmt|;
+block|}
+comment|/**      * Are regexes enabled? They are currently disabled by default because they break out of the loop counter and even fairly simple      *<strong>looking</strong> regexes can cause stack overflows.      */
+DECL|method|areRegexesEnabled
+specifier|public
+name|boolean
+name|areRegexesEnabled
+parameter_list|()
+block|{
+return|return
+name|regexesEnabled
+return|;
+block|}
+comment|/**      * Are regexes enabled? They are currently disabled by default because they break out of the loop counter and even fairly simple      *<strong>looking</strong> regexes can cause stack overflows.      */
+DECL|method|setRegexesEnabled
+specifier|public
+name|void
+name|setRegexesEnabled
+parameter_list|(
+name|boolean
+name|regexesEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|regexesEnabled
+operator|=
+name|regexesEnabled
 expr_stmt|;
 block|}
 block|}
