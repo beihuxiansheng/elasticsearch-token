@@ -1148,7 +1148,7 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
+comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])} to startup elasticsearch.      */
 DECL|method|init
 specifier|static
 name|void
@@ -1161,6 +1161,10 @@ parameter_list|,
 specifier|final
 name|Path
 name|pidFile
+parameter_list|,
+specifier|final
+name|boolean
+name|quiet
 parameter_list|,
 specifier|final
 name|Map
@@ -1274,12 +1278,23 @@ argument_list|)
 throw|;
 block|}
 block|}
+specifier|final
+name|boolean
+name|closeStandardStreams
+init|=
+operator|(
+name|foreground
+operator|==
+literal|false
+operator|)
+operator|||
+name|quiet
+decl_stmt|;
 try|try
 block|{
 if|if
 condition|(
-operator|!
-name|foreground
+name|closeStandardStreams
 condition|)
 block|{
 specifier|final
@@ -1379,8 +1394,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|foreground
+name|closeStandardStreams
 condition|)
 block|{
 name|closeSysError
