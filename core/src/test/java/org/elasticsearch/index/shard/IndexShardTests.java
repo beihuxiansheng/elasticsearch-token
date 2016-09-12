@@ -4295,15 +4295,17 @@ argument_list|(
 literal|"}"
 argument_list|)
 expr_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"Some path weirdness on windows"
-argument_list|,
+if|if
+condition|(
 name|Constants
 operator|.
 name|WINDOWS
-argument_list|)
-expr_stmt|;
+condition|)
+block|{
+comment|// Some path weirdness on windows
+block|}
+else|else
+block|{
 name|assertTrue
 argument_list|(
 name|xContent
@@ -4314,6 +4316,7 @@ name|expectedSubSequence
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|closeShards
 argument_list|(
 name|shard
@@ -7775,7 +7778,7 @@ literal|"test"
 argument_list|)
 init|)
 block|{
-name|assumeTrue
+name|assertThat
 argument_list|(
 literal|"we have to have more than one segment"
 argument_list|,
@@ -7789,8 +7792,11 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|>
+argument_list|,
+name|greaterThan
+argument_list|(
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ifd
