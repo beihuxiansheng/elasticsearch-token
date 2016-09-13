@@ -325,7 +325,7 @@ expr_stmt|;
 block|}
 name|item
 operator|.
-name|fields
+name|storedFields
 argument_list|(
 name|fields
 argument_list|)
@@ -638,14 +638,14 @@ name|assertThat
 argument_list|(
 name|item2
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|item
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 argument_list|)
 argument_list|)

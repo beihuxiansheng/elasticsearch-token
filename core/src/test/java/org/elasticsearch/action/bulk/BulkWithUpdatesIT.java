@@ -5221,15 +5221,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setFields
-argument_list|(
-literal|"counter"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat

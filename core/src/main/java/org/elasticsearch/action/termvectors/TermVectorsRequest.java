@@ -1029,7 +1029,7 @@ name|selectedFields
 argument_list|(
 name|item
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 argument_list|)
 expr_stmt|;

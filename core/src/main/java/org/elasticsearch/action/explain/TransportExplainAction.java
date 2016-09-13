@@ -878,7 +878,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 operator|!=
 literal|null
@@ -931,7 +931,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 argument_list|,
 name|request

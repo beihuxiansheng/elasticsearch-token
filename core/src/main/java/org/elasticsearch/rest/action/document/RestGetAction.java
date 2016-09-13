@@ -451,6 +451,28 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"fields"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The parameter [fields] is no longer supported, "
+operator|+
+literal|"please use [stored_fields] to retrieve stored fields or or [_source] to load the field from _source"
+argument_list|)
+throw|;
+block|}
 name|String
 name|sField
 init|=
@@ -458,7 +480,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-literal|"fields"
+literal|"stored_fields"
 argument_list|)
 decl_stmt|;
 if|if
@@ -488,7 +510,7 @@ condition|)
 block|{
 name|getRequest
 operator|.
-name|fields
+name|storedFields
 argument_list|(
 name|sFields
 argument_list|)
