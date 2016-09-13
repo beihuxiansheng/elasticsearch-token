@@ -472,18 +472,6 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|GeoPointInBBoxQuery
-condition|)
-block|{
-comment|// skip all geo queries, see https://issues.apache.org/jira/browse/LUCENE-7293 and
-comment|// https://github.com/elastic/elasticsearch/issues/17537
-return|return;
-block|}
-elseif|else
-if|if
-condition|(
-name|query
-operator|instanceof
 name|HasChildQueryBuilder
 operator|.
 name|LateParsingQuery
