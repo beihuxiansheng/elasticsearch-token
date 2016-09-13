@@ -348,7 +348,7 @@ name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0_alpha5
+name|V_2_4_0
 argument_list|)
 decl_stmt|;
 name|Settings
@@ -477,10 +477,13 @@ operator|.
 name|rootDoc
 argument_list|()
 operator|.
-name|get
+name|getField
 argument_list|(
 literal|"point.geohash"
 argument_list|)
+operator|.
+name|stringValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -596,7 +599,7 @@ name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0_alpha5
+name|V_2_4_0
 argument_list|)
 decl_stmt|;
 name|Settings
@@ -787,7 +790,7 @@ name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0_alpha5
+name|V_2_4_0
 argument_list|)
 decl_stmt|;
 name|Settings
