@@ -1172,15 +1172,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|LuceneTestCase
-operator|.
-name|BadApple
-argument_list|(
-name|bugUrl
-operator|=
-literal|"simon is working on this"
-argument_list|)
 DECL|method|testIssue6614
 specifier|public
 name|void
