@@ -435,6 +435,13 @@ argument_list|(
 name|settings
 argument_list|,
 name|transportService
+argument_list|)
+expr_stmt|;
+name|SearchTransportService
+operator|.
+name|registerRequestHandler
+argument_list|(
+name|transportService
 argument_list|,
 name|searchService
 argument_list|)
