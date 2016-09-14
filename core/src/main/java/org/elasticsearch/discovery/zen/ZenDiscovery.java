@@ -2133,16 +2133,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|publishClusterState
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|membership
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|pingService
 operator|.
 name|close

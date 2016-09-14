@@ -1497,13 +1497,6 @@ name|void
 name|doClose
 parameter_list|()
 block|{
-name|transportService
-operator|.
-name|removeHandler
-argument_list|(
-name|ACTION_NAME
-argument_list|)
-expr_stmt|;
 name|ThreadPool
 operator|.
 name|terminate

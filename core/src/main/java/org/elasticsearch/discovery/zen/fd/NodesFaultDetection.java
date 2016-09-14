@@ -745,13 +745,6 @@ expr_stmt|;
 name|stop
 argument_list|()
 expr_stmt|;
-name|transportService
-operator|.
-name|removeHandler
-argument_list|(
-name|PING_ACTION_NAME
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

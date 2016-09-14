@@ -916,13 +916,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|transportService
-operator|.
-name|removeHandler
-argument_list|(
-name|MASTER_PING_ACTION_NAME
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

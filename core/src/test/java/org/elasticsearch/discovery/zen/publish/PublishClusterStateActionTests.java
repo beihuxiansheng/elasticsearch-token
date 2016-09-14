@@ -1697,13 +1697,6 @@ control|)
 block|{
 name|curNode
 operator|.
-name|action
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|curNode
-operator|.
 name|service
 operator|.
 name|close
