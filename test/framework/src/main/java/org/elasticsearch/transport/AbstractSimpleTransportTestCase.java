@@ -4807,7 +4807,7 @@ name|TestLogging
 argument_list|(
 name|value
 operator|=
-literal|"test.transport.tracer:TRACE"
+literal|"org.elasticsearch.test.transport.tracer:TRACE"
 argument_list|)
 DECL|method|testTracerLog
 specifier|public

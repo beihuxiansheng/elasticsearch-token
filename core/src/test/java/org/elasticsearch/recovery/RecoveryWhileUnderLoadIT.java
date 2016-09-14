@@ -460,7 +460,7 @@ begin_class
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,index.shard:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.index.shard:TRACE"
 argument_list|)
 DECL|class|RecoveryWhileUnderLoadIT
 specifier|public

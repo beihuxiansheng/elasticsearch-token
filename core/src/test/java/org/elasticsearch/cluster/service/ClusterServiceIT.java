@@ -2216,7 +2216,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:debug,action.admin.cluster.tasks:trace"
+literal|"_root:debug,org.elasticsearch.action.admin.cluster.tasks:trace"
 argument_list|)
 DECL|method|testPendingUpdateTask
 specifier|public

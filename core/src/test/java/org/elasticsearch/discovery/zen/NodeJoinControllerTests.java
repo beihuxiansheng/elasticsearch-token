@@ -926,7 +926,7 @@ begin_class
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"discovery.zen:TRACE"
+literal|"org.elasticsearch.discovery.zen:TRACE"
 argument_list|)
 DECL|class|NodeJoinControllerTests
 specifier|public

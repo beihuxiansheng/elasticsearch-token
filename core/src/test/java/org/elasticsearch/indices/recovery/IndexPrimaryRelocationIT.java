@@ -278,7 +278,7 @@ decl_stmt|;
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,action.delete:TRACE,action.index:TRACE,index.shard:TRACE,cluster.service:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.action.delete:TRACE,org.elasticsearch.action.index:TRACE,index.shard:TRACE,org.elasticsearch.cluster.service:TRACE"
 argument_list|)
 DECL|method|testPrimaryRelocationWhileIndexing
 specifier|public

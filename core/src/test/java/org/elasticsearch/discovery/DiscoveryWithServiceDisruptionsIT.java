@@ -1295,7 +1295,7 @@ name|SuppressLocalMode
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,cluster.service:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.cluster.service:TRACE"
 argument_list|)
 DECL|class|DiscoveryWithServiceDisruptionsIT
 specifier|public
@@ -2524,7 +2524,7 @@ comment|/**      * This test isolates the master from rest of the cluster, waits
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,cluster.service:TRACE,gateway:TRACE,indices.store:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.cluster.service:TRACE,org.elasticsearch.gateway:TRACE,org.elasticsearch.indices.store:TRACE"
 argument_list|)
 DECL|method|testIsolateMasterAndVerifyClusterStateConsensus
 specifier|public
@@ -2924,9 +2924,9 @@ comment|/**      * Test that we do not loose document whose indexing request was
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,action.index:TRACE,action.get:TRACE,discovery:TRACE,cluster.service:TRACE,"
+literal|"_root:DEBUG,org.elasticsearch.action.index:TRACE,org.elasticsearch.action.get:TRACE,discovery:TRACE,org.elasticsearch.cluster.service:TRACE,"
 operator|+
-literal|"indices.recovery:TRACE,indices.cluster:TRACE"
+literal|"org.elasticsearch.indices.recovery:TRACE,org.elasticsearch.indices.cluster:TRACE"
 argument_list|)
 DECL|method|testAckedIndexing
 specifier|public
@@ -4201,7 +4201,7 @@ comment|/**      * Tests that emulates a frozen elected master node that unfreez
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,cluster.service:TRACE,test.disruption:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.cluster.service:TRACE,org.elasticsearch.test.disruption:TRACE"
 argument_list|)
 DECL|method|testStaleMasterNotHijackingMajority
 specifier|public

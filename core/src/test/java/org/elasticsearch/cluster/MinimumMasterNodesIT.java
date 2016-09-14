@@ -577,7 +577,7 @@ name|SuppressLocalMode
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,cluster.service:TRACE,discovery.zen:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.cluster.service:TRACE,org.elasticsearch.discovery.zen:TRACE"
 argument_list|)
 DECL|class|MinimumMasterNodesIT
 specifier|public

@@ -754,7 +754,7 @@ begin_class
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"discovery.zen.publish:TRACE"
+literal|"org.elasticsearch.discovery.zen.publish:TRACE"
 argument_list|)
 DECL|class|PublishClusterStateActionTests
 specifier|public
