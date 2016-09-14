@@ -1125,26 +1125,8 @@ name|Permission
 name|perm
 parameter_list|)
 block|{
-if|if
-condition|(
-name|perm
-operator|instanceof
-name|RuntimePermission
-operator|&&
-literal|"setSecurityManager"
-operator|.
-name|equals
-argument_list|(
-name|perm
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-comment|// so we can restore the security manager at the end of the test
-return|return;
-block|}
+comment|// just grant all permissions to Log4j, except we deny MBeanServerPermission
+comment|// "createMBeanServer" as this will trigger the Log4j bug
 if|if
 condition|(
 name|perm
@@ -1179,13 +1161,6 @@ literal|"denied"
 argument_list|)
 throw|;
 block|}
-name|super
-operator|.
-name|checkPermission
-argument_list|(
-name|perm
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1197,26 +1172,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-comment|// so that Log4j can check if its usage of JMX is disabled or not
-if|if
-condition|(
-literal|"log4j2.disable.jmx"
-operator|.
-name|equals
-argument_list|(
-name|key
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
-name|super
-operator|.
-name|checkPropertyAccess
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
+comment|/*                      * grant access to all properties; this is so that Log4j can check if its usage                      * of JMX is disabled or not by reading log4j2.disable.jmx but there are other                      * properties that Log4j will try to read as well and its simpler to just grant                      * them all                      */
 block|}
 block|}
 argument_list|)
