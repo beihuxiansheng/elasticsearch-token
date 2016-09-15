@@ -807,6 +807,29 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|boolean
+name|preserveIndices
+init|=
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.rest.preserve_indices"
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|preserveIndices
+operator|==
+literal|false
+condition|)
+block|{
 comment|// wipe indices
 try|try
 block|{
@@ -847,6 +870,7 @@ block|{
 throw|throw
 name|e
 throw|;
+block|}
 block|}
 block|}
 comment|// wipe index templates
