@@ -916,6 +916,18 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
+name|TcpTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
 name|TransportException
 import|;
 end_import
@@ -1614,6 +1626,22 @@ argument_list|,
 literal|"1s"
 argument_list|)
 comment|//<-- for hitting simulated network failures quickly
+operator|.
+name|put
+argument_list|(
+name|TcpTransport
+operator|.
+name|TCP_CONNECT_TIMEOUT
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|"10s"
+argument_list|)
+comment|// Network delay disruption waits for the min between this
+comment|// value and the time of disruption and does not recover immediately
+comment|// when disruption is stop. We should make sure we recover faster
+comment|// then the default of 30s, causing ensureGreen and friends to time out
 operator|.
 name|build
 argument_list|()
