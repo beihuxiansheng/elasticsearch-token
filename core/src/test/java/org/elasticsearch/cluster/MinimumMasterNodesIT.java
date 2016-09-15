@@ -158,7 +158,7 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ZenDiscovery
+name|ElectMasterService
 import|;
 end_import
 
@@ -172,9 +172,7 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|elect
-operator|.
-name|ElectMasterService
+name|ZenDiscovery
 import|;
 end_import
 

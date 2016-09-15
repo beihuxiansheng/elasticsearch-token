@@ -384,8 +384,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|elect
-operator|.
 name|ElectMasterService
 import|;
 end_import
@@ -591,6 +589,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -1592,10 +1600,12 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+comment|// test only
 DECL|method|pingAndWait
-specifier|public
+name|Collection
+argument_list|<
 name|PingResponse
-index|[]
+argument_list|>
 name|pingAndWait
 parameter_list|(
 name|TimeValue
@@ -1605,8 +1615,10 @@ block|{
 specifier|final
 name|AtomicReference
 argument_list|<
+name|Collection
+argument_list|<
 name|PingResponse
-index|[]
+argument_list|>
 argument_list|>
 name|response
 init|=
@@ -1855,7 +1867,7 @@ operator|.
 name|pingCollection
 argument_list|()
 operator|.
-name|toArray
+name|toList
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3492,11 +3504,9 @@ operator|.
 name|getMasterNode
 argument_list|()
 argument_list|,
-name|clusterName
-argument_list|,
 name|contextProvider
 operator|.
-name|nodeHasJoinedClusterOnce
+name|clusterState
 argument_list|()
 argument_list|)
 return|;
