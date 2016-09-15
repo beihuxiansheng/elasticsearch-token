@@ -1211,6 +1211,11 @@ literal|25
 argument_list|)
 decl_stmt|;
 comment|// at most 25 days in the month
+name|int
+name|docs
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1341,15 +1346,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|int
-name|docs
-init|=
-name|builders
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -1357,6 +1353,19 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
+name|docs
+operator|+=
+name|builders
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+name|builders
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 name|SearchResponse
 name|allDocsResponse
 init|=
