@@ -683,7 +683,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Required method that's called by Apache Commons procrun when      * running as a service on Windows, when the service is stopped.      *      * http://commons.apache.org/proper/commons-daemon/procrun.html      *      * NOTE: If this method is renamed and/or moved, make sure to update service.bat!      */
+comment|/**      * Required method that's called by Apache Commons procrun when      * running as a service on Windows, when the service is stopped.      *      * http://commons.apache.org/proper/commons-daemon/procrun.html      *      * NOTE: If this method is renamed and/or moved, make sure to      * update elasticsearch-service.bat!      */
 DECL|method|close
 specifier|static
 name|void
