@@ -644,6 +644,8 @@ name|esSettings
 parameter_list|)
 throws|throws
 name|NodeValidationException
+throws|,
+name|UserException
 block|{
 try|try
 block|{

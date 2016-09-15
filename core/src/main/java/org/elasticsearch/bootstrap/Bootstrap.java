@@ -142,6 +142,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cli
+operator|.
+name|UserException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|PidFile
@@ -1179,6 +1191,8 @@ throws|throws
 name|BootstrapException
 throws|,
 name|NodeValidationException
+throws|,
+name|UserException
 block|{
 comment|// Set the system property before anything has a chance to trigger its use
 name|initLoggerPrefix

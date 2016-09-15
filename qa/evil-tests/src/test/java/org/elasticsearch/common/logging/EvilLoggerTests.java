@@ -166,6 +166,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cli
+operator|.
+name|UserException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -433,6 +445,8 @@ name|testLocationInfoTest
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|UserException
 block|{
 name|setupLogging
 argument_list|(
@@ -635,6 +649,8 @@ name|testDeprecationLogger
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|UserException
 block|{
 name|setupLogging
 argument_list|(
@@ -734,6 +750,8 @@ name|testFindAppender
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|UserException
 block|{
 name|setupLogging
 argument_list|(
@@ -847,6 +865,8 @@ throws|throws
 name|IOException
 throws|,
 name|IllegalAccessException
+throws|,
+name|UserException
 block|{
 name|setupLogging
 argument_list|(
@@ -1230,6 +1250,8 @@ name|config
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|UserException
 block|{
 specifier|final
 name|Path
