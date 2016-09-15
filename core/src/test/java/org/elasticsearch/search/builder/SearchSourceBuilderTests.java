@@ -46,6 +46,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -3010,6 +3022,106 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|method|testInvalid
+specifier|public
+name|void
+name|testInvalid
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|restContent
+init|=
+literal|" { \"query\": {\n"
+operator|+
+literal|"    \"multi_match\": {\n"
+operator|+
+literal|"      \"query\": \"workd\",\n"
+operator|+
+literal|"      \"fields\": [\"title^5\", \"plain_body\"]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"filters\": {\n"
+operator|+
+literal|"      \"terms\": {\n"
+operator|+
+literal|"        \"status\": [ 3 ]\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  } }"
+decl_stmt|;
+try|try
+init|(
+name|XContentParser
+name|parser
+init|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|restContent
+argument_list|)
+operator|.
+name|createParser
+argument_list|(
+name|restContent
+argument_list|)
+init|)
+block|{
+name|SearchSourceBuilder
+operator|.
+name|fromXContent
+argument_list|(
+name|createParseContext
+argument_list|(
+name|parser
+argument_list|)
+argument_list|,
+name|searchRequestParsers
+operator|.
+name|aggParsers
+argument_list|,
+name|searchRequestParsers
+operator|.
+name|suggesters
+argument_list|,
+name|searchRequestParsers
+operator|.
+name|searchExtParsers
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"invalid query syntax multiple keys under query"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"filters"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testParseSort
