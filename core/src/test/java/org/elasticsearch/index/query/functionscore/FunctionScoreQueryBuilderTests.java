@@ -4565,7 +4565,10 @@ name|expectParsingException
 argument_list|(
 name|json
 argument_list|,
-literal|"[query] is already defined."
+name|equalTo
+argument_list|(
+literal|"[bool] malformed query, unexpected [FIELD_NAME] found [ignored_field_name]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

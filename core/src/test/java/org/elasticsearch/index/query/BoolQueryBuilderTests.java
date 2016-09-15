@@ -2698,7 +2698,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"expected [END_OBJECT] but got [FIELD_NAME], possibly too many query clauses"
+literal|"[match] malformed query, unexpected [FIELD_NAME] found [match]"
 argument_list|,
 name|ex
 operator|.
