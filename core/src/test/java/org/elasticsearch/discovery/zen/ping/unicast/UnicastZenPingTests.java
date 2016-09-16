@@ -1728,6 +1728,10 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|TransportService
+operator|.
+name|NOOP_TRANSPORT_INTERCEPTOR
 argument_list|)
 decl_stmt|;
 name|transportService
