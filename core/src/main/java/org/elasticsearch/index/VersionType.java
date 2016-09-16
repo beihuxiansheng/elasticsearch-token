@@ -839,9 +839,12 @@ return|;
 block|}
 block|}
 block|,
-comment|/**      * Warning: this version type should be used with care. Concurrent indexing may result in loss of data on replicas      */
-DECL|method|FORCE
-DECL|method|FORCE
+comment|/**      * Warning: this version type should be used with care. Concurrent indexing may result in loss of data on replicas      *      * @deprecated this will be removed in 7.0 and should not be used! It is *ONLY* for backward compatibility with 5.0 indices      */
+DECL|method|Deprecated
+DECL|method|Deprecated
+annotation|@
+name|Deprecated
+DECL|enum constant|FORCE
 name|FORCE
 argument_list|(
 operator|(
