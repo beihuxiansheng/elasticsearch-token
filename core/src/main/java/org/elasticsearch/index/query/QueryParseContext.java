@@ -100,20 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -143,18 +129,6 @@ operator|.
 name|script
 operator|.
 name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptSettings
 import|;
 end_import
 
@@ -572,12 +546,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// move to START object
-name|XContentParser
-operator|.
-name|Token
-name|token
-decl_stmt|;
 if|if
 condition|(
 name|parser
@@ -592,16 +560,12 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-name|token
-operator|=
+if|if
+condition|(
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|token
 operator|!=
 name|XContentParser
 operator|.
@@ -624,16 +588,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|token
-operator|=
+if|if
+condition|(
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|token
 operator|==
 name|XContentParser
 operator|.
@@ -687,7 +647,10 @@ return|;
 block|}
 if|if
 condition|(
-name|token
+name|parser
+operator|.
+name|currentToken
+argument_list|()
 operator|!=
 name|XContentParser
 operator|.
@@ -718,16 +681,12 @@ name|currentName
 argument_list|()
 decl_stmt|;
 comment|// move to the next START_OBJECT
-name|token
-operator|=
+if|if
+condition|(
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|token
 operator|!=
 name|XContentParser
 operator|.
@@ -789,6 +748,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+comment|//end_object of the specific query (e.g. match, multi_match etc.) element
 if|if
 condition|(
 name|parser
@@ -827,23 +787,19 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
+comment|//end_object of the query object
 if|if
 condition|(
 name|parser
 operator|.
-name|currentToken
+name|nextToken
 argument_list|()
-operator|==
+operator|!=
 name|XContentParser
 operator|.
 name|Token
 operator|.
-name|FIELD_NAME
+name|END_OBJECT
 condition|)
 block|{
 throw|throw
@@ -859,11 +815,11 @@ literal|"["
 operator|+
 name|queryName
 operator|+
-literal|"] malformed query, unexpected [FIELD_NAME] found ["
+literal|"] malformed query, expected [END_OBJECT] but found ["
 operator|+
 name|parser
 operator|.
-name|currentName
+name|currentToken
 argument_list|()
 operator|+
 literal|"]"
