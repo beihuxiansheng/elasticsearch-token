@@ -961,7 +961,7 @@ return|;
 block|}
 block|}
 DECL|class|TermVectorsFetchSubPhase
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 class|class
@@ -1268,7 +1268,7 @@ block|}
 block|}
 block|}
 DECL|class|TermVectorsFetchParser
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 class|class
@@ -1391,7 +1391,7 @@ return|;
 block|}
 block|}
 DECL|class|TermVectorsFetchBuilder
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 class|class
@@ -1406,7 +1406,7 @@ name|String
 name|field
 decl_stmt|;
 DECL|method|TermVectorsFetchBuilder
-specifier|public
+specifier|private
 name|TermVectorsFetchBuilder
 parameter_list|(
 name|String
@@ -1421,7 +1421,7 @@ name|field
 expr_stmt|;
 block|}
 DECL|method|TermVectorsFetchBuilder
-specifier|public
+specifier|private
 name|TermVectorsFetchBuilder
 parameter_list|(
 name|StreamInput
@@ -1441,7 +1441,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getField
-specifier|public
+specifier|private
 name|String
 name|getField
 parameter_list|()
