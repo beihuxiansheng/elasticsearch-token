@@ -1564,7 +1564,7 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Field
+name|IndexableField
 argument_list|>
 name|fields
 parameter_list|)

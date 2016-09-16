@@ -110,6 +110,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexableField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -974,7 +988,7 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Field
+name|IndexableField
 argument_list|>
 name|fields
 parameter_list|)
@@ -1047,7 +1061,7 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Field
+name|IndexableField
 argument_list|>
 name|fields
 parameter_list|)
@@ -1065,7 +1079,7 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Field
+name|IndexableField
 argument_list|>
 name|fields
 parameter_list|,
