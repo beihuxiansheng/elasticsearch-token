@@ -28,28 +28,8 @@ name|SearchContext
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  *  */
+comment|/**  * Represents a phase of a search request e.g. query, fetch etc.  */
 end_comment
 
 begin_interface
@@ -58,26 +38,6 @@ specifier|public
 interface|interface
 name|SearchPhase
 block|{
-DECL|method|parseElements
-specifier|default
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-return|;
-block|}
 comment|/**      * Performs pre processing of the search context before the execute.      */
 DECL|method|preProcess
 name|void
@@ -87,6 +47,7 @@ name|SearchContext
 name|context
 parameter_list|)
 function_decl|;
+comment|/**      * Executes the search phase      */
 DECL|method|execute
 name|void
 name|execute

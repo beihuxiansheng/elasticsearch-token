@@ -412,6 +412,9 @@ name|getSource
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated Use {@link GetResponse#getSource()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|getFields
 specifier|public
 name|Map
@@ -430,6 +433,9 @@ name|getFields
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated Use {@link GetResponse#getSource()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|getField
 specifier|public
 name|GetField
@@ -448,6 +454,9 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link GetResponse#getSource()} instead      */
+annotation|@
+name|Deprecated
 annotation|@
 name|Override
 DECL|method|iterator

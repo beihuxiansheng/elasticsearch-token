@@ -611,8 +611,68 @@ literal|"Arbitrary text field which should not cause a<B>failure</B>"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: This test will fail if we pass in an instance of GeoPointInBBoxQueryImpl too. Should we also find a way to work around that
-comment|// or can the query not be rewritten before it is passed into the highlighter?
+name|Query
+name|rewritten
+init|=
+name|boolQuery
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
+name|highlighter
+operator|=
+operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|highlight
+operator|.
+name|Highlighter
+argument_list|(
+operator|new
+name|CustomQueryScorer
+argument_list|(
+name|rewritten
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|fragment
+operator|=
+name|highlighter
+operator|.
+name|getBestFragment
+argument_list|(
+name|fieldNameAnalyzer
+operator|.
+name|tokenStream
+argument_list|(
+literal|"text"
+argument_list|,
+literal|"Arbitrary text field which should not cause "
+operator|+
+literal|"a failure"
+argument_list|)
+argument_list|,
+literal|"Arbitrary text field which should not cause a failure"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|fragment
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"Arbitrary text field which should not cause a<B>failure</B>"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testGeoPointInBBoxQueryHighlighting
 specifier|public

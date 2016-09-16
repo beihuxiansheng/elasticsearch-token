@@ -4313,7 +4313,7 @@ comment|/**      * Tests that restoring of a corrupted shard fails and we get a 
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"monitor.fs:DEBUG"
+literal|"org.elasticsearch.monitor.fs:DEBUG"
 argument_list|)
 DECL|method|testCorruptFileThenSnapshotAndRestore
 specifier|public

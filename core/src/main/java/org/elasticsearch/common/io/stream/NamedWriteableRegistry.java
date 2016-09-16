@@ -78,42 +78,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|Plugin
-import|;
-end_import
-
 begin_comment
 comment|/**  * A registry for {@link org.elasticsearch.common.io.stream.Writeable.Reader} readers of {@link NamedWriteable}.  *  * The registration is keyed by the combination of the category class of {@link NamedWriteable}, and a name unique  * to that category.  */
 end_comment
@@ -148,7 +112,7 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-comment|/** A reader captability of reading*/
+comment|/** A reader capability of reading*/
 DECL|field|reader
 specifier|public
 specifier|final

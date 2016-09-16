@@ -2669,6 +2669,73 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testParseFailsWithTermsArray
+specifier|public
+name|void
+name|testParseFailsWithTermsArray
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|json1
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"query\" : [\"term1\", \"term2\"]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|String
+name|json2
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message1\" : [\"term1\", \"term2\"]\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json2
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

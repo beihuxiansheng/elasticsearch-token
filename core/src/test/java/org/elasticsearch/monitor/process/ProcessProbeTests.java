@@ -395,7 +395,11 @@ name|assertThat
 argument_list|(
 name|cpu
 operator|.
-name|total
+name|getTotal
+argument_list|()
+operator|.
+name|millis
+argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
@@ -423,7 +427,11 @@ name|assertThat
 argument_list|(
 name|mem
 operator|.
-name|totalVirtual
+name|getTotalVirtual
+argument_list|()
+operator|.
+name|bytes
+argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(

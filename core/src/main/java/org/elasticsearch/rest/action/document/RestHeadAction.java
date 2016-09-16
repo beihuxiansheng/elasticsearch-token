@@ -501,7 +501,7 @@ expr_stmt|;
 comment|// don't get any fields back...
 name|getRequest
 operator|.
-name|fields
+name|storedFields
 argument_list|(
 name|Strings
 operator|.

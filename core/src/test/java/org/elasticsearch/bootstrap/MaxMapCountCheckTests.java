@@ -126,7 +126,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|TestLoggers
+name|Loggers
 import|;
 end_import
 
@@ -527,7 +527,7 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
@@ -565,7 +565,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(
@@ -655,7 +655,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
@@ -693,7 +693,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|TestLoggers
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(

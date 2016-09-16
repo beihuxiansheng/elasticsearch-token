@@ -1309,7 +1309,7 @@ name|IOException
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|SEARCH_AFTER
 operator|.

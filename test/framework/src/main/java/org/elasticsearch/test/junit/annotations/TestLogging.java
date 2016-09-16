@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Annotation used to set a custom log level for a specific test method.  *  * It supports multiple logger:level comma separated key value pairs  * Use the _root keyword to set the root logger level  * e.g. @TestLogging("_root:DEBUG,org.elasticsearch.cluster.metadata:TRACE")  * or just @TestLogging("_root:DEBUG,cluster.metadata:TRACE") since we start the test with -Des.logger.prefix=  */
+comment|/**  * Annotation used to set a custom log level for a specific test method.  *  * It supports multiple logger:level comma separated key value pairs  * Use the _root keyword to set the root logger level  * e.g. @TestLogging("_root:DEBUG,org.elasticsearch.cluster.metadata:TRACE")  */
 end_comment
 
 begin_annotation_defn

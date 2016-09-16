@@ -628,7 +628,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|PERCENTS_FIELD
 operator|.

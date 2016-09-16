@@ -1408,40 +1408,6 @@ index|[
 name|dirIndex
 index|]
 decl_stmt|;
-comment|// TODO: Remove this in 6.0, we are no longer going to read from the cluster name directory
-if|if
-condition|(
-name|readFromDataPathWithClusterName
-argument_list|(
-name|dataDirWithClusterName
-argument_list|)
-condition|)
-block|{
-name|DeprecationLogger
-name|deprecationLogger
-init|=
-operator|new
-name|DeprecationLogger
-argument_list|(
-name|startupTraceLogger
-argument_list|)
-decl_stmt|;
-name|deprecationLogger
-operator|.
-name|deprecated
-argument_list|(
-literal|"ES has detected the [path.data] folder using the cluster name as a folder [{}], "
-operator|+
-literal|"Elasticsearch 6.0 will not allow the cluster name as a folder within the data path"
-argument_list|,
-name|dataDir
-argument_list|)
-expr_stmt|;
-name|dataDir
-operator|=
-name|dataDirWithClusterName
-expr_stmt|;
-block|}
 name|Path
 name|dir
 init|=
@@ -1852,84 +1818,6 @@ operator|==
 literal|false
 return|;
 block|}
-block|}
-comment|// Visible for testing
-comment|/** Returns true if data should be read from the data path that includes the cluster name (ie, it has data in it) */
-DECL|method|readFromDataPathWithClusterName
-specifier|static
-name|boolean
-name|readFromDataPathWithClusterName
-parameter_list|(
-name|Path
-name|dataPathWithClusterName
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|dataPathWithClusterName
-argument_list|)
-operator|==
-literal|false
-operator|||
-comment|// If it doesn't exist
-name|Files
-operator|.
-name|isDirectory
-argument_list|(
-name|dataPathWithClusterName
-argument_list|)
-operator|==
-literal|false
-operator|||
-comment|// Or isn't a directory
-name|dirEmpty
-argument_list|(
-name|dataPathWithClusterName
-argument_list|)
-condition|)
-block|{
-comment|// Or if it's empty
-comment|// No need to read from cluster-name folder!
-return|return
-literal|false
-return|;
-block|}
-comment|// The "nodes" directory inside of the cluster name
-name|Path
-name|nodesPath
-init|=
-name|dataPathWithClusterName
-operator|.
-name|resolve
-argument_list|(
-name|NODES_FOLDER
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|Files
-operator|.
-name|isDirectory
-argument_list|(
-name|nodesPath
-argument_list|)
-condition|)
-block|{
-comment|// The cluster has data in the "nodes" so we should read from the cluster-named folder for now
-return|return
-literal|true
-return|;
-block|}
-comment|// Hey the nodes directory didn't exist, so we can safely use whatever directory we feel appropriate
-return|return
-literal|false
-return|;
 block|}
 DECL|method|releaseAndNullLocks
 specifier|private

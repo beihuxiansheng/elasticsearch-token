@@ -1217,7 +1217,7 @@ name|IOException
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|FIELD_PRECISION
 argument_list|,
@@ -3878,7 +3878,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|FIELD_PRECISION
 argument_list|,

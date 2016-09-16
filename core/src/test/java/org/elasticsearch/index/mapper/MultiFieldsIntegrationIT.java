@@ -1211,7 +1211,7 @@ literal|"a.b"
 argument_list|,
 name|point
 operator|.
-name|toString
+name|geohash
 argument_list|()
 argument_list|)
 argument_list|)

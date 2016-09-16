@@ -6474,6 +6474,36 @@ name|RegexContext
 name|ctx
 parameter_list|)
 block|{
+if|if
+condition|(
+literal|false
+operator|==
+name|settings
+operator|.
+name|areRegexesEnabled
+argument_list|()
+condition|)
+block|{
+throw|throw
+name|location
+argument_list|(
+name|ctx
+argument_list|)
+operator|.
+name|createError
+argument_list|(
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Regexes are disabled. Set [script.painless.regex.enabled] to [true] "
+operator|+
+literal|"in elasticsearch.yaml to allow them. Be careful though, regexes break out of Painless's protection against deep "
+operator|+
+literal|"recursion and long loops."
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|String
 name|text
 init|=

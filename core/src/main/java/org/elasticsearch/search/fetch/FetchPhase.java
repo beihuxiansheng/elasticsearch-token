@@ -356,18 +356,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|SearchPhase
 import|;
 end_import
@@ -556,18 +544,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableMap
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -583,7 +559,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Fetch phase of a search request, used to fetch the actual top matching documents to be returned to the client, identified  * after reducing all of the matches returned by the query phase  */
 end_comment
 
 begin_class
@@ -648,60 +624,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|parseElements
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-parameter_list|()
-block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|SearchParseElement
-argument_list|>
-name|parseElements
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|FetchSubPhase
-name|fetchSubPhase
-range|:
-name|fetchSubPhases
-control|)
-block|{
-name|parseElements
-operator|.
-name|putAll
-argument_list|(
-name|fetchSubPhase
-operator|.
-name|parseElements
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|unmodifiableMap
-argument_list|(
-name|parseElements
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override

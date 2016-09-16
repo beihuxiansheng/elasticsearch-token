@@ -576,6 +576,14 @@ operator|.
 name|masterNodeTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|version
+argument_list|(
+name|request
+operator|.
+name|version
+argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|MetaDataIndexTemplateService

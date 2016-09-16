@@ -402,7 +402,7 @@ name|shardRouting
 argument_list|,
 name|node
 operator|.
-name|nodeId
+name|node
 argument_list|()
 argument_list|,
 name|allocationDecider

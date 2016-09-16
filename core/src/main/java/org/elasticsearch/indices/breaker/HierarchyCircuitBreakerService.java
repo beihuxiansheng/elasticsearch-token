@@ -265,7 +265,7 @@ name|TOTAL_CIRCUIT_BREAKER_LIMIT_SETTING
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"indices.breaker.total.limit"
 argument_list|,
@@ -292,7 +292,7 @@ name|FIELDDATA_CIRCUIT_BREAKER_LIMIT_SETTING
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"indices.breaker.fielddata.limit"
 argument_list|,
@@ -379,7 +379,7 @@ name|REQUEST_CIRCUIT_BREAKER_LIMIT_SETTING
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"indices.breaker.request.limit"
 argument_list|,
@@ -466,7 +466,7 @@ name|IN_FLIGHT_REQUESTS_CIRCUIT_BREAKER_LIMIT_SETTING
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"network.breaker.inflight_requests.limit"
 argument_list|,

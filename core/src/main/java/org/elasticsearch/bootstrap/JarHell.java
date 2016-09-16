@@ -104,6 +104,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -353,7 +363,9 @@ name|void
 name|checkJarHell
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|URISyntaxException
 block|{
 name|ClassLoader
 name|loader
@@ -711,7 +723,9 @@ name|urls
 index|[]
 parameter_list|)
 throws|throws
-name|Exception
+name|URISyntaxException
+throws|,
+name|IOException
 block|{
 name|Logger
 name|logger
@@ -1442,6 +1456,20 @@ argument_list|)
 condition|)
 block|{
 comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://github.com/elastic/elasticsearch/issues/20304                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1560                      */
+return|return;
+block|}
+elseif|else
+if|if
+condition|(
+name|clazz
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.logging.log4j.core.jmx.Server"
+argument_list|)
+condition|)
+block|{
+comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1506                      */
 return|return;
 block|}
 throw|throw

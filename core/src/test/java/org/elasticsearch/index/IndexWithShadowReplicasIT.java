@@ -1669,7 +1669,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"gateway:TRACE"
+literal|"org.elasticsearch.gateway:TRACE"
 argument_list|)
 DECL|method|testIndexWithFewDocuments
 specifier|public
@@ -5172,7 +5172,7 @@ comment|// why that is, so turning on more logging here.
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices:TRACE,env:TRACE"
+literal|"org.elasticsearch.indices:TRACE,org.elasticsearch.env:TRACE"
 argument_list|)
 DECL|method|testShadowReplicaNaturalRelocation
 specifier|public

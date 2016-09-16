@@ -495,7 +495,7 @@ comment|/**      * Returns and removes the specified property from the specified
 DECL|method|readIntProperty
 specifier|public
 specifier|static
-name|int
+name|Integer
 name|readIntProperty
 parameter_list|(
 name|String
@@ -515,7 +515,7 @@ parameter_list|,
 name|String
 name|propertyName
 parameter_list|,
-name|int
+name|Integer
 name|defaultValue
 parameter_list|)
 block|{

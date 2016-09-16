@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Suggest phase of a search request, used to collect suggestions  */
 end_comment
 
 begin_class

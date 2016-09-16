@@ -232,6 +232,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the optional version of this template.      */
+DECL|method|setVersion
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setVersion
+parameter_list|(
+name|Integer
+name|version
+parameter_list|)
+block|{
+name|request
+operator|.
+name|version
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set to<tt>true</tt> to force only creation, not an update of an index template. If it already      * exists, it will fail with an {@link org.elasticsearch.indices.IndexTemplateAlreadyExistsException}.      */
 DECL|method|setCreate
 specifier|public

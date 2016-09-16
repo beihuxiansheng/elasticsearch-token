@@ -3384,6 +3384,75 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testParseFailsWithMultipleFieldsWhenOneIsDate
+specifier|public
+name|void
+name|testParseFailsWithMultipleFieldsWhenOneIsDate
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"range\": {\n"
+operator|+
+literal|"      \"age\": {\n"
+operator|+
+literal|"        \"gte\": 30,\n"
+operator|+
+literal|"        \"lte\": 40\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \""
+operator|+
+name|DATE_FIELD_NAME
+operator|+
+literal|"\": {\n"
+operator|+
+literal|"        \"gte\": \"2016-09-13 05:01:14\"\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }"
+decl_stmt|;
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[range] query doesn't support multiple fields, found [age] and ["
+operator|+
+name|DATE_FIELD_NAME
+operator|+
+literal|"]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

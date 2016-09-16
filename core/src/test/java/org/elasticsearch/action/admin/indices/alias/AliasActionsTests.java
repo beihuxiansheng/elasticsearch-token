@@ -1211,7 +1211,7 @@ condition|)
 block|{
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"indices"
 argument_list|,
@@ -1248,7 +1248,7 @@ condition|)
 block|{
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"aliases"
 argument_list|,
@@ -1873,7 +1873,7 @@ condition|)
 block|{
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"indices"
 argument_list|,
@@ -1910,7 +1910,7 @@ condition|)
 block|{
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"aliases"
 argument_list|,
@@ -2111,7 +2111,7 @@ condition|)
 block|{
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"indices"
 argument_list|,
@@ -2286,7 +2286,7 @@ argument_list|)
 expr_stmt|;
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"indices"
 argument_list|,
@@ -2477,7 +2477,7 @@ argument_list|)
 expr_stmt|;
 name|b
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"aliases"
 argument_list|,
