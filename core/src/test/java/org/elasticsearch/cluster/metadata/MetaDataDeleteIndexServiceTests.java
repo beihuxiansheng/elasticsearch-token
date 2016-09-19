@@ -102,22 +102,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|RoutingAllocation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|collect
@@ -609,15 +593,6 @@ name|then
 argument_list|(
 name|i
 lambda|->
-name|RoutingAllocation
-operator|.
-name|Result
-operator|.
-name|unchanged
-argument_list|(
-operator|(
-name|ClusterState
-operator|)
 name|i
 operator|.
 name|getArguments
@@ -625,7 +600,6 @@ argument_list|()
 index|[
 literal|0
 index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Remove it
