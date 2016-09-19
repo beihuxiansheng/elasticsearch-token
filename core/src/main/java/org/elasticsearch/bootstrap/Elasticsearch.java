@@ -206,6 +206,12 @@ name|Path
 argument_list|>
 name|pidfileOption
 decl_stmt|;
+DECL|field|quietOption
+specifier|private
+specifier|final
+name|OptionSpecBuilder
+name|quietOption
+decl_stmt|;
 comment|// visible for testing
 DECL|method|Elasticsearch
 name|Elasticsearch
@@ -288,6 +294,34 @@ argument_list|(
 operator|new
 name|PathConverter
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|quietOption
+operator|=
+name|parser
+operator|.
+name|acceptsAll
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"quiet"
+argument_list|)
+argument_list|,
+literal|"Turns off standard ouput/error streams logging in console"
+argument_list|)
+operator|.
+name|availableUnless
+argument_list|(
+name|versionOption
+argument_list|)
+operator|.
+name|availableUnless
+argument_list|(
+name|daemonizeOption
 argument_list|)
 expr_stmt|;
 block|}
@@ -536,6 +570,17 @@ argument_list|(
 name|options
 argument_list|)
 decl_stmt|;
+specifier|final
+name|boolean
+name|quiet
+init|=
+name|options
+operator|.
+name|has
+argument_list|(
+name|quietOption
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|init
@@ -543,6 +588,8 @@ argument_list|(
 name|daemonize
 argument_list|,
 name|pidFile
+argument_list|,
+name|quiet
 argument_list|,
 name|settings
 argument_list|)
@@ -583,6 +630,10 @@ name|Path
 name|pidFile
 parameter_list|,
 specifier|final
+name|boolean
+name|quiet
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -593,6 +644,8 @@ name|esSettings
 parameter_list|)
 throws|throws
 name|NodeValidationException
+throws|,
+name|UserException
 block|{
 try|try
 block|{
@@ -604,6 +657,8 @@ operator|!
 name|daemonize
 argument_list|,
 name|pidFile
+argument_list|,
+name|quiet
 argument_list|,
 name|esSettings
 argument_list|)
@@ -628,7 +683,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Required method that's called by Apache Commons procrun when      * running as a service on Windows, when the service is stopped.      *      * http://commons.apache.org/proper/commons-daemon/procrun.html      *      * NOTE: If this method is renamed and/or moved, make sure to update service.bat!      */
+comment|/**      * Required method that's called by Apache Commons procrun when      * running as a service on Windows, when the service is stopped.      *      * http://commons.apache.org/proper/commons-daemon/procrun.html      *      * NOTE: If this method is renamed and/or moved, make sure to      * update elasticsearch-service.bat!      */
 DECL|method|close
 specifier|static
 name|void

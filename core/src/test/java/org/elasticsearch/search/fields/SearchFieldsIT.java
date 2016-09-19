@@ -747,9 +747,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 name|CustomScriptPlugin
 operator|.

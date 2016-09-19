@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -806,6 +796,10 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|TransportService
+operator|.
+name|NOOP_TRANSPORT_INTERCEPTOR
 argument_list|)
 expr_stmt|;
 name|transportService

@@ -811,7 +811,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"_size"
 argument_list|)

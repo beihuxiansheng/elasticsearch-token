@@ -158,22 +158,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ZenDiscovery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|elect
-operator|.
 name|ElectMasterService
 import|;
 end_import
@@ -188,9 +172,7 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|fd
-operator|.
-name|FaultDetection
+name|ZenDiscovery
 import|;
 end_import
 
@@ -577,7 +559,7 @@ name|SuppressLocalMode
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,cluster.service:TRACE,discovery.zen:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.cluster.service:TRACE,org.elasticsearch.discovery.zen:TRACE"
 argument_list|)
 DECL|class|MinimumMasterNodesIT
 specifier|public
@@ -3377,19 +3359,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|FaultDetection
-operator|.
-name|PING_TIMEOUT_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|"1h"
-argument_list|)
-comment|// disable it
-operator|.
-name|put
-argument_list|(
 name|ZenDiscovery
 operator|.
 name|PING_TIMEOUT_SETTING
@@ -3523,11 +3492,6 @@ argument_list|(
 name|partition
 argument_list|)
 expr_stmt|;
-name|partition
-operator|.
-name|startDisrupting
-argument_list|()
-expr_stmt|;
 specifier|final
 name|CountDownLatch
 name|latch
@@ -3613,6 +3577,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"--> starting the disruption, preventing cluster state publishing"
+argument_list|)
+expr_stmt|;
+name|partition
+operator|.
+name|startDisrupting
+argument_list|()
+expr_stmt|;
 name|MetaData
 operator|.
 name|Builder

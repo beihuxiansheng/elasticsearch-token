@@ -142,6 +142,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cli
+operator|.
+name|UserException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|PidFile
@@ -1148,7 +1160,7 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
+comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])} to startup elasticsearch.      */
 DECL|method|init
 specifier|static
 name|void
@@ -1163,6 +1175,10 @@ name|Path
 name|pidFile
 parameter_list|,
 specifier|final
+name|boolean
+name|quiet
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -1175,6 +1191,8 @@ throws|throws
 name|BootstrapException
 throws|,
 name|NodeValidationException
+throws|,
+name|UserException
 block|{
 comment|// Set the system property before anything has a chance to trigger its use
 name|initLoggerPrefix
@@ -1274,12 +1292,23 @@ argument_list|)
 throw|;
 block|}
 block|}
+specifier|final
+name|boolean
+name|closeStandardStreams
+init|=
+operator|(
+name|foreground
+operator|==
+literal|false
+operator|)
+operator|||
+name|quiet
+decl_stmt|;
 try|try
 block|{
 if|if
 condition|(
-operator|!
-name|foreground
+name|closeStandardStreams
 condition|)
 block|{
 specifier|final
@@ -1379,8 +1408,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|foreground
+name|closeStandardStreams
 condition|)
 block|{
 name|closeSysError

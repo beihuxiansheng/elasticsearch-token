@@ -206,20 +206,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|action
-operator|.
-name|SearchTransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -314,10 +300,6 @@ name|parseScrollId
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|TransportClearScrollAction
 specifier|public
@@ -361,9 +343,6 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|SearchTransportService
-name|searchTransportService
-parameter_list|,
 name|ActionFilters
 name|actionFilters
 parameter_list|,
@@ -402,7 +381,13 @@ name|this
 operator|.
 name|searchTransportService
 operator|=
-name|searchTransportService
+operator|new
+name|SearchTransportService
+argument_list|(
+name|settings
+argument_list|,
+name|transportService
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

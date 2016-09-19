@@ -201,11 +201,23 @@ operator|=
 operator|new
 name|PainlessScriptEngineService
 argument_list|(
+name|scriptEngineSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Settings used to build the script engine. Override to customize settings like {@link RegexTests} does to enable regexes.      */
+DECL|method|scriptEngineSettings
+specifier|protected
+name|Settings
+name|scriptEngineSettings
+parameter_list|()
+block|{
+return|return
 name|Settings
 operator|.
 name|EMPTY
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/** Compiles and returns the result of {@code script} */
 DECL|method|exec
@@ -370,6 +382,21 @@ operator|.
 name|setPicky
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+name|pickySettings
+operator|.
+name|setRegexesEnabled
+argument_list|(
+name|CompilerSettings
+operator|.
+name|REGEX_ENABLED
+operator|.
+name|get
+argument_list|(
+name|scriptEngineSettings
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Walker

@@ -24,6 +24,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|zen
@@ -44,10 +56,10 @@ name|PingContextProvider
 extends|extends
 name|DiscoveryNodesProvider
 block|{
-comment|/** return true if this node has previously joined the cluster at least once. False if this is first join */
-DECL|method|nodeHasJoinedClusterOnce
-name|boolean
-name|nodeHasJoinedClusterOnce
+comment|/** return the current cluster state of the node */
+DECL|method|clusterState
+name|ClusterState
+name|clusterState
 parameter_list|()
 function_decl|;
 block|}

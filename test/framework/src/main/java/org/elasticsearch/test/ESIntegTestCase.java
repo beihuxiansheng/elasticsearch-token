@@ -1210,8 +1210,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|elect
-operator|.
 name|ElectMasterService
 import|;
 end_import
@@ -12307,6 +12305,13 @@ name|list
 index|[
 literal|0
 index|]
+operator|.
+name|resolve
+argument_list|(
+name|NodeEnvironment
+operator|.
+name|NODES_FOLDER
+argument_list|)
 decl_stmt|;
 name|Path
 name|dest
@@ -12315,11 +12320,9 @@ name|dataDir
 operator|.
 name|resolve
 argument_list|(
-name|internalCluster
-argument_list|()
+name|NodeEnvironment
 operator|.
-name|getClusterName
-argument_list|()
+name|NODES_FOLDER
 argument_list|)
 decl_stmt|;
 name|assertTrue

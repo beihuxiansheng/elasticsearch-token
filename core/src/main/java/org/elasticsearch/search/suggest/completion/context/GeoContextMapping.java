@@ -1307,19 +1307,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// todo return this to .stringValue() once LatLonPoint implements it
 name|spare
 operator|.
-name|resetFromIndexHash
-argument_list|(
-name|Long
-operator|.
-name|parseLong
+name|resetFromIndexableField
 argument_list|(
 name|field
-operator|.
-name|stringValue
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -653,9 +653,6 @@ name|versionType
 parameter_list|,
 name|FetchSourceContext
 name|fetchSourceContext
-parameter_list|,
-name|boolean
-name|ignoreErrorsOnGeneratedFields
 parameter_list|)
 block|{
 name|currentMetric
@@ -691,8 +688,6 @@ argument_list|,
 name|versionType
 argument_list|,
 name|fetchSourceContext
-argument_list|,
-name|ignoreErrorsOnGeneratedFields
 argument_list|)
 decl_stmt|;
 if|if
@@ -995,9 +990,6 @@ name|versionType
 parameter_list|,
 name|FetchSourceContext
 name|fetchSourceContext
-parameter_list|,
-name|boolean
-name|ignoreErrorsOnGeneratedFields
 parameter_list|)
 block|{
 name|fetchSourceContext

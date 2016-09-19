@@ -923,13 +923,16 @@ name|void
 name|doClose
 parameter_list|()
 function_decl|;
-comment|/**      * Should be called before executing the main query and after all other parameters have been set.      */
+comment|/**      * Should be called before executing the main query and after all other parameters have been set.      * @param rewrite if the set query should be rewritten against the searcher returned from {@link #searcher()}      */
 DECL|method|preProcess
 specifier|public
 specifier|abstract
 name|void
 name|preProcess
-parameter_list|()
+parameter_list|(
+name|boolean
+name|rewrite
+parameter_list|)
 function_decl|;
 DECL|method|searchFilter
 specifier|public

@@ -593,6 +593,8 @@ name|defaultRouting
 argument_list|,
 name|defaultFields
 argument_list|,
+literal|null
+argument_list|,
 name|defaultPipeline
 argument_list|,
 literal|null

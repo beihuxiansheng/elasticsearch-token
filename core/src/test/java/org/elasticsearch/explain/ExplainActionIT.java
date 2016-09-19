@@ -1079,7 +1079,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"obj1.field1"
 argument_list|)
@@ -1281,7 +1281,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"obj1.field1"
 argument_list|)
@@ -1481,7 +1481,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"obj1.field1"
 argument_list|,

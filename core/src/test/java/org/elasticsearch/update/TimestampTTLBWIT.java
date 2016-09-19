@@ -983,7 +983,7 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"_ttl"
 argument_list|)
@@ -1077,7 +1077,7 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"_ttl"
 argument_list|)
@@ -1185,7 +1185,7 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"_ttl"
 argument_list|)
@@ -1330,7 +1330,7 @@ argument_list|,
 literal|"3"
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"_timestamp"
 argument_list|)

@@ -123,6 +123,10 @@ name|Path
 name|pidFile
 parameter_list|,
 specifier|final
+name|boolean
+name|quiet
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -209,6 +213,10 @@ name|Path
 name|pidFile
 parameter_list|,
 specifier|final
+name|boolean
+name|quiet
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -233,6 +241,8 @@ operator|!
 name|daemonize
 argument_list|,
 name|pidFile
+argument_list|,
+name|quiet
 argument_list|,
 name|esSettings
 argument_list|)

@@ -80,8 +80,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|elect
-operator|.
 name|ElectMasterService
 import|;
 end_import

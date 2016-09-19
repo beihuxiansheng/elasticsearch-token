@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -234,18 +246,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ESAllocationTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -273,6 +273,18 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -582,10 +594,8 @@ argument_list|(
 literal|"--> test starting of shard"
 argument_list|)
 expr_stmt|;
-name|RoutingAllocation
-operator|.
-name|Result
-name|result
+name|ClusterState
+name|newState
 init|=
 name|allocation
 operator|.
@@ -603,7 +613,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 literal|"failed to start "
 operator|+
@@ -611,7 +621,7 @@ name|initShard
 operator|+
 literal|"\ncurrent routing table:"
 operator|+
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -619,10 +629,15 @@ operator|.
 name|prettyPrint
 argument_list|()
 argument_list|,
-name|result
-operator|.
-name|changed
-argument_list|()
+name|newState
+argument_list|,
+name|not
+argument_list|(
+name|equalTo
+argument_list|(
+name|state
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -631,7 +646,7 @@ name|initShard
 operator|+
 literal|"isn't started \ncurrent routing table:"
 operator|+
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -639,7 +654,7 @@ operator|.
 name|prettyPrint
 argument_list|()
 argument_list|,
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -668,7 +683,7 @@ argument_list|(
 literal|"--> testing starting of relocating shards"
 argument_list|)
 expr_stmt|;
-name|result
+name|newState
 operator|=
 name|allocation
 operator|.
@@ -689,7 +704,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 literal|"failed to start "
 operator|+
@@ -697,7 +712,7 @@ name|relocatingShard
 operator|+
 literal|"\ncurrent routing table:"
 operator|+
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -705,16 +720,21 @@ operator|.
 name|prettyPrint
 argument_list|()
 argument_list|,
-name|result
-operator|.
-name|changed
-argument_list|()
+name|newState
+argument_list|,
+name|not
+argument_list|(
+name|equalTo
+argument_list|(
+name|state
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ShardRouting
 name|shardRouting
 init|=
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()

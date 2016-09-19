@@ -566,6 +566,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|FakeRestRequest
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -962,7 +976,9 @@ name|action
 operator|.
 name|buildTable
 argument_list|(
-literal|null
+operator|new
+name|FakeRestRequest
+argument_list|()
 argument_list|,
 name|indices
 argument_list|,

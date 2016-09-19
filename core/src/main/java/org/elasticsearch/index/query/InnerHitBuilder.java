@@ -868,6 +868,9 @@ operator|.
 name|parse
 argument_list|(
 name|c
+operator|.
+name|parser
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1647,7 +1650,7 @@ name|fetchSourceContext
 operator|=
 name|in
 operator|.
-name|readOptionalStreamable
+name|readOptionalWriteable
 argument_list|(
 name|FetchSourceContext
 operator|::
@@ -1922,7 +1925,7 @@ block|}
 block|}
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|fetchSourceContext
 argument_list|)

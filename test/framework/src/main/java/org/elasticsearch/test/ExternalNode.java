@@ -782,11 +782,6 @@ case|case
 literal|"discovery.type"
 case|:
 case|case
-name|NetworkModule
-operator|.
-name|TRANSPORT_SERVICE_TYPE_KEY
-case|:
-case|case
 literal|"config.ignore_system_properties"
 case|:
 continue|continue;

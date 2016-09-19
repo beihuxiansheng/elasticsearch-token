@@ -66,20 +66,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RecoverySource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|ShardRouting
 import|;
 end_import
@@ -204,7 +190,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardTests
+name|IndexShardIT
 import|;
 end_import
 
@@ -2722,7 +2708,7 @@ specifier|final
 name|IndexShard
 name|newShard
 init|=
-name|IndexShardTests
+name|IndexShardIT
 operator|.
 name|newIndexShard
 argument_list|(

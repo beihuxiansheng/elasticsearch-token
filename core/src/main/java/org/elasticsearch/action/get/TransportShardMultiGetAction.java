@@ -588,7 +588,7 @@ argument_list|()
 argument_list|,
 name|item
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 argument_list|,
 name|request
@@ -609,11 +609,6 @@ argument_list|,
 name|item
 operator|.
 name|fetchSourceContext
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|ignoreErrorsOnGeneratedFields
 argument_list|()
 argument_list|)
 decl_stmt|;
