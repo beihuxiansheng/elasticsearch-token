@@ -6217,11 +6217,6 @@ argument_list|(
 name|config
 argument_list|)
 decl_stmt|;
-name|onNewEngine
-argument_list|(
-name|newEngine
-argument_list|)
-expr_stmt|;
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
@@ -9069,16 +9064,28 @@ argument_list|()
 operator|==
 literal|null
 assert|;
+name|Engine
+name|engine
+init|=
+name|newEngine
+argument_list|(
+name|config
+argument_list|)
+decl_stmt|;
+name|onNewEngine
+argument_list|(
+name|engine
+argument_list|)
+expr_stmt|;
+comment|// call this before we pass the memory barrier otherwise actions that happen
+comment|// inside the callback are not visible. This one enforces happens-before
 name|this
 operator|.
 name|currentEngineReference
 operator|.
 name|set
 argument_list|(
-name|newEngine
-argument_list|(
-name|config
-argument_list|)
+name|engine
 argument_list|)
 expr_stmt|;
 block|}
