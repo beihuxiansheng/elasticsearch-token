@@ -8027,6 +8027,16 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|getRestController
+specifier|public
+name|RestController
+name|getRestController
+parameter_list|()
+block|{
+return|return
+name|restController
+return|;
+block|}
 block|}
 end_class
 
