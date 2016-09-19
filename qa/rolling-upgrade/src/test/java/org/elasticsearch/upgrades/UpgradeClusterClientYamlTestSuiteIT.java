@@ -122,13 +122,13 @@ name|TimeoutSuite
 argument_list|(
 name|millis
 operator|=
-literal|40
+literal|5
 operator|*
 name|TimeUnits
 operator|.
 name|MINUTE
 argument_list|)
-comment|// some of the windows test VMs are slow as hell
+comment|// to account for slow as hell VMs
 DECL|class|UpgradeClusterClientYamlTestSuiteIT
 specifier|public
 class|class
