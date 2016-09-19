@@ -1018,6 +1018,16 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
+name|listeners
+operator|.
+name|setTranslog
+argument_list|(
+name|engine
+operator|.
+name|getTranslog
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After

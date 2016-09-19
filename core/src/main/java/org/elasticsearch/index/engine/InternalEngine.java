@@ -838,10 +838,6 @@ name|Function
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|InternalEngine
 specifier|public
@@ -1330,16 +1326,6 @@ name|engineConfig
 operator|.
 name|getRefreshListeners
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|engineConfig
-operator|.
-name|getRefreshListeners
-argument_list|()
-operator|.
-name|setTranslog
-argument_list|(
-name|translog
 argument_list|)
 expr_stmt|;
 block|}
@@ -5419,8 +5405,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|failedEngine
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|null
+condition|)
 block|{
+comment|// we are closed but the engine is not failed yet?
 comment|// this smells like a bug - we only expect ACE if we are in a fatal case ie. either translog or IW is closed by
 comment|// a tragic event or has closed itself. if that is not the case we are in a buggy state and raise an assertion error
 throw|throw

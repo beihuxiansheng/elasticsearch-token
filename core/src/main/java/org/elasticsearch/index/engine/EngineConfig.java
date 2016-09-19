@@ -110,6 +110,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|ReferenceManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|similarities
 operator|.
 name|Similarity
@@ -237,20 +251,6 @@ operator|.
 name|codec
 operator|.
 name|CodecService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|RefreshListeners
 import|;
 end_import
 
@@ -470,7 +470,9 @@ name|Nullable
 DECL|field|refreshListeners
 specifier|private
 specifier|final
-name|RefreshListeners
+name|ReferenceManager
+operator|.
+name|RefreshListener
 name|refreshListeners
 decl_stmt|;
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      * This setting is also settable on the node and the index level, it's commonly used in hot/cold node archs where index is likely      * allocated on both `kind` of nodes.      */
@@ -654,7 +656,9 @@ parameter_list|,
 name|TimeValue
 name|flushMergesAfter
 parameter_list|,
-name|RefreshListeners
+name|ReferenceManager
+operator|.
+name|RefreshListener
 name|refreshListeners
 parameter_list|,
 name|long
@@ -1086,10 +1090,12 @@ block|,
 DECL|enum constant|OPEN_INDEX_AND_TRANSLOG
 name|OPEN_INDEX_AND_TRANSLOG
 block|;     }
-comment|/**      * {@linkplain RefreshListeners} instance to configure.      */
+comment|/**      * {@linkplain ReferenceManager.RefreshListener} instance to configure.      */
 DECL|method|getRefreshListeners
 specifier|public
-name|RefreshListeners
+name|ReferenceManager
+operator|.
+name|RefreshListener
 name|getRefreshListeners
 parameter_list|()
 block|{

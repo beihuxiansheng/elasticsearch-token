@@ -346,6 +346,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SetOnce
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -1006,11 +1020,17 @@ argument_list|)
 decl_stmt|;
 DECL|field|failedEngine
 specifier|protected
-specifier|volatile
+specifier|final
+name|SetOnce
+argument_list|<
 name|Exception
+argument_list|>
 name|failedEngine
 init|=
-literal|null
+operator|new
+name|SetOnce
+argument_list|<>
+argument_list|()
 decl_stmt|;
 comment|/*      * on<tt>lastWriteNanos</tt> we use System.nanoTime() to initialize this since:      *  - we use the value for figuring out if the shard / engine is active so if we startup and no write has happened yet we still consider it active      *    for the duration of the configured active to inactive period. If we initialize to 0 or Long.MAX_VALUE we either immediately or never mark it      *    inactive if no writes at all happen to the shard.      *  - we also use this to flush big-ass merges on an inactive engine / shard but if we we initialize 0 or Long.MAX_VALUE we either immediately or never      *    commit merges even though we shouldn't from a user perspective (this can also have funky sideeffects in tests when we open indices with lots of segments      *    and suddenly merges kick in.      *  NOTE: don't use this value for anything accurate it's a best effort for freeing up diskspace after merges and on a shard level to reduce index buffer sizes on      *  inactive shards.      */
 DECL|field|lastWriteNanos
@@ -2190,6 +2210,9 @@ argument_list|(
 name|shardId
 argument_list|,
 name|failedEngine
+operator|.
+name|get
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3709,31 +3732,19 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-try|try
-block|{
-comment|// we just go and close this engine - no way to recover
-name|closeNoLock
-argument_list|(
-literal|"engine failed on: ["
-operator|+
-name|reason
-operator|+
-literal|"]"
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
 if|if
 condition|(
 name|failedEngine
+operator|.
+name|get
+argument_list|()
 operator|!=
 literal|null
 condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 call|(
 name|Supplier
@@ -3756,6 +3767,42 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// this must happen before we close IW or Translog such that we can check this state to opt out of failing the engine
+comment|// again on any caught AlreadyClosedException
+name|failedEngine
+operator|.
+name|set
+argument_list|(
+operator|(
+name|failure
+operator|!=
+literal|null
+operator|)
+condition|?
+name|failure
+else|:
+operator|new
+name|IllegalStateException
+argument_list|(
+name|reason
+argument_list|)
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+comment|// we just go and close this engine - no way to recover
+name|closeNoLock
+argument_list|(
+literal|"engine failed on: ["
+operator|+
+name|reason
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|logger
 operator|.
 name|warn
@@ -3780,22 +3827,6 @@ name|failure
 argument_list|)
 expr_stmt|;
 comment|// we must set a failure exception, generate one if not supplied
-name|failedEngine
-operator|=
-operator|(
-name|failure
-operator|!=
-literal|null
-operator|)
-condition|?
-name|failure
-else|:
-operator|new
-name|IllegalStateException
-argument_list|(
-name|reason
-argument_list|)
-expr_stmt|;
 comment|// we first mark the store as corrupted before we notify any listeners
 comment|// this must happen first otherwise we might try to reallocate so quickly
 comment|// on the same node that we don't see the corrupted marker file when

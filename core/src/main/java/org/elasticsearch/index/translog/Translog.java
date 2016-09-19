@@ -540,18 +540,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScheduledFuture
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -740,15 +728,6 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
-decl_stmt|;
-DECL|field|syncScheduler
-specifier|private
-specifier|volatile
-name|ScheduledFuture
-argument_list|<
-name|?
-argument_list|>
-name|syncScheduler
 decl_stmt|;
 comment|// this is a concurrent set and is not protected by any of the locks. The main reason
 comment|// is that is being accessed by two separate classes (additions& reading are done by Translog, remove by View when closed)
@@ -1950,13 +1929,6 @@ block|}
 block|}
 finally|finally
 block|{
-name|FutureUtils
-operator|.
-name|cancel
-argument_list|(
-name|syncScheduler
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|debug
