@@ -811,6 +811,17 @@ return|return
 name|adminClient
 return|;
 block|}
+comment|/**      * Returns whether to preserve the indices created during this test on completion of this test.      * Defaults to {@code false}. Override this method if indices should be preserved after the test,      * with the assumption that some other process or test will clean up the indices afterward.      * This is useful if the data directory and indices need to be preserved between test runs      * (for example, when testing rolling upgrades).      */
+DECL|method|preserveIndicesUponCompletion
+specifier|protected
+name|boolean
+name|preserveIndicesUponCompletion
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|wipeCluster
 specifier|private
 name|void
@@ -818,6 +829,14 @@ name|wipeCluster
 parameter_list|()
 throws|throws
 name|IOException
+block|{
+if|if
+condition|(
+name|preserveIndicesUponCompletion
+argument_list|()
+operator|==
+literal|false
+condition|)
 block|{
 comment|// wipe indices
 try|try
@@ -859,6 +878,7 @@ block|{
 throw|throw
 name|e
 throw|;
+block|}
 block|}
 block|}
 comment|// wipe index templates
