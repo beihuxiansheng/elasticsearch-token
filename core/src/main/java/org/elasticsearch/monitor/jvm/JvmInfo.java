@@ -718,6 +718,11 @@ name|useG1GC
 init|=
 literal|"unknown"
 decl_stmt|;
+name|String
+name|useSerialGC
+init|=
+literal|"unknown"
+decl_stmt|;
 name|long
 name|configuredInitialHeapSize
 init|=
@@ -1015,6 +1020,39 @@ name|Exception
 name|ignored
 parameter_list|)
 block|{             }
+try|try
+block|{
+name|Object
+name|useSerialGCVmOptionObject
+init|=
+name|vmOptionMethod
+operator|.
+name|invoke
+argument_list|(
+name|hotSpotDiagnosticMXBean
+argument_list|,
+literal|"UseSerialGC"
+argument_list|)
+decl_stmt|;
+name|useSerialGC
+operator|=
+operator|(
+name|String
+operator|)
+name|valueMethod
+operator|.
+name|invoke
+argument_list|(
+name|useSerialGCVmOptionObject
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ignored
+parameter_list|)
+block|{             }
 block|}
 catch|catch
 parameter_list|(
@@ -1081,6 +1119,8 @@ argument_list|,
 name|useCompressedOops
 argument_list|,
 name|useG1GC
+argument_list|,
+name|useSerialGC
 argument_list|)
 expr_stmt|;
 block|}
@@ -1251,6 +1291,12 @@ specifier|final
 name|String
 name|useG1GC
 decl_stmt|;
+DECL|field|useSerialGC
+specifier|private
+specifier|final
+name|String
+name|useSerialGC
+decl_stmt|;
 DECL|method|JvmInfo
 specifier|private
 name|JvmInfo
@@ -1319,6 +1365,9 @@ name|useCompressedOops
 parameter_list|,
 name|String
 name|useG1GC
+parameter_list|,
+name|String
+name|useSerialGC
 parameter_list|)
 block|{
 name|this
@@ -1434,6 +1483,12 @@ operator|.
 name|useG1GC
 operator|=
 name|useG1GC
+expr_stmt|;
+name|this
+operator|.
+name|useSerialGC
+operator|=
+name|useSerialGC
 expr_stmt|;
 block|}
 DECL|method|JvmInfo
@@ -1585,7 +1640,7 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
-comment|//the following members are only used locally for boostrap checks, never serialized nor printed out
+comment|//the following members are only used locally for bootstrap checks, never serialized nor printed out
 name|this
 operator|.
 name|configuredMaxHeapSize
@@ -1615,6 +1670,12 @@ expr_stmt|;
 name|this
 operator|.
 name|useG1GC
+operator|=
+literal|"unknown"
+expr_stmt|;
+name|this
+operator|.
+name|useSerialGC
 operator|=
 literal|"unknown"
 expr_stmt|;
@@ -2381,6 +2442,18 @@ return|return
 name|this
 operator|.
 name|useG1GC
+return|;
+block|}
+DECL|method|useSerialGC
+specifier|public
+name|String
+name|useSerialGC
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useSerialGC
 return|;
 block|}
 DECL|method|getGcCollectors
