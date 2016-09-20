@@ -1354,7 +1354,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"https://staging.elastic.co/%3$s-%1$s/download/elasticsearch-plugins/%2$s/%2$s-%3$s.zip"
+literal|"https://staging.elastic.co/%3$s-%1$s/downloads/elasticsearch-plugins/%2$s/%2$s-%3$s.zip"
 argument_list|,
 name|stagingHash
 argument_list|,
@@ -1376,7 +1376,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"https://artifacts.elastic.co/download/elasticsearch-plugins/%1$s/%1$s-%2$s.zip"
+literal|"https://artifacts.elastic.co/downloads/elasticsearch-plugins/%1$s/%1$s-%2$s.zip"
 argument_list|,
 name|pluginId
 argument_list|,
