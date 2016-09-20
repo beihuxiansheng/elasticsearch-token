@@ -278,6 +278,21 @@ name|ValueType
 name|type
 parameter_list|)
 block|{
+if|if
+condition|(
+name|parser
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[parser] is required"
+argument_list|)
+throw|;
+block|}
 name|declareField
 argument_list|(
 name|consumer
