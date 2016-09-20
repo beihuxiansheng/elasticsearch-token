@@ -642,7 +642,7 @@ name|setFloorSegmentMB
 argument_list|(
 name|floorSegment
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -666,7 +666,7 @@ name|setMaxMergedSegmentMB
 argument_list|(
 name|maxMergedSegment
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -761,7 +761,7 @@ name|setMaxMergedSegmentMB
 argument_list|(
 name|maxMergedSegment
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -812,7 +812,7 @@ name|setFloorSegmentMB
 argument_list|(
 name|floorSegementSetting
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;

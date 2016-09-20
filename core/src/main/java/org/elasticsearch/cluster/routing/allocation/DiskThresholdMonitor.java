@@ -321,7 +321,7 @@ operator|.
 name|getFreeBytesThresholdHigh
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -353,7 +353,7 @@ operator|.
 name|getFreeBytesThresholdLow
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -576,7 +576,7 @@ operator|.
 name|getFreeBytesThresholdHigh
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|||
 name|usage
@@ -666,7 +666,7 @@ operator|.
 name|getFreeBytesThresholdLow
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|||
 name|usage

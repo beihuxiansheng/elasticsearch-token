@@ -585,7 +585,7 @@ name|sizeInBytes
 init|=
 name|size
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 name|CacheBuilder

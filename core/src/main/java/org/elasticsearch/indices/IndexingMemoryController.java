@@ -765,12 +765,12 @@ if|if
 condition|(
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 name|minIndexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -783,7 +783,7 @@ if|if
 condition|(
 name|maxIndexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|!=
 operator|-
@@ -791,12 +791,12 @@ literal|1
 operator|&&
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 name|maxIndexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -1369,7 +1369,7 @@ name|totalBytes
 operator|>
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|/
 literal|30
@@ -1399,7 +1399,7 @@ name|totalBytes
 operator|>
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|/
 literal|30
@@ -1606,7 +1606,7 @@ literal|1.5
 operator|*
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 if|if
@@ -1615,7 +1615,7 @@ name|totalBytesUsed
 operator|>
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -1783,7 +1783,7 @@ name|totalBytesUsed
 operator|>
 name|indexingBuffer
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|&&
 name|queue

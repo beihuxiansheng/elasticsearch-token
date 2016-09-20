@@ -1581,7 +1581,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 if|if
@@ -1610,7 +1610,7 @@ operator|.
 name|getFree
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 if|if
@@ -2492,7 +2492,7 @@ operator|.
 name|getHeapUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 name|heapMax
@@ -2505,7 +2505,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 block|}

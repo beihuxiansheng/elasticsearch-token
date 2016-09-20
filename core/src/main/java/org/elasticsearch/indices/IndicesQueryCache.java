@@ -560,7 +560,7 @@ name|count
 argument_list|,
 name|size
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|context
@@ -580,7 +580,7 @@ name|count
 argument_list|,
 name|size
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -994,7 +994,7 @@ operator|.
 name|getDirectMemoryMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1022,7 +1022,7 @@ operator|.
 name|getDirectMemoryMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|)
 operator|/
@@ -1315,12 +1315,12 @@ if|if
 condition|(
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|==
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -1334,7 +1334,7 @@ name|int
 operator|)
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1351,7 +1351,7 @@ name|int
 operator|)
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 operator|(
@@ -1359,7 +1359,7 @@ name|int
 operator|)
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 operator|(
@@ -1367,7 +1367,7 @@ name|int
 operator|)
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1697,7 +1697,7 @@ if|if
 condition|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1711,7 +1711,7 @@ literal|"sendBufferSize"
 argument_list|,
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1730,7 +1730,7 @@ if|if
 condition|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1744,7 +1744,7 @@ literal|"receiveBufferSize"
 argument_list|,
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1972,7 +1972,7 @@ if|if
 condition|(
 name|fallbackTcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -2009,7 +2009,7 @@ if|if
 condition|(
 name|fallbackTcpBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -2354,7 +2354,7 @@ literal|null
 operator|&&
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -2368,7 +2368,7 @@ literal|"child.sendBufferSize"
 argument_list|,
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2381,7 +2381,7 @@ literal|null
 operator|&&
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -2395,7 +2395,7 @@ literal|"child.receiveBufferSize"
 argument_list|,
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3145,7 +3145,7 @@ name|nettyTransport
 operator|.
 name|maxCumulationBufferCapacity
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -3157,7 +3157,7 @@ name|nettyTransport
 operator|.
 name|maxCumulationBufferCapacity
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 name|Integer
@@ -3188,7 +3188,7 @@ name|nettyTransport
 operator|.
 name|maxCumulationBufferCapacity
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3369,7 +3369,7 @@ name|nettyTransport
 operator|.
 name|maxCumulationBufferCapacity
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -3381,7 +3381,7 @@ name|nettyTransport
 operator|.
 name|maxCumulationBufferCapacity
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 name|Integer
@@ -3412,7 +3412,7 @@ name|nettyTransport
 operator|.
 name|maxCumulationBufferCapacity
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

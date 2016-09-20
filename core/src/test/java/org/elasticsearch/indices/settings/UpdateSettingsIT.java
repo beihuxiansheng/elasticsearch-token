@@ -1023,7 +1023,7 @@ operator|.
 name|getFlushThresholdSize
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1024
@@ -1170,7 +1170,7 @@ operator|.
 name|getFlushThresholdSize
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1024

@@ -1604,7 +1604,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|Matchers
@@ -1863,7 +1863,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 name|free
@@ -1879,7 +1879,7 @@ operator|.
 name|getFree
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 name|used
@@ -1895,7 +1895,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 block|}
@@ -1918,7 +1918,7 @@ operator|.
 name|getFree
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1941,7 +1941,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1964,7 +1964,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

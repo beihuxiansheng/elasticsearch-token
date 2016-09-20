@@ -158,7 +158,7 @@ operator|.
 name|PB
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -188,7 +188,7 @@ operator|.
 name|TB
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -218,7 +218,7 @@ operator|.
 name|GB
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -257,7 +257,7 @@ operator|.
 name|BYTES
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -285,7 +285,7 @@ operator|.
 name|KB
 argument_list|)
 operator|.
-name|kb
+name|getKb
 argument_list|()
 argument_list|)
 argument_list|)
@@ -313,7 +313,7 @@ operator|.
 name|MB
 argument_list|)
 operator|.
-name|mb
+name|getMb
 argument_list|()
 argument_list|)
 argument_list|)
@@ -341,7 +341,7 @@ operator|.
 name|GB
 argument_list|)
 operator|.
-name|gb
+name|getGb
 argument_list|()
 argument_list|)
 argument_list|)
@@ -369,7 +369,7 @@ operator|.
 name|TB
 argument_list|)
 operator|.
-name|tb
+name|getTb
 argument_list|()
 argument_list|)
 argument_list|)
@@ -397,7 +397,7 @@ operator|.
 name|PB
 argument_list|)
 operator|.
-name|pb
+name|getPb
 argument_list|()
 argument_list|)
 argument_list|)

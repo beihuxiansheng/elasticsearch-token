@@ -517,12 +517,12 @@ name|max
 argument_list|(
 name|lastHeapUsed
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|currentHeapUsed
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 operator|+

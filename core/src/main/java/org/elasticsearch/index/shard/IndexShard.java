@@ -7370,7 +7370,7 @@ operator|.
 name|getFlushThresholdSize
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 return|;
 block|}

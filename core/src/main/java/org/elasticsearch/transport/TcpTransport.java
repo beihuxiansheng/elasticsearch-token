@@ -1583,7 +1583,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.9

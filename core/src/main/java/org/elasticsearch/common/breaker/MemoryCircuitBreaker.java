@@ -151,7 +151,7 @@ name|memoryBytesLimit
 operator|=
 name|limit
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 name|this

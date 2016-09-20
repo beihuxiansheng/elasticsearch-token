@@ -725,7 +725,7 @@ if|if
 condition|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1406,7 +1406,7 @@ if|if
 condition|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1437,7 +1437,7 @@ if|if
 condition|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0

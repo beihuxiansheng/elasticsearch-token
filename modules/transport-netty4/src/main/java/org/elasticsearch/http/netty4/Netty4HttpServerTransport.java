@@ -1641,7 +1641,7 @@ operator|.
 name|getDirectMemoryMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1669,7 +1669,7 @@ operator|.
 name|getDirectMemoryMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|)
 operator|/
@@ -2238,12 +2238,12 @@ if|if
 condition|(
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|==
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -2258,7 +2258,7 @@ name|toIntExact
 argument_list|(
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2277,7 +2277,7 @@ name|toIntExact
 argument_list|(
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2287,7 +2287,7 @@ name|toIntExact
 argument_list|(
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2297,7 +2297,7 @@ name|toIntExact
 argument_list|(
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2361,7 +2361,7 @@ if|if
 condition|(
 name|maxContentLength
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 name|Integer
@@ -2597,7 +2597,7 @@ if|if
 condition|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -2617,7 +2617,7 @@ name|toIntExact
 argument_list|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2638,7 +2638,7 @@ if|if
 condition|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -2658,7 +2658,7 @@ name|toIntExact
 argument_list|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3664,7 +3664,7 @@ name|boundTransportAddress
 argument_list|,
 name|maxContentLength
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 return|;
@@ -4024,7 +4024,7 @@ name|transport
 operator|.
 name|maxInitialLineLength
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|,
@@ -4036,7 +4036,7 @@ name|transport
 operator|.
 name|maxHeaderSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|,
@@ -4048,7 +4048,7 @@ name|transport
 operator|.
 name|maxChunkSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4117,7 +4117,7 @@ name|transport
 operator|.
 name|maxContentLength
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)

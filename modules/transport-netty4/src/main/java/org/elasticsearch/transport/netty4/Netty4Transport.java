@@ -998,7 +998,7 @@ operator|.
 name|getDirectMemoryMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1026,7 +1026,7 @@ operator|.
 name|getDirectMemoryMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|)
 operator|/
@@ -1321,12 +1321,12 @@ if|if
 condition|(
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|==
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -1340,7 +1340,7 @@ name|int
 operator|)
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1357,7 +1357,7 @@ name|int
 operator|)
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 operator|(
@@ -1365,7 +1365,7 @@ name|int
 operator|)
 name|receivePredictorMin
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 operator|(
@@ -1373,7 +1373,7 @@ name|int
 operator|)
 name|receivePredictorMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1686,7 +1686,7 @@ if|if
 condition|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1706,7 +1706,7 @@ name|toIntExact
 argument_list|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1727,7 +1727,7 @@ if|if
 condition|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -1747,7 +1747,7 @@ name|toIntExact
 argument_list|(
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1986,7 +1986,7 @@ if|if
 condition|(
 name|fallbackTcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -2023,7 +2023,7 @@ if|if
 condition|(
 name|fallbackTcpBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -2263,7 +2263,7 @@ literal|null
 operator|&&
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -2283,7 +2283,7 @@ name|toIntExact
 argument_list|(
 name|tcpSendBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2308,7 +2308,7 @@ literal|null
 operator|&&
 name|tcpReceiveBufferSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0

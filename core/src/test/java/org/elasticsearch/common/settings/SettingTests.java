@@ -343,7 +343,7 @@ name|assertEquals
 argument_list|(
 name|byteSizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1024
@@ -385,7 +385,7 @@ name|assertEquals
 argument_list|(
 name|byteSizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|2048
@@ -571,7 +571,7 @@ name|assertEquals
 argument_list|(
 name|memorySizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1024
@@ -613,7 +613,7 @@ name|assertEquals
 argument_list|(
 name|memorySizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|2048
@@ -661,7 +661,7 @@ name|assertEquals
 argument_list|(
 name|memorySizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|JvmInfo
@@ -675,7 +675,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.5
@@ -719,7 +719,7 @@ name|assertEquals
 argument_list|(
 name|memorySizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|JvmInfo
@@ -733,7 +733,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.25
@@ -910,7 +910,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.2

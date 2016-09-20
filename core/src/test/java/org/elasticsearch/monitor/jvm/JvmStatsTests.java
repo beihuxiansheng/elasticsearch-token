@@ -254,7 +254,7 @@ name|assertThat
 argument_list|(
 name|heap
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -542,7 +542,7 @@ operator|.
 name|getTotalCapacity
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -566,7 +566,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|anyOf

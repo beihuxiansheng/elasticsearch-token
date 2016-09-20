@@ -1277,7 +1277,7 @@ literal|1
 argument_list|,
 name|shardSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|/
 literal|10

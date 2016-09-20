@@ -4755,7 +4755,7 @@ name|rawFieldName
 argument_list|,
 name|byteSizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

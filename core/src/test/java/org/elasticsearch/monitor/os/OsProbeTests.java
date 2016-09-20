@@ -714,7 +714,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -733,7 +733,7 @@ operator|.
 name|getFree
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -782,7 +782,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -851,7 +851,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 if|if
@@ -871,7 +871,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -890,7 +890,7 @@ operator|.
 name|getFree
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -909,7 +909,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -932,7 +932,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -951,7 +951,7 @@ operator|.
 name|getFree
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -970,7 +970,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|equalTo

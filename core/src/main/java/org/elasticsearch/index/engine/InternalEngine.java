@@ -6161,7 +6161,7 @@ operator|.
 name|getIndexingBufferSize
 argument_list|()
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;

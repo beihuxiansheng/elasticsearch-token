@@ -612,7 +612,7 @@ argument_list|(
 name|settings
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|FIELDDATA_CIRCUIT_BREAKER_OVERHEAD_SETTING
@@ -648,7 +648,7 @@ argument_list|(
 name|settings
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|IN_FLIGHT_REQUESTS_CIRCUIT_BREAKER_OVERHEAD_SETTING
@@ -684,7 +684,7 @@ argument_list|(
 name|settings
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|REQUEST_CIRCUIT_BREAKER_OVERHEAD_SETTING
@@ -720,7 +720,7 @@ argument_list|(
 name|settings
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1.0
@@ -852,7 +852,7 @@ name|REQUEST
 argument_list|,
 name|newRequestMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|newRequestOverhead
@@ -914,7 +914,7 @@ name|IN_FLIGHT_REQUESTS
 argument_list|,
 name|newInFlightRequestsMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|newInFlightRequestsOverhead
@@ -982,7 +982,7 @@ argument_list|()
 else|:
 name|newFielddataMax
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 name|newFielddataOverhead
@@ -1070,7 +1070,7 @@ name|PARENT
 argument_list|,
 name|byteSizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1.0
@@ -1117,7 +1117,7 @@ name|PARENT
 argument_list|,
 name|byteSizeValue
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 literal|1.0

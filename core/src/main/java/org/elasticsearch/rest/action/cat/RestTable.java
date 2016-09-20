@@ -2128,7 +2128,7 @@ name|toString
 argument_list|(
 name|v
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 return|;
@@ -2158,7 +2158,7 @@ name|toString
 argument_list|(
 name|v
 operator|.
-name|kb
+name|getKb
 argument_list|()
 argument_list|)
 return|;
@@ -2188,7 +2188,7 @@ name|toString
 argument_list|(
 name|v
 operator|.
-name|mb
+name|getMb
 argument_list|()
 argument_list|)
 return|;
@@ -2218,7 +2218,7 @@ name|toString
 argument_list|(
 name|v
 operator|.
-name|gb
+name|getGb
 argument_list|()
 argument_list|)
 return|;
@@ -2248,7 +2248,7 @@ name|toString
 argument_list|(
 name|v
 operator|.
-name|tb
+name|getTb
 argument_list|()
 argument_list|)
 return|;
@@ -2278,7 +2278,7 @@ name|toString
 argument_list|(
 name|v
 operator|.
-name|pb
+name|getPb
 argument_list|()
 argument_list|)
 return|;

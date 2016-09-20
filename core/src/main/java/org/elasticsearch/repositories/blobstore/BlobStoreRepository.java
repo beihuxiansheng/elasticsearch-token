@@ -4017,7 +4017,7 @@ if|if
 condition|(
 name|maxSnapshotBytesPerSec
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<=
 literal|0
@@ -4037,7 +4037,7 @@ name|SimpleRateLimiter
 argument_list|(
 name|maxSnapshotBytesPerSec
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 return|;

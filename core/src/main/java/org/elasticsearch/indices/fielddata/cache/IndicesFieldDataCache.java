@@ -487,7 +487,7 @@ argument_list|(
 name|settings
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 name|CacheBuilder

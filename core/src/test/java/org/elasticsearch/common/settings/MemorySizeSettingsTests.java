@@ -228,7 +228,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.1
@@ -269,7 +269,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.1
@@ -310,7 +310,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.1
@@ -351,7 +351,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.01
@@ -392,7 +392,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.7
@@ -426,7 +426,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.6
@@ -460,7 +460,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.6
@@ -491,7 +491,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|)
 argument_list|)
@@ -639,7 +639,7 @@ operator|.
 name|getHeapMax
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|*
 literal|0.25
