@@ -5073,36 +5073,7 @@ argument_list|,
 literal|109
 argument_list|)
 block|,
-DECL|enum constant|FLUSH_NOT_ALLOWED_ENGINE_EXCEPTION
-name|FLUSH_NOT_ALLOWED_ENGINE_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|FlushNotAllowedEngineException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|FlushNotAllowedEngineException
-operator|::
-operator|new
-argument_list|,
-literal|110
-argument_list|)
-block|,
+comment|// 110 used to be FlushNotAllowedEngineException
 DECL|enum constant|NO_CLASS_SETTINGS_EXCEPTION
 name|NO_CLASS_SETTINGS_EXCEPTION
 argument_list|(

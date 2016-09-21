@@ -968,16 +968,16 @@ operator|.
 name|OpenMode
 name|openMode
 decl_stmt|;
-DECL|field|allowCommits
+DECL|field|pendingTranslogRecovery
 specifier|private
 specifier|final
 name|AtomicBoolean
-name|allowCommits
+name|pendingTranslogRecovery
 init|=
 operator|new
 name|AtomicBoolean
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|maxUnsafeAutoIdTimestamp
@@ -1292,15 +1292,23 @@ argument_list|(
 name|searcherManager
 argument_list|)
 expr_stmt|;
-comment|// don't allow commits until we are done with recovering
-name|allowCommits
+assert|assert
+name|pendingTranslogRecovery
 operator|.
-name|compareAndSet
+name|get
+argument_list|()
+operator|==
+literal|false
+operator|:
+literal|"translog recovery can't be pending before we set it"
+assert|;
+comment|// don't allow commits until we are done with recovering
+name|pendingTranslogRecovery
+operator|.
+name|set
 argument_list|(
-literal|true
-argument_list|,
 name|openMode
-operator|!=
+operator|==
 name|EngineConfig
 operator|.
 name|OpenMode
@@ -1440,10 +1448,12 @@ throw|;
 block|}
 if|if
 condition|(
-name|allowCommits
+name|pendingTranslogRecovery
 operator|.
 name|get
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -1473,14 +1483,14 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|allowCommits
+name|pendingTranslogRecovery
 operator|.
 name|set
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
-comment|// just play safe and never allow commits on this
+comment|// just play safe and never allow commits on this see #ensureCanFlush
 name|failEngine
 argument_list|(
 literal|"failed to recover from translog"
@@ -1590,20 +1600,18 @@ block|}
 comment|// flush if we recovered something or if we have references to older translogs
 comment|// note: if opsRecovered == 0 and we have older translogs it means they are corrupted or 0 length.
 assert|assert
-name|allowCommits
+name|pendingTranslogRecovery
 operator|.
 name|get
 argument_list|()
-operator|==
-literal|false
 operator|:
-literal|"commits are allowed but shouldn't"
+literal|"translogRecovery is not pending but should be"
 assert|;
-name|allowCommits
+name|pendingTranslogRecovery
 operator|.
 name|set
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// we are good - now we can commit
@@ -4588,15 +4596,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
+return|return
 operator|new
-name|FlushNotAllowedEngineException
+name|CommitId
 argument_list|(
-name|shardId
-argument_list|,
-literal|"already flushing..."
+name|lastCommittedSegmentInfos
+operator|.
+name|getId
+argument_list|()
 argument_list|)
-throw|;
+return|;
 block|}
 block|}
 else|else
@@ -7134,21 +7143,22 @@ comment|// engine otherwise we might loose documents if the flush succeeds
 comment|// and the translog recover fails we we "commit" the translog on flush.
 if|if
 condition|(
-name|allowCommits
+name|pendingTranslogRecovery
 operator|.
 name|get
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 throw|throw
 operator|new
-name|FlushNotAllowedEngineException
+name|IllegalStateException
 argument_list|(
 name|shardId
-argument_list|,
-literal|"flushes are disabled - pending translog recovery"
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" flushes are disabled - pending translog recovery"
 argument_list|)
 throw|;
 block|}
@@ -7316,6 +7326,21 @@ return|return
 name|indexWriter
 operator|.
 name|hasDeletions
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isRecovering
+specifier|public
+name|boolean
+name|isRecovering
+parameter_list|()
+block|{
+return|return
+name|pendingTranslogRecovery
+operator|.
+name|get
 argument_list|()
 return|;
 block|}

@@ -5579,20 +5579,6 @@ comment|// TODO we might force a flush in the future since we have the write loc
 block|}
 catch|catch
 parameter_list|(
-name|FlushNotAllowedEngineException
-name|ex
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"flush not allowed during flushAndClose - skipping"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|EngineClosedException
 name|ex
 parameter_list|)
@@ -6003,6 +5989,17 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns<code>true</code> iff this engine is currently recovering from translog.      */
+DECL|method|isRecovering
+specifier|public
+name|boolean
+name|isRecovering
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

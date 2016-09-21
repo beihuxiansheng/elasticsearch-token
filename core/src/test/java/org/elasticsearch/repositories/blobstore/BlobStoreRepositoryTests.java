@@ -453,11 +453,6 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|get
 argument_list|()
 expr_stmt|;

@@ -4974,9 +4974,37 @@ argument_list|,
 name|expectedCommitId
 argument_list|)
 expr_stmt|;
-return|return
+name|Engine
+name|engine
+init|=
 name|getEngine
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|.
+name|isRecovering
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalIndexShardStateException
+argument_list|(
+name|shardId
+argument_list|()
+argument_list|,
+name|state
+argument_list|,
+literal|"syncFlush is only allowed if the engine is not recovery"
+operator|+
+literal|" from translog"
+argument_list|)
+throw|;
+block|}
+return|return
+name|engine
 operator|.
 name|syncFlush
 argument_list|(
@@ -5035,10 +5063,40 @@ expr_stmt|;
 block|}
 comment|// we allows flush while recovering, since we allow for operations to happen
 comment|// while recovering, and we want to keep the translog at bay (up to deletes, which
-comment|// we don't gc).
+comment|// we don't gc). Yet, we don't use flush internally to clear deletes and flush the indexwriter since
+comment|// we use #writeIndexingBuffer for this now.
 name|verifyStartedOrRecovering
 argument_list|()
 expr_stmt|;
+name|Engine
+name|engine
+init|=
+name|getEngine
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|.
+name|isRecovering
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalIndexShardStateException
+argument_list|(
+name|shardId
+argument_list|()
+argument_list|,
+name|state
+argument_list|,
+literal|"flush is only allowed if the engine is not recovery"
+operator|+
+literal|" from translog"
+argument_list|)
+throw|;
+block|}
 name|long
 name|time
 init|=
@@ -5052,8 +5110,7 @@ operator|.
 name|CommitId
 name|commitId
 init|=
-name|getEngine
-argument_list|()
+name|engine
 operator|.
 name|flush
 argument_list|(
@@ -7061,6 +7118,8 @@ argument_list|(
 literal|"shard is now inactive"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|indexEventListener
 operator|.
 name|onShardInactive
@@ -7068,6 +7127,23 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to notify index event listener"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

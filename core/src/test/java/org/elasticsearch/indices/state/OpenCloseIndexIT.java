@@ -2956,11 +2956,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setForce
 argument_list|(
 literal|true
