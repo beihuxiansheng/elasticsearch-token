@@ -1566,6 +1566,7 @@ operator|instanceof
 name|EBinary
 operator|)
 operator|||
+operator|!
 operator|(
 operator|(
 name|EBinary
@@ -1576,6 +1577,7 @@ operator|.
 name|cat
 condition|)
 block|{
+comment|// check to see if the rhs has already done a concatenation
 name|writer
 operator|.
 name|writeAppendStrings
@@ -1585,7 +1587,7 @@ operator|.
 name|actual
 argument_list|)
 expr_stmt|;
-comment|// append the rhs's value unless it's also a concatenation
+comment|// append the rhs's value since it's hasn't already
 block|}
 name|writer
 operator|.
