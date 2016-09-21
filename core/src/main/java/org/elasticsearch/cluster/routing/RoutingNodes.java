@@ -3742,6 +3742,11 @@ expr_stmt|;
 name|inactiveShardCount
 operator|++
 expr_stmt|;
+name|addRecovery
+argument_list|(
+name|reinitializedShard
+argument_list|)
+expr_stmt|;
 return|return
 name|reinitializedShard
 return|;
