@@ -2068,11 +2068,23 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+call|(
+name|Supplier
+argument_list|<
+name|?
+argument_list|>
+call|)
+argument_list|()
+operator|->
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to run {}"
 argument_list|,
-name|e
-argument_list|,
 name|compiledScript
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
