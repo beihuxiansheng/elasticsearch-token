@@ -70,7 +70,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|Collection
 import|;
 end_import
 
@@ -90,6 +90,17 @@ name|TribeClientNode
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|classpathPlugins
 parameter_list|)
 block|{
 name|super
@@ -100,18 +111,7 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|,
-name|Collections
-operator|.
-expr|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Plugin
-argument_list|>
-operator|>
-name|emptyList
-argument_list|()
+name|classpathPlugins
 argument_list|)
 expr_stmt|;
 block|}

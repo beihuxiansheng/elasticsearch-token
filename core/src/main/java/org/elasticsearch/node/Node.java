@@ -2837,6 +2837,8 @@ name|nodeEnvironment
 operator|.
 name|nodeId
 argument_list|()
+argument_list|,
+name|classpathPlugins
 argument_list|)
 decl_stmt|;
 name|resourcesToClose
