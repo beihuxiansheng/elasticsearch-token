@@ -130,11 +130,11 @@ specifier|final
 name|long
 name|size
 decl_stmt|;
-DECL|field|sizeUnit
+DECL|field|unit
 specifier|private
 specifier|final
 name|ByteSizeUnit
-name|sizeUnit
+name|unit
 decl_stmt|;
 DECL|method|ByteSizeValue
 specifier|public
@@ -153,7 +153,7 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-name|sizeUnit
+name|unit
 operator|=
 name|ByteSizeUnit
 operator|.
@@ -208,7 +208,7 @@ name|long
 name|size
 parameter_list|,
 name|ByteSizeUnit
-name|sizeUnit
+name|unit
 parameter_list|)
 block|{
 name|this
@@ -219,9 +219,9 @@ name|size
 expr_stmt|;
 name|this
 operator|.
-name|sizeUnit
+name|unit
 operator|=
-name|sizeUnit
+name|unit
 expr_stmt|;
 block|}
 DECL|method|bytesAsInt
@@ -272,7 +272,7 @@ name|getBytes
 parameter_list|()
 block|{
 return|return
-name|sizeUnit
+name|unit
 operator|.
 name|toBytes
 argument_list|(
@@ -287,7 +287,7 @@ name|getKb
 parameter_list|()
 block|{
 return|return
-name|sizeUnit
+name|unit
 operator|.
 name|toKB
 argument_list|(
@@ -302,7 +302,7 @@ name|getMb
 parameter_list|()
 block|{
 return|return
-name|sizeUnit
+name|unit
 operator|.
 name|toMB
 argument_list|(
@@ -317,7 +317,7 @@ name|getGb
 parameter_list|()
 block|{
 return|return
-name|sizeUnit
+name|unit
 operator|.
 name|toGB
 argument_list|(
@@ -332,7 +332,7 @@ name|getTb
 parameter_list|()
 block|{
 return|return
-name|sizeUnit
+name|unit
 operator|.
 name|toTB
 argument_list|(
@@ -347,7 +347,7 @@ name|getPb
 parameter_list|()
 block|{
 return|return
-name|sizeUnit
+name|unit
 operator|.
 name|toPB
 argument_list|(
@@ -1293,11 +1293,11 @@ operator|*
 name|result
 operator|+
 operator|(
-name|sizeUnit
+name|unit
 operator|!=
 literal|null
 condition|?
-name|sizeUnit
+name|unit
 operator|.
 name|hashCode
 argument_list|()
