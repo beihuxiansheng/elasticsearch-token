@@ -2816,10 +2816,10 @@ block|{
 return|return
 name|context
 operator|.
-name|getAnalysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|defaultIndexAnalyzer
+name|getDefaultIndexAnalyzer
 argument_list|()
 return|;
 block|}

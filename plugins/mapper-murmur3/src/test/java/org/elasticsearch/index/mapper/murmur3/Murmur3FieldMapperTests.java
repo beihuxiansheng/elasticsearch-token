@@ -400,7 +400,7 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 argument_list|,
 name|indexService
@@ -1186,7 +1186,7 @@ argument_list|()
 argument_list|,
 name|indexService2x
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 argument_list|,
 name|indexService2x

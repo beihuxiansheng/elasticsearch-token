@@ -110,20 +110,6 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|geo
-operator|.
 name|GeoPoint
 import|;
 end_import
@@ -461,7 +447,7 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 argument_list|,
 name|indexService
@@ -965,7 +951,7 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 argument_list|,
 name|indexService
@@ -1611,7 +1597,7 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 argument_list|,
 name|indexService

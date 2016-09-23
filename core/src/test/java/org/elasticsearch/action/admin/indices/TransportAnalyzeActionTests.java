@@ -22,22 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|minhash
-operator|.
-name|MinHashFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -186,7 +170,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -282,10 +266,10 @@ name|TransportAnalyzeActionTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|field|analysisService
+DECL|field|indexAnalyzers
 specifier|private
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 decl_stmt|;
 DECL|field|registry
 specifier|private
@@ -509,7 +493,7 @@ operator|.
 name|getAnalysisRegistry
 argument_list|()
 expr_stmt|;
-name|analysisService
+name|indexAnalyzers
 operator|=
 name|registry
 operator|.
@@ -519,10 +503,10 @@ name|idxSettings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNoAnalysisService
+DECL|method|testNoIndexAnalyzers
 specifier|public
 name|void
-name|testNoAnalysisService
+name|testNoIndexAnalyzers
 parameter_list|()
 throws|throws
 name|IOException
@@ -645,7 +629,7 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 condition|?
-name|analysisService
+name|indexAnalyzers
 else|:
 literal|null
 argument_list|,
@@ -775,7 +759,7 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 condition|?
-name|analysisService
+name|indexAnalyzers
 else|:
 literal|null
 argument_list|,
@@ -1267,10 +1251,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testWithAnalysisService
+DECL|method|testWithIndexAnalyzers
 specifier|public
 name|void
-name|testWithAnalysisService
+name|testWithIndexAnalyzers
 parameter_list|()
 throws|throws
 name|IOException
@@ -1325,7 +1309,7 @@ name|NAME
 argument_list|,
 literal|null
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|registry
 argument_list|,
@@ -1383,7 +1367,7 @@ name|NAME
 argument_list|,
 literal|null
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|registry
 argument_list|,
@@ -1435,7 +1419,7 @@ name|NAME
 argument_list|,
 literal|null
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|registry
 argument_list|,
@@ -1508,7 +1492,7 @@ name|NAME
 argument_list|,
 literal|null
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|registry
 argument_list|,
@@ -1649,7 +1633,7 @@ name|NAME
 argument_list|,
 literal|null
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|registry
 argument_list|,
@@ -1704,10 +1688,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testGetIndexAnalyserWithoutAnalysisService
+DECL|method|testGetIndexAnalyserWithoutIndexAnalyzers
 specifier|public
 name|void
-name|testGetIndexAnalyserWithoutAnalysisService
+name|testGetIndexAnalyserWithoutIndexAnalyzers
 parameter_list|()
 throws|throws
 name|IOException
@@ -1817,7 +1801,7 @@ literal|null
 argument_list|,
 name|notGlobal
 condition|?
-name|analysisService
+name|indexAnalyzers
 else|:
 literal|null
 argument_list|,
@@ -1892,7 +1876,7 @@ literal|null
 argument_list|,
 name|notGlobal
 condition|?
-name|analysisService
+name|indexAnalyzers
 else|:
 literal|null
 argument_list|,
@@ -1972,7 +1956,7 @@ literal|null
 argument_list|,
 name|notGlobal
 condition|?
-name|analysisService
+name|indexAnalyzers
 else|:
 literal|null
 argument_list|,
@@ -2057,7 +2041,7 @@ literal|null
 argument_list|,
 name|notGlobal
 condition|?
-name|analysisService
+name|indexAnalyzers
 else|:
 literal|null
 argument_list|,
@@ -2148,7 +2132,7 @@ name|NAME
 argument_list|,
 literal|null
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|registry
 argument_list|,

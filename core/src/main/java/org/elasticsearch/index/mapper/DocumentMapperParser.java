@@ -58,18 +58,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|Tuple
@@ -154,7 +142,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -265,10 +253,10 @@ specifier|final
 name|MapperService
 name|mapperService
 decl_stmt|;
-DECL|field|analysisService
+DECL|field|indexAnalyzers
 specifier|final
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 decl_stmt|;
 DECL|field|similarityService
 specifier|private
@@ -347,8 +335,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 parameter_list|,
 name|SimilarityService
 name|similarityService
@@ -384,9 +372,9 @@ name|mapperService
 expr_stmt|;
 name|this
 operator|.
-name|analysisService
+name|indexAnalyzers
 operator|=
-name|analysisService
+name|indexAnalyzers
 expr_stmt|;
 name|this
 operator|.
@@ -449,7 +437,7 @@ name|ParserContext
 argument_list|(
 name|type
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|similarityService
 operator|::

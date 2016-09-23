@@ -358,7 +358,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -993,11 +993,11 @@ specifier|final
 name|IndexEventListener
 name|eventListener
 decl_stmt|;
-DECL|field|analysisService
+DECL|field|indexAnalyzers
 specifier|private
 specifier|final
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 decl_stmt|;
 DECL|field|indexFieldData
 specifier|private
@@ -1232,7 +1232,7 @@ name|indexSettings
 expr_stmt|;
 name|this
 operator|.
-name|analysisService
+name|indexAnalyzers
 operator|=
 name|registry
 operator|.
@@ -1256,7 +1256,7 @@ name|MapperService
 argument_list|(
 name|indexSettings
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|similarityService
 argument_list|,
@@ -1626,16 +1626,16 @@ return|return
 name|indexFieldData
 return|;
 block|}
-DECL|method|analysisService
+DECL|method|getIndexAnalyzers
 specifier|public
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|getIndexAnalyzers
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|analysisService
+name|indexAnalyzers
 return|;
 block|}
 DECL|method|mapperService
@@ -1756,7 +1756,7 @@ name|indexCache
 argument_list|,
 name|indexFieldData
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|refreshTask
 argument_list|,

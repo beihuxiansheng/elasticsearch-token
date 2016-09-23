@@ -1619,10 +1619,10 @@ name|analyzer
 operator|=
 name|mapperService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|perFieldAnalyzer
 operator|.
@@ -1662,10 +1662,10 @@ name|analyzer
 operator|=
 name|mapperService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|defaultIndexAnalyzer
+name|getDefaultIndexAnalyzer
 argument_list|()
 expr_stmt|;
 block|}

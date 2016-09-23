@@ -178,7 +178,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -298,10 +298,10 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|analysisService
+DECL|field|indexAnalyzers
 specifier|private
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 decl_stmt|;
 DECL|method|testSynonymsAnalysis
 specifier|public
@@ -448,14 +448,16 @@ argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
-name|analysisService
+name|indexAnalyzers
 operator|=
-name|createAnalysisService
+name|createTestAnalysis
 argument_list|(
 name|idxSettings
 argument_list|,
 name|settings
 argument_list|)
+operator|.
+name|indexAnalyzers
 expr_stmt|;
 name|match
 argument_list|(
@@ -523,9 +525,9 @@ block|{
 name|Analyzer
 name|analyzer
 init|=
-name|analysisService
+name|indexAnalyzers
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|analyzerName
 argument_list|)

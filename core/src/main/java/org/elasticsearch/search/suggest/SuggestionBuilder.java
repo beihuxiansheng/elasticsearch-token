@@ -1527,10 +1527,10 @@ name|luceneAnalyzer
 init|=
 name|mapperService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|analyzer
 argument_list|)

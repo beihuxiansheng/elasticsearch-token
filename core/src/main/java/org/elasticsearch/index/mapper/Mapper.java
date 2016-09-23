@@ -88,7 +88,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -343,11 +343,11 @@ specifier|final
 name|String
 name|type
 decl_stmt|;
-DECL|field|analysisService
+DECL|field|indexAnalyzers
 specifier|private
 specifier|final
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 decl_stmt|;
 DECL|field|similarityLookupService
 specifier|private
@@ -402,8 +402,8 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 parameter_list|,
 name|Function
 argument_list|<
@@ -442,9 +442,9 @@ name|type
 expr_stmt|;
 name|this
 operator|.
-name|analysisService
+name|indexAnalyzers
 operator|=
-name|analysisService
+name|indexAnalyzers
 expr_stmt|;
 name|this
 operator|.
@@ -493,14 +493,14 @@ return|return
 name|type
 return|;
 block|}
-DECL|method|analysisService
+DECL|method|getIndexAnalyzers
 specifier|public
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|getIndexAnalyzers
 parameter_list|()
 block|{
 return|return
-name|analysisService
+name|indexAnalyzers
 return|;
 block|}
 DECL|method|getSimilarity
@@ -672,7 +672,7 @@ argument_list|()
 argument_list|,
 name|in
 operator|.
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|in
 operator|.

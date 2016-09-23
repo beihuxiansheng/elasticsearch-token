@@ -290,7 +290,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -763,15 +763,17 @@ name|emptyMap
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 init|=
-name|createAnalysisService
+name|createTestAnalysis
 argument_list|(
 name|settings
 argument_list|,
 name|nodeSettings
 argument_list|)
+operator|.
+name|indexAnalyzers
 decl_stmt|;
 name|MapperRegistry
 name|mapperRegistry
@@ -798,7 +800,7 @@ name|MapperService
 argument_list|(
 name|settings
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|similarityService
 argument_list|,
