@@ -3603,8 +3603,6 @@ argument_list|)
 decl_stmt|;
 name|ArrayList
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -3716,8 +3714,6 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|shardToFail
@@ -3764,8 +3760,6 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 name|failedShard
 range|:
@@ -3780,14 +3774,16 @@ name|getByAllocationId
 argument_list|(
 name|failedShard
 operator|.
-name|routingEntry
+name|getRoutingEntry
+argument_list|()
 operator|.
 name|shardId
 argument_list|()
 argument_list|,
 name|failedShard
 operator|.
-name|routingEntry
+name|getRoutingEntry
+argument_list|()
 operator|.
 name|allocationId
 argument_list|()

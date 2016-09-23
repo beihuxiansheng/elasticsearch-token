@@ -26,9 +26,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|allocation
-operator|.
-name|FailedRerouteAllocation
+name|ShardRouting
 import|;
 end_import
 
@@ -45,22 +43,6 @@ operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|StartedRerouteAllocation
 import|;
 end_import
 
@@ -132,26 +114,26 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|applyStartedShards
+DECL|method|applyStartedShard
 specifier|public
 name|void
-name|applyStartedShards
+name|applyStartedShard
 parameter_list|(
-name|StartedRerouteAllocation
-name|allocation
+name|ShardRouting
+name|shardRouting
 parameter_list|)
 block|{
 comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|applyFailedShards
+DECL|method|applyFailedShard
 specifier|public
 name|void
-name|applyFailedShards
+name|applyFailedShard
 parameter_list|(
-name|FailedRerouteAllocation
-name|allocation
+name|ShardRouting
+name|shardRouting
 parameter_list|)
 block|{
 comment|// noop

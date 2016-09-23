@@ -779,8 +779,6 @@ control|)
 block|{
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -790,8 +788,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable
@@ -976,8 +972,6 @@ block|}
 comment|// now we go and check that we are actually stick to unassigned on the next failure
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -987,8 +981,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable
@@ -1341,8 +1333,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable
@@ -1574,8 +1564,6 @@ control|)
 block|{
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -1585,8 +1573,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable
@@ -1780,8 +1766,6 @@ comment|// now we go and check that we are actually stick to unassigned on the n
 block|{
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -1791,8 +1775,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable
@@ -2373,8 +2355,6 @@ expr_stmt|;
 comment|// now fail again and see if it has a new counter
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -2384,8 +2364,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable

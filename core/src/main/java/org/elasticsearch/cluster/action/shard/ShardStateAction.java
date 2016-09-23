@@ -264,7 +264,23 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|FailedRerouteAllocation
+name|FailedShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|StaleShard
 import|;
 end_import
 
@@ -1875,11 +1891,9 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
-name|shardRoutingsToBeApplied
+name|failedShardsToBeApplied
 init|=
 operator|new
 name|ArrayList
@@ -1888,8 +1902,6 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|StaleShard
 argument_list|>
 name|staleShardsToBeApplied
@@ -2178,8 +2190,6 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|StaleShard
 argument_list|(
 name|task
@@ -2243,13 +2253,11 @@ argument_list|(
 name|task
 argument_list|)
 expr_stmt|;
-name|shardRoutingsToBeApplied
+name|failedShardsToBeApplied
 operator|.
 name|add
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|matched
@@ -2273,7 +2281,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-name|shardRoutingsToBeApplied
+name|failedShardsToBeApplied
 operator|.
 name|size
 argument_list|()
@@ -2296,7 +2304,7 @@ name|applyFailedShards
 argument_list|(
 name|currentState
 argument_list|,
-name|shardRoutingsToBeApplied
+name|failedShardsToBeApplied
 argument_list|,
 name|staleShardsToBeApplied
 argument_list|)
@@ -2332,7 +2340,7 @@ name|ParameterizedMessage
 argument_list|(
 literal|"failed to apply failed shards {}"
 argument_list|,
-name|shardRoutingsToBeApplied
+name|failedShardsToBeApplied
 argument_list|)
 argument_list|,
 name|e
@@ -2369,16 +2377,12 @@ name|currentState
 parameter_list|,
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
 parameter_list|,
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|StaleShard
 argument_list|>
 name|staleShards

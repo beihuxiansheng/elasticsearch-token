@@ -316,8 +316,6 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 import|;
 end_import

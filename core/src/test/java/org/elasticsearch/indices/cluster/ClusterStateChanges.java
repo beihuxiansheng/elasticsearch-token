@@ -554,7 +554,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|FailedRerouteAllocation
+name|FailedShard
 import|;
 end_import
 
@@ -1920,8 +1920,6 @@ name|clusterState
 parameter_list|,
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -1951,14 +1949,16 @@ name|ShardEntry
 argument_list|(
 name|failedShard
 operator|.
-name|routingEntry
+name|getRoutingEntry
+argument_list|()
 operator|.
 name|shardId
 argument_list|()
 argument_list|,
 name|failedShard
 operator|.
-name|routingEntry
+name|getRoutingEntry
+argument_list|()
 operator|.
 name|allocationId
 argument_list|()
@@ -1970,11 +1970,13 @@ literal|0L
 argument_list|,
 name|failedShard
 operator|.
-name|message
+name|getMessage
+argument_list|()
 argument_list|,
 name|failedShard
 operator|.
-name|failure
+name|getFailure
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

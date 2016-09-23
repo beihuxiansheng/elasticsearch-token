@@ -162,7 +162,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|FailedRerouteAllocation
+name|FailedShard
 import|;
 end_import
 
@@ -1050,8 +1050,6 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
@@ -1061,8 +1059,6 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|(
 name|routingTable
