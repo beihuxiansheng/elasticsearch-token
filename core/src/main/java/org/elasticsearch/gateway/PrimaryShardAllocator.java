@@ -871,7 +871,12 @@ operator|.
 name|V_5_0_0_alpha1
 argument_list|)
 operator|:
-literal|"trying to allocated a primary with an empty allocation id set, but index is new"
+literal|"trying to allocate a primary with an empty in sync allocation id set, but index is new. index: "
+operator|+
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 assert|;
 comment|// when we load an old index (after upgrading cluster) or restore a snapshot of an old index
 comment|// fall back to old version-based allocation mode
@@ -1672,7 +1677,7 @@ return|return
 name|nodeDecisions
 return|;
 block|}
-comment|/**      * Builds a list of nodes. If matchAnyShard is set to false, only nodes that have an allocation id matching      * lastActiveAllocationIds are added to the list. Otherwise, any node that has a shard is added to the list, but      * entries with matching allocation id are always at the front of the list.      */
+comment|/**      * Builds a list of nodes. If matchAnyShard is set to false, only nodes that have an allocation id matching      * inSyncAllocationIds are added to the list. Otherwise, any node that has a shard is added to the list, but      * entries with matching allocation id are always at the front of the list.      */
 DECL|method|buildAllocationIdBasedNodeShardsResult
 specifier|protected
 specifier|static
@@ -1695,7 +1700,7 @@ name|Set
 argument_list|<
 name|String
 argument_list|>
-name|lastActiveAllocationIds
+name|inSyncAllocationIds
 parameter_list|,
 name|FetchResult
 argument_list|<
@@ -1938,7 +1943,7 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-name|lastActiveAllocationIds
+name|inSyncAllocationIds
 operator|.
 name|contains
 argument_list|(

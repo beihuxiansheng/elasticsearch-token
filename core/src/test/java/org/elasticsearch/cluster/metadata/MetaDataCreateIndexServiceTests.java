@@ -300,7 +300,7 @@ name|test
 operator|.
 name|gateway
 operator|.
-name|NoopGatewayAllocator
+name|TestGatewayAllocator
 import|;
 end_import
 
@@ -1123,9 +1123,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-name|NoopGatewayAllocator
-operator|.
-name|INSTANCE
+operator|new
+name|TestGatewayAllocator
+argument_list|()
 argument_list|,
 operator|new
 name|BalancedShardsAllocator
@@ -1397,9 +1397,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-name|NoopGatewayAllocator
-operator|.
-name|INSTANCE
+operator|new
+name|TestGatewayAllocator
+argument_list|()
 argument_list|,
 operator|new
 name|BalancedShardsAllocator

@@ -1581,7 +1581,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"a_ids "
+literal|"isa_ids "
 argument_list|)
 operator|.
 name|append

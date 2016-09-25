@@ -260,7 +260,7 @@ name|test
 operator|.
 name|gateway
 operator|.
-name|NoopGatewayAllocator
+name|TestGatewayAllocator
 import|;
 end_import
 
@@ -418,9 +418,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-name|NoopGatewayAllocator
-operator|.
-name|INSTANCE
+operator|new
+name|TestGatewayAllocator
+argument_list|()
 argument_list|,
 operator|new
 name|BalancedShardsAllocator
@@ -2225,7 +2225,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now we start the shard
-name|routingTable
+name|clusterState
 operator|=
 name|strategy
 operator|.
@@ -2258,25 +2258,12 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
 expr_stmt|;
-name|clusterState
+name|routingTable
 operator|=
-name|ClusterState
-operator|.
-name|builder
-argument_list|(
 name|clusterState
-argument_list|)
 operator|.
 name|routingTable
-argument_list|(
-name|routingTable
-argument_list|)
-operator|.
-name|build
 argument_list|()
 expr_stmt|;
 comment|// all counters have been reset to 0 ie. no unassigned info
@@ -2489,7 +2476,7 @@ operator|.
 name|state
 argument_list|()
 argument_list|,
-name|INITIALIZING
+name|UNASSIGNED
 argument_list|)
 expr_stmt|;
 name|assertEquals

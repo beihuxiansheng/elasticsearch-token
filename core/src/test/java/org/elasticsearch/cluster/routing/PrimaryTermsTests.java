@@ -433,7 +433,7 @@ name|numberOfReplicas
 operator|=
 name|randomIntBetween
 argument_list|(
-literal|1
+literal|0
 argument_list|,
 literal|5
 argument_list|)

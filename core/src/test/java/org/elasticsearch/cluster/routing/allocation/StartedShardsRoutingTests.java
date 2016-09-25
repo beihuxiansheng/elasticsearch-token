@@ -609,8 +609,6 @@ name|asList
 argument_list|(
 name|initShard
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -676,6 +674,10 @@ name|allShardsStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|state
+operator|=
+name|newState
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -700,8 +702,6 @@ operator|.
 name|getTargetRelocatingShard
 argument_list|()
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat

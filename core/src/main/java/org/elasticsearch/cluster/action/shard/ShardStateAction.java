@@ -3027,8 +3027,6 @@ argument_list|(
 name|currentState
 argument_list|,
 name|shardRoutingsToBeApplied
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|builder

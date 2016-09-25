@@ -200,6 +200,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -1224,10 +1240,29 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|routingNodes
+operator|.
+name|shardsWithState
+argument_list|(
+name|UNASSIGNED
+argument_list|)
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|3
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// 2 replicas and one primary
 name|assertThat
 argument_list|(
 name|routingNodes
@@ -1239,7 +1274,7 @@ argument_list|)
 operator|.
 name|shardsWithState
 argument_list|(
-name|INITIALIZING
+name|STARTED
 argument_list|)
 operator|.
 name|get

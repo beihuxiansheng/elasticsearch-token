@@ -220,7 +220,7 @@ name|test
 operator|.
 name|gateway
 operator|.
-name|NoopGatewayAllocator
+name|TestGatewayAllocator
 import|;
 end_import
 
@@ -8284,7 +8284,7 @@ operator|.
 name|EMPTY
 argument_list|,
 operator|new
-name|NoopGatewayAllocator
+name|TestGatewayAllocator
 argument_list|()
 block|{
 annotation|@
@@ -9478,7 +9478,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|NoopGatewayAllocator
+name|TestGatewayAllocator
 argument_list|()
 block|{
 annotation|@
