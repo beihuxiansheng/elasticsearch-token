@@ -1185,6 +1185,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|pluginId
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|UserException
+argument_list|(
+name|ExitCodes
+operator|.
+name|USAGE
+argument_list|,
+literal|"plugin id is required"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|Environment
 name|env
