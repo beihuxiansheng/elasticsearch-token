@@ -395,7 +395,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No feature for name ["
+literal|"No endpoint or operation is available at ["
 operator|+
 name|name
 operator|+
