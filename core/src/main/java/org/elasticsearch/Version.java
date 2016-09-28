@@ -2367,6 +2367,18 @@ operator|<
 literal|99
 return|;
 block|}
+DECL|method|isRelease
+specifier|public
+name|boolean
+name|isRelease
+parameter_list|()
+block|{
+return|return
+name|build
+operator|==
+literal|99
+return|;
+block|}
 block|}
 end_class
 
