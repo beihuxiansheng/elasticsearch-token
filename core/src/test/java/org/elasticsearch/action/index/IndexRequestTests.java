@@ -1399,6 +1399,12 @@ else|:
 literal|"updated"
 operator|)
 operator|+
+literal|",seqNo="
+operator|+
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+operator|+
 literal|",shards={\"_shards\":{\"total\":"
 operator|+
 name|total

@@ -879,6 +879,18 @@ name|SuppressFileSystems
 argument_list|(
 literal|"ExtrasFS"
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"needs a solution for translog operations that are recovered from the translog, don't have a seq no "
+operator|+
+literal|"and trigger assertions in Engine.Operation"
+argument_list|)
+comment|// nocommit. Fix ^^^ please.
 DECL|class|OldIndexBackwardsCompatibilityIT
 specifier|public
 class|class

@@ -3510,9 +3510,6 @@ name|SourceToParse
 name|source
 parameter_list|,
 name|long
-name|seqNo
-parameter_list|,
-name|long
 name|version
 parameter_list|,
 name|VersionType
@@ -3543,7 +3540,9 @@ argument_list|)
 argument_list|,
 name|source
 argument_list|,
-name|seqNo
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 name|version
 argument_list|,
@@ -3776,6 +3775,16 @@ argument_list|(
 name|uidQuery
 argument_list|)
 decl_stmt|;
+name|doc
+operator|.
+name|seqNo
+argument_list|()
+operator|.
+name|setLongValue
+argument_list|(
+name|seqNo
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|Engine

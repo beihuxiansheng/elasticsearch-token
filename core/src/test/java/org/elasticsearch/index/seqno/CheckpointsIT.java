@@ -199,6 +199,13 @@ name|CheckpointsIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"boaz working om this."
+argument_list|)
 DECL|method|testCheckpointsAdvance
 specifier|public
 name|void
