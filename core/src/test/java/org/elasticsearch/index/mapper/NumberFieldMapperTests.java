@@ -920,7 +920,7 @@ range|:
 name|TYPES
 control|)
 block|{
-name|doTestNotIndexed
+name|doTestNoDocValues
 argument_list|(
 name|type
 argument_list|)
