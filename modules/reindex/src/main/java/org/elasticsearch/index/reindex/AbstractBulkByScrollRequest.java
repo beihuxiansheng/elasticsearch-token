@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|search
+operator|.
+name|SearchRequest
 import|;
 end_import
 
@@ -60,9 +62,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
+name|support
 operator|.
-name|SearchRequest
+name|ActiveShardCount
 import|;
 end_import
 
@@ -323,13 +325,13 @@ name|ReplicationRequest
 operator|.
 name|DEFAULT_TIMEOUT
 decl_stmt|;
-comment|/**      * Consistency level for write requests.      */
-DECL|field|consistency
+comment|/**      * The number of shard copies that must be active before proceeding with the write.      */
+DECL|field|activeShardCount
 specifier|private
-name|WriteConsistencyLevel
-name|consistency
+name|ActiveShardCount
+name|activeShardCount
 init|=
-name|WriteConsistencyLevel
+name|ActiveShardCount
 operator|.
 name|DEFAULT
 decl_stmt|;
@@ -362,11 +364,11 @@ name|Float
 operator|.
 name|POSITIVE_INFINITY
 decl_stmt|;
-comment|/**      * Should this task persist its result?      */
-DECL|field|shouldPersistResult
+comment|/**      * Should this task store its result?      */
+DECL|field|shouldStoreResult
 specifier|private
 name|boolean
-name|shouldPersistResult
+name|shouldStoreResult
 decl_stmt|;
 DECL|method|AbstractBulkByScrollRequest
 specifier|public
@@ -402,16 +404,6 @@ argument_list|(
 operator|new
 name|SearchSourceBuilder
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|source
-operator|.
-name|source
-argument_list|()
-operator|.
-name|version
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 name|source
@@ -733,36 +725,59 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * Consistency level for write requests.      */
-DECL|method|getConsistency
+comment|/**      * The number of shard copies that must be active before proceeding with the write.      */
+DECL|method|getWaitForActiveShards
 specifier|public
-name|WriteConsistencyLevel
-name|getConsistency
+name|ActiveShardCount
+name|getWaitForActiveShards
 parameter_list|()
 block|{
 return|return
-name|consistency
+name|activeShardCount
 return|;
 block|}
-comment|/**      * Consistency level for write requests.      */
-DECL|method|setConsistency
+comment|/**      * Sets the number of shard copies that must be active before proceeding with the write.      * See {@link ReplicationRequest#waitForActiveShards(ActiveShardCount)} for details.      */
+DECL|method|setWaitForActiveShards
 specifier|public
 name|Self
-name|setConsistency
+name|setWaitForActiveShards
 parameter_list|(
-name|WriteConsistencyLevel
-name|consistency
+name|ActiveShardCount
+name|activeShardCount
 parameter_list|)
 block|{
 name|this
 operator|.
-name|consistency
+name|activeShardCount
 operator|=
-name|consistency
+name|activeShardCount
 expr_stmt|;
 return|return
 name|self
 argument_list|()
+return|;
+block|}
+comment|/**      * A shortcut for {@link #setWaitForActiveShards(ActiveShardCount)} where the numerical      * shard count is passed in, instead of having to first call {@link ActiveShardCount#from(int)}      * to get the ActiveShardCount.      */
+DECL|method|setWaitForActiveShards
+specifier|public
+name|Self
+name|setWaitForActiveShards
+parameter_list|(
+specifier|final
+name|int
+name|waitForActiveShards
+parameter_list|)
+block|{
+return|return
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|from
+argument_list|(
+name|waitForActiveShards
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * Initial delay after a rejection before retrying request.      */
@@ -876,21 +891,21 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * Should this task persist its result after it has finished?      */
-DECL|method|setShouldPersistResult
+comment|/**      * Should this task store its result after it has finished?      */
+DECL|method|setShouldStoreResult
 specifier|public
 name|Self
-name|setShouldPersistResult
+name|setShouldStoreResult
 parameter_list|(
 name|boolean
-name|shouldPersistResult
+name|shouldStoreResult
 parameter_list|)
 block|{
 name|this
 operator|.
-name|shouldPersistResult
+name|shouldStoreResult
 operator|=
-name|shouldPersistResult
+name|shouldStoreResult
 expr_stmt|;
 return|return
 name|self
@@ -899,14 +914,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getShouldPersistResult
+DECL|method|getShouldStoreResult
 specifier|public
 name|boolean
-name|getShouldPersistResult
+name|getShouldStoreResult
 parameter_list|()
 block|{
 return|return
-name|shouldPersistResult
+name|shouldStoreResult
 return|;
 block|}
 annotation|@
@@ -1010,16 +1025,13 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|consistency
+name|activeShardCount
 operator|=
-name|WriteConsistencyLevel
+name|ActiveShardCount
 operator|.
-name|fromId
+name|readFrom
 argument_list|(
 name|in
-operator|.
-name|readByte
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|retryBackoffInitialTime
@@ -1100,14 +1112,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|out
+name|activeShardCount
 operator|.
-name|writeByte
+name|writeTo
 argument_list|(
-name|consistency
-operator|.
-name|id
-argument_list|()
+name|out
 argument_list|)
 expr_stmt|;
 name|retryBackoffInitialTime

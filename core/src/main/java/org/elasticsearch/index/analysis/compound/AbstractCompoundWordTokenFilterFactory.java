@@ -28,9 +28,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|compound
-operator|.
-name|CompoundWordTokenFilterBase
+name|CharArraySet
 import|;
 end_import
 
@@ -44,9 +42,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|compound
 operator|.
-name|CharArraySet
+name|CompoundWordTokenFilterBase
 import|;
 end_import
 

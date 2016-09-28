@@ -346,6 +346,16 @@ return|return
 name|function
 return|;
 block|}
+DECL|method|getMinScore
+specifier|public
+name|Float
+name|getMinScore
+parameter_list|()
+block|{
+return|return
+name|minScore
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|rewrite

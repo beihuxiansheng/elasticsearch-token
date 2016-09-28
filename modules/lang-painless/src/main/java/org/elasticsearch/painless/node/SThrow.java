@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Location
+name|Locals
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Locals
+name|Location
 import|;
 end_import
 
@@ -110,6 +110,7 @@ extends|extends
 name|AStatement
 block|{
 DECL|field|expression
+specifier|private
 name|AExpression
 name|expression
 decl_stmt|;

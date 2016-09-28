@@ -28,27 +28,23 @@ name|DiscoveryNode
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|TransportServiceAdapter
 specifier|public
 interface|interface
 name|TransportServiceAdapter
 block|{
-DECL|method|received
+DECL|method|addBytesReceived
 name|void
-name|received
+name|addBytesReceived
 parameter_list|(
 name|long
 name|size
 parameter_list|)
 function_decl|;
-DECL|method|sent
+DECL|method|addBytesSent
 name|void
-name|sent
+name|addBytesSent
 parameter_list|(
 name|long
 name|size

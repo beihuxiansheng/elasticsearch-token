@@ -1081,9 +1081,8 @@ argument_list|)
 expr_stmt|;
 name|flags
 operator|=
+operator|new
 name|CommonStatsFlags
-operator|.
-name|readCommonStatsFlags
 argument_list|(
 name|in
 argument_list|)

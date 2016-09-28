@@ -414,7 +414,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|CompletionFieldMapper2x
 import|;
 end_import
 
@@ -428,9 +428,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|CompletionFieldMapper2x
+name|MappedFieldType
 import|;
 end_import
 

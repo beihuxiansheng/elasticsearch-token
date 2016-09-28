@@ -356,7 +356,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|GeoShapeFieldMapper
 import|;
 end_import
 
@@ -370,9 +370,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
-operator|.
-name|GeoShapeFieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -429,19 +427,6 @@ name|String
 name|NAME
 init|=
 literal|"geo_shape"
-decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_SHAPE_INDEX_NAME
 specifier|public

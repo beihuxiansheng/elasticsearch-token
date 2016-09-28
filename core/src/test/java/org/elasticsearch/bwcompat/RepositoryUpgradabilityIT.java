@@ -108,6 +108,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -251,6 +267,12 @@ operator|.
 name|Scope
 operator|.
 name|TEST
+argument_list|)
+comment|// this test sometimes fails in recovery when the recovery is reset, increasing the logging level to help debug
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"org.elasticsearch.indices.recovery:DEBUG"
 argument_list|)
 DECL|class|RepositoryUpgradabilityIT
 specifier|public
@@ -398,9 +420,7 @@ name|SnapshotId
 argument_list|(
 literal|"test_1"
 argument_list|,
-name|SnapshotId
-operator|.
-name|UNASSIGNED_UUID
+literal|"test_1"
 argument_list|)
 argument_list|)
 argument_list|)

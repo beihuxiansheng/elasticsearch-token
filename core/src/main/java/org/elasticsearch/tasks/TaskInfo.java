@@ -779,7 +779,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|dateValueField
+name|dateField
 argument_list|(
 literal|"start_time_in_millis"
 argument_list|,
@@ -1047,7 +1047,7 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-comment|// Note for the future: this has to be backwards compatible with all changes to the task persistence format
+comment|// Note for the future: this has to be backwards compatible with all changes to the task storage format
 name|PARSER
 operator|.
 name|declareString

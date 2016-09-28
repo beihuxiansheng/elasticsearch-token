@@ -150,7 +150,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|source
+name|subphase
 operator|.
 name|FetchSourceContext
 import|;
@@ -306,9 +306,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -740,9 +737,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -984,9 +978,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|BytesReference
 name|sourceBytesRef
 init|=
@@ -996,7 +987,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"field"
 argument_list|,
@@ -1420,9 +1411,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 specifier|final
 name|String

@@ -34,7 +34,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -98,8 +98,8 @@ name|Response
 extends|extends
 name|TransportResponse
 parameter_list|>
-extends|extends
-name|BaseTransportResponseHandler
+implements|implements
+name|TransportResponseHandler
 argument_list|<
 name|Response
 argument_list|>

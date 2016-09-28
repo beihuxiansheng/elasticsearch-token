@@ -228,7 +228,7 @@ if|if
 condition|(
 name|rate
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<=
 literal|0
@@ -257,7 +257,7 @@ name|setMBPerSec
 argument_list|(
 name|rate
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -275,7 +275,7 @@ name|setMBPerSec
 argument_list|(
 name|rate
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;

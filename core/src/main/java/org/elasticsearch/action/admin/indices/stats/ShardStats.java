@@ -443,9 +443,8 @@ argument_list|)
 expr_stmt|;
 name|commonStats
 operator|=
+operator|new
 name|CommonStats
-operator|.
-name|readCommonStats
 argument_list|(
 name|in
 argument_list|)

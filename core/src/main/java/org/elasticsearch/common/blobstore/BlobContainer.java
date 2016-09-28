@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -54,9 +40,23 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|nio
 operator|.
-name|Collection
+name|file
+operator|.
+name|FileAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 
@@ -95,7 +95,7 @@ name|String
 name|blobName
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new {@link InputStream} for the given blob name.      *      * @param   blobName      *          The name of the blob to get an {@link InputStream} for.      * @return  The {@code InputStream} to read the blob.      * @throws  IOException if the blob does not exist or can not be read.      */
+comment|/**      * Creates a new {@link InputStream} for the given blob name.      *      * @param   blobName      *          The name of the blob to get an {@link InputStream} for.      * @return  The {@code InputStream} to read the blob.      * @throws  NoSuchFileException if the blob does not exist      * @throws  IOException if the blob can not be read.      */
 DECL|method|readBlob
 name|InputStream
 name|readBlob
@@ -106,7 +106,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Reads blob content from the input stream and writes it to the container in a new blob with the given name.      * This method assumes the container does not already contain a blob of the same blobName.  If a blob by the      * same name already exists, the operation will fail and an {@link IOException} will be thrown.      *      * @param   blobName      *          The name of the blob to write the contents of the input stream to.      * @param   inputStream      *          The input stream from which to retrieve the bytes to write to the blob.      * @param   blobSize      *          The size of the blob to be written, in bytes.  It is implementation dependent whether      *          this value is used in writing the blob to the repository.      * @throws  IOException if the input stream could not be read, a blob by the same name already exists,      *          or the target blob could not be written to.      */
+comment|/**      * Reads blob content from the input stream and writes it to the container in a new blob with the given name.      * This method assumes the container does not already contain a blob of the same blobName.  If a blob by the      * same name already exists, the operation will fail and an {@link IOException} will be thrown.      *      * @param   blobName      *          The name of the blob to write the contents of the input stream to.      * @param   inputStream      *          The input stream from which to retrieve the bytes to write to the blob.      * @param   blobSize      *          The size of the blob to be written, in bytes.  It is implementation dependent whether      *          this value is used in writing the blob to the repository.      * @throws  FileAlreadyExistsException if a blob by the same name already exists      * @throws  IOException if the input stream could not be read, or the target blob could not be written to.      */
 DECL|method|writeBlob
 name|void
 name|writeBlob
@@ -123,52 +123,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Writes the input bytes to a new blob in the container with the given name.  This method assumes the      * container does not already contain a blob of the same blobName.  If a blob by the same name already      * exists, the operation will fail and an {@link IOException} will be thrown.      *      * TODO: Remove this in favor of a single {@link #writeBlob(String, InputStream, long)} method.      *       See https://github.com/elastic/elasticsearch/issues/18528      *      * @param   blobName      *          The name of the blob to write the contents of the input stream to.      * @param   bytes      *          The bytes to write to the blob.      * @throws  IOException if a blob by the same name already exists, or the target blob could not be written to.      */
-DECL|method|writeBlob
-name|void
-name|writeBlob
-parameter_list|(
-name|String
-name|blobName
-parameter_list|,
-name|BytesReference
-name|bytes
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Deletes a blob with giving name, if the blob exists.  If the blob does not exist, this method throws an IOException.      *      * @param   blobName      *          The name of the blob to delete.      * @throws  IOException if the blob does not exist, or if the blob exists but could not be deleted.      */
+comment|/**      * Deletes a blob with giving name, if the blob exists.  If the blob does not exist, this method throws an IOException.      *      * @param   blobName      *          The name of the blob to delete.      * @throws  NoSuchFileException if the blob does not exist      * @throws  IOException if the blob exists but could not be deleted.      */
 DECL|method|deleteBlob
 name|void
 name|deleteBlob
 parameter_list|(
 name|String
 name|blobName
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Deletes blobs with the given names.  If any subset of the names do not exist in the container, this method has no      * effect for those names, and will delete the blobs for those names that do exist.  If any of the blobs failed      * to delete, those blobs that were processed before it and successfully deleted will remain deleted.  An exception      * is thrown at the first blob entry that fails to delete (TODO: is this the right behavior?  Should we collect      * all the failed deletes into a single IOException instead?)      *      * TODO: remove, see https://github.com/elastic/elasticsearch/issues/18529      *      * @param   blobNames      *          The collection of blob names to delete from the container.      * @throws  IOException if any of the blobs in the collection exists but could not be deleted.      */
-DECL|method|deleteBlobs
-name|void
-name|deleteBlobs
-parameter_list|(
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|blobNames
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Deletes all blobs in the container that match the specified prefix.  If any of the blobs failed to delete,      * those blobs that were processed before it and successfully deleted will remain deleted.  An exception is      * thrown at the first blob entry that fails to delete (TODO: is this the right behavior?  Should we collect      * all the failed deletes into a single IOException instead?)      *      * TODO: remove, see: https://github.com/elastic/elasticsearch/issues/18529      *      * @param   blobNamePrefix      *          The prefix to match against blob names in the container.  Any blob whose name has the prefix will be deleted.      * @throws  IOException if any of the matching blobs failed to delete.      */
-DECL|method|deleteBlobsByPrefix
-name|void
-name|deleteBlobsByPrefix
-parameter_list|(
-name|String
-name|blobNamePrefix
 parameter_list|)
 throws|throws
 name|IOException

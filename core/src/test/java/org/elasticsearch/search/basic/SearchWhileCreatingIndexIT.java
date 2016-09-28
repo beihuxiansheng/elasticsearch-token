@@ -240,43 +240,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// make sure we have enough nodes to guaranty default QUORUM consistency.
-comment|// TODO: add a smarter choice based on actual consistency (when that is randomized)
-name|int
-name|shardsNo
-init|=
-name|numberOfReplicas
-operator|+
-literal|1
-decl_stmt|;
-name|int
-name|neededNodes
-init|=
-name|shardsNo
-operator|<=
-literal|2
-condition|?
-literal|1
-else|:
-name|shardsNo
-operator|/
-literal|2
-operator|+
-literal|1
-decl_stmt|;
-name|internalCluster
-argument_list|()
-operator|.
-name|ensureAtLeastNumDataNodes
-argument_list|(
-name|randomIntBetween
-argument_list|(
-name|neededNodes
-argument_list|,
-name|shardsNo
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// TODO: randomize the wait for active shards value on index creation and ensure the appropriate
+comment|// number of data nodes are started for the randomized active shard count value
 name|String
 name|id
 init|=

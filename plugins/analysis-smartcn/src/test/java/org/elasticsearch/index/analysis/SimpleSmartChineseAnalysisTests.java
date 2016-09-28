@@ -119,10 +119,10 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|AnalysisService
-name|analysisService
+name|TestAnalysis
+name|analysis
 init|=
-name|createAnalysisService
+name|createTestAnalysis
 argument_list|(
 operator|new
 name|Index
@@ -144,9 +144,11 @@ decl_stmt|;
 name|TokenizerFactory
 name|tokenizerFactory
 init|=
-name|analysisService
+name|analysis
 operator|.
 name|tokenizer
+operator|.
+name|get
 argument_list|(
 literal|"smartcn_tokenizer"
 argument_list|)

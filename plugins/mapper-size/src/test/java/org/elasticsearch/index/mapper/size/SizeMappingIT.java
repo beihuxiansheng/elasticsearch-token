@@ -140,6 +140,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -257,7 +267,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|MapperSizePlugin
 operator|.
@@ -799,7 +811,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"_size"
 argument_list|)

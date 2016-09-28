@@ -234,7 +234,7 @@ argument_list|<>
 argument_list|(
 literal|"http.cors.allow-methods"
 argument_list|,
-literal|"OPTIONS, HEAD, GET, POST, PUT, DELETE"
+literal|"OPTIONS,HEAD,GET,POST,PUT,DELETE"
 argument_list|,
 parameter_list|(
 name|value
@@ -263,7 +263,7 @@ argument_list|<>
 argument_list|(
 literal|"http.cors.allow-headers"
 argument_list|,
-literal|"X-Requested-With, Content-Type, Content-Length"
+literal|"X-Requested-With,Content-Type,Content-Length"
 argument_list|,
 parameter_list|(
 name|value

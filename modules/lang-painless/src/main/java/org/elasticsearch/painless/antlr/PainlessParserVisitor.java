@@ -445,72 +445,6 @@ name|ReadContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code numeric}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitNumeric
-name|T
-name|visitNumeric
-parameter_list|(
-name|PainlessParser
-operator|.
-name|NumericContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code true}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitTrue
-name|T
-name|visitTrue
-parameter_list|(
-name|PainlessParser
-operator|.
-name|TrueContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code false}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitFalse
-name|T
-name|visitFalse
-parameter_list|(
-name|PainlessParser
-operator|.
-name|FalseContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code null}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitNull
-name|T
-name|visitNull
-parameter_list|(
-name|PainlessParser
-operator|.
-name|NullContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code listinit}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitListinit
-name|T
-name|visitListinit
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ListinitContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code mapinit}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitMapinit
-name|T
-name|visitMapinit
-parameter_list|(
-name|PainlessParser
-operator|.
-name|MapinitContext
-name|ctx
-parameter_list|)
-function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code operator}    * labeled alternative in {@link PainlessParser#unary}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitOperator
 name|T
@@ -566,25 +500,58 @@ name|NewarrayContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code exprprec}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExprprec
+comment|/**    * Visit a parse tree produced by the {@code precedence}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitPrecedence
 name|T
-name|visitExprprec
+name|visitPrecedence
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExprprecContext
+name|PrecedenceContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code chainprec}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitChainprec
+comment|/**    * Visit a parse tree produced by the {@code numeric}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitNumeric
 name|T
-name|visitChainprec
+name|visitNumeric
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ChainprecContext
+name|NumericContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code true}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitTrue
+name|T
+name|visitTrue
+parameter_list|(
+name|PainlessParser
+operator|.
+name|TrueContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code false}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitFalse
+name|T
+name|visitFalse
+parameter_list|(
+name|PainlessParser
+operator|.
+name|FalseContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code null}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitNull
+name|T
+name|visitNull
+parameter_list|(
+name|PainlessParser
+operator|.
+name|NullContext
 name|ctx
 parameter_list|)
 function_decl|;
@@ -607,6 +574,28 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|RegexContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code listinit}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitListinit
+name|T
+name|visitListinit
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ListinitContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code mapinit}    * labeled alternative in {@link PainlessParser#primary}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitMapinit
+name|T
+name|visitMapinit
+parameter_list|(
+name|PainlessParser
+operator|.
+name|MapinitContext
 name|ctx
 parameter_list|)
 function_decl|;
@@ -643,18 +632,29 @@ name|NewobjectContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#secondary}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitSecondary
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#postfix}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitPostfix
 name|T
-name|visitSecondary
+name|visitPostfix
 parameter_list|(
 name|PainlessParser
 operator|.
-name|SecondaryContext
+name|PostfixContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code callinvoke}    * labeled alternative in {@link PainlessParser#dot}.    * @param ctx the parse tree    * @return the visitor result    */
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#postdot}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitPostdot
+name|T
+name|visitPostdot
+parameter_list|(
+name|PainlessParser
+operator|.
+name|PostdotContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#callinvoke}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitCallinvoke
 name|T
 name|visitCallinvoke
@@ -665,7 +665,7 @@ name|CallinvokeContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code fieldaccess}    * labeled alternative in {@link PainlessParser#dot}.    * @param ctx the parse tree    * @return the visitor result    */
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#fieldaccess}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitFieldaccess
 name|T
 name|visitFieldaccess
@@ -676,7 +676,7 @@ name|FieldaccessContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code braceaccess}    * labeled alternative in {@link PainlessParser#brace}.    * @param ctx the parse tree    * @return the visitor result    */
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#braceaccess}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitBraceaccess
 name|T
 name|visitBraceaccess
@@ -684,105 +684,6 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|BraceaccessContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#arguments}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitArguments
-name|T
-name|visitArguments
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ArgumentsContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#argument}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitArgument
-name|T
-name|visitArgument
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ArgumentContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#lambda}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitLambda
-name|T
-name|visitLambda
-parameter_list|(
-name|PainlessParser
-operator|.
-name|LambdaContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#lamtype}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitLamtype
-name|T
-name|visitLamtype
-parameter_list|(
-name|PainlessParser
-operator|.
-name|LamtypeContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitFuncref
-name|T
-name|visitFuncref
-parameter_list|(
-name|PainlessParser
-operator|.
-name|FuncrefContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#classFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitClassFuncref
-name|T
-name|visitClassFuncref
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ClassFuncrefContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#constructorFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitConstructorFuncref
-name|T
-name|visitConstructorFuncref
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ConstructorFuncrefContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#capturingFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitCapturingFuncref
-name|T
-name|visitCapturingFuncref
-parameter_list|(
-name|PainlessParser
-operator|.
-name|CapturingFuncrefContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#localFuncref}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitLocalFuncref
-name|T
-name|visitLocalFuncref
-parameter_list|(
-name|PainlessParser
-operator|.
-name|LocalFuncrefContext
 name|ctx
 parameter_list|)
 function_decl|;
@@ -838,6 +739,94 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|MaptokenContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#arguments}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitArguments
+name|T
+name|visitArguments
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ArgumentsContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#argument}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitArgument
+name|T
+name|visitArgument
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ArgumentContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#lambda}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLambda
+name|T
+name|visitLambda
+parameter_list|(
+name|PainlessParser
+operator|.
+name|LambdaContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#lamtype}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLamtype
+name|T
+name|visitLamtype
+parameter_list|(
+name|PainlessParser
+operator|.
+name|LamtypeContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code classfuncref}    * labeled alternative in {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitClassfuncref
+name|T
+name|visitClassfuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ClassfuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code constructorfuncref}    * labeled alternative in {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitConstructorfuncref
+name|T
+name|visitConstructorfuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ConstructorfuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code capturingfuncref}    * labeled alternative in {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitCapturingfuncref
+name|T
+name|visitCapturingfuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|CapturingfuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code localfuncref}    * labeled alternative in {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLocalfuncref
+name|T
+name|visitLocalfuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|LocalfuncrefContext
 name|ctx
 parameter_list|)
 function_decl|;

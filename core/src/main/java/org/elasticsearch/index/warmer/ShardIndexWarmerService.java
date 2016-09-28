@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -110,10 +110,6 @@ name|TimeUnit
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|ShardIndexWarmerService
 specifier|public
@@ -163,7 +159,7 @@ expr_stmt|;
 block|}
 DECL|method|logger
 specifier|public
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|()
 block|{

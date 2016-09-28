@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A utility class for multi threaded operation that needs to be cancellable via interrupts. Every cancellable operation should be  * executed via {@link #execute(Interruptable)}, which will capture the executing thread and make sure it is interrupted in the case  * cancellation.  */
+comment|/**  * A utility class for multi threaded operation that needs to be cancellable via interrupts. Every cancellable operation should be  * executed via {@link #execute(Interruptable)}, which will capture the executing thread and make sure it is interrupted in the case  * of cancellation.  *  * Cancellation policy: This class does not support external interruption via<code>Thread#interrupt()</code>. Always use #cancel() instead.  */
 end_comment
 
 begin_class
@@ -122,8 +122,10 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// needs to be volatile as it is also read outside of synchronized blocks.
 DECL|field|cancelled
 specifier|private
+specifier|volatile
 name|boolean
 name|cancelled
 init|=
@@ -302,6 +304,11 @@ init|=
 name|add
 argument_list|()
 decl_stmt|;
+name|boolean
+name|cancelledByExternalInterrupt
+init|=
+literal|false
+decl_stmt|;
 name|RuntimeException
 name|runtimeException
 init|=
@@ -328,7 +335,19 @@ name|ThreadInterruptedException
 name|e
 parameter_list|)
 block|{
-comment|// assume this is us and ignore
+comment|// ignore, this interrupt has been triggered by us in #cancel()...
+assert|assert
+name|cancelled
+operator|:
+literal|"Interruption via Thread#interrupt() is unsupported. Use CancellableThreads#cancel() instead"
+assert|;
+comment|// we can only reach here if assertions are disabled. If we reach this code and cancelled is false, this means that we've
+comment|// been interrupted externally (which we don't support).
+name|cancelledByExternalInterrupt
+operator|=
+operator|!
+name|cancelled
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -433,6 +452,28 @@ throw|throw
 name|runtimeException
 throw|;
 block|}
+block|}
+if|if
+condition|(
+name|cancelledByExternalInterrupt
+condition|)
+block|{
+comment|// restore interrupt flag to at least adhere to expected behavior
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Interruption via Thread#interrupt() is unsupported. Use CancellableThreads#cancel() instead"
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|remove

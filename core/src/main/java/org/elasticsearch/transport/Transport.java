@@ -284,7 +284,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Sends the request to the node.      */
+comment|/**      * Sends the request to the node.      * @throws NodeNotConnectedException if the given node is not connected      */
 DECL|method|sendRequest
 name|void
 name|sendRequest

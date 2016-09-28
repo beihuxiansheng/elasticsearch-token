@@ -64,6 +64,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Requests
@@ -158,11 +172,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|HashMap
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
 import|;
 end_import
 
@@ -183,6 +203,22 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAcked
 import|;
 end_import
 
@@ -252,6 +288,11 @@ name|ClusterAllocationExplainIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|method|testDelayShards
 specifier|public
 name|void
@@ -341,6 +382,8 @@ argument_list|(
 literal|"--> creating 'test' index"
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -390,12 +433,15 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|ALL
+argument_list|)
+operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"test"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -643,6 +689,14 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|ALL
+argument_list|)
+comment|// wait on all shards
+operator|.
 name|get
 argument_list|()
 expr_stmt|;
@@ -687,6 +741,13 @@ literal|"index.number_of_replicas"
 argument_list|,
 literal|1
 argument_list|)
+argument_list|)
+operator|.
+name|setWaitForActiveShards
+argument_list|(
+name|ActiveShardCount
+operator|.
+name|ALL
 argument_list|)
 operator|.
 name|get
@@ -737,18 +798,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"anywhere"
-argument_list|,
-literal|"only-baz"
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"only-foo"
-argument_list|)
 expr_stmt|;
 name|ClusterAllocationExplainResponse
 name|resp

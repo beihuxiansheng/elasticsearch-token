@@ -166,8 +166,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestActions
 import|;
 end_import
@@ -181,8 +179,6 @@ operator|.
 name|rest
 operator|.
 name|action
-operator|.
-name|support
 operator|.
 name|RestToXContentListener
 import|;
@@ -221,6 +217,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RestPercolateAction
 specifier|public
 class|class

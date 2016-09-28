@@ -256,25 +256,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestResponseListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestTable
 import|;
 end_import
 
@@ -367,10 +349,6 @@ operator|.
 name|admin
 operator|.
 name|cluster
-operator|.
-name|node
-operator|.
-name|tasks
 operator|.
 name|RestListTasksAction
 operator|.
@@ -702,7 +680,7 @@ name|addCell
 argument_list|(
 literal|"description"
 argument_list|,
-literal|"default:false;alias:desc;desc:task action"
+literal|"default:true;alias:desc;desc:task action"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1054,10 +1032,10 @@ name|Table
 name|table
 parameter_list|,
 name|boolean
-name|detailed
+name|fullId
 parameter_list|,
 name|boolean
-name|fullId
+name|detailed
 parameter_list|,
 name|List
 argument_list|<

@@ -34,11 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|Strings
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -50,9 +52,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
+name|Strings
 import|;
 end_import
 
@@ -104,7 +104,9 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|yaml
+operator|.
+name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
@@ -246,7 +248,9 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|yaml
+operator|.
+name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_BLACKLIST
 import|;
@@ -262,7 +266,9 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|yaml
+operator|.
+name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_SPEC
 import|;
@@ -278,7 +284,9 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ESRestTestCase
+name|yaml
+operator|.
+name|ESClientYamlSuiteTestCase
 operator|.
 name|REST_TESTS_SUITE
 import|;
@@ -299,7 +307,7 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
@@ -457,10 +465,10 @@ name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Rest tests are a special case as they allow for additional parameters
+comment|// Client yaml suite tests are a special case as they allow for additional parameters
 if|if
 condition|(
-name|ESRestTestCase
+name|ESClientYamlSuiteTestCase
 operator|.
 name|class
 operator|.
@@ -478,7 +486,7 @@ condition|)
 block|{
 name|gradleMessageBuilder
 operator|.
-name|appendRestTestsProperties
+name|appendClientYamlSuiteProperties
 argument_list|()
 expr_stmt|;
 block|}
@@ -691,10 +699,6 @@ block|{
 comment|// these properties only make sense for integration tests
 name|appendProperties
 argument_list|(
-literal|"tests.es.node.mode"
-argument_list|,
-literal|"tests.es.node.local"
-argument_list|,
 name|TESTS_CLUSTER
 argument_list|,
 name|ESIntegTestCase
@@ -792,10 +796,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|appendRestTestsProperties
+DECL|method|appendClientYamlSuiteProperties
 specifier|public
 name|ReproduceErrorMessageBuilder
-name|appendRestTestsProperties
+name|appendClientYamlSuiteProperties
 parameter_list|()
 block|{
 return|return

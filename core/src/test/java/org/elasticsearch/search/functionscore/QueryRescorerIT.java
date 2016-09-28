@@ -795,9 +795,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -1147,9 +1144,6 @@ literal|"the quick lazy huge brown fox jumps over the tree"
 argument_list|)
 operator|.
 name|get
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|refresh
@@ -1996,9 +1990,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -2678,9 +2669,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3344,9 +3332,6 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|client
@@ -4757,9 +4742,6 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|refresh

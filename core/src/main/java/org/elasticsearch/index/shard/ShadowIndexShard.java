@@ -633,6 +633,39 @@ literal|"Can't listen for a refresh on a shadow engine because it doesn't have a
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|snapshotStoreMetadata
+specifier|public
+name|Store
+operator|.
+name|MetadataSnapshot
+name|snapshotStoreMetadata
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"can't snapshot the directory as the primary may change it underneath us"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|onNewEngine
+specifier|protected
+name|void
+name|onNewEngine
+parameter_list|(
+name|Engine
+name|newEngine
+parameter_list|)
+block|{
+comment|// nothing to do here - the superclass sets the translog on some listeners but we don't have such a thing
+block|}
 block|}
 end_class
 

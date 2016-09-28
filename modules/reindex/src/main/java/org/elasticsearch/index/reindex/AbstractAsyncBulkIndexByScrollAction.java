@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -114,20 +128,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -156,8 +156,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|IdFieldMapper
 import|;
 end_import
@@ -171,8 +169,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|IndexFieldMapper
 import|;
@@ -188,8 +184,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|ParentFieldMapper
 import|;
 end_import
@@ -203,8 +197,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|RoutingFieldMapper
 import|;
@@ -220,8 +212,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|SourceFieldMapper
 import|;
 end_import
@@ -235,8 +225,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|TTLFieldMapper
 import|;
@@ -252,8 +240,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TimestampFieldMapper
 import|;
 end_import
@@ -268,8 +254,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TypeFieldMapper
 import|;
 end_import
@@ -283,8 +267,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|internal
 operator|.
 name|VersionFieldMapper
 import|;
@@ -501,7 +483,7 @@ parameter_list|(
 name|BulkByScrollTask
 name|task
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|ParentTaskAssigningClient
@@ -2038,6 +2020,14 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|context
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 name|context
 operator|.
 name|put
@@ -2299,7 +2289,7 @@ expr_stmt|;
 name|Object
 name|newValue
 init|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2333,7 +2323,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2367,7 +2357,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2401,7 +2391,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2434,7 +2424,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2468,7 +2458,7 @@ block|}
 comment|/*              * Its important that routing comes after parent in case you want to              * change them both.              */
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2501,7 +2491,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2534,7 +2524,7 @@ expr_stmt|;
 block|}
 name|newValue
 operator|=
-name|context
+name|resultCtx
 operator|.
 name|remove
 argument_list|(
@@ -2597,7 +2587,7 @@ if|if
 condition|(
 literal|false
 operator|==
-name|context
+name|resultCtx
 operator|.
 name|isEmpty
 argument_list|()
@@ -2615,7 +2605,7 @@ name|join
 argument_list|(
 literal|","
 argument_list|,
-name|context
+name|resultCtx
 operator|.
 name|keySet
 argument_list|()

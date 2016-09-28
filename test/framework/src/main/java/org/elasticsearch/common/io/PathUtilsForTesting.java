@@ -64,7 +64,7 @@ name|installMock
 argument_list|(
 name|LuceneTestCase
 operator|.
-name|getBaseTempDirForTestClass
+name|createTempDir
 argument_list|()
 operator|.
 name|getFileSystem

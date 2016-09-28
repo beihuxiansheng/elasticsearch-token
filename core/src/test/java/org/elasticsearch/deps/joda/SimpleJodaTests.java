@@ -68,8 +68,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
 name|RootObjectMapper
 import|;
 end_import

@@ -590,10 +590,6 @@ name|unwrapCause
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|TransportUpdateAction
 specifier|public
@@ -1359,12 +1355,12 @@ switch|switch
 condition|(
 name|result
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 condition|)
 block|{
 case|case
-name|UPSERT
+name|CREATED
 case|:
 name|IndexRequest
 name|upsertRequest
@@ -1445,12 +1441,30 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|isCreated
+name|getResult
 argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
+name|request
+operator|.
+name|fetchSource
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|request
+operator|.
+name|fetchSource
+argument_list|()
+operator|.
+name|fetchSource
+argument_list|()
+operator|)
+operator|||
+operator|(
 name|request
 operator|.
 name|fields
@@ -1466,6 +1480,7 @@ operator|.
 name|length
 operator|>
 literal|0
+operator|)
 condition|)
 block|{
 name|Tuple
@@ -1692,7 +1707,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|INDEX
+name|UPDATED
 case|:
 name|IndexRequest
 name|indexRequest
@@ -1773,7 +1788,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|isCreated
+name|getResult
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1935,7 +1950,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DELETE
+name|DELETED
 case|:
 name|DeleteRequest
 name|deleteRequest
@@ -2004,7 +2019,10 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-literal|false
+name|response
+operator|.
+name|getResult
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|update
@@ -2165,7 +2183,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|NONE
+name|NOOP
 case|:
 name|UpdateResponse
 name|update
@@ -2240,11 +2258,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Illegal operation "
+literal|"Illegal result "
 operator|+
 name|result
 operator|.
-name|operation
+name|getResponseResult
 argument_list|()
 argument_list|)
 throw|;

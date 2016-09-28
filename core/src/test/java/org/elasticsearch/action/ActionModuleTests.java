@@ -184,8 +184,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|main
-operator|.
 name|RestMainAction
 import|;
 end_import

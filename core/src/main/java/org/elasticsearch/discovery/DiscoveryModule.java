@@ -20,20 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -140,7 +126,7 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ZenDiscovery
+name|ElectMasterService
 import|;
 end_import
 
@@ -154,9 +140,7 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|elect
-operator|.
-name|ElectMasterService
+name|ZenDiscovery
 import|;
 end_import
 
@@ -318,24 +302,13 @@ argument_list|<>
 argument_list|(
 literal|"discovery.type"
 argument_list|,
-name|settings
-lambda|->
-name|DiscoveryNode
-operator|.
-name|isLocalNode
-argument_list|(
-name|settings
-argument_list|)
-condition|?
-literal|"local"
-else|:
 literal|"zen"
-condition|,
+argument_list|,
 name|Function
 operator|.
 name|identity
 argument_list|()
-condition|,
+argument_list|,
 name|Property
 operator|.
 name|NodeScope

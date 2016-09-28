@@ -402,11 +402,6 @@ name|textMappings
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
 name|List
 argument_list|<
 name|IndexRequestBuilder
@@ -944,11 +939,6 @@ literal|"text"
 argument_list|,
 name|termMappings
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-name|index
 argument_list|)
 expr_stmt|;
 name|List

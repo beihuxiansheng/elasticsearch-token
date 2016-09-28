@@ -1309,10 +1309,6 @@ operator|=
 operator|new
 name|IndicesModule
 argument_list|(
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
-argument_list|,
 name|Collections
 operator|.
 name|emptyList

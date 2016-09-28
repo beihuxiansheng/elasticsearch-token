@@ -827,7 +827,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|InternalSettingsPlugin
 operator|.
@@ -896,9 +898,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|XContentBuilder
 name|source1
@@ -1313,9 +1312,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|XContentBuilder
 name|source1
 init|=
@@ -1708,7 +1704,7 @@ argument_list|,
 literal|"geo"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"precision"
 argument_list|,
@@ -1769,9 +1765,6 @@ name|string
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|Collections
 operator|.
@@ -1860,7 +1853,7 @@ argument_list|,
 literal|"geo"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"precision"
 argument_list|,
@@ -2087,9 +2080,6 @@ argument_list|,
 name|mapping
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|XContentBuilder
 name|source1
@@ -2501,9 +2491,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|String
 index|[]
 name|locations
@@ -2680,7 +2667,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -2923,9 +2910,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -2957,7 +2941,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -3251,9 +3235,6 @@ name|mapping
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|XContentBuilder
 name|doc1
 init|=
@@ -3282,7 +3263,7 @@ argument_list|(
 literal|"context"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"color"
 argument_list|,
@@ -3328,7 +3309,7 @@ argument_list|(
 literal|"context"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"color"
 argument_list|,
@@ -3720,9 +3701,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3867,9 +3845,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -3928,7 +3903,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -4291,9 +4266,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -4363,7 +4335,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -4573,9 +4545,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -4666,7 +4635,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -4915,9 +4884,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -4989,7 +4955,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -5322,9 +5288,6 @@ argument_list|(
 name|createIndexRequestBuilder
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -5381,7 +5344,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -5702,9 +5665,6 @@ name|xContentBuilder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|index
 argument_list|(
 name|INDEX
@@ -5950,9 +5910,6 @@ name|xContentBuilder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// now index a document with color field
 name|index
 argument_list|(
@@ -6171,9 +6128,6 @@ argument_list|,
 name|xContentBuilder
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|index
 argument_list|(
@@ -6466,9 +6420,6 @@ name|xContentBuilder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|index
 argument_list|(
 name|INDEX
@@ -6745,9 +6696,6 @@ argument_list|,
 name|xContentBuilder
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// lets create some locations by geohashes in different cells with the precision 4
 comment|// this means, that poelchaustr is not a neighour to alexanderplatz, but they share the same prefix until the fourth char!
@@ -7319,9 +7267,6 @@ name|xContentBuilder
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|GeoPoint
 name|alexanderplatz
 init|=
@@ -7713,9 +7658,6 @@ argument_list|,
 name|xContentBuilder
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|GeoPoint
 name|alexanderplatz

@@ -196,6 +196,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
 begin_class
 DECL|class|PriorityComparatorTests
 specifier|public
@@ -220,7 +232,12 @@ name|RoutingNodes
 operator|.
 name|UnassignedShards
 argument_list|(
-literal|null
+name|mock
+argument_list|(
+name|RoutingNodes
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|List
@@ -240,8 +257,6 @@ argument_list|(
 literal|"oldest"
 argument_list|,
 literal|0
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -278,8 +293,6 @@ argument_list|(
 literal|"newest"
 argument_list|,
 literal|0
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -518,10 +531,12 @@ name|RoutingNodes
 operator|.
 name|UnassignedShards
 argument_list|(
-operator|(
+name|mock
+argument_list|(
 name|RoutingNodes
-operator|)
-literal|null
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|List
@@ -541,8 +556,6 @@ argument_list|(
 literal|"oldest"
 argument_list|,
 literal|0
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -579,8 +592,6 @@ argument_list|(
 literal|"newest"
 argument_list|,
 literal|0
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -819,10 +830,12 @@ name|RoutingNodes
 operator|.
 name|UnassignedShards
 argument_list|(
-operator|(
+name|mock
+argument_list|(
 name|RoutingNodes
-operator|)
-literal|null
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
@@ -1018,8 +1031,6 @@ literal|1
 argument_list|,
 literal|5
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

@@ -538,7 +538,7 @@ name|discoBuilder
 operator|=
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -825,8 +825,6 @@ name|primaryNode
 argument_list|,
 name|relocatingNode
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|primaryState
@@ -932,8 +930,6 @@ argument_list|,
 name|replicaNode
 argument_list|,
 name|relocatingNode
-argument_list|,
-literal|null
 argument_list|,
 literal|false
 argument_list|,
@@ -1088,7 +1084,7 @@ name|discoBuilder
 operator|=
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)
@@ -1315,15 +1311,11 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1349,15 +1341,11 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 literal|false
 argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1698,7 +1686,7 @@ control|)
 block|{
 name|discoBuilder
 operator|.
-name|put
+name|add
 argument_list|(
 name|node
 argument_list|)

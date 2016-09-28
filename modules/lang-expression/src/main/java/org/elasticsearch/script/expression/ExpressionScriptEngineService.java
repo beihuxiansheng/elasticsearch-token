@@ -212,7 +212,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|BaseGeoPointFieldMapper
 import|;
 end_import
 
@@ -225,22 +225,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
 operator|.
 name|DateFieldMapper
 import|;
@@ -256,8 +240,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|LegacyDateFieldMapper
 import|;
 end_import
@@ -272,9 +254,21 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|BaseGeoPointFieldMapper
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
 import|;
 end_import
 

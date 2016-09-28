@@ -108,18 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|RepositorySettings
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -1138,8 +1126,11 @@ parameter_list|>
 name|T
 name|getValue
 parameter_list|(
-name|RepositorySettings
+name|Settings
 name|repositorySettings
+parameter_list|,
+name|Settings
+name|globalSettings
 parameter_list|,
 name|Setting
 argument_list|<
@@ -1161,9 +1152,6 @@ operator|.
 name|exists
 argument_list|(
 name|repositorySettings
-operator|.
-name|settings
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1173,9 +1161,6 @@ operator|.
 name|get
 argument_list|(
 name|repositorySettings
-operator|.
-name|settings
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1186,10 +1171,7 @@ name|repositoriesSetting
 operator|.
 name|get
 argument_list|(
-name|repositorySettings
-operator|.
 name|globalSettings
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1206,7 +1188,7 @@ name|T
 argument_list|>
 name|getEffectiveSetting
 parameter_list|(
-name|RepositorySettings
+name|Settings
 name|repositorySettings
 parameter_list|,
 name|Setting
@@ -1229,9 +1211,6 @@ operator|.
 name|exists
 argument_list|(
 name|repositorySettings
-operator|.
-name|settings
-argument_list|()
 argument_list|)
 condition|)
 block|{

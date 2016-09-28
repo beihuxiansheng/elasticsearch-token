@@ -314,6 +314,38 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -388,8 +420,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexMetaData
-operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|2
@@ -397,8 +427,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexMetaData
-operator|.
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|1
@@ -417,8 +445,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexMetaData
-operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|2
@@ -426,8 +452,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexMetaData
-operator|.
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|1

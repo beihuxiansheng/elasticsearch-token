@@ -755,7 +755,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"abc"
+literal|"{\"foo\":\"abc\"}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -770,7 +770,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"def"
+literal|"{\"foo\":\"def\"}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -785,7 +785,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"ghi"
+literal|"{\"foo\":\"ghi\"}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -818,7 +818,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"changed"
+literal|"{\"foo\":\"changed\"}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -842,7 +842,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"jkl"
+literal|"{\"foo\":\"jkl\"}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1023,7 +1023,7 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"abc"
+literal|"{\"foo\":\"abc\"}"
 argument_list|)
 argument_list|,
 name|result
@@ -1041,7 +1041,7 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"changed"
+literal|"{\"foo\":\"changed\"}"
 argument_list|)
 argument_list|,
 name|result
@@ -1059,7 +1059,7 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"jkl"
+literal|"{\"foo\":\"jkl\"}"
 argument_list|)
 argument_list|,
 name|result
@@ -1129,7 +1129,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{}"
+literal|"{\"foo\": \"bar\"}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1165,7 +1165,7 @@ argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{}"
+literal|"{\"foo\": \"bar\"}"
 argument_list|)
 argument_list|)
 argument_list|)

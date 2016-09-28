@@ -76,24 +76,6 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|ExtendedBounds
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|bucket
-operator|.
-name|histogram
-operator|.
 name|Histogram
 import|;
 end_import
@@ -112,7 +94,9 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|InternalHistogram
+name|Histogram
+operator|.
+name|Bucket
 import|;
 end_import
 
@@ -1432,9 +1416,6 @@ argument_list|)
 operator|.
 name|extendedBounds
 argument_list|(
-operator|new
-name|ExtendedBounds
-argument_list|(
 literal|0L
 argument_list|,
 call|(
@@ -1448,7 +1429,6 @@ name|numBuckets
 operator|-
 literal|1
 operator|)
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -1509,12 +1489,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
-argument_list|<
-name|InternalHistogram
-operator|.
-name|Bucket
-argument_list|>
+name|Histogram
 name|histo
 init|=
 name|response
@@ -1552,8 +1527,6 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|InternalHistogram
-operator|.
 name|Bucket
 argument_list|>
 name|buckets
@@ -1816,9 +1789,6 @@ argument_list|)
 operator|.
 name|extendedBounds
 argument_list|(
-operator|new
-name|ExtendedBounds
-argument_list|(
 literal|0L
 argument_list|,
 call|(
@@ -1832,7 +1802,6 @@ name|numBuckets
 operator|-
 literal|1
 operator|)
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.

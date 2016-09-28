@@ -126,6 +126,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|DiskThresholdSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -179,6 +195,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -311,7 +337,9 @@ parameter_list|()
 block|{
 comment|// Use the mock internal cluster info service, which has fake-able disk usages
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|MockInternalClusterInfoService
 operator|.
@@ -553,7 +581,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -570,7 +598,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -587,7 +615,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_REROUTE_INTERVAL_SETTING
 operator|.

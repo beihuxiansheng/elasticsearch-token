@@ -210,16 +210,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -231,6 +221,30 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|FileAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
 import|;
 end_import
 
@@ -423,8 +437,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
 block|{
+throw|throw
+operator|new
+name|NoSuchFileException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 name|store
 operator|.
 name|execute
@@ -468,15 +501,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|FileNotFoundException
-name|ok
-parameter_list|)
-block|{
-comment|// behaves like Files.deleteIfExists
-block|}
 block|}
 annotation|@
 name|Override
@@ -559,6 +583,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchFileException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 comment|// FSDataInputStream does buffering internally
 return|return
 name|store
@@ -624,6 +669,26 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|FileAlreadyExistsException
+argument_list|(
+literal|"blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] already exists, cannot overwrite"
+argument_list|)
+throw|;
+block|}
 name|store
 operator|.
 name|execute

@@ -162,6 +162,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|search
@@ -300,7 +312,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -748,6 +780,93 @@ expr_stmt|;
 block|}
 return|return
 name|matchQuery
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getAlternateVersions
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|MatchQueryBuilder
+argument_list|>
+name|getAlternateVersions
+parameter_list|()
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|MatchQueryBuilder
+argument_list|>
+name|alternateVersions
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|MatchQueryBuilder
+name|matchQuery
+init|=
+operator|new
+name|MatchQueryBuilder
+argument_list|(
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|,
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|String
+name|contentString
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match\" : {\n"
+operator|+
+literal|"        \""
+operator|+
+name|matchQuery
+operator|.
+name|fieldName
+argument_list|()
+operator|+
+literal|"\" : \""
+operator|+
+name|matchQuery
+operator|.
+name|value
+argument_list|()
+operator|+
+literal|"\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|alternateVersions
+operator|.
+name|put
+argument_list|(
+name|contentString
+argument_list|,
+name|matchQuery
+argument_list|)
+expr_stmt|;
+return|return
+name|alternateVersions
 return|;
 block|}
 annotation|@
@@ -1917,8 +2036,17 @@ name|qb
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
@@ -1927,19 +2055,8 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected query to fail with strict parsing"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -1953,7 +2070,6 @@ literal|"Deprecated field [type] used, replaced by [match_phrase and match_phras
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testLegacyMatchPhraseQuery
 specifier|public
@@ -2062,8 +2178,17 @@ name|qb
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
@@ -2072,19 +2197,8 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected query to fail with strict parsing"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2098,7 +2212,6 @@ literal|"Deprecated field [type] used, replaced by [match_phrase and match_phras
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testLegacyFuzzyMatchQuery
 specifier|public
@@ -2192,8 +2305,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
-try|try
-block|{
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|parseQuery
 argument_list|(
 name|json
@@ -2202,19 +2324,8 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected query to fail with strict parsing"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2232,7 +2343,6 @@ literal|"] used, expected [match] instead"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testFuzzinessOnNonStringField
 specifier|public
@@ -2458,6 +2568,173 @@ name|context
 argument_list|)
 expr_stmt|;
 comment|// no exception
+block|}
+DECL|method|testParseFailsWithMultipleFields
+specifier|public
+name|void
+name|testParseFailsWithMultipleFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"query\" : \"this is a test\"\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"message2\" : {\n"
+operator|+
+literal|"      \"query\" : \"this is a test\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[match] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|String
+name|shortJson
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message1\" : \"this is a test\",\n"
+operator|+
+literal|"    \"message2\" : \"this is a test\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|shortJson
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[match] query doesn't support multiple fields, found [message1] and [message2]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testParseFailsWithTermsArray
+specifier|public
+name|void
+name|testParseFailsWithTermsArray
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|json1
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"query\" : [\"term1\", \"term2\"]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|String
+name|json2
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message1\" : [\"term1\", \"term2\"]\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expectThrows
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json2
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

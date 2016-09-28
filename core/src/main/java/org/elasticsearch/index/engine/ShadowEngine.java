@@ -525,7 +525,7 @@ annotation|@
 name|Override
 DECL|method|index
 specifier|public
-name|boolean
+name|void
 name|index
 parameter_list|(
 name|Index
@@ -930,9 +930,14 @@ name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
+comment|// This means there's a bug somewhere: don't suppress it
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -987,10 +992,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|snapshotIndex
+DECL|method|acquireIndexCommit
 specifier|public
 name|IndexCommit
-name|snapshotIndex
+name|acquireIndexCommit
 parameter_list|(
 name|boolean
 name|flushFirst

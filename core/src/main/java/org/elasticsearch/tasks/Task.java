@@ -417,7 +417,7 @@ name|NamedWriteable
 block|{}
 DECL|method|result
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 name|result
 parameter_list|(
 name|DiscoveryNode
@@ -431,7 +431,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|taskInfo
 argument_list|(
@@ -446,7 +446,7 @@ return|;
 block|}
 DECL|method|result
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 name|result
 parameter_list|(
 name|DiscoveryNode
@@ -467,7 +467,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 name|taskInfo
 argument_list|(
@@ -489,7 +489,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"response has to implement ToXContent for persistence"
+literal|"response has to implement ToXContent to be able to store the results"
 argument_list|)
 throw|;
 block|}

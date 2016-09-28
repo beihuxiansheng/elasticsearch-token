@@ -349,7 +349,7 @@ name|partBytes
 operator|=
 name|partSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 block|}
@@ -939,7 +939,7 @@ name|file
 operator|.
 name|partSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;

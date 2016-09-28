@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -35,20 +49,6 @@ operator|.
 name|common
 operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -188,10 +188,6 @@ name|TimeUnit
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|IndexingSlowLog
 specifier|public
@@ -246,7 +242,7 @@ decl_stmt|;
 DECL|field|indexLogger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|indexLogger
 decl_stmt|;
 DECL|field|INDEX_INDEXING_SLOWLOG_PREFIX
@@ -822,12 +818,14 @@ name|level
 operator|=
 name|level
 expr_stmt|;
-name|this
-operator|.
-name|indexLogger
+name|Loggers
 operator|.
 name|setLevel
 argument_list|(
+name|this
+operator|.
+name|indexLogger
+argument_list|,
 name|level
 operator|.
 name|name

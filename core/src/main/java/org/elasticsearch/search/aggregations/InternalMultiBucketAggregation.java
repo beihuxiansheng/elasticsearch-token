@@ -119,11 +119,6 @@ block|{
 DECL|method|InternalMultiBucketAggregation
 specifier|public
 name|InternalMultiBucketAggregation
-parameter_list|()
-block|{     }
-DECL|method|InternalMultiBucketAggregation
-specifier|public
-name|InternalMultiBucketAggregation
 parameter_list|(
 name|String
 name|name
@@ -170,7 +165,7 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new copy of this {@link Aggregation} with the same settings as      * this {@link Aggregation} and contains the provided buckets.      *       * @param buckets      *            the buckets to use in the new {@link Aggregation}      * @return the new {@link Aggregation}      */
+comment|/**      * Create a new copy of this {@link Aggregation} with the same settings as      * this {@link Aggregation} and contains the provided buckets.      *      * @param buckets      *            the buckets to use in the new {@link Aggregation}      * @return the new {@link Aggregation}      */
 DECL|method|create
 specifier|public
 specifier|abstract
@@ -184,7 +179,7 @@ argument_list|>
 name|buckets
 parameter_list|)
 function_decl|;
-comment|/**      * Create a new {@link InternalBucket} using the provided prototype bucket      * and aggregations.      *       * @param aggregations      *            the aggregations for the new bucket      * @param prototype      *            the bucket to use as a prototype      * @return the new bucket      */
+comment|/**      * Create a new {@link InternalBucket} using the provided prototype bucket      * and aggregations.      *      * @param aggregations      *            the aggregations for the new bucket      * @param prototype      *            the bucket to use as a prototype      * @return the new bucket      */
 DECL|method|createBucket
 specifier|public
 specifier|abstract
@@ -222,6 +217,30 @@ condition|)
 block|{
 return|return
 name|this
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|path
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|"_bucket_count"
+argument_list|)
+condition|)
+block|{
+return|return
+name|getBuckets
+argument_list|()
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 else|else

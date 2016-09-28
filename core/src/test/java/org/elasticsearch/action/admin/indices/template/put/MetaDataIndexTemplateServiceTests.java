@@ -136,6 +136,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|IndexScopedSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -390,6 +404,15 @@ argument_list|,
 literal|"0"
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"index.shard.check_on_startup"
+argument_list|,
+literal|"blargh"
+argument_list|)
+expr_stmt|;
 name|request
 operator|.
 name|settings
@@ -460,7 +483,27 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"index must have 1 or more primary shards"
+literal|"Failed to parse value [0] for setting [index.number_of_shards] must be>= 1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|throwables
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"unknown value for [index.shard.check_on_startup] "
+operator|+
+literal|"must be one of [true, false, fix, checksum] but was: blargh"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -619,7 +662,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"index must have 1 or more primary shards"
+literal|"Failed to parse value [0] for setting [index.number_of_shards] must be>= 1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1315,10 +1358,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1352,6 +1392,18 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+operator|new
+name|IndexScopedSettings
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
+name|IndexScopedSettings
+operator|.
+name|BUILT_IN_INDEX_SETTINGS
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1477,14 +1529,11 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-argument_list|,
 literal|null
 argument_list|,
 name|nodeServicesProvider
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)
@@ -1514,6 +1563,18 @@ argument_list|,
 name|indicesService
 argument_list|,
 name|nodeServicesProvider
+argument_list|,
+operator|new
+name|IndexScopedSettings
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
+name|IndexScopedSettings
+operator|.
+name|BUILT_IN_INDEX_SETTINGS
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final

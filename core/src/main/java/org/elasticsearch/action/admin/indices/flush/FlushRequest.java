@@ -117,7 +117,7 @@ specifier|private
 name|boolean
 name|waitIfOngoing
 init|=
-literal|false
+literal|true
 decl_stmt|;
 comment|/**      * Constructs a new flush request against one or more indices. If nothing is provided, all indices will      * be flushed.      */
 DECL|method|FlushRequest
@@ -148,7 +148,7 @@ operator|.
 name|waitIfOngoing
 return|;
 block|}
-comment|/**      * if set to<tt>true</tt> the flush will block      * if a another flush operation is already running until the flush can be performed.      */
+comment|/**      * if set to<tt>true</tt> the flush will block      * if a another flush operation is already running until the flush can be performed.      * The default is<code>true</code>      */
 DECL|method|waitIfOngoing
 specifier|public
 name|FlushRequest

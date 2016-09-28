@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|CharArraySet
 import|;
 end_import
 
@@ -40,9 +40,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
 name|StopFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|TokenStream
 import|;
 end_import
 
@@ -59,22 +71,6 @@ operator|.
 name|ja
 operator|.
 name|JapaneseAnalyzer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|util
-operator|.
-name|CharArraySet
 import|;
 end_import
 

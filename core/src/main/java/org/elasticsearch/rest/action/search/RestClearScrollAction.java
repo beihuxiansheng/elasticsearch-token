@@ -214,8 +214,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestActions
 import|;
 end_import
@@ -229,8 +227,6 @@ operator|.
 name|rest
 operator|.
 name|action
-operator|.
-name|support
 operator|.
 name|RestStatusToXContentListener
 import|;
@@ -271,10 +267,6 @@ operator|.
 name|DELETE
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|RestClearScrollAction

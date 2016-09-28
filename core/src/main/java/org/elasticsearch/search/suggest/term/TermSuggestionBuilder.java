@@ -290,20 +290,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|SuggestionBuilder
 import|;
 end_import
@@ -476,11 +462,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|ACCURACY
+name|ACCURACY_FIELD
 import|;
 end_import
 
@@ -494,11 +480,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|MAX_EDITS
+name|MAX_EDITS_FIELD
 import|;
 end_import
 
@@ -512,11 +498,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|MAX_INSPECTIONS
+name|MAX_INSPECTIONS_FIELD
 import|;
 end_import
 
@@ -530,11 +516,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|MAX_TERM_FREQ
+name|MAX_TERM_FREQ_FIELD
 import|;
 end_import
 
@@ -548,11 +534,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|MIN_DOC_FREQ
+name|MIN_DOC_FREQ_FIELD
 import|;
 end_import
 
@@ -566,11 +552,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|MIN_WORD_LENGTH
+name|MIN_WORD_LENGTH_FIELD
 import|;
 end_import
 
@@ -584,11 +570,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|PREFIX_LENGTH
+name|PREFIX_LENGTH_FIELD
 import|;
 end_import
 
@@ -602,11 +588,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|SORT
+name|SORT_FIELD
 import|;
 end_import
 
@@ -620,11 +606,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|STRING_DISTANCE
+name|STRING_DISTANCE_FIELD
 import|;
 end_import
 
@@ -638,11 +624,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestUtils
+name|phrase
 operator|.
-name|Fields
+name|DirectCandidateGeneratorBuilder
 operator|.
-name|SUGGEST_MODE
+name|SUGGESTMODE_FIELD
 import|;
 end_import
 
@@ -1534,7 +1520,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|SUGGEST_MODE
+name|SUGGESTMODE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1546,7 +1532,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|ACCURACY
+name|ACCURACY_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1558,7 +1544,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|SORT
+name|SORT_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1570,7 +1556,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|STRING_DISTANCE
+name|STRING_DISTANCE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1582,7 +1568,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MAX_EDITS
+name|MAX_EDITS_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1594,7 +1580,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MAX_INSPECTIONS
+name|MAX_INSPECTIONS_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1606,7 +1592,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MAX_TERM_FREQ
+name|MAX_TERM_FREQ_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1618,7 +1604,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|PREFIX_LENGTH
+name|PREFIX_LENGTH_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1630,7 +1616,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MIN_WORD_LENGTH
+name|MIN_WORD_LENGTH_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1642,7 +1628,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MIN_DOC_FREQ
+name|MIN_DOC_FREQ_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1860,7 +1846,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|SUGGEST_MODE
+name|SUGGESTMODE_FIELD
 argument_list|)
 condition|)
 block|{
@@ -1889,7 +1875,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|ACCURACY
+name|ACCURACY_FIELD
 argument_list|)
 condition|)
 block|{
@@ -1913,7 +1899,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|SORT
+name|SORT_FIELD
 argument_list|)
 condition|)
 block|{
@@ -1942,7 +1928,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|STRING_DISTANCE
+name|STRING_DISTANCE_FIELD
 argument_list|)
 condition|)
 block|{
@@ -1971,7 +1957,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|MAX_EDITS
+name|MAX_EDITS_FIELD
 argument_list|)
 condition|)
 block|{
@@ -1995,7 +1981,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|MAX_INSPECTIONS
+name|MAX_INSPECTIONS_FIELD
 argument_list|)
 condition|)
 block|{
@@ -2019,7 +2005,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|MAX_TERM_FREQ
+name|MAX_TERM_FREQ_FIELD
 argument_list|)
 condition|)
 block|{
@@ -2043,7 +2029,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|PREFIX_LENGTH
+name|PREFIX_LENGTH_FIELD
 argument_list|)
 condition|)
 block|{
@@ -2067,7 +2053,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|MIN_WORD_LENGTH
+name|MIN_WORD_LENGTH_FIELD
 argument_list|)
 condition|)
 block|{
@@ -2091,7 +2077,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|MIN_DOC_FREQ
+name|MIN_DOC_FREQ_FIELD
 argument_list|)
 condition|)
 block|{
@@ -2160,11 +2146,7 @@ name|ElasticsearchParseException
 argument_list|(
 literal|"the required field option ["
 operator|+
-name|SuggestUtils
-operator|.
-name|Fields
-operator|.
-name|FIELD
+name|FIELDNAME_FIELD
 operator|.
 name|getPreferredName
 argument_list|()

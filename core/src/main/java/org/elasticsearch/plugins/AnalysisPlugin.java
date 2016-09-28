@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An additional extension point for {@link Plugin}s that extends Elasticsearch's analysis functionality. To add an additional  * {@link TokenFilter} just implement the interface and implement the {@link #getTokenFilters()} method:  *  *<pre>{@code  * public class AnalysisPhoneticPlugin extends Plugin implements AnalysisPlugin {  *&#64;Override  *     public Map<String, AnalysisProvider<TokenFilterFactory>> getTokenFilters() {  *         return singletonMap("phonetic", PhoneticTokenFilterFactory::new);  *     }  * }  * }</pre>  */
+comment|/**  * An additional extension point for {@link Plugin}s that extends Elasticsearch's analysis functionality. To add an additional  * {@link TokenFilter} just implement the interface and implement the {@link #getTokenFilters()} method:  *  *<pre>{@code  * public class AnalysisPhoneticPlugin extends Plugin implements AnalysisPlugin {  *&#64;Override  *     public Map<String, AnalysisProvider<TokenFilterFactory>> getTokenFilters() {  *         return singletonMap("phonetic", PhoneticTokenFilterFactory::new);  *     }  * }  * }</pre>  *  * Elasticsearch doesn't have any automatic mechanism to share these components between indexes. If any component is heavy enough to warrant  * such sharing then it is the Pugin's responsibility to do it in their {@link AnalysisProvider} implementation. We recommend against doing  * this unless absolutely necessary because it can be difficult to get the caching right given things like behavior changes across versions.  */
 end_comment
 
 begin_interface

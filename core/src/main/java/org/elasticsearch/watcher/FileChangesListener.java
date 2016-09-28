@@ -30,84 +30,84 @@ begin_comment
 comment|/**  * Callback interface that file changes File Watcher is using to notify listeners about changes.  */
 end_comment
 
-begin_class
-DECL|class|FileChangesListener
+begin_interface
+DECL|interface|FileChangesListener
 specifier|public
-class|class
+interface|interface
 name|FileChangesListener
 block|{
 comment|/**      * Called for every file found in the watched directory during initialization      */
 DECL|method|onFileInit
-specifier|public
+specifier|default
 name|void
 name|onFileInit
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 comment|/**      * Called for every subdirectory found in the watched directory during initialization      */
 DECL|method|onDirectoryInit
-specifier|public
+specifier|default
 name|void
 name|onDirectoryInit
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 comment|/**      * Called for every new file found in the watched directory      */
 DECL|method|onFileCreated
-specifier|public
+specifier|default
 name|void
 name|onFileCreated
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 comment|/**      * Called for every file that disappeared in the watched directory      */
 DECL|method|onFileDeleted
-specifier|public
+specifier|default
 name|void
 name|onFileDeleted
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 comment|/**      * Called for every file that was changed in the watched directory      */
 DECL|method|onFileChanged
-specifier|public
+specifier|default
 name|void
 name|onFileChanged
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 comment|/**      * Called for every new subdirectory found in the watched directory      */
 DECL|method|onDirectoryCreated
-specifier|public
+specifier|default
 name|void
 name|onDirectoryCreated
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 comment|/**      * Called for every file that disappeared in the watched directory      */
 DECL|method|onDirectoryDeleted
-specifier|public
+specifier|default
 name|void
 name|onDirectoryDeleted
 parameter_list|(
 name|Path
 name|file
 parameter_list|)
-block|{      }
+block|{}
 block|}
-end_class
+end_interface
 
 end_unit
 

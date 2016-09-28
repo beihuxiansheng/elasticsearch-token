@@ -178,6 +178,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ingest
+operator|.
+name|IngestTestPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -193,18 +205,6 @@ operator|.
 name|tasks
 operator|.
 name|TaskInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|IngestTestPlugin
 import|;
 end_import
 
@@ -666,7 +666,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Scroll 1 by 1 so that cancellation is easier to control
+comment|// Scroll by 1 so that cancellation is easier to control
 name|builder
 operator|.
 name|source
@@ -1428,17 +1428,17 @@ operator|.
 name|addIndexOperationListener
 argument_list|(
 operator|new
-name|BlockingDeleteListener
+name|BlockingOperationListener
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|BlockingDeleteListener
+DECL|class|BlockingOperationListener
 specifier|public
 specifier|static
 class|class
-name|BlockingDeleteListener
+name|BlockingOperationListener
 implements|implements
 name|IndexingOperationListener
 block|{

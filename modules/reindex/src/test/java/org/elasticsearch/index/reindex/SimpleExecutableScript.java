@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -47,6 +57,20 @@ operator|.
 name|function
 operator|.
 name|Consumer
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+operator|.
+name|randomBoolean
 import|;
 end_import
 
@@ -192,6 +216,39 @@ name|Object
 name|value
 parameter_list|)
 block|{
+comment|// Some script engines (javascript) copy any maps they unwrap
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Map
+condition|)
+block|{
+return|return
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
+operator|(
+name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+operator|)
+name|value
+argument_list|)
+return|;
+block|}
+block|}
+comment|// Others just return the objects plain (groovy, painless)
 return|return
 name|value
 return|;

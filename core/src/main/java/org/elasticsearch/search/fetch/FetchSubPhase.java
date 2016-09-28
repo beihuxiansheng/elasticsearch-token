@@ -80,30 +80,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchParseElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|InternalSearchHit
@@ -130,16 +106,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -155,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Sub phase within the fetch phase used to fetch things *about* the documents like highlighting or matched queries.  */
 end_comment
 
 begin_interface
@@ -297,16 +263,6 @@ name|getIndexReader
 argument_list|()
 return|;
 block|}
-DECL|method|topLevelSearcher
-specifier|public
-name|IndexSearcher
-name|topLevelSearcher
-parameter_list|()
-block|{
-return|return
-name|searcher
-return|;
-block|}
 DECL|method|cache
 specifier|public
 name|Map
@@ -338,26 +294,6 @@ name|cache
 return|;
 block|}
 block|}
-DECL|method|parseElements
-specifier|default
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
-return|;
-block|}
 comment|/**      * Executes the hit level phase, with a reader and doc id (note, its a low level reader, and the matching doc).      */
 DECL|method|hitExecute
 specifier|default
@@ -384,29 +320,6 @@ index|[]
 name|hits
 parameter_list|)
 block|{}
-comment|/**      * This interface is in the fetch phase plugin mechanism.      * Whenever a new search is executed we create a new {@link SearchContext} that holds individual contexts for each {@link org.elasticsearch.search.fetch.FetchSubPhase}.      * Fetch phases that use the plugin mechanism must provide a ContextFactory to the SearchContext that creates the fetch phase context and also associates them with a name.      * See {@link SearchContext#getFetchSubPhaseContext(FetchSubPhase.ContextFactory)}      */
-DECL|interface|ContextFactory
-interface|interface
-name|ContextFactory
-parameter_list|<
-name|SubPhaseContext
-extends|extends
-name|FetchSubPhaseContext
-parameter_list|>
-block|{
-comment|/**          * The name of the context.          */
-DECL|method|getName
-name|String
-name|getName
-parameter_list|()
-function_decl|;
-comment|/**          * Creates a new instance of a FetchSubPhaseContext that holds all information a FetchSubPhase needs to execute on hits.          */
-DECL|method|newContextInstance
-name|SubPhaseContext
-name|newContextInstance
-parameter_list|()
-function_decl|;
-block|}
 block|}
 end_interface
 

@@ -284,6 +284,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|CompletionFieldMapper2x
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|MapperException
 import|;
 end_import
@@ -299,22 +313,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|CompletionFieldMapper2x
 import|;
 end_import
 
@@ -886,7 +884,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|InternalSettingsPlugin
 operator|.
@@ -1019,7 +1019,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -7331,9 +7331,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|createIndexAndMapping
 specifier|private
@@ -7515,7 +7512,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -7623,7 +7620,7 @@ argument_list|(
 name|FIELD
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -8533,9 +8530,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 comment|// can cause stack overflow without the default max_input_length
 name|String
 name|longString
@@ -8694,9 +8688,6 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// can cause stack overflow without the default max_input_length
 name|String
@@ -8861,9 +8852,6 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|String
 name|string

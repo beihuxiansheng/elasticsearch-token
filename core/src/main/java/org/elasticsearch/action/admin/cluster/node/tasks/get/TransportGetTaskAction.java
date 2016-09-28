@@ -280,7 +280,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|PersistedTaskInfo
+name|TaskResult
 import|;
 end_import
 
@@ -328,7 +328,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskPersistenceService
+name|TaskResultsService
 import|;
 end_import
 
@@ -341,18 +341,6 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|BaseTransportResponseHandler
 import|;
 end_import
 
@@ -377,6 +365,18 @@ operator|.
 name|transport
 operator|.
 name|TransportRequestOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -768,7 +768,7 @@ name|build
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|GetTaskResponse
 argument_list|>
@@ -1009,7 +1009,7 @@ operator|new
 name|GetTaskResponse
 argument_list|(
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 literal|false
 argument_list|,
@@ -1109,7 +1109,7 @@ operator|new
 name|GetTaskResponse
 argument_list|(
 operator|new
-name|PersistedTaskInfo
+name|TaskResult
 argument_list|(
 literal|true
 argument_list|,
@@ -1134,7 +1134,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Send a {@link GetRequest} to the tasks index looking for a persisted copy of the task completed task. It'll only be found only if the      * task's result was persisted. Called on the node that once had the task if that node is still part of the cluster or on the      * coordinating node if the node is no longer part of the cluster.      */
+comment|/**      * Send a {@link GetRequest} to the tasks index looking for a persisted copy of the task completed task. It'll only be found only if the      * task's result was stored. Called on the node that once had the task if that node is still part of the cluster or on the      * coordinating node if the node is no longer part of the cluster.      */
 DECL|method|getFinishedTaskFromIndex
 name|void
 name|getFinishedTaskFromIndex
@@ -1158,11 +1158,11 @@ init|=
 operator|new
 name|GetRequest
 argument_list|(
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_INDEX
 argument_list|,
-name|TaskPersistenceService
+name|TaskResultsService
 operator|.
 name|TASK_TYPE
 argument_list|,
@@ -1275,7 +1275,7 @@ argument_list|(
 operator|new
 name|ResourceNotFoundException
 argument_list|(
-literal|"task [{}] isn't running or persisted"
+literal|"task [{}] isn't running and hasn't stored its results"
 argument_list|,
 name|e
 argument_list|,
@@ -1336,7 +1336,7 @@ argument_list|(
 operator|new
 name|ResourceNotFoundException
 argument_list|(
-literal|"task [{}] isn't running or persisted"
+literal|"task [{}] isn't running or stored its results"
 argument_list|,
 name|response
 operator|.
@@ -1389,10 +1389,10 @@ argument_list|()
 argument_list|)
 init|)
 block|{
-name|PersistedTaskInfo
+name|TaskResult
 name|result
 init|=
-name|PersistedTaskInfo
+name|TaskResult
 operator|.
 name|PARSER
 operator|.

@@ -283,7 +283,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Aggregation phase of a search request, used to collect aggregations  */
 end_comment
 
 begin_class
@@ -993,13 +993,12 @@ literal|"] of type ["
 operator|+
 name|pipelineAggregator
 operator|.
-name|type
-argument_list|()
-operator|.
-name|name
+name|getWriteableName
 argument_list|()
 operator|+
-literal|"]. Only sibling pipeline aggregations are allowed at the top level"
+literal|"]. Only sibling pipeline aggregations are "
+operator|+
+literal|"allowed at the top level"
 argument_list|)
 throw|;
 block|}

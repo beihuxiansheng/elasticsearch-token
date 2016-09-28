@@ -48,6 +48,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|index
@@ -209,20 +223,6 @@ operator|.
 name|stream
 operator|.
 name|BytesStreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -907,7 +907,7 @@ specifier|static
 name|void
 name|checkIndex
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|Store
@@ -1250,13 +1250,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// we do this on the index level
-name|w
-operator|.
-name|setPreventDoubleWrite
-argument_list|(
-name|preventDoubleWrite
-argument_list|)
-expr_stmt|;
 comment|// TODO: make this test robust to virus scanner
 name|w
 operator|.

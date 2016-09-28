@@ -24,45 +24,9 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Globals
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|Locals
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
 name|Locals
 operator|.
 name|Variable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Label
 import|;
 end_import
 
@@ -82,11 +46,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|objectweb
 operator|.
-name|painless
+name|asm
 operator|.
-name|MethodWriter
+name|Label
 import|;
 end_import
 
@@ -194,6 +158,7 @@ name|brake
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * Standard constructor with location used for error tracking.      */
 DECL|method|AStatement
 name|AStatement
 parameter_list|(
@@ -207,29 +172,6 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks for errors and collects data for the writing phase.      */
-DECL|method|analyze
-specifier|abstract
-name|void
-name|analyze
-parameter_list|(
-name|Locals
-name|locals
-parameter_list|)
-function_decl|;
-comment|/**      * Writes ASM based on the data collected during the analysis phase.      */
-DECL|method|write
-specifier|abstract
-name|void
-name|write
-parameter_list|(
-name|MethodWriter
-name|writer
-parameter_list|,
-name|Globals
-name|globals
-parameter_list|)
-function_decl|;
 block|}
 end_class
 

@@ -30,6 +30,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|replication
 operator|.
 name|ReplicationRequest
@@ -134,6 +148,15 @@ name|request
 operator|=
 name|request
 expr_stmt|;
+name|this
+operator|.
+name|waitForActiveShards
+operator|=
+name|ActiveShardCount
+operator|.
+name|NONE
+expr_stmt|;
+comment|// don't wait for any active shards before proceeding, by default
 block|}
 DECL|method|ShardFlushRequest
 specifier|public

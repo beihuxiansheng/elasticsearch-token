@@ -360,7 +360,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|BaseGeoPointFieldMapper
 import|;
 end_import
 
@@ -373,8 +373,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|core
 operator|.
 name|DateFieldMapper
 import|;
@@ -390,8 +388,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|LegacyDateFieldMapper
 import|;
 end_import
@@ -405,8 +401,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|core
 operator|.
 name|LegacyNumberFieldMapper
 import|;
@@ -422,9 +416,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|NumberFieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -438,9 +430,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
-operator|.
-name|BaseGeoPointFieldMapper
+name|NumberFieldMapper
 import|;
 end_import
 

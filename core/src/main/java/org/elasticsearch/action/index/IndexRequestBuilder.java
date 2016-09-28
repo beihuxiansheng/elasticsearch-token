@@ -713,34 +713,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a string representation of the {@link #setOpType(org.elasticsearch.action.index.IndexRequest.OpType)}. Can      * be either "index" or "create".      */
-DECL|method|setOpType
-specifier|public
-name|IndexRequestBuilder
-name|setOpType
-parameter_list|(
-name|String
-name|opType
-parameter_list|)
-block|{
-name|request
-operator|.
-name|opType
-argument_list|(
-name|IndexRequest
-operator|.
-name|OpType
-operator|.
-name|fromString
-argument_list|(
-name|opType
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Set to<tt>true</tt> to force this index to use {@link org.elasticsearch.action.index.IndexRequest.OpType#CREATE}.      */
 DECL|method|setCreate
 specifier|public

@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -76,18 +90,6 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|emptyMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
 name|singletonMap
 import|;
 end_import
@@ -112,6 +114,37 @@ name|RegexTests
 extends|extends
 name|ScriptTestCase
 block|{
+annotation|@
+name|Override
+DECL|method|scriptEngineSettings
+specifier|protected
+name|Settings
+name|scriptEngineSettings
+parameter_list|()
+block|{
+comment|// Enable regexes just for this test. They are disabled by default.
+return|return
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|CompilerSettings
+operator|.
+name|REGEX_ENABLED
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|build
+argument_list|()
+return|;
+block|}
 DECL|method|testPatternAfterReturn
 specifier|public
 name|void
@@ -594,6 +627,8 @@ literal|"s"
 argument_list|,
 literal|"fooasdfdf"
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -611,6 +646,8 @@ literal|"s"
 argument_list|,
 literal|"11f2ooasdfdf"
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -959,6 +996,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1010,6 +1049,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1088,6 +1129,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1139,6 +1182,8 @@ literal|"a"
 argument_list|,
 name|charSequence
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1320,13 +1365,7 @@ name|exec
 argument_list|(
 literal|"/asdf/b"
 argument_list|,
-name|emptyMap
-argument_list|()
-argument_list|,
-name|emptyMap
-argument_list|()
-argument_list|,
-literal|null
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// Not picky so we get a non-assertion error

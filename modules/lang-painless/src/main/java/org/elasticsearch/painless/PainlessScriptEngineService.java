@@ -291,18 +291,6 @@ name|NAME
 init|=
 literal|"painless"
 decl_stmt|;
-comment|/**      * Default compiler settings to be used.      */
-DECL|field|DEFAULT_COMPILER_SETTINGS
-specifier|private
-specifier|static
-specifier|final
-name|CompilerSettings
-name|DEFAULT_COMPILER_SETTINGS
-init|=
-operator|new
-name|CompilerSettings
-argument_list|()
-decl_stmt|;
 comment|/**      * Permissions context used during compilation.      */
 DECL|field|COMPILATION_CONTEXT
 specifier|private
@@ -347,6 +335,17 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Default compiler settings to be used. Note that {@link CompilerSettings} is mutable but this instance shouldn't be mutated outside      * of {@link PainlessScriptEngineService#PainlessScriptEngineService(Settings)}.      */
+DECL|field|defaultCompilerSettings
+specifier|private
+specifier|final
+name|CompilerSettings
+name|defaultCompilerSettings
+init|=
+operator|new
+name|CompilerSettings
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructor.      * @param settings The settings to initialize the engine with.      */
 DECL|method|PainlessScriptEngineService
 specifier|public
@@ -360,6 +359,20 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|)
+expr_stmt|;
+name|defaultCompilerSettings
+operator|.
+name|setRegexesEnabled
+argument_list|(
+name|CompilerSettings
+operator|.
+name|REGEX_ENABLED
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -437,7 +450,7 @@ block|{
 comment|// Use the default settings.
 name|compilerSettings
 operator|=
-name|DEFAULT_COMPILER_SETTINGS
+name|defaultCompilerSettings
 expr_stmt|;
 block|}
 else|else
@@ -448,6 +461,17 @@ operator|=
 operator|new
 name|CompilerSettings
 argument_list|()
+expr_stmt|;
+comment|// Except regexes enabled - this is a node level setting and can't be changed in the request.
+name|compilerSettings
+operator|.
+name|setRegexesEnabled
+argument_list|(
+name|defaultCompilerSettings
+operator|.
+name|areRegexesEnabled
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|Map
 argument_list|<
@@ -557,6 +581,35 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+name|value
+operator|=
+name|copy
+operator|.
+name|remove
+argument_list|(
+name|CompilerSettings
+operator|.
+name|REGEX_ENABLED
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[painless.regex.enabled] can only be set on node startup."
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
@@ -691,9 +744,14 @@ argument_list|,
 name|COMPILATION_CONTEXT
 argument_list|)
 return|;
+comment|// Note that it is safe to catch any of the following errors since Painless is stateless.
 block|}
 catch|catch
 parameter_list|(
+name|OutOfMemoryError
+decl||
+name|StackOverflowError
+decl||
 name|Exception
 name|e
 parameter_list|)

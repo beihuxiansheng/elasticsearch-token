@@ -811,6 +811,14 @@ name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
 argument_list|,
+name|EngineConfig
+operator|.
+name|INDEX_OPTIMIZE_AUTO_GENERATED_IDS
+argument_list|,
+name|IndexMetaData
+operator|.
+name|SETTING_WAIT_FOR_ACTIVE_SHARDS
+argument_list|,
 comment|// validate that built-in similarities don't get redefined
 name|Setting
 operator|.

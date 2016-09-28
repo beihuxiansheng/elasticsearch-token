@@ -100,6 +100,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -873,6 +887,13 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=
@@ -1005,6 +1026,8 @@ parameter_list|(
 name|CompiledScript
 name|compiledScript
 parameter_list|,
+annotation|@
+name|Nullable
 name|Map
 argument_list|<
 name|String
@@ -1014,6 +1037,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=
@@ -1048,6 +1078,13 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|vars
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -1083,6 +1120,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 operator|new
@@ -1136,6 +1174,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=

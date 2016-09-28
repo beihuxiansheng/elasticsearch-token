@@ -100,20 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Setting
@@ -189,8 +175,6 @@ init|=
 literal|"max_retry"
 decl_stmt|;
 comment|/**      * Initializes a new {@link MaxRetryAllocationDecider}      *      * @param settings {@link Settings} used by this {@link AllocationDecider}      */
-annotation|@
-name|Inject
 DECL|method|MaxRetryAllocationDecider
 specifier|public
 name|MaxRetryAllocationDecider
@@ -398,6 +382,46 @@ return|return
 name|canAllocate
 argument_list|(
 name|shardRouting
+argument_list|,
+name|allocation
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|canForceAllocatePrimary
+specifier|public
+name|Decision
+name|canForceAllocatePrimary
+parameter_list|(
+name|ShardRouting
+name|shardRouting
+parameter_list|,
+name|RoutingNode
+name|node
+parameter_list|,
+name|RoutingAllocation
+name|allocation
+parameter_list|)
+block|{
+assert|assert
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|:
+literal|"must not call canForceAllocatePrimary on a non-primary shard "
+operator|+
+name|shardRouting
+assert|;
+comment|// check if we have passed the maximum retry threshold through canAllocate,
+comment|// if so, we don't want to force the primary allocation here
+return|return
+name|canAllocate
+argument_list|(
+name|shardRouting
+argument_list|,
+name|node
 argument_list|,
 name|allocation
 argument_list|)

@@ -22,13 +22,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|component
+name|log4j
 operator|.
-name|Lifecycle
+name|Logger
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|component
 operator|.
-name|ESLogger
+name|Lifecycle
 import|;
 end_import
 
@@ -80,7 +80,7 @@ comment|/**      * The service's logger (note: this is passed in!).      */
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 comment|/**      * {@link AbstractLifecycleRunnable} must be aware of the actual {@code lifecycle} to react properly.      *      * @param lifecycle The lifecycle to react too      * @param logger The logger to use when logging      * @throws NullPointerException if any parameter is {@code null}      */
@@ -91,7 +91,7 @@ parameter_list|(
 name|Lifecycle
 name|lifecycle
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{

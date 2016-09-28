@@ -302,8 +302,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|ParentFieldMapper
 import|;
 end_import
@@ -373,7 +371,6 @@ argument_list|<
 name|HasChildQueryBuilder
 argument_list|>
 block|{
-comment|/**      * The queries name      */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -382,19 +379,6 @@ name|String
 name|NAME
 init|=
 literal|"has_child"
-decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
 decl_stmt|;
 comment|/**      * The default maximum number of children that are required to match for the parent to be considered a match.      */
 DECL|field|DEFAULT_MAX_CHILDREN
@@ -2109,7 +2093,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * A query that rewrites into another query using      * {@link JoinUtil#createJoinQuery(String, Query, Query, IndexSearcher, ScoreMode, MultiDocValues.OrdinalMap, int, int)}      * that executes the actual join.      *      * This query is exclusively used by the {@link HasChildQueryBuilder} and {@link HasParentQueryBuilder} to get access      * to the {@link DirectoryReader} used by the current search in order to retrieve the {@link MultiDocValues.OrdinalMap}.      * The {@link MultiDocValues.OrdinalMap} is required by {@link JoinUtil} to execute the join.      */
+comment|// TODO: Find a way to remove this query and let doToQuery(...) just return the query from JoinUtil.createJoinQuery(...)
 DECL|class|LateParsingQuery
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -2751,7 +2738,7 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-name|rewrite
+name|rewrittenQuery
 init|=
 name|query
 operator|.
@@ -2762,26 +2749,38 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|rewrite
+name|rewrittenQuery
 operator|!=
 name|query
 condition|)
 block|{
+name|InnerHitBuilder
+name|rewrittenInnerHit
+init|=
+name|InnerHitBuilder
+operator|.
+name|rewrite
+argument_list|(
+name|innerHitBuilder
+argument_list|,
+name|rewrittenQuery
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|HasChildQueryBuilder
 argument_list|(
 name|type
 argument_list|,
-name|rewrite
+name|rewrittenQuery
 argument_list|,
 name|minChildren
 argument_list|,
-name|minChildren
+name|maxChildren
 argument_list|,
 name|scoreMode
 argument_list|,
-name|innerHitBuilder
+name|rewrittenInnerHit
 argument_list|)
 return|;
 block|}

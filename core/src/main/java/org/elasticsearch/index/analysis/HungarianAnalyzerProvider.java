@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|hu
-operator|.
-name|HungarianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|hu
 operator|.
-name|CharArraySet
+name|HungarianAnalyzer
 import|;
 end_import
 

@@ -124,11 +124,13 @@ extends|extends
 name|AExpression
 block|{
 DECL|field|value
+specifier|private
 specifier|final
 name|String
 name|value
 decl_stmt|;
 DECL|field|radix
+specifier|private
 name|int
 name|radix
 decl_stmt|;
@@ -181,7 +183,9 @@ name|String
 argument_list|>
 name|variables
 parameter_list|)
-block|{}
+block|{
+comment|// Do nothing.
+block|}
 annotation|@
 name|Override
 DECL|method|analyze
@@ -192,6 +196,27 @@ name|Locals
 name|locals
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|read
+condition|)
+block|{
+throw|throw
+name|createError
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Must read from constant ["
+operator|+
+name|value
+operator|+
+literal|"]."
+argument_list|)
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|value

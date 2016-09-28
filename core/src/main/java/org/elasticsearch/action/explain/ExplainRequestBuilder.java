@@ -94,7 +94,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|source
+name|subphase
 operator|.
 name|FetchSourceContext
 import|;
@@ -319,11 +319,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Explicitly specify the fields that will be returned for the explained document. By default, nothing is returned.      */
-DECL|method|setFields
+comment|/**      * Explicitly specify the stored fields that will be returned for the explained document. By default, nothing is returned.      */
+DECL|method|setStoredFields
 specifier|public
 name|ExplainRequestBuilder
-name|setFields
+name|setStoredFields
 parameter_list|(
 name|String
 modifier|...
@@ -332,7 +332,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|fields
+name|storedFields
 argument_list|(
 name|fields
 argument_list|)

@@ -108,11 +108,11 @@ name|ActionRequestValidationException
 name|validate
 parameter_list|()
 function_decl|;
-comment|/**      * Should this task persist its result after it has finished?      */
-DECL|method|getShouldPersistResult
+comment|/**      * Should this task store its result after it has finished?      */
+DECL|method|getShouldStoreResult
 specifier|public
 name|boolean
-name|getShouldPersistResult
+name|getShouldStoreResult
 parameter_list|()
 block|{
 return|return

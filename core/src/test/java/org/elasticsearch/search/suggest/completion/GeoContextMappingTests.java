@@ -575,7 +575,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -786,7 +786,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -1025,7 +1025,7 @@ argument_list|(
 literal|"completion"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,
@@ -1301,7 +1301,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"input"
 argument_list|,

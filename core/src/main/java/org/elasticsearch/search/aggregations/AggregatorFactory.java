@@ -1065,6 +1065,19 @@ name|name
 argument_list|()
 return|;
 block|}
+DECL|method|getParent
+specifier|public
+name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
+name|getParent
+parameter_list|()
+block|{
+return|return
+name|parent
+return|;
+block|}
 comment|/**      * Utility method. Given an {@link AggregatorFactory} that creates      * {@link Aggregator}s that only know how to collect bucket<tt>0</tt>, this      * returns an aggregator that can collect any bucket.      */
 DECL|method|asMultiBucketAggregator
 specifier|protected

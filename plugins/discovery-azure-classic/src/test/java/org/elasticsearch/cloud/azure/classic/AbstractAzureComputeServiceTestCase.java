@@ -152,6 +152,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -232,19 +242,6 @@ argument_list|(
 literal|"discovery.type"
 argument_list|,
 literal|"azure"
-argument_list|)
-comment|// We need the network to make the mock working
-operator|.
-name|put
-argument_list|(
-name|Node
-operator|.
-name|NODE_MODE_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|"network"
 argument_list|)
 decl_stmt|;
 comment|// We add a fake subscription_id to start mock compute service
@@ -334,7 +331,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|AzureDiscoveryPlugin
 operator|.

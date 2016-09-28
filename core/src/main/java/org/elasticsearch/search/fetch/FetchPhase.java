@@ -306,9 +306,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
-name|SourceFieldMapper
+name|ObjectMapper
 import|;
 end_import
 
@@ -322,9 +320,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|SourceFieldMapper
 import|;
 end_import
 
@@ -360,18 +356,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|SearchPhase
 import|;
 end_import
@@ -386,9 +370,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|innerhits
+name|subphase
 operator|.
-name|InnerHitsFetchSubPhase
+name|FetchSourceContext
 import|;
 end_import
 
@@ -402,9 +386,9 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|source
+name|subphase
 operator|.
-name|FetchSourceContext
+name|InnerHitsFetchSubPhase
 import|;
 end_import
 
@@ -560,18 +544,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableMap
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -587,7 +559,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Fetch phase of a search request, used to fetch the actual top matching documents to be returned to the client, identified  * after reducing all of the matches returned by the query phase  */
 end_comment
 
 begin_class
@@ -609,7 +581,7 @@ DECL|method|FetchPhase
 specifier|public
 name|FetchPhase
 parameter_list|(
-name|Set
+name|List
 argument_list|<
 name|FetchSubPhase
 argument_list|>
@@ -655,60 +627,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseElements
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-parameter_list|()
-block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|SearchParseElement
-argument_list|>
-name|parseElements
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|FetchSubPhase
-name|fetchSubPhase
-range|:
-name|fetchSubPhases
-control|)
-block|{
-name|parseElements
-operator|.
-name|putAll
-argument_list|(
-name|fetchSubPhase
-operator|.
-name|parseElements
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|unmodifiableMap
-argument_list|(
-name|parseElements
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|preProcess
 specifier|public
 name|void
@@ -729,6 +647,7 @@ name|SearchContext
 name|context
 parameter_list|)
 block|{
+specifier|final
 name|FieldsVisitor
 name|fieldsVisitor
 decl_stmt|;
@@ -748,13 +667,19 @@ name|fieldNamePatterns
 init|=
 literal|null
 decl_stmt|;
-if|if
-condition|(
-operator|!
+name|StoredFieldsContext
+name|storedFieldsContext
+init|=
 name|context
 operator|.
-name|hasFieldNames
+name|storedFieldsContext
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|storedFieldsContext
+operator|==
+literal|null
 condition|)
 block|{
 comment|// no fields specified, default to return source if no explicit indication
@@ -800,25 +725,18 @@ block|}
 elseif|else
 if|if
 condition|(
-name|context
+name|storedFieldsContext
 operator|.
-name|fieldNames
+name|fetchFields
 argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
+comment|// disable stored fields entirely
 name|fieldsVisitor
 operator|=
-operator|new
-name|FieldsVisitor
-argument_list|(
-name|context
-operator|.
-name|sourceRequested
-argument_list|()
-argument_list|)
+literal|null
 expr_stmt|;
 block|}
 else|else
@@ -829,6 +747,9 @@ name|String
 name|fieldName
 range|:
 name|context
+operator|.
+name|storedFieldsContext
+argument_list|()
 operator|.
 name|fieldNames
 argument_list|()
@@ -991,6 +912,29 @@ operator|.
 name|sourceRequested
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|fieldNames
+operator|==
+literal|null
+operator|&&
+name|fieldNamePatterns
+operator|==
+literal|null
+condition|)
+block|{
+comment|// empty list specified, default to disable _source if no explicit indication
+name|fieldsVisitor
+operator|=
+operator|new
+name|FieldsVisitor
+argument_list|(
+name|loadSource
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|fieldsVisitor
 operator|=
 operator|new
@@ -1021,6 +965,7 @@ argument_list|,
 name|loadSource
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|InternalSearchHit
 index|[]
@@ -1401,6 +1346,21 @@ name|LeafReaderContext
 name|subReaderContext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|fieldsVisitor
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|InternalSearchHit
+argument_list|(
+name|docId
+argument_list|)
+return|;
+block|}
 name|loadStoredFields
 argument_list|(
 name|context
@@ -2208,11 +2168,14 @@ if|if
 condition|(
 name|context
 operator|.
-name|hasFieldNames
+name|hasStoredFields
 argument_list|()
 operator|&&
 operator|!
 name|context
+operator|.
+name|storedFieldsContext
+argument_list|()
 operator|.
 name|fieldNames
 argument_list|()

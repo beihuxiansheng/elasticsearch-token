@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|cjk
-operator|.
-name|CJKAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|cjk
 operator|.
-name|CharArraySet
+name|CJKAnalyzer
 import|;
 end_import
 

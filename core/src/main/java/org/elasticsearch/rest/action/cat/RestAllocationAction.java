@@ -310,8 +310,6 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestActionListener
 import|;
 end_import
@@ -326,25 +324,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
-operator|.
 name|RestResponseListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|RestTable
 import|;
 end_import
 
@@ -929,7 +909,7 @@ if|if
 condition|(
 name|total
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -939,12 +919,12 @@ name|used
 operator|=
 name|total
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|-
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 if|if
@@ -955,7 +935,7 @@ literal|0
 operator|&&
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -976,7 +956,7 @@ name|used
 operator|+
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|)
 argument_list|)
@@ -1034,7 +1014,7 @@ name|addCell
 argument_list|(
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 literal|0
@@ -1050,7 +1030,7 @@ name|addCell
 argument_list|(
 name|total
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 literal|0

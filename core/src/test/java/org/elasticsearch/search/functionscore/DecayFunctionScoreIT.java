@@ -396,6 +396,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -761,7 +771,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|InternalSettingsPlugin
 operator|.
@@ -861,9 +873,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|List
 argument_list|<
@@ -1748,9 +1757,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// add tw docs within offset
 name|List
@@ -2680,9 +2686,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|IndexRequestBuilder
@@ -3190,9 +3193,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3637,9 +3637,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -4594,9 +4591,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -4866,9 +4860,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -5193,9 +5184,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -5706,9 +5694,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|DateTime
 name|docDate
@@ -6446,9 +6431,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|int
 name|numDocs
 init|=
@@ -6983,9 +6965,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|int
 name|numDocs
 init|=
@@ -7253,9 +7232,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -7477,9 +7453,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -7677,9 +7650,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// Index for testing MIN and MAX
 name|IndexRequestBuilder

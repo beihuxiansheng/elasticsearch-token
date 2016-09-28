@@ -62,6 +62,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -158,9 +172,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|decider
-operator|.
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 import|;
 end_import
 
@@ -271,20 +283,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -2886,6 +2884,34 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** Returns true iff existing index has the same {@link IndexMetaData} instance */
+DECL|method|hasIndexMetaData
+specifier|public
+name|boolean
+name|hasIndexMetaData
+parameter_list|(
+specifier|final
+name|IndexMetaData
+name|indexMetaData
+parameter_list|)
+block|{
+return|return
+name|indices
+operator|.
+name|get
+argument_list|(
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|==
+name|indexMetaData
+return|;
+block|}
 comment|/**      * Returns the {@link IndexMetaData} for this index.      * @throws IndexNotFoundException if no metadata for this index is found      */
 DECL|method|getIndexSafe
 specifier|public
@@ -4519,7 +4545,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|DiskThresholdDecider
+name|DiskThresholdSettings
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_REROUTE_INTERVAL_SETTING
 operator|.
@@ -4563,7 +4589,7 @@ specifier|static
 name|MetaData
 name|addDefaultUnitsIfNeeded
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|MetaData

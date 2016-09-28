@@ -42,10 +42,6 @@ name|BoundTransportAddress
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|HttpServerTransport
 specifier|public
@@ -54,6 +50,18 @@ name|HttpServerTransport
 extends|extends
 name|LifecycleComponent
 block|{
+DECL|field|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
+name|String
+name|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
+init|=
+literal|"http_server_worker"
+decl_stmt|;
+DECL|field|HTTP_SERVER_BOSS_THREAD_NAME_PREFIX
+name|String
+name|HTTP_SERVER_BOSS_THREAD_NAME_PREFIX
+init|=
+literal|"http_server_boss"
+decl_stmt|;
 DECL|method|boundAddress
 name|BoundTransportAddress
 name|boundAddress

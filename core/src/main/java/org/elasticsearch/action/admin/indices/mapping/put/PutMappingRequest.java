@@ -677,6 +677,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @param type the mapping type      * @param source consisting of field/properties pairs (e.g. "field1",      *            "type=string,store=true"). If the number of arguments is not      *            divisible by two an {@link IllegalArgumentException} is thrown      * @return the mappings definition      */
 DECL|method|buildFromSimplifiedDef
 specifier|public
 specifier|static
@@ -691,6 +692,25 @@ modifier|...
 name|source
 parameter_list|)
 block|{
+if|if
+condition|(
+name|source
+operator|.
+name|length
+operator|%
+literal|2
+operator|!=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"mapping source must be pairs of fieldnames and properties definition."
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|XContentBuilder

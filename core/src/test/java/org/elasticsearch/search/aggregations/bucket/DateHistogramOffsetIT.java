@@ -56,8 +56,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|DateFieldMapper
 import|;
 end_import
@@ -663,8 +661,6 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|?
-extends|extends
 name|Histogram
 operator|.
 name|Bucket

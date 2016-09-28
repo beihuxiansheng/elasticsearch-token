@@ -252,9 +252,21 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|geo
+name|BaseGeoPointFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|GeoPointFieldMapperLegacy
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
@@ -269,10 +281,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Query geo_point fields by distance ranges. Used for indexes created prior to 2.2  * @deprecated  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GeoDistanceRangeQuery
 specifier|public
 class|class
@@ -361,9 +375,9 @@ parameter_list|,
 name|GeoDistance
 name|geoDistance
 parameter_list|,
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
-name|GeoPointFieldType
+name|LegacyGeoPointFieldType
 name|fieldType
 parameter_list|,
 name|IndexGeoPointFieldData
@@ -591,7 +605,7 @@ condition|)
 block|{
 name|boundingBoxFilter
 operator|=
-name|IndexedGeoBoundingBoxQuery
+name|LegacyIndexedGeoBoundingBoxQuery
 operator|.
 name|create
 argument_list|(

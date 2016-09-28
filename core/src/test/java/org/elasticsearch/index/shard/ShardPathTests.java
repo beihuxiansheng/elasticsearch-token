@@ -1224,6 +1224,8 @@ name|getIndex
 argument_list|()
 argument_list|,
 name|indexSettings
+argument_list|,
+name|nodeSettings
 argument_list|)
 argument_list|)
 decl_stmt|;

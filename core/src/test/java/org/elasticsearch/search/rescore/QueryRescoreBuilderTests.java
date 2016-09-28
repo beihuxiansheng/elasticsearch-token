@@ -314,8 +314,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|TextFieldMapper
 import|;
 end_import
@@ -474,6 +472,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -535,14 +545,9 @@ name|void
 name|init
 parameter_list|()
 block|{
-name|namedWriteableRegistry
-operator|=
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
-expr_stmt|;
-name|indicesQueriesRegistry
-operator|=
+name|SearchModule
+name|searchModule
+init|=
 operator|new
 name|SearchModule
 argument_list|(
@@ -550,10 +555,26 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-name|namedWriteableRegistry
-argument_list|,
 literal|false
+argument_list|,
+name|emptyList
+argument_list|()
 argument_list|)
+decl_stmt|;
+name|namedWriteableRegistry
+operator|=
+operator|new
+name|NamedWriteableRegistry
+argument_list|(
+name|searchModule
+operator|.
+name|getNamedWriteables
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|indicesQueriesRegistry
+operator|=
+name|searchModule
 operator|.
 name|getQueryParserRegistry
 argument_list|()

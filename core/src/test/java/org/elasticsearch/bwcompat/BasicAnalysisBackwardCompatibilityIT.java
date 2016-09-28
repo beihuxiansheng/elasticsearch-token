@@ -384,9 +384,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|InputOutput
 index|[]
 name|inout

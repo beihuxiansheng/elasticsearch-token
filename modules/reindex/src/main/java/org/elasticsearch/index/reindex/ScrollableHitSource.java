@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -137,20 +151,6 @@ operator|.
 name|stream
 operator|.
 name|Writeable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -334,7 +334,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|backoffPolicy
@@ -368,7 +368,7 @@ DECL|method|ScrollableHitSource
 specifier|public
 name|ScrollableHitSource
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|BackoffPolicy
@@ -798,21 +798,25 @@ specifier|public
 interface|interface
 name|Hit
 block|{
+comment|/**          * The index in which the hit is stored.          */
 DECL|method|getIndex
 name|String
 name|getIndex
 parameter_list|()
 function_decl|;
+comment|/**          * The type that the hit has.          */
 DECL|method|getType
 name|String
 name|getType
 parameter_list|()
 function_decl|;
+comment|/**          * The document id of the hit.          */
 DECL|method|getId
 name|String
 name|getId
 parameter_list|()
 function_decl|;
+comment|/**          * The version of the match or {@code -1} if the version wasn't requested. The {@code -1} keeps it inline with Elasticsearch's          * internal APIs.          */
 DECL|method|getVersion
 name|long
 name|getVersion
@@ -826,6 +830,7 @@ name|BytesReference
 name|getSource
 parameter_list|()
 function_decl|;
+comment|/**          * The document id of the parent of the hit if there is a parent or null if there isn't.          */
 DECL|method|getParent
 annotation|@
 name|Nullable
@@ -833,6 +838,7 @@ name|String
 name|getParent
 parameter_list|()
 function_decl|;
+comment|/**          * The routing on the hit if there is any or null if there isn't.          */
 DECL|method|getRouting
 annotation|@
 name|Nullable
@@ -840,6 +846,7 @@ name|String
 name|getRouting
 parameter_list|()
 function_decl|;
+comment|/**          * The {@code _timestamp} on the hit if one was stored with the hit or null if one wasn't.          */
 DECL|method|getTimestamp
 annotation|@
 name|Nullable
@@ -847,6 +854,7 @@ name|Long
 name|getTimestamp
 parameter_list|()
 function_decl|;
+comment|/**          * The {@code _ttl} on the hit if one was set on it or null one wasn't.          */
 DECL|method|getTTL
 annotation|@
 name|Nullable

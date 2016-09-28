@@ -652,7 +652,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -751,6 +751,22 @@ operator|.
 name|test
 operator|.
 name|MockIndexEventListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
 import|;
 end_import
 
@@ -915,6 +931,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -1274,7 +1300,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|MockTransportService
 operator|.
@@ -1530,11 +1558,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
@@ -1669,9 +1692,9 @@ literal|"5m"
 argument_list|)
 comment|// sometimes due to cluster rebalacing and random settings default timeout is just not enough.
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -2309,11 +2332,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)
@@ -3083,7 +3101,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -3616,11 +3634,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
@@ -3759,7 +3772,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -4282,6 +4295,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Tests that restoring of a corrupted shard fails and we get a partial snapshot.      * TODO once checksum verification on snapshotting is implemented this test needs to be fixed or split into several      * parts... We should also corrupt files on the actual snapshot and check that we don't restore the corrupted shard.      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"org.elasticsearch.monitor.fs:DEBUG"
+argument_list|)
 DECL|method|testCorruptFileThenSnapshotAndRestore
 specifier|public
 name|void
@@ -4459,11 +4477,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)
@@ -4895,11 +4908,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)

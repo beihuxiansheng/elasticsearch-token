@@ -564,7 +564,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|MockTransportService
 operator|.
@@ -650,9 +652,6 @@ argument_list|)
 comment|// never flush - always recover from translog
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 comment|// Index some documents
 name|int

@@ -280,6 +280,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -393,7 +403,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Integration test for registering a custom suggester.  */
 end_comment
 
 begin_class
@@ -434,7 +444,36 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|CustomSuggesterPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|transportClientPlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|transportClientPlugins
+parameter_list|()
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|CustomSuggesterPlugin
 operator|.
@@ -492,9 +531,6 @@ name|IMMEDIATE
 argument_list|)
 operator|.
 name|get
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|String

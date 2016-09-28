@@ -377,19 +377,6 @@ name|NAME
 init|=
 literal|"simple_query_string"
 decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
 DECL|field|MINIMUM_SHOULD_MATCH_FIELD
 specifier|private
 specifier|static
@@ -959,7 +946,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"supplied field is null or empty."
+literal|"supplied field is null or empty"
 argument_list|)
 throw|;
 block|}
@@ -1007,7 +994,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"supplied field is null or empty."
+literal|"supplied field is null or empty"
 argument_list|)
 throw|;
 block|}
@@ -1612,10 +1599,10 @@ name|luceneAnalyzer
 operator|=
 name|context
 operator|.
-name|getAnalysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|analyzer
 argument_list|)

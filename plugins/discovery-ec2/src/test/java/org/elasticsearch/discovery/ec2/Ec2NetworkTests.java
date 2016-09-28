@@ -93,6 +93,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -162,11 +172,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -174,7 +183,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -241,11 +251,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -253,7 +262,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -320,11 +330,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -332,7 +341,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -399,11 +409,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -411,7 +420,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -478,11 +488,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -490,7 +499,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -557,11 +567,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -569,7 +578,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -636,11 +646,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -648,7 +657,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 comment|// TODO we need to replace that with a mock. For now we check the URL we are supposed to reach.
 try|try
 block|{
@@ -715,11 +725,10 @@ operator|new
 name|NetworkService
 argument_list|(
 name|nodeSettings
-argument_list|)
-decl_stmt|;
-name|networkService
+argument_list|,
+name|Collections
 operator|.
-name|addCustomNameResolver
+name|singletonList
 argument_list|(
 operator|new
 name|Ec2NameResolver
@@ -727,7 +736,8 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 name|InetAddress
 index|[]
 name|addresses

@@ -30,7 +30,23 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RestoreSource
+name|RecoverySource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|RecoverySource
+operator|.
+name|SnapshotRecoverySource
 import|;
 end_import
 
@@ -100,20 +116,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -141,8 +143,6 @@ name|NAME
 init|=
 literal|"node_version"
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|NodeVersionAllocationDecider
 specifier|public
 name|NodeVersionAllocationDecider
@@ -196,19 +196,36 @@ if|if
 condition|(
 name|shardRouting
 operator|.
-name|restoreSource
+name|recoverySource
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|shardRouting
+operator|.
+name|recoverySource
+argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|SNAPSHOT
 condition|)
 block|{
 comment|// restoring from a snapshot - check that the node can handle the version
 return|return
 name|isVersionCompatible
 argument_list|(
+operator|(
+name|SnapshotRecoverySource
+operator|)
 name|shardRouting
 operator|.
-name|restoreSource
+name|recoverySource
 argument_list|()
 argument_list|,
 name|node
@@ -219,7 +236,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// fresh primary, we can allocate wherever
+comment|// existing or fresh primary on the node
 return|return
 name|allocation
 operator|.
@@ -231,7 +248,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the primary shard is new and can be allocated anywhere"
+literal|"the primary shard is new or already existed on the node"
 argument_list|)
 return|;
 block|}
@@ -450,8 +467,8 @@ specifier|private
 name|Decision
 name|isVersionCompatible
 parameter_list|(
-name|RestoreSource
-name|restoreSource
+name|SnapshotRecoverySource
+name|recoverySource
 parameter_list|,
 specifier|final
 name|RoutingNode
@@ -473,7 +490,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|restoreSource
+name|recoverySource
 operator|.
 name|version
 argument_list|()
@@ -502,7 +519,7 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-name|restoreSource
+name|recoverySource
 operator|.
 name|version
 argument_list|()
@@ -532,7 +549,7 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-name|restoreSource
+name|recoverySource
 operator|.
 name|version
 argument_list|()

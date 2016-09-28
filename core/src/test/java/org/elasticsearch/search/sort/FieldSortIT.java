@@ -723,7 +723,9 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|pluginList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|InternalSettingsPlugin
 operator|.
@@ -871,9 +873,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -1173,15 +1172,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|LuceneTestCase
-operator|.
-name|BadApple
-argument_list|(
-name|bugUrl
-operator|=
-literal|"simon is working on this"
-argument_list|)
 DECL|method|testIssue6614
 specifier|public
 name|void
@@ -1221,6 +1211,11 @@ literal|25
 argument_list|)
 decl_stmt|;
 comment|// at most 25 days in the month
+name|int
+name|docs
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1351,15 +1346,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|int
-name|docs
-init|=
-name|builders
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -1367,9 +1353,19 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|docs
+operator|+=
+name|builders
+operator|.
+name|size
 argument_list|()
 expr_stmt|;
+name|builders
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 name|SearchResponse
 name|allDocsResponse
 init|=
@@ -9318,9 +9314,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()

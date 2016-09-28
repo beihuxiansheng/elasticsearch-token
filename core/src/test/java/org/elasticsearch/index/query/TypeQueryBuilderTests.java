@@ -68,8 +68,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TypeFieldMapper
 import|;
 end_import
@@ -202,8 +200,14 @@ name|void
 name|testIllegalArgument
 parameter_list|()
 block|{
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|TypeQueryBuilder
 argument_list|(
@@ -212,21 +216,8 @@ name|String
 operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 DECL|method|testFromJson
 specifier|public

@@ -46,10 +46,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ModulesBuilder
 specifier|public
@@ -139,12 +135,15 @@ argument_list|(
 name|modules
 argument_list|)
 decl_stmt|;
-name|Injectors
-operator|.
-name|cleanCaches
-argument_list|(
+operator|(
+operator|(
+name|InjectorImpl
+operator|)
 name|injector
-argument_list|)
+operator|)
+operator|.
+name|clearCache
+argument_list|()
 expr_stmt|;
 comment|// in ES, we always create all instances as if they are eager singletons
 comment|// this allows for considerable memory savings (no need to store construction info) as well as cycles
@@ -160,48 +159,6 @@ argument_list|()
 expr_stmt|;
 return|return
 name|injector
-return|;
-block|}
-DECL|method|createChildInjector
-specifier|public
-name|Injector
-name|createChildInjector
-parameter_list|(
-name|Injector
-name|injector
-parameter_list|)
-block|{
-name|Injector
-name|childInjector
-init|=
-name|injector
-operator|.
-name|createChildInjector
-argument_list|(
-name|modules
-argument_list|)
-decl_stmt|;
-name|Injectors
-operator|.
-name|cleanCaches
-argument_list|(
-name|childInjector
-argument_list|)
-expr_stmt|;
-comment|// in ES, we always create all instances as if they are eager singletons
-comment|// this allows for considerable memory savings (no need to store construction info) as well as cycles
-operator|(
-operator|(
-name|InjectorImpl
-operator|)
-name|childInjector
-operator|)
-operator|.
-name|readOnlyAllSingletons
-argument_list|()
-expr_stmt|;
-return|return
-name|childInjector
 return|;
 block|}
 block|}

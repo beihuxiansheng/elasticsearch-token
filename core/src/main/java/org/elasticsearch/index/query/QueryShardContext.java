@@ -292,7 +292,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -406,9 +406,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|TextFieldMapper
+name|ObjectMapper
 import|;
 end_import
 
@@ -422,9 +420,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -855,16 +851,16 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-DECL|method|getAnalysisService
+DECL|method|getIndexAnalyzers
 specifier|public
-name|AnalysisService
-name|getAnalysisService
+name|IndexAnalyzers
+name|getIndexAnalyzers
 parameter_list|()
 block|{
 return|return
 name|mapperService
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 return|;
 block|}

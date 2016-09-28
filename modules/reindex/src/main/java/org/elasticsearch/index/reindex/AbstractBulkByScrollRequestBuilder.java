@@ -48,7 +48,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|WriteConsistencyLevel
+name|search
+operator|.
+name|SearchRequestBuilder
 import|;
 end_import
 
@@ -60,9 +62,25 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
+name|support
 operator|.
-name|SearchRequestBuilder
+name|ActiveShardCount
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ReplicationRequest
 import|;
 end_import
 
@@ -336,21 +354,21 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * Consistency level for write requests.      */
-DECL|method|consistency
+comment|/**      * The number of shard copies that must be active before proceeding with the write.      * See {@link ReplicationRequest#waitForActiveShards(ActiveShardCount)} for details.      */
+DECL|method|waitForActiveShards
 specifier|public
 name|Self
-name|consistency
+name|waitForActiveShards
 parameter_list|(
-name|WriteConsistencyLevel
-name|consistency
+name|ActiveShardCount
+name|activeShardCount
 parameter_list|)
 block|{
 name|request
 operator|.
-name|setConsistency
+name|setWaitForActiveShards
 argument_list|(
-name|consistency
+name|activeShardCount
 argument_list|)
 expr_stmt|;
 return|return
@@ -424,21 +442,21 @@ name|self
 argument_list|()
 return|;
 block|}
-comment|/**      * Should this task persist its result after it has finished?      */
-DECL|method|setShouldPersistResult
+comment|/**      * Should this task store its result after it has finished?      */
+DECL|method|setShouldStoreResult
 specifier|public
 name|Self
-name|setShouldPersistResult
+name|setShouldStoreResult
 parameter_list|(
 name|boolean
-name|shouldPersistResult
+name|shouldStoreResult
 parameter_list|)
 block|{
 name|request
 operator|.
-name|setShouldPersistResult
+name|setShouldStoreResult
 argument_list|(
-name|shouldPersistResult
+name|shouldStoreResult
 argument_list|)
 expr_stmt|;
 return|return

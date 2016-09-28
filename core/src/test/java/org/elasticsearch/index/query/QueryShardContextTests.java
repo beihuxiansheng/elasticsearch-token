@@ -104,8 +104,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
 name|TextFieldMapper
 import|;
 end_import
@@ -370,8 +368,17 @@ name|fieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|QueryShardException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|QueryShardException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|context
 operator|.
 name|failIfFieldMappingNotFound
@@ -380,33 +387,18 @@ literal|"name"
 argument_list|,
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"exception expected"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|QueryShardException
-name|e
-parameter_list|)
-block|{
-name|assertThat
+decl_stmt|;
+name|assertEquals
 argument_list|(
+literal|"No field mapping can be found for the field with name [name]"
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"No field mapping can be found for the field with name [name]"
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|context
 operator|.
 name|setAllowUnmappedFields

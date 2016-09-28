@@ -672,6 +672,17 @@ name|DeleteRequest
 name|request
 parameter_list|)
 block|{
+name|super
+operator|.
+name|resolveRequest
+argument_list|(
+name|metaData
+argument_list|,
+name|indexMetaData
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 name|resolveAndValidateRouting
 argument_list|(
 name|metaData

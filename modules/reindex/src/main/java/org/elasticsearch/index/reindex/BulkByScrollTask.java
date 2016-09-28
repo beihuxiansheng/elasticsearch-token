@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -57,20 +71,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -342,7 +342,7 @@ DECL|field|logger
 specifier|private
 specifier|static
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|ESLoggerFactory
@@ -1412,7 +1412,8 @@ name|Float
 operator|.
 name|POSITIVE_INFINITY
 condition|?
-literal|"unlimited"
+operator|-
+literal|1
 else|:
 name|requestsPerSecond
 argument_list|)
@@ -1736,7 +1737,7 @@ return|return
 name|throttled
 return|;
 block|}
-comment|/**          * The number of requests per second to which to throttle the request. 0 means unlimited.          */
+comment|/**          * The number of requests per second to which to throttle the request. Float.POSITIVE_INFINITY means unlimited.          */
 DECL|method|getRequestsPerSecond
 specifier|public
 name|float

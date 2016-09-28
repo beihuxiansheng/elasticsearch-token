@@ -1247,90 +1247,70 @@ operator|new
 name|BoolQueryBuilder
 argument_list|()
 decl_stmt|;
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|booleanQuery
 operator|.
 name|must
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|booleanQuery
 operator|.
 name|mustNot
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|booleanQuery
 operator|.
 name|filter
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|booleanQuery
 operator|.
 name|should
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 block|}
 comment|// https://github.com/elastic/elasticsearch/issues/7240
 DECL|method|testEmptyBooleanQuery
@@ -2671,29 +2651,46 @@ name|clauseType
 init|=
 name|randomFrom
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"must"
-block|,
+argument_list|,
 literal|"should"
-block|,
+argument_list|,
 literal|"must_not"
-block|,
+argument_list|,
 literal|"filter"
-block|}
 argument_list|)
 decl_stmt|;
 comment|// should also throw error if invalid query is preceded by a valid one
 name|String
 name|query
 init|=
-literal|"{\"bool\" : {\""
+literal|"{\n"
+operator|+
+literal|"  \"bool\": {\n"
+operator|+
+literal|"    \""
 operator|+
 name|clauseType
 operator|+
-literal|"\" : { \"match\" : { \"foo\" : \"bar\" } , \"match\" : { \"baz\" : \"buzz\" } } } }"
+literal|"\": {\n"
+operator|+
+literal|"      \"match\": {\n"
+operator|+
+literal|"        \"foo\": \"bar\"\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"match\": {\n"
+operator|+
+literal|"        \"baz\": \"buzz\"\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
 decl_stmt|;
 name|ParsingException
 name|ex
@@ -2718,7 +2715,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"expected [END_OBJECT] but got [FIELD_NAME], possibly too many query clauses"
+literal|"[match] malformed query, expected [END_OBJECT] but found [FIELD_NAME]"
 argument_list|,
 name|ex
 operator|.

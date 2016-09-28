@@ -292,7 +292,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -1032,7 +1032,7 @@ name|transportOptions
 argument_list|()
 argument_list|,
 operator|new
-name|BaseTransportResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|Response
 argument_list|>

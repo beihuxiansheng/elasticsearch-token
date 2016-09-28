@@ -144,7 +144,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|support
+name|cat
 operator|.
 name|RestTable
 import|;

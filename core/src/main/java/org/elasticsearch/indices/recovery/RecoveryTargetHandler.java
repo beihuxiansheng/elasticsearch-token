@@ -142,13 +142,16 @@ specifier|public
 interface|interface
 name|RecoveryTargetHandler
 block|{
-comment|/**      * Prepares the tranget to receive translog operations, after all file have been copied      *      * @param totalTranslogOps total translog operations expected to be sent      */
+comment|/**      * Prepares the tranget to receive translog operations, after all file have been copied      *      * @param totalTranslogOps total translog operations expected to be sent      * @param maxUnsafeAutoIdTimestamp the max timestamp that is used to de-optimize documents with auto-generated IDs in the engine.      * This is used to ensure we don't add duplicate documents when we assume an append only case based on auto-generated IDs      */
 DECL|method|prepareForTranslogOperations
 name|void
 name|prepareForTranslogOperations
 parameter_list|(
 name|int
 name|totalTranslogOps
+parameter_list|,
+name|long
+name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException
@@ -158,6 +161,15 @@ DECL|method|finalizeRecovery
 name|FinalizeResponse
 name|finalizeRecovery
 parameter_list|()
+function_decl|;
+comment|/**      * Blockingly waits for cluster state with at least clusterStateVersion to be available      */
+DECL|method|ensureClusterStateVersion
+name|void
+name|ensureClusterStateVersion
+parameter_list|(
+name|long
+name|clusterStateVersion
+parameter_list|)
 function_decl|;
 comment|/**      * Index a set of translog operations on the target      * @param operations operations to index      * @param totalTranslogOps current number of total operations expected to be indexed      */
 DECL|method|indexTranslogOperations

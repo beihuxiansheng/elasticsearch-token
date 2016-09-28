@@ -197,7 +197,7 @@ DECL|class|RecordingChangeListener
 specifier|private
 class|class
 name|RecordingChangeListener
-extends|extends
+implements|implements
 name|FileChangesListener
 block|{
 DECL|field|rootDir

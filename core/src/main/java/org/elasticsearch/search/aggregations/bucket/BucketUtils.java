@@ -25,9 +25,15 @@ end_comment
 begin_class
 DECL|class|BucketUtils
 specifier|public
+specifier|final
 class|class
 name|BucketUtils
 block|{
+DECL|method|BucketUtils
+specifier|private
+name|BucketUtils
+parameter_list|()
+block|{}
 comment|/**      * Heuristic used to determine the size of shard-side PriorityQueues when      * selecting the top N terms from a distributed index.      *       * @param finalSize      *            The number of terms required in the final reduce phase.      * @param numberOfShards      *            The number of shards being queried.      * @return A suggested default for the size of any shard-side PriorityQueues      */
 DECL|method|suggestShardSideQueueSize
 specifier|public
@@ -42,11 +48,40 @@ name|int
 name|numberOfShards
 parameter_list|)
 block|{
-assert|assert
-name|numberOfShards
-operator|>=
+if|if
+condition|(
+name|finalSize
+operator|<
 literal|1
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"size must be positive, got "
+operator|+
+name|finalSize
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|numberOfShards
+operator|<
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"number of shards must be positive, got "
+operator|+
+name|numberOfShards
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|numberOfShards
@@ -54,32 +89,28 @@ operator|==
 literal|1
 condition|)
 block|{
+comment|// In the case of a single shard, we do not need to over-request
 return|return
 name|finalSize
 return|;
 block|}
-comment|//Cap the multiplier used for shards to avoid excessive data transfer
+comment|// Request 50% more buckets on the shards in order to improve accuracy
+comment|// as well as a small constant that should help with small values of 'size'
 specifier|final
 name|long
 name|shardSampleSize
 init|=
-operator|(
+call|(
 name|long
-operator|)
+call|)
+argument_list|(
 name|finalSize
 operator|*
-name|Math
-operator|.
-name|min
-argument_list|(
+literal|1.5
+operator|+
 literal|10
-argument_list|,
-name|numberOfShards
 argument_list|)
 decl_stmt|;
-comment|// When finalSize is very small e.g. 1 and there is a low number of
-comment|// shards then we need to ensure we still gather a reasonable sample of statistics from each
-comment|// shard (at low cost) to improve the chances of the final result being accurate.
 return|return
 operator|(
 name|int
@@ -92,14 +123,7 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|,
-name|Math
-operator|.
-name|max
-argument_list|(
-literal|10
-argument_list|,
 name|shardSampleSize
-argument_list|)
 argument_list|)
 return|;
 block|}

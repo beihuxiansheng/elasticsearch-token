@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -60,20 +74,6 @@ name|common
 operator|.
 name|logging
 operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
 name|Loggers
 import|;
 end_import
@@ -95,6 +95,16 @@ operator|.
 name|net
 operator|.
 name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
 import|;
 end_import
 
@@ -353,7 +363,9 @@ name|void
 name|checkJarHell
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|URISyntaxException
 block|{
 name|ClassLoader
 name|loader
@@ -365,7 +377,7 @@ operator|.
 name|getClassLoader
 argument_list|()
 decl_stmt|;
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
@@ -711,9 +723,11 @@ name|urls
 index|[]
 parameter_list|)
 throws|throws
-name|Exception
+name|URISyntaxException
+throws|,
+name|IOException
 block|{
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
@@ -853,7 +867,6 @@ name|path
 argument_list|)
 expr_stmt|;
 continue|continue;
-comment|// we can't fail because of sheistiness with joda-time
 block|}
 name|logger
 operator|.
@@ -1438,25 +1451,26 @@ name|clazz
 operator|.
 name|startsWith
 argument_list|(
-literal|"org.apache.log4j"
+literal|"org.apache.logging.log4j.core.impl.ThrowableProxy"
 argument_list|)
 condition|)
 block|{
+comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://github.com/elastic/elasticsearch/issues/20304                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1560                      */
 return|return;
-comment|// go figure, jar hell for what should be System.out.println...
 block|}
+elseif|else
 if|if
 condition|(
 name|clazz
 operator|.
-name|equals
+name|startsWith
 argument_list|(
-literal|"org.joda.time.base.BaseDateTime"
+literal|"org.apache.logging.log4j.core.jmx.Server"
 argument_list|)
 condition|)
 block|{
+comment|/*                      * deliberate to hack around a bug in Log4j                      * cf. https://issues.apache.org/jira/browse/LOG4J2-1506                      */
 return|return;
-comment|// apparently this is intentional... clean this up
 block|}
 throw|throw
 operator|new

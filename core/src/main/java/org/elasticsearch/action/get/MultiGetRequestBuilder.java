@@ -296,26 +296,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setIgnoreErrorsOnGeneratedFields
-specifier|public
-name|MultiGetRequestBuilder
-name|setIgnoreErrorsOnGeneratedFields
-parameter_list|(
-name|boolean
-name|ignoreErrorsOnGeneratedFields
-parameter_list|)
-block|{
-name|request
-operator|.
-name|ignoreErrorsOnGeneratedFields
-argument_list|(
-name|ignoreErrorsOnGeneratedFields
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 end_class
 

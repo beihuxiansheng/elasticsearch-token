@@ -184,7 +184,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|cluster
 operator|.
 name|ESAllocationTestCase
 import|;
@@ -329,7 +329,7 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|DiscoveryNode

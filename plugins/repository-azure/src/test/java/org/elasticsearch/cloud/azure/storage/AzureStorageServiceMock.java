@@ -52,16 +52,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|blobstore
@@ -110,21 +100,7 @@ name|common
 operator|.
 name|component
 operator|.
-name|AbstractLifecycleComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
+name|AbstractComponent
 import|;
 end_import
 
@@ -159,16 +135,6 @@ operator|.
 name|io
 operator|.
 name|ByteArrayOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileNotFoundException
 import|;
 end_import
 
@@ -216,6 +182,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Locale
@@ -254,7 +232,7 @@ specifier|public
 class|class
 name|AzureStorageServiceMock
 extends|extends
-name|AbstractLifecycleComponent
+name|AbstractComponent
 implements|implements
 name|AzureStorageService
 block|{
@@ -273,19 +251,16 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|AzureStorageServiceMock
 specifier|public
 name|AzureStorageServiceMock
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|settings
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -460,7 +435,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FileNotFoundException
+name|NoSuchFileException
 argument_list|(
 literal|"missing blob ["
 operator|+
@@ -591,6 +566,12 @@ condition|(
 name|keyPath
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|keyPath
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 comment|// strip off key path from the beginning of the blob name
@@ -615,6 +596,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|prefix
+operator|==
+literal|null
+operator|||
 name|startsWithIgnoreCase
 argument_list|(
 name|checkBlob
@@ -739,36 +724,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doStart
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|ElasticsearchException
-block|{     }
-annotation|@
-name|Override
-DECL|method|doStop
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|ElasticsearchException
-block|{     }
-annotation|@
-name|Override
-DECL|method|doClose
-specifier|protected
-name|void
-name|doClose
-parameter_list|()
-throws|throws
-name|ElasticsearchException
-block|{     }
 comment|/**      * Test if the given String starts with the specified prefix,      * ignoring upper/lower case.      *      * @param str    the String to check      * @param prefix the prefix to look for      * @see java.lang.String#startsWith      */
 DECL|method|startsWithIgnoreCase
 specifier|public

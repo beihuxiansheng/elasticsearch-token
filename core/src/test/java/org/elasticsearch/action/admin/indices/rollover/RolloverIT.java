@@ -246,7 +246,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-2"
+literal|"test_index-000002"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -352,7 +352,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-2"
+literal|"test_index-000002"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -458,7 +458,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-3"
+literal|"test_index-000003"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -564,7 +564,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-3"
+literal|"test_index-000003"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -714,7 +714,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-3"
+literal|"test_index-000003"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -820,7 +820,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-3"
+literal|"test_index-000003"
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -970,7 +970,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-2"
+literal|"test_index-000002"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1076,7 +1076,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-2"
+literal|"test_index-000002"
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -1350,7 +1350,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-000001"
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -1621,7 +1621,7 @@ name|assertAcked
 argument_list|(
 name|prepareCreate
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-000001"
 argument_list|)
 operator|.
 name|get
@@ -1630,7 +1630,7 @@ argument_list|)
 expr_stmt|;
 name|index
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-000001"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -1645,7 +1645,7 @@ name|flush
 argument_list|(
 literal|"test_index-0"
 argument_list|,
-literal|"test_index-1"
+literal|"test_index-000001"
 argument_list|)
 expr_stmt|;
 try|try
@@ -1691,7 +1691,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-1"
+literal|"test_index-000001"
 argument_list|)
 argument_list|)
 expr_stmt|;

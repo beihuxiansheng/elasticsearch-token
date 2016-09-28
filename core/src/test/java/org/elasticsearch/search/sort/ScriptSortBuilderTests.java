@@ -1134,8 +1134,12 @@ name|getScript
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
+argument_list|,
 name|builder
 operator|.
 name|script
@@ -1231,10 +1235,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testParseJsonOldStyle
+DECL|method|testParseJson_simple
 specifier|public
 name|void
-name|testParseJsonOldStyle
+name|testParseJson_simple
 parameter_list|()
 throws|throws
 name|IOException
@@ -1248,13 +1252,7 @@ literal|"\"_script\" : {\n"
 operator|+
 literal|"\"type\" : \"number\",\n"
 operator|+
-literal|"\"script\" : \"doc['field_name'].value * factor\",\n"
-operator|+
-literal|"\"params\" : {\n"
-operator|+
-literal|"\"factor\" : 1.1\n"
-operator|+
-literal|"},\n"
+literal|"\"script\" : \"doc['field_name'].value\",\n"
 operator|+
 literal|"\"mode\" : \"max\",\n"
 operator|+
@@ -1321,7 +1319,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"doc['field_name'].value * factor"
+literal|"doc['field_name'].value"
 argument_list|,
 name|builder
 operator|.
@@ -1332,8 +1330,12 @@ name|getScript
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
+argument_list|,
 name|builder
 operator|.
 name|script
@@ -1343,10 +1345,8 @@ name|getLang
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|1.1
-argument_list|,
 name|builder
 operator|.
 name|script
@@ -1354,11 +1354,6 @@ argument_list|()
 operator|.
 name|getParams
 argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|"factor"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals

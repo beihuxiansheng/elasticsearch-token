@@ -28,6 +28,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -130,8 +142,18 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
-comment|/**  * This abstract class defining basic {@link Decision} used during shard  * allocation process.  *   * @see AllocationDecider  */
+comment|/**  * This abstract class defining basic {@link Decision} used during shard  * allocation process.  *  * @see AllocationDecider  */
 end_comment
 
 begin_class
@@ -203,7 +225,7 @@ operator|.
 name|THROTTLE
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a simple decision       * @param type {@link Type} of the decision      * @param label label for the Decider that produced this decision      * @param explanation explanation of the decision      * @param explanationParams additional parameters for the decision      * @return new {@link Decision} instance      */
+comment|/**      * Creates a simple decision      * @param type {@link Type} of the decision      * @param label label for the Decider that produced this decision      * @param explanation explanation of the decision      * @param explanationParams additional parameters for the decision      * @return new {@link Decision} instance      */
 DECL|method|single
 specifier|public
 specifier|static
@@ -213,12 +235,18 @@ parameter_list|(
 name|Type
 name|type
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|label
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|explanation
 parameter_list|,
+annotation|@
+name|Nullable
 name|Object
 modifier|...
 name|explanationParams
@@ -479,10 +507,9 @@ name|result
 return|;
 block|}
 block|}
-comment|/**      * This enumeration defines the       * possible types of decisions       */
+comment|/**      * This enumeration defines the      * possible types of decisions      */
 DECL|enum|Type
 specifier|public
-specifier|static
 enum|enum
 name|Type
 block|{
@@ -654,6 +681,9 @@ name|Type
 name|type
 parameter_list|()
 function_decl|;
+comment|/**      * Get the description label for this decision.      */
+annotation|@
+name|Nullable
 DECL|method|label
 specifier|public
 specifier|abstract
@@ -712,7 +742,7 @@ specifier|public
 name|Single
 parameter_list|()
 block|{          }
-comment|/**          * Creates a new {@link Single} decision of a given type           * @param type {@link Type} of the decision          */
+comment|/**          * Creates a new {@link Single} decision of a given type          * @param type {@link Type} of the decision          */
 DECL|method|Single
 specifier|public
 name|Single
@@ -737,7 +767,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Creates a new {@link Single} decision of a given type          *            * @param type {@link Type} of the decision          * @param explanation An explanation of this {@link Decision}          * @param explanationParams A set of additional parameters          */
+comment|/**          * Creates a new {@link Single} decision of a given type          *          * @param type {@link Type} of the decision          * @param explanation An explanation of this {@link Decision}          * @param explanationParams A set of additional parameters          */
 DECL|method|Single
 specifier|public
 name|Single
@@ -745,12 +775,18 @@ parameter_list|(
 name|Type
 name|type
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|label
 parameter_list|,
+annotation|@
+name|Nullable
 name|String
 name|explanation
 parameter_list|,
+annotation|@
+name|Nullable
 name|Object
 modifier|...
 name|explanationParams
@@ -797,6 +833,8 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Nullable
 DECL|method|label
 specifier|public
 name|String
@@ -830,6 +868,8 @@ argument_list|)
 return|;
 block|}
 comment|/**          * Returns the explanation string, fully formatted. Only formats the string once          */
+annotation|@
+name|Nullable
 DECL|method|getExplanation
 specifier|public
 name|String
@@ -931,24 +971,24 @@ name|s
 operator|.
 name|type
 operator|&&
-name|this
-operator|.
-name|label
+name|Objects
 operator|.
 name|equals
 argument_list|(
+name|label
+argument_list|,
 name|s
 operator|.
 name|label
 argument_list|)
 operator|&&
-name|this
-operator|.
-name|getExplanation
-argument_list|()
+name|Objects
 operator|.
 name|equals
 argument_list|(
+name|getExplanation
+argument_list|()
+argument_list|,
 name|s
 operator|.
 name|getExplanation
@@ -967,8 +1007,6 @@ block|{
 name|int
 name|result
 init|=
-name|this
-operator|.
 name|type
 operator|.
 name|hashCode
@@ -980,26 +1018,43 @@ literal|31
 operator|*
 name|result
 operator|+
-name|this
-operator|.
+operator|(
+name|label
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
 name|label
 operator|.
 name|hashCode
 argument_list|()
+operator|)
 expr_stmt|;
+name|String
+name|explanationStr
+init|=
+name|getExplanation
+argument_list|()
+decl_stmt|;
 name|result
 operator|=
 literal|31
 operator|*
 name|result
 operator|+
-name|this
-operator|.
-name|getExplanation
-argument_list|()
+operator|(
+name|explanationStr
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|explanationStr
 operator|.
 name|hashCode
 argument_list|()
+operator|)
 expr_stmt|;
 return|return
 name|result
@@ -1236,6 +1291,8 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Nullable
 DECL|method|label
 specifier|public
 name|String

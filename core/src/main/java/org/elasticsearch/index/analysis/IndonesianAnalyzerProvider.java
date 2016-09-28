@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|id
-operator|.
-name|IndonesianAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|id
 operator|.
-name|CharArraySet
+name|IndonesianAnalyzer
 import|;
 end_import
 

@@ -190,7 +190,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocumentTests
+name|IngestDocumentMatcher
 operator|.
 name|assertIngestDocument
 import|;
@@ -326,7 +326,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|ingestMetadata
 init|=
@@ -512,7 +512,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|otherIngestMetadata
 decl_stmt|;
@@ -824,7 +824,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|ingestMetadata
 init|=
@@ -1078,7 +1078,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|toXContentIngestMetadata
 init|=
@@ -1087,7 +1087,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 operator|)
 name|toXContentDoc

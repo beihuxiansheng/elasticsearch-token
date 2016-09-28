@@ -110,7 +110,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"type["
+literal|"type"
 operator|+
 name|Arrays
 operator|.
@@ -119,7 +119,44 @@ argument_list|(
 name|types
 argument_list|)
 operator|+
-literal|"] missing"
+literal|" missing"
+argument_list|)
+expr_stmt|;
+name|setIndex
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|TypeMissingException
+specifier|public
+name|TypeMissingException
+parameter_list|(
+name|Index
+name|index
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|,
+name|String
+modifier|...
+name|types
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"type"
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|types
+argument_list|)
+operator|+
+literal|" missing"
+argument_list|,
+name|cause
 argument_list|)
 expr_stmt|;
 name|setIndex

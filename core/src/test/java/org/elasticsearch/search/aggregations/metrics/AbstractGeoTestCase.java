@@ -543,7 +543,7 @@ literal|"type"
 argument_list|,
 name|SINGLE_VALUED_FIELD_NAME
 argument_list|,
-literal|"type=geo_point,geohash_prefix=true,geohash_precision=12"
+literal|"type=geo_point"
 argument_list|,
 name|MULTI_VALUED_FIELD_NAME
 argument_list|,

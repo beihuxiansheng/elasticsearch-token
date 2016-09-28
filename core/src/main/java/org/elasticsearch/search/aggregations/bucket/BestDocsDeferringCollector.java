@@ -275,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A specialization of {@link DeferringBucketCollector} that collects all  * matches and then replays only the top scoring documents to child  * aggregations. The method  * {@link BestDocsDeferringCollector#createTopDocsCollector(int)} is designed to  * be overridden and allows subclasses to choose a custom collector  * implementation for determining the top N matches.  *   */
+comment|/**  * A specialization of {@link DeferringBucketCollector} that collects all  * matches and then replays only the top scoring documents to child  * aggregations. The method  * {@link BestDocsDeferringCollector#createTopDocsCollector(int)} is designed to  * be overridden and allows subclasses to choose a custom collector  * implementation for determining the top N matches.  *  */
 end_comment
 
 begin_class
@@ -328,7 +328,7 @@ specifier|final
 name|BigArrays
 name|bigArrays
 decl_stmt|;
-comment|/**      * Sole constructor.      *       * @param shardSize      *            The number of top-scoring docs to collect for each bucket      */
+comment|/**      * Sole constructor.      *      * @param shardSize      *            The number of top-scoring docs to collect for each bucket      */
 DECL|method|BestDocsDeferringCollector
 specifier|public
 name|BestDocsDeferringCollector
@@ -519,7 +519,13 @@ name|preCollection
 parameter_list|()
 throws|throws
 name|IOException
-block|{     }
+block|{
+name|deferred
+operator|.
+name|preCollection
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|postCollection
@@ -558,11 +564,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|deferred
-operator|.
-name|preCollection
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|ScoreDoc

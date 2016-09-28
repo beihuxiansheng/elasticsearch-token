@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|sv
-operator|.
-name|SwedishAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|sv
 operator|.
-name|CharArraySet
+name|SwedishAnalyzer
 import|;
 end_import
 

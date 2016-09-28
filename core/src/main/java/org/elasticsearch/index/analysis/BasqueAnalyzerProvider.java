@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|eu
-operator|.
-name|BasqueAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|eu
 operator|.
-name|CharArraySet
+name|BasqueAnalyzer
 import|;
 end_import
 

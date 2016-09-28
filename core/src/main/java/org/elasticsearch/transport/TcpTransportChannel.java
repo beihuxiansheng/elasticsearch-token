@@ -48,10 +48,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TcpTransportChannel
 specifier|public
@@ -271,9 +267,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|release
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 name|transport
 operator|.
 name|sendResponse
@@ -292,6 +287,13 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|release
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|sendResponse
@@ -305,9 +307,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|release
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 name|transport
 operator|.
 name|sendErrorResponse
@@ -324,6 +325,18 @@ name|action
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|release
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|field|releaseBy
+specifier|private
+name|Exception
+name|releaseBy
+decl_stmt|;
 DECL|method|release
 specifier|private
 name|void
@@ -350,8 +363,25 @@ operator|new
 name|IllegalStateException
 argument_list|(
 literal|"reserved bytes are already released"
+argument_list|,
+name|releaseBy
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+assert|assert
+operator|(
+name|releaseBy
+operator|=
+operator|new
+name|Exception
+argument_list|()
+operator|)
+operator|!=
+literal|null
+assert|;
+comment|// easier to debug if it's already closed
 block|}
 name|transport
 operator|.

@@ -130,8 +130,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|internal
-operator|.
 name|TimestampFieldMapper
 import|;
 end_import
@@ -977,6 +975,19 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|addMapping
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"obj1.field1"
+argument_list|,
+literal|"type=keyword,store=true"
+argument_list|,
+literal|"obj1.field2"
+argument_list|,
+literal|"type=keyword,store=true"
+argument_list|)
+operator|.
 name|addAlias
 argument_list|(
 operator|new
@@ -1068,7 +1079,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"obj1.field1"
 argument_list|)
@@ -1270,7 +1281,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"obj1.field1"
 argument_list|)
@@ -1470,7 +1481,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setFields
+name|setStoredFields
 argument_list|(
 literal|"obj1.field1"
 argument_list|,

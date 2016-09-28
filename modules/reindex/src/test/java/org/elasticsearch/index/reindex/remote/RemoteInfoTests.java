@@ -44,6 +44,18 @@ name|ESTestCase
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_class
 DECL|class|RemoteInfoTests
 specifier|public
@@ -79,6 +91,9 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -111,6 +126,9 @@ argument_list|,
 literal|"testuser"
 argument_list|,
 literal|null
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -143,6 +161,9 @@ argument_list|,
 literal|"testuser"
 argument_list|,
 literal|"testpass"
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -175,6 +196,9 @@ argument_list|,
 literal|"testuser"
 argument_list|,
 literal|"testpass"
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals

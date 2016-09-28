@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|PersistedTaskInfo
+name|TaskResult
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|ToXContent
 block|{
 DECL|field|task
 specifier|private
-name|PersistedTaskInfo
+name|TaskResult
 name|task
 decl_stmt|;
 DECL|method|GetTaskResponse
@@ -170,7 +170,7 @@ DECL|method|GetTaskResponse
 specifier|public
 name|GetTaskResponse
 parameter_list|(
-name|PersistedTaskInfo
+name|TaskResult
 name|task
 parameter_list|)
 block|{
@@ -212,7 +212,7 @@ name|in
 operator|.
 name|readOptionalWriteable
 argument_list|(
-name|PersistedTaskInfo
+name|TaskResult
 operator|::
 operator|new
 argument_list|)
@@ -249,7 +249,7 @@ block|}
 comment|/**      * Get the actual result of the fetch.      */
 DECL|method|getTask
 specifier|public
-name|PersistedTaskInfo
+name|TaskResult
 name|getTask
 parameter_list|()
 block|{
