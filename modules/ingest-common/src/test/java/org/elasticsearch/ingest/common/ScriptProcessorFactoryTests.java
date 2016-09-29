@@ -296,7 +296,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"[null] Only one of [file], [id], or [inline] may be configured"
+literal|"Only one of [file], [id], or [inline] may be configured"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -366,7 +366,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"[null] Need [file], [id], or [inline] parameter to refer to scripts"
+literal|"Need [file], [id], or [inline] parameter to refer to scripts"
 argument_list|)
 argument_list|)
 expr_stmt|;
