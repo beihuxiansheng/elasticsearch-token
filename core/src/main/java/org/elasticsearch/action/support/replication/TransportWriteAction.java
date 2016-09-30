@@ -1056,7 +1056,6 @@ block|}
 block|}
 comment|/**      * callback used by {@link AsyncAfterWriteAction} to notify that all post      * process actions have been executed      */
 DECL|interface|RespondingWriteResult
-specifier|private
 interface|interface
 name|RespondingWriteResult
 block|{
