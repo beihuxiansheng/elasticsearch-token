@@ -906,9 +906,6 @@ argument_list|()
 operator|*
 literal|20
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -1057,9 +1054,6 @@ argument_list|()
 operator|/
 literal|2
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|TimeValue
 operator|.

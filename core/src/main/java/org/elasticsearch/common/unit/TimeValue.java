@@ -1218,6 +1218,7 @@ name|period
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a {@link String} representation of the current {@link TimeValue}.      *      * Note that this method might produce fractional time values (ex 1.6m) which cannot be      * parsed by method like {@link TimeValue#parse(String, String, int)}.      */
 annotation|@
 name|Override
 DECL|method|toString
