@@ -1537,6 +1537,9 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// we do *not* update the in sync allocation ids as they will be removed upon the first index
+comment|// operation which make these copies stale
+comment|// TODO: update the list once the data is deleted by the node?
 name|routingTableBuilder
 operator|.
 name|updateNumberOfReplicas

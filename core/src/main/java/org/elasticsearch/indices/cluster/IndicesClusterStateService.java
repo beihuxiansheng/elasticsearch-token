@@ -1359,6 +1359,7 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+comment|// removes any local shards that doesn't match what the master expects
 name|updateIndices
 argument_list|(
 name|event
@@ -2309,15 +2310,6 @@ condition|(
 name|newShardRouting
 operator|==
 literal|null
-operator|||
-name|newShardRouting
-operator|.
-name|isSameAllocation
-argument_list|(
-name|currentRoutingEntry
-argument_list|)
-operator|==
-literal|false
 condition|)
 block|{
 comment|// we can just remove the shard without cleaning it locally, since we will clean it in IndicesStore
@@ -2341,6 +2333,88 @@ name|id
 argument_list|()
 argument_list|,
 literal|"removing shard (not allocated)"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|newShardRouting
+operator|.
+name|isSameAllocation
+argument_list|(
+name|currentRoutingEntry
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"{} removing shard (stale allocation id, stale {}, new {})"
+argument_list|,
+name|shardId
+argument_list|,
+name|currentRoutingEntry
+argument_list|,
+name|newShardRouting
+argument_list|)
+expr_stmt|;
+name|indexService
+operator|.
+name|removeShard
+argument_list|(
+name|shardId
+operator|.
+name|id
+argument_list|()
+argument_list|,
+literal|"removing shard (stale copy)"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|newShardRouting
+operator|.
+name|initializing
+argument_list|()
+operator|&&
+name|currentRoutingEntry
+operator|.
+name|active
+argument_list|()
+condition|)
+block|{
+comment|// this can happen if the node was isolated/gc-ed, rejoins the cluster and a new shard with the same allocation id
+comment|// is assigned to it. Batch cluster state processing or if shard fetching completes before the node gets a new cluster
+comment|// state may result in a new shard being initialized while having the same allocation id as the currently started shard.
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"{} removing shard (not active, current {}, new {})"
+argument_list|,
+name|shardId
+argument_list|,
+name|currentRoutingEntry
+argument_list|,
+name|newShardRouting
+argument_list|)
+expr_stmt|;
+name|indexService
+operator|.
+name|removeShard
+argument_list|(
+name|shardId
+operator|.
+name|id
+argument_list|()
+argument_list|,
+literal|"removing shard (stale copy)"
 argument_list|)
 expr_stmt|;
 block|}

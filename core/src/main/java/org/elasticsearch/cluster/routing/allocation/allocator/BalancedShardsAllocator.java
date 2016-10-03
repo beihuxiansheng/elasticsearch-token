@@ -4236,17 +4236,9 @@ name|YES
 condition|)
 block|{
 comment|/* only allocate on the cluster if we are not throttled */
-if|if
-condition|(
 name|logger
 operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Relocate shard [{}] from node [{}] to node [{}]"
 argument_list|,
@@ -4263,7 +4255,6 @@ name|getNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|/* now allocate on the cluster */
 name|minNode
 operator|.

@@ -2716,6 +2716,18 @@ operator|!=
 name|primaryTerm
 condition|)
 block|{
+comment|// Note that due to cluster state batching an initializing primary shard term can failed and re-assigned
+comment|// in one state causing it's term to be incremented. Note that if both current shard state and new
+comment|// shard state are initializing, we could replace the current shard and reinitialize it. It is however
+comment|// possible that this shard is being started. This can happen if:
+comment|// 1) Shard is post recovery and sends shard started to the master
+comment|// 2) Node gets disconnected and rejoins
+comment|// 3) Master assigns the shard back to the node
+comment|// 4) Master processes the shard started and starts the shard
+comment|// 5) The node process the cluster state where the shard is both started and primary term is incremented.
+comment|//
+comment|// We could fail the shard in that case, but this will cause it to be removed from the insync allocations list
+comment|// potentially preventing re-allocation.
 assert|assert
 name|shardRouting
 operator|.
@@ -2723,8 +2735,15 @@ name|primary
 argument_list|()
 operator|==
 literal|false
+operator|||
+name|shardRouting
+operator|.
+name|initializing
+argument_list|()
+operator|==
+literal|false
 operator|:
-literal|"a primary shard should never update it's term. shard: "
+literal|"a started primary shard should never update it's term. shard: "
 operator|+
 name|shardRouting
 operator|+
