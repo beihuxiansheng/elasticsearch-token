@@ -324,6 +324,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|all
@@ -5870,6 +5882,108 @@ literal|true
 argument_list|)
 argument_list|,
 name|query
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAllFieldsWithFields
+specifier|public
+name|void
+name|testAllFieldsWithFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"query_string\" : {\n"
+operator|+
+literal|"    \"query\" : \"this AND that OR thus\",\n"
+operator|+
+literal|"    \"fields\" : [\"foo\"],\n"
+operator|+
+literal|"    \"all_fields\" : true\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"cannot use [all_fields] parameter in conjunction with [default_field] or [fields]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|String
+name|json2
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"query_string\" : {\n"
+operator|+
+literal|"    \"query\" : \"this AND that OR thus\",\n"
+operator|+
+literal|"    \"default_field\" : \"foo\",\n"
+operator|+
+literal|"    \"all_fields\" : true\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"cannot use [all_fields] parameter in conjunction with [default_field] or [fields]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

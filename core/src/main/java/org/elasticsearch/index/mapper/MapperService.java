@@ -780,6 +780,14 @@ init|=
 literal|false
 decl_stmt|;
 comment|// updated dynamically to true when a nested object is added
+DECL|field|allEnabled
+specifier|private
+name|boolean
+name|allEnabled
+init|=
+literal|false
+decl_stmt|;
+comment|// updated dynamically to true when _all is enabled
 DECL|field|documentParser
 specifier|private
 specifier|final
@@ -1030,6 +1038,19 @@ return|return
 name|this
 operator|.
 name|hasNested
+return|;
+block|}
+comment|/**      * Returns true if the "_all" field is enabled for the type      */
+DECL|method|allEnabled
+specifier|public
+name|boolean
+name|allEnabled
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|allEnabled
 return|;
 block|}
 comment|/**      * returns an immutable iterator over current document mappers.      *      * @param includingDefaultMapping indicates whether the iterator should contain the {@link #DEFAULT_MAPPING} document mapper.      *                                As is this not really an active type, you would typically set this to false      */
@@ -2523,6 +2544,18 @@ operator|.
 name|parentTypes
 operator|=
 name|parentTypes
+expr_stmt|;
+name|this
+operator|.
+name|allEnabled
+operator|=
+name|mapper
+operator|.
+name|allFieldMapper
+argument_list|()
+operator|.
+name|enabled
+argument_list|()
 expr_stmt|;
 assert|assert
 name|assertSerialization

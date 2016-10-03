@@ -1230,6 +1230,7 @@ operator|=
 name|isFilter
 expr_stmt|;
 block|}
+comment|/**      * Returns all the fields that match a given pattern. If prefixed with a      * type then the fields will be returned with a type prefix.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
 name|Collection

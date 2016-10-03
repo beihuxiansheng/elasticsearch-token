@@ -192,6 +192,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|collect
@@ -1701,6 +1711,31 @@ comment|// the query expects a certain class of values such as numbers
 comment|// of ip addresses and the value can't be parsed, so ignore this
 comment|// field
 continue|continue;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|parseException
+parameter_list|)
+block|{
+comment|// date fields throw an ElasticsearchParseException with the
+comment|// underlying IAE as the cause, ignore this field if that is
+comment|// the case
+if|if
+condition|(
+name|parseException
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalArgumentException
+condition|)
+block|{
+continue|continue;
+block|}
+throw|throw
+name|parseException
+throw|;
 block|}
 name|float
 name|boost
