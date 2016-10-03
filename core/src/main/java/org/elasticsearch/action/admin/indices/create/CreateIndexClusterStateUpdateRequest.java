@@ -205,6 +205,12 @@ specifier|final
 name|String
 name|index
 decl_stmt|;
+DECL|field|providedName
+specifier|private
+specifier|final
+name|String
+name|providedName
+decl_stmt|;
 DECL|field|updateAllTypes
 specifier|private
 specifier|final
@@ -324,6 +330,9 @@ parameter_list|,
 name|String
 name|index
 parameter_list|,
+name|String
+name|providedName
+parameter_list|,
 name|boolean
 name|updateAllTypes
 parameter_list|)
@@ -351,6 +360,12 @@ operator|.
 name|updateAllTypes
 operator|=
 name|updateAllTypes
+expr_stmt|;
+name|this
+operator|.
+name|providedName
+operator|=
+name|providedName
 expr_stmt|;
 block|}
 DECL|method|settings
@@ -666,6 +681,17 @@ parameter_list|()
 block|{
 return|return
 name|updateAllTypes
+return|;
+block|}
+comment|/**      * The name that was provided by the user. This might contain a date math expression.      * @see IndexMetaData#SETTING_INDEX_PROVIDED_NAME      */
+DECL|method|getProvidedName
+specifier|public
+name|String
+name|getProvidedName
+parameter_list|()
+block|{
+return|return
+name|providedName
 return|;
 block|}
 DECL|method|waitForActiveShards

@@ -1620,6 +1620,16 @@ name|SETTING_CREATION_DATE
 init|=
 literal|"index.creation_date"
 decl_stmt|;
+comment|/**      * The user provided name for an index. This is the plain string provided by the user when the index was created.      * It might still contain date math expressions etc. (added in 5.0)      */
+DECL|field|SETTING_INDEX_PROVIDED_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_INDEX_PROVIDED_NAME
+init|=
+literal|"index.provided_name"
+decl_stmt|;
 DECL|field|SETTING_PRIORITY
 specifier|public
 specifier|static

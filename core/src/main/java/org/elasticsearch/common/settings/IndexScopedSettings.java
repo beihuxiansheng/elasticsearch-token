@@ -1064,6 +1064,11 @@ operator|.
 name|SETTING_VERSION_UPGRADED
 case|:
 case|case
+name|IndexMetaData
+operator|.
+name|SETTING_INDEX_PROVIDED_NAME
+case|:
+case|case
 name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_ENABLED
