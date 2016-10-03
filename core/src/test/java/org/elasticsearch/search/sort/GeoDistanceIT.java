@@ -569,10 +569,10 @@ name|class
 argument_list|)
 return|;
 block|}
-DECL|method|testSimpleDistance
+DECL|method|testLegacyGeoDistanceRangeQuery
 specifier|public
 name|void
-name|testSimpleDistance
+name|testLegacyGeoDistanceRangeQuery
 parameter_list|()
 throws|throws
 name|Exception
@@ -593,7 +593,7 @@ name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
-name|CURRENT
+name|V_2_4_0
 argument_list|)
 decl_stmt|;
 name|Settings
@@ -2608,7 +2608,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -2699,7 +2699,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -2790,7 +2790,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -4542,7 +4542,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,
@@ -4633,7 +4633,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"names"
 argument_list|,

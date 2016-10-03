@@ -111,6 +111,9 @@ name|shardInitialized
 parameter_list|(
 name|ShardRouting
 name|unassignedShard
+parameter_list|,
+name|ShardRouting
+name|initializedShard
 parameter_list|)
 block|{
 assert|assert
@@ -122,6 +125,16 @@ operator|:
 literal|"expected unassigned shard "
 operator|+
 name|unassignedShard
+assert|;
+assert|assert
+name|initializedShard
+operator|.
+name|initializing
+argument_list|()
+operator|:
+literal|"expected initializing shard "
+operator|+
+name|initializedShard
 assert|;
 name|setChanged
 argument_list|()

@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ckb
-operator|.
-name|SoraniAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|ckb
 operator|.
-name|CharArraySet
+name|SoraniAnalyzer
 import|;
 end_import
 

@@ -194,7 +194,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 import|;
 end_import
 
@@ -1710,11 +1710,11 @@ else|else
 block|{
 name|assertTrue
 argument_list|(
-literal|"memory queries should result in InMemoryGeoBoundingBoxQuery"
+literal|"memory queries should result in LegacyInMemoryGeoBoundingBoxQuery"
 argument_list|,
 name|query
 operator|instanceof
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 argument_list|)
 expr_stmt|;
 block|}
@@ -1832,10 +1832,36 @@ literal|"Found no indexed geo query."
 argument_list|,
 name|query
 operator|instanceof
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|context
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_beta1
+argument_list|)
+condition|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Found no indexed geo query."
+argument_list|,
+name|query
+operator|instanceof
+name|GeoPointInBBoxQuery
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1845,7 +1871,7 @@ literal|"Found no indexed geo query."
 argument_list|,
 name|query
 operator|instanceof
-name|GeoPointInBBoxQuery
+name|Query
 argument_list|)
 expr_stmt|;
 block|}
@@ -2598,11 +2624,11 @@ name|V_2_2_0
 argument_list|)
 condition|)
 block|{
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 name|filter
 init|=
 operator|(
-name|InMemoryGeoBoundingBoxQuery
+name|LegacyInMemoryGeoBoundingBoxQuery
 operator|)
 name|parsedQuery
 decl_stmt|;
@@ -2702,7 +2728,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|shardContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0_beta1
+argument_list|)
+condition|)
 block|{
 name|GeoPointInBBoxQuery
 name|q

@@ -417,6 +417,9 @@ name|prepareForTranslogOperations
 parameter_list|(
 name|int
 name|totalTranslogOps
+parameter_list|,
+name|long
+name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException
@@ -427,7 +430,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -441,6 +444,8 @@ argument_list|,
 name|shardId
 argument_list|,
 name|totalTranslogOps
+argument_list|,
+name|maxUnsafeAutoIdTimestamp
 argument_list|)
 argument_list|,
 name|TransportRequestOptions
@@ -482,7 +487,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -538,7 +543,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -620,7 +625,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -701,7 +706,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -758,7 +763,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -937,7 +942,7 @@ name|submitRequest
 argument_list|(
 name|targetNode
 argument_list|,
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.

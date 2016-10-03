@@ -1360,6 +1360,9 @@ literal|"_id"
 argument_list|,
 literal|"_description"
 argument_list|,
+name|randomInt
+argument_list|()
+argument_list|,
 operator|new
 name|CompoundProcessor
 argument_list|(

@@ -144,7 +144,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Unknown benchmark type ["
+literal|"Unknown client type ["
 operator|+
 name|type
 operator|+

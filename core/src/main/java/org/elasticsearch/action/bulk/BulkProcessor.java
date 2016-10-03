@@ -712,7 +712,7 @@ name|bulkSize
 operator|=
 name|bulkSize
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 name|this
@@ -1225,6 +1225,8 @@ argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

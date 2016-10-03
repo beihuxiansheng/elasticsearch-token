@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|DeprecationLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|DeprecationLogger
 import|;
 end_import
 
@@ -70,10 +70,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|AbstractIndexShardComponent
 specifier|public
@@ -86,7 +82,7 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|deprecationLogger

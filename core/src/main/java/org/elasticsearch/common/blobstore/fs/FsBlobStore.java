@@ -255,7 +255,7 @@ name|KB
 argument_list|)
 argument_list|)
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 block|}

@@ -64,16 +64,6 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|MetaStateService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
 name|DanglingIndicesState
 operator|.
 name|class

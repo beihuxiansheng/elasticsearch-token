@@ -909,7 +909,7 @@ if|if
 condition|(
 name|total
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 literal|0
@@ -919,12 +919,12 @@ name|used
 operator|=
 name|total
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|-
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 if|if
@@ -935,7 +935,7 @@ literal|0
 operator|&&
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>=
 literal|0
@@ -956,7 +956,7 @@ name|used
 operator|+
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|)
 argument_list|)
@@ -1014,7 +1014,7 @@ name|addCell
 argument_list|(
 name|avail
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 literal|0
@@ -1030,7 +1030,7 @@ name|addCell
 argument_list|(
 name|total
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 literal|0

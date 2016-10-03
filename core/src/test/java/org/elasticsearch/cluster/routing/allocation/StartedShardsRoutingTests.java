@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -91,6 +103,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|AllocationId
 import|;
 end_import
 
@@ -220,13 +246,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|test
-operator|.
-name|ESAllocationTestCase
+name|Arrays
 import|;
 end_import
 
@@ -236,7 +260,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|Collections
 import|;
 end_import
 
@@ -249,6 +273,18 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -291,6 +327,19 @@ argument_list|(
 literal|"--> building initial cluster state"
 argument_list|)
 expr_stmt|;
+name|AllocationId
+name|allocationId
+init|=
+name|AllocationId
+operator|.
+name|newRelocation
+argument_list|(
+name|AllocationId
+operator|.
+name|newInitializing
+argument_list|()
+argument_list|)
+decl_stmt|;
 specifier|final
 name|IndexMetaData
 name|indexMetaData
@@ -320,6 +369,21 @@ operator|.
 name|numberOfReplicas
 argument_list|(
 literal|0
+argument_list|)
+operator|.
+name|putInSyncAllocationIds
+argument_list|(
+literal|1
+argument_list|,
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|allocationId
+operator|.
+name|getId
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|build
@@ -444,6 +508,8 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|RELOCATING
+argument_list|,
+name|allocationId
 argument_list|)
 decl_stmt|;
 name|stateBuilder
@@ -528,10 +594,8 @@ argument_list|(
 literal|"--> test starting of shard"
 argument_list|)
 expr_stmt|;
-name|RoutingAllocation
-operator|.
-name|Result
-name|result
+name|ClusterState
+name|newState
 init|=
 name|allocation
 operator|.
@@ -545,11 +609,9 @@ name|asList
 argument_list|(
 name|initShard
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 literal|"failed to start "
 operator|+
@@ -557,7 +619,7 @@ name|initShard
 operator|+
 literal|"\ncurrent routing table:"
 operator|+
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -565,10 +627,15 @@ operator|.
 name|prettyPrint
 argument_list|()
 argument_list|,
-name|result
-operator|.
-name|changed
-argument_list|()
+name|newState
+argument_list|,
+name|not
+argument_list|(
+name|equalTo
+argument_list|(
+name|state
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -577,7 +644,7 @@ name|initShard
 operator|+
 literal|"isn't started \ncurrent routing table:"
 operator|+
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -585,7 +652,7 @@ operator|.
 name|prettyPrint
 argument_list|()
 argument_list|,
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -607,6 +674,10 @@ name|allShardsStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|state
+operator|=
+name|newState
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -614,7 +685,7 @@ argument_list|(
 literal|"--> testing starting of relocating shards"
 argument_list|)
 expr_stmt|;
-name|result
+name|newState
 operator|=
 name|allocation
 operator|.
@@ -631,11 +702,9 @@ operator|.
 name|getTargetRelocatingShard
 argument_list|()
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 literal|"failed to start "
 operator|+
@@ -643,7 +712,7 @@ name|relocatingShard
 operator|+
 literal|"\ncurrent routing table:"
 operator|+
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()
@@ -651,16 +720,21 @@ operator|.
 name|prettyPrint
 argument_list|()
 argument_list|,
-name|result
-operator|.
-name|changed
-argument_list|()
+name|newState
+argument_list|,
+name|not
+argument_list|(
+name|equalTo
+argument_list|(
+name|state
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ShardRouting
 name|shardRouting
 init|=
-name|result
+name|newState
 operator|.
 name|routingTable
 argument_list|()

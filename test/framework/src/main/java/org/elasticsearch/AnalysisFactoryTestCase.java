@@ -498,6 +498,20 @@ name|index
 operator|.
 name|analysis
 operator|.
+name|MinHashTokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
 name|MultiTermAwareComponent
 import|;
 end_import
@@ -1003,7 +1017,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Alerts us if new analyzers are added to lucene, so we don't miss them.  *<p>  * If we don't want to expose one for a specific reason, just map it to Void.  * The deprecated ones can be mapped to Deprecated.class.  */
+comment|/**  * Alerts us if new analyzers are added to lucene, so we don't miss them.  *<p>  * If we don't want to expose one for a specific reason, just map it to Void.  * The deprecated ones can be mapped to Deprecated.class.  */
 end_comment
 
 begin_class
@@ -1743,6 +1757,15 @@ argument_list|(
 literal|"shingle"
 argument_list|,
 name|ShingleTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"minhash"
+argument_list|,
+name|MinHashTokenFilterFactory
 operator|.
 name|class
 argument_list|)

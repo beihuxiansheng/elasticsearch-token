@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -329,20 +343,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -2229,7 +2229,7 @@ specifier|static
 name|void
 name|buildShardLevelInfo
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|ShardStats
@@ -2422,7 +2422,7 @@ specifier|static
 name|void
 name|fillDiskUsagePerNode
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|List
@@ -2542,7 +2542,7 @@ operator|.
 name|getAvailable
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|>
 name|info
@@ -2550,7 +2550,7 @@ operator|.
 name|getAvailable
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -2567,7 +2567,7 @@ operator|.
 name|getAvailable
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 name|info
@@ -2575,7 +2575,7 @@ operator|.
 name|getAvailable
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -2652,7 +2652,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 literal|0
@@ -2679,7 +2679,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2710,7 +2710,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|leastAvailablePath
@@ -2718,7 +2718,7 @@ operator|.
 name|getAvailable
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2731,7 +2731,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<
 literal|0
@@ -2758,7 +2758,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2789,7 +2789,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|,
 name|mostAvailablePath
@@ -2797,7 +2797,7 @@ operator|.
 name|getAvailable
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 argument_list|)
 argument_list|)

@@ -48,6 +48,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|AnalysisRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|ScriptService
@@ -158,6 +172,13 @@ specifier|final
 name|TemplateService
 name|templateService
 decl_stmt|;
+comment|/**          * Provide analyzer support          */
+DECL|field|analysisRegistry
+specifier|public
+specifier|final
+name|AnalysisRegistry
+name|analysisRegistry
+decl_stmt|;
 comment|/**          * Allows processors to read headers set by {@link org.elasticsearch.action.support.ActionFilter}          * instances that have run prior to in ingest.          */
 DECL|field|threadContext
 specifier|public
@@ -177,6 +198,9 @@ name|scriptService
 parameter_list|,
 name|TemplateService
 name|templateService
+parameter_list|,
+name|AnalysisRegistry
+name|analysisRegistry
 parameter_list|,
 name|ThreadContext
 name|threadContext
@@ -205,6 +229,12 @@ operator|.
 name|threadContext
 operator|=
 name|threadContext
+expr_stmt|;
+name|this
+operator|.
+name|analysisRegistry
+operator|=
+name|analysisRegistry
 expr_stmt|;
 block|}
 block|}

@@ -184,10 +184,10 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|AnalysisService
-name|analysisService
+name|TestAnalysis
+name|analysis
 init|=
-name|createAnalysisService
+name|createTestAnalysis
 argument_list|(
 operator|new
 name|Index
@@ -207,9 +207,11 @@ decl_stmt|;
 name|TokenFilterFactory
 name|filterFactory
 init|=
-name|analysisService
+name|analysis
 operator|.
 name|tokenFilter
+operator|.
+name|get
 argument_list|(
 literal|"phonetic"
 argument_list|)

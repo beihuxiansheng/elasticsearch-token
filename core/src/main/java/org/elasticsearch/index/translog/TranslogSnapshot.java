@@ -86,7 +86,7 @@ end_import
 
 begin_class
 DECL|class|TranslogSnapshot
-specifier|public
+specifier|final
 class|class
 name|TranslogSnapshot
 extends|extends
@@ -204,7 +204,6 @@ annotation|@
 name|Override
 DECL|method|totalOperations
 specifier|public
-specifier|final
 name|int
 name|totalOperations
 parameter_list|()
@@ -246,7 +245,6 @@ block|}
 block|}
 DECL|method|readOperation
 specifier|protected
-specifier|final
 name|Translog
 operator|.
 name|Operation

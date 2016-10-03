@@ -196,6 +196,16 @@ name|Reader
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * A YAML based content implementation using Jackson.  */
 end_comment
@@ -299,12 +309,17 @@ parameter_list|(
 name|OutputStream
 name|os
 parameter_list|,
+name|Set
+argument_list|<
 name|String
-index|[]
-name|filters
+argument_list|>
+name|includes
 parameter_list|,
-name|boolean
-name|inclusive
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|excludes
 parameter_list|)
 throws|throws
 name|IOException
@@ -326,9 +341,9 @@ argument_list|)
 argument_list|,
 name|os
 argument_list|,
-name|filters
+name|includes
 argument_list|,
-name|inclusive
+name|excludes
 argument_list|)
 return|;
 block|}

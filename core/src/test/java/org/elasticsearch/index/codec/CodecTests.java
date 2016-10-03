@@ -122,9 +122,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene60
+name|lucene62
 operator|.
-name|Lucene60Codec
+name|Lucene62Codec
 import|;
 end_import
 
@@ -290,7 +290,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisService
+name|IndexAnalyzers
 import|;
 end_import
 
@@ -448,7 +448,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|Lucene60Codec
+name|Lucene62Codec
 operator|.
 name|class
 argument_list|)
@@ -763,15 +763,17 @@ name|emptyMap
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AnalysisService
-name|analysisService
+name|IndexAnalyzers
+name|indexAnalyzers
 init|=
-name|createAnalysisService
+name|createTestAnalysis
 argument_list|(
 name|settings
 argument_list|,
 name|nodeSettings
 argument_list|)
+operator|.
+name|indexAnalyzers
 decl_stmt|;
 name|MapperRegistry
 name|mapperRegistry
@@ -798,7 +800,7 @@ name|MapperService
 argument_list|(
 name|settings
 argument_list|,
-name|analysisService
+name|indexAnalyzers
 argument_list|,
 name|similarityService
 argument_list|,

@@ -40,9 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
-name|StopAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -56,9 +54,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|core
 operator|.
-name|CharArraySet
+name|StopAnalyzer
 import|;
 end_import
 

@@ -2417,7 +2417,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|MATCHED_FIELDS_FIELD
 operator|.

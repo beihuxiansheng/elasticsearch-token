@@ -100,20 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Setting
@@ -189,8 +175,6 @@ init|=
 literal|"max_retry"
 decl_stmt|;
 comment|/**      * Initializes a new {@link MaxRetryAllocationDecider}      *      * @param settings {@link Settings} used by this {@link AllocationDecider}      */
-annotation|@
-name|Inject
 DECL|method|MaxRetryAllocationDecider
 specifier|public
 name|MaxRetryAllocationDecider

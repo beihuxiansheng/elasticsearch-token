@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -90,7 +90,7 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
@@ -351,9 +351,9 @@ name|size
 argument_list|()
 argument_list|)
 operator|.
-name|setWaitForRelocatingShards
+name|setWaitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|get

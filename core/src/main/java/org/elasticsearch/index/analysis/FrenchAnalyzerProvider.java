@@ -26,9 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|fr
-operator|.
-name|FrenchAnalyzer
+name|CharArraySet
 import|;
 end_import
 
@@ -42,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
+name|fr
 operator|.
-name|CharArraySet
+name|FrenchAnalyzer
 import|;
 end_import
 

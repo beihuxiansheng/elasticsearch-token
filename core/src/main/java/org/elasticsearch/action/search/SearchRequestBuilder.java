@@ -823,23 +823,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
-DECL|method|setNoStoredFields
-specifier|public
-name|SearchRequestBuilder
-name|setNoStoredFields
-parameter_list|()
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|noStoredFields
-argument_list|()
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Indicates whether the response should contain the stored _source for every hit      */
 DECL|method|setFetchSource
 specifier|public
@@ -948,7 +931,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a stored field to load and return (note, it must be stored) as part of the search request.      * If none are specified, the source of the document will be return.      */
+comment|/**      * Adds a stored field to load and return (note, it must be stored) as part of the search request.      */
 DECL|method|addStoredField
 specifier|public
 name|SearchRequestBuilder
@@ -1136,7 +1119,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the stored fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      *      * @deprecated Use {@link SearchRequestBuilder#storedFields(String...)} instead.      */
+comment|/**      * Adds stored fields to load and return (note, it must be stored) as part of the search request.      * To disable the stored fields entirely (source and metadata fields) use {@code storedField("_none_")}.      * @deprecated Use {@link SearchRequestBuilder#storedFields(String...)} instead.      */
 annotation|@
 name|Deprecated
 DECL|method|fields
@@ -1166,7 +1149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      */
+comment|/**      * Adds stored fields to load and return (note, it must be stored) as part of the search request.      * To disable the stored fields entirely (source and metadata fields) use {@code storedField("_none_")}.      */
 DECL|method|storedFields
 specifier|public
 name|SearchRequestBuilder

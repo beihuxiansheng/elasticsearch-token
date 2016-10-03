@@ -106,6 +106,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|RecoverySource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|RoutingNode
 import|;
 end_import
@@ -204,20 +218,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|ClusterSettings
@@ -305,8 +305,6 @@ specifier|final
 name|DiskThresholdSettings
 name|diskThresholdSettings
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|DiskThresholdDecider
 specifier|public
 name|DiskThresholdDecider
@@ -336,7 +334,7 @@ name|clusterSettings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transferring yet.      *      * If subtractShardsMovingAway is set then the size of shards moving away is subtracted from the total size      * of all shards      */
+comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transferring yet.      *      * If subtractShardsMovingAway is true then the size of shards moving away is subtracted from the total size of all shards      */
 DECL|method|sizeOfRelocatingShards
 specifier|static
 name|long
@@ -545,6 +543,8 @@ operator|.
 name|getFreeDiskThresholdHigh
 argument_list|()
 decl_stmt|;
+comment|// subtractLeavingShards is passed as false here, because they still use disk space, and therefore should we should be extra careful
+comment|// and take the size into account
 name|DiskUsage
 name|usage
 init|=
@@ -555,6 +555,8 @@ argument_list|,
 name|allocation
 argument_list|,
 name|usages
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// First, check that the node currently over the low watermark
@@ -606,25 +608,10 @@ name|usedDiskPercentage
 argument_list|)
 expr_stmt|;
 block|}
-comment|// a flag for whether the primary shard has been previously allocated
-name|IndexMetaData
-name|indexMetaData
-init|=
-name|allocation
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|getIndexSafe
-argument_list|(
-name|shardRouting
-operator|.
-name|index
-argument_list|()
-argument_list|)
-decl_stmt|;
+comment|// flag that determines whether the low threshold checks below can be skipped. We use this for a primary shard that is freshly
+comment|// allocated and empty.
 name|boolean
-name|primaryHasBeenAllocated
+name|skipLowTresholdChecks
 init|=
 name|shardRouting
 operator|.
@@ -633,10 +620,24 @@ argument_list|()
 operator|&&
 name|shardRouting
 operator|.
-name|allocatedPostIndexCreate
-argument_list|(
-name|indexMetaData
-argument_list|)
+name|active
+argument_list|()
+operator|==
+literal|false
+operator|&&
+name|shardRouting
+operator|.
+name|recoverySource
+argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|EMPTY_STORE
 decl_stmt|;
 comment|// checks for exact byte comparisons
 if|if
@@ -648,27 +649,15 @@ operator|.
 name|getFreeBytesThresholdLow
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
-comment|// If the shard is a replica or has a primary that has already been allocated before, check the low threshold
 if|if
 condition|(
-operator|!
-name|shardRouting
-operator|.
-name|primary
-argument_list|()
-operator|||
-operator|(
-name|shardRouting
-operator|.
-name|primary
-argument_list|()
-operator|&&
-name|primaryHasBeenAllocated
-operator|)
+name|skipLowTresholdChecks
+operator|==
+literal|false
 condition|)
 block|{
 if|if
@@ -735,7 +724,7 @@ operator|.
 name|getFreeBytesThresholdHigh
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -860,23 +849,12 @@ name|getFreeDiskThresholdLow
 argument_list|()
 condition|)
 block|{
-comment|// If the shard is a replica or has a primary that has already been allocated before, check the low threshold
+comment|// If the shard is a replica or is a non-empty primary, check the low threshold
 if|if
 condition|(
-operator|!
-name|shardRouting
-operator|.
-name|primary
-argument_list|()
-operator|||
-operator|(
-name|shardRouting
-operator|.
-name|primary
-argument_list|()
-operator|&&
-name|primaryHasBeenAllocated
-operator|)
+name|skipLowTresholdChecks
+operator|==
+literal|false
 condition|)
 block|{
 if|if
@@ -1116,7 +1094,7 @@ operator|.
 name|getFreeBytesThresholdHigh
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -1367,6 +1345,8 @@ return|return
 name|decision
 return|;
 block|}
+comment|// subtractLeavingShards is passed as true here, since this is only for shards remaining, we will *eventually* have enough disk
+comment|// since shards are moving away. No new shards will be incoming since in canAllocate we pass false for this check.
 specifier|final
 name|DiskUsage
 name|usage
@@ -1378,6 +1358,8 @@ argument_list|,
 name|allocation
 argument_list|,
 name|usages
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1478,7 +1460,7 @@ operator|.
 name|getFreeBytesThresholdHigh
 argument_list|()
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 condition|)
 block|{
@@ -1639,6 +1621,9 @@ argument_list|,
 name|DiskUsage
 argument_list|>
 name|usages
+parameter_list|,
+name|boolean
+name|subtractLeavingShards
 parameter_list|)
 block|{
 name|DiskUsage
@@ -1726,7 +1711,7 @@ name|node
 argument_list|,
 name|allocation
 argument_list|,
-literal|true
+name|subtractLeavingShards
 argument_list|,
 name|usage
 operator|.
@@ -2241,12 +2226,24 @@ literal|null
 operator|&&
 name|shard
 operator|.
-name|allocatedPostIndexCreate
-argument_list|(
-name|metaData
-argument_list|)
+name|active
+argument_list|()
 operator|==
 literal|false
+operator|&&
+name|shard
+operator|.
+name|recoverySource
+argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|LOCAL_SHARDS
 condition|)
 block|{
 comment|// in the shrink index case we sum up the source index shards since we basically make a copy of the shard in
@@ -2276,10 +2273,7 @@ argument_list|()
 operator|.
 name|getIndexSafe
 argument_list|(
-name|metaData
-operator|.
-name|getMergeSourceIndex
-argument_list|()
+name|mergeSourceIndex
 argument_list|)
 decl_stmt|;
 specifier|final

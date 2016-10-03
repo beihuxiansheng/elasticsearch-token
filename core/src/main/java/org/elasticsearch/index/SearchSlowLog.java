@@ -18,11 +18,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|Strings
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -34,9 +36,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
+name|Strings
 import|;
 end_import
 
@@ -138,10 +138,6 @@ name|TimeUnit
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|SearchSlowLog
 specifier|public
@@ -204,13 +200,13 @@ decl_stmt|;
 DECL|field|queryLogger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|queryLogger
 decl_stmt|;
 DECL|field|fetchLogger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|fetchLogger
 decl_stmt|;
 DECL|field|INDEX_SEARCH_SLOWLOG_PREFIX
@@ -966,24 +962,24 @@ name|level
 operator|=
 name|level
 expr_stmt|;
-name|this
-operator|.
-name|queryLogger
+name|Loggers
 operator|.
 name|setLevel
 argument_list|(
+name|queryLogger
+argument_list|,
 name|level
 operator|.
 name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|fetchLogger
+name|Loggers
 operator|.
 name|setLevel
 argument_list|(
+name|fetchLogger
+argument_list|,
 name|level
 operator|.
 name|name

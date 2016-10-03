@@ -20,13 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|logging
 operator|.
-name|ESLogger
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -97,7 +97,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. This breaker starts with 0 bytes used.      * @param limit circuit breaker limit      * @param overheadConstant constant multiplier for byte estimations      */
@@ -111,7 +111,7 @@ parameter_list|,
 name|double
 name|overheadConstant
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -141,7 +141,7 @@ parameter_list|,
 name|MemoryCircuitBreaker
 name|oldBreaker
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -151,7 +151,7 @@ name|memoryBytesLimit
 operator|=
 name|limit
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 expr_stmt|;
 name|this

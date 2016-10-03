@@ -615,7 +615,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|INDICES_FIELD
 operator|.

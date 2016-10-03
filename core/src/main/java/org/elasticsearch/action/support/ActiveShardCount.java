@@ -512,7 +512,58 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns true iff the given cluster state's routing table contains enough active      * shards to meet the required shard count represented by this instance.      */
+comment|/**      * Returns true iff the given number of active shards is enough to meet      * the required shard count represented by this instance.  This method      * should only be invoked with {@link ActiveShardCount} objects created      * from {@link #from(int)}, or {@link #NONE} or {@link #ONE}.      */
+DECL|method|enoughShardsActive
+specifier|public
+name|boolean
+name|enoughShardsActive
+parameter_list|(
+specifier|final
+name|int
+name|activeShardCount
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|value
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"not enough information to resolve to shard count"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|activeShardCount
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"activeShardCount cannot be negative"
+argument_list|)
+throw|;
+block|}
+return|return
+name|this
+operator|.
+name|value
+operator|<=
+name|activeShardCount
+return|;
+block|}
+comment|/**      * Returns true iff the given cluster state's routing table contains enough active      * shards for the given index to meet the required shard count represented by this instance.      */
 DECL|method|enoughShardsActive
 specifier|public
 name|boolean

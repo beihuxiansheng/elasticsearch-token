@@ -160,6 +160,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|NodeValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -233,6 +245,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -295,6 +317,8 @@ specifier|static
 name|void
 name|createTribes
 parameter_list|()
+throws|throws
+name|NodeValidationException
 block|{
 name|Settings
 name|baseSettings
@@ -410,6 +434,11 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 operator|.
 name|start
@@ -461,6 +490,11 @@ argument_list|()
 argument_list|)
 operator|.
 name|build
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
 argument_list|()
 argument_list|)
 operator|.

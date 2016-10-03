@@ -1275,7 +1275,7 @@ argument_list|(
 operator|new
 name|ResourceNotFoundException
 argument_list|(
-literal|"task [{}] isn't running or stored its results"
+literal|"task [{}] isn't running and hasn't stored its results"
 argument_list|,
 name|e
 argument_list|,

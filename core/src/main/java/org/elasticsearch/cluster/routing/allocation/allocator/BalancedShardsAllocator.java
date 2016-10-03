@@ -26,6 +26,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|util
@@ -289,20 +303,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -1105,7 +1105,7 @@ block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|field|nodes
@@ -1164,7 +1164,7 @@ DECL|method|Balancer
 specifier|public
 name|Balancer
 parameter_list|(
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|,
 name|RoutingAllocation
@@ -4236,17 +4236,9 @@ name|YES
 condition|)
 block|{
 comment|/* only allocate on the cluster if we are not throttled */
-if|if
-condition|(
 name|logger
 operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Relocate shard [{}] from node [{}] to node [{}]"
 argument_list|,
@@ -4263,7 +4255,6 @@ name|getNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|/* now allocate on the cluster */
 name|minNode
 operator|.

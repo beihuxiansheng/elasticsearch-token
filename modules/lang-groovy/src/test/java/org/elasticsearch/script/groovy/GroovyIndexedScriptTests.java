@@ -504,7 +504,9 @@ argument_list|)
 operator|.
 name|setScriptLang
 argument_list|(
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|)
 operator|.
 name|setSource
@@ -538,7 +540,9 @@ argument_list|)
 operator|.
 name|setScriptLang
 argument_list|(
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|)
 operator|.
 name|setSource
@@ -744,7 +748,9 @@ name|ScriptType
 operator|.
 name|STORED
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -763,7 +769,9 @@ name|ScriptType
 operator|.
 name|STORED
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 name|script2Params
 argument_list|)
@@ -998,7 +1006,9 @@ name|ScriptType
 operator|.
 name|STORED
 argument_list|,
-literal|"groovy"
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)
@@ -1303,7 +1313,9 @@ name|ScriptType
 operator|.
 name|STORED
 argument_list|,
-literal|null
+name|GroovyScriptEngineService
+operator|.
+name|NAME
 argument_list|,
 literal|null
 argument_list|)

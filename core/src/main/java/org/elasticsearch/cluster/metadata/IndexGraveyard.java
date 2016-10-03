@@ -248,6 +248,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -279,16 +289,6 @@ operator|.
 name|util
 operator|.
 name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -1098,8 +1098,10 @@ name|Builder
 name|addTombstones
 parameter_list|(
 specifier|final
+name|Collection
+argument_list|<
 name|Index
-index|[]
+argument_list|>
 name|indices
 parameter_list|)
 block|{

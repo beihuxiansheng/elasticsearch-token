@@ -1630,7 +1630,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"includes"
 argument_list|,
@@ -1646,7 +1646,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"includes"
 argument_list|,
@@ -1665,7 +1665,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"excludes"
 argument_list|,
@@ -1681,7 +1681,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"excludes"
 argument_list|,

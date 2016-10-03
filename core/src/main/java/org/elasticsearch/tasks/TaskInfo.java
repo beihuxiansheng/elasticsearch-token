@@ -779,7 +779,7 @@ expr_stmt|;
 block|}
 name|builder
 operator|.
-name|dateValueField
+name|dateField
 argument_list|(
 literal|"start_time_in_millis"
 argument_list|,

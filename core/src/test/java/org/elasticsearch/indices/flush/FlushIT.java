@@ -543,11 +543,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|(
 operator|new
@@ -1112,9 +1107,9 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
-name|setWaitForRelocatingShards
+name|setWaitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 operator|.
 name|get

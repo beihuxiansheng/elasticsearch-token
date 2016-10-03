@@ -446,7 +446,7 @@ name|INDICES_CACHE_QUERY_SIZE
 init|=
 name|Setting
 operator|.
-name|byteSizeSetting
+name|memorySizeSetting
 argument_list|(
 literal|"indices.requests.cache.size"
 argument_list|,
@@ -585,7 +585,7 @@ name|sizeInBytes
 init|=
 name|size
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 decl_stmt|;
 name|CacheBuilder

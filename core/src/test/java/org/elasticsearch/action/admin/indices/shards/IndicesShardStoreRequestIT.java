@@ -505,7 +505,7 @@ argument_list|)
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,action.admin.indices.shards:TRACE,cluster.service:TRACE"
+literal|"_root:DEBUG,org.elasticsearch.action.admin.indices.shards:TRACE,org.elasticsearch.cluster.service:TRACE"
 argument_list|)
 DECL|class|IndicesShardStoreRequestIT
 specifier|public
@@ -1945,11 +1945,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)

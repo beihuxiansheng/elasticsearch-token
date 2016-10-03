@@ -172,7 +172,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestDocumentTests
+name|IngestDocumentMatcher
 operator|.
 name|assertIngestDocument
 import|;
@@ -246,6 +246,20 @@ name|SimulateExecutionServiceTests
 extends|extends
 name|ESTestCase
 block|{
+DECL|field|version
+specifier|private
+specifier|final
+name|Integer
+name|version
+init|=
+name|randomBoolean
+argument_list|()
+condition|?
+name|randomInt
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 DECL|field|threadPool
 specifier|private
 name|ThreadPool
@@ -359,6 +373,8 @@ argument_list|(
 literal|"_id"
 argument_list|,
 literal|"_description"
+argument_list|,
+name|version
 argument_list|,
 operator|new
 name|CompoundProcessor
@@ -687,6 +703,8 @@ literal|"_id"
 argument_list|,
 literal|"_description"
 argument_list|,
+name|version
+argument_list|,
 operator|new
 name|CompoundProcessor
 argument_list|(
@@ -838,6 +856,8 @@ argument_list|(
 literal|"_id"
 argument_list|,
 literal|"_description"
+argument_list|,
+name|version
 argument_list|,
 operator|new
 name|CompoundProcessor
@@ -1217,6 +1237,8 @@ argument_list|(
 literal|"_id"
 argument_list|,
 literal|"_description"
+argument_list|,
+name|version
 argument_list|,
 operator|new
 name|CompoundProcessor
@@ -1703,6 +1725,8 @@ literal|"_id"
 argument_list|,
 literal|"_description"
 argument_list|,
+name|version
+argument_list|,
 operator|new
 name|CompoundProcessor
 argument_list|(
@@ -1942,6 +1966,8 @@ literal|"_id"
 argument_list|,
 literal|"_description"
 argument_list|,
+name|version
+argument_list|,
 operator|new
 name|CompoundProcessor
 argument_list|(
@@ -2161,6 +2187,8 @@ argument_list|(
 literal|"_id"
 argument_list|,
 literal|"_description"
+argument_list|,
+name|version
 argument_list|,
 operator|new
 name|CompoundProcessor

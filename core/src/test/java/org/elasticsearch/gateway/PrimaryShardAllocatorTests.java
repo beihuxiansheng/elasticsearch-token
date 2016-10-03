@@ -70,6 +70,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|health
 operator|.
 name|ClusterHealthStatus
@@ -156,7 +168,9 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RestoreSource
+name|RecoverySource
+operator|.
+name|SnapshotRecoverySource
 import|;
 end_import
 
@@ -227,6 +241,20 @@ operator|.
 name|routing
 operator|.
 name|ShardRoutingState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|UnassignedInfo
 import|;
 end_import
 
@@ -426,21 +454,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|junit
 operator|.
-name|test
-operator|.
-name|ESAllocationTestCase
+name|Before
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Before
+name|Arrays
 import|;
 end_import
 
@@ -481,6 +507,60 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|CLUSTER_RECOVERED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|INDEX_CREATED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|INDEX_REOPENED
 import|;
 end_import
 
@@ -613,12 +693,7 @@ specifier|final
 name|RoutingAllocation
 name|allocation
 decl_stmt|;
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
+comment|// with old version, we can't know if a shard was allocated before or not
 name|allocation
 operator|=
 name|routingAllocationWithOnePrimaryNoReplicas
@@ -626,32 +701,20 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-name|randomBoolean
-argument_list|()
+name|randomFrom
+argument_list|(
+name|INDEX_CREATED
+argument_list|,
+name|CLUSTER_RECOVERED
+argument_list|,
+name|INDEX_REOPENED
+argument_list|)
 argument_list|,
 name|Version
 operator|.
 name|CURRENT
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|allocation
-operator|=
-name|routingAllocationWithOnePrimaryNoReplicas
-argument_list|(
-name|yesAllocationDeciders
-argument_list|()
-argument_list|,
-literal|true
-argument_list|,
-name|Version
-operator|.
-name|V_2_1_0
-argument_list|)
-expr_stmt|;
-block|}
 name|testAllocator
 operator|.
 name|allocateUnassigned
@@ -750,7 +813,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -769,7 +832,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -880,7 +943,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -899,7 +962,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -1017,7 +1080,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -1136,7 +1199,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -1287,7 +1350,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -1337,7 +1400,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -1475,7 +1538,12 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|randomFrom
+argument_list|(
+name|CLUSTER_RECOVERED
+argument_list|,
+name|INDEX_REOPENED
+argument_list|)
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -1517,7 +1585,12 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|randomFrom
+argument_list|(
+name|CLUSTER_RECOVERED
+argument_list|,
+name|INDEX_REOPENED
+argument_list|)
 argument_list|,
 name|Version
 operator|.
@@ -1716,10 +1789,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|AllocationDecider
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 comment|// since the deciders return a NO decision for allocating a shard (due to the guaranteed NO decision from the second decider),
 comment|// the allocator will see if it can force assign the primary, where the decision will be YES
 operator|new
@@ -1736,10 +1809,10 @@ name|Decision
 operator|.
 name|NO
 argument_list|)
-block|,
+argument_list|,
 name|getNoDeciderThatAllowsForceAllocate
 argument_list|()
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation
@@ -1749,7 +1822,7 @@ name|routingAllocationWithOnePrimaryNoReplicas
 argument_list|(
 name|deciders
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -1883,10 +1956,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|AllocationDecider
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 comment|// since both deciders here return a NO decision for allocating a shard,
 comment|// the allocator will see if it can force assign the primary, where the decision will be either NO or THROTTLE,
 comment|// so the shard will remain un-initialized
@@ -1897,7 +1970,7 @@ name|Decision
 operator|.
 name|NO
 argument_list|)
-block|,
+argument_list|,
 name|forceDecisionNo
 condition|?
 name|getNoDeciderThatDeniesForceAllocate
@@ -1905,7 +1978,7 @@ argument_list|()
 else|:
 name|getNoDeciderThatThrottlesForceAllocate
 argument_list|()
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation
@@ -1915,7 +1988,7 @@ name|routingAllocationWithOnePrimaryNoReplicas
 argument_list|(
 name|deciders
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -2049,10 +2122,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|AllocationDecider
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 comment|// since we have a NO decision for allocating a shard (because the second decider returns a NO decision),
 comment|// the allocator will see if it can force assign the primary, and in this case,
 comment|// the TestAllocateDecision's decision for force allocating is to THROTTLE (using
@@ -2065,10 +2138,10 @@ name|Decision
 operator|.
 name|THROTTLE
 argument_list|)
-block|,
+argument_list|,
 name|getNoDeciderThatAllowsForceAllocate
 argument_list|()
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|RoutingAllocation
@@ -2078,7 +2151,7 @@ name|routingAllocationWithOnePrimaryNoReplicas
 argument_list|(
 name|deciders
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -2204,7 +2277,12 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|randomFrom
+argument_list|(
+name|CLUSTER_RECOVERED
+argument_list|,
+name|INDEX_REOPENED
+argument_list|)
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -2406,7 +2484,7 @@ argument_list|(
 name|throttleAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -2448,7 +2526,7 @@ argument_list|(
 name|throttleAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -2573,7 +2651,7 @@ argument_list|(
 name|noAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -2615,7 +2693,7 @@ argument_list|(
 name|noAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -2758,7 +2836,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -2912,7 +2990,7 @@ argument_list|(
 name|yesAllocationDeciders
 argument_list|()
 argument_list|,
-literal|false
+name|CLUSTER_RECOVERED
 argument_list|,
 name|Version
 operator|.
@@ -3674,7 +3752,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 literal|0
 argument_list|,
@@ -3739,7 +3817,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|RestoreSource
+name|SnapshotRecoverySource
 argument_list|(
 name|snapshot
 argument_list|,
@@ -4406,7 +4484,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 literal|0
 argument_list|,
@@ -4450,7 +4528,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|RestoreSource
+name|SnapshotRecoverySource
 argument_list|(
 operator|new
 name|Snapshot
@@ -5756,8 +5834,10 @@ parameter_list|(
 name|AllocationDeciders
 name|deciders
 parameter_list|,
-name|boolean
-name|asNew
+name|UnassignedInfo
+operator|.
+name|Reason
+name|reason
 parameter_list|,
 name|Version
 name|version
@@ -5805,7 +5885,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|putActiveAllocationIds
+name|putInSyncAllocationIds
 argument_list|(
 name|shardId
 operator|.
@@ -5834,11 +5914,14 @@ operator|.
 name|builder
 argument_list|()
 decl_stmt|;
-if|if
+switch|switch
 condition|(
-name|asNew
+name|reason
 condition|)
 block|{
+case|case
+name|INDEX_CREATED
+case|:
 name|routingTableBuilder
 operator|.
 name|addAsNew
@@ -5854,9 +5937,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+case|case
+name|CLUSTER_RECOVERED
+case|:
 name|routingTableBuilder
 operator|.
 name|addAsRecovery
@@ -5872,6 +5956,38 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+break|break;
+case|case
+name|INDEX_REOPENED
+case|:
+name|routingTableBuilder
+operator|.
+name|addAsFromCloseToOpen
+argument_list|(
+name|metaData
+operator|.
+name|index
+argument_list|(
+name|shardId
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"can't do "
+operator|+
+name|reason
+operator|+
+literal|" for you. teach me"
+argument_list|)
+throw|;
 block|}
 name|ClusterState
 name|state

@@ -789,6 +789,10 @@ name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
 argument_list|,
+name|EngineConfig
+operator|.
+name|INDEX_OPTIMIZE_AUTO_GENERATED_IDS
+argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_WAIT_FOR_ACTIVE_SHARDS
@@ -1058,6 +1062,11 @@ case|case
 name|IndexMetaData
 operator|.
 name|SETTING_VERSION_UPGRADED
+case|:
+case|case
+name|IndexMetaData
+operator|.
+name|SETTING_INDEX_PROVIDED_NAME
 case|:
 case|case
 name|MergePolicyConfig

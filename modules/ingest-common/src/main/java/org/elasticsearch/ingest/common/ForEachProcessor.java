@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor that for each value in a list executes a one or more processors.  *  * This can be useful in cases to do string operations on json array of strings,  * or remove a field from objects inside a json array.  */
+comment|/**  * A processor that for each value in a list executes a one or more processors.  *  * This can be useful in cases to do string operations on json array of strings,  * or remove a field from objects inside a json array.  *  * Note that this processor is experimental.  */
 end_comment
 
 begin_class

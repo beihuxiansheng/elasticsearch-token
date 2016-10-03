@@ -84,9 +84,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|settings
 operator|.
-name|Inject
+name|Setting
 import|;
 end_import
 
@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An allocation decider that prevents multiple instances of the same shard to  * be allocated on the same<tt>node</tt>.  *  * The {@value #SAME_HOST_SETTING} setting allows to perform a check to prevent  * allocation of multiple instances of the same shard on a single<tt>host</tt>,  * based on host name and host address. Defaults to `false`, meaning that no  * check is performed by default.  *  *<p>  * Note: this setting only applies if multiple nodes are started on the same  *<tt>host</tt>. Allocations of multiple copies of the same shard on the same  *<tt>node</tt> are not allowed independently of this setting.  *</p>  */
+comment|/**  * An allocation decider that prevents multiple instances of the same shard to  * be allocated on the same<tt>node</tt>.  *  * The {@link #CLUSTER_ROUTING_ALLOCATION_SAME_HOST_SETTING} setting allows to perform a check to prevent  * allocation of multiple instances of the same shard on a single<tt>host</tt>,  * based on host name and host address. Defaults to `false`, meaning that no  * check is performed by default.  *  *<p>  * Note: this setting only applies if multiple nodes are started on the same  *<tt>host</tt>. Allocations of multiple copies of the same shard on the same  *<tt>node</tt> are not allowed independently of this setting.  *</p>  */
 end_comment
 
 begin_class
@@ -125,14 +125,30 @@ name|NAME
 init|=
 literal|"same_shard"
 decl_stmt|;
-DECL|field|SAME_HOST_SETTING
+DECL|field|CLUSTER_ROUTING_ALLOCATION_SAME_HOST_SETTING
 specifier|public
 specifier|static
 specifier|final
-name|String
-name|SAME_HOST_SETTING
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|CLUSTER_ROUTING_ALLOCATION_SAME_HOST_SETTING
 init|=
+name|Setting
+operator|.
+name|boolSetting
+argument_list|(
 literal|"cluster.routing.allocation.same_shard.host"
+argument_list|,
+literal|false
+argument_list|,
+name|Setting
+operator|.
+name|Property
+operator|.
+name|NodeScope
+argument_list|)
 decl_stmt|;
 DECL|field|sameHost
 specifier|private
@@ -140,8 +156,6 @@ specifier|final
 name|boolean
 name|sameHost
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|SameShardAllocationDecider
 specifier|public
 name|SameShardAllocationDecider
@@ -159,13 +173,11 @@ name|this
 operator|.
 name|sameHost
 operator|=
-name|settings
+name|CLUSTER_ROUTING_ALLOCATION_SAME_HOST_SETTING
 operator|.
-name|getAsBoolean
+name|get
 argument_list|(
-name|SAME_HOST_SETTING
-argument_list|,
-literal|false
+name|settings
 argument_list|)
 expr_stmt|;
 block|}

@@ -124,6 +124,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|NodeValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -340,6 +352,8 @@ name|testNodeVersionIsUpdated
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|NodeValidationException
 block|{
 name|TransportClient
 name|client

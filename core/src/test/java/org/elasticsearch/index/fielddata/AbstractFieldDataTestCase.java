@@ -348,7 +348,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
@@ -1177,7 +1177,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|GeoPointFieldMapperLegacy
+name|LegacyGeoPointFieldMapper
 operator|.
 name|Builder
 argument_list|(

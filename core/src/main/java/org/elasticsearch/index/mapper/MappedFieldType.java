@@ -852,7 +852,7 @@ name|nullValueAsString
 argument_list|)
 return|;
 block|}
-comment|// norelease: we need to override freeze() and add safety checks that all settings are actually set
+comment|// TODO: we need to override freeze() and add safety checks that all settings are actually set
 comment|/** Returns the name of this type, as would be specified in mapping properties */
 DECL|method|typeName
 specifier|public

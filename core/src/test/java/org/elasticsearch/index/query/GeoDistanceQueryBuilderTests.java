@@ -24,6 +24,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|LatLonPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|MatchNoDocsQuery
@@ -137,6 +151,20 @@ operator|.
 name|unit
 operator|.
 name|DistanceUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|LatLonPointFieldMapper
 import|;
 end_import
 
@@ -441,27 +469,6 @@ name|GeoValidationMethod
 operator|.
 name|values
 argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|qb
-operator|.
-name|optimizeBbox
-argument_list|(
-name|randomFrom
-argument_list|(
-literal|"none"
-argument_list|,
-literal|"memory"
-argument_list|,
-literal|"indexed"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -881,34 +888,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|e
-operator|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|query
-operator|.
-name|optimizeBbox
-argument_list|(
-literal|null
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"optimizeBbox must not be null"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Overridden here to ensure the test is only run if at least one type is      * present in the mappings. Geo queries do not execute if the field is not      * explicitly mapped      */
 annotation|@
@@ -1199,6 +1178,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Version
+name|version
+init|=
+name|createShardContext
+argument_list|()
+operator|.
+name|indexVersionCreated
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|LatLonPointFieldMapper
+operator|.
+name|LAT_LON_FIELD_VERSION
+argument_list|)
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|query
@@ -1357,6 +1357,7 @@ name|TOLERANCE
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testParsingAndToQuery1
@@ -2262,7 +2263,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|LatLonPointFieldMapper
+operator|.
+name|LAT_LON_FIELD_VERSION
+argument_list|)
+condition|)
 block|{
 name|GeoPointDistanceQuery
 name|q
@@ -2368,8 +2380,6 @@ literal|"    \"distance\" : 12000.0,\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
 operator|+
-literal|"    \"optimize_bbox\" : \"memory\",\n"
-operator|+
 literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
 literal|"    \"ignore_unmapped\" : false,\n"
@@ -2448,6 +2458,70 @@ literal|0.0001
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testOptimizeBboxFails
+specifier|public
+name|void
+name|testOptimizeBboxFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance\" : {\n"
+operator|+
+literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
+operator|+
+literal|"    \"distance\" : 12000.0,\n"
+operator|+
+literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+operator|+
+literal|"    \"optimize_bbox\" : \"memory\",\n"
+operator|+
+literal|"    \"validation_method\" : \"STRICT\",\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testFromCoerceFails
 specifier|public
 name|void
@@ -2468,8 +2542,6 @@ operator|+
 literal|"    \"distance\" : 12000.0,\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
-operator|+
-literal|"    \"optimize_bbox\" : \"memory\",\n"
 operator|+
 literal|"    \"coerce\" : true,\n"
 operator|+
@@ -2532,8 +2604,6 @@ operator|+
 literal|"    \"distance\" : 12000.0,\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
-operator|+
-literal|"    \"optimize_bbox\" : \"memory\",\n"
 operator|+
 literal|"    \"ignore_malformed\" : true,\n"
 operator|+

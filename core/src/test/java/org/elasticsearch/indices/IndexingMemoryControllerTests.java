@@ -190,7 +190,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardTests
+name|IndexShardIT
 import|;
 end_import
 
@@ -2708,7 +2708,7 @@ specifier|final
 name|IndexShard
 name|newShard
 init|=
-name|IndexShardTests
+name|IndexShardIT
 operator|.
 name|newIndexShard
 argument_list|(
@@ -2784,25 +2784,11 @@ argument_list|,
 operator|new
 name|RecoveryState
 argument_list|(
-name|newShard
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
 name|routing
-operator|.
-name|primary
-argument_list|()
-argument_list|,
-name|RecoveryState
-operator|.
-name|Type
-operator|.
-name|STORE
 argument_list|,
 name|localNode
 argument_list|,
-name|localNode
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

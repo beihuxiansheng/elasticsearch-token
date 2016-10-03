@@ -3195,6 +3195,13 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 comment|// now merge source into a single shard index
+specifier|final
+name|boolean
+name|createWithReplicas
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|client
@@ -3224,6 +3231,10 @@ name|put
 argument_list|(
 literal|"index.number_of_replicas"
 argument_list|,
+name|createWithReplicas
+condition|?
+literal|1
+else|:
 literal|0
 argument_list|)
 operator|.
@@ -3270,6 +3281,13 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|createWithReplicas
+operator|==
+literal|false
+condition|)
+block|{
 comment|// bump replicas
 name|client
 argument_list|()
@@ -3338,6 +3356,7 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|int

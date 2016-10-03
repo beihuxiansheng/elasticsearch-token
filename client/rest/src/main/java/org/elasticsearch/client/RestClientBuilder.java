@@ -266,7 +266,12 @@ specifier|private
 name|RequestConfigCallback
 name|requestConfigCallback
 decl_stmt|;
-comment|/**      * Creates a new builder instance and sets the hosts that the client will send requests to.      */
+DECL|field|pathPrefix
+specifier|private
+name|String
+name|pathPrefix
+decl_stmt|;
+comment|/**      * Creates a new builder instance and sets the hosts that the client will send requests to.      *      * @throws NullPointerException if {@code hosts} or any host is {@code null}.      * @throws IllegalArgumentException if {@code hosts} is empty.      */
 DECL|method|RestClientBuilder
 name|RestClientBuilder
 parameter_list|(
@@ -275,12 +280,17 @@ modifier|...
 name|hosts
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|hosts
+argument_list|,
+literal|"hosts must not be null"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|hosts
-operator|==
-literal|null
-operator|||
 name|hosts
 operator|.
 name|length
@@ -321,7 +331,7 @@ operator|=
 name|hosts
 expr_stmt|;
 block|}
-comment|/**      * Sets the default request headers, which will be sent along with each request      */
+comment|/**      * Sets the default request headers, which will be sent along with each request.      *<p>      * Request-time headers will always overwrite any default headers.      *      * @throws NullPointerException if {@code defaultHeaders} or any header is {@code null}.      */
 DECL|method|setDefaultHeaders
 specifier|public
 name|RestClientBuilder
@@ -369,7 +379,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the {@link RestClient.FailureListener} to be notified for each request failure      */
+comment|/**      * Sets the {@link RestClient.FailureListener} to be notified for each request failure      *      * @throws NullPointerException if {@code failureListener} is {@code null}.      */
 DECL|method|setFailureListener
 specifier|public
 name|RestClientBuilder
@@ -400,7 +410,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum timeout (in milliseconds) to honour in case of multiple retries of the same request.      * {@link #DEFAULT_MAX_RETRY_TIMEOUT_MILLIS} if not specified.      *      * @throws IllegalArgumentException if maxRetryTimeoutMillis is not greater than 0      */
+comment|/**      * Sets the maximum timeout (in milliseconds) to honour in case of multiple retries of the same request.      * {@link #DEFAULT_MAX_RETRY_TIMEOUT_MILLIS} if not specified.      *      * @throws IllegalArgumentException if {@code maxRetryTimeoutMillis} is not greater than 0      */
 DECL|method|setMaxRetryTimeoutMillis
 specifier|public
 name|RestClientBuilder
@@ -435,7 +445,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the {@link HttpClientConfigCallback} to be used to customize http client configuration      */
+comment|/**      * Sets the {@link HttpClientConfigCallback} to be used to customize http client configuration      *      * @throws NullPointerException if {@code httpClientConfigCallback} is {@code null}.      */
 DECL|method|setHttpClientConfigCallback
 specifier|public
 name|RestClientBuilder
@@ -464,7 +474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the {@link RequestConfigCallback} to be used to customize http client configuration      */
+comment|/**      * Sets the {@link RequestConfigCallback} to be used to customize http client configuration      *      * @throws NullPointerException if {@code requestConfigCallback} is {@code null}.      */
 DECL|method|setRequestConfigCallback
 specifier|public
 name|RestClientBuilder
@@ -488,6 +498,136 @@ operator|.
 name|requestConfigCallback
 operator|=
 name|requestConfigCallback
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the path's prefix for every request used by the http client.      *<p>      * For example, if this is set to "/my/path", then any client request will become<code>"/my/path/" + endpoint</code>.      *<p>      * In essence, every request's {@code endpoint} is prefixed by this {@code pathPrefix}. The path prefix is useful for when      * Elasticsearch is behind a proxy that provides a base path; it is not intended for other purposes and it should not be supplied in      * other scenarios.      *      * @throws NullPointerException if {@code pathPrefix} is {@code null}.      * @throws IllegalArgumentException if {@code pathPrefix} is empty, only '/', or ends with more than one '/'.      */
+DECL|method|setPathPrefix
+specifier|public
+name|RestClientBuilder
+name|setPathPrefix
+parameter_list|(
+name|String
+name|pathPrefix
+parameter_list|)
+block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|pathPrefix
+argument_list|,
+literal|"pathPrefix must not be null"
+argument_list|)
+expr_stmt|;
+name|String
+name|cleanPathPrefix
+init|=
+name|pathPrefix
+decl_stmt|;
+if|if
+condition|(
+name|cleanPathPrefix
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|cleanPathPrefix
+operator|=
+literal|"/"
+operator|+
+name|cleanPathPrefix
+expr_stmt|;
+block|}
+comment|// best effort to ensure that it looks like "/base/path" rather than "/base/path/"
+if|if
+condition|(
+name|cleanPathPrefix
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|cleanPathPrefix
+operator|=
+name|cleanPathPrefix
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|cleanPathPrefix
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|cleanPathPrefix
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"pathPrefix is malformed. too many trailing slashes: ["
+operator|+
+name|pathPrefix
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+if|if
+condition|(
+name|cleanPathPrefix
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+literal|"/"
+operator|.
+name|equals
+argument_list|(
+name|cleanPathPrefix
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"pathPrefix must not be empty or '/': ["
+operator|+
+name|pathPrefix
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|pathPrefix
+operator|=
+name|cleanPathPrefix
 expr_stmt|;
 return|return
 name|this
@@ -535,6 +675,8 @@ argument_list|,
 name|defaultHeaders
 argument_list|,
 name|hosts
+argument_list|,
+name|pathPrefix
 argument_list|,
 name|failureListener
 argument_list|)

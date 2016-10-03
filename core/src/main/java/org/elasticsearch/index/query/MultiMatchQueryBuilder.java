@@ -3846,10 +3846,10 @@ if|if
 condition|(
 name|context
 operator|.
-name|getAnalysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|analyzer
 argument_list|)

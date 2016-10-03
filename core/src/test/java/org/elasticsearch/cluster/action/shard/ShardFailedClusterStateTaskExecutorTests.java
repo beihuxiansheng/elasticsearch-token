@@ -100,6 +100,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -260,7 +272,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|FailedRerouteAllocation
+name|FailedShard
 import|;
 end_import
 
@@ -276,7 +288,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|RoutingAllocation
+name|StaleShard
 import|;
 end_import
 
@@ -347,18 +359,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESAllocationTestCase
 import|;
 end_import
 
@@ -469,18 +469,6 @@ operator|.
 name|CoreMatchers
 operator|.
 name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|not
 import|;
 end_import
 
@@ -963,9 +951,7 @@ argument_list|)
 block|{
 annotation|@
 name|Override
-name|RoutingAllocation
-operator|.
-name|Result
+name|ClusterState
 name|applyFailedShards
 parameter_list|(
 name|ClusterState
@@ -973,11 +959,15 @@ name|currentState
 parameter_list|,
 name|List
 argument_list|<
-name|FailedRerouteAllocation
-operator|.
 name|FailedShard
 argument_list|>
 name|failedShards
+parameter_list|,
+name|List
+argument_list|<
+name|StaleShard
+argument_list|>
+name|staleShards
 parameter_list|)
 block|{
 throw|throw
@@ -1480,9 +1470,7 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 decl_stmt|;
-name|RoutingTable
-name|afterStart
-init|=
+return|return
 name|allocationService
 operator|.
 name|applyStartedShards
@@ -1498,25 +1486,6 @@ operator|.
 name|INITIALIZING
 argument_list|)
 argument_list|)
-operator|.
-name|routingTable
-argument_list|()
-decl_stmt|;
-return|return
-name|ClusterState
-operator|.
-name|builder
-argument_list|(
-name|stateAfterReroute
-argument_list|)
-operator|.
-name|routingTable
-argument_list|(
-name|afterStart
-argument_list|)
-operator|.
-name|build
-argument_list|()
 return|;
 block|}
 DECL|method|createExistingShards

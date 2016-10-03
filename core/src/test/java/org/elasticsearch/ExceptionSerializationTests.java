@@ -7427,19 +7427,10 @@ name|put
 argument_list|(
 literal|110
 argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|FlushNotAllowedEngineException
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// FlushNotAllowedEngineException was removed in 5.0
 name|ids
 operator|.
 name|put

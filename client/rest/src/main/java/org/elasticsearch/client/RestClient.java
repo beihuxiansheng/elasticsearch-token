@@ -581,13 +581,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Client that connects to an elasticsearch cluster through http.  * Must be created using {@link RestClientBuilder}, which allows to set all the different options or just rely on defaults.  * The hosts that are part of the cluster need to be provided at creation time, but can also be replaced later  * by calling {@link #setHosts(HttpHost...)}.  * The method {@link #performRequest(String, String, Map, HttpEntity, Header...)} allows to send a request to the cluster. When  * sending a request, a host gets selected out of the provided ones in a round-robin fashion. Failing hosts are marked dead and  * retried after a certain amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times they previously  * failed (the more failures, the later they will be retried). In case of failures all of the alive nodes (or dead nodes that  * deserve a retry) are retried until one responds or none of them does, in which case an {@link IOException} will be thrown.  *  * Requests can be traced by enabling trace logging for "tracer". The trace logger outputs requests and responses in curl format.  */
+comment|/**  * Client that connects to an Elasticsearch cluster through HTTP.  *<p>  * Must be created using {@link RestClientBuilder}, which allows to set all the different options or just rely on defaults.  * The hosts that are part of the cluster need to be provided at creation time, but can also be replaced later  * by calling {@link #setHosts(HttpHost...)}.  *<p>  * The method {@link #performRequest(String, String, Map, HttpEntity, Header...)} allows to send a request to the cluster. When  * sending a request, a host gets selected out of the provided ones in a round-robin fashion. Failing hosts are marked dead and  * retried after a certain amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times they previously  * failed (the more failures, the later they will be retried). In case of failures all of the alive nodes (or dead nodes that  * deserve a retry) are retried until one responds or none of them does, in which case an {@link IOException} will be thrown.  *<p>  * Requests can be either synchronous or asynchronous. The asynchronous variants all end with {@code Async}.  *<p>  * Requests can be traced by enabling trace logging for "tracer". The trace logger outputs requests and responses in curl format.  */
 end_comment
 
 begin_class
 DECL|class|RestClient
 specifier|public
-specifier|final
 class|class
 name|RestClient
 implements|implements
@@ -628,6 +627,12 @@ specifier|private
 specifier|final
 name|long
 name|maxRetryTimeoutMillis
+decl_stmt|;
+DECL|field|pathPrefix
+specifier|private
+specifier|final
+name|String
+name|pathPrefix
 decl_stmt|;
 DECL|field|lastHostIndex
 specifier|private
@@ -689,6 +694,9 @@ name|HttpHost
 index|[]
 name|hosts
 parameter_list|,
+name|String
+name|pathPrefix
+parameter_list|,
 name|FailureListener
 name|failureListener
 parameter_list|)
@@ -716,6 +724,12 @@ operator|.
 name|failureListener
 operator|=
 name|failureListener
+expr_stmt|;
+name|this
+operator|.
+name|pathPrefix
+operator|=
+name|pathPrefix
 expr_stmt|;
 name|setHosts
 argument_list|(
@@ -831,7 +845,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to and waits for the corresponding response      * to be returned. Shortcut to {@link #performRequest(String, String, Map, HttpEntity, Header...)} but without parameters      * and request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param headers the optional request headers      * @return the response returned by elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case elasticsearch responded with a status code that indicated an error      */
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to and waits for the corresponding response      * to be returned. Shortcut to {@link #performRequest(String, String, Map, HttpEntity, Header...)} but without parameters      * and request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param headers the optional request headers      * @return the response returned by Elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case Elasticsearch responded with a status code that indicated an error      */
 DECL|method|performRequest
 specifier|public
 name|Response
@@ -876,7 +890,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to and waits for the corresponding response      * to be returned. Shortcut to {@link #performRequest(String, String, Map, HttpEntity, Header...)} but without request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param headers the optional request headers      * @return the response returned by elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case elasticsearch responded with a status code that indicated an error      */
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to and waits for the corresponding response      * to be returned. Shortcut to {@link #performRequest(String, String, Map, HttpEntity, Header...)} but without request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param headers the optional request headers      * @return the response returned by Elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case Elasticsearch responded with a status code that indicated an error      */
 DECL|method|performRequest
 specifier|public
 name|Response
@@ -921,7 +935,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to and waits for the corresponding response      * to be returned. Shortcut to {@link #performRequest(String, String, Map, HttpEntity, HttpAsyncResponseConsumer, Header...)}      * which doesn't require specifying an {@link HttpAsyncResponseConsumer} instance, {@link HeapBufferedAsyncResponseConsumer}      * will be used to consume the response body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param headers the optional request headers      * @return the response returned by elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case elasticsearch responded with a status code that indicated an error      */
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to and waits for the corresponding response      * to be returned. Shortcut to {@link #performRequest(String, String, Map, HttpEntity, HttpAsyncResponseConsumer, Header...)}      * which doesn't require specifying an {@link HttpAsyncResponseConsumer} instance, {@link HeapBufferedAsyncResponseConsumer}      * will be used to consume the response body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param headers the optional request headers      * @return the response returned by Elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case Elasticsearch responded with a status code that indicated an error      */
 DECL|method|performRequest
 specifier|public
 name|Response
@@ -978,7 +992,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to. Blocks until the request is completed and returns      * its response or fails by throwing an exception. Selects a host out of the provided ones in a round-robin fashion. Failing hosts      * are marked dead and retried after a certain amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times      * they previously failed (the more failures, the later they will be retried). In case of failures all of the alive nodes (or dead      * nodes that deserve a retry) are retried until one responds or none of them does, in which case an {@link IOException} will be thrown.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param responseConsumer the {@link HttpAsyncResponseConsumer} callback. Controls how the response      * body gets streamed from a non-blocking HTTP connection on the client side.      * @param headers the optional request headers      * @return the response returned by elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case elasticsearch responded with a status code that indicated an error      */
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to. Blocks until the request is completed and returns      * its response or fails by throwing an exception. Selects a host out of the provided ones in a round-robin fashion. Failing hosts      * are marked dead and retried after a certain amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times      * they previously failed (the more failures, the later they will be retried). In case of failures all of the alive nodes (or dead      * nodes that deserve a retry) are retried until one responds or none of them does, in which case an {@link IOException} will be thrown.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param responseConsumer the {@link HttpAsyncResponseConsumer} callback. Controls how the response      * body gets streamed from a non-blocking HTTP connection on the client side.      * @param headers the optional request headers      * @return the response returned by Elasticsearch      * @throws IOException in case of a problem or the connection was aborted      * @throws ClientProtocolException in case of an http protocol error      * @throws ResponseException in case Elasticsearch responded with a status code that indicated an error      */
 DECL|method|performRequest
 specifier|public
 name|Response
@@ -1023,7 +1037,7 @@ argument_list|(
 name|maxRetryTimeoutMillis
 argument_list|)
 decl_stmt|;
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|method
 argument_list|,
@@ -1047,11 +1061,11 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to. Doesn't wait for the response, instead      * the provided {@link ResponseListener} will be notified upon completion or failure. Shortcut to      * {@link #performRequest(String, String, Map, HttpEntity, ResponseListener, Header...)} but without parameters and  request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
-DECL|method|performRequest
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to. Doesn't wait for the response, instead      * the provided {@link ResponseListener} will be notified upon completion or failure. Shortcut to      * {@link #performRequestAsync(String, String, Map, HttpEntity, ResponseListener, Header...)} but without parameters and  request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
+DECL|method|performRequestAsync
 specifier|public
 name|void
-name|performRequest
+name|performRequestAsync
 parameter_list|(
 name|String
 name|method
@@ -1067,7 +1081,7 @@ modifier|...
 name|headers
 parameter_list|)
 block|{
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|method
 argument_list|,
@@ -1091,11 +1105,11 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to. Doesn't wait for the response, instead      * the provided {@link ResponseListener} will be notified upon completion or failure. Shortcut to      * {@link #performRequest(String, String, Map, HttpEntity, ResponseListener, Header...)} but without request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
-DECL|method|performRequest
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to. Doesn't wait for the response, instead      * the provided {@link ResponseListener} will be notified upon completion or failure. Shortcut to      * {@link #performRequestAsync(String, String, Map, HttpEntity, ResponseListener, Header...)} but without request body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
+DECL|method|performRequestAsync
 specifier|public
 name|void
-name|performRequest
+name|performRequestAsync
 parameter_list|(
 name|String
 name|method
@@ -1119,7 +1133,7 @@ modifier|...
 name|headers
 parameter_list|)
 block|{
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|method
 argument_list|,
@@ -1135,11 +1149,11 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to. Doesn't wait for the response, instead      * the provided {@link ResponseListener} will be notified upon completion or failure.      * Shortcut to {@link #performRequest(String, String, Map, HttpEntity, HttpAsyncResponseConsumer, ResponseListener, Header...)}      * which doesn't require specifying an {@link HttpAsyncResponseConsumer} instance, {@link HeapBufferedAsyncResponseConsumer}      * will be used to consume the response body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
-DECL|method|performRequest
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to. Doesn't wait for the response, instead      * the provided {@link ResponseListener} will be notified upon completion or failure.      * Shortcut to {@link #performRequestAsync(String, String, Map, HttpEntity, HttpAsyncResponseConsumer, ResponseListener, Header...)}      * which doesn't require specifying an {@link HttpAsyncResponseConsumer} instance, {@link HeapBufferedAsyncResponseConsumer}      * will be used to consume the response body.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
+DECL|method|performRequestAsync
 specifier|public
 name|void
-name|performRequest
+name|performRequestAsync
 parameter_list|(
 name|String
 name|method
@@ -1176,7 +1190,7 @@ operator|new
 name|HeapBufferedAsyncResponseConsumer
 argument_list|()
 decl_stmt|;
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|method
 argument_list|,
@@ -1194,11 +1208,11 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends a request to the elasticsearch cluster that the client points to. The request is executed asynchronously      * and the provided {@link ResponseListener} gets notified upon request completion or failure.      * Selects a host out of the provided ones in a round-robin fashion. Failing hosts are marked dead and retried after a certain      * amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times they previously failed (the more failures,      * the later they will be retried). In case of failures all of the alive nodes (or dead nodes that deserve a retry) are retried      * until one responds or none of them does, in which case an {@link IOException} will be thrown.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param responseConsumer the {@link HttpAsyncResponseConsumer} callback. Controls how the response      * body gets streamed from a non-blocking HTTP connection on the client side.      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
-DECL|method|performRequest
+comment|/**      * Sends a request to the Elasticsearch cluster that the client points to. The request is executed asynchronously      * and the provided {@link ResponseListener} gets notified upon request completion or failure.      * Selects a host out of the provided ones in a round-robin fashion. Failing hosts are marked dead and retried after a certain      * amount of time (minimum 1 minute, maximum 30 minutes), depending on how many times they previously failed (the more failures,      * the later they will be retried). In case of failures all of the alive nodes (or dead nodes that deserve a retry) are retried      * until one responds or none of them does, in which case an {@link IOException} will be thrown.      *      * @param method the http method      * @param endpoint the path of the request (without host and port)      * @param params the query_string parameters      * @param entity the body of the request, null if not applicable      * @param responseConsumer the {@link HttpAsyncResponseConsumer} callback. Controls how the response      * body gets streamed from a non-blocking HTTP connection on the client side.      * @param responseListener the {@link ResponseListener} to notify when the request is completed or fails      * @param headers the optional request headers      */
+DECL|method|performRequestAsync
 specifier|public
 name|void
-name|performRequest
+name|performRequestAsync
 parameter_list|(
 name|String
 name|method
@@ -1236,6 +1250,8 @@ name|uri
 init|=
 name|buildUri
 argument_list|(
+name|pathPrefix
+argument_list|,
 name|endpoint
 argument_list|,
 name|params
@@ -1277,7 +1293,7 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|startTime
 argument_list|,
@@ -1295,10 +1311,10 @@ name|failureTrackingResponseListener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|performRequest
+DECL|method|performRequestAsync
 specifier|private
 name|void
-name|performRequest
+name|performRequestAsync
 parameter_list|(
 specifier|final
 name|long
@@ -1657,7 +1673,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|performRequest
+name|performRequestAsync
 argument_list|(
 name|startTime
 argument_list|,
@@ -1730,22 +1746,23 @@ argument_list|,
 literal|"request headers must not be null"
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|Header
-name|defaultHeader
-range|:
-name|defaultHeaders
-control|)
-block|{
-name|httpRequest
-operator|.
-name|setHeader
+comment|// request headers override default headers, so we don't add default headers if they exist as request headers
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|requestNames
+init|=
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|(
-name|defaultHeader
+name|requestHeaders
+operator|.
+name|length
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 for|for
 control|(
 name|Header
@@ -1765,11 +1782,53 @@ argument_list|)
 expr_stmt|;
 name|httpRequest
 operator|.
-name|setHeader
+name|addHeader
 argument_list|(
 name|requestHeader
 argument_list|)
 expr_stmt|;
+name|requestNames
+operator|.
+name|add
+argument_list|(
+name|requestHeader
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|Header
+name|defaultHeader
+range|:
+name|defaultHeaders
+control|)
+block|{
+if|if
+condition|(
+name|requestNames
+operator|.
+name|contains
+argument_list|(
+name|defaultHeader
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|httpRequest
+operator|.
+name|addHeader
+argument_list|(
+name|defaultHeader
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Returns an {@link Iterable} of hosts to be used for a request call.      * Ideally, the first host is retrieved from the iterable and used successfully for the request.      * Otherwise, after each failure the next host has to be retrieved from the iterator so that the request can be retried until      * there are no more hosts available to retry against. The maximum total of attempts is equal to the number of hosts in the iterable.      * The iterator returned will never be empty. In case there are no healthy hosts available, or dead ones to be be retried,      * one dead host gets returned so that it can be retried.      */
@@ -2558,6 +2617,9 @@ name|URI
 name|buildUri
 parameter_list|(
 name|String
+name|pathPrefix
+parameter_list|,
+name|String
 name|path
 parameter_list|,
 name|Map
@@ -2580,13 +2642,59 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|String
+name|fullPath
+decl_stmt|;
+if|if
+condition|(
+name|pathPrefix
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|path
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|fullPath
+operator|=
+name|pathPrefix
+operator|+
+name|path
+expr_stmt|;
+block|}
+else|else
+block|{
+name|fullPath
+operator|=
+name|pathPrefix
+operator|+
+literal|"/"
+operator|+
+name|path
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|fullPath
+operator|=
+name|path
+expr_stmt|;
+block|}
 name|URIBuilder
 name|uriBuilder
 init|=
 operator|new
 name|URIBuilder
 argument_list|(
-name|path
+name|fullPath
 argument_list|)
 decl_stmt|;
 for|for

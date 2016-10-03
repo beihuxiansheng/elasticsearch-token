@@ -144,6 +144,18 @@ name|ScriptService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptSettings
+import|;
+end_import
+
 begin_comment
 comment|/**  * Context object used to rewrite {@link QueryBuilder} instances into simplified version.  */
 end_comment
@@ -354,7 +366,7 @@ return|return
 name|clusterState
 return|;
 block|}
-comment|/**      * Returns a new {@link QueryParseContext} that wraps the provided parser, using the ParseFieldMatcher settings that      * are configured in the index settings      */
+comment|/**      * Returns a new {@link QueryParseContext} that wraps the provided parser, using the ParseFieldMatcher settings that      * are configured in the index settings. The default script language will always default to Painless.      */
 DECL|method|newParseContext
 specifier|public
 name|QueryParseContext
@@ -368,6 +380,46 @@ return|return
 operator|new
 name|QueryParseContext
 argument_list|(
+name|indicesQueriesRegistry
+argument_list|,
+name|parser
+argument_list|,
+name|indexSettings
+operator|.
+name|getParseFieldMatcher
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a new {@link QueryParseContext} like {@link #newParseContext(XContentParser)} with the only diffence, that      * the default script language will default to what has been set in the 'script.legacy.default_lang' setting.      */
+DECL|method|newParseContextWithLegacyScriptLanguage
+specifier|public
+name|QueryParseContext
+name|newParseContextWithLegacyScriptLanguage
+parameter_list|(
+name|XContentParser
+name|parser
+parameter_list|)
+block|{
+name|String
+name|defaultScriptLanguage
+init|=
+name|ScriptSettings
+operator|.
+name|getLegacyDefaultLang
+argument_list|(
+name|indexSettings
+operator|.
+name|getNodeSettings
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|QueryParseContext
+argument_list|(
+name|defaultScriptLanguage
+argument_list|,
 name|indicesQueriesRegistry
 argument_list|,
 name|parser

@@ -987,7 +987,7 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"field"
 argument_list|,

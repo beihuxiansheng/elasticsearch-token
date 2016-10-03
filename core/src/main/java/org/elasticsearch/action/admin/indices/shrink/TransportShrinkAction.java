@@ -718,7 +718,7 @@ name|prepareCreateIndexRequest
 parameter_list|(
 specifier|final
 name|ShrinkRequest
-name|shrinkReqeust
+name|shrinkRequest
 parameter_list|,
 specifier|final
 name|ClusterState
@@ -743,7 +743,7 @@ name|indexNameExpressionResolver
 operator|.
 name|resolveDateMathExpression
 argument_list|(
-name|shrinkReqeust
+name|shrinkRequest
 operator|.
 name|getSourceIndex
 argument_list|()
@@ -753,7 +753,7 @@ specifier|final
 name|CreateIndexRequest
 name|targetIndex
 init|=
-name|shrinkReqeust
+name|shrinkRequest
 operator|.
 name|getShrinkIndexRequest
 argument_list|()
@@ -987,6 +987,11 @@ argument_list|(
 name|targetIndex
 argument_list|,
 literal|"shrink_index"
+argument_list|,
+name|targetIndex
+operator|.
+name|index
+argument_list|()
 argument_list|,
 name|targetIndexName
 argument_list|,

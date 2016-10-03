@@ -211,6 +211,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set to<code>true</code> to ignore unavailable snapshots, instead of throwing an exception.      * Defaults to<code>false</code>, which means unavailable snapshots cause an exception to be thrown.      *      * @param ignoreUnavailable whether to ignore unavailable snapshots.      * @return this builder      */
+DECL|method|setIgnoreUnavailable
+specifier|public
+name|SnapshotsStatusRequestBuilder
+name|setIgnoreUnavailable
+parameter_list|(
+name|boolean
+name|ignoreUnavailable
+parameter_list|)
+block|{
+name|request
+operator|.
+name|ignoreUnavailable
+argument_list|(
+name|ignoreUnavailable
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

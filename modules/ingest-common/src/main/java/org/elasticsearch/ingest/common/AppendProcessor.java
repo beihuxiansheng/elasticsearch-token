@@ -357,12 +357,7 @@ name|AppendProcessor
 argument_list|(
 name|processorTag
 argument_list|,
-name|templateService
-operator|.
-name|compile
-argument_list|(
-name|field
-argument_list|)
+name|compiledTemplate
 argument_list|,
 name|ValueSource
 operator|.

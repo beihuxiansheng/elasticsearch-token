@@ -1274,7 +1274,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeMap
+name|writeMapWithConsistentOrder
 argument_list|(
 name|collateParams
 argument_list|)

@@ -83,6 +83,7 @@ name|Response
 name|response
 decl_stmt|;
 DECL|method|ResponseException
+specifier|public
 name|ResponseException
 parameter_list|(
 name|Response

@@ -300,7 +300,7 @@ name|test
 operator|.
 name|gateway
 operator|.
-name|NoopGatewayAllocator
+name|TestGatewayAllocator
 import|;
 end_import
 
@@ -1123,9 +1123,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-name|NoopGatewayAllocator
-operator|.
-name|INSTANCE
+operator|new
+name|TestGatewayAllocator
+argument_list|()
 argument_list|,
 operator|new
 name|BalancedShardsAllocator
@@ -1397,9 +1397,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-name|NoopGatewayAllocator
-operator|.
-name|INSTANCE
+operator|new
+name|TestGatewayAllocator
+argument_list|()
 argument_list|,
 operator|new
 name|BalancedShardsAllocator
@@ -1680,7 +1680,21 @@ name|validateIndexName
 argument_list|(
 literal|"_indexname"
 argument_list|,
-literal|"must not start with '_'"
+literal|"must not start with '_', '-', or '+'"
+argument_list|)
+expr_stmt|;
+name|validateIndexName
+argument_list|(
+literal|"-indexname"
+argument_list|,
+literal|"must not start with '_', '-', or '+'"
+argument_list|)
+expr_stmt|;
+name|validateIndexName
+argument_list|(
+literal|"+indexname"
+argument_list|,
+literal|"must not start with '_', '-', or '+'"
 argument_list|)
 expr_stmt|;
 name|validateIndexName
@@ -1721,8 +1735,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|getCreateIndexService
-argument_list|()
+name|MetaDataCreateIndexService
 operator|.
 name|validateIndexName
 argument_list|(
@@ -1784,11 +1797,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,

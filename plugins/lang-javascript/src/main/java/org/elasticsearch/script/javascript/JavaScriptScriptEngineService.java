@@ -100,6 +100,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -873,6 +887,13 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=
@@ -1016,6 +1037,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=
@@ -1146,6 +1174,13 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[javascript] scripts are deprecated, use [painless] scripts instead"
+argument_list|)
+expr_stmt|;
 name|Context
 name|ctx
 init|=

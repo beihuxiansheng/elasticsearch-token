@@ -774,10 +774,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testLog4jLeniency
+DECL|method|testLog4jThrowableProxyLeniency
 specifier|public
 name|void
-name|testLog4jLeniency
+name|testLog4jThrowableProxyLeniency
 parameter_list|()
 throws|throws
 name|Exception
@@ -801,7 +801,7 @@ literal|"foo.jar"
 argument_list|,
 literal|null
 argument_list|,
-literal|"org/apache/log4j/DuplicateClass.class"
+literal|"org.apache.logging.log4j.core.impl.ThrowableProxy.class"
 argument_list|)
 block|,
 name|makeJar
@@ -812,7 +812,7 @@ literal|"bar.jar"
 argument_list|,
 literal|null
 argument_list|,
-literal|"org/apache/log4j/DuplicateClass.class"
+literal|"org.apache.logging.log4j.core.impl.ThrowableProxy.class"
 argument_list|)
 block|}
 decl_stmt|;
@@ -824,10 +824,10 @@ name|jars
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testBaseDateTimeLeniency
+DECL|method|testLog4jServerLeniency
 specifier|public
 name|void
-name|testBaseDateTimeLeniency
+name|testLog4jServerLeniency
 parameter_list|()
 throws|throws
 name|Exception
@@ -851,7 +851,7 @@ literal|"foo.jar"
 argument_list|,
 literal|null
 argument_list|,
-literal|"org/joda/time/base/BaseDateTime.class"
+literal|"org.apache.logging.log4j.core.jmx.Server.class"
 argument_list|)
 block|,
 name|makeJar
@@ -862,7 +862,7 @@ literal|"bar.jar"
 argument_list|,
 literal|null
 argument_list|,
-literal|"org/joda/time/base/BaseDateTime.class"
+literal|"org.apache.logging.log4j.core.jmx.Server.class"
 argument_list|)
 block|}
 decl_stmt|;

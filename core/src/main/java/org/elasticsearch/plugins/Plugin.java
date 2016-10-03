@@ -164,6 +164,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|network
+operator|.
+name|NetworkModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Setting
@@ -331,7 +345,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * Implement any of these interfaces to extend Elasticsearch:  *<ul>  *<li>{@link ActionPlugin}  *<li>{@link AnalysisPlugin}  *<li>{@link MapperPlugin}  *<li>{@link ScriptPlugin}  *<li>{@link SearchPlugin}  *</ul>  */
+comment|/**  * An extension point allowing to plug in custom functionality. This class has a number of extension points that are available to all  * plugins, in addition you can implement any of the following interfaces to further customize Elasticsearch:  *<ul>  *<li>{@link ActionPlugin}  *<li>{@link AnalysisPlugin}  *<li>{@link ClusterPlugin}  *<li>{@link DiscoveryPlugin}  *<li>{@link IngestPlugin}  *<li>{@link MapperPlugin}  *<li>{@link NetworkPlugin}  *<li>{@link RepositoryPlugin}  *<li>{@link ScriptPlugin}  *<li>{@link SearchPlugin}  *</ul>  *<p>In addition to extension points this class also declares some {@code @Deprecated} {@code public final void onModule} methods. These  * methods should cause any extensions of {@linkplain Plugin} that used the pre-5.x style extension syntax to fail to build and point the  * plugin author at the new extension syntax. We hope that these make the process of upgrading a plugin from 2.x to 5.x only mildly painful.  */
 end_comment
 
 begin_class
@@ -520,84 +534,6 @@ name|identity
 argument_list|()
 return|;
 block|}
-comment|/**      * Old-style guice index level extension point.      *      * @deprecated use #onIndexModule instead      */
-annotation|@
-name|Deprecated
-DECL|method|onModule
-specifier|public
-specifier|final
-name|void
-name|onModule
-parameter_list|(
-name|IndexModule
-name|indexModule
-parameter_list|)
-block|{}
-comment|/**      * Old-style guice settings extension point.      *      * @deprecated use #getSettings and #getSettingsFilter instead      */
-annotation|@
-name|Deprecated
-DECL|method|onModule
-specifier|public
-specifier|final
-name|void
-name|onModule
-parameter_list|(
-name|SettingsModule
-name|settingsModule
-parameter_list|)
-block|{}
-comment|/**      * Old-style guice scripting extension point.      *      * @deprecated implement {@link ScriptPlugin} instead      */
-annotation|@
-name|Deprecated
-DECL|method|onModule
-specifier|public
-specifier|final
-name|void
-name|onModule
-parameter_list|(
-name|ScriptModule
-name|module
-parameter_list|)
-block|{}
-comment|/**      * Old-style analysis extension point.      *      * @deprecated implement {@link AnalysisPlugin} instead      */
-annotation|@
-name|Deprecated
-DECL|method|onModule
-specifier|public
-specifier|final
-name|void
-name|onModule
-parameter_list|(
-name|AnalysisModule
-name|module
-parameter_list|)
-block|{}
-comment|/**      * Old-style action extension point.      *      * @deprecated implement {@link ActionPlugin} instead      */
-annotation|@
-name|Deprecated
-DECL|method|onModule
-specifier|public
-specifier|final
-name|void
-name|onModule
-parameter_list|(
-name|ActionModule
-name|module
-parameter_list|)
-block|{}
-comment|/**      * Old-style action extension point.      *      * @deprecated implement {@link SearchPlugin} instead      */
-annotation|@
-name|Deprecated
-DECL|method|onModule
-specifier|public
-specifier|final
-name|void
-name|onModule
-parameter_list|(
-name|SearchModule
-name|module
-parameter_list|)
-block|{}
 comment|/**      * Provides the list of this plugin's custom thread pools, empty if      * none.      *      * @param settings the current settings      * @return executors builders for this plugin's custom thread pools      */
 DECL|method|getExecutorBuilders
 specifier|public
@@ -621,6 +557,97 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+comment|/**      * Old-style guice index level extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated use #onIndexModule instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|IndexModule
+name|indexModule
+parameter_list|)
+block|{}
+comment|/**      * Old-style guice settings extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated use #getSettings and #getSettingsFilter instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|SettingsModule
+name|settingsModule
+parameter_list|)
+block|{}
+comment|/**      * Old-style guice scripting extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link ScriptPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|ScriptModule
+name|module
+parameter_list|)
+block|{}
+comment|/**      * Old-style analysis extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link AnalysisPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|AnalysisModule
+name|module
+parameter_list|)
+block|{}
+comment|/**      * Old-style action extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link ActionPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|ActionModule
+name|module
+parameter_list|)
+block|{}
+comment|/**      * Old-style action extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link SearchPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|SearchModule
+name|module
+parameter_list|)
+block|{}
+comment|/**      * Old-style action extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link NetworkPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|NetworkModule
+name|module
+parameter_list|)
+block|{}
 block|}
 end_class
 

@@ -48,6 +48,16 @@ name|AliasAction
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Cluster state update request that allows to add or remove aliases  */
 end_comment
@@ -64,35 +74,22 @@ name|IndicesAliasesClusterStateUpdateRequest
 argument_list|>
 block|{
 DECL|field|actions
+specifier|private
+specifier|final
+name|List
+argument_list|<
 name|AliasAction
-index|[]
+argument_list|>
 name|actions
 decl_stmt|;
 DECL|method|IndicesAliasesClusterStateUpdateRequest
 specifier|public
 name|IndicesAliasesClusterStateUpdateRequest
-parameter_list|()
-block|{      }
-comment|/**      * Returns the alias actions to be performed      */
-DECL|method|actions
-specifier|public
-name|AliasAction
-index|[]
-name|actions
-parameter_list|()
-block|{
-return|return
-name|actions
-return|;
-block|}
-comment|/**      * Sets the alias actions to be executed      */
-DECL|method|actions
-specifier|public
-name|IndicesAliasesClusterStateUpdateRequest
-name|actions
 parameter_list|(
+name|List
+argument_list|<
 name|AliasAction
-index|[]
+argument_list|>
 name|actions
 parameter_list|)
 block|{
@@ -102,8 +99,19 @@ name|actions
 operator|=
 name|actions
 expr_stmt|;
+block|}
+comment|/**      * Returns the alias actions to be performed      */
+DECL|method|actions
+specifier|public
+name|List
+argument_list|<
+name|AliasAction
+argument_list|>
+name|actions
+parameter_list|()
+block|{
 return|return
-name|this
+name|actions
 return|;
 block|}
 block|}

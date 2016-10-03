@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Rescore phase of a search request, used to run potentially expensive scoring models against the top matching documents.  */
 end_comment
 
 begin_class

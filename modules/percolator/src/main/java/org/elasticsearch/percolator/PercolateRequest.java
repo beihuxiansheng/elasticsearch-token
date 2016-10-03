@@ -827,7 +827,7 @@ literal|null
 operator|&&
 name|getRequest
 operator|.
-name|fields
+name|storedFields
 argument_list|()
 operator|!=
 literal|null
@@ -837,7 +837,7 @@ name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"get fields option isn't supported via percolate request"
+literal|"get stored fields option isn't supported via percolate request"
 argument_list|,
 name|validationException
 argument_list|)

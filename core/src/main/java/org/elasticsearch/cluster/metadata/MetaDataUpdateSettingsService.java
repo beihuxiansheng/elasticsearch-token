@@ -216,22 +216,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|RoutingAllocation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|service
 operator|.
 name|ClusterService
@@ -1553,6 +1537,9 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// we do *not* update the in sync allocation ids as they will be removed upon the first index
+comment|// operation which make these copies stale
+comment|// TODO: update the list once the data is deleted by the node?
 name|routingTableBuilder
 operator|.
 name|updateNumberOfReplicas
@@ -1921,11 +1908,8 @@ name|build
 argument_list|()
 decl_stmt|;
 comment|// now, reroute in case things change that require it (like number of replicas)
-name|RoutingAllocation
-operator|.
-name|Result
-name|routingResult
-init|=
+name|updatedState
+operator|=
 name|allocationService
 operator|.
 name|reroute
@@ -1934,23 +1918,6 @@ name|updatedState
 argument_list|,
 literal|"settings update"
 argument_list|)
-decl_stmt|;
-name|updatedState
-operator|=
-name|ClusterState
-operator|.
-name|builder
-argument_list|(
-name|updatedState
-argument_list|)
-operator|.
-name|routingResult
-argument_list|(
-name|routingResult
-argument_list|)
-operator|.
-name|build
-argument_list|()
 expr_stmt|;
 try|try
 block|{

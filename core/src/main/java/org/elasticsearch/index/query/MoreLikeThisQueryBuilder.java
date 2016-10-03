@@ -4295,7 +4295,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|Field
 operator|.
@@ -4433,7 +4433,7 @@ condition|)
 block|{
 name|builder
 operator|.
-name|field
+name|array
 argument_list|(
 name|Field
 operator|.
@@ -6383,10 +6383,10 @@ name|analyzerObj
 init|=
 name|context
 operator|.
-name|getAnalysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|analyzer
 argument_list|)

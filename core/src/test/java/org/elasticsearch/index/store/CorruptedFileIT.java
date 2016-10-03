@@ -652,7 +652,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -1558,11 +1558,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
@@ -1697,9 +1692,9 @@ literal|"5m"
 argument_list|)
 comment|// sometimes due to cluster rebalacing and random settings default timeout is just not enough.
 operator|.
-name|waitForRelocatingShards
+name|waitForNoRelocatingShards
 argument_list|(
-literal|0
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -2337,11 +2332,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)
@@ -3111,7 +3101,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -3644,11 +3634,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
@@ -3787,7 +3772,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -4313,7 +4298,7 @@ comment|/**      * Tests that restoring of a corrupted shard fails and we get a 
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"monitor.fs:DEBUG"
+literal|"org.elasticsearch.monitor.fs:DEBUG"
 argument_list|)
 DECL|method|testCorruptFileThenSnapshotAndRestore
 specifier|public
@@ -4492,11 +4477,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)
@@ -4928,11 +4908,6 @@ name|prepareFlush
 argument_list|()
 operator|.
 name|setForce
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|setWaitIfOngoing
 argument_list|(
 literal|true
 argument_list|)

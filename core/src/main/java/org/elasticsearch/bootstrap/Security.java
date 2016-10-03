@@ -375,7 +375,9 @@ name|boolean
 name|filterBadDefaults
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|NoSuchAlgorithmException
 block|{
 comment|// enable security policy: union of template and environment-based paths, and possibly plugin permissions
 name|Policy
@@ -412,6 +414,8 @@ name|String
 index|[]
 block|{
 literal|"org.elasticsearch.bootstrap."
+block|,
+literal|"org.elasticsearch.cli"
 block|}
 argument_list|)
 argument_list|)
@@ -1259,46 +1263,6 @@ argument_list|()
 control|)
 block|{
 name|addPath
-argument_list|(
-name|policy
-argument_list|,
-name|Environment
-operator|.
-name|PATH_DATA_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|path
-argument_list|,
-literal|"read,readlink,write,delete"
-argument_list|)
-expr_stmt|;
-block|}
-comment|// TODO: this should be removed in ES 6.0! We will no longer support data paths with the cluster as a folder
-assert|assert
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|major
-operator|<
-literal|6
-operator|:
-literal|"cluster name is no longer used in data path"
-assert|;
-for|for
-control|(
-name|Path
-name|path
-range|:
-name|environment
-operator|.
-name|dataWithClusterFiles
-argument_list|()
-control|)
-block|{
-name|addPathIfExists
 argument_list|(
 name|policy
 argument_list|,

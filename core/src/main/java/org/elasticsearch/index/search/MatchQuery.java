@@ -1026,10 +1026,10 @@ operator|.
 name|getMapperService
 argument_list|()
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|this
 operator|.

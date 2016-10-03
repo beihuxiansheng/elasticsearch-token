@@ -22,6 +22,8 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
 name|log4j
 operator|.
 name|Level
@@ -34,9 +36,57 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|LogManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
 name|log4j
 operator|.
 name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|message
+operator|.
+name|ParameterizedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|util
+operator|.
+name|Supplier
 import|;
 end_import
 
@@ -223,6 +273,20 @@ operator|.
 name|lease
 operator|.
 name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
 import|;
 end_import
 
@@ -616,31 +680,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|allOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|anyOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|contains
 import|;
 end_import
 
@@ -1951,11 +1991,23 @@ name|logger
 operator|.
 name|error
 argument_list|(
+call|(
+name|Supplier
+argument_list|<
+name|?
+argument_list|>
+call|)
+argument_list|()
+operator|->
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"unexpected failure: [{}]"
 argument_list|,
-name|e
-argument_list|,
 name|source
+argument_list|)
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|failures
@@ -4160,7 +4212,7 @@ begin_function
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"cluster:TRACE"
+literal|"org.elasticsearch.cluster.service:TRACE"
 argument_list|)
 comment|// To ensure that we log cluster state events on TRACE level
 DECL|method|testClusterStateUpdateLogging
@@ -4189,7 +4241,7 @@ name|SeenEventExpectation
 argument_list|(
 literal|"test1"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4210,7 +4262,7 @@ name|SeenEventExpectation
 argument_list|(
 literal|"test2"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4231,7 +4283,7 @@ name|SeenEventExpectation
 argument_list|(
 literal|"test3"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4242,17 +4294,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|Logger
-name|rootLogger
+name|clusterLogger
 init|=
-name|Logger
+name|Loggers
 operator|.
-name|getRootLogger
-argument_list|()
+name|getLogger
+argument_list|(
+literal|"org.elasticsearch.cluster.service"
+argument_list|)
 decl_stmt|;
-name|rootLogger
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
+name|clusterLogger
+argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
@@ -4534,7 +4590,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// Additional update task to make sure all previous logging made it to the logger
+comment|// Additional update task to make sure all previous logging made it to the loggerName
 comment|// We don't check logging for this on since there is no guarantee that it will occur before our check
 name|clusterService
 operator|.
@@ -4610,10 +4666,12 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|rootLogger
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(
+name|clusterLogger
+argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
@@ -4630,7 +4688,7 @@ begin_function
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"cluster:WARN"
+literal|"org.elasticsearch.cluster.service:WARN"
 argument_list|)
 comment|// To ensure that we log cluster state events on WARN level
 DECL|method|testLongClusterStateUpdateLogging
@@ -4659,7 +4717,7 @@ name|UnseenEventExpectation
 argument_list|(
 literal|"test1 shouldn't see because setting is too low"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4680,7 +4738,7 @@ name|SeenEventExpectation
 argument_list|(
 literal|"test2"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4701,7 +4759,7 @@ name|SeenEventExpectation
 argument_list|(
 literal|"test3"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4722,7 +4780,7 @@ name|SeenEventExpectation
 argument_list|(
 literal|"test4"
 argument_list|,
-literal|"cluster.service"
+literal|"org.elasticsearch.cluster.service.ClusterServiceTests$TimedClusterService"
 argument_list|,
 name|Level
 operator|.
@@ -4733,17 +4791,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|Logger
-name|rootLogger
+name|clusterLogger
 init|=
-name|Logger
+name|Loggers
 operator|.
-name|getRootLogger
-argument_list|()
+name|getLogger
+argument_list|(
+literal|"org.elasticsearch.cluster.service"
+argument_list|)
 decl_stmt|;
-name|rootLogger
+name|Loggers
 operator|.
 name|addAppender
 argument_list|(
+name|clusterLogger
+argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
@@ -5131,7 +5193,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// Additional update task to make sure all previous logging made it to the logger
+comment|// Additional update task to make sure all previous logging made it to the loggerName
 comment|// We don't check logging for this on since there is no guarantee that it will occur before our check
 name|clusterService
 operator|.
@@ -5207,10 +5269,12 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|rootLogger
+name|Loggers
 operator|.
 name|removeAppender
 argument_list|(
+name|clusterLogger
+argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;

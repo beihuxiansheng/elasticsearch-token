@@ -839,11 +839,11 @@ literal|"D"
 argument_list|)
 expr_stmt|;
 comment|// First character of key = first character of name.
-name|StringBuffer
+name|StringBuilder
 name|key
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|str
 operator|.

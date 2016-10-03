@@ -4523,10 +4523,10 @@ literal|"field [not_supported] is not supported"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testMalformedQuery
+DECL|method|testMalformedQueryMultipleQueryObjects
 specifier|public
 name|void
-name|testMalformedQuery
+name|testMalformedQueryMultipleQueryObjects
 parameter_list|()
 throws|throws
 name|IOException
@@ -4565,12 +4565,65 @@ name|expectParsingException
 argument_list|(
 name|json
 argument_list|,
+name|equalTo
+argument_list|(
+literal|"[bool] malformed query, expected [END_OBJECT] but found [FIELD_NAME]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testMalformedQueryMultipleQueryElements
+specifier|public
+name|void
+name|testMalformedQueryMultipleQueryElements
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"function_score\":{\n"
+operator|+
+literal|"        \"query\":{\n"
+operator|+
+literal|"            \"bool\":{\n"
+operator|+
+literal|"                \"must\":{\"match\":{\"field\":\"value\"}}"
+operator|+
+literal|"             }\n"
+operator|+
+literal|"            },\n"
+operator|+
+literal|"        \"query\":{\n"
+operator|+
+literal|"            \"bool\":{\n"
+operator|+
+literal|"                \"must\":{\"match\":{\"field\":\"value\"}}"
+operator|+
+literal|"             }\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expectParsingException
+argument_list|(
+name|json
+argument_list|,
 literal|"[query] is already defined."
 argument_list|)
 expr_stmt|;
 block|}
 DECL|method|expectParsingException
 specifier|private
+specifier|static
 name|void
 name|expectParsingException
 parameter_list|(
@@ -4614,6 +4667,7 @@ expr_stmt|;
 block|}
 DECL|method|expectParsingException
 specifier|private
+specifier|static
 name|void
 name|expectParsingException
 parameter_list|(

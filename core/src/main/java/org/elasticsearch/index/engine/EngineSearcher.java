@@ -22,6 +22,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|lucene
 operator|.
 name|search
@@ -55,20 +69,6 @@ operator|.
 name|store
 operator|.
 name|AlreadyClosedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -151,7 +151,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 decl_stmt|;
 DECL|method|EngineSearcher
@@ -170,7 +170,7 @@ parameter_list|,
 name|Store
 name|store
 parameter_list|,
-name|ESLogger
+name|Logger
 name|logger
 parameter_list|)
 block|{
@@ -272,7 +272,14 @@ name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{
-comment|/* this one can happen if we already closed the                  * underlying store / directory and we call into the                  * IndexWriter to free up pending files. */
+comment|// This means there's a bug somewhere: don't suppress it
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|e
+argument_list|)
+throw|;
 block|}
 finally|finally
 block|{

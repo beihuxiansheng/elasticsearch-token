@@ -513,9 +513,7 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|LegacyFloatFieldMapper
-name|fieldMapper
-init|=
+return|return
 operator|new
 name|LegacyFloatFieldMapper
 argument_list|(
@@ -535,6 +533,8 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|,
+name|includeInAll
+argument_list|,
 name|context
 operator|.
 name|indexSettings
@@ -550,17 +550,6 @@ name|context
 argument_list|)
 argument_list|,
 name|copyTo
-argument_list|)
-decl_stmt|;
-return|return
-operator|(
-name|LegacyFloatFieldMapper
-operator|)
-name|fieldMapper
-operator|.
-name|includeInAll
-argument_list|(
-name|includeInAll
 argument_list|)
 return|;
 block|}
@@ -1109,6 +1098,9 @@ name|Boolean
 argument_list|>
 name|coerce
 parameter_list|,
+name|Boolean
+name|includeInAll
+parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -1130,6 +1122,8 @@ argument_list|,
 name|ignoreMalformed
 argument_list|,
 name|coerce
+argument_list|,
+name|includeInAll
 argument_list|,
 name|indexSettings
 argument_list|,

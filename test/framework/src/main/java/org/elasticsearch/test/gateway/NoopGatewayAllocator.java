@@ -26,9 +26,23 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|ShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|allocation
 operator|.
-name|FailedRerouteAllocation
+name|FailedShard
 import|;
 end_import
 
@@ -45,22 +59,6 @@ operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|StartedRerouteAllocation
 import|;
 end_import
 
@@ -87,6 +85,16 @@ operator|.
 name|gateway
 operator|.
 name|GatewayAllocator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -137,8 +145,14 @@ specifier|public
 name|void
 name|applyStartedShards
 parameter_list|(
-name|StartedRerouteAllocation
+name|RoutingAllocation
 name|allocation
+parameter_list|,
+name|List
+argument_list|<
+name|ShardRouting
+argument_list|>
+name|startedShards
 parameter_list|)
 block|{
 comment|// noop
@@ -150,8 +164,14 @@ specifier|public
 name|void
 name|applyFailedShards
 parameter_list|(
-name|FailedRerouteAllocation
+name|RoutingAllocation
 name|allocation
+parameter_list|,
+name|List
+argument_list|<
+name|FailedShard
+argument_list|>
+name|failedShards
 parameter_list|)
 block|{
 comment|// noop

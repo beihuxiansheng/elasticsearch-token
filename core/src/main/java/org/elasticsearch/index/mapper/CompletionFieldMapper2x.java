@@ -1516,10 +1516,10 @@ name|searchAnalyzer
 operator|=
 name|parserContext
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 literal|"simple"
 argument_list|)
@@ -1573,10 +1573,10 @@ name|analyzer
 init|=
 name|parserContext
 operator|.
-name|analysisService
+name|getIndexAnalyzers
 argument_list|()
 operator|.
-name|analyzer
+name|get
 argument_list|(
 name|name
 argument_list|)

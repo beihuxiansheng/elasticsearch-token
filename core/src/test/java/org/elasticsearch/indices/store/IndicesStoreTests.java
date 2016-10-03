@@ -615,6 +615,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|TransportService
+operator|.
+name|NOOP_TRANSPORT_INTERCEPTOR
 argument_list|)
 argument_list|,
 literal|null
@@ -978,8 +982,6 @@ argument_list|,
 name|i
 argument_list|,
 literal|"xyz"
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

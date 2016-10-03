@@ -353,9 +353,6 @@ argument_list|()
 operator|*
 literal|2
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -390,16 +387,9 @@ name|timeSetting
 argument_list|(
 literal|"indices.recovery.recovery_activity_timeout"
 argument_list|,
-parameter_list|(
-name|s
-parameter_list|)
-lambda|->
 name|INDICES_RECOVERY_INTERNAL_LONG_ACTION_TIMEOUT_SETTING
-operator|.
-name|getRaw
-argument_list|(
-name|s
-argument_list|)
+operator|::
+name|get
 argument_list|,
 name|TimeValue
 operator|.
@@ -574,7 +564,7 @@ if|if
 condition|(
 name|maxBytesPerSec
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<=
 literal|0
@@ -594,7 +584,7 @@ name|SimpleRateLimiter
 argument_list|(
 name|maxBytesPerSec
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -878,7 +868,7 @@ if|if
 condition|(
 name|maxBytesPerSec
 operator|.
-name|bytes
+name|getBytes
 argument_list|()
 operator|<=
 literal|0
@@ -903,7 +893,7 @@ name|setMBPerSec
 argument_list|(
 name|maxBytesPerSec
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -917,7 +907,7 @@ name|SimpleRateLimiter
 argument_list|(
 name|maxBytesPerSec
 operator|.
-name|mbFrac
+name|getMbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;

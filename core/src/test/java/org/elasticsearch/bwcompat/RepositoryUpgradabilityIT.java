@@ -272,7 +272,7 @@ comment|// this test sometimes fails in recovery when the recovery is reset, inc
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.recovery:DEBUG"
+literal|"org.elasticsearch.indices.recovery:DEBUG"
 argument_list|)
 DECL|class|RepositoryUpgradabilityIT
 specifier|public

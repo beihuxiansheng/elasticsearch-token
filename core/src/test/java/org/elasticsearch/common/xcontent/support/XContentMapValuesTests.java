@@ -1229,7 +1229,7 @@ argument_list|(
 literal|"path1"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"test"
 argument_list|,

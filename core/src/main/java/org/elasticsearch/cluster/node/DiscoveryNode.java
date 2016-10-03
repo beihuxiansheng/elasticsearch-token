@@ -494,10 +494,14 @@ operator|.
 name|emptyMap
 argument_list|()
 argument_list|,
-name|Collections
+name|EnumSet
 operator|.
-name|emptySet
-argument_list|()
+name|allOf
+argument_list|(
+name|Role
+operator|.
+name|class
+argument_list|)
 argument_list|,
 name|version
 argument_list|)

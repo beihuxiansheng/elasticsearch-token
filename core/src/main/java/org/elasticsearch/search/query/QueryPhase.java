@@ -643,7 +643,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Query phase of a search request, used to run the query and get back from each shard information about the matching documents  * (document ids and score or sort criteria) so that matches can be reduced on the coordinating node  */
 end_comment
 
 begin_class
@@ -722,7 +722,9 @@ block|{
 name|context
 operator|.
 name|preProcess
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

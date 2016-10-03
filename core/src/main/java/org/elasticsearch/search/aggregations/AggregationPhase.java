@@ -283,7 +283,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Aggregation phase of a search request, used to collect aggregations  */
 end_comment
 
 begin_class

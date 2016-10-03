@@ -293,56 +293,106 @@ decl_stmt|;
 DECL|field|mgr
 specifier|private
 name|ReferenceManager
+argument_list|<
+name|?
+argument_list|>
 name|mgr
 decl_stmt|;
-comment|/** Bytes consumed for each BytesRef UID:      *      *  NUM_BYTES_OBJECT_HEADER + 2*NUM_BYTES_INT + NUM_BYTES_OBJECT_REF + NUM_BYTES_ARRAY_HEADER [ + bytes.length] */
+comment|/** Bytes consumed for each BytesRef UID:      * In this base value, we account for the {@link BytesRef} object itself as      * well as the header of the byte[] array it holds, and some lost bytes due      * to object alignment. So consumers of this constant just have to add the      * length of the byte[] (assuming it is not shared between multiple      * instances). */
 DECL|field|BASE_BYTES_PER_BYTESREF
 specifier|private
 specifier|static
 specifier|final
-name|int
+name|long
 name|BASE_BYTES_PER_BYTESREF
 init|=
+comment|// shallow memory usage of the BytesRef object
 name|RamUsageEstimator
 operator|.
-name|NUM_BYTES_OBJECT_HEADER
-operator|+
-literal|2
-operator|*
-name|Integer
+name|shallowSizeOfInstance
+argument_list|(
+name|BytesRef
 operator|.
-name|BYTES
+name|class
+argument_list|)
 operator|+
-name|RamUsageEstimator
-operator|.
-name|NUM_BYTES_OBJECT_REF
-operator|+
+comment|// header of the byte[] array
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_ARRAY_HEADER
+operator|+
+comment|// with an alignment size (-XX:ObjectAlignmentInBytes) of 8 (default),
+comment|// there could be between 0 and 7 lost bytes, so we account for 3
+comment|// lost bytes on average
+literal|3
 decl_stmt|;
-comment|/** Bytes used by having CHM point to a key/value:      *      *  CHM.Entry:      *     + NUM_BYTES_OBJECT_HEADER + 3*NUM_BYTES_OBJECT_REF + NUM_BYTES_INT      *      *  CHM's pointer to CHM.Entry, double for approx load factor:      *     + 2*NUM_BYTES_OBJECT_REF */
+comment|/** Bytes used by having CHM point to a key/value. */
 DECL|field|BASE_BYTES_PER_CHM_ENTRY
 specifier|private
 specifier|static
 specifier|final
-name|int
+name|long
 name|BASE_BYTES_PER_CHM_ENTRY
+decl_stmt|;
+static|static
+block|{
+comment|// use the same impl as the Maps does
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|Integer
+argument_list|>
+name|map
+init|=
+name|ConcurrentCollections
+operator|.
+name|newConcurrentMapWithAggressiveConcurrency
+argument_list|()
+decl_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|long
+name|chmEntryShallowSize
 init|=
 name|RamUsageEstimator
 operator|.
-name|NUM_BYTES_OBJECT_HEADER
-operator|+
-name|Integer
+name|shallowSizeOf
+argument_list|(
+name|map
 operator|.
-name|BYTES
+name|entrySet
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// assume a load factor of 50%
+comment|// for each entry, we need two object refs, one for the entry itself
+comment|// and one for the free space that is due to the fact hash tables can
+comment|// not be fully loaded
+name|BASE_BYTES_PER_CHM_ENTRY
+operator|=
+name|chmEntryShallowSize
 operator|+
-literal|5
+literal|2
 operator|*
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|/** Tracks bytes used by current map, i.e. what is freed on refresh. For deletes, which are also added to tombstones, we only account      *  for the CHM entry here, and account for BytesRef/VersionValue against the tombstones, since refresh would not clear this RAM. */
 DECL|field|ramBytesUsedCurrent
 specifier|final
@@ -370,6 +420,9 @@ name|void
 name|setManager
 parameter_list|(
 name|ReferenceManager
+argument_list|<
+name|?
+argument_list|>
 name|newMgr
 parameter_list|)
 block|{
@@ -584,6 +637,31 @@ name|VersionValue
 name|version
 parameter_list|)
 block|{
+assert|assert
+name|uid
+operator|.
+name|bytes
+operator|.
+name|length
+operator|==
+name|uid
+operator|.
+name|length
+operator|:
+literal|"Oversized _uid! UID length: "
+operator|+
+name|uid
+operator|.
+name|length
+operator|+
+literal|", bytes length: "
+operator|+
+name|uid
+operator|.
+name|bytes
+operator|.
+name|length
+assert|;
 name|long
 name|uidRAMBytesUsed
 init|=
@@ -1039,7 +1117,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/** Returns how much RAM would be freed up by refreshing. This is {@link ramBytesUsed} except does not include tombstones because they      *  don't clear on refresh. */
+comment|/** Returns how much RAM would be freed up by refreshing. This is {@link #ramBytesUsed} except does not include tombstones because they      *  don't clear on refresh. */
 DECL|method|ramBytesUsedForRefresh
 name|long
 name|ramBytesUsedForRefresh

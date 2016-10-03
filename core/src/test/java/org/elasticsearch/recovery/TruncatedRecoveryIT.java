@@ -234,7 +234,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -897,11 +897,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setWaitIfOngoing
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|get
 argument_list|()
 expr_stmt|;
@@ -1049,7 +1044,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTargetService
+name|PeerRecoveryTargetService
 operator|.
 name|Actions
 operator|.

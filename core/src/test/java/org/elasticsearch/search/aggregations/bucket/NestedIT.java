@@ -3965,7 +3965,7 @@ argument_list|,
 literal|"product1"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"categories"
 argument_list|,
@@ -4059,7 +4059,7 @@ argument_list|,
 literal|"product2"
 argument_list|)
 operator|.
-name|field
+name|array
 argument_list|(
 literal|"categories"
 argument_list|,

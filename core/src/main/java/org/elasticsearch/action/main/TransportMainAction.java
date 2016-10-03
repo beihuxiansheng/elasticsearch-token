@@ -342,6 +342,14 @@ operator|.
 name|getClusterName
 argument_list|()
 argument_list|,
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|clusterUUID
+argument_list|()
+argument_list|,
 name|Build
 operator|.
 name|CURRENT

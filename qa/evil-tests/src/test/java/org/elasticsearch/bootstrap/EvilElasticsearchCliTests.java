@@ -143,6 +143,8 @@ name|foreground
 parameter_list|,
 name|pidFile
 parameter_list|,
+name|quiet
+parameter_list|,
 name|esSettings
 parameter_list|)
 lambda|->
@@ -207,6 +209,8 @@ parameter_list|(
 name|foreground
 parameter_list|,
 name|pidFile
+parameter_list|,
+name|quiet
 parameter_list|,
 name|esSettings
 parameter_list|)

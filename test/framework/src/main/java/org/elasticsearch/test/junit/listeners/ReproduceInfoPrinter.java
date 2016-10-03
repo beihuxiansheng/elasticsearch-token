@@ -34,11 +34,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|logging
 operator|.
-name|Strings
+name|log4j
+operator|.
+name|Logger
 import|;
 end_import
 
@@ -50,9 +52,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
+name|Strings
 import|;
 end_import
 
@@ -307,7 +307,7 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-name|ESLogger
+name|Logger
 name|logger
 init|=
 name|Loggers
