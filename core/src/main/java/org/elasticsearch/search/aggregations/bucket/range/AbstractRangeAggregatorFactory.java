@@ -291,10 +291,8 @@ decl_stmt|;
 DECL|field|ranges
 specifier|private
 specifier|final
-name|List
-argument_list|<
 name|R
-argument_list|>
+index|[]
 name|ranges
 decl_stmt|;
 DECL|field|keyed
@@ -319,10 +317,8 @@ name|Numeric
 argument_list|>
 name|config
 parameter_list|,
-name|List
-argument_list|<
 name|R
-argument_list|>
+index|[]
 name|ranges
 parameter_list|,
 name|boolean
@@ -429,9 +425,7 @@ block|{
 return|return
 operator|new
 name|Unmapped
-argument_list|<
-name|R
-argument_list|>
+argument_list|<>
 argument_list|(
 name|name
 argument_list|,
