@@ -3011,6 +3011,10 @@ name|DistanceUnit
 operator|.
 name|METERS
 operator|&&
+name|reverse
+operator|==
+literal|false
+operator|&&
 name|localPoints
 operator|.
 name|size
