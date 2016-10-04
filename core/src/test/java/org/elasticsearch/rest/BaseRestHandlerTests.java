@@ -172,6 +172,20 @@ name|hamcrest
 operator|.
 name|core
 operator|.
+name|AnyOf
+operator|.
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|core
+operator|.
 name|StringContains
 operator|.
 name|containsString
@@ -304,7 +318,19 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"unconsumed"
+literal|"unconsumed-first"
+argument_list|,
+name|randomAsciiOfLength
+argument_list|(
+literal|8
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"unconsumed-second"
 argument_list|,
 name|randomAsciiOfLength
 argument_list|(
@@ -376,11 +402,23 @@ name|assertThat
 argument_list|(
 name|e
 argument_list|,
+comment|// we can not rely on ordering of the unconsumed parameters here
+name|anyOf
+argument_list|(
 name|hasToString
 argument_list|(
 name|containsString
 argument_list|(
-literal|"request [/] contains unused params: [unconsumed]"
+literal|"request [/] contains unrecognized parameters: [unconsumed-first, unconsumed-second]"
+argument_list|)
+argument_list|)
+argument_list|,
+name|hasToString
+argument_list|(
+name|containsString
+argument_list|(
+literal|"request [/] contains unrecognized parameters: [unconsumed-second, unconsumed-first]"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
