@@ -214,18 +214,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -398,18 +386,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doRequest
+DECL|method|doCatRequest
 specifier|public
-name|void
-name|doRequest
+name|RestChannelConsumer
+name|doCatRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
-parameter_list|,
-specifier|final
-name|RestChannel
-name|channel
 parameter_list|,
 specifier|final
 name|NodeClient
@@ -481,6 +465,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|admin
@@ -502,16 +489,8 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-annotation|@
-name|Override
-specifier|public
-name|RestResponse
-name|buildResponse
-parameter_list|(
-specifier|final
-name|RecoveryResponse
-name|response
-parameter_list|)
+block|@Override             public RestResponse buildResponse(final RecoveryResponse response
+block|)
 throws|throws
 name|Exception
 block|{
@@ -532,10 +511,15 @@ argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}      @
 name|Override
 DECL|method|getTableWithHeader
 specifier|protected
@@ -719,7 +703,13 @@ return|return
 name|t
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * buildRecoveryTable will build a table of recovery information suitable      * for displaying at the command line.      *      * @param request  A Rest request      * @param response A recovery status response      * @return A table containing index, shardId, node, target size, recovered size and percentage for each recovering replica      */
+end_comment
+
+begin_function
 DECL|method|buildRecoveryTable
 specifier|public
 name|Table
@@ -1306,8 +1296,8 @@ return|return
 name|t
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

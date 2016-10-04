@@ -4781,7 +4781,7 @@ name|equalTo
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4877,7 +4877,7 @@ name|equalTo
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6961,7 +6961,7 @@ name|equalTo
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6995,7 +6995,7 @@ name|equalTo
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7029,7 +7029,7 @@ name|equalTo
 argument_list|(
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 argument_list|)
 expr_stmt|;

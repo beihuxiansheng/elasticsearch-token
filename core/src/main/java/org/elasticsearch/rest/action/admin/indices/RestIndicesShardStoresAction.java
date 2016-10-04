@@ -188,18 +188,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -239,6 +227,16 @@ operator|.
 name|action
 operator|.
 name|RestBuilderListener
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -327,23 +325,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
 parameter_list|,
 specifier|final
-name|RestChannel
-name|channel
-parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|IndicesShardStoresRequest
 name|indicesShardStoresRequest
@@ -409,6 +405,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|admin
@@ -430,18 +429,11 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-annotation|@
-name|Override
-specifier|public
-name|RestResponse
-name|buildResponse
-parameter_list|(
-name|IndicesShardStoresResponse
-name|response
-parameter_list|,
+block|@Override                     public RestResponse buildResponse(                         IndicesShardStoresResponse response
+operator|,
 name|XContentBuilder
 name|builder
-parameter_list|)
+block|)
 throws|throws
 name|Exception
 block|{
@@ -475,11 +467,13 @@ argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 end_class
 
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+unit|} }
 end_unit
 

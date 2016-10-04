@@ -777,7 +777,7 @@ argument_list|)
 argument_list|,
 name|hasEntry
 argument_list|(
-literal|"sorts"
+literal|"sort"
 argument_list|,
 literal|"_doc:asc"
 argument_list|)
@@ -870,7 +870,7 @@ argument_list|)
 argument_list|,
 name|hasEntry
 argument_list|(
-literal|"sorts"
+literal|"sort"
 argument_list|,
 literal|"foo:asc"
 argument_list|)

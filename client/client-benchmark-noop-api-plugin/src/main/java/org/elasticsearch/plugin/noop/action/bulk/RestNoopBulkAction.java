@@ -295,6 +295,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -435,25 +445,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
 parameter_list|,
 specifier|final
-name|RestChannel
-name|channel
-parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|BulkRequest
 name|bulkRequest
@@ -615,6 +621,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// short circuit the call to the transport layer
+return|return
+name|channel
+lambda|->
+block|{
 name|BulkRestBuilderListener
 name|listener
 init|=
@@ -633,6 +643,8 @@ argument_list|(
 name|bulkRequest
 argument_list|)
 expr_stmt|;
+block|}
+return|;
 block|}
 DECL|class|BulkRestBuilderListener
 specifier|private

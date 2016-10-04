@@ -1043,15 +1043,9 @@ name|channel
 parameter_list|)
 block|{
 comment|// error_trace cannot be used when we disable detailed errors
+comment|// we consume the error_trace parameter first to ensure that it is always consumed
 if|if
 condition|(
-name|channel
-operator|.
-name|detailedErrorsEnabled
-argument_list|()
-operator|==
-literal|false
-operator|&&
 name|request
 operator|.
 name|paramAsBoolean
@@ -1060,6 +1054,13 @@ literal|"error_trace"
 argument_list|,
 literal|false
 argument_list|)
+operator|&&
+name|channel
+operator|.
+name|detailedErrorsEnabled
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 try|try

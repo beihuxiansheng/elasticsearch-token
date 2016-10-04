@@ -1245,7 +1245,7 @@ name|int
 name|length
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|add
@@ -1289,7 +1289,7 @@ name|String
 name|defaultType
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|add
@@ -1330,7 +1330,7 @@ name|String
 name|defaultType
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|add
@@ -1378,7 +1378,7 @@ name|boolean
 name|allowExplicitIndex
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|add
@@ -1451,7 +1451,7 @@ name|boolean
 name|allowExplicitIndex
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|XContent
 name|xContent

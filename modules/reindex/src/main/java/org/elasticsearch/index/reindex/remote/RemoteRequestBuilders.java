@@ -651,7 +651,7 @@ name|params
 operator|.
 name|put
 argument_list|(
-literal|"sorts"
+literal|"sort"
 argument_list|,
 name|sorts
 operator|.

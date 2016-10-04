@@ -1869,7 +1869,7 @@ name|boolean
 name|allowExplicitIndex
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 try|try
 init|(

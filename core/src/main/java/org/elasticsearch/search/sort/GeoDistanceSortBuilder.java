@@ -3011,6 +3011,10 @@ name|DistanceUnit
 operator|.
 name|METERS
 operator|&&
+name|reverse
+operator|==
+literal|false
+operator|&&
 name|localPoints
 operator|.
 name|size
@@ -3249,7 +3253,7 @@ name|distanceValues
 argument_list|,
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|)
 expr_stmt|;
 block|}
@@ -3287,7 +3291,7 @@ name|distanceValues
 argument_list|,
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 argument_list|,
 name|rootDocs
 argument_list|,

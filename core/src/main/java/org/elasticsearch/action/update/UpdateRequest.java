@@ -2610,7 +2610,7 @@ name|BytesReference
 name|source
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|Script
 name|script
