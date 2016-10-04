@@ -921,7 +921,7 @@ name|resolveNodes
 argument_list|(
 name|request
 operator|.
-name|getNodesIds
+name|getNodes
 argument_list|()
 argument_list|)
 return|;

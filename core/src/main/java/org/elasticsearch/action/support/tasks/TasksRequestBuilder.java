@@ -201,7 +201,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|setNodesIds
+name|setNodes
 argument_list|(
 name|nodesIds
 argument_list|)
