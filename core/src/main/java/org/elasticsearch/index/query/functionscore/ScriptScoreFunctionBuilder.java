@@ -478,6 +478,11 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|context
+operator|.
+name|markAsNotCachable
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|SearchScript

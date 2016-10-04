@@ -3555,6 +3555,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|context
+operator|.
+name|markAsNotCachable
+argument_list|()
+expr_stmt|;
 name|CompiledScript
 name|compiledScript
 init|=

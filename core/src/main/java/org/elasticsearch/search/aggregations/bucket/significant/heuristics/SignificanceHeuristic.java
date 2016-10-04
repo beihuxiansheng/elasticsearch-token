@@ -240,6 +240,16 @@ name|SearchContext
 name|context
 parameter_list|)
 block|{      }
+DECL|method|canCache
+specifier|public
+name|boolean
+name|canCache
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

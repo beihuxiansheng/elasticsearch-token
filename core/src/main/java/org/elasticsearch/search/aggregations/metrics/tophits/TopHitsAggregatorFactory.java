@@ -743,6 +743,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|subSearchContext
+operator|.
+name|markAsNotCachable
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|ScriptField

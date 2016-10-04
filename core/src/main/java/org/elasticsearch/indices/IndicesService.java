@@ -6794,8 +6794,10 @@ if|if
 condition|(
 name|context
 operator|.
-name|nowInMillisUsed
+name|isCachable
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 return|return

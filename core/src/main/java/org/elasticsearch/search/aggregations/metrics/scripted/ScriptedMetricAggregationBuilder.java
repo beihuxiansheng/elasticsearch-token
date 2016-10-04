@@ -830,6 +830,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|context
+operator|.
+name|searchContext
+argument_list|()
+operator|.
+name|markAsNotCachable
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|ScriptedMetricAggregatorFactory

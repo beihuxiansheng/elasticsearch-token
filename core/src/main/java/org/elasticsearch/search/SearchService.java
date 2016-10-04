@@ -3524,7 +3524,7 @@ comment|// aggregation) it will still be caught when the aggregation is
 comment|// evaluated.
 name|context
 operator|.
-name|resetNowInMillisUsed
+name|resetCanCache
 argument_list|()
 expr_stmt|;
 if|if
@@ -4900,10 +4900,7 @@ block|{
 name|SearchScript
 name|searchScript
 init|=
-name|context
-operator|.
 name|scriptService
-argument_list|()
 operator|.
 name|search
 argument_list|(

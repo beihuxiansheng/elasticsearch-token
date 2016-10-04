@@ -3213,6 +3213,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|context
+operator|.
+name|markAsNotCachable
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|ScriptField
@@ -3226,7 +3231,10 @@ name|searchScript
 init|=
 name|innerHitsContext
 operator|.
-name|scriptService
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|getScriptService
 argument_list|()
 operator|.
 name|search
