@@ -1139,6 +1139,8 @@ name|significanceHeuristic
 operator|.
 name|canCache
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|context
