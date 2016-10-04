@@ -151,16 +151,16 @@ DECL|enum|OpType
 enum|enum
 name|OpType
 block|{
-comment|/**          * Creates the resource. Simply adds it to the index, if there is an existing          * document with the id, then it won't be removed.          */
-DECL|enum constant|CREATE
-name|CREATE
+comment|/**          * Index the source. If there an existing document with the id, it will          * be replaced.          */
+DECL|enum constant|INDEX
+name|INDEX
 argument_list|(
 literal|0
 argument_list|)
 block|,
-comment|/**          * Index the source. If there an existing document with the id, it will          * be replaced.          */
-DECL|enum constant|INDEX
-name|INDEX
+comment|/**          * Creates the resource. Simply adds it to the index, if there is an existing          * document with the id, then it won't be removed.          */
+DECL|enum constant|CREATE
+name|CREATE
 argument_list|(
 literal|1
 argument_list|)
@@ -263,13 +263,13 @@ case|case
 literal|0
 case|:
 return|return
-name|CREATE
+name|INDEX
 return|;
 case|case
 literal|1
 case|:
 return|return
-name|INDEX
+name|CREATE
 return|;
 case|case
 literal|2
@@ -296,6 +296,69 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|fromString
+specifier|public
+specifier|static
+name|OpType
+name|fromString
+parameter_list|(
+name|String
+name|sOpType
+parameter_list|)
+block|{
+name|String
+name|lowerCase
+init|=
+name|sOpType
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|OpType
+name|opType
+range|:
+name|OpType
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|opType
+operator|.
+name|getLowercase
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|lowerCase
+argument_list|)
+condition|)
+block|{
+return|return
+name|opType
+return|;
+block|}
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown opType: ["
+operator|+
+name|sOpType
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
