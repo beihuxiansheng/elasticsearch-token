@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -234,18 +224,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -314,6 +292,16 @@ name|RestBuilderListener
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Class handling cluster allocation explanation at the REST level  */
 end_comment
@@ -377,23 +365,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
 parameter_list|,
 specifier|final
-name|RestChannel
-name|channel
-parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|ClusterAllocationExplainRequest
 name|req
@@ -473,6 +459,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|channel
 operator|.
 name|sendResponse
@@ -496,8 +485,7 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return;
+return|;
 block|}
 block|}
 try|try
@@ -530,6 +518,9 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|admin
@@ -551,18 +542,11 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-annotation|@
-name|Override
-specifier|public
-name|RestResponse
-name|buildResponse
-parameter_list|(
-name|ClusterAllocationExplainResponse
-name|response
-parameter_list|,
+block|@Override                 public RestResponse buildResponse(ClusterAllocationExplainResponse response
+operator|,
 name|XContentBuilder
 name|builder
-parameter_list|)
+block|)
 throws|throws
 name|Exception
 block|{
@@ -579,7 +563,7 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 return|return
 operator|new
 name|BytesRestResponse
@@ -593,14 +577,19 @@ argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_expr_stmt
+unit|} catch
+operator|(
 name|Exception
 name|e
-parameter_list|)
+operator|)
 block|{
 name|logger
 operator|.
@@ -610,7 +599,10 @@ literal|"failed to explain allocation"
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+block|;
+return|return
+name|channel
+lambda|->
 name|channel
 operator|.
 name|sendResponse
@@ -634,11 +626,10 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-block|}
-block|}
-end_class
+end_expr_stmt
 
+unit|} }
 end_unit
 
