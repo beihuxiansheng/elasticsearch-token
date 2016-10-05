@@ -917,25 +917,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// parse any string bounds to longs and round them
 name|roundedBounds
 operator|=
 name|extendedBounds
-operator|.
-name|parseAndValidate
-argument_list|(
-name|name
-argument_list|,
-name|context
-operator|.
-name|searchContext
-argument_list|()
-argument_list|,
-name|config
-operator|.
-name|format
-argument_list|()
-argument_list|)
 operator|.
 name|round
 argument_list|(
