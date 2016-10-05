@@ -1727,8 +1727,6 @@ name|threadPool
 argument_list|,
 name|bigArrays
 argument_list|,
-name|scriptService
-argument_list|,
 name|indexService
 argument_list|)
 return|;

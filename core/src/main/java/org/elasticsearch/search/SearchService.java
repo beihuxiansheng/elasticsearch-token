@@ -1722,6 +1722,14 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|setExecutionMode
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|canCache
@@ -3809,8 +3817,6 @@ argument_list|,
 name|indexService
 argument_list|,
 name|indexShard
-argument_list|,
-name|scriptService
 argument_list|,
 name|bigArrays
 argument_list|,

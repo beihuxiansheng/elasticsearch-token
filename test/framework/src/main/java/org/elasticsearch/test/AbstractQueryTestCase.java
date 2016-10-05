@@ -6868,6 +6868,10 @@ argument_list|,
 literal|null
 argument_list|,
 name|state
+argument_list|,
+name|System
+operator|::
+name|currentTimeMillis
 argument_list|)
 return|;
 block|}

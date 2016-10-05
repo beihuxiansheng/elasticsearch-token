@@ -639,6 +639,9 @@ argument_list|,
 literal|false
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|::
 name|nowInMillis
 argument_list|)
