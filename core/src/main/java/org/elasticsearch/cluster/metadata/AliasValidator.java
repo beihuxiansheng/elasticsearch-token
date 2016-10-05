@@ -501,7 +501,6 @@ throw|;
 block|}
 block|}
 DECL|method|validateAliasStandalone
-specifier|private
 name|void
 name|validateAliasStandalone
 parameter_list|(
@@ -531,6 +530,17 @@ literal|"alias name is required"
 argument_list|)
 throw|;
 block|}
+name|MetaDataCreateIndexService
+operator|.
+name|validateIndexOrAliasName
+argument_list|(
+name|alias
+argument_list|,
+name|InvalidAliasNameException
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|indexRouting
