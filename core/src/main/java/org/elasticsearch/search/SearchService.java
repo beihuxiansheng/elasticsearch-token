@@ -3519,21 +3519,15 @@ name|request
 operator|.
 name|rewrite
 argument_list|(
+operator|new
+name|QueryShardContext
+argument_list|(
 name|context
 operator|.
 name|getQueryShardContext
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// reset that we have used nowInMillis from the context since it may
-comment|// have been rewritten so its no longer in the query and the request can
-comment|// be cached. If it is still present in the request (e.g. in a range
-comment|// aggregation) it will still be caught when the aggregation is
-comment|// evaluated.
-name|context
-operator|.
-name|resetCanCache
-argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

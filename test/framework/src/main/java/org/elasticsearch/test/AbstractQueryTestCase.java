@@ -3561,15 +3561,25 @@ name|context
 argument_list|)
 expr_stmt|;
 comment|// only set search context for toQuery to be more realistic
-name|Query
-name|firstLuceneQuery
+comment|/* we use a private rewrite context here since we want the most realistic way of asserting that we are cachabel or not.              * We do it this way in SearchService where              * we first rewrite the query with a private context, then reset the context and then build the actual lucene query*/
+name|QueryBuilder
+name|rewritten
 init|=
 name|rewriteQuery
 argument_list|(
 name|firstQuery
 argument_list|,
+operator|new
+name|QueryShardContext
+argument_list|(
 name|context
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|Query
+name|firstLuceneQuery
+init|=
+name|rewritten
 operator|.
 name|toQuery
 argument_list|(
