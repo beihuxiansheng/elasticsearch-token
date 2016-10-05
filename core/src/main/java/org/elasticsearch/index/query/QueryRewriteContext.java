@@ -586,6 +586,7 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * This method fails if {@link #setExecutionMode()} is called before on this context.      * This is used to<i>seal</i>      */
 DECL|method|failIfExecutionMode
 specifier|protected
 name|void

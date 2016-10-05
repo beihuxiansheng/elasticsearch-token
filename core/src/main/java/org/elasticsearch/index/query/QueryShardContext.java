@@ -1867,6 +1867,7 @@ name|getIndex
 argument_list|()
 return|;
 block|}
+comment|/**      * Compiles (or retrieves from cache) and executes the provided script      */
 DECL|method|getSearchScript
 specifier|public
 name|SearchScript
@@ -1906,6 +1907,7 @@ name|params
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a lazily created {@link SearchScript} that is compiled immediately but can be pulled later once all      * parameters are available.      */
 DECL|method|getLazySearchScript
 specifier|public
 name|Function
@@ -1971,6 +1973,7 @@ name|p
 argument_list|)
 return|;
 block|}
+comment|/**      * Compiles (or retrieves from cache) and executes the provided script      */
 DECL|method|getExecutableScript
 specifier|public
 name|ExecutableScript
@@ -2007,6 +2010,7 @@ name|params
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a lazily created {@link ExecutableScript} that is compiled immediately but can be pulled later once all      * parameters are available.      */
 DECL|method|getLazyExecutableScript
 specifier|public
 name|Function
