@@ -1890,9 +1890,6 @@ block|{
 name|failIfExecutionMode
 argument_list|()
 expr_stmt|;
-name|markAsNotCachable
-argument_list|()
-expr_stmt|;
 return|return
 name|scriptService
 operator|.
@@ -1940,9 +1937,6 @@ name|params
 parameter_list|)
 block|{
 name|failIfExecutionMode
-argument_list|()
-expr_stmt|;
-name|markAsNotCachable
 argument_list|()
 expr_stmt|;
 name|CompiledScript
@@ -2000,9 +1994,6 @@ block|{
 name|failIfExecutionMode
 argument_list|()
 expr_stmt|;
-name|markAsNotCachable
-argument_list|()
-expr_stmt|;
 return|return
 name|scriptService
 operator|.
@@ -2047,9 +2038,6 @@ name|params
 parameter_list|)
 block|{
 name|failIfExecutionMode
-argument_list|()
-expr_stmt|;
-name|markAsNotCachable
 argument_list|()
 expr_stmt|;
 name|CompiledScript

@@ -303,6 +303,13 @@ argument_list|(
 name|indexSettings
 argument_list|)
 expr_stmt|;
+specifier|final
+name|long
+name|nowInMillis
+init|=
+name|randomPositiveLong
+argument_list|()
+decl_stmt|;
 name|QueryShardContext
 name|context
 init|=
@@ -329,9 +336,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|System
-operator|::
-name|currentTimeMillis
+parameter_list|()
+lambda|->
+name|nowInMillis
 argument_list|)
 decl_stmt|;
 name|context

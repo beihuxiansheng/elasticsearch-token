@@ -288,6 +288,8 @@ DECL|field|cachable
 specifier|protected
 name|boolean
 name|cachable
+init|=
+literal|true
 decl_stmt|;
 DECL|field|executionMode
 specifier|private
@@ -536,10 +538,10 @@ return|return
 name|cachable
 return|;
 block|}
-DECL|method|setCachabe
+DECL|method|setCachable
 specifier|public
 name|void
-name|setCachabe
+name|setCachable
 parameter_list|(
 name|boolean
 name|cachabe
@@ -619,6 +621,9 @@ name|void
 name|failIfExecutionMode
 parameter_list|()
 block|{
+name|markAsNotCachable
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|executionMode
