@@ -182,6 +182,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|items
+specifier|public
 name|BulkItemRequest
 index|[]
 name|items
