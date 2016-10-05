@@ -181,6 +181,14 @@ name|compile
 argument_list|(
 literal|"logging\\.log4j"
 argument_list|)
+block|,
+comment|// security manager is shared across all nodes AND it uses synced hashmaps interanlly
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"java\\.lang\\.SecurityManager"
+argument_list|)
 block|}
 decl_stmt|;
 DECL|field|disruptedNode
