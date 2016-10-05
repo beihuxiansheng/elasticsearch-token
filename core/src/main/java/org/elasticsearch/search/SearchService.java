@@ -1727,7 +1727,7 @@ operator|.
 name|getQueryShardContext
 argument_list|()
 operator|.
-name|setExecutionMode
+name|freezeContext
 argument_list|()
 expr_stmt|;
 if|if

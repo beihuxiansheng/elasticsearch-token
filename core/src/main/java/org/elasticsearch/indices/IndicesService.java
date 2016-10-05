@@ -6794,6 +6794,9 @@ if|if
 condition|(
 name|context
 operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
 name|isCachable
 argument_list|()
 operator|==
