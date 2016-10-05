@@ -676,6 +676,25 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|responseParams
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+literal|"response_param"
+argument_list|)
+return|;
+block|}
 block|}
 decl_stmt|;
 specifier|final
@@ -709,6 +728,18 @@ operator|.
 name|put
 argument_list|(
 literal|"flied"
+argument_list|,
+name|randomAsciiOfLength
+argument_list|(
+literal|8
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"respones_param"
 argument_list|,
 name|randomAsciiOfLength
 argument_list|(
@@ -823,6 +854,8 @@ argument_list|(
 literal|"request [/] contains unrecognized parameters: "
 operator|+
 literal|"[flied] -> did you mean [field]?, "
+operator|+
+literal|"[respones_param] -> did you mean [response_param]?, "
 operator|+
 literal|"[tokenzier] -> did you mean [tokenizer]?, "
 operator|+
