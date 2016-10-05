@@ -122,16 +122,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -612,6 +602,30 @@ parameter_list|()
 block|{
 return|return
 name|params
+return|;
+block|}
+comment|/**      * Returns a list of parameters that have been consumed. This method returns a copy, callers      * are free to modify the returned list.      *      * @return the list of currently consumed parameters.      */
+DECL|method|consumedParams
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|consumedParams
+parameter_list|()
+block|{
+return|return
+name|consumedParams
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns a list of parameters that have not yet been consumed. This method returns a copy,      * callers are free to modify the returned list.      *      * @return the list of currently unconsumed parameters.      */
