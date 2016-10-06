@@ -398,6 +398,21 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isCachable
+specifier|protected
+name|boolean
+name|isCachable
+parameter_list|(
+name|ScriptQueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

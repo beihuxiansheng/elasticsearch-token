@@ -86,18 +86,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -1835,6 +1823,12 @@ block|{             }
 block|}
 argument_list|)
 decl_stmt|;
+name|long
+name|nowInMillis
+init|=
+name|randomPositiveLong
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|QueryShardContext
@@ -1858,17 +1852,20 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+name|nowInMillis
 argument_list|)
-block|{
-annotation|@
+block|{             @
 name|Override
 specifier|public
 name|MappedFieldType
 name|fieldMapper
-parameter_list|(
+argument_list|(
 name|String
 name|name
-parameter_list|)
+argument_list|)
 block|{
 return|return
 name|provideMappedFieldType
@@ -1938,9 +1935,15 @@ argument_list|)
 return|;
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
+end_class
+
+begin_comment
 comment|/**      * Return a field type. We use {@link DoubleFieldType} by default since it is compatible with all sort modes      * Tests that require other field type than double can override this.      */
+end_comment
+
+begin_function
 DECL|method|provideMappedFieldType
 specifier|protected
 name|MappedFieldType
@@ -1975,6 +1978,9 @@ return|return
 name|doubleFieldType
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|randomNestedFilter
 specifier|protected
 specifier|static
@@ -2065,6 +2071,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2144,8 +2153,8 @@ return|;
 block|}
 block|}
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

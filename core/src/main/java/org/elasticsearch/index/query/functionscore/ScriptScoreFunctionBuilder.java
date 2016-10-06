@@ -485,16 +485,8 @@ name|searchScript
 init|=
 name|context
 operator|.
-name|getScriptService
-argument_list|()
-operator|.
-name|search
+name|getSearchScript
 argument_list|(
-name|context
-operator|.
-name|lookup
-argument_list|()
-argument_list|,
 name|script
 argument_list|,
 name|ScriptContext

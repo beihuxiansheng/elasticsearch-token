@@ -933,6 +933,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|LongSupplier
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -3016,6 +3028,9 @@ name|newQueryShardContext
 parameter_list|(
 name|IndexReader
 name|indexReader
+parameter_list|,
+name|LongSupplier
+name|nowInMillis
 parameter_list|)
 block|{
 return|return
@@ -3061,6 +3076,8 @@ argument_list|()
 operator|.
 name|state
 argument_list|()
+argument_list|,
+name|nowInMillis
 argument_list|)
 return|;
 block|}
@@ -3075,6 +3092,10 @@ return|return
 name|newQueryShardContext
 argument_list|(
 literal|null
+argument_list|,
+name|threadPool
+operator|::
+name|estimatedTimeInMillis
 argument_list|)
 return|;
 block|}

@@ -6794,8 +6794,13 @@ if|if
 condition|(
 name|context
 operator|.
-name|nowInMillisUsed
+name|getQueryShardContext
 argument_list|()
+operator|.
+name|isCachable
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 return|return

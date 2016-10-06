@@ -1722,6 +1722,14 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|freezeContext
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|canCache
@@ -3486,6 +3494,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|DefaultSearchContext
 name|context
 init|=
@@ -3498,6 +3507,39 @@ argument_list|,
 name|searcher
 argument_list|)
 decl_stmt|;
+try|try
+block|{
+comment|// we clone the search context here just for rewriting otherwise we
+comment|// might end up with incorrect state since we are using now() or script services
+comment|// during rewrite and normalized / evaluate templates etc.
+comment|// NOTE this context doesn't need to be closed - the outer context will
+comment|// take care of this.
+name|DefaultSearchContext
+name|rewriteContext
+init|=
+operator|new
+name|DefaultSearchContext
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
+name|SearchContext
+operator|.
+name|setCurrent
+argument_list|(
+name|rewriteContext
+argument_list|)
+expr_stmt|;
+name|request
+operator|.
+name|rewrite
+argument_list|(
+name|rewriteContext
+operator|.
+name|getQueryShardContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SearchContext
 operator|.
 name|setCurrent
@@ -3505,28 +3547,15 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|request
-operator|.
-name|rewrite
-argument_list|(
+assert|assert
 name|context
 operator|.
 name|getQueryShardContext
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// reset that we have used nowInMillis from the context since it may
-comment|// have been rewritten so its no longer in the query and the request can
-comment|// be cached. If it is still present in the request (e.g. in a range
-comment|// aggregation) it will still be caught when the aggregation is
-comment|// evaluated.
-name|context
 operator|.
-name|resetNowInMillisUsed
+name|isCachable
 argument_list|()
-expr_stmt|;
+assert|;
 if|if
 condition|(
 name|request
@@ -3809,8 +3838,6 @@ argument_list|,
 name|indexService
 argument_list|,
 name|indexShard
-argument_list|,
-name|scriptService
 argument_list|,
 name|bigArrays
 argument_list|,
@@ -4900,10 +4927,7 @@ block|{
 name|SearchScript
 name|searchScript
 init|=
-name|context
-operator|.
 name|scriptService
-argument_list|()
 operator|.
 name|search
 argument_list|(

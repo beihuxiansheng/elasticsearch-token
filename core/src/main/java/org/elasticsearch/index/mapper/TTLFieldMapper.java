@@ -836,6 +836,9 @@ name|now
 operator|=
 name|searchContext
 operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
 name|nowInMillis
 argument_list|()
 expr_stmt|;
