@@ -1770,9 +1770,6 @@ expr_stmt|;
 name|scriptsPerMinCounter
 operator|+=
 operator|(
-operator|(
-name|double
-operator|)
 name|timePassed
 operator|)
 operator|*
@@ -3142,6 +3139,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Binds provided parameters to a compiled script returning a      * {@link SearchScript} ready for execution      */
 DECL|method|search
 specifier|public
 name|SearchScript

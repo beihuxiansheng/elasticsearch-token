@@ -1916,7 +1916,7 @@ name|getIndex
 argument_list|()
 return|;
 block|}
-comment|/**      * Compiles (or retrieves from cache) and executes the provided script      */
+comment|/**      * Compiles (or retrieves from cache) and binds the parameters to the      * provided script      */
 DECL|method|getSearchScript
 specifier|public
 name|SearchScript
@@ -2022,7 +2022,7 @@ name|p
 argument_list|)
 return|;
 block|}
-comment|/**      * Compiles (or retrieves from cache) and executes the provided script      */
+comment|/**      * Compiles (or retrieves from cache) and binds the parameters to the      * provided script      */
 DECL|method|getExecutableScript
 specifier|public
 name|ExecutableScript
