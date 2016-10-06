@@ -696,13 +696,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|scriptFields
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|ScriptFieldsContext
@@ -723,7 +716,6 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
