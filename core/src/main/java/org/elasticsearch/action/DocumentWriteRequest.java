@@ -634,6 +634,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|request
+operator|!=
+literal|null
+operator|:
+literal|"request must not be null"
+assert|;
 if|if
 condition|(
 name|request
