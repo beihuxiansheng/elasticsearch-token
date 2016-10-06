@@ -510,7 +510,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^.*-(\\d)+$"
+literal|"^.*-\\d+$"
 argument_list|)
 decl_stmt|;
 DECL|field|createIndexService
@@ -1452,7 +1452,7 @@ literal|"index name ["
 operator|+
 name|sourceIndexName
 operator|+
-literal|"] does not match pattern '^.*-(\\d)+$'"
+literal|"] does not match pattern '^.*-\\d+$'"
 argument_list|)
 throw|;
 block|}
