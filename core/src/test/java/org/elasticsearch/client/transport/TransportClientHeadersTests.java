@@ -537,6 +537,8 @@ operator|.
 name|CURRENT
 argument_list|,
 name|threadPool
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|transportService

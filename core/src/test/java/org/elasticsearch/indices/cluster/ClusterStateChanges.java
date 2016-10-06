@@ -1478,6 +1478,8 @@ argument_list|,
 name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
+argument_list|,
+name|clusterSettings
 argument_list|)
 decl_stmt|;
 name|MetaDataIndexUpgradeService

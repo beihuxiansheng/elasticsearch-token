@@ -140,20 +140,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -546,8 +532,6 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|UpdateHelper
 specifier|public
 name|UpdateHelper
@@ -572,11 +556,6 @@ name|scriptService
 expr_stmt|;
 block|}
 comment|/**      * Prepares an update request by converting it into an index or delete request or an update response (no action).      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|prepare
 specifier|public
 name|Result

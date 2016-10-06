@@ -68,20 +68,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|ClusterSettings
@@ -474,8 +460,6 @@ name|chunkSize
 init|=
 name|DEFAULT_CHUNK_SIZE
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|RecoverySettings
 specifier|public
 name|RecoverySettings
@@ -736,6 +720,7 @@ name|chunkSize
 return|;
 block|}
 DECL|method|setChunkSize
+specifier|public
 name|void
 name|setChunkSize
 parameter_list|(
