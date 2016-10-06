@@ -155,11 +155,11 @@ comment|/**  * Generic interface to group ActionRequest, which perform writes to
 end_comment
 
 begin_class
-DECL|class|DocumentRequest
+DECL|class|DocumentWriteRequest
 specifier|public
 specifier|abstract
 class|class
-name|DocumentRequest
+name|DocumentWriteRequest
 parameter_list|<
 name|T
 extends|extends
@@ -483,7 +483,7 @@ comment|/** read a document write (index/delete/update) request */
 DECL|method|readDocumentRequest
 specifier|public
 specifier|static
-name|DocumentRequest
+name|DocumentWriteRequest
 name|readDocumentRequest
 parameter_list|(
 name|StreamInput
@@ -628,7 +628,7 @@ parameter_list|(
 name|StreamOutput
 name|out
 parameter_list|,
-name|DocumentRequest
+name|DocumentWriteRequest
 name|request
 parameter_list|)
 throws|throws

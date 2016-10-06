@@ -36,23 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|ReplicatedWriteRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -162,7 +146,7 @@ specifier|public
 class|class
 name|DeleteRequest
 extends|extends
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|DeleteRequest
 argument_list|>

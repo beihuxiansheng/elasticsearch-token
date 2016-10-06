@@ -56,7 +56,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -123,20 +123,6 @@ operator|.
 name|create
 operator|.
 name|TransportCreateIndexAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|delete
-operator|.
-name|TransportDeleteAction
 import|;
 end_import
 
@@ -879,7 +865,7 @@ argument_list|()
 operator|.
 name|map
 argument_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 operator|::
 name|index
 argument_list|)
@@ -1073,7 +1059,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1269,7 +1255,7 @@ parameter_list|,
 name|int
 name|idx
 parameter_list|,
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1508,8 +1494,8 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
-name|documentRequest
+name|DocumentWriteRequest
+name|documentWriteRequest
 init|=
 name|bulkRequest
 operator|.
@@ -1523,7 +1509,7 @@ decl_stmt|;
 comment|//the request can only be null because we set it to null in the previous step, so it gets ignored
 if|if
 condition|(
-name|documentRequest
+name|documentWriteRequest
 operator|==
 literal|null
 condition|)
@@ -1534,7 +1520,7 @@ if|if
 condition|(
 name|addFailureIfIndexIsUnavailable
 argument_list|(
-name|documentRequest
+name|documentWriteRequest
 argument_list|,
 name|bulkRequest
 argument_list|,
@@ -1557,14 +1543,14 @@ name|concreteIndices
 operator|.
 name|resolveIfAbsent
 argument_list|(
-name|documentRequest
+name|documentWriteRequest
 argument_list|)
 decl_stmt|;
 try|try
 block|{
 switch|switch
 condition|(
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1582,7 +1568,7 @@ init|=
 operator|(
 name|IndexRequest
 operator|)
-name|documentRequest
+name|documentWriteRequest
 decl_stmt|;
 name|MappingMetaData
 name|mappingMd
@@ -1659,7 +1645,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1670,7 +1656,7 @@ name|AssertionError
 argument_list|(
 literal|"request type not supported: ["
 operator|+
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1703,12 +1689,12 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|type
 argument_list|()
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|id
 argument_list|()
@@ -1724,7 +1710,7 @@ name|BulkItemResponse
 argument_list|(
 name|i
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1792,7 +1778,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -2189,11 +2175,11 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
-name|documentRequest
+name|documentWriteRequest
 init|=
 name|request
 operator|.
@@ -2217,7 +2203,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -2229,12 +2215,12 @@ name|Failure
 argument_list|(
 name|indexName
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|type
 argument_list|()
 argument_list|,
-name|documentRequest
+name|documentWriteRequest
 operator|.
 name|id
 argument_list|()
@@ -2304,7 +2290,7 @@ specifier|private
 name|boolean
 name|addFailureIfIndexIsUnavailable
 parameter_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 name|request
 parameter_list|,
 name|BulkRequest
@@ -2580,7 +2566,7 @@ DECL|method|resolveIfAbsent
 name|Index
 name|resolveIfAbsent
 parameter_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 name|request
 parameter_list|)
 block|{

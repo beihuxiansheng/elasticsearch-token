@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -149,34 +149,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|DeprecationLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
 import|;
 end_import
 
@@ -406,7 +378,7 @@ specifier|public
 class|class
 name|UpdateRequest
 extends|extends
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|UpdateRequest
 argument_list|>

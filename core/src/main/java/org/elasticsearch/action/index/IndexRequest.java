@@ -46,7 +46,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -71,22 +71,6 @@ operator|.
 name|action
 operator|.
 name|TimestampParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|ReplicatedWriteRequest
 import|;
 end_import
 
@@ -392,7 +376,7 @@ specifier|public
 class|class
 name|IndexRequest
 extends|extends
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|IndexRequest
 argument_list|>

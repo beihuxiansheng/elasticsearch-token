@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -1477,7 +1477,7 @@ name|rarely
 argument_list|()
 condition|)
 block|{
-name|DocumentRequest
+name|DocumentWriteRequest
 name|request
 decl_stmt|;
 if|if
@@ -1637,7 +1637,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|DocumentRequest
+name|DocumentWriteRequest
 name|actionRequest
 range|:
 name|bulkRequest

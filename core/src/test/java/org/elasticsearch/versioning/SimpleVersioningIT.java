@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -89,20 +89,6 @@ operator|.
 name|delete
 operator|.
 name|DeleteResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|index
-operator|.
-name|IndexRequest
 import|;
 end_import
 
@@ -5104,7 +5090,7 @@ argument_list|)
 operator|.
 name|setOpType
 argument_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -5364,7 +5350,7 @@ argument_list|)
 operator|.
 name|setOpType
 argument_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 operator|.
 name|OpType
 operator|.

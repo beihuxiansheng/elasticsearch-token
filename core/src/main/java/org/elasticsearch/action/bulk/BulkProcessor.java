@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocumentWriteRequest
 import|;
 end_import
 
@@ -1001,7 +1001,7 @@ return|return
 name|add
 argument_list|(
 operator|(
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1024,7 +1024,7 @@ return|return
 name|add
 argument_list|(
 operator|(
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1039,7 +1039,7 @@ specifier|public
 name|BulkProcessor
 name|add
 parameter_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1060,7 +1060,7 @@ specifier|public
 name|BulkProcessor
 name|add
 parameter_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1120,7 +1120,7 @@ specifier|synchronized
 name|void
 name|internalAdd
 parameter_list|(
-name|DocumentRequest
+name|DocumentWriteRequest
 argument_list|<
 name|?
 argument_list|>
