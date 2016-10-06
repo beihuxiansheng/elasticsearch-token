@@ -3194,15 +3194,7 @@ block|{
 comment|// We first check if refresh has been set
 if|if
 condition|(
-operator|(
-operator|(
-name|WriteRequest
-argument_list|<
-name|?
-argument_list|>
-operator|)
 name|request
-operator|)
 operator|.
 name|getRefreshPolicy
 argument_list|()
@@ -3225,15 +3217,7 @@ block|}
 name|ActionRequestValidationException
 name|ex
 init|=
-operator|(
-operator|(
-name|WriteRequest
-argument_list|<
-name|?
-argument_list|>
-operator|)
 name|request
-operator|)
 operator|.
 name|validate
 argument_list|()

@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|ActionFilters
@@ -978,6 +990,8 @@ name|TransportWriteAction
 argument_list|<
 name|TestRequest
 argument_list|,
+name|TestRequest
+argument_list|,
 name|TestResponse
 argument_list|>
 block|{
@@ -1039,6 +1053,10 @@ name|TestRequest
 operator|::
 operator|new
 argument_list|,
+name|TestRequest
+operator|::
+operator|new
+argument_list|,
 name|ThreadPool
 operator|.
 name|Names
@@ -1054,7 +1072,7 @@ specifier|protected
 name|IndexShard
 name|indexShard
 parameter_list|(
-name|TestRequest
+name|ReplicatedWriteRequest
 name|request
 parameter_list|)
 block|{
@@ -1068,6 +1086,8 @@ DECL|method|onPrimaryShard
 specifier|protected
 name|WriteResult
 argument_list|<
+name|TestRequest
+argument_list|,
 name|TestResponse
 argument_list|>
 name|onPrimaryShard
@@ -1086,6 +1106,8 @@ operator|new
 name|WriteResult
 argument_list|<>
 argument_list|(
+name|request
+argument_list|,
 operator|new
 name|TestResponse
 argument_list|()

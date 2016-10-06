@@ -84,11 +84,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|single
+name|replication
 operator|.
-name|instance
-operator|.
-name|InstanceShardOperationRequestBuilder
+name|ReplicationRequestBuilder
 import|;
 end_import
 
@@ -242,7 +240,7 @@ specifier|public
 class|class
 name|UpdateRequestBuilder
 extends|extends
-name|InstanceShardOperationRequestBuilder
+name|ReplicationRequestBuilder
 argument_list|<
 name|UpdateRequest
 argument_list|,

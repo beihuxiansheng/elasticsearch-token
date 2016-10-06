@@ -2027,7 +2027,6 @@ name|void
 name|testUpdate
 parameter_list|()
 block|{
-comment|//update action goes to the primary, index op gets executed locally, then replicated
 name|String
 index|[]
 name|updateShardActions
@@ -2040,9 +2039,9 @@ name|UpdateAction
 operator|.
 name|NAME
 operator|+
-literal|"[s]"
+literal|"[p]"
 block|,
-name|IndexAction
+name|UpdateAction
 operator|.
 name|NAME
 operator|+
@@ -2150,7 +2149,6 @@ name|void
 name|testUpdateUpsert
 parameter_list|()
 block|{
-comment|//update action goes to the primary, index op gets executed locally, then replicated
 name|String
 index|[]
 name|updateShardActions
@@ -2163,9 +2161,9 @@ name|UpdateAction
 operator|.
 name|NAME
 operator|+
-literal|"[s]"
+literal|"[p]"
 block|,
-name|IndexAction
+name|UpdateAction
 operator|.
 name|NAME
 operator|+
@@ -2258,7 +2256,6 @@ name|void
 name|testUpdateDelete
 parameter_list|()
 block|{
-comment|//update action goes to the primary, delete op gets executed locally, then replicated
 name|String
 index|[]
 name|updateShardActions
@@ -2271,9 +2268,9 @@ name|UpdateAction
 operator|.
 name|NAME
 operator|+
-literal|"[s]"
+literal|"[p]"
 block|,
-name|DeleteAction
+name|UpdateAction
 operator|.
 name|NAME
 operator|+

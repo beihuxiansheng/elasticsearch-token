@@ -162,11 +162,6 @@ specifier|public
 class|class
 name|DeleteRequest
 extends|extends
-name|ReplicatedWriteRequest
-argument_list|<
-name|DeleteRequest
-argument_list|>
-implements|implements
 name|DocumentRequest
 argument_list|<
 name|DeleteRequest

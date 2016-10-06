@@ -2560,6 +2560,8 @@ name|TransportWriteAction
 operator|.
 name|WriteResult
 argument_list|<
+name|IndexRequest
+argument_list|,
 name|IndexResponse
 argument_list|>
 name|result

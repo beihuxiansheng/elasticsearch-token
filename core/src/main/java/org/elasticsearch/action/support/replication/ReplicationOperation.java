@@ -210,6 +210,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -770,6 +782,13 @@ operator|.
 name|replicaRequest
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|replicaRequest
+operator|!=
+literal|null
+condition|)
+block|{
 assert|assert
 name|replicaRequest
 operator|.
@@ -856,6 +875,7 @@ argument_list|,
 name|shards
 argument_list|)
 expr_stmt|;
+block|}
 name|successfulShards
 operator|.
 name|incrementAndGet
@@ -2288,7 +2308,10 @@ name|R
 parameter_list|>
 parameter_list|>
 block|{
+comment|/**          * @return null if no operation needs to be sent to a replica          */
 DECL|method|replicaRequest
+annotation|@
+name|Nullable
 name|R
 name|replicaRequest
 parameter_list|()
