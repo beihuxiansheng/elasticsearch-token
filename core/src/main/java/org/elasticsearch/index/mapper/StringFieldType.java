@@ -226,6 +226,8 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|termsQuery
 specifier|public
 name|Query
@@ -514,6 +516,9 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|failIfNotIndexed

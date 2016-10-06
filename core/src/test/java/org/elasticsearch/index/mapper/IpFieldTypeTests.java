@@ -96,34 +96,6 @@ name|InetAddresses
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|IpFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MappedFieldType
-import|;
-end_import
-
 begin_class
 DECL|class|IpFieldTypeTests
 specifier|public
@@ -291,7 +263,7 @@ name|ip
 argument_list|,
 name|ft
 operator|.
-name|valueForSearch
+name|valueForDisplay
 argument_list|(
 name|asBytes
 argument_list|)
@@ -325,7 +297,7 @@ name|ip
 argument_list|,
 name|ft
 operator|.
-name|valueForSearch
+name|valueForDisplay
 argument_list|(
 name|asBytes
 argument_list|)
@@ -582,6 +554,8 @@ argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -620,6 +594,8 @@ name|randomBoolean
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -658,6 +634,8 @@ name|randomBoolean
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -693,6 +671,8 @@ literal|true
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -728,6 +708,8 @@ literal|false
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -765,6 +747,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -802,6 +786,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -840,6 +826,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -861,6 +849,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -882,6 +872,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -920,6 +912,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -955,6 +949,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -993,6 +989,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1027,6 +1025,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;

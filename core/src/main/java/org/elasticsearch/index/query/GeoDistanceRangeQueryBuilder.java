@@ -2032,6 +2032,8 @@ argument_list|,
 name|indexFieldData
 argument_list|,
 name|bboxOptimization
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}

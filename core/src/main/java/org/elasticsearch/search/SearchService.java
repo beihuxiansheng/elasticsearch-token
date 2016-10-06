@@ -3368,13 +3368,6 @@ name|id
 argument_list|)
 throw|;
 block|}
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 return|return
 name|context
 return|;
@@ -3509,42 +3502,21 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// we clone the search context here just for rewriting otherwise we
+comment|// we clone the query shard context here just for rewriting otherwise we
 comment|// might end up with incorrect state since we are using now() or script services
 comment|// during rewrite and normalized / evaluate templates etc.
-comment|// NOTE this context doesn't need to be closed - the outer context will
-comment|// take care of this.
-name|DefaultSearchContext
-name|rewriteContext
-init|=
-operator|new
-name|DefaultSearchContext
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|rewriteContext
-argument_list|)
-expr_stmt|;
 name|request
 operator|.
 name|rewrite
 argument_list|(
-name|rewriteContext
+operator|new
+name|QueryShardContext
+argument_list|(
+name|context
 operator|.
 name|getQueryShardContext
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|context
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -4093,14 +4065,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-assert|assert
-name|context
-operator|==
-name|SearchContext
-operator|.
-name|current
-argument_list|()
-assert|;
 name|context
 operator|.
 name|clearReleasables
@@ -4109,11 +4073,6 @@ name|Lifetime
 operator|.
 name|PHASE
 argument_list|)
-expr_stmt|;
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
 expr_stmt|;
 block|}
 finally|finally

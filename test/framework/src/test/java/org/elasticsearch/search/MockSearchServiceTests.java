@@ -192,6 +192,8 @@ argument_list|(
 operator|new
 name|QueryShardContext
 argument_list|(
+literal|0
+argument_list|,
 operator|new
 name|IndexSettings
 argument_list|(

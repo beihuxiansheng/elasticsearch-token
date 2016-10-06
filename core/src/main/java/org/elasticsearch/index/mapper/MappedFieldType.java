@@ -292,6 +292,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|QueryRewriteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryShardContext
 import|;
 end_import
@@ -1794,10 +1808,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** Given a value that comes from the stored fields API, convert it to the      *  expected type. For instance a date field would store dates as longs and      *  format it back to a string in this method. */
-DECL|method|valueForSearch
+DECL|method|valueForDisplay
 specifier|public
 name|Object
-name|valueForSearch
+name|valueForDisplay
 parameter_list|(
 name|Object
 name|value
@@ -1947,6 +1961,9 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 throw|throw
@@ -2248,6 +2265,9 @@ name|timeZone
 parameter_list|,
 name|DateMathParser
 name|dateMathParser
+parameter_list|,
+name|QueryRewriteContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

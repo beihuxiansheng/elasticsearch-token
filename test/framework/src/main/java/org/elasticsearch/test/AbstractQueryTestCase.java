@@ -1892,11 +1892,11 @@ operator|=
 name|this
 expr_stmt|;
 block|}
-DECL|method|setSearchContext
+DECL|method|getSearchContext
 specifier|private
 specifier|static
-name|void
-name|setSearchContext
+name|SearchContext
+name|getSearchContext
 parameter_list|(
 name|String
 index|[]
@@ -1955,13 +1955,9 @@ argument_list|(
 name|types
 argument_list|)
 expr_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
+return|return
 name|testSearchContext
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|After
@@ -1978,11 +1974,6 @@ operator|.
 name|delegate
 operator|=
 literal|null
-expr_stmt|;
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createTestQueryBuilder
@@ -3553,13 +3544,16 @@ argument_list|(
 name|firstQuery
 argument_list|)
 decl_stmt|;
-name|setSearchContext
+name|SearchContext
+name|searchContext
+init|=
+name|getSearchContext
 argument_list|(
 name|randomTypes
 argument_list|,
 name|context
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// only set search context for toQuery to be more realistic
 comment|/* we use a private rewrite context here since we want the most realistic way of asserting that we are cachabel or not.              * We do it this way in SearchService where              * we first rewrite the query with a private context, then reset the context and then build the actual lucene query*/
 name|QueryBuilder
@@ -3641,15 +3635,10 @@ name|firstQuery
 argument_list|,
 name|firstLuceneQuery
 argument_list|,
-name|context
+name|searchContext
 argument_list|)
 expr_stmt|;
 comment|//remove after assertLuceneQuery since the assertLuceneQuery impl might access the context as well
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"query is not equal to its copy after calling toQuery, firstQuery: "
@@ -3757,7 +3746,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|setSearchContext
+name|searchContext
+operator|=
+name|getSearchContext
 argument_list|(
 name|randomTypes
 argument_list|,
@@ -3792,13 +3783,8 @@ name|secondQuery
 argument_list|,
 name|secondLuceneQuery
 argument_list|,
-name|context
+name|searchContext
 argument_list|)
-expr_stmt|;
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -3836,13 +3822,6 @@ name|randomFloat
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setSearchContext
-argument_list|(
-name|randomTypes
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
 name|Query
 name|thirdLuceneQuery
 init|=
@@ -3858,11 +3837,6 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
-expr_stmt|;
 name|assertNotEquals
 argument_list|(
 literal|"modifying the boost doesn't affect the corresponding lucene query"
@@ -3979,7 +3953,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Checks the result of {@link QueryBuilder#toQuery(QueryShardContext)} given the original {@link QueryBuilder}      * and {@link QueryShardContext}. Verifies that named queries and boost are properly handled and delegates to      * {@link #doAssertLuceneQuery(AbstractQueryBuilder, Query, QueryShardContext)} for query specific checks.      */
+comment|/**      * Checks the result of {@link QueryBuilder#toQuery(QueryShardContext)} given the original {@link QueryBuilder}      * and {@link QueryShardContext}. Verifies that named queries and boost are properly handled and delegates to      * {@link #doAssertLuceneQuery(AbstractQueryBuilder, Query, SearchContext)} for query specific checks.      */
 DECL|method|assertLuceneQuery
 specifier|private
 name|void
@@ -3991,7 +3965,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -4011,6 +3985,9 @@ name|Query
 name|namedQuery
 init|=
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|.
 name|copyNamedQueries
 argument_list|()
@@ -4176,7 +4153,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -6158,14 +6135,6 @@ init|=
 name|createTestQueryBuilder
 argument_list|()
 decl_stmt|;
-name|setSearchContext
-argument_list|(
-name|randomTypes
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-comment|// only set search context for toQuery to be more realistic
 name|queryBuilder
 operator|.
 name|toQuery
@@ -6865,6 +6834,8 @@ return|return
 operator|new
 name|QueryShardContext
 argument_list|(
+literal|0
+argument_list|,
 name|idxSettings
 argument_list|,
 name|bitsetFilterCache

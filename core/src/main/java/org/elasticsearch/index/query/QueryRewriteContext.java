@@ -230,6 +230,18 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|LongSupplier
+import|;
+end_import
+
 begin_comment
 comment|/**  * Context object used to rewrite {@link QueryBuilder} instances into simplified version.  */
 end_comment
@@ -284,6 +296,12 @@ specifier|final
 name|ClusterState
 name|clusterState
 decl_stmt|;
+DECL|field|nowInMillis
+specifier|protected
+specifier|final
+name|LongSupplier
+name|nowInMillis
+decl_stmt|;
 DECL|method|QueryRewriteContext
 specifier|public
 name|QueryRewriteContext
@@ -308,6 +326,9 @@ name|reader
 parameter_list|,
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|LongSupplier
+name|nowInMillis
 parameter_list|)
 block|{
 name|this
@@ -351,6 +372,12 @@ operator|.
 name|clusterState
 operator|=
 name|clusterState
+expr_stmt|;
+name|this
+operator|.
+name|nowInMillis
+operator|=
+name|nowInMillis
 expr_stmt|;
 block|}
 comment|/**      * Returns a clients to fetch resources from local or remove nodes.      */
@@ -491,6 +518,19 @@ operator|.
 name|getParseFieldMatcher
 argument_list|()
 argument_list|)
+return|;
+block|}
+DECL|method|nowInMillis
+specifier|public
+name|long
+name|nowInMillis
+parameter_list|()
+block|{
+return|return
+name|nowInMillis
+operator|.
+name|getAsLong
+argument_list|()
 return|;
 block|}
 DECL|method|getTemplateBytes

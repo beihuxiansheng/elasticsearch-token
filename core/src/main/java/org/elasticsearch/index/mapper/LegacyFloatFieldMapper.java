@@ -310,6 +310,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -883,6 +897,9 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 return|return

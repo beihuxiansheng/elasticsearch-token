@@ -1117,13 +1117,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|searchContext
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|ParsedQuery
@@ -1223,13 +1216,6 @@ operator|.
 name|close
 argument_list|(
 name|searchContext
-argument_list|,
-parameter_list|()
-lambda|->
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

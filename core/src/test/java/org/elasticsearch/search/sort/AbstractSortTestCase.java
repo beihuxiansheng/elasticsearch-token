@@ -1833,6 +1833,8 @@ return|return
 operator|new
 name|QueryShardContext
 argument_list|(
+literal|0
+argument_list|,
 name|idxSettings
 argument_list|,
 name|bitsetFilterCache

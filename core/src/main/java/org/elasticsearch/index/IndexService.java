@@ -3026,6 +3026,9 @@ specifier|public
 name|QueryShardContext
 name|newQueryShardContext
 parameter_list|(
+name|int
+name|shardId
+parameter_list|,
 name|IndexReader
 name|indexReader
 parameter_list|,
@@ -3037,6 +3040,8 @@ return|return
 operator|new
 name|QueryShardContext
 argument_list|(
+name|shardId
+argument_list|,
 name|indexSettings
 argument_list|,
 name|indexCache
@@ -3091,6 +3096,8 @@ block|{
 return|return
 name|newQueryShardContext
 argument_list|(
+literal|0
+argument_list|,
 literal|null
 argument_list|,
 name|threadPool

@@ -2001,6 +2001,8 @@ argument_list|,
 name|luceneBottomRight
 argument_list|,
 name|geoFieldType
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 break|break;
