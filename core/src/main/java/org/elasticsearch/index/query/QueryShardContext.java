@@ -1876,6 +1876,7 @@ block|}
 comment|/**      * Compiles (or retrieves from cache) and binds the parameters to the      * provided script      */
 DECL|method|getSearchScript
 specifier|public
+specifier|final
 name|SearchScript
 name|getSearchScript
 parameter_list|(
@@ -1916,6 +1917,7 @@ block|}
 comment|/**      * Returns a lazily created {@link SearchScript} that is compiled immediately but can be pulled later once all      * parameters are available.      */
 DECL|method|getLazySearchScript
 specifier|public
+specifier|final
 name|Function
 argument_list|<
 name|Map
@@ -1982,6 +1984,7 @@ block|}
 comment|/**      * Compiles (or retrieves from cache) and binds the parameters to the      * provided script      */
 DECL|method|getExecutableScript
 specifier|public
+specifier|final
 name|ExecutableScript
 name|getExecutableScript
 parameter_list|(
@@ -2019,6 +2022,7 @@ block|}
 comment|/**      * Returns a lazily created {@link ExecutableScript} that is compiled immediately but can be pulled later once all      * parameters are available.      */
 DECL|method|getLazyExecutableScript
 specifier|public
+specifier|final
 name|Function
 argument_list|<
 name|Map
@@ -2082,6 +2086,7 @@ block|}
 comment|/**      * if this method is called the query context will throw exception if methods are accessed      * that could yield different results across executions like {@link #getTemplateBytes(Script)}      */
 DECL|method|freezeContext
 specifier|public
+specifier|final
 name|void
 name|freezeContext
 parameter_list|()
@@ -2098,9 +2103,10 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method fails if {@link #freezeContext()} is called before on this context.      * This is used to<i>seal</i>      */
+comment|/**      * This method fails if {@link #freezeContext()} is called before on this      * context. This is used to<i>seal</i>.      *      * This methods and all methods that call it should be final to ensure that      * setting the request as not cacheable and the freezing behaviour of this      * class cannot be bypassed. This is important so we can trust when this      * class says a request can be cached.      */
 DECL|method|failIfFrozen
 specifier|protected
+specifier|final
 name|void
 name|failIfFrozen
 parameter_list|()
@@ -2152,6 +2158,7 @@ annotation|@
 name|Override
 DECL|method|getTemplateBytes
 specifier|public
+specifier|final
 name|BytesReference
 name|getTemplateBytes
 parameter_list|(
@@ -2174,6 +2181,7 @@ block|}
 comment|/**      * Returns<code>true</code> iff the result of the processed search request is cachable. Otherwise<code>false</code>      */
 DECL|method|isCachable
 specifier|public
+specifier|final
 name|boolean
 name|isCachable
 parameter_list|()
@@ -2193,8 +2201,11 @@ return|return
 name|shardId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nowInMillis
 specifier|public
+specifier|final
 name|long
 name|nowInMillis
 parameter_list|()
