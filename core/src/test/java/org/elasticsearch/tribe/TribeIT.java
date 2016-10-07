@@ -1491,7 +1491,7 @@ name|add
 argument_list|(
 name|address
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 operator|+
 literal|":"

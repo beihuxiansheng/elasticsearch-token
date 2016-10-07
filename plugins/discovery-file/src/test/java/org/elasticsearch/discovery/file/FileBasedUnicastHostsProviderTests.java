@@ -527,7 +527,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -580,7 +580,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -633,7 +633,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -886,7 +886,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
