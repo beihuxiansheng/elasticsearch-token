@@ -212,7 +212,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 import|;
 end_import
 
@@ -690,7 +690,7 @@ annotation|@
 name|Override
 DECL|method|makeAllocationDecision
 specifier|public
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 name|makeAllocationDecision
 parameter_list|(
 specifier|final
@@ -718,7 +718,7 @@ condition|)
 block|{
 comment|// this allocator is not responsible for allocating this shard
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
 name|DECISION_NOT_TAKEN
 return|;
@@ -762,15 +762,19 @@ name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|noDecision
+name|no
 argument_list|(
 name|AllocationStatus
 operator|.
 name|FETCHING_SHARD_DATA
 argument_list|,
+name|explain
+condition|?
 literal|"still fetching shard state from the nodes in the cluster"
+else|:
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1076,7 +1080,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
 name|DECISION_NOT_TAKEN
 return|;
@@ -1106,7 +1110,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
 name|DECISION_NOT_TAKEN
 return|;
@@ -1138,15 +1142,19 @@ name|allocationsFound
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|noDecision
+name|no
 argument_list|(
 name|AllocationStatus
 operator|.
 name|NO_VALID_SHARD_COPY
 argument_list|,
-literal|"shard was previously allocated, but no valid shard copy could be found amongst the current nodes in the cluster"
+name|explain
+condition|?
+literal|"shard was previously allocated, but no valid shard copy could be found amongst the nodes in the cluster"
+else|:
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1233,17 +1241,17 @@ name|getId
 argument_list|()
 decl_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|yesDecision
+name|yes
 argument_list|(
+name|nodeId
+argument_list|,
 literal|"the allocation deciders returned a YES decision to allocate to node ["
 operator|+
 name|nodeId
 operator|+
 literal|"]"
-argument_list|,
-name|nodeId
 argument_list|,
 name|decidedNode
 operator|.
@@ -1372,17 +1380,17 @@ name|getId
 argument_list|()
 decl_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|yesDecision
+name|yes
 argument_list|(
+name|nodeId
+argument_list|,
 literal|"allocating the primary shard to node ["
 operator|+
 name|nodeId
 operator|+
 literal|"], which has a complete copy of the shard data"
-argument_list|,
-name|nodeId
 argument_list|,
 name|nodeShardState
 operator|.
@@ -1435,11 +1443,15 @@ name|throttleNodeShards
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|throttleDecision
+name|throttle
 argument_list|(
+name|explain
+condition|?
 literal|"allocation throttled as all nodes to which the shard may be force allocated are busy with other recoveries"
+else|:
+literal|null
 argument_list|,
 name|buildNodeDecisions
 argument_list|(
@@ -1472,15 +1484,19 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|noDecision
+name|no
 argument_list|(
 name|AllocationStatus
 operator|.
 name|DECIDERS_NO
 argument_list|,
+name|explain
+condition|?
 literal|"all nodes that hold a valid shard copy returned a NO decision, and force allocation is not permitted"
+else|:
+literal|null
 argument_list|,
 name|buildNodeDecisions
 argument_list|(
@@ -1520,11 +1536,15 @@ name|throttleNodeShards
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|throttleDecision
+name|throttle
 argument_list|(
+name|explain
+condition|?
 literal|"allocation throttled as all nodes to which the shard may be allocated are busy with other recoveries"
+else|:
+literal|null
 argument_list|,
 name|buildNodeDecisions
 argument_list|(
