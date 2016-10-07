@@ -392,6 +392,11 @@ specifier|public
 class|class
 name|IndexRequest
 extends|extends
+name|ReplicatedWriteRequest
+argument_list|<
+name|IndexRequest
+argument_list|>
+implements|implements
 name|DocumentRequest
 argument_list|<
 name|IndexRequest

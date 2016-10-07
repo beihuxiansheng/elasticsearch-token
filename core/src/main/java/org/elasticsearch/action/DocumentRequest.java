@@ -50,9 +50,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|update
+name|support
 operator|.
-name|UpdateReplicaRequest
+name|IndicesOptions
 import|;
 end_import
 
@@ -108,22 +108,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|ReplicatedWriteRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|VersionType
@@ -154,46 +138,43 @@ begin_comment
 comment|/**  * Generic interface to group ActionRequest, which perform writes to a single document  * Action requests implementing this can be part of {@link org.elasticsearch.action.bulk.BulkRequest}  */
 end_comment
 
-begin_class
-DECL|class|DocumentRequest
+begin_interface
+DECL|interface|DocumentRequest
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|DocumentRequest
 parameter_list|<
 name|T
-extends|extends
-name|ReplicatedWriteRequest
-parameter_list|<
-name|T
-parameter_list|>
 parameter_list|>
 extends|extends
-name|ReplicatedWriteRequest
-argument_list|<
-name|T
-argument_list|>
+name|IndicesRequest
 block|{
+comment|/**      * Get the index that this request operates on      * @return the index      */
+DECL|method|index
+name|String
+name|index
+parameter_list|()
+function_decl|;
 comment|/**      * Get the type that this request operates on      * @return the type      */
 DECL|method|type
-specifier|public
-specifier|abstract
 name|String
 name|type
 parameter_list|()
 function_decl|;
 comment|/**      * Get the id of the document for this request      * @return the id      */
 DECL|method|id
-specifier|public
-specifier|abstract
 name|String
 name|id
 parameter_list|()
 function_decl|;
+comment|/**      * Get the options for this request      * @return the indices options      */
+DECL|method|indicesOptions
+name|IndicesOptions
+name|indicesOptions
+parameter_list|()
+function_decl|;
 comment|/**      * Set the routing for this request      * @return the Request      */
 DECL|method|routing
-specifier|public
-specifier|abstract
 name|T
 name|routing
 parameter_list|(
@@ -203,32 +184,24 @@ parameter_list|)
 function_decl|;
 comment|/**      * Get the routing for this request      * @return the Routing      */
 DECL|method|routing
-specifier|public
-specifier|abstract
 name|String
 name|routing
 parameter_list|()
 function_decl|;
 comment|/**      * Get the parent for this request      * @return the Parent      */
 DECL|method|parent
-specifier|public
-specifier|abstract
 name|String
 name|parent
 parameter_list|()
 function_decl|;
 comment|/**      * Get the document version for this request      * @return the document version      */
 DECL|method|version
-specifier|public
-specifier|abstract
 name|long
 name|version
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the version, which will perform the operation only if a matching      * version exists and no changes happened on the doc since then.      */
 DECL|method|version
-specifier|public
-specifier|abstract
 name|T
 name|version
 parameter_list|(
@@ -238,16 +211,12 @@ parameter_list|)
 function_decl|;
 comment|/**      * Get the document version type for this request      * @return the document version type      */
 DECL|method|versionType
-specifier|public
-specifier|abstract
 name|VersionType
 name|versionType
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the versioning type. Defaults to {@link VersionType#INTERNAL}.      */
 DECL|method|versionType
-specifier|public
-specifier|abstract
 name|T
 name|versionType
 parameter_list|(
@@ -257,15 +226,12 @@ parameter_list|)
 function_decl|;
 comment|/**      * Get the requested document operation type of the request      * @return the operation type {@link OpType}      */
 DECL|method|opType
-specifier|public
-specifier|abstract
 name|OpType
 name|opType
 parameter_list|()
 function_decl|;
 comment|/**      * Requested operation type to perform on the document      */
 DECL|enum|OpType
-specifier|public
 enum|enum
 name|OpType
 block|{
@@ -481,7 +447,6 @@ block|}
 block|}
 comment|/** read a document write (index/delete/update) request */
 DECL|method|readDocumentRequest
-specifier|public
 specifier|static
 name|DocumentRequest
 name|readDocumentRequest
@@ -499,6 +464,10 @@ name|in
 operator|.
 name|readByte
 argument_list|()
+decl_stmt|;
+specifier|final
+name|DocumentRequest
+name|documentRequest
 decl_stmt|;
 if|if
 condition|(
@@ -521,9 +490,10 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-return|return
+name|documentRequest
+operator|=
 name|indexRequest
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -547,9 +517,10 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-return|return
+name|documentRequest
+operator|=
 name|deleteRequest
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -573,35 +544,10 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-return|return
+name|documentRequest
+operator|=
 name|updateRequest
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|type
-operator|==
-literal|3
-condition|)
-block|{
-name|UpdateReplicaRequest
-name|updateReplicaRequest
-init|=
-operator|new
-name|UpdateReplicaRequest
-argument_list|()
-decl_stmt|;
-name|updateReplicaRequest
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
 expr_stmt|;
-return|return
-name|updateReplicaRequest
-return|;
 block|}
 else|else
 block|{
@@ -617,10 +563,12 @@ literal|" ]"
 argument_list|)
 throw|;
 block|}
+return|return
+name|documentRequest
+return|;
 block|}
 comment|/** write a document write (index/delete/update) request*/
 DECL|method|writeDocumentRequest
-specifier|public
 specifier|static
 name|void
 name|writeDocumentRequest
@@ -651,6 +599,18 @@ operator|)
 literal|0
 argument_list|)
 expr_stmt|;
+operator|(
+operator|(
+name|IndexRequest
+operator|)
+name|request
+operator|)
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -668,6 +628,18 @@ operator|(
 name|byte
 operator|)
 literal|1
+argument_list|)
+expr_stmt|;
+operator|(
+operator|(
+name|DeleteRequest
+operator|)
+name|request
+operator|)
+operator|.
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 block|}
@@ -689,23 +661,16 @@ operator|)
 literal|2
 argument_list|)
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|request
-operator|instanceof
-name|UpdateReplicaRequest
-condition|)
-block|{
-name|out
-operator|.
-name|writeByte
-argument_list|(
 operator|(
-name|byte
+operator|(
+name|UpdateRequest
 operator|)
-literal|3
+name|request
+operator|)
+operator|.
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 block|}
@@ -729,16 +694,9 @@ literal|" ]"
 argument_list|)
 throw|;
 block|}
-name|request
-operator|.
-name|writeTo
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
 block|}
 block|}
-end_class
+end_interface
 
 end_unit
 

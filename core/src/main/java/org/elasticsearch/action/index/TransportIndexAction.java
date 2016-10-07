@@ -454,8 +454,6 @@ name|TransportWriteAction
 argument_list|<
 name|IndexRequest
 argument_list|,
-name|IndexRequest
-argument_list|,
 name|IndexResponse
 argument_list|>
 block|{
@@ -550,10 +548,6 @@ argument_list|,
 name|actionFilters
 argument_list|,
 name|indexNameExpressionResolver
-argument_list|,
-name|IndexRequest
-operator|::
-operator|new
 argument_list|,
 name|IndexRequest
 operator|::
@@ -963,8 +957,6 @@ DECL|method|onPrimaryShard
 specifier|protected
 name|WriteResult
 argument_list|<
-name|IndexRequest
-argument_list|,
 name|IndexResponse
 argument_list|>
 name|onPrimaryShard
@@ -1296,8 +1288,6 @@ specifier|public
 specifier|static
 name|WriteResult
 argument_list|<
-name|IndexRequest
-argument_list|,
 name|IndexResponse
 argument_list|>
 name|executeIndexRequestOnPrimary
@@ -1494,8 +1484,6 @@ operator|new
 name|WriteResult
 argument_list|<>
 argument_list|(
-name|request
-argument_list|,
 name|response
 argument_list|,
 name|operation
