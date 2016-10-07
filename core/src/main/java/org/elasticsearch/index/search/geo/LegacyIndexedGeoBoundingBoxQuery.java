@@ -104,6 +104,20 @@ name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @deprecated This query is no longer used for geo_point indexes created after version 2.1  */
 end_comment
@@ -132,6 +146,9 @@ name|LegacyGeoPointFieldMapper
 operator|.
 name|LegacyGeoPointFieldType
 name|fieldType
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 if|if
@@ -180,6 +197,8 @@ argument_list|,
 name|bottomRight
 argument_list|,
 name|fieldType
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -193,6 +212,8 @@ argument_list|,
 name|bottomRight
 argument_list|,
 name|fieldType
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -213,6 +234,9 @@ name|LegacyGeoPointFieldMapper
 operator|.
 name|LegacyGeoPointFieldType
 name|fieldType
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|BooleanQuery
@@ -254,6 +278,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|Occur
@@ -282,6 +308,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|Occur
@@ -313,6 +341,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|Occur
@@ -347,6 +377,9 @@ name|LegacyGeoPointFieldMapper
 operator|.
 name|LegacyGeoPointFieldType
 name|fieldType
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|BooleanQuery
@@ -384,6 +417,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|Occur
@@ -415,6 +450,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|Occur

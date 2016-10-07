@@ -1722,6 +1722,14 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|freezeContext
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|canCache
@@ -3360,13 +3368,6 @@ name|id
 argument_list|)
 throw|;
 block|}
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 return|return
 name|context
 return|;
@@ -3486,6 +3487,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|DefaultSearchContext
 name|context
 init|=
@@ -3498,35 +3500,34 @@ argument_list|,
 name|searcher
 argument_list|)
 decl_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 try|try
 block|{
+comment|// we clone the query shard context here just for rewriting otherwise we
+comment|// might end up with incorrect state since we are using now() or script services
+comment|// during rewrite and normalized / evaluate templates etc.
 name|request
 operator|.
 name|rewrite
+argument_list|(
+operator|new
+name|QueryShardContext
 argument_list|(
 name|context
 operator|.
 name|getQueryShardContext
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
-comment|// reset that we have used nowInMillis from the context since it may
-comment|// have been rewritten so its no longer in the query and the request can
-comment|// be cached. If it is still present in the request (e.g. in a range
-comment|// aggregation) it will still be caught when the aggregation is
-comment|// evaluated.
+assert|assert
 name|context
 operator|.
-name|resetNowInMillisUsed
+name|getQueryShardContext
 argument_list|()
-expr_stmt|;
+operator|.
+name|isCachable
+argument_list|()
+assert|;
 if|if
 condition|(
 name|request
@@ -3810,8 +3811,6 @@ name|indexService
 argument_list|,
 name|indexShard
 argument_list|,
-name|scriptService
-argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
@@ -4066,14 +4065,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-assert|assert
-name|context
-operator|==
-name|SearchContext
-operator|.
-name|current
-argument_list|()
-assert|;
 name|context
 operator|.
 name|clearReleasables
@@ -4082,11 +4073,6 @@ name|Lifetime
 operator|.
 name|PHASE
 argument_list|)
-expr_stmt|;
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
 expr_stmt|;
 block|}
 finally|finally
@@ -4900,10 +4886,7 @@ block|{
 name|SearchScript
 name|searchScript
 init|=
-name|context
-operator|.
 name|scriptService
-argument_list|()
 operator|.
 name|search
 argument_list|(

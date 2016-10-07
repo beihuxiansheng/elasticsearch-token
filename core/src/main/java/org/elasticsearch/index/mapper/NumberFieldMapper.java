@@ -5303,6 +5303,9 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|failIfNotIndexed
@@ -5413,10 +5416,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|valueForSearch
+DECL|method|valueForDisplay
 specifier|public
 name|Object
-name|valueForSearch
+name|valueForDisplay
 parameter_list|(
 name|Object
 name|value

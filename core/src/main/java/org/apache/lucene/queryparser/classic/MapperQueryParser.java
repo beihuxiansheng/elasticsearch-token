@@ -1242,6 +1242,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1263,6 +1265,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1318,6 +1322,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1339,6 +1345,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1916,6 +1924,8 @@ argument_list|,
 name|startInclusive
 argument_list|,
 name|endInclusive
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1947,6 +1957,8 @@ argument_list|,
 name|startInclusive
 argument_list|,
 name|endInclusive
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1996,6 +2008,8 @@ argument_list|,
 name|startInclusive
 argument_list|,
 name|endInclusive
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 if|if
@@ -2081,6 +2095,8 @@ argument_list|,
 name|startInclusive
 argument_list|,
 name|endInclusive
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 if|if
@@ -2152,6 +2168,9 @@ name|startInclusive
 parameter_list|,
 name|boolean
 name|endInclusive
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|currentFieldType
@@ -2266,6 +2285,8 @@ name|timeZone
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -2320,6 +2341,8 @@ name|timeZone
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -2338,6 +2361,8 @@ argument_list|,
 name|startInclusive
 argument_list|,
 name|endInclusive
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}

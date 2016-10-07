@@ -5232,11 +5232,24 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// if this task is already processed, the executor shouldn't execute other tasks (that arrived later),
+comment|// to give other executors a chance to execute their tasks.
+if|if
+condition|(
+name|processed
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 name|runTasksForExecutor
 argument_list|(
 name|executor
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|toString
 specifier|public

@@ -5893,6 +5893,9 @@ name|shardOperationOnReplica
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|IndexShard
+name|replica
 parameter_list|)
 block|{
 name|assertIndexShardCounter
@@ -6871,6 +6874,9 @@ name|shardOperationOnReplica
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|IndexShard
+name|replica
 parameter_list|)
 block|{
 name|assertPhase
@@ -7631,6 +7637,9 @@ name|shardOperationOnPrimary
 parameter_list|(
 name|Request
 name|shardRequest
+parameter_list|,
+name|IndexShard
+name|primary
 parameter_list|)
 throws|throws
 name|Exception
@@ -7675,6 +7684,9 @@ name|shardOperationOnReplica
 parameter_list|(
 name|Request
 name|request
+parameter_list|,
+name|IndexShard
+name|replica
 parameter_list|)
 block|{
 name|request

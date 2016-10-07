@@ -184,6 +184,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -798,7 +812,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -2424,6 +2438,12 @@ literal|"    }\n"
 operator|+
 literal|"}"
 decl_stmt|;
+name|QueryShardContext
+name|context
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
 name|Query
 name|parsedQuery
 init|=
@@ -2434,8 +2454,7 @@ argument_list|)
 operator|.
 name|toQuery
 argument_list|(
-name|createShardContext
-argument_list|()
+name|context
 argument_list|)
 operator|.
 name|rewrite
@@ -2477,19 +2496,14 @@ argument_list|(
 literal|"2012-01-01T00:00:00.000+01:00"
 argument_list|)
 decl_stmt|;
-comment|// Max value is when we started the test. So it should be some ms from now
-name|DateTime
+comment|// Max value is the nowInMillis set by the uery shard context
+name|long
 name|max
 init|=
-operator|new
-name|DateTime
-argument_list|(
-name|startDate
-argument_list|,
-name|DateTimeZone
+name|context
 operator|.
-name|UTC
-argument_list|)
+name|nowInMillis
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -2532,9 +2546,6 @@ name|longValue
 argument_list|()
 operator|-
 name|max
-operator|.
-name|getMillis
-argument_list|()
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(

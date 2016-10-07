@@ -130,6 +130,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -403,7 +417,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -438,6 +452,9 @@ name|MappedFieldType
 name|mapper
 init|=
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|.
 name|fieldMapper
 argument_list|(

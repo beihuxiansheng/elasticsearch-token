@@ -1545,6 +1545,8 @@ argument_list|,
 name|indexFieldData
 argument_list|,
 name|bboxOptimization
+argument_list|,
+name|shardContext
 argument_list|)
 return|;
 block|}

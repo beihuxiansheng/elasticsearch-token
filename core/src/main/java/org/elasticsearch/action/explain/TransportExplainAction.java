@@ -709,13 +709,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|Engine
 operator|.
 name|GetResult
@@ -1020,13 +1013,6 @@ argument_list|(
 name|result
 argument_list|,
 name|context
-argument_list|,
-parameter_list|()
-lambda|->
-name|SearchContext
-operator|.
-name|removeCurrent
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

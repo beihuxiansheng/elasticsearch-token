@@ -322,6 +322,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -845,14 +859,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|valueForSearch
+DECL|method|valueForDisplay
 specifier|public
 name|java
 operator|.
 name|lang
 operator|.
 name|Double
-name|valueForSearch
+name|valueForDisplay
 parameter_list|(
 name|Object
 name|value
@@ -991,6 +1005,9 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 return|return

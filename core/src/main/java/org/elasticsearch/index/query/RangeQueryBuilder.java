@@ -2180,6 +2180,8 @@ argument_list|,
 name|timeZone
 argument_list|,
 name|dateMathParser
+argument_list|,
+name|queryRewriteContext
 argument_list|)
 return|;
 block|}
@@ -2389,6 +2391,8 @@ argument_list|,
 name|timeZone
 argument_list|,
 name|forcedDateParser
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -2451,6 +2455,8 @@ argument_list|,
 name|timeZone
 argument_list|,
 name|forcedDateParser
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -2491,6 +2497,8 @@ argument_list|,
 name|includeLower
 argument_list|,
 name|includeUpper
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}

@@ -251,17 +251,6 @@ name|ToXContent
 implements|,
 name|Writeable
 block|{
-DECL|field|DEFAULT_TYPE
-specifier|public
-specifier|static
-specifier|final
-name|ScriptType
-name|DEFAULT_TYPE
-init|=
-name|ScriptType
-operator|.
-name|INLINE
-decl_stmt|;
 DECL|field|DEFAULT_SCRIPT_LANG
 specifier|public
 specifier|static
