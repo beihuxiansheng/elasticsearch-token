@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -1218,7 +1218,7 @@ specifier|final
 name|String
 name|concreteIndex
 parameter_list|,
-name|DocumentWriteRequest
+name|DocumentRequest
 name|request
 parameter_list|)
 block|{

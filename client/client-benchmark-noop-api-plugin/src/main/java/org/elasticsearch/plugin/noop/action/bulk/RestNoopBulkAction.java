@@ -40,7 +40,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -668,7 +668,7 @@ name|BulkItemResponse
 argument_list|(
 literal|1
 argument_list|,
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|OpType
 operator|.

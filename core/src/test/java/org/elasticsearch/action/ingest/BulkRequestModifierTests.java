@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -836,7 +836,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|DocumentWriteRequest
+name|DocumentRequest
 name|actionRequest
 range|:
 name|bulkRequest

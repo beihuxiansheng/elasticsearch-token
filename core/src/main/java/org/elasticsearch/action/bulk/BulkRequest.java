@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -496,7 +496,7 @@ DECL|field|requests
 specifier|final
 name|List
 argument_list|<
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -562,7 +562,7 @@ specifier|public
 name|BulkRequest
 name|add
 parameter_list|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -572,7 +572,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -598,7 +598,7 @@ specifier|public
 name|BulkRequest
 name|add
 parameter_list|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -620,7 +620,7 @@ specifier|public
 name|BulkRequest
 name|add
 parameter_list|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -714,7 +714,7 @@ name|add
 parameter_list|(
 name|Iterable
 argument_list|<
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -724,7 +724,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -1143,7 +1143,7 @@ DECL|method|requests
 specifier|public
 name|List
 argument_list|<
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -3102,7 +3102,7 @@ parameter_list|()
 block|{
 for|for
 control|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -3182,7 +3182,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -3315,7 +3315,7 @@ name|requests
 operator|.
 name|add
 argument_list|(
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|readDocumentRequest
 argument_list|(
@@ -3381,7 +3381,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -3390,7 +3390,7 @@ range|:
 name|requests
 control|)
 block|{
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|writeDocumentRequest
 argument_list|(

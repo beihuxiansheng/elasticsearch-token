@@ -66,7 +66,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|OpType
 import|;

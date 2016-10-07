@@ -50,6 +50,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|DocumentRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|lucene
@@ -75,6 +87,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 

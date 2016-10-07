@@ -42,7 +42,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -3241,7 +3241,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentWriteRequest
+name|DocumentRequest
 name|request
 decl_stmt|;
 if|if

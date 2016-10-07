@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -708,7 +708,7 @@ specifier|public
 name|IndexRequestBuilder
 name|setOpType
 parameter_list|(
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|OpType
 name|opType

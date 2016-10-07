@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentWriteRequest
+name|DocumentRequest
 import|;
 end_import
 
@@ -105,7 +105,7 @@ name|id
 decl_stmt|;
 DECL|field|request
 specifier|private
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -134,7 +134,7 @@ parameter_list|(
 name|int
 name|id
 parameter_list|,
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -166,7 +166,7 @@ return|;
 block|}
 DECL|method|request
 specifier|public
-name|DocumentWriteRequest
+name|DocumentRequest
 argument_list|<
 name|?
 argument_list|>
@@ -301,7 +301,7 @@ argument_list|()
 expr_stmt|;
 name|request
 operator|=
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|readDocumentRequest
 argument_list|(
@@ -354,7 +354,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
-name|DocumentWriteRequest
+name|DocumentRequest
 operator|.
 name|writeDocumentRequest
 argument_list|(
