@@ -2318,6 +2318,8 @@ argument_list|)
 operator|.
 name|getMillis
 argument_list|()
+operator|+
+literal|999
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2685,6 +2687,8 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
+operator|+
+literal|999
 argument_list|,
 name|DateTimeZone
 operator|.

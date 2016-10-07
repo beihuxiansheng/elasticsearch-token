@@ -1212,6 +1212,8 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 name|instant
+operator|+
+literal|999
 argument_list|,
 name|ft
 operator|.
