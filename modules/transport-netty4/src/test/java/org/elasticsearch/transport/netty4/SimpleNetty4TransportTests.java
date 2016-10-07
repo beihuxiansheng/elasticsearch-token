@@ -94,7 +94,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -460,7 +460,7 @@ argument_list|(
 literal|"C"
 argument_list|,
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|InetAddress
 operator|.

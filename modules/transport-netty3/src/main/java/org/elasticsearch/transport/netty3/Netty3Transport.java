@@ -226,7 +226,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -2539,15 +2539,10 @@ block|{
 name|InetSocketAddress
 name|address
 init|=
-operator|(
-operator|(
-name|InetSocketTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress
 argument_list|()
-operator|)
 operator|.
 name|address
 argument_list|()
@@ -2743,15 +2738,10 @@ decl_stmt|;
 name|InetSocketAddress
 name|address
 init|=
-operator|(
-operator|(
-name|InetSocketTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress
 argument_list|()
-operator|)
 operator|.
 name|address
 argument_list|()

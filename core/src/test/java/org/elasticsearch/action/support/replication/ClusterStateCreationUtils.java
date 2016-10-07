@@ -212,11 +212,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|transport
+name|shard
 operator|.
-name|LocalTransportAddress
+name|ShardId
 import|;
 end_import
 
@@ -226,11 +226,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|shard
-operator|.
-name|ShardId
+name|ESTestCase
 import|;
 end_import
 
@@ -1781,9 +1779,9 @@ literal|"node_"
 operator|+
 name|nodeId
 argument_list|,
-name|LocalTransportAddress
+name|ESTestCase
 operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|Collections

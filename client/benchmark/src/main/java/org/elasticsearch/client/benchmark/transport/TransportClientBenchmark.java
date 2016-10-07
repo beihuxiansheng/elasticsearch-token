@@ -158,7 +158,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -405,7 +405,7 @@ operator|.
 name|addTransportAddress
 argument_list|(
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|InetAddress
 operator|.

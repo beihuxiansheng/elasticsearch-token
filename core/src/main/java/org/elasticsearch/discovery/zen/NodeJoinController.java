@@ -280,7 +280,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|LocalTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -1944,10 +1944,15 @@ name|DiscoveryNode
 argument_list|(
 literal|"_BECOME_MASTER_TASK_"
 argument_list|,
-name|LocalTransportAddress
+operator|new
+name|TransportAddress
+argument_list|(
+name|TransportAddress
 operator|.
-name|buildUnique
-argument_list|()
+name|META_ADDRESS
+argument_list|,
+literal|0
+argument_list|)
 argument_list|,
 name|Collections
 operator|.
@@ -1991,10 +1996,15 @@ name|DiscoveryNode
 argument_list|(
 literal|"_FINISH_ELECTION_"
 argument_list|,
-name|LocalTransportAddress
+operator|new
+name|TransportAddress
+argument_list|(
+name|TransportAddress
 operator|.
-name|buildUnique
-argument_list|()
+name|META_ADDRESS
+argument_list|,
+literal|0
+argument_list|)
 argument_list|,
 name|Collections
 operator|.

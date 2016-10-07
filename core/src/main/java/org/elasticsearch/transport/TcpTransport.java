@@ -512,7 +512,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -527,20 +527,6 @@ operator|.
 name|transport
 operator|.
 name|PortsRange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|TransportAddress
 import|;
 end_import
 
@@ -3621,7 +3607,7 @@ name|address
 parameter_list|)
 block|{
 return|return
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|.
 name|class
 operator|.
@@ -4524,7 +4510,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|boundAddress
 argument_list|)
@@ -4634,7 +4620,7 @@ name|TransportAddress
 name|publishAddress
 init|=
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 operator|new
 name|InetSocketAddress
@@ -5244,7 +5230,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|address
 argument_list|,
@@ -6276,7 +6262,7 @@ name|nodeName
 argument_list|()
 argument_list|,
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|getLocalAddress
 argument_list|(
@@ -7664,9 +7650,8 @@ name|version
 operator|.
 name|onOrAfter
 argument_list|(
-name|Version
-operator|.
-name|CURRENT
+name|getCurrentVersion
+argument_list|()
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -7678,9 +7663,8 @@ name|version
 operator|.
 name|major
 operator|!=
-name|Version
-operator|.
-name|CURRENT
+name|getCurrentVersion
+argument_list|()
 operator|.
 name|major
 condition|)
@@ -7695,9 +7679,8 @@ name|version
 operator|+
 literal|"] minimal compatible version is: ["
 operator|+
-name|Version
-operator|.
-name|CURRENT
+name|getCurrentVersion
+argument_list|()
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -7924,7 +7907,7 @@ operator|.
 name|remoteAddress
 argument_list|(
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|remoteAddress
 argument_list|)
@@ -8335,7 +8318,7 @@ operator|.
 name|remoteAddress
 argument_list|(
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|remoteAddress
 argument_list|)

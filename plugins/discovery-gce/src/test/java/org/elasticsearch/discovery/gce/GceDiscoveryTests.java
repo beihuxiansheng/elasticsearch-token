@@ -378,7 +378,7 @@ name|transportService
 operator|=
 name|MockTransportService
 operator|.
-name|local
+name|createNewService
 argument_list|(
 name|Settings
 operator|.

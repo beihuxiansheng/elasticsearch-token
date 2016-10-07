@@ -92,7 +92,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -457,7 +457,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|instanceof
-name|InetSocketTransportAddress
+name|TransportAddress
 condition|)
 block|{
 name|publishAddress
@@ -466,15 +466,10 @@ name|NetworkAddress
 operator|.
 name|format
 argument_list|(
-operator|(
-operator|(
-name|InetSocketTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress
 argument_list|()
-operator|)
 operator|.
 name|address
 argument_list|()
@@ -624,7 +619,7 @@ operator|.
 name|getAddress
 argument_list|()
 operator|instanceof
-name|InetSocketTransportAddress
+name|TransportAddress
 condition|)
 block|{
 name|address
@@ -633,15 +628,10 @@ name|NetworkAddress
 operator|.
 name|format
 argument_list|(
-operator|(
-operator|(
-name|InetSocketTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress
 argument_list|()
-operator|)
 operator|.
 name|address
 argument_list|()

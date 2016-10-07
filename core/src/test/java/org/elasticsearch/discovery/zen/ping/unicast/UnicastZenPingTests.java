@@ -164,20 +164,6 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
 name|TransportAddress
 import|;
 end_import
@@ -1856,7 +1842,7 @@ operator|new
 name|NetworkHandle
 argument_list|(
 operator|(
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|)
 name|transport
 operator|.
@@ -1883,7 +1869,7 @@ block|{
 DECL|field|address
 specifier|public
 specifier|final
-name|InetSocketTransportAddress
+name|TransportAddress
 name|address
 decl_stmt|;
 DECL|field|transportService
@@ -1913,7 +1899,7 @@ DECL|method|NetworkHandle
 specifier|public
 name|NetworkHandle
 parameter_list|(
-name|InetSocketTransportAddress
+name|TransportAddress
 name|address
 parameter_list|,
 name|TransportService

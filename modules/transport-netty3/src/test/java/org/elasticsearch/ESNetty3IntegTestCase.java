@@ -111,10 +111,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|ESIntegTestCase
-operator|.
-name|SuppressLocalMode
 DECL|class|ESNetty3IntegTestCase
 specifier|public
 specifier|abstract

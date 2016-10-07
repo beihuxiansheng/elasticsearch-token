@@ -222,7 +222,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -654,11 +654,11 @@ name|start
 argument_list|()
 expr_stmt|;
 specifier|final
-name|InetSocketTransportAddress
+name|TransportAddress
 name|transportAddress
 init|=
 operator|(
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|)
 name|randomFrom
 argument_list|(
@@ -858,11 +858,11 @@ name|start
 argument_list|()
 expr_stmt|;
 specifier|final
-name|InetSocketTransportAddress
+name|TransportAddress
 name|transportAddress
 init|=
 operator|(
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|)
 name|randomFrom
 argument_list|(

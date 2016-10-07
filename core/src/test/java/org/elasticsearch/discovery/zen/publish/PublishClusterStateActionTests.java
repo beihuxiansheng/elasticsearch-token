@@ -1727,7 +1727,7 @@ name|transportService
 init|=
 name|MockTransportService
 operator|.
-name|local
+name|createNewService
 argument_list|(
 name|settings
 argument_list|,
