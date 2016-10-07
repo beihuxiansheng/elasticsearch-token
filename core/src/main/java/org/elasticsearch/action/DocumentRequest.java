@@ -465,7 +465,6 @@ operator|.
 name|readByte
 argument_list|()
 decl_stmt|;
-specifier|final
 name|DocumentRequest
 name|documentRequest
 decl_stmt|;
