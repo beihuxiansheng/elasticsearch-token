@@ -683,6 +683,8 @@ name|factory
 operator|.
 name|getConfiguration
 argument_list|(
+name|context
+argument_list|,
 name|file
 operator|.
 name|toString
