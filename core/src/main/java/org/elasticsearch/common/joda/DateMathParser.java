@@ -80,14 +80,14 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
+name|function
 operator|.
-name|Callable
+name|LongSupplier
 import|;
 end_import
 
 begin_comment
-comment|/**  * A parser for date/time formatted text with optional date math.  *   * The format of the datetime is configurable, and unix timestamps can also be used. Datemath  * is appended to a datetime with the following syntax:  *<code>||[+-/](\d+)?[yMwdhHms]</code>.  */
+comment|/**  * A parser for date/time formatted text with optional date math.  *  * The format of the datetime is configurable, and unix timestamps can also be used. Datemath  * is appended to a datetime with the following syntax:  *<code>||[+-/](\d+)?[yMwdhHms]</code>.  */
 end_comment
 
 begin_class
@@ -132,10 +132,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|Callable
-argument_list|<
-name|Long
-argument_list|>
+name|LongSupplier
 name|now
 parameter_list|)
 block|{
@@ -163,10 +160,7 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|Callable
-argument_list|<
-name|Long
-argument_list|>
+name|LongSupplier
 name|now
 parameter_list|,
 name|boolean
@@ -198,7 +192,7 @@ name|time
 operator|=
 name|now
 operator|.
-name|call
+name|getAsLong
 argument_list|()
 expr_stmt|;
 block|}
