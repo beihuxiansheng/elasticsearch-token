@@ -514,6 +514,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|LongSupplier
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for translating an update request to an index, delete request or update response.  */
 end_comment
@@ -566,6 +578,9 @@ name|request
 parameter_list|,
 name|IndexShard
 name|indexShard
+parameter_list|,
+name|LongSupplier
+name|nowInMillis
 parameter_list|)
 block|{
 specifier|final
@@ -638,6 +653,8 @@ argument_list|,
 name|request
 argument_list|,
 name|getResult
+argument_list|,
+name|nowInMillis
 argument_list|)
 return|;
 block|}
@@ -661,6 +678,9 @@ parameter_list|,
 specifier|final
 name|GetResult
 name|getResult
+parameter_list|,
+name|LongSupplier
+name|nowInMillis
 parameter_list|)
 block|{
 name|long
@@ -809,6 +829,18 @@ argument_list|(
 literal|"_source"
 argument_list|,
 name|upsertDoc
+argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|put
+argument_list|(
+literal|"_now"
+argument_list|,
+name|nowInMillis
+operator|.
+name|getAsLong
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -1552,6 +1584,18 @@ argument_list|,
 name|sourceAndContent
 operator|.
 name|v2
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|put
+argument_list|(
+literal|"_now"
+argument_list|,
+name|nowInMillis
+operator|.
+name|getAsLong
 argument_list|()
 argument_list|)
 expr_stmt|;
