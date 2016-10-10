@@ -3554,8 +3554,7 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
-comment|// only set search context for toQuery to be more realistic
-comment|/* we use a private rewrite context here since we want the most realistic way of asserting that we are cachabel or not.              * We do it this way in SearchService where              * we first rewrite the query with a private context, then reset the context and then build the actual lucene query*/
+comment|/* we use a private rewrite context here since we want the most realistic way of asserting that we are cacheable or not.              * We do it this way in SearchService where              * we first rewrite the query with a private context, then reset the context and then build the actual lucene query*/
 name|QueryBuilder
 name|rewritten
 init|=

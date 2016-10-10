@@ -2496,7 +2496,7 @@ argument_list|(
 literal|"2012-01-01T00:00:00.000+01:00"
 argument_list|)
 decl_stmt|;
-comment|// Max value is the nowInMillis set by the uery shard context
+comment|// Max value is the nowInMillis set by the query shard context
 name|long
 name|max
 init|=
