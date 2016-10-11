@@ -1002,9 +1002,6 @@ implements|implements
 name|Iterator
 argument_list|<
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 block|{
 DECL|field|bulkRequest
@@ -1085,9 +1082,6 @@ name|Override
 DECL|method|next
 specifier|public
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|next
 parameter_list|()
 block|{
@@ -1230,9 +1224,6 @@ operator|++
 control|)
 block|{
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 init|=
 name|bulkRequest

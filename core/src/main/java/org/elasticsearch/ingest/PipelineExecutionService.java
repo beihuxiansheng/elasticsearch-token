@@ -391,9 +391,6 @@ parameter_list|(
 name|Iterable
 argument_list|<
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|actionRequests
 parameter_list|,
@@ -459,9 +456,6 @@ block|{
 for|for
 control|(
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|actionRequest
 range|:
 name|actionRequests

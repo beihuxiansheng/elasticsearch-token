@@ -1213,9 +1213,6 @@ operator|++
 control|)
 block|{
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|documentRequest
 init|=
 name|request
@@ -1269,9 +1266,6 @@ name|requestIndex
 index|]
 decl_stmt|;
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|documentRequest
 init|=
 name|item
@@ -1490,9 +1484,6 @@ throws|throws
 name|Exception
 block|{
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|itemRequest
 init|=
 name|request
@@ -2288,9 +2279,6 @@ block|{
 continue|continue;
 block|}
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|documentRequest
 init|=
 name|item

@@ -1100,9 +1100,6 @@ operator|++
 control|)
 block|{
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 init|=
 name|bulkRequest
@@ -1296,9 +1293,6 @@ name|int
 name|idx
 parameter_list|,
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|,
 name|String
@@ -1535,9 +1529,6 @@ operator|++
 control|)
 block|{
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|documentRequest
 init|=
 name|bulkRequest
@@ -1843,9 +1834,6 @@ operator|++
 control|)
 block|{
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 init|=
 name|bulkRequest
@@ -2240,9 +2228,6 @@ name|getName
 argument_list|()
 decl_stmt|;
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|documentRequest
 init|=
 name|request

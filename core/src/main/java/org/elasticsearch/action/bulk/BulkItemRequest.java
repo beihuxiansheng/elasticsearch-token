@@ -148,9 +148,6 @@ decl_stmt|;
 DECL|field|request
 specifier|private
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 decl_stmt|;
 DECL|field|primaryResponse
@@ -177,9 +174,6 @@ name|int
 name|id
 parameter_list|,
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|)
 block|{
@@ -209,9 +203,6 @@ block|}
 DECL|method|request
 specifier|public
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|()
 block|{

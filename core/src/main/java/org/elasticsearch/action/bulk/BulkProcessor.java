@@ -1002,9 +1002,6 @@ name|add
 argument_list|(
 operator|(
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|request
 argument_list|)
@@ -1025,9 +1022,6 @@ name|add
 argument_list|(
 operator|(
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|request
 argument_list|)
@@ -1040,9 +1034,6 @@ name|BulkProcessor
 name|add
 parameter_list|(
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|)
 block|{
@@ -1061,9 +1052,6 @@ name|BulkProcessor
 name|add
 parameter_list|(
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|,
 annotation|@
@@ -1121,9 +1109,6 @@ name|void
 name|internalAdd
 parameter_list|(
 name|DocumentRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|,
 annotation|@
