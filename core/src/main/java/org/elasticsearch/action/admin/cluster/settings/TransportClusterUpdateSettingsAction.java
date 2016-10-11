@@ -318,10 +318,6 @@ name|TransportService
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TransportClusterUpdateSettingsAction
 specifier|public
@@ -385,6 +381,8 @@ argument_list|,
 name|ClusterUpdateSettingsAction
 operator|.
 name|NAME
+argument_list|,
+literal|false
 argument_list|,
 name|transportService
 argument_list|,
@@ -485,6 +483,7 @@ argument_list|()
 argument_list|)
 operator|)
 operator|||
+operator|(
 name|request
 operator|.
 name|persistentSettings
@@ -520,6 +519,7 @@ operator|.
 name|transientSettings
 argument_list|()
 argument_list|)
+operator|)
 condition|)
 block|{
 return|return
@@ -803,7 +803,8 @@ return|;
 block|}
 annotation|@
 name|Override
-comment|//we return when the cluster reroute is acked or it times out but the acknowledged flag depends on whether the update settings was acknowledged
+comment|// we return when the cluster reroute is acked or it times out but the acknowledged flag depends on whether the
+comment|// update settings was acknowledged
 specifier|protected
 name|ClusterUpdateSettingsResponse
 name|newResponse
