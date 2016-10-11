@@ -3100,6 +3100,8 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+comment|// calls updates settings to reset everything to default, checking that the request
+comment|// is not blocked by the above inflight circuit breaker
 name|reset
 argument_list|()
 expr_stmt|;
