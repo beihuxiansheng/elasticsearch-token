@@ -1054,15 +1054,12 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|not
-argument_list|(
 name|equalTo
 argument_list|(
 name|allocationId
 operator|.
 name|getId
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
