@@ -5167,7 +5167,7 @@ comment|// why that is, so turning on more logging here.
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.indices:TRACE,org.elasticsearch.env:TRACE"
+literal|"org.elasticsearch.indices:TRACE,org.elasticsearch.env:TRACE,_root:DEBUG"
 argument_list|)
 DECL|method|testShadowReplicaNaturalRelocation
 specifier|public
