@@ -570,6 +570,8 @@ argument_list|,
 literal|"size"
 argument_list|,
 literal|"time"
+argument_list|,
+literal|"s"
 argument_list|)
 argument_list|)
 argument_list|)
