@@ -1261,7 +1261,7 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
-literal|"[direct_generator] expects exactly one field parameter, but found []"
+literal|"Required [field]"
 argument_list|)
 expr_stmt|;
 comment|// test two fieldnames
@@ -1273,11 +1273,11 @@ name|assertIllegalXContent
 argument_list|(
 name|directGenerator
 argument_list|,
-name|IllegalArgumentException
+name|ParsingException
 operator|.
 name|class
 argument_list|,
-literal|"[direct_generator] expects exactly one field parameter, but found [f2, f1]"
+literal|"[direct_generator] failed to parse field [field]"
 argument_list|)
 expr_stmt|;
 comment|// test unknown field
