@@ -1343,10 +1343,6 @@ operator|=
 literal|0
 argument_list|)
 annotation|@
-name|ESIntegTestCase
-operator|.
-name|SuppressLocalMode
-annotation|@
 name|TestLogging
 argument_list|(
 literal|"_root:DEBUG,org.elasticsearch.cluster.service:TRACE"

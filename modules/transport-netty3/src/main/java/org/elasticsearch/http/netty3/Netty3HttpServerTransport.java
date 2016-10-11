@@ -194,7 +194,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -223,20 +223,6 @@ operator|.
 name|transport
 operator|.
 name|PortsRange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|TransportAddress
 import|;
 end_import
 
@@ -2710,7 +2696,7 @@ throw|;
 block|}
 name|List
 argument_list|<
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|>
 name|boundAddresses
 init|=
@@ -2815,7 +2801,7 @@ index|]
 argument_list|)
 argument_list|,
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|publishAddress
 argument_list|)
@@ -2833,7 +2819,7 @@ name|settings
 parameter_list|,
 name|List
 argument_list|<
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|>
 name|boundAddresses
 parameter_list|,
@@ -2860,7 +2846,7 @@ condition|)
 block|{
 for|for
 control|(
-name|InetSocketTransportAddress
+name|TransportAddress
 name|boundAddress
 range|:
 name|boundAddresses
@@ -2921,7 +2907,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|InetSocketTransportAddress
+name|TransportAddress
 name|boundAddress
 range|:
 name|boundAddresses
@@ -3229,7 +3215,7 @@ return|;
 block|}
 DECL|method|bindAddress
 specifier|private
-name|InetSocketTransportAddress
+name|TransportAddress
 name|bindAddress
 parameter_list|(
 specifier|final
@@ -3404,7 +3390,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|boundSocket
 operator|.

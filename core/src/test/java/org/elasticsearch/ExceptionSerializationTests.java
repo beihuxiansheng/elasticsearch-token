@@ -330,7 +330,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|LocalTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -3300,6 +3300,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|TransportAddress
+name|transportAddress
+init|=
+name|buildNewFakeTransportAddress
+argument_list|()
+decl_stmt|;
 name|ActionTransportException
 name|ex
 init|=
@@ -3310,11 +3316,7 @@ name|ActionTransportException
 argument_list|(
 literal|"name?"
 argument_list|,
-operator|new
-name|LocalTransportAddress
-argument_list|(
-literal|"dead.end:666"
-argument_list|)
+name|transportAddress
 argument_list|,
 literal|"ACTION BABY!"
 argument_list|,
@@ -3336,11 +3338,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-operator|new
-name|LocalTransportAddress
-argument_list|(
-literal|"dead.end:666"
-argument_list|)
+name|transportAddress
 argument_list|,
 name|ex
 operator|.
@@ -3350,7 +3348,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[name?][local[dead.end:666]][ACTION BABY!] message?"
+literal|"[name?]["
+operator|+
+name|transportAddress
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"][ACTION BABY!] message?"
 argument_list|,
 name|ex
 operator|.
@@ -3887,6 +3892,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|TransportAddress
+name|transportAddress
+init|=
+name|buildNewFakeTransportAddress
+argument_list|()
+decl_stmt|;
 name|DiscoveryNode
 name|node
 init|=
@@ -3895,11 +3906,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"thenode"
 argument_list|,
-operator|new
-name|LocalTransportAddress
-argument_list|(
-literal|"dead.end:666"
-argument_list|)
+name|transportAddress
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3932,7 +3939,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[][local[dead.end:666]][action] msg"
+literal|"[]["
+operator|+
+name|transportAddress
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"][action] msg"
 argument_list|,
 name|ex
 operator|.
@@ -3989,7 +4003,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[][local[dead.end:666]][action] msg"
+literal|"[]["
+operator|+
+name|transportAddress
+operator|+
+literal|"][action] msg"
 argument_list|,
 name|ex
 operator|.

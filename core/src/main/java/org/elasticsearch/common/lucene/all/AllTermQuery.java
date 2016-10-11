@@ -430,6 +430,16 @@ operator|=
 name|term
 expr_stmt|;
 block|}
+DECL|method|getTerm
+specifier|public
+name|Term
+name|getTerm
+parameter_list|()
+block|{
+return|return
+name|term
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|equals

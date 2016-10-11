@@ -1755,6 +1755,10 @@ argument_list|(
 name|updateRequest
 argument_list|,
 name|indexShard
+argument_list|,
+name|threadPool
+operator|::
+name|estimatedTimeInMillis
 argument_list|)
 decl_stmt|;
 switch|switch

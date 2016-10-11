@@ -3487,6 +3487,17 @@ return|return
 name|parseInnerQueryBuilder
 return|;
 block|}
+comment|/**      * Whether the queries produced by this builder are expected to be cacheable.      */
+DECL|method|builderGeneratesCacheableQueries
+specifier|protected
+name|boolean
+name|builderGeneratesCacheableQueries
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * Test creates the {@link Query} from the {@link QueryBuilder} under test and delegates the      * assertions being made on the result to the implementing subclass.      */
 DECL|method|testToQuery
 specifier|public
@@ -3554,8 +3565,7 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
-comment|// only set search context for toQuery to be more realistic
-comment|/* we use a private rewrite context here since we want the most realistic way of asserting that we are cachabel or not.              * We do it this way in SearchService where              * we first rewrite the query with a private context, then reset the context and then build the actual lucene query*/
+comment|/* we use a private rewrite context here since we want the most realistic way of asserting that we are cacheable or not.              * We do it this way in SearchService where              * we first rewrite the query with a private context, then reset the context and then build the actual lucene query*/
 name|QueryBuilder
 name|rewritten
 init|=
@@ -3786,6 +3796,12 @@ argument_list|,
 name|searchContext
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|builderGeneratesCacheableQueries
+argument_list|()
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 literal|"two equivalent query builders lead to different lucene queries"
@@ -3801,6 +3817,7 @@ name|firstLuceneQuery
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|supportsBoostAndQueryName

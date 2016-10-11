@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|PrefixQuery
 import|;
 end_import
@@ -95,22 +109,6 @@ operator|.
 name|common
 operator|.
 name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -636,19 +634,14 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|MatchNoDocsQuery
-operator|)
 name|luceneQuery
-operator|)
 operator|.
 name|toString
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"MatchNoDocsQuery[\"no clauses for dismax query.\"]"
+literal|"MatchNoDocsQuery(\"no clauses for dismax query.\")"
 argument_list|)
 argument_list|)
 expr_stmt|;

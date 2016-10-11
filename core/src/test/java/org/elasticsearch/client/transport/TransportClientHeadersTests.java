@@ -198,6 +198,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|NamedWriteableRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -467,11 +483,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
+try|try
+block|{
+comment|// stop this first before we bubble up since
+comment|// transportService uses the threadpool that super.tearDown will close
 name|transportService
 operator|.
 name|stop
@@ -482,6 +497,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -502,7 +526,7 @@ name|transportService
 operator|=
 name|MockTransportService
 operator|.
-name|local
+name|createNewService
 argument_list|(
 name|Settings
 operator|.
@@ -513,6 +537,8 @@ operator|.
 name|CURRENT
 argument_list|,
 name|threadPool
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|transportService
@@ -927,7 +953,10 @@ argument_list|<
 name|TransportInterceptor
 argument_list|>
 name|getTransportInterceptors
-parameter_list|()
+parameter_list|(
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
+parameter_list|)
 block|{
 return|return
 name|Collections

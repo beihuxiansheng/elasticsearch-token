@@ -1950,6 +1950,8 @@ operator|=
 operator|new
 name|FetchSourceContext
 argument_list|(
+literal|true
+argument_list|,
 name|generateRandomStringArray
 argument_list|(
 literal|12
@@ -2556,6 +2558,8 @@ operator|=
 operator|new
 name|FetchSourceContext
 argument_list|(
+literal|true
+argument_list|,
 name|generateRandomStringArray
 argument_list|(
 literal|12

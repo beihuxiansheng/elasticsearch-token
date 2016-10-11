@@ -378,7 +378,7 @@ name|transportService
 operator|=
 name|MockTransportService
 operator|.
-name|local
+name|createNewService
 argument_list|(
 name|Settings
 operator|.
@@ -389,6 +389,8 @@ operator|.
 name|CURRENT
 argument_list|,
 name|threadPool
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

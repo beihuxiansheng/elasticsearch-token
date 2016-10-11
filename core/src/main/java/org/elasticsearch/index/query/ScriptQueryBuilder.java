@@ -878,13 +878,11 @@ extends|extends
 name|Query
 block|{
 DECL|field|script
-specifier|private
 specifier|final
 name|Script
 name|script
 decl_stmt|;
 DECL|field|searchScript
-specifier|private
 specifier|final
 name|SearchScript
 name|searchScript
@@ -970,46 +968,13 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-if|if
-condition|(
+comment|// TODO: Do this if/when we can assume scripts are pure functions
+comment|// and they have a reliable equals impl
+comment|/*if (this == obj)                 return true;             if (sameClassAs(obj) == false)                 return false;             ScriptQuery other = (ScriptQuery) obj;             return Objects.equals(script, other.script);*/
+return|return
 name|this
 operator|==
 name|obj
-condition|)
-return|return
-literal|true
-return|;
-if|if
-condition|(
-name|sameClassAs
-argument_list|(
-name|obj
-argument_list|)
-operator|==
-literal|false
-condition|)
-return|return
-literal|false
-return|;
-name|ScriptQuery
-name|other
-init|=
-operator|(
-name|ScriptQuery
-operator|)
-name|obj
-decl_stmt|;
-return|return
-name|Objects
-operator|.
-name|equals
-argument_list|(
-name|script
-argument_list|,
-name|other
-operator|.
-name|script
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -1020,15 +985,15 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+comment|// TODO: Do this if/when we can assume scripts are pure functions
+comment|// and they have a reliable equals impl
+comment|// return Objects.hash(classHash(), script);
 return|return
-name|Objects
+name|System
 operator|.
-name|hash
+name|identityHashCode
 argument_list|(
-name|classHash
-argument_list|()
-argument_list|,
-name|script
+name|this
 argument_list|)
 return|;
 block|}

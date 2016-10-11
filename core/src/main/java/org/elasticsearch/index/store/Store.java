@@ -621,6 +621,8 @@ operator|.
 name|settings
 operator|.
 name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -635,8 +637,6 @@ operator|.
 name|settings
 operator|.
 name|Setting
-operator|.
-name|Property
 import|;
 end_import
 
@@ -895,6 +895,18 @@ operator|.
 name|io
 operator|.
 name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|AccessDeniedException
 import|;
 end_import
 
@@ -7588,10 +7600,13 @@ parameter_list|(
 name|NoSuchFileException
 decl||
 name|FileNotFoundException
+decl||
+name|AccessDeniedException
 name|e
 parameter_list|)
 block|{
-comment|// ignore, the file is not there no more
+comment|// ignore, the file is not there no more; on Windows, if one thread concurrently deletes a file while
+comment|// calling Files.size, you can also sometimes hit AccessDeniedException
 block|}
 block|}
 return|return

@@ -11218,7 +11218,16 @@ argument_list|(
 operator|new
 name|FetchSourceContext
 argument_list|(
+literal|true
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
 literal|"comments.message"
+block|}
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)

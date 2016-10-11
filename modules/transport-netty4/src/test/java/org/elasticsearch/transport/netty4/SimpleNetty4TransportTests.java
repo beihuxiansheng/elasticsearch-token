@@ -80,6 +80,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|ClusterSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -94,7 +108,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -301,6 +315,9 @@ parameter_list|,
 specifier|final
 name|Version
 name|version
+parameter_list|,
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|NamedWriteableRegistry
@@ -375,6 +392,8 @@ argument_list|,
 name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
+argument_list|,
+name|clusterSettings
 argument_list|)
 return|;
 block|}
@@ -390,6 +409,9 @@ name|settings
 parameter_list|,
 name|Version
 name|version
+parameter_list|,
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|settings
@@ -429,6 +451,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|version
+argument_list|,
+name|clusterSettings
 argument_list|)
 decl_stmt|;
 name|transportService
@@ -460,7 +484,7 @@ argument_list|(
 literal|"C"
 argument_list|,
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|InetAddress
 operator|.

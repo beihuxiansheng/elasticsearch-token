@@ -465,9 +465,6 @@ name|name
 parameter_list|,
 name|String
 name|classname
-parameter_list|,
-name|String
-name|version
 parameter_list|)
 throws|throws
 name|IOException
@@ -496,7 +493,7 @@ name|name
 argument_list|,
 literal|"version"
 argument_list|,
-name|version
+literal|"1.0"
 argument_list|,
 literal|"elasticsearch.version"
 argument_list|,
@@ -623,8 +620,6 @@ argument_list|,
 literal|"fake"
 argument_list|,
 literal|"org.fake"
-argument_list|,
-literal|"1.0.0"
 argument_list|)
 expr_stmt|;
 name|MockTerminal
@@ -644,7 +639,7 @@ argument_list|()
 argument_list|,
 name|buildMultiline
 argument_list|(
-literal|"fake@1.0.0"
+literal|"fake"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -666,8 +661,6 @@ argument_list|,
 literal|"fake1"
 argument_list|,
 literal|"org.fake"
-argument_list|,
-literal|"1.2.3"
 argument_list|)
 expr_stmt|;
 name|buildFakePlugin
@@ -679,8 +672,6 @@ argument_list|,
 literal|"fake2"
 argument_list|,
 literal|"org.fake"
-argument_list|,
-literal|"6.5.4"
 argument_list|)
 expr_stmt|;
 name|MockTerminal
@@ -700,9 +691,9 @@ argument_list|()
 argument_list|,
 name|buildMultiline
 argument_list|(
-literal|"fake1@1.2.3"
+literal|"fake1"
 argument_list|,
-literal|"fake2@6.5.4"
+literal|"fake2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -724,8 +715,6 @@ argument_list|,
 literal|"fake_plugin"
 argument_list|,
 literal|"org.fake"
-argument_list|,
-literal|"1.0.0"
 argument_list|)
 expr_stmt|;
 name|String
@@ -762,7 +751,7 @@ operator|.
 name|pluginsFile
 argument_list|()
 argument_list|,
-literal|"fake_plugin@1.0.0"
+literal|"fake_plugin"
 argument_list|,
 literal|"- Plugin information:"
 argument_list|,
@@ -770,7 +759,7 @@ literal|"Name: fake_plugin"
 argument_list|,
 literal|"Description: fake desc"
 argument_list|,
-literal|"Version: 1.0.0"
+literal|"Version: 1.0"
 argument_list|,
 literal|" * Classname: org.fake"
 argument_list|)
@@ -794,8 +783,6 @@ argument_list|,
 literal|"fake_plugin1"
 argument_list|,
 literal|"org.fake"
-argument_list|,
-literal|"1.2.3"
 argument_list|)
 expr_stmt|;
 name|buildFakePlugin
@@ -807,8 +794,6 @@ argument_list|,
 literal|"fake_plugin2"
 argument_list|,
 literal|"org.fake2"
-argument_list|,
-literal|"6.5.4"
 argument_list|)
 expr_stmt|;
 name|String
@@ -845,7 +830,7 @@ operator|.
 name|pluginsFile
 argument_list|()
 argument_list|,
-literal|"fake_plugin1@1.2.3"
+literal|"fake_plugin1"
 argument_list|,
 literal|"- Plugin information:"
 argument_list|,
@@ -853,11 +838,11 @@ literal|"Name: fake_plugin1"
 argument_list|,
 literal|"Description: fake desc 1"
 argument_list|,
-literal|"Version: 1.2.3"
+literal|"Version: 1.0"
 argument_list|,
 literal|" * Classname: org.fake"
 argument_list|,
-literal|"fake_plugin2@6.5.4"
+literal|"fake_plugin2"
 argument_list|,
 literal|"- Plugin information:"
 argument_list|,
@@ -865,7 +850,7 @@ literal|"Name: fake_plugin2"
 argument_list|,
 literal|"Description: fake desc 2"
 argument_list|,
-literal|"Version: 6.5.4"
+literal|"Version: 1.0"
 argument_list|,
 literal|" * Classname: org.fake2"
 argument_list|)
@@ -889,8 +874,6 @@ argument_list|,
 literal|"fake_plugin1"
 argument_list|,
 literal|"org.fake"
-argument_list|,
-literal|"1.0.0"
 argument_list|)
 expr_stmt|;
 name|buildFakePlugin
@@ -902,8 +885,6 @@ argument_list|,
 literal|"fake_plugin2"
 argument_list|,
 literal|"org.fake2"
-argument_list|,
-literal|"1.0.0"
 argument_list|)
 expr_stmt|;
 name|MockTerminal
@@ -934,9 +915,9 @@ name|output
 argument_list|,
 name|buildMultiline
 argument_list|(
-literal|"fake_plugin1@1.0.0"
+literal|"fake_plugin1"
 argument_list|,
-literal|"fake_plugin2@1.0.0"
+literal|"fake_plugin2"
 argument_list|)
 argument_list|)
 expr_stmt|;

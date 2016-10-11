@@ -500,26 +500,6 @@ name|removedRelocationSource
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|startedPrimaryReinitialized
-specifier|public
-name|void
-name|startedPrimaryReinitialized
-parameter_list|(
-name|ShardRouting
-name|startedPrimaryShard
-parameter_list|,
-name|ShardRouting
-name|initializedShard
-parameter_list|)
-block|{
-name|removeAllocationId
-argument_list|(
-name|startedPrimaryShard
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Updates the current {@link MetaData} based on the changes of this RoutingChangesObserver. Specifically      * we update {@link IndexMetaData#getInSyncAllocationIds()} and {@link IndexMetaData#primaryTerm(int)} based on      * the changes made during this allocation.      *      * @param oldMetaData {@link MetaData} object from before the routing nodes was changed.      * @param newRoutingTable {@link RoutingTable} object after routing changes were applied.      * @return adapted {@link MetaData}, potentially the original one if no change was needed.      */
 DECL|method|applyChanges
 specifier|public
