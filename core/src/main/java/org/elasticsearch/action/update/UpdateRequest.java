@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -459,7 +459,7 @@ argument_list|<
 name|UpdateRequest
 argument_list|>
 implements|implements
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|<
 name|UpdateRequest
 argument_list|>

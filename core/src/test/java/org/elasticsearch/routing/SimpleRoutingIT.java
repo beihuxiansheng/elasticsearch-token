@@ -32,19 +32,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -2906,7 +2894,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -3123,7 +3111,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -3333,7 +3321,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.

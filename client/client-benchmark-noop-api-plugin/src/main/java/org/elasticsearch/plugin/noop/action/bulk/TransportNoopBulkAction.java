@@ -52,7 +52,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -245,7 +245,7 @@ name|BulkItemResponse
 argument_list|(
 literal|1
 argument_list|,
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.

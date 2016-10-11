@@ -92,7 +92,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -1001,7 +1001,7 @@ name|BulkRequestModifier
 implements|implements
 name|Iterator
 argument_list|<
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|>
 block|{
 DECL|field|bulkRequest
@@ -1081,7 +1081,7 @@ annotation|@
 name|Override
 DECL|method|next
 specifier|public
-name|DocumentRequest
+name|DocWriteRequest
 name|next
 parameter_list|()
 block|{
@@ -1223,7 +1223,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 init|=
 name|bulkRequest

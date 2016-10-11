@@ -56,7 +56,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -905,7 +905,7 @@ argument_list|()
 operator|.
 name|map
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|::
 name|index
 argument_list|)
@@ -1099,7 +1099,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 init|=
 name|bulkRequest
@@ -1292,7 +1292,7 @@ parameter_list|,
 name|int
 name|idx
 parameter_list|,
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 parameter_list|,
 name|String
@@ -1528,8 +1528,8 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
-name|documentRequest
+name|DocWriteRequest
+name|docWriteRequest
 init|=
 name|bulkRequest
 operator|.
@@ -1543,7 +1543,7 @@ decl_stmt|;
 comment|//the request can only be null because we set it to null in the previous step, so it gets ignored
 if|if
 condition|(
-name|documentRequest
+name|docWriteRequest
 operator|==
 literal|null
 condition|)
@@ -1554,7 +1554,7 @@ if|if
 condition|(
 name|addFailureIfIndexIsUnavailable
 argument_list|(
-name|documentRequest
+name|docWriteRequest
 argument_list|,
 name|bulkRequest
 argument_list|,
@@ -1577,14 +1577,14 @@ name|concreteIndices
 operator|.
 name|resolveIfAbsent
 argument_list|(
-name|documentRequest
+name|docWriteRequest
 argument_list|)
 decl_stmt|;
 try|try
 block|{
 switch|switch
 condition|(
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1602,7 +1602,7 @@ init|=
 operator|(
 name|IndexRequest
 operator|)
-name|documentRequest
+name|docWriteRequest
 decl_stmt|;
 name|MappingMetaData
 name|mappingMd
@@ -1679,7 +1679,7 @@ argument_list|,
 operator|(
 name|UpdateRequest
 operator|)
-name|documentRequest
+name|docWriteRequest
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1700,7 +1700,7 @@ argument_list|,
 operator|(
 name|DeleteRequest
 operator|)
-name|documentRequest
+name|docWriteRequest
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1711,7 +1711,7 @@ name|AssertionError
 argument_list|(
 literal|"request type not supported: ["
 operator|+
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1744,12 +1744,12 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|type
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|id
 argument_list|()
@@ -1765,7 +1765,7 @@ name|BulkItemResponse
 argument_list|(
 name|i
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1833,7 +1833,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 init|=
 name|bulkRequest
@@ -2227,8 +2227,8 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|DocumentRequest
-name|documentRequest
+name|DocWriteRequest
+name|docWriteRequest
 init|=
 name|request
 operator|.
@@ -2252,7 +2252,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -2264,12 +2264,12 @@ name|Failure
 argument_list|(
 name|indexName
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|type
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|id
 argument_list|()
@@ -2339,7 +2339,7 @@ specifier|private
 name|boolean
 name|addFailureIfIndexIsUnavailable
 parameter_list|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 parameter_list|,
 name|BulkRequest
@@ -2615,7 +2615,7 @@ DECL|method|resolveIfAbsent
 name|Index
 name|resolveIfAbsent
 parameter_list|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 parameter_list|)
 block|{

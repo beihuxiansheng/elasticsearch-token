@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -1091,7 +1091,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|>
 name|requests
 init|=

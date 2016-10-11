@@ -139,10 +139,10 @@ comment|/**  * Generic interface to group ActionRequest, which perform writes to
 end_comment
 
 begin_interface
-DECL|interface|DocumentRequest
+DECL|interface|DocWriteRequest
 specifier|public
 interface|interface
-name|DocumentRequest
+name|DocWriteRequest
 parameter_list|<
 name|T
 parameter_list|>
@@ -448,7 +448,7 @@ block|}
 comment|/** read a document write (index/delete/update) request */
 DECL|method|readDocumentRequest
 specifier|static
-name|DocumentRequest
+name|DocWriteRequest
 name|readDocumentRequest
 parameter_list|(
 name|StreamInput
@@ -465,8 +465,8 @@ operator|.
 name|readByte
 argument_list|()
 decl_stmt|;
-name|DocumentRequest
-name|documentRequest
+name|DocWriteRequest
+name|docWriteRequest
 decl_stmt|;
 if|if
 condition|(
@@ -489,7 +489,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|documentRequest
+name|docWriteRequest
 operator|=
 name|indexRequest
 expr_stmt|;
@@ -516,7 +516,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|documentRequest
+name|docWriteRequest
 operator|=
 name|deleteRequest
 expr_stmt|;
@@ -543,7 +543,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|documentRequest
+name|docWriteRequest
 operator|=
 name|updateRequest
 expr_stmt|;
@@ -563,7 +563,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|documentRequest
+name|docWriteRequest
 return|;
 block|}
 comment|/** write a document write (index/delete/update) request*/
@@ -575,7 +575,7 @@ parameter_list|(
 name|StreamOutput
 name|out
 parameter_list|,
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 parameter_list|)
 throws|throws

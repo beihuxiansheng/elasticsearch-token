@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -1063,7 +1063,7 @@ operator|.
 name|versionType
 argument_list|()
 expr_stmt|;
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 name|opType
@@ -1212,8 +1212,8 @@ name|j
 operator|++
 control|)
 block|{
-name|DocumentRequest
-name|documentRequest
+name|DocWriteRequest
+name|docWriteRequest
 init|=
 name|request
 operator|.
@@ -1226,7 +1226,7 @@ operator|.
 name|request
 argument_list|()
 decl_stmt|;
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|version
 argument_list|(
@@ -1236,7 +1236,7 @@ name|j
 index|]
 argument_list|)
 expr_stmt|;
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|versionType
 argument_list|(
@@ -1265,8 +1265,8 @@ index|[
 name|requestIndex
 index|]
 decl_stmt|;
-name|DocumentRequest
-name|documentRequest
+name|DocWriteRequest
+name|docWriteRequest
 init|=
 name|item
 operator|.
@@ -1303,7 +1303,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1342,7 +1342,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1400,7 +1400,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -1415,12 +1415,12 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|type
 argument_list|()
 argument_list|,
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|id
 argument_list|()
@@ -1483,7 +1483,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|DocumentRequest
+name|DocWriteRequest
 name|itemRequest
 init|=
 name|request
@@ -2278,8 +2278,8 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|DocumentRequest
-name|documentRequest
+name|DocWriteRequest
+name|docWriteRequest
 init|=
 name|item
 operator|.
@@ -2296,7 +2296,7 @@ try|try
 block|{
 switch|switch
 condition|(
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()
@@ -2318,7 +2318,7 @@ operator|(
 operator|(
 name|IndexRequest
 operator|)
-name|documentRequest
+name|docWriteRequest
 operator|)
 argument_list|,
 name|indexShard
@@ -2338,7 +2338,7 @@ operator|(
 operator|(
 name|DeleteRequest
 operator|)
-name|documentRequest
+name|docWriteRequest
 operator|)
 argument_list|,
 name|indexShard
@@ -2352,7 +2352,7 @@ name|IllegalStateException
 argument_list|(
 literal|"Unexpected request operation type on replica: "
 operator|+
-name|documentRequest
+name|docWriteRequest
 operator|.
 name|opType
 argument_list|()

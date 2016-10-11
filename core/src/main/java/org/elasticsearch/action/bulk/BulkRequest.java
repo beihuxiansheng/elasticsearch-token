@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -496,7 +496,7 @@ DECL|field|requests
 specifier|final
 name|List
 argument_list|<
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|>
 name|requests
 init|=
@@ -559,14 +559,14 @@ specifier|public
 name|BulkRequest
 name|add
 parameter_list|(
-name|DocumentRequest
+name|DocWriteRequest
 modifier|...
 name|requests
 parameter_list|)
 block|{
 for|for
 control|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 range|:
 name|requests
@@ -589,7 +589,7 @@ specifier|public
 name|BulkRequest
 name|add
 parameter_list|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 parameter_list|)
 block|{
@@ -608,7 +608,7 @@ specifier|public
 name|BulkRequest
 name|add
 parameter_list|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 parameter_list|,
 annotation|@
@@ -699,14 +699,14 @@ name|add
 parameter_list|(
 name|Iterable
 argument_list|<
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|>
 name|requests
 parameter_list|)
 block|{
 for|for
 control|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 range|:
 name|requests
@@ -1122,7 +1122,7 @@ DECL|method|requests
 specifier|public
 name|List
 argument_list|<
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|>
 name|requests
 parameter_list|()
@@ -3078,7 +3078,7 @@ parameter_list|()
 block|{
 for|for
 control|(
-name|DocumentRequest
+name|DocWriteRequest
 name|actionRequest
 range|:
 name|requests
@@ -3155,7 +3155,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 range|:
 name|requests
@@ -3301,7 +3301,7 @@ name|requests
 operator|.
 name|add
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|readDocumentRequest
 argument_list|(
@@ -3367,13 +3367,13 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|DocumentRequest
+name|DocWriteRequest
 name|request
 range|:
 name|requests
 control|)
 block|{
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|writeDocumentRequest
 argument_list|(

@@ -140,7 +140,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -413,22 +413,6 @@ operator|.
 name|support
 operator|.
 name|PlainActionFuture
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|ReplicationRequest
 import|;
 end_import
 
@@ -2392,7 +2376,7 @@ name|i
 argument_list|,
 name|randomFrom
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -2433,7 +2417,7 @@ block|}
 name|boolean
 name|createdResponse
 decl_stmt|;
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 name|opType
@@ -2457,7 +2441,7 @@ literal|true
 expr_stmt|;
 name|opType
 operator|=
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -2478,13 +2462,13 @@ name|opType
 operator|=
 name|randomFrom
 argument_list|(
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
 name|INDEX
 argument_list|,
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -2504,7 +2488,7 @@ literal|false
 expr_stmt|;
 name|opType
 operator|=
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -3131,7 +3115,7 @@ name|BulkItemResponse
 argument_list|(
 literal|0
 argument_list|,
-name|DocumentRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -5592,7 +5576,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|<
 name|?
 argument_list|>
