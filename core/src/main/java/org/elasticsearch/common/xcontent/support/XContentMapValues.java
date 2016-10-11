@@ -182,6 +182,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -833,6 +845,51 @@ index|[]
 name|excludes
 parameter_list|)
 block|{
+return|return
+name|filter
+argument_list|(
+name|includes
+argument_list|,
+name|excludes
+argument_list|)
+operator|.
+name|apply
+argument_list|(
+name|map
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a function that filters a document map based on the given include and exclude rules.      * @see #filter(Map, String[], String[]) for details      */
+DECL|method|filter
+specifier|public
+specifier|static
+name|Function
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|filter
+parameter_list|(
+name|String
+index|[]
+name|includes
+parameter_list|,
+name|String
+index|[]
+name|excludes
+parameter_list|)
+block|{
 name|CharacterRunAutomaton
 name|matchAllAutomaton
 init|=
@@ -949,6 +1006,10 @@ decl_stmt|;
 comment|// NOTE: We cannot use Operations.minus because of the special case that
 comment|// we want all sub properties to match as soon as an object matches
 return|return
+parameter_list|(
+name|map
+parameter_list|)
+lambda|->
 name|filter
 argument_list|(
 name|map
