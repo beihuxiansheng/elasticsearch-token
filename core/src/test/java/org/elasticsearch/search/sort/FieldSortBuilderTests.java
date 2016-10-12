@@ -50,18 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -745,7 +733,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ParsingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
