@@ -7689,6 +7689,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"max_failure_number"
+argument_list|,
+literal|10000000L
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"random_data_file_io_exception_rate"
 argument_list|,
 literal|1.0
