@@ -3189,9 +3189,9 @@ literal|0
 argument_list|,
 literal|null
 argument_list|,
-name|threadPool
+name|System
 operator|::
-name|estimatedTimeInMillis
+name|currentTimeMillis
 argument_list|)
 return|;
 block|}
