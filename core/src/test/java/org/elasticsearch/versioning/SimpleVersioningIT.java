@@ -348,10 +348,6 @@ name|lessThanOrEqualTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SimpleVersioningIT
 specifier|public

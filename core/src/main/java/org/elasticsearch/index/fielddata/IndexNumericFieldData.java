@@ -16,10 +16,6 @@ name|fielddata
 package|;
 end_package
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_interface
 DECL|interface|IndexNumericFieldData
 specifier|public
