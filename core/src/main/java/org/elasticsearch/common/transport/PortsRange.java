@@ -343,6 +343,26 @@ name|portNumber
 parameter_list|)
 function_decl|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"PortsRange{"
+operator|+
+literal|"portRange='"
+operator|+
+name|portRange
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
