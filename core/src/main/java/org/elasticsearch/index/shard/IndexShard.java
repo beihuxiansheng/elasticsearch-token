@@ -8087,7 +8087,7 @@ name|getGlobalCheckpoint
 argument_list|()
 return|;
 block|}
-comment|/**      * checks whether the global checkpoint can be updated based on current knowledge of local checkpoints on the different      * shard copies. The checkpoint is updated or more information is required from the replica, a globack checkpoint sync      * is initiated.      */
+comment|/**      * Checks whether the global checkpoint can be updated based on current knowledge of local checkpoints on the different      * shard copies. The checkpoint is updated or more information is required from the replica, a global checkpoint sync      * is initiated.      */
 DECL|method|updateGlobalCheckpointOnPrimary
 specifier|public
 name|void
