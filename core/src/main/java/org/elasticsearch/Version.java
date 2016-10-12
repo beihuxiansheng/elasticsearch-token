@@ -1122,6 +1122,7 @@ name|CURRENT
 init|=
 name|V_6_0_0_alpha1
 decl_stmt|;
+comment|/* NOTE: don't add unreleased version to this list except of the version assigned to CURRENT.      * If you need a version that doesn't exist here for instance V_5_1_0 then go and create such a version      * as a constant where you need it:      *<pre>      *   public static final Version V_5_1_0_UNRELEASED = new Version(5010099, Version.CURRENT.luceneVersion);      *</pre>      * Then go to VersionsTest.java and add a test for this constant VersionTests#testUnknownVersions().      * This is particularly useful if you are building a feature that needs a BWC layer for this unreleased version etc.*/
 static|static
 block|{
 assert|assert
