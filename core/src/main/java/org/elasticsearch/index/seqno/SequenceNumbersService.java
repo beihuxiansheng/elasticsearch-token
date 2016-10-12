@@ -183,6 +183,20 @@ name|generateSeqNo
 argument_list|()
 return|;
 block|}
+comment|/**      * Gets the maximum sequence number seen so far.  See {@link LocalCheckpointService#getMaxSeqNo()} for details.      */
+DECL|method|getMaxSeqNo
+specifier|public
+name|long
+name|getMaxSeqNo
+parameter_list|()
+block|{
+return|return
+name|localCheckpointService
+operator|.
+name|getMaxSeqNo
+argument_list|()
+return|;
+block|}
 comment|/**      * marks the given seqNo as completed. See {@link LocalCheckpointService#markSeqNoAsCompleted(long)}      * more details      */
 DECL|method|markSeqNoAsCompleted
 specifier|public
