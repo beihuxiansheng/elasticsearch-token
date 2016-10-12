@@ -22,10 +22,6 @@ name|status
 package|;
 end_package
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_enum
 DECL|enum|SnapshotIndexShardStage
 specifier|public

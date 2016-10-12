@@ -277,10 +277,6 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
-end_comment
-
-begin_comment
 comment|// LUCENE MONITOR
 end_comment
 

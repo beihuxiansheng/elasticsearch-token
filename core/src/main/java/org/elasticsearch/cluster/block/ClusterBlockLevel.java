@@ -26,10 +26,6 @@ name|EnumSet
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_enum
 DECL|enum|ClusterBlockLevel
 specifier|public

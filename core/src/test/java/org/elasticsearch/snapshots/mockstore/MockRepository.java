@@ -160,6 +160,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|CorruptIndexException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -552,6 +566,12 @@ specifier|final
 name|double
 name|randomDataFileIOExceptionRate
 decl_stmt|;
+DECL|field|useLuceneCorruptionException
+specifier|private
+specifier|final
+name|boolean
+name|useLuceneCorruptionException
+decl_stmt|;
 DECL|field|maximumNumberOfFailures
 specifier|private
 specifier|final
@@ -653,6 +673,20 @@ argument_list|(
 literal|"random_data_file_io_exception_rate"
 argument_list|,
 literal|0.0
+argument_list|)
+expr_stmt|;
+name|useLuceneCorruptionException
+operator|=
+name|metadata
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"use_lucene_corruption"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|maximumNumberOfFailures
@@ -1505,6 +1539,23 @@ name|path
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useLuceneCorruptionException
+condition|)
+block|{
+throw|throw
+operator|new
+name|CorruptIndexException
+argument_list|(
+literal|"Random corruption"
+argument_list|,
+literal|"random file"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -1512,6 +1563,7 @@ argument_list|(
 literal|"Random IOException"
 argument_list|)
 throw|;
+block|}
 block|}
 elseif|else
 if|if

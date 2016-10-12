@@ -472,10 +472,6 @@ name|termSuggestion
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|RestSearchAction
 specifier|public

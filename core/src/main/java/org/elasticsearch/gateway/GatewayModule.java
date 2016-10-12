@@ -42,10 +42,6 @@ name|Settings
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|GatewayModule
 specifier|public

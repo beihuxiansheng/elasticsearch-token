@@ -90,10 +90,6 @@ name|greaterThan
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|FieldDataLoadingIT
 specifier|public

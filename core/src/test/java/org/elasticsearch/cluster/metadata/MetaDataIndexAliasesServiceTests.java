@@ -166,7 +166,7 @@ name|mockito
 operator|.
 name|Matchers
 operator|.
-name|anyCollectionOf
+name|anySetOf
 import|;
 end_import
 
@@ -270,7 +270,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
-name|anyCollectionOf
+name|anySetOf
 argument_list|(
 name|Index
 operator|.

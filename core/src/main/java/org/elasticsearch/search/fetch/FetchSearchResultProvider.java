@@ -28,10 +28,6 @@ name|SearchPhaseResult
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|FetchSearchResultProvider
 specifier|public
