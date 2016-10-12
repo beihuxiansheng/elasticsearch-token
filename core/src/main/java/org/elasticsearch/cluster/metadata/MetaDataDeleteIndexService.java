@@ -280,6 +280,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -406,10 +416,15 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"delete-index "
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|request
 operator|.
 name|indices
 argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|AckedClusterStateUpdateTask
