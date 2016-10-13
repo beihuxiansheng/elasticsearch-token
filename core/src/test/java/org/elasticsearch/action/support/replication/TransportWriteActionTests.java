@@ -990,6 +990,8 @@ name|TransportWriteAction
 argument_list|<
 name|TestRequest
 argument_list|,
+name|TestRequest
+argument_list|,
 name|TestResponse
 argument_list|>
 block|{
@@ -1048,6 +1050,10 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|)
+argument_list|,
+name|TestRequest
+operator|::
+operator|new
 argument_list|,
 name|TestRequest
 operator|::

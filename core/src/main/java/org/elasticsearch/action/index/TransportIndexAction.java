@@ -454,6 +454,8 @@ name|TransportWriteAction
 argument_list|<
 name|IndexRequest
 argument_list|,
+name|IndexRequest
+argument_list|,
 name|IndexResponse
 argument_list|>
 block|{
@@ -548,6 +550,10 @@ argument_list|,
 name|actionFilters
 argument_list|,
 name|indexNameExpressionResolver
+argument_list|,
+name|IndexRequest
+operator|::
+operator|new
 argument_list|,
 name|IndexRequest
 operator|::

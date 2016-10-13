@@ -392,6 +392,8 @@ name|TransportWriteAction
 argument_list|<
 name|DeleteRequest
 argument_list|,
+name|DeleteRequest
+argument_list|,
 name|DeleteResponse
 argument_list|>
 block|{
@@ -465,6 +467,10 @@ argument_list|,
 name|actionFilters
 argument_list|,
 name|indexNameExpressionResolver
+argument_list|,
+name|DeleteRequest
+operator|::
+operator|new
 argument_list|,
 name|DeleteRequest
 operator|::

@@ -630,6 +630,8 @@ name|TransportWriteAction
 argument_list|<
 name|BulkShardRequest
 argument_list|,
+name|BulkShardRequest
+argument_list|,
 name|BulkShardResponse
 argument_list|>
 block|{
@@ -720,6 +722,10 @@ argument_list|,
 name|actionFilters
 argument_list|,
 name|indexNameExpressionResolver
+argument_list|,
+name|BulkShardRequest
+operator|::
+operator|new
 argument_list|,
 name|BulkShardRequest
 operator|::

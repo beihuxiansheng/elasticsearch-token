@@ -320,6 +320,13 @@ parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
+name|ReplicaRequest
+extends|extends
+name|ReplicatedWriteRequest
+parameter_list|<
+name|ReplicaRequest
+parameter_list|>
+parameter_list|,
 name|Response
 extends|extends
 name|ReplicationResponse
@@ -331,7 +338,7 @@ name|TransportReplicationAction
 argument_list|<
 name|Request
 argument_list|,
-name|Request
+name|ReplicaRequest
 argument_list|,
 name|Response
 argument_list|>
@@ -373,6 +380,12 @@ name|Request
 argument_list|>
 name|request
 parameter_list|,
+name|Supplier
+argument_list|<
+name|ReplicaRequest
+argument_list|>
+name|replicaRequest
+parameter_list|,
 name|String
 name|executor
 parameter_list|)
@@ -399,7 +412,7 @@ name|indexNameExpressionResolver
 argument_list|,
 name|request
 argument_list|,
-name|request
+name|replicaRequest
 argument_list|,
 name|executor
 argument_list|)
@@ -433,7 +446,7 @@ operator|.
 name|Location
 name|onReplicaShard
 parameter_list|(
-name|Request
+name|ReplicaRequest
 name|request
 parameter_list|,
 name|IndexShard
@@ -474,7 +487,12 @@ return|return
 operator|new
 name|WritePrimaryResult
 argument_list|(
+operator|(
+operator|(
+name|ReplicaRequest
+operator|)
 name|request
+operator|)
 argument_list|,
 name|result
 operator|.
@@ -498,7 +516,7 @@ specifier|final
 name|WriteReplicaResult
 name|shardOperationOnReplica
 parameter_list|(
-name|Request
+name|ReplicaRequest
 name|request
 parameter_list|,
 name|IndexShard
@@ -630,7 +648,7 @@ DECL|method|WritePrimaryResult
 specifier|public
 name|WritePrimaryResult
 parameter_list|(
-name|Request
+name|ReplicaRequest
 name|request
 parameter_list|,
 name|Response
