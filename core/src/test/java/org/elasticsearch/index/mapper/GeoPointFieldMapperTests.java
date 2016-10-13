@@ -791,8 +791,6 @@ expr_stmt|;
 if|if
 condition|(
 name|indexCreatedBefore22
-operator|==
-literal|true
 condition|)
 block|{
 name|assertThat

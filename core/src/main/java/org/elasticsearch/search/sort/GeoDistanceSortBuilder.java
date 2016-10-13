@@ -2378,8 +2378,6 @@ expr_stmt|;
 if|if
 condition|(
 name|coerce
-operator|==
-literal|true
 condition|)
 block|{
 name|ignoreMalformed

@@ -1460,8 +1460,6 @@ name|isIgnoreMalformed
 argument_list|(
 name|validationMethod
 argument_list|)
-operator|==
-literal|true
 operator|||
 name|indexCreatedBeforeV2_0
 condition|)

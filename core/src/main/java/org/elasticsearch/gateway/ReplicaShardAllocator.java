@@ -460,8 +460,6 @@ name|shard
 operator|.
 name|primary
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 continue|continue;
@@ -736,8 +734,6 @@ name|isNodeMatchBySyncID
 argument_list|(
 name|nodeWithHighestMatch
 argument_list|)
-operator|==
-literal|true
 condition|)
 block|{
 comment|// we found a better match that has a full sync id match, the existing allocation is not fully synced

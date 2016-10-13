@@ -581,8 +581,6 @@ name|localNode
 operator|.
 name|isMasterNode
 argument_list|()
-operator|==
-literal|true
 operator|&&
 name|event
 operator|.
@@ -1149,8 +1147,6 @@ name|shardState
 operator|.
 name|hasData
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 name|shardState
@@ -1314,8 +1310,6 @@ name|shardStores
 operator|.
 name|hasData
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 name|shardStores

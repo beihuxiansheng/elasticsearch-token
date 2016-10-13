@@ -1178,8 +1178,6 @@ argument_list|()
 operator|.
 name|isMasterNode
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 name|relevantIndices

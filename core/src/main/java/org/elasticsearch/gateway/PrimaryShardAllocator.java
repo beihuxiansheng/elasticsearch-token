@@ -1278,17 +1278,14 @@ name|throttleNodeShards
 operator|.
 name|isEmpty
 argument_list|()
-operator|==
-literal|true
 operator|&&
+operator|!
 name|nodesToAllocate
 operator|.
 name|noNodeShards
 operator|.
 name|isEmpty
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 comment|// The deciders returned a NO decision for all nodes with shard copies, so we check if primary shard

@@ -1669,8 +1669,6 @@ expr_stmt|;
 if|if
 condition|(
 name|small
-operator|==
-literal|true
 condition|)
 block|{
 comment|// between 3 and 6 degrees

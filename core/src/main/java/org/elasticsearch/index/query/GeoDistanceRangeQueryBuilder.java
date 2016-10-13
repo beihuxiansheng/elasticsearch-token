@@ -1810,8 +1810,6 @@ block|}
 if|if
 condition|(
 name|indexCreatedBeforeV2_2
-operator|==
-literal|true
 condition|)
 block|{
 name|fromValue
@@ -1892,8 +1890,6 @@ block|}
 if|if
 condition|(
 name|indexCreatedBeforeV2_2
-operator|==
-literal|true
 condition|)
 block|{
 name|toValue

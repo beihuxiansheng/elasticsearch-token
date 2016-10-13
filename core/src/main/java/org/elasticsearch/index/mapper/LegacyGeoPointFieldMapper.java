@@ -1720,8 +1720,6 @@ name|coerce
 operator|.
 name|value
 argument_list|()
-operator|==
-literal|true
 operator|&&
 name|validPoint
 operator|==
