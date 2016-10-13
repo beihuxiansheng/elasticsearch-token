@@ -1550,6 +1550,8 @@ name|MultiMatchQuery
 operator|.
 name|blendTerm
 argument_list|(
+name|context
+argument_list|,
 name|term
 operator|.
 name|bytes
@@ -1605,6 +1607,9 @@ specifier|static
 name|Query
 name|blendTerm
 parameter_list|(
+name|QueryShardContext
+name|context
+parameter_list|,
 name|BytesRef
 name|value
 parameter_list|,
@@ -1682,7 +1687,7 @@ name|termQuery
 argument_list|(
 name|value
 argument_list|,
-literal|null
+name|context
 argument_list|)
 expr_stmt|;
 block|}

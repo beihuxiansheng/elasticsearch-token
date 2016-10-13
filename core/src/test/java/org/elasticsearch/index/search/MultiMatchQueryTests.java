@@ -793,6 +793,11 @@ name|MultiMatchQuery
 operator|.
 name|blendTerm
 argument_list|(
+name|indexService
+operator|.
+name|newQueryShardContext
+argument_list|()
+argument_list|,
 operator|new
 name|BytesRef
 argument_list|(
@@ -935,6 +940,11 @@ name|MultiMatchQuery
 operator|.
 name|blendTerm
 argument_list|(
+name|indexService
+operator|.
+name|newQueryShardContext
+argument_list|()
+argument_list|,
 operator|new
 name|BytesRef
 argument_list|(
@@ -1074,6 +1084,11 @@ name|MultiMatchQuery
 operator|.
 name|blendTerm
 argument_list|(
+name|indexService
+operator|.
+name|newQueryShardContext
+argument_list|()
+argument_list|,
 operator|new
 name|BytesRef
 argument_list|(
@@ -1261,6 +1276,11 @@ name|MultiMatchQuery
 operator|.
 name|blendTerm
 argument_list|(
+name|indexService
+operator|.
+name|newQueryShardContext
+argument_list|()
+argument_list|,
 operator|new
 name|BytesRef
 argument_list|(
