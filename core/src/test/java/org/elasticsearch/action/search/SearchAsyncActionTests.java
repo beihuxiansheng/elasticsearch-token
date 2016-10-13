@@ -509,7 +509,7 @@ init|=
 operator|new
 name|DiscoveryNode
 argument_list|(
-literal|"node_1"
+literal|"node_2"
 argument_list|,
 name|buildNewFakeTransportAddress
 argument_list|()
