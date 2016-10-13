@@ -216,10 +216,10 @@ name|V
 parameter_list|>
 block|{
 comment|// positive if entries have an expiration
-DECL|field|expireAfterAccess
+DECL|field|expireAfterAccessNanos
 specifier|private
 name|long
-name|expireAfterAccess
+name|expireAfterAccessNanos
 init|=
 operator|-
 literal|1
@@ -231,10 +231,10 @@ name|boolean
 name|entriesExpireAfterAccess
 decl_stmt|;
 comment|// positive if entries have an expiration after write
-DECL|field|expireAfterWrite
+DECL|field|expireAfterWriteNanos
 specifier|private
 name|long
-name|expireAfterWrite
+name|expireAfterWriteNanos
 init|=
 operator|-
 literal|1
@@ -309,17 +309,17 @@ DECL|method|Cache
 name|Cache
 parameter_list|()
 block|{     }
-DECL|method|setExpireAfterAccess
+DECL|method|setExpireAfterAccessNanos
 name|void
-name|setExpireAfterAccess
+name|setExpireAfterAccessNanos
 parameter_list|(
 name|long
-name|expireAfterAccess
+name|expireAfterAccessNanos
 parameter_list|)
 block|{
 if|if
 condition|(
-name|expireAfterAccess
+name|expireAfterAccessNanos
 operator|<=
 literal|0
 condition|)
@@ -328,15 +328,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"expireAfterAccess<= 0"
+literal|"expireAfterAccessNanos<= 0"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|expireAfterAccess
+name|expireAfterAccessNanos
 operator|=
-name|expireAfterAccess
+name|expireAfterAccessNanos
 expr_stmt|;
 name|this
 operator|.
@@ -345,17 +345,29 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-DECL|method|setExpireAfterWrite
+comment|// pkg-private for testing
+DECL|method|getExpireAfterAccessNanos
+name|long
+name|getExpireAfterAccessNanos
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|expireAfterAccessNanos
+return|;
+block|}
+DECL|method|setExpireAfterWriteNanos
 name|void
-name|setExpireAfterWrite
+name|setExpireAfterWriteNanos
 parameter_list|(
 name|long
-name|expireAfterWrite
+name|expireAfterWriteNanos
 parameter_list|)
 block|{
 if|if
 condition|(
-name|expireAfterWrite
+name|expireAfterWriteNanos
 operator|<=
 literal|0
 condition|)
@@ -364,15 +376,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"expireAfterWrite<= 0"
+literal|"expireAfterWriteNanos<= 0"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|expireAfterWrite
+name|expireAfterWriteNanos
 operator|=
-name|expireAfterWrite
+name|expireAfterWriteNanos
 expr_stmt|;
 name|this
 operator|.
@@ -380,6 +392,18 @@ name|entriesExpireAfterWrite
 operator|=
 literal|true
 expr_stmt|;
+block|}
+comment|// pkg-private for testing
+DECL|method|getExpireAfterWriteNanos
+name|long
+name|getExpireAfterWriteNanos
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|expireAfterWriteNanos
+return|;
 block|}
 DECL|method|setMaximumWeight
 name|void
@@ -3138,7 +3162,7 @@ name|entry
 operator|.
 name|accessTime
 operator|>
-name|expireAfterAccess
+name|expireAfterAccessNanos
 operator|)
 operator|||
 operator|(
@@ -3150,7 +3174,7 @@ name|entry
 operator|.
 name|writeTime
 operator|>
-name|expireAfterWrite
+name|expireAfterWriteNanos
 operator|)
 return|;
 block|}

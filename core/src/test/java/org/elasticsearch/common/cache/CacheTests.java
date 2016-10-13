@@ -1544,7 +1544,7 @@ block|}
 decl_stmt|;
 name|cache
 operator|.
-name|setExpireAfterAccess
+name|setExpireAfterAccessNanos
 argument_list|(
 literal|1
 argument_list|)
@@ -1833,7 +1833,7 @@ block|}
 decl_stmt|;
 name|cache
 operator|.
-name|setExpireAfterWrite
+name|setExpireAfterWriteNanos
 argument_list|(
 literal|1
 argument_list|)
@@ -2147,7 +2147,7 @@ block|}
 decl_stmt|;
 name|cache
 operator|.
-name|setExpireAfterAccess
+name|setExpireAfterAccessNanos
 argument_list|(
 literal|1
 argument_list|)

@@ -1162,9 +1162,6 @@ operator|.
 name|setExpireAfterAccess
 argument_list|(
 name|cacheExpire
-operator|.
-name|nanos
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
