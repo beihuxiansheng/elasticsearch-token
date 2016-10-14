@@ -83,10 +83,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IndexFailedEngineException
+DECL|class|OperationFailedEngineException
 specifier|public
 class|class
-name|IndexFailedEngineException
+name|OperationFailedEngineException
 extends|extends
 name|EngineException
 block|{
@@ -102,12 +102,15 @@ specifier|final
 name|String
 name|id
 decl_stmt|;
-DECL|method|IndexFailedEngineException
+DECL|method|OperationFailedEngineException
 specifier|public
-name|IndexFailedEngineException
+name|OperationFailedEngineException
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+name|String
+name|operationType
 parameter_list|,
 name|String
 name|type
@@ -123,7 +126,9 @@ name|super
 argument_list|(
 name|shardId
 argument_list|,
-literal|"Index failed for ["
+name|operationType
+operator|+
+literal|" failed for ["
 operator|+
 name|type
 operator|+
@@ -167,9 +172,9 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|IndexFailedEngineException
+DECL|method|OperationFailedEngineException
 specifier|public
-name|IndexFailedEngineException
+name|OperationFailedEngineException
 parameter_list|(
 name|StreamInput
 name|in

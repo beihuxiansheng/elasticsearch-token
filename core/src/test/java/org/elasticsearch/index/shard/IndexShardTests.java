@@ -3119,7 +3119,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalStateException
+name|ShardNotFoundException
 name|ignored
 parameter_list|)
 block|{              }

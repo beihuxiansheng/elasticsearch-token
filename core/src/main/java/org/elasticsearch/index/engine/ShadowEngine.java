@@ -518,7 +518,7 @@ name|Index
 name|index
 parameter_list|)
 throws|throws
-name|EngineException
+name|OperationFailedEngineException
 block|{
 throw|throw
 operator|new
@@ -541,7 +541,7 @@ name|Delete
 name|delete
 parameter_list|)
 throws|throws
-name|EngineException
+name|OperationFailedEngineException
 block|{
 throw|throw
 operator|new
