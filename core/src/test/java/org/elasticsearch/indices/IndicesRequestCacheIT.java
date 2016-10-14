@@ -6441,7 +6441,6 @@ literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// filtered alias is handled differently and must not be cached at this point
 name|r1
 operator|=
 name|client
@@ -6562,7 +6561,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1L
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6647,7 +6646,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1L
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6686,7 +6685,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1L
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

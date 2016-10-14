@@ -368,6 +368,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|function
@@ -618,6 +628,8 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|newResponse
 specifier|protected
