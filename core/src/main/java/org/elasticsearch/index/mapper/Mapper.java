@@ -195,11 +195,15 @@ name|ContentPath
 name|contentPath
 parameter_list|)
 block|{
-assert|assert
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|indexSettings
-operator|!=
-literal|null
-assert|;
+argument_list|,
+literal|"indexSettings is required"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|contentPath
