@@ -188,6 +188,7 @@ name|ShardValidateQueryRequest
 parameter_list|()
 block|{      }
 DECL|method|ShardValidateQueryRequest
+specifier|public
 name|ShardValidateQueryRequest
 parameter_list|(
 name|ShardId
