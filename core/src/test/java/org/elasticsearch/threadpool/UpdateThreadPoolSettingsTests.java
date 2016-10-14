@@ -372,7 +372,7 @@ literal|1
 operator|+
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|Settings
 operator|.
@@ -531,7 +531,7 @@ name|size
 argument_list|,
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|settings
 argument_list|)
@@ -1251,7 +1251,7 @@ literal|1
 argument_list|,
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|Settings
 operator|.

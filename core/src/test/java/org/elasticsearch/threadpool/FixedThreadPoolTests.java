@@ -125,7 +125,7 @@ literal|1
 argument_list|,
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|Settings
 operator|.

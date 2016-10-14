@@ -1270,6 +1270,7 @@ name|MaxNumberOfThreadsCheck
 implements|implements
 name|Check
 block|{
+comment|// this should be plenty for machines up to 256 cores
 DECL|field|maxNumberOfThreadsThreshold
 specifier|private
 specifier|final
@@ -1278,7 +1279,7 @@ name|maxNumberOfThreadsThreshold
 init|=
 literal|1
 operator|<<
-literal|11
+literal|12
 decl_stmt|;
 annotation|@
 name|Override

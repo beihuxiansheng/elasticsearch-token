@@ -193,12 +193,6 @@ name|intSetting
 argument_list|(
 literal|"processors"
 argument_list|,
-name|Math
-operator|.
-name|min
-argument_list|(
-literal|32
-argument_list|,
 name|Runtime
 operator|.
 name|getRuntime
@@ -206,7 +200,6 @@ argument_list|()
 operator|.
 name|availableProcessors
 argument_list|()
-argument_list|)
 argument_list|,
 literal|1
 argument_list|,
@@ -215,18 +208,18 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**      * Returns the number of processors available but at most<tt>32</tt>.      */
-DECL|method|boundedNumberOfProcessors
+comment|/**      * Returns the number of available processors. Defaults to      * {@link Runtime#availableProcessors()} but can be overridden by passing a {@link Settings}      * instance with the key "processors" set to the desired value.      *      * @param settings a {@link Settings} instance from which to derive the available processors      * @return the number of available processors      */
+DECL|method|numberOfProcessors
 specifier|public
 specifier|static
 name|int
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|/* This relates to issues where machines with large number of cores          * ie.>= 48 create too many threads and run into OOM see #3478          * We just use an 32 core upper-bound here to not stress the system          * too much with too many created threads */
 return|return
 name|PROCESSORS_SETTING
 operator|.

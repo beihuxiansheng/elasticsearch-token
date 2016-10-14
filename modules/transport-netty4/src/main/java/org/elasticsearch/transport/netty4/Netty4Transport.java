@@ -849,7 +849,7 @@ name|toString
 argument_list|(
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|s
 argument_list|)
