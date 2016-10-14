@@ -6835,13 +6835,17 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// TODO throw a more appropriate exception
 throw|throw
 operator|new
-name|IllegalStateException
+name|ShardNotFoundException
 argument_list|(
-literal|"shard is not a primary "
-operator|+
 name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+literal|"shard is not a primary anymore"
 argument_list|)
 throw|;
 block|}
