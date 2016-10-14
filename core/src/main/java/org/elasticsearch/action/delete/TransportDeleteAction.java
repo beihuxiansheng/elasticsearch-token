@@ -958,7 +958,7 @@ argument_list|)
 decl_stmt|;
 name|primary
 operator|.
-name|delete
+name|execute
 argument_list|(
 name|delete
 argument_list|)
@@ -1115,7 +1115,7 @@ argument_list|)
 decl_stmt|;
 name|replica
 operator|.
-name|delete
+name|execute
 argument_list|(
 name|delete
 argument_list|)

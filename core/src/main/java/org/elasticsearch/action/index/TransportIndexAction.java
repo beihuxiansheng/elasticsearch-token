@@ -1019,14 +1019,14 @@ name|IndexRequest
 name|request
 parameter_list|,
 name|IndexShard
-name|indexShard
+name|replica
 parameter_list|)
 block|{
 specifier|final
 name|ShardId
 name|shardId
 init|=
-name|indexShard
+name|replica
 operator|.
 name|shardId
 argument_list|()
@@ -1107,7 +1107,7 @@ try|try
 block|{
 name|operation
 operator|=
-name|indexShard
+name|replica
 operator|.
 name|prepareIndexOnReplica
 argument_list|(
@@ -1181,9 +1181,9 @@ name|update
 argument_list|)
 throw|;
 block|}
-name|indexShard
+name|replica
 operator|.
-name|index
+name|execute
 argument_list|(
 name|operation
 argument_list|)
@@ -1233,7 +1233,7 @@ name|IndexRequest
 name|request
 parameter_list|,
 name|IndexShard
-name|indexShard
+name|primary
 parameter_list|)
 block|{
 name|SourceToParse
@@ -1303,7 +1303,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|indexShard
+name|primary
 operator|.
 name|prepareIndexOnPrimary
 argument_list|(
@@ -1344,7 +1344,7 @@ name|IndexRequest
 name|request
 parameter_list|,
 name|IndexShard
-name|indexShard
+name|primary
 parameter_list|,
 name|MappingUpdatedAction
 name|mappingUpdatedAction
@@ -1365,7 +1365,7 @@ name|prepareIndexOperationOnPrimary
 argument_list|(
 name|request
 argument_list|,
-name|indexShard
+name|primary
 argument_list|)
 expr_stmt|;
 block|}
@@ -1401,7 +1401,7 @@ specifier|final
 name|ShardId
 name|shardId
 init|=
-name|indexShard
+name|primary
 operator|.
 name|shardId
 argument_list|()
@@ -1440,7 +1440,7 @@ name|prepareIndexOperationOnPrimary
 argument_list|(
 name|request
 argument_list|,
-name|indexShard
+name|primary
 argument_list|)
 expr_stmt|;
 block|}
@@ -1491,9 +1491,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|indexShard
+name|primary
 operator|.
-name|index
+name|execute
 argument_list|(
 name|operation
 argument_list|)

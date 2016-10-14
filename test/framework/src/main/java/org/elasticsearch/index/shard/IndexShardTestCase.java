@@ -2875,7 +2875,7 @@ expr_stmt|;
 block|}
 name|shard
 operator|.
-name|index
+name|execute
 argument_list|(
 name|index
 argument_list|)
@@ -2960,7 +2960,7 @@ expr_stmt|;
 block|}
 name|shard
 operator|.
-name|delete
+name|execute
 argument_list|(
 name|delete
 argument_list|)
