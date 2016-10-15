@@ -136,20 +136,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
-operator|.
-name|TransportIndexAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|ActionFilters
@@ -561,6 +547,22 @@ operator|.
 name|TransportIndexAction
 operator|.
 name|executeIndexRequestOnPrimary
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|index
+operator|.
+name|TransportIndexAction
+operator|.
+name|executeIndexRequestOnReplica
 import|;
 end_import
 
@@ -2355,8 +2357,6 @@ name|INDEX
 case|:
 name|replicaResult
 operator|=
-name|TransportIndexAction
-operator|.
 name|executeIndexRequestOnReplica
 argument_list|(
 operator|(

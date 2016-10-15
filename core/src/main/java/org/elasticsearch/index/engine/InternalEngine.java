@@ -2708,8 +2708,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|)
-throws|throws
-name|OperationFailedEngineException
 block|{
 try|try
 init|(
@@ -3556,8 +3554,6 @@ parameter_list|(
 name|Delete
 name|delete
 parameter_list|)
-throws|throws
-name|OperationFailedEngineException
 block|{
 try|try
 init|(

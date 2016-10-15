@@ -517,8 +517,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|)
-throws|throws
-name|OperationFailedEngineException
 block|{
 throw|throw
 operator|new
@@ -540,8 +538,6 @@ parameter_list|(
 name|Delete
 name|delete
 parameter_list|)
-throws|throws
-name|OperationFailedEngineException
 block|{
 throw|throw
 operator|new
