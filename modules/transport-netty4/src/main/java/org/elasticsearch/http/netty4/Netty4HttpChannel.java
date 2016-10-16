@@ -1168,7 +1168,7 @@ name|HttpHeaderValues
 operator|.
 name|CLOSE
 operator|.
-name|equals
+name|contentEqualsIgnoreCase
 argument_list|(
 name|nettyRequest
 operator|.
