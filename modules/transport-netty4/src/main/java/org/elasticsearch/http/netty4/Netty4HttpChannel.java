@@ -1186,11 +1186,12 @@ operator|||
 operator|(
 name|http10
 operator|&&
+operator|!
 name|HttpHeaderValues
 operator|.
 name|KEEP_ALIVE
 operator|.
-name|equals
+name|contentEqualsIgnoreCase
 argument_list|(
 name|nettyRequest
 operator|.
@@ -1204,8 +1205,6 @@ operator|.
 name|CONNECTION
 argument_list|)
 argument_list|)
-operator|==
-literal|false
 operator|)
 return|;
 block|}
