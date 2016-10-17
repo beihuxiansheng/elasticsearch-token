@@ -2042,8 +2042,17 @@ argument_list|,
 literal|"1"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|Exception
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ElasticsearchParseException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|request
 operator|.
 name|fromXContent
@@ -2058,19 +2067,8 @@ operator|)
 literal|'"'
 block|}
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown a ElasticsearchParseException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ElasticsearchParseException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2084,7 +2082,6 @@ literal|"Failed to derive xcontent"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Related to issue 15338
 DECL|method|testFieldsParsing

@@ -3848,7 +3848,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-empty_stmt|;
 block|}
 expr_stmt|;
 name|thread
@@ -8922,6 +8921,8 @@ literal|"boom"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|IndexSearcher
 name|wrap
