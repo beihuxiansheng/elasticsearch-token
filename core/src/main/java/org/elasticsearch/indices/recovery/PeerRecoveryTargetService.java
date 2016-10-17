@@ -2400,12 +2400,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|RecoveryTargetHandler
-operator|.
-name|FinalizeResponse
-name|response
-decl_stmt|;
 try|try
 init|(
 name|RecoveriesCollection
@@ -2429,8 +2423,6 @@ argument_list|()
 argument_list|)
 init|)
 block|{
-name|response
-operator|=
 name|recoveryRef
 operator|.
 name|status
@@ -2444,7 +2436,11 @@ name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|response
+name|TransportResponse
+operator|.
+name|Empty
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}

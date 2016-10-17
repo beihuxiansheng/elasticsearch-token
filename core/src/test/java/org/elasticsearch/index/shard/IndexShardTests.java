@@ -7981,6 +7981,10 @@ name|getIndexMetaData
 argument_list|()
 argument_list|,
 name|wrapper
+argument_list|,
+parameter_list|()
+lambda|->
+block|{}
 argument_list|)
 decl_stmt|;
 name|recoveryShardFromStore
@@ -9026,6 +9030,10 @@ name|getIndexMetaData
 argument_list|()
 argument_list|,
 name|wrapper
+argument_list|,
+parameter_list|()
+lambda|->
+block|{}
 argument_list|)
 decl_stmt|;
 name|recoveryShardFromStore

@@ -266,7 +266,7 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * marks the allocationId as "in sync" with the primary shard.      * see {@link GlobalCheckpointService#markAllocationIdAsInSync(String, long)} for details.      *      * @param allocationId    allocationId of the recovering shard      * @param localCheckpoint the local checkpoint of the shard in question      */
+comment|/**      * marks the allocationId as "in sync" with the primary shard.      * see {@link GlobalCheckpointService#markAllocationIdAsInSync(String)} for details.      *      * @param allocationId    allocationId of the recovering shard      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 name|void
@@ -274,9 +274,6 @@ name|markAllocationIdAsInSync
 parameter_list|(
 name|String
 name|allocationId
-parameter_list|,
-name|long
-name|localCheckpoint
 parameter_list|)
 block|{
 name|globalCheckpointService
@@ -284,8 +281,6 @@ operator|.
 name|markAllocationIdAsInSync
 argument_list|(
 name|allocationId
-argument_list|,
-name|localCheckpoint
 argument_list|)
 expr_stmt|;
 block|}

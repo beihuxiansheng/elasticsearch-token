@@ -792,6 +792,14 @@ name|addNewRecovery
 argument_list|(
 name|request
 argument_list|,
+name|targetShardRouting
+operator|.
+name|allocationId
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+argument_list|,
 name|shard
 argument_list|)
 decl_stmt|;
@@ -922,6 +930,9 @@ parameter_list|(
 name|StartRecoveryRequest
 name|request
 parameter_list|,
+name|String
+name|targetAllocationId
+parameter_list|,
 name|IndexShard
 name|shard
 parameter_list|)
@@ -951,6 +962,8 @@ operator|.
 name|addNewRecovery
 argument_list|(
 name|request
+argument_list|,
+name|targetAllocationId
 argument_list|,
 name|shard
 argument_list|)
@@ -1194,6 +1207,9 @@ parameter_list|(
 name|StartRecoveryRequest
 name|request
 parameter_list|,
+name|String
+name|targetAllocationId
+parameter_list|,
 name|IndexShard
 name|shard
 parameter_list|)
@@ -1216,6 +1232,8 @@ name|createRecoverySourceHandler
 argument_list|(
 name|request
 argument_list|,
+name|targetAllocationId
+argument_list|,
 name|shard
 argument_list|)
 decl_stmt|;
@@ -1237,6 +1255,9 @@ name|createRecoverySourceHandler
 parameter_list|(
 name|StartRecoveryRequest
 name|request
+parameter_list|,
+name|String
+name|targetAllocationId
 parameter_list|,
 name|IndexShard
 name|shard
@@ -1261,6 +1282,8 @@ name|request
 operator|.
 name|shardId
 argument_list|()
+argument_list|,
+name|targetAllocationId
 argument_list|,
 name|transportService
 argument_list|,

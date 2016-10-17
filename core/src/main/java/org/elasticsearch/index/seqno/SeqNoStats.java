@@ -371,6 +371,32 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SeqNoStats{"
+operator|+
+literal|"maxSeqNo="
+operator|+
+name|maxSeqNo
+operator|+
+literal|", localCheckpoint="
+operator|+
+name|localCheckpoint
+operator|+
+literal|", globalCheckpoint="
+operator|+
+name|globalCheckpoint
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

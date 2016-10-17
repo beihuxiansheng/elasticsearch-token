@@ -658,6 +658,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|PrimaryRequest
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -678,6 +679,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|PrimaryRequest
+specifier|public
 name|PrimaryRequest
 parameter_list|(
 name|ShardId
@@ -692,6 +694,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ReplicaRequest
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -705,7 +708,7 @@ name|ReplicaRequest
 argument_list|>
 block|{
 DECL|field|checkpoint
-specifier|public
+specifier|private
 name|long
 name|checkpoint
 decl_stmt|;
@@ -715,6 +718,7 @@ name|ReplicaRequest
 parameter_list|()
 block|{         }
 DECL|method|ReplicaRequest
+specifier|public
 name|ReplicaRequest
 parameter_list|(
 name|PrimaryRequest
@@ -794,6 +798,16 @@ argument_list|(
 name|checkpoint
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getCheckpoint
+specifier|public
+name|long
+name|getCheckpoint
+parameter_list|()
+block|{
+return|return
+name|checkpoint
+return|;
 block|}
 block|}
 block|}

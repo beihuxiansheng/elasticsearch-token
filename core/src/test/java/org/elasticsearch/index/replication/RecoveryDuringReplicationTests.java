@@ -676,7 +676,7 @@ annotation|@
 name|Override
 DECL|method|finalizeRecovery
 specifier|public
-name|FinalizeResponse
+name|void
 name|finalizeRecovery
 parameter_list|()
 block|{
@@ -708,12 +708,11 @@ operator|.
 name|FINALIZE
 argument_list|)
 expr_stmt|;
-return|return
 name|super
 operator|.
 name|finalizeRecovery
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 block|}
 block|}
