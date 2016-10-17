@@ -114,6 +114,242 @@ name|ClientYamlSuiteRestApiParserFailingTests
 extends|extends
 name|ESTestCase
 block|{
+DECL|method|testDuplicateMethods
+specifier|public
+name|void
+name|testDuplicateMethods
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|parseAndExpectFailure
+argument_list|(
+literal|"{\n"
+operator|+
+literal|"  \"ping\": {"
+operator|+
+literal|"    \"documentation\": \"http://www.elasticsearch.org/guide/\","
+operator|+
+literal|"    \"methods\": [\"PUT\", \"PUT\"],"
+operator|+
+literal|"    \"url\": {"
+operator|+
+literal|"      \"path\": \"/\","
+operator|+
+literal|"      \"paths\": [\"/\"],"
+operator|+
+literal|"      \"parts\": {"
+operator|+
+literal|"      },"
+operator|+
+literal|"      \"params\": {"
+operator|+
+literal|"        \"type\" : \"boolean\",\n"
+operator|+
+literal|"        \"description\" : \"Whether specified concrete indices should be ignored when unavailable (missing or closed)\""
+operator|+
+literal|"      }"
+operator|+
+literal|"    },"
+operator|+
+literal|"    \"body\": null"
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+argument_list|,
+literal|"Found duplicate method [PUT]"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDuplicatePaths
+specifier|public
+name|void
+name|testDuplicatePaths
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|parseAndExpectFailure
+argument_list|(
+literal|"{\n"
+operator|+
+literal|"  \"ping\": {"
+operator|+
+literal|"    \"documentation\": \"http://www.elasticsearch.org/guide/\","
+operator|+
+literal|"    \"methods\": [\"PUT\"],"
+operator|+
+literal|"    \"url\": {"
+operator|+
+literal|"      \"path\": \"/pingone\","
+operator|+
+literal|"      \"paths\": [\"/pingone\", \"/pingtwo\", \"/pingtwo\"],"
+operator|+
+literal|"      \"parts\": {"
+operator|+
+literal|"      },"
+operator|+
+literal|"      \"params\": {"
+operator|+
+literal|"        \"type\" : \"boolean\",\n"
+operator|+
+literal|"        \"description\" : \"Whether specified concrete indices should be ignored when unavailable (missing or closed)\""
+operator|+
+literal|"      }"
+operator|+
+literal|"    },"
+operator|+
+literal|"    \"body\": null"
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+argument_list|,
+literal|"Found duplicate path [/pingtwo]"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDuplicateParts
+specifier|public
+name|void
+name|testDuplicateParts
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|parseAndExpectFailure
+argument_list|(
+literal|"{\n"
+operator|+
+literal|"  \"ping\": {"
+operator|+
+literal|"    \"documentation\": \"http://www.elasticsearch.org/guide/\","
+operator|+
+literal|"    \"methods\": [\"PUT\"],"
+operator|+
+literal|"    \"url\": {"
+operator|+
+literal|"      \"path\": \"/\","
+operator|+
+literal|"      \"paths\": [\"/\"],"
+operator|+
+literal|"      \"parts\": {"
+operator|+
+literal|"        \"index\": {"
+operator|+
+literal|"          \"type\" : \"string\",\n"
+operator|+
+literal|"          \"description\" : \"index part\"\n"
+operator|+
+literal|"        },"
+operator|+
+literal|"        \"type\": {"
+operator|+
+literal|"          \"type\" : \"string\",\n"
+operator|+
+literal|"          \"description\" : \"type part\"\n"
+operator|+
+literal|"        },"
+operator|+
+literal|"        \"index\": {"
+operator|+
+literal|"          \"type\" : \"string\",\n"
+operator|+
+literal|"          \"description\" : \"index parameter part\"\n"
+operator|+
+literal|"        }"
+operator|+
+literal|"      },"
+operator|+
+literal|"      \"params\": {"
+operator|+
+literal|"        \"type\" : \"boolean\",\n"
+operator|+
+literal|"        \"description\" : \"Whether specified concrete indices should be ignored when unavailable (missing or closed)\""
+operator|+
+literal|"      }"
+operator|+
+literal|"    },"
+operator|+
+literal|"    \"body\": null"
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+argument_list|,
+literal|"Found duplicate part [index]"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDuplicateParams
+specifier|public
+name|void
+name|testDuplicateParams
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|parseAndExpectFailure
+argument_list|(
+literal|"{\n"
+operator|+
+literal|"  \"ping\": {"
+operator|+
+literal|"    \"documentation\": \"http://www.elasticsearch.org/guide/\","
+operator|+
+literal|"    \"methods\": [\"PUT\"],"
+operator|+
+literal|"    \"url\": {"
+operator|+
+literal|"      \"path\": \"/\","
+operator|+
+literal|"      \"paths\": [\"/\"],"
+operator|+
+literal|"      \"parts\": {"
+operator|+
+literal|"      },"
+operator|+
+literal|"      \"params\": {"
+operator|+
+literal|"        \"timeout\": {"
+operator|+
+literal|"          \"type\" : \"string\",\n"
+operator|+
+literal|"          \"description\" : \"timeout parameter\"\n"
+operator|+
+literal|"        },"
+operator|+
+literal|"        \"refresh\": {"
+operator|+
+literal|"          \"type\" : \"string\",\n"
+operator|+
+literal|"          \"description\" : \"refresh parameter\"\n"
+operator|+
+literal|"        },"
+operator|+
+literal|"        \"timeout\": {"
+operator|+
+literal|"          \"type\" : \"string\",\n"
+operator|+
+literal|"          \"description\" : \"timeout parameter again\"\n"
+operator|+
+literal|"        }"
+operator|+
+literal|"      }"
+operator|+
+literal|"    },"
+operator|+
+literal|"    \"body\": null"
+operator|+
+literal|"  }"
+operator|+
+literal|"}"
+argument_list|,
+literal|"Found duplicate param [timeout]"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testBrokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParams
 specifier|public
 name|void
@@ -172,11 +408,25 @@ argument_list|(
 name|brokenJson
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|ClientYamlSuiteRestApiParser
+name|restApiParser
+init|=
 operator|new
 name|ClientYamlSuiteRestApiParser
 argument_list|()
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|restApiParser
 operator|.
 name|parse
 argument_list|(
@@ -184,19 +434,8 @@ literal|"location"
 argument_list|,
 name|parser
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected to fail parsing but did not happen"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -210,7 +449,6 @@ name|expectedErrorMessage
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// see params section is broken, an inside param is missing
 DECL|field|BROKEN_SPEC_PARAMS
