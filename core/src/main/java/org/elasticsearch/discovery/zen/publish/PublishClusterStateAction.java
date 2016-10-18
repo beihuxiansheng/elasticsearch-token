@@ -761,6 +761,10 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|SendClusterStateRequestHandler
 argument_list|()
@@ -781,6 +785,10 @@ operator|.
 name|Names
 operator|.
 name|SAME
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|,
 operator|new
 name|CommitClusterStateRequestHandler
