@@ -902,11 +902,11 @@ name|String
 index|[]
 name|tracerLogInclude
 decl_stmt|;
-DECL|field|tracelLogExclude
+DECL|field|tracerLogExclude
 specifier|volatile
 name|String
 index|[]
-name|tracelLogExclude
+name|tracerLogExclude
 decl_stmt|;
 comment|/** if set will call requests sent to this id to shortcut and executed locally */
 DECL|field|localNode
@@ -916,7 +916,7 @@ name|localNode
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Build the service.      *       * @param clusterSettings if non null the the {@linkplain TransportService} will register with the {@link ClusterSettings} for settings      *        updates for {@link #TRACE_LOG_EXCLUDE_SETTING} and {@link #TRACE_LOG_INCLUDE_SETTING}.      */
+comment|/**      * Build the service.      *      * @param clusterSettings if non null the the {@linkplain TransportService} will register with the {@link ClusterSettings} for settings      *        updates for {@link #TRACE_LOG_EXCLUDE_SETTING} and {@link #TRACE_LOG_INCLUDE_SETTING}.      */
 DECL|method|TransportService
 specifier|public
 name|TransportService
@@ -1161,7 +1161,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|tracelLogExclude
+name|tracerLogExclude
 operator|=
 name|tracelLogExclude
 operator|.
@@ -3212,7 +3212,7 @@ block|}
 block|}
 if|if
 condition|(
-name|tracelLogExclude
+name|tracerLogExclude
 operator|.
 name|length
 operator|>
@@ -3225,7 +3225,7 @@ name|Regex
 operator|.
 name|simpleMatch
 argument_list|(
-name|tracelLogExclude
+name|tracerLogExclude
 argument_list|,
 name|action
 argument_list|)
