@@ -989,7 +989,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"local"
+literal|"none"
 argument_list|)
 expr_stmt|;
 comment|// a tribe node should not use zen discovery

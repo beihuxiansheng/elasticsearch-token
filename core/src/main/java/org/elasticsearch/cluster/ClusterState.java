@@ -482,20 +482,6 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|local
-operator|.
-name|LocalDiscovery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
 name|zen
 operator|.
 name|publish
@@ -565,7 +551,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the current state of the cluster.  *<p>  * The cluster state object is immutable with an  * exception of the {@link RoutingNodes} structure, which is built on demand from the {@link RoutingTable},  * and cluster state {@link #status}, which is updated during cluster state publishing and applying  * processing.  The cluster state can be updated only on the master node. All updates are performed by on a  * single thread and controlled by the {@link ClusterService}. After every update the  * {@link Discovery#publish} method publishes new version of the cluster state to all other nodes in the  * cluster.  The actual publishing mechanism is delegated to the {@link Discovery#publish} method and depends on  * the type of discovery. For example, for local discovery it is implemented by the {@link LocalDiscovery#publish}  * method. In the Zen Discovery it is handled in the {@link PublishClusterStateAction#publish} method. The  * publishing mechanism can be overridden by other discovery.  *<p>  * The cluster state implements the {@link Diffable} interface in order to support publishing of cluster state  * differences instead of the entire state on each change. The publishing mechanism should only send differences  * to a node if this node was present in the previous version of the cluster state. If a node is not present was  * not present in the previous version of the cluster state, such node is unlikely to have the previous cluster  * state version and should be sent a complete version. In order to make sure that the differences are applied to  * correct version of the cluster state, each cluster state version update generates {@link #stateUUID} that uniquely  * identifies this version of the state. This uuid is verified by the {@link ClusterStateDiff#apply} method to  * makes sure that the correct diffs are applied. If uuids donât match, the {@link ClusterStateDiff#apply} method  * throws the {@link IncompatibleClusterStateVersionException}, which should cause the publishing mechanism to send  * a full version of the cluster state to the node on which this exception was thrown.  */
+comment|/**  * Represents the current state of the cluster.  *<p>  * The cluster state object is immutable with an  * exception of the {@link RoutingNodes} structure, which is built on demand from the {@link RoutingTable},  * and cluster state {@link #status}, which is updated during cluster state publishing and applying  * processing.  The cluster state can be updated only on the master node. All updates are performed by on a  * single thread and controlled by the {@link ClusterService}. After every update the  * {@link Discovery#publish} method publishes new version of the cluster state to all other nodes in the  * cluster.  The actual publishing mechanism is delegated to the {@link Discovery#publish} method and depends on  * the type of discovery. In the Zen Discovery it is handled in the {@link PublishClusterStateAction#publish} method. The  * publishing mechanism can be overridden by other discovery.  *<p>  * The cluster state implements the {@link Diffable} interface in order to support publishing of cluster state  * differences instead of the entire state on each change. The publishing mechanism should only send differences  * to a node if this node was present in the previous version of the cluster state. If a node is not present was  * not present in the previous version of the cluster state, such node is unlikely to have the previous cluster  * state version and should be sent a complete version. In order to make sure that the differences are applied to  * correct version of the cluster state, each cluster state version update generates {@link #stateUUID} that uniquely  * identifies this version of the state. This uuid is verified by the {@link ClusterStateDiff#apply} method to  * makes sure that the correct diffs are applied. If uuids donât match, the {@link ClusterStateDiff#apply} method  * throws the {@link IncompatibleClusterStateVersionException}, which should cause the publishing mechanism to send  * a full version of the cluster state to the node on which this exception was thrown.  */
 end_comment
 
 begin_class

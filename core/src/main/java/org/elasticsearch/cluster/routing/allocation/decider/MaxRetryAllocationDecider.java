@@ -203,6 +203,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
+specifier|final
 name|UnassignedInfo
 name|unassignedInfo
 init|=
@@ -210,6 +211,10 @@ name|shardRouting
 operator|.
 name|unassignedInfo
 argument_list|()
+decl_stmt|;
+specifier|final
+name|Decision
+name|decision
 decl_stmt|;
 if|if
 condition|(
@@ -268,7 +273,8 @@ comment|// manual allocation - retry
 comment|// if we are called via the _reroute API we ignore the failure counter and try to allocate
 comment|// this improves the usability since people don't need to raise the limits to issue retries since a simple _reroute call is
 comment|// enough to manually retry.
-return|return
+name|decision
+operator|=
 name|allocation
 operator|.
 name|decision
@@ -299,7 +305,7 @@ argument_list|()
 operator|+
 literal|" - retrying once on manual allocation"
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -312,7 +318,8 @@ operator|>=
 name|maxRetry
 condition|)
 block|{
-return|return
+name|decision
+operator|=
 name|allocation
 operator|.
 name|decision
@@ -343,10 +350,42 @@ argument_list|()
 operator|+
 literal|" - manually call [/_cluster/reroute?retry_failed=true] to retry"
 argument_list|)
-return|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|decision
+operator|=
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|YES
+argument_list|,
+name|NAME
+argument_list|,
+literal|"shard has already failed allocating ["
+operator|+
+name|unassignedInfo
+operator|.
+name|getNumFailedAllocations
+argument_list|()
+operator|+
+literal|"] times but ["
+operator|+
+name|maxRetry
+operator|+
+literal|"] retries are allowed"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
-return|return
+else|else
+block|{
+name|decision
+operator|=
 name|allocation
 operator|.
 name|decision
@@ -359,6 +398,10 @@ name|NAME
 argument_list|,
 literal|"shard has no previous failures"
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|decision
 return|;
 block|}
 annotation|@

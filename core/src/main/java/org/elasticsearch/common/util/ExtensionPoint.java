@@ -867,6 +867,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|isEmpty
+specifier|public
+name|boolean
+name|isEmpty
+parameter_list|()
+block|{
+return|return
+name|extensions
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * A an instance of a map, mapping one instance value to another. Both key and value are instances, not classes      * like with other extension points.      */
 DECL|class|InstanceMap
