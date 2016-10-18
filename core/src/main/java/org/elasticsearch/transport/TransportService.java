@@ -1156,14 +1156,14 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|tracelLogExclude
+name|tracerLogExclude
 parameter_list|)
 block|{
 name|this
 operator|.
 name|tracerLogExclude
 operator|=
-name|tracelLogExclude
+name|tracerLogExclude
 operator|.
 name|toArray
 argument_list|(
