@@ -1053,8 +1053,6 @@ operator|new
 name|SnapshotInProgressAllocationDecider
 argument_list|(
 name|settings
-argument_list|,
-name|clusterSettings
 argument_list|)
 argument_list|)
 expr_stmt|;

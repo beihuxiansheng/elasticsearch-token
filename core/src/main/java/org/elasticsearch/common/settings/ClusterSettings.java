@@ -1774,10 +1774,6 @@ name|InternalClusterInfoService
 operator|.
 name|INTERNAL_CLUSTER_INFO_TIMEOUT_SETTING
 argument_list|,
-name|SnapshotInProgressAllocationDecider
-operator|.
-name|CLUSTER_ROUTING_ALLOCATION_SNAPSHOT_RELOCATION_ENABLED_SETTING
-argument_list|,
 name|DestructiveOperations
 operator|.
 name|REQUIRES_NAME_SETTING
