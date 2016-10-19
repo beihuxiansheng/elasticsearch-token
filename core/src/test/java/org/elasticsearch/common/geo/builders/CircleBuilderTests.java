@@ -114,9 +114,6 @@ block|{
 name|CircleBuilder
 name|mutation
 init|=
-operator|(
-name|CircleBuilder
-operator|)
 name|copyShape
 argument_list|(
 name|original
