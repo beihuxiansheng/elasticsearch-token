@@ -590,17 +590,6 @@ operator|.
 name|getClusterName
 argument_list|()
 argument_list|,
-name|clusterService
-operator|.
-name|state
-argument_list|()
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|clusterUUID
-argument_list|()
-argument_list|,
 name|responses
 argument_list|,
 name|failures
