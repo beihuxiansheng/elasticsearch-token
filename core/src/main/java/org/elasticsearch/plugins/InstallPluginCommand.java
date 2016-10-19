@@ -1823,6 +1823,15 @@ operator|.
 name|openConnection
 argument_list|()
 decl_stmt|;
+name|urlConnection
+operator|.
+name|addRequestProperty
+argument_list|(
+literal|"User-Agent"
+argument_list|,
+literal|"elasticsearch-plugin-installer"
+argument_list|)
+expr_stmt|;
 name|int
 name|contentLength
 init|=
