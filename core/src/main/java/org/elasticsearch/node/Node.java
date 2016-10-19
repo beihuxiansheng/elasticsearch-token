@@ -4342,7 +4342,7 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|intialize
+name|initialize
 argument_list|(
 name|injector
 operator|.

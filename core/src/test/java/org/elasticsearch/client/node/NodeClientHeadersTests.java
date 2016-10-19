@@ -140,18 +140,6 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|Task
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|tasks
-operator|.
 name|TaskManager
 import|;
 end_import
@@ -261,7 +249,7 @@ argument_list|)
 decl_stmt|;
 name|client
 operator|.
-name|intialize
+name|initialize
 argument_list|(
 name|actions
 argument_list|)

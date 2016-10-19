@@ -2720,7 +2720,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// don't let luser install plugin as a module...
+comment|// don't let user install plugin as a module...
 comment|// they might be unavoidably in maven central and are packaged up the same way)
 if|if
 condition|(
