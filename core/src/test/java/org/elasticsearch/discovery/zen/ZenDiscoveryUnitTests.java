@@ -1798,15 +1798,6 @@ name|emptySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ElectMasterService
-name|electMasterService
-init|=
-operator|new
-name|ElectMasterService
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
 name|ZenDiscovery
 name|zenDiscovery
 init|=
@@ -1824,8 +1815,6 @@ argument_list|,
 name|clusterSettings
 argument_list|,
 name|zenPingService
-argument_list|,
-name|electMasterService
 argument_list|)
 decl_stmt|;
 name|zenDiscovery

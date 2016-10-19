@@ -621,15 +621,6 @@ name|emptyList
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ElectMasterService
-name|electMasterService
-init|=
-operator|new
-name|ElectMasterService
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
 name|NetworkHandle
 name|handleA
 init|=
@@ -932,8 +923,6 @@ name|handleA
 operator|.
 name|transportService
 argument_list|,
-name|electMasterService
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1028,8 +1017,6 @@ name|handleB
 operator|.
 name|transportService
 argument_list|,
-name|electMasterService
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1102,8 +1089,6 @@ argument_list|,
 name|handleC
 operator|.
 name|transportService
-argument_list|,
-name|electMasterService
 argument_list|,
 literal|null
 argument_list|)
@@ -1190,8 +1175,6 @@ argument_list|,
 name|handleD
 operator|.
 name|transportService
-argument_list|,
-name|electMasterService
 argument_list|,
 literal|null
 argument_list|)

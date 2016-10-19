@@ -475,8 +475,7 @@ name|DiscoveryNode
 argument_list|>
 name|sortedNodes
 init|=
-name|electMasterService
-argument_list|()
+name|ElectMasterService
 operator|.
 name|sortByMasterLikelihood
 argument_list|(

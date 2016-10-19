@@ -965,12 +965,6 @@ specifier|final
 name|ClusterName
 name|clusterName
 decl_stmt|;
-DECL|field|electMasterService
-specifier|private
-specifier|final
-name|ElectMasterService
-name|electMasterService
-decl_stmt|;
 DECL|field|concurrentConnects
 specifier|private
 specifier|final
@@ -1093,9 +1087,6 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|ElectMasterService
-name|electMasterService
-parameter_list|,
 annotation|@
 name|Nullable
 name|Set
@@ -1134,12 +1125,6 @@ name|get
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|electMasterService
-operator|=
-name|electMasterService
 expr_stmt|;
 if|if
 condition|(
@@ -2283,7 +2268,7 @@ name|DiscoveryNode
 argument_list|>
 name|sortedNodesToPing
 init|=
-name|electMasterService
+name|ElectMasterService
 operator|.
 name|sortByMasterLikelihood
 argument_list|(

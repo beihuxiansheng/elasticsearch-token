@@ -2274,10 +2274,6 @@ name|DiscoveryModule
 operator|.
 name|DISCOVERY_TYPE_SETTING
 argument_list|,
-name|DiscoveryModule
-operator|.
-name|ZEN_MASTER_SERVICE_TYPE_SETTING
-argument_list|,
 name|FaultDetection
 operator|.
 name|PING_RETRIES_SETTING

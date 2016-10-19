@@ -1259,9 +1259,6 @@ name|clusterSettings
 parameter_list|,
 name|ZenPingService
 name|pingService
-parameter_list|,
-name|ElectMasterService
-name|electMasterService
 parameter_list|)
 block|{
 name|super
@@ -1312,7 +1309,11 @@ name|this
 operator|.
 name|electMaster
 operator|=
-name|electMasterService
+operator|new
+name|ElectMasterService
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
