@@ -461,14 +461,6 @@ name|ExecutableScript
 name|executableScript
 parameter_list|)
 block|{
-name|this
-operator|.
-name|executableScript
-operator|=
-name|executableScript
-expr_stmt|;
-name|this
-operator|.
 name|executableScript
 operator|.
 name|setNextVar
@@ -478,8 +470,6 @@ argument_list|,
 name|subsetDfHolder
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|executableScript
 operator|.
 name|setNextVar
@@ -489,8 +479,6 @@ argument_list|,
 name|subsetSizeHolder
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|executableScript
 operator|.
 name|setNextVar
@@ -500,8 +488,6 @@ argument_list|,
 name|supersetDfHolder
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|executableScript
 operator|.
 name|setNextVar
@@ -510,6 +496,12 @@ literal|"_superset_size"
 argument_list|,
 name|supersetSizeHolder
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|executableScript
+operator|=
+name|executableScript
 expr_stmt|;
 block|}
 comment|/**      * Calculates score with a script      *      * @param subsetFreq   The frequency of the term in the selected sample      * @param subsetSize   The size of the selected sample (typically number of docs)      * @param supersetFreq The frequency of the term in the superset from which the sample was taken      * @param supersetSize The size of the superset from which the sample was taken  (typically number of docs)      * @return a "significance" score      */
