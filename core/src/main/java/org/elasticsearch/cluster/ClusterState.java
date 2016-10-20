@@ -484,8 +484,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|publish
-operator|.
 name|PublishClusterStateAction
 import|;
 end_import

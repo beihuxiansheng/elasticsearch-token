@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen.publish
+DECL|package|org.elasticsearch.discovery.zen
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|publish
 package|;
 end_package
 
@@ -319,20 +317,6 @@ operator|.
 name|discovery
 operator|.
 name|DiscoverySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|ZenDiscovery
 import|;
 end_import
 
@@ -806,7 +790,7 @@ return|return
 name|pendingStatesQueue
 return|;
 block|}
-comment|/**      * publishes a cluster change event to other nodes. if at least minMasterNodes acknowledge the change it is committed and will      * be processed by the master and the other nodes.      *<p>      * The method is guaranteed to throw a {@link org.elasticsearch.discovery.Discovery.FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
+comment|/**      * publishes a cluster change event to other nodes. if at least minMasterNodes acknowledge the change it is committed and will      * be processed by the master and the other nodes.      *<p>      * The method is guaranteed to throw a {@link org.elasticsearch.discovery.Discovery.FailedToCommitClusterStateException}      * if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
 DECL|method|publish
 specifier|public
 name|void
@@ -3391,7 +3375,9 @@ name|Discovery
 operator|.
 name|FailedToCommitClusterStateException
 argument_list|(
-literal|"not enough masters to ack sent cluster state. [{}] needed , have [{}]"
+literal|"not enough masters to ack sent cluster state."
+operator|+
+literal|"[{}] needed , have [{}]"
 argument_list|,
 name|neededMastersToCommit
 argument_list|,
@@ -3744,7 +3730,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"master node {} failed to ack cluster state version [{}]. processing ... (current pending [{}], needed [{}])"
+literal|"master node {} failed to ack cluster state version [{}]. "
+operator|+
+literal|"processing ... (current pending [{}], needed [{}])"
 argument_list|,
 name|node
 argument_list|,

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen.publish
+DECL|package|org.elasticsearch.discovery.zen
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|publish
 package|;
 end_package
 
@@ -313,6 +311,20 @@ operator|.
 name|zen
 operator|.
 name|DiscoveryNodesProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|PublishClusterStateAction
 import|;
 end_import
 
@@ -2517,7 +2529,8 @@ argument_list|(
 literal|"nodeB"
 argument_list|)
 decl_stmt|;
-comment|// Initial cluster state with both states - the second node still shouldn't get diff even though it's present in the previous cluster state
+comment|// Initial cluster state with both states - the second node still shouldn't
+comment|// get diff even though it's present in the previous cluster state
 name|DiscoveryNodes
 name|discoveryNodes
 init|=
@@ -3359,7 +3372,8 @@ argument_list|(
 literal|"nodeB"
 argument_list|)
 decl_stmt|;
-comment|// Initial cluster state with both states - the second node still shouldn't get diff even though it's present in the previous cluster state
+comment|// Initial cluster state with both states - the second node still shouldn't get
+comment|// diff even though it's present in the previous cluster state
 name|DiscoveryNodes
 name|discoveryNodes
 init|=
@@ -5545,6 +5559,7 @@ name|Settings
 operator|.
 name|builder
 argument_list|()
+comment|// short but so we will sometime commit sometime timeout
 operator|.
 name|put
 argument_list|(
@@ -5561,7 +5576,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// short but so we will sometime commit sometime timeout
 name|MockNode
 name|master
 init|=
@@ -6419,7 +6433,9 @@ operator|.
 name|prettyPrint
 argument_list|()
 operator|+
-literal|"\n--> expected ClusterState:"
+literal|"\n"
+operator|+
+literal|"--> expected ClusterState:"
 operator|+
 name|expected
 operator|.

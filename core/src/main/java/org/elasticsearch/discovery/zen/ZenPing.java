@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen.ping
+DECL|package|org.elasticsearch.discovery.zen
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|ping
 package|;
 end_package
 
@@ -129,20 +127,6 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|ElectMasterService
 import|;
 end_import
 
@@ -689,7 +673,9 @@ literal|"], master ["
 operator|+
 name|master
 operator|+
-literal|"], cluster_state_version ["
+literal|"],"
+operator|+
+literal|"cluster_state_version ["
 operator|+
 name|clusterStateVersion
 operator|+

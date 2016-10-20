@@ -460,8 +460,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|fd
-operator|.
 name|FaultDetection
 import|;
 end_import
@@ -475,8 +473,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|membership
 operator|.
 name|MembershipAction
 import|;
@@ -492,8 +488,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ping
-operator|.
 name|ZenPing
 import|;
 end_import
@@ -507,8 +501,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|ping
 operator|.
 name|ZenPingService
 import|;
@@ -524,10 +516,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ping
-operator|.
-name|unicast
-operator|.
 name|UnicastZenPing
 import|;
 end_import
@@ -541,8 +529,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|publish
 operator|.
 name|PublishClusterStateAction
 import|;

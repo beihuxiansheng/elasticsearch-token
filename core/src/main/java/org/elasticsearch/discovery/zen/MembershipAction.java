@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen.membership
+DECL|package|org.elasticsearch.discovery.zen
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|membership
 package|;
 end_package
 

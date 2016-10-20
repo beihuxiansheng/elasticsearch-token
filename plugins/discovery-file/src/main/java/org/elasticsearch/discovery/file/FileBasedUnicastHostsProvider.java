@@ -114,10 +114,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ping
-operator|.
-name|unicast
-operator|.
 name|UnicastHostsProvider
 import|;
 end_import
@@ -279,10 +275,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|ping
-operator|.
-name|unicast
 operator|.
 name|UnicastZenPing
 operator|.

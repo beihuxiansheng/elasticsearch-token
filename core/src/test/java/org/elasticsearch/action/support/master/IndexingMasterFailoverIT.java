@@ -94,8 +94,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|fd
-operator|.
 name|FaultDetection
 import|;
 end_import

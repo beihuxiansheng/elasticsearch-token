@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen.fd
+DECL|package|org.elasticsearch.discovery.zen
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|fd
 package|;
 end_package
 
@@ -169,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for {@link org.elasticsearch.discovery.zen.fd.MasterFaultDetection}&amp; {@link org.elasticsearch.discovery.zen.fd.NodesFaultDetection},  * making sure both use the same setting.  */
+comment|/**  * A base class for {@link MasterFaultDetection}&amp; {@link NodesFaultDetection},  * making sure both use the same setting.  */
 end_comment
 
 begin_class

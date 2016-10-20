@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen.ping.unicast
+DECL|package|org.elasticsearch.discovery.zen
 package|package
 name|org
 operator|.
@@ -13,10 +13,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|ping
-operator|.
-name|unicast
 package|;
 end_package
 
@@ -236,7 +232,19 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ping
+name|UnicastZenPing
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|zen
 operator|.
 name|PingContextProvider
 import|;
@@ -251,8 +259,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|ping
 operator|.
 name|ZenPing
 import|;
