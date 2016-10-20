@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|util
+operator|.
+name|json
+operator|.
+name|Jackson
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -472,8 +486,6 @@ name|EC2
 init|=
 literal|"ec2"
 decl_stmt|;
-comment|// ClientConfiguration clinit has some classloader problems
-comment|// TODO: fix that
 static|static
 block|{
 name|SecurityManager
@@ -521,6 +533,16 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// kick jackson to do some static caching of declared members info
+name|Jackson
+operator|.
+name|jsonNodeOf
+argument_list|(
+literal|"{}"
+argument_list|)
+expr_stmt|;
+comment|// ClientConfiguration clinit has some classloader problems
+comment|// TODO: fix that
 name|Class
 operator|.
 name|forName
