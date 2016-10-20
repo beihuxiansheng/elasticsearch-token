@@ -2271,7 +2271,7 @@ argument_list|(
 operator|new
 name|TypeFieldMapper
 operator|.
-name|TypeQuery
+name|TypesQuery
 argument_list|(
 operator|new
 name|BytesRef
