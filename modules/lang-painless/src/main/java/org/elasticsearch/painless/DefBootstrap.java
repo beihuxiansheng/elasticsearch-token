@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Painless invokedynamic bootstrap for the call site.  *<p>  * Has 7 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * dynamic array store, iterator, and method reference.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook  * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
+comment|/**  * Painless invokedynamic bootstrap for the call site.  *<p>  * Has 11 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * dynamic array store, iterator, method reference, unary operator, binary operator,  * shift operator, and dynamic array index normalize.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook  * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
 end_comment
 
 begin_comment
@@ -237,6 +237,16 @@ name|int
 name|SHIFT_OPERATOR
 init|=
 literal|9
+decl_stmt|;
+comment|/** static bootstrap parameter indicating a request to normalize an index for array-like-access */
+DECL|field|INDEX_NORMALIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|INDEX_NORMALIZE
+init|=
+literal|10
 decl_stmt|;
 comment|// constants for the flags parameter of operators
 comment|/**       * static bootstrap parameter indicating the binary operator allows nulls (e.g. == and +)       *<p>      * requires additional {@link MethodHandles#catchException} guard, which will invoke      * the fallback if a null is encountered.      */
@@ -588,6 +598,17 @@ argument_list|,
 name|receiver
 argument_list|,
 name|name
+argument_list|)
+return|;
+case|case
+name|INDEX_NORMALIZE
+case|:
+return|return
+name|Def
+operator|.
+name|lookupIndexNormalize
+argument_list|(
+name|receiver
 argument_list|)
 return|;
 default|default:
@@ -2398,6 +2419,9 @@ name|ARRAY_STORE
 case|:
 case|case
 name|ITERATOR
+case|:
+case|case
+name|INDEX_NORMALIZE
 case|:
 if|if
 condition|(

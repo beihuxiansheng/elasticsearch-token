@@ -260,12 +260,6 @@ name|Globals
 name|globals
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|write
-condition|)
-block|{
 name|setup
 argument_list|(
 name|writer
@@ -280,7 +274,6 @@ argument_list|,
 name|globals
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -345,6 +338,15 @@ argument_list|(
 name|writer
 argument_list|,
 name|globals
+argument_list|)
+expr_stmt|;
+name|writeIndexFlip
+argument_list|(
+name|writer
+argument_list|,
+name|MethodWriter
+operator|::
+name|arrayLength
 argument_list|)
 expr_stmt|;
 block|}
