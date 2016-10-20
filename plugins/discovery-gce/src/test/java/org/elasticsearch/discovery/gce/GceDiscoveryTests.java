@@ -176,6 +176,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -401,6 +411,8 @@ specifier|public
 name|void
 name|stopGceComputeService
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -411,7 +423,7 @@ condition|)
 block|{
 name|mock
 operator|.
-name|stop
+name|close
 argument_list|()
 expr_stmt|;
 block|}

@@ -96,6 +96,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -139,8 +149,6 @@ DECL|interface|GceInstancesService
 specifier|public
 interface|interface
 name|GceInstancesService
-extends|extends
-name|LifecycleComponent
 block|{
 comment|/**      * GCE API Version: Elasticsearch/GceCloud/1.0      */
 DECL|field|VERSION

@@ -500,6 +500,17 @@ name|UnicastZenPingTests
 extends|extends
 name|ESTestCase
 block|{
+DECL|field|EMPTY_HOSTS_PROVIDER
+specifier|private
+specifier|static
+specifier|final
+name|UnicastHostsProvider
+name|EMPTY_HOSTS_PROVIDER
+init|=
+name|Collections
+operator|::
+name|emptyList
+decl_stmt|;
 DECL|method|testSimplePings
 specifier|public
 name|void
@@ -929,7 +940,7 @@ name|handleA
 operator|.
 name|transportService
 argument_list|,
-literal|null
+name|EMPTY_HOSTS_PROVIDER
 argument_list|)
 decl_stmt|;
 name|zenPingA
@@ -1023,7 +1034,7 @@ name|handleB
 operator|.
 name|transportService
 argument_list|,
-literal|null
+name|EMPTY_HOSTS_PROVIDER
 argument_list|)
 decl_stmt|;
 name|zenPingB
@@ -1096,7 +1107,7 @@ name|handleC
 operator|.
 name|transportService
 argument_list|,
-literal|null
+name|EMPTY_HOSTS_PROVIDER
 argument_list|)
 block|{
 annotation|@
@@ -1182,7 +1193,7 @@ name|handleD
 operator|.
 name|transportService
 argument_list|,
-literal|null
+name|EMPTY_HOSTS_PROVIDER
 argument_list|)
 decl_stmt|;
 name|zenPingD

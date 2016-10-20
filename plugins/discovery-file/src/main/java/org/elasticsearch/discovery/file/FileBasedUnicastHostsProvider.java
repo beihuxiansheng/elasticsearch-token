@@ -288,7 +288,6 @@ end_comment
 
 begin_class
 DECL|class|FileBasedUnicastHostsProvider
-specifier|public
 class|class
 name|FileBasedUnicastHostsProvider
 extends|extends
@@ -335,10 +334,7 @@ name|AtomicLong
 argument_list|()
 decl_stmt|;
 comment|// generates unique ids for the node
-annotation|@
-name|Inject
 DECL|method|FileBasedUnicastHostsProvider
-specifier|public
 name|FileBasedUnicastHostsProvider
 parameter_list|(
 name|Settings

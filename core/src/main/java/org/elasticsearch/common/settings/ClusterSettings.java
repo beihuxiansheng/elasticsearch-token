@@ -2268,6 +2268,10 @@ name|DiscoveryModule
 operator|.
 name|DISCOVERY_TYPE_SETTING
 argument_list|,
+name|DiscoveryModule
+operator|.
+name|DISCOVERY_HOSTS_PROVIDER_SETTING
+argument_list|,
 name|FaultDetection
 operator|.
 name|PING_RETRIES_SETTING
