@@ -444,8 +444,6 @@ name|ret
 return|;
 block|}
 block|}
-annotation|@
-name|Inject
 DECL|method|ElectMasterService
 specifier|public
 name|ElectMasterService
@@ -836,6 +834,7 @@ block|}
 comment|/**      * Returns the given nodes sorted by likelihood of being elected as master, most likely first.      * Non-master nodes are not removed but are rather put in the end      */
 DECL|method|sortByMasterLikelihood
 specifier|public
+specifier|static
 name|List
 argument_list|<
 name|DiscoveryNode

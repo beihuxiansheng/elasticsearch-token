@@ -280,7 +280,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
-comment|// when reading, or using a cumalation buffer
+comment|// when reading, or using a cumulation buffer
 name|Netty3HttpRequest
 name|httpRequest
 init|=

@@ -1611,6 +1611,14 @@ parameter_list|()
 block|{
 return|return
 name|currentTypes
+operator|==
+literal|null
+condition|?
+name|Strings
+operator|.
+name|EMPTY_ARRAY
+else|:
+name|currentTypes
 return|;
 block|}
 DECL|method|getPlugins

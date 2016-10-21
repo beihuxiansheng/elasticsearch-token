@@ -312,22 +312,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|membership
-operator|.
-name|MembershipAction
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util

@@ -5717,8 +5717,17 @@ argument_list|,
 literal|1L
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|SearchPhaseExecutionException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -5740,19 +5749,8 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected SearchPhaseExecutionException (total failure)"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -5781,7 +5779,6 @@ literal|"unit [D] not supported for date math"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Issue #7880
 DECL|method|testDateRangeInQueryStringWithTimeZone_7880
@@ -7952,8 +7949,14 @@ literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -7972,21 +7975,8 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"SearchPhaseExecutionException should have been thrown"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|ex
-parameter_list|)
-block|{
-comment|// number format exception
-block|}
 block|}
 DECL|method|testMultiMatchQuery
 specifier|public
@@ -18038,8 +18028,17 @@ name|refresh
 argument_list|()
 expr_stmt|;
 comment|//has_child fails if executed on "simple" index
-try|try
-block|{
+name|SearchPhaseExecutionException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -18069,19 +18068,8 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have failed as has_child query can only be executed against parent-child types"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -18121,7 +18109,6 @@ literal|"no mapping found for type [child]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|//has_child doesn't get parsed for "simple" index
 name|SearchResponse
@@ -20091,8 +20078,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// When we use long values, it means we have ms since epoch UTC based so we don't apply any transformation
-try|try
-block|{
+name|Exception
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -20128,21 +20124,8 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"A Range Filter using ms since epoch with a TimeZone should raise a ParsingException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// We expect it
-block|}
+decl_stmt|;
 name|searchResponse
 operator|=
 name|client
@@ -20271,8 +20254,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// A Range Filter on a numeric field with a TimeZone should raise an exception
-try|try
-block|{
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -20308,21 +20299,8 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"A Range Filter on a numeric field with a TimeZone should raise a ParsingException"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// We expect it
-block|}
 block|}
 DECL|method|testSearchEmptyDoc
 specifier|public

@@ -543,7 +543,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"myself"
+literal|"127.0.0.1:*"
 argument_list|)
 expr_stmt|;
 name|settings

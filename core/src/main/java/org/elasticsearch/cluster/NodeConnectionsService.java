@@ -214,6 +214,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|MasterFaultDetection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|NodesFaultDetection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -289,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This component is responsible for connecting to nodes once they are added to the cluster state, and disconnect when they are  * removed. Also, it periodically checks that all connections are still open and if needed restores them.  * Note that this component is *not* responsible for removing nodes from the cluster if they disconnect / do not respond  * to pings. This is done by {@link org.elasticsearch.discovery.zen.fd.NodesFaultDetection}. Master fault detection  * is done by {@link org.elasticsearch.discovery.zen.fd.MasterFaultDetection}.  */
+comment|/**  * This component is responsible for connecting to nodes once they are added to the cluster state, and disconnect when they are  * removed. Also, it periodically checks that all connections are still open and if needed restores them.  * Note that this component is *not* responsible for removing nodes from the cluster if they disconnect / do not respond  * to pings. This is done by {@link NodesFaultDetection}. Master fault detection  * is done by {@link MasterFaultDetection}.  */
 end_comment
 
 begin_class

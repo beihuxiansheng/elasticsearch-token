@@ -377,6 +377,15 @@ return|return
 name|TYPE
 return|;
 block|}
+DECL|method|getScript
+name|Script
+name|getScript
+parameter_list|()
+block|{
+return|return
+name|script
+return|;
+block|}
 DECL|class|Factory
 specifier|public
 specifier|static
@@ -443,7 +452,7 @@ block|{
 name|String
 name|lang
 init|=
-name|readStringProperty
+name|readOptionalStringProperty
 argument_list|(
 name|TYPE
 argument_list|,

@@ -90,8 +90,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|publish
-operator|.
 name|PendingClusterStateStats
 import|;
 end_import

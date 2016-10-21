@@ -8888,7 +8888,7 @@ argument_list|(
 operator|(
 name|Object
 operator|)
-literal|1L
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

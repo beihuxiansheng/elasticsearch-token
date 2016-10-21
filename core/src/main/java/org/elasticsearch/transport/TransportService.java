@@ -902,11 +902,11 @@ name|String
 index|[]
 name|tracerLogInclude
 decl_stmt|;
-DECL|field|tracelLogExclude
+DECL|field|tracerLogExclude
 specifier|volatile
 name|String
 index|[]
-name|tracelLogExclude
+name|tracerLogExclude
 decl_stmt|;
 comment|/** if set will call requests sent to this id to shortcut and executed locally */
 DECL|field|localNode
@@ -916,7 +916,7 @@ name|localNode
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Build the service.      *       * @param clusterSettings if non null the the {@linkplain TransportService} will register with the {@link ClusterSettings} for settings      *        updates for {@link #TRACE_LOG_EXCLUDE_SETTING} and {@link #TRACE_LOG_INCLUDE_SETTING}.      */
+comment|/**      * Build the service.      *      * @param clusterSettings if non null the the {@linkplain TransportService} will register with the {@link ClusterSettings} for settings      *        updates for {@link #TRACE_LOG_EXCLUDE_SETTING} and {@link #TRACE_LOG_INCLUDE_SETTING}.      */
 DECL|method|TransportService
 specifier|public
 name|TransportService
@@ -1156,14 +1156,14 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|tracelLogExclude
+name|tracerLogExclude
 parameter_list|)
 block|{
 name|this
 operator|.
-name|tracelLogExclude
+name|tracerLogExclude
 operator|=
-name|tracelLogExclude
+name|tracerLogExclude
 operator|.
 name|toArray
 argument_list|(
@@ -3212,7 +3212,7 @@ block|}
 block|}
 if|if
 condition|(
-name|tracelLogExclude
+name|tracerLogExclude
 operator|.
 name|length
 operator|>
@@ -3225,7 +3225,7 @@ name|Regex
 operator|.
 name|simpleMatch
 argument_list|(
-name|tracelLogExclude
+name|tracerLogExclude
 argument_list|,
 name|action
 argument_list|)
@@ -3347,7 +3347,7 @@ name|reg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Registers a new request handler      *      * @param action                The action the request handler is associated with      * @param request               The request class that will be used to constrcut new instances for streaming      * @param executor              The executor the request handling will be executed on      * @param forceExecution        Force execution on the executor queue and never reject it      * @param canTripCircuitBreaker Check the request size and raise an exception in case the limit is breached.      * @param handler               The handler itself that implements the request handling      */
+comment|/**      * Registers a new request handler      *      * @param action                The action the request handler is associated with      * @param request               The request class that will be used to construct new instances for streaming      * @param executor              The executor the request handling will be executed on      * @param forceExecution        Force execution on the executor queue and never reject it      * @param canTripCircuitBreaker Check the request size and raise an exception in case the limit is breached.      * @param handler               The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
 specifier|final

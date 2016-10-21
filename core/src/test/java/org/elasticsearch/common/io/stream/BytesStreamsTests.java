@@ -553,8 +553,14 @@ name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
 comment|// bulk-write with wrong args
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|out
 operator|.
 name|writeBytes
@@ -568,21 +574,8 @@ literal|0
 argument_list|,
 literal|1
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected IllegalArgumentException: length> (size-offset)"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|iax1
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|out
 operator|.
 name|close
@@ -2224,13 +2217,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 init|=
@@ -2303,6 +2299,8 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|StreamInput
 name|in
 init|=
@@ -2318,7 +2316,8 @@ argument_list|)
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 name|in
@@ -2360,6 +2359,8 @@ name|available
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|testNamedWriteableList
 specifier|public
@@ -2533,13 +2534,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|TestNamedWriteable
 name|testNamedWriteable
 init|=
@@ -2576,8 +2580,17 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|Exception
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|UnsupportedOperationException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|in
 operator|.
 name|readNamedWriteable
@@ -2586,19 +2599,8 @@ name|BaseNamedWriteable
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected UnsupportedOperationException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -2622,13 +2624,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 init|=
@@ -2704,6 +2709,8 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|StreamInput
 name|in
 init|=
@@ -2719,7 +2726,8 @@ argument_list|)
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertEquals
 argument_list|(
 name|in
@@ -2767,6 +2775,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
 DECL|method|testOptionalWriteableReaderReturnsNull
 specifier|public
 name|void
@@ -2775,13 +2785,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|out
 operator|.
 name|writeOptionalWriteable
@@ -2861,6 +2874,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|testWriteableReaderReturnsWrongName
 specifier|public
 name|void
@@ -2869,13 +2883,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 init|=
@@ -2910,7 +2927,7 @@ argument_list|(
 name|in
 argument_list|)
 block|{
-block|@Override                     public String getWriteableName(
+block|@Override                                 public String getWriteableName(
 argument_list|)
 block|{
 return|return
@@ -2919,10 +2936,11 @@ return|;
 block|}
 block|}
 block|)
+block|)
 end_class
 
 begin_empty_stmt
-unit|))
+unit|)
 empty_stmt|;
 end_empty_stmt
 
@@ -2977,7 +2995,9 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
+begin_try
+try|try
+init|(
 name|StreamInput
 name|in
 init|=
@@ -2993,10 +3013,8 @@ argument_list|)
 argument_list|,
 name|namedWriteableRegistry
 argument_list|)
-decl_stmt|;
-end_decl_stmt
-
-begin_expr_stmt
+init|)
+block|{
 name|assertEquals
 argument_list|(
 name|in
@@ -3009,9 +3027,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-
-begin_decl_stmt
 name|AssertionError
 name|e
 init|=
@@ -3033,9 +3048,6 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-
-begin_expr_stmt
 name|assertThat
 argument_list|(
 name|e
@@ -3049,11 +3061,13 @@ literal|" claims to have a different name [intentionally-broken] than it was rea
 argument_list|)
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_try
 
 begin_function
-unit|}      public
+unit|}     }
 DECL|method|testWriteStreamableList
+specifier|public
 name|void
 name|testWriteStreamableList
 parameter_list|()
@@ -3853,8 +3867,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// writing a single byte must fail
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|out
 operator|.
 name|writeByte
@@ -3864,24 +3884,17 @@ name|byte
 operator|)
 literal|0
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected IllegalStateException: stream closed"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|iex1
-parameter_list|)
-block|{
-comment|// expected
-block|}
 comment|// writing in bulk must fail
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|out
 operator|.
 name|writeBytes
@@ -3896,24 +3909,17 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected IllegalStateException: stream closed"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|iex1
-parameter_list|)
-block|{
-comment|// expected
-block|}
 comment|// toByteArray() must fail
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|BytesReference
 operator|.
 name|toBytes
@@ -3923,21 +3929,8 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected IllegalStateException: stream closed"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalStateException
-name|iex1
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 end_function
 
@@ -3989,14 +3982,17 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
+empty_stmt|;
 name|GeoPoint
 name|geoPoint
 init|=
@@ -4047,14 +4043,16 @@ name|geoPoint
 argument_list|)
 expr_stmt|;
 block|}
-block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|out
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|GeoPoint
 name|geoPoint
 init|=
@@ -4324,20 +4322,23 @@ argument_list|,
 name|reverseMapKeys
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|BytesStreamOutput
 name|output
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|;
 name|BytesStreamOutput
 name|reverseMapOutput
-init|=
+operator|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|output
 operator|.
 name|writeMapWithConsistentOrder
@@ -4365,6 +4366,7 @@ name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 
@@ -4414,13 +4416,16 @@ literal|5
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|BytesStreamOutput
 name|streamOut
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|streamOut
 operator|.
 name|writeMapWithConsistentOrder
@@ -4467,6 +4472,7 @@ name|streamInMap
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 end_function
 
 begin_function
@@ -4478,13 +4484,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|BytesStreamOutput
 name|output
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -4529,6 +4538,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 

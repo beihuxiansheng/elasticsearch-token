@@ -336,10 +336,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|ping
-operator|.
-name|unicast
-operator|.
 name|UnicastHostsProvider
 import|;
 end_import
@@ -691,8 +687,6 @@ specifier|final
 name|DeploymentSlot
 name|deploymentSlot
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|AzureUnicastHostsProvider
 specifier|public
 name|AzureUnicastHostsProvider

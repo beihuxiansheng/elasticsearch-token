@@ -1554,20 +1554,14 @@ name|operation
 argument_list|)
 expr_stmt|;
 comment|// update the version on request so it will happen on the replicas
-specifier|final
-name|long
-name|version
-init|=
-name|operation
-operator|.
-name|version
-argument_list|()
-decl_stmt|;
 name|request
 operator|.
 name|version
 argument_list|(
+name|operation
+operator|.
 name|version
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|request

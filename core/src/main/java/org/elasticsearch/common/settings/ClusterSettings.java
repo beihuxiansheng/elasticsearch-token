@@ -598,8 +598,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|fd
-operator|.
 name|FaultDetection
 import|;
 end_import
@@ -613,10 +611,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|ping
-operator|.
-name|unicast
 operator|.
 name|UnicastZenPing
 import|;
@@ -1780,10 +1774,6 @@ name|InternalClusterInfoService
 operator|.
 name|INTERNAL_CLUSTER_INFO_TIMEOUT_SETTING
 argument_list|,
-name|SnapshotInProgressAllocationDecider
-operator|.
-name|CLUSTER_ROUTING_ALLOCATION_SNAPSHOT_RELOCATION_ENABLED_SETTING
-argument_list|,
 name|DestructiveOperations
 operator|.
 name|REQUIRES_NAME_SETTING
@@ -2276,7 +2266,7 @@ name|DISCOVERY_TYPE_SETTING
 argument_list|,
 name|DiscoveryModule
 operator|.
-name|ZEN_MASTER_SERVICE_TYPE_SETTING
+name|DISCOVERY_HOSTS_PROVIDER_SETTING
 argument_list|,
 name|FaultDetection
 operator|.

@@ -234,8 +234,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|fd
-operator|.
 name|FaultDetection
 import|;
 end_import
@@ -250,8 +248,6 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|fd
-operator|.
 name|MasterFaultDetection
 import|;
 end_import
@@ -265,8 +261,6 @@ operator|.
 name|discovery
 operator|.
 name|zen
-operator|.
-name|fd
 operator|.
 name|NodesFaultDetection
 import|;
