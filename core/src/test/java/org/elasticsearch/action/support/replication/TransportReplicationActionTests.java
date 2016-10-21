@@ -5928,7 +5928,9 @@ block|}
 return|return
 operator|new
 name|ReplicaResult
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 return|;
 block|}
 block|}
@@ -6909,7 +6911,9 @@ block|}
 return|return
 operator|new
 name|ReplicaResult
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 return|;
 block|}
 block|}
@@ -7674,6 +7678,8 @@ argument_list|,
 operator|new
 name|Response
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -7701,7 +7707,9 @@ expr_stmt|;
 return|return
 operator|new
 name|ReplicaResult
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -8481,6 +8489,8 @@ argument_list|,
 operator|new
 name|Response
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

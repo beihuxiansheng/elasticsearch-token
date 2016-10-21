@@ -6117,7 +6117,7 @@ name|assertThat
 argument_list|(
 name|stats
 operator|.
-name|getTotal
+name|getPrimaries
 argument_list|()
 operator|.
 name|getIndexing
