@@ -811,10 +811,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onPrimaryShard
+DECL|method|shardOperationOnPrimary
 specifier|protected
 name|WritePrimaryResult
-name|onPrimaryShard
+name|shardOperationOnPrimary
 parameter_list|(
 name|BulkShardRequest
 name|request
@@ -2463,10 +2463,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onReplicaShard
+DECL|method|shardOperationOnReplica
 specifier|protected
 name|WriteReplicaResult
-name|onReplicaShard
+name|shardOperationOnReplica
 parameter_list|(
 name|BulkShardRequest
 name|request

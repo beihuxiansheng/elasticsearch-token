@@ -303,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for transport actions that modify data in some shard like index, delete, and shardBulk.  */
+comment|/**  * Base class for transport actions that modify data in some shard like index, delete, and shardBulk.  * Allows performing async actions (e.g. refresh) after performing write operations on primary and replica shards  */
 end_comment
 
 begin_class
@@ -418,43 +418,12 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Called on the primary with a reference to the primary {@linkplain IndexShard} to modify.      */
-DECL|method|onPrimaryShard
-specifier|protected
-specifier|abstract
-name|WritePrimaryResult
-name|onPrimaryShard
-parameter_list|(
-name|Request
-name|request
-parameter_list|,
-name|IndexShard
-name|primary
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Called once per replica with a reference to the replica {@linkplain IndexShard} to modify.      *      * @return the result of the replication operation containing either the translog location of the {@linkplain IndexShard}      * after the write was completed or a failure if the operation failed      */
-DECL|method|onReplicaShard
-specifier|protected
-specifier|abstract
-name|WriteReplicaResult
-name|onReplicaShard
-parameter_list|(
-name|ReplicaRequest
-name|request
-parameter_list|,
-name|IndexShard
-name|replica
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
+comment|/**      * Called on the primary with a reference to the primary {@linkplain IndexShard} to modify.      *      * @return the result of the operation on primary, including current translog location and operation response and failure      * async refresh is performed on the<code>primary</code> shard according to the<code>Request</code> refresh policy      */
 annotation|@
 name|Override
 DECL|method|shardOperationOnPrimary
 specifier|protected
-specifier|final
+specifier|abstract
 name|WritePrimaryResult
 name|shardOperationOnPrimary
 parameter_list|(
@@ -466,21 +435,13 @@ name|primary
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-return|return
-name|onPrimaryShard
-argument_list|(
-name|request
-argument_list|,
-name|primary
-argument_list|)
-return|;
-block|}
+function_decl|;
+comment|/**      * Called once per replica with a reference to the replica {@linkplain IndexShard} to modify.      *      * @return the result of the operation on replica, including current translog location and operation response and failure      * async refresh is performed on the<code>replica</code> shard according to the<code>ReplicaRequest</code> refresh policy      */
 annotation|@
 name|Override
 DECL|method|shardOperationOnReplica
 specifier|protected
-specifier|final
+specifier|abstract
 name|WriteReplicaResult
 name|shardOperationOnReplica
 parameter_list|(
@@ -492,16 +453,7 @@ name|replica
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-return|return
-name|onReplicaShard
-argument_list|(
-name|request
-argument_list|,
-name|replica
-argument_list|)
-return|;
-block|}
+function_decl|;
 comment|/**      * Result of taking the action on the primary.      */
 DECL|class|WritePrimaryResult
 specifier|protected
