@@ -667,8 +667,10 @@ decl_stmt|;
 name|int
 name|id
 init|=
-name|randomInt
+name|randomIntBetween
 argument_list|(
+literal|1
+argument_list|,
 name|max
 operator|-
 literal|1
@@ -791,7 +793,7 @@ name|original
 operator|.
 name|getId
 argument_list|()
-operator|+
+operator|-
 literal|1
 argument_list|,
 name|original
