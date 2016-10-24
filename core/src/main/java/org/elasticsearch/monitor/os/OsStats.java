@@ -1667,7 +1667,12 @@ name|this
 operator|.
 name|cpuAcctControlGroup
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|cpuAcctControlGroup
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -1679,7 +1684,12 @@ name|this
 operator|.
 name|cpuControlGroup
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|cpuControlGroup
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

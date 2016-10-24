@@ -172,6 +172,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -881,7 +891,7 @@ argument_list|(
 literal|"\\d+:([^:,]+(?:,[^:,]+)?):(/.*)"
 argument_list|)
 decl_stmt|;
-comment|/**      * A map of the control groups to which the Elasticsearch process      * belongs. Note that this is a map because the control groups can      * vary from subsystem to subsystem. Additionally, this map can not      * be cached because a running process can be reclassified.      *      * @return a map from subsystems to the control group for the      * Elasticsearch process.      * @throws IOException if an I/O exception occurs reading      * {@code /proc/self/cgroup}      */
+comment|/**      * A map of the control groups to which the Elasticsearch process      * belongs. Note that this is a map because the control groups can      * vary from subsystem to subsystem. Additionally, this map can not      * be cached because a running process can be reclassified.      *      * @return a map from subsystems to the control group for the      * Elasticsearch process.      * @throws IOException if an I/O exception occurs reading      *                     {@code /proc/self/cgroup}      */
 DECL|method|getControlGroups
 specifier|private
 name|Map
@@ -1004,7 +1014,7 @@ return|return
 name|controllerMap
 return|;
 block|}
-comment|/**      * The lines from {@code /proc/self/cgroup}. This file represents      * the control groups to which the Elasticsearch process belongs.      * Each line in this file represents a control group hierarchy of      * the form      *<p>      * {@code \d+:([^:,]+(?:,[^:,]+)?):(/.*)}      *<p>      * with the first field representing the hierarchy ID, the second      * field representing a comma-separated list of the subsystems      * bound to the hierarchy, and the last field representing the      * control group.      *      * @return the lines from {@code /proc/self/cgroup}      * @throws IOException if an I/O exception occurs reading      * {@code /proc/self/cgroup}      */
+comment|/**      * The lines from {@code /proc/self/cgroup}. This file represents      * the control groups to which the Elasticsearch process belongs.      * Each line in this file represents a control group hierarchy of      * the form      *<p>      * {@code \d+:([^:,]+(?:,[^:,]+)?):(/.*)}      *<p>      * with the first field representing the hierarchy ID, the second      * field representing a comma-separated list of the subsystems      * bound to the hierarchy, and the last field representing the      * control group.      *      * @return the lines from {@code /proc/self/cgroup}      * @throws IOException if an I/O exception occurs reading      *                     {@code /proc/self/cgroup}      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1056,7 +1066,7 @@ return|return
 name|lines
 return|;
 block|}
-comment|/**      * The total CPU time in nanoseconds consumed by all tasks in the      * cgroup to which the Elasticsearch process belongs for the      * {@code cpuacct} subsystem.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the total CPU time in nanoseconds      * @throws IOException if an I/O exception occurs reading      * {@code cpuacct.usage} for the control group      */
+comment|/**      * The total CPU time in nanoseconds consumed by all tasks in the      * cgroup to which the Elasticsearch process belongs for the      * {@code cpuacct} subsystem.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the total CPU time in nanoseconds      * @throws IOException if an I/O exception occurs reading      *                     {@code cpuacct.usage} for the control group      */
 DECL|method|getCgroupCpuAcctUsageNanos
 specifier|private
 name|long
@@ -1081,7 +1091,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the line from {@code cpuacct.usage} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpuacct} subsystem. This line represents the total CPU      * time in nanoseconds consumed by all tasks in the same control      * group.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpuacct}      *                     subsystem      * @return the line from {@code cpuacct.usage}      * @throws IOException if an I/O exception occurs reading      * {@code cpuacct.usage} for the control group      */
+comment|/**      * Returns the line from {@code cpuacct.usage} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpuacct} subsystem. This line represents the total CPU      * time in nanoseconds consumed by all tasks in the same control      * group.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpuacct}      *                     subsystem      * @return the line from {@code cpuacct.usage}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpuacct.usage} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1116,7 +1126,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The total period of time in microseconds for how frequently the      * Elasticsearch control group's access to CPU resources will be      * reallocated.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CFS quota period in microseconds      * @throws IOException if an I/O exception occurs reading      * {@code cpu.cfs_period_us} for the control group      */
+comment|/**      * The total period of time in microseconds for how frequently the      * Elasticsearch control group's access to CPU resources will be      * reallocated.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CFS quota period in microseconds      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_period_us} for the control group      */
 DECL|method|getCgroupCpuAcctCpuCfsPeriodMicros
 specifier|private
 name|long
@@ -1141,7 +1151,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the line from {@code cpu.cfs_period_us} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. This line represents the period of time      * in microseconds for how frequently the control group's access to      * CPU resources will be reallocated.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the line from {@code cpu.cfs_period_us}      * @throws IOException if an I/O exception occurs reading      * {@code cpu.cfs_period_us} for the control group      */
+comment|/**      * Returns the line from {@code cpu.cfs_period_us} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. This line represents the period of time      * in microseconds for how frequently the control group's access to      * CPU resources will be reallocated.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the line from {@code cpu.cfs_period_us}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_period_us} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1176,11 +1186,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The total time in microseconds that all tasks in the      * Elasticsearch control group can run during one period as      * specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CFS quota in microseconds      * @throws IOException if an I/O exception occurs reading      * {@code cpu.cfs_quota_us} for the control group      */
-DECL|method|getCGroupCpuAcctCpuCfsQuotaMicros
+comment|/**      * The total time in microseconds that all tasks in the      * Elasticsearch control group can run during one period as      * specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CFS quota in microseconds      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_quota_us} for the control group      */
+DECL|method|getCgroupCpuAcctCpuCfsQuotaMicros
 specifier|private
 name|long
-name|getCGroupCpuAcctCpuCfsQuotaMicros
+name|getCgroupCpuAcctCpuCfsQuotaMicros
 parameter_list|(
 specifier|final
 name|String
@@ -1201,7 +1211,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the line from {@code cpu.cfs_quota_us} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. This line represents the total time in      * microseconds that all tasks in the control group can run during      * one period as specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the line from {@code cpu.cfs_quota_us}      * @throws IOException if an I/O exception occurs reading      * {@code cpu.cfs_quota_us} for the control group      */
+comment|/**      * Returns the line from {@code cpu.cfs_quota_us} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. This line represents the total time in      * microseconds that all tasks in the control group can run during      * one period as specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the line from {@code cpu.cfs_quota_us}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_quota_us} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1236,7 +1246,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The CPU time statistics for all tasks in the Elasticsearch      * control group.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CPU time statistics      * @throws IOException if an I/O exception occurs reading      * {@code cpu.stat} for the control group      */
+comment|/**      * The CPU time statistics for all tasks in the Elasticsearch      * control group.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CPU time statistics      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.stat} for the control group      */
 DECL|method|getCgroupCpuAcctCpuStat
 specifier|private
 name|OsStats
@@ -1396,7 +1406,7 @@ name|timeThrottledNanos
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the lines from {@code cpu.stat} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. These lines represent the CPU time      * statistics and have the form      *      * nr_periods \d+      * nr_throttled \d+      * throttled_time \d+      *      * where {@code nr_periods} is the number of period intervals      * as specified by {@code cpu.cfs_period_us} that have elapsed,      * {@code nr_throttled} is the number of times tasks in the given      * control group have been throttled, and {@code throttled_time} is      * the total time in nanoseconds for which tasks in the given      * control group have been throttled.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      *      * @return the lines from {@code cpu.stat}      * @throws IOException if an I/O exception occurs reading      * {@code cpu.stat} for the control group      */
+comment|/**      * Returns the lines from {@code cpu.stat} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. These lines represent the CPU time      * statistics and have the form      *<p>      * nr_periods \d+      * nr_throttled \d+      * throttled_time \d+      *<p>      * where {@code nr_periods} is the number of period intervals      * as specified by {@code cpu.cfs_period_us} that have elapsed,      * {@code nr_throttled} is the number of times tasks in the given      * control group have been throttled, and {@code throttled_time} is      * the total time in nanoseconds for which tasks in the given      * control group have been throttled.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the lines from {@code cpu.stat}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.stat} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1457,6 +1467,84 @@ return|return
 name|lines
 return|;
 block|}
+comment|/**      * Checks if cgroup stats are available by checking for the existence of {@code /proc/self/cgroup},      * {@code /sys/fs/cgroup/cpu}, and {@code /sys/fs/cgroup/cpuacct}.      *      * @return {@code true} if the stats are available, otherwise      * {@code false}      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"access /proc/self/cgroup, /sys/fs/cgroup/cpu, and /sys/fs/cgroup/cpuacct"
+argument_list|)
+DECL|method|areCgroupStatsAvailable
+specifier|private
+name|boolean
+name|areCgroupStatsAvailable
+parameter_list|()
+block|{
+if|if
+condition|(
+operator|!
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+literal|"/proc/self/cgroup"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+literal|"/sys/fs/cgroup/cpu"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+literal|"/sys/fs/cgroup/cpuacct"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * Basic cgroup stats.      *      * @return basic cgroup stats, or {@code null} if an I/O exception      * occurred reading the cgroup stats      */
 DECL|method|getCgroup
 specifier|private
@@ -1467,6 +1555,19 @@ name|getCgroup
 parameter_list|()
 block|{
 try|try
+block|{
+if|if
+condition|(
+operator|!
+name|areCgroupStatsAvailable
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+else|else
 block|{
 specifier|final
 name|Map
@@ -1480,17 +1581,13 @@ init|=
 name|getControlGroups
 argument_list|()
 decl_stmt|;
-specifier|final
-name|String
-name|cpuControlGroup
-init|=
+assert|assert
+operator|!
 name|controllerMap
 operator|.
-name|get
-argument_list|(
-literal|"cpu"
-argument_list|)
-decl_stmt|;
+name|isEmpty
+argument_list|()
+assert|;
 specifier|final
 name|String
 name|cpuAcctControlGroup
@@ -1502,6 +1599,67 @@ argument_list|(
 literal|"cpuacct"
 argument_list|)
 decl_stmt|;
+assert|assert
+name|cpuAcctControlGroup
+operator|!=
+literal|null
+assert|;
+specifier|final
+name|long
+name|cgroupCpuAcctUsageNanos
+init|=
+name|getCgroupCpuAcctUsageNanos
+argument_list|(
+name|cpuAcctControlGroup
+argument_list|)
+decl_stmt|;
+specifier|final
+name|String
+name|cpuControlGroup
+init|=
+name|controllerMap
+operator|.
+name|get
+argument_list|(
+literal|"cpu"
+argument_list|)
+decl_stmt|;
+assert|assert
+name|cpuControlGroup
+operator|!=
+literal|null
+assert|;
+specifier|final
+name|long
+name|cgroupCpuAcctCpuCfsPeriodMicros
+init|=
+name|getCgroupCpuAcctCpuCfsPeriodMicros
+argument_list|(
+name|cpuControlGroup
+argument_list|)
+decl_stmt|;
+specifier|final
+name|long
+name|cgroupCpuAcctCpuCfsQuotaMicros
+init|=
+name|getCgroupCpuAcctCpuCfsQuotaMicros
+argument_list|(
+name|cpuControlGroup
+argument_list|)
+decl_stmt|;
+specifier|final
+name|OsStats
+operator|.
+name|Cgroup
+operator|.
+name|CpuStat
+name|cpuStat
+init|=
+name|getCgroupCpuAcctCpuStat
+argument_list|(
+name|cpuControlGroup
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|OsStats
@@ -1510,29 +1668,18 @@ name|Cgroup
 argument_list|(
 name|cpuAcctControlGroup
 argument_list|,
-name|getCgroupCpuAcctUsageNanos
-argument_list|(
-name|cpuAcctControlGroup
-argument_list|)
+name|cgroupCpuAcctUsageNanos
 argument_list|,
 name|cpuControlGroup
 argument_list|,
-name|getCgroupCpuAcctCpuCfsPeriodMicros
-argument_list|(
-name|cpuControlGroup
-argument_list|)
+name|cgroupCpuAcctCpuCfsPeriodMicros
 argument_list|,
-name|getCGroupCpuAcctCpuCfsQuotaMicros
-argument_list|(
-name|cpuControlGroup
-argument_list|)
+name|cgroupCpuAcctCpuCfsQuotaMicros
 argument_list|,
-name|getCgroupCpuAcctCpuStat
-argument_list|(
-name|cpuControlGroup
-argument_list|)
+name|cpuStat
 argument_list|)
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
