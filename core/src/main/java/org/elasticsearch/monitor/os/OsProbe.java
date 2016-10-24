@@ -1466,7 +1466,7 @@ operator|=
 literal|"access /proc/self/cgroup, /sys/fs/cgroup/cpu, and /sys/fs/cgroup/cpuacct"
 argument_list|)
 DECL|method|areCgroupStatsAvailable
-specifier|private
+specifier|protected
 name|boolean
 name|areCgroupStatsAvailable
 parameter_list|()
