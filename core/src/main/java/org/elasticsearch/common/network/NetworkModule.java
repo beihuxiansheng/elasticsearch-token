@@ -1573,6 +1573,9 @@ parameter_list|(
 name|String
 name|action
 parameter_list|,
+name|String
+name|executor
+parameter_list|,
 name|TransportRequestHandler
 argument_list|<
 name|T
@@ -1597,6 +1600,8 @@ operator|.
 name|interceptHandler
 argument_list|(
 name|action
+argument_list|,
+name|executor
 argument_list|,
 name|actualHandler
 argument_list|)

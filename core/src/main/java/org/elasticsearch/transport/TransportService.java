@@ -3313,6 +3313,8 @@ name|interceptHandler
 argument_list|(
 name|action
 argument_list|,
+name|executor
+argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
@@ -3391,6 +3393,8 @@ operator|.
 name|interceptHandler
 argument_list|(
 name|action
+argument_list|,
+name|executor
 argument_list|,
 name|handler
 argument_list|)
