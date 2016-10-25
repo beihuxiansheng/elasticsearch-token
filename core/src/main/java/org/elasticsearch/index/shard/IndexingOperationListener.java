@@ -125,8 +125,10 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|boolean
-name|created
+name|Engine
+operator|.
+name|IndexResult
+name|result
 parameter_list|)
 block|{}
 comment|/**      * Called after the indexing operation occurred with exception.      */
@@ -172,6 +174,11 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|,
+name|Engine
+operator|.
+name|DeleteResult
+name|result
 parameter_list|)
 block|{}
 comment|/**      * Called after the delete operation occurred with exception.      */
@@ -324,8 +331,10 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|boolean
-name|created
+name|Engine
+operator|.
+name|IndexResult
+name|result
 parameter_list|)
 block|{
 assert|assert
@@ -349,7 +358,7 @@ name|postIndex
 argument_list|(
 name|index
 argument_list|,
-name|created
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,6 +562,11 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|,
+name|Engine
+operator|.
+name|DeleteResult
+name|result
 parameter_list|)
 block|{
 assert|assert
@@ -575,6 +589,8 @@ operator|.
 name|postDelete
 argument_list|(
 name|delete
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}

@@ -2757,7 +2757,7 @@ block|{
 specifier|final
 name|Engine
 operator|.
-name|Operation
+name|Index
 name|index
 decl_stmt|;
 if|if
@@ -2881,14 +2881,7 @@ name|index
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-operator|(
-name|Engine
-operator|.
-name|Index
-operator|)
 name|index
-operator|)
 return|;
 block|}
 DECL|method|deleteDoc

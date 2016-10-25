@@ -1829,6 +1829,7 @@ name|failure
 parameter_list|)
 block|{
 comment|// we may fail translating a update to index or delete operation
+comment|// we use index result to communicate failure while translating update request
 name|updateOperationResult
 operator|=
 operator|new
@@ -1842,6 +1843,8 @@ name|updateRequest
 operator|.
 name|version
 argument_list|()
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|)

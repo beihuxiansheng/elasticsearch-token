@@ -4128,8 +4128,10 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|boolean
-name|created
+name|Engine
+operator|.
+name|IndexResult
+name|result
 parameter_list|)
 block|{
 try|try
@@ -4195,6 +4197,11 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|,
+name|Engine
+operator|.
+name|DeleteResult
+name|result
 parameter_list|)
 block|{
 try|try
