@@ -528,7 +528,23 @@ name|delete
 operator|.
 name|TransportDeleteAction
 operator|.
-name|*
+name|executeDeleteRequestOnPrimary
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|delete
+operator|.
+name|TransportDeleteAction
+operator|.
+name|executeDeleteRequestOnReplica
 import|;
 end_import
 
