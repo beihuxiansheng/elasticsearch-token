@@ -562,13 +562,9 @@ name|Engine
 operator|.
 name|DeleteResult
 argument_list|(
-literal|null
-argument_list|,
 literal|1
 argument_list|,
 literal|true
-argument_list|,
-literal|0
 argument_list|,
 literal|0
 argument_list|)
@@ -783,13 +779,9 @@ name|Engine
 operator|.
 name|IndexResult
 argument_list|(
-literal|null
-argument_list|,
 literal|0
 argument_list|,
 literal|false
-argument_list|,
-literal|0
 argument_list|,
 literal|0
 argument_list|)
