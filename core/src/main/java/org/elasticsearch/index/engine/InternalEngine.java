@@ -2855,9 +2855,9 @@ name|e
 parameter_list|)
 block|{
 name|Exception
-name|transientOperationFailure
+name|documentFailure
 init|=
-name|handleOperationFailure
+name|extractDocumentFailure
 argument_list|(
 name|index
 argument_list|,
@@ -2869,7 +2869,7 @@ operator|=
 operator|new
 name|IndexResult
 argument_list|(
-name|transientOperationFailure
+name|documentFailure
 argument_list|,
 name|index
 operator|.
@@ -2897,11 +2897,11 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Handle failures executing write operations, distinguish persistent engine (environment) failures      * from document (request) specific failures.      * Write failures that fail the engine as a side-effect, are thrown wrapped in {@link OperationFailedEngineException}      * and document specific failures are returned to be set on the {@link Engine.Result} to be handled      * at the transport level.      */
-DECL|method|handleOperationFailure
+comment|/**      * Inspects exception thrown when executing index or delete operations      *      * @return failure if the failure is a document specific failure (e.g. analysis chain failure)      * @throws OperationFailedEngineException if the failure caused the engine to fail      * (e.g. out of disk, lucene tragic event)      */
+DECL|method|extractDocumentFailure
 specifier|private
 name|Exception
-name|handleOperationFailure
+name|extractDocumentFailure
 parameter_list|(
 specifier|final
 name|Operation
@@ -2913,7 +2913,7 @@ name|failure
 parameter_list|)
 block|{
 name|boolean
-name|isEnvironmentFailure
+name|isDocumentFailure
 decl_stmt|;
 try|try
 block|{
@@ -2923,8 +2923,10 @@ comment|// the IndexWriter.getTragicEvent() value for the former. maybeFailEngin
 comment|// errors and returns true if that is the case. We use that to indicate a document level failure
 comment|// and set the error in operation.setFailure. In case of environment related errors, the failure
 comment|// is bubbled up
-name|isEnvironmentFailure
+name|isDocumentFailure
 operator|=
+operator|!
+operator|(
 operator|(
 name|failure
 operator|instanceof
@@ -2947,6 +2949,7 @@ argument_list|()
 argument_list|,
 name|failure
 argument_list|)
+operator|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2956,9 +2959,9 @@ name|inner
 parameter_list|)
 block|{
 comment|// we failed checking whether the failure can fail the engine, treat it as a persistent engine failure
-name|isEnvironmentFailure
+name|isDocumentFailure
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 name|failure
 operator|.
@@ -2970,8 +2973,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isEnvironmentFailure
+name|isDocumentFailure
 condition|)
+block|{
+return|return
+name|failure
+return|;
+block|}
+else|else
 block|{
 throw|throw
 operator|new
@@ -3000,12 +3009,6 @@ argument_list|,
 name|failure
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-return|return
-name|failure
-return|;
 block|}
 block|}
 DECL|method|canOptimizeAddDocument
@@ -3727,9 +3730,9 @@ name|e
 parameter_list|)
 block|{
 name|Exception
-name|transientOperationFailure
+name|documentFailure
 init|=
-name|handleOperationFailure
+name|extractDocumentFailure
 argument_list|(
 name|delete
 argument_list|,
@@ -3741,7 +3744,7 @@ operator|=
 operator|new
 name|DeleteResult
 argument_list|(
-name|transientOperationFailure
+name|documentFailure
 argument_list|,
 name|delete
 operator|.
