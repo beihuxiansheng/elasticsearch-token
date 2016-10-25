@@ -273,6 +273,12 @@ specifier|final
 name|SearchScrollRequest
 name|request
 decl_stmt|;
+DECL|field|task
+specifier|private
+specifier|final
+name|SearchTask
+name|task
+decl_stmt|;
 DECL|field|listener
 specifier|private
 specifier|final
@@ -342,6 +348,9 @@ parameter_list|,
 name|SearchScrollRequest
 name|request
 parameter_list|,
+name|SearchTask
+name|task
+parameter_list|,
 name|ParsedScrollId
 name|scrollId
 parameter_list|,
@@ -375,6 +384,12 @@ operator|.
 name|request
 operator|=
 name|request
+expr_stmt|;
+name|this
+operator|.
+name|task
+operator|=
+name|task
 expr_stmt|;
 name|this
 operator|.
@@ -846,6 +861,8 @@ argument_list|(
 name|node
 argument_list|,
 name|internalRequest
+argument_list|,
+name|task
 argument_list|,
 operator|new
 name|ActionListener

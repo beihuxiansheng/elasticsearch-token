@@ -302,6 +302,18 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
+name|TaskCancelledException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
 name|TaskId
 import|;
 end_import
@@ -1004,7 +1016,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|TaskCancelledException
 argument_list|(
 literal|"Cancelled"
 argument_list|)
