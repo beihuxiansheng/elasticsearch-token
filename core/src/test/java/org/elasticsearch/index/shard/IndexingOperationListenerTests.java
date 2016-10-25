@@ -177,9 +177,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|Engine
-operator|.
-name|Index
+name|void
 name|preIndex
 parameter_list|(
 name|Engine
@@ -193,9 +191,6 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-return|return
-name|operation
-return|;
 block|}
 annotation|@
 name|Override
@@ -244,9 +239,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Engine
-operator|.
-name|Delete
+name|void
 name|preDelete
 parameter_list|(
 name|Engine
@@ -260,9 +253,6 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-return|return
-name|delete
-return|;
 block|}
 annotation|@
 name|Override
@@ -320,9 +310,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|Engine
-operator|.
-name|Index
+name|void
 name|preIndex
 parameter_list|(
 name|Engine
@@ -384,9 +372,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Engine
-operator|.
-name|Delete
+name|void
 name|preDelete
 parameter_list|(
 name|Engine

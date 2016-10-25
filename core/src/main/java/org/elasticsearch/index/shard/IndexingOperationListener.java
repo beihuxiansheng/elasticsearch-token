@@ -96,12 +96,10 @@ specifier|public
 interface|interface
 name|IndexingOperationListener
 block|{
-comment|/**      * Called before the indexing occurs.      */
+comment|/** Called before the indexing occurs */
 DECL|method|preIndex
 specifier|default
-name|Engine
-operator|.
-name|Index
+name|void
 name|preIndex
 parameter_list|(
 name|Engine
@@ -109,12 +107,8 @@ operator|.
 name|Index
 name|operation
 parameter_list|)
-block|{
-return|return
-name|operation
-return|;
-block|}
-comment|/**      * Called after the indexing operation occurred.      */
+block|{}
+comment|/** Called after the indexing operation occurred */
 DECL|method|postIndex
 specifier|default
 name|void
@@ -131,7 +125,7 @@ name|IndexResult
 name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the indexing operation occurred with exception.      */
+comment|/** Called after the indexing operation occurred with exception */
 DECL|method|postIndex
 specifier|default
 name|void
@@ -146,12 +140,10 @@ name|Exception
 name|ex
 parameter_list|)
 block|{}
-comment|/**      * Called before the delete occurs.      */
+comment|/** Called before the delete occurs */
 DECL|method|preDelete
 specifier|default
-name|Engine
-operator|.
-name|Delete
+name|void
 name|preDelete
 parameter_list|(
 name|Engine
@@ -159,12 +151,8 @@ operator|.
 name|Delete
 name|delete
 parameter_list|)
-block|{
-return|return
-name|delete
-return|;
-block|}
-comment|/**      * Called after the delete operation occurred.      */
+block|{}
+comment|/** Called after the delete operation occurred */
 DECL|method|postDelete
 specifier|default
 name|void
@@ -181,7 +169,7 @@ name|DeleteResult
 name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the delete operation occurred with exception.      */
+comment|/** Called after the delete operation occurred with exception */
 DECL|method|postDelete
 specifier|default
 name|void
@@ -196,7 +184,7 @@ name|Exception
 name|ex
 parameter_list|)
 block|{}
-comment|/**      * A Composite listener that multiplexes calls to each of the listeners methods.      */
+comment|/** A Composite listener that multiplexes calls to each of the listeners methods */
 DECL|class|CompositeListener
 specifier|final
 class|class
@@ -250,9 +238,7 @@ annotation|@
 name|Override
 DECL|method|preIndex
 specifier|public
-name|Engine
-operator|.
-name|Index
+name|void
 name|preIndex
 parameter_list|(
 name|Engine
@@ -315,9 +301,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|operation
-return|;
 block|}
 annotation|@
 name|Override
@@ -339,6 +322,10 @@ parameter_list|)
 block|{
 assert|assert
 name|index
+operator|!=
+literal|null
+operator|&&
+name|result
 operator|!=
 literal|null
 assert|;
@@ -482,9 +469,7 @@ annotation|@
 name|Override
 DECL|method|preDelete
 specifier|public
-name|Engine
-operator|.
-name|Delete
+name|void
 name|preDelete
 parameter_list|(
 name|Engine
@@ -547,9 +532,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|delete
-return|;
 block|}
 annotation|@
 name|Override
@@ -571,6 +553,10 @@ parameter_list|)
 block|{
 assert|assert
 name|delete
+operator|!=
+literal|null
+operator|&&
+name|result
 operator|!=
 literal|null
 assert|;

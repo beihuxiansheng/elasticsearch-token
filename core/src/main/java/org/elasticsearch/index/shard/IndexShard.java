@@ -3756,6 +3756,7 @@ operator|.
 name|IndexResult
 name|index
 parameter_list|(
+specifier|final
 name|Engine
 operator|.
 name|Index
@@ -3789,9 +3790,11 @@ operator|.
 name|IndexResult
 name|index
 parameter_list|(
+specifier|final
 name|Engine
 name|engine
 parameter_list|,
+specifier|final
 name|Engine
 operator|.
 name|Index
@@ -3811,8 +3814,6 @@ operator|.
 name|IndexResult
 name|result
 decl_stmt|;
-name|index
-operator|=
 name|indexingOperationListeners
 operator|.
 name|preIndex
@@ -4185,6 +4186,7 @@ operator|.
 name|DeleteResult
 name|delete
 parameter_list|(
+specifier|final
 name|Engine
 operator|.
 name|Delete
@@ -4218,9 +4220,11 @@ operator|.
 name|DeleteResult
 name|delete
 parameter_list|(
+specifier|final
 name|Engine
 name|engine
 parameter_list|,
+specifier|final
 name|Engine
 operator|.
 name|Delete
@@ -4240,8 +4244,6 @@ operator|.
 name|DeleteResult
 name|result
 decl_stmt|;
-name|delete
-operator|=
 name|indexingOperationListeners
 operator|.
 name|preDelete
