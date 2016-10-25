@@ -1072,7 +1072,7 @@ argument_list|)
 expr_stmt|;
 name|Engine
 operator|.
-name|Index
+name|IndexResult
 name|index
 init|=
 name|index
@@ -1129,7 +1129,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getTranslogLocation
+name|getLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1180,7 +1180,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getTranslogLocation
+name|getLocation
 argument_list|()
 argument_list|,
 name|forcingListener
@@ -1253,7 +1253,7 @@ name|Exception
 block|{
 name|Engine
 operator|.
-name|Index
+name|IndexResult
 name|index
 init|=
 name|index
@@ -1316,7 +1316,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getTranslogLocation
+name|getLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1409,7 +1409,7 @@ control|)
 block|{
 name|Engine
 operator|.
-name|Index
+name|IndexResult
 name|index
 init|=
 name|index
@@ -1433,7 +1433,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getTranslogLocation
+name|getLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1654,7 +1654,7 @@ argument_list|)
 decl_stmt|;
 name|Engine
 operator|.
-name|Index
+name|IndexResult
 name|index
 init|=
 name|index
@@ -1670,7 +1670,7 @@ name|iteration
 argument_list|,
 name|index
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1687,7 +1687,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getTranslogLocation
+name|getLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1745,10 +1745,15 @@ name|Get
 argument_list|(
 literal|false
 argument_list|,
-name|index
-operator|.
-name|uid
-argument_list|()
+operator|new
+name|Term
+argument_list|(
+literal|"_uid"
+argument_list|,
+literal|"test:"
+operator|+
+name|threadId
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try
@@ -1900,7 +1905,7 @@ DECL|method|index
 specifier|private
 name|Engine
 operator|.
-name|Index
+name|IndexResult
 name|index
 parameter_list|(
 name|String
@@ -1920,7 +1925,7 @@ DECL|method|index
 specifier|private
 name|Engine
 operator|.
-name|Index
+name|IndexResult
 name|index
 parameter_list|(
 name|String
@@ -2085,15 +2090,13 @@ argument_list|,
 name|doc
 argument_list|)
 decl_stmt|;
+return|return
 name|engine
 operator|.
 name|index
 argument_list|(
 name|index
 argument_list|)
-expr_stmt|;
-return|return
-name|index
 return|;
 block|}
 DECL|class|DummyRefreshListener

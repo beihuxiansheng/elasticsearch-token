@@ -511,7 +511,7 @@ annotation|@
 name|Override
 DECL|method|index
 specifier|public
-name|void
+name|IndexResult
 name|index
 parameter_list|(
 name|Index
@@ -532,7 +532,7 @@ annotation|@
 name|Override
 DECL|method|delete
 specifier|public
-name|void
+name|DeleteResult
 name|delete
 parameter_list|(
 name|Delete

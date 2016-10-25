@@ -1769,7 +1769,7 @@ argument_list|)
 decl_stmt|;
 name|shard
 operator|.
-name|execute
+name|index
 argument_list|(
 operator|new
 name|Engine
@@ -2113,7 +2113,7 @@ argument_list|)
 decl_stmt|;
 name|shard
 operator|.
-name|execute
+name|index
 argument_list|(
 operator|new
 name|Engine
