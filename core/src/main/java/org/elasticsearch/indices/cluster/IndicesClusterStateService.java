@@ -706,6 +706,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|snapshots
+operator|.
+name|SnapshotShardsService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -996,6 +1008,9 @@ name|syncedFlushService
 parameter_list|,
 name|PeerRecoverySourceService
 name|peerRecoverySourceService
+parameter_list|,
+name|SnapshotShardsService
+name|snapshotShardsService
 parameter_list|)
 block|{
 name|this
@@ -1040,6 +1055,8 @@ argument_list|,
 name|syncedFlushService
 argument_list|,
 name|peerRecoverySourceService
+argument_list|,
+name|snapshotShardsService
 argument_list|)
 expr_stmt|;
 block|}
@@ -1096,6 +1113,9 @@ name|syncedFlushService
 parameter_list|,
 name|PeerRecoverySourceService
 name|peerRecoverySourceService
+parameter_list|,
+name|SnapshotShardsService
+name|snapshotShardsService
 parameter_list|)
 block|{
 name|super
@@ -1118,6 +1138,8 @@ argument_list|,
 name|searchService
 argument_list|,
 name|syncedFlushService
+argument_list|,
+name|snapshotShardsService
 argument_list|)
 expr_stmt|;
 name|this
