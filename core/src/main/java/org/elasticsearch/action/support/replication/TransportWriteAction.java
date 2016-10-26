@@ -512,15 +512,6 @@ argument_list|,
 name|operationFailure
 argument_list|)
 expr_stmt|;
-assert|assert
-name|operationFailure
-operator|!=
-literal|null
-operator|^
-name|finalResponse
-operator|!=
-literal|null
-assert|;
 if|if
 condition|(
 name|operationFailure
@@ -662,13 +653,6 @@ name|boolean
 name|forcedRefresh
 parameter_list|)
 block|{
-if|if
-condition|(
-name|finalResponseIfSuccessful
-operator|!=
-literal|null
-condition|)
-block|{
 name|finalResponseIfSuccessful
 operator|.
 name|setForcedRefresh
@@ -676,7 +660,6 @@ argument_list|(
 name|forcedRefresh
 argument_list|)
 expr_stmt|;
-block|}
 name|finishedAsyncActions
 operator|=
 literal|true

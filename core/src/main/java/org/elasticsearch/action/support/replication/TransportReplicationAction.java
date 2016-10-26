@@ -1290,9 +1290,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|boolean
-name|retry
-init|=
+return|return
 name|e
 operator|.
 name|getClass
@@ -1310,27 +1308,6 @@ name|isShardNotAvailableException
 argument_list|(
 name|e
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|retry
-condition|)
-block|{
-assert|assert
-name|e
-operator|instanceof
-name|ElasticsearchException
-operator|:
-literal|"expected all retry on primary exception to be ElasticsearchException instances, found: "
-operator|+
-name|e
-operator|.
-name|getClass
-argument_list|()
-assert|;
-block|}
-return|return
-name|retry
 return|;
 block|}
 DECL|class|OperationTransportHandler
@@ -2234,6 +2211,7 @@ specifier|final
 name|Exception
 name|finalFailure
 decl_stmt|;
+comment|/**          * Result of executing a primary operation          * expects<code>finalResponseIfSuccessful</code> or<code>finalFailure</code> to be not-null          */
 DECL|method|PrimaryResult
 specifier|public
 name|PrimaryResult
@@ -2248,6 +2226,17 @@ name|Exception
 name|finalFailure
 parameter_list|)
 block|{
+assert|assert
+name|finalFailure
+operator|!=
+literal|null
+operator|^
+name|finalResponseIfSuccessful
+operator|!=
+literal|null
+operator|:
+literal|"either a response or a failure has to be not null"
+assert|;
 name|this
 operator|.
 name|replicaRequest

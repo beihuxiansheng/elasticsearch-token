@@ -1036,7 +1036,7 @@ name|response
 argument_list|,
 name|indexResult
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|indexResult
@@ -1085,7 +1085,7 @@ name|request
 argument_list|,
 name|indexResult
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|indexResult
@@ -1246,8 +1246,6 @@ name|request
 operator|.
 name|version
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
@@ -1457,8 +1455,6 @@ name|request
 operator|.
 name|version
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
@@ -1530,8 +1526,6 @@ name|request
 operator|.
 name|version
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
@@ -1567,8 +1561,6 @@ name|request
 operator|.
 name|version
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}

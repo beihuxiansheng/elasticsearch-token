@@ -1751,6 +1751,7 @@ name|Delete
 name|delete
 parameter_list|)
 function_decl|;
+comment|/**      * Base class for index and delete operation results      * Holds result meta data (e.g. translog location, updated version)      * for an executed write {@link Operation}      **/
 DECL|class|Result
 specifier|public
 specifier|abstract
@@ -1778,18 +1779,12 @@ specifier|final
 name|Exception
 name|failure
 decl_stmt|;
-DECL|field|estimatedSizeInBytes
-specifier|private
-specifier|final
-name|int
-name|estimatedSizeInBytes
-decl_stmt|;
-DECL|field|location
+DECL|field|translogLocation
 specifier|private
 name|Translog
 operator|.
 name|Location
-name|location
+name|translogLocation
 decl_stmt|;
 DECL|field|took
 specifier|private
@@ -1815,9 +1810,6 @@ name|failure
 parameter_list|,
 name|long
 name|version
-parameter_list|,
-name|int
-name|estimatedSizeInBytes
 parameter_list|)
 block|{
 name|this
@@ -1837,12 +1829,6 @@ operator|.
 name|version
 operator|=
 name|version
-expr_stmt|;
-name|this
-operator|.
-name|estimatedSizeInBytes
-operator|=
-name|estimatedSizeInBytes
 expr_stmt|;
 block|}
 DECL|method|Result
@@ -1856,9 +1842,6 @@ name|operationType
 parameter_list|,
 name|long
 name|version
-parameter_list|,
-name|int
-name|estimatedSizeInBytes
 parameter_list|)
 block|{
 name|this
@@ -1868,11 +1851,10 @@ argument_list|,
 literal|null
 argument_list|,
 name|version
-argument_list|,
-name|estimatedSizeInBytes
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** whether the operation had failure */
 DECL|method|hasFailure
 specifier|public
 name|boolean
@@ -1885,6 +1867,7 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/** get the updated document version */
 DECL|method|getVersion
 specifier|public
 name|long
@@ -1895,18 +1878,20 @@ return|return
 name|version
 return|;
 block|}
-DECL|method|getLocation
+comment|/** get the translog location after executing the operation */
+DECL|method|getTranslogLocation
 specifier|public
 name|Translog
 operator|.
 name|Location
-name|getLocation
+name|getTranslogLocation
 parameter_list|()
 block|{
 return|return
-name|location
+name|translogLocation
 return|;
 block|}
+comment|/** get document failure while executing the operation {@code null} in case of no failure */
 DECL|method|getFailure
 specifier|public
 name|Exception
@@ -1917,6 +1902,7 @@ return|return
 name|failure
 return|;
 block|}
+comment|/** get total time in nanoseconds */
 DECL|method|getTook
 specifier|public
 name|long
@@ -1939,6 +1925,7 @@ return|return
 name|operationType
 return|;
 block|}
+comment|/** get size of the translog operation if translog location has been set */
 DECL|method|getSizeInBytes
 specifier|public
 name|int
@@ -1947,30 +1934,36 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|location
+name|translogLocation
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|location
+name|translogLocation
 operator|.
 name|size
 return|;
 block|}
-return|return
-name|estimatedSizeInBytes
-return|;
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"result has null location, use Operation#estimatedSizeInBytes instead"
+argument_list|)
+throw|;
 block|}
-DECL|method|setLocation
-specifier|public
+block|}
+DECL|method|setTranslogLocation
 name|void
-name|setLocation
+name|setTranslogLocation
 parameter_list|(
 name|Translog
 operator|.
 name|Location
-name|location
+name|translogLocation
 parameter_list|)
 block|{
 if|if
@@ -1982,9 +1975,9 @@ condition|)
 block|{
 name|this
 operator|.
-name|location
+name|translogLocation
 operator|=
-name|location
+name|translogLocation
 expr_stmt|;
 block|}
 else|else
@@ -1999,7 +1992,6 @@ throw|;
 block|}
 block|}
 DECL|method|setTook
-specifier|public
 name|void
 name|setTook
 parameter_list|(
@@ -2033,7 +2025,6 @@ throw|;
 block|}
 block|}
 DECL|method|freeze
-specifier|public
 name|void
 name|freeze
 parameter_list|()
@@ -2069,9 +2060,6 @@ name|version
 parameter_list|,
 name|boolean
 name|created
-parameter_list|,
-name|int
-name|estimatedSizeInBytes
 parameter_list|)
 block|{
 name|super
@@ -2083,8 +2071,6 @@ operator|.
 name|INDEX
 argument_list|,
 name|version
-argument_list|,
-name|estimatedSizeInBytes
 argument_list|)
 expr_stmt|;
 name|this
@@ -2103,9 +2089,6 @@ name|failure
 parameter_list|,
 name|long
 name|version
-parameter_list|,
-name|int
-name|estimatedSizeInBytes
 parameter_list|)
 block|{
 name|super
@@ -2119,8 +2102,6 @@ argument_list|,
 name|failure
 argument_list|,
 name|version
-argument_list|,
-name|estimatedSizeInBytes
 argument_list|)
 expr_stmt|;
 name|this
@@ -2164,9 +2145,6 @@ name|version
 parameter_list|,
 name|boolean
 name|found
-parameter_list|,
-name|int
-name|estimatedSizeInBytes
 parameter_list|)
 block|{
 name|super
@@ -2178,8 +2156,6 @@ operator|.
 name|DELETE
 argument_list|,
 name|version
-argument_list|,
-name|estimatedSizeInBytes
 argument_list|)
 expr_stmt|;
 name|this
@@ -2198,9 +2174,6 @@ name|failure
 parameter_list|,
 name|long
 name|version
-parameter_list|,
-name|int
-name|estimatedSizeInBytes
 parameter_list|)
 block|{
 name|super
@@ -2214,8 +2187,6 @@ argument_list|,
 name|failure
 argument_list|,
 name|version
-argument_list|,
-name|estimatedSizeInBytes
 argument_list|)
 expr_stmt|;
 name|this

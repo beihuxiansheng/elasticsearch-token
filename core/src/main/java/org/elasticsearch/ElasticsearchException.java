@@ -154,20 +154,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|OperationFailedEngineException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|ShardId
@@ -4330,20 +4316,7 @@ argument_list|,
 literal|79
 argument_list|)
 block|,
-DECL|enum constant|OPERATION_FAILED_ENGINE_EXCEPTION
-name|OPERATION_FAILED_ENGINE_EXCEPTION
-argument_list|(
-name|OperationFailedEngineException
-operator|.
-name|class
-argument_list|,
-name|OperationFailedEngineException
-operator|::
-operator|new
-argument_list|,
-literal|80
-argument_list|)
-block|,
+comment|// 80 used to be for IndexFailedEngineException, removed in 6.0
 DECL|enum constant|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 name|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 argument_list|(

@@ -945,7 +945,7 @@ name|response
 argument_list|,
 name|result
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|result
@@ -994,7 +994,7 @@ name|request
 argument_list|,
 name|result
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|result
