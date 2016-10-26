@@ -6459,14 +6459,31 @@ argument_list|(
 name|isolatedNode
 argument_list|)
 decl_stmt|;
+comment|// we cannot use the NetworkUnresponsive disruption type here as it will swallow the "shard failed" request, calling neither
+comment|// onSuccess nor onFailure on the provided listener.
+name|NetworkLinkDisruptionType
+name|disruptionType
+init|=
+operator|new
+name|NetworkDisconnect
+argument_list|()
+decl_stmt|;
 name|NetworkDisruption
 name|networkDisruption
 init|=
-name|addRandomDisruptionType
+operator|new
+name|NetworkDisruption
 argument_list|(
 name|partitions
+argument_list|,
+name|disruptionType
 argument_list|)
 decl_stmt|;
+name|setDisruptionScheme
+argument_list|(
+name|networkDisruption
+argument_list|)
+expr_stmt|;
 name|networkDisruption
 operator|.
 name|startDisrupting
