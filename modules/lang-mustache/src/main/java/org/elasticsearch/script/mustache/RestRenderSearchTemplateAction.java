@@ -130,7 +130,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -307,8 +307,6 @@ name|renderRequest
 operator|.
 name|setScriptType
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|STORED

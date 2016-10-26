@@ -208,7 +208,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -2635,15 +2635,11 @@ name|ScriptField
 name|randomScript
 parameter_list|()
 block|{
-name|ScriptService
-operator|.
 name|ScriptType
 name|randomScriptType
 init|=
 name|randomFrom
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|values

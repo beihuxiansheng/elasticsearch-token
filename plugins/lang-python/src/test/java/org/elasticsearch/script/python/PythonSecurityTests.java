@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -241,8 +241,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

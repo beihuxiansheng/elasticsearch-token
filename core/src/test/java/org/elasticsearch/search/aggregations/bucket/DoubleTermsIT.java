@@ -142,8 +142,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -175,24 +173,6 @@ operator|.
 name|Aggregator
 operator|.
 name|SubAggCollectionMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|bucket
-operator|.
-name|LongTermsIT
-operator|.
-name|CustomScriptPlugin
 import|;
 end_import
 

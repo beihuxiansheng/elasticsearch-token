@@ -118,8 +118,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -205,18 +203,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
 import|;
 end_import
 

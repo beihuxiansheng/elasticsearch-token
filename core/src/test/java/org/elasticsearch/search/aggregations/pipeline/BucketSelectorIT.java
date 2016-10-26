@@ -118,27 +118,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|bucket
-operator|.
-name|histogram
-operator|.
-name|ExtendedBounds
 import|;
 end_import
 

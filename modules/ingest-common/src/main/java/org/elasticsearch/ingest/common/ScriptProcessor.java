@@ -212,8 +212,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -228,8 +226,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -243,8 +239,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|script
-operator|.
-name|ScriptService
 operator|.
 name|ScriptType
 operator|.

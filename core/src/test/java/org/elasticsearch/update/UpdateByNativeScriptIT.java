@@ -118,19 +118,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -375,8 +363,6 @@ name|Script
 argument_list|(
 literal|"custom"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

@@ -264,18 +264,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|Script
 import|;
 end_import
@@ -288,19 +276,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -311,16 +287,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -415,8 +381,6 @@ parameter_list|(
 name|String
 name|template
 parameter_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|,
@@ -452,8 +416,6 @@ parameter_list|(
 name|String
 name|template
 parameter_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|,

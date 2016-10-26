@@ -132,7 +132,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -215,8 +215,6 @@ literal|false
 decl_stmt|;
 DECL|field|scriptType
 specifier|private
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 decl_stmt|;
@@ -361,8 +359,6 @@ expr_stmt|;
 block|}
 DECL|method|getScriptType
 specifier|public
-name|ScriptService
-operator|.
 name|ScriptType
 name|getScriptType
 parameter_list|()
@@ -376,8 +372,6 @@ specifier|public
 name|void
 name|setScriptType
 parameter_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|)
@@ -629,8 +623,6 @@ argument_list|()
 expr_stmt|;
 name|scriptType
 operator|=
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|readFrom
@@ -710,8 +702,6 @@ argument_list|(
 name|profile
 argument_list|)
 expr_stmt|;
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|writeTo

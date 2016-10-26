@@ -146,8 +146,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

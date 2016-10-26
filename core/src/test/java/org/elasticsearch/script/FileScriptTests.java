@@ -100,26 +100,6 @@ name|Collections
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|// TODO: these really should just be part of ScriptService tests, there is nothing special about them
 end_comment
@@ -368,8 +348,6 @@ name|Script
 argument_list|(
 literal|"script1"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -529,8 +507,6 @@ name|Script
 argument_list|(
 literal|"script1"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE

@@ -453,15 +453,11 @@ argument_list|,
 literal|"value"
 argument_list|)
 decl_stmt|;
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 init|=
 name|randomFrom
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|values
@@ -475,8 +471,6 @@ if|if
 condition|(
 name|scriptType
 operator|==
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -561,8 +555,6 @@ name|params
 argument_list|,
 name|scriptType
 operator|==
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

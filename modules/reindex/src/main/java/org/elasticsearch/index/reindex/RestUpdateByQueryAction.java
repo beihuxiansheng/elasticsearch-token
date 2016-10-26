@@ -152,7 +152,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -493,8 +493,6 @@ name|script
 init|=
 literal|null
 decl_stmt|;
-name|ScriptService
-operator|.
 name|ScriptType
 name|type
 init|=
@@ -687,8 +685,6 @@ name|match
 argument_list|(
 name|parameterName
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -718,8 +714,6 @@ name|parameterValue
 expr_stmt|;
 name|type
 operator|=
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -749,8 +743,6 @@ name|match
 argument_list|(
 name|parameterName
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -780,8 +772,6 @@ name|parameterValue
 expr_stmt|;
 name|type
 operator|=
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -811,8 +801,6 @@ name|match
 argument_list|(
 name|parameterName
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|STORED
@@ -842,8 +830,6 @@ name|parameterValue
 expr_stmt|;
 name|type
 operator|=
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|STORED
@@ -878,8 +864,6 @@ name|ElasticsearchParseException
 argument_list|(
 literal|"expected one of [{}], [{}] or [{}] fields, but found none"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -890,8 +874,6 @@ operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -902,8 +884,6 @@ operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|STORED
