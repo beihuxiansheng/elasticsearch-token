@@ -4,13 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.rest
+DECL|package|org.elasticsearch.rest
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|test
 operator|.
 name|rest
 package|;
@@ -39,6 +37,30 @@ operator|.
 name|client
 operator|.
 name|Response
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|ESRestTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matcher
 import|;
 end_import
 
@@ -96,15 +118,39 @@ name|singletonMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests that HTTP HEAD requests don't respond with a body.  */
 end_comment
 
 begin_class
-DECL|class|HeadBodyIsEmptyIT
+DECL|class|HeadBodyIsEmptyIntegTestCase
 specifier|public
 class|class
-name|HeadBodyIsEmptyIT
+name|HeadBodyIsEmptyIntegTestCase
 extends|extends
 name|ESRestTestCase
 block|{
@@ -122,6 +168,11 @@ literal|"/"
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|greaterThan
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|headTestCase
@@ -134,6 +185,11 @@ literal|"pretty"
 argument_list|,
 literal|""
 argument_list|)
+argument_list|,
+name|greaterThan
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|headTestCase
@@ -145,6 +201,11 @@ argument_list|(
 literal|"pretty"
 argument_list|,
 literal|"true"
+argument_list|)
+argument_list|,
+name|greaterThan
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -196,6 +257,11 @@ literal|"test/test/1"
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|headTestCase
@@ -207,6 +273,11 @@ argument_list|(
 literal|"pretty"
 argument_list|,
 literal|"true"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -228,6 +299,11 @@ literal|"test"
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|headTestCase
@@ -239,6 +315,11 @@ argument_list|(
 literal|"pretty"
 argument_list|,
 literal|"true"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -260,6 +341,11 @@ literal|"test/test"
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|headTestCase
@@ -271,6 +357,11 @@ argument_list|(
 literal|"pretty"
 argument_list|,
 literal|"true"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -290,6 +381,12 @@ argument_list|,
 name|String
 argument_list|>
 name|params
+parameter_list|,
+name|Matcher
+argument_list|<
+name|Integer
+argument_list|>
+name|matcher
 parameter_list|)
 throws|throws
 name|IOException
@@ -322,23 +419,21 @@ name|getStatusCode
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/* Check that the content-length header is always 0. This isn't what we should be doing in the long run but it is what we expect          * that we are *actually* doing. */
-name|assertEquals
+name|assertThat
 argument_list|(
-literal|"We expect HEAD requests to have 0 Content-Length but "
-operator|+
-name|url
-operator|+
-literal|" didn't"
-argument_list|,
-literal|"0"
-argument_list|,
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 name|response
 operator|.
 name|getHeader
 argument_list|(
 literal|"Content-Length"
 argument_list|)
+argument_list|)
+argument_list|,
+name|matcher
 argument_list|)
 expr_stmt|;
 name|assertNull
