@@ -369,7 +369,9 @@ annotation|@
 name|Override
 DECL|method|preIndex
 specifier|public
-name|void
+name|Engine
+operator|.
+name|Index
 name|preIndex
 parameter_list|(
 name|Engine
@@ -411,6 +413,9 @@ name|inc
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|operation
+return|;
 block|}
 annotation|@
 name|Override
@@ -569,7 +574,9 @@ annotation|@
 name|Override
 DECL|method|preDelete
 specifier|public
-name|void
+name|Engine
+operator|.
+name|Delete
 name|preDelete
 parameter_list|(
 name|Engine
@@ -611,6 +618,9 @@ name|inc
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|delete
+return|;
 block|}
 annotation|@
 name|Override

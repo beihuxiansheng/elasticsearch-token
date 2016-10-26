@@ -2013,7 +2013,9 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|void
+name|Engine
+operator|.
+name|Index
 name|preIndex
 parameter_list|(
 name|Engine
@@ -2029,6 +2031,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+name|operation
+return|;
 block|}
 block|}
 decl_stmt|;
