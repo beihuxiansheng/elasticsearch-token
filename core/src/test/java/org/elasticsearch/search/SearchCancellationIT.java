@@ -1192,6 +1192,13 @@ name|searchResponse
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/21126"
+argument_list|)
 DECL|method|testCancellationOfScrollSearches
 specifier|public
 name|void
@@ -1296,6 +1303,13 @@ name|searchResponse
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/21126"
+argument_list|)
 DECL|method|testCancellationOfScrollSearchesOnFollowupRequests
 specifier|public
 name|void
