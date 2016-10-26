@@ -106,8 +106,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -258,30 +256,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTimeZone
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -381,22 +355,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregationBuilders
-operator|.
-name|dateRange
 import|;
 end_import
 

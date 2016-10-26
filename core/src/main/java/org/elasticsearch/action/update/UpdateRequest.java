@@ -346,20 +346,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -1067,8 +1053,6 @@ annotation|@
 name|Deprecated
 DECL|method|scriptType
 specifier|public
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|()
@@ -1132,8 +1116,6 @@ parameter_list|(
 name|String
 name|script
 parameter_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|)
@@ -1552,8 +1534,6 @@ parameter_list|(
 name|String
 name|script
 parameter_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|,
@@ -1604,8 +1584,6 @@ name|Nullable
 name|String
 name|scriptLang
 parameter_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|,

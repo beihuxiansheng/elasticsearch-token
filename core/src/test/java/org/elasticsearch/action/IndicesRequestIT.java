@@ -1120,9 +1120,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
+name|action
 operator|.
-name|ScriptService
+name|search
+operator|.
+name|SearchTransportService
 import|;
 end_import
 
@@ -1132,11 +1134,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|script
 operator|.
-name|search
-operator|.
-name|SearchTransportService
+name|ScriptType
 import|;
 end_import
 
@@ -2349,8 +2349,6 @@ name|Script
 argument_list|(
 literal|"ctx.op='delete'"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
