@@ -369,8 +369,6 @@ argument_list|,
 operator|new
 name|ReplicationResponse
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -410,9 +408,7 @@ expr_stmt|;
 return|return
 operator|new
 name|ReplicaResult
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 return|;
 block|}
 annotation|@
