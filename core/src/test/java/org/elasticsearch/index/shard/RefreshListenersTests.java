@@ -1129,7 +1129,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1180,7 +1180,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|forcingListener
@@ -1316,7 +1316,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1433,7 +1433,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|listener
@@ -1687,7 +1687,7 @@ name|addOrNotify
 argument_list|(
 name|index
 operator|.
-name|getLocation
+name|getTranslogLocation
 argument_list|()
 argument_list|,
 name|listener
