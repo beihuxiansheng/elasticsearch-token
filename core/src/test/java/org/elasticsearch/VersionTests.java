@@ -72,6 +72,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|monitor
+operator|.
+name|os
+operator|.
+name|OsStats
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|internal
@@ -2377,6 +2391,14 @@ expr_stmt|;
 name|assertUnknownVersion
 argument_list|(
 name|AliasFilter
+operator|.
+name|V_5_1_0
+argument_list|)
+expr_stmt|;
+comment|// once we released 5.1.0 and it's added to Version.java we need to remove this constant
+name|assertUnknownVersion
+argument_list|(
+name|OsStats
 operator|.
 name|V_5_1_0
 argument_list|)
