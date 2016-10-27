@@ -1429,6 +1429,57 @@ return|return
 literal|1
 return|;
 block|}
+DECL|field|disableBeforeIndexDeletion
+specifier|private
+name|boolean
+name|disableBeforeIndexDeletion
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setDisruptionScheme
+specifier|public
+name|void
+name|setDisruptionScheme
+parameter_list|(
+name|ServiceDisruptionScheme
+name|scheme
+parameter_list|)
+block|{
+if|if
+condition|(
+name|scheme
+operator|instanceof
+name|NetworkDisruption
+operator|&&
+operator|(
+operator|(
+name|NetworkDisruption
+operator|)
+name|scheme
+operator|)
+operator|.
+name|getNetworkLinkDisruptionType
+argument_list|()
+operator|instanceof
+name|NetworkUnresponsive
+condition|)
+block|{
+comment|// the network unresponsive disruption may leave operations in flight
+comment|// this is because this disruption scheme swallows requests by design
+comment|// as such, these operations will never be marked as finished
+name|disableBeforeIndexDeletion
+operator|=
+literal|true
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|setDisruptionScheme
+argument_list|(
+name|scheme
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|beforeIndexDeletion
@@ -1437,9 +1488,19 @@ name|void
 name|beforeIndexDeletion
 parameter_list|()
 block|{
-comment|// some test may leave operations in flight
-comment|// this is because the disruption schemes swallow requests by design
-comment|// as such, these operations will never be marked as finished
+if|if
+condition|(
+name|disableBeforeIndexDeletion
+operator|==
+literal|false
+condition|)
+block|{
+name|super
+operator|.
+name|beforeIndexDeletion
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|startCluster
 specifier|private

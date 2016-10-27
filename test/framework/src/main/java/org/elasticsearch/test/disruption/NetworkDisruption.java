@@ -289,6 +289,26 @@ operator|=
 name|networkLinkDisruptionType
 expr_stmt|;
 block|}
+DECL|method|getDisruptedLinks
+specifier|public
+name|DisruptedLinks
+name|getDisruptedLinks
+parameter_list|()
+block|{
+return|return
+name|disruptedLinks
+return|;
+block|}
+DECL|method|getNetworkLinkDisruptionType
+specifier|public
+name|NetworkLinkDisruptionType
+name|getNetworkLinkDisruptionType
+parameter_list|()
+block|{
+return|return
+name|networkLinkDisruptionType
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|applyToCluster
@@ -724,6 +744,26 @@ name|class
 argument_list|,
 name|node
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"network disruption (disruption type: "
+operator|+
+name|networkLinkDisruptionType
+operator|+
+literal|", disrupted links: "
+operator|+
+name|disruptedLinks
+operator|+
+literal|")"
 return|;
 block|}
 comment|/**      * Represents a set of nodes with connections between nodes that are to be disrupted      */
