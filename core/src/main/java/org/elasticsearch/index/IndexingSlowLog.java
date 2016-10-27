@@ -943,6 +943,16 @@ name|IndexResult
 name|result
 parameter_list|)
 block|{
+if|if
+condition|(
+name|result
+operator|.
+name|hasFailure
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 specifier|final
 name|ParsedDocument
 name|doc
@@ -1095,6 +1105,7 @@ name|maxSourceCharsToLog
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|SlowLogParsedDocumentPrinter

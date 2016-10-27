@@ -1216,6 +1216,16 @@ name|Result
 name|result
 parameter_list|)
 block|{
+if|if
+condition|(
+name|result
+operator|.
+name|hasFailure
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 specifier|final
 name|int
 name|sizeInBytes
@@ -1255,6 +1265,7 @@ argument_list|(
 name|sizeInBytes
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|class|ShardAndBytesUsed
 specifier|private
