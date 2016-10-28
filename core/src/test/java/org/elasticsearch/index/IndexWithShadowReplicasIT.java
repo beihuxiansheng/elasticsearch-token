@@ -2617,9 +2617,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Node1 has the primary, now node2 has the replica
-name|String
-name|node2
-init|=
 name|internalCluster
 argument_list|()
 operator|.
@@ -2627,7 +2624,7 @@ name|startNode
 argument_list|(
 name|nodeSettings
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ensureGreen
 argument_list|(
 name|IDX
@@ -2680,6 +2677,10 @@ name|node1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureClusterSizeConsistency
+argument_list|()
+expr_stmt|;
+comment|// wait for the new node to be elected and process the node leave
 name|ensureYellow
 argument_list|(
 name|IDX
