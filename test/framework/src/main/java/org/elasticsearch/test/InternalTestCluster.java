@@ -60,7 +60,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -1990,7 +1990,7 @@ name|this
 operator|.
 name|numSharedDataNodes
 operator|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2081,7 +2081,7 @@ name|this
 operator|.
 name|numSharedCoordOnlyNodes
 operator|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2538,7 +2538,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2561,7 +2561,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2598,7 +2598,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2621,7 +2621,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2650,7 +2650,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3299,7 +3299,7 @@ argument_list|,
 operator|new
 name|TimeValue
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3393,7 +3393,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3427,7 +3427,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3516,7 +3516,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3550,7 +3550,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3588,7 +3588,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3622,7 +3622,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3658,7 +3658,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

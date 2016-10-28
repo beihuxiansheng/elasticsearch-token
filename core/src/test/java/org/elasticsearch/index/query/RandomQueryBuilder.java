@@ -26,7 +26,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -89,7 +89,7 @@ parameter_list|)
 block|{
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -169,7 +169,7 @@ name|multiTermQueryBuilder
 decl_stmt|;
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -308,7 +308,7 @@ name|boost
 argument_list|(
 literal|2.0f
 operator|/
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

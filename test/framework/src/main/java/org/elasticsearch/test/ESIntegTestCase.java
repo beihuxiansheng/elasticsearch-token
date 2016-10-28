@@ -50,7 +50,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -3088,7 +3088,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3177,7 +3177,7 @@ specifier|final
 name|int
 name|maxThreadCount
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3192,7 +3192,7 @@ specifier|final
 name|int
 name|maxMergeCount
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3278,7 +3278,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3382,7 +3382,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -3427,17 +3427,7 @@ argument_list|()
 operator|.
 name|runWithPrivateRandomness
 argument_list|(
-operator|new
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|Randomness
-argument_list|(
 name|seed
-argument_list|)
 argument_list|,
 operator|new
 name|Callable

@@ -44,7 +44,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -2514,7 +2514,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2534,7 +2534,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

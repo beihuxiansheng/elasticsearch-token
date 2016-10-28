@@ -26,7 +26,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -121,7 +121,7 @@ block|{
 name|int
 name|numNodes
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -236,7 +236,7 @@ argument_list|)
 operator|.
 name|setSniffIntervalMillis
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -285,7 +285,7 @@ argument_list|)
 operator|.
 name|setSniffAfterFailureDelayMillis
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -405,7 +405,7 @@ name|builder
 operator|.
 name|setSniffIntervalMillis
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -434,7 +434,7 @@ name|builder
 operator|.
 name|setSniffAfterFailureDelayMillis
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
