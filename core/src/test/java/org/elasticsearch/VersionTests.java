@@ -86,6 +86,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|SimpleQueryStringBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|internal
@@ -2404,6 +2418,13 @@ name|V_5_1_0
 argument_list|)
 expr_stmt|;
 comment|// once we released 5.1.0 and it's added to Version.java we need to remove this constant
+name|assertUnknownVersion
+argument_list|(
+name|SimpleQueryStringBuilder
+operator|.
+name|V_5_1_0_UNRELEASED
+argument_list|)
+expr_stmt|;
 comment|// once we released 5.0.0 and it's added to Version.java we need to remove this constant
 name|assertUnknownVersion
 argument_list|(

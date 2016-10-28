@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|generators
+operator|.
+name|RandomStrings
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -125,6 +139,20 @@ operator|.
 name|search
 operator|.
 name|TermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
 import|;
 end_import
 
@@ -439,6 +467,26 @@ argument_list|(
 name|Operator
 operator|.
 name|values
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|result
+operator|.
+name|quoteFieldSuffix
+argument_list|(
+name|TestUtil
+operator|.
+name|randomSimpleString
+argument_list|(
+name|random
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2315,6 +2363,8 @@ literal|"    \"analyze_wildcard\" : false,\n"
 operator|+
 literal|"    \"locale\" : \"und\",\n"
 operator|+
+literal|"    \"quote_field_suffix\" : \".quote\",\n"
+operator|+
 literal|"    \"boost\" : 1.0\n"
 operator|+
 literal|"  }\n"
@@ -2375,6 +2425,18 @@ argument_list|,
 name|parsed
 operator|.
 name|analyzer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|".quote"
+argument_list|,
+name|parsed
+operator|.
+name|quoteFieldSuffix
 argument_list|()
 argument_list|)
 expr_stmt|;
