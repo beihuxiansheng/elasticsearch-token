@@ -56,31 +56,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|both
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasToString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
+name|equalTo
 import|;
 end_import
 
@@ -141,15 +117,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|outOfBoundsExceptionMatcher
+DECL|method|outOfBoundsExceptionMessageMatcher
 specifier|protected
 name|Matcher
 argument_list|<
-name|?
-super|super
-name|IndexOutOfBoundsException
+name|String
 argument_list|>
-name|outOfBoundsExceptionMatcher
+name|outOfBoundsExceptionMessageMatcher
 parameter_list|(
 name|int
 name|index
@@ -159,22 +133,12 @@ name|size
 parameter_list|)
 block|{
 return|return
-name|both
+name|equalTo
 argument_list|(
-name|instanceOf
-argument_list|(
-name|ArrayIndexOutOfBoundsException
+name|Integer
 operator|.
-name|class
-argument_list|)
-argument_list|)
-operator|.
-name|and
+name|toString
 argument_list|(
-name|hasToString
-argument_list|(
-literal|"java.lang.ArrayIndexOutOfBoundsException: "
-operator|+
 name|index
 argument_list|)
 argument_list|)

@@ -42,7 +42,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|both
+name|anyOf
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|either
+name|equalTo
 import|;
 end_import
 
@@ -66,19 +66,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|hasToString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
+name|nullValue
 import|;
 end_import
 
@@ -219,15 +207,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|outOfBoundsExceptionMatcher
+DECL|method|outOfBoundsExceptionMessageMatcher
 specifier|protected
 name|Matcher
 argument_list|<
-name|?
-super|super
-name|IndexOutOfBoundsException
+name|String
 argument_list|>
-name|outOfBoundsExceptionMatcher
+name|outOfBoundsExceptionMessageMatcher
 parameter_list|(
 name|int
 name|index
@@ -238,15 +224,34 @@ parameter_list|)
 block|{
 if|if
 condition|(
+literal|"1.8"
+operator|.
+name|equals
+argument_list|(
+name|Runtime
+operator|.
+name|class
+operator|.
+name|getPackage
+argument_list|()
+operator|.
+name|getSpecificationVersion
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// 1.8 and below aren't as clean as 1.9+
+if|if
+condition|(
 name|index
 operator|>
 name|size
 condition|)
 block|{
 return|return
-name|hasToString
+name|equalTo
 argument_list|(
-literal|"java.lang.IndexOutOfBoundsException: Index: "
+literal|"Index: "
 operator|+
 name|index
 operator|+
@@ -260,28 +265,16 @@ else|else
 block|{
 name|Matcher
 argument_list|<
-name|?
-super|super
-name|IndexOutOfBoundsException
+name|String
 argument_list|>
 name|m
 init|=
-name|both
+name|equalTo
 argument_list|(
-name|instanceOf
-argument_list|(
-name|ArrayIndexOutOfBoundsException
+name|Integer
 operator|.
-name|class
-argument_list|)
-argument_list|)
-operator|.
-name|and
+name|toString
 argument_list|(
-name|hasToString
-argument_list|(
-literal|"java.lang.ArrayIndexOutOfBoundsException: "
-operator|+
 name|index
 argument_list|)
 argument_list|)
@@ -289,23 +282,33 @@ decl_stmt|;
 comment|// If we set -XX:-OmitStackTraceInFastThrow we wouldn't need this
 name|m
 operator|=
-name|either
+name|anyOf
 argument_list|(
 name|m
-argument_list|)
-operator|.
-name|or
-argument_list|(
-name|instanceOf
-argument_list|(
-name|ArrayIndexOutOfBoundsException
-operator|.
-name|class
-argument_list|)
+argument_list|,
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
 name|m
+return|;
+block|}
+block|}
+else|else
+block|{
+comment|// Starting with 1.9 it gets nicer
+return|return
+name|equalTo
+argument_list|(
+literal|"Index "
+operator|+
+name|index
+operator|+
+literal|" out-of-bounds for length "
+operator|+
+name|size
+argument_list|)
 return|;
 block|}
 block|}

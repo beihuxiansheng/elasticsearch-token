@@ -86,17 +86,15 @@ name|int
 name|size
 parameter_list|)
 function_decl|;
-comment|/**      * The type of the exception thrown by out of bounds accesses;      */
-DECL|method|outOfBoundsExceptionMatcher
+comment|/**      * Matcher for the message of the out of bounds exceptions thrown for too negative or too positive offsets.      */
+DECL|method|outOfBoundsExceptionMessageMatcher
 specifier|protected
 specifier|abstract
 name|Matcher
 argument_list|<
-name|?
-super|super
-name|IndexOutOfBoundsException
+name|String
 argument_list|>
-name|outOfBoundsExceptionMatcher
+name|outOfBoundsExceptionMessageMatcher
 parameter_list|(
 name|int
 name|index
@@ -571,8 +569,11 @@ block|{
 name|assertThat
 argument_list|(
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
-name|outOfBoundsExceptionMatcher
+name|outOfBoundsExceptionMessageMatcher
 argument_list|(
 name|index
 argument_list|,
