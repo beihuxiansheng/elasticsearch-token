@@ -237,11 +237,11 @@ literal|1024
 operator|*
 literal|1024
 decl_stmt|;
-DECL|field|bufferLimit
+DECL|field|bufferLimitBytes
 specifier|private
 specifier|final
 name|int
-name|bufferLimit
+name|bufferLimitBytes
 decl_stmt|;
 DECL|field|response
 specifier|private
@@ -263,7 +263,7 @@ parameter_list|()
 block|{
 name|this
 operator|.
-name|bufferLimit
+name|bufferLimitBytes
 operator|=
 name|DEFAULT_BUFFER_LIMIT
 expr_stmt|;
@@ -294,10 +294,21 @@ throw|;
 block|}
 name|this
 operator|.
-name|bufferLimit
+name|bufferLimitBytes
 operator|=
 name|bufferLimit
 expr_stmt|;
+block|}
+comment|/**      * Get the limit of the buffer.      */
+DECL|method|getBufferLimit
+specifier|public
+name|int
+name|getBufferLimit
+parameter_list|()
+block|{
+return|return
+name|bufferLimitBytes
+return|;
 block|}
 annotation|@
 name|Override
@@ -349,7 +360,7 @@ if|if
 condition|(
 name|len
 operator|>
-name|bufferLimit
+name|bufferLimitBytes
 condition|)
 block|{
 throw|throw
@@ -362,7 +373,7 @@ name|len
 operator|+
 literal|"] for the configured buffer limit ["
 operator|+
-name|bufferLimit
+name|bufferLimitBytes
 operator|+
 literal|"]"
 argument_list|)
