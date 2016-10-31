@@ -859,7 +859,7 @@ index|[
 name|i
 index|]
 operator|.
-name|getScriptType
+name|getName
 argument_list|()
 argument_list|,
 name|randomScriptModes

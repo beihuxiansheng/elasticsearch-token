@@ -702,12 +702,10 @@ argument_list|(
 name|profile
 argument_list|)
 expr_stmt|;
-name|ScriptType
+name|scriptType
 operator|.
 name|writeTo
 argument_list|(
-name|scriptType
-argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

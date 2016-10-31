@@ -209,7 +209,7 @@ argument_list|)
 argument_list|,
 name|scriptType
 operator|.
-name|getDefaultScriptEnabled
+name|isDefaultEnabled
 argument_list|()
 argument_list|,
 name|Property
@@ -612,7 +612,7 @@ name|ScriptType
 operator|.
 name|FILE
 operator|.
-name|getDefaultScriptEnabled
+name|isDefaultEnabled
 argument_list|()
 expr_stmt|;
 block|}
