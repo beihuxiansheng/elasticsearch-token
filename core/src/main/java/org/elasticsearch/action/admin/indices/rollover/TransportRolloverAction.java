@@ -1167,7 +1167,7 @@ name|RolloverResponse
 argument_list|(
 name|sourceIndexName
 argument_list|,
-name|sourceIndexName
+name|rolloverIndexName
 argument_list|,
 name|conditionResults
 argument_list|,

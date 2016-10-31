@@ -440,6 +440,12 @@ name|DiscoveryNode
 argument_list|>
 name|nodeIdToDiscoveryNode
 decl_stmt|;
+DECL|field|task
+specifier|protected
+specifier|final
+name|SearchTask
+name|task
+decl_stmt|;
 DECL|field|expectedSuccessfulOps
 specifier|protected
 specifier|final
@@ -570,6 +576,9 @@ name|startTime
 parameter_list|,
 name|long
 name|clusterStateVersion
+parameter_list|,
+name|SearchTask
+name|task
 parameter_list|)
 block|{
 name|super
@@ -600,6 +609,12 @@ operator|.
 name|request
 operator|=
 name|request
+expr_stmt|;
+name|this
+operator|.
+name|task
+operator|=
+name|task
 expr_stmt|;
 name|this
 operator|.

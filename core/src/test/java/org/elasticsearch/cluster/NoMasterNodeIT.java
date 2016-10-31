@@ -238,7 +238,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -864,8 +864,6 @@ name|Script
 argument_list|(
 literal|"test script"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -907,8 +905,6 @@ name|Script
 argument_list|(
 literal|"test script"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

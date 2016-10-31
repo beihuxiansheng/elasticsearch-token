@@ -2823,6 +2823,11 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|request
+operator|.
+name|onRetry
+argument_list|()
+expr_stmt|;
 specifier|final
 name|ThreadContext
 operator|.

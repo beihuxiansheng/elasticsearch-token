@@ -24,7 +24,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -797,7 +797,7 @@ expr_stmt|;
 name|int
 name|numHosts
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -888,7 +888,7 @@ block|{
 name|int
 name|numIters
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1045,7 +1045,7 @@ block|{
 name|int
 name|numIters
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1676,7 +1676,7 @@ block|}
 name|int
 name|numIters
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1942,7 +1942,7 @@ decl_stmt|;
 name|int
 name|iters
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2224,7 +2224,7 @@ parameter_list|()
 block|{
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

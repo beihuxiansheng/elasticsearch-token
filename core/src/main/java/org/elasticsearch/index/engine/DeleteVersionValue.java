@@ -124,6 +124,31 @@ return|return
 name|BASE_RAM_BYTES_USED
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DeleteVersionValue{"
+operator|+
+literal|"version="
+operator|+
+name|version
+argument_list|()
+operator|+
+literal|", "
+operator|+
+literal|"time="
+operator|+
+name|time
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

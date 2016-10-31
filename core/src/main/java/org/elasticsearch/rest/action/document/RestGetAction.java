@@ -465,7 +465,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"The parameter [fields] is no longer supported, "
 operator|+
-literal|"please use [stored_fields] to retrieve stored fields or or [_source] to load the field from _source"
+literal|"please use [stored_fields] to retrieve stored fields or [_source] to load the field from _source"
 argument_list|)
 throw|;
 block|}

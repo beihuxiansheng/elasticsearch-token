@@ -24,7 +24,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -445,7 +445,7 @@ decl_stmt|;
 name|int
 name|requestType
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -627,7 +627,7 @@ name|entity
 decl_stmt|;
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -815,7 +815,7 @@ decl_stmt|;
 name|int
 name|statusCode
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -867,7 +867,7 @@ decl_stmt|;
 name|int
 name|numHeaders
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

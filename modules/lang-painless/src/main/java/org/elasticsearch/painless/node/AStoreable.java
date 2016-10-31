@@ -68,11 +68,47 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
+name|Opcodes
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
 import|;
 end_import
 
@@ -204,6 +240,88 @@ name|Globals
 name|globals
 parameter_list|)
 function_decl|;
+comment|/**      * Writes the opcodes to flip a negative array index (meaning slots from the end of the array) into a 0-based one (meaning slots from      * the start of the array).      */
+DECL|method|writeIndexFlip
+specifier|static
+name|void
+name|writeIndexFlip
+parameter_list|(
+name|MethodWriter
+name|writer
+parameter_list|,
+name|Consumer
+argument_list|<
+name|MethodWriter
+argument_list|>
+name|writeGetLength
+parameter_list|)
+block|{
+name|Label
+name|noFlip
+init|=
+operator|new
+name|Label
+argument_list|()
+decl_stmt|;
+comment|// Everywhere when it says 'array' below that could also be a list
+comment|// The stack after each instruction:       array, unnormalized_index
+name|writer
+operator|.
+name|dup
+argument_list|()
+expr_stmt|;
+comment|// array, unnormalized_index, unnormalized_index
+name|writer
+operator|.
+name|ifZCmp
+argument_list|(
+name|Opcodes
+operator|.
+name|IFGE
+argument_list|,
+name|noFlip
+argument_list|)
+expr_stmt|;
+comment|// array, unnormalized_index
+name|writer
+operator|.
+name|swap
+argument_list|()
+expr_stmt|;
+comment|// negative_index, array
+name|writer
+operator|.
+name|dupX1
+argument_list|()
+expr_stmt|;
+comment|// array, negative_index, array
+name|writeGetLength
+operator|.
+name|accept
+argument_list|(
+name|writer
+argument_list|)
+expr_stmt|;
+comment|// array, negative_index, length
+name|writer
+operator|.
+name|visitInsn
+argument_list|(
+name|Opcodes
+operator|.
+name|IADD
+argument_list|)
+expr_stmt|;
+comment|// array, noralized_index
+name|writer
+operator|.
+name|mark
+argument_list|(
+name|noFlip
+argument_list|)
+expr_stmt|;
+comment|// array, noralized_index
+block|}
 block|}
 end_class
 

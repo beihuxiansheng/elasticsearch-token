@@ -866,6 +866,17 @@ name|postFilter
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|field
+name|String
+name|field
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|field
+return|;
+block|}
 comment|/**      * The global suggest mode controls what suggested terms are included or      * controls for what suggest text tokens, terms should be suggested for.      * Three possible values can be specified:      *<ol>      *<li><code>missing</code> - Only suggest terms in the suggest text      * that aren't in the index. This is the default.      *<li><code>popular</code> - Only suggest terms that occur in more docs      * then the original suggest text term.      *<li><code>always</code> - Suggest any matching suggest terms based on      * tokens in the suggest text.      *</ol>      */
 DECL|method|suggestMode
 specifier|public
@@ -886,6 +897,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|suggestMode
+name|String
+name|suggestMode
+parameter_list|()
+block|{
+return|return
+name|suggestMode
+return|;
+block|}
 comment|/**      * Sets how similar the suggested terms at least need to be compared to      * the original suggest text tokens. A value between 0 and 1 can be      * specified. This value will be compared to the string distance result      * of each candidate spelling correction.      *<p>      * Default is<tt>0.5</tt>      */
 DECL|method|accuracy
 specifier|public
@@ -904,6 +924,17 @@ name|accuracy
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|accuracy
+name|Float
+name|accuracy
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|accuracy
 return|;
 block|}
 comment|/**      * Sets the maximum suggestions to be returned per suggest text term.      */
@@ -941,6 +972,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|size
+name|Integer
+name|size
+parameter_list|()
+block|{
+return|return
+name|size
+return|;
+block|}
 comment|/**      * Sets how to sort the suggest terms per suggest text token. Two      * possible values:      *<ol>      *<li><code>score</code> - Sort should first be based on score, then      * document frequency and then the term itself.      *<li><code>frequency</code> - Sort should first be based on document      * frequency, then score and then the term itself.      *</ol>      *<p>      * What the score is depends on the suggester being used.      */
 DECL|method|sort
 specifier|public
@@ -961,6 +1001,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|sort
+name|String
+name|sort
+parameter_list|()
+block|{
+return|return
+name|sort
+return|;
+block|}
 comment|/**      * Sets what string distance implementation to use for comparing how      * similar suggested terms are. Four possible values can be specified:      *<ol>      *<li><code>internal</code> - This is the default and is based on      *<code>damerau_levenshtein</code>, but highly optimized for comparing      * string distance for terms inside the index.      *<li><code>damerau_levenshtein</code> - String distance algorithm      * based on Damerau-Levenshtein algorithm.      *<li><code>levenstein</code> - String distance algorithm based on      * Levenstein edit distance algorithm.      *<li><code>jarowinkler</code> - String distance algorithm based on      * Jaro-Winkler algorithm.      *<li><code>ngram</code> - String distance algorithm based on character      * n-grams.      *</ol>      */
 DECL|method|stringDistance
 specifier|public
@@ -979,6 +1028,15 @@ name|stringDistance
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|stringDistance
+name|String
+name|stringDistance
+parameter_list|()
+block|{
+return|return
+name|stringDistance
 return|;
 block|}
 comment|/**      * Sets the maximum edit distance candidate suggestions can have in      * order to be considered as a suggestion. Can only be a value between 1      * and 2. Any other value result in an bad request error being thrown.      * Defaults to<tt>2</tt>.      */
@@ -1024,6 +1082,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|maxEdits
+name|Integer
+name|maxEdits
+parameter_list|()
+block|{
+return|return
+name|maxEdits
+return|;
+block|}
 comment|/**      * A factor that is used to multiply with the size in order to inspect      * more candidate suggestions. Can improve accuracy at the cost of      * performance. Defaults to<tt>5</tt>.      */
 DECL|method|maxInspections
 specifier|public
@@ -1042,6 +1109,15 @@ name|maxInspections
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|maxInspections
+name|Integer
+name|maxInspections
+parameter_list|()
+block|{
+return|return
+name|maxInspections
 return|;
 block|}
 comment|/**      * Sets a maximum threshold in number of documents a suggest text token      * can exist in order to be corrected. Can be a relative percentage      * number (e.g 0.4) or an absolute number to represent document      * frequencies. If an value higher than 1 is specified then fractional      * can not be specified. Defaults to<tt>0.01</tt>.      *<p>      * This can be used to exclude high frequency terms from being      * suggested. High frequency terms are usually spelled correctly on top      * of this this also improves the suggest performance.      */
@@ -1064,6 +1140,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|maxTermFreq
+name|Float
+name|maxTermFreq
+parameter_list|()
+block|{
+return|return
+name|maxTermFreq
+return|;
+block|}
 comment|/**      * Sets the number of minimal prefix characters that must match in order      * be a candidate suggestion. Defaults to 1. Increasing this number      * improves suggest performance. Usually misspellings don't occur in the      * beginning of terms.      */
 DECL|method|prefixLength
 specifier|public
@@ -1082,6 +1167,15 @@ name|prefixLength
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|prefixLength
+name|Integer
+name|prefixLength
+parameter_list|()
+block|{
+return|return
+name|prefixLength
 return|;
 block|}
 comment|/**      * The minimum length a suggest text term must have in order to be      * corrected. Defaults to<tt>4</tt>.      */
@@ -1104,6 +1198,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|minWordLength
+name|Integer
+name|minWordLength
+parameter_list|()
+block|{
+return|return
+name|minWordLength
+return|;
+block|}
 comment|/**      * Sets a minimal threshold in number of documents a suggested term      * should appear in. This can be specified as an absolute number or as a      * relative percentage of number of documents. This can improve quality      * by only suggesting high frequency terms. Defaults to 0f and is not      * enabled. If a value higher than 1 is specified then the number cannot      * be fractional.      */
 DECL|method|minDocFreq
 specifier|public
@@ -1122,6 +1225,15 @@ name|minDocFreq
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|minDocFreq
+name|Float
+name|minDocFreq
+parameter_list|()
+block|{
+return|return
+name|minDocFreq
 return|;
 block|}
 comment|/**      * Sets a filter (analyzer) that is applied to each of the tokens passed to this candidate generator.      * This filter is applied to the original token before candidates are generated.      */
@@ -1144,6 +1256,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|preFilter
+name|String
+name|preFilter
+parameter_list|()
+block|{
+return|return
+name|preFilter
+return|;
+block|}
 comment|/**      * Sets a filter (analyzer) that is applied to each of the generated tokens      * before they are passed to the actual phrase scorer.      */
 DECL|method|postFilter
 specifier|public
@@ -1162,6 +1283,15 @@ name|postFilter
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|postFilter
+name|String
+name|postFilter
+parameter_list|()
+block|{
+return|return
+name|postFilter
 return|;
 block|}
 comment|/**      * gets the type identifier of this {@link CandidateGenerator}      */

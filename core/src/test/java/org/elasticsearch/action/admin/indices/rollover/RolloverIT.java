@@ -1313,7 +1313,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"test_index-0"
+literal|"test_index-000001"
 argument_list|)
 argument_list|)
 expr_stmt|;

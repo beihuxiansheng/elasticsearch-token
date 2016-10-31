@@ -26,7 +26,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -448,7 +448,7 @@ block|{
 return|return
 name|types
 index|[
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -803,7 +803,7 @@ block|{
 comment|// cap geometry collection at 4 shapes (to save test time)
 name|numGeometries
 operator|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1100,7 +1100,7 @@ comment|// (n^2-n)/2 and computing the relation intersection matrix will become 
 name|int
 name|numPoints
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1206,7 +1206,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1253,7 +1253,7 @@ name|POLYGON
 case|:
 name|numPoints
 operator|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1962,12 +1962,10 @@ name|r
 parameter_list|)
 block|{
 return|return
-name|RandomInts
-operator|.
-name|randomInt
-argument_list|(
 name|r
-argument_list|,
+operator|.
+name|nextInt
+argument_list|(
 literal|100
 argument_list|)
 operator|>=

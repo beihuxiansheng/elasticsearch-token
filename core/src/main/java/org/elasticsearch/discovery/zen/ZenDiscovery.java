@@ -3890,33 +3890,6 @@ return|return
 name|currentState
 return|;
 block|}
-name|DiscoveryNodes
-name|discoveryNodes
-init|=
-name|DiscoveryNodes
-operator|.
-name|builder
-argument_list|(
-name|currentState
-operator|.
-name|nodes
-argument_list|()
-argument_list|)
-comment|// make sure the old master node, which has failed, is not part of the nodes we publish
-operator|.
-name|remove
-argument_list|(
-name|masterNode
-argument_list|)
-operator|.
-name|masterNodeId
-argument_list|(
-literal|null
-argument_list|)
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
 comment|// flush any pending cluster states from old master, so it will not be set as master again
 name|publishClusterState
 operator|.
@@ -3937,20 +3910,7 @@ expr_stmt|;
 return|return
 name|rejoin
 argument_list|(
-name|ClusterState
-operator|.
-name|builder
-argument_list|(
 name|currentState
-argument_list|)
-operator|.
-name|nodes
-argument_list|(
-name|discoveryNodes
-argument_list|)
-operator|.
-name|build
-argument_list|()
 argument_list|,
 literal|"master left (reason = "
 operator|+

@@ -440,6 +440,9 @@ name|startTime
 parameter_list|,
 name|long
 name|clusterStateVersion
+parameter_list|,
+name|SearchTask
+name|task
 parameter_list|)
 block|{
 name|super
@@ -463,6 +466,8 @@ argument_list|,
 name|startTime
 argument_list|,
 name|clusterStateVersion
+argument_list|,
+name|task
 argument_list|)
 expr_stmt|;
 name|this
@@ -547,6 +552,8 @@ argument_list|(
 name|node
 argument_list|,
 name|request
+argument_list|,
+name|task
 argument_list|,
 name|listener
 argument_list|)
@@ -692,6 +699,8 @@ argument_list|(
 name|node
 argument_list|,
 name|querySearchRequest
+argument_list|,
+name|task
 argument_list|,
 operator|new
 name|ActionListener
@@ -1158,6 +1167,8 @@ argument_list|(
 name|node
 argument_list|,
 name|fetchSearchRequest
+argument_list|,
+name|task
 argument_list|,
 operator|new
 name|ActionListener

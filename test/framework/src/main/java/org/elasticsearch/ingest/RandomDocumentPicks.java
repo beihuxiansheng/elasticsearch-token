@@ -24,7 +24,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -142,7 +142,7 @@ block|{
 name|int
 name|numLevels
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -848,7 +848,7 @@ parameter_list|)
 block|{
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -913,7 +913,7 @@ decl_stmt|;
 name|int
 name|numStringItems
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -970,7 +970,7 @@ decl_stmt|;
 name|int
 name|numIntItems
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1027,7 +1027,7 @@ decl_stmt|;
 name|int
 name|numBooleanItems
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1084,7 +1084,7 @@ decl_stmt|;
 name|int
 name|numDoubleItems
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1163,7 +1163,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1270,7 +1270,7 @@ block|}
 name|int
 name|numFields
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

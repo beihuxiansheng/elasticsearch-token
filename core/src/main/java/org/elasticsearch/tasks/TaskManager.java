@@ -2324,7 +2324,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|TaskCancelledException
 argument_list|(
 literal|"cannot register child task request, the task is already cancelled"
 argument_list|)

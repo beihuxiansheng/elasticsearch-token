@@ -242,7 +242,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -317,16 +317,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -851,8 +841,6 @@ name|Script
 argument_list|(
 literal|"1==1"
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

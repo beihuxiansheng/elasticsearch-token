@@ -373,32 +373,8 @@ name|status
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|response
-operator|.
-name|content
-argument_list|()
-operator|.
-name|length
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|builder
-operator|.
-name|bytes
-argument_list|()
-operator|.
-name|length
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// the empty responses are handled in the HTTP layer so we do
+comment|// not assert on them here
 block|}
 DECL|method|testGetResponse
 specifier|public

@@ -4,33 +4,25 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery
+DECL|package|org.elasticsearch.rest
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|rest
 package|;
 end_package
 
-begin_comment
-comment|/**  * A listener that should be called by the {@link org.elasticsearch.discovery.Discovery} component  * when the first valid initial cluster state has been submitted and processed by the cluster service.  *<p>  * Note, this listener should be registered with the discovery service before it has started.  *  *  */
-end_comment
-
-begin_interface
-DECL|interface|InitialStateDiscoveryListener
+begin_class
+DECL|class|Netty4HeadBodyIsEmptyIT
 specifier|public
-interface|interface
-name|InitialStateDiscoveryListener
-block|{
-DECL|method|initialStateProcessed
-name|void
-name|initialStateProcessed
-parameter_list|()
-function_decl|;
-block|}
-end_interface
+class|class
+name|Netty4HeadBodyIsEmptyIT
+extends|extends
+name|HeadBodyIsEmptyIntegTestCase
+block|{ }
+end_class
 
 end_unit
 

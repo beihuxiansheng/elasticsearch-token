@@ -4073,9 +4073,15 @@ block|}
 block|}
 name|nodeConnectionsService
 operator|.
-name|connectToAddedNodes
+name|connectToNodes
 argument_list|(
 name|clusterChangedEvent
+operator|.
+name|nodesDelta
+argument_list|()
+operator|.
+name|addedNodes
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// if we are the master, publish the new state to all nodes
@@ -4156,6 +4162,20 @@ name|version
 argument_list|)
 argument_list|,
 name|t
+argument_list|)
+expr_stmt|;
+comment|// ensure that list of connected nodes in NodeConnectionsService is in-sync with the nodes of the current cluster state
+name|nodeConnectionsService
+operator|.
+name|disconnectFromNodes
+argument_list|(
+name|clusterChangedEvent
+operator|.
+name|nodesDelta
+argument_list|()
+operator|.
+name|addedNodes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|proccessedListeners
@@ -4299,9 +4319,15 @@ block|}
 block|}
 name|nodeConnectionsService
 operator|.
-name|disconnectFromRemovedNodes
+name|disconnectFromNodes
 argument_list|(
 name|clusterChangedEvent
+operator|.
+name|nodesDelta
+argument_list|()
+operator|.
+name|removedNodes
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|newClusterState

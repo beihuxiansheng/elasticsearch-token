@@ -44,7 +44,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -291,6 +291,18 @@ operator|.
 name|tasks
 operator|.
 name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskCancelledException
 import|;
 end_import
 
@@ -1004,7 +1016,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|TaskCancelledException
 argument_list|(
 literal|"Cancelled"
 argument_list|)
@@ -2502,7 +2514,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2522,7 +2534,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

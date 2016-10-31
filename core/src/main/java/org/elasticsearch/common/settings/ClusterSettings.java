@@ -2336,6 +2336,10 @@ name|SearchService
 operator|.
 name|KEEPALIVE_INTERVAL_SETTING
 argument_list|,
+name|SearchService
+operator|.
+name|LOW_LEVEL_CANCELLATION_SETTING
+argument_list|,
 name|Node
 operator|.
 name|WRITE_PORTS_FIELD_SETTING
