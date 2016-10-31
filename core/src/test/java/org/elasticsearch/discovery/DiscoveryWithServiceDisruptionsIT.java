@@ -4957,30 +4957,11 @@ argument_list|(
 name|nodes
 argument_list|)
 expr_stmt|;
-comment|// Use assertBusy(...) because the unfrozen node may take a while to actually join the cluster.
-comment|// The assertDiscoveryCompleted(...) can't know if all nodes have the old master node in all of the local cluster states
-name|assertBusy
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 name|assertMaster
 argument_list|(
 name|newMasterNode
 argument_list|,
 name|nodes
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8830,6 +8811,13 @@ name|String
 argument_list|>
 name|nodes
 parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
 block|{
 for|for
 control|(
@@ -8929,6 +8917,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertDiscoveryCompleted
 specifier|private
