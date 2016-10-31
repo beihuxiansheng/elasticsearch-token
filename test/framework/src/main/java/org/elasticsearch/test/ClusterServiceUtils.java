@@ -200,6 +200,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
@@ -359,10 +369,13 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|connectToAddedNodes
+name|connectToNodes
 parameter_list|(
-name|ClusterChangedEvent
-name|event
+name|List
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|addedNodes
 parameter_list|)
 block|{
 comment|// skip
@@ -371,10 +384,13 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|disconnectFromRemovedNodes
+name|disconnectFromNodes
 parameter_list|(
-name|ClusterChangedEvent
-name|event
+name|List
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|removedNodes
 parameter_list|)
 block|{
 comment|// skip
