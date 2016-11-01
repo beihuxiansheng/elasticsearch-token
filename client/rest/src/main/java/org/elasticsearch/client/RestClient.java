@@ -2640,6 +2640,15 @@ argument_list|,
 literal|"params must not be null"
 argument_list|)
 expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|path
+argument_list|,
+literal|"path must not be null"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|String
