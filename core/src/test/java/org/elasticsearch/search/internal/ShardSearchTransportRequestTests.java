@@ -1680,7 +1680,7 @@ name|in
 operator|.
 name|setVersion
 argument_list|(
-name|ShardValidateQueryRequestTests
+name|Version
 operator|.
 name|V_5_0_0
 argument_list|)
@@ -1922,7 +1922,7 @@ name|output
 operator|.
 name|setVersion
 argument_list|(
-name|ShardValidateQueryRequestTests
+name|Version
 operator|.
 name|V_5_0_0
 argument_list|)

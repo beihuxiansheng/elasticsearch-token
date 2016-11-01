@@ -2426,13 +2426,6 @@ name|V_5_1_0_UNRELEASED
 argument_list|)
 expr_stmt|;
 comment|// once we released 5.0.0 and it's added to Version.java we need to remove this constant
-name|assertUnknownVersion
-argument_list|(
-name|ShardValidateQueryRequestTests
-operator|.
-name|V_5_0_0
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|assertUnknownVersion
 specifier|public

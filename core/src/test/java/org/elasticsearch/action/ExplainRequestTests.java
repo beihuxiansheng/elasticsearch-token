@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|explain
@@ -776,7 +786,7 @@ name|in
 operator|.
 name|setVersion
 argument_list|(
-name|ShardValidateQueryRequestTests
+name|Version
 operator|.
 name|V_5_0_0
 argument_list|)
@@ -917,7 +927,7 @@ name|output
 operator|.
 name|setVersion
 argument_list|(
-name|ShardValidateQueryRequestTests
+name|Version
 operator|.
 name|V_5_0_0
 argument_list|)
