@@ -404,6 +404,27 @@ name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|versionType
+operator|==
+name|VersionType
+operator|.
+name|FORCE
+condition|)
+block|{
+name|validationException
+operator|=
+name|ValidateActions
+operator|.
+name|addValidationError
+argument_list|(
+literal|"version type [force] may no longer be used"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|validationException
 return|;
