@@ -114,7 +114,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Called after the indexing operation occurred.      */
+comment|/**      * Called after the indexing operation occurred. Implementations should      * check {@link Engine.IndexResult#hasFailure()} for operation failures      * and delegate to {@link #postIndex(Engine.Index, Exception)} with      * {@link Engine.IndexResult#getFailure()} if appropriate      */
 DECL|method|postIndex
 specifier|default
 name|void
@@ -131,7 +131,7 @@ name|IndexResult
 name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the indexing operation occurred with exception.      */
+comment|/**      * Called after the indexing operation occurred with exception that      * is not specific to the {@link Engine.Index} i.e. persistent engine      * failures etc.      */
 DECL|method|postIndex
 specifier|default
 name|void
@@ -164,7 +164,7 @@ return|return
 name|delete
 return|;
 block|}
-comment|/**      * Called after the delete operation occurred.      */
+comment|/**      * Called after the delete operation occurred. Implementations should      * check {@link Engine.DeleteResult#hasFailure()} for operation failures      * and delegate to {@link #postDelete(Engine.Delete, Exception)} with      * {@link Engine.DeleteResult#getFailure()} if appropriate      */
 DECL|method|postDelete
 specifier|default
 name|void
@@ -181,7 +181,7 @@ name|DeleteResult
 name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the delete operation occurred with exception.      */
+comment|/**      * Called after the delete operation occurred with exception that      * is not specific to the {@link Engine.Delete} i.e. persistent engine      * failures etc.      */
 DECL|method|postDelete
 specifier|default
 name|void

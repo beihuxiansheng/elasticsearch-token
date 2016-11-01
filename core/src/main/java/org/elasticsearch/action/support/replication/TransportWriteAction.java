@@ -514,6 +514,21 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|location
+operator|!=
+literal|null
+condition|)
+block|{
+assert|assert
+name|operationFailure
+operator|==
+literal|null
+operator|:
+literal|"expected no failures when translog location is not null"
+assert|;
+block|}
+if|if
+condition|(
 name|operationFailure
 operator|!=
 literal|null

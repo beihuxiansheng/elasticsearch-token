@@ -2235,7 +2235,17 @@ name|finalResponseIfSuccessful
 operator|!=
 literal|null
 operator|:
-literal|"either a response or a failure has to be not null"
+literal|"either a response or a failure has to be not null, "
+operator|+
+literal|"found ["
+operator|+
+name|finalFailure
+operator|+
+literal|"] failure and ["
+operator|+
+name|finalResponseIfSuccessful
+operator|+
+literal|"] response"
 assert|;
 name|this
 operator|.

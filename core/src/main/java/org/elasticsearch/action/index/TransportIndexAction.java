@@ -1229,8 +1229,6 @@ block|}
 catch|catch
 parameter_list|(
 name|MapperParsingException
-decl||
-name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

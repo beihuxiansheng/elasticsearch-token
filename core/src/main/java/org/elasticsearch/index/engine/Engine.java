@@ -1925,37 +1925,6 @@ return|return
 name|operationType
 return|;
 block|}
-comment|/** get size of the translog operation if translog location has been set */
-DECL|method|getSizeInBytes
-specifier|public
-name|int
-name|getSizeInBytes
-parameter_list|()
-block|{
-if|if
-condition|(
-name|translogLocation
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|translogLocation
-operator|.
-name|size
-return|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"result has null location, use Operation#estimatedSizeInBytes instead"
-argument_list|)
-throw|;
-block|}
-block|}
 DECL|method|setTranslogLocation
 name|void
 name|setTranslogLocation
@@ -1973,6 +1942,13 @@ operator|==
 literal|false
 condition|)
 block|{
+assert|assert
+name|failure
+operator|==
+literal|null
+operator|:
+literal|"failure has to be null to set translog location"
+assert|;
 name|this
 operator|.
 name|translogLocation
