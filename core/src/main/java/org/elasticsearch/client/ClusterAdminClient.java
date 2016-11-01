@@ -2640,6 +2640,15 @@ name|DeletePipelineRequestBuilder
 name|prepareDeletePipeline
 parameter_list|()
 function_decl|;
+comment|/**      * Deletes a stored ingest pipeline      */
+DECL|method|prepareDeletePipeline
+name|DeletePipelineRequestBuilder
+name|prepareDeletePipeline
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a stored ingest pipeline      */
 DECL|method|getPipeline
 name|void
