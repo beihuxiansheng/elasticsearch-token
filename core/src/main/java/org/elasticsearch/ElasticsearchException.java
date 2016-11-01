@@ -16,22 +16,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|message
-operator|.
-name|ParameterizedMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -3022,6 +3006,7 @@ argument_list|,
 literal|28
 argument_list|)
 block|,
+comment|// deprecated in 6.0, remove in 7.0
 DECL|enum constant|DOCUMENT_MISSING_EXCEPTION
 name|DOCUMENT_MISSING_EXCEPTION
 argument_list|(
@@ -4391,6 +4376,7 @@ argument_list|,
 literal|80
 argument_list|)
 block|,
+comment|// deprecated in 6.0, remove in 7.0
 DECL|enum constant|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 name|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 argument_list|(

@@ -4063,6 +4063,11 @@ name|Engine
 operator|.
 name|Index
 name|index
+parameter_list|,
+name|Engine
+operator|.
+name|IndexResult
+name|indexResult
 parameter_list|)
 block|{
 name|this
@@ -4114,9 +4119,9 @@ name|this
 operator|.
 name|version
 operator|=
-name|index
+name|indexResult
 operator|.
-name|version
+name|getVersion
 argument_list|()
 expr_stmt|;
 name|this
@@ -4972,6 +4977,11 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|,
+name|Engine
+operator|.
+name|DeleteResult
+name|deleteResult
 parameter_list|)
 block|{
 name|this
@@ -4987,9 +4997,9 @@ name|this
 operator|.
 name|version
 operator|=
-name|delete
+name|deleteResult
 operator|.
-name|version
+name|getVersion
 argument_list|()
 expr_stmt|;
 name|this

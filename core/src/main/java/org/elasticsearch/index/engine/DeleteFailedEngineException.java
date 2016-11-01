@@ -56,7 +56,13 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Deprecated as not used in 6.0, should be removed in 7.0  * Still exists for bwc in serializing/deserializing from  * 5.x nodes  */
+end_comment
+
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DeleteFailedEngineException
 specifier|public
 class|class
@@ -64,42 +70,6 @@ name|DeleteFailedEngineException
 extends|extends
 name|EngineException
 block|{
-DECL|method|DeleteFailedEngineException
-specifier|public
-name|DeleteFailedEngineException
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
-name|Engine
-operator|.
-name|Delete
-name|delete
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|shardId
-argument_list|,
-literal|"Delete failed for ["
-operator|+
-name|delete
-operator|.
-name|uid
-argument_list|()
-operator|.
-name|text
-argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|DeleteFailedEngineException
 specifier|public
 name|DeleteFailedEngineException
