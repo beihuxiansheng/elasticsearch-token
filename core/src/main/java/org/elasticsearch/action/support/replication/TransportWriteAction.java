@@ -512,21 +512,27 @@ argument_list|,
 name|operationFailure
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|location
-operator|!=
-literal|null
-condition|)
-block|{
 assert|assert
+name|location
+operator|==
+literal|null
+operator|||
 name|operationFailure
 operator|==
 literal|null
 operator|:
-literal|"expected no failures when translog location is not null"
+literal|"expected either failure to be null or translog location to be null, "
+operator|+
+literal|"but found: ["
+operator|+
+name|location
+operator|+
+literal|"] translog location and ["
+operator|+
+name|operationFailure
+operator|+
+literal|"] failure"
 assert|;
-block|}
 if|if
 condition|(
 name|operationFailure

@@ -2774,18 +2774,6 @@ comment|// and set the error in operation.setFailure. In case of environment rel
 comment|// is bubbled up
 name|isDocumentFailure
 operator|=
-operator|!
-operator|(
-operator|(
-name|failure
-operator|instanceof
-name|IllegalStateException
-operator|||
-name|failure
-operator|instanceof
-name|IOException
-operator|)
-operator|&&
 name|maybeFailEngine
 argument_list|(
 name|operation
@@ -2798,7 +2786,8 @@ argument_list|()
 argument_list|,
 name|failure
 argument_list|)
-operator|)
+operator|==
+literal|false
 expr_stmt|;
 block|}
 catch|catch
@@ -2831,6 +2820,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// throw original exception in case the exception caused the engine to fail
 name|rethrow
 argument_list|(
 name|failure
@@ -2841,12 +2831,14 @@ literal|null
 return|;
 block|}
 block|}
+comment|// hack to rethrow original exception in case of engine level failures during index/delete operation
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|rethrow
+specifier|private
 specifier|static
 parameter_list|<
 name|T
