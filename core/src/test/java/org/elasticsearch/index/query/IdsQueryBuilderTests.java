@@ -152,7 +152,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
+name|contains
 import|;
 end_import
 
@@ -167,51 +167,6 @@ argument_list|<
 name|IdsQueryBuilder
 argument_list|>
 block|{
-comment|/**      * Check that parser throws exception on missing values field.      */
-DECL|method|testIdsNotProvided
-specifier|public
-name|void
-name|testIdsNotProvided
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|String
-name|noIdsFieldQuery
-init|=
-literal|"{\"ids\" : { \"type\" : \"my_type\"  }"
-decl_stmt|;
-name|ParsingException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|ParsingException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|parseQuery
-argument_list|(
-name|noIdsFieldQuery
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"no ids values provided"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|doCreateTestQueryBuilder
@@ -611,7 +566,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Illegal value for id, expecting a string or number, got: START_ARRAY"
+literal|"[ids] failed to parse field [values]"
 argument_list|,
 name|e
 operator|.
@@ -663,19 +618,21 @@ argument_list|,
 name|parsed
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
-name|json
-argument_list|,
-literal|3
-argument_list|,
 name|parsed
 operator|.
 name|ids
 argument_list|()
-operator|.
-name|size
-argument_list|()
+argument_list|,
+name|contains
+argument_list|(
+literal|"1"
+argument_list|,
+literal|"100"
+argument_list|,
+literal|"4"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -693,6 +650,123 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+comment|// check that type that is not an array and also ids that are numbers are parsed
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"ids\" : {\n"
+operator|+
+literal|"    \"type\" : \"my_type\",\n"
+operator|+
+literal|"    \"values\" : [ 1, 100, 4 ],\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|parsed
+operator|=
+operator|(
+name|IdsQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|parsed
+operator|.
+name|ids
+argument_list|()
+argument_list|,
+name|contains
+argument_list|(
+literal|"1"
+argument_list|,
+literal|"100"
+argument_list|,
+literal|"4"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"my_type"
+argument_list|,
+name|parsed
+operator|.
+name|types
+argument_list|()
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+comment|// check with empty type array
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"ids\" : {\n"
+operator|+
+literal|"    \"type\" : [ ],\n"
+operator|+
+literal|"    \"values\" : [ \"1\", \"100\", \"4\" ],\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|parsed
+operator|=
+operator|(
+name|IdsQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|parsed
+operator|.
+name|ids
+argument_list|()
+argument_list|,
+name|contains
+argument_list|(
+literal|"1"
+argument_list|,
+literal|"100"
+argument_list|,
+literal|"4"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|0
+argument_list|,
+name|parsed
+operator|.
+name|types
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFromJsonDeprecatedSyntax
 specifier|public
@@ -703,50 +777,12 @@ throws|throws
 name|IOException
 block|{
 name|IdsQueryBuilder
-name|tempQuery
-init|=
-name|createTestQueryBuilder
-argument_list|()
-decl_stmt|;
-name|assumeTrue
-argument_list|(
-literal|"test requires at least one type"
-argument_list|,
-name|tempQuery
-operator|.
-name|types
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|tempQuery
-operator|.
-name|types
-argument_list|()
-operator|.
-name|length
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
-name|String
-name|type
-init|=
-name|tempQuery
-operator|.
-name|types
-argument_list|()
-index|[
-literal|0
-index|]
-decl_stmt|;
-name|IdsQueryBuilder
 name|testQuery
 init|=
 operator|new
 name|IdsQueryBuilder
 argument_list|(
-name|type
+literal|"my_type"
 argument_list|)
 decl_stmt|;
 comment|//single value type can also be called _type
@@ -758,13 +794,9 @@ literal|"{\n"
 operator|+
 literal|"    \"ids\" : {\n"
 operator|+
-literal|"        \"_type\" : \""
+literal|"        \"_type\" : \"my_type\",\n"
 operator|+
-name|type
-operator|+
-literal|"\",\n"
-operator|+
-literal|"        \"values\" : []\n"
+literal|"        \"values\" : [ ]\n"
 operator|+
 literal|"    }\n"
 operator|+
@@ -792,12 +824,12 @@ argument_list|,
 name|parsed
 argument_list|)
 expr_stmt|;
-name|IllegalArgumentException
+name|ParsingException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|IllegalArgumentException
+name|ParsingException
 operator|.
 name|class
 argument_list|,
@@ -809,6 +841,11 @@ name|contentString
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [_type] used, expected [type] instead"
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Deprecated field [_type] used, expected [type] instead"
@@ -819,9 +856,24 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|checkWarningHeaders
+name|assertEquals
 argument_list|(
-literal|"Deprecated field [_type] used, expected [type] instead"
+literal|3
+argument_list|,
+name|e
+operator|.
+name|getLineNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|19
+argument_list|,
+name|e
+operator|.
+name|getColumnNumber
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//array of types can also be called type rather than types
@@ -833,13 +885,9 @@ literal|"{\n"
 operator|+
 literal|"    \"ids\" : {\n"
 operator|+
-literal|"        \"types\" : [\""
+literal|"        \"types\" : [\"my_type\"],\n"
 operator|+
-name|type
-operator|+
-literal|"\"],\n"
-operator|+
-literal|"        \"values\" : []\n"
+literal|"        \"values\" : [ ]\n"
 operator|+
 literal|"    }\n"
 operator|+
@@ -870,7 +918,7 @@ name|e
 operator|=
 name|expectThrows
 argument_list|(
-name|IllegalArgumentException
+name|ParsingException
 operator|.
 name|class
 argument_list|,
@@ -880,6 +928,11 @@ name|parseQuery
 argument_list|(
 name|contentString2
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [_type] used, expected [type] instead"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -892,9 +945,24 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|checkWarningHeaders
+name|assertEquals
 argument_list|(
-literal|"Deprecated field [_type] used, expected [type] instead"
+literal|3
+argument_list|,
+name|e
+operator|.
+name|getLineNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|19
+argument_list|,
+name|e
+operator|.
+name|getColumnNumber
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
