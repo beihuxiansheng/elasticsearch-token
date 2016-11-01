@@ -5906,10 +5906,20 @@ name|put
 argument_list|(
 literal|28
 argument_list|,
-literal|null
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|DeleteFailedEngineException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// was DeleteFailedEngineException
+comment|//deprecated in 6.0
 name|ids
 operator|.
 name|put
@@ -6806,10 +6816,20 @@ name|put
 argument_list|(
 literal|80
 argument_list|,
-literal|null
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|IndexFailedEngineException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// was IndexFailedEngineException, removed in 6.0
+comment|//deprecated in 6.0
 name|ids
 operator|.
 name|put

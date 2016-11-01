@@ -2976,7 +2976,37 @@ argument_list|,
 literal|27
 argument_list|)
 block|,
-comment|// 28 was DeleteFailedEngineException
+DECL|enum constant|DELETE_FAILED_ENGINE_EXCEPTION
+name|DELETE_FAILED_ENGINE_EXCEPTION
+argument_list|(
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|DeleteFailedEngineException
+operator|.
+name|class
+argument_list|,
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|DeleteFailedEngineException
+operator|::
+operator|new
+argument_list|,
+literal|28
+argument_list|)
+block|,
+comment|// deprecated in 6.0, remove in 7.0
 DECL|enum constant|DOCUMENT_MISSING_EXCEPTION
 name|DOCUMENT_MISSING_EXCEPTION
 argument_list|(
@@ -4316,7 +4346,37 @@ argument_list|,
 literal|79
 argument_list|)
 block|,
-comment|// 80 used to be for IndexFailedEngineException, removed in 6.0
+DECL|enum constant|INDEX_FAILED_ENGINE_EXCEPTION
+name|INDEX_FAILED_ENGINE_EXCEPTION
+argument_list|(
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|IndexFailedEngineException
+operator|.
+name|class
+argument_list|,
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|IndexFailedEngineException
+operator|::
+operator|new
+argument_list|,
+literal|80
+argument_list|)
+block|,
+comment|// deprecated in 6.0, remove in 7.0
 DECL|enum constant|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 name|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 argument_list|(
