@@ -425,6 +425,12 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns {@code true} if this XContentGenerator has been closed. A closed generator can not do any more output.      */
+DECL|method|isClosed
+name|boolean
+name|isClosed
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

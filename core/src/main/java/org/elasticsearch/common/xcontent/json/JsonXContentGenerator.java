@@ -2094,6 +2094,21 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isClosed
+specifier|public
+name|boolean
+name|isClosed
+parameter_list|()
+block|{
+return|return
+name|generator
+operator|.
+name|isClosed
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

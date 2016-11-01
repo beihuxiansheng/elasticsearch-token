@@ -307,7 +307,7 @@ literal|"."
 operator|+
 name|scriptType
 operator|.
-name|getScriptType
+name|getName
 argument_list|()
 return|;
 block|}

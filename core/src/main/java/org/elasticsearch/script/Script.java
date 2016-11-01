@@ -587,12 +587,10 @@ condition|(
 name|hasType
 condition|)
 block|{
-name|ScriptType
+name|type
 operator|.
 name|writeTo
 argument_list|(
-name|type
-argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

@@ -2087,7 +2087,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
-name|getScriptType
+name|getName
 argument_list|()
 argument_list|,
 literal|"true"
@@ -2109,7 +2109,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
-name|getScriptType
+name|getName
 argument_list|()
 argument_list|,
 literal|"false"
