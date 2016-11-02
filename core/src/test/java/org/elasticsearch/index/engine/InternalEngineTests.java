@@ -17745,7 +17745,7 @@ argument_list|)
 decl_stmt|;
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"upgrading index {} file: {} size: {}"
 argument_list|,
