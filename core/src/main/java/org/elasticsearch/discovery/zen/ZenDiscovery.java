@@ -2163,6 +2163,23 @@ name|state
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// clean the pending cluster queue - we are currently master, so any pending cluster state should be failed
+comment|// note that we also clean the queue on master failure (see handleMasterGone) but a delayed cluster state publish
+comment|// from a stale master can still make it in the queue during the election (but not be committed)
+name|publishClusterState
+operator|.
+name|pendingStatesQueue
+argument_list|()
+operator|.
+name|failAllStatesAndClear
+argument_list|(
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"elected as master"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Gets the current set of nodes involved in the node fault detection.      * NB: for testing purposes      */
 DECL|method|getFaultDetectionNodes
@@ -2264,6 +2281,18 @@ name|pendingStatesQueue
 argument_list|()
 operator|.
 name|pendingClusterStates
+argument_list|()
+return|;
+block|}
+DECL|method|pendingClusterStatesQueue
+name|PendingClusterStatesQueue
+name|pendingClusterStatesQueue
+parameter_list|()
+block|{
+return|return
+name|publishClusterState
+operator|.
+name|pendingStatesQueue
 argument_list|()
 return|;
 block|}
