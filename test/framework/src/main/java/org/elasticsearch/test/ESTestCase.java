@@ -1727,6 +1727,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|checkStaticState
+argument_list|()
+expr_stmt|;
+block|}
+comment|// separate method so that this can be checked again after suite scoped cluster is shut down
+DECL|method|checkStaticState
+specifier|protected
+specifier|static
+name|void
+name|checkStaticState
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockPageCacheRecycler
 operator|.
 name|ensureAllPagesAreReleased

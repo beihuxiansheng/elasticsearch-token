@@ -11696,6 +11696,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|checkStaticState
+argument_list|()
+expr_stmt|;
 block|}
 finally|finally
 block|{
