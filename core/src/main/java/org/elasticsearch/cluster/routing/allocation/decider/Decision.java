@@ -919,7 +919,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**          * Returns the explanation string, fully formatted. Only formats the string once          */
+comment|/**          * Returns the explanation string, fully formatted.  Only formats the string once.          */
 annotation|@
 name|Nullable
 DECL|method|getExplanation
