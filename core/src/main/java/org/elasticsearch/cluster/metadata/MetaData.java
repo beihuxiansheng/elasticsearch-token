@@ -824,6 +824,7 @@ comment|/* Custom metadata should be stored as part of a snapshot */
 DECL|enum constant|SNAPSHOT
 name|SNAPSHOT
 block|}
+comment|/**      * Indicates that this custom metadata will be returned as part of an API call but will not be persisted      */
 DECL|field|API_ONLY
 specifier|public
 specifier|static
@@ -842,6 +843,7 @@ operator|.
 name|API
 argument_list|)
 decl_stmt|;
+comment|/**      * Indicates that this custom metadata will be returned as part of an API call and will be persisted between      * node restarts, but will not be a part of a snapshot global state      */
 DECL|field|API_AND_GATEWAY
 specifier|public
 specifier|static
@@ -864,6 +866,7 @@ operator|.
 name|GATEWAY
 argument_list|)
 decl_stmt|;
+comment|/**      * Indicates that this custom metadata will be returned as part of an API call and stored as a part of      * a snapshot global state, but will not be persisted between node restarts      */
 DECL|field|API_AND_SNAPSHOT
 specifier|public
 specifier|static
@@ -884,6 +887,25 @@ argument_list|,
 name|XContentContext
 operator|.
 name|SNAPSHOT
+argument_list|)
+decl_stmt|;
+comment|/**      * Indicates that this custom metadata will be returned as part of an API call, stored as a part of      * a snapshot global state, and will be persisted between node restarts      */
+DECL|field|ALL_CONTEXTS
+specifier|public
+specifier|static
+name|EnumSet
+argument_list|<
+name|XContentContext
+argument_list|>
+name|ALL_CONTEXTS
+init|=
+name|EnumSet
+operator|.
+name|allOf
+argument_list|(
+name|XContentContext
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|interface|Custom

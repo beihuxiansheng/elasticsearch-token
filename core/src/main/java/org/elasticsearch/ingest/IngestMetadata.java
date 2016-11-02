@@ -676,7 +676,7 @@ block|{
 return|return
 name|MetaData
 operator|.
-name|API_AND_GATEWAY
+name|ALL_CONTEXTS
 return|;
 block|}
 annotation|@
