@@ -56,7 +56,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
+name|DocWriteRequest
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteRequest
+name|DocWriteResponse
 import|;
 end_import
 
@@ -154,7 +154,9 @@ name|support
 operator|.
 name|replication
 operator|.
-name|TransportWriteAction
+name|ReplicationResponse
+operator|.
+name|ShardInfo
 import|;
 end_import
 
@@ -170,9 +172,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationResponse
-operator|.
-name|ShardInfo
+name|TransportWriteAction
 import|;
 end_import
 
@@ -2599,7 +2599,9 @@ name|failure
 operator|instanceof
 name|MapperParsingException
 operator|:
-literal|"expected version conflict or mapper parsing failures"
+literal|"expected version conflict or mapper parsing failures. got "
+operator|+
+name|failure
 assert|;
 if|if
 condition|(
