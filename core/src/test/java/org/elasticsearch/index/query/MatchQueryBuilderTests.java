@@ -2055,6 +2055,13 @@ argument_list|(
 name|qb
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
+argument_list|,
+literal|"Deprecated field [slop] used, replaced by [match_phrase query]"
+argument_list|)
+expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
 name|IllegalArgumentException
 name|e
@@ -2197,6 +2204,13 @@ argument_list|(
 name|qb
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
+argument_list|,
+literal|"Deprecated field [slop] used, replaced by [match_phrase query]"
+argument_list|)
+expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown
 name|IllegalArgumentException
 name|e
@@ -2322,6 +2336,17 @@ name|equalTo
 argument_list|(
 name|expectedQB
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field ["
+operator|+
+name|type
+operator|+
+literal|"] used, expected [match] instead"
+argument_list|,
+literal|"Deprecated field [slop] used, replaced by [match_phrase query]"
 argument_list|)
 expr_stmt|;
 comment|// Now check with strict parsing an exception is thrown

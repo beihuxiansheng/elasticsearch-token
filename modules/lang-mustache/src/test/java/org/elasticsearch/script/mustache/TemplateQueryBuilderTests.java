@@ -290,6 +290,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
 import|;
 end_import
@@ -383,6 +393,22 @@ specifier|private
 name|QueryBuilder
 name|templateBase
 decl_stmt|;
+comment|/**      * All tests create deprecation warnings when an new {@link TemplateQueryBuilder} is created.      * Instead of having to check them once in every single test, this is done here after each test is run      */
+DECL|method|checkWarningHeaders
+annotation|@
+name|After
+name|void
+name|checkWarningHeaders
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|checkWarningHeaders
+argument_list|(
+literal|"[template] query is deprecated, use search template api instead"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getPlugins

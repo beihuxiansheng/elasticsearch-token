@@ -3994,11 +3994,11 @@ literal|"{\n"
 operator|+
 literal|"  \"function_score\" : {\n"
 operator|+
-literal|"    \"query\" : { },\n"
+literal|"    \"query\" : { \"match_all\" : {} },\n"
 operator|+
 literal|"    \"functions\" : [ {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 23.0,\n"
 operator|+
@@ -4006,7 +4006,7 @@ literal|"      \"random_score\" : { }\n"
 operator|+
 literal|"    }, {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 5.0\n"
 operator|+
@@ -4053,7 +4053,7 @@ literal|"    \"query\" : { \"match_all\" : {} },\n"
 operator|+
 literal|"    \"functions\" : [ {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 23.0,\n"
 operator|+
@@ -4061,7 +4061,7 @@ literal|"      \"random_score\" : { }\n"
 operator|+
 literal|"    }, {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 5.0\n"
 operator|+

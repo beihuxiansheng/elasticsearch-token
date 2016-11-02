@@ -516,18 +516,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|startsWith
-import|;
-end_import
-
 begin_class
 DECL|class|HasChildQueryBuilderTests
 specifier|public
@@ -1783,10 +1771,15 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|startsWith
+name|equalTo
 argument_list|(
-literal|"query malformed, empty clause found at"
+literal|"query malformed, empty clause found at [3:17]"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [3:17]"
 argument_list|)
 expr_stmt|;
 block|}

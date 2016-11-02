@@ -819,6 +819,11 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [_type] used, expected [type] instead"
+argument_list|)
+expr_stmt|;
 comment|//array of types can also be called type rather than types
 specifier|final
 name|String
@@ -885,6 +890,11 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [_type] used, expected [type] instead"
 argument_list|)
 expr_stmt|;
 block|}

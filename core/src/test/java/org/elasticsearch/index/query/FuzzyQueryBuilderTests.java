@@ -126,6 +126,28 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|internal
+operator|.
+name|AssumptionViolatedException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -201,6 +223,38 @@ argument_list|<
 name|FuzzyQueryBuilder
 argument_list|>
 block|{
+DECL|field|testSkipped
+specifier|private
+name|boolean
+name|testSkipped
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * All tests create deprecation warnings when an new FuzzyQueryBuilder is created. Instead of having to check them once      * in every single test, this is done here after each test is run      */
+annotation|@
+name|After
+DECL|method|checkWarningHeaders
+name|void
+name|checkWarningHeaders
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// only check that warning headers got created for tests that satisfied certain assumptions and were thus not skipped
+if|if
+condition|(
+name|testSkipped
+operator|==
+literal|false
+condition|)
+block|{
+name|checkWarningHeaders
+argument_list|(
+literal|"fuzzy query is deprecated. Instead use the [match] query with fuzziness parameter"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doCreateTestQueryBuilder
@@ -621,6 +675,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 name|assumeTrue
 argument_list|(
 literal|"test runs only when at least a type is registered"
@@ -633,6 +689,22 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssumptionViolatedException
+name|e
+parameter_list|)
+block|{
+comment|// we need to know that this test was skipped in @After checkWarningHeaders(), because no warnings will be generated
+name|testSkipped
+operator|=
+literal|true
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 name|String
 name|query
 init|=
@@ -794,6 +866,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 name|assumeTrue
 argument_list|(
 literal|"test runs only when at least a type is registered"
@@ -806,6 +880,22 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssumptionViolatedException
+name|e
+parameter_list|)
+block|{
+comment|// we need to know that this test was skipped in @After checkWarningHeaders(), because no warnings will be generated
+name|testSkipped
+operator|=
+literal|true
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 name|String
 name|query
 init|=
@@ -957,7 +1047,30 @@ throws|throws
 name|IOException
 block|{
 name|String
-name|json
+name|json1
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"fuzzy\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"value\" : \"this is a test\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|parseQuery
+argument_list|(
+name|json1
+argument_list|)
+expr_stmt|;
+comment|// should be all good
+name|String
+name|json2
 init|=
 literal|"{\n"
 operator|+
@@ -992,7 +1105,7 @@ parameter_list|()
 lambda|->
 name|parseQuery
 argument_list|(
-name|json
+name|json2
 argument_list|)
 argument_list|)
 decl_stmt|;

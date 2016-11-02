@@ -645,6 +645,11 @@ literal|"MatchNoDocsQuery(\"no clauses for dismax query.\")"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:78]"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testIllegalArguments
 specifier|public

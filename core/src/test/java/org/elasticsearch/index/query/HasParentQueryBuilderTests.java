@@ -334,18 +334,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|startsWith
-import|;
-end_import
-
 begin_class
 DECL|class|HasParentQueryBuilderTests
 specifier|public
@@ -1212,6 +1200,11 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [type] used, expected [parent_type] instead"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testToQueryInnerQueryType
 specifier|public
@@ -1504,6 +1497,11 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [3:17]"
+argument_list|)
+expr_stmt|;
 name|parser
 operator|=
 name|XContentFactory
@@ -1554,10 +1552,15 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|startsWith
+name|equalTo
 argument_list|(
-literal|"query malformed, empty clause found at"
+literal|"query malformed, empty clause found at [3:17]"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [3:17]"
 argument_list|)
 expr_stmt|;
 block|}

@@ -150,6 +150,18 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
 name|instanceOf
 import|;
 end_import
@@ -163,18 +175,6 @@ operator|.
 name|CoreMatchers
 operator|.
 name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|startsWith
 import|;
 end_import
 
@@ -674,6 +674,11 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:40]"
+argument_list|)
+expr_stmt|;
 name|parser
 operator|=
 name|XContentFactory
@@ -724,10 +729,15 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|startsWith
+name|equalTo
 argument_list|(
-literal|"query malformed, empty clause found at"
+literal|"query malformed, empty clause found at [1:40]"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:40]"
 argument_list|)
 expr_stmt|;
 block|}
