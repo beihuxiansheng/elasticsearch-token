@@ -1939,18 +1939,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -3818,34 +3806,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" still having pending states: \n"
-operator|+
-name|Arrays
-operator|.
-name|stream
-argument_list|(
-name|zenDiscovery
-operator|.
-name|pendingClusterStates
-argument_list|()
-argument_list|)
-operator|.
-name|map
-argument_list|(
-name|ClusterState
-operator|::
-name|prettyPrint
-argument_list|)
-operator|.
-name|collect
-argument_list|(
-name|Collectors
-operator|.
-name|joining
-argument_list|(
-literal|"\n"
-argument_list|)
-argument_list|)
+literal|" still having pending states"
 argument_list|,
 name|zenDiscovery
 operator|.
@@ -4773,16 +4734,8 @@ argument_list|)
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 for|for
 control|(
@@ -4865,9 +4818,6 @@ operator|+
 literal|" still has pending tasks "
 operator|+
 name|pendingTasks
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|pendingTasks
 argument_list|,
@@ -4917,7 +4867,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)
@@ -5717,9 +5666,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -5734,9 +5680,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5890,9 +5833,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -5907,9 +5847,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6404,9 +6341,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -6421,9 +6355,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6497,9 +6428,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -6514,9 +6442,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7243,9 +7168,6 @@ operator|+
 name|stateResponse
 operator|.
 name|getState
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

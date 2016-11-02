@@ -1245,9 +1245,6 @@ operator|+
 literal|"\n"
 operator|+
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|recoveryState
 operator|.
@@ -1356,16 +1353,6 @@ operator|+
 literal|"-- \nbefore: \n"
 operator|+
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
-operator|+
-literal|"\nafter: \n"
-operator|+
-name|afterState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|recoveryState
 operator|.

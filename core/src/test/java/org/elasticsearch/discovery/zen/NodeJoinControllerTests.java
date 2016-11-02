@@ -5222,9 +5222,6 @@ argument_list|,
 name|expectedNodes
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|DiscoveryNodes
@@ -5252,9 +5249,6 @@ operator|+
 literal|"\n"
 operator|+
 name|discoveryNodes
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|discoveryNodes
 operator|.

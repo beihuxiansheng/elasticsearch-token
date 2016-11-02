@@ -1338,7 +1338,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|,
 name|client

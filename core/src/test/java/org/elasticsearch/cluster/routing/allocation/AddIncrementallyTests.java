@@ -900,9 +900,6 @@ name|clusterState
 operator|.
 name|getRoutingNodes
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1749,9 +1746,6 @@ argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2606,9 +2600,6 @@ argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

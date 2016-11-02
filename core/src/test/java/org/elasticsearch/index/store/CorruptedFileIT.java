@@ -638,7 +638,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryFileChunkRequest
+name|PeerRecoveryTargetService
 import|;
 end_import
 
@@ -652,7 +652,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|PeerRecoveryTargetService
+name|RecoveryFileChunkRequest
 import|;
 end_import
 
@@ -1732,9 +1732,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -1749,9 +1746,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2555,9 +2549,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -2572,9 +2563,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4098,9 +4086,6 @@ argument_list|()
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|client
 argument_list|()
@@ -4115,9 +4100,6 @@ name|preparePendingClusterTasks
 argument_list|()
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

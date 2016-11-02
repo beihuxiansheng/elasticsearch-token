@@ -1093,9 +1093,6 @@ argument_list|(
 literal|"nodes A: {}"
 argument_list|,
 name|discoNodesA
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1105,9 +1102,6 @@ argument_list|(
 literal|"nodes B: {}"
 argument_list|,
 name|discoNodesB
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|DiscoveryNodes

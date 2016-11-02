@@ -58,6 +58,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -158,9 +170,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Strings
 import|;
 end_import
 
@@ -170,9 +180,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|common
 operator|.
-name|ESAllocationTestCase
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -419,10 +431,14 @@ expr_stmt|;
 name|String
 name|clusterStateString
 init|=
-name|clusterState
+name|Strings
 operator|.
 name|toString
-argument_list|()
+argument_list|(
+name|clusterState
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(

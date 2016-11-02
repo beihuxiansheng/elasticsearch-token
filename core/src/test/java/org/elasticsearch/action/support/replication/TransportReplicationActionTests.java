@@ -776,7 +776,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|Collections
 import|;
 end_import
 
@@ -1912,9 +1912,6 @@ name|clusterService
 operator|.
 name|state
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Request
@@ -2078,9 +2075,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2295,9 +2289,6 @@ name|clusterService
 operator|.
 name|state
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Request
@@ -2498,9 +2489,9 @@ name|applyStartedShards
 argument_list|(
 name|state
 argument_list|,
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 name|relocationTarget
 argument_list|)
@@ -2522,9 +2513,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2674,9 +2662,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2894,9 +2879,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3308,9 +3290,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4520,9 +4499,6 @@ argument_list|(
 literal|"using state: {}"
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|setState
@@ -5445,9 +5421,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

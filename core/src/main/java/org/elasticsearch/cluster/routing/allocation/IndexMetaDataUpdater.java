@@ -1466,9 +1466,6 @@ operator|+
 literal|", some of which have still a routing entry: "
 operator|+
 name|oldRoutingTable
-operator|.
-name|prettyPrint
-argument_list|()
 assert|;
 name|Set
 argument_list|<

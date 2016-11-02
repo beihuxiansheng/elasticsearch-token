@@ -2406,9 +2406,6 @@ operator|==
 literal|null
 operator|:
 name|currentState
-operator|.
-name|prettyPrint
-argument_list|()
 assert|;
 name|DiscoveryNodes
 operator|.

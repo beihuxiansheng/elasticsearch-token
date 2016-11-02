@@ -2085,9 +2085,6 @@ argument_list|(
 literal|"clusterState is:\n"
 operator|+
 name|clusterState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|health
 operator|.
@@ -2110,9 +2107,6 @@ argument_list|(
 literal|"clusterState is:\n"
 operator|+
 name|clusterState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|health
 operator|.

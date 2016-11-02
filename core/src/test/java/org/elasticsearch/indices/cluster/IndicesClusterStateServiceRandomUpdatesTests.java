@@ -833,9 +833,6 @@ argument_list|(
 literal|"failed to random change state. last good state: \n{}"
 argument_list|,
 name|finalState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 argument_list|,
 name|error
@@ -953,16 +950,10 @@ name|event
 operator|.
 name|previousState
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|event
 operator|.
 name|state
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 argument_list|,
@@ -991,9 +982,6 @@ argument_list|(
 literal|"Final cluster state: {}"
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

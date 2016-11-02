@@ -2535,9 +2535,6 @@ operator|+
 literal|"] has no master or has blocks, despite of being on the right side of the partition. State dump:\n"
 operator|+
 name|nodeState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2995,7 +2992,7 @@ operator|.
 name|routingTable
 argument_list|()
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 operator|.
 name|equals
@@ -3005,7 +3002,7 @@ operator|.
 name|routingTable
 argument_list|()
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|)
 condition|)
@@ -3046,9 +3043,6 @@ operator|+
 literal|"]: ---\n"
 operator|+
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 operator|+
 literal|"\n--- cluster state ["
 operator|+
@@ -3057,9 +3051,6 @@ operator|+
 literal|"]: ---\n"
 operator|+
 name|nodeState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -8207,9 +8198,6 @@ argument_list|(
 literal|"index 'test' was lost. current cluster state: "
 operator|+
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -8861,9 +8849,6 @@ init|=
 literal|"cluster_state:\n"
 operator|+
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(

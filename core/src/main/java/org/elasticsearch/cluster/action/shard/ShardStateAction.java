@@ -1319,9 +1319,6 @@ argument_list|(
 literal|"new cluster state [{}] after waiting for master election to fail shard entry [{}]"
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|shardEntry
 argument_list|)

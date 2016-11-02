@@ -3222,10 +3222,12 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|prettyPrint
+annotation|@
+name|Override
+DECL|method|toString
 specifier|public
 name|String
-name|prettyPrint
+name|toString
 parameter_list|()
 block|{
 name|StringBuilder

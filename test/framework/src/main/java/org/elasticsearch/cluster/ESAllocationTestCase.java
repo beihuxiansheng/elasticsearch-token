@@ -1135,9 +1135,6 @@ name|clusterState
 operator|.
 name|getRoutingNodes
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|clusterState
