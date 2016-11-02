@@ -12954,11 +12954,6 @@ name|queryStringQuery
 argument_list|(
 literal|"name:William*"
 argument_list|)
-operator|.
-name|analyzeWildcard
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 argument_list|,
 name|ScoreMode
@@ -13022,11 +13017,6 @@ argument_list|(
 name|queryStringQuery
 argument_list|(
 literal|"name:William*"
-argument_list|)
-operator|.
-name|analyzeWildcard
-argument_list|(
-literal|true
 argument_list|)
 argument_list|)
 argument_list|,
