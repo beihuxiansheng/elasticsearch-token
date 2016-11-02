@@ -742,6 +742,14 @@ name|locale
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setSplitOnWhitespace
+argument_list|(
+name|settings
+operator|.
+name|splitOnWhitespace
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * We override this one so we can get the fuzzy part to be treated as string,      * so people can do: "age:10~5" or "timestamp:2012-10-10~5d"      */
 annotation|@
