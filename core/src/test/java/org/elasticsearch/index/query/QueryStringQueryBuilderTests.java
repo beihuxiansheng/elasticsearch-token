@@ -1134,6 +1134,16 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
+name|PhraseQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
