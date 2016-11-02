@@ -2724,6 +2724,8 @@ throw|throw
 name|mpe
 throw|;
 block|}
+comment|// the context is only used for validation so it's fine to pass fake values for the shard id and the current
+comment|// timestamp
 specifier|final
 name|QueryShardContext
 name|queryShardContext
@@ -2731,7 +2733,15 @@ init|=
 name|indexService
 operator|.
 name|newQueryShardContext
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+literal|0L
+argument_list|)
 decl_stmt|;
 for|for
 control|(

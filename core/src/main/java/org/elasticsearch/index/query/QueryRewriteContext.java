@@ -416,7 +416,7 @@ return|return
 name|mapperService
 return|;
 block|}
-comment|/** Return the current {@link IndexReader}, or {@code null} if we are on the coordinating node. */
+comment|/** Return the current {@link IndexReader}, or {@code null} if no index reader is available, for      *  instance if we are on the coordinating node or if this rewrite context is used to index      *  queries (percolation). */
 DECL|method|getIndexReader
 specifier|public
 name|IndexReader

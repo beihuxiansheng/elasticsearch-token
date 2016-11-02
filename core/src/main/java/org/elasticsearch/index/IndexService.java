@@ -1244,13 +1244,35 @@ name|similarityService
 argument_list|,
 name|mapperRegistry
 argument_list|,
-name|IndexService
-operator|.
-name|this
-operator|::
+comment|// we parse all percolator queries as they would be parsed on shard 0
+parameter_list|()
+lambda|->
 name|newQueryShardContext
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+throw|throw
+argument_list|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Percolator queries are not allowed to use the curent timestamp"
 argument_list|)
-expr_stmt|;
+argument_list|;
+block|}
+block|)
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|indexFieldData
@@ -1267,66 +1289,99 @@ argument_list|,
 name|mapperService
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|shardStoreDeleter
 operator|=
 name|shardStoreDeleter
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|bigArrays
 operator|=
 name|bigArrays
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|threadPool
 operator|=
 name|threadPool
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|scriptService
 operator|=
 name|scriptService
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|queryRegistry
 operator|=
 name|queryRegistry
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|clusterService
 operator|=
 name|clusterService
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|client
 operator|=
 name|client
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|eventListener
 operator|=
 name|eventListener
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|nodeEnv
 operator|=
 name|nodeEnv
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|indexStore
 operator|=
 name|indexStore
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|indexFieldData
 operator|.
 name|setListener
@@ -1338,6 +1393,9 @@ name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|bitsetFilterCache
@@ -1354,6 +1412,9 @@ name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|warmer
@@ -1376,6 +1437,9 @@ name|threadPool
 argument_list|)
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|indexCache
@@ -1390,13 +1454,22 @@ argument_list|,
 name|bitsetFilterCache
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|engineFactory
 operator|=
 name|engineFactory
 expr_stmt|;
+end_expr_stmt
+
+begin_comment
 comment|// initialize this last -- otherwise if the wrapper requires any other member to be non-null we fail with an NPE
+end_comment
+
+begin_expr_stmt
 name|this
 operator|.
 name|searcherWrapper
@@ -1408,6 +1481,9 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|indexingOperationListeners
@@ -1419,6 +1495,9 @@ argument_list|(
 name|indexingOperationListeners
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|this
 operator|.
 name|searchOperationListeners
@@ -1430,7 +1509,13 @@ argument_list|(
 name|searchOperationListeners
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_comment
 comment|// kick off async ops for the first shard in this index
+end_comment
+
+begin_expr_stmt
 name|this
 operator|.
 name|refreshTask
@@ -1441,6 +1526,9 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|rescheduleFsyncTask
 argument_list|(
 name|indexSettings
@@ -1449,9 +1537,11 @@ name|getTranslogDurability
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
+end_expr_stmt
+
+begin_function
+unit|}      public
 DECL|method|numberOfShards
-specifier|public
 name|int
 name|numberOfShards
 parameter_list|()
@@ -1463,6 +1553,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getIndexEventListener
 specifier|public
 name|IndexEventListener
@@ -1475,6 +1568,9 @@ operator|.
 name|eventListener
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|iterator
@@ -1496,6 +1592,9 @@ name|iterator
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|hasShard
 specifier|public
 name|boolean
@@ -1514,7 +1613,13 @@ name|shardId
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Return the shard with the provided id, or null if there is no such shard.      */
+end_comment
+
+begin_function
 annotation|@
 name|Override
 annotation|@
@@ -1537,7 +1642,13 @@ name|shardId
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Return the shard with the provided id, or throw an exception if it doesn't exist.      */
+end_comment
+
+begin_function
 DECL|method|getShard
 specifier|public
 name|IndexShard
@@ -1581,6 +1692,9 @@ return|return
 name|indexShard
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|shardIds
 specifier|public
 name|Set
@@ -1597,6 +1711,9 @@ name|keySet
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|cache
 specifier|public
 name|IndexCache
@@ -1607,6 +1724,9 @@ return|return
 name|indexCache
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|fieldData
 specifier|public
 name|IndexFieldDataService
@@ -1617,6 +1737,9 @@ return|return
 name|indexFieldData
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getIndexAnalyzers
 specifier|public
 name|IndexAnalyzers
@@ -1629,6 +1752,9 @@ operator|.
 name|indexAnalyzers
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|mapperService
 specifier|public
 name|MapperService
@@ -1639,6 +1765,9 @@ return|return
 name|mapperService
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|similarityService
 specifier|public
 name|SimilarityService
@@ -1649,6 +1778,9 @@ return|return
 name|similarityService
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|close
 specifier|public
 specifier|synchronized
@@ -1757,6 +1889,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|indexUUID
 specifier|public
 name|String
@@ -1770,7 +1905,13 @@ name|getUUID
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// NOTE: O(numShards) cost, but numShards should be smallish?
+end_comment
+
+begin_function
 DECL|method|getAvgShardSizeInBytes
 specifier|private
 name|long
@@ -1835,6 +1976,9 @@ name|count
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|createShard
 specifier|public
 specifier|synchronized
@@ -2518,6 +2662,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|useShadowEngine
 specifier|static
 name|boolean
@@ -2543,6 +2690,9 @@ name|indexSettings
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|removeShard
@@ -2662,6 +2812,9 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|closeShard
 specifier|private
 name|void
@@ -2870,6 +3023,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|onShardClose
 specifier|private
 name|void
@@ -2997,6 +3153,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|getIndexSettings
@@ -3009,7 +3168,13 @@ return|return
 name|indexSettings
 return|;
 block|}
-comment|/**      * Creates a new QueryShardContext. The context has not types set yet, if types are required set them via      * {@link QueryShardContext#setTypes(String...)}      */
+end_function
+
+begin_comment
+comment|/**      * Creates a new QueryShardContext. The context has not types set yet, if types are required set them via      * {@link QueryShardContext#setTypes(String...)}.      *      * Passing a {@code null} {@link IndexReader} will return a valid context, however it won't be able to make      * {@link IndexReader}-specific optimizations, such as rewriting containing range queries.      */
+end_comment
+
+begin_function
 DECL|method|newQueryShardContext
 specifier|public
 name|QueryShardContext
@@ -3063,27 +3228,13 @@ name|nowInMillis
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new QueryShardContext. The context has not types set yet, if types are required set them via      * {@link QueryShardContext#setTypes(String...)}. This context may be used for query parsing but cannot be      * used for rewriting since it does not know about the current {@link IndexReader}.      */
-DECL|method|newQueryShardContext
-specifier|public
-name|QueryShardContext
-name|newQueryShardContext
-parameter_list|()
-block|{
-return|return
-name|newQueryShardContext
-argument_list|(
-literal|0
-argument_list|,
-literal|null
-argument_list|,
-name|System
-operator|::
-name|currentTimeMillis
-argument_list|)
-return|;
-block|}
+end_function
+
+begin_comment
 comment|/**      * The {@link ThreadPool} to use for this index.      */
+end_comment
+
+begin_function
 DECL|method|getThreadPool
 specifier|public
 name|ThreadPool
@@ -3094,7 +3245,13 @@ return|return
 name|threadPool
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The {@link BigArrays} to use for this index.      */
+end_comment
+
+begin_function
 DECL|method|getBigArrays
 specifier|public
 name|BigArrays
@@ -3105,7 +3262,13 @@ return|return
 name|bigArrays
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The {@link ScriptService} to use for this index.      */
+end_comment
+
+begin_function
 DECL|method|getScriptService
 specifier|public
 name|ScriptService
@@ -3116,6 +3279,9 @@ return|return
 name|scriptService
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getIndexOperationListeners
 name|List
 argument_list|<
@@ -3129,6 +3295,9 @@ return|return
 name|indexingOperationListeners
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getSearchOperationListener
 name|List
 argument_list|<
@@ -3142,6 +3311,9 @@ return|return
 name|searchOperationListeners
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|updateMapping
@@ -3165,6 +3337,9 @@ name|indexMetaData
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|StoreCloseListener
 specifier|private
 class|class
@@ -3301,6 +3476,9 @@ block|}
 block|}
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|BitsetCacheListener
 specifier|private
 specifier|static
@@ -3471,6 +3649,9 @@ block|}
 block|}
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|FieldDataCacheListener
 specifier|private
 specifier|final
@@ -3631,6 +3812,9 @@ block|}
 block|}
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|getMetaData
 specifier|public
 name|IndexMetaData
@@ -3644,6 +3828,9 @@ name|getIndexMetaData
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|updateMetaData
@@ -3819,6 +4006,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|rescheduleFsyncTask
 specifier|private
 name|void
@@ -3868,6 +4058,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|rescheduleRefreshTasks
 specifier|private
 name|void
@@ -3894,6 +4087,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_interface
 DECL|interface|ShardStoreDeleter
 specifier|public
 interface|interface
@@ -3927,6 +4123,9 @@ name|indexSettings
 parameter_list|)
 function_decl|;
 block|}
+end_interface
+
+begin_function
 DECL|method|getEngineFactory
 specifier|final
 name|EngineFactory
@@ -3937,7 +4136,13 @@ return|return
 name|engineFactory
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// pkg private for testing
+end_comment
+
+begin_function
 DECL|method|getSearcherWrapper
 specifier|final
 name|IndexSearcherWrapper
@@ -3948,7 +4153,13 @@ return|return
 name|searcherWrapper
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// pkg private for testing
+end_comment
+
+begin_function
 DECL|method|getIndexStore
 specifier|final
 name|IndexStore
@@ -3959,7 +4170,13 @@ return|return
 name|indexStore
 return|;
 block|}
+end_function
+
+begin_comment
 comment|// pkg private for testing
+end_comment
+
+begin_function
 DECL|method|maybeFSyncTranslogs
 specifier|private
 name|void
@@ -4047,6 +4264,9 @@ block|}
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|maybeRefreshEngine
 specifier|private
 name|void
@@ -4153,6 +4373,9 @@ block|}
 block|}
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|BaseAsyncTask
 specifier|abstract
 specifier|static
@@ -4642,7 +4865,13 @@ argument_list|()
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * FSyncs the translog for all shards of this index in a defined interval.      */
+end_comment
+
+begin_class
 DECL|class|AsyncTranslogFSync
 specifier|static
 specifier|final
@@ -4715,6 +4944,9 @@ literal|"translog_sync"
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|AsyncRefreshTask
 specifier|final
 class|class
@@ -4786,6 +5018,9 @@ literal|"refresh"
 return|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|getRefreshTask
 name|AsyncRefreshTask
 name|getRefreshTask
@@ -4796,6 +5031,9 @@ return|return
 name|refreshTask
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getFsyncTask
 name|AsyncTranslogFSync
 name|getFsyncTask
@@ -4806,8 +5044,8 @@ return|return
 name|fsyncTask
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

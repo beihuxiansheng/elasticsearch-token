@@ -944,6 +944,8 @@ name|indexService
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the context is only used for validation so it's fine to pass fake values for the shard id and the current
+comment|// timestamp
 name|aliasValidator
 operator|.
 name|validateAliasFilter
@@ -955,7 +957,15 @@ argument_list|,
 name|indexService
 operator|.
 name|newQueryShardContext
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+literal|0L
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

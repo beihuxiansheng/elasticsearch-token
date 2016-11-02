@@ -334,7 +334,15 @@ init|=
 name|index
 operator|.
 name|newQueryShardContext
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+literal|0L
+argument_list|)
 decl_stmt|;
 name|ParsedDocument
 name|doc
