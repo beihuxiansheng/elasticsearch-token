@@ -3976,6 +3976,8 @@ specifier|protected
 name|void
 name|beforeIndexDeletion
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|cluster
 argument_list|()
