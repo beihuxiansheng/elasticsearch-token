@@ -383,7 +383,6 @@ block|}
 comment|/**      * Returns a clients to fetch resources from local or remove nodes.      */
 DECL|method|getClient
 specifier|public
-specifier|final
 name|Client
 name|getClient
 parameter_list|()

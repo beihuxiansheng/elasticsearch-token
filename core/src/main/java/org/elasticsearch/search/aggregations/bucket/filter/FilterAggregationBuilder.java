@@ -364,6 +364,26 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO this sucks we need a rewrite phase for aggregations too
+specifier|final
+name|QueryBuilder
+name|rewrittenFilter
+init|=
+name|QueryBuilder
+operator|.
+name|rewriteQuery
+argument_list|(
+name|filter
+argument_list|,
+name|context
+operator|.
+name|searchContext
+argument_list|()
+operator|.
+name|getQueryShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|FilterAggregatorFactory
@@ -372,7 +392,7 @@ name|name
 argument_list|,
 name|type
 argument_list|,
-name|filter
+name|rewrittenFilter
 argument_list|,
 name|context
 argument_list|,

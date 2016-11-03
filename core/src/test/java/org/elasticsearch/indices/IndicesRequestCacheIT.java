@@ -4684,7 +4684,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
-literal|5
+literal|2
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -5448,7 +5448,7 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// If the request has an aggregation containng now we should not cache
+comment|// If the request has an aggregation containing now we should not cache
 specifier|final
 name|SearchResponse
 name|r4
@@ -5945,7 +5945,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5L
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

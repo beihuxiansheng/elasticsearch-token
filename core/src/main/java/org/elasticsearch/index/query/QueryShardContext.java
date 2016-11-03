@@ -2220,6 +2220,25 @@ name|nowInMillis
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getClient
+specifier|public
+name|Client
+name|getClient
+parameter_list|()
+block|{
+name|failIfFrozen
+argument_list|()
+expr_stmt|;
+comment|// we somebody uses a terms filter with lookup for instance can't be cached...
+return|return
+name|super
+operator|.
+name|getClient
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

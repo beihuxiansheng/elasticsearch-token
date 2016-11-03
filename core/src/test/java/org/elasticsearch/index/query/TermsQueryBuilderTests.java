@@ -2231,6 +2231,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isCachable
+specifier|protected
+name|boolean
+name|isCachable
+parameter_list|(
+name|TermsQueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+comment|// even though we use a terms lookup here we do this during rewrite and that means we are cachable on toQuery
+comment|// that's why we return true here all the time
+return|return
+name|super
+operator|.
+name|isCachable
+argument_list|(
+name|queryBuilder
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
