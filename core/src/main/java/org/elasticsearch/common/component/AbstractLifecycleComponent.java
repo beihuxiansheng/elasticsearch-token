@@ -34,6 +34,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -367,9 +377,36 @@ operator|.
 name|moveToClosed
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|doClose
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// TODO: we need to separate out closing (ie shutting down) services, vs releasing runtime transient
+comment|// structures. Shutting down services should use IOUtils.close
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to close "
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|LifecycleListener
@@ -391,6 +428,8 @@ specifier|abstract
 name|void
 name|doClose
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_class

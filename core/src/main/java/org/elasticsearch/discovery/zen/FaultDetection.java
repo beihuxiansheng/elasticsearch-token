@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -178,6 +188,8 @@ class|class
 name|FaultDetection
 extends|extends
 name|AbstractComponent
+implements|implements
+name|Closeable
 block|{
 DECL|field|CONNECT_ON_NETWORK_DISCONNECT_SETTING
 specifier|public
@@ -472,6 +484,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

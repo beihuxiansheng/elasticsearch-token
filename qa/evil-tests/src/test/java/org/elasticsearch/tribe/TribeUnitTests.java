@@ -443,7 +443,7 @@ decl_stmt|;
 name|tribe1
 operator|=
 operator|new
-name|TribeClientNode
+name|MockNode
 argument_list|(
 name|Settings
 operator|.
@@ -497,7 +497,7 @@ expr_stmt|;
 name|tribe2
 operator|=
 operator|new
-name|TribeClientNode
+name|MockNode
 argument_list|(
 name|Settings
 operator|.

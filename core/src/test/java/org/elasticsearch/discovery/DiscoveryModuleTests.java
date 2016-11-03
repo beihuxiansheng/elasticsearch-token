@@ -573,9 +573,17 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|DiscoveryModule
-name|module
+name|IllegalArgumentException
+name|e
 init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|DiscoveryModule
 argument_list|(
@@ -590,12 +598,16 @@ operator|.
 name|emptyList
 argument_list|()
 argument_list|)
+argument_list|)
 decl_stmt|;
-name|assertBindingFailure
+name|assertEquals
 argument_list|(
-name|module
+literal|"Unknown zen hosts provider [dne]"
 argument_list|,
-literal|"Unknown zen hosts provider"
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
