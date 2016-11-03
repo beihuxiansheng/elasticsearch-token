@@ -791,6 +791,19 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|final
+name|boolean
+name|fullId
+init|=
+name|request
+operator|.
+name|paramAsBoolean
+argument_list|(
+literal|"full_id"
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 return|return
 name|channel
 lambda|->
@@ -964,6 +977,8 @@ name|buildResponse
 argument_list|(
 name|buildTable
 argument_list|(
+name|fullId
+argument_list|,
 name|request
 argument_list|,
 name|clusterStateResponse
@@ -1708,7 +1723,9 @@ name|addCell
 argument_list|(
 literal|"segments.fixed_bitset_memory"
 argument_list|,
-literal|"alias:sfbm,fixedBitsetMemory;default:false;text-align:right;desc:memory used by fixed bit sets for nested object field types and type filters for types referred in _parent fields"
+literal|"alias:sfbm,fixedBitsetMemory;default:false;text-align:right;desc:memory used by fixed bit sets for nested object field types"
+operator|+
+literal|" and type filters for types referred in _parent fields"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1755,6 +1772,9 @@ specifier|private
 name|Table
 name|buildTable
 parameter_list|(
+name|boolean
+name|fullId
+parameter_list|,
 name|RestRequest
 name|req
 parameter_list|,
@@ -1768,18 +1788,6 @@ name|NodesStatsResponse
 name|nodesStats
 parameter_list|)
 block|{
-name|boolean
-name|fullId
-init|=
-name|req
-operator|.
-name|paramAsBoolean
-argument_list|(
-literal|"full_id"
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
 name|DiscoveryNodes
 name|nodes
 init|=
