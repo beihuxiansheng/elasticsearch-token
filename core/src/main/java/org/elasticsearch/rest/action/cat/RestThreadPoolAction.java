@@ -1702,6 +1702,13 @@ operator|.
 name|addCell
 argument_list|(
 name|maxQueueSize
+operator|==
+literal|null
+condition|?
+operator|-
+literal|1
+else|:
+name|maxQueueSize
 argument_list|)
 expr_stmt|;
 name|table
