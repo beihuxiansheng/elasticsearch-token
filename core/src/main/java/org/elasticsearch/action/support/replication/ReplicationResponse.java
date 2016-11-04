@@ -82,18 +82,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -195,6 +183,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -754,12 +752,26 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|Strings
+literal|"ShardInfo{"
+operator|+
+literal|"total="
+operator|+
+name|total
+operator|+
+literal|", successful="
+operator|+
+name|successful
+operator|+
+literal|", failures="
+operator|+
+name|Arrays
 operator|.
 name|toString
 argument_list|(
-name|this
+name|failures
 argument_list|)
+operator|+
+literal|'}'
 return|;
 block|}
 DECL|method|readShardInfo
