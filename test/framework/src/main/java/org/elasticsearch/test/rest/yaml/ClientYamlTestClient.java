@@ -280,6 +280,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -426,6 +436,14 @@ argument_list|,
 literal|"filter_path"
 argument_list|)
 decl_stmt|;
+DECL|field|loggedInit
+specifier|private
+specifier|static
+name|boolean
+name|loggedInit
+init|=
+literal|false
+decl_stmt|;
 DECL|field|restSpec
 specifier|private
 specifier|final
@@ -516,7 +534,14 @@ operator|.
 name|v2
 argument_list|()
 decl_stmt|;
-comment|// this will be logged in each test such that if something fails we get it in the logs for each test
+if|if
+condition|(
+literal|false
+operator|==
+name|loggedInit
+condition|)
+block|{
+comment|/* This will be logged once per suite which lines up with randomized runner's dumping the output of all failing suites. It'd              * be super noisy to log this once per test. We can't log it in a @BeforeClass method because we need the class variables. */
 name|logger
 operator|.
 name|info
@@ -529,6 +554,26 @@ name|masterVersion
 argument_list|,
 name|hosts
 argument_list|)
+expr_stmt|;
+name|loggedInit
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Reset {@link #loggedInit} so we log the connection setup before this suite.      */
+annotation|@
+name|BeforeClass
+DECL|method|clearLoggedInit
+specifier|public
+specifier|static
+name|void
+name|clearLoggedInit
+parameter_list|()
+block|{
+name|loggedInit
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|readMasterAndMinNodeVersion
