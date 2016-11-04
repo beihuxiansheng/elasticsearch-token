@@ -15167,6 +15167,11 @@ argument_list|(
 literal|"testIndexWriterInfoStream"
 argument_list|)
 decl_stmt|;
+name|mockAppender
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Logger
 name|rootLogger
 init|=
@@ -15324,6 +15329,11 @@ argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
+name|mockAppender
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|Loggers
 operator|.
 name|setLevel
@@ -15360,6 +15370,11 @@ argument_list|(
 literal|"testIndexWriterIFDInfoStream"
 argument_list|)
 decl_stmt|;
+name|mockAppender
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 specifier|final
 name|Logger
 name|iwIFDLogger
@@ -15518,6 +15533,11 @@ name|iwIFDLogger
 argument_list|,
 name|mockAppender
 argument_list|)
+expr_stmt|;
+name|mockAppender
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|Loggers
 operator|.

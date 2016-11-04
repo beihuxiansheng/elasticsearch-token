@@ -4656,6 +4656,11 @@ argument_list|()
 decl_stmt|;
 name|mockAppender
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|mockAppender
+operator|.
 name|addExpectation
 argument_list|(
 operator|new
@@ -5099,6 +5104,11 @@ argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
+name|mockAppender
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 name|mockAppender
 operator|.
@@ -5130,6 +5140,11 @@ operator|new
 name|MockLogAppender
 argument_list|()
 decl_stmt|;
+name|mockAppender
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|mockAppender
 operator|.
 name|addExpectation
@@ -5701,6 +5716,11 @@ name|clusterLogger
 argument_list|,
 name|mockAppender
 argument_list|)
+expr_stmt|;
+name|mockAppender
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 name|mockAppender

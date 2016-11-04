@@ -497,6 +497,11 @@ argument_list|()
 decl_stmt|;
 name|appender
 operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|appender
+operator|.
 name|addExpectation
 argument_list|(
 operator|new
@@ -574,6 +579,11 @@ argument_list|,
 name|appender
 argument_list|)
 expr_stmt|;
+name|appender
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|{
 name|reset
@@ -613,6 +623,11 @@ operator|new
 name|MockLogAppender
 argument_list|()
 decl_stmt|;
+name|appender
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|appender
 operator|.
 name|addExpectation
@@ -701,6 +716,11 @@ name|logger
 argument_list|,
 name|appender
 argument_list|)
+expr_stmt|;
+name|appender
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
