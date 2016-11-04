@@ -25028,7 +25028,7 @@ argument_list|)
 operator|.
 name|gte
 argument_list|(
-literal|"now-7d/d"
+literal|"now-12h"
 argument_list|)
 operator|.
 name|lte
@@ -25085,7 +25085,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3L
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
