@@ -17392,13 +17392,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/21147"
-argument_list|)
 DECL|method|testUpgradeOldIndex
 specifier|public
 name|void
