@@ -544,7 +544,7 @@ decl_stmt|;
 DECL|field|task
 specifier|protected
 specifier|final
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 decl_stmt|;
 DECL|field|threadPool
@@ -623,7 +623,7 @@ DECL|method|AbstractAsyncBulkByScrollAction
 specifier|public
 name|AbstractAsyncBulkByScrollAction
 parameter_list|(
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 parameter_list|,
 name|Logger

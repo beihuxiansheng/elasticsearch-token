@@ -1578,6 +1578,9 @@ name|i
 index|]
 operator|.
 name|discoveryNode
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|actionMasks
 argument_list|)

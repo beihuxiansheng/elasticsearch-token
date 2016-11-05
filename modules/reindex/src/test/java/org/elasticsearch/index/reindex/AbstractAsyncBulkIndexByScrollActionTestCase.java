@@ -126,7 +126,7 @@ name|threadPool
 decl_stmt|;
 DECL|field|task
 specifier|protected
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 decl_stmt|;
 annotation|@
@@ -149,7 +149,7 @@ expr_stmt|;
 name|task
 operator|=
 operator|new
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 argument_list|(
 literal|1
 argument_list|,
@@ -162,6 +162,8 @@ argument_list|,
 name|TaskId
 operator|.
 name|EMPTY_TASK_ID
+argument_list|,
+literal|null
 argument_list|,
 literal|0
 argument_list|)

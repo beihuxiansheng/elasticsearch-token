@@ -152,6 +152,20 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+operator|.
+name|ScriptField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptType
 import|;
 end_import
@@ -233,20 +247,6 @@ operator|.
 name|Method
 operator|.
 name|POST
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Script
-operator|.
-name|ScriptField
 import|;
 end_import
 

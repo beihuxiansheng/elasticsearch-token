@@ -272,6 +272,36 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Match all children of the provided task.       */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|setParentTaskId
+specifier|public
+specifier|final
+name|RequestBuilder
+name|setParentTaskId
+parameter_list|(
+name|TaskId
+name|taskId
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setParentTaskId
+argument_list|(
+name|taskId
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|RequestBuilder
+operator|)
+name|this
+return|;
+block|}
 block|}
 end_class
 

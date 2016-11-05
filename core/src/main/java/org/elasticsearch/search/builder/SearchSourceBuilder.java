@@ -3575,6 +3575,8 @@ argument_list|(
 name|queryBuilder
 argument_list|,
 name|postQueryBuilder
+argument_list|,
+name|sliceBuilder
 argument_list|)
 argument_list|)
 operator|)
@@ -3657,6 +3659,8 @@ argument_list|(
 name|queryBuilder
 argument_list|,
 name|postQueryBuilder
+argument_list|,
+name|sliceBuilder
 argument_list|)
 return|;
 block|}
@@ -3664,6 +3668,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Create a shallow copy of this builder with a new slice configuration.      */
+DECL|method|copyWithNewSlice
+specifier|public
+name|SearchSourceBuilder
+name|copyWithNewSlice
+parameter_list|(
+name|SliceBuilder
+name|slice
+parameter_list|)
+block|{
+return|return
+name|shallowCopy
+argument_list|(
+name|queryBuilder
+argument_list|,
+name|postQueryBuilder
+argument_list|,
+name|slice
+argument_list|)
+return|;
+block|}
+comment|/**      * Create a shallow copy of this source replaced {@link #queryBuilder}, {@link #postQueryBuilder}, and {@linkplain slice}. Used by      * {@link #rewrite(QueryShardContext)} and {@link #copyWithNewSlice(SliceBuilder)}.      */
 DECL|method|shallowCopy
 specifier|private
 name|SearchSourceBuilder
@@ -3674,6 +3700,9 @@ name|queryBuilder
 parameter_list|,
 name|QueryBuilder
 name|postQueryBuilder
+parameter_list|,
+name|SliceBuilder
+name|slice
 parameter_list|)
 block|{
 name|SearchSourceBuilder
@@ -3783,7 +3812,7 @@ name|rewrittenBuilder
 operator|.
 name|sliceBuilder
 operator|=
-name|sliceBuilder
+name|slice
 expr_stmt|;
 name|rewrittenBuilder
 operator|.

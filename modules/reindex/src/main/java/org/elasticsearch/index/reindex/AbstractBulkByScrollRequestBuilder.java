@@ -464,6 +464,28 @@ name|self
 argument_list|()
 return|;
 block|}
+comment|/**      * The number of slices this task should be divided into. Defaults to 1 meaning the task isn't sliced into subtasks.      */
+DECL|method|setSlices
+specifier|public
+name|Self
+name|setSlices
+parameter_list|(
+name|int
+name|workers
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setSlices
+argument_list|(
+name|workers
+argument_list|)
+expr_stmt|;
+return|return
+name|self
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

@@ -480,7 +480,7 @@ DECL|method|AbstractAsyncBulkIndexByScrollAction
 specifier|public
 name|AbstractAsyncBulkIndexByScrollAction
 parameter_list|(
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 parameter_list|,
 name|Logger
@@ -1841,7 +1841,7 @@ block|{
 DECL|field|task
 specifier|private
 specifier|final
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 decl_stmt|;
 DECL|field|scriptService
@@ -1886,7 +1886,7 @@ DECL|method|ScriptApplier
 specifier|public
 name|ScriptApplier
 parameter_list|(
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 parameter_list|,
 name|ScriptService
