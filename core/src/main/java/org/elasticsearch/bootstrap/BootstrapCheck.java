@@ -2172,6 +2172,12 @@ name|jvmVendor
 argument_list|()
 argument_list|)
 operator|&&
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+operator|==
+literal|false
+operator|&&
 name|isG1GCEnabled
 argument_list|()
 condition|)
