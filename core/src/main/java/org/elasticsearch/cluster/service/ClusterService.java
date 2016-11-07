@@ -2731,6 +2731,56 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/** asserts that the current thread is<b>NOT</b> the cluster state update thread */
+end_comment
+
+begin_function
+DECL|method|assertNotClusterStateUpdateThread
+specifier|public
+specifier|static
+name|boolean
+name|assertNotClusterStateUpdateThread
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
+block|{
+assert|assert
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|UPDATE_THREAD_NAME
+argument_list|)
+operator|==
+literal|false
+operator|:
+literal|"Expected current thread ["
+operator|+
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|+
+literal|"] to not be the cluster state update thread. Reason: ["
+operator|+
+name|reason
+operator|+
+literal|"]"
+assert|;
+return|return
+literal|true
+return|;
+block|}
+end_function
+
 begin_function
 DECL|method|getClusterName
 specifier|public
