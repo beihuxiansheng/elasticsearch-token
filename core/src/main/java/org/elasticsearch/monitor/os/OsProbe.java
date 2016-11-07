@@ -527,7 +527,7 @@ literal|1
 return|;
 block|}
 block|}
-comment|/**      * The system load averages as an array.      *      * On Windows, this method returns {@code null}.      *      * On Linux, this method returns the 1, 5, and 15-minute load      * averages.      *      * On macOS, this method should return the 1-minute load average.      *      * @return the available system load averages or {@code null}      */
+comment|/**      * The system load averages as an array.      *      * On Windows, this method returns {@code null}.      *      * On Linux, this method returns the 1, 5, and 15-minute load averages.      *      * On macOS, this method should return the 1-minute load average.      *      * @return the available system load averages or {@code null}      */
 DECL|method|getSystemLoadAverage
 specifier|final
 name|double
@@ -738,7 +738,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * The line from {@code /proc/loadavg}. The first three fields are      * the load averages averaged over 1, 5, and 15 minutes. The fourth      * field is two numbers separated by a slash, the first is the      * number of currently runnable scheduling entities, the second is      * the number of scheduling entities on the system. The fifth field      * is the PID of the most recently created process.      *      * @return the line from {@code /proc/loadavg} or {@code null}      */
+comment|/**      * The line from {@code /proc/loadavg}. The first three fields are the load averages averaged over 1, 5, and 15 minutes. The fourth      * field is two numbers separated by a slash, the first is the number of currently runnable scheduling entities, the second is the      * number of scheduling entities on the system. The fifth field is the PID of the most recently created process.      *      * @return the line from {@code /proc/loadavg} or {@code null}      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -845,7 +845,7 @@ argument_list|(
 literal|"\\d+:([^:,]+(?:,[^:,]+)?):(/.*)"
 argument_list|)
 decl_stmt|;
-comment|/**      * A map of the control groups to which the Elasticsearch process      * belongs. Note that this is a map because the control groups can      * vary from subsystem to subsystem. Additionally, this map can not      * be cached because a running process can be reclassified.      *      * @return a map from subsystems to the control group for the      * Elasticsearch process.      * @throws IOException if an I/O exception occurs reading      *                     {@code /proc/self/cgroup}      */
+comment|/**      * A map of the control groups to which the Elasticsearch process belongs. Note that this is a map because the control groups can vary      * from subsystem to subsystem. Additionally, this map can not be cached because a running process can be reclassified.      *      * @return a map from subsystems to the control group for the Elasticsearch process.      * @throws IOException if an I/O exception occurs reading {@code /proc/self/cgroup}      */
 DECL|method|getControlGroups
 specifier|private
 name|Map
@@ -968,7 +968,7 @@ return|return
 name|controllerMap
 return|;
 block|}
-comment|/**      * The lines from {@code /proc/self/cgroup}. This file represents      * the control groups to which the Elasticsearch process belongs.      * Each line in this file represents a control group hierarchy of      * the form      *<p>      * {@code \d+:([^:,]+(?:,[^:,]+)?):(/.*)}      *<p>      * with the first field representing the hierarchy ID, the second      * field representing a comma-separated list of the subsystems      * bound to the hierarchy, and the last field representing the      * control group.      *      * @return the lines from {@code /proc/self/cgroup}      * @throws IOException if an I/O exception occurs reading      *                     {@code /proc/self/cgroup}      */
+comment|/**      * The lines from {@code /proc/self/cgroup}. This file represents the control groups to which the Elasticsearch process belongs. Each      * line in this file represents a control group hierarchy of the form      *<p>      * {@code \d+:([^:,]+(?:,[^:,]+)?):(/.*)}      *<p>      * with the first field representing the hierarchy ID, the second field representing a comma-separated list of the subsystems bound to      * the hierarchy, and the last field representing the control group.      *      * @return the lines from {@code /proc/self/cgroup}      * @throws IOException if an I/O exception occurs reading {@code /proc/self/cgroup}      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1020,7 +1020,7 @@ return|return
 name|lines
 return|;
 block|}
-comment|/**      * The total CPU time in nanoseconds consumed by all tasks in the      * cgroup to which the Elasticsearch process belongs for the      * {@code cpuacct} subsystem.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the total CPU time in nanoseconds      * @throws IOException if an I/O exception occurs reading      *                     {@code cpuacct.usage} for the control group      */
+comment|/**      * The total CPU time in nanoseconds consumed by all tasks in the cgroup to which the Elasticsearch process belongs for the {@code      * cpuacct} subsystem.      *      * @param controlGroup the control group for the Elasticsearch process for the {@code cpuacct} subsystem      * @return the total CPU time in nanoseconds      * @throws IOException if an I/O exception occurs reading {@code cpuacct.usage} for the control group      */
 DECL|method|getCgroupCpuAcctUsageNanos
 specifier|private
 name|long
@@ -1045,7 +1045,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the line from {@code cpuacct.usage} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpuacct} subsystem. This line represents the total CPU      * time in nanoseconds consumed by all tasks in the same control      * group.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpuacct}      *                     subsystem      * @return the line from {@code cpuacct.usage}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpuacct.usage} for the control group      */
+comment|/**      * Returns the line from {@code cpuacct.usage} for the control group to which the Elasticsearch process belongs for the {@code cpuacct}      * subsystem. This line represents the total CPU time in nanoseconds consumed by all tasks in the same control group.      *      * @param controlGroup the control group to which the Elasticsearch process belongs for the {@code cpuacct} subsystem      * @return the line from {@code cpuacct.usage}      * @throws IOException if an I/O exception occurs reading {@code cpuacct.usage} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1080,7 +1080,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The total period of time in microseconds for how frequently the      * Elasticsearch control group's access to CPU resources will be      * reallocated.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CFS quota period in microseconds      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_period_us} for the control group      */
+comment|/**      * The total period of time in microseconds for how frequently the Elasticsearch control group's access to CPU resources will be      * reallocated.      *      * @param controlGroup the control group for the Elasticsearch process for the {@code cpuacct} subsystem      * @return the CFS quota period in microseconds      * @throws IOException if an I/O exception occurs reading {@code cpu.cfs_period_us} for the control group      */
 DECL|method|getCgroupCpuAcctCpuCfsPeriodMicros
 specifier|private
 name|long
@@ -1105,7 +1105,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the line from {@code cpu.cfs_period_us} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. This line represents the period of time      * in microseconds for how frequently the control group's access to      * CPU resources will be reallocated.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the line from {@code cpu.cfs_period_us}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_period_us} for the control group      */
+comment|/**      * Returns the line from {@code cpu.cfs_period_us} for the control group to which the Elasticsearch process belongs for the {@code cpu}      * subsystem. This line represents the period of time in microseconds for how frequently the control group's access to CPU resources      * will be reallocated.      *      * @param controlGroup the control group to which the Elasticsearch process belongs for the {@code cpu} subsystem      * @return the line from {@code cpu.cfs_period_us}      * @throws IOException if an I/O exception occurs reading {@code cpu.cfs_period_us} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1140,7 +1140,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The total time in microseconds that all tasks in the      * Elasticsearch control group can run during one period as      * specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CFS quota in microseconds      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_quota_us} for the control group      */
+comment|/**      * The total time in microseconds that all tasks in the Elasticsearch control group can run during one period as specified by {@code      * cpu.cfs_period_us}.      *      * @param controlGroup the control group for the Elasticsearch process for the {@code cpuacct} subsystem      * @return the CFS quota in microseconds      * @throws IOException if an I/O exception occurs reading {@code cpu.cfs_quota_us} for the control group      */
 DECL|method|getCgroupCpuAcctCpuCfsQuotaMicros
 specifier|private
 name|long
@@ -1165,7 +1165,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the line from {@code cpu.cfs_quota_us} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. This line represents the total time in      * microseconds that all tasks in the control group can run during      * one period as specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the line from {@code cpu.cfs_quota_us}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.cfs_quota_us} for the control group      */
+comment|/**      * Returns the line from {@code cpu.cfs_quota_us} for the control group to which the Elasticsearch process belongs for the {@code cpu}      * subsystem. This line represents the total time in microseconds that all tasks in the control group can run during one period as      * specified by {@code cpu.cfs_period_us}.      *      * @param controlGroup the control group to which the Elasticsearch process belongs for the {@code cpu} subsystem      * @return the line from {@code cpu.cfs_quota_us}      * @throws IOException if an I/O exception occurs reading {@code cpu.cfs_quota_us} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1200,7 +1200,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * The CPU time statistics for all tasks in the Elasticsearch      * control group.      *      * @param controlGroup the control group for the Elasticsearch      *                     process for the {@code cpuacct} subsystem      * @return the CPU time statistics      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.stat} for the control group      */
+comment|/**      * The CPU time statistics for all tasks in the Elasticsearch control group.      *      * @param controlGroup the control group for the Elasticsearch process for the {@code cpuacct} subsystem      * @return the CPU time statistics      * @throws IOException if an I/O exception occurs reading {@code cpu.stat} for the control group      */
 DECL|method|getCgroupCpuAcctCpuStat
 specifier|private
 name|OsStats
@@ -1360,7 +1360,7 @@ name|timeThrottledNanos
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the lines from {@code cpu.stat} for the control      * group to which the Elasticsearch process belongs for the      * {@code cpu} subsystem. These lines represent the CPU time      * statistics and have the form      *<blockquote><pre>      * nr_periods \d+      * nr_throttled \d+      * throttled_time \d+      *</pre></blockquote>      * where {@code nr_periods} is the number of period intervals      * as specified by {@code cpu.cfs_period_us} that have elapsed,      * {@code nr_throttled} is the number of times tasks in the given      * control group have been throttled, and {@code throttled_time} is      * the total time in nanoseconds for which tasks in the given      * control group have been throttled.      *      * @param controlGroup the control group to which the Elasticsearch      *                     process belongs for the {@code cpu}      *                     subsystem      * @return the lines from {@code cpu.stat}      * @throws IOException if an I/O exception occurs reading      *                     {@code cpu.stat} for the control group      */
+comment|/**      * Returns the lines from {@code cpu.stat} for the control group to which the Elasticsearch process belongs for the {@code cpu}      * subsystem. These lines represent the CPU time statistics and have the form      *<blockquote><pre>      * nr_periods \d+      * nr_throttled \d+      * throttled_time \d+      *</pre></blockquote>      * where {@code nr_periods} is the number of period intervals as specified by {@code cpu.cfs_period_us} that have elapsed, {@code      * nr_throttled} is the number of times tasks in the given control group have been throttled, and {@code throttled_time} is the total      * time in nanoseconds for which tasks in the given control group have been throttled.      *      * @param controlGroup the control group to which the Elasticsearch process belongs for the {@code cpu} subsystem      * @return the lines from {@code cpu.stat}      * @throws IOException if an I/O exception occurs reading {@code cpu.stat} for the control group      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1421,7 +1421,7 @@ return|return
 name|lines
 return|;
 block|}
-comment|/**      * Checks if cgroup stats are available by checking for the existence of {@code /proc/self/cgroup},      * {@code /sys/fs/cgroup/cpu}, and {@code /sys/fs/cgroup/cpuacct}.      *      * @return {@code true} if the stats are available, otherwise      * {@code false}      */
+comment|/**      * Checks if cgroup stats are available by checking for the existence of {@code /proc/self/cgroup}, {@code /sys/fs/cgroup/cpu}, and      * {@code /sys/fs/cgroup/cpuacct}.      *      * @return {@code true} if the stats are available, otherwise {@code false}      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1499,7 +1499,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Basic cgroup stats.      *      * @return basic cgroup stats, or {@code null} if an I/O exception      * occurred reading the cgroup stats      */
+comment|/**      * Basic cgroup stats.      *      * @return basic cgroup stats, or {@code null} if an I/O exception occurred reading the cgroup stats      */
 DECL|method|getCgroup
 specifier|private
 name|OsStats
@@ -1850,7 +1850,7 @@ name|cgroup
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a given method of the OperatingSystemMXBean,      * or null if the method is not found or unavailable.      */
+comment|/**      * Returns a given method of the OperatingSystemMXBean, or null if the method is not found or unavailable.      */
 DECL|method|getMethod
 specifier|private
 specifier|static
