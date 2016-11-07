@@ -942,16 +942,6 @@ name|float
 name|queryBoost
 parameter_list|()
 function_decl|;
-DECL|method|queryBoost
-specifier|public
-specifier|abstract
-name|SearchContext
-name|queryBoost
-parameter_list|(
-name|float
-name|queryBoost
-parameter_list|)
-function_decl|;
 DECL|method|getOriginNanoTime
 specifier|public
 specifier|abstract
