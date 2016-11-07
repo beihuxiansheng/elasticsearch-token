@@ -657,9 +657,6 @@ specifier|final
 name|TransportAddress
 name|transportAddress
 init|=
-operator|(
-name|TransportAddress
-operator|)
 name|randomFrom
 argument_list|(
 name|httpServerTransport
@@ -861,9 +858,6 @@ specifier|final
 name|TransportAddress
 name|transportAddress
 init|=
-operator|(
-name|TransportAddress
-operator|)
 name|randomFrom
 argument_list|(
 name|httpServerTransport
@@ -912,11 +906,6 @@ argument_list|(
 name|numberOfRequests
 argument_list|)
 decl_stmt|;
-name|int
-name|numberOfSlowRequests
-init|=
-literal|0
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -953,9 +942,6 @@ name|add
 argument_list|(
 name|i
 argument_list|)
-expr_stmt|;
-name|numberOfSlowRequests
-operator|++
 expr_stmt|;
 block|}
 else|else
@@ -1025,8 +1011,7 @@ name|responses
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// we can not be sure about the order of the responses, but the slow ones should
-comment|// come last
+comment|// we can not be sure about the order of the responses, but the slow ones should come last
 name|assertThat
 argument_list|(
 name|responseBodies
@@ -1048,7 +1033,10 @@ name|i
 operator|<
 name|numberOfRequests
 operator|-
-name|numberOfSlowRequests
+name|slowIds
+operator|.
+name|size
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -1091,7 +1079,10 @@ literal|0
 init|;
 name|i
 operator|<
-name|numberOfSlowRequests
+name|slowIds
+operator|.
+name|size
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -1107,7 +1098,10 @@ name|get
 argument_list|(
 name|numberOfRequests
 operator|-
-name|numberOfSlowRequests
+name|slowIds
+operator|.
+name|size
+argument_list|()
 operator|+
 name|i
 argument_list|)
