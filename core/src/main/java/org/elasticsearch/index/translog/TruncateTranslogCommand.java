@@ -268,6 +268,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|seqno
+operator|.
+name|SequenceNumbersService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1142,6 +1156,10 @@ argument_list|,
 literal|0
 argument_list|,
 name|translogGeneration
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|)
 decl_stmt|;
 name|Checkpoint

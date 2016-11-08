@@ -109,7 +109,7 @@ specifier|final
 name|GlobalCheckpointService
 name|globalCheckpointService
 decl_stmt|;
-comment|/**      * Initialize the sequence number service. The {@code maxSeqNo}      * should be set to the last sequence number assigned by this      * shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED},      * {@code localCheckpoint} should be set to the last known local      * checkpoint for this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED}, and      * {@code globalCheckpoint} should be set to the last known global      * checkpoint for this shard, or      * {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard this service is providing tracking      *                         local checkpoints for      * @param indexSettings    the index settings      * @param maxSeqNo         the last sequence number assigned by this      *                         shard, or      *                         {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint  the last known local checkpoint for this shard,      *                         or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param globalCheckpoint the last known global checkpoint for this shard,      *                         or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
+comment|/**      * Initialize the sequence number service. The {@code maxSeqNo} should be set to the last sequence number assigned by this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED}, {@code localCheckpoint} should be set to the last known local checkpoint for this      * shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}, and {@code globalCheckpoint} should be set to the last known global      * checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId                  the shard this service is providing tracking local checkpoints for      * @param indexSettings            the index settings      * @param maxSeqNo                 the last sequence number assigned by this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint          the last known local checkpoint for this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param globalCheckpoint         the last known global checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
 DECL|method|SequenceNumbersService
 specifier|public
 name|SequenceNumbersService
@@ -226,19 +226,13 @@ return|return
 operator|new
 name|SeqNoStats
 argument_list|(
-name|localCheckpointService
-operator|.
 name|getMaxSeqNo
 argument_list|()
 argument_list|,
-name|localCheckpointService
-operator|.
-name|getCheckpoint
+name|getLocalCheckpoint
 argument_list|()
 argument_list|,
-name|globalCheckpointService
-operator|.
-name|getCheckpoint
+name|getGlobalCheckpoint
 argument_list|()
 argument_list|)
 return|;
@@ -310,6 +304,20 @@ name|getCheckpoint
 argument_list|()
 return|;
 block|}
+comment|/**      * Scans through the currently known local checkpoint and updates the global checkpoint accordingly.      *      * @return true if the checkpoint has been updated or if it can not be updated since one of the local checkpoints      * of one of the active allocations is not known.      */
+DECL|method|updateGlobalCheckpointOnPrimary
+specifier|public
+name|boolean
+name|updateGlobalCheckpointOnPrimary
+parameter_list|()
+block|{
+return|return
+name|globalCheckpointService
+operator|.
+name|updateCheckpointOnPrimary
+argument_list|()
+return|;
+block|}
 comment|/**      * updates the global checkpoint on a replica shard (after it has been updated by the primary).      */
 DECL|method|updateGlobalCheckpointOnReplica
 specifier|public
@@ -356,20 +364,6 @@ argument_list|,
 name|initializingAllocationIds
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Scans through the currently known local checkpoint and updates the global checkpoint accordingly.      *      * @return true if the checkpoint has been updated or if it can not be updated since one of the local checkpoints      * of one of the active allocations is not known.      */
-DECL|method|updateGlobalCheckpointOnPrimary
-specifier|public
-name|boolean
-name|updateGlobalCheckpointOnPrimary
-parameter_list|()
-block|{
-return|return
-name|globalCheckpointService
-operator|.
-name|updateCheckpointOnPrimary
-argument_list|()
-return|;
 block|}
 block|}
 end_class

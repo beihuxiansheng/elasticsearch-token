@@ -558,6 +558,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|function
+operator|.
+name|LongSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Matcher
@@ -794,22 +806,34 @@ specifier|final
 name|TranslogConfig
 name|config
 decl_stmt|;
+DECL|field|globalCheckpointSupplier
+specifier|private
+specifier|final
+name|LongSupplier
+name|globalCheckpointSupplier
+decl_stmt|;
 DECL|field|translogUUID
 specifier|private
 specifier|final
 name|String
 name|translogUUID
 decl_stmt|;
-comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogConfig} has      * a non-null {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}. If the generation is null this method      * us destructive and will delete all files in the translog path given.      *      * @param config the configuration of this translog      * @param translogGeneration the translog generation to open. If this is<code>null</code> a new translog is created. If non-null      * the translog tries to open the given translog generation. The generation is treated as the last generation referenced      * form already committed data. This means all operations that have not yet been committed should be in the translog      * file referenced by this generation. The translog creation will fail if this generation can't be opened.      *      * @see TranslogConfig#getTranslogPath()      *      */
+comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogGeneration} is      * {@code null}. If the generation is {@code null} this method is destructive and will delete all files in the translog path given. If      * the generation is not {@code null}, this method tries to open the given translog generation. The generation is treated as the last      * generation referenced from already committed data. This means all operations that have not yet been committed should be in the      * translog file referenced by this generation. The translog creation will fail if this generation can't be opened.      *      * @param config                   the configuration of this translog      * @param translogGeneration       the translog generation to open      * @param globalCheckpointSupplier a supplier for the global checkpoint      */
 DECL|method|Translog
 specifier|public
 name|Translog
 parameter_list|(
+specifier|final
 name|TranslogConfig
 name|config
 parameter_list|,
+specifier|final
 name|TranslogGeneration
 name|translogGeneration
+parameter_list|,
+specifier|final
+name|LongSupplier
+name|globalCheckpointSupplier
 parameter_list|)
 throws|throws
 name|IOException
@@ -832,6 +856,12 @@ operator|.
 name|config
 operator|=
 name|config
+expr_stmt|;
+name|this
+operator|.
+name|globalCheckpointSupplier
+operator|=
+name|globalCheckpointSupplier
 expr_stmt|;
 if|if
 condition|(
@@ -932,7 +962,9 @@ name|Checkpoint
 name|checkpoint
 init|=
 name|readCheckpoint
-argument_list|()
+argument_list|(
+name|location
+argument_list|)
 decl_stmt|;
 specifier|final
 name|Path
@@ -1161,6 +1193,11 @@ argument_list|,
 literal|0
 argument_list|,
 name|generation
+argument_list|,
+name|globalCheckpointSupplier
+operator|.
+name|getAsLong
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2114,6 +2151,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * Creates a new translog for the specified generation.      *      * @param fileGeneration the translog generation      * @return a writer for the new translog      * @throws IOException if creating the translog failed      */
 DECL|method|createWriter
 name|TranslogWriter
 name|createWriter
@@ -2124,6 +2162,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|TranslogWriter
 name|newFile
 decl_stmt|;
@@ -2158,11 +2197,14 @@ name|config
 operator|.
 name|getBufferSize
 argument_list|()
+argument_list|,
+name|globalCheckpointSupplier
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|IOException
 name|e
 parameter_list|)
@@ -2457,6 +2499,35 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * The last synced checkpoint for this translog.      *      * @return the last synced checkpoint      */
+DECL|method|getLastSyncedGlobalCheckpoint
+specifier|public
+name|long
+name|getLastSyncedGlobalCheckpoint
+parameter_list|()
+block|{
+try|try
+init|(
+specifier|final
+name|ReleasableLock
+name|ignored
+init|=
+name|readLock
+operator|.
+name|acquire
+argument_list|()
+init|)
+block|{
+return|return
+name|current
+operator|.
+name|getLastSyncedCheckpoint
+argument_list|()
+operator|.
+name|globalCheckpoint
 return|;
 block|}
 block|}
@@ -2822,7 +2893,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Ensures that all locations in the given stream have been synced / written to the underlying storage.      * This method allows for internal optimization to minimize the amout of fsync operations if multiple      * locations must be synced.      *      * @return Returns<code>true</code> iff this call caused an actual sync operation otherwise<code>false</code>      */
+comment|/**      * Ensures that all locations in the given stream have been synced / written to the underlying storage.      * This method allows for internal optimization to minimize the amount of fsync operations if multiple      * locations must be synced.      *      * @return Returns<code>true</code> iff this call caused an actual sync operation otherwise<code>false</code>      */
 DECL|method|ensureSynced
 specifier|public
 name|boolean
@@ -6773,10 +6844,15 @@ return|;
 block|}
 comment|/** Reads and returns the current checkpoint */
 DECL|method|readCheckpoint
+specifier|static
 specifier|final
 name|Checkpoint
 name|readCheckpoint
-parameter_list|()
+parameter_list|(
+specifier|final
+name|Path
+name|location
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -6792,6 +6868,30 @@ argument_list|(
 name|CHECKPOINT_FILE_NAME
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Reads the sequence numbers global checkpoint from the translog checkpoint.      *      * @param location the location of the translog      * @return the global checkpoint      * @throws IOException if an I/O exception occurred reading the checkpoint      */
+DECL|method|readGlobalCheckpoint
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|readGlobalCheckpoint
+parameter_list|(
+specifier|final
+name|Path
+name|location
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|readCheckpoint
+argument_list|(
+name|location
+argument_list|)
+operator|.
+name|globalCheckpoint
 return|;
 block|}
 comment|/**      * Returns the translog uuid used to associate a lucene index with a translog.      */

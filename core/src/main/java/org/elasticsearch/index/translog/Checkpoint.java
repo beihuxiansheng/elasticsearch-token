@@ -144,6 +144,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|seqno
+operator|.
+name|SequenceNumbersService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -222,6 +236,11 @@ specifier|final
 name|long
 name|generation
 decl_stmt|;
+DECL|field|globalCheckpoint
+specifier|final
+name|long
+name|globalCheckpoint
+decl_stmt|;
 DECL|field|INITIAL_VERSION
 specifier|private
 specifier|static
@@ -232,6 +251,16 @@ init|=
 literal|1
 decl_stmt|;
 comment|// start with 1, just to recognize there was some magic serialization logic before
+DECL|field|CURRENT_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CURRENT_VERSION
+init|=
+literal|2
+decl_stmt|;
+comment|// introduction of global checkpoints
 DECL|field|CHECKPOINT_CODEC
 specifier|private
 specifier|static
@@ -241,6 +270,7 @@ name|CHECKPOINT_CODEC
 init|=
 literal|"ckp"
 decl_stmt|;
+comment|// size of 6.0.0 checkpoint
 DECL|field|FILE_SIZE
 specifier|static
 specifier|final
@@ -269,11 +299,51 @@ operator|.
 name|BYTES
 comment|// generation
 operator|+
+name|Long
+operator|.
+name|BYTES
+comment|// global checkpoint, introduced in 6.0.0
+operator|+
 name|CodecUtil
 operator|.
 name|footerLength
 argument_list|()
 decl_stmt|;
+comment|// size of 5.0.0 checkpoint
+DECL|field|V1_FILE_SIZE
+specifier|static
+specifier|final
+name|int
+name|V1_FILE_SIZE
+init|=
+name|CodecUtil
+operator|.
+name|headerLength
+argument_list|(
+name|CHECKPOINT_CODEC
+argument_list|)
+operator|+
+name|Integer
+operator|.
+name|BYTES
+comment|// ops
+operator|+
+name|Long
+operator|.
+name|BYTES
+comment|// offset
+operator|+
+name|Long
+operator|.
+name|BYTES
+comment|// generation
+operator|+
+name|CodecUtil
+operator|.
+name|footerLength
+argument_list|()
+decl_stmt|;
+comment|// nocommit: remove legacy support, not needed in 6.0.0
 DECL|field|LEGACY_NON_CHECKSUMMED_FILE_LENGTH
 specifier|static
 specifier|final
@@ -306,6 +376,9 @@ name|numOps
 parameter_list|,
 name|long
 name|generation
+parameter_list|,
+name|long
+name|globalCheckpoint
 parameter_list|)
 block|{
 name|this
@@ -325,6 +398,12 @@ operator|.
 name|generation
 operator|=
 name|generation
+expr_stmt|;
+name|this
+operator|.
+name|globalCheckpoint
+operator|=
+name|globalCheckpoint
 expr_stmt|;
 block|}
 DECL|method|write
@@ -359,6 +438,50 @@ argument_list|(
 name|generation
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|writeLong
+argument_list|(
+name|globalCheckpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|readChecksummedV2
+specifier|static
+name|Checkpoint
+name|readChecksummedV2
+parameter_list|(
+name|DataInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|Checkpoint
+argument_list|(
+name|in
+operator|.
+name|readLong
+argument_list|()
+argument_list|,
+name|in
+operator|.
+name|readInt
+argument_list|()
+argument_list|,
+name|in
+operator|.
+name|readLong
+argument_list|()
+argument_list|,
+name|in
+operator|.
+name|readLong
+argument_list|()
+argument_list|)
+return|;
 block|}
 comment|// reads a checksummed checkpoint introduced in ES 5.0.0
 DECL|method|readChecksummedV1
@@ -390,9 +513,14 @@ name|in
 operator|.
 name|readLong
 argument_list|()
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|)
 return|;
 block|}
+comment|// nocommit: remove legacy support, not needed in 6.0.0
 comment|// reads checkpoint from ES< 5.0.0
 DECL|method|readNonChecksummed
 specifier|static
@@ -423,6 +551,10 @@ name|in
 operator|.
 name|readLong
 argument_list|()
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|)
 return|;
 block|}
@@ -445,9 +577,13 @@ literal|", numOps="
 operator|+
 name|numOps
 operator|+
-literal|", translogFileGeneration= "
+literal|", translogFileGeneration="
 operator|+
 name|generation
+operator|+
+literal|", globalCheckpoint="
+operator|+
+name|globalCheckpoint
 operator|+
 literal|'}'
 return|;
@@ -523,6 +659,8 @@ name|indexInput
 argument_list|)
 return|;
 block|}
+else|else
+block|{
 comment|// We checksum the entire file before we even go and parse it. If it's corrupted we barf right here.
 name|CodecUtil
 operator|.
@@ -545,9 +683,24 @@ name|CHECKPOINT_CODEC
 argument_list|,
 name|INITIAL_VERSION
 argument_list|,
-name|INITIAL_VERSION
+name|CURRENT_VERSION
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|fileVersion
+operator|==
+name|INITIAL_VERSION
+condition|)
+block|{
+assert|assert
+name|indexInput
+operator|.
+name|length
+argument_list|()
+operator|==
+name|V1_FILE_SIZE
+assert|;
 return|return
 name|Checkpoint
 operator|.
@@ -556,6 +709,32 @@ argument_list|(
 name|indexInput
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+assert|assert
+name|fileVersion
+operator|==
+name|CURRENT_VERSION
+assert|;
+assert|assert
+name|indexInput
+operator|.
+name|length
+argument_list|()
+operator|==
+name|FILE_SIZE
+assert|;
+return|return
+name|Checkpoint
+operator|.
+name|readChecksummedV2
+argument_list|(
+name|indexInput
+argument_list|)
+return|;
+block|}
+block|}
 block|}
 block|}
 block|}
@@ -651,7 +830,7 @@ name|indexOutput
 argument_list|,
 name|CHECKPOINT_CODEC
 argument_list|,
-name|INITIAL_VERSION
+name|CURRENT_VERSION
 argument_list|)
 expr_stmt|;
 name|checkpoint
@@ -676,14 +855,14 @@ argument_list|()
 operator|==
 name|FILE_SIZE
 operator|:
-literal|"get you number straights. Bytes written: "
+literal|"get you numbers straight; bytes written: "
 operator|+
 name|indexOutput
 operator|.
 name|getFilePointer
 argument_list|()
 operator|+
-literal|" buffer size: "
+literal|", buffer size: "
 operator|+
 name|FILE_SIZE
 assert|;
@@ -695,7 +874,7 @@ argument_list|()
 operator|<
 literal|512
 operator|:
-literal|"checkpoint files have to be smaller 512b for atomic writes. size: "
+literal|"checkpoint files have to be smaller than 512 bytes for atomic writes; size: "
 operator|+
 name|indexOutput
 operator|.
