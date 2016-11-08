@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link org.apache.http.nio.protocol.HttpAsyncResponseConsumer}. Buffers the whole  * response content in heap memory, meaning that the size of the buffer is equal to the content-length of the response.  * Limits the size of responses that can be read to {@link #DEFAULT_BUFFER_LIMIT} by default, configurable value.  * Throws an exception in case the entity is longer than the configured buffer limit.  */
+comment|/**  * Default implementation of {@link org.apache.http.nio.protocol.HttpAsyncResponseConsumer}. Buffers the whole  * response content in heap memory, meaning that the size of the buffer is equal to the content-length of the response.  * Limits the size of responses that can be read based on a configurable argument. Throws an exception in case the entity is longer  * than the configured buffer limit.  */
 end_comment
 
 begin_class
@@ -223,20 +223,6 @@ argument_list|<
 name|HttpResponse
 argument_list|>
 block|{
-comment|//default buffer limit is 10MB
-DECL|field|DEFAULT_BUFFER_LIMIT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_BUFFER_LIMIT
-init|=
-literal|10
-operator|*
-literal|1024
-operator|*
-literal|1024
-decl_stmt|;
 DECL|field|bufferLimitBytes
 specifier|private
 specifier|final
@@ -255,19 +241,6 @@ specifier|volatile
 name|SimpleInputBuffer
 name|buf
 decl_stmt|;
-comment|/**      * Creates a new instance of this consumer with a buffer limit of {@link #DEFAULT_BUFFER_LIMIT}      */
-DECL|method|HeapBufferedAsyncResponseConsumer
-specifier|public
-name|HeapBufferedAsyncResponseConsumer
-parameter_list|()
-block|{
-name|this
-operator|.
-name|bufferLimitBytes
-operator|=
-name|DEFAULT_BUFFER_LIMIT
-expr_stmt|;
-block|}
 comment|/**      * Creates a new instance of this consumer with the provided buffer limit      */
 DECL|method|HeapBufferedAsyncResponseConsumer
 specifier|public
