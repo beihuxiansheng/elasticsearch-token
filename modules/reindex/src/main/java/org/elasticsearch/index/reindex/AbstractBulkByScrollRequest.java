@@ -1457,7 +1457,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|UnsupportedOperationException
+name|IllegalArgumentException
 argument_list|(
 literal|"Attempting to send sliced reindex-style request to a node that doesn't support "
 operator|+

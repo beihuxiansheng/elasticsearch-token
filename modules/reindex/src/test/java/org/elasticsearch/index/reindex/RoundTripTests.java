@@ -702,7 +702,7 @@ name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UnsupportedOperationException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
@@ -858,7 +858,7 @@ name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UnsupportedOperationException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
@@ -997,7 +997,7 @@ name|e
 init|=
 name|expectThrows
 argument_list|(
-name|UnsupportedOperationException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
