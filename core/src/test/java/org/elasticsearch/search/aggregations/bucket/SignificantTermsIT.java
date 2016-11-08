@@ -966,7 +966,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -1110,7 +1110,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"paul"
 argument_list|)
@@ -1250,7 +1250,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"weller"
 argument_list|)
@@ -1452,7 +1452,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"weller"
 argument_list|)
@@ -1594,7 +1594,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"weller"
 argument_list|)
@@ -1725,7 +1725,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"weller"
 argument_list|)
@@ -1864,7 +1864,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -1981,7 +1981,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -2087,7 +2087,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -2202,7 +2202,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -2319,7 +2319,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -2436,7 +2436,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -2581,7 +2581,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"weller"
 argument_list|)
@@ -2987,7 +2987,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -3099,7 +3099,7 @@ name|should
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"the"
 argument_list|)
@@ -3109,7 +3109,7 @@ name|should
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -3405,7 +3405,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)
@@ -3518,7 +3518,7 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-literal|"_all"
+literal|"description"
 argument_list|,
 literal|"terje"
 argument_list|)

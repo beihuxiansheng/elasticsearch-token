@@ -2967,7 +2967,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// mlt query with no field -> OK
+comment|// mlt query with no field -> No results (because _all is not enabled)
 name|searchResponse
 operator|=
 name|client
@@ -3009,7 +3009,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2L
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// mlt query with string fields
