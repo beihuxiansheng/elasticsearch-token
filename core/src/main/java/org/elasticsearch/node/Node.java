@@ -5197,6 +5197,9 @@ operator|.
 name|observedState
 argument_list|()
 operator|.
+name|getClusterState
+argument_list|()
+operator|.
 name|nodes
 argument_list|()
 operator|.

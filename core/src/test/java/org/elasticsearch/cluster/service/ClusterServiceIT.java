@@ -3509,14 +3509,12 @@ literal|null
 operator|&&
 name|clusterService1
 operator|.
-name|state
+name|clusterServiceState
 argument_list|()
 operator|.
-name|status
+name|getClusterStateStatus
 argument_list|()
 operator|==
-name|ClusterState
-operator|.
 name|ClusterStateStatus
 operator|.
 name|APPLIED
