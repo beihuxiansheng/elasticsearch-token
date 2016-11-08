@@ -2271,7 +2271,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**          * Returns the JVM vendor as the G1GC check only applies to Oracle/OpenJDK JVMs that have "Oracle Corporation" as the vendor.          *          * @return the JVM vendor          */
+comment|// visible for testing
 DECL|method|jvmVendor
 name|String
 name|jvmVendor
@@ -2283,7 +2283,7 @@ operator|.
 name|JVM_VENDOR
 return|;
 block|}
-comment|/**          * Whether or not G1GC is enabled. This method should only be invoked when the JVM vendor is "Oracle Corporation".          *          * @return whether or not G1GC is enabled          */
+comment|// visible for testing
 DECL|method|isG1GCEnabled
 name|boolean
 name|isG1GCEnabled
@@ -2313,7 +2313,7 @@ literal|"true"
 argument_list|)
 return|;
 block|}
-comment|/**          * The JVM version from the system property "java.vm.version". This method should only be invoked when the JVM vendor is          * "Oracle Corporation".          *          * @return the JVM version          */
+comment|// visible for testing
 DECL|method|jvmVersion
 name|String
 name|jvmVersion
@@ -2334,7 +2334,7 @@ operator|.
 name|JVM_VERSION
 return|;
 block|}
-comment|/**          * Whether or not the Java version is Java 8. This method should only be invoked when the JVM vendor is "Oracle Corporation".          *          * @return whether or not the Java version is Java 8.          */
+comment|// visible for testing
 DECL|method|isJava8
 name|boolean
 name|isJava8
