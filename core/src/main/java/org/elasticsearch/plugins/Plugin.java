@@ -218,6 +218,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|DiscoveryModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexModule
@@ -622,7 +634,7 @@ name|ActionModule
 name|module
 parameter_list|)
 block|{}
-comment|/**      * Old-style action extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link SearchPlugin} instead      */
+comment|/**      * Old-style search extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link SearchPlugin} instead      */
 annotation|@
 name|Deprecated
 DECL|method|onModule
@@ -635,7 +647,7 @@ name|SearchModule
 name|module
 parameter_list|)
 block|{}
-comment|/**      * Old-style action extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link NetworkPlugin} instead      */
+comment|/**      * Old-style network extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link NetworkPlugin} instead      */
 annotation|@
 name|Deprecated
 DECL|method|onModule
@@ -645,6 +657,19 @@ name|void
 name|onModule
 parameter_list|(
 name|NetworkModule
+name|module
+parameter_list|)
+block|{}
+comment|/**      * Old-style discovery extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated implement {@link DiscoveryPlugin} instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|DiscoveryModule
 name|module
 parameter_list|)
 block|{}

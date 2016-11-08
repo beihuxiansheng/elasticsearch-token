@@ -319,28 +319,8 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-comment|// look at hosts provider setting to avoid fallback as default
-name|String
-name|hostsProvider
-init|=
-name|settings
-operator|.
-name|get
-argument_list|(
-name|DiscoveryModule
-operator|.
-name|DISCOVERY_HOSTS_PROVIDER_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|hostsProvider
-operator|==
-literal|null
-operator|&&
 name|discoveryType
 operator|.
 name|equals
@@ -376,6 +356,20 @@ operator|+
 literal|": file\" instead"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|DiscoveryModule
+operator|.
+name|DISCOVERY_HOSTS_PROVIDER_SETTING
+operator|.
+name|exists
+argument_list|(
+name|settings
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
 return|return
 name|Settings
 operator|.
@@ -397,6 +391,7 @@ operator|.
 name|build
 argument_list|()
 return|;
+block|}
 block|}
 return|return
 name|Settings
