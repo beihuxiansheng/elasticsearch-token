@@ -507,6 +507,12 @@ name|unmodifiableList
 argument_list|(
 name|Arrays
 operator|.
+expr|<
+name|Supplier
+argument_list|<
+name|AllocationCommand
+argument_list|>
+operator|>
 name|asList
 argument_list|(
 parameter_list|()
