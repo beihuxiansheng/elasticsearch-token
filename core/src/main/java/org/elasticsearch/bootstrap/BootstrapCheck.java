@@ -2172,11 +2172,8 @@ name|jvmVendor
 argument_list|()
 argument_list|)
 operator|&&
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-operator|==
-literal|false
+name|isJava8
+argument_list|()
 operator|&&
 name|isG1GCEnabled
 argument_list|()
@@ -2335,6 +2332,23 @@ return|return
 name|Constants
 operator|.
 name|JVM_VERSION
+return|;
+block|}
+comment|// visible for tests
+DECL|method|isJava8
+name|boolean
+name|isJava8
+parameter_list|()
+block|{
+return|return
+name|Constants
+operator|.
+name|JVM_SPEC_VERSION
+operator|.
+name|equals
+argument_list|(
+literal|"1.8"
+argument_list|)
 return|;
 block|}
 annotation|@
