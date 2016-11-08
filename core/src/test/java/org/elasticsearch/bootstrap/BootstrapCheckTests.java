@@ -3459,7 +3459,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|// if not java 8, nothing should happen
+comment|// if not Java 8, nothing should happen
 name|BootstrapCheck
 operator|.
 name|check
