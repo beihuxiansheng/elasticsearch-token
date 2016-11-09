@@ -1079,7 +1079,7 @@ argument_list|)
 decl_stmt|;
 comment|// Mapping types the "all-ish" query can be executed against
 DECL|field|ALLOWED_QUERY_MAPPER_TYPES
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|Set
@@ -5426,8 +5426,10 @@ name|useAllFields
 argument_list|)
 return|;
 block|}
+comment|/**      * Given a shard context, return a map of all fields in the mappings that      * can be queried. The map will be field name to a float of 1.0f.      */
 DECL|method|allQueryableDefaultFields
-specifier|private
+specifier|public
+specifier|static
 name|Map
 argument_list|<
 name|String
@@ -5617,6 +5619,41 @@ name|TreeMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|(
+name|useAllFields
+operator|!=
+literal|null
+operator|&&
+name|useAllFields
+operator|)
+operator|&&
+operator|(
+name|fieldsAndWeights
+operator|.
+name|size
+argument_list|()
+operator|!=
+literal|0
+operator|||
+name|this
+operator|.
+name|defaultField
+operator|!=
+literal|null
+operator|)
+condition|)
+block|{
+throw|throw
+name|addValidationError
+argument_list|(
+literal|"cannot use [all_fields] parameter in conjunction with [default_field] or [fields]"
+argument_list|,
+literal|null
+argument_list|)
+throw|;
+block|}
 comment|// If explicitly required to use all fields, use all fields, OR:
 comment|// Automatically determine the fields (to replace the _all field) if all of the following are true:
 comment|// - The _all field is disabled,
