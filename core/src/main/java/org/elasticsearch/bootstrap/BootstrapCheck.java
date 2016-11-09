@@ -1197,7 +1197,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max file descriptors [%d] for elasticsearch process likely too low, increase to at least [%d]"
+literal|"max file descriptors [%d] for elasticsearch process is too low, increase to at least [%d]"
 argument_list|,
 name|getMaxFileDescriptorCount
 argument_list|()
@@ -1350,7 +1350,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max number of threads [%d] for user [%s] likely too low, increase to at least [%d]"
+literal|"max number of threads [%d] for user [%s] is too low, increase to at least [%d]"
 argument_list|,
 name|getMaxNumberOfThreads
 argument_list|()
@@ -1429,7 +1429,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max size virtual memory [%d] for user [%s] likely too low, increase to [unlimited]"
+literal|"max size virtual memory [%d] for user [%s] is too low, increase to [unlimited]"
 argument_list|,
 name|getMaxSizeVirtualMemory
 argument_list|()
@@ -1526,7 +1526,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max virtual memory areas vm.max_map_count [%d] likely too low, increase to at least [%d]"
+literal|"max virtual memory areas vm.max_map_count [%d] is too low, increase to at least [%d]"
 argument_list|,
 name|getMaxMapCount
 argument_list|()
