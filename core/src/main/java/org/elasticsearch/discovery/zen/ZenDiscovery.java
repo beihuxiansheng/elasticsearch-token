@@ -1133,8 +1133,6 @@ specifier|volatile
 name|NodeRemovalClusterStateTaskExecutor
 name|nodeRemovalExecutor
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|ZenDiscovery
 specifier|public
 name|ZenDiscovery
