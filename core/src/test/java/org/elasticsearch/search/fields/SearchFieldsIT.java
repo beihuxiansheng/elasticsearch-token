@@ -3272,7 +3272,7 @@ literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
 name|response
 operator|.
@@ -3286,11 +3286,6 @@ argument_list|)
 operator|.
 name|hasSource
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat

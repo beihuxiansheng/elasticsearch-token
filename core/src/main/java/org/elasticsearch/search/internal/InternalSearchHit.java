@@ -1200,7 +1200,7 @@ parameter_list|()
 block|{
 return|return
 name|source
-operator|==
+operator|!=
 literal|null
 return|;
 block|}
