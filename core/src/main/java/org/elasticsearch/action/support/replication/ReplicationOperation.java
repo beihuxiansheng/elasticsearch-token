@@ -773,28 +773,6 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"[{}] op [{}] completed on primary for request [{}]"
-argument_list|,
-name|primaryId
-argument_list|,
-name|opType
-argument_list|,
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 specifier|final
 name|ReplicaRequest
 name|replicaRequest
@@ -821,6 +799,28 @@ literal|0
 operator|:
 literal|"replicaRequest doesn't have a primary term"
 assert|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] op [{}] completed on primary for request [{}]"
+argument_list|,
+name|primaryId
+argument_list|,
+name|opType
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we have to get a new state after successfully indexing into the primary in order to honour recovery semantics.
 comment|// we have to make sure that every operation indexed into the primary after recovery start will also be replicated
 comment|// to the recovery target. If we use an old cluster state, we may miss a relocation that has started since then.
