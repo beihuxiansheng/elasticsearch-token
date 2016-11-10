@@ -273,7 +273,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"called onModule twice for geoip plugin!!"
+literal|"getProcessors called twice for geoip plugin!!"
 argument_list|)
 throw|;
 block|}

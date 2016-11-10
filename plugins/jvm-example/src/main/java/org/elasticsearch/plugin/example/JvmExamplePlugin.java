@@ -272,15 +272,6 @@ operator|.
 name|EMPTY
 return|;
 block|}
-DECL|method|onModule
-specifier|public
-name|void
-name|onModule
-parameter_list|(
-name|RepositoriesModule
-name|repositoriesModule
-parameter_list|)
-block|{     }
 comment|/**      * Module declaring some example configuration and a _cat action that uses      * it.      */
 DECL|class|ConfiguredExampleModule
 specifier|public
