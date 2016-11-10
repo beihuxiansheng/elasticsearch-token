@@ -7112,7 +7112,7 @@ name|void
 name|beforeIndexDeletion
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// Check that the operations counter on index shard has reached 0.
 comment|// The assumption here is that after a test there are no ongoing write operations.
@@ -7313,7 +7313,12 @@ name|void
 name|assertShardIndexCounter
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
+block|{
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
 block|{
 specifier|final
 name|Collection
@@ -7487,6 +7492,12 @@ decl_stmt|;
 name|XContentBuilder
 name|builder
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|builder
+operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -7505,7 +7516,7 @@ argument_list|)
 operator|.
 name|endObject
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 throw|throw
 operator|new
 name|AssertionError
@@ -7536,9 +7547,33 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"caught exception while building response ["
+operator|+
+name|response
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|randomlyResetClients
 specifier|private

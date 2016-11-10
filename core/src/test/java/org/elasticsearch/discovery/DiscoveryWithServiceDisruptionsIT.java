@@ -1522,7 +1522,7 @@ name|void
 name|beforeIndexDeletion
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(
