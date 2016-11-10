@@ -3062,7 +3062,7 @@ name|TestLogging
 argument_list|(
 literal|"_root:DEBUG,org.elasticsearch.action.index:TRACE,org.elasticsearch.action.get:TRACE,discovery:TRACE,org.elasticsearch.cluster.service:TRACE,"
 operator|+
-literal|"org.elasticsearch.indices.recovery:TRACE,org.elasticsearch.indices.cluster:TRACE"
+literal|"org.elasticsearch.indices.recovery:TRACE,org.elasticsearch.indices.cluster:TRACE,org.elasticsearch.index.shard:TRACE"
 argument_list|)
 DECL|method|testAckedIndexing
 specifier|public
