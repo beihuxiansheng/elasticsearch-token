@@ -1892,7 +1892,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Integer
+name|Object
 argument_list|>
 name|parameters
 init|=
@@ -1915,13 +1915,13 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"mygroovyscript"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
 argument_list|,
 literal|"groovy"
+argument_list|,
+literal|"mygroovyscript"
 argument_list|,
 name|parameters
 argument_list|)

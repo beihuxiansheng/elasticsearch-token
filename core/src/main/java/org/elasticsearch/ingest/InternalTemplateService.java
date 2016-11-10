@@ -202,13 +202,13 @@ init|=
 operator|new
 name|Script
 argument_list|(
-name|template
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"mustache"
+argument_list|,
+name|template
 argument_list|,
 name|Collections
 operator|.

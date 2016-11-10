@@ -4746,8 +4746,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value + 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4755,6 +4753,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value + 1"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -5429,8 +5429,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value + 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5438,6 +5436,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value + 1"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -5743,8 +5743,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"doc['l_value'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5752,6 +5750,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['l_value'].value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -5945,8 +5945,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"doc['l_values']"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5954,6 +5952,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['l_values']"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -8284,8 +8284,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value + 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -8293,6 +8291,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value + 1"
 argument_list|,
 name|emptyMap
 argument_list|()

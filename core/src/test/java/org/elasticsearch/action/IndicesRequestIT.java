@@ -2347,8 +2347,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx.op='delete'"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2356,6 +2354,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"ctx.op='delete'"
 argument_list|,
 name|Collections
 operator|.

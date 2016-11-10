@@ -204,8 +204,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -213,6 +211,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+name|script
 argument_list|,
 name|params
 argument_list|)
@@ -356,9 +356,7 @@ literal|"    \"script\" : {\n"
 operator|+
 literal|"      \"inline\" : \"5\",\n"
 operator|+
-literal|"      \"lang\" : \"mockscript\",\n"
-operator|+
-literal|"      \"params\" : { }\n"
+literal|"      \"lang\" : \"mockscript\"\n"
 operator|+
 literal|"    },\n"
 operator|+
@@ -451,7 +449,7 @@ operator|.
 name|script
 argument_list|()
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -476,9 +474,7 @@ name|singleton
 argument_list|(
 name|Script
 operator|.
-name|ScriptField
-operator|.
-name|PARAMS
+name|PARAMS_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()

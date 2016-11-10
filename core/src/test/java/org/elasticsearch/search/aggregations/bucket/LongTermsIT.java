@@ -3846,8 +3846,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value + 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3856,7 +3854,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value + 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4284,8 +4287,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4294,7 +4295,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value - 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4530,8 +4536,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"floor(_value / 1000 + 1)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4540,7 +4544,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"floor(_value / 1000 + 1)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4681,12 +4690,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['"
-operator|+
-name|SINGLE_VALUED_FIELD_NAME
-operator|+
-literal|"'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4695,7 +4698,16 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['"
+operator|+
+name|SINGLE_VALUED_FIELD_NAME
+operator|+
+literal|"'].value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -4893,12 +4905,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['"
-operator|+
-name|MULTI_VALUED_FIELD_NAME
-operator|+
-literal|"']"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4907,7 +4913,16 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['"
+operator|+
+name|MULTI_VALUED_FIELD_NAME
+operator|+
+literal|"']"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -9668,8 +9683,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value + 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -9678,7 +9691,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value + 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

@@ -942,9 +942,7 @@ name|asList
 argument_list|(
 name|Script
 operator|.
-name|ScriptField
-operator|.
-name|PARAMS
+name|PARAMS_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1300,8 +1298,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1309,6 +1305,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+name|script
 argument_list|,
 name|params
 argument_list|)

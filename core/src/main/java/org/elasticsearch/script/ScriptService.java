@@ -1817,14 +1817,14 @@ operator|.
 name|getType
 argument_list|()
 decl_stmt|;
-comment|//script.getScript() could return either a name or code for a script,
+comment|//script.getIdOrCode() could return either a name or code for a script,
 comment|//but we check for a file script name first and an indexed script name second
 name|String
 name|name
 init|=
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 decl_stmt|;
 if|if
@@ -1919,13 +1919,13 @@ return|return
 name|compiledScript
 return|;
 block|}
-comment|//script.getScript() will be code if the script type is inline
+comment|//script.getIdOrCode() will be code if the script type is inline
 name|String
 name|code
 init|=
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 decl_stmt|;
 if|if
@@ -2968,14 +2968,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 name|scriptContext
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
 parameter_list|)
 block|{
 return|return
@@ -2987,7 +2979,10 @@ name|script
 argument_list|,
 name|scriptContext
 argument_list|,
-name|params
+name|script
+operator|.
+name|getOptions
+argument_list|()
 argument_list|)
 argument_list|,
 name|script
@@ -3012,7 +3007,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|vars
+name|params
 parameter_list|)
 block|{
 return|return
@@ -3028,7 +3023,7 @@ name|executable
 argument_list|(
 name|compiledScript
 argument_list|,
-name|vars
+name|params
 argument_list|)
 return|;
 block|}
@@ -3046,14 +3041,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 name|scriptContext
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
 parameter_list|)
 block|{
 name|CompiledScript
@@ -3065,7 +3052,10 @@ name|script
 argument_list|,
 name|scriptContext
 argument_list|,
-name|params
+name|script
+operator|.
+name|getOptions
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

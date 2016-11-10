@@ -346,8 +346,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"script1"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -356,7 +354,12 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"script1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|CompiledScript
@@ -505,8 +508,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"script1"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -515,7 +516,12 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"script1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for

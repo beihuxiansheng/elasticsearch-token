@@ -652,7 +652,7 @@ name|randomValueOtherThan
 argument_list|(
 name|collateQuery
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 parameter_list|()

@@ -1908,13 +1908,13 @@ operator|=
 operator|new
 name|Script
 argument_list|(
-name|collateQuery
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"mustache"
+argument_list|,
+name|collateQuery
 argument_list|,
 name|Collections
 operator|.
@@ -3591,11 +3591,6 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|suggestionContext

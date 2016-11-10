@@ -283,6 +283,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -862,15 +872,20 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"test script"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
 argument_list|,
-literal|null
+literal|"test script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -903,15 +918,20 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"test script"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|null
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
 argument_list|,
-literal|null
+literal|"test script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

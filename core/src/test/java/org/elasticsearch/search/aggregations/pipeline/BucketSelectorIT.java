@@ -1441,8 +1441,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1451,7 +1449,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -1695,8 +1698,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? true : (_value0< 10000)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1705,7 +1706,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? true : (_value0< 10000)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -1949,8 +1955,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0> 10000)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1959,7 +1963,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? false : (_value0> 10000)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -2115,8 +2124,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0< _value1)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2125,7 +2132,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? false : (_value0< _value1)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -2369,8 +2381,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0> 100)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2379,7 +2389,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? false : (_value0> 100)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -2577,8 +2592,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(my_value1) ? false : (my_value1 + my_value2> 100)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2587,7 +2600,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(my_value1) ? false : (my_value1 + my_value2> 100)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Map
@@ -2860,8 +2878,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> threshold)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2869,6 +2885,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> threshold)"
 argument_list|,
 name|Collections
 operator|.
@@ -3121,8 +3139,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1> 100"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3131,7 +3147,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1> 100"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3419,8 +3440,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"my_script"
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -3429,7 +3448,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"my_script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3675,8 +3699,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3685,7 +3707,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3833,8 +3860,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3843,7 +3868,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse

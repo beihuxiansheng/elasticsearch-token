@@ -1185,8 +1185,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1195,7 +1193,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx._source.field += 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|bulkResponse
@@ -3233,8 +3236,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"throw script exception on unknown var"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3243,7 +3244,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"throw script exception on unknown var"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3281,8 +3287,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3291,7 +3295,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx._source.field += 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3329,8 +3338,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"throw script exception on unknown var"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3339,7 +3346,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"throw script exception on unknown var"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3647,8 +3659,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.counter += 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3657,7 +3667,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx._source.counter += 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BulkRequestBuilder
@@ -4802,8 +4817,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx.op = \"none\""
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4812,7 +4825,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx.op = \"none\""
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5037,8 +5055,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx.op = \"delete\""
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5047,7 +5063,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx.op = \"delete\""
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

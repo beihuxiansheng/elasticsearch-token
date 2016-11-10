@@ -1917,8 +1917,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1926,6 +1924,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value - 1"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2075,8 +2075,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - dec"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2084,6 +2082,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value - dec"
 argument_list|,
 name|params
 argument_list|)
@@ -2322,8 +2322,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2331,6 +2329,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value - 1"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2456,8 +2456,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"20 - _value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2465,6 +2463,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"20 - _value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2614,8 +2614,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - dec"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2623,6 +2621,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value - dec"
 argument_list|,
 name|params
 argument_list|)
@@ -2744,8 +2744,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"doc['value'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2753,6 +2751,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['value'].value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2844,8 +2844,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['value'].value - dec"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2853,6 +2851,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['value'].value - dec"
 argument_list|,
 name|params
 argument_list|)
@@ -2993,8 +2993,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['values'].values"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3002,6 +3000,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['values'].values"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3952,8 +3952,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3961,6 +3959,8 @@ argument_list|,
 name|AggregationTestScriptsPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value - 1"
 argument_list|,
 name|emptyMap
 argument_list|()

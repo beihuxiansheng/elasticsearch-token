@@ -1789,8 +1789,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg['count'] = 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1799,7 +1797,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg['count'] = 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -2148,8 +2151,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(1)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2157,6 +2158,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_agg.add(1)"
 argument_list|,
 name|params
 argument_list|)
@@ -2547,8 +2550,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2557,7 +2558,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2566,8 +2572,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2576,7 +2580,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2906,8 +2915,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(1)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2916,7 +2923,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(1)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -2925,8 +2937,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2935,7 +2945,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3315,8 +3330,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3325,7 +3338,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -3334,8 +3352,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3344,7 +3360,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -3353,8 +3374,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3363,7 +3382,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3749,8 +3773,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3759,7 +3781,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -3768,8 +3795,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3778,7 +3803,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -3787,8 +3817,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3797,7 +3825,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -3806,8 +3839,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3816,7 +3847,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -4129,8 +4165,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4139,7 +4173,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -4148,8 +4187,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4158,7 +4195,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -4167,8 +4209,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4177,7 +4217,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -4186,8 +4231,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4196,7 +4239,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -4627,8 +4675,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4637,7 +4683,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -4646,8 +4697,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4656,7 +4705,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -4665,8 +4719,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4675,7 +4727,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -4974,8 +5031,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4984,7 +5039,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -4993,8 +5053,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5003,7 +5061,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -5012,8 +5075,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5022,7 +5083,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -5323,8 +5389,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5333,7 +5397,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -5342,8 +5411,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5352,7 +5419,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -5668,8 +5740,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5678,7 +5748,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -5687,8 +5762,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5697,7 +5770,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -5706,8 +5784,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5716,7 +5792,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -5725,8 +5806,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"multiplied sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5734,6 +5813,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"multiplied sum aggs of agg values as a new aggregation"
 argument_list|,
 name|reduceParams
 argument_list|)
@@ -6072,8 +6153,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"initScript_stored"
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -6082,7 +6161,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"initScript_stored"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -6091,8 +6175,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"mapScript_stored"
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -6101,7 +6183,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"mapScript_stored"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -6110,8 +6197,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"combineScript_stored"
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -6120,7 +6205,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"combineScript_stored"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -6129,8 +6219,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"reduceScript_stored"
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -6139,7 +6227,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"reduceScript_stored"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6425,8 +6518,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"init_script"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -6435,7 +6526,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"init_script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -6444,8 +6540,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"map_script"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -6454,7 +6548,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"map_script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -6463,8 +6562,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"combine_script"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -6473,7 +6570,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"combine_script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -6482,8 +6584,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"reduce_script"
-argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -6492,7 +6592,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"reduce_script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6750,8 +6855,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -6760,7 +6863,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -6769,8 +6877,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -6779,7 +6885,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -6788,8 +6899,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -6798,7 +6907,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -6807,8 +6921,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -6817,7 +6929,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -7280,8 +7397,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"vars.multiplier = 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -7290,7 +7405,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"vars.multiplier = 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -7299,8 +7419,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg.add(vars.multiplier)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -7309,7 +7427,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg.add(vars.multiplier)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -7318,8 +7441,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -7328,7 +7449,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -7337,8 +7463,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"sum aggs of agg values as a new aggregation"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -7347,7 +7471,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"sum aggs of agg values as a new aggregation"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -7613,8 +7742,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"_agg['count'] = 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -7623,7 +7750,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_agg['count'] = 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertAcked

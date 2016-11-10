@@ -781,8 +781,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -791,7 +789,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Script
@@ -800,8 +803,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"get score value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -810,7 +811,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"get score value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -935,8 +941,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"get score value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -945,7 +949,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"get score value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -1183,8 +1192,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['random_score']"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1193,7 +1200,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['random_score']"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -1510,8 +1522,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"return (doc['num'].value)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1520,7 +1530,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"return (doc['num'].value)"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|int

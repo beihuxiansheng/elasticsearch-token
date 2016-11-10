@@ -355,8 +355,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"my"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -365,7 +363,12 @@ name|NativeScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"my"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 name|ScriptContext
@@ -373,11 +376,6 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -630,8 +628,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"my"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -640,7 +636,12 @@ name|NativeScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"my"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 name|scriptContext

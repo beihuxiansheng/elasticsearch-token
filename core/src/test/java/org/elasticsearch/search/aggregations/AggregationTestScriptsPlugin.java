@@ -140,13 +140,13 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"decrement all values"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 name|NAME
+argument_list|,
+literal|"decrement all values"
 argument_list|,
 name|singletonMap
 argument_list|(
@@ -591,7 +591,7 @@ name|put
 argument_list|(
 name|DECREMENT_ALL_VALUES
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|vars

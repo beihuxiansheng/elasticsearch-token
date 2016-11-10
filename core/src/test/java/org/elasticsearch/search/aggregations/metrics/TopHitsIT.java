@@ -5201,8 +5201,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"5"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5210,6 +5208,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+literal|"5"
 argument_list|,
 name|Collections
 operator|.
@@ -8671,8 +8671,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"5"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -8680,6 +8678,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+literal|"5"
 argument_list|,
 name|Collections
 operator|.
@@ -9973,8 +9973,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"5"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -9983,7 +9981,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"5"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10106,8 +10109,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"5"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -10116,7 +10117,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"5"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 name|ScriptSortType

@@ -920,7 +920,7 @@ name|request
 operator|.
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2107,7 +2107,7 @@ name|request
 operator|.
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2205,11 +2205,6 @@ operator|.
 name|Standard
 operator|.
 name|UPDATE
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|executableScript

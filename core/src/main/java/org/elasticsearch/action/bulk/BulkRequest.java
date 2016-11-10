@@ -967,7 +967,7 @@ operator|.
 name|script
 argument_list|()
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 operator|.
 name|length

@@ -152,6 +152,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -447,7 +457,7 @@ name|Script
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 operator|+
 literal|"_suffix"
@@ -1094,7 +1104,7 @@ operator|.
 name|script
 argument_list|()
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1290,7 +1300,7 @@ operator|.
 name|script
 argument_list|()
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1309,7 +1319,7 @@ name|getLang
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
 name|builder
 operator|.
@@ -1317,6 +1327,11 @@ name|script
 argument_list|()
 operator|.
 name|getParams
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
 argument_list|()
 argument_list|)
 expr_stmt|;

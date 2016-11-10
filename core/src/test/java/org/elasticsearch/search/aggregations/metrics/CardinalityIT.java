@@ -2282,8 +2282,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"doc['str_value'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2291,6 +2289,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['str_value'].value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2392,8 +2392,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"doc['str_values'].values"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2401,6 +2399,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc['str_values'].values"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2477,8 +2477,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc[' + singleNumericField() + '].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2486,6 +2484,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"doc[' + singleNumericField() + '].value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2592,8 +2592,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc[' + multiNumericField(false) + '].values"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2602,7 +2600,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc[' + multiNumericField(false) + '].values"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -2740,8 +2743,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2749,6 +2750,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2855,8 +2858,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2864,6 +2865,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2973,8 +2976,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2982,6 +2983,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3091,8 +3094,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3100,6 +3101,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value"
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3522,8 +3525,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3531,6 +3532,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"_value"
 argument_list|,
 name|emptyMap
 argument_list|()

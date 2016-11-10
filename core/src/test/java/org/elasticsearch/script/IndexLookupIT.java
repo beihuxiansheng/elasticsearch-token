@@ -5310,8 +5310,6 @@ return|return
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5320,7 +5318,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 return|;
 block|}

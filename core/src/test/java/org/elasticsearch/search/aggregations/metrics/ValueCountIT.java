@@ -1304,8 +1304,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1314,7 +1312,12 @@ name|FieldValueScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1417,8 +1420,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"values"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1427,7 +1428,12 @@ name|FieldValueScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"values"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1547,8 +1553,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|""
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1556,6 +1560,8 @@ argument_list|,
 name|FieldValueScriptEngine
 operator|.
 name|NAME
+argument_list|,
+literal|""
 argument_list|,
 name|params
 argument_list|)
@@ -1677,8 +1683,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|""
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1686,6 +1690,8 @@ argument_list|,
 name|FieldValueScriptEngine
 operator|.
 name|NAME
+argument_list|,
+literal|""
 argument_list|,
 name|params
 argument_list|)
@@ -1967,8 +1973,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1977,7 +1981,12 @@ name|FieldValueScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

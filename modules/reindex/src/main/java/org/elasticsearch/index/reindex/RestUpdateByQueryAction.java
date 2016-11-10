@@ -152,20 +152,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|Script
-operator|.
-name|ScriptField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -189,6 +175,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -247,6 +243,20 @@ operator|.
 name|Method
 operator|.
 name|POST
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
 import|;
 end_import
 
@@ -501,7 +511,7 @@ decl_stmt|;
 name|String
 name|lang
 init|=
-literal|null
+name|DEFAULT_SCRIPT_LANG
 decl_stmt|;
 name|Map
 argument_list|<
@@ -511,7 +521,10 @@ name|Object
 argument_list|>
 name|params
 init|=
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -582,9 +595,9 @@ name|match
 argument_list|(
 name|parameterName
 argument_list|,
-name|ScriptField
+name|Script
 operator|.
-name|LANG
+name|LANG_PARSE_FIELD
 argument_list|)
 condition|)
 block|{
@@ -631,9 +644,9 @@ name|match
 argument_list|(
 name|parameterName
 argument_list|,
-name|ScriptField
+name|Script
 operator|.
-name|PARAMS
+name|PARAMS_PARSE_FIELD
 argument_list|)
 condition|)
 block|{
@@ -907,11 +920,11 @@ return|return
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|type
 argument_list|,
 name|lang
+argument_list|,
+name|script
 argument_list|,
 name|params
 argument_list|)

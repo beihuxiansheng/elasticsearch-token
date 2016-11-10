@@ -277,10 +277,11 @@ operator|.
 name|executable
 argument_list|(
 name|any
-argument_list|()
-argument_list|,
-name|any
-argument_list|()
+argument_list|(
+name|Script
+operator|.
+name|class
+argument_list|)
 argument_list|,
 name|any
 argument_list|()

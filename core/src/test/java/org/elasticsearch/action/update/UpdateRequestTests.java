@@ -509,7 +509,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -565,8 +565,13 @@ name|assertThat
 argument_list|(
 name|params
 argument_list|,
-name|nullValue
+name|equalTo
+argument_list|(
+name|Collections
+operator|.
+name|emptyMap
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// simple verbose script
@@ -620,7 +625,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -670,8 +675,13 @@ name|assertThat
 argument_list|(
 name|params
 argument_list|,
-name|nullValue
+name|equalTo
+argument_list|(
+name|Collections
+operator|.
+name|emptyMap
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// script with params
@@ -752,7 +762,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -914,7 +924,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1107,7 +1117,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1371,7 +1381,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3018,13 +3028,13 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.update_timestamp = ctx._now"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"mock"
+argument_list|,
+literal|"ctx._source.update_timestamp = ctx._now"
 argument_list|,
 name|Collections
 operator|.
@@ -3162,13 +3172,13 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._timestamp = ctx._now"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"mock"
+argument_list|,
+literal|"ctx._timestamp = ctx._now"
 argument_list|,
 name|Collections
 operator|.

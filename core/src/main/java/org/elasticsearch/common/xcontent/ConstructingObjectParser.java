@@ -998,7 +998,7 @@ name|queuedFieldsCount
 operator|++
 expr_stmt|;
 block|}
-comment|/**          * Finish parsing the object.           */
+comment|/**          * Finish parsing the object.          */
 DECL|method|finish
 specifier|private
 name|Value

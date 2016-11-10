@@ -1215,8 +1215,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 + _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1225,7 +1223,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 + _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -1576,8 +1579,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 / _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1586,7 +1587,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 / _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -1937,8 +1943,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 + _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1947,7 +1951,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 + _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -2272,8 +2281,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2282,7 +2289,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -2609,8 +2621,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"foo + bar + baz"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2619,7 +2629,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"foo + bar + baz"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2916,8 +2931,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"(_value0 + _value1 + _value2) * factor"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2925,6 +2938,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"(_value0 + _value1 + _value2) * factor"
 argument_list|,
 name|params
 argument_list|)
@@ -3356,8 +3371,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 + _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3366,7 +3379,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 + _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -3779,8 +3797,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"my_script"
-argument_list|,
 name|ScriptType
 operator|.
 name|STORED
@@ -3789,7 +3805,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"my_script"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -4142,8 +4163,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 + _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4152,7 +4171,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 + _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"
@@ -4312,8 +4336,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 + _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4322,7 +4344,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 + _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"field2Sum"

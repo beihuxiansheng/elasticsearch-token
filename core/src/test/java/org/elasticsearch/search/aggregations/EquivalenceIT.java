@@ -3135,8 +3135,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"floor(_value / interval)"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3144,6 +3142,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"floor(_value / interval)"
 argument_list|,
 name|params
 argument_list|)

@@ -878,7 +878,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo

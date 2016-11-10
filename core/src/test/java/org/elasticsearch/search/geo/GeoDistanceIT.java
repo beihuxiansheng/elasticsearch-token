@@ -390,6 +390,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -1080,8 +1090,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"arcDistance"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1090,7 +1098,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"arcDistance"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1167,8 +1180,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"planeDistance"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1177,7 +1188,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"planeDistance"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1254,8 +1270,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"geohashDistance"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1264,7 +1278,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"geohashDistance"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1351,8 +1370,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"arcDistance(lat, lon + 360)/1000d"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1361,7 +1378,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"arcDistance(lat, lon + 360)/1000d"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1440,8 +1462,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"arcDistance(lat + 360, lon)/1000d"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1450,7 +1470,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"arcDistance(lat + 360, lon)/1000d"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

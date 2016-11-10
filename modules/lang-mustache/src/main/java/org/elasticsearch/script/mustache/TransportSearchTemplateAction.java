@@ -283,14 +283,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Collections
-operator|.
-name|emptyMap
 import|;
 end_import
 
@@ -458,16 +456,28 @@ name|Script
 argument_list|(
 name|request
 operator|.
-name|getScript
-argument_list|()
-argument_list|,
-name|request
-operator|.
 name|getScriptType
 argument_list|()
 argument_list|,
 name|TEMPLATE_LANG
 argument_list|,
+name|request
+operator|.
+name|getScript
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|getScriptParams
+argument_list|()
+operator|==
+literal|null
+condition|?
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+else|:
 name|request
 operator|.
 name|getScriptParams
@@ -484,9 +494,6 @@ argument_list|(
 name|script
 argument_list|,
 name|SEARCH
-argument_list|,
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|BytesReference
