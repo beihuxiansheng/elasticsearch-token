@@ -477,9 +477,9 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"template"
+literal|"index_patterns"
 argument_list|,
-literal|"alias:t;desc:template pattern string"
+literal|"alias:t;desc:template index patterns"
 argument_list|)
 expr_stmt|;
 name|table
@@ -607,10 +607,21 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"["
+operator|+
+name|String
+operator|.
+name|join
+argument_list|(
+literal|", "
+argument_list|,
 name|indexData
 operator|.
-name|getTemplate
+name|patterns
 argument_list|()
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 name|table

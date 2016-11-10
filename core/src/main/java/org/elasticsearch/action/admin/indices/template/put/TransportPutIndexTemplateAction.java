@@ -513,11 +513,11 @@ name|name
 argument_list|()
 argument_list|)
 operator|.
-name|template
+name|patterns
 argument_list|(
 name|request
 operator|.
-name|template
+name|patterns
 argument_list|()
 argument_list|)
 operator|.

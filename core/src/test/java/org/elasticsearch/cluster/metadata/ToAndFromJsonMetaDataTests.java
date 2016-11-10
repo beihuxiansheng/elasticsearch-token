@@ -91,6 +91,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -817,9 +827,14 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|template
+name|patterns
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 literal|"bar"
+argument_list|)
 argument_list|)
 operator|.
 name|order
@@ -990,9 +1005,14 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|template
+name|patterns
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 literal|"bar"
+argument_list|)
 argument_list|)
 operator|.
 name|order
@@ -3294,12 +3314,17 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|template
+name|patterns
 argument_list|()
 argument_list|,
 name|is
 argument_list|(
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
 literal|"bar"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
