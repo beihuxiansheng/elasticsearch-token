@@ -538,11 +538,8 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|scriptService
-argument_list|,
-name|clusterService
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|this
 operator|.
 name|searchTransportService
