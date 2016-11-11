@@ -681,8 +681,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit remove implementation when late-binding commits
-comment|// are possible
+comment|// TODO: remove implementation when late-binding commits are possible
 specifier|final
 name|List
 argument_list|<
