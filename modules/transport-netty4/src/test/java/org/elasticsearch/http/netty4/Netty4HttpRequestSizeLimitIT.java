@@ -94,7 +94,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -161,18 +161,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -189,22 +177,6 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|Scope
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpResponse
 import|;
 end_import
 
@@ -523,11 +495,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|InetSocketTransportAddress
-name|inetSocketTransportAddress
+name|TransportAddress
+name|transportAddress
 init|=
 operator|(
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|)
 name|randomFrom
 argument_list|(
@@ -560,7 +532,7 @@ name|nettyHttpClient
 operator|.
 name|post
 argument_list|(
-name|inetSocketTransportAddress
+name|transportAddress
 operator|.
 name|address
 argument_list|()
@@ -600,7 +572,7 @@ name|nettyHttpClient
 operator|.
 name|post
 argument_list|(
-name|inetSocketTransportAddress
+name|transportAddress
 operator|.
 name|address
 argument_list|()
@@ -707,11 +679,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|InetSocketTransportAddress
-name|inetSocketTransportAddress
+name|TransportAddress
+name|transportAddress
 init|=
 operator|(
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|)
 name|randomFrom
 argument_list|(
@@ -744,7 +716,7 @@ name|nettyHttpClient
 operator|.
 name|put
 argument_list|(
-name|inetSocketTransportAddress
+name|transportAddress
 operator|.
 name|address
 argument_list|()

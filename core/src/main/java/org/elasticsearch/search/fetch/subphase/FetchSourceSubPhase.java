@@ -239,6 +239,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|Object
 name|value
 init|=
@@ -247,14 +248,6 @@ operator|.
 name|filter
 argument_list|(
 name|fetchSourceContext
-operator|.
-name|includes
-argument_list|()
-argument_list|,
-name|fetchSourceContext
-operator|.
-name|excludes
-argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

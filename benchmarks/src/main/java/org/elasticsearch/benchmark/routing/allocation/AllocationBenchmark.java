@@ -389,90 +389,90 @@ annotation|@
 name|Param
 argument_list|(
 block|{
-comment|// indices, shards, replicas, nodes
-literal|"       10,      1,        0,     1"
+comment|// indices| shards| replicas| nodes
+literal|"       10|      1|        0|     1"
 block|,
-literal|"       10,      3,        0,     1"
+literal|"       10|      3|        0|     1"
 block|,
-literal|"       10,     10,        0,     1"
+literal|"       10|     10|        0|     1"
 block|,
-literal|"      100,      1,        0,     1"
+literal|"      100|      1|        0|     1"
 block|,
-literal|"      100,      3,        0,     1"
+literal|"      100|      3|        0|     1"
 block|,
-literal|"      100,     10,        0,     1"
+literal|"      100|     10|        0|     1"
 block|,
-literal|"       10,      1,        0,    10"
+literal|"       10|      1|        0|    10"
 block|,
-literal|"       10,      3,        0,    10"
+literal|"       10|      3|        0|    10"
 block|,
-literal|"       10,     10,        0,    10"
+literal|"       10|     10|        0|    10"
 block|,
-literal|"      100,      1,        0,    10"
+literal|"      100|      1|        0|    10"
 block|,
-literal|"      100,      3,        0,    10"
+literal|"      100|      3|        0|    10"
 block|,
-literal|"      100,     10,        0,    10"
+literal|"      100|     10|        0|    10"
 block|,
-literal|"       10,      1,        1,    10"
+literal|"       10|      1|        1|    10"
 block|,
-literal|"       10,      3,        1,    10"
+literal|"       10|      3|        1|    10"
 block|,
-literal|"       10,     10,        1,    10"
+literal|"       10|     10|        1|    10"
 block|,
-literal|"      100,      1,        1,    10"
+literal|"      100|      1|        1|    10"
 block|,
-literal|"      100,      3,        1,    10"
+literal|"      100|      3|        1|    10"
 block|,
-literal|"      100,     10,        1,    10"
+literal|"      100|     10|        1|    10"
 block|,
-literal|"       10,      1,        2,    10"
+literal|"       10|      1|        2|    10"
 block|,
-literal|"       10,      3,        2,    10"
+literal|"       10|      3|        2|    10"
 block|,
-literal|"       10,     10,        2,    10"
+literal|"       10|     10|        2|    10"
 block|,
-literal|"      100,      1,        2,    10"
+literal|"      100|      1|        2|    10"
 block|,
-literal|"      100,      3,        2,    10"
+literal|"      100|      3|        2|    10"
 block|,
-literal|"      100,     10,        2,    10"
+literal|"      100|     10|        2|    10"
 block|,
-literal|"       10,      1,        0,    50"
+literal|"       10|      1|        0|    50"
 block|,
-literal|"       10,      3,        0,    50"
+literal|"       10|      3|        0|    50"
 block|,
-literal|"       10,     10,        0,    50"
+literal|"       10|     10|        0|    50"
 block|,
-literal|"      100,      1,        0,    50"
+literal|"      100|      1|        0|    50"
 block|,
-literal|"      100,      3,        0,    50"
+literal|"      100|      3|        0|    50"
 block|,
-literal|"      100,     10,        0,    50"
+literal|"      100|     10|        0|    50"
 block|,
-literal|"       10,      1,        1,    50"
+literal|"       10|      1|        1|    50"
 block|,
-literal|"       10,      3,        1,    50"
+literal|"       10|      3|        1|    50"
 block|,
-literal|"       10,     10,        1,    50"
+literal|"       10|     10|        1|    50"
 block|,
-literal|"      100,      1,        1,    50"
+literal|"      100|      1|        1|    50"
 block|,
-literal|"      100,      3,        1,    50"
+literal|"      100|      3|        1|    50"
 block|,
-literal|"      100,     10,        1,    50"
+literal|"      100|     10|        1|    50"
 block|,
-literal|"       10,      1,        2,    50"
+literal|"       10|      1|        2|    50"
 block|,
-literal|"       10,      3,        2,    50"
+literal|"       10|      3|        2|    50"
 block|,
-literal|"       10,     10,        2,    50"
+literal|"       10|     10|        2|    50"
 block|,
-literal|"      100,      1,        2,    50"
+literal|"      100|      1|        2|    50"
 block|,
-literal|"      100,      3,        2,    50"
+literal|"      100|      3|        2|    50"
 block|,
-literal|"      100,     10,        2,    50"
+literal|"      100|     10|        2|    50"
 block|}
 argument_list|)
 DECL|field|indicesShardsReplicasNodes
@@ -480,7 +480,7 @@ specifier|public
 name|String
 name|indicesShardsReplicasNodes
 init|=
-literal|"10,1,0,1"
+literal|"10|1|0|1"
 decl_stmt|;
 DECL|field|numTags
 specifier|public
@@ -518,7 +518,7 @@ name|indicesShardsReplicasNodes
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|"\\|"
 argument_list|)
 decl_stmt|;
 name|int

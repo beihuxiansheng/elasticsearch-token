@@ -122,8 +122,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -492,8 +490,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-name|scriptString
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -502,7 +498,12 @@ name|GroovyScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+name|scriptString
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -648,8 +649,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"1 == not_found"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -658,7 +657,12 @@ name|GroovyScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"1 == not_found"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -774,8 +778,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"null.foo"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -784,7 +786,12 @@ name|GroovyScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"null.foo"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -990,8 +997,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"doc['bar'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1000,7 +1005,12 @@ name|GroovyScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['bar'].value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1148,8 +1158,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_score"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1158,7 +1166,12 @@ name|GroovyScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_score"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1217,8 +1230,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_score> 0.0 ? _score : 0"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1227,7 +1238,12 @@ name|GroovyScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_score> 0.0 ? _score : 0"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

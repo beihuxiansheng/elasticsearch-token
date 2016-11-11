@@ -1322,7 +1322,6 @@ name|BytesReference
 name|source
 decl_stmt|;
 DECL|method|ClientHit
-specifier|public
 name|ClientHit
 parameter_list|(
 name|SearchHit
@@ -1342,12 +1341,12 @@ operator|.
 name|hasSource
 argument_list|()
 condition|?
-literal|null
-else|:
 name|delegate
 operator|.
 name|getSourceRef
 argument_list|()
+else|:
+literal|null
 expr_stmt|;
 block|}
 annotation|@

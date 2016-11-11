@@ -140,7 +140,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -274,9 +274,7 @@ name|factory
 operator|=
 operator|new
 name|CustomMustacheFactory
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testSimpleParameterReplace
@@ -351,8 +349,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -450,8 +446,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -548,8 +542,6 @@ init|=
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -566,7 +558,7 @@ literal|null
 argument_list|,
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|Collections
@@ -675,8 +667,6 @@ init|=
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -693,7 +683,7 @@ literal|null
 argument_list|,
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|Collections

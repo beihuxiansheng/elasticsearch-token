@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|PrefixQuery
 import|;
 end_import
@@ -104,13 +118,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -326,7 +338,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -348,6 +360,9 @@ name|innerQueries
 argument_list|()
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -619,20 +634,20 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|MatchNoDocsQuery
-operator|)
 name|luceneQuery
-operator|)
 operator|.
 name|toString
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"MatchNoDocsQuery[\"no clauses for dismax query.\"]"
+literal|"MatchNoDocsQuery(\"no clauses for dismax query.\")"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:78]"
 argument_list|)
 expr_stmt|;
 block|}

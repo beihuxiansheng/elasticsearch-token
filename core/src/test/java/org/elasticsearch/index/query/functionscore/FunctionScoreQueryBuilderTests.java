@@ -326,20 +326,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryShardContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|RandomQueryBuilder
 import|;
 end_import
@@ -446,7 +432,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -459,6 +445,20 @@ operator|.
 name|search
 operator|.
 name|MultiValueMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -942,9 +942,7 @@ name|asList
 argument_list|(
 name|Script
 operator|.
-name|ScriptField
-operator|.
-name|PARAMS
+name|PARAMS_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -1300,10 +1298,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1311,6 +1305,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+name|script
 argument_list|,
 name|params
 argument_list|)
@@ -1327,6 +1323,13 @@ operator|new
 name|RandomScoreFunctionBuilderWithFixedSeed
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+comment|// sometimes provide no seed
 if|if
 condition|(
 name|randomBoolean
@@ -1372,6 +1375,7 @@ literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|functionBuilder
 operator|=
@@ -1708,7 +1712,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -3988,11 +3992,11 @@ literal|"{\n"
 operator|+
 literal|"  \"function_score\" : {\n"
 operator|+
-literal|"    \"query\" : { },\n"
+literal|"    \"query\" : { \"match_all\" : {} },\n"
 operator|+
 literal|"    \"functions\" : [ {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 23.0,\n"
 operator|+
@@ -4000,7 +4004,7 @@ literal|"      \"random_score\" : { }\n"
 operator|+
 literal|"    }, {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 5.0\n"
 operator|+
@@ -4047,7 +4051,7 @@ literal|"    \"query\" : { \"match_all\" : {} },\n"
 operator|+
 literal|"    \"functions\" : [ {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 23.0,\n"
 operator|+
@@ -4055,7 +4059,7 @@ literal|"      \"random_score\" : { }\n"
 operator|+
 literal|"    }, {\n"
 operator|+
-literal|"      \"filter\" : { },\n"
+literal|"      \"filter\" : { \"match_all\" : {}},\n"
 operator|+
 literal|"      \"weight\" : 5.0\n"
 operator|+
@@ -4732,18 +4736,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getCurrentShardId
-name|int
-name|getCurrentShardId
-parameter_list|()
-block|{
-comment|// We can't use the method that normal queries use during this test so we hack something instead
-return|return
-literal|0
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -4785,6 +4777,16 @@ operator|new
 name|RandomScoreFunctionBuilderWithFixedSeed
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|builder
+operator|.
+name|getSeed
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|replacement
 operator|.
 name|seed
@@ -4795,6 +4797,7 @@ name|getSeed
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|replacement
 return|;
@@ -4846,6 +4849,83 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|isCachable
+specifier|protected
+name|boolean
+name|isCachable
+parameter_list|(
+name|FunctionScoreQueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+name|FilterFunctionBuilder
+index|[]
+name|filterFunctionBuilders
+init|=
+name|queryBuilder
+operator|.
+name|filterFunctionBuilders
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|FilterFunctionBuilder
+name|builder
+range|:
+name|filterFunctionBuilders
+control|)
+block|{
+if|if
+condition|(
+name|builder
+operator|.
+name|getScoreFunction
+argument_list|()
+operator|instanceof
+name|ScriptScoreFunctionBuilder
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|builder
+operator|.
+name|getScoreFunction
+argument_list|()
+operator|instanceof
+name|RandomScoreFunctionBuilder
+operator|&&
+operator|(
+operator|(
+name|RandomScoreFunctionBuilder
+operator|)
+name|builder
+operator|.
+name|getScoreFunction
+argument_list|()
+operator|)
+operator|.
+name|getSeed
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class

@@ -174,18 +174,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -247,6 +235,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -261,10 +259,6 @@ operator|.
 name|POST
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|RestUpdateAction
@@ -326,25 +320,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
 parameter_list|,
 specifier|final
-name|RestChannel
-name|channel
-parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|UpdateRequest
 name|updateRequest
@@ -853,6 +843,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|update
@@ -878,7 +871,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

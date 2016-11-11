@@ -194,7 +194,10 @@ argument_list|<
 name|TransportInterceptor
 argument_list|>
 name|getTransportInterceptors
-parameter_list|()
+parameter_list|(
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
+parameter_list|)
 block|{
 return|return
 name|Collections

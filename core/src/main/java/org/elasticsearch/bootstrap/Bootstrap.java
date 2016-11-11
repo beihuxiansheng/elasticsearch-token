@@ -1354,12 +1354,6 @@ name|closeSystOut
 argument_list|()
 expr_stmt|;
 block|}
-comment|// fail if using broken version
-name|JVMCheck
-operator|.
-name|check
-argument_list|()
-expr_stmt|;
 comment|// fail if somebody replaced the lucene jars
 name|checkLucene
 argument_list|()

@@ -292,10 +292,6 @@ name|parseField
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|BinaryFieldMapper
 specifier|public
@@ -556,10 +552,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|valueForSearch
+DECL|method|valueForDisplay
 specifier|public
 name|BytesReference
-name|valueForSearch
+name|valueForDisplay
 parameter_list|(
 name|Object
 name|value

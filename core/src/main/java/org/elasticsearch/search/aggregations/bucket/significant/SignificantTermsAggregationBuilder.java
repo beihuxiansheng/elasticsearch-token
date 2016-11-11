@@ -400,10 +400,6 @@ name|Objects
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SignificantTermsAggregationBuilder
 specifier|public
@@ -1133,6 +1129,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|SignificanceHeuristic
+name|executionHeuristic
+init|=
+name|this
+operator|.
+name|significanceHeuristic
+operator|.
+name|rewrite
+argument_list|(
+name|context
+operator|.
+name|searchContext
+argument_list|()
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|SignificantTermsAggregatorFactory
@@ -1151,7 +1162,7 @@ name|filterBuilder
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
-name|significanceHeuristic
+name|executionHeuristic
 argument_list|,
 name|context
 argument_list|,

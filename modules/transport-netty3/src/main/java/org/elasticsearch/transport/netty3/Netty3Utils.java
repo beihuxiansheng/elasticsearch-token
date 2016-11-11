@@ -240,10 +240,6 @@ name|ArrayList
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|Netty3Utils
 specifier|public
@@ -326,24 +322,6 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|name
-operator|=
-name|name
-operator|.
-name|replace
-argument_list|(
-literal|"org.jboss.netty."
-argument_list|,
-literal|"netty3."
-argument_list|)
-operator|.
-name|replace
-argument_list|(
-literal|"org.jboss.netty."
-argument_list|,
-literal|"netty3."
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|Netty3InternalESLogger

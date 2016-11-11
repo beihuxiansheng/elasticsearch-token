@@ -1359,9 +1359,6 @@ argument_list|,
 name|iterations
 argument_list|,
 name|clusterState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we stop after 200 iterations if it didn't stabelize by then something is likely to be wrong

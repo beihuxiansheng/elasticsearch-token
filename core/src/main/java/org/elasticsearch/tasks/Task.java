@@ -120,12 +120,14 @@ specifier|final
 name|TaskId
 name|parentTask
 decl_stmt|;
+comment|/**      * The task's start time as a wall clock time since epoch ({@link System#currentTimeMillis()} style).      */
 DECL|field|startTime
 specifier|private
 specifier|final
 name|long
 name|startTime
 decl_stmt|;
+comment|/**      * The task's start time as a relative time ({@link System#nanoTime()} style).      */
 DECL|field|startTimeNanos
 specifier|private
 specifier|final
@@ -245,14 +247,15 @@ operator|=
 name|startTimeNanos
 expr_stmt|;
 block|}
-comment|/**      * Build a version of the task status you can throw over the wire and back      * to the user.      *      * @param node      *            the node this task is running on      * @param detailed      *            should the information include detailed, potentially slow to      *            generate data?      */
+comment|/**      * Build a version of the task status you can throw over the wire and back      * to the user.      *      * @param localNodeId      *            the id of the node this task is running on      * @param detailed      *            should the information include detailed, potentially slow to      *            generate data?      */
 DECL|method|taskInfo
 specifier|public
+specifier|final
 name|TaskInfo
 name|taskInfo
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|String
+name|localNodeId
 parameter_list|,
 name|boolean
 name|detailed
@@ -287,16 +290,41 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
+name|taskInfo
+argument_list|(
+name|localNodeId
+argument_list|,
+name|description
+argument_list|,
+name|status
+argument_list|)
+return|;
+block|}
+comment|/**      * Build a proper {@link TaskInfo} for this task.      */
+DECL|method|taskInfo
+specifier|protected
+specifier|final
+name|TaskInfo
+name|taskInfo
+parameter_list|(
+name|String
+name|localNodeId
+parameter_list|,
+name|String
+name|description
+parameter_list|,
+name|Status
+name|status
+parameter_list|)
+block|{
+return|return
 operator|new
 name|TaskInfo
 argument_list|(
 operator|new
 name|TaskId
 argument_list|(
-name|node
-operator|.
-name|getId
-argument_list|()
+name|localNodeId
 argument_list|,
 name|getId
 argument_list|()
@@ -373,7 +401,7 @@ return|return
 name|description
 return|;
 block|}
-comment|/**      * Returns the task start time      */
+comment|/**      * Returns the task's start time as a wall clock time since epoch ({@link System#currentTimeMillis()} style).      */
 DECL|method|getStartTime
 specifier|public
 name|long
@@ -436,6 +464,9 @@ argument_list|(
 name|taskInfo
 argument_list|(
 name|node
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -472,6 +503,9 @@ argument_list|(
 name|taskInfo
 argument_list|(
 name|node
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

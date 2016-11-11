@@ -140,18 +140,6 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|Task
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|tasks
-operator|.
 name|TaskManager
 import|;
 end_import
@@ -187,10 +175,6 @@ operator|.
 name|HashMap
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|NodeClientHeadersTests
@@ -265,7 +249,7 @@ argument_list|)
 decl_stmt|;
 name|client
 operator|.
-name|intialize
+name|initialize
 argument_list|(
 name|actions
 argument_list|)

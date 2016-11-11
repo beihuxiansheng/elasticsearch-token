@@ -540,7 +540,7 @@ name|BytesReference
 name|data
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|XContentParser
 operator|.

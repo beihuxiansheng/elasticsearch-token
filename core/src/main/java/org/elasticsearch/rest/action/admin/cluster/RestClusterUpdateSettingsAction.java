@@ -64,9 +64,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|node
-operator|.
-name|NodeClient
+name|Requests
 import|;
 end_import
 
@@ -78,7 +76,9 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Requests
+name|node
+operator|.
+name|NodeClient
 import|;
 end_import
 
@@ -172,18 +172,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -234,6 +222,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_class
 DECL|class|RestClusterUpdateSettingsAction
 specifier|public
@@ -278,25 +276,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
 parameter_list|,
 specifier|final
-name|RestChannel
-name|channel
-parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 specifier|final
 name|ClusterUpdateSettingsRequest
@@ -433,6 +427,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|admin
@@ -454,18 +451,11 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|addCustomFields
-parameter_list|(
-name|XContentBuilder
-name|builder
-parameter_list|,
+block|@Override                     protected void addCustomFields(XContentBuilder builder
+operator|,
 name|ClusterUpdateSettingsResponse
 name|response
-parameter_list|)
+block|)
 throws|throws
 name|IOException
 block|{
@@ -519,9 +509,34 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}      @
+name|Override
+DECL|method|responseParams
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|responseParams
+parameter_list|()
+block|{
+return|return
+name|Settings
+operator|.
+name|FORMAT_PARAMS
+return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|canTripCircuitBreaker
@@ -534,8 +549,8 @@ return|return
 literal|false
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

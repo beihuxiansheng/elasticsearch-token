@@ -172,10 +172,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|AllocationIdTests
 specifier|public
@@ -1054,15 +1050,12 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|not
-argument_list|(
 name|equalTo
 argument_list|(
 name|allocationId
 operator|.
 name|getId
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

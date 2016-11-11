@@ -150,11 +150,7 @@ name|ClientYamlTestParseException
 block|{
 return|return
 name|createParameters
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
+argument_list|()
 return|;
 block|}
 block|}

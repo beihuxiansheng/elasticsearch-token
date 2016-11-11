@@ -248,18 +248,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|NodeServicesProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|mapper
 operator|.
 name|MapperService
@@ -402,12 +390,6 @@ specifier|final
 name|AliasValidator
 name|aliasValidator
 decl_stmt|;
-DECL|field|nodeServicesProvider
-specifier|private
-specifier|final
-name|NodeServicesProvider
-name|nodeServicesProvider
-decl_stmt|;
 DECL|field|deleteIndexService
 specifier|private
 specifier|final
@@ -431,9 +413,6 @@ name|indicesService
 parameter_list|,
 name|AliasValidator
 name|aliasValidator
-parameter_list|,
-name|NodeServicesProvider
-name|nodeServicesProvider
 parameter_list|,
 name|MetaDataDeleteIndexService
 name|deleteIndexService
@@ -461,12 +440,6 @@ operator|.
 name|aliasValidator
 operator|=
 name|aliasValidator
-expr_stmt|;
-name|this
-operator|.
-name|nodeServicesProvider
-operator|=
-name|nodeServicesProvider
 expr_stmt|;
 name|this
 operator|.
@@ -873,8 +846,6 @@ name|indicesService
 operator|.
 name|createIndex
 argument_list|(
-name|nodeServicesProvider
-argument_list|,
 name|index
 argument_list|,
 name|emptyList
@@ -977,6 +948,8 @@ name|indexService
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the context is only used for validation so it's fine to pass fake values for the shard id and the current
+comment|// timestamp
 name|aliasValidator
 operator|.
 name|validateAliasFilter
@@ -988,7 +961,15 @@ argument_list|,
 name|indexService
 operator|.
 name|newQueryShardContext
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+literal|0L
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

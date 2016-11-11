@@ -92,6 +92,33 @@ block|{
 if|if
 condition|(
 name|actual
+operator|==
+literal|null
+operator|||
+name|expected
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Neither actual ["
+operator|+
+name|actual
+operator|+
+literal|"] nor expected ["
+operator|+
+name|expected
+operator|+
+literal|"] can be null"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|actual
 operator|.
 name|equals
 argument_list|(

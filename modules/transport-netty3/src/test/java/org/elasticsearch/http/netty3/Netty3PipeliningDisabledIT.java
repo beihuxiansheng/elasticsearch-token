@@ -64,20 +64,6 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
 name|TransportAddress
 import|;
 end_import
@@ -220,10 +206,6 @@ name|hasSize
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -358,11 +340,11 @@ operator|.
 name|boundAddresses
 argument_list|()
 decl_stmt|;
-name|InetSocketTransportAddress
-name|inetSocketTransportAddress
+name|TransportAddress
+name|transportAddress
 init|=
 operator|(
-name|InetSocketTransportAddress
+name|TransportAddress
 operator|)
 name|randomFrom
 argument_list|(
@@ -389,7 +371,7 @@ name|nettyHttpClient
 operator|.
 name|get
 argument_list|(
-name|inetSocketTransportAddress
+name|transportAddress
 operator|.
 name|address
 argument_list|()

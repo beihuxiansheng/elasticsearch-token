@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|DocWriteRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|bulk
 operator|.
 name|BulkResponse
@@ -77,20 +89,6 @@ operator|.
 name|delete
 operator|.
 name|DeleteResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|index
-operator|.
-name|IndexRequest
 import|;
 end_import
 
@@ -347,10 +345,6 @@ operator|.
 name|lessThanOrEqualTo
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|SimpleVersioningIT
@@ -5092,7 +5086,7 @@ argument_list|)
 operator|.
 name|setOpType
 argument_list|(
-name|IndexRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.
@@ -5352,7 +5346,7 @@ argument_list|)
 operator|.
 name|setOpType
 argument_list|(
-name|IndexRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.

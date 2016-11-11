@@ -172,20 +172,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|collect
@@ -205,20 +191,6 @@ operator|.
 name|component
 operator|.
 name|AbstractComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -674,10 +646,6 @@ name|StreamSupport
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SearchPhaseController
 specifier|public
@@ -687,7 +655,7 @@ extends|extends
 name|AbstractComponent
 block|{
 DECL|field|QUERY_RESULT_ORDERING
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|Comparator
@@ -778,7 +746,7 @@ return|;
 block|}
 decl_stmt|;
 DECL|field|EMPTY_DOCS
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|ScoreDoc
@@ -803,12 +771,6 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|method|SearchPhaseController
 name|SearchPhaseController
 parameter_list|(
@@ -820,9 +782,6 @@ name|bigArrays
 parameter_list|,
 name|ScriptService
 name|scriptService
-parameter_list|,
-name|ClusterService
-name|clusterService
 parameter_list|)
 block|{
 name|super
@@ -841,12 +800,6 @@ operator|.
 name|scriptService
 operator|=
 name|scriptService
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 block|}
 DECL|method|aggregateDfs
@@ -3730,11 +3683,6 @@ argument_list|(
 name|bigArrays
 argument_list|,
 name|scriptService
-argument_list|,
-name|clusterService
-operator|.
-name|state
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|aggregations

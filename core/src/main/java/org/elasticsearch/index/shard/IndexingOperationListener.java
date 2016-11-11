@@ -114,7 +114,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Called after the indexing operation occurred.      */
+comment|/**      * Called after the indexing operation occurred. Note that this is      * also called when indexing a document did not succeed due to document      * related failures. See {@link #postIndex(Engine.Index, Exception)}      * for engine level failures      */
 DECL|method|postIndex
 specifier|default
 name|void
@@ -125,11 +125,13 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|boolean
-name|created
+name|Engine
+operator|.
+name|IndexResult
+name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the indexing operation occurred with exception.      */
+comment|/**      * Called after the indexing operation occurred with engine level exception.      * See {@link #postIndex(Engine.Index, Engine.IndexResult)} for document      * related failures      */
 DECL|method|postIndex
 specifier|default
 name|void
@@ -162,7 +164,7 @@ return|return
 name|delete
 return|;
 block|}
-comment|/**      * Called after the delete operation occurred.      */
+comment|/**      * Called after the delete operation occurred. Note that this is      * also called when deleting a document did not succeed due to document      * related failures. See {@link #postDelete(Engine.Delete, Exception)}      * for engine level failures      */
 DECL|method|postDelete
 specifier|default
 name|void
@@ -172,9 +174,14 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|,
+name|Engine
+operator|.
+name|DeleteResult
+name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the delete operation occurred with exception.      */
+comment|/**      * Called after the delete operation occurred with engine level exception.      * See {@link #postDelete(Engine.Delete, Engine.DeleteResult)} for document      * related failures      */
 DECL|method|postDelete
 specifier|default
 name|void
@@ -324,8 +331,10 @@ operator|.
 name|Index
 name|index
 parameter_list|,
-name|boolean
-name|created
+name|Engine
+operator|.
+name|IndexResult
+name|result
 parameter_list|)
 block|{
 assert|assert
@@ -349,7 +358,7 @@ name|postIndex
 argument_list|(
 name|index
 argument_list|,
-name|created
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,6 +562,11 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|,
+name|Engine
+operator|.
+name|DeleteResult
+name|result
 parameter_list|)
 block|{
 assert|assert
@@ -575,6 +589,8 @@ operator|.
 name|postDelete
 argument_list|(
 name|delete
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}

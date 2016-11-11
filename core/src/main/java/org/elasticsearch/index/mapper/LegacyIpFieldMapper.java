@@ -446,10 +446,6 @@ name|parseNumberField
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|LegacyIpFieldMapper
 specifier|public
@@ -1142,10 +1138,10 @@ block|}
 comment|/**          * IPs should return as a string.          */
 annotation|@
 name|Override
-DECL|method|valueForSearch
+DECL|method|valueForDisplay
 specifier|public
 name|Object
-name|valueForSearch
+name|valueForDisplay
 parameter_list|(
 name|Object
 name|value
@@ -1359,6 +1355,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1392,6 +1390,9 @@ name|includeLower
 parameter_list|,
 name|boolean
 name|includeUpper
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 return|return

@@ -476,10 +476,6 @@ name|readSearchHitField
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|InternalSearchHit
 specifier|public
@@ -1038,6 +1034,19 @@ name|BytesReference
 name|sourceRef
 parameter_list|()
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 try|try
 block|{
 name|this
@@ -1191,7 +1200,7 @@ parameter_list|()
 block|{
 return|return
 name|source
-operator|==
+operator|!=
 literal|null
 return|;
 block|}

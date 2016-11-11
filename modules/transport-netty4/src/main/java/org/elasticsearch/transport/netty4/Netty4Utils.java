@@ -222,13 +222,6 @@ operator|new
 name|Netty4InternalESLogger
 argument_list|(
 name|name
-operator|.
-name|replace
-argument_list|(
-literal|"io.netty."
-argument_list|,
-literal|"netty."
-argument_list|)
 argument_list|)
 return|;
 block|}

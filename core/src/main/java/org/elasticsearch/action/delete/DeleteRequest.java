@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -167,7 +167,7 @@ argument_list|<
 name|DeleteRequest
 argument_list|>
 implements|implements
-name|DocumentRequest
+name|DocWriteRequest
 argument_list|<
 name|DeleteRequest
 argument_list|>
@@ -351,6 +351,25 @@ name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|versionType
+operator|==
+name|VersionType
+operator|.
+name|FORCE
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"version type [force] may no longer be used"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|validationException
 return|;
@@ -515,7 +534,8 @@ operator|.
 name|routing
 return|;
 block|}
-comment|/**      * Sets the version, which will cause the delete operation to only be performed if a matching      * version exists and no changes happened on the doc since then.      */
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|DeleteRequest
@@ -535,6 +555,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|long
@@ -547,6 +569,8 @@ operator|.
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|versionType
 specifier|public
 name|DeleteRequest
@@ -566,6 +590,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|versionType
 specifier|public
 name|VersionType
@@ -576,6 +602,20 @@ return|return
 name|this
 operator|.
 name|versionType
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|opType
+specifier|public
+name|OpType
+name|opType
+parameter_list|()
+block|{
+return|return
+name|OpType
+operator|.
+name|DELETE
 return|;
 block|}
 annotation|@

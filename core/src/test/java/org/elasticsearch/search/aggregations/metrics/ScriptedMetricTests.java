@@ -38,8 +38,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -73,6 +71,16 @@ operator|.
 name|scripted
 operator|.
 name|ScriptedMetricAggregationBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -263,8 +271,6 @@ return|return
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|randomFrom
 argument_list|(
 name|ScriptType
@@ -277,10 +283,17 @@ name|randomFrom
 argument_list|(
 literal|"my_lang"
 argument_list|,
-literal|null
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
 argument_list|)
 argument_list|,
-literal|null
+name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 return|;
 block|}

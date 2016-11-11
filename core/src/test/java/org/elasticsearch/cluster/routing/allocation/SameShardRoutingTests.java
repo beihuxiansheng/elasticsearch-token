@@ -223,20 +223,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -293,10 +279,6 @@ operator|.
 name|equalTo
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|SameShardRoutingTests
@@ -485,9 +467,7 @@ literal|"test1"
 argument_list|,
 literal|"test1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -516,9 +496,7 @@ literal|"test1"
 argument_list|,
 literal|"test1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -676,9 +654,7 @@ literal|"test2"
 argument_list|,
 literal|"test2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap

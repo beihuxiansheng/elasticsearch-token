@@ -2228,8 +2228,6 @@ condition|(
 name|this
 operator|.
 name|checkBreaker
-operator|==
-literal|true
 condition|)
 block|{
 comment|// checking breaker means potentially tripping, but it doesn't

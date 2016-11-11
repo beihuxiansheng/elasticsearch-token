@@ -16,10 +16,6 @@ name|unit
 package|;
 end_package
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_enum
 DECL|enum|SizeUnit
 specifier|public

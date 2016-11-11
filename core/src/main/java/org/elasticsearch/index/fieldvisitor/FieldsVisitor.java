@@ -598,7 +598,7 @@ name|i
 argument_list|,
 name|fieldType
 operator|.
-name|valueForSearch
+name|valueForDisplay
 argument_list|(
 name|fieldValues
 operator|.

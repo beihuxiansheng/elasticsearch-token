@@ -160,7 +160,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -1215,14 +1215,6 @@ name|script
 operator|.
 name|Script
 argument_list|(
-literal|"doc['"
-operator|+
-name|field
-operator|+
-literal|"'].values"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1231,7 +1223,16 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['"
+operator|+
+name|field
+operator|+
+literal|"'].values"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

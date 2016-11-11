@@ -392,6 +392,8 @@ specifier|public
 name|void
 name|beforeIndexDeletion
 parameter_list|()
+throws|throws
+name|IOException
 block|{     }
 comment|/**      * This method checks all the things that need to be checked after each test      */
 DECL|method|assertAfterTest

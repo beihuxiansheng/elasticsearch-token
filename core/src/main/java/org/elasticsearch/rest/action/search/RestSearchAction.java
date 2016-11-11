@@ -216,18 +216,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -484,10 +472,6 @@ name|termSuggestion
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|RestSearchAction
 specifier|public
@@ -598,18 +582,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
-parameter_list|,
-specifier|final
-name|RestChannel
-name|channel
 parameter_list|,
 specifier|final
 name|NodeClient
@@ -657,6 +637,9 @@ argument_list|,
 name|restContent
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|search
@@ -670,7 +653,7 @@ argument_list|(
 name|channel
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Parses the rest request on top of the SearchRequest, preserving values      * that are not overridden by the rest request.      *      * @param restContent      *            override body content to use for the request. If null body      *            content is read from the request using      *            RestAction.hasBodyContent.      */
 DECL|method|parseSearchRequest

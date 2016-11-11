@@ -84,7 +84,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 import|;
 end_import
 
@@ -214,8 +214,8 @@ name|next
 argument_list|()
 decl_stmt|;
 specifier|final
-name|UnassignedShardDecision
-name|unassignedShardDecision
+name|ShardAllocationDecision
+name|shardAllocationDecision
 init|=
 name|makeAllocationDecision
 argument_list|(
@@ -228,7 +228,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|unassignedShardDecision
+name|shardAllocationDecision
 operator|.
 name|isDecisionTaken
 argument_list|()
@@ -241,12 +241,9 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|unassignedShardDecision
+name|shardAllocationDecision
 operator|.
 name|getFinalDecisionSafe
-argument_list|()
-operator|.
-name|type
 argument_list|()
 operator|==
 name|Decision
@@ -260,12 +257,12 @@ name|unassignedIterator
 operator|.
 name|initialize
 argument_list|(
-name|unassignedShardDecision
+name|shardAllocationDecision
 operator|.
 name|getAssignedNodeId
 argument_list|()
 argument_list|,
-name|unassignedShardDecision
+name|shardAllocationDecision
 operator|.
 name|getAllocationId
 argument_list|()
@@ -306,7 +303,7 @@ name|unassignedIterator
 operator|.
 name|removeAndIgnore
 argument_list|(
-name|unassignedShardDecision
+name|shardAllocationDecision
 operator|.
 name|getAllocationStatus
 argument_list|()
@@ -320,11 +317,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Make a decision on the allocation of an unassigned shard.  This method is used by      * {@link #allocateUnassigned(RoutingAllocation)} to make decisions about whether or not      * the shard can be allocated by this allocator and if so, to which node it will be allocated.      *      * @param unassignedShard  the unassigned shard to allocate      * @param allocation       the current routing state      * @param logger           the logger      * @return an {@link UnassignedShardDecision} with the final decision of whether to allocate and details of the decision      */
+comment|/**      * Make a decision on the allocation of an unassigned shard.  This method is used by      * {@link #allocateUnassigned(RoutingAllocation)} to make decisions about whether or not      * the shard can be allocated by this allocator and if so, to which node it will be allocated.      *      * @param unassignedShard  the unassigned shard to allocate      * @param allocation       the current routing state      * @param logger           the logger      * @return an {@link ShardAllocationDecision} with the final decision of whether to allocate and details of the decision      */
 DECL|method|makeAllocationDecision
 specifier|public
 specifier|abstract
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 name|makeAllocationDecision
 parameter_list|(
 name|ShardRouting

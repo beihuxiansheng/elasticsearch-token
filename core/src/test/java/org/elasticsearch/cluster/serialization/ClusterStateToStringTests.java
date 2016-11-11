@@ -58,6 +58,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -158,9 +170,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Strings
 import|;
 end_import
 
@@ -172,21 +182,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|transport
+name|settings
 operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ESAllocationTestCase
+name|Settings
 import|;
 end_import
 
@@ -225,10 +223,6 @@ operator|.
 name|containsString
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|ClusterStateToStringTests
@@ -336,9 +330,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"node_foo"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -439,10 +431,14 @@ expr_stmt|;
 name|String
 name|clusterStateString
 init|=
-name|clusterState
+name|Strings
 operator|.
 name|toString
-argument_list|()
+argument_list|(
+name|clusterState
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(

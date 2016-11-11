@@ -142,6 +142,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|subphase
+operator|.
+name|FetchSourceContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -191,10 +207,6 @@ operator|.
 name|emptyMap
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|SourceLookup
@@ -653,26 +665,20 @@ specifier|public
 name|Object
 name|filter
 parameter_list|(
-name|String
-index|[]
-name|includes
-parameter_list|,
-name|String
-index|[]
-name|excludes
+name|FetchSourceContext
+name|context
 parameter_list|)
 block|{
 return|return
-name|XContentMapValues
+name|context
 operator|.
-name|filter
+name|getFilter
+argument_list|()
+operator|.
+name|apply
 argument_list|(
 name|loadSourceIfNeeded
 argument_list|()
-argument_list|,
-name|includes
-argument_list|,
-name|excludes
 argument_list|)
 return|;
 block|}

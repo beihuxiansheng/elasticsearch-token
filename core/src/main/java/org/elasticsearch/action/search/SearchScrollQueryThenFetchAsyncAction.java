@@ -295,6 +295,12 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
+DECL|field|task
+specifier|private
+specifier|final
+name|SearchTask
+name|task
+decl_stmt|;
 DECL|field|searchTransportService
 specifier|private
 specifier|final
@@ -390,6 +396,9 @@ parameter_list|,
 name|SearchScrollRequest
 name|request
 parameter_list|,
+name|SearchTask
+name|task
+parameter_list|,
 name|ParsedScrollId
 name|scrollId
 parameter_list|,
@@ -423,6 +432,12 @@ operator|.
 name|request
 operator|=
 name|request
+expr_stmt|;
+name|this
+operator|.
+name|task
+operator|=
+name|task
 expr_stmt|;
 name|this
 operator|.
@@ -870,6 +885,8 @@ name|node
 argument_list|,
 name|internalRequest
 argument_list|,
+name|task
+argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
@@ -1290,6 +1307,8 @@ argument_list|(
 name|node
 argument_list|,
 name|shardFetchRequest
+argument_list|,
+name|task
 argument_list|,
 operator|new
 name|ActionListener

@@ -29,7 +29,6 @@ block|{
 comment|/**      * Snapshot stage      */
 DECL|enum|Stage
 specifier|public
-specifier|static
 enum|enum
 name|Stage
 block|{
@@ -101,6 +100,7 @@ name|indexVersion
 decl_stmt|;
 DECL|field|aborted
 specifier|private
+specifier|volatile
 name|boolean
 name|aborted
 decl_stmt|;

@@ -488,20 +488,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|SettingsModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|IndexNotFoundException
@@ -5029,8 +5015,14 @@ argument_list|(
 literal|"test1"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IndexNotFoundException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -5050,21 +5042,16 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Exception should have been thrown."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IndexNotFoundException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -5086,19 +5073,8 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Exception should have been thrown."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexNotFoundException
-name|e
-parameter_list|)
-block|{         }
 comment|//you should still be able to run empty searches without things blowing up
 name|client
 argument_list|()

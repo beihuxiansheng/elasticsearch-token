@@ -1159,10 +1159,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|valueForSearch
+DECL|method|valueForDisplay
 specifier|public
 name|Object
-name|valueForSearch
+name|valueForDisplay
 parameter_list|(
 name|Object
 name|value

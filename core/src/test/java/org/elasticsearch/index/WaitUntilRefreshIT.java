@@ -232,8 +232,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -938,13 +936,13 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"delete_plz"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"native"
+argument_list|,
+literal|"delete_plz"
 argument_list|,
 name|emptyMap
 argument_list|()

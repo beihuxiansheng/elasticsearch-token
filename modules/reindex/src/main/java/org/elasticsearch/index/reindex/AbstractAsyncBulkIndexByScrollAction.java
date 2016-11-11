@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -480,7 +480,7 @@ DECL|method|AbstractAsyncBulkIndexByScrollAction
 specifier|public
 name|AbstractAsyncBulkIndexByScrollAction
 parameter_list|(
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 parameter_list|,
 name|Logger
@@ -864,14 +864,14 @@ name|routing
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Wrapper for the {@link ActionRequest} that are used in this action class.      */
+comment|/**      * Wrapper for the {@link DocWriteRequest} that are used in this action class.      */
 DECL|interface|RequestWrapper
 interface|interface
 name|RequestWrapper
 parameter_list|<
 name|Self
 extends|extends
-name|ActionRequest
+name|DocWriteRequest
 parameter_list|<
 name|Self
 parameter_list|>
@@ -1841,7 +1841,7 @@ block|{
 DECL|field|task
 specifier|private
 specifier|final
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 decl_stmt|;
 DECL|field|scriptService
@@ -1886,7 +1886,7 @@ DECL|method|ScriptApplier
 specifier|public
 name|ScriptApplier
 parameter_list|(
-name|BulkByScrollTask
+name|WorkingBulkByScrollTask
 name|task
 parameter_list|,
 name|ScriptService

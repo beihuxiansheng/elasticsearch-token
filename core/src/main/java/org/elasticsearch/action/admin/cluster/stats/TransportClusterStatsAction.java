@@ -394,10 +394,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TransportClusterStatsAction
 specifier|public
@@ -592,17 +588,6 @@ argument_list|,
 name|clusterService
 operator|.
 name|getClusterName
-argument_list|()
-argument_list|,
-name|clusterService
-operator|.
-name|state
-argument_list|()
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|clusterUUID
 argument_list|()
 argument_list|,
 name|responses

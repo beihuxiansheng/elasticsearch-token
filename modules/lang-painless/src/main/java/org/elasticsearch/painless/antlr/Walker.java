@@ -7121,6 +7121,13 @@ name|prefix
 argument_list|,
 name|name
 argument_list|,
+name|ctx
+operator|.
+name|COND
+argument_list|()
+operator|!=
+literal|null
+argument_list|,
 name|arguments
 argument_list|)
 return|;
@@ -7239,6 +7246,13 @@ name|ctx
 argument_list|)
 argument_list|,
 name|prefix
+argument_list|,
+name|ctx
+operator|.
+name|COND
+argument_list|()
+operator|!=
+literal|null
 argument_list|,
 name|value
 argument_list|)

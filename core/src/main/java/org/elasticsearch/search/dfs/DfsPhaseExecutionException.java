@@ -68,10 +68,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|DfsPhaseExecutionException
 specifier|public
@@ -105,6 +101,29 @@ operator|+
 literal|"]"
 argument_list|,
 name|t
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|DfsPhaseExecutionException
+specifier|public
+name|DfsPhaseExecutionException
+parameter_list|(
+name|SearchContext
+name|context
+parameter_list|,
+name|String
+name|msg
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+literal|"Dfs Failed ["
+operator|+
+name|msg
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

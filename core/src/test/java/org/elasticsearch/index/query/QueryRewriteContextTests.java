@@ -240,6 +240,13 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|final
+name|long
+name|nowInMills
+init|=
+name|randomPositiveLong
+argument_list|()
+decl_stmt|;
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 init|=
@@ -307,9 +314,12 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+name|nowInMills
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 comment|// verify that the default script language in the query parse context is equal to defaultLegacyScriptLanguage variable:
 name|QueryParseContext
 name|queryParseContext

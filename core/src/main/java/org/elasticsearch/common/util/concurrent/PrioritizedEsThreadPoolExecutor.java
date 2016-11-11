@@ -629,6 +629,15 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|super
+operator|.
+name|afterExecute
+argument_list|(
+name|r
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
 name|current
 operator|.
 name|remove

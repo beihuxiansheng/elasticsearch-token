@@ -90,6 +90,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -124,6 +138,18 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
 name|instanceOf
 import|;
 end_import
@@ -137,18 +163,6 @@ operator|.
 name|CoreMatchers
 operator|.
 name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|startsWith
 import|;
 end_import
 
@@ -229,7 +243,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -246,6 +260,9 @@ operator|.
 name|toQuery
 argument_list|(
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Query
@@ -259,6 +276,9 @@ operator|.
 name|toQuery
 argument_list|(
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -577,17 +597,22 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:36]"
+argument_list|)
+expr_stmt|;
 name|query
 operator|=
-literal|"{ \"boosting\" : {"
+literal|"{ \"boosting\" : {\n"
 operator|+
-literal|"    \"positive\" : { \"match_all\" : {} }, "
+literal|"    \"positive\" : { \"match_all\" : {} },\n"
 operator|+
-literal|"    \"negative\" : { }, "
+literal|"    \"negative\" : { },\n"
 operator|+
-literal|"    \"negative_boost\" : 23.0"
+literal|"    \"negative_boost\" : 23.0\n"
 operator|+
-literal|"  }"
+literal|"  }\n"
 operator|+
 literal|"}"
 expr_stmt|;
@@ -631,6 +656,11 @@ name|isPresent
 argument_list|()
 operator|==
 literal|false
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [3:20]"
 argument_list|)
 expr_stmt|;
 name|parser
@@ -683,10 +713,15 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|startsWith
+name|equalTo
 argument_list|(
-literal|"query malformed, empty clause found at"
+literal|"query malformed, empty clause found at [3:20]"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [3:20]"
 argument_list|)
 expr_stmt|;
 block|}

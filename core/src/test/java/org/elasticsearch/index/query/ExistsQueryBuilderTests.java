@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -92,13 +106,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -269,7 +281,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -290,6 +302,9 @@ argument_list|>
 name|fields
 init|=
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|.
 name|simpleMatchToIndexNames
 argument_list|(

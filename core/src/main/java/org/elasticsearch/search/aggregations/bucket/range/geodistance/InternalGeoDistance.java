@@ -174,10 +174,6 @@ name|Map
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|InternalGeoDistance
 specifier|public
@@ -694,6 +690,20 @@ parameter_list|()
 block|{
 return|return
 name|FACTORY
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getWriteableName
+specifier|public
+name|String
+name|getWriteableName
+parameter_list|()
+block|{
+return|return
+name|GeoDistanceAggregationBuilder
+operator|.
+name|NAME
 return|;
 block|}
 block|}

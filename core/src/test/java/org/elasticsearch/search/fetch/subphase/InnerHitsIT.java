@@ -202,7 +202,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -1747,10 +1747,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"5"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1758,6 +1754,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+literal|"5"
 argument_list|,
 name|Collections
 operator|.
@@ -3425,10 +3423,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"5"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -3436,6 +3430,8 @@ argument_list|,
 name|MockScriptEngine
 operator|.
 name|NAME
+argument_list|,
+literal|"5"
 argument_list|,
 name|Collections
 operator|.
@@ -11218,7 +11214,16 @@ argument_list|(
 operator|new
 name|FetchSourceContext
 argument_list|(
+literal|true
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
 literal|"comments.message"
+block|}
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)

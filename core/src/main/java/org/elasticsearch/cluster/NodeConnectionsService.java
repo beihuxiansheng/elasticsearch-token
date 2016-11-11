@@ -214,6 +214,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|MasterFaultDetection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|NodesFaultDetection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -229,6 +257,16 @@ operator|.
 name|transport
 operator|.
 name|TransportService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -289,7 +327,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This component is responsible for connecting to nodes once they are added to the cluster state, and disconnect when they are  * removed. Also, it periodically checks that all connections are still open and if needed restores them.  * Note that this component is *not* responsible for removing nodes from the cluster if they disconnect / do not respond  * to pings. This is done by {@link org.elasticsearch.discovery.zen.fd.NodesFaultDetection}. Master fault detection  * is done by {@link org.elasticsearch.discovery.zen.fd.MasterFaultDetection}.  */
+comment|/**  * This component is responsible for connecting to nodes once they are added to the cluster state, and disconnect when they are  * removed. Also, it periodically checks that all connections are still open and if needed restores them.  * Note that this component is *not* responsible for removing nodes from the cluster if they disconnect / do not respond  * to pings. This is done by {@link NodesFaultDetection}. Master fault detection  * is done by {@link MasterFaultDetection}.  */
 end_comment
 
 begin_class
@@ -433,13 +471,16 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|connectToAddedNodes
+DECL|method|connectToNodes
 specifier|public
 name|void
-name|connectToAddedNodes
+name|connectToNodes
 parameter_list|(
-name|ClusterChangedEvent
-name|event
+name|List
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|addedNodes
 parameter_list|)
 block|{
 comment|// TODO: do this in parallel (and wait)
@@ -449,13 +490,7 @@ specifier|final
 name|DiscoveryNode
 name|node
 range|:
-name|event
-operator|.
-name|nodesDelta
-argument_list|()
-operator|.
 name|addedNodes
-argument_list|()
 control|)
 block|{
 try|try
@@ -502,13 +537,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|disconnectFromRemovedNodes
+DECL|method|disconnectFromNodes
 specifier|public
 name|void
-name|disconnectFromRemovedNodes
+name|disconnectFromNodes
 parameter_list|(
-name|ClusterChangedEvent
-name|event
+name|List
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|removedNodes
 parameter_list|)
 block|{
 for|for
@@ -517,13 +555,7 @@ specifier|final
 name|DiscoveryNode
 name|node
 range|:
-name|event
-operator|.
-name|nodesDelta
-argument_list|()
-operator|.
 name|removedNodes
-argument_list|()
 control|)
 block|{
 try|try

@@ -543,7 +543,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"myself"
+literal|"127.0.0.1:*"
 argument_list|)
 expr_stmt|;
 name|settings
@@ -668,7 +668,7 @@ literal|"http"
 argument_list|,
 name|address
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|,
 name|address
@@ -753,7 +753,7 @@ literal|"http"
 argument_list|,
 name|address
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|,
 name|address
@@ -870,7 +870,7 @@ literal|"http"
 argument_list|,
 name|address
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|,
 name|address
@@ -994,7 +994,7 @@ literal|"http"
 argument_list|,
 name|address
 operator|.
-name|getHost
+name|getAddress
 argument_list|()
 argument_list|,
 name|address

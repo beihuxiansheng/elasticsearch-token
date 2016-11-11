@@ -380,10 +380,6 @@ name|Supplier
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TransportInstanceSingleOperationAction
 specifier|public
@@ -789,12 +785,21 @@ name|void
 name|doStart
 parameter_list|()
 block|{
-name|nodes
-operator|=
+specifier|final
+name|ClusterState
+name|clusterState
+init|=
 name|observer
 operator|.
 name|observedState
 argument_list|()
+operator|.
+name|getClusterState
+argument_list|()
+decl_stmt|;
+name|nodes
+operator|=
+name|clusterState
 operator|.
 name|nodes
 argument_list|()
@@ -806,10 +811,7 @@ name|blockException
 init|=
 name|checkGlobalBlock
 argument_list|(
-name|observer
-operator|.
-name|observedState
-argument_list|()
+name|clusterState
 argument_list|)
 decl_stmt|;
 if|if
@@ -849,10 +851,7 @@ name|indexNameExpressionResolver
 operator|.
 name|concreteSingleIndex
 argument_list|(
-name|observer
-operator|.
-name|observedState
-argument_list|()
+name|clusterState
 argument_list|,
 name|request
 argument_list|)
@@ -863,10 +862,7 @@ argument_list|)
 expr_stmt|;
 name|resolveRequest
 argument_list|(
-name|observer
-operator|.
-name|observedState
-argument_list|()
+name|clusterState
 argument_list|,
 name|request
 argument_list|)
@@ -875,10 +871,7 @@ name|blockException
 operator|=
 name|checkRequestBlock
 argument_list|(
-name|observer
-operator|.
-name|observedState
-argument_list|()
+name|clusterState
 argument_list|,
 name|request
 argument_list|)
@@ -916,10 +909,7 @@ name|shardIt
 operator|=
 name|shards
 argument_list|(
-name|observer
-operator|.
-name|observedState
-argument_list|()
+name|clusterState
 argument_list|,
 name|request
 argument_list|)

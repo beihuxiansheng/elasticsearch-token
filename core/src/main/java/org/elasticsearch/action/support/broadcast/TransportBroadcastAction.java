@@ -338,6 +338,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -373,10 +383,6 @@ operator|.
 name|Supplier
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|TransportBroadcastAction
@@ -631,6 +637,8 @@ parameter_list|(
 name|ShardRequest
 name|request
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|shardOperation
 specifier|protected
@@ -643,6 +651,8 @@ parameter_list|,
 name|Task
 name|task
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|shardOperation

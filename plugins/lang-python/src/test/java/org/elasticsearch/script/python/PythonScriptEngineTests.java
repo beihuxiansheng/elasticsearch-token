@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -175,10 +175,6 @@ operator|.
 name|instanceOf
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|PythonScriptEngineTests
@@ -261,8 +257,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -435,8 +429,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -550,8 +542,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -696,8 +686,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -971,8 +959,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1026,8 +1012,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1129,8 +1113,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1252,8 +1234,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -1405,8 +1385,6 @@ argument_list|(
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

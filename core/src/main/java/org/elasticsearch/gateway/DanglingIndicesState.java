@@ -830,8 +830,6 @@ name|danglingIndices
 operator|.
 name|isEmpty
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 return|return;

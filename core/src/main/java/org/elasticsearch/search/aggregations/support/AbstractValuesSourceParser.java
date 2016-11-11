@@ -88,20 +88,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|Script
-operator|.
-name|ScriptField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|aggregations
@@ -151,10 +137,6 @@ operator|.
 name|Map
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|AbstractValuesSourceParser
@@ -942,9 +924,9 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|ScriptField
+name|Script
 operator|.
-name|SCRIPT
+name|SCRIPT_PARSE_FIELD
 argument_list|)
 condition|)
 block|{

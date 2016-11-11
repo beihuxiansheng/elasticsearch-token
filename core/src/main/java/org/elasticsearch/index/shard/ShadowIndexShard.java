@@ -425,8 +425,6 @@ name|newRouting
 operator|.
 name|primary
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 comment|// becoming a primary

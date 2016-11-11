@@ -220,26 +220,36 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|initialize
+comment|/**      * Provides a hook for subclasses to provide a version of the heuristic      * prepared for execution on data on the coordinating node.      * @param reduceContext the reduce context on the coordinating node      * @return a version of this heuristic suitable for execution      */
+DECL|method|rewrite
 specifier|public
-name|void
-name|initialize
+name|SignificanceHeuristic
+name|rewrite
 parameter_list|(
 name|InternalAggregation
 operator|.
 name|ReduceContext
 name|reduceContext
 parameter_list|)
-block|{      }
-DECL|method|initialize
+block|{
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Provides a hook for subclasses to provide a version of the heuristic      * prepared for execution on data on a shard.       * @param context the search context on the data node      * @return a version of this heuristic suitable for execution      */
+DECL|method|rewrite
 specifier|public
-name|void
-name|initialize
+name|SignificanceHeuristic
+name|rewrite
 parameter_list|(
 name|SearchContext
 name|context
 parameter_list|)
-block|{      }
+block|{
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

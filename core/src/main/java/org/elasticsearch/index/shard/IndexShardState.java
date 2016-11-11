@@ -16,10 +16,6 @@ name|shard
 package|;
 end_package
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_enum
 DECL|enum|IndexShardState
 specifier|public

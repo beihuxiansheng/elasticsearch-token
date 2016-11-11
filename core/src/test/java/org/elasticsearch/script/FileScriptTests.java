@@ -100,26 +100,6 @@ name|Collections
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|// TODO: these really should just be part of ScriptService tests, there is nothing special about them
 end_comment
@@ -366,10 +346,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"script1"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -378,7 +354,12 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"script1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|CompiledScript
@@ -527,10 +508,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"script1"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -539,7 +516,12 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"script1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for

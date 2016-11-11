@@ -575,7 +575,7 @@ name|from
 operator|=
 name|parser
 operator|.
-name|text
+name|textOrNull
 argument_list|()
 expr_stmt|;
 block|}
@@ -603,7 +603,7 @@ name|to
 operator|=
 name|parser
 operator|.
-name|text
+name|textOrNull
 argument_list|()
 expr_stmt|;
 block|}

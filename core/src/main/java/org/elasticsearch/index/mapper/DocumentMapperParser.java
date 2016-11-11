@@ -454,9 +454,6 @@ argument_list|,
 name|parseFieldMatcher
 argument_list|,
 name|queryShardContextSupplier
-operator|.
-name|get
-argument_list|()
 argument_list|)
 return|;
 block|}

@@ -106,6 +106,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the id of the pipeline to delete.      */
+DECL|method|setId
+specifier|public
+name|DeletePipelineRequestBuilder
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

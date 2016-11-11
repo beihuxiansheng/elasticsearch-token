@@ -38,7 +38,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|ActionRequestValidationException
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequestValidationException
+name|DocWriteRequest
 import|;
 end_import
 
@@ -878,7 +878,7 @@ name|assertThat
 argument_list|(
 name|script
 operator|.
-name|getScript
+name|getIdOrCode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1091,10 +1091,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
+name|DocWriteRequest
 argument_list|>
 name|requests
 init|=

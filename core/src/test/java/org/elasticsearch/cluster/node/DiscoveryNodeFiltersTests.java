@@ -50,21 +50,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -254,10 +240,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|DiscoveryNodeFiltersTests
 specifier|public
@@ -269,7 +251,7 @@ block|{
 DECL|field|localAddress
 specifier|private
 specifier|static
-name|InetSocketTransportAddress
+name|TransportAddress
 name|localAddress
 decl_stmt|;
 annotation|@
@@ -286,7 +268,7 @@ block|{
 name|localAddress
 operator|=
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|InetAddress
 operator|.
@@ -361,9 +343,7 @@ literal|"name1"
 argument_list|,
 literal|"id1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -401,9 +381,7 @@ literal|"name2"
 argument_list|,
 literal|"id2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -481,9 +459,7 @@ literal|"name1"
 argument_list|,
 literal|"id1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -521,9 +497,7 @@ literal|"name2"
 argument_list|,
 literal|"id2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -619,9 +593,7 @@ literal|"name1"
 argument_list|,
 literal|"id1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -657,9 +629,7 @@ literal|"name2"
 argument_list|,
 literal|"id2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -695,9 +665,7 @@ literal|"name3"
 argument_list|,
 literal|"id3"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -814,9 +782,7 @@ literal|"name1"
 argument_list|,
 literal|"id1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|attributes
@@ -887,9 +853,7 @@ literal|"name2"
 argument_list|,
 literal|"id2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|attributes
@@ -960,9 +924,7 @@ literal|"name3"
 argument_list|,
 literal|"id3"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|attributes
@@ -999,9 +961,7 @@ literal|"name4"
 argument_list|,
 literal|"id4"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -1079,9 +1039,7 @@ literal|"name1"
 argument_list|,
 literal|"id1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap

@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|DocWriteRequest
 import|;
 end_import
 
@@ -390,10 +390,7 @@ name|executeBulkRequest
 parameter_list|(
 name|Iterable
 argument_list|<
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
+name|DocWriteRequest
 argument_list|>
 name|actionRequests
 parameter_list|,
@@ -458,7 +455,7 @@ name|Exception
 block|{
 for|for
 control|(
-name|ActionRequest
+name|DocWriteRequest
 name|actionRequest
 range|:
 name|actionRequests

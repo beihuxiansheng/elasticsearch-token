@@ -897,6 +897,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public
@@ -941,6 +943,8 @@ argument_list|,
 name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|transportService
@@ -987,6 +991,8 @@ operator|new
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown

@@ -210,6 +210,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterServiceState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|collect
@@ -602,10 +616,6 @@ name|AtomicInteger
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|IndicesStore
 specifier|public
@@ -794,13 +804,25 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+comment|// Doesn't make sense to delete shards on non-data nodes
+if|if
+condition|(
+name|DiscoveryNode
+operator|.
+name|isDataNode
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
 name|clusterService
 operator|.
-name|addLast
+name|add
 argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -810,6 +832,16 @@ name|void
 name|close
 parameter_list|()
 block|{
+if|if
+condition|(
+name|DiscoveryNode
+operator|.
+name|isDataNode
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
 name|clusterService
 operator|.
 name|remove
@@ -817,6 +849,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2164,7 +2197,7 @@ specifier|protected
 name|boolean
 name|validate
 parameter_list|(
-name|ClusterState
+name|ClusterServiceState
 name|newState
 parameter_list|)
 block|{

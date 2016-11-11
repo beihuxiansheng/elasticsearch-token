@@ -356,18 +356,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|NodeServicesProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -411,10 +399,6 @@ operator|.
 name|AtomicBoolean
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|GatewayService
@@ -768,9 +752,6 @@ parameter_list|,
 name|Discovery
 name|discovery
 parameter_list|,
-name|NodeServicesProvider
-name|nodeServicesProvider
-parameter_list|,
 name|IndicesService
 name|indicesService
 parameter_list|)
@@ -796,8 +777,6 @@ argument_list|,
 name|listGatewayMetaState
 argument_list|,
 name|discovery
-argument_list|,
-name|nodeServicesProvider
 argument_list|,
 name|indicesService
 argument_list|)

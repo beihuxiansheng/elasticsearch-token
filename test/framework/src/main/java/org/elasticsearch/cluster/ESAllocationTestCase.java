@@ -284,20 +284,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|gateway
 operator|.
 name|GatewayAllocator
@@ -453,10 +439,6 @@ operator|.
 name|arrayAsArrayList
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|ESAllocationTestCase
@@ -829,9 +811,7 @@ name|nodeName
 argument_list|,
 name|nodeId
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|attributes
@@ -868,9 +848,7 @@ name|DiscoveryNode
 argument_list|(
 name|nodeId
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|attributes
@@ -907,9 +885,7 @@ name|DiscoveryNode
 argument_list|(
 name|nodeId
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -942,9 +918,7 @@ name|DiscoveryNode
 argument_list|(
 name|nodeId
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -1160,9 +1134,6 @@ argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

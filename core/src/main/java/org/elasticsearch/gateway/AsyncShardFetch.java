@@ -746,8 +746,6 @@ name|hasAnyNodeFetching
 argument_list|(
 name|cache
 argument_list|)
-operator|==
-literal|true
 condition|)
 block|{
 return|return
@@ -887,8 +885,6 @@ name|nodeEntry
 operator|.
 name|isFailed
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 comment|// if its failed, remove it from the list of nodes, so if this run doesn't work
@@ -2013,8 +2009,6 @@ parameter_list|)
 block|{
 assert|assert
 name|fetching
-operator|==
-literal|true
 operator|:
 literal|"setting value but not in fetching mode"
 assert|;
@@ -2054,8 +2048,6 @@ parameter_list|)
 block|{
 assert|assert
 name|fetching
-operator|==
-literal|true
 operator|:
 literal|"setting value but not in fetching mode"
 assert|;
@@ -2093,8 +2085,6 @@ parameter_list|()
 block|{
 assert|assert
 name|fetching
-operator|==
-literal|true
 operator|:
 literal|"restarting fetching, but not in fetching mode"
 assert|;
@@ -2137,8 +2127,6 @@ parameter_list|()
 block|{
 return|return
 name|valueSet
-operator|==
-literal|true
 operator|||
 name|failure
 operator|!=
@@ -2176,8 +2164,6 @@ literal|"trying to fetch value, but its marked as failed, check isFailed"
 assert|;
 assert|assert
 name|valueSet
-operator|==
-literal|true
 operator|:
 literal|"value is not set, hasn't been fetched yet"
 assert|;

@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CollectionUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -96,16 +82,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 import|;
 end_import
@@ -127,16 +103,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -446,7 +412,23 @@ literal|" to a node ["
 operator|+
 name|nodeId
 operator|+
-literal|"] where it already exists"
+literal|"] where it already exists. current ["
+operator|+
+name|shards
+operator|.
+name|get
+argument_list|(
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+operator|+
+literal|"]. new ["
+operator|+
+name|shard
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}

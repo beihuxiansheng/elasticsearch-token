@@ -1810,8 +1810,6 @@ block|}
 if|if
 condition|(
 name|indexCreatedBeforeV2_2
-operator|==
-literal|true
 condition|)
 block|{
 name|fromValue
@@ -1892,8 +1890,6 @@ block|}
 if|if
 condition|(
 name|indexCreatedBeforeV2_2
-operator|==
-literal|true
 condition|)
 block|{
 name|toValue
@@ -2032,6 +2028,8 @@ argument_list|,
 name|indexFieldData
 argument_list|,
 name|bboxOptimization
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}

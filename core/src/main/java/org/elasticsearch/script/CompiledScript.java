@@ -27,8 +27,6 @@ block|{
 DECL|field|type
 specifier|private
 specifier|final
-name|ScriptService
-operator|.
 name|ScriptType
 name|type
 decl_stmt|;
@@ -55,8 +53,6 @@ DECL|method|CompiledScript
 specifier|public
 name|CompiledScript
 parameter_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 name|type
 parameter_list|,
@@ -98,8 +94,6 @@ block|}
 comment|/**      * Method to get the type of language.      * @return The type of language the script was compiled in.      */
 DECL|method|type
 specifier|public
-name|ScriptService
-operator|.
 name|ScriptType
 name|type
 parameter_list|()

@@ -1018,6 +1018,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|NamedWriteableRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -1104,9 +1120,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
+name|action
 operator|.
-name|ScriptService
+name|search
+operator|.
+name|SearchTransportService
 import|;
 end_import
 
@@ -1116,11 +1134,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|script
 operator|.
-name|search
-operator|.
-name|SearchTransportService
+name|ScriptType
 import|;
 end_import
 
@@ -2331,10 +2347,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx.op='delete'"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -2342,6 +2354,8 @@ argument_list|,
 name|CustomScriptPlugin
 operator|.
 name|NAME
+argument_list|,
+literal|"ctx.op='delete'"
 argument_list|,
 name|Collections
 operator|.
@@ -5577,7 +5591,10 @@ argument_list|<
 name|TransportInterceptor
 argument_list|>
 name|getTransportInterceptors
-parameter_list|()
+parameter_list|(
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
+parameter_list|)
 block|{
 return|return
 name|Collections
@@ -5639,6 +5656,9 @@ name|interceptHandler
 parameter_list|(
 name|String
 name|action
+parameter_list|,
+name|String
+name|executor
 parameter_list|,
 name|TransportRequestHandler
 argument_list|<

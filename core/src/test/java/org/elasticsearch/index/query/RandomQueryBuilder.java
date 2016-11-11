@@ -26,7 +26,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -89,7 +89,7 @@ parameter_list|)
 block|{
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -169,7 +169,7 @@ name|multiTermQueryBuilder
 decl_stmt|;
 switch|switch
 condition|(
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -177,7 +177,7 @@ name|r
 argument_list|,
 literal|0
 argument_list|,
-literal|3
+literal|2
 argument_list|)
 condition|)
 block|{
@@ -242,31 +242,6 @@ case|:
 name|multiTermQueryBuilder
 operator|=
 operator|new
-name|FuzzyQueryBuilder
-argument_list|(
-name|AbstractQueryTestCase
-operator|.
-name|STRING_FIELD_NAME
-argument_list|,
-name|RandomStrings
-operator|.
-name|randomAsciiOfLengthBetween
-argument_list|(
-name|r
-argument_list|,
-literal|1
-argument_list|,
-literal|10
-argument_list|)
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
-name|multiTermQueryBuilder
-operator|=
-operator|new
 name|PrefixQueryBuilderTests
 argument_list|()
 operator|.
@@ -275,7 +250,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-literal|3
+literal|2
 case|:
 name|multiTermQueryBuilder
 operator|=
@@ -308,7 +283,7 @@ name|boost
 argument_list|(
 literal|2.0f
 operator|/
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

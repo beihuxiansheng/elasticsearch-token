@@ -54,7 +54,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -508,7 +508,7 @@ block|}
 block|}
 DECL|method|address
 specifier|private
-name|InetSocketTransportAddress
+name|TransportAddress
 name|address
 parameter_list|(
 name|String
@@ -522,7 +522,7 @@ name|UnknownHostException
 block|{
 return|return
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|getByName
 argument_list|(
@@ -535,7 +535,7 @@ return|;
 block|}
 DECL|method|randomAddress
 specifier|private
-name|InetSocketTransportAddress
+name|TransportAddress
 name|randomAddress
 parameter_list|()
 throws|throws
@@ -566,7 +566,7 @@ DECL|method|randomAddresses
 specifier|private
 name|List
 argument_list|<
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|>
 name|randomAddresses
 parameter_list|()
@@ -575,7 +575,7 @@ name|UnknownHostException
 block|{
 name|List
 argument_list|<
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|>
 name|addresses
 init|=

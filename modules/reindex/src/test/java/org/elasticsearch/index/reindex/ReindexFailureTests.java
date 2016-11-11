@@ -110,9 +110,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
-operator|.
-name|IndexRequest
+name|DocWriteRequest
 operator|.
 name|OpType
 operator|.

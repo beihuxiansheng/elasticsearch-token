@@ -304,7 +304,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|CompiledScript
+name|ExecutableScript
 import|;
 end_import
 
@@ -340,7 +340,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -481,6 +481,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
 import|;
 end_import
 
@@ -1896,15 +1908,13 @@ operator|=
 operator|new
 name|Script
 argument_list|(
-name|collateQuery
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"mustache"
+argument_list|,
+name|collateQuery
 argument_list|,
 name|Collections
 operator|.
@@ -3555,15 +3565,22 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|CompiledScript
+name|Function
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|,
+name|ExecutableScript
+argument_list|>
 name|compiledScript
 init|=
 name|context
 operator|.
-name|getScriptService
-argument_list|()
-operator|.
-name|compile
+name|getLazyExecutableScript
 argument_list|(
 name|this
 operator|.
@@ -3574,11 +3591,6 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|suggestionContext

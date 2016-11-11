@@ -36,10 +36,6 @@ name|Reader
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|FastCharArrayReader
 specifier|public

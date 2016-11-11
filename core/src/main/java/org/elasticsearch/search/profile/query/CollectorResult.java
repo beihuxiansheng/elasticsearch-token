@@ -223,6 +223,15 @@ name|REASON_SEARCH_TIMEOUT
 init|=
 literal|"search_timeout"
 decl_stmt|;
+DECL|field|REASON_SEARCH_CANCELLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REASON_SEARCH_CANCELLED
+init|=
+literal|"search_cancelled"
+decl_stmt|;
 DECL|field|REASON_AGGREGATION
 specifier|public
 specifier|static

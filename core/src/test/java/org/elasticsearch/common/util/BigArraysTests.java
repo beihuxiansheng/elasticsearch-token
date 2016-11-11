@@ -136,7 +136,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESSingleNodeTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -190,7 +190,7 @@ specifier|public
 class|class
 name|BigArraysTests
 extends|extends
-name|ESSingleNodeTestCase
+name|ESTestCase
 block|{
 DECL|method|randombigArrays
 specifier|private

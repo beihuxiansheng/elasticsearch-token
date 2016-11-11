@@ -290,7 +290,9 @@ block|}
 finally|finally
 block|{
 name|release
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -328,7 +330,9 @@ block|}
 finally|finally
 block|{
 name|release
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -341,9 +345,11 @@ DECL|method|release
 specifier|private
 name|void
 name|release
-parameter_list|()
+parameter_list|(
+name|boolean
+name|isExceptionResponse
+parameter_list|)
 block|{
-comment|// attempt to release once atomically
 if|if
 condition|(
 name|released
@@ -354,21 +360,7 @@ literal|false
 argument_list|,
 literal|true
 argument_list|)
-operator|==
-literal|false
 condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"reserved bytes are already released"
-argument_list|,
-name|releaseBy
-argument_list|)
-throw|;
-block|}
-else|else
 block|{
 assert|assert
 operator|(
@@ -382,7 +374,6 @@ operator|!=
 literal|null
 assert|;
 comment|// easier to debug if it's already closed
-block|}
 name|transport
 operator|.
 name|getInFlightRequestBreaker
@@ -394,6 +385,27 @@ operator|-
 name|reservedBytes
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|isExceptionResponse
+operator|==
+literal|false
+condition|)
+block|{
+comment|// only fail if we are not sending an error - we might send the error triggered by the previous
+comment|// sendResponse call
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"reserved bytes are already released"
+argument_list|,
+name|releaseBy
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override

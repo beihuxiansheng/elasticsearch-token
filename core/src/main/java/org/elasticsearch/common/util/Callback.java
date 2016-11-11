@@ -16,10 +16,6 @@ name|util
 package|;
 end_package
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|Callback
 specifier|public

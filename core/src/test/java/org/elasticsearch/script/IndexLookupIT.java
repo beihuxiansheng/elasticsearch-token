@@ -356,20 +356,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
-name|ScriptType
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -5324,8 +5310,6 @@ return|return
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5334,7 +5318,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -208,7 +208,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 import|;
 end_import
 
@@ -314,6 +314,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|store
+operator|.
+name|TransportNodesListShardStoreMetaData
+operator|.
+name|NodeStoreFilesMetaData
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -361,10 +377,6 @@ operator|.
 name|Objects
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|ReplicaShardAllocator
@@ -448,8 +460,6 @@ name|shard
 operator|.
 name|primary
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 continue|continue;
@@ -509,8 +519,6 @@ name|AsyncShardFetch
 operator|.
 name|FetchResult
 argument_list|<
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 argument_list|>
 name|shardStores
@@ -726,8 +734,6 @@ name|isNodeMatchBySyncID
 argument_list|(
 name|nodeWithHighestMatch
 argument_list|)
-operator|==
-literal|true
 condition|)
 block|{
 comment|// we found a better match that has a full sync id match, the existing allocation is not fully synced
@@ -888,7 +894,7 @@ annotation|@
 name|Override
 DECL|method|makeAllocationDecision
 specifier|public
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 name|makeAllocationDecision
 parameter_list|(
 specifier|final
@@ -916,7 +922,7 @@ condition|)
 block|{
 comment|// this allocator is not responsible for deciding on this shard
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
 name|DECISION_NOT_TAKEN
 return|;
@@ -989,9 +995,9 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|noDecision
+name|no
 argument_list|(
 name|UnassignedInfo
 operator|.
@@ -1003,8 +1009,13 @@ name|allocateDecision
 operator|.
 name|v1
 argument_list|()
+operator|.
+name|type
+argument_list|()
 argument_list|)
 argument_list|,
+name|explain
+condition|?
 literal|"all nodes returned a "
 operator|+
 name|allocateDecision
@@ -1016,6 +1027,8 @@ name|type
 argument_list|()
 operator|+
 literal|" decision for allocating the replica shard"
+else|:
+literal|null
 argument_list|,
 name|allocateDecision
 operator|.
@@ -1028,8 +1041,6 @@ name|AsyncShardFetch
 operator|.
 name|FetchResult
 argument_list|<
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 argument_list|>
 name|shardStores
@@ -1066,15 +1077,19 @@ name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|noDecision
+name|no
 argument_list|(
 name|AllocationStatus
 operator|.
 name|FETCHING_SHARD_DATA
 argument_list|,
+name|explain
+condition|?
 literal|"still fetching shard state from the nodes in the cluster"
+else|:
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1133,7 +1148,7 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
 name|DECISION_NOT_TAKEN
 return|;
@@ -1254,13 +1269,15 @@ argument_list|)
 expr_stmt|;
 comment|// we are throttling this, as we have enough other shards to allocate to this node, so ignore it for now
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|throttleDecision
+name|throttle
 argument_list|(
-literal|"returned a THROTTLE decision on each node that has an existing copy of the shard, so waiting to re-use one "
-operator|+
-literal|"of those copies"
+name|explain
+condition|?
+literal|"returned a THROTTLE decision on each node that has an existing copy of the shard, so waiting to re-use one of those copies"
+else|:
+literal|null
 argument_list|,
 name|matchingNodes
 operator|.
@@ -1296,10 +1313,15 @@ argument_list|)
 expr_stmt|;
 comment|// we found a match
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|yesDecision
+name|yes
 argument_list|(
+name|nodeWithHighestMatch
+operator|.
+name|nodeId
+argument_list|()
+argument_list|,
 literal|"allocating to node ["
 operator|+
 name|nodeWithHighestMatch
@@ -1308,11 +1330,6 @@ name|nodeId
 argument_list|()
 operator|+
 literal|"] in order to re-use its unallocated persistent store"
-argument_list|,
-name|nodeWithHighestMatch
-operator|.
-name|nodeId
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -1360,20 +1377,24 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
-name|noDecision
+name|no
 argument_list|(
 name|AllocationStatus
 operator|.
 name|DELAYED_ALLOCATION
 argument_list|,
+name|explain
+condition|?
 literal|"not allocating this shard, no nodes contain data for the replica and allocation is delayed"
+else|:
+literal|null
 argument_list|)
 return|;
 block|}
 return|return
-name|UnassignedShardDecision
+name|ShardAllocationDecision
 operator|.
 name|DECISION_NOT_TAKEN
 return|;
@@ -1598,8 +1619,6 @@ name|AsyncShardFetch
 operator|.
 name|FetchResult
 argument_list|<
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 argument_list|>
 name|data
@@ -1640,8 +1659,6 @@ return|return
 literal|null
 return|;
 block|}
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 name|primaryNodeFilesStore
 init|=
@@ -1693,8 +1710,6 @@ name|AsyncShardFetch
 operator|.
 name|FetchResult
 argument_list|<
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 argument_list|>
 name|data
@@ -1735,8 +1750,6 @@ name|Entry
 argument_list|<
 name|DiscoveryNode
 argument_list|,
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 argument_list|>
 name|nodeStoreEntry
@@ -2028,8 +2041,6 @@ name|AsyncShardFetch
 operator|.
 name|FetchResult
 argument_list|<
-name|TransportNodesListShardStoreMetaData
-operator|.
 name|NodeStoreFilesMetaData
 argument_list|>
 name|fetchData

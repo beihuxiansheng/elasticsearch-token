@@ -803,6 +803,8 @@ argument_list|,
 name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|transportService
@@ -2083,9 +2085,6 @@ argument_list|(
 literal|"clusterState is:\n"
 operator|+
 name|clusterState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|health
 operator|.
@@ -2108,9 +2107,6 @@ argument_list|(
 literal|"clusterState is:\n"
 operator|+
 name|clusterState
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|health
 operator|.

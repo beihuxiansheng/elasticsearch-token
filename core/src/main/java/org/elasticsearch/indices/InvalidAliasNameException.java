@@ -74,10 +74,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|InvalidAliasNameException
 specifier|public
@@ -112,6 +108,27 @@ expr_stmt|;
 name|setIndex
 argument_list|(
 name|index
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InvalidAliasNameException
+specifier|public
+name|InvalidAliasNameException
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|description
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Invalid alias name [{}]: {}"
+argument_list|,
+name|name
+argument_list|,
+name|description
 argument_list|)
 expr_stmt|;
 block|}

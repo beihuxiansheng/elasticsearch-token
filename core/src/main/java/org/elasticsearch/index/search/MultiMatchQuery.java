@@ -140,6 +140,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -178,11 +192,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -194,11 +204,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
+name|collect
 operator|.
-name|search
-operator|.
-name|MatchNoDocsQuery
+name|Tuple
 import|;
 end_import
 
@@ -1552,6 +1560,8 @@ name|MultiMatchQuery
 operator|.
 name|blendTerm
 argument_list|(
+name|context
+argument_list|,
 name|term
 operator|.
 name|bytes
@@ -1607,6 +1617,9 @@ specifier|static
 name|Query
 name|blendTerm
 parameter_list|(
+name|QueryShardContext
+name|context
+parameter_list|,
 name|BytesRef
 name|value
 parameter_list|,
@@ -1684,7 +1697,7 @@ name|termQuery
 argument_list|(
 name|value
 argument_list|,
-literal|null
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -1698,6 +1711,31 @@ comment|// the query expects a certain class of values such as numbers
 comment|// of ip addresses and the value can't be parsed, so ignore this
 comment|// field
 continue|continue;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|parseException
+parameter_list|)
+block|{
+comment|// date fields throw an ElasticsearchParseException with the
+comment|// underlying IAE as the cause, ignore this field if that is
+comment|// the case
+if|if
+condition|(
+name|parseException
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalArgumentException
+condition|)
+block|{
+continue|continue;
+block|}
+throw|throw
+name|parseException
+throw|;
 block|}
 name|float
 name|boost

@@ -101,19 +101,40 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
-name|buildResponse
-argument_list|(
-name|response
-argument_list|,
+try|try
+init|(
+name|XContentBuilder
+name|builder
+init|=
 name|channel
 operator|.
 name|newBuilder
 argument_list|()
+init|)
+block|{
+specifier|final
+name|RestResponse
+name|restResponse
+init|=
+name|buildResponse
+argument_list|(
+name|response
+argument_list|,
+name|builder
 argument_list|)
+decl_stmt|;
+assert|assert
+name|assertBuilderClosed
+argument_list|(
+name|builder
+argument_list|)
+assert|;
+return|return
+name|restResponse
 return|;
 block|}
-comment|/**      * Builds a response to send back over the channel.      */
+block|}
+comment|/**      * Builds a response to send back over the channel. Implementors should ensure that they close the provided {@link XContentBuilder}      * using the {@link XContentBuilder#close()} method.      */
 DECL|method|buildResponse
 specifier|public
 specifier|abstract
@@ -129,6 +150,30 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|// pkg private method that we can override for testing
+DECL|method|assertBuilderClosed
+name|boolean
+name|assertBuilderClosed
+parameter_list|(
+name|XContentBuilder
+name|xContentBuilder
+parameter_list|)
+block|{
+assert|assert
+name|xContentBuilder
+operator|.
+name|generator
+argument_list|()
+operator|.
+name|isClosed
+argument_list|()
+operator|:
+literal|"callers should ensure the XContentBuilder is closed themselves"
+assert|;
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

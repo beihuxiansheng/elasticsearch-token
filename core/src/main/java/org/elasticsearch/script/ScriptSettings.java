@@ -152,8 +152,6 @@ specifier|static
 specifier|final
 name|Map
 argument_list|<
-name|ScriptService
-operator|.
 name|ScriptType
 argument_list|,
 name|Setting
@@ -167,8 +165,6 @@ static|static
 block|{
 name|Map
 argument_list|<
-name|ScriptService
-operator|.
 name|ScriptType
 argument_list|,
 name|Setting
@@ -185,13 +181,9 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 range|:
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|values
@@ -217,7 +209,7 @@ argument_list|)
 argument_list|,
 name|scriptType
 operator|.
-name|getDefaultScriptEnabled
+name|isDefaultEnabled
 argument_list|()
 argument_list|,
 name|Property
@@ -490,8 +482,6 @@ name|languageSettings
 parameter_list|(
 name|Map
 argument_list|<
-name|ScriptService
-operator|.
 name|ScriptType
 argument_list|,
 name|Setting
@@ -577,13 +567,9 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 range|:
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|values
@@ -613,8 +599,6 @@ decl_stmt|;
 comment|// Files are treated differently because they are never default-deny
 if|if
 condition|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -624,13 +608,11 @@ condition|)
 block|{
 name|defaultLangAndType
 operator|=
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
 operator|.
-name|getDefaultScriptEnabled
+name|isDefaultEnabled
 argument_list|()
 expr_stmt|;
 block|}

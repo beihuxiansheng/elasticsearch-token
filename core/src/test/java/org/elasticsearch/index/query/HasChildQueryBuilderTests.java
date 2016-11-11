@@ -516,18 +516,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|startsWith
-import|;
-end_import
-
 begin_class
 DECL|class|HasChildQueryBuilderTests
 specifier|public
@@ -892,8 +880,8 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
-name|context
+name|SearchContext
+name|searchContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -985,20 +973,10 @@ name|queryBuilder
 operator|.
 name|rewrite
 argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|SearchContext
 name|searchContext
-init|=
-name|SearchContext
 operator|.
-name|current
+name|getQueryShardContext
 argument_list|()
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|searchContext
 argument_list|)
 expr_stmt|;
 name|Map
@@ -1793,10 +1771,15 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|startsWith
+name|equalTo
 argument_list|(
-literal|"query malformed, empty clause found at"
+literal|"query malformed, empty clause found at [3:17]"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [3:17]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2281,7 +2264,7 @@ argument_list|(
 operator|new
 name|TypeFieldMapper
 operator|.
-name|TypeQuery
+name|TypesQuery
 argument_list|(
 operator|new
 name|BytesRef

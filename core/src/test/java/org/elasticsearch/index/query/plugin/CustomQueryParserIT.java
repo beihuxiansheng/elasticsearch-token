@@ -456,7 +456,24 @@ argument_list|)
 argument_list|)
 operator|.
 name|newQueryShardContext
+argument_list|(
+name|randomInt
+argument_list|(
+literal|20
+argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
 argument_list|()
+throw|;
+block|}
+argument_list|)
 return|;
 block|}
 comment|//see #11120

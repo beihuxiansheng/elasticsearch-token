@@ -158,20 +158,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -205,6 +191,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -256,9 +252,9 @@ name|DiscoveryNode
 argument_list|(
 literal|"node"
 argument_list|,
-name|LocalTransportAddress
+name|ESTestCase
 operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|Collections
@@ -373,10 +369,13 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|connectToAddedNodes
+name|connectToNodes
 parameter_list|(
-name|ClusterChangedEvent
-name|event
+name|List
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|addedNodes
 parameter_list|)
 block|{
 comment|// skip
@@ -385,10 +384,13 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|disconnectFromRemovedNodes
+name|disconnectFromNodes
 parameter_list|(
-name|ClusterChangedEvent
-name|event
+name|List
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|removedNodes
 parameter_list|)
 block|{
 comment|// skip

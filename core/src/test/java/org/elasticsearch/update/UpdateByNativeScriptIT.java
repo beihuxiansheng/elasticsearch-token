@@ -118,19 +118,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -258,10 +246,6 @@ name|is
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -377,10 +361,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"custom"
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -388,6 +368,8 @@ argument_list|,
 name|NativeScriptEngineService
 operator|.
 name|NAME
+argument_list|,
+literal|"custom"
 argument_list|,
 name|params
 argument_list|)

@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -449,8 +449,6 @@ name|search1
 operator|.
 name|setScriptType
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -540,8 +538,6 @@ name|search2
 operator|.
 name|setScriptType
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -638,8 +634,6 @@ name|search3
 operator|.
 name|setScriptType
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -736,8 +730,6 @@ name|search4
 operator|.
 name|setScriptType
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -827,8 +819,6 @@ name|search5
 operator|.
 name|setScriptType
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

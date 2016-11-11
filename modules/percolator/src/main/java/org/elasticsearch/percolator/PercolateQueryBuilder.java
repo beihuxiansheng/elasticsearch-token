@@ -222,6 +222,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -435,22 +449,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -2661,6 +2659,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Call nowInMillis() so that this query becomes un-cacheable since we
+comment|// can't be sure that it doesn't use now or scripts
+name|context
+operator|.
+name|nowInMillis
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|indexedDocumentIndex
@@ -2921,6 +2926,17 @@ operator|.
 name|INDEX_MAP_UNMAPPED_FIELDS_AS_STRING_SETTING
 argument_list|)
 decl_stmt|;
+comment|// We have to make a copy of the QueryShardContext here so we can have a unfrozen version for parsing the legacy
+comment|// percolator queries
+name|QueryShardContext
+name|percolateShardContext
+init|=
+operator|new
+name|QueryShardContext
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|indexVersionCreated
@@ -3018,7 +3034,7 @@ name|createStore
 argument_list|(
 name|pft
 argument_list|,
-name|context
+name|percolateShardContext
 argument_list|,
 name|mapUnmappedFieldsAsString
 argument_list|)
@@ -3066,7 +3082,7 @@ name|queryStore
 init|=
 name|createLegacyStore
 argument_list|(
-name|context
+name|percolateShardContext
 argument_list|,
 name|mapUnmappedFieldsAsString
 argument_list|)

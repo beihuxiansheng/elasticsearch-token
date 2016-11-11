@@ -347,7 +347,7 @@ name|availableProcessors
 operator|=
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|settings
 argument_list|)

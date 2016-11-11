@@ -6014,7 +6014,7 @@ argument_list|(
 literal|"test1"
 argument_list|)
 operator|.
-name|getTotal
+name|getPrimaries
 argument_list|()
 operator|.
 name|getIndexing
@@ -6041,7 +6041,7 @@ argument_list|(
 literal|"test2"
 argument_list|)
 operator|.
-name|getTotal
+name|getPrimaries
 argument_list|()
 operator|.
 name|getIndexing
@@ -6117,7 +6117,7 @@ name|assertThat
 argument_list|(
 name|stats
 operator|.
-name|getTotal
+name|getPrimaries
 argument_list|()
 operator|.
 name|getIndexing

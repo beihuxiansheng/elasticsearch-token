@@ -562,10 +562,6 @@ begin_class
 annotation|@
 name|ESIntegTestCase
 operator|.
-name|SuppressLocalMode
-annotation|@
-name|ESIntegTestCase
-operator|.
 name|ClusterScope
 argument_list|(
 name|numDataNodes

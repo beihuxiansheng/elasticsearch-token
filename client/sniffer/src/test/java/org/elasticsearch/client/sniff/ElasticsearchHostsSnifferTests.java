@@ -26,7 +26,7 @@ name|randomizedtesting
 operator|.
 name|generators
 operator|.
-name|RandomInts
+name|RandomNumbers
 import|;
 end_import
 
@@ -490,7 +490,7 @@ name|this
 operator|.
 name|sniffRequestTimeout
 operator|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -714,7 +714,7 @@ name|ElasticsearchHostsSniffer
 argument_list|(
 name|restClient
 argument_list|,
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1261,7 +1261,7 @@ block|{
 name|int
 name|numNodes
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1477,7 +1477,7 @@ decl_stmt|;
 name|int
 name|port
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1651,7 +1651,7 @@ decl_stmt|;
 name|int
 name|numRoles
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -1754,7 +1754,7 @@ block|}
 name|int
 name|numAttributes
 init|=
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(
@@ -2057,7 +2057,7 @@ name|randomErrorResponseCode
 parameter_list|()
 block|{
 return|return
-name|RandomInts
+name|RandomNumbers
 operator|.
 name|randomIntBetween
 argument_list|(

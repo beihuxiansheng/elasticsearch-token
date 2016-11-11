@@ -46,18 +46,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocumentRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|RealtimeRequest
 import|;
 end_import
@@ -375,11 +363,6 @@ argument_list|<
 name|TermVectorsRequest
 argument_list|>
 implements|implements
-name|DocumentRequest
-argument_list|<
-name|TermVectorsRequest
-argument_list|>
-implements|,
 name|RealtimeRequest
 block|{
 DECL|field|type
@@ -1088,8 +1071,6 @@ name|this
 return|;
 block|}
 comment|/**      * Returns the type of document to get the term vector for.      */
-annotation|@
-name|Override
 DECL|method|type
 specifier|public
 name|String
@@ -1101,8 +1082,6 @@ name|type
 return|;
 block|}
 comment|/**      * Returns the id of document the term vector is requested for.      */
-annotation|@
-name|Override
 DECL|method|id
 specifier|public
 name|String
@@ -1216,8 +1195,6 @@ name|this
 return|;
 block|}
 comment|/**      * @return The routing for this request.      */
-annotation|@
-name|Override
 DECL|method|routing
 specifier|public
 name|String
@@ -1228,8 +1205,6 @@ return|return
 name|routing
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|routing
 specifier|public
 name|TermVectorsRequest
@@ -1249,8 +1224,6 @@ return|return
 name|this
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|parent
 specifier|public
 name|String

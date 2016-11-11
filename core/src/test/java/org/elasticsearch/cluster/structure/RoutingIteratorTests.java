@@ -3746,7 +3746,7 @@ block|}
 argument_list|,
 literal|null
 argument_list|,
-literal|"_shards:0;"
+literal|"_shards:0|"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -3898,7 +3898,7 @@ block|}
 argument_list|,
 literal|null
 argument_list|,
-literal|"_shards:0;_prefer_nodes:node1"
+literal|"_shards:0|_prefer_nodes:node1"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -3975,7 +3975,7 @@ block|}
 argument_list|,
 literal|null
 argument_list|,
-literal|"_shards:0;_prefer_nodes:node1,node2"
+literal|"_shards:0|_prefer_nodes:node1,node2"
 argument_list|)
 expr_stmt|;
 name|assertThat

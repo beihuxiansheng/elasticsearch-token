@@ -32,6 +32,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|FailedNodeException
 import|;
 end_import
@@ -260,10 +272,6 @@ name|timeValueSeconds
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TransportListTasksAction
 specifier|public
@@ -452,7 +460,7 @@ annotation|@
 name|Override
 DECL|method|taskOperation
 specifier|protected
-name|TaskInfo
+name|void
 name|taskOperation
 parameter_list|(
 name|ListTasksRequest
@@ -460,9 +468,18 @@ name|request
 parameter_list|,
 name|Task
 name|task
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|TaskInfo
+argument_list|>
+name|listener
 parameter_list|)
 block|{
-return|return
+name|listener
+operator|.
+name|onResponse
+argument_list|(
 name|task
 operator|.
 name|taskInfo
@@ -471,13 +488,17 @@ name|clusterService
 operator|.
 name|localNode
 argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|request
 operator|.
 name|getDetailed
 argument_list|()
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

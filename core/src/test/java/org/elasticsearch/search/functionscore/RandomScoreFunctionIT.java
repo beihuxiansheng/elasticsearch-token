@@ -146,8 +146,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -1440,13 +1438,13 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"log(doc['index'].value + (factor * _score))"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 name|NAME
+argument_list|,
+literal|"log(doc['index'].value + (factor * _score))"
 argument_list|,
 name|params
 argument_list|)
@@ -1549,13 +1547,13 @@ operator|=
 operator|new
 name|Script
 argument_list|(
-literal|"log(doc['index'].value + (factor * _score.intValue()))"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 name|NAME
+argument_list|,
+literal|"log(doc['index'].value + (factor * _score.intValue()))"
 argument_list|,
 name|params
 argument_list|)
@@ -1656,13 +1654,13 @@ operator|=
 operator|new
 name|Script
 argument_list|(
-literal|"log(doc['index'].value + (factor * _score.longValue()))"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 name|NAME
+argument_list|,
+literal|"log(doc['index'].value + (factor * _score.longValue()))"
 argument_list|,
 name|params
 argument_list|)
@@ -1763,13 +1761,13 @@ operator|=
 operator|new
 name|Script
 argument_list|(
-literal|"log(doc['index'].value + (factor * _score.floatValue()))"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 name|NAME
+argument_list|,
+literal|"log(doc['index'].value + (factor * _score.floatValue()))"
 argument_list|,
 name|params
 argument_list|)
@@ -1870,13 +1868,13 @@ operator|=
 operator|new
 name|Script
 argument_list|(
-literal|"log(doc['index'].value + (factor * _score.doubleValue()))"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 name|NAME
+argument_list|,
+literal|"log(doc['index'].value + (factor * _score.doubleValue()))"
 argument_list|,
 name|params
 argument_list|)

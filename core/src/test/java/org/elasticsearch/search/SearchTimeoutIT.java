@@ -136,20 +136,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -263,10 +249,6 @@ operator|.
 name|equalTo
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 annotation|@
@@ -413,17 +395,20 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-name|NativeTestScriptedTimeout
-operator|.
-name|TEST_NATIVE_SCRIPT_TIMEOUT
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"native"
 argument_list|,
-literal|null
+name|NativeTestScriptedTimeout
+operator|.
+name|TEST_NATIVE_SCRIPT_TIMEOUT
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

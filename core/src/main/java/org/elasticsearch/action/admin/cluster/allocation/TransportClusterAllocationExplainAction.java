@@ -877,7 +877,7 @@ name|nonYesDecisions
 return|;
 block|}
 block|}
-comment|/**      * Construct a {@code NodeExplanation} object for the given shard given all the metadata. This also attempts to construct the human      * readable FinalDecision and final explanation as part of the explanation.      */
+comment|/**      * Construct a {@code WeightedDecision} object for the given shard given all the metadata. This also attempts to construct the human      * readable FinalDecision and final explanation as part of the explanation.      */
 DECL|method|calculateNodeExplanation
 specifier|public
 specifier|static

@@ -56,6 +56,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Writeable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|cbor
@@ -141,6 +157,8 @@ DECL|enum|XContentType
 specifier|public
 enum|enum
 name|XContentType
+implements|implements
+name|Writeable
 block|{
 comment|/**      * A JSON based content type.      */
 DECL|enum constant|JSON
@@ -576,15 +594,13 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
-specifier|static
 name|void
 name|writeTo
 parameter_list|(
-name|XContentType
-name|contentType
-parameter_list|,
 name|StreamOutput
 name|out
 parameter_list|)
@@ -595,8 +611,6 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|contentType
-operator|.
 name|index
 argument_list|)
 expr_stmt|;

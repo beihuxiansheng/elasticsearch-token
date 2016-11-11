@@ -831,10 +831,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDeprecatedParamException
+DECL|method|testDeprecatedParamIn2xException
 specifier|public
 name|void
-name|testDeprecatedParamException
+name|testDeprecatedParamIn2xException
 parameter_list|()
 throws|throws
 name|Exception

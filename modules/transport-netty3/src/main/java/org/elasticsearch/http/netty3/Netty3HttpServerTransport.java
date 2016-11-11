@@ -194,7 +194,7 @@ name|common
 operator|.
 name|transport
 operator|.
-name|InetSocketTransportAddress
+name|TransportAddress
 import|;
 end_import
 
@@ -223,20 +223,6 @@ operator|.
 name|transport
 operator|.
 name|PortsRange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|TransportAddress
 import|;
 end_import
 
@@ -1392,7 +1378,7 @@ name|toString
 argument_list|(
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|s
 argument_list|)
@@ -2455,6 +2441,13 @@ name|void
 name|doStart
 parameter_list|()
 block|{
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|this
 operator|.
 name|serverOpenChannels
@@ -2659,6 +2652,26 @@ operator|=
 name|createBoundHttpAddress
 argument_list|()
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|success
+operator|==
+literal|false
+condition|)
+block|{
+name|doStop
+argument_list|()
+expr_stmt|;
+comment|// otherwise we leak threads since we never moved to started
+block|}
+block|}
 block|}
 DECL|method|createBoundHttpAddress
 specifier|private
@@ -2710,7 +2723,7 @@ throw|;
 block|}
 name|List
 argument_list|<
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|>
 name|boundAddresses
 init|=
@@ -2815,7 +2828,7 @@ index|]
 argument_list|)
 argument_list|,
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|publishAddress
 argument_list|)
@@ -2833,7 +2846,7 @@ name|settings
 parameter_list|,
 name|List
 argument_list|<
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|>
 name|boundAddresses
 parameter_list|,
@@ -2860,7 +2873,7 @@ condition|)
 block|{
 for|for
 control|(
-name|InetSocketTransportAddress
+name|TransportAddress
 name|boundAddress
 range|:
 name|boundAddresses
@@ -2921,7 +2934,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|InetSocketTransportAddress
+name|TransportAddress
 name|boundAddress
 range|:
 name|boundAddresses
@@ -3229,7 +3242,7 @@ return|;
 block|}
 DECL|method|bindAddress
 specifier|private
-name|InetSocketTransportAddress
+name|TransportAddress
 name|bindAddress
 parameter_list|(
 specifier|final
@@ -3268,21 +3281,8 @@ name|port
 operator|.
 name|iterate
 argument_list|(
-operator|new
-name|PortsRange
-operator|.
-name|PortCallback
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|onPortNumber
-parameter_list|(
-name|int
 name|portNumber
-parameter_list|)
+lambda|->
 block|{
 try|try
 block|{
@@ -3350,7 +3350,6 @@ return|return
 literal|true
 return|;
 block|}
-block|}
 argument_list|)
 decl_stmt|;
 if|if
@@ -3366,6 +3365,9 @@ argument_list|(
 literal|"Failed to bind to ["
 operator|+
 name|port
+operator|.
+name|getPortRangeString
+argument_list|()
 operator|+
 literal|"]"
 argument_list|,
@@ -3404,7 +3406,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|InetSocketTransportAddress
+name|TransportAddress
 argument_list|(
 name|boundSocket
 operator|.

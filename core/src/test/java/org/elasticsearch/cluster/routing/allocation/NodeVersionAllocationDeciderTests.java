@@ -430,20 +430,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|set
@@ -3663,9 +3649,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"newNode"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -3687,9 +3671,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"oldNode1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -3712,9 +3694,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"oldNode2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -4301,9 +4281,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"newNode"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -4325,9 +4303,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"oldNode1"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -4350,9 +4326,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"oldNode2"
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|emptyMap
@@ -4708,9 +4682,6 @@ name|clusterState
 operator|.
 name|getRoutingNodes
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|clusterState
@@ -4760,9 +4731,6 @@ argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4836,9 +4804,6 @@ argument_list|(
 literal|"RoutingNodes: {}"
 argument_list|,
 name|routingNodes
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|List

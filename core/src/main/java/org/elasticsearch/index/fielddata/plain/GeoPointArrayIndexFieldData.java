@@ -495,8 +495,6 @@ name|Version
 operator|.
 name|V_2_2_0
 argument_list|)
-operator|==
-literal|true
 operator|)
 condition|?
 name|loadLegacyFieldData

@@ -78,20 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|shard
@@ -196,10 +182,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|StartRecoveryRequestTests
 specifier|public
@@ -246,11 +228,8 @@ name|DiscoveryNode
 argument_list|(
 literal|"a"
 argument_list|,
-operator|new
-name|LocalTransportAddress
-argument_list|(
-literal|"1"
-argument_list|)
+name|buildNewFakeTransportAddress
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -266,11 +245,8 @@ name|DiscoveryNode
 argument_list|(
 literal|"b"
 argument_list|,
-operator|new
-name|LocalTransportAddress
-argument_list|(
-literal|"1"
-argument_list|)
+name|buildNewFakeTransportAddress
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

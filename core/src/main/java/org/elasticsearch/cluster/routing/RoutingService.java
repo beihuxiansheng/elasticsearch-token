@@ -478,9 +478,6 @@ argument_list|,
 name|source
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 argument_list|,
 name|e
@@ -562,9 +559,6 @@ argument_list|(
 literal|"failed to reroute routing table, current state:\n{}"
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 argument_list|,
 name|e

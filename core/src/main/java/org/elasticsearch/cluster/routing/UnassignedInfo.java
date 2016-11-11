@@ -598,6 +598,8 @@ name|AllocationStatus
 name|fromDecision
 parameter_list|(
 name|Decision
+operator|.
+name|Type
 name|decision
 parameter_list|)
 block|{
@@ -611,9 +613,6 @@ expr_stmt|;
 switch|switch
 condition|(
 name|decision
-operator|.
-name|type
-argument_list|()
 condition|)
 block|{
 case|case
@@ -636,9 +635,6 @@ argument_list|(
 literal|"no allocation attempt from decision["
 operator|+
 name|decision
-operator|.
-name|type
-argument_list|()
 operator|+
 literal|"]"
 argument_list|)

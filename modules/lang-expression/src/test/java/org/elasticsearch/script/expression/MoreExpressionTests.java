@@ -264,8 +264,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -772,13 +770,13 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-name|script
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"expression"
+argument_list|,
+name|script
 argument_list|,
 name|paramsMap
 argument_list|)
@@ -1171,15 +1169,18 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"1 / _score"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"expression"
 argument_list|,
-literal|null
+literal|"1 / _score"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4502,8 +4503,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value * 3"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4512,7 +4511,12 @@ name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value * 3"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4536,8 +4540,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value - 1.1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4546,7 +4548,12 @@ name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value - 1.1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4571,8 +4578,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"3.0"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4581,7 +4586,12 @@ name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"3.0"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4880,8 +4890,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"_value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4890,7 +4898,12 @@ name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5517,8 +5530,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"0"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5527,7 +5538,12 @@ name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"0"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5861,8 +5877,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"_value0 + _value1 + _value2"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5871,7 +5885,12 @@ name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"_value0 + _value1 + _value2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"twoSum"

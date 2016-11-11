@@ -302,8 +302,44 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
 begin_comment
-comment|/**  * We enforce limits once any network host is configured. In this case we assume the node is running in production  * and all production limit checks must pass. This should be extended as we go to settings like:  * - discovery.zen.ping.unicast.hosts is set if we use zen disco  * - ensure we can write in all data directories  * - fail if the default cluster.name is used, if this is setup on network a real clustername should be used?  */
+comment|/**  * We enforce bootstrap checks once a node has the transport protocol bound to a non-loopback interface. In this case we assume the node is  * running in production and all bootstrap checks must pass.  */
 end_comment
 
 begin_class
@@ -317,7 +353,7 @@ specifier|private
 name|BootstrapCheck
 parameter_list|()
 block|{     }
-comment|/**      * checks the current limits against the snapshot or release build      * checks      *      * @param settings              the current node settings      * @param boundTransportAddress the node network bindings      */
+comment|/**      * Executes the bootstrap checks if the node has the transport protocol bound to a non-loopback interface.      *      * @param settings              the current node settings      * @param boundTransportAddress the node network bindings      */
 DECL|method|check
 specifier|static
 name|void
@@ -357,8 +393,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * executes the provided checks and fails the node if      * enforceLimits is true, otherwise logs warnings      *      * @param enforceLimits      true if the checks should be enforced or      *                           otherwise warned      * @param checks             the checks to execute      * @param nodeName           the node name to be used as a logging prefix      */
-comment|// visible for testing
+comment|/**      * Executes the provided checks and fails the node if {@code enforceLimits} is {@code true}, otherwise logs warnings.      *      * @param enforceLimits {@code true} if the checks should be enforced or otherwise warned      * @param checks        the checks to execute      * @param nodeName      the node name to be used as a logging prefix      */
 DECL|method|check
 specifier|static
 name|void
@@ -401,7 +436,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * executes the provided checks and fails the node if      * enforceLimits is true, otherwise logs warnings      *      * @param enforceLimits      true if the checks should be enforced or      *                           otherwise warned      * @param checks             the checks to execute      * @param logger             the logger to      */
+comment|/**      * Executes the provided checks and fails the node if {@code enforceLimits} is {@code true}, otherwise logs warnings.      *      * @param enforceLimits {@code true} if the checks should be enforced or otherwise warned      * @param checks        the checks to execute      * @param logger        the logger to      */
 DECL|method|check
 specifier|static
 name|void
@@ -646,8 +681,7 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests if the checks should be enforced      *      * @param boundTransportAddress the node network bindings      * @return true if the checks should be enforced      */
-comment|// visible for testing
+comment|/**      * Tests if the checks should be enforced.      *      * @param boundTransportAddress the node network bindings      * @return {@code true} if the checks should be enforced      */
 DECL|method|enforceLimits
 specifier|static
 name|boolean
@@ -657,6 +691,36 @@ name|BoundTransportAddress
 name|boundTransportAddress
 parameter_list|)
 block|{
+name|Predicate
+argument_list|<
+name|TransportAddress
+argument_list|>
+name|isLoopbackOrLinkLocalAddress
+init|=
+name|t
+lambda|->
+name|t
+operator|.
+name|address
+argument_list|()
+operator|.
+name|getAddress
+argument_list|()
+operator|.
+name|isLinkLocalAddress
+argument_list|()
+operator|||
+name|t
+operator|.
+name|address
+argument_list|()
+operator|.
+name|getAddress
+argument_list|()
+operator|.
+name|isLoopbackAddress
+argument_list|()
+decl_stmt|;
 return|return
 operator|!
 operator|(
@@ -672,18 +736,18 @@ argument_list|)
 operator|.
 name|allMatch
 argument_list|(
-name|TransportAddress
-operator|::
 name|isLoopbackOrLinkLocalAddress
 argument_list|)
 operator|&&
+name|isLoopbackOrLinkLocalAddress
+operator|.
+name|test
+argument_list|(
 name|boundTransportAddress
 operator|.
 name|publishAddress
 argument_list|()
-operator|.
-name|isLoopbackOrLinkLocalAddress
-argument_list|()
+argument_list|)
 operator|)
 return|;
 block|}
@@ -854,6 +918,15 @@ name|OnOutOfMemoryErrorCheck
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|checks
+operator|.
+name|add
+argument_list|(
+operator|new
+name|G1GCCheck
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|Collections
 operator|.
@@ -863,18 +936,18 @@ name|checks
 argument_list|)
 return|;
 block|}
-comment|/**      * Encapsulates a limit check      */
+comment|/**      * Encapsulates a bootstrap check.      */
 DECL|interface|Check
 interface|interface
 name|Check
 block|{
-comment|/**          * test if the node fails the check          *          * @return true if the node failed the check          */
+comment|/**          * Test if the node fails the check.          *          * @return {@code true} if the node failed the check          */
 DECL|method|check
 name|boolean
 name|check
 parameter_list|()
 function_decl|;
-comment|/**          * the message for a failed check          *          * @return the error message on check failure          */
+comment|/**          * The error message for a failed check.          *          * @return the error message on check failure          */
 DECL|method|errorMessage
 name|String
 name|errorMessage
@@ -1124,7 +1197,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max file descriptors [%d] for elasticsearch process likely too low, increase to at least [%d]"
+literal|"max file descriptors [%d] for elasticsearch process is too low, increase to at least [%d]"
 argument_list|,
 name|getMaxFileDescriptorCount
 argument_list|()
@@ -1228,6 +1301,7 @@ name|MaxNumberOfThreadsCheck
 implements|implements
 name|Check
 block|{
+comment|// this should be plenty for machines up to 256 cores
 DECL|field|maxNumberOfThreadsThreshold
 specifier|private
 specifier|final
@@ -1236,7 +1310,7 @@ name|maxNumberOfThreadsThreshold
 init|=
 literal|1
 operator|<<
-literal|11
+literal|12
 decl_stmt|;
 annotation|@
 name|Override
@@ -1276,7 +1350,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max number of threads [%d] for user [%s] likely too low, increase to at least [%d]"
+literal|"max number of threads [%d] for user [%s] is too low, increase to at least [%d]"
 argument_list|,
 name|getMaxNumberOfThreads
 argument_list|()
@@ -1355,7 +1429,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max size virtual memory [%d] for user [%s] likely too low, increase to [unlimited]"
+literal|"max size virtual memory [%d] for user [%s] is too low, increase to [unlimited]"
 argument_list|,
 name|getMaxSizeVirtualMemory
 argument_list|()
@@ -1452,7 +1526,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"max virtual memory areas vm.max_map_count [%d] likely too low, increase to at least [%d]"
+literal|"max virtual memory areas vm.max_map_count [%d] is too low, increase to at least [%d]"
 argument_list|,
 name|getMaxMapCount
 argument_list|()
@@ -2063,6 +2137,255 @@ operator|.
 name|SECCOMP_SETTING
 operator|.
 name|getKey
+argument_list|()
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Bootstrap check for versions of HotSpot that are known to have issues that can lead to index corruption when G1GC is enabled.      */
+DECL|class|G1GCCheck
+specifier|static
+class|class
+name|G1GCCheck
+implements|implements
+name|BootstrapCheck
+operator|.
+name|Check
+block|{
+annotation|@
+name|Override
+DECL|method|check
+specifier|public
+name|boolean
+name|check
+parameter_list|()
+block|{
+if|if
+condition|(
+literal|"Oracle Corporation"
+operator|.
+name|equals
+argument_list|(
+name|jvmVendor
+argument_list|()
+argument_list|)
+operator|&&
+name|isJava8
+argument_list|()
+operator|&&
+name|isG1GCEnabled
+argument_list|()
+condition|)
+block|{
+specifier|final
+name|String
+name|jvmVersion
+init|=
+name|jvmVersion
+argument_list|()
+decl_stmt|;
+comment|// HotSpot versions on Java 8 match this regular expression; note that this changes with Java 9 after JEP-223
+specifier|final
+name|Pattern
+name|pattern
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"(\\d+)\\.(\\d+)-b\\d+"
+argument_list|)
+decl_stmt|;
+specifier|final
+name|Matcher
+name|matcher
+init|=
+name|pattern
+operator|.
+name|matcher
+argument_list|(
+name|jvmVersion
+argument_list|)
+decl_stmt|;
+specifier|final
+name|boolean
+name|matches
+init|=
+name|matcher
+operator|.
+name|matches
+argument_list|()
+decl_stmt|;
+assert|assert
+name|matches
+operator|:
+name|jvmVersion
+assert|;
+specifier|final
+name|int
+name|major
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|matcher
+operator|.
+name|group
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+decl_stmt|;
+specifier|final
+name|int
+name|update
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|matcher
+operator|.
+name|group
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// HotSpot versions for Java 8 have major version 25, the bad versions are all versions prior to update 40
+return|return
+name|major
+operator|==
+literal|25
+operator|&&
+name|update
+operator|<
+literal|40
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+comment|// visible for testing
+DECL|method|jvmVendor
+name|String
+name|jvmVendor
+parameter_list|()
+block|{
+return|return
+name|Constants
+operator|.
+name|JVM_VENDOR
+return|;
+block|}
+comment|// visible for testing
+DECL|method|isG1GCEnabled
+name|boolean
+name|isG1GCEnabled
+parameter_list|()
+block|{
+assert|assert
+literal|"Oracle Corporation"
+operator|.
+name|equals
+argument_list|(
+name|jvmVendor
+argument_list|()
+argument_list|)
+assert|;
+return|return
+name|JvmInfo
+operator|.
+name|jvmInfo
+argument_list|()
+operator|.
+name|useG1GC
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"true"
+argument_list|)
+return|;
+block|}
+comment|// visible for testing
+DECL|method|jvmVersion
+name|String
+name|jvmVersion
+parameter_list|()
+block|{
+assert|assert
+literal|"Oracle Corporation"
+operator|.
+name|equals
+argument_list|(
+name|jvmVendor
+argument_list|()
+argument_list|)
+assert|;
+return|return
+name|Constants
+operator|.
+name|JVM_VERSION
+return|;
+block|}
+comment|// visible for testing
+DECL|method|isJava8
+name|boolean
+name|isJava8
+parameter_list|()
+block|{
+assert|assert
+literal|"Oracle Corporation"
+operator|.
+name|equals
+argument_list|(
+name|jvmVendor
+argument_list|()
+argument_list|)
+assert|;
+return|return
+name|JavaVersion
+operator|.
+name|current
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|JavaVersion
+operator|.
+name|parse
+argument_list|(
+literal|"1.8"
+argument_list|)
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|errorMessage
+specifier|public
+name|String
+name|errorMessage
+parameter_list|()
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"JVM version [%s] can cause data corruption when used with G1GC; upgrade to at least Java 8u40"
+argument_list|,
+name|jvmVersion
 argument_list|()
 argument_list|)
 return|;

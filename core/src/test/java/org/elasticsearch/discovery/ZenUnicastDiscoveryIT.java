@@ -180,10 +180,6 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|ESIntegTestCase
-operator|.
-name|SuppressLocalMode
 DECL|class|ZenUnicastDiscoveryIT
 specifier|public
 class|class
@@ -382,9 +378,6 @@ name|get
 argument_list|()
 operator|.
 name|getState
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

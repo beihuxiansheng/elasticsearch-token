@@ -5050,22 +5050,6 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
-comment|// Check if we just became the master
-name|boolean
-name|newMaster
-init|=
-operator|!
-name|event
-operator|.
-name|previousState
-argument_list|()
-operator|.
-name|nodes
-argument_list|()
-operator|.
-name|isLocalNodeElectedMaster
-argument_list|()
-decl_stmt|;
 name|SnapshotsInProgress
 name|snapshotsInProgress
 init|=
@@ -5092,6 +5076,22 @@ return|return
 literal|false
 return|;
 block|}
+comment|// Check if we just became the master
+name|boolean
+name|newMaster
+init|=
+operator|!
+name|event
+operator|.
+name|previousState
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|isLocalNodeElectedMaster
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|SnapshotsInProgress

@@ -595,18 +595,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -932,10 +920,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -954,11 +938,6 @@ name|transportClientRatio
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|ESIntegTestCase
-operator|.
-name|SuppressLocalMode
-comment|// TODO only restorePersistentSettingsTest needs this maybe factor out?
 DECL|class|DedicatedClusterSnapshotRestoreIT
 specifier|public
 class|class

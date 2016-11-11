@@ -1035,6 +1035,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|String
 name|level
 init|=
@@ -1047,17 +1048,18 @@ argument_list|,
 literal|"node"
 argument_list|)
 decl_stmt|;
+specifier|final
 name|boolean
 name|isLevelValid
 init|=
-literal|"node"
+literal|"indices"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
 name|level
 argument_list|)
 operator|||
-literal|"indices"
+literal|"node"
 operator|.
 name|equalsIgnoreCase
 argument_list|(
@@ -1077,9 +1079,17 @@ operator|!
 name|isLevelValid
 condition|)
 block|{
-return|return
-name|builder
-return|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"level parameter must be one of [indices] or [node] or [shards] but was ["
+operator|+
+name|level
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 comment|// "node" level
 name|builder

@@ -174,6 +174,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
@@ -191,10 +205,6 @@ operator|.
 name|equalTo
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|DoubleIndexingDocTests
@@ -316,6 +326,22 @@ operator|.
 name|documentMapper
 argument_list|(
 literal|"type"
+argument_list|)
+decl_stmt|;
+name|QueryShardContext
+name|context
+init|=
+name|index
+operator|.
+name|newQueryShardContext
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|,
+parameter_list|()
+lambda|->
+literal|0L
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -513,7 +539,7 @@ name|termQuery
 argument_list|(
 literal|"value1"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10
@@ -554,7 +580,7 @@ name|termQuery
 argument_list|(
 literal|"1"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10
@@ -595,7 +621,7 @@ name|termQuery
 argument_list|(
 literal|"1.1"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10
@@ -636,7 +662,7 @@ name|termQuery
 argument_list|(
 literal|"2010-01-01"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10
@@ -677,7 +703,7 @@ name|termQuery
 argument_list|(
 literal|"1"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10
@@ -718,7 +744,7 @@ name|termQuery
 argument_list|(
 literal|"2"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10
@@ -759,7 +785,7 @@ name|termQuery
 argument_list|(
 literal|"3"
 argument_list|,
-literal|null
+name|context
 argument_list|)
 argument_list|,
 literal|10

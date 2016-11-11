@@ -414,10 +414,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|RestActions
 specifier|public
@@ -1080,20 +1076,6 @@ argument_list|(
 literal|"analyze_wildcard"
 argument_list|,
 literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|queryBuilder
-operator|.
-name|lowercaseExpandedTerms
-argument_list|(
-name|request
-operator|.
-name|paramAsBoolean
-argument_list|(
-literal|"lowercase_expanded_terms"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -172,6 +172,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -576,8 +590,8 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
-name|context
+name|SearchContext
+name|searchContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -606,6 +620,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|QueryShardContext
+name|context
+init|=
+name|searchContext
+operator|.
+name|getQueryShardContext
+argument_list|()
+decl_stmt|;
 name|List
 argument_list|<
 name|BooleanClause
@@ -2556,6 +2578,16 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we should have deprecation warning headers regardless of throwing an exception
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:27]"
+argument_list|,
+literal|"query malformed, empty clause found at [1:46]"
+argument_list|,
+literal|"query malformed, empty clause found at [1:100]"
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|ex
 init|=
@@ -2588,6 +2620,11 @@ name|startsWith
 argument_list|(
 literal|"query malformed, empty clause found at"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"query malformed, empty clause found at [1:27]"
 argument_list|)
 expr_stmt|;
 block|}

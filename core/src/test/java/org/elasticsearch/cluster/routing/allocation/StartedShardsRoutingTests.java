@@ -623,9 +623,6 @@ name|newState
 operator|.
 name|routingTable
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|,
 name|newState
 argument_list|,
@@ -647,9 +644,6 @@ operator|+
 name|newState
 operator|.
 name|routingTable
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|,
 name|newState
@@ -715,9 +709,6 @@ operator|+
 name|newState
 operator|.
 name|routingTable
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|,
 name|newState

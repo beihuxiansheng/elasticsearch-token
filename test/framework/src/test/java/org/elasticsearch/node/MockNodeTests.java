@@ -118,6 +118,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|MockTcpTransportPlugin
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -189,7 +201,9 @@ name|put
 argument_list|(
 literal|"transport.type"
 argument_list|,
-literal|"local"
+name|MockTcpTransportPlugin
+operator|.
+name|MOCK_TCP_TRANSPORT_NAME
 argument_list|)
 operator|.
 name|put
@@ -218,6 +232,15 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+name|plugins
+operator|.
+name|add
+argument_list|(
+name|MockTcpTransportPlugin
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|boolean
 name|useMockBigArrays
 init|=

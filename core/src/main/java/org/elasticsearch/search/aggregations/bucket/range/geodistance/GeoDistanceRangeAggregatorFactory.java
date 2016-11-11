@@ -439,10 +439,8 @@ decl_stmt|;
 DECL|field|ranges
 specifier|private
 specifier|final
-name|List
-argument_list|<
 name|Range
-argument_list|>
+index|[]
 name|ranges
 decl_stmt|;
 DECL|field|unit
@@ -484,10 +482,8 @@ parameter_list|,
 name|GeoPoint
 name|origin
 parameter_list|,
-name|List
-argument_list|<
 name|Range
-argument_list|>
+index|[]
 name|ranges
 parameter_list|,
 name|DistanceUnit
@@ -602,9 +598,7 @@ block|{
 return|return
 operator|new
 name|Unmapped
-argument_list|<
-name|Range
-argument_list|>
+argument_list|<>
 argument_list|(
 name|name
 argument_list|,

@@ -706,10 +706,6 @@ name|is
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|AnalysisModuleTests
 specifier|public
@@ -1607,7 +1603,7 @@ argument_list|()
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0_alpha6
+name|V_5_0_0_beta1
 argument_list|,
 literal|null
 argument_list|)

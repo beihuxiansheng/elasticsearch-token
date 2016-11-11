@@ -62,7 +62,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -218,8 +218,6 @@ specifier|public
 name|SearchTemplateRequestBuilder
 name|setScriptType
 parameter_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 parameter_list|)

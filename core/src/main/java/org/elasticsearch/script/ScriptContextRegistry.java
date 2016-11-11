@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -379,8 +365,6 @@ operator|new
 name|HashSet
 argument_list|<>
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|values
@@ -400,13 +384,9 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|ScriptService
-operator|.
 name|ScriptType
 name|scriptType
 range|:
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|values

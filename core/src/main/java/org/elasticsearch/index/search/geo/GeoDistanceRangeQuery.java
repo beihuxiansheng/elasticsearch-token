@@ -252,7 +252,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|BaseGeoPointFieldMapper
+name|LegacyGeoPointFieldMapper
 import|;
 end_import
 
@@ -264,9 +264,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|query
 operator|.
-name|LegacyGeoPointFieldMapper
+name|QueryShardContext
 import|;
 end_import
 
@@ -385,6 +385,9 @@ name|indexFieldData
 parameter_list|,
 name|String
 name|optimizeBbox
+parameter_list|,
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|this
@@ -620,6 +623,8 @@ name|bottomRight
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|distanceBoundingCheck

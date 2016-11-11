@@ -180,6 +180,28 @@ operator|.
 name|Token
 operator|.
 name|END_OBJECT
+operator|:
+literal|"malformed section ["
+operator|+
+name|testSection
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] expected "
+operator|+
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_OBJECT
+operator|+
+literal|" but was "
+operator|+
+name|parser
+operator|.
+name|currentToken
+argument_list|()
 assert|;
 name|parser
 operator|.

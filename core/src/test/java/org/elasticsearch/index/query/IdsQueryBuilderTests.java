@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -88,13 +102,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -440,7 +452,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -807,6 +819,11 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [_type] used, expected [type] instead"
+argument_list|)
+expr_stmt|;
 comment|//array of types can also be called type rather than types
 specifier|final
 name|String
@@ -873,6 +890,11 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|checkWarningHeaders
+argument_list|(
+literal|"Deprecated field [_type] used, expected [type] instead"
 argument_list|)
 expr_stmt|;
 block|}

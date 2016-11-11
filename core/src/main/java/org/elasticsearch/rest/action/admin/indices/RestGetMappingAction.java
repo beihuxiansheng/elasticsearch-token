@@ -240,18 +240,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -295,6 +283,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -323,10 +321,6 @@ operator|.
 name|OK
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|RestGetMappingAction
@@ -401,23 +395,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleRequest
+DECL|method|prepareRequest
 specifier|public
-name|void
-name|handleRequest
+name|RestChannelConsumer
+name|prepareRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
 parameter_list|,
 specifier|final
-name|RestChannel
-name|channel
-parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|String
@@ -501,6 +493,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|admin
@@ -522,18 +517,11 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-annotation|@
-name|Override
-specifier|public
-name|RestResponse
-name|buildResponse
-parameter_list|(
-name|GetMappingsResponse
-name|response
-parameter_list|,
+block|@Override             public RestResponse buildResponse(GetMappingsResponse response
+operator|,
 name|XContentBuilder
 name|builder
-parameter_list|)
+block|)
 throws|throws
 name|Exception
 block|{
@@ -780,11 +768,16 @@ argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_class
+unit|}      static
 DECL|class|Fields
-specifier|static
 class|class
 name|Fields
 block|{
@@ -797,8 +790,8 @@ init|=
 literal|"mappings"
 decl_stmt|;
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 

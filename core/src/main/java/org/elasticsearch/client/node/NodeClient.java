@@ -229,10 +229,10 @@ name|threadPool
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|intialize
+DECL|method|initialize
 specifier|public
 name|void
-name|intialize
+name|initialize
 parameter_list|(
 name|Map
 argument_list|<

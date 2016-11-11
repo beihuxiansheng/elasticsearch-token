@@ -106,10 +106,6 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|SingleFieldsVisitor
 specifier|public
@@ -374,7 +370,7 @@ name|i
 argument_list|,
 name|fieldType
 operator|.
-name|valueForSearch
+name|valueForDisplay
 argument_list|(
 name|fieldValues
 operator|.

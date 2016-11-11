@@ -335,10 +335,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|AzureDiscoveryPlugin
-operator|.
-name|class
-argument_list|,
 name|mockPlugin
 argument_list|)
 return|;

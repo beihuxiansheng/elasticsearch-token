@@ -28,20 +28,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|local
-operator|.
-name|LocalTransport
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -96,10 +82,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|LocalTransport
-operator|.
-name|LOCAL_TRANSPORT_THREAD_NAME_PREFIX
-argument_list|,
 name|HttpServerTransport
 operator|.
 name|HTTP_SERVER_BOSS_THREAD_NAME_PREFIX

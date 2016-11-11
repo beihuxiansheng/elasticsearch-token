@@ -2311,9 +2311,6 @@ name|state
 operator|.
 name|get
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2411,9 +2408,6 @@ argument_list|,
 name|state
 operator|.
 name|get
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2740,9 +2734,6 @@ else|:
 literal|"retry"
 argument_list|,
 name|state
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final

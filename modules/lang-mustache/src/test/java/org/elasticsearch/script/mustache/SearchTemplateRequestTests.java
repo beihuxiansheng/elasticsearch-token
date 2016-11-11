@@ -64,7 +64,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -230,8 +230,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -318,8 +316,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -436,8 +432,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -511,8 +505,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -623,8 +615,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -691,8 +681,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|FILE
@@ -794,8 +782,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|STORED
@@ -862,8 +848,6 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|STORED

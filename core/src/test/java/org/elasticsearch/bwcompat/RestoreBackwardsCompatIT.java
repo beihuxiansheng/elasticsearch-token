@@ -714,11 +714,13 @@ if|if
 condition|(
 name|v
 operator|.
-name|isAlpha
+name|isRelease
 argument_list|()
+operator|==
+literal|false
 condition|)
 continue|continue;
-comment|// no guarantees for alpha releases
+comment|// no guarantees for prereleases
 if|if
 condition|(
 name|v

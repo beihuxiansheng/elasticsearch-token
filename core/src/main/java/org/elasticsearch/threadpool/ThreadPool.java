@@ -1243,7 +1243,7 @@ name|availableProcessors
 init|=
 name|EsExecutors
 operator|.
-name|boundedNumberOfProcessors
+name|numberOfProcessors
 argument_list|(
 name|settings
 argument_list|)

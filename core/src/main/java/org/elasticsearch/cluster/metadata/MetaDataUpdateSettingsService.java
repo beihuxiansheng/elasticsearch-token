@@ -350,18 +350,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|NodeServicesProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -486,12 +474,6 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
-DECL|field|nodeServiceProvider
-specifier|private
-specifier|final
-name|NodeServicesProvider
-name|nodeServiceProvider
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|MetaDataUpdateSettingsService
@@ -512,9 +494,6 @@ name|indexScopedSettings
 parameter_list|,
 name|IndicesService
 name|indicesService
-parameter_list|,
-name|NodeServicesProvider
-name|nodeServicesProvider
 parameter_list|)
 block|{
 name|super
@@ -554,12 +533,6 @@ operator|.
 name|indicesService
 operator|=
 name|indicesService
-expr_stmt|;
-name|this
-operator|.
-name|nodeServiceProvider
-operator|=
-name|nodeServicesProvider
 expr_stmt|;
 block|}
 annotation|@
@@ -1537,6 +1510,9 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// we do *not* update the in sync allocation ids as they will be removed upon the first index
+comment|// operation which make these copies stale
+comment|// TODO: update the list once the data is deleted by the node?
 name|routingTableBuilder
 operator|.
 name|updateNumberOfReplicas
@@ -1958,8 +1934,6 @@ name|indicesService
 operator|.
 name|verifyIndexMetadata
 argument_list|(
-name|nodeServiceProvider
-argument_list|,
 name|currentMetaData
 argument_list|,
 name|updatedMetaData
@@ -2006,8 +1980,6 @@ name|indicesService
 operator|.
 name|verifyIndexMetadata
 argument_list|(
-name|nodeServiceProvider
-argument_list|,
 name|currentMetaData
 argument_list|,
 name|updatedMetaData

@@ -337,10 +337,6 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
-end_comment
-
-begin_comment
 comment|//TODO we can optimize the case for Map<String, Object> similar to PyStringMap
 end_comment
 

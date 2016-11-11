@@ -436,6 +436,8 @@ argument_list|,
 name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|transportService
@@ -699,6 +701,8 @@ operator|.
 name|shardOperationOnPrimary
 argument_list|(
 name|primaryRequest
+argument_list|,
+name|indexShard
 argument_list|)
 expr_stmt|;
 block|}
@@ -718,6 +722,8 @@ argument_list|,
 name|randomPositiveLong
 argument_list|()
 argument_list|)
+argument_list|,
+name|indexShard
 argument_list|)
 expr_stmt|;
 block|}

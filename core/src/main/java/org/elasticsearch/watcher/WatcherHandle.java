@@ -14,10 +14,6 @@ name|watcher
 package|;
 end_package
 
-begin_comment
-comment|/** * */
-end_comment
-
 begin_class
 DECL|class|WatcherHandle
 specifier|public

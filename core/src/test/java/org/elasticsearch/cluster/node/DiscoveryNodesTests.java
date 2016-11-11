@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|LocalTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -1107,9 +1093,6 @@ argument_list|(
 literal|"nodes A: {}"
 argument_list|,
 name|discoNodesA
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1119,9 +1102,6 @@ argument_list|(
 literal|"nodes B: {}"
 argument_list|,
 name|discoNodesB
-operator|.
-name|prettyPrint
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|DiscoveryNodes
@@ -1666,9 +1646,7 @@ literal|"node_"
 operator|+
 name|nodeId
 argument_list|,
-name|LocalTransportAddress
-operator|.
-name|buildUnique
+name|buildNewFakeTransportAddress
 argument_list|()
 argument_list|,
 name|attributes

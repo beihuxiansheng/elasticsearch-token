@@ -168,18 +168,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestController
 import|;
 end_import
@@ -293,18 +281,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doRequest
+DECL|method|doCatRequest
 specifier|protected
-name|void
-name|doRequest
+name|RestChannelConsumer
+name|doCatRequest
 parameter_list|(
 specifier|final
 name|RestRequest
 name|request
-parameter_list|,
-specifier|final
-name|RestChannel
-name|channel
 parameter_list|,
 specifier|final
 name|NodeClient
@@ -367,6 +351,9 @@ else|:
 name|fields
 argument_list|)
 expr_stmt|;
+return|return
+name|channel
+lambda|->
 name|client
 operator|.
 name|admin
@@ -388,15 +375,8 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-annotation|@
-name|Override
-specifier|public
-name|RestResponse
-name|buildResponse
-parameter_list|(
-name|NodesStatsResponse
-name|nodeStatses
-parameter_list|)
+block|@Override             public RestResponse buildResponse(NodesStatsResponse nodeStatses
+block|)
 throws|throws
 name|Exception
 block|{
@@ -417,10 +397,15 @@ argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}      @
 name|Override
 DECL|method|documentation
 specifier|protected
@@ -446,6 +431,9 @@ literal|"/_cat/fielddata/{fields}\n"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|getTableWithHeader
@@ -518,6 +506,9 @@ return|return
 name|table
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|buildTable
 specifier|private
 name|Table
@@ -678,8 +669,8 @@ return|return
 name|table
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

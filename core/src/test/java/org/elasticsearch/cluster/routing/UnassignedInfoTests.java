@@ -428,10 +428,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|UnassignedInfoTests
 specifier|public
@@ -3537,7 +3533,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|,
 name|UnassignedInfo

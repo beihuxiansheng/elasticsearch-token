@@ -339,14 +339,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|script
-operator|.
-name|ScriptService
 operator|.
 name|ScriptType
 import|;
@@ -1388,8 +1386,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['str_value'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1398,7 +1394,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['str_value'].value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -2115,8 +2116,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"get min long"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2125,7 +2124,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"get min long"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2254,8 +2258,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"get min double"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2264,7 +2266,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"get min double"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2393,8 +2400,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"get min string"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2403,7 +2408,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"get min string"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2529,8 +2539,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"get min geopoint lon"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2539,7 +2547,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"get min geopoint lon"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2865,8 +2878,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"doc['id'].value"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -2875,7 +2886,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['id'].value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3032,8 +3048,6 @@ argument_list|,
 operator|new
 name|Script
 argument_list|(
-literal|"doc['id'].values[0]"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3042,7 +3056,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"doc['id'].values[0]"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -3599,8 +3618,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"\u0027\u0027"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3609,7 +3626,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"\u0027\u0027"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchResponse

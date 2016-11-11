@@ -3050,6 +3050,11 @@ argument_list|(
 literal|"testUpdateAutoThrottleSettings"
 argument_list|)
 decl_stmt|;
+name|mockAppender
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Logger
 name|rootLogger
 init|=
@@ -3283,6 +3288,11 @@ name|rootLogger
 argument_list|,
 name|mockAppender
 argument_list|)
+expr_stmt|;
+name|mockAppender
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|Loggers
 operator|.
@@ -3652,6 +3662,11 @@ argument_list|(
 literal|"testUpdateMergeMaxThreadCount"
 argument_list|)
 decl_stmt|;
+name|mockAppender
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Logger
 name|rootLogger
 init|=
@@ -3879,6 +3894,11 @@ name|rootLogger
 argument_list|,
 name|mockAppender
 argument_list|)
+expr_stmt|;
+name|mockAppender
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|Loggers
 operator|.

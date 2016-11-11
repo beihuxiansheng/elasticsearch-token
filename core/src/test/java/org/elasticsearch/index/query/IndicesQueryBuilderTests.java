@@ -36,9 +36,33 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
 import|;
 end_import
 
@@ -63,6 +87,22 @@ argument_list|<
 name|IndicesQueryBuilder
 argument_list|>
 block|{
+comment|/**      * All tests create deprecation warnings when an new {@link IndicesQueryBuilder} is created.      * Instead of having to check them once in every single test, this is done here after each test is run      */
+annotation|@
+name|After
+DECL|method|checkWarningHeaders
+name|void
+name|checkWarningHeaders
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|checkWarningHeaders
+argument_list|(
+literal|"indices query is deprecated. Instead search on the '_index' field"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doCreateTestQueryBuilder
@@ -194,7 +234,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryShardContext
+name|SearchContext
 name|context
 parameter_list|)
 throws|throws
@@ -242,6 +282,9 @@ operator|.
 name|toQuery
 argument_list|(
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -257,6 +300,9 @@ operator|.
 name|toQuery
 argument_list|(
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

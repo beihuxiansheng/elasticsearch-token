@@ -58,6 +58,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -169,18 +181,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ESAllocationTestCase
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -191,10 +191,6 @@ operator|.
 name|equalTo
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|ClusterSerializationTests
@@ -437,7 +433,7 @@ operator|.
 name|routingTable
 argument_list|()
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -447,7 +443,7 @@ operator|.
 name|routingTable
 argument_list|()
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -657,14 +653,14 @@ name|assertThat
 argument_list|(
 name|target
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|source
 operator|.
-name|prettyPrint
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)

@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents a conditional expression.  */
+comment|/**  * Represents a conditional expression.  */
 end_comment
 
 begin_class

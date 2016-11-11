@@ -5772,10 +5772,6 @@ name|Map
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|AbstractClient
 specifier|public
@@ -9848,6 +9844,31 @@ argument_list|,
 name|DeletePipelineAction
 operator|.
 name|INSTANCE
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|prepareDeletePipeline
+specifier|public
+name|DeletePipelineRequestBuilder
+name|prepareDeletePipeline
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DeletePipelineRequestBuilder
+argument_list|(
+name|this
+argument_list|,
+name|DeletePipelineAction
+operator|.
+name|INSTANCE
+argument_list|,
+name|id
 argument_list|)
 return|;
 block|}

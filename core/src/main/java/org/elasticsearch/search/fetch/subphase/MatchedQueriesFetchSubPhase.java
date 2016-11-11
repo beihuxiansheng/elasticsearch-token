@@ -704,10 +704,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|context
 operator|.
 name|clearReleasables
 argument_list|(

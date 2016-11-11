@@ -841,6 +841,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// We need to call processRanges here so they are parsed and we know whether `now` has been used before we make
+comment|// the decision of whether to cache the request
+name|Range
+index|[]
+name|ranges
+init|=
+name|processRanges
+argument_list|(
+name|context
+argument_list|,
+name|config
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|DateRangeAggregatorFactory

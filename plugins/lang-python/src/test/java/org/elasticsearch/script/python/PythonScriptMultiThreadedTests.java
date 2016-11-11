@@ -74,7 +74,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptType
 import|;
 end_import
 
@@ -170,10 +170,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|PythonScriptMultiThreadedTests
 specifier|public
@@ -229,8 +225,6 @@ init|=
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
@@ -622,8 +616,6 @@ init|=
 operator|new
 name|CompiledScript
 argument_list|(
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE

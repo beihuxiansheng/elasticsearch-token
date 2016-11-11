@@ -90,6 +90,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -190,15 +202,13 @@ init|=
 operator|new
 name|Script
 argument_list|(
-name|template
-argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
 literal|"mustache"
+argument_list|,
+name|template
 argument_list|,
 name|Collections
 operator|.

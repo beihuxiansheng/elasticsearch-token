@@ -44,20 +44,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
-name|ScriptType
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -321,7 +307,7 @@ literal|"."
 operator|+
 name|scriptType
 operator|.
-name|getScriptType
+name|getName
 argument_list|()
 return|;
 block|}

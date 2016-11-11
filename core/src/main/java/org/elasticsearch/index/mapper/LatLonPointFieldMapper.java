@@ -224,16 +224,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -268,7 +258,7 @@ name|LAT_LON_FIELD_VERSION
 init|=
 name|Version
 operator|.
-name|V_5_0_0_alpha6
+name|V_5_0_0_beta1
 decl_stmt|;
 DECL|class|Defaults
 specifier|public

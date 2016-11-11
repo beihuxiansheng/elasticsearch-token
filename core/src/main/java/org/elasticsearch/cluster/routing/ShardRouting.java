@@ -1668,10 +1668,7 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|,
-name|AllocationId
-operator|.
-name|newInitializing
-argument_list|()
+name|allocationId
 argument_list|,
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)

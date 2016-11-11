@@ -354,6 +354,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|DocWriteRequest
+operator|.
+name|OpType
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -365,14 +379,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|script
-operator|.
-name|ScriptService
 operator|.
 name|ScriptType
 import|;
@@ -1173,8 +1185,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -1183,7 +1193,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx._source.field += 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|bulkResponse
@@ -3221,8 +3236,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"throw script exception on unknown var"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3231,7 +3244,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"throw script exception on unknown var"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3269,8 +3287,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.field += 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3279,7 +3295,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx._source.field += 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3317,8 +3338,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"throw script exception on unknown var"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3327,7 +3346,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"throw script exception on unknown var"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3635,8 +3659,6 @@ init|=
 operator|new
 name|Script
 argument_list|(
-literal|"ctx._source.counter += 1"
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -3645,7 +3667,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx._source.counter += 1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BulkRequestBuilder
@@ -3880,7 +3907,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4335,7 +4364,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4720,7 +4751,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4784,8 +4817,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx.op = \"none\""
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -4794,7 +4825,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx.op = \"none\""
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4954,7 +4990,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5017,8 +5055,6 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"ctx.op = \"delete\""
-argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -5027,7 +5063,12 @@ name|CustomScriptPlugin
 operator|.
 name|NAME
 argument_list|,
-literal|null
+literal|"ctx.op = \"delete\""
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5182,7 +5223,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7186,7 +7229,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7205,7 +7250,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7224,7 +7271,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7243,7 +7292,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7262,7 +7313,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"delete"
+name|OpType
+operator|.
+name|DELETE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7281,7 +7334,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"delete"
+name|OpType
+operator|.
+name|DELETE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7714,7 +7769,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7730,7 +7787,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7746,7 +7805,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"delete"
+name|OpType
+operator|.
+name|DELETE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7893,7 +7954,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"index"
+name|OpType
+operator|.
+name|INDEX
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7912,7 +7975,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"update"
+name|OpType
+operator|.
+name|UPDATE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7931,7 +7996,9 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"delete"
+name|OpType
+operator|.
+name|DELETE
 argument_list|)
 argument_list|)
 expr_stmt|;

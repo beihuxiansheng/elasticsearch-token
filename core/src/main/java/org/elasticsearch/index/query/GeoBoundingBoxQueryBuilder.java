@@ -1460,8 +1460,6 @@ name|isIgnoreMalformed
 argument_list|(
 name|validationMethod
 argument_list|)
-operator|==
-literal|true
 operator|||
 name|indexCreatedBeforeV2_0
 condition|)
@@ -2001,6 +1999,8 @@ argument_list|,
 name|luceneBottomRight
 argument_list|,
 name|geoFieldType
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 break|break;

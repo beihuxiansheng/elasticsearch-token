@@ -176,6 +176,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -378,7 +388,7 @@ name|transportService
 operator|=
 name|MockTransportService
 operator|.
-name|local
+name|createNewService
 argument_list|(
 name|Settings
 operator|.
@@ -389,6 +399,8 @@ operator|.
 name|CURRENT
 argument_list|,
 name|threadPool
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -399,6 +411,8 @@ specifier|public
 name|void
 name|stopGceComputeService
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -409,7 +423,7 @@ condition|)
 block|{
 name|mock
 operator|.
-name|stop
+name|close
 argument_list|()
 expr_stmt|;
 block|}
