@@ -25207,9 +25207,37 @@ argument_list|(
 literal|"--> indexing some data"
 argument_list|)
 expr_stmt|;
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"test-idx"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+comment|// the less the number of shards, the less control files we have, so we are giving a higher probability of
+comment|// triggering an IOException toward the end when writing the pending-index-* files, which are the files
+comment|// that caused problems with writing subsequent snapshots if they happened to be lingering in the repository
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_REPLICAS
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
