@@ -25106,13 +25106,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/21496"
-argument_list|)
 DECL|method|testSnapshotSucceedsAfterSnapshotFailure
 specifier|public
 name|void
