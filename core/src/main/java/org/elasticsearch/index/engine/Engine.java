@@ -4833,35 +4833,6 @@ name|uid
 operator|=
 name|uid
 expr_stmt|;
-comment|// nocommit move these to InternalEngine where we can assert on the engine version
-assert|assert
-name|origin
-operator|!=
-name|Origin
-operator|.
-name|PRIMARY
-operator|||
-name|seqNo
-operator|==
-name|SequenceNumbersService
-operator|.
-name|UNASSIGNED_SEQ_NO
-operator|:
-literal|"seqNo should not be set when origin is PRIMARY"
-assert|;
-assert|assert
-name|origin
-operator|==
-name|Origin
-operator|.
-name|PRIMARY
-operator|||
-name|seqNo
-operator|>=
-literal|0
-operator|:
-literal|"seqNo should be set when origin is not PRIMARY"
-assert|;
 name|this
 operator|.
 name|seqNo

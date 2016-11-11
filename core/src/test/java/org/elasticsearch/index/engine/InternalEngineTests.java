@@ -12206,12 +12206,9 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|16
-argument_list|)
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|84
 argument_list|,
@@ -19827,14 +19824,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|// nocommit
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"trips assertions in Engine, assertions should be moved to InternalEngine"
-argument_list|)
 DECL|method|testUpgradeOldIndex
 specifier|public
 name|void
