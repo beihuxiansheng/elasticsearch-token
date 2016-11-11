@@ -2395,7 +2395,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// nocommit: reading this should be part of recovery from the translog
 specifier|final
 name|long
 name|globalCheckpoint

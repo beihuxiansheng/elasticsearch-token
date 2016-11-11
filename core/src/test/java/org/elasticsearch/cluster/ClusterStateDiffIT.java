@@ -3927,11 +3927,16 @@ literal|1000
 argument_list|)
 argument_list|)
 operator|.
-name|template
+name|patterns
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 name|randomName
 argument_list|(
 literal|"temp"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

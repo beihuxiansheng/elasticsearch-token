@@ -573,9 +573,7 @@ parameter_list|(
 name|long
 name|checkpoint
 parameter_list|)
-block|{
-comment|// nocommit: think shadow replicas through
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getLocalCheckpoint
@@ -584,7 +582,6 @@ name|long
 name|getLocalCheckpoint
 parameter_list|()
 block|{
-comment|// nocommit: think shadow replicas through
 return|return
 operator|-
 literal|1
@@ -598,7 +595,6 @@ name|long
 name|getGlobalCheckpoint
 parameter_list|()
 block|{
-comment|// nocommit: think shadow replicas through
 return|return
 operator|-
 literal|1

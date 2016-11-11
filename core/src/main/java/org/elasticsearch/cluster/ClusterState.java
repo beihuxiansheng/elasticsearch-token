@@ -2256,11 +2256,11 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"template"
+literal|"index_patterns"
 argument_list|,
 name|templateMetaData
 operator|.
-name|template
+name|patterns
 argument_list|()
 argument_list|)
 expr_stmt|;

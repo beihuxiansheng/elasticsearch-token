@@ -436,7 +436,6 @@ operator|<
 name|globalCheckpoint
 condition|)
 block|{
-comment|// nocommit: if this happens - do you we fail the shard?
 throw|throw
 operator|new
 name|IllegalStateException

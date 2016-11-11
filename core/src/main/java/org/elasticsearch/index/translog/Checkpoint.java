@@ -339,7 +339,6 @@ operator|.
 name|footerLength
 argument_list|()
 decl_stmt|;
-comment|// nocommit: remove legacy support, not needed in 6.0.0
 DECL|field|LEGACY_NON_CHECKSUMMED_FILE_LENGTH
 specifier|static
 specifier|final
@@ -516,7 +515,6 @@ name|UNASSIGNED_SEQ_NO
 argument_list|)
 return|;
 block|}
-comment|// nocommit: remove legacy support, not needed in 6.0.0
 comment|// reads checkpoint from ES< 5.0.0
 DECL|method|readNonChecksummed
 specifier|static

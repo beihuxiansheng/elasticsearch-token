@@ -1063,7 +1063,7 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
-comment|//nocommit: i'm not sure we want to expose it in the api but it will be handy for debugging while we work...
+comment|// nocommit i'm not sure we want to expose it in the api but it will be handy for debugging while we work... remove this
 name|builder
 operator|.
 name|field

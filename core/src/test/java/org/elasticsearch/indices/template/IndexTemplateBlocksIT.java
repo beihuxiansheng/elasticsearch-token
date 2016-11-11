@@ -105,6 +105,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -174,9 +184,14 @@ argument_list|(
 literal|"template_blocks"
 argument_list|)
 operator|.
-name|setTemplate
+name|setPatterns
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 literal|"te*"
+argument_list|)
 argument_list|)
 operator|.
 name|setOrder
@@ -325,9 +340,14 @@ argument_list|(
 literal|"template_blocks_2"
 argument_list|)
 operator|.
-name|setTemplate
+name|setPatterns
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 literal|"block*"
+argument_list|)
 argument_list|)
 operator|.
 name|setOrder

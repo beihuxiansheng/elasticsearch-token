@@ -2947,9 +2947,14 @@ argument_list|(
 literal|"random_index_template"
 argument_list|)
 operator|.
-name|setTemplate
+name|setPatterns
+argument_list|(
+name|Collections
+operator|.
+name|singletonList
 argument_list|(
 literal|"*"
+argument_list|)
 argument_list|)
 operator|.
 name|setOrder
