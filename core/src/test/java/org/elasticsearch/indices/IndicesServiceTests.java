@@ -288,6 +288,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|IndicesService
+operator|.
+name|ShardDeletionCheckResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
@@ -713,7 +727,7 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
 literal|"no shard location"
 argument_list|,
@@ -725,6 +739,10 @@ name|shardId
 argument_list|,
 name|indexSettings
 argument_list|)
+argument_list|,
+name|ShardDeletionCheckResult
+operator|.
+name|NO_FOLDER_FOUND
 argument_list|)
 expr_stmt|;
 name|IndexService
@@ -758,7 +776,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
 literal|"shard is allocated"
 argument_list|,
@@ -773,6 +791,10 @@ operator|.
 name|getIndexSettings
 argument_list|()
 argument_list|)
+argument_list|,
+name|ShardDeletionCheckResult
+operator|.
+name|STILL_ALLOCATED
 argument_list|)
 expr_stmt|;
 name|test
@@ -784,7 +806,7 @@ argument_list|,
 literal|"boom"
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
 literal|"shard is removed"
 argument_list|,
@@ -799,6 +821,10 @@ operator|.
 name|getIndexSettings
 argument_list|()
 argument_list|)
+argument_list|,
+name|ShardDeletionCheckResult
+operator|.
+name|FOLDER_FOUND_CAN_DELETE
 argument_list|)
 expr_stmt|;
 name|ShardId
@@ -815,7 +841,7 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
 literal|"shard that was never on this node should NOT be deletable"
 argument_list|,
@@ -830,6 +856,10 @@ operator|.
 name|getIndexSettings
 argument_list|()
 argument_list|)
+argument_list|,
+name|ShardDeletionCheckResult
+operator|.
+name|NO_FOLDER_FOUND
 argument_list|)
 expr_stmt|;
 block|}
