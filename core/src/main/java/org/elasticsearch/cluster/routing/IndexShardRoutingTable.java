@@ -3010,7 +3010,9 @@ block|{
 comment|// don't allow more than one shard copy with same id to be allocated to same node
 assert|assert
 name|distinctNodes
-argument_list|()
+argument_list|(
+name|shards
+argument_list|)
 operator|:
 literal|"more than one shard with same id assigned to same node (shards: "
 operator|+
@@ -3039,10 +3041,16 @@ argument_list|)
 return|;
 block|}
 DECL|method|distinctNodes
-specifier|private
+specifier|static
 name|boolean
 name|distinctNodes
-parameter_list|()
+parameter_list|(
+name|List
+argument_list|<
+name|ShardRouting
+argument_list|>
+name|shards
+parameter_list|)
 block|{
 name|Set
 argument_list|<
