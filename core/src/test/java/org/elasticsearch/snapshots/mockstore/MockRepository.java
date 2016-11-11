@@ -1869,6 +1869,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// simulate a non-atomic move, since many blob container implementations
+comment|// will not have an atomic move, and we should be able to handle that
 name|maybeIOExceptionOrBlock
 argument_list|(
 name|targetBlob
@@ -1876,11 +1878,25 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|move
+name|writeBlob
+argument_list|(
+name|targetBlob
+argument_list|,
+name|super
+operator|.
+name|readBlob
 argument_list|(
 name|sourceBlob
+argument_list|)
 argument_list|,
-name|targetBlob
+literal|0L
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|deleteBlob
+argument_list|(
+name|sourceBlob
 argument_list|)
 expr_stmt|;
 block|}
@@ -1917,6 +1933,13 @@ argument_list|,
 name|inputStream
 argument_list|,
 name|blobSize
+argument_list|)
+expr_stmt|;
+comment|// for network based repositories, the blob may have been written but we may still
+comment|// get an error with the client connection, so an IOException here simulates this
+name|maybeIOExceptionOrBlock
+argument_list|(
+name|blobName
 argument_list|)
 expr_stmt|;
 block|}

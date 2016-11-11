@@ -5142,6 +5142,13 @@ init|=
 literal|"pending-"
 operator|+
 name|blobName
+operator|+
+literal|"-"
+operator|+
+name|UUIDs
+operator|.
+name|randomBase64UUID
+argument_list|()
 decl_stmt|;
 try|try
 init|(
@@ -5168,9 +5175,6 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
 name|snapshotsBlobContainer
 operator|.
 name|move
@@ -5187,7 +5191,9 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
-comment|// Move failed - try cleaning up
+comment|// temporary blob creation or move failed - try cleaning up
+try|try
+block|{
 name|snapshotsBlobContainer
 operator|.
 name|deleteBlob
@@ -5195,6 +5201,21 @@ argument_list|(
 name|tempBlobName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|ex
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 name|ex
 throw|;
