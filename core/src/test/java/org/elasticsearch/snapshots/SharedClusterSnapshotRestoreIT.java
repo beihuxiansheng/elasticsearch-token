@@ -25128,10 +25128,16 @@ init|=
 name|randomRepoPath
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Client
+name|client
+init|=
+name|client
+argument_list|()
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25180,6 +25186,16 @@ literal|20
 argument_list|)
 operator|/
 literal|100f
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"random"
+argument_list|,
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -25252,7 +25268,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -25295,7 +25310,6 @@ name|CreateSnapshotResponse
 name|createSnapshotResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25406,7 +25420,9 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|SnapshotCreationException
+decl||
+name|RepositoryException
 name|ex
 parameter_list|)
 block|{
@@ -25437,7 +25453,6 @@ expr_stmt|;
 name|assertAcked
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25453,11 +25468,6 @@ operator|.
 name|setType
 argument_list|(
 literal|"mock"
-argument_list|)
-operator|.
-name|setVerify
-argument_list|(
-literal|false
 argument_list|)
 operator|.
 name|setSettings
@@ -25480,7 +25490,6 @@ name|CreateSnapshotResponse
 name|createSnapshotResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25525,7 +25534,6 @@ name|GetSnapshotsResponse
 name|getSnapshotsResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
