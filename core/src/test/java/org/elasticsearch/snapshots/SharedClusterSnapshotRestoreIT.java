@@ -15008,7 +15008,7 @@ literal|"max_restore_bytes_per_sec"
 argument_list|,
 name|throttleRestore
 condition|?
-literal|"0.5k"
+literal|"10k"
 else|:
 literal|"0"
 argument_list|)
@@ -15019,7 +15019,7 @@ literal|"max_snapshot_bytes_per_sec"
 argument_list|,
 name|throttleSnapshot
 condition|?
-literal|"0.5k"
+literal|"10k"
 else|:
 literal|"0"
 argument_list|)
