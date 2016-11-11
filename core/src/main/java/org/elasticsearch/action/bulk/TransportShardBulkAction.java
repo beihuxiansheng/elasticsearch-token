@@ -1800,9 +1800,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// nocommit: since we now have RetryOnPrimaryException, retrying doesn't always mean the shard is closed.
-comment|// some operations were already perform and have a seqno assigned. we shouldn't just reindex them
-comment|// add to the meta-issue
 comment|// rethrow the failure if we are going to retry on primary and let parent failure to handle it
 if|if
 condition|(
