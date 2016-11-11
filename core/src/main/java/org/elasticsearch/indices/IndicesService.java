@@ -5038,16 +5038,23 @@ argument_list|(
 name|metaData
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+name|ShardDeletionCheckResult
+name|shardDeletionCheckResult
+init|=
 name|canDeleteShardContent
 argument_list|(
 name|shardId
 argument_list|,
 name|indexSettings
 argument_list|)
-operator|==
-literal|false
+decl_stmt|;
+if|if
+condition|(
+name|shardDeletionCheckResult
+operator|!=
+name|ShardDeletionCheckResult
+operator|.
+name|FOLDER_FOUND_CAN_DELETE
 condition|)
 block|{
 throw|throw
@@ -5057,6 +5064,12 @@ argument_list|(
 literal|"Can't delete shard "
 operator|+
 name|shardId
+operator|+
+literal|" (cause: "
+operator|+
+name|shardDeletionCheckResult
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}
@@ -5439,10 +5452,36 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff the shards content for the given shard can be deleted.      * This method will return<code>false</code> if:      *<ul>      *<li>if the shard is still allocated / active on this node</li>      *<li>if for instance if the shard is located on shared and should not be deleted</li>      *<li>if the shards data locations do not exists</li>      *</ul>      *      * @param shardId the shard to delete.      * @param indexSettings the shards's relevant {@link IndexSettings}. This is required to access the indexes settings etc.      */
+comment|/**      * result type returned by {@link #canDeleteShardContent signaling different reasons why a shard can / cannot be deleted}      */
+DECL|enum|ShardDeletionCheckResult
+specifier|public
+enum|enum
+name|ShardDeletionCheckResult
+block|{
+DECL|enum constant|FOLDER_FOUND_CAN_DELETE
+name|FOLDER_FOUND_CAN_DELETE
+block|,
+comment|// shard data exists and can be deleted
+DECL|enum constant|STILL_ALLOCATED
+name|STILL_ALLOCATED
+block|,
+comment|// the shard is still allocated / active on this node
+DECL|enum constant|NO_FOLDER_FOUND
+name|NO_FOLDER_FOUND
+block|,
+comment|// the shards data locations do not exist
+DECL|enum constant|SHARED_FILE_SYSTEM
+name|SHARED_FILE_SYSTEM
+block|,
+comment|// the shard is located on shared and should not be deleted
+DECL|enum constant|NO_LOCAL_STORAGE
+name|NO_LOCAL_STORAGE
+comment|// node does not have local storage (see DiscoveryNode.nodeRequiresLocalStorage)
+block|}
+comment|/**      * Returns<code>ShardDeletionCheckResult</code> signaling whether the shards content for the given shard can be deleted.      *      * @param shardId the shard to delete.      * @param indexSettings the shards's relevant {@link IndexSettings}. This is required to access the indexes settings etc.      */
 DECL|method|canDeleteShardContent
 specifier|public
-name|boolean
+name|ShardDeletionCheckResult
 name|canDeleteShardContent
 parameter_list|(
 name|ShardId
@@ -5520,7 +5559,9 @@ name|isAllocated
 condition|)
 block|{
 return|return
-literal|false
+name|ShardDeletionCheckResult
+operator|.
+name|STILL_ALLOCATED
 return|;
 comment|// we are allocated - can't delete the shard
 block|}
@@ -5549,6 +5590,14 @@ argument_list|,
 name|shardId
 argument_list|)
 argument_list|)
+condition|?
+name|ShardDeletionCheckResult
+operator|.
+name|FOLDER_FOUND_CAN_DELETE
+else|:
+name|ShardDeletionCheckResult
+operator|.
+name|NO_FOLDER_FOUND
 return|;
 block|}
 else|else
@@ -5567,8 +5616,24 @@ argument_list|(
 name|shardId
 argument_list|)
 argument_list|)
+condition|?
+name|ShardDeletionCheckResult
+operator|.
+name|FOLDER_FOUND_CAN_DELETE
+else|:
+name|ShardDeletionCheckResult
+operator|.
+name|NO_FOLDER_FOUND
 return|;
 block|}
+block|}
+else|else
+block|{
+return|return
+name|ShardDeletionCheckResult
+operator|.
+name|NO_LOCAL_STORAGE
+return|;
 block|}
 block|}
 else|else
@@ -5582,10 +5647,12 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
-block|}
 return|return
-literal|false
+name|ShardDeletionCheckResult
+operator|.
+name|SHARED_FILE_SYSTEM
 return|;
+block|}
 block|}
 DECL|method|buildIndexSettings
 specifier|private

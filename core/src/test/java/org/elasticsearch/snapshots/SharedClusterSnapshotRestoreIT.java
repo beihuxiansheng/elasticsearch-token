@@ -15008,7 +15008,7 @@ literal|"max_restore_bytes_per_sec"
 argument_list|,
 name|throttleRestore
 condition|?
-literal|"0.5k"
+literal|"10k"
 else|:
 literal|"0"
 argument_list|)
@@ -15019,7 +15019,7 @@ literal|"max_snapshot_bytes_per_sec"
 argument_list|,
 name|throttleSnapshot
 condition|?
-literal|"0.5k"
+literal|"10k"
 else|:
 literal|"0"
 argument_list|)
@@ -25128,10 +25128,16 @@ init|=
 name|randomRepoPath
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Client
+name|client
+init|=
+name|client
+argument_list|()
+decl_stmt|;
 name|assertAcked
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25181,6 +25187,16 @@ argument_list|)
 operator|/
 literal|100f
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"random"
+argument_list|,
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -25191,9 +25207,37 @@ argument_list|(
 literal|"--> indexing some data"
 argument_list|)
 expr_stmt|;
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"test-idx"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+comment|// the less the number of shards, the less control files we have, so we are giving a higher probability of
+comment|// triggering an IOException toward the end when writing the pending-index-* files, which are the files
+comment|// that caused problems with writing subsequent snapshots if they happened to be lingering in the repository
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|SETTING_NUMBER_OF_REPLICAS
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -25252,7 +25296,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
@@ -25295,7 +25338,6 @@ name|CreateSnapshotResponse
 name|createSnapshotResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25406,7 +25448,9 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|SnapshotCreationException
+decl||
+name|RepositoryException
 name|ex
 parameter_list|)
 block|{
@@ -25437,7 +25481,6 @@ expr_stmt|;
 name|assertAcked
 argument_list|(
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25453,11 +25496,6 @@ operator|.
 name|setType
 argument_list|(
 literal|"mock"
-argument_list|)
-operator|.
-name|setVerify
-argument_list|(
-literal|false
 argument_list|)
 operator|.
 name|setSettings
@@ -25480,7 +25518,6 @@ name|CreateSnapshotResponse
 name|createSnapshotResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -25525,7 +25562,6 @@ name|GetSnapshotsResponse
 name|getSnapshotsResponse
 init|=
 name|client
-argument_list|()
 operator|.
 name|admin
 argument_list|()

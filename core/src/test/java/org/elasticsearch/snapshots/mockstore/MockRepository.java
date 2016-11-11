@@ -158,6 +158,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedContext
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1869,6 +1881,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|RandomizedContext
+operator|.
+name|current
+argument_list|()
+operator|.
+name|getRandom
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
 comment|// simulate a non-atomic move, since many blob container implementations
 comment|// will not have an atomic move, and we should be able to handle that
 name|maybeIOExceptionOrBlock
@@ -1899,6 +1925,25 @@ argument_list|(
 name|sourceBlob
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// atomic move since this inherits from FsBlobContainer which provides atomic moves
+name|maybeIOExceptionOrBlock
+argument_list|(
+name|targetBlob
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|move
+argument_list|(
+name|sourceBlob
+argument_list|,
+name|targetBlob
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1935,6 +1980,20 @@ argument_list|,
 name|blobSize
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|RandomizedContext
+operator|.
+name|current
+argument_list|()
+operator|.
+name|getRandom
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
 comment|// for network based repositories, the blob may have been written but we may still
 comment|// get an error with the client connection, so an IOException here simulates this
 name|maybeIOExceptionOrBlock
@@ -1942,6 +2001,7 @@ argument_list|(
 name|blobName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

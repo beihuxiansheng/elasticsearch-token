@@ -19246,7 +19246,7 @@ name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"NOCOMMIT"
+literal|"https://github.com/elastic/elasticsearch/issues/21501"
 argument_list|)
 DECL|method|testRangeQueryWithTimeZone
 specifier|public

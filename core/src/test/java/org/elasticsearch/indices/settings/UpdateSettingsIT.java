@@ -326,20 +326,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|VersionConflictEngineException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|MergePolicyConfig
 import|;
 end_import
@@ -353,6 +339,20 @@ operator|.
 name|index
 operator|.
 name|MergeSchedulerConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|VersionConflictEngineException
 import|;
 end_import
 
@@ -1230,8 +1230,8 @@ literal|"index.fielddata.cache"
 argument_list|,
 literal|"none"
 argument_list|)
-comment|// this one can't
 argument_list|)
+comment|// this one can't
 operator|.
 name|execute
 argument_list|()
@@ -1394,8 +1394,8 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
-comment|// this one can change
 argument_list|)
+comment|// this one can change
 operator|.
 name|execute
 argument_list|()
@@ -1684,8 +1684,8 @@ literal|"index.fielddata.cache"
 argument_list|,
 literal|"none"
 argument_list|)
-comment|// this one can't
 argument_list|)
+comment|// this one can't
 operator|.
 name|execute
 argument_list|()
@@ -1867,6 +1867,7 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// sets version to 2
+comment|// delete is still in cache this should work& set version to 3
 name|client
 argument_list|()
 operator|.
@@ -1894,7 +1895,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-comment|// delete is still in cache this should work& set version to 3
 name|client
 argument_list|()
 operator|.
@@ -1951,6 +1951,7 @@ literal|300
 argument_list|)
 expr_stmt|;
 comment|// wait for cache time to change TODO: this needs to be solved better. To be discussed.
+comment|// delete is should not be in cache
 name|assertThrows
 argument_list|(
 name|client
@@ -1982,7 +1983,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// delete is should not be in cache
 block|}
 comment|// #6626: make sure we can update throttle settings and the changes take effect
 DECL|method|testUpdateThrottleSettings
@@ -3032,6 +3032,18 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|ignoreExceptions
+specifier|public
+name|boolean
+name|ignoreExceptions
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|method|testUpdateAutoThrottleSettings
 specifier|public
@@ -3063,14 +3075,6 @@ operator|.
 name|getRootLogger
 argument_list|()
 decl_stmt|;
-name|Level
-name|savedLevel
-init|=
-name|rootLogger
-operator|.
-name|getLevel
-argument_list|()
-decl_stmt|;
 name|Loggers
 operator|.
 name|addAppender
@@ -3080,6 +3084,14 @@ argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
+name|Level
+name|savedLevel
+init|=
+name|rootLogger
+operator|.
+name|getLevel
+argument_list|()
+decl_stmt|;
 name|Loggers
 operator|.
 name|setLevel
@@ -3282,6 +3294,15 @@ finally|finally
 block|{
 name|Loggers
 operator|.
+name|setLevel
+argument_list|(
+name|rootLogger
+argument_list|,
+name|savedLevel
+argument_list|)
+expr_stmt|;
+name|Loggers
+operator|.
 name|removeAppender
 argument_list|(
 name|rootLogger
@@ -3293,15 +3314,6 @@ name|mockAppender
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|Loggers
-operator|.
-name|setLevel
-argument_list|(
-name|rootLogger
-argument_list|,
-name|savedLevel
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3888,6 +3900,15 @@ finally|finally
 block|{
 name|Loggers
 operator|.
+name|setLevel
+argument_list|(
+name|rootLogger
+argument_list|,
+name|savedLevel
+argument_list|)
+expr_stmt|;
+name|Loggers
+operator|.
 name|removeAppender
 argument_list|(
 name|rootLogger
@@ -3899,15 +3920,6 @@ name|mockAppender
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|Loggers
-operator|.
-name|setLevel
-argument_list|(
-name|rootLogger
-argument_list|,
-name|savedLevel
-argument_list|)
 expr_stmt|;
 block|}
 block|}
