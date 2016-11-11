@@ -1230,8 +1230,8 @@ literal|"index.fielddata.cache"
 argument_list|,
 literal|"none"
 argument_list|)
-comment|// this one can't
 argument_list|)
+comment|// this one can't
 operator|.
 name|execute
 argument_list|()
@@ -1394,8 +1394,8 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
-comment|// this one can change
 argument_list|)
+comment|// this one can change
 operator|.
 name|execute
 argument_list|()
@@ -1684,8 +1684,8 @@ literal|"index.fielddata.cache"
 argument_list|,
 literal|"none"
 argument_list|)
-comment|// this one can't
 argument_list|)
+comment|// this one can't
 operator|.
 name|execute
 argument_list|()
@@ -1867,6 +1867,7 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// sets version to 2
+comment|// delete is still in cache this should work& set version to 3
 name|client
 argument_list|()
 operator|.
@@ -1894,7 +1895,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-comment|// delete is still in cache this should work& set version to 3
 name|client
 argument_list|()
 operator|.
@@ -1951,6 +1951,7 @@ literal|300
 argument_list|)
 expr_stmt|;
 comment|// wait for cache time to change TODO: this needs to be solved better. To be discussed.
+comment|// delete is should not be in cache
 name|assertThrows
 argument_list|(
 name|client
@@ -1982,7 +1983,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// delete is should not be in cache
 block|}
 comment|// #6626: make sure we can update throttle settings and the changes take effect
 DECL|method|testUpdateThrottleSettings
