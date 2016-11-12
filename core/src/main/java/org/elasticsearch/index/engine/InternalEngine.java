@@ -406,20 +406,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|LoggerInfoStream
@@ -3401,13 +3387,29 @@ name|LOCAL_TRANSLOG_RECOVERY
 condition|)
 block|{
 comment|// legacy support
-return|return
+assert|assert
 name|seqNo
 operator|==
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
-return|;
+operator|:
+literal|"old op recovering but it already has a seq no."
+operator|+
+literal|" index version: "
+operator|+
+name|engineConfig
+operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+operator|+
+literal|". seq no: "
+operator|+
+name|seqNo
+assert|;
 block|}
 elseif|else
 if|if
@@ -3422,23 +3424,44 @@ name|PRIMARY
 condition|)
 block|{
 comment|// sequence number should not be set when operation origin is primary
-return|return
+assert|assert
 name|seqNo
 operator|==
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
-return|;
+operator|:
+literal|"primary ops should never an assigned seq no. got: "
+operator|+
+name|seqNo
+assert|;
 block|}
 else|else
 block|{
 comment|// sequence number should be set when operation origin is not primary
-return|return
+assert|assert
 name|seqNo
 operator|>=
 literal|0
-return|;
+operator|:
+literal|"replica ops should an assigned seq no. origin: "
+operator|+
+name|origin
+operator|+
+literal|" index version: "
+operator|+
+name|engineConfig
+operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+assert|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|innerIndex
 specifier|private
