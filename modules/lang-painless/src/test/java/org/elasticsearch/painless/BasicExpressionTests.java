@@ -57,7 +57,17 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 5;"
+literal|"return 5"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|6L
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 6l"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -67,17 +77,57 @@ literal|7L
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 7L;"
+literal|"return 7L"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|7.0
+literal|7.0d
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 7.0;"
+literal|"return 7.0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|18.0d
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 18d"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|19.0d
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 19.0d"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|20.0d
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 20D"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|21.0d
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 21.0D"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -87,7 +137,37 @@ literal|32.0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 32.0F;"
+literal|"return 32.0f"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|33.0F
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 33f"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|34.0F
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 34.0F"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|35.0F
+argument_list|,
+name|exec
+argument_list|(
+literal|"return 35F"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -100,7 +180,7 @@ literal|255
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (byte)255;"
+literal|"return (byte)255"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -113,7 +193,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"return (short)5;"
+literal|"return (short)5"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -123,7 +203,7 @@ literal|"string"
 argument_list|,
 name|exec
 argument_list|(
-literal|"return \"string\";"
+literal|"return \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -133,7 +213,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return true;"
+literal|"return true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -143,7 +223,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"return false;"
+literal|"return false"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -151,7 +231,7 @@ name|assertNull
 argument_list|(
 name|exec
 argument_list|(
-literal|"return null;"
+literal|"return null"
 argument_list|)
 argument_list|)
 expr_stmt|;

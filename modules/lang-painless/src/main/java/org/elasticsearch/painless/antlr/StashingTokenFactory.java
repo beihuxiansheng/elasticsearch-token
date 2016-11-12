@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Token factory that preseres that last non-whitespace token so you can do token level lookbehind in the lexer.  */
+comment|/**  * Token factory that preserves that last non-whitespace token so you can do token level lookbehind in the lexer.  */
 end_comment
 
 begin_class
