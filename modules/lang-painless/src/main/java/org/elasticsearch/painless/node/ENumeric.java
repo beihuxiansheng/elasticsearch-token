@@ -622,6 +622,47 @@ name|NumberFormatException
 name|exception
 parameter_list|)
 block|{
+try|try
+block|{
+comment|// Check if we can parse as a long. If so then hint that the user might prefer that.
+name|Long
+operator|.
+name|parseLong
+argument_list|(
+name|value
+argument_list|,
+name|radix
+argument_list|)
+expr_stmt|;
+throw|throw
+name|createError
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid int constant ["
+operator|+
+name|value
+operator|+
+literal|"]. If you want a long constant "
+operator|+
+literal|"then change it to ["
+operator|+
+name|value
+operator|+
+literal|"L]."
+argument_list|)
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|longNoGood
+parameter_list|)
+block|{
+comment|// Ignored
+block|}
 throw|throw
 name|createError
 argument_list|(
