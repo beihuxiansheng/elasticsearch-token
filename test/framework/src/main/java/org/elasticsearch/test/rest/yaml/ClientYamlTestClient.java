@@ -671,7 +671,7 @@ name|perNode
 operator|.
 name|split
 argument_list|(
-literal|" "
+literal|"\\s+"
 argument_list|)
 decl_stmt|;
 assert|assert
