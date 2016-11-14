@@ -241,6 +241,25 @@ name|cast
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|cast
+operator|.
+name|to
+argument_list|,
+name|child
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

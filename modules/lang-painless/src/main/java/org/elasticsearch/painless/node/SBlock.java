@@ -94,6 +94,18 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a set of statements as a branch of control-flow.  */
 end_comment
@@ -369,6 +381,24 @@ name|globals
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|multilineToString
+argument_list|(
+name|emptyList
+argument_list|()
+argument_list|,
+name|statements
+argument_list|)
+return|;
 block|}
 block|}
 end_class

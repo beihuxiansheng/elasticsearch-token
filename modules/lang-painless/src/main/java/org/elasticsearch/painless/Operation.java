@@ -27,7 +27,7 @@ block|{
 DECL|enum constant|MUL
 name|MUL
 argument_list|(
-literal|"+"
+literal|"*"
 argument_list|)
 block|,
 DECL|enum constant|DIV

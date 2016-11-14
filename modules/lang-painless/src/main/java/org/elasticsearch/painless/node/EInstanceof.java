@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents instanceof operator.  *<p>  * Unlike java's, this works for primitive types too.  */
+comment|/**  * Represents {@code instanceof} operator.  *<p>  * Unlike java's, this works for primitive types too.  */
 end_comment
 
 begin_class
@@ -444,6 +444,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|expression
+argument_list|,
+name|type
+argument_list|)
+return|;
 block|}
 block|}
 end_class

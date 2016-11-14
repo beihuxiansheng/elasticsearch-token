@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Respresents a non-decimal numeric constant.  */
+comment|/**  * Represents a non-decimal numeric constant.  */
 end_comment
 
 begin_class
@@ -703,6 +703,37 @@ literal|"Illegal tree structure."
 argument_list|)
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|radix
+operator|!=
+literal|10
+condition|)
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|value
+argument_list|,
+name|radix
+argument_list|)
+return|;
+block|}
+return|return
+name|singleLineToString
+argument_list|(
+name|value
+argument_list|)
+return|;
 block|}
 block|}
 end_class

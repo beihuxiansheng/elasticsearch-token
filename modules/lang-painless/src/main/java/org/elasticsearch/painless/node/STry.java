@@ -106,6 +106,18 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the try block as part of a try-catch block.  */
 end_comment
@@ -565,6 +577,26 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|multilineToString
+argument_list|(
+name|singleton
+argument_list|(
+name|block
+argument_list|)
+argument_list|,
+name|catches
+argument_list|)
+return|;
 block|}
 block|}
 end_class

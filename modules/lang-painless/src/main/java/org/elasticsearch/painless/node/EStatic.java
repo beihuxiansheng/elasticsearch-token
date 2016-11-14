@@ -217,6 +217,21 @@ parameter_list|)
 block|{
 comment|// Do nothing.
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

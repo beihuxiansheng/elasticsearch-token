@@ -3987,6 +3987,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|left
+argument_list|,
+name|operation
+operator|.
+name|symbol
+argument_list|,
+name|right
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

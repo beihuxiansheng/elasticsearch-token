@@ -652,6 +652,23 @@ index|]
 return|;
 comment|// no captures
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|type
+argument_list|,
+name|call
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

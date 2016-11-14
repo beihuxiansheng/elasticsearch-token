@@ -658,6 +658,23 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|prefix
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

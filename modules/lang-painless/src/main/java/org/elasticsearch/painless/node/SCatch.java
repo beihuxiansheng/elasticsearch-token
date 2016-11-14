@@ -586,6 +586,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|singleLineToString
+argument_list|(
+name|type
+argument_list|,
+name|name
+argument_list|,
+name|block
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
