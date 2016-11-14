@@ -842,7 +842,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * Set to<tt>true</tt> to force only creation, not an update of an index template. If it already      * exists, it will fail with an {@link org.elasticsearch.indices.IndexTemplateAlreadyExistsException}.      */
+comment|/**      * Set to<tt>true</tt> to force only creation, not an update of an index template. If it already      * exists, it will fail with an {@link IllegalArgumentException}.      */
 DECL|method|create
 specifier|public
 name|PutIndexTemplateRequest

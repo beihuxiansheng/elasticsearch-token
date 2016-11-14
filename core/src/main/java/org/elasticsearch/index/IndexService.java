@@ -2335,7 +2335,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardAlreadyExistsException
+name|IllegalStateException
 argument_list|(
 name|shardId
 operator|+

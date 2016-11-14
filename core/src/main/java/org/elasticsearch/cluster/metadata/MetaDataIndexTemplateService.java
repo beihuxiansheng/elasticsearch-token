@@ -304,18 +304,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndexTemplateAlreadyExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
 name|IndexTemplateMissingException
 import|;
 end_import
@@ -1010,11 +998,15 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexTemplateAlreadyExistsException
+name|IllegalArgumentException
 argument_list|(
+literal|"index_template ["
+operator|+
 name|request
 operator|.
 name|name
+operator|+
+literal|"] already exists"
 argument_list|)
 throw|;
 block|}

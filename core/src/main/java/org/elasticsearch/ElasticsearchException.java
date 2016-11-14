@@ -3499,32 +3499,7 @@ argument_list|,
 literal|46
 argument_list|)
 block|,
-DECL|enum constant|INDEX_TEMPLATE_ALREADY_EXISTS_EXCEPTION
-name|INDEX_TEMPLATE_ALREADY_EXISTS_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexTemplateAlreadyExistsException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexTemplateAlreadyExistsException
-operator|::
-operator|new
-argument_list|,
-literal|47
-argument_list|)
-block|,
+comment|// 47 used to be for IndexTemplateAlreadyExistsException which was deprecated in 5.1 removed in 6.0
 DECL|enum constant|TRANSLOG_CORRUPTED_EXCEPTION
 name|TRANSLOG_CORRUPTED_EXCEPTION
 argument_list|(
@@ -3615,32 +3590,7 @@ argument_list|,
 literal|50
 argument_list|)
 block|,
-DECL|enum constant|INDEX_SHARD_ALREADY_EXISTS_EXCEPTION
-name|INDEX_SHARD_ALREADY_EXISTS_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexShardAlreadyExistsException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexShardAlreadyExistsException
-operator|::
-operator|new
-argument_list|,
-literal|51
-argument_list|)
-block|,
+comment|// 51 used to be for IndexShardAlreadyExistsException which was deprecated in 5.1 removed in 6.0
 DECL|enum constant|VERSION_CONFLICT_ENGINE_EXCEPTION
 name|VERSION_CONFLICT_ENGINE_EXCEPTION
 argument_list|(
@@ -3939,7 +3889,7 @@ argument_list|,
 literal|63
 argument_list|)
 block|,
-comment|// 64 was DeleteByQueryFailedEngineException, which was removed in 3.0
+comment|// 64 was DeleteByQueryFailedEngineException, which was removed in 5.0
 DECL|enum constant|GATEWAY_EXCEPTION
 name|GATEWAY_EXCEPTION
 argument_list|(
