@@ -1041,14 +1041,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|rebalanceDecision
-operator|.
-name|getAssignedNodeId
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testRebalancingNotAllowedDueToCanAllocate
 specifier|public
