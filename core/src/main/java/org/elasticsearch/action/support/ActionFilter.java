@@ -114,9 +114,6 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Request
-argument_list|>
 parameter_list|,
 name|Response
 extends|extends
@@ -215,9 +212,6 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Request
-argument_list|>
 parameter_list|,
 name|Response
 extends|extends
@@ -288,9 +282,6 @@ name|String
 name|action
 parameter_list|,
 name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
 name|request
 parameter_list|,
 name|ActionListener

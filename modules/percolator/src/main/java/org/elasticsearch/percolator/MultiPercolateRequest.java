@@ -305,9 +305,6 @@ class|class
 name|MultiPercolateRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|MultiPercolateRequest
-argument_list|>
 implements|implements
 name|CompositeIndicesRequest
 block|{

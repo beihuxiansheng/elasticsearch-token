@@ -161,9 +161,6 @@ class|class
 name|MultiSearchTemplateRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|MultiSearchTemplateRequest
-argument_list|>
 implements|implements
 name|CompositeIndicesRequest
 block|{

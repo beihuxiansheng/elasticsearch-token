@@ -5336,9 +5336,6 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Request
-argument_list|>
 parameter_list|,
 name|Response
 extends|extends

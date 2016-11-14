@@ -363,9 +363,6 @@ class|class
 name|MultiGetRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|MultiGetRequest
-argument_list|>
 implements|implements
 name|Iterable
 argument_list|<

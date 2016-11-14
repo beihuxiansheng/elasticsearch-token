@@ -225,9 +225,6 @@ argument_list|<
 name|?
 extends|extends
 name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|?
 extends|extends

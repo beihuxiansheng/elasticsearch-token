@@ -58,9 +58,6 @@ class|class
 name|LivenessRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|LivenessRequest
-argument_list|>
 block|{
 annotation|@
 name|Override

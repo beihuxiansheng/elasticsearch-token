@@ -166,9 +166,6 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Request
-argument_list|>
 implements|implements
 name|IndicesRequest
 block|{

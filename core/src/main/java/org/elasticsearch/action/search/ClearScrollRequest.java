@@ -133,9 +133,6 @@ class|class
 name|ClearScrollRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|ClearScrollRequest
-argument_list|>
 block|{
 DECL|field|scrollIds
 specifier|private

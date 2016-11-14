@@ -141,9 +141,6 @@ class|class
 name|GetTaskRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|GetTaskRequest
-argument_list|>
 block|{
 DECL|field|taskId
 specifier|private

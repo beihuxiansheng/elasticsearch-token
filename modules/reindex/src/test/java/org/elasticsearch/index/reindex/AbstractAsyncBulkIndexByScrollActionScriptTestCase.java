@@ -311,9 +311,6 @@ parameter_list|<
 name|T
 extends|extends
 name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
 parameter_list|>
 name|T
 name|applyScript

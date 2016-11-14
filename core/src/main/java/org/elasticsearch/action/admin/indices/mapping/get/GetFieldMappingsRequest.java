@@ -137,9 +137,6 @@ class|class
 name|GetFieldMappingsRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|GetFieldMappingsRequest
-argument_list|>
 implements|implements
 name|IndicesRequest
 operator|.
