@@ -522,7 +522,11 @@ name|isFixed
 argument_list|()
 operator|==
 literal|false
-operator|&&
+condition|)
+block|{
+comment|// special cases for non-fixed time zones with dst transitions
+if|if
+condition|(
 name|timeZone
 operator|.
 name|getOffset
@@ -538,13 +542,7 @@ name|rounded
 argument_list|)
 condition|)
 block|{
-comment|// in this case, we crossed a time zone transition. In some edge
-comment|// cases this will
-comment|// result in a value that is not a rounded value itself. We need
-comment|// to round again
-comment|// to make sure. This will have no affect in cases where
-comment|// 'rounded' was already a proper
-comment|// rounded value
+comment|/*                      * the offset change indicates a dst transition. In some                      * edge cases this will result in a value that is not a                      * rounded value before the transition. We round again to                      * make sure we really return a rounded value. This will                      * have no effect in cases where we already had a valid                      * rounded value                      */
 name|rounded
 operator|=
 name|field
@@ -554,6 +552,64 @@ argument_list|(
 name|rounded
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|/*                      * check if the current time instant is at a start of a DST                      * overlap by comparing the offset of the instant and the                      * previous millisecond. We want to detect negative offset                      * changes that result in an overlap                      */
+if|if
+condition|(
+name|timeZone
+operator|.
+name|getOffset
+argument_list|(
+name|rounded
+argument_list|)
+operator|<
+name|timeZone
+operator|.
+name|getOffset
+argument_list|(
+name|rounded
+operator|-
+literal|1
+argument_list|)
+condition|)
+block|{
+comment|/*                          * we are rounding a date just after a DST overlap. if                          * the overlap is smaller than the time unit we are                          * rounding to, we want to add the overlapping part to                          * the following rounding interval                          */
+name|long
+name|previousRounded
+init|=
+name|field
+operator|.
+name|roundFloor
+argument_list|(
+name|rounded
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|rounded
+operator|-
+name|previousRounded
+operator|<
+name|field
+operator|.
+name|getDurationField
+argument_list|()
+operator|.
+name|getUnitMillis
+argument_list|()
+condition|)
+block|{
+name|rounded
+operator|=
+name|previousRounded
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 assert|assert
 name|rounded
