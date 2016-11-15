@@ -526,8 +526,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|ZenPing
-name|zenPing
+name|UnicastHostsProvider
+name|hostsProvider
 parameter_list|)
 block|{
 comment|// this is for backcompat with pre 5.1, where users would set discovery.type to use ec2 hosts provider
@@ -551,12 +551,7 @@ name|transportService
 argument_list|,
 name|clusterService
 argument_list|,
-name|clusterService
-operator|.
-name|getClusterSettings
-argument_list|()
-argument_list|,
-name|zenPing
+name|hostsProvider
 argument_list|)
 argument_list|)
 return|;
