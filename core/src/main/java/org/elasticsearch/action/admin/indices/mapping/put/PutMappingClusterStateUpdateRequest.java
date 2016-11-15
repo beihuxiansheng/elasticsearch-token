@@ -69,6 +69,7 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|PutMappingClusterStateUpdateRequest
+specifier|public
 name|PutMappingClusterStateUpdateRequest
 parameter_list|()
 block|{      }
