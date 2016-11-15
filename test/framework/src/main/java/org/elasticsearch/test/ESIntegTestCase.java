@@ -1448,7 +1448,7 @@ name|test
 operator|.
 name|discovery
 operator|.
-name|MockZenPing
+name|TestZenDiscovery
 import|;
 end_import
 
@@ -10821,16 +10821,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|addMockZenPings
-specifier|protected
-name|boolean
-name|addMockZenPings
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Returns a function that allows to wrap / filter all clients that are exposed by the test cluster. This is useful      * for debugging or request / response pre and post processing. It also allows to intercept all calls done by the test      * framework. By default this method returns an identity function {@link Function#identity()}.      */
 DECL|method|getClientWrapper
 specifier|protected
@@ -11013,24 +11003,17 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|addMockZenPings
-argument_list|()
-condition|)
-block|{
 name|mocks
 operator|.
 name|add
 argument_list|(
-name|MockZenPing
+name|TestZenDiscovery
 operator|.
 name|TestPlugin
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 name|mocks
 operator|.
 name|add

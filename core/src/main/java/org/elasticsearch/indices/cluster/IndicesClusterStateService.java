@@ -466,18 +466,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexShardAlreadyExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|seqno
 operator|.
 name|GlobalCheckpointService
@@ -3500,26 +3488,6 @@ argument_list|,
 name|failedShardHandler
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexShardAlreadyExistsException
-name|e
-parameter_list|)
-block|{
-comment|// ignore this, the method call can happen several times
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"Trying to create shard that already exists"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-assert|assert
-literal|false
-assert|;
 block|}
 catch|catch
 parameter_list|(

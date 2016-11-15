@@ -142,9 +142,6 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Request
-argument_list|>
 block|{
 comment|/**      * the list of nodesIds that will be used to resolve this request and {@link #concreteNodes}      * will be populated. Note that if {@link #concreteNodes} is not null, it will be used and nodeIds      * will be ignored.      *      * See {@link DiscoveryNodes#resolveNodes} for a full description of the options.      *      * TODO: once we stop using the transport client as a gateway to the cluster, we can get rid of this and resolve it to concrete nodes      * in the rest layer      **/
 DECL|field|nodesIds

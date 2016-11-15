@@ -17,6 +17,16 @@ package|;
 end_package
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -83,8 +93,10 @@ parameter_list|(
 name|ShardRouting
 name|shardRouting
 parameter_list|,
+name|Set
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|nodes
 parameter_list|)
 block|{
@@ -182,6 +194,13 @@ name|shardRouting
 operator|.
 name|unassigned
 argument_list|()
+operator|&&
+name|nodes
+operator|.
+name|isEmpty
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|shardRouting

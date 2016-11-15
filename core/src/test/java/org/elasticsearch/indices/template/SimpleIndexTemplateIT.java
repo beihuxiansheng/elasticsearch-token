@@ -270,18 +270,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndexTemplateAlreadyExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
 name|InvalidAliasNameException
 import|;
 end_import
@@ -985,7 +973,7 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|,
-name|IndexTemplateAlreadyExistsException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)

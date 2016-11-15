@@ -4963,9 +4963,6 @@ block|{
 operator|(
 operator|(
 name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|streamable
 operator|)

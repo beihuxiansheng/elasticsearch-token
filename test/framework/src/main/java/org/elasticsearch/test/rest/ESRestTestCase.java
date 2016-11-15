@@ -822,6 +822,17 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Controls whether or not to preserve templates upon completion of this test. The default implementation is to delete not preserve      * templates.      *      * @return whether or not to preserve templates      */
+DECL|method|preserveTemplatesUponCompletion
+specifier|protected
+name|boolean
+name|preserveTemplatesUponCompletion
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|wipeCluster
 specifier|private
 name|void
@@ -882,6 +893,14 @@ block|}
 block|}
 block|}
 comment|// wipe index templates
+if|if
+condition|(
+name|preserveTemplatesUponCompletion
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 name|adminClient
 argument_list|()
 operator|.
@@ -892,6 +911,7 @@ argument_list|,
 literal|"_template/*"
 argument_list|)
 expr_stmt|;
+block|}
 name|wipeSnapshots
 argument_list|()
 expr_stmt|;

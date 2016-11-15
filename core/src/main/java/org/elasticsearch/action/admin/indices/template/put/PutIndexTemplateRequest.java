@@ -543,20 +543,6 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|V_5_1_0
-specifier|public
-specifier|static
-specifier|final
-name|Version
-name|V_5_1_0
-init|=
-name|Version
-operator|.
-name|fromId
-argument_list|(
-literal|5010099
-argument_list|)
-decl_stmt|;
 DECL|field|name
 specifier|private
 name|String
@@ -856,7 +842,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * Set to<tt>true</tt> to force only creation, not an update of an index template. If it already      * exists, it will fail with an {@link org.elasticsearch.indices.IndexTemplateAlreadyExistsException}.      */
+comment|/**      * Set to<tt>true</tt> to force only creation, not an update of an index template. If it already      * exists, it will fail with an {@link IllegalArgumentException}.      */
 DECL|method|create
 specifier|public
 name|PutIndexTemplateRequest
@@ -2430,7 +2416,9 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|V_5_1_0
+name|Version
+operator|.
+name|V_6_0_0_alpha1
 argument_list|)
 condition|)
 block|{
@@ -2666,7 +2654,9 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|V_5_1_0
+name|Version
+operator|.
+name|V_6_0_0_alpha1
 argument_list|)
 condition|)
 block|{

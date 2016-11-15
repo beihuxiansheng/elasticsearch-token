@@ -162,7 +162,7 @@ specifier|public
 interface|interface
 name|DiscoveryPlugin
 block|{
-comment|/**      * Returns custom discovery implementations added by this plugin.      *      * The key of the returned map is the name of the discovery implementation      * (see {@link org.elasticsearch.discovery.DiscoveryModule#DISCOVERY_TYPE_SETTING}, and      * the value is a supplier to construct the {@link Discovery}.      *      * @param threadPool Use to schedule ping actions      * @param transportService Use to communicate with other nodes      * @param clusterService Use to find current nodes in the cluster      * @param zenPing Use to ping other nodes with zen unicast host list      */
+comment|/**      * Returns custom discovery implementations added by this plugin.      *      * The key of the returned map is the name of the discovery implementation      * (see {@link org.elasticsearch.discovery.DiscoveryModule#DISCOVERY_TYPE_SETTING}, and      * the value is a supplier to construct the {@link Discovery}.      *      * @param threadPool Use to schedule ping actions      * @param transportService Use to communicate with other nodes      * @param clusterService Use to find current nodes in the cluster      * @param hostsProvider Use to find configured hosts which should be pinged for initial discovery      */
 DECL|method|getDiscoveryTypes
 specifier|default
 name|Map
@@ -185,8 +185,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|ZenPing
-name|zenPing
+name|UnicastHostsProvider
+name|hostsProvider
 parameter_list|)
 block|{
 return|return

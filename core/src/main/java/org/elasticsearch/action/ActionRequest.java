@@ -74,14 +74,6 @@ specifier|public
 specifier|abstract
 class|class
 name|ActionRequest
-parameter_list|<
-name|Request
-extends|extends
-name|ActionRequest
-parameter_list|<
-name|Request
-parameter_list|>
-parameter_list|>
 extends|extends
 name|TransportRequest
 block|{

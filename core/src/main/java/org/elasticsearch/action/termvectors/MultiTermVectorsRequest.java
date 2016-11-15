@@ -261,9 +261,6 @@ class|class
 name|MultiTermVectorsRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|MultiTermVectorsRequest
-argument_list|>
 implements|implements
 name|Iterable
 argument_list|<

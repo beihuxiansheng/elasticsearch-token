@@ -163,9 +163,6 @@ class|class
 name|SearchScrollRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|SearchScrollRequest
-argument_list|>
 block|{
 DECL|field|scrollId
 specifier|private

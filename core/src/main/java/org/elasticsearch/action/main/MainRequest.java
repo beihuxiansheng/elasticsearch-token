@@ -47,9 +47,6 @@ class|class
 name|MainRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|MainRequest
-argument_list|>
 block|{
 annotation|@
 name|Override

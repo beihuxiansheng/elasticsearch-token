@@ -951,12 +951,6 @@ specifier|final
 name|IndexEventListener
 name|eventListener
 decl_stmt|;
-DECL|field|indexAnalyzers
-specifier|private
-specifier|final
-name|IndexAnalyzers
-name|indexAnalyzers
-decl_stmt|;
 DECL|field|indexFieldData
 specifier|private
 specifier|final
@@ -1253,17 +1247,6 @@ name|globalCheckpointSyncer
 expr_stmt|;
 name|this
 operator|.
-name|indexAnalyzers
-operator|=
-name|registry
-operator|.
-name|build
-argument_list|(
-name|indexSettings
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|similarityService
 operator|=
 name|similarityService
@@ -1277,7 +1260,12 @@ name|MapperService
 argument_list|(
 name|indexSettings
 argument_list|,
-name|indexAnalyzers
+name|registry
+operator|.
+name|build
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|,
 name|similarityService
 argument_list|,
@@ -1299,7 +1287,7 @@ throw|throw
 argument_list|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Percolator queries are not allowed to use the curent timestamp"
+literal|"Percolator queries are not allowed to use the current timestamp"
 argument_list|)
 argument_list|;
 block|}
@@ -1801,7 +1789,10 @@ block|{
 return|return
 name|this
 operator|.
-name|indexAnalyzers
+name|mapperService
+operator|.
+name|getIndexAnalyzers
+argument_list|()
 return|;
 block|}
 end_function
@@ -1931,7 +1922,7 @@ name|indexCache
 argument_list|,
 name|indexFieldData
 argument_list|,
-name|indexAnalyzers
+name|mapperService
 argument_list|,
 name|refreshTask
 argument_list|,
@@ -2389,7 +2380,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardAlreadyExistsException
+name|IllegalStateException
 argument_list|(
 name|shardId
 operator|+

@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -192,7 +212,7 @@ name|test
 operator|.
 name|discovery
 operator|.
-name|MockZenPing
+name|TestZenDiscovery
 import|;
 end_import
 
@@ -229,26 +249,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -508,7 +508,7 @@ name|MockTcpTransportPlugin
 operator|.
 name|class
 argument_list|,
-name|MockZenPing
+name|TestZenDiscovery
 operator|.
 name|TestPlugin
 operator|.

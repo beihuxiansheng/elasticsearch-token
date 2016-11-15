@@ -451,9 +451,6 @@ class|class
 name|BulkRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|BulkRequest
-argument_list|>
 implements|implements
 name|CompositeIndicesRequest
 implements|,

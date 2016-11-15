@@ -249,9 +249,6 @@ class|class
 name|PercolateRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|PercolateRequest
-argument_list|>
 implements|implements
 name|IndicesRequest
 operator|.
