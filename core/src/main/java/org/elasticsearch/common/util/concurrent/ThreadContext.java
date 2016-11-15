@@ -1098,6 +1098,21 @@ operator|==
 name|DEFAULT_CONTEXT
 return|;
 block|}
+comment|/**      * Returns<code>true</code> if the context is closed, otherwise<code>true</code>      */
+DECL|method|isClosed
+name|boolean
+name|isClosed
+parameter_list|()
+block|{
+return|return
+name|threadLocal
+operator|.
+name|closed
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 annotation|@
 name|FunctionalInterface
 DECL|interface|StoredContext
