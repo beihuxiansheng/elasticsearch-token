@@ -354,9 +354,6 @@ argument_list|<
 name|?
 extends|extends
 name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|?
 extends|extends
@@ -435,9 +432,6 @@ class|class
 name|FakeRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|FakeRequest
-argument_list|>
 block|{
 annotation|@
 name|Override
@@ -572,9 +566,6 @@ argument_list|<
 name|?
 extends|extends
 name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|?
 extends|extends

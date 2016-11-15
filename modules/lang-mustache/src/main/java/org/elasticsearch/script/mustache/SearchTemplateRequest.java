@@ -181,9 +181,6 @@ class|class
 name|SearchTemplateRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|SearchTemplateRequest
-argument_list|>
 implements|implements
 name|IndicesRequest
 block|{

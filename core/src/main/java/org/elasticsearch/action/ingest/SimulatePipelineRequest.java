@@ -205,9 +205,6 @@ class|class
 name|SimulatePipelineRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|SimulatePipelineRequest
-argument_list|>
 block|{
 DECL|field|id
 specifier|private

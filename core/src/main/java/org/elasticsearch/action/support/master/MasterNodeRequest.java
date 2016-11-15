@@ -106,9 +106,6 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Request
-argument_list|>
 block|{
 DECL|field|DEFAULT_MASTER_NODE_TIMEOUT
 specifier|public

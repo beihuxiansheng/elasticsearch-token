@@ -240,9 +240,6 @@ class|class
 name|SearchRequest
 extends|extends
 name|ActionRequest
-argument_list|<
-name|SearchRequest
-argument_list|>
 implements|implements
 name|IndicesRequest
 operator|.

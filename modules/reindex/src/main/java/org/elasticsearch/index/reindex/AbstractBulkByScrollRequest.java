@@ -250,9 +250,6 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
-argument_list|<
-name|Self
-argument_list|>
 block|{
 DECL|field|SIZE_ALL_MATCHES
 specifier|public
