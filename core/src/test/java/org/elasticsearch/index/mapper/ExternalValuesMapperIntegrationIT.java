@@ -781,7 +781,7 @@ name|termQuery
 argument_list|(
 literal|"field.bool"
 argument_list|,
-literal|"T"
+literal|"true"
 argument_list|)
 argument_list|)
 operator|.
