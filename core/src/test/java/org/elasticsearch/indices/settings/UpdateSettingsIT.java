@@ -3365,11 +3365,9 @@ argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
-name|mockAppender
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
+comment|// don't call stop here some node might still use this reference at this point causing tests to fail.
+comment|// this is only relevant in integ tests, unittest can control what uses a logger and what doesn't
+comment|// mockAppender.stop();
 block|}
 block|}
 DECL|method|testInvalidMergeMaxThreadCount
@@ -4012,11 +4010,9 @@ argument_list|,
 name|mockAppender
 argument_list|)
 expr_stmt|;
-name|mockAppender
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
+comment|// don't call stop here some node might still use this reference at this point causing tests to fail.
+comment|// this is only relevant in integ tests, unittest can control what uses a logger and what doesn't
+comment|// mockAppender.stop();
 block|}
 block|}
 DECL|method|testUpdateSettingsWithBlocks
