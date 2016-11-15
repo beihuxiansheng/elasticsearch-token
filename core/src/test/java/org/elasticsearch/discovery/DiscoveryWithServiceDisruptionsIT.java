@@ -1355,6 +1355,10 @@ argument_list|,
 name|transportClientRatio
 operator|=
 literal|0
+argument_list|,
+name|autoMinMasterNodes
+operator|=
+literal|false
 argument_list|)
 annotation|@
 name|TestLogging

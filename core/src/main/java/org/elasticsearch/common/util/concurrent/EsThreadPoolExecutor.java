@@ -467,6 +467,24 @@ name|t
 argument_list|)
 expr_stmt|;
 assert|assert
+name|assertDefaultContext
+argument_list|(
+name|r
+argument_list|)
+assert|;
+block|}
+DECL|method|assertDefaultContext
+specifier|private
+name|boolean
+name|assertDefaultContext
+parameter_list|(
+name|Runnable
+name|r
+parameter_list|)
+block|{
+try|try
+block|{
+assert|assert
 name|contextHolder
 operator|.
 name|isDefaultContext
@@ -488,6 +506,34 @@ name|r
 operator|+
 literal|"]"
 assert|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+comment|// sometimes we execute on a closed context and isDefaultContext doen't bypass the ensureOpen checks
+comment|// this must not trigger an exception here since we only assert if the default is restored and
+comment|// we don't really care if we are closed
+if|if
+condition|(
+name|contextHolder
+operator|.
+name|isClosed
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Returns a stream of all pending tasks. This is similar to {@link #getQueue()} but will expose the originally submitted      * {@link Runnable} instances rather than potentially wrapped ones.      */
 DECL|method|getTasks
