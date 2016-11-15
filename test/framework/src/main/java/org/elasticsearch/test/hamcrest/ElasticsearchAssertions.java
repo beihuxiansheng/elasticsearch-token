@@ -4859,6 +4859,16 @@ name|ESIntegTestCase
 operator|.
 name|isInternalCluster
 argument_list|()
+operator|&&
+name|ESIntegTestCase
+operator|.
+name|internalCluster
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|registry

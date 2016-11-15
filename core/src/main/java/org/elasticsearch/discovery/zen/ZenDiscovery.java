@@ -402,6 +402,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lease
+operator|.
+name|Releasables
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|ClusterSettings
@@ -1763,6 +1777,14 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+name|Releasables
+operator|.
+name|close
+argument_list|(
+name|zenPing
+argument_list|)
+expr_stmt|;
+comment|// stop any ongoing pinging
 name|DiscoveryNodes
 name|nodes
 init|=
@@ -1971,8 +1993,6 @@ argument_list|(
 name|masterFD
 argument_list|,
 name|nodesFD
-argument_list|,
-name|zenPing
 argument_list|)
 expr_stmt|;
 block|}

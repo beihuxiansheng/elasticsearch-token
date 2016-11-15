@@ -545,15 +545,18 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNode
 argument_list|(
-literal|2
-argument_list|,
 name|settings
 argument_list|)
-operator|.
-name|get
+expr_stmt|;
+name|internalCluster
 argument_list|()
+operator|.
+name|startNode
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
 name|assertTimeout
@@ -606,20 +609,17 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNode
 argument_list|(
-literal|2
-argument_list|,
 name|settings
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
-comment|// We now have 5 nodes
-name|setMinimumMasterNodes
+name|internalCluster
+argument_list|()
+operator|.
+name|startNode
 argument_list|(
-literal|3
+name|settings
 argument_list|)
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
@@ -760,13 +760,6 @@ name|setWaitForNodes
 argument_list|(
 literal|"4"
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// going down to 3 nodes. note that the min_master_node may not be in effect when we shutdown the 4th
-comment|// node, but that's OK as it is set to 3 before.
-name|setMinimumMasterNodes
-argument_list|(
-literal|2
 argument_list|)
 expr_stmt|;
 name|internalCluster
@@ -913,12 +906,6 @@ name|setWaitForNodes
 argument_list|(
 literal|"2"
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// closing the 2nd node
-name|setMinimumMasterNodes
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|internalCluster

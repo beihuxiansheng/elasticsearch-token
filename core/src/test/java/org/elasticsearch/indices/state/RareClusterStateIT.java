@@ -1709,13 +1709,27 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
+name|COMMIT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|"30s"
+argument_list|)
+comment|// explicitly set so it won't default to publish timeout
+operator|.
+name|put
+argument_list|(
+name|DiscoverySettings
+operator|.
 name|PUBLISH_TIMEOUT_SETTING
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"0ms"
+literal|"0s"
 argument_list|)
+comment|// don't wait post commit as we are blocking things by design
 operator|.
 name|build
 argument_list|()
@@ -2482,18 +2496,6 @@ name|Settings
 operator|.
 name|builder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-name|ElectMasterService
-operator|.
-name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|2
-argument_list|)
 operator|.
 name|put
 argument_list|(
