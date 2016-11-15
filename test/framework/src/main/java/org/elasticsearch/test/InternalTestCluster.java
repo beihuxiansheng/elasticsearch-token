@@ -7635,62 +7635,6 @@ range|:
 name|indexService
 control|)
 block|{
-comment|// we assert busy as we can have background global checkpoint activity
-try|try
-block|{
-name|assertBusy
-argument_list|(
-parameter_list|()
-lambda|->
-block|{
-name|assertThat
-argument_list|(
-literal|"index shard counter on shard "
-operator|+
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
-operator|+
-literal|" on node "
-operator|+
-name|nodeAndClient
-operator|.
-name|name
-operator|+
-literal|" not 0"
-argument_list|,
-name|indexShard
-operator|.
-name|getActiveOperationsCount
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"unexpected error while checking for shard counters"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 name|int
 name|activeOperationsCount
 init|=
