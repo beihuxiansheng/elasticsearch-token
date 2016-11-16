@@ -1439,7 +1439,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Adds 'boost' and 'query_name' parsing to all query builder parsers passed in      */
+comment|/**      * Adds {@code boost} and {@code query_name} parsing to the      * {@link AbstractObjectParser} passed in. All query builders except      * {@link MatchAllQueryBuilder} and {@link MatchNoneQueryBuilder} support these fields so they      * should use this method.      */
 DECL|method|declareStandardFields
 specifier|protected
 specifier|static

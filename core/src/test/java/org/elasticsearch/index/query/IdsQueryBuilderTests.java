@@ -362,6 +362,9 @@ name|query
 operator|=
 operator|new
 name|IdsQueryBuilder
+argument_list|()
+operator|.
+name|types
 argument_list|(
 name|types
 argument_list|)
@@ -474,6 +477,9 @@ parameter_list|()
 lambda|->
 operator|new
 name|IdsQueryBuilder
+argument_list|()
+operator|.
+name|types
 argument_list|(
 operator|(
 name|String
@@ -767,6 +773,62 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+comment|// check without type
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"ids\" : {\n"
+operator|+
+literal|"    \"values\" : [ \"1\", \"100\", \"4\" ],\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|parsed
+operator|=
+operator|(
+name|IdsQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|parsed
+operator|.
+name|ids
+argument_list|()
+argument_list|,
+name|contains
+argument_list|(
+literal|"1"
+argument_list|,
+literal|"100"
+argument_list|,
+literal|"4"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|0
+argument_list|,
+name|parsed
+operator|.
+name|types
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFromJsonDeprecatedSyntax
 specifier|public
@@ -781,6 +843,9 @@ name|testQuery
 init|=
 operator|new
 name|IdsQueryBuilder
+argument_list|()
+operator|.
+name|types
 argument_list|(
 literal|"my_type"
 argument_list|)
@@ -876,7 +941,7 @@ name|getColumnNumber
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//array of types can also be called type rather than types
+comment|//array of types can also be called types rather than type
 specifier|final
 name|String
 name|contentString2
@@ -900,7 +965,7 @@ name|IdsQueryBuilder
 operator|)
 name|parseQuery
 argument_list|(
-name|contentString
+name|contentString2
 argument_list|,
 name|ParseFieldMatcher
 operator|.
@@ -932,7 +997,7 @@ argument_list|)
 expr_stmt|;
 name|checkWarningHeaders
 argument_list|(
-literal|"Deprecated field [_type] used, expected [type] instead"
+literal|"Deprecated field [types] used, expected [type] instead"
 argument_list|)
 expr_stmt|;
 name|assertEquals

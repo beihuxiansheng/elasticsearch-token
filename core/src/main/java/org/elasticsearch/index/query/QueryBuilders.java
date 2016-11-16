@@ -164,18 +164,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -201,16 +189,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -404,6 +382,9 @@ block|{
 return|return
 operator|new
 name|IdsQueryBuilder
+argument_list|()
+operator|.
+name|types
 argument_list|(
 name|types
 argument_list|)
