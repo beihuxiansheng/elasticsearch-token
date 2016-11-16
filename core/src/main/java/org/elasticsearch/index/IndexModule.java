@@ -739,6 +739,31 @@ operator|.
 name|IndexScope
 argument_list|)
 decl_stmt|;
+comment|// This setting is an escape hatch in case not caching term queries would slow some users down
+comment|// Do not document.
+DECL|field|INDEX_QUERY_CACHE_TERM_QUERIES_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|INDEX_QUERY_CACHE_TERM_QUERIES_SETTING
+init|=
+name|Setting
+operator|.
+name|boolSetting
+argument_list|(
+literal|"index.queries.cache.term_queries"
+argument_list|,
+literal|false
+argument_list|,
+name|Property
+operator|.
+name|IndexScope
+argument_list|)
+decl_stmt|;
 DECL|field|indexSettings
 specifier|private
 specifier|final

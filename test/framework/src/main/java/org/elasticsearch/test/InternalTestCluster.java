@@ -7251,15 +7251,6 @@ name|void
 name|validateClusterFormed
 parameter_list|()
 block|{
-specifier|final
-name|int
-name|size
-init|=
-name|nodes
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 name|String
 name|name
 init|=
@@ -7271,13 +7262,38 @@ name|getNodeNames
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|validateClusterFormed
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** ensure a cluster is form with {@link #nodes}.size() nodes, but do so by using the client of the specified node */
+DECL|method|validateClusterFormed
+specifier|private
+name|void
+name|validateClusterFormed
+parameter_list|(
+name|String
+name|viaNode
+parameter_list|)
+block|{
+specifier|final
+name|int
+name|size
+init|=
+name|nodes
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 name|logger
 operator|.
 name|trace
 argument_list|(
 literal|"validating cluster formed via [{}], expecting [{}]"
 argument_list|,
-name|name
+name|viaNode
 argument_list|,
 name|size
 argument_list|)
@@ -7288,7 +7304,7 @@ name|client
 init|=
 name|client
 argument_list|(
-name|name
+name|viaNode
 argument_list|)
 decl_stmt|;
 name|ClusterHealthResponse
@@ -9470,8 +9486,14 @@ condition|)
 block|{
 comment|// we have to validate cluster size if updateMinMaster == true, because we need the
 comment|// second node to join in order to increment min_master_nodes back to 2.
+comment|// we also have to do via the node that was just restarted as it may be that the master didn't yet process
+comment|// the fact it left
 name|validateClusterFormed
-argument_list|()
+argument_list|(
+name|nodeAndClient
+operator|.
+name|name
+argument_list|)
 expr_stmt|;
 block|}
 if|if

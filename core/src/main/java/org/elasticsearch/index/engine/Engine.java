@@ -1653,25 +1653,19 @@ block|}
 comment|/**      * Returns the number of milliseconds this engine was under index throttling.      */
 DECL|method|getIndexThrottleTimeInMillis
 specifier|public
+specifier|abstract
 name|long
 name|getIndexThrottleTimeInMillis
 parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
+function_decl|;
 comment|/**      * Returns the<code>true</code> iff this engine is currently under index throttling.      * @see #getIndexThrottleTimeInMillis()      */
 DECL|method|isThrottled
 specifier|public
+specifier|abstract
 name|boolean
 name|isThrottled
 parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
+function_decl|;
 comment|/** A Lock implementation that always allows the lock to be acquired */
 DECL|class|NoOpLock
 specifier|protected

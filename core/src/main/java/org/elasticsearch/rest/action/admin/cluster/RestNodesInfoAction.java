@@ -293,7 +293,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// this endpoint is used for metrics, not for nodeIds, like /_nodes/fs
+comment|// this endpoint is used for metrics, not for node IDs, like /_nodes/fs
 name|controller
 operator|.
 name|registerHandler
