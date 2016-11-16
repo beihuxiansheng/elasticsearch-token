@@ -2505,6 +2505,9 @@ name|getKey
 argument_list|()
 argument_list|,
 name|config
+operator|.
+name|priority
+argument_list|()
 argument_list|,
 name|executor
 argument_list|,
@@ -3353,11 +3356,6 @@ argument_list|(
 literal|"will process {}"
 argument_list|,
 name|task
-operator|.
-name|toString
-argument_list|(
-name|executor
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|toExecute
@@ -3400,11 +3398,6 @@ argument_list|(
 literal|"skipping {}, already processed"
 argument_list|,
 name|task
-operator|.
-name|toString
-argument_list|(
-name|executor
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3867,11 +3860,6 @@ operator|:
 literal|"missing task result for "
 operator|+
 name|updateTask
-operator|.
-name|toString
-argument_list|(
-name|executor
-argument_list|)
 assert|;
 block|}
 block|}
@@ -3924,11 +3912,6 @@ operator|:
 literal|"missing "
 operator|+
 name|updateTask
-operator|.
-name|toString
-argument_list|(
-name|executor
-argument_list|)
 assert|;
 specifier|final
 name|ClusterStateTaskExecutor
@@ -3981,11 +3964,6 @@ argument_list|(
 literal|"cluster state update task {} failed"
 argument_list|,
 name|updateTask
-operator|.
-name|toString
-argument_list|(
-name|executor
-argument_list|)
 argument_list|)
 argument_list|,
 name|ex
@@ -5614,26 +5592,20 @@ specifier|final
 name|T
 name|task
 decl_stmt|;
-DECL|field|config
+DECL|field|listener
 specifier|public
 specifier|final
-name|ClusterStateTaskConfig
-name|config
+name|ClusterStateTaskListener
+name|listener
 decl_stmt|;
 DECL|field|executor
-specifier|public
+specifier|private
 specifier|final
 name|ClusterStateTaskExecutor
 argument_list|<
 name|T
 argument_list|>
 name|executor
-decl_stmt|;
-DECL|field|listener
-specifier|public
-specifier|final
-name|ClusterStateTaskListener
-name|listener
 decl_stmt|;
 DECL|field|processed
 specifier|public
@@ -5654,8 +5626,8 @@ parameter_list|,
 name|T
 name|task
 parameter_list|,
-name|ClusterStateTaskConfig
-name|config
+name|Priority
+name|priority
 parameter_list|,
 name|ClusterStateTaskExecutor
 argument_list|<
@@ -5669,10 +5641,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|config
-operator|.
 name|priority
-argument_list|()
 argument_list|,
 name|source
 argument_list|)
@@ -5682,12 +5651,6 @@ operator|.
 name|task
 operator|=
 name|task
-expr_stmt|;
-name|this
-operator|.
-name|config
-operator|=
-name|config
 expr_stmt|;
 name|this
 operator|.
@@ -5729,17 +5692,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|(
-name|ClusterStateTaskExecutor
-argument_list|<
-name|T
-argument_list|>
-name|executor
-parameter_list|)
+parameter_list|()
 block|{
 name|String
 name|taskDescription
