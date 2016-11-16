@@ -94,9 +94,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|action
 operator|.
-name|ClusterState
+name|search
+operator|.
+name|SearchTask
 import|;
 end_import
 
@@ -106,11 +108,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|cluster
 operator|.
-name|search
-operator|.
-name|SearchTask
+name|ClusterState
 import|;
 end_import
 
@@ -929,18 +929,6 @@ operator|.
 name|completion
 operator|.
 name|CompletionSuggestion
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|tasks
-operator|.
-name|Task
 import|;
 end_import
 
@@ -4808,6 +4796,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|source
+operator|.
+name|timeout
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|context
 operator|.
 name|timeout
@@ -4818,6 +4816,7 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|context
 operator|.
 name|terminateAfter
