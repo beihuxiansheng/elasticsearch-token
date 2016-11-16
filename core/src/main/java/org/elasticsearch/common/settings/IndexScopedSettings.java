@@ -777,6 +777,10 @@ name|IndexModule
 operator|.
 name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
 argument_list|,
+name|IndexModule
+operator|.
+name|INDEX_QUERY_CACHE_TERM_QUERIES_SETTING
+argument_list|,
 name|PrimaryShardAllocator
 operator|.
 name|INDEX_RECOVERY_INITIAL_SHARDS_SETTING
