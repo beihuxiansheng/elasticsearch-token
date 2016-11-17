@@ -170,11 +170,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|indices
 operator|.
-name|store
+name|recovery
 operator|.
-name|IndexStoreConfig
+name|RecoverySettings
 import|;
 end_import
 
@@ -1601,9 +1601,9 @@ block|{
 name|String
 name|key1
 init|=
-name|IndexStoreConfig
+name|RecoverySettings
 operator|.
-name|INDICES_STORE_THROTTLE_MAX_BYTES_PER_SEC_SETTING
+name|INDICES_RECOVERY_MAX_BYTES_PER_SEC_SETTING
 operator|.
 name|getKey
 argument_list|()

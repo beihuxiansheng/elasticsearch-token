@@ -72,20 +72,6 @@ name|IndexStore
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|IndexStoreConfig
-import|;
-end_import
-
 begin_class
 DECL|class|SmbSimpleFsIndexStore
 specifier|public
@@ -100,16 +86,11 @@ name|SmbSimpleFsIndexStore
 parameter_list|(
 name|IndexSettings
 name|indexSettings
-parameter_list|,
-name|IndexStoreConfig
-name|indexStoreConfig
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|indexSettings
-argument_list|,
-name|indexStoreConfig
 argument_list|)
 expr_stmt|;
 block|}

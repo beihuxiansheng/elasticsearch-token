@@ -1024,8 +1024,6 @@ operator|new
 name|StoreStats
 argument_list|(
 literal|100
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|ShardRouting
@@ -1121,8 +1119,6 @@ operator|new
 name|StoreStats
 argument_list|(
 literal|1000
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|ShardStats
@@ -1531,8 +1527,6 @@ operator|new
 name|StoreStats
 argument_list|(
 literal|100
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1640,8 +1634,6 @@ operator|new
 name|StoreStats
 argument_list|(
 literal|1000
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|ShardStats

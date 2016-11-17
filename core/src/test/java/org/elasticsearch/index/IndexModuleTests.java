@@ -570,20 +570,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|IndexStoreConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesModule
@@ -1353,8 +1339,6 @@ name|IndexModule
 argument_list|(
 name|indexSettings
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -1524,8 +1508,6 @@ name|IndexModule
 argument_list|(
 name|indexSettings
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -1677,8 +1659,6 @@ name|IndexModule
 argument_list|(
 name|indexSettings
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -1825,8 +1805,6 @@ name|settings
 argument_list|,
 name|booleanSetting
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 operator|new
 name|AnalysisRegistry
@@ -1976,8 +1954,6 @@ name|index
 argument_list|,
 name|settings
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 operator|new
 name|AnalysisRegistry
@@ -2216,8 +2192,6 @@ name|index
 argument_list|,
 name|settings
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 operator|new
 name|AnalysisRegistry
@@ -2485,8 +2459,6 @@ argument_list|,
 name|indexSettings
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -2683,8 +2655,6 @@ name|index
 argument_list|,
 name|settings
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 operator|new
 name|AnalysisRegistry
@@ -2959,8 +2929,6 @@ argument_list|,
 name|indexSettings
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -3079,8 +3047,6 @@ argument_list|,
 name|indexSettings
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -3191,8 +3157,6 @@ literal|"foo"
 argument_list|,
 name|indexSettings
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 operator|new
 name|AnalysisRegistry
@@ -3347,8 +3311,6 @@ argument_list|,
 name|indexSettings
 argument_list|)
 argument_list|,
-literal|null
-argument_list|,
 operator|new
 name|AnalysisRegistry
 argument_list|(
@@ -3474,8 +3436,6 @@ literal|"foo"
 argument_list|,
 name|indexSettings
 argument_list|)
-argument_list|,
-literal|null
 argument_list|,
 operator|new
 name|AnalysisRegistry
@@ -3758,16 +3718,11 @@ name|FooStore
 parameter_list|(
 name|IndexSettings
 name|indexSettings
-parameter_list|,
-name|IndexStoreConfig
-name|config
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|indexSettings
-argument_list|,
-name|config
 argument_list|)
 expr_stmt|;
 block|}

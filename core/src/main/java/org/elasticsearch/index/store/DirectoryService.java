@@ -108,13 +108,6 @@ name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|throttleTimeInNanos
-specifier|public
-specifier|abstract
-name|long
-name|throttleTimeInNanos
-parameter_list|()
-function_decl|;
 DECL|method|newDirectory
 specifier|public
 specifier|abstract
