@@ -80,20 +80,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Setting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -158,18 +144,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|Netty3Plugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|Netty4Plugin
 import|;
 end_import
@@ -210,16 +184,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -227,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create an instance of {@link TransportClient}  * This class pre-installs the  * {@link Netty3Plugin},  * {@link Netty4Plugin},  * {@link ReindexPlugin},  * {@link PercolatorPlugin},  * and {@link MustachePlugin}  * for the client. These plugins are all elasticsearch core modules required.  */
+comment|/**  * A builder to create an instance of {@link TransportClient}  * This class pre-installs the  * {@link Netty4Plugin},  * {@link ReindexPlugin},  * {@link PercolatorPlugin},  * and {@link MustachePlugin}  * for the client. These plugins are all elasticsearch core modules required.  */
 end_comment
 
 begin_class
@@ -270,10 +234,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|Netty3Plugin
-operator|.
-name|class
-argument_list|,
 name|Netty4Plugin
 operator|.
 name|class
