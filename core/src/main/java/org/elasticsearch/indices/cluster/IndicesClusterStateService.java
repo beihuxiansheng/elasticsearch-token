@@ -82,6 +82,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterChangedEvent
@@ -567,18 +577,6 @@ operator|.
 name|shard
 operator|.
 name|ShardNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
 import|;
 end_import
 
@@ -4550,7 +4548,7 @@ argument_list|<
 name|U
 argument_list|>
 block|{
-comment|/**          * Creates a new {@link IndexService} for the given metadata.          *          * @param indexMetaData          the index metadata to create the index for          * @param builtInIndexListener   a list of built-in lifecycle {@link IndexEventListener} that should should be used along side with          *                               the per-index listeners          * @param globalCheckpointSyncer the global checkpoint syncer          * @throws IndexAlreadyExistsException if the index already exists.          */
+comment|/**          * Creates a new {@link IndexService} for the given metadata.          *          * @param indexMetaData          the index metadata to create the index for          * @param builtInIndexListener   a list of built-in lifecycle {@link IndexEventListener} that should should be used along side with          *                               the per-index listeners          * @param globalCheckpointSyncer the global checkpoint syncer          * @throws ResourceAlreadyExistsException if the index already exists.          */
 DECL|method|createIndex
 name|U
 name|createIndex

@@ -118,9 +118,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 import|;
 end_import
 
@@ -1804,7 +1802,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 name|e
 parameter_list|)
 block|{

@@ -7411,9 +7411,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 operator|.
 name|class
 argument_list|)

@@ -5320,26 +5320,15 @@ argument_list|,
 literal|121
 argument_list|)
 block|,
-DECL|enum constant|INDEX_ALREADY_EXISTS_EXCEPTION
-name|INDEX_ALREADY_EXISTS_EXCEPTION
+comment|// 123 used to be IndexAlreadyExistsException and was renamed
+DECL|enum constant|RESOURCE_ALREADY_EXISTS_EXCEPTION
+name|RESOURCE_ALREADY_EXISTS_EXCEPTION
 argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 operator|.
 name|class
 argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 operator|::
 operator|new
 argument_list|,

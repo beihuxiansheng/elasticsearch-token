@@ -246,9 +246,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 import|;
 end_import
 
@@ -613,7 +611,7 @@ literal|"index [source] already exists"
 argument_list|,
 name|expectThrows
 argument_list|(
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 operator|.
 name|class
 argument_list|,

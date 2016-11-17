@@ -144,6 +144,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -2997,7 +3007,7 @@ return|return
 name|indexService
 return|;
 block|}
-comment|/**      * Creates a new {@link IndexService} for the given metadata.      * @param indexMetaData the index metadata to create the index for      * @param builtInListeners a list of built-in lifecycle {@link IndexEventListener} that should should be used along side with the per-index listeners      * @throws IndexAlreadyExistsException if the index already exists.      */
+comment|/**      * Creates a new {@link IndexService} for the given metadata.      * @param indexMetaData the index metadata to create the index for      * @param builtInListeners a list of built-in lifecycle {@link IndexEventListener} that should should be used along side with the per-index listeners      * @throws ResourceAlreadyExistsException if the index already exists.      */
 annotation|@
 name|Override
 DECL|method|createIndex
@@ -3076,7 +3086,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 argument_list|(
 name|index
 argument_list|)

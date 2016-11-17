@@ -362,9 +362,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 import|;
 end_import
 
@@ -627,7 +625,7 @@ argument_list|(
 name|e
 argument_list|)
 operator|instanceof
-name|IndexAlreadyExistsException
+name|ResourceAlreadyExistsException
 condition|)
 block|{
 comment|// we have the index, do it
