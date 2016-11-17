@@ -420,6 +420,22 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|EsExecutors
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|EsRejectedExecutionException
 import|;
 end_import
@@ -596,7 +612,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|ExecutorService
 import|;
 end_import
 
@@ -808,6 +824,15 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+specifier|final
+name|ExecutorService
+name|directExecutor
+init|=
+name|EsExecutors
+operator|.
+name|newDirectExecutorService
+argument_list|()
+decl_stmt|;
 name|threadPool
 operator|=
 operator|new
@@ -820,7 +845,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|Executor
+name|ExecutorService
 name|executor
 parameter_list|(
 name|String
@@ -828,9 +853,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|Runnable
-operator|::
-name|run
+name|directExecutor
 return|;
 block|}
 annotation|@

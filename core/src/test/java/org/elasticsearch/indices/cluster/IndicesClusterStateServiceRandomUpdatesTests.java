@@ -574,7 +574,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|ExecutorService
 import|;
 end_import
 
@@ -2958,17 +2958,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|final
-name|Executor
-name|executor
-init|=
-name|mock
-argument_list|(
-name|Executor
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|when
 argument_list|(
 name|threadPool
@@ -2979,7 +2968,12 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|executor
+name|mock
+argument_list|(
+name|ExecutorService
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final

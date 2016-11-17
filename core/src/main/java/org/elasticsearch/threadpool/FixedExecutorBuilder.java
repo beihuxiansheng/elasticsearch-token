@@ -138,7 +138,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executor
+name|ExecutorService
 import|;
 end_import
 
@@ -539,7 +539,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Executor
+specifier|final
+name|ExecutorService
 name|executor
 init|=
 name|EsExecutors

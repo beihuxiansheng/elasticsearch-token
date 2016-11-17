@@ -1114,14 +1114,12 @@ decl_stmt|;
 DECL|field|DIRECT_EXECUTOR
 specifier|static
 specifier|final
-name|Executor
+name|ExecutorService
 name|DIRECT_EXECUTOR
 init|=
-name|command
-lambda|->
-name|command
+name|EsExecutors
 operator|.
-name|run
+name|newDirectExecutorService
 argument_list|()
 decl_stmt|;
 DECL|field|threadContext
@@ -2327,10 +2325,10 @@ name|stats
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the generic executor. This executor's {@link Executor#execute(Runnable)} method will run the Runnable it is given in      * the {@link ThreadContext} of the thread that queues it.      */
+comment|/**      * Get the generic executor service. This executor service {@link Executor#execute(Runnable)} method will run the {@link Runnable} it      * is given in the {@link ThreadContext} of the thread that queues it.      */
 DECL|method|generic
 specifier|public
-name|Executor
+name|ExecutorService
 name|generic
 parameter_list|()
 block|{
@@ -2343,18 +2341,19 @@ name|GENERIC
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the executor with the given name. This executor's {@link Executor#execute(Runnable)} method will run the Runnable it is given in      * the {@link ThreadContext} of the thread that queues it.      */
+comment|/**      * Get the executor service with the given name. This executor service's {@link Executor#execute(Runnable)} method will run the      * {@link Runnable} it is given in the {@link ThreadContext} of the thread that queues it.      *      * @param name the name of the executor service to obtain      * @throws IllegalArgumentException if no executor service with the specified name exists      */
 DECL|method|executor
 specifier|public
-name|Executor
+name|ExecutorService
 name|executor
 parameter_list|(
 name|String
 name|name
 parameter_list|)
 block|{
-name|Executor
-name|executor
+specifier|final
+name|ExecutorHolder
+name|holder
 init|=
 name|executors
 operator|.
@@ -2362,13 +2361,10 @@ name|get
 argument_list|(
 name|name
 argument_list|)
-operator|.
-name|executor
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|executor
+name|holder
 operator|==
 literal|null
 condition|)
@@ -2377,7 +2373,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No executor found for ["
+literal|"no executor service found for ["
 operator|+
 name|name
 operator|+
@@ -2386,7 +2382,10 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|holder
+operator|.
 name|executor
+argument_list|()
 return|;
 block|}
 DECL|method|scheduler
@@ -3262,7 +3261,7 @@ block|{
 DECL|field|executor
 specifier|private
 specifier|final
-name|Executor
+name|ExecutorService
 name|executor
 decl_stmt|;
 DECL|field|info
@@ -3274,7 +3273,7 @@ decl_stmt|;
 DECL|method|ExecutorHolder
 name|ExecutorHolder
 parameter_list|(
-name|Executor
+name|ExecutorService
 name|executor
 parameter_list|,
 name|Info
@@ -3304,7 +3303,7 @@ name|info
 expr_stmt|;
 block|}
 DECL|method|executor
-name|Executor
+name|ExecutorService
 name|executor
 parameter_list|()
 block|{
