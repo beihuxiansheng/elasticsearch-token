@@ -544,7 +544,7 @@ block|{
 return|return
 name|Locals
 operator|.
-name|KEYWORDS
+name|MAIN_KEYWORDS
 operator|.
 name|contains
 argument_list|(

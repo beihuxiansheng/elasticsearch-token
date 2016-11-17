@@ -227,8 +227,8 @@ name|DOC
 init|=
 literal|"doc"
 decl_stmt|;
-comment|/** Map of always reserved keywords */
-DECL|field|KEYWORDS
+comment|/** Map of always reserved keywords for the main scope */
+DECL|field|MAIN_KEYWORDS
 specifier|public
 specifier|static
 specifier|final
@@ -236,7 +236,7 @@ name|Set
 argument_list|<
 name|String
 argument_list|>
-name|KEYWORDS
+name|MAIN_KEYWORDS
 init|=
 name|Collections
 operator|.
@@ -269,6 +269,66 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/** Map of always reserved keywords for a function scope */
+DECL|field|FUNCTION_KEYWORDS
+specifier|public
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|FUNCTION_KEYWORDS
+init|=
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|THIS
+argument_list|,
+name|LOOP
+argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|/** Map of always reserved keywords for a lambda scope */
+DECL|field|LAMBDA_KEYWORDS
+specifier|public
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|LAMBDA_KEYWORDS
+init|=
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|THIS
+argument_list|,
+name|LOOP
+argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
 comment|/** Creates a new local variable scope (e.g. loop) inside the current scope */
 DECL|method|newLocalScope
 specifier|public
@@ -288,7 +348,7 @@ name|currentScope
 argument_list|)
 return|;
 block|}
-comment|/**       * Creates a new lambda scope inside the current scope      *<p>      * This is just like {@link #newFunctionScope}, except the captured parameters are made read-only.      */
+comment|/**      * Creates a new lambda scope inside the current scope      *<p>      * This is just like {@link #newFunctionScope}, except the captured parameters are made read-only.      */
 DECL|method|newLambdaScope
 specifier|public
 specifier|static
@@ -323,6 +383,8 @@ argument_list|(
 name|programScope
 argument_list|,
 name|returnType
+argument_list|,
+name|LAMBDA_KEYWORDS
 argument_list|)
 decl_stmt|;
 for|for
@@ -442,6 +504,8 @@ argument_list|(
 name|programScope
 argument_list|,
 name|returnType
+argument_list|,
+name|FUNCTION_KEYWORDS
 argument_list|)
 decl_stmt|;
 for|for
@@ -531,6 +595,8 @@ argument_list|,
 name|Definition
 operator|.
 name|OBJECT_TYPE
+argument_list|,
+name|MAIN_KEYWORDS
 argument_list|)
 decl_stmt|;
 comment|// This reference.  Internal use only.
@@ -718,6 +784,8 @@ init|=
 operator|new
 name|Locals
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -958,7 +1026,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|KEYWORDS
+name|keywords
 operator|.
 name|contains
 argument_list|(
@@ -1056,6 +1124,16 @@ specifier|final
 name|Type
 name|returnType
 decl_stmt|;
+comment|// keywords for this scope
+DECL|field|keywords
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|keywords
+decl_stmt|;
 comment|// next slot number to assign
 DECL|field|nextSlotNumber
 specifier|private
@@ -1099,8 +1177,11 @@ name|parent
 argument_list|,
 name|parent
 operator|.
-name|getReturnType
-argument_list|()
+name|returnType
+argument_list|,
+name|parent
+operator|.
+name|keywords
 argument_list|)
 expr_stmt|;
 block|}
@@ -1114,6 +1195,12 @@ name|parent
 parameter_list|,
 name|Type
 name|returnType
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|keywords
 parameter_list|)
 block|{
 name|this
@@ -1127,6 +1214,12 @@ operator|.
 name|returnType
 operator|=
 name|returnType
+expr_stmt|;
+name|this
+operator|.
+name|keywords
+operator|=
+name|keywords
 expr_stmt|;
 if|if
 condition|(
