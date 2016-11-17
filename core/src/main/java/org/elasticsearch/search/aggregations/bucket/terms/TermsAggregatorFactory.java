@@ -903,6 +903,8 @@ comment|// instances of this aggregator is going
 comment|// to be unbounded and most instances may only aggregate few
 comment|// documents, so use hashed based
 comment|// global ordinals to keep the bucket ords dense.
+comment|// Additionally, if using partitioned terms the regular global
+comment|// ordinals would be sparse so we opt for hash
 if|if
 condition|(
 name|Aggregator
@@ -911,6 +913,17 @@ name|descendsFromBucketAggregator
 argument_list|(
 name|parent
 argument_list|)
+operator|||
+operator|(
+name|includeExclude
+operator|!=
+literal|null
+operator|&&
+name|includeExclude
+operator|.
+name|isPartitionBased
+argument_list|()
+operator|)
 condition|)
 block|{
 name|execution
