@@ -5512,9 +5512,12 @@ argument_list|)
 argument_list|,
 name|transportOptions
 argument_list|,
+comment|// Eclipse can't handle when this is<> so we specify the type here.
 operator|new
 name|ActionListenerResponseHandler
-argument_list|<>
+argument_list|<
+name|ReplicaResponse
+argument_list|>
 argument_list|(
 name|listener
 argument_list|,
