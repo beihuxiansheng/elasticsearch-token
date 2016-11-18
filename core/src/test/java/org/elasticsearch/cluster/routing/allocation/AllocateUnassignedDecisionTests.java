@@ -46,24 +46,6 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
 name|decider
 operator|.
 name|Decision
@@ -145,14 +127,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit tests for the {@link ShardAllocationDecision} class.  */
+comment|/**  * Unit tests for the {@link AllocateUnassignedDecision} class.  */
 end_comment
 
 begin_class
-DECL|class|ShardAllocationDecisionTests
+DECL|class|AllocateUnassignedDecisionTests
 specifier|public
 class|class
-name|ShardAllocationDecisionTests
+name|AllocateUnassignedDecisionTests
 extends|extends
 name|ESTestCase
 block|{
@@ -162,16 +144,16 @@ name|void
 name|testDecisionNotTaken
 parameter_list|()
 block|{
-name|ShardAllocationDecision
-name|shardAllocationDecision
+name|AllocateUnassignedDecision
+name|allocateUnassignedDecision
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 decl_stmt|;
 name|assertFalse
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|isDecisionTaken
 argument_list|()
@@ -179,7 +161,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getFinalDecisionType
 argument_list|()
@@ -187,7 +169,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getAllocationStatus
 argument_list|()
@@ -195,7 +177,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getAllocationId
 argument_list|()
@@ -203,7 +185,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getAssignedNodeId
 argument_list|()
@@ -211,7 +193,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getFinalExplanation
 argument_list|()
@@ -219,7 +201,7 @@ argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getNodeDecisions
 argument_list|()
@@ -233,7 +215,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|shardAllocationDecision
+name|allocateUnassignedDecision
 operator|.
 name|getFinalDecisionSafe
 argument_list|()
@@ -265,10 +247,10 @@ operator|.
 name|FETCHING_SHARD_DATA
 argument_list|)
 decl_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|noDecision
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -347,9 +329,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|>
 name|nodeDecisions
 init|=
@@ -365,9 +345,7 @@ argument_list|(
 literal|"node1"
 argument_list|,
 operator|new
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|(
 name|Decision
 operator|.
@@ -382,9 +360,7 @@ argument_list|(
 literal|"node2"
 argument_list|,
 operator|new
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|(
 name|Decision
 operator|.
@@ -394,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|noDecision
 operator|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -516,7 +492,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -540,7 +516,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|>
 name|nodeDecisions
 init|=
@@ -556,9 +532,7 @@ argument_list|(
 literal|"node1"
 argument_list|,
 operator|new
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|(
 name|Decision
 operator|.
@@ -573,9 +547,7 @@ argument_list|(
 literal|"node2"
 argument_list|,
 operator|new
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|(
 name|Decision
 operator|.
@@ -583,10 +555,10 @@ name|THROTTLE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|throttleDecision
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -706,9 +678,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|>
 name|nodeDecisions
 init|=
@@ -724,9 +694,7 @@ argument_list|(
 literal|"node1"
 argument_list|,
 operator|new
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|(
 name|Decision
 operator|.
@@ -741,9 +709,7 @@ argument_list|(
 literal|"node2"
 argument_list|,
 operator|new
-name|ShardAllocationDecision
-operator|.
-name|WeightedDecision
+name|NodeAllocationResult
 argument_list|(
 name|Decision
 operator|.
@@ -761,10 +727,10 @@ literal|"allocId"
 else|:
 literal|null
 decl_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|yesDecision
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|yes
 argument_list|(
@@ -932,10 +898,10 @@ operator|.
 name|DECIDERS_THROTTLED
 condition|)
 block|{
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|cached
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -944,10 +910,10 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|another
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -963,10 +929,10 @@ argument_list|,
 name|another
 argument_list|)
 expr_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|notCached
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -977,7 +943,7 @@ argument_list|)
 decl_stmt|;
 name|another
 operator|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -996,10 +962,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|cached
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1008,10 +974,10 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|another
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1027,10 +993,10 @@ argument_list|,
 name|another
 argument_list|)
 expr_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|notCached
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1041,7 +1007,7 @@ argument_list|)
 decl_stmt|;
 name|another
 operator|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1073,10 +1039,10 @@ operator|.
 name|emptyMap
 argument_list|()
 decl_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|first
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|yes
 argument_list|(
@@ -1089,10 +1055,10 @@ argument_list|,
 name|dummyMap
 argument_list|)
 decl_stmt|;
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|second
 init|=
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|yes
 argument_list|(
@@ -1105,7 +1071,7 @@ argument_list|,
 name|dummyMap
 argument_list|)
 decl_stmt|;
-comment|// same fields for the ShardAllocationDecision, but should be different instances
+comment|// same fields for the AllocateUnassignedDecision, but should be different instances
 name|assertNotSame
 argument_list|(
 name|first

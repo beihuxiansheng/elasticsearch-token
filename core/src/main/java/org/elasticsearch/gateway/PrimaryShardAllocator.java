@@ -196,7 +196,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|RoutingAllocation
+name|AllocateUnassignedDecision
 import|;
 end_import
 
@@ -212,7 +212,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardAllocationDecision
+name|RoutingAllocation
 import|;
 end_import
 
@@ -690,7 +690,7 @@ annotation|@
 name|Override
 DECL|method|makeAllocationDecision
 specifier|public
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|makeAllocationDecision
 parameter_list|(
 specifier|final
@@ -718,9 +718,9 @@ condition|)
 block|{
 comment|// this allocator is not responsible for allocating this shard
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 return|;
 block|}
 specifier|final
@@ -762,7 +762,7 @@ name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1080,9 +1080,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 return|;
 block|}
 elseif|else
@@ -1110,9 +1110,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 return|;
 block|}
 else|else
@@ -1142,7 +1142,7 @@ name|allocationsFound
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1241,7 +1241,7 @@ name|getId
 argument_list|()
 decl_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|yes
 argument_list|(
@@ -1377,7 +1377,7 @@ name|getId
 argument_list|()
 decl_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|yes
 argument_list|(
@@ -1440,7 +1440,7 @@ name|throttleNodeShards
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -1481,7 +1481,7 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1533,7 +1533,7 @@ name|throttleNodeShards
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(

@@ -192,7 +192,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|RoutingAllocation
+name|AllocateUnassignedDecision
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|ShardAllocationDecision
+name|RoutingAllocation
 import|;
 end_import
 
@@ -894,7 +894,7 @@ annotation|@
 name|Override
 DECL|method|makeAllocationDecision
 specifier|public
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 name|makeAllocationDecision
 parameter_list|(
 specifier|final
@@ -922,9 +922,9 @@ condition|)
 block|{
 comment|// this allocator is not responsible for deciding on this shard
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 return|;
 block|}
 specifier|final
@@ -995,7 +995,7 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1077,7 +1077,7 @@ name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1148,9 +1148,9 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 return|;
 block|}
 name|MatchingNodes
@@ -1269,7 +1269,7 @@ argument_list|)
 expr_stmt|;
 comment|// we are throttling this, as we have enough other shards to allocate to this node, so ignore it for now
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|throttle
 argument_list|(
@@ -1313,7 +1313,7 @@ argument_list|)
 expr_stmt|;
 comment|// we found a match
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|yes
 argument_list|(
@@ -1377,7 +1377,7 @@ name|unassignedShard
 argument_list|)
 expr_stmt|;
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
 name|no
 argument_list|(
@@ -1394,9 +1394,9 @@ argument_list|)
 return|;
 block|}
 return|return
-name|ShardAllocationDecision
+name|AllocateUnassignedDecision
 operator|.
-name|DECISION_NOT_TAKEN
+name|NOT_TAKEN
 return|;
 block|}
 comment|/**      * Determines if the shard can be allocated on at least one node based on the allocation deciders.      *      * Returns the best allocation decision for allocating the shard on any node (i.e. YES if at least one      * node decided YES, THROTTLE if at least one node decided THROTTLE, and NO if none of the nodes decided      * YES or THROTTLE). If the explain flag is turned on AND the decision is NO or THROTTLE, then this method      * also returns a map of nodes to decisions (second value in the tuple) to use for explanations; if the explain      * flag is off, the second value in the return tuple will be null.      */
