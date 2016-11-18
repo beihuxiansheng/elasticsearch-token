@@ -18,6 +18,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -390,6 +410,8 @@ specifier|public
 specifier|abstract
 class|class
 name|Plugin
+implements|implements
+name|Closeable
 block|{
 comment|/**      * Node level guice modules.      */
 DECL|method|createGuiceModules
@@ -593,6 +615,17 @@ name|emptyList
 argument_list|()
 return|;
 block|}
+comment|/**      * Close the resources opened by this plugin.      *      * @throws IOException if the plugin failed to close its resources      */
+annotation|@
+name|Override
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{      }
 comment|/**      * Old-style guice index level extension point. {@code @Deprecated} and {@code final} to act as a signpost for plugin authors upgrading      * from 2.x.      *      * @deprecated use #onIndexModule instead      */
 annotation|@
 name|Deprecated

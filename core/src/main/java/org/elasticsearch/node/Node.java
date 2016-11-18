@@ -6356,7 +6356,7 @@ name|pluginsService
 operator|.
 name|filterPlugins
 argument_list|(
-name|Closeable
+name|Plugin
 operator|.
 name|class
 argument_list|)
