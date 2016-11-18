@@ -1331,6 +1331,42 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testQuestionSpaceDotIsNotNullSafeDereference
+specifier|public
+name|void
+name|testQuestionSpaceDotIsNotNullSafeDereference
+parameter_list|()
+block|{
+name|Exception
+name|e
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|exec
+argument_list|(
+literal|"return params.a? .b"
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"invalid sequence of tokens near ['.']."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

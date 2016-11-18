@@ -401,6 +401,17 @@ name|BinaryContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code elvis}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitElvis
+name|T
+name|visitElvis
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ElvisContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code instanceof}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitInstanceof
 name|T

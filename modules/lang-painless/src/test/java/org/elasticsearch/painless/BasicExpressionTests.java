@@ -844,24 +844,15 @@ name|testNullSafeDeref
 parameter_list|()
 block|{
 comment|// Objects in general
+comment|//   Call
 name|assertNull
 argument_list|(
 name|exec
 argument_list|(
-literal|"String a = null; return a?.toString()"
+literal|"String a = null;  return a?.toString()"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Call
-name|assertNull
-argument_list|(
-name|exec
-argument_list|(
-literal|"String a = null; return a?.length()"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Call and box
 name|assertEquals
 argument_list|(
 literal|"foo"
@@ -872,24 +863,84 @@ literal|"String a = 'foo'; return a?.toString()"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Call
-name|assertEquals
+name|assertNull
 argument_list|(
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
-literal|3
-argument_list|)
-argument_list|,
 name|exec
 argument_list|(
-literal|"String a = 'foo'; return a?.length()"
+literal|"def    a = null;  return a?.toString()"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Call and box
+name|assertEquals
+argument_list|(
+literal|"foo"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def    a = 'foo'; return a?.toString()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//   Call with primitive result
+name|assertMustBeNullable
+argument_list|(
+literal|"String a = null; return a?.length()"
+argument_list|)
+expr_stmt|;
+name|assertMustBeNullable
+argument_list|(
+literal|"String a = 'foo'; return a?.length()"
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|exec
+argument_list|(
+literal|"def    a = null;  return a?.length()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|exec
+argument_list|(
+literal|"def    a = 'foo'; return a?.length()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//   Read shortcut
+name|assertMustBeNullable
+argument_list|(
+literal|"org.elasticsearch.painless.FeatureTest a = null; return a?.x"
+argument_list|)
+expr_stmt|;
+name|assertMustBeNullable
+argument_list|(
+literal|"org.elasticsearch.painless.FeatureTest a = new org.elasticsearch.painless.FeatureTest(); return a?.x"
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|exec
+argument_list|(
+literal|"def    a = null;  return a?.x"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|exec
+argument_list|(
+literal|"def    a = new org.elasticsearch.painless.FeatureTest(); return a?.x"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Maps
+comment|//   Call
 name|assertNull
 argument_list|(
 name|exec
@@ -898,16 +949,64 @@ literal|"Map a = null;        return a?.toString()"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Call
+name|assertEquals
+argument_list|(
+literal|"{}"
+argument_list|,
+name|exec
+argument_list|(
+literal|"Map a = [:];         return a?.toString()"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertNull
 argument_list|(
 name|exec
 argument_list|(
-literal|"Map a = null;        return a?.size()"
+literal|"def a = null;        return a?.toString()"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Call and box
+name|assertEquals
+argument_list|(
+literal|"{}"
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = [:];         return a?.toString()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//   Call with primitive result
+name|assertMustBeNullable
+argument_list|(
+literal|"Map a = [:];  return a?.size()"
+argument_list|)
+expr_stmt|;
+name|assertMustBeNullable
+argument_list|(
+literal|"Map a = null; return a?.size()"
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|exec
+argument_list|(
+literal|"def a = null;        return a?.size()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = [:];         return a?.size()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//   Read shortcut
 name|assertNull
 argument_list|(
 name|exec
@@ -919,28 +1018,6 @@ expr_stmt|;
 comment|// Read shortcut
 name|assertEquals
 argument_list|(
-literal|"{}"
-argument_list|,
-name|exec
-argument_list|(
-literal|"Map a = [:];         return a?.toString()"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Call
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|exec
-argument_list|(
-literal|"Map a = [:];         return a?.size()"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Call and box
-name|assertEquals
-argument_list|(
 literal|1
 argument_list|,
 name|exec
@@ -950,69 +1027,56 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Read shortcut
-comment|// Array
-comment|// Since you can't invoke methods on arrays we skip the toString and hashCode tests
 name|assertNull
 argument_list|(
 name|exec
 argument_list|(
-literal|"int[] a = null;             return a?.length"
+literal|"def a = null;        return a?.other"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Length (boxed)
+comment|// Read shortcut
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def a = ['other':1]; return a?.other"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Read shortcut
+comment|// Array
+comment|// Since you can't invoke methods on arrays we skip the toString and hashCode tests
+name|assertMustBeNullable
+argument_list|(
+literal|"int[] a = null;             return a?.length"
+argument_list|)
+expr_stmt|;
+name|assertMustBeNullable
+argument_list|(
+literal|"int[] a = new int[] {2, 3}; return a?.length"
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|exec
+argument_list|(
+literal|"def a = null;               return a?.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"int[] a = new int[] {2, 3}; return a?.length"
+literal|"def a = new int[] {2, 3};   return a?.length"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Length (boxed)
-comment|// Def
-name|assertNull
-argument_list|(
-name|exec
-argument_list|(
-literal|"def a = null;                                         return a?.getX()"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Invoke
-name|assertNull
-argument_list|(
-name|exec
-argument_list|(
-literal|"def a = null;                                         return a?.x"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Read shortcut
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|exec
-argument_list|(
-literal|"def a = new org.elasticsearch.painless.FeatureTest(); return a?.getX()"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Invoke
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|exec
-argument_list|(
-literal|"def a = new org.elasticsearch.painless.FeatureTest(); return a?.x"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Read shortcut
 comment|// Results from maps (should just work but let's test anyway)
 name|FeatureTest
 name|t
@@ -1310,7 +1374,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Check that we don't try to cast when the LHS doesn't provide an "expected" value
+comment|// Assignments
 name|assertNull
 argument_list|(
 name|exec
@@ -1352,6 +1416,43 @@ comment|//        assertEquals(null, exec("Map a = ['thing': 'bar']; a.other?.ca
 comment|//        assertEquals(null, exec("def a = ['thing': 'bar']; a.other?.cat = 'no'; return a.other?.cat"));
 comment|//        assertEquals(null, exec("Map a = ['thing': 'bar']; a.other?.cat?.dog = 'wombat'; return a.other?.cat?.dog"));
 comment|//        assertEquals(null, exec("def a = ['thing': 'bar']; a.other?.cat?.dog = 'wombat'; return a.other?.cat?.dog"));
+block|}
+DECL|method|assertMustBeNullable
+specifier|private
+name|void
+name|assertMustBeNullable
+parameter_list|(
+name|String
+name|script
+parameter_list|)
+block|{
+name|Exception
+name|e
+init|=
+name|expectScriptThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|exec
+argument_list|(
+name|script
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Result of null safe operator must be nullable"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
