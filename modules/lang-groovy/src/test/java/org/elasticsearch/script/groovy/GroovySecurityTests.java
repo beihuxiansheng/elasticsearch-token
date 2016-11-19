@@ -562,6 +562,26 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testGroovyBugError
+specifier|public
+name|void
+name|testGroovyBugError
+parameter_list|()
+block|{
+comment|// this script throws a GroovyBugError because our security manager permissions prevent Groovy from accessing this private field
+comment|// and Groovy does not handle it gracefully; this test will likely start failing if the bug is fixed upstream so that a
+comment|// GroovyBugError no longer surfaces here in which case the script should be replaced with another script that intentionally
+comment|// surfaces a GroovyBugError
+name|assertFailure
+argument_list|(
+literal|"[1, 2].size"
+argument_list|,
+name|AssertionError
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** runs a script */
 DECL|method|doTest
 specifier|private

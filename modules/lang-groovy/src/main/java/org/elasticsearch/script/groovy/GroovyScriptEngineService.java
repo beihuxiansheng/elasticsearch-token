@@ -138,6 +138,18 @@ name|codehaus
 operator|.
 name|groovy
 operator|.
+name|GroovyBugError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|groovy
+operator|.
 name|ast
 operator|.
 name|ClassCodeExpressionTransformer
@@ -611,6 +623,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -1951,10 +1973,57 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|AssertionError
 name|ae
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ae
+operator|instanceof
+name|GroovyBugError
+condition|)
+block|{
+comment|// we encountered a bug in Groovy; we wrap this so it does not go to the uncaught exception handler and tear us down
+specifier|final
+name|String
+name|message
+init|=
+literal|"encountered bug in Groovy while executing script ["
+operator|+
+name|compiledScript
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"]"
+decl_stmt|;
+throw|throw
+operator|new
+name|ScriptException
+argument_list|(
+name|message
+argument_list|,
+name|ae
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|,
+name|compiledScript
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|compiledScript
+operator|.
+name|lang
+argument_list|()
+argument_list|)
+throw|;
+block|}
 comment|// Groovy asserts are not java asserts, and cannot be disabled, so we do a best-effort trying to determine if this is a
 comment|// Groovy assert (in which case we wrap it and throw), or a real Java assert, in which case we rethrow it as-is, likely
 comment|// resulting in the uncaughtExceptionHandler handling it.
@@ -1992,7 +2061,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
 call|(
 name|Supplier
@@ -2017,7 +2086,7 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
-literal|"Error evaluating "
+literal|"error evaluating "
 operator|+
 name|compiledScript
 operator|.
@@ -2077,7 +2146,7 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
-literal|"Error evaluating "
+literal|"error evaluating "
 operator|+
 name|compiledScript
 operator|.
