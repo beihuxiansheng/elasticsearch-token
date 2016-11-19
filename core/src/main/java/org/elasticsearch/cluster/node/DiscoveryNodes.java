@@ -1810,7 +1810,7 @@ argument_list|>
 name|added
 decl_stmt|;
 DECL|method|Delta
-specifier|public
+specifier|private
 name|Delta
 parameter_list|(
 annotation|@
