@@ -344,12 +344,6 @@ specifier|final
 name|String
 name|localNodeId
 decl_stmt|;
-DECL|field|minNodeVersion
-specifier|private
-specifier|final
-name|Version
-name|minNodeVersion
-decl_stmt|;
 DECL|field|minNonClientNodeVersion
 specifier|private
 specifier|final
@@ -399,9 +393,6 @@ name|String
 name|localNodeId
 parameter_list|,
 name|Version
-name|minNodeVersion
-parameter_list|,
-name|Version
 name|minNonClientNodeVersion
 parameter_list|)
 block|{
@@ -440,12 +431,6 @@ operator|.
 name|localNodeId
 operator|=
 name|localNodeId
-expr_stmt|;
-name|this
-operator|.
-name|minNodeVersion
-operator|=
-name|minNodeVersion
 expr_stmt|;
 name|this
 operator|.
@@ -850,17 +835,6 @@ argument_list|(
 literal|"_all"
 argument_list|)
 operator|)
-return|;
-block|}
-comment|/**      * Returns the version of the node with the oldest version in the cluster      *      * @return the oldest version in the cluster      */
-DECL|method|getSmallestVersion
-specifier|public
-name|Version
-name|getSmallestVersion
-parameter_list|()
-block|{
-return|return
-name|minNodeVersion
 return|;
 block|}
 comment|/**      * Returns the version of the node with the oldest version in the cluster that is not a client node      *      * @return the oldest version in the cluster      */
@@ -3301,8 +3275,6 @@ argument_list|,
 name|masterNodeId
 argument_list|,
 name|localNodeId
-argument_list|,
-name|minNodeVersion
 argument_list|,
 name|minNonClientNodeVersion
 argument_list|)
