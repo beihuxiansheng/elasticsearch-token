@@ -9367,7 +9367,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      */
 DECL|method|assertDocumentCount
 specifier|private
 name|void

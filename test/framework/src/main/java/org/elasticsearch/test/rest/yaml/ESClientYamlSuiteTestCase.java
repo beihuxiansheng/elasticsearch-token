@@ -481,7 +481,7 @@ name|REST_TESTS_SUITE
 init|=
 literal|"tests.rest.suite"
 decl_stmt|;
-comment|/**      * Property that allows to blacklist some of the REST tests based on a comma separated list of globs      * e.g. -Dtests.rest.blacklist=get/10_basic/*      */
+comment|/**      * Property that allows to blacklist some of the REST tests based on a comma separated list of globs      * e.g. "-Dtests.rest.blacklist=get/10_basic/*"      */
 DECL|field|REST_TESTS_BLACKLIST
 specifier|public
 specifier|static
