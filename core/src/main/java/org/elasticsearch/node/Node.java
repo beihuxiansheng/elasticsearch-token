@@ -4100,6 +4100,11 @@ name|SearchTransportService
 argument_list|(
 name|settings
 argument_list|,
+name|settingsModule
+operator|.
+name|getClusterSettings
+argument_list|()
+argument_list|,
 name|transportService
 argument_list|)
 argument_list|)
