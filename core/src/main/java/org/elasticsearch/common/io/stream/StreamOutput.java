@@ -4630,6 +4630,8 @@ name|throwable
 operator|.
 name|getClass
 argument_list|()
+argument_list|,
+name|version
 argument_list|)
 condition|)
 block|{

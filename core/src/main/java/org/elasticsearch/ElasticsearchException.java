@@ -310,6 +310,34 @@ name|ToXContent
 implements|,
 name|Writeable
 block|{
+DECL|field|V_5_1_0_UNRELEASED
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|V_5_1_0_UNRELEASED
+init|=
+name|Version
+operator|.
+name|fromId
+argument_list|(
+literal|5010099
+argument_list|)
+decl_stmt|;
+DECL|field|UNKNOWN_VERSION_ADDED
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|UNKNOWN_VERSION_ADDED
+init|=
+name|Version
+operator|.
+name|fromId
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 DECL|field|REST_EXCEPTION_SKIP_CAUSE
 specifier|public
 specifier|static
@@ -980,15 +1008,41 @@ extends|extends
 name|Throwable
 argument_list|>
 name|exception
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
-return|return
+name|ElasticsearchExceptionHandle
+name|elasticsearchExceptionHandle
+init|=
 name|CLASS_TO_ELASTICSEARCH_EXCEPTION_HANDLE
 operator|.
-name|containsKey
+name|get
 argument_list|(
 name|exception
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|elasticsearchExceptionHandle
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|version
+operator|.
+name|onOrAfter
+argument_list|(
+name|elasticsearchExceptionHandle
+operator|.
+name|versionAdded
+argument_list|)
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|method|getRegisteredKeys
@@ -2257,6 +2311,8 @@ operator|::
 operator|new
 argument_list|,
 literal|0
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|DFS_PHASE_EXECUTION_EXCEPTION
@@ -2287,6 +2343,8 @@ operator|::
 operator|new
 argument_list|,
 literal|1
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|EXECUTION_CANCELLED_EXCEPTION
@@ -2321,6 +2379,8 @@ operator|::
 operator|new
 argument_list|,
 literal|2
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|MASTER_NOT_DISCOVERED_EXCEPTION
@@ -2347,6 +2407,8 @@ operator|::
 operator|new
 argument_list|,
 literal|3
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ELASTICSEARCH_SECURITY_EXCEPTION
@@ -2369,6 +2431,8 @@ operator|::
 operator|new
 argument_list|,
 literal|4
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_RESTORE_EXCEPTION
@@ -2399,6 +2463,8 @@ operator|::
 operator|new
 argument_list|,
 literal|5
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_CLOSED_EXCEPTION
@@ -2425,6 +2491,8 @@ operator|::
 operator|new
 argument_list|,
 literal|6
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|BIND_HTTP_EXCEPTION
@@ -2451,6 +2519,8 @@ operator|::
 operator|new
 argument_list|,
 literal|7
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|REDUCE_SEARCH_PHASE_EXCEPTION
@@ -2481,6 +2551,8 @@ operator|::
 operator|new
 argument_list|,
 literal|8
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NODE_CLOSED_EXCEPTION
@@ -2507,6 +2579,8 @@ operator|::
 operator|new
 argument_list|,
 literal|9
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SNAPSHOT_FAILED_ENGINE_EXCEPTION
@@ -2537,6 +2611,8 @@ operator|::
 operator|new
 argument_list|,
 literal|10
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SHARD_NOT_FOUND_EXCEPTION
@@ -2567,6 +2643,8 @@ operator|::
 operator|new
 argument_list|,
 literal|11
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|CONNECT_TRANSPORT_EXCEPTION
@@ -2593,6 +2671,8 @@ operator|::
 operator|new
 argument_list|,
 literal|12
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NOT_SERIALIZABLE_TRANSPORT_EXCEPTION
@@ -2619,6 +2699,8 @@ operator|::
 operator|new
 argument_list|,
 literal|13
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RESPONSE_HANDLER_FAILURE_TRANSPORT_EXCEPTION
@@ -2645,6 +2727,8 @@ operator|::
 operator|new
 argument_list|,
 literal|14
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_CREATION_EXCEPTION
@@ -2671,6 +2755,8 @@ operator|::
 operator|new
 argument_list|,
 literal|15
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_NOT_FOUND_EXCEPTION
@@ -2697,6 +2783,8 @@ operator|::
 operator|new
 argument_list|,
 literal|16
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ILLEGAL_SHARD_ROUTING_STATE_EXCEPTION
@@ -2727,6 +2815,8 @@ operator|::
 operator|new
 argument_list|,
 literal|17
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|BROADCAST_SHARD_OPERATION_FAILED_EXCEPTION
@@ -2761,6 +2851,8 @@ operator|::
 operator|new
 argument_list|,
 literal|18
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RESOURCE_NOT_FOUND_EXCEPTION
@@ -2783,6 +2875,8 @@ operator|::
 operator|new
 argument_list|,
 literal|19
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ACTION_TRANSPORT_EXCEPTION
@@ -2809,6 +2903,8 @@ operator|::
 operator|new
 argument_list|,
 literal|20
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ELASTICSEARCH_GENERATION_EXCEPTION
@@ -2831,6 +2927,8 @@ operator|::
 operator|new
 argument_list|,
 literal|21
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|//      22 was CreateFailedEngineException
@@ -2862,6 +2960,8 @@ operator|::
 operator|new
 argument_list|,
 literal|23
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEARCH_CONTEXT_MISSING_EXCEPTION
@@ -2888,6 +2988,8 @@ operator|::
 operator|new
 argument_list|,
 literal|24
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|GENERAL_SCRIPT_EXCEPTION
@@ -2914,6 +3016,8 @@ operator|::
 operator|new
 argument_list|,
 literal|25
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|BATCH_OPERATION_EXCEPTION
@@ -2948,6 +3052,8 @@ operator|::
 operator|new
 argument_list|,
 literal|26
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SNAPSHOT_CREATION_EXCEPTION
@@ -2974,6 +3080,8 @@ operator|::
 operator|new
 argument_list|,
 literal|27
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|DELETE_FAILED_ENGINE_EXCEPTION
@@ -2991,6 +3099,7 @@ name|DeleteFailedEngineException
 operator|.
 name|class
 argument_list|,
+comment|// deprecated in 6.0, remove in 7.0
 name|org
 operator|.
 name|elasticsearch
@@ -3004,9 +3113,10 @@ operator|::
 operator|new
 argument_list|,
 literal|28
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
-comment|// deprecated in 6.0, remove in 7.0
 DECL|enum constant|DOCUMENT_MISSING_EXCEPTION
 name|DOCUMENT_MISSING_EXCEPTION
 argument_list|(
@@ -3035,6 +3145,8 @@ operator|::
 operator|new
 argument_list|,
 literal|29
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SNAPSHOT_EXCEPTION
@@ -3061,6 +3173,8 @@ operator|::
 operator|new
 argument_list|,
 literal|30
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INVALID_ALIAS_NAME_EXCEPTION
@@ -3087,6 +3201,8 @@ operator|::
 operator|new
 argument_list|,
 literal|31
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INVALID_INDEX_NAME_EXCEPTION
@@ -3113,6 +3229,8 @@ operator|::
 operator|new
 argument_list|,
 literal|32
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_PRIMARY_SHARD_NOT_ALLOCATED_EXCEPTION
@@ -3139,6 +3257,8 @@ operator|::
 operator|new
 argument_list|,
 literal|33
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TRANSPORT_EXCEPTION
@@ -3165,6 +3285,8 @@ operator|::
 operator|new
 argument_list|,
 literal|34
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ELASTICSEARCH_PARSE_EXCEPTION
@@ -3187,6 +3309,8 @@ operator|::
 operator|new
 argument_list|,
 literal|35
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEARCH_EXCEPTION
@@ -3213,6 +3337,8 @@ operator|::
 operator|new
 argument_list|,
 literal|36
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|MAPPER_EXCEPTION
@@ -3243,6 +3369,8 @@ operator|::
 operator|new
 argument_list|,
 literal|37
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INVALID_TYPE_NAME_EXCEPTION
@@ -3269,6 +3397,8 @@ operator|::
 operator|new
 argument_list|,
 literal|38
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SNAPSHOT_RESTORE_EXCEPTION
@@ -3295,6 +3425,8 @@ operator|::
 operator|new
 argument_list|,
 literal|39
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|PARSING_EXCEPTION
@@ -3321,6 +3453,8 @@ operator|::
 operator|new
 argument_list|,
 literal|40
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_CLOSED_EXCEPTION
@@ -3351,6 +3485,8 @@ operator|::
 operator|new
 argument_list|,
 literal|41
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RECOVER_FILES_RECOVERY_EXCEPTION
@@ -3381,6 +3517,8 @@ operator|::
 operator|new
 argument_list|,
 literal|42
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TRUNCATED_TRANSLOG_EXCEPTION
@@ -3411,6 +3549,8 @@ operator|::
 operator|new
 argument_list|,
 literal|43
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RECOVERY_FAILED_EXCEPTION
@@ -3441,6 +3581,8 @@ operator|::
 operator|new
 argument_list|,
 literal|44
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_RELOCATED_EXCEPTION
@@ -3471,6 +3613,8 @@ operator|::
 operator|new
 argument_list|,
 literal|45
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NODE_SHOULD_NOT_CONNECT_EXCEPTION
@@ -3497,6 +3641,8 @@ operator|::
 operator|new
 argument_list|,
 literal|46
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 47 used to be for IndexTemplateAlreadyExistsException which was deprecated in 5.1 removed in 6.0
@@ -3528,6 +3674,8 @@ operator|::
 operator|new
 argument_list|,
 literal|48
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|CLUSTER_BLOCK_EXCEPTION
@@ -3558,6 +3706,8 @@ operator|::
 operator|new
 argument_list|,
 literal|49
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|FETCH_PHASE_EXECUTION_EXCEPTION
@@ -3588,6 +3738,8 @@ operator|::
 operator|new
 argument_list|,
 literal|50
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 51 used to be for IndexShardAlreadyExistsException which was deprecated in 5.1 removed in 6.0
@@ -3619,6 +3771,8 @@ operator|::
 operator|new
 argument_list|,
 literal|52
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ENGINE_EXCEPTION
@@ -3649,6 +3803,8 @@ operator|::
 operator|new
 argument_list|,
 literal|53
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 54 was DocumentAlreadyExistsException, which is superseded by VersionConflictEngineException
@@ -3676,6 +3832,8 @@ operator|::
 operator|new
 argument_list|,
 literal|55
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SETTINGS_EXCEPTION
@@ -3706,6 +3864,8 @@ operator|::
 operator|new
 argument_list|,
 literal|56
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_TEMPLATE_MISSING_EXCEPTION
@@ -3732,6 +3892,8 @@ operator|::
 operator|new
 argument_list|,
 literal|57
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEND_REQUEST_TRANSPORT_EXCEPTION
@@ -3758,6 +3920,8 @@ operator|::
 operator|new
 argument_list|,
 literal|58
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ES_REJECTED_EXECUTION_EXCEPTION
@@ -3792,6 +3956,8 @@ operator|::
 operator|new
 argument_list|,
 literal|59
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|EARLY_TERMINATION_EXCEPTION
@@ -3826,6 +3992,8 @@ operator|::
 operator|new
 argument_list|,
 literal|60
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 61 used to be for RoutingValidationException
@@ -3861,6 +4029,8 @@ operator|::
 operator|new
 argument_list|,
 literal|62
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ALIAS_FILTER_PARSING_EXCEPTION
@@ -3887,6 +4057,8 @@ operator|::
 operator|new
 argument_list|,
 literal|63
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 64 was DeleteByQueryFailedEngineException, which was removed in 5.0
@@ -3914,6 +4086,8 @@ operator|::
 operator|new
 argument_list|,
 literal|65
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_NOT_RECOVERING_EXCEPTION
@@ -3944,6 +4118,8 @@ operator|::
 operator|new
 argument_list|,
 literal|66
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|HTTP_EXCEPTION
@@ -3970,6 +4146,8 @@ operator|::
 operator|new
 argument_list|,
 literal|67
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ELASTICSEARCH_EXCEPTION
@@ -3992,6 +4170,8 @@ operator|::
 operator|new
 argument_list|,
 literal|68
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SNAPSHOT_MISSING_EXCEPTION
@@ -4018,6 +4198,8 @@ operator|::
 operator|new
 argument_list|,
 literal|69
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|PRIMARY_MISSING_ACTION_EXCEPTION
@@ -4044,6 +4226,8 @@ operator|::
 operator|new
 argument_list|,
 literal|70
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|FAILED_NODE_EXCEPTION
@@ -4070,6 +4254,8 @@ operator|::
 operator|new
 argument_list|,
 literal|71
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEARCH_PARSE_EXCEPTION
@@ -4096,6 +4282,8 @@ operator|::
 operator|new
 argument_list|,
 literal|72
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|CONCURRENT_SNAPSHOT_EXECUTION_EXCEPTION
@@ -4122,6 +4310,8 @@ operator|::
 operator|new
 argument_list|,
 literal|73
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|BLOB_STORE_EXCEPTION
@@ -4152,6 +4342,8 @@ operator|::
 operator|new
 argument_list|,
 literal|74
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INCOMPATIBLE_CLUSTER_STATE_VERSION_EXCEPTION
@@ -4178,6 +4370,8 @@ operator|::
 operator|new
 argument_list|,
 literal|75
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RECOVERY_ENGINE_EXCEPTION
@@ -4208,6 +4402,8 @@ operator|::
 operator|new
 argument_list|,
 literal|76
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|UNCATEGORIZED_EXECUTION_EXCEPTION
@@ -4242,6 +4438,8 @@ operator|::
 operator|new
 argument_list|,
 literal|77
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TIMESTAMP_PARSING_EXCEPTION
@@ -4268,6 +4466,8 @@ operator|::
 operator|new
 argument_list|,
 literal|78
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ROUTING_MISSING_EXCEPTION
@@ -4294,6 +4494,8 @@ operator|::
 operator|new
 argument_list|,
 literal|79
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_FAILED_ENGINE_EXCEPTION
@@ -4311,6 +4513,7 @@ name|IndexFailedEngineException
 operator|.
 name|class
 argument_list|,
+comment|// deprecated in 6.0, remove in 7.0
 name|org
 operator|.
 name|elasticsearch
@@ -4324,9 +4527,10 @@ operator|::
 operator|new
 argument_list|,
 literal|80
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
-comment|// deprecated in 6.0, remove in 7.0
 DECL|enum constant|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 name|INDEX_SHARD_RESTORE_FAILED_EXCEPTION
 argument_list|(
@@ -4355,6 +4559,8 @@ operator|::
 operator|new
 argument_list|,
 literal|81
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|REPOSITORY_EXCEPTION
@@ -4381,6 +4587,8 @@ operator|::
 operator|new
 argument_list|,
 literal|82
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RECEIVE_TIMEOUT_TRANSPORT_EXCEPTION
@@ -4407,6 +4615,8 @@ operator|::
 operator|new
 argument_list|,
 literal|83
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NODE_DISCONNECTED_EXCEPTION
@@ -4433,6 +4643,8 @@ operator|::
 operator|new
 argument_list|,
 literal|84
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ALREADY_EXPIRED_EXCEPTION
@@ -4459,6 +4671,8 @@ operator|::
 operator|new
 argument_list|,
 literal|85
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|AGGREGATION_EXECUTION_EXCEPTION
@@ -4489,6 +4703,8 @@ operator|::
 operator|new
 argument_list|,
 literal|86
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 87 used to be for MergeMappingException
@@ -4516,6 +4732,8 @@ operator|::
 operator|new
 argument_list|,
 literal|88
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|REFRESH_FAILED_ENGINE_EXCEPTION
@@ -4546,6 +4764,8 @@ operator|::
 operator|new
 argument_list|,
 literal|90
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|AGGREGATION_INITIALIZATION_EXCEPTION
@@ -4576,6 +4796,8 @@ operator|::
 operator|new
 argument_list|,
 literal|91
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|DELAY_RECOVERY_EXCEPTION
@@ -4606,6 +4828,8 @@ operator|::
 operator|new
 argument_list|,
 literal|92
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 93 used to be for IndexWarmerMissingException
@@ -4637,6 +4861,8 @@ operator|::
 operator|new
 argument_list|,
 literal|94
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INVALID_SNAPSHOT_NAME_EXCEPTION
@@ -4663,6 +4889,8 @@ operator|::
 operator|new
 argument_list|,
 literal|96
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ILLEGAL_INDEX_SHARD_STATE_EXCEPTION
@@ -4693,6 +4921,8 @@ operator|::
 operator|new
 argument_list|,
 literal|97
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_SNAPSHOT_EXCEPTION
@@ -4723,6 +4953,8 @@ operator|::
 operator|new
 argument_list|,
 literal|98
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_NOT_STARTED_EXCEPTION
@@ -4753,6 +4985,8 @@ operator|::
 operator|new
 argument_list|,
 literal|99
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEARCH_PHASE_EXECUTION_EXCEPTION
@@ -4783,6 +5017,8 @@ operator|::
 operator|new
 argument_list|,
 literal|100
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ACTION_NOT_FOUND_TRANSPORT_EXCEPTION
@@ -4809,6 +5045,8 @@ operator|::
 operator|new
 argument_list|,
 literal|101
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TRANSPORT_SERIALIZATION_EXCEPTION
@@ -4835,6 +5073,8 @@ operator|::
 operator|new
 argument_list|,
 literal|102
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|REMOTE_TRANSPORT_EXCEPTION
@@ -4861,6 +5101,8 @@ operator|::
 operator|new
 argument_list|,
 literal|103
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ENGINE_CREATION_FAILURE_EXCEPTION
@@ -4891,6 +5133,8 @@ operator|::
 operator|new
 argument_list|,
 literal|104
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ROUTING_EXCEPTION
@@ -4921,6 +5165,8 @@ operator|::
 operator|new
 argument_list|,
 literal|105
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_RECOVERY_EXCEPTION
@@ -4951,6 +5197,8 @@ operator|::
 operator|new
 argument_list|,
 literal|106
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|REPOSITORY_MISSING_EXCEPTION
@@ -4977,6 +5225,8 @@ operator|::
 operator|new
 argument_list|,
 literal|107
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|DOCUMENT_SOURCE_MISSING_EXCEPTION
@@ -5007,6 +5257,8 @@ operator|::
 operator|new
 argument_list|,
 literal|109
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 110 used to be FlushNotAllowedEngineException
@@ -5038,6 +5290,8 @@ operator|::
 operator|new
 argument_list|,
 literal|111
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|BIND_TRANSPORT_EXCEPTION
@@ -5064,6 +5318,8 @@ operator|::
 operator|new
 argument_list|,
 literal|112
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ALIASES_NOT_FOUND_EXCEPTION
@@ -5102,6 +5358,8 @@ operator|::
 operator|new
 argument_list|,
 literal|113
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INDEX_SHARD_RECOVERING_EXCEPTION
@@ -5132,6 +5390,8 @@ operator|::
 operator|new
 argument_list|,
 literal|114
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TRANSLOG_EXCEPTION
@@ -5162,6 +5422,8 @@ operator|::
 operator|new
 argument_list|,
 literal|115
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|PROCESS_CLUSTER_EVENT_TIMEOUT_EXCEPTION
@@ -5192,6 +5454,8 @@ operator|::
 operator|new
 argument_list|,
 literal|116
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RETRY_ON_PRIMARY_EXCEPTION
@@ -5210,6 +5474,8 @@ operator|::
 operator|new
 argument_list|,
 literal|117
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ELASTICSEARCH_TIMEOUT_EXCEPTION
@@ -5232,6 +5498,8 @@ operator|::
 operator|new
 argument_list|,
 literal|118
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|QUERY_PHASE_EXECUTION_EXCEPTION
@@ -5262,6 +5530,8 @@ operator|::
 operator|new
 argument_list|,
 literal|119
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|REPOSITORY_VERIFICATION_EXCEPTION
@@ -5288,6 +5558,8 @@ operator|::
 operator|new
 argument_list|,
 literal|120
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|INVALID_AGGREGATION_PATH_EXCEPTION
@@ -5318,6 +5590,8 @@ operator|::
 operator|new
 argument_list|,
 literal|121
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 123 used to be IndexAlreadyExistsException and was renamed
@@ -5333,6 +5607,8 @@ operator|::
 operator|new
 argument_list|,
 literal|123
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 comment|// 124 used to be Script.ScriptParseException
@@ -5352,6 +5628,8 @@ operator|::
 operator|new
 argument_list|,
 literal|125
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|MAPPER_PARSING_EXCEPTION
@@ -5382,6 +5660,8 @@ operator|::
 operator|new
 argument_list|,
 literal|126
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEARCH_CONTEXT_EXCEPTION
@@ -5408,6 +5688,8 @@ operator|::
 operator|new
 argument_list|,
 literal|127
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SEARCH_SOURCE_BUILDER_EXCEPTION
@@ -5438,6 +5720,8 @@ operator|::
 operator|new
 argument_list|,
 literal|128
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|ENGINE_CLOSED_EXCEPTION
@@ -5468,6 +5752,8 @@ operator|::
 operator|new
 argument_list|,
 literal|129
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NO_SHARD_AVAILABLE_ACTION_EXCEPTION
@@ -5494,6 +5780,8 @@ operator|::
 operator|new
 argument_list|,
 literal|130
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|UNAVAILABLE_SHARDS_EXCEPTION
@@ -5520,6 +5808,8 @@ operator|::
 operator|new
 argument_list|,
 literal|131
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|FLUSH_FAILED_ENGINE_EXCEPTION
@@ -5550,6 +5840,8 @@ operator|::
 operator|new
 argument_list|,
 literal|132
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|CIRCUIT_BREAKING_EXCEPTION
@@ -5580,6 +5872,8 @@ operator|::
 operator|new
 argument_list|,
 literal|133
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NODE_NOT_CONNECTED_EXCEPTION
@@ -5606,6 +5900,8 @@ operator|::
 operator|new
 argument_list|,
 literal|134
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|STRICT_DYNAMIC_MAPPING_EXCEPTION
@@ -5636,6 +5932,8 @@ operator|::
 operator|new
 argument_list|,
 literal|135
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|RETRY_ON_REPLICA_EXCEPTION
@@ -5674,6 +5972,8 @@ operator|::
 operator|new
 argument_list|,
 literal|136
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TYPE_MISSING_EXCEPTION
@@ -5700,6 +6000,8 @@ operator|::
 operator|new
 argument_list|,
 literal|137
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|FAILED_TO_COMMIT_CLUSTER_STATE_EXCEPTION
@@ -5730,6 +6032,8 @@ operator|::
 operator|new
 argument_list|,
 literal|140
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|QUERY_SHARD_EXCEPTION
@@ -5760,6 +6064,8 @@ operator|::
 operator|new
 argument_list|,
 literal|141
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NO_LONGER_PRIMARY_SHARD_EXCEPTION
@@ -5778,6 +6084,8 @@ operator|::
 operator|new
 argument_list|,
 literal|142
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|SCRIPT_EXCEPTION
@@ -5804,6 +6112,8 @@ operator|::
 operator|new
 argument_list|,
 literal|143
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|NOT_MASTER_EXCEPTION
@@ -5830,6 +6140,8 @@ operator|::
 operator|new
 argument_list|,
 literal|144
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|STATUS_EXCEPTION
@@ -5852,6 +6164,8 @@ operator|::
 operator|new
 argument_list|,
 literal|145
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
 DECL|enum constant|TASK_CANCELLED_EXCEPTION
@@ -5878,6 +6192,36 @@ operator|::
 operator|new
 argument_list|,
 literal|146
+argument_list|,
+name|UNKNOWN_VERSION_ADDED
+argument_list|)
+block|,
+DECL|enum constant|SHARD_LOCK_OBTAIN_FAILED_EXCEPTION
+name|SHARD_LOCK_OBTAIN_FAILED_EXCEPTION
+argument_list|(
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|ShardLockObtainFailedException
+operator|.
+name|class
+argument_list|,
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|ShardLockObtainFailedException
+operator|::
+operator|new
+argument_list|,
+literal|147
+argument_list|,
+name|V_5_1_0_UNRELEASED
 argument_list|)
 block|;
 DECL|field|exceptionClass
@@ -5907,6 +6251,11 @@ specifier|final
 name|int
 name|id
 decl_stmt|;
+DECL|field|versionAdded
+specifier|final
+name|Version
+name|versionAdded
+decl_stmt|;
 DECL|method|ElasticsearchExceptionHandle
 parameter_list|<
 name|E
@@ -5931,6 +6280,9 @@ name|constructor
 parameter_list|,
 name|int
 name|id
+parameter_list|,
+name|Version
+name|versionAdded
 parameter_list|)
 block|{
 comment|// We need the exceptionClass because you can't dig it out of the constructor reliably.
@@ -5945,6 +6297,12 @@ operator|.
 name|constructor
 operator|=
 name|constructor
+expr_stmt|;
+name|this
+operator|.
+name|versionAdded
+operator|=
+name|versionAdded
 expr_stmt|;
 name|this
 operator|.
