@@ -148,20 +148,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CharsRefBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -638,7 +624,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 return|return
@@ -752,7 +738,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 return|return
@@ -1658,7 +1644,7 @@ specifier|final
 name|int
 name|charCount
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 if|if
@@ -2034,7 +2020,7 @@ block|{
 name|int
 name|size
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 if|if
@@ -2151,7 +2137,7 @@ block|{
 name|int
 name|size
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2262,7 +2248,7 @@ specifier|final
 name|int
 name|size
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 if|if
@@ -2594,7 +2580,7 @@ block|{
 name|int
 name|size
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|List
@@ -2677,7 +2663,7 @@ block|{
 name|int
 name|size8
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|Object
@@ -2729,7 +2715,7 @@ block|{
 name|int
 name|size9
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2783,7 +2769,7 @@ block|{
 name|int
 name|size10
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2924,7 +2910,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|int
@@ -2977,7 +2963,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|int
@@ -3030,7 +3016,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|long
@@ -3083,7 +3069,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|long
@@ -3136,7 +3122,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|float
@@ -3189,7 +3175,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|double
@@ -3243,7 +3229,7 @@ specifier|final
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3302,7 +3288,7 @@ block|{
 name|int
 name|length
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|T
@@ -4290,7 +4276,7 @@ block|{
 name|int
 name|count
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|List
@@ -4374,7 +4360,7 @@ block|{
 name|int
 name|count
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|List
@@ -4448,7 +4434,7 @@ block|{
 name|int
 name|count
 init|=
-name|readVInt
+name|readArraySize
 argument_list|()
 decl_stmt|;
 name|List
@@ -4551,6 +4537,89 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Reads a vint via {@link #readVInt()} and applies basic checks to ensure the read array size is sane.      * This method uses {@link #ensureCanReadBytes(int)} to ensure this stream has enough bytes to read for the read array size.      */
+DECL|method|readArraySize
+specifier|private
+name|int
+name|readArraySize
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+specifier|final
+name|int
+name|arraySize
+init|=
+name|readVInt
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|arraySize
+operator|>
+name|ArrayUtil
+operator|.
+name|MAX_ARRAY_LENGTH
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"array length must be<= to "
+operator|+
+name|ArrayUtil
+operator|.
+name|MAX_ARRAY_LENGTH
+operator|+
+literal|" but was: "
+operator|+
+name|arraySize
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|arraySize
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|NegativeArraySizeException
+argument_list|(
+literal|"array size must be positive but was: "
+operator|+
+name|arraySize
+argument_list|)
+throw|;
+block|}
+comment|// lets do a sanity check that if we are reading an array size that is bigger that the remaining bytes we can safely
+comment|// throw an exception instead of allocating the array based on the size. A simple corrutpted byte can make a node go OOM
+comment|// if the size is large and for perf reasons we allocate arrays ahead of time
+name|ensureCanReadBytes
+argument_list|(
+name|arraySize
+argument_list|)
+expr_stmt|;
+return|return
+name|arraySize
+return|;
+block|}
+comment|/**      * This method throws an {@link EOFException} if the given number of bytes can not be read from the this stream. This method might      * be a no-op depending on the underlying implementation if the information of the remaining bytes is not present.      */
+DECL|method|ensureCanReadBytes
+specifier|protected
+specifier|abstract
+name|void
+name|ensureCanReadBytes
+parameter_list|(
+name|int
+name|length
+parameter_list|)
+throws|throws
+name|EOFException
+function_decl|;
 block|}
 end_class
 

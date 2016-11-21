@@ -369,6 +369,21 @@ name|n
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|ensureCanReadBytes
+specifier|protected
+name|void
+name|ensureCanReadBytes
+parameter_list|(
+name|int
+name|length
+parameter_list|)
+throws|throws
+name|EOFException
+block|{
+comment|// TODO what can we do here?
+block|}
 block|}
 end_class
 
