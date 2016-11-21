@@ -483,6 +483,27 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"["
+operator|+
+name|type
+argument_list|()
+operator|+
+literal|"]["
+operator|+
+name|data
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 
