@@ -573,6 +573,26 @@ operator|+
 literal|'}'
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getDescription
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+return|return
+literal|"scrollId["
+operator|+
+name|scrollId
+operator|+
+literal|"], scroll["
+operator|+
+name|scroll
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

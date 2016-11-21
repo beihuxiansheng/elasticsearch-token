@@ -749,6 +749,26 @@ name|parentTaskId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getDescription
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+comment|// Shard id is enough here, the request itself can be found by looking at the parent task description
+return|return
+literal|"shardId["
+operator|+
+name|shardSearchLocalRequest
+operator|.
+name|shardId
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

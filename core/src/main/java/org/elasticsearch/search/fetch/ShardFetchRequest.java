@@ -584,6 +584,30 @@ name|parentTaskId
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getDescription
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+return|return
+literal|"id["
+operator|+
+name|id
+operator|+
+literal|"], size["
+operator|+
+name|size
+operator|+
+literal|"], lastEmittedDoc["
+operator|+
+name|lastEmittedDoc
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 
