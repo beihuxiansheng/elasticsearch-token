@@ -158,6 +158,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|Permission
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -340,6 +350,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// we want the JVM to think there is a security manager installed so that if internal policy decisions that would be based on the
+comment|// presence of a security manager or lack thereof act as if there is a security manager present (e.g., DNS cache policy)
+name|System
+operator|.
+name|setSecurityManager
+argument_list|(
+operator|new
+name|SecurityManager
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|checkPermission
+parameter_list|(
+name|Permission
+name|perm
+parameter_list|)
+block|{
+comment|// grant all permissions so that we can later set the security manager to the one that we want
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Elasticsearch
 name|elasticsearch
