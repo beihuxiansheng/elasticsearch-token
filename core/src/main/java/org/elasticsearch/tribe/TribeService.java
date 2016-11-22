@@ -1059,6 +1059,7 @@ return|;
 block|}
 comment|/**      * Interface to allow merging {@link org.elasticsearch.cluster.metadata.MetaData.Custom} in tribe node      * When multiple Mergable Custom metadata of the same type is found (from underlying clusters), the      * Custom metadata will be merged using {@link #merge(MetaData.Custom)} and the result will be stored      * in the tribe cluster state      *      * @param<T> type of custom meta data      */
 DECL|interface|MergableCustomMetaData
+specifier|public
 interface|interface
 name|MergableCustomMetaData
 parameter_list|<
