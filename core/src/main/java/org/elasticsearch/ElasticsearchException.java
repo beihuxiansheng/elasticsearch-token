@@ -352,6 +352,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+comment|/**      * Passed in the {@link Params} of {@link #toXContent(XContentBuilder, org.elasticsearch.common.xcontent.ToXContent.Params, Throwable)}      * to control if the {@code caused_by} element should render. Unlike most parameters to {@code toXContent} methods this parameter is      * internal only and not available as a URL parameter.      */
 DECL|field|REST_EXCEPTION_SKIP_CAUSE
 specifier|public
 specifier|static
@@ -361,6 +362,7 @@ name|REST_EXCEPTION_SKIP_CAUSE
 init|=
 literal|"rest.exception.cause.skip"
 decl_stmt|;
+comment|/**      * Passed in the {@link Params} of {@link #toXContent(XContentBuilder, org.elasticsearch.common.xcontent.ToXContent.Params, Throwable)}      * to control if the {@code stack_trace} element should render. Unlike most parameters to {@code toXContent} methods this parameter is      * internal only and not available as a URL parameter. Use the {@code error_trace} parameter instead.      */
 DECL|field|REST_EXCEPTION_SKIP_STACK_TRACE
 specifier|public
 specifier|static
@@ -1554,7 +1556,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Statis toXContent helper method that also renders non {@link org.elasticsearch.ElasticsearchException} instances as XContent.      */
+comment|/**      * Static toXContent helper method that also renders non {@link org.elasticsearch.ElasticsearchException} instances as XContent.      */
 DECL|method|toXContent
 specifier|public
 specifier|static
