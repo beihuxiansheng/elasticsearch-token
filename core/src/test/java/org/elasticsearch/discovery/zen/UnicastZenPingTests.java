@@ -3771,9 +3771,9 @@ name|timeValueMillis
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|1
-argument_list|,
 literal|100
+argument_list|,
+literal|200
 argument_list|)
 argument_list|)
 decl_stmt|;
