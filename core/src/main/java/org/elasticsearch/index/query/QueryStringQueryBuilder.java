@@ -5720,12 +5720,18 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-comment|// Automatically set leniency to "true" so mismatched fields don't cause exceptions
+comment|// Automatically set leniency to "true" if unset so mismatched fields don't cause exceptions
 name|qpSettings
 operator|.
 name|lenient
 argument_list|(
+name|lenient
+operator|==
+literal|null
+condition|?
 literal|true
+else|:
+name|lenient
 argument_list|)
 expr_stmt|;
 block|}
