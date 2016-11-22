@@ -128,6 +128,20 @@ name|HttpPipelinedRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|netty4
+operator|.
+name|Netty4Utils
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ChannelHandler
@@ -369,6 +383,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Netty4Utils
+operator|.
+name|maybeDie
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
 name|serverTransport
 operator|.
 name|exceptionCaught

@@ -417,6 +417,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Netty4Utils
+operator|.
+name|maybeDie
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
 name|transport
 operator|.
 name|exceptionCaught
