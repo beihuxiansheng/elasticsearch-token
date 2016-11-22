@@ -242,6 +242,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|UnknownHostException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -717,7 +727,7 @@ name|int
 name|perAddressLimit
 parameter_list|)
 throws|throws
-name|Exception
+name|UnknownHostException
 block|{
 throw|throw
 operator|new

@@ -94,20 +94,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|CopyOnWriteHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -299,6 +285,16 @@ operator|.
 name|junit
 operator|.
 name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|UnknownHostException
 import|;
 end_import
 
@@ -551,7 +547,7 @@ name|int
 name|perAddressLimit
 parameter_list|)
 throws|throws
-name|Exception
+name|UnknownHostException
 block|{
 comment|// we just need to ensure we don't resolve DNS here
 return|return

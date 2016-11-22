@@ -4950,7 +4950,7 @@ name|int
 name|perAddressLimit
 parameter_list|)
 throws|throws
-name|Exception
+name|UnknownHostException
 block|{
 return|return
 name|parse

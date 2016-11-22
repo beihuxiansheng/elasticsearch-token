@@ -276,6 +276,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|UnknownHostException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1034,7 +1044,7 @@ name|int
 name|perAddressLimit
 parameter_list|)
 throws|throws
-name|Exception
+name|UnknownHostException
 block|{
 return|return
 operator|new

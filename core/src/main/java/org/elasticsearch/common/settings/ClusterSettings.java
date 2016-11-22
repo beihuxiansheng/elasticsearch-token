@@ -2288,6 +2288,10 @@ name|UnicastZenPing
 operator|.
 name|DISCOVERY_ZEN_PING_UNICAST_CONCURRENT_CONNECTS_SETTING
 argument_list|,
+name|UnicastZenPing
+operator|.
+name|DISCOVERY_ZEN_PING_UNICAST_HOSTS_RESOLVE_TIMEOUT
+argument_list|,
 name|SearchService
 operator|.
 name|DEFAULT_KEEPALIVE_SETTING

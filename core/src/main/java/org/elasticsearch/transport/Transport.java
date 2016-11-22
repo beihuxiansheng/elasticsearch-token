@@ -142,6 +142,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|UnknownHostException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -224,7 +234,7 @@ name|int
 name|perAddressLimit
 parameter_list|)
 throws|throws
-name|Exception
+name|UnknownHostException
 function_decl|;
 comment|/**      * Is the address type supported.      */
 DECL|method|addressSupported
