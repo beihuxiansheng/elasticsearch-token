@@ -122,28 +122,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The document types to execute the search against. Defaults to be executed against      * all types.      */
-DECL|method|setTypes
-specifier|public
-name|ClusterSearchShardsRequestBuilder
-name|setTypes
-parameter_list|(
-name|String
-modifier|...
-name|types
-parameter_list|)
-block|{
-name|request
-operator|.
-name|types
-argument_list|(
-name|types
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
 DECL|method|setRouting
 specifier|public
