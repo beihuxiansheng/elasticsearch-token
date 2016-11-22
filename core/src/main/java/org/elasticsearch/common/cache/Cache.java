@@ -1404,7 +1404,7 @@ name|value
 return|;
 block|}
 block|}
-comment|/**      * If the specified key is not already associated with a value (or is mapped to null), attempts to compute its      * value using the given mapping function and enters it into this map unless null. The load method for a given key      * will be invoked at most once.      *      * @param key    the key whose associated value is to be returned or computed for if non-existent      * @param loader the function to compute a value given a key      * @return the current (existing or computed) value associated with the specified key, or null if the computed      * value is null      * @throws ExecutionException thrown if loader throws an exception      */
+comment|/**      * If the specified key is not already associated with a value (or is mapped to null), attempts to compute its      * value using the given mapping function and enters it into this map unless null. The load method for a given key      * will be invoked at most once.      *      * Use of different {@link CacheLoader} implementations on the same key concurrently may result in only the first      * loader function being called and the second will be returned the result provided by the first including any exceptions      * thrown during the execution of the first.      *      * @param key    the key whose associated value is to be returned or computed for if non-existent      * @param loader the function to compute a value given a key      * @return the current (existing or computed) non-null value associated with the specified key      * @throws ExecutionException thrown if loader throws an exception or returns a null value      */
 DECL|method|computeIfAbsent
 specifier|public
 name|V
@@ -1775,6 +1775,29 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+comment|// check to ensure the future hasn't been completed with an exception
+if|if
+condition|(
+name|future
+operator|.
+name|isCompletedExceptionally
+argument_list|()
+condition|)
+block|{
+name|future
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+comment|// call get to force the exception to be thrown for other concurrent callers
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"the future was completed exceptionally but no exception was thrown"
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
