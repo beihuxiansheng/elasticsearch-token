@@ -728,6 +728,14 @@ argument_list|,
 name|transportService
 argument_list|,
 name|threadPool
+argument_list|,
+parameter_list|(
+name|a
+parameter_list|,
+name|b
+parameter_list|)
+lambda|->
+block|{}
 argument_list|)
 expr_stmt|;
 name|this

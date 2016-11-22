@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.transport.support
+DECL|package|org.elasticsearch.client.transport
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|client
 operator|.
 name|transport
-operator|.
-name|support
 package|;
 end_package
 
@@ -108,48 +106,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|transport
-operator|.
-name|TransportClientNodesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -214,7 +170,7 @@ end_import
 
 begin_class
 DECL|class|TransportProxyClient
-specifier|public
+specifier|final
 class|class
 name|TransportProxyClient
 block|{
@@ -236,7 +192,6 @@ argument_list|>
 name|proxies
 decl_stmt|;
 DECL|method|TransportProxyClient
-specifier|public
 name|TransportProxyClient
 parameter_list|(
 name|Settings
@@ -321,7 +276,6 @@ name|proxies
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|execute
 specifier|public
 parameter_list|<
 name|Request
@@ -334,6 +288,7 @@ name|ActionResponse
 parameter_list|,
 name|RequestBuilder
 extends|extends
+DECL|method|execute
 name|ActionRequestBuilder
 argument_list|<
 name|Request

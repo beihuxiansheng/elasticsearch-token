@@ -126,7 +126,7 @@ name|client
 operator|.
 name|transport
 operator|.
-name|TransportClientNodesService
+name|TransportClient
 import|;
 end_import
 
@@ -1564,21 +1564,21 @@ name|AwarenessAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTE_SETTING
 argument_list|,
-name|TransportClientNodesService
+name|TransportClient
 operator|.
 name|CLIENT_TRANSPORT_NODES_SAMPLER_INTERVAL
 argument_list|,
 comment|// TODO these transport client settings are kind
 comment|// of odd here and should only be valid if we are a transport client
-name|TransportClientNodesService
+name|TransportClient
 operator|.
 name|CLIENT_TRANSPORT_PING_TIMEOUT
 argument_list|,
-name|TransportClientNodesService
+name|TransportClient
 operator|.
 name|CLIENT_TRANSPORT_IGNORE_CLUSTER_NAME
 argument_list|,
-name|TransportClientNodesService
+name|TransportClient
 operator|.
 name|CLIENT_TRANSPORT_SNIFF
 argument_list|,

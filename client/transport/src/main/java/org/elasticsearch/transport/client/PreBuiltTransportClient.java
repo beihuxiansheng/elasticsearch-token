@@ -252,6 +252,7 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/**      * Creates a new transport client with pre-installed plugins.      * @param settings the settings passed to this transport client      * @param plugins an optional array of additional plugins to run with this client      */
 annotation|@
 name|SafeVarargs
 DECL|method|PreBuiltTransportClient
@@ -284,6 +285,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a new transport client with pre-installed plugins.      * @param settings the settings passed to this transport client      * @param plugins a collection of additional plugins to run with this client      */
 DECL|method|PreBuiltTransportClient
 specifier|public
 name|PreBuiltTransportClient
@@ -303,6 +305,39 @@ argument_list|>
 name|plugins
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|settings
+argument_list|,
+name|plugins
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new transport client with pre-installed plugins.      * @param settings the settings passed to this transport client      * @param plugins a collection of additional plugins to run with this client      * @param hostFailureListener a failure listener that is invoked if a node is disconnected. This can be<code>null</code>      */
+DECL|method|PreBuiltTransportClient
+specifier|public
+name|PreBuiltTransportClient
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|,
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|plugins
+parameter_list|,
+name|HostFailureListener
+name|hostFailureListener
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|settings
@@ -317,6 +352,8 @@ name|plugins
 argument_list|,
 name|PRE_INSTALLED_PLUGINS
 argument_list|)
+argument_list|,
+name|hostFailureListener
 argument_list|)
 expr_stmt|;
 block|}
