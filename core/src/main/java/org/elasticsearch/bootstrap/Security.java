@@ -1345,6 +1345,7 @@ block|}
 block|}
 comment|/**      * Add dynamic {@link SocketPermission}s based on HTTP and transport settings.      *      * @param policy the {@link Permissions} instance to apply the dynamic {@link SocketPermission}s to.      * @param settings the {@link Settings} instance to read the HTTP and transport settings from      */
 DECL|method|addBindPermissions
+specifier|private
 specifier|static
 name|void
 name|addBindPermissions
