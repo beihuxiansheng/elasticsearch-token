@@ -238,16 +238,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -265,6 +255,18 @@ operator|.
 name|function
 operator|.
 name|Function
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -933,8 +935,6 @@ name|NAME
 argument_list|,
 literal|"doc['binaryData'].get(0).length> 15"
 argument_list|,
-name|Collections
-operator|.
 name|emptyMap
 argument_list|()
 argument_list|)
@@ -958,8 +958,6 @@ name|NAME
 argument_list|,
 literal|"doc['binaryData'].get(0).length"
 argument_list|,
-name|Collections
-operator|.
 name|emptyMap
 argument_list|()
 argument_list|)
@@ -1061,8 +1059,7 @@ index|[
 name|len
 index|]
 decl_stmt|;
-operator|new
-name|Random
+name|random
 argument_list|()
 operator|.
 name|nextBytes
