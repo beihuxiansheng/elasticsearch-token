@@ -324,6 +324,20 @@ argument_list|(
 literal|5010099
 argument_list|)
 decl_stmt|;
+DECL|field|V_5_0_2_UNRELEASED
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|V_5_0_2_UNRELEASED
+init|=
+name|Version
+operator|.
+name|fromId
+argument_list|(
+literal|5000299
+argument_list|)
+decl_stmt|;
 DECL|field|UNKNOWN_VERSION_ADDED
 specifier|public
 specifier|static
@@ -6193,7 +6207,7 @@ operator|new
 argument_list|,
 literal|146
 argument_list|,
-name|UNKNOWN_VERSION_ADDED
+name|V_5_1_0_UNRELEASED
 argument_list|)
 block|,
 DECL|enum constant|SHARD_LOCK_OBTAIN_FAILED_EXCEPTION
@@ -6221,7 +6235,7 @@ operator|new
 argument_list|,
 literal|147
 argument_list|,
-name|V_5_1_0_UNRELEASED
+name|V_5_0_2_UNRELEASED
 argument_list|)
 block|;
 DECL|field|exceptionClass

@@ -8411,16 +8411,16 @@ name|before
 argument_list|(
 name|ElasticsearchException
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_0_2_UNRELEASED
 argument_list|)
 condition|)
 block|{
-comment|// remove this once 5_1_0 is released randomVersionBetween asserts that this version is in the constant table..
+comment|// remove this once 5_0_2 is released randomVersionBetween asserts that this version is in the constant table..
 name|version
 operator|=
 name|ElasticsearchException
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_0_2_UNRELEASED
 expr_stmt|;
 block|}
 name|ShardLockObtainFailedException
@@ -8502,9 +8502,16 @@ name|Exception
 operator|)
 name|orig
 argument_list|,
+name|randomFrom
+argument_list|(
 name|Version
 operator|.
 name|V_5_0_0
+argument_list|,
+name|Version
+operator|.
+name|V_5_0_1
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat
