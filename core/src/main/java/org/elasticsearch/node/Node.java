@@ -3719,13 +3719,6 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|pluginsService
-operator|.
-name|processModules
-argument_list|(
-name|modules
-argument_list|)
-expr_stmt|;
 name|modules
 operator|.
 name|add

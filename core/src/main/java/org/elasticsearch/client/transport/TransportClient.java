@@ -1383,13 +1383,6 @@ argument_list|(
 name|actionModule
 argument_list|)
 expr_stmt|;
-name|pluginsService
-operator|.
-name|processModules
-argument_list|(
-name|modules
-argument_list|)
-expr_stmt|;
 name|CircuitBreakerService
 name|circuitBreakerService
 init|=
