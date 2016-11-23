@@ -3066,6 +3066,18 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Exception while sending request, handler likely already notified due to timeout"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|sendLocalRequest
