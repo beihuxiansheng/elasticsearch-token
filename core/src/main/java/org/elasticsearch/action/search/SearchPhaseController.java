@@ -772,6 +772,7 @@ name|ScriptService
 name|scriptService
 decl_stmt|;
 DECL|method|SearchPhaseController
+specifier|public
 name|SearchPhaseController
 parameter_list|(
 name|Settings

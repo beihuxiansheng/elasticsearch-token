@@ -348,6 +348,9 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
+parameter_list|,
+name|SearchTransportService
+name|searchTransportService
 parameter_list|)
 block|{
 name|super
@@ -381,13 +384,7 @@ name|this
 operator|.
 name|searchTransportService
 operator|=
-operator|new
-name|SearchTransportService
-argument_list|(
-name|settings
-argument_list|,
-name|transportService
-argument_list|)
+name|searchTransportService
 expr_stmt|;
 block|}
 annotation|@
