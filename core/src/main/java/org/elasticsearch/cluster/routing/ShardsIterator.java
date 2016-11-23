@@ -44,12 +44,6 @@ name|int
 name|sizeActive
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the number of replicas in this iterator that are not in the      * {@link ShardRoutingState#UNASSIGNED}. The returned double-counts replicas      * that are in the state {@link ShardRoutingState#RELOCATING}      */
-DECL|method|assignedReplicasIncludingRelocating
-name|int
-name|assignedReplicasIncludingRelocating
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the next shard, or<tt>null</tt> if none available.      */
 DECL|method|nextOrNull
 name|ShardRouting
