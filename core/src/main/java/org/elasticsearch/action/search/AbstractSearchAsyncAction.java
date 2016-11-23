@@ -906,7 +906,10 @@ name|ShardSearchTransportRequest
 argument_list|(
 name|request
 argument_list|,
-name|shard
+name|shardIt
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|shardsIts
 operator|.
