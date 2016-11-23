@@ -971,6 +971,53 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBranchEqualsDefAndPrimitive
+specifier|public
+name|void
+name|testBranchEqualsDefAndPrimitive
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return x == y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return x === y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return y == x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return y === x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testBranchNotEquals
 specifier|public
 name|void
@@ -1044,6 +1091,53 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"def a = 1; Object b = new HashMap(); if (a !== (Object)b) return 1; else return 0;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBranchNotEqualsDefAndPrimitive
+specifier|public
+name|void
+name|testBranchNotEqualsDefAndPrimitive
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return x != y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return x !== y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return y != x;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = 1000; int y = 1000; return y !== x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
