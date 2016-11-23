@@ -752,6 +752,8 @@ name|OutOfMemoryError
 decl||
 name|StackOverflowError
 decl||
+name|VerifyError
+decl||
 name|Exception
 name|e
 parameter_list|)
