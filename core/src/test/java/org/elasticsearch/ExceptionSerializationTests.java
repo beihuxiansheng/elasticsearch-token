@@ -8409,7 +8409,7 @@ name|version
 operator|.
 name|before
 argument_list|(
-name|ElasticsearchException
+name|Version
 operator|.
 name|V_5_0_2_UNRELEASED
 argument_list|)
@@ -8418,7 +8418,7 @@ block|{
 comment|// remove this once 5_0_2 is released randomVersionBetween asserts that this version is in the constant table..
 name|version
 operator|=
-name|ElasticsearchException
+name|Version
 operator|.
 name|V_5_0_2_UNRELEASED
 expr_stmt|;

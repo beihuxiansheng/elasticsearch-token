@@ -1455,33 +1455,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testUnknownVersions
-specifier|public
-name|void
-name|testUnknownVersions
-parameter_list|()
-block|{
-name|assertThat
-argument_list|(
-literal|"5.1.0 has been defined, remove the temporary constant"
-argument_list|,
-name|VersionUtils
-operator|.
-name|allVersions
-argument_list|()
-argument_list|,
-name|not
-argument_list|(
-name|hasItem
-argument_list|(
-name|BulkByScrollTask
-operator|.
-name|V_5_1_0_UNRELEASED
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

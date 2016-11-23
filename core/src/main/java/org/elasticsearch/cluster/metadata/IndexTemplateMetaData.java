@@ -1101,7 +1101,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha1
+name|V_6_0_0_alpha1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -1363,7 +1363,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha1
+name|V_6_0_0_alpha1_UNRELEASED
 argument_list|)
 condition|)
 block|{

@@ -1565,7 +1565,7 @@ name|v
 range|:
 name|VersionUtils
 operator|.
-name|allVersions
+name|allReleasedVersions
 argument_list|()
 control|)
 block|{

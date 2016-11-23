@@ -269,19 +269,6 @@ name|BulkByScrollTask
 extends|extends
 name|CancellableTask
 block|{
-DECL|field|V_5_1_0_UNRELEASED
-specifier|static
-specifier|final
-name|Version
-name|V_5_1_0_UNRELEASED
-init|=
-name|Version
-operator|.
-name|fromId
-argument_list|(
-literal|5010099
-argument_list|)
-decl_stmt|;
 DECL|method|BulkByScrollTask
 specifier|public
 name|BulkByScrollTask
@@ -1018,6 +1005,8 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
+name|Version
+operator|.
 name|V_5_1_0_UNRELEASED
 argument_list|)
 condition|)
@@ -1139,6 +1128,8 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
+name|Version
+operator|.
 name|V_5_1_0_UNRELEASED
 argument_list|)
 condition|)
@@ -1193,6 +1184,8 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
+name|Version
+operator|.
 name|V_5_1_0_UNRELEASED
 argument_list|)
 condition|)
@@ -1305,6 +1298,8 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
+name|Version
+operator|.
 name|V_5_1_0_UNRELEASED
 argument_list|)
 condition|)

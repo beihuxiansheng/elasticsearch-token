@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -1315,7 +1325,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|BulkByScrollTask
+name|Version
 operator|.
 name|V_5_1_0_UNRELEASED
 argument_list|)
@@ -1429,7 +1439,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|BulkByScrollTask
+name|Version
 operator|.
 name|V_5_1_0_UNRELEASED
 argument_list|)
@@ -1467,7 +1477,7 @@ argument_list|()
 operator|+
 literal|"] but must be ["
 operator|+
-name|BulkByScrollTask
+name|Version
 operator|.
 name|V_5_1_0_UNRELEASED
 operator|+

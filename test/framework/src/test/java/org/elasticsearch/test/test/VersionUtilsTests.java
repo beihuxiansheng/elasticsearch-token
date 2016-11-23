@@ -82,7 +82,7 @@ name|allVersions
 init|=
 name|VersionUtils
 operator|.
-name|allVersions
+name|allReleasedVersions
 argument_list|()
 decl_stmt|;
 for|for
@@ -365,7 +365,7 @@ literal|null
 argument_list|,
 name|VersionUtils
 operator|.
-name|allVersions
+name|allReleasedVersions
 argument_list|()
 operator|.
 name|get
@@ -395,7 +395,7 @@ name|onOrBefore
 argument_list|(
 name|VersionUtils
 operator|.
-name|allVersions
+name|allReleasedVersions
 argument_list|()
 operator|.
 name|get
