@@ -133,6 +133,55 @@ argument_list|(
 literal|"Integer a = Integer.valueOf(1); int b = a ?: Integer.valueOf(2); return b"
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int i = (params.a ?: Integer.valueOf(2)).intValue(); return i"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"int i = (params.a ?: Integer.valueOf(2)).intValue(); return i"
+argument_list|,
+name|singletonMap
+argument_list|(
+literal|"a"
+argument_list|,
+literal|1
+argument_list|)
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"Integer a = Integer.valueOf(1); int b = (a ?: Integer.valueOf(2)).intValue(); return b"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"Integer a = null; int b = (a ?: Integer.valueOf(2)).intValue(); return b"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Assigning to an object
 name|assertEquals
 argument_list|(
