@@ -5560,14 +5560,6 @@ name|nodeId
 argument_list|()
 argument_list|,
 name|shardId
-operator|.
-name|getIndex
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
