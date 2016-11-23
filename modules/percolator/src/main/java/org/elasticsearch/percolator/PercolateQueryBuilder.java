@@ -3691,7 +3691,7 @@ name|queryParseContext
 init|=
 name|context
 operator|.
-name|newParseContextWithLegacyScriptLanguage
+name|newParseContext
 argument_list|(
 name|sourceParser
 argument_list|)

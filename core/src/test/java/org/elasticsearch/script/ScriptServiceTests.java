@@ -1711,8 +1711,6 @@ argument_list|)
 expr_stmt|;
 name|createFileScripts
 argument_list|(
-literal|"groovy"
-argument_list|,
 literal|"mustache"
 argument_list|,
 literal|"dtest"
@@ -2335,8 +2333,6 @@ argument_list|)
 expr_stmt|;
 name|createFileScripts
 argument_list|(
-literal|"groovy"
-argument_list|,
 literal|"expression"
 argument_list|,
 literal|"mustache"

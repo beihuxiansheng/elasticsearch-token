@@ -1919,9 +1919,9 @@ name|ScriptType
 operator|.
 name|FILE
 argument_list|,
-literal|"groovy"
+literal|"coollang"
 argument_list|,
-literal|"mygroovyscript"
+literal|"myscript"
 argument_list|,
 name|parameters
 argument_list|)

@@ -2983,7 +2983,7 @@ name|pluginZip
 init|=
 name|createPlugin
 argument_list|(
-literal|"lang-groovy"
+literal|"lang-painless"
 argument_list|,
 name|pluginDir
 argument_list|)

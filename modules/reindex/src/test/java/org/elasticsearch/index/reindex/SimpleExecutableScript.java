@@ -248,7 +248,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// Others just return the objects plain (groovy, painless)
+comment|// Others just return the objects plain (painless)
 return|return
 name|value
 return|;
