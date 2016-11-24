@@ -193,6 +193,7 @@ argument_list|>
 name|indicesAndFilters
 decl_stmt|;
 DECL|method|ClusterSearchShardsResponse
+specifier|public
 name|ClusterSearchShardsResponse
 parameter_list|()
 block|{      }
