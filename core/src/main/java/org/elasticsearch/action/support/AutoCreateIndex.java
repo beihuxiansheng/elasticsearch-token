@@ -568,6 +568,9 @@ literal|null
 operator|||
 name|pattern
 operator|.
+name|trim
+argument_list|()
+operator|.
 name|length
 argument_list|()
 operator|==
@@ -586,6 +589,13 @@ literal|"] for setting [action.auto_create_index] must be either [true, false, o
 argument_list|)
 throw|;
 block|}
+name|pattern
+operator|=
+name|pattern
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 name|Tuple
 argument_list|<
 name|String
