@@ -1470,11 +1470,12 @@ try|try
 block|{
 comment|//TODO we should call liveness api and get back an updated discovery node. that would have the updated version
 comment|// and would make the search shards call more future-proof. Also validating the cluster name may be a thing.
+return|return
 name|connectToRemoteNode
 argument_list|(
 name|node
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -1498,26 +1499,49 @@ name|e
 argument_list|)
 throw|;
 block|}
-return|return
-name|node
-return|;
 block|}
 DECL|method|connectToRemoteNode
-name|void
+name|DiscoveryNode
 name|connectToRemoteNode
 parameter_list|(
 name|DiscoveryNode
 name|remoteNode
 parameter_list|)
 block|{
-comment|//TODO should the list of seeds get updated based on nodes that we get back from the remote cluster through search_shards?
+name|DiscoveryNode
+name|discoveryNode
+init|=
 name|transportService
 operator|.
-name|connectToNode
+name|connectToNodeLightAndHandshake
+argument_list|(
+name|remoteNode
+argument_list|,
+literal|10000
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+name|transportService
+operator|.
+name|disconnectFromNode
 argument_list|(
 name|remoteNode
 argument_list|)
 expr_stmt|;
+comment|// disconnect the light connection
+comment|//TODO should the list of seeds get updated based on nodes that we get back from the remote cluster through search_shards?
+comment|// now go and do a real connection with the updated version of the node
+name|transportService
+operator|.
+name|connectToNode
+argument_list|(
+name|discoveryNode
+argument_list|)
+expr_stmt|;
+return|return
+name|discoveryNode
+return|;
 comment|//TODO is it ok to connect and leave the node connected? It will be pinged from now on?
 block|}
 DECL|method|sendSearchShards
