@@ -894,10 +894,15 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|getName
+name|getUUID
 argument_list|()
 argument_list|)
 decl_stmt|;
+assert|assert
+name|filter
+operator|!=
+literal|null
+assert|;
 name|ShardSearchTransportRequest
 name|transportRequest
 init|=

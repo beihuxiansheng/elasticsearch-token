@@ -573,11 +573,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Translates the provided index expression into actual concrete indices, properly deduplicated.      *      * @param state             the cluster state containing all the data to resolve to expressions to concrete indices      * @param options           defines how the aliases or indices need to be resolved to concrete indices      * @param startTime         The start of the request where concrete indices is being invoked for      * @param indexExpressions  expressions that can be resolved to alias or index names.      * @return the resolved concrete indices based on the cluster state, indices options and index expressions      * provided indices options in the context don't allow such a case, or if the final result of the indices resolution      * contains no indices and the indices options in the context don't allow such a case.      * @throws IllegalArgumentException if one of the aliases resolve to multiple indices and the provided      * indices options in the context don't allow such a case.      */
-DECL|method|concreteIndexNames
+DECL|method|concreteIndices
 specifier|public
-name|String
+name|Index
 index|[]
-name|concreteIndexNames
+name|concreteIndices
 parameter_list|(
 name|ClusterState
 name|state
@@ -607,7 +607,7 @@ name|startTime
 argument_list|)
 decl_stmt|;
 return|return
-name|concreteIndexNames
+name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
