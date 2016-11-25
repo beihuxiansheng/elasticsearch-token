@@ -971,6 +971,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/21801"
+argument_list|)
 DECL|method|testBranchEqualsDefAndPrimitive
 specifier|public
 name|void
@@ -1095,6 +1102,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/21801"
+argument_list|)
 DECL|method|testBranchNotEqualsDefAndPrimitive
 specifier|public
 name|void
