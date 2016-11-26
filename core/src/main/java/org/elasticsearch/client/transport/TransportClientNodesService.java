@@ -2334,7 +2334,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
 call|(
 name|Supplier
