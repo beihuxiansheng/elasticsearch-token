@@ -1160,7 +1160,7 @@ parameter_list|(
 name|TransportServiceAdapter
 name|service
 parameter_list|)
-block|{          }
+block|{         }
 annotation|@
 name|Override
 DECL|method|boundAddress
@@ -1213,26 +1213,6 @@ name|TransportAddress
 index|[
 literal|0
 index|]
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|addressSupported
-specifier|public
-name|boolean
-name|addressSupported
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|TransportAddress
-argument_list|>
-name|address
-parameter_list|)
-block|{
-return|return
-literal|false
 return|;
 block|}
 annotation|@

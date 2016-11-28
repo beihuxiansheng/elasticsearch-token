@@ -236,20 +236,6 @@ parameter_list|)
 throws|throws
 name|UnknownHostException
 function_decl|;
-comment|/**      * Is the address type supported.      */
-DECL|method|addressSupported
-name|boolean
-name|addressSupported
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|TransportAddress
-argument_list|>
-name|address
-parameter_list|)
-function_decl|;
 comment|/**      * Returns<tt>true</tt> if the node is connected.      */
 DECL|method|nodeConnected
 name|boolean
