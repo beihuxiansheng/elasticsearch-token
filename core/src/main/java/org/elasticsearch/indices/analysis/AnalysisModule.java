@@ -3746,7 +3746,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**          * Creates a new analysis provider.          * @param indexSettings the index settings for the index this provider is created for          * @param environment the nodes environment to load resources from persistent storage          * @param name the name of the analysis component          * @param settings the component specific settings without context prefixes          * @return a new provider instance          * @throws IOException if an {@link IOException} occurs          */
+comment|/**          * Creates a new analysis provider.          *          * @param indexSettings the index settings for the index this provider is created for          * @param environment   the nodes environment to load resources from persistent storage          * @param name          the name of the analysis component          * @param settings      the component specific settings without context prefixes          * @return a new provider instance          * @throws IOException if an {@link IOException} occurs          */
 DECL|method|get
 name|T
 name|get
@@ -3766,7 +3766,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * Creates a new global scope analysis provider without index specific settings not settings for the provider itself.          * This can be used to get a default instance of an analysis factory without binding to an index.          *          * @param environment the nodes environment to load resources from persistent storage          * @param name the name of the analysis component          * @return a new provider instance          * @throws IOException if an {@link IOException} occurs          * @throws IllegalArgumentException if the provider requires analysis settings ie. if {@link #requiresAnalysisSettings()} returns          *<code>true</code>          */
+comment|/**          * Creates a new global scope analysis provider without index specific settings not settings for the provider itself.          * This can be used to get a default instance of an analysis factory without binding to an index.          *          * @param environment the nodes environment to load resources from persistent storage          * @param name        the name of the analysis component          * @return a new provider instance          * @throws IOException              if an {@link IOException} occurs          * @throws IllegalArgumentException if the provider requires analysis settings ie. if {@link #requiresAnalysisSettings()} returns          *<code>true</code>          */
 DECL|method|get
 specifier|default
 name|T
