@@ -4198,10 +4198,10 @@ init|=
 operator|new
 name|IntermittentLongGCDisruption
 argument_list|(
-name|oldMasterNode
-argument_list|,
 name|random
 argument_list|()
+argument_list|,
+name|oldMasterNode
 argument_list|,
 literal|100
 argument_list|,
