@@ -577,10 +577,6 @@ name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_LEVEL
 argument_list|,
-name|SearchSlowLog
-operator|.
-name|INDEX_SEARCH_SLOWLOG_REFORMAT
-argument_list|,
 name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_WARN_SETTING
