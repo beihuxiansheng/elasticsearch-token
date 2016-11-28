@@ -6043,7 +6043,7 @@ name|i
 index|]
 argument_list|)
 operator|+
-literal|"]) through `copy_to`"
+literal|"]) through `copy_to` or dots in field names"
 argument_list|)
 throw|;
 block|}
@@ -6342,6 +6342,36 @@ name|ObjectMapper
 operator|)
 name|mapper
 expr_stmt|;
+if|if
+condition|(
+name|objectMapper
+operator|.
+name|nested
+argument_list|()
+operator|.
+name|isNested
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"Cannot add a value for field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] since one of the intermediate objects is mapped as a nested object: ["
+operator|+
+name|mapper
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|objectMapper
