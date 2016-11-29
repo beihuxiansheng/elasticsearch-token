@@ -4,21 +4,19 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport.support
+DECL|package|org.elasticsearch.transport
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|transport
-operator|.
-name|support
 package|;
 end_package
 
 begin_class
 DECL|class|TransportStatus
-specifier|public
+specifier|final
 class|class
 name|TransportStatus
 block|{

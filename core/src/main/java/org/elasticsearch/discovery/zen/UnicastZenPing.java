@@ -2790,7 +2790,7 @@ argument_list|)
 expr_stmt|;
 name|transportService
 operator|.
-name|connectToNodeLightAndHandshake
+name|connectToNodeAndHandshake
 argument_list|(
 name|finalNodeToSend
 argument_list|,

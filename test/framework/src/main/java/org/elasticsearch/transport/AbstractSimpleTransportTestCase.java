@@ -7676,7 +7676,7 @@ try|try
 block|{
 name|serviceB
 operator|.
-name|connectToNodeLightAndHandshake
+name|connectToNodeAndHandshake
 argument_list|(
 name|nodeA
 argument_list|,
@@ -7941,7 +7941,7 @@ try|try
 block|{
 name|serviceB
 operator|.
-name|connectToNodeLightAndHandshake
+name|connectToNodeAndHandshake
 argument_list|(
 name|nodeA
 argument_list|,
