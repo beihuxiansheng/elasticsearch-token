@@ -5178,9 +5178,11 @@ operator|.
 name|startInitialJoin
 argument_list|()
 expr_stmt|;
-comment|// tribe nodes don't have a master so we shouldn't register an observer
-if|if
-condition|(
+comment|// tribe nodes don't have a master so we shouldn't register an observer         s
+specifier|final
+name|TimeValue
+name|initialStateTimeout
+init|=
 name|DiscoverySettings
 operator|.
 name|INITIAL_STATE_TIMEOUT_SETTING
@@ -5189,6 +5191,10 @@ name|get
 argument_list|(
 name|settings
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|initialStateTimeout
 operator|.
 name|millis
 argument_list|()
@@ -5246,6 +5252,15 @@ operator|==
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"waiting to join the cluster. timeout [{}]"
+argument_list|,
+name|initialStateTimeout
+argument_list|)
+expr_stmt|;
 specifier|final
 name|CountDownLatch
 name|latch
@@ -5311,14 +5326,7 @@ name|warn
 argument_list|(
 literal|"timed out while waiting for initial discovery state - timeout: {}"
 argument_list|,
-name|DiscoverySettings
-operator|.
-name|INITIAL_STATE_TIMEOUT_SETTING
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
+name|initialStateTimeout
 argument_list|)
 expr_stmt|;
 name|latch
@@ -5333,14 +5341,7 @@ name|MasterNodeChangePredicate
 operator|.
 name|INSTANCE
 argument_list|,
-name|DiscoverySettings
-operator|.
-name|INITIAL_STATE_TIMEOUT_SETTING
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
+name|initialStateTimeout
 argument_list|)
 expr_stmt|;
 try|try

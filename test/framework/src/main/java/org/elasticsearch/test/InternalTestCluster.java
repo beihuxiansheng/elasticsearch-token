@@ -2284,7 +2284,7 @@ name|info
 argument_list|(
 literal|"Setup InternalTestCluster [{}] with seed [{}] using [{}] dedicated masters, "
 operator|+
-literal|"[{}] (data) nodes and [{}] coord only nodes"
+literal|"[{}] (data) nodes and [{}] coord only nodes (min_master_nodes are [{}])"
 argument_list|,
 name|clusterName
 argument_list|,
@@ -2300,6 +2300,12 @@ argument_list|,
 name|numSharedDataNodes
 argument_list|,
 name|numSharedCoordOnlyNodes
+argument_list|,
+name|autoManageMinMasterNodes
+condition|?
+literal|"auto-managed"
+else|:
+literal|"manual"
 argument_list|)
 expr_stmt|;
 name|this
