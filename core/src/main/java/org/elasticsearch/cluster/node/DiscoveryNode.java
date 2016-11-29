@@ -567,7 +567,10 @@ argument_list|()
 argument_list|,
 name|address
 operator|.
-name|getAddress
+name|address
+argument_list|()
+operator|.
+name|getHostString
 argument_list|()
 argument_list|,
 name|address
