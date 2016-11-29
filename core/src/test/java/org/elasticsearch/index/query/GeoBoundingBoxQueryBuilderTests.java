@@ -136,18 +136,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|geo
 operator|.
 name|GeoPoint
@@ -3019,82 +3007,6 @@ argument_list|,
 name|parsed
 operator|.
 name|type
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|String
-name|deprecatedJson
-init|=
-literal|"{\n"
-operator|+
-literal|"  \"geo_bbox\" : {\n"
-operator|+
-literal|"    \"pin.location\" : {\n"
-operator|+
-literal|"      \"top_left\" : [ -74.1, 40.73 ],\n"
-operator|+
-literal|"      \"bottom_right\" : [ -71.12, 40.01 ]\n"
-operator|+
-literal|"    },\n"
-operator|+
-literal|"    \"validation_method\" : \"STRICT\",\n"
-operator|+
-literal|"    \"type\" : \"MEMORY\",\n"
-operator|+
-literal|"    \"ignore_unmapped\" : false,\n"
-operator|+
-literal|"    \"boost\" : 1.0\n"
-operator|+
-literal|"  }\n"
-operator|+
-literal|"}"
-decl_stmt|;
-name|QueryBuilder
-name|parsedGeoBboxShortcut
-init|=
-name|parseQuery
-argument_list|(
-name|json
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|parsedGeoBboxShortcut
-argument_list|,
-name|equalTo
-argument_list|(
-name|parsed
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|parseQuery
-argument_list|(
-name|deprecatedJson
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Deprecated field [geo_bbox] used, expected [geo_bounding_box] instead"
-argument_list|,
-name|e
-operator|.
-name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;

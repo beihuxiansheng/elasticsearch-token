@@ -424,21 +424,6 @@ name|NAME
 init|=
 literal|"geo_bounding_box"
 decl_stmt|;
-DECL|field|QUERY_NAME_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|QUERY_NAME_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-name|NAME
-argument_list|,
-literal|"geo_bbox"
-argument_list|)
-decl_stmt|;
 comment|/** Default type for executing this query (memory as of this writing). */
 DECL|field|DEFAULT_TYPE
 specifier|public
@@ -2681,10 +2666,7 @@ name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse [{}] query. unexpected field [{}]"
 argument_list|,
-name|QUERY_NAME_FIELD
-operator|.
-name|getPreferredName
-argument_list|()
+name|NAME
 argument_list|,
 name|currentFieldName
 argument_list|)
@@ -2700,10 +2682,7 @@ name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse [{}] query. field name expected but [{}] found"
 argument_list|,
-name|QUERY_NAME_FIELD
-operator|.
-name|getPreferredName
-argument_list|()
+name|NAME
 argument_list|,
 name|token
 argument_list|)
@@ -2919,10 +2898,7 @@ argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. unexpected field [{}]"
 argument_list|,
-name|QUERY_NAME_FIELD
-operator|.
-name|getPreferredName
-argument_list|()
+name|NAME
 argument_list|,
 name|currentFieldName
 argument_list|)

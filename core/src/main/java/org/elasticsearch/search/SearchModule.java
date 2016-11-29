@@ -7981,7 +7981,7 @@ argument_list|<>
 argument_list|(
 name|MatchQueryBuilder
 operator|.
-name|QUERY_NAME_FIELD
+name|NAME
 argument_list|,
 name|MatchQueryBuilder
 operator|::
@@ -8273,7 +8273,7 @@ argument_list|<>
 argument_list|(
 name|TermsQueryBuilder
 operator|.
-name|QUERY_NAME_FIELD
+name|NAME
 argument_list|,
 name|TermsQueryBuilder
 operator|::
@@ -8573,7 +8573,7 @@ argument_list|<>
 argument_list|(
 name|MoreLikeThisQueryBuilder
 operator|.
-name|QUERY_NAME_FIELD
+name|NAME
 argument_list|,
 name|MoreLikeThisQueryBuilder
 operator|::
@@ -8801,7 +8801,7 @@ argument_list|<>
 argument_list|(
 name|GeoBoundingBoxQueryBuilder
 operator|.
-name|QUERY_NAME_FIELD
+name|NAME
 argument_list|,
 name|GeoBoundingBoxQueryBuilder
 operator|::
