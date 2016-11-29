@@ -5555,6 +5555,25 @@ name|IOException
 block|{
 comment|//TODO would be nice to have all the settings in one place: some change though at query execution time
 comment|//e.g. field names get expanded to concrete names, defaults get resolved sometimes to settings values etc.
+if|if
+condition|(
+name|splitOnWhitespace
+operator|==
+literal|false
+operator|&&
+name|autoGeneratePhraseQueries
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"it is disallowed to disable [split_on_whitespace] "
+operator|+
+literal|"if [auto_generate_phrase_queries] is activated"
+argument_list|)
+throw|;
+block|}
 name|QueryParserSettings
 name|qpSettings
 decl_stmt|;

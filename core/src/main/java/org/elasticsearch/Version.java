@@ -1280,7 +1280,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_6_3_0
+name|LUCENE_6_4_0
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT
