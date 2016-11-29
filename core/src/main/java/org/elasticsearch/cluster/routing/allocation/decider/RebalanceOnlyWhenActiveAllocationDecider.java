@@ -146,7 +146,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"rebalancing can not occur if not all replicas are active in the cluster"
+literal|"rebalancing is not allowed until all replicas in the cluster are active"
 argument_list|)
 return|;
 block|}
@@ -161,7 +161,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"all replicas are active in the cluster, rebalancing can occur"
+literal|"rebalancing is allowed as all replicas are active in the cluster"
 argument_list|)
 return|;
 block|}

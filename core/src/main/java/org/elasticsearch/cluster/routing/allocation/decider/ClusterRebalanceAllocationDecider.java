@@ -139,6 +139,15 @@ name|NAME
 init|=
 literal|"cluster_rebalance"
 decl_stmt|;
+DECL|field|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+init|=
+literal|"cluster.routing.allocation.allow_rebalance"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
 specifier|public
 specifier|static
@@ -153,21 +162,14 @@ operator|new
 name|Setting
 argument_list|<>
 argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|ClusterRebalanceType
 operator|.
 name|INDICES_ALL_ACTIVE
 operator|.
-name|name
+name|toString
 argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|)
 argument_list|,
 name|ClusterRebalanceType
 operator|::
@@ -185,7 +187,6 @@ decl_stmt|;
 comment|/**      * An enum representation for the configured re-balance type.      */
 DECL|enum|ClusterRebalanceType
 specifier|public
-specifier|static
 enum|enum
 name|ClusterRebalanceType
 block|{
@@ -289,6 +290,26 @@ name|typeString
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+return|;
+block|}
 block|}
 DECL|field|type
 specifier|private
@@ -359,22 +380,9 @@ name|debug
 argument_list|(
 literal|"using [{}] with [{}]"
 argument_list|,
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
-operator|.
-name|getKey
-argument_list|()
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|type
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|clusterSettings
@@ -469,7 +477,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has unassigned primary shards and rebalance type is set to [%s]"
+literal|"the cluster has unassigned primary shards and [%s] is set to [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|type
 argument_list|)
@@ -498,7 +508,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has inactive primary shards and rebalance type is set to [%s]"
+literal|"the cluster has inactive primary shards and [%s] is set to [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|type
 argument_list|)
@@ -551,7 +563,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has unassigned shards and rebalance type is set to [%s]"
+literal|"the cluster has unassigned shards and [%s] is set to [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|type
 argument_list|)
@@ -581,7 +595,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has inactive shards and rebalance type is set to [%s]"
+literal|"the cluster has inactive shards and [%s] is set to [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|type
 argument_list|)
@@ -600,9 +616,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"all shards are active, rebalance type is [%s]"
-argument_list|,
-name|type
+literal|"all shards are active"
 argument_list|)
 return|;
 block|}

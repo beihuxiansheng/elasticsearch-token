@@ -221,6 +221,33 @@ name|NAME
 init|=
 literal|"filter"
 decl_stmt|;
+DECL|field|CLUSTER_ROUTING_REQUIRE_GROUP_PREFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_REQUIRE_GROUP_PREFIX
+init|=
+literal|"cluster.routing.allocation.require"
+decl_stmt|;
+DECL|field|CLUSTER_ROUTING_INCLUDE_GROUP_PREFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_INCLUDE_GROUP_PREFIX
+init|=
+literal|"cluster.routing.allocation.include"
+decl_stmt|;
+DECL|field|CLUSTER_ROUTING_EXCLUDE_GROUP_PREFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_EXCLUDE_GROUP_PREFIX
+init|=
+literal|"cluster.routing.allocation.exclude"
+decl_stmt|;
 DECL|field|CLUSTER_ROUTING_REQUIRE_GROUP_SETTING
 specifier|public
 specifier|static
@@ -235,7 +262,9 @@ name|Setting
 operator|.
 name|groupSetting
 argument_list|(
-literal|"cluster.routing.allocation.require."
+name|CLUSTER_ROUTING_REQUIRE_GROUP_PREFIX
+operator|+
+literal|"."
 argument_list|,
 name|Property
 operator|.
@@ -260,7 +289,9 @@ name|Setting
 operator|.
 name|groupSetting
 argument_list|(
-literal|"cluster.routing.allocation.include."
+name|CLUSTER_ROUTING_INCLUDE_GROUP_PREFIX
+operator|+
+literal|"."
 argument_list|,
 name|Property
 operator|.
@@ -285,7 +316,9 @@ name|Setting
 operator|.
 name|groupSetting
 argument_list|(
-literal|"cluster.routing.allocation.exclude."
+name|CLUSTER_ROUTING_EXCLUDE_GROUP_PREFIX
+operator|+
+literal|"."
 argument_list|,
 name|Property
 operator|.
@@ -478,6 +511,29 @@ operator|==
 literal|false
 condition|)
 block|{
+name|String
+name|explanation
+init|=
+operator|(
+name|shardRouting
+operator|.
+name|recoverySource
+argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|LOCAL_SHARDS
+operator|)
+condition|?
+literal|"initial allocation of the shrunken index is only allowed on nodes [%s] that hold a copy of every shard in the index"
+else|:
+literal|"initial allocation of the index is only allowed on nodes [%s]"
+decl_stmt|;
 return|return
 name|allocation
 operator|.
@@ -489,12 +545,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match index initial recovery filters [%s]"
+name|explanation
 argument_list|,
-name|indexMd
-operator|.
-name|includeFilters
-argument_list|()
+name|initialRecoveryFilters
 argument_list|)
 return|;
 block|}
@@ -768,7 +821,11 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match index required filters [%s]"
+literal|"node does not match [%s] filters [%s]"
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_ROUTING_REQUIRE_GROUP_PREFIX
 argument_list|,
 name|indexMd
 operator|.
@@ -816,7 +873,11 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match index include filters [%s]"
+literal|"node does not match [%s] filters [%s]"
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_ROUTING_INCLUDE_GROUP_PREFIX
 argument_list|,
 name|indexMd
 operator|.
@@ -863,7 +924,14 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node matches index exclude filters [%s]"
+literal|"node matches [%s] filters [%s]"
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_ROUTING_EXCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|indexMd
 operator|.
@@ -921,7 +989,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match global required filters [%s]"
+literal|"node does not match [%s] filters [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_REQUIRE_GROUP_PREFIX
 argument_list|,
 name|clusterRequireFilters
 argument_list|)
@@ -960,7 +1030,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match global include filters [%s]"
+literal|"node does not [%s] filters [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_INCLUDE_GROUP_PREFIX
 argument_list|,
 name|clusterIncludeFilters
 argument_list|)
@@ -998,7 +1070,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node matches global exclude filters [%s]"
+literal|"node matches [%s] filters [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_EXCLUDE_GROUP_PREFIX
 argument_list|,
 name|clusterExcludeFilters
 argument_list|)

@@ -210,6 +210,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|RecoverySource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|RoutingNode
 import|;
 end_import
@@ -6608,7 +6622,7 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"can't allocated because there isn't enough room: "
+literal|"can't be allocated because there isn't enough room: "
 operator|+
 name|e
 operator|.
@@ -6622,7 +6636,9 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the node is above the low watermark and has more than allowed [70.0%] used disk, free: [26.0%]"
+literal|"the node is above the low watermark [cluster.routing.allocation.disk.watermark.low=0.7], using "
+operator|+
+literal|"more disk space than the maximum allowed [70.0%], actual free: [26.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7219,6 +7235,13 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|routingAllocation
+operator|.
+name|debugDecision
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|Decision
 name|decision
 init|=
@@ -7247,6 +7270,30 @@ operator|.
 name|Type
 operator|.
 name|NO
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|Decision
+operator|.
+name|Single
+operator|)
+name|decision
+operator|)
+operator|.
+name|getExplanation
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"the shard cannot remain on this node because it is above the high watermark "
+operator|+
+literal|"[cluster.routing.allocation.disk.watermark.high=70%] and there is less than the required [30.0%] free disk on node, "
+operator|+
+literal|"actual free: [20.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7438,6 +7485,13 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|routingAllocation
+operator|.
+name|debugDecision
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|decision
 operator|=
 name|diskThresholdDecider
@@ -7466,6 +7520,23 @@ name|Type
 operator|.
 name|YES
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"there is enough disk on this node for the shard to remain, free: [60b]"
+argument_list|,
+operator|(
+operator|(
+name|Decision
+operator|.
+name|Single
+operator|)
+name|decision
+operator|)
+operator|.
+name|getExplanation
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|decision
@@ -7498,6 +7569,71 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|fooRouting
+operator|.
+name|recoverySource
+argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|EMPTY_STORE
+condition|)
+block|{
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|Decision
+operator|.
+name|Single
+operator|)
+name|decision
+operator|)
+operator|.
+name|getExplanation
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"the node is above the high watermark [cluster.routing.allocation.disk.watermark.high=70%], using more disk space than "
+operator|+
+literal|"the maximum allowed [70.0%], actual free: [20.0%]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|Decision
+operator|.
+name|Single
+operator|)
+name|decision
+operator|)
+operator|.
+name|getExplanation
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"the node is above the low watermark [cluster.routing.allocation.disk.watermark.low=60%], using more disk space than "
+operator|+
+literal|"the maximum allowed [60.0%], actual free: [20.0%]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Creating AllocationService instance and the services it depends on...
 name|ClusterInfoService
 name|cis
@@ -8421,6 +8557,13 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|routingAllocation
+operator|.
+name|debugDecision
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|Decision
 name|decision
 init|=
@@ -8450,6 +8593,26 @@ operator|.
 name|Type
 operator|.
 name|YES
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|Decision
+operator|.
+name|Single
+operator|)
+name|decision
+operator|)
+operator|.
+name|getExplanation
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"there is only a single data node present"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9013,6 +9176,13 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|routingAllocation
+operator|.
+name|debugDecision
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|decision
 operator|=
 name|diskThresholdDecider
@@ -9040,6 +9210,26 @@ operator|.
 name|Type
 operator|.
 name|YES
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|Decision
+operator|.
+name|Single
+operator|)
+name|decision
+operator|)
+operator|.
+name|getExplanation
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"there is enough disk on this node for the shard to remain, free: [60b]"
 argument_list|)
 argument_list|)
 expr_stmt|;

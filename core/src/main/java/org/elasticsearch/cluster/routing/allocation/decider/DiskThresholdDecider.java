@@ -278,6 +278,42 @@ name|ShardId
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|DiskThresholdSettings
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|DiskThresholdSettings
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
+import|;
+end_import
+
 begin_comment
 comment|/**  * The {@link DiskThresholdDecider} checks that the node a shard is potentially  * being allocated to has enough disk space.  *  * It has three configurable settings, all of which can be changed dynamically:  *  *<code>cluster.routing.allocation.disk.watermark.low</code> is the low disk  * watermark. New shards will not allocated to a node with usage higher than this,  * although this watermark may be passed by allocating a shard. It defaults to  * 0.85 (85.0%).  *  *<code>cluster.routing.allocation.disk.watermark.high</code> is the high disk  * watermark. If a node has usage higher than this, shards are not allowed to  * remain on the node. In addition, if allocating a shard to a node causes the  * node to pass this watermark, it will not be allowed. It defaults to  * 0.90 (90.0%).  *  * Both watermark settings are expressed in terms of used disk percentage, or  * exact byte values for free space (like "500mb")  *  *<code>cluster.routing.allocation.disk.threshold_enabled</code> is used to  * enable or disable this decider. It defaults to false (disabled).  */
 end_comment
@@ -699,7 +735,17 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the low watermark and has less than required [%s] free, free: [%s]"
+literal|"the node is above the low watermark [%s=%s], having less than the minimum required [%s] free space, actual free: [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getLowWatermarkRaw
+argument_list|()
 argument_list|,
 name|diskThresholdSettings
 operator|.
@@ -771,7 +817,9 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the low watermark, but this primary shard has never been allocated before"
+literal|"the node is above the low watermark, but less than the high watermark, and this primary shard has "
+operator|+
+literal|"never been allocated before"
 argument_list|)
 return|;
 block|}
@@ -820,9 +868,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the high watermark even though this shard has never been allocated "
+literal|"the node is above the high watermark [%s=%s], having less than the minimum required [%s] free space, "
 operator|+
-literal|"and has less than required [%s] free on node, free: [%s]"
+literal|"actual free: [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getHighWatermarkRaw
+argument_list|()
 argument_list|,
 name|diskThresholdSettings
 operator|.
@@ -907,7 +965,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the low watermark and has more than allowed [%s%%] used disk, free: [%s%%]"
+literal|"the node is above the low watermark [%s=%s], using more disk space than the maximum allowed [%s%%], "
+operator|+
+literal|"actual free: [%s%%]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getLowWatermarkRaw
+argument_list|()
 argument_list|,
 name|usedDiskThresholdLow
 argument_list|,
@@ -980,7 +1050,9 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the low watermark, but this primary shard has never been allocated before"
+literal|"the node is above the low watermark, but less than the high watermark, and this primary shard has "
+operator|+
+literal|"never been allocated before"
 argument_list|)
 return|;
 block|}
@@ -1043,9 +1115,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the high watermark even though this shard has never been allocated "
+literal|"the node is above the high watermark [%s=%s], using more disk space than the maximum allowed [%s%%], "
 operator|+
-literal|"and has more than allowed [%s%%] used disk, free: [%s%%]"
+literal|"actual free: [%s%%]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getHighWatermarkRaw
+argument_list|()
 argument_list|,
 name|usedDiskThresholdHigh
 argument_list|,
@@ -1130,13 +1212,23 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocating the shard to this node, it would be above the high watermark "
+literal|"allocating the shard to this node will bring the node above the high watermark [%s=%s] "
 operator|+
-literal|"and have less than required [%s] free, free: [%s]"
+literal|"and cause it to have less than the minimum required [%s] of free space (free bytes after shard added: [%s])"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|diskThresholdSettings
 operator|.
-name|getFreeBytesThresholdLow
+name|getHighWatermarkRaw
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getFreeBytesThresholdHigh
 argument_list|()
 argument_list|,
 operator|new
@@ -1203,11 +1295,21 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocating the shard to this node, it would be above the high watermark "
+literal|"allocating the shard to this node will bring the node above the high watermark [%s=%s] "
 operator|+
-literal|"and have more than allowed [%s%%] used disk, free: [%s%%]"
+literal|"and cause it to use more disk space than the maximum allowed [%s%%] (free space after shard added: [%s%%])"
 argument_list|,
-name|usedDiskThresholdLow
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getHighWatermarkRaw
+argument_list|()
+argument_list|,
+name|usedDiskThresholdHigh
 argument_list|,
 name|freeSpaceAfterShard
 argument_list|)
@@ -1503,9 +1605,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocating this shard this node would be above the high watermark "
+literal|"the shard cannot remain on this node because it is above the high watermark [%s=%s] "
 operator|+
-literal|"and there would be less than required [%s] free on node, free: [%s]"
+literal|"and there is less than the required [%s] free space on node, actual free: [%s]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getHighWatermarkRaw
+argument_list|()
 argument_list|,
 name|diskThresholdSettings
 operator|.
@@ -1569,9 +1681,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocating this shard this node would be above the high watermark "
+literal|"the shard cannot remain on this node because it is above the high watermark [%s=%s] "
 operator|+
-literal|"and there would be less than required [%s%%] free disk on node, free: [%s%%]"
+literal|"and there is less than the required [%s%%] free disk on node, actual free: [%s%%]"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|diskThresholdSettings
+operator|.
+name|getHighWatermarkRaw
+argument_list|()
 argument_list|,
 name|diskThresholdSettings
 operator|.

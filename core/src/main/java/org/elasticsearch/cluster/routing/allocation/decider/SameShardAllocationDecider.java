@@ -241,6 +241,16 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|assignedShard
+operator|.
+name|isSameAllocation
+argument_list|(
+name|shardRouting
+argument_list|)
+condition|)
+block|{
 return|return
 name|allocation
 operator|.
@@ -252,14 +262,37 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard cannot be allocated on the same node id [%s] on which it already exists"
+literal|"the shard cannot be allocated to the node on which it already exists [%s]"
 argument_list|,
-name|node
+name|shardRouting
 operator|.
-name|nodeId
+name|toString
 argument_list|()
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|NO
+argument_list|,
+name|NAME
+argument_list|,
+literal|"the shard cannot be allocated to the same node on which a copy of the shard [%s] already exists"
+argument_list|,
+name|assignedShard
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 if|if
@@ -302,7 +335,12 @@ continue|continue;
 block|}
 comment|// check if its on the same host as the one we want to allocate to
 name|boolean
-name|checkNodeOnSameHost
+name|checkNodeOnSameHostName
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|checkNodeOnSameHostAddress
 init|=
 literal|false
 decl_stmt|;
@@ -357,7 +395,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|checkNodeOnSameHost
+name|checkNodeOnSameHostAddress
 operator|=
 literal|true
 expr_stmt|;
@@ -415,7 +453,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|checkNodeOnSameHost
+name|checkNodeOnSameHostName
 operator|=
 literal|true
 expr_stmt|;
@@ -423,7 +461,9 @@ block|}
 block|}
 if|if
 condition|(
-name|checkNodeOnSameHost
+name|checkNodeOnSameHostAddress
+operator|||
+name|checkNodeOnSameHostName
 condition|)
 block|{
 for|for
@@ -450,6 +490,36 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|String
+name|hostType
+init|=
+name|checkNodeOnSameHostAddress
+condition|?
+literal|"address"
+else|:
+literal|"name"
+decl_stmt|;
+name|String
+name|host
+init|=
+name|checkNodeOnSameHostAddress
+condition|?
+name|node
+operator|.
+name|node
+argument_list|()
+operator|.
+name|getHostAddress
+argument_list|()
+else|:
+name|node
+operator|.
+name|node
+argument_list|()
+operator|.
+name|getHostName
+argument_list|()
+decl_stmt|;
 return|return
 name|allocation
 operator|.
@@ -461,11 +531,22 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard cannot be allocated on the same host [%s] on which it already exists"
+literal|"the shard cannot be allocated on host %s [%s], where it already exists on node [%s]; "
+operator|+
+literal|"set [%s] to false to allow multiple nodes on the same host to hold the same shard copies"
+argument_list|,
+name|hostType
+argument_list|,
+name|host
 argument_list|,
 name|node
 operator|.
 name|nodeId
+argument_list|()
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_SAME_HOST_SETTING
+operator|.
+name|getKey
 argument_list|()
 argument_list|)
 return|;
@@ -486,7 +567,15 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard is not allocated to same node or host"
+literal|"the shard does not exist on the same "
+operator|+
+operator|(
+name|sameHost
+condition|?
+literal|"host"
+else|:
+literal|"node"
+operator|)
 argument_list|)
 return|;
 block|}

@@ -466,7 +466,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"allocation is explicitly ignoring any disabling of allocation"
+literal|"explicitly ignoring any disabling of allocation due to manual allocation commands via the reroute API"
 argument_list|)
 return|;
 block|}

@@ -665,9 +665,14 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many primaries are currently recovering [%d], limit: [%d]"
+literal|"reached the limit of ongoing initial primary recoveries [%d], [%s=%d]"
 argument_list|,
 name|primariesInRecovery
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|primariesInitialRecoveries
 argument_list|)
@@ -750,11 +755,21 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many incoming shards are currently recovering [%d], limit: [%d]"
+literal|"reached the limit of incoming shard recoveries [%d], [%s=%d] (can also be set via [%s])"
 argument_list|,
 name|currentInRecoveries
 argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_INCOMING_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
 name|concurrentIncomingRecoveries
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -831,11 +846,28 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many outgoing shards are currently recovering [%d], limit: [%d]"
+literal|"reached the limit of outgoing shard recoveries [%d] on the node [%s] which holds the primary, "
+operator|+
+literal|"[%s=%d] (can also be set via [%s])"
 argument_list|,
 name|primaryNodeOutRecoveries
 argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_OUTGOING_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
 name|concurrentOutgoingRecoveries
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 return|;
 block|}

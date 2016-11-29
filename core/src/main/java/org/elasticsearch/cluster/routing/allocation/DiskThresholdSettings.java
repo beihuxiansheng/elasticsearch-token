@@ -305,6 +305,18 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
+DECL|field|lowWatermarkRaw
+specifier|private
+specifier|volatile
+name|String
+name|lowWatermarkRaw
+decl_stmt|;
+DECL|field|highWatermarkRaw
+specifier|private
+specifier|volatile
+name|String
+name|highWatermarkRaw
+decl_stmt|;
 DECL|field|freeDiskThresholdLow
 specifier|private
 specifier|volatile
@@ -539,6 +551,12 @@ block|{
 comment|// Watermark is expressed in terms of used data, but we need "free" data watermark
 name|this
 operator|.
+name|lowWatermarkRaw
+operator|=
+name|lowWatermark
+expr_stmt|;
+name|this
+operator|.
 name|freeDiskThresholdLow
 operator|=
 literal|100.0
@@ -575,6 +593,12 @@ block|{
 comment|// Watermark is expressed in terms of used data, but we need "free" data watermark
 name|this
 operator|.
+name|highWatermarkRaw
+operator|=
+name|highWatermark
+expr_stmt|;
+name|this
+operator|.
 name|freeDiskThresholdHigh
 operator|=
 literal|100.0
@@ -598,6 +622,28 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Gets the raw (uninterpreted) low watermark value as found in the settings.      */
+DECL|method|getLowWatermarkRaw
+specifier|public
+name|String
+name|getLowWatermarkRaw
+parameter_list|()
+block|{
+return|return
+name|lowWatermarkRaw
+return|;
+block|}
+comment|/**      * Gets the raw (uninterpreted) high watermark value as found in the settings.      */
+DECL|method|getHighWatermarkRaw
+specifier|public
+name|String
+name|getHighWatermarkRaw
+parameter_list|()
+block|{
+return|return
+name|highWatermarkRaw
+return|;
 block|}
 DECL|method|getFreeDiskThresholdLow
 specifier|public

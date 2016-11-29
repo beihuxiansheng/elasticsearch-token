@@ -1000,7 +1000,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"node does not match index include filters [foo:\"bar\"]"
+literal|"node does not match [index.routing.allocation.include] filters [foo:\"bar\"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1051,7 +1051,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"node does not match index include filters [foo:\"bar\"]"
+literal|"node does not match [index.routing.allocation.include] filters [foo:\"bar\"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1106,7 +1106,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the shard cannot be allocated on the same node id"
+literal|"the shard cannot be allocated to the same node"
 argument_list|)
 argument_list|)
 expr_stmt|;

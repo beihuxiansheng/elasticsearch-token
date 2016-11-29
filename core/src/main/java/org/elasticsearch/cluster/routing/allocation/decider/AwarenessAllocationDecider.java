@@ -276,47 +276,6 @@ index|[]
 argument_list|>
 name|forcedAwarenessAttributes
 decl_stmt|;
-comment|/**      * Creates a new {@link AwarenessAllocationDecider} instance      */
-DECL|method|AwarenessAllocationDecider
-specifier|public
-name|AwarenessAllocationDecider
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|Settings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Creates a new {@link AwarenessAllocationDecider} instance from given settings      *      * @param settings {@link Settings} to use      */
-DECL|method|AwarenessAllocationDecider
-specifier|public
-name|AwarenessAllocationDecider
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|settings
-argument_list|,
-operator|new
-name|ClusterSettings
-argument_list|(
-name|settings
-argument_list|,
-name|ClusterSettings
-operator|.
-name|BUILT_IN_CLUSTER_SETTINGS
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|AwarenessAllocationDecider
 specifier|public
 name|AwarenessAllocationDecider
@@ -590,7 +549,12 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"allocation awareness is not enabled"
+literal|"allocation awareness is not enabled, set [%s] to enable it"
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -658,9 +622,28 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not contain the awareness attribute: [%s]"
+literal|"node does not contain the awareness attribute [%s]; required attributes [%s=%s]"
 argument_list|,
 name|awarenessAttribute
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTE_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|allocation
+operator|.
+name|debugDecision
+argument_list|()
+condition|?
+name|Strings
+operator|.
+name|arrayToCommaDelimitedString
+argument_list|(
+name|awarenessAttributes
+argument_list|)
+else|:
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1036,11 +1019,11 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"there are too many shards on the node for attribute [%s], there are [%d] total shards for the index "
+literal|"there are too many copies of the shard allocated to nodes with attribute [%s], there are [%d] total configured "
 operator|+
-literal|" and [%d] total attributes values, expected the node count [%d] to be lower or equal to the required "
+literal|"shard copies for this shard id and [%d] total attribute values, expected the allocated shard count per "
 operator|+
-literal|"number of shards per attribute [%d] plus leftover [%d]"
+literal|"attribute [%d] to be less than or equal to the upper bound of the required number of shards per attribute [%d]"
 argument_list|,
 name|awarenessAttribute
 argument_list|,
@@ -1051,7 +1034,7 @@ argument_list|,
 name|currentNodeCount
 argument_list|,
 name|requiredCountPerAttribute
-argument_list|,
+operator|+
 name|leftoverPerAttribute
 argument_list|)
 return|;
