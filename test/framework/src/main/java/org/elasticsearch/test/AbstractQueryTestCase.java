@@ -4943,10 +4943,12 @@ name|DOUBLE_FIELD_NAME
 case|:
 name|value
 operator|=
+literal|1
+operator|+
 name|randomDouble
 argument_list|()
 operator|*
-literal|10
+literal|9
 expr_stmt|;
 break|break;
 case|case
