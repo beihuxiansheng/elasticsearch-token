@@ -132,7 +132,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|GeohashCellQuery
+name|MatchQueryBuilder
 import|;
 end_import
 
@@ -734,6 +734,15 @@ operator|.
 name|settings
 argument_list|(
 name|settingsBuilder
+argument_list|)
+operator|.
+name|mapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"type=geo_point"
 argument_list|)
 argument_list|)
 operator|.
@@ -3909,9 +3918,7 @@ operator|.
 name|query
 argument_list|(
 operator|new
-name|GeohashCellQuery
-operator|.
-name|Builder
+name|MatchQueryBuilder
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -4330,7 +4337,6 @@ argument_list|()
 operator|.
 name|prepareMultiSearch
 argument_list|()
-comment|// Add geo distance range query against a field that doesn't exist (should be a geo point for the query to work)
 operator|.
 name|add
 argument_list|(
@@ -4344,25 +4350,12 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|QueryBuilders
-operator|.
-name|geoDistanceRangeQuery
+operator|new
+name|MatchQueryBuilder
 argument_list|(
-literal|"non_existing_field"
+literal|"foo"
 argument_list|,
-literal|1
-argument_list|,
-literal|1
-argument_list|)
-operator|.
-name|from
-argument_list|(
-literal|10
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|15
+literal|"biz"
 argument_list|)
 argument_list|)
 argument_list|)

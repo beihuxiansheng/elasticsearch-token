@@ -3654,7 +3654,7 @@ name|SETTING_VERSION_CREATED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 operator|.
 name|id
 argument_list|)

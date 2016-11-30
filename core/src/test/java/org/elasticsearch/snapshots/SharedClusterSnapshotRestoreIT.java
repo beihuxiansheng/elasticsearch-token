@@ -4771,7 +4771,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4793,7 +4793,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field
@@ -4801,13 +4801,6 @@ argument_list|(
 literal|"store"
 argument_list|,
 literal|"yes"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
 argument_list|)
 operator|.
 name|endObject
@@ -5254,7 +5247,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -5276,7 +5269,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field
@@ -5284,13 +5277,6 @@ argument_list|(
 literal|"store"
 argument_list|,
 literal|"yes"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
 argument_list|)
 operator|.
 name|endObject

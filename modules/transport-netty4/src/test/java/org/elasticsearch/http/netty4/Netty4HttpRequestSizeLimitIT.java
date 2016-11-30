@@ -662,7 +662,7 @@ name|tuple
 argument_list|(
 literal|"/_cluster/settings"
 argument_list|,
-literal|"{ \"transient\": {\"indices.ttl.interval\": \"40s\" } }"
+literal|"{ \"transient\": {\"search.default_search_timeout\": \"40s\" } }"
 argument_list|)
 expr_stmt|;
 block|}

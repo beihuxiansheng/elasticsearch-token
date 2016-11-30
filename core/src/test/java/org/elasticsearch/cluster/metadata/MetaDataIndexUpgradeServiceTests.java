@@ -708,7 +708,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 argument_list|)
 operator|.
 name|put
@@ -721,7 +721,7 @@ name|Version
 operator|.
 name|fromString
 argument_list|(
-literal|"1.7.0"
+literal|"2.4.0"
 argument_list|)
 argument_list|)
 operator|.
@@ -805,7 +805,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 argument_list|)
 operator|.
 name|put
@@ -818,7 +818,7 @@ name|Version
 operator|.
 name|fromString
 argument_list|(
-literal|"2.1.0"
+literal|"5.1.0"
 argument_list|)
 argument_list|)
 operator|.
@@ -926,7 +926,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 argument_list|)
 operator|.
 name|put

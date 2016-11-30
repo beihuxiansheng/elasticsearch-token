@@ -2197,13 +2197,9 @@ literal|"geo_bounding_box"
 block|,
 literal|"geo_distance"
 block|,
-literal|"geo_distance_range"
-block|,
 literal|"geo_polygon"
 block|,
 literal|"geo_shape"
-block|,
-literal|"geohash_cell"
 block|,
 literal|"has_child"
 block|,

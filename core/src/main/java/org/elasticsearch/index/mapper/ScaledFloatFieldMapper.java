@@ -450,7 +450,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|LegacyNumberFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Defaults
 import|;

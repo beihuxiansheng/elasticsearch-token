@@ -193,10 +193,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|Collections
 operator|.
 name|singletonMap
@@ -303,10 +299,6 @@ argument_list|,
 literal|"_type"
 argument_list|,
 literal|"_id"
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -432,10 +424,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|Collections
 operator|.
 name|singletonMap
@@ -542,10 +530,6 @@ argument_list|,
 literal|"_type"
 argument_list|,
 literal|"_id"
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

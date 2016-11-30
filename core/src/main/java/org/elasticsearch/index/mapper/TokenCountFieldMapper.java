@@ -229,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link FieldMapper} that takes a string and writes a count of the tokens in that string  * to the index.  In most ways the mapper acts just like an {@link LegacyIntegerFieldMapper}.  */
+comment|/**  * A {@link FieldMapper} that takes a string and writes a count of the tokens in that string  * to the index.  In most ways the mapper acts just like an {@link NumberFieldMapper}.  */
 end_comment
 
 begin_class
@@ -438,38 +438,6 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-if|if
-condition|(
-name|parserContext
-operator|.
-name|indexVersionCreated
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_5_0_0_alpha2
-argument_list|)
-condition|)
-block|{
-return|return
-operator|new
-name|LegacyTokenCountFieldMapper
-operator|.
-name|TypeParser
-argument_list|()
-operator|.
-name|parse
-argument_list|(
-name|name
-argument_list|,
-name|node
-argument_list|,
-name|parserContext
-argument_list|)
-return|;
-block|}
 name|TokenCountFieldMapper
 operator|.
 name|Builder

@@ -534,22 +534,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|SeqNoFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|seqno
 operator|.
 name|SequenceNumbersService
@@ -1025,12 +1009,6 @@ parameter_list|,
 name|long
 name|seqNo
 parameter_list|,
-name|long
-name|timestamp
-parameter_list|,
-name|long
-name|ttl
-parameter_list|,
 name|ParseContext
 operator|.
 name|Document
@@ -1109,10 +1087,6 @@ argument_list|,
 name|type
 argument_list|,
 name|routing
-argument_list|,
-name|timestamp
-argument_list|,
-name|ttl
 argument_list|,
 name|Collections
 operator|.
@@ -3178,7 +3152,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|133
+literal|117
 comment|/* size of the operation + header&footer*/
 argument_list|,
 name|ByteSizeUnit
@@ -3248,12 +3222,6 @@ argument_list|,
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-operator|-
-literal|1
 argument_list|,
 operator|new
 name|ParseContext
@@ -3723,7 +3691,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|133
+literal|117
 comment|/* size of the operation + header&footer*/
 argument_list|,
 name|ByteSizeUnit

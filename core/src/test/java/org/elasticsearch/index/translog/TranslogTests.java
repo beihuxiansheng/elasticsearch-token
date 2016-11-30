@@ -866,18 +866,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|function
-operator|.
-name|LongSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|stream
 operator|.
 name|Collectors
@@ -2367,7 +2355,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|461
+literal|413
 argument_list|,
 name|total
 operator|.
@@ -2421,7 +2409,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|461
+literal|413
 argument_list|,
 name|copy
 operator|.
@@ -2463,7 +2451,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"translog\":{\"operations\":6,\"size_in_bytes\":461}}"
+literal|"{\"translog\":{\"operations\":6,\"size_in_bytes\":413}}"
 argument_list|,
 name|builder
 operator|.
@@ -8814,7 +8802,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Checkpoint file translog-2.ckp already exists but has corrupted content expected: Checkpoint{offset=3178, numOps=55, translogFileGeneration=2, globalCheckpoint=-2} but got: Checkpoint{offset=0, numOps=0, translogFileGeneration=0, globalCheckpoint=-2}"
+literal|"Checkpoint file translog-2.ckp already exists but has corrupted content expected: Checkpoint{offset=2298, numOps=55, translogFileGeneration=2, globalCheckpoint=-2} but got: Checkpoint{offset=0, numOps=0, translogFileGeneration=0, globalCheckpoint=-2}"
 argument_list|)
 expr_stmt|;
 block|}

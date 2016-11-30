@@ -168,7 +168,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|BaseGeoPointFieldMapper
 import|;
 end_import
 
@@ -182,7 +182,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|GeoPointFieldMapper
+name|FieldMapper
 import|;
 end_import
 
@@ -790,7 +790,7 @@ operator|!
 operator|(
 name|mapper
 operator|instanceof
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|)
 condition|)
 block|{

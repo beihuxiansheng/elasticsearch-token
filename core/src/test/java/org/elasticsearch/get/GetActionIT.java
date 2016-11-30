@@ -284,20 +284,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|TimestampFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -813,16 +799,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -921,16 +897,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3182,16 +3148,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3363,16 +3319,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3535,16 +3481,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3703,16 +3639,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -6517,16 +6443,6 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|setTimestamp
-argument_list|(
-literal|"205097"
-argument_list|)
-operator|.
-name|setTTL
-argument_list|(
-literal|10000000000000L
-argument_list|)
-operator|.
 name|setParent
 argument_list|(
 literal|"parent_1"
@@ -8454,19 +8370,6 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|setTTL
-argument_list|(
-name|TimeValue
-operator|.
-name|timeValueHours
-argument_list|(
-literal|1
-argument_list|)
-operator|.
-name|getMillis
-argument_list|()
-argument_list|)
-operator|.
 name|get
 argument_list|()
 expr_stmt|;
@@ -9123,7 +9026,7 @@ literal|"        },\n"
 operator|+
 literal|"        \"text\": {\n"
 operator|+
-literal|"          \"type\": \"string\",\n"
+literal|"          \"type\": \"text\",\n"
 operator|+
 literal|"          \"fields\": {\n"
 operator|+

@@ -642,32 +642,6 @@ argument_list|,
 name|parentField
 argument_list|)
 expr_stmt|;
-name|HIT_PARSER
-operator|.
-name|declareLong
-argument_list|(
-name|BasicHit
-operator|::
-name|setTTL
-argument_list|,
-name|ttlField
-argument_list|)
-expr_stmt|;
-name|HIT_PARSER
-operator|.
-name|declareLong
-argument_list|(
-name|BasicHit
-operator|::
-name|setTimestamp
-argument_list|,
-operator|new
-name|ParseField
-argument_list|(
-literal|"_timestamp"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// Pre-2.0.0 parent and routing come back in "fields"
 class|class
 name|Fields
@@ -677,9 +651,6 @@ name|routing
 decl_stmt|;
 name|String
 name|parent
-decl_stmt|;
-name|long
-name|ttl
 decl_stmt|;
 block|}
 name|ObjectParser
@@ -728,15 +699,6 @@ argument_list|(
 name|fields
 operator|.
 name|parent
-argument_list|)
-expr_stmt|;
-name|hit
-operator|.
-name|setTTL
-argument_list|(
-name|fields
-operator|.
-name|ttl
 argument_list|)
 expr_stmt|;
 block|}
@@ -798,15 +760,12 @@ parameter_list|,
 name|ttl
 parameter_list|)
 lambda|->
-name|fields
-operator|.
-name|ttl
-operator|=
-name|ttl
+block|{}
 argument_list|,
 name|ttlField
 argument_list|)
 expr_stmt|;
+comment|// ignore ttls since they have been removed
 block|}
 comment|/**      * Parser for the {@code hits} element. Parsed to an array of {@code [total (Long), hits (List<Hit>)]}.      */
 DECL|field|HITS_PARSER

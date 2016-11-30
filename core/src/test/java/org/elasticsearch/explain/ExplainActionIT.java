@@ -128,20 +128,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|TimestampFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|QueryBuilders
@@ -1185,16 +1171,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly added via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -1388,16 +1364,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly added via templates
 name|assertThat
 argument_list|(
 name|fields

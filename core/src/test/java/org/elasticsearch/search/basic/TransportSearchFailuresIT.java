@@ -164,7 +164,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|GeohashCellQuery
+name|MatchQueryBuilder
 import|;
 end_import
 
@@ -357,6 +357,15 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"type=geo_point"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|NumShards
@@ -505,9 +514,7 @@ operator|.
 name|query
 argument_list|(
 operator|new
-name|GeohashCellQuery
-operator|.
-name|Builder
+name|MatchQueryBuilder
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -855,9 +862,7 @@ operator|.
 name|query
 argument_list|(
 operator|new
-name|GeohashCellQuery
-operator|.
-name|Builder
+name|MatchQueryBuilder
 argument_list|(
 literal|"foo"
 argument_list|,
