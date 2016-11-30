@@ -1031,6 +1031,17 @@ operator|=
 name|types
 expr_stmt|;
 block|}
+DECL|method|getTerms
+specifier|public
+name|BytesRef
+index|[]
+name|getTerms
+parameter_list|()
+block|{
+return|return
+name|types
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|rewrite
