@@ -1548,23 +1548,6 @@ return|return
 name|validationException
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|subRequests
-specifier|public
-name|List
-argument_list|<
-name|?
-extends|extends
-name|IndicesRequest
-argument_list|>
-name|subRequests
-parameter_list|()
-block|{
-return|return
-name|items
-return|;
-block|}
 comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
 DECL|method|preference
 specifier|public
