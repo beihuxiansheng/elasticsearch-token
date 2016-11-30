@@ -1593,34 +1593,6 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that will execute the wrapped query only for the specified      * indices, and "match_all" when it does not match those indices.      *      * @deprecated instead search on the `_index` field      */
-annotation|@
-name|Deprecated
-DECL|method|indicesQuery
-specifier|public
-specifier|static
-name|IndicesQueryBuilder
-name|indicesQuery
-parameter_list|(
-name|QueryBuilder
-name|queryBuilder
-parameter_list|,
-name|String
-modifier|...
-name|indices
-parameter_list|)
-block|{
-comment|// TODO remove this method in 6.0
-return|return
-operator|new
-name|IndicesQueryBuilder
-argument_list|(
-name|queryBuilder
-argument_list|,
-name|indices
-argument_list|)
-return|;
-block|}
 comment|/**      * A Query builder which allows building a query thanks to a JSON string or binary data.      */
 DECL|method|wrapperQuery
 specifier|public

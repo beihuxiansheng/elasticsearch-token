@@ -2207,8 +2207,6 @@ literal|"has_parent"
 block|,
 literal|"ids"
 block|,
-literal|"indices"
-block|,
 literal|"match"
 block|,
 literal|"match_all"
