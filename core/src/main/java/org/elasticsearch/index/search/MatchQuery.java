@@ -364,7 +364,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XQueryBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -1616,7 +1616,7 @@ specifier|private
 class|class
 name|MatchQueryBuilder
 extends|extends
-name|XQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|mapper
 specifier|private

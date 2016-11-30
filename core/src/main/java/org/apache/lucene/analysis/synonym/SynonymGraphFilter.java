@@ -208,7 +208,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XRollingBuffer
+name|RollingBuffer
 import|;
 end_import
 
@@ -596,14 +596,14 @@ name|lookaheadNextWrite
 decl_stmt|;
 DECL|field|lookahead
 specifier|private
-name|XRollingBuffer
+name|RollingBuffer
 argument_list|<
 name|BufferedInputToken
 argument_list|>
 name|lookahead
 init|=
 operator|new
-name|XRollingBuffer
+name|RollingBuffer
 argument_list|<
 name|BufferedInputToken
 argument_list|>
@@ -629,7 +629,7 @@ specifier|static
 class|class
 name|BufferedInputToken
 implements|implements
-name|XRollingBuffer
+name|RollingBuffer
 operator|.
 name|Resettable
 block|{
