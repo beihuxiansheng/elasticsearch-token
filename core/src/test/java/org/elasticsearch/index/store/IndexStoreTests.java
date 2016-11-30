@@ -560,9 +560,6 @@ break|break;
 case|case
 name|FS
 case|:
-case|case
-name|DEFAULT
-case|:
 if|if
 condition|(
 name|Constants

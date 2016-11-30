@@ -596,17 +596,6 @@ name|match
 argument_list|(
 name|storeType
 argument_list|)
-operator|||
-name|IndexModule
-operator|.
-name|Type
-operator|.
-name|DEFAULT
-operator|.
-name|match
-argument_list|(
-name|storeType
-argument_list|)
 condition|)
 block|{
 return|return
