@@ -360,18 +360,6 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|emptyMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
 name|singletonList
 import|;
 end_import
@@ -734,7 +722,7 @@ name|assertEquals
 argument_list|(
 literal|"Attempting to send sliced reindex-style request to a node that doesn't support it. "
 operator|+
-literal|"Version is [5.0.0-rc1] but must be [5.1.0]"
+literal|"Version is [5.0.0-rc1] but must be [5.1.1]"
 argument_list|,
 name|e
 operator|.
@@ -890,7 +878,7 @@ name|assertEquals
 argument_list|(
 literal|"Attempting to send sliced reindex-style request to a node that doesn't support it. "
 operator|+
-literal|"Version is [5.0.0-rc1] but must be [5.1.0]"
+literal|"Version is [5.0.0-rc1] but must be [5.1.1]"
 argument_list|,
 name|e
 operator|.
@@ -1029,7 +1017,7 @@ name|assertEquals
 argument_list|(
 literal|"Attempting to send sliced reindex-style request to a node that doesn't support it. "
 operator|+
-literal|"Version is [5.0.0-rc1] but must be [5.1.0]"
+literal|"Version is [5.0.0-rc1] but must be [5.1.1]"
 argument_list|,
 name|e
 operator|.
@@ -3155,7 +3143,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
