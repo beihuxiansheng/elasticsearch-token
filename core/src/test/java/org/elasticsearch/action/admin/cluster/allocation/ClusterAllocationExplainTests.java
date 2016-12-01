@@ -26,18 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Requests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing
@@ -321,7 +309,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"NO(the shard cannot be allocated on the same node id"
+literal|"NO(the shard cannot be allocated to the same node"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -387,7 +375,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"NO(the shard cannot be allocated on the same node id"
+literal|"NO(the shard cannot be allocated to the same node"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -610,7 +598,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"NO(the shard cannot be allocated on the same node id"
+literal|"NO(the shard cannot be allocated to the node on which it already exists [[test][0]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -672,7 +660,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"NO(the shard cannot be allocated on the same node id"
+literal|"NO(the shard cannot be allocated to the node on which it already exists [[test][0]"
 argument_list|)
 argument_list|)
 expr_stmt|;

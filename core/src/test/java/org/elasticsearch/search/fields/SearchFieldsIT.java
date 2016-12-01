@@ -180,20 +180,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|TimestampFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|QueryBuilders
@@ -3345,16 +3331,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3518,16 +3494,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3691,16 +3657,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -3962,16 +3918,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -4063,16 +4009,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -4164,16 +4100,6 @@ name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -4482,16 +4408,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -4689,16 +4605,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -4894,16 +4800,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -5142,16 +5038,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -6726,16 +6612,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -8633,16 +8509,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|TimestampFieldMapper
-operator|.
-name|NAME
-argument_list|)
-expr_stmt|;
-comment|// randomly enabled via templates
 name|assertThat
 argument_list|(
 name|fields
@@ -9541,16 +9407,6 @@ operator|.
 name|setRouting
 argument_list|(
 literal|"1"
-argument_list|)
-operator|.
-name|setTimestamp
-argument_list|(
-literal|"205097"
-argument_list|)
-operator|.
-name|setTTL
-argument_list|(
-literal|10000000000000L
 argument_list|)
 operator|.
 name|setParent

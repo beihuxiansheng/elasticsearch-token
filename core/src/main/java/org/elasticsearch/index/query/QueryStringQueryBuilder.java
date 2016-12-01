@@ -380,35 +380,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|StringFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|TextFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|TimestampFieldMapper
 import|;
 end_import
 
@@ -1149,25 +1121,7 @@ name|ALLOWED_QUERY_MAPPER_TYPES
 operator|.
 name|add
 argument_list|(
-name|StringFieldMapper
-operator|.
-name|CONTENT_TYPE
-argument_list|)
-expr_stmt|;
-name|ALLOWED_QUERY_MAPPER_TYPES
-operator|.
-name|add
-argument_list|(
 name|TextFieldMapper
-operator|.
-name|CONTENT_TYPE
-argument_list|)
-expr_stmt|;
-name|ALLOWED_QUERY_MAPPER_TYPES
-operator|.
-name|add
-argument_list|(
-name|TimestampFieldMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|)
@@ -1502,7 +1456,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -1531,7 +1485,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -1645,7 +1599,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -1830,7 +1784,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -1863,7 +1817,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -2007,7 +1961,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_0_UNRELEASED
+name|V_5_1_1_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -5555,6 +5509,25 @@ name|IOException
 block|{
 comment|//TODO would be nice to have all the settings in one place: some change though at query execution time
 comment|//e.g. field names get expanded to concrete names, defaults get resolved sometimes to settings values etc.
+if|if
+condition|(
+name|splitOnWhitespace
+operator|==
+literal|false
+operator|&&
+name|autoGeneratePhraseQueries
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"it is disallowed to disable [split_on_whitespace] "
+operator|+
+literal|"if [auto_generate_phrase_queries] is activated"
+argument_list|)
+throw|;
+block|}
 name|QueryParserSettings
 name|qpSettings
 decl_stmt|;

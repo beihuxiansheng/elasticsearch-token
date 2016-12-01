@@ -1505,13 +1505,7 @@ name|SIMPLEFS
 block|,
 DECL|enum constant|FS
 name|FS
-block|,
-DECL|enum constant|Deprecated
-annotation|@
-name|Deprecated
-DECL|enum constant|DEFAULT
-name|DEFAULT
-decl_stmt|;
+block|;
 DECL|method|getSettingsKey
 specifier|public
 name|String

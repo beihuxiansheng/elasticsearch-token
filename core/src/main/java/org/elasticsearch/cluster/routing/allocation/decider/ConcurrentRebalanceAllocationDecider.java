@@ -289,13 +289,18 @@ name|decision
 argument_list|(
 name|Decision
 operator|.
-name|NO
+name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards are concurrently rebalancing [%d], limit: [%d]"
+literal|"reached the limit of concurrently rebalancing shards [%d], [%s=%d]"
 argument_list|,
 name|relocatingShards
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterConcurrentRebalance
 argument_list|)

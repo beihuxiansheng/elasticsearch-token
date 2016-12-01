@@ -32,6 +32,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionResponse
@@ -1558,6 +1568,9 @@ name|upgradeIndexMetaData
 parameter_list|(
 name|IndexMetaData
 name|indexMetaData
+parameter_list|,
+name|Version
+name|minimumIndexCompatibilityVersion
 parameter_list|)
 block|{
 return|return

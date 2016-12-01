@@ -2237,6 +2237,13 @@ operator|.
 name|isLocalNodeElectedMaster
 argument_list|()
 assert|;
+name|Version
+name|minNodeVersion
+init|=
+name|Version
+operator|.
+name|CURRENT
+decl_stmt|;
 comment|// processing any joins
 for|for
 control|(
@@ -2247,6 +2254,20 @@ range|:
 name|joiningNodes
 control|)
 block|{
+name|minNodeVersion
+operator|=
+name|Version
+operator|.
+name|min
+argument_list|(
+name|minNodeVersion
+argument_list|,
+name|node
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|node
@@ -2329,6 +2350,23 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we do this validation quite late to prevent race conditions between nodes joining and importing dangling indices
+comment|// we have to reject nodes that don't support all indices we have in this cluster
+name|MembershipAction
+operator|.
+name|ensureIndexCompatibility
+argument_list|(
+name|minNodeVersion
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
+argument_list|,
+name|currentState
+operator|.
+name|getMetaData
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|nodesChanged

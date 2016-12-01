@@ -2310,7 +2310,7 @@ argument_list|)
 return|;
 block|}
 block|}
-block|;
+block|,      ;
 DECL|method|create
 specifier|public
 specifier|abstract

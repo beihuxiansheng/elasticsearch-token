@@ -246,10 +246,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|Collections
 operator|.
 name|singletonMap
@@ -367,10 +363,6 @@ argument_list|,
 literal|"_type"
 argument_list|,
 literal|"_id"
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -735,10 +727,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|Collections
 operator|.
 name|singletonMap
@@ -1088,10 +1076,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|document
 argument_list|)
 decl_stmt|;
@@ -1380,10 +1364,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|Collections
 operator|.
 name|singletonMap
@@ -1520,10 +1500,6 @@ argument_list|,
 literal|"_type"
 argument_list|,
 literal|"_id"
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1791,10 +1767,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|source
 argument_list|)
 decl_stmt|;
@@ -2038,10 +2010,6 @@ argument_list|,
 literal|"_type"
 argument_list|,
 literal|"_id"
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

@@ -2197,21 +2197,15 @@ literal|"geo_bounding_box"
 block|,
 literal|"geo_distance"
 block|,
-literal|"geo_distance_range"
-block|,
 literal|"geo_polygon"
 block|,
 literal|"geo_shape"
-block|,
-literal|"geohash_cell"
 block|,
 literal|"has_child"
 block|,
 literal|"has_parent"
 block|,
 literal|"ids"
-block|,
-literal|"indices"
 block|,
 literal|"match"
 block|,
@@ -2270,6 +2264,7 @@ block|,
 literal|"wrapper"
 block|}
 decl_stmt|;
+comment|//add here deprecated queries to make sure we log a deprecation warnings when they are used
 DECL|field|DEPRECATED_QUERIES
 specifier|private
 specifier|static
@@ -2281,17 +2276,7 @@ init|=
 operator|new
 name|String
 index|[]
-block|{
-literal|"fuzzy_match"
-block|,
-literal|"geo_bbox"
-block|,
-literal|"in"
-block|,
-literal|"match_fuzzy"
-block|,
-literal|"mlt"
-block|}
+block|{}
 decl_stmt|;
 comment|/**      * Dummy test {@link AggregationBuilder} used to test registering aggregation builders.      */
 DECL|class|TestAggregationBuilder

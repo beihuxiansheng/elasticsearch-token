@@ -2773,6 +2773,9 @@ name|upgradeIndexMetaData
 parameter_list|(
 name|IndexMetaData
 name|indexMetaData
+parameter_list|,
+name|Version
+name|minimumIndexCompatibilityVersion
 parameter_list|)
 block|{
 return|return

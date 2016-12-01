@@ -3214,13 +3214,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|boolean
-name|autoManageMinMasterNodes
-init|=
-name|randomBoolean
-argument_list|()
-decl_stmt|;
 name|NodeConfigurationSource
 name|nodeConfigurationSource
 init|=
@@ -3343,7 +3336,7 @@ name|baseDir
 argument_list|,
 literal|false
 argument_list|,
-name|autoManageMinMasterNodes
+literal|true
 argument_list|,
 literal|2
 argument_list|,

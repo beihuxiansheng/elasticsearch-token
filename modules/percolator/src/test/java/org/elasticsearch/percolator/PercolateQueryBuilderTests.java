@@ -1700,12 +1700,6 @@ literal|"_type"
 argument_list|,
 literal|null
 argument_list|,
-operator|-
-literal|1L
-argument_list|,
-operator|-
-literal|1L
-argument_list|,
 name|docs
 argument_list|,
 literal|null

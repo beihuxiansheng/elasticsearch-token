@@ -1437,6 +1437,13 @@ operator|.
 name|upgradeIndexMetaData
 argument_list|(
 name|indexMetaData
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|changed

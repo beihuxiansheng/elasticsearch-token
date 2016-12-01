@@ -300,22 +300,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|LegacyDoubleFieldMapper
-operator|.
-name|DoubleFieldType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MappedFieldType
 import|;
 end_import
@@ -333,6 +317,20 @@ operator|.
 name|Mapper
 operator|.
 name|BuilderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|NumberFieldMapper
 import|;
 end_import
 
@@ -1655,7 +1653,7 @@ block|}
 end_class
 
 begin_comment
-comment|/**      * Return a field type. We use {@link DoubleFieldType} by default since it is compatible with all sort modes      * Tests that require other field type than double can override this.      */
+comment|/**      * Return a field type. We use {@link NumberFieldMapper.NumberFieldType} by default since it is compatible with all sort modes      * Tests that require other field type than double can override this.      */
 end_comment
 
 begin_function
@@ -1668,12 +1666,22 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|DoubleFieldType
+name|NumberFieldMapper
+operator|.
+name|NumberFieldType
 name|doubleFieldType
 init|=
 operator|new
-name|DoubleFieldType
-argument_list|()
+name|NumberFieldMapper
+operator|.
+name|NumberFieldType
+argument_list|(
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|DOUBLE
+argument_list|)
 decl_stmt|;
 name|doubleFieldType
 operator|.

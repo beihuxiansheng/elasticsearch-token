@@ -139,10 +139,6 @@ block|,
 literal|"_parent"
 block|,
 literal|"_routing"
-block|,
-literal|"_timestamp"
-block|,
-literal|"_ttl"
 block|}
 control|)
 block|{

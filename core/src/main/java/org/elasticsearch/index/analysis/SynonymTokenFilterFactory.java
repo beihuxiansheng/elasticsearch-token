@@ -257,13 +257,13 @@ extends|extends
 name|AbstractTokenFilterFactory
 block|{
 DECL|field|synonymMap
-specifier|private
+specifier|protected
 specifier|final
 name|SynonymMap
 name|synonymMap
 decl_stmt|;
 DECL|field|ignoreCase
-specifier|private
+specifier|protected
 specifier|final
 name|boolean
 name|ignoreCase

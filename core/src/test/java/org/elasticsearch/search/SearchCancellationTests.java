@@ -270,11 +270,11 @@ name|reader
 decl_stmt|;
 annotation|@
 name|BeforeClass
-DECL|method|before
+DECL|method|setup
 specifier|public
 specifier|static
 name|void
-name|before
+name|setup
 parameter_list|()
 throws|throws
 name|IOException
@@ -437,11 +437,11 @@ block|}
 block|}
 annotation|@
 name|AfterClass
-DECL|method|after
+DECL|method|cleanup
 specifier|public
 specifier|static
 name|void
-name|after
+name|cleanup
 parameter_list|()
 throws|throws
 name|IOException

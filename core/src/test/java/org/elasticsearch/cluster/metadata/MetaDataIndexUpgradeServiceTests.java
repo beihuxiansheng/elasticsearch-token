@@ -438,6 +438,13 @@ operator|.
 name|upgradeIndexMetaData
 argument_list|(
 name|src
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -487,6 +494,13 @@ operator|.
 name|upgradeIndexMetaData
 argument_list|(
 name|src
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -708,7 +722,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 argument_list|)
 operator|.
 name|put
@@ -721,7 +735,7 @@ name|Version
 operator|.
 name|fromString
 argument_list|(
-literal|"1.7.0"
+literal|"2.4.0"
 argument_list|)
 argument_list|)
 operator|.
@@ -761,6 +775,13 @@ operator|.
 name|upgradeIndexMetaData
 argument_list|(
 name|metaData
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -771,9 +792,9 @@ name|assertEquals
 argument_list|(
 name|message
 argument_list|,
-literal|"The index [[foo/BOOM]] was created before v2.0.0.beta1. It should be reindexed in Elasticsearch 2.x "
+literal|"The index [[foo/BOOM]] was created with version [2.4.0] but the minimum compatible version is [5.0.0]."
 operator|+
-literal|"before upgrading to "
+literal|" It should be re-indexed in Elasticsearch 5.x before upgrading to "
 operator|+
 name|Version
 operator|.
@@ -805,7 +826,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 argument_list|)
 operator|.
 name|put
@@ -818,7 +839,7 @@ name|Version
 operator|.
 name|fromString
 argument_list|(
-literal|"2.1.0"
+literal|"5.1.0"
 argument_list|)
 argument_list|)
 operator|.
@@ -847,6 +868,13 @@ operator|.
 name|upgradeIndexMetaData
 argument_list|(
 name|goodMeta
+argument_list|,
+name|Version
+operator|.
+name|V_5_0_0
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -926,7 +954,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0_beta1
 argument_list|)
 operator|.
 name|put

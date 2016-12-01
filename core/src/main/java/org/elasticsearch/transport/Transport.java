@@ -236,20 +236,6 @@ parameter_list|)
 throws|throws
 name|UnknownHostException
 function_decl|;
-comment|/**      * Is the address type supported.      */
-DECL|method|addressSupported
-name|boolean
-name|addressSupported
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|TransportAddress
-argument_list|>
-name|address
-parameter_list|)
-function_decl|;
 comment|/**      * Returns<tt>true</tt> if the node is connected.      */
 DECL|method|nodeConnected
 name|boolean
@@ -259,24 +245,16 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Connects to the given node, if already connected, does nothing.      */
+comment|/**      * Connects to a node with the given connection profile. Use {@link ConnectionProfile#LIGHT_PROFILE} when just connecting for ping      * and then disconnecting. If the node is already connected this method has no effect      */
 DECL|method|connectToNode
 name|void
 name|connectToNode
 parameter_list|(
 name|DiscoveryNode
 name|node
-parameter_list|)
-throws|throws
-name|ConnectTransportException
-function_decl|;
-comment|/**      * Connects to a node in a light manner. Used when just connecting for ping and then      * disconnecting.      */
-DECL|method|connectToNodeLight
-name|void
-name|connectToNodeLight
-parameter_list|(
-name|DiscoveryNode
-name|node
+parameter_list|,
+name|ConnectionProfile
+name|connectionProfile
 parameter_list|)
 throws|throws
 name|ConnectTransportException

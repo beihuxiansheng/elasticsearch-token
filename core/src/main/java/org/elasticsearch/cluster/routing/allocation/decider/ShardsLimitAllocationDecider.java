@@ -460,9 +460,14 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this node [%d], cluster-level limit per node: [%d]"
+literal|"too many shards [%d] allocated to this node, [%s=%d]"
 argument_list|,
 name|nodeShardCount
+argument_list|,
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterShardLimit
 argument_list|)
@@ -490,14 +495,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this index [%s] on node [%d], index-level limit per node: [%d]"
+literal|"too many shards [%d] allocated to this node for index [%s], [%s=%d]"
+argument_list|,
+name|indexShardCount
 argument_list|,
 name|shardRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
-name|indexShardCount
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|indexShardLimit
 argument_list|)
@@ -514,7 +524,9 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard count is under index limit [%d] and cluster level node limit [%d] of total shards per node"
+literal|"the shard count [%d] for this node is under the index limit [%d] and cluster level node limit [%d]"
+argument_list|,
+name|nodeShardCount
 argument_list|,
 name|indexShardLimit
 argument_list|,
@@ -688,9 +700,14 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this node [%d], cluster-level limit per node: [%d]"
+literal|"too many shards [%d] allocated to this node, [%s=%d]"
 argument_list|,
 name|nodeShardCount
+argument_list|,
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterShardLimit
 argument_list|)
@@ -718,14 +735,19 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this index [%s] on node [%d], index-level limit per node: [%d]"
+literal|"too many shards [%d] allocated to this node for index [%s], [%s=%d]"
+argument_list|,
+name|indexShardCount
 argument_list|,
 name|shardRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
-name|indexShardCount
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|indexShardLimit
 argument_list|)
@@ -742,7 +764,9 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard count is under index limit [%d] and cluster level node limit [%d] of total shards per node"
+literal|"the shard count [%d] for this node is under the index limit [%d] and cluster level node limit [%d]"
+argument_list|,
+name|nodeShardCount
 argument_list|,
 name|indexShardLimit
 argument_list|,
@@ -849,9 +873,14 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this node [%d], cluster-level limit per node: [%d]"
+literal|"too many shards [%d] allocated to this node, [%s=%d]"
 argument_list|,
 name|nodeShardCount
+argument_list|,
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterShardLimit
 argument_list|)
@@ -868,7 +897,9 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard count is under node limit [%d] of total shards per node"
+literal|"the shard count [%d] for this node is under the cluster level node limit [%d]"
+argument_list|,
+name|nodeShardCount
 argument_list|,
 name|clusterShardLimit
 argument_list|)

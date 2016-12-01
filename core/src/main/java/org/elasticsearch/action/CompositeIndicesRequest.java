@@ -14,18 +14,8 @@ name|action
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  * Needs to be implemented by all {@link org.elasticsearch.action.ActionRequest} subclasses that are composed of multiple subrequests  * which relate to one or more indices. Allows to retrieve those subrequests and reason about them separately. A composite request is  * executed by its own transport action class (e.g. {@link org.elasticsearch.action.search.TransportMultiSearchAction}), which goes  * through all the subrequests and delegates their exection to the appropriate transport action (e.g.  * {@link org.elasticsearch.action.search.TransportSearchAction}) for each single item.  */
+comment|/**  * Marker interface that needs to be implemented by all {@link org.elasticsearch.action.ActionRequest} subclasses that are composed of  * multiple sub-requests which relate to one or more indices.  A composite request is executed by its own transport action class  * (e.g. {@link org.elasticsearch.action.search.TransportMultiSearchAction}), which goes through all sub-requests and delegates their  * execution to the appropriate transport action (e.g. {@link org.elasticsearch.action.search.TransportSearchAction}) for each single item.  */
 end_comment
 
 begin_interface
@@ -33,19 +23,7 @@ DECL|interface|CompositeIndicesRequest
 specifier|public
 interface|interface
 name|CompositeIndicesRequest
-block|{
-comment|/**      * Returns the subrequests that a composite request is composed of      */
-DECL|method|subRequests
-name|List
-argument_list|<
-name|?
-extends|extends
-name|IndicesRequest
-argument_list|>
-name|subRequests
-parameter_list|()
-function_decl|;
-block|}
+block|{ }
 end_interface
 
 end_unit

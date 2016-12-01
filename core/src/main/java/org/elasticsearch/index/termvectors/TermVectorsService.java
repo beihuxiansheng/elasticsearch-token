@@ -416,20 +416,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|StringFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|TextFieldMapper
 import|;
 end_import
@@ -1275,14 +1261,6 @@ block|{
 comment|// must be a string
 if|if
 condition|(
-name|fieldType
-operator|instanceof
-name|StringFieldMapper
-operator|.
-name|StringFieldType
-operator|==
-literal|false
-operator|&&
 name|fieldType
 operator|instanceof
 name|KeywordFieldMapper

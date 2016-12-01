@@ -44,6 +44,34 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|TimeoutSuite
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TimeUnits
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -103,6 +131,18 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|TimeoutSuite
+argument_list|(
+name|millis
+operator|=
+literal|40
+operator|*
+name|TimeUnits
+operator|.
+name|MINUTE
+argument_list|)
+comment|// some of the windows test VMs are slow as hell
 DECL|class|SmokeTestMultiNodeClientYamlTestSuiteIT
 specifier|public
 class|class

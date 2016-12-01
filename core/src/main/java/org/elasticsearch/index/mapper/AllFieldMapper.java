@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|Field
+name|IndexOptions
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexOptions
+name|IndexableField
 import|;
 end_import
 
@@ -1215,7 +1215,7 @@ name|context
 parameter_list|,
 name|List
 argument_list|<
-name|Field
+name|IndexableField
 argument_list|>
 name|fields
 parameter_list|)

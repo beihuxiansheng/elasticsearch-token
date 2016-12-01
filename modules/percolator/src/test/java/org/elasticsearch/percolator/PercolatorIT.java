@@ -2272,7 +2272,7 @@ literal|"type"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|execute

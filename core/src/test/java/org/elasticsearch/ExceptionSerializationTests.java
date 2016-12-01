@@ -8411,16 +8411,15 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_2_UNRELEASED
+name|V_5_0_2
 argument_list|)
 condition|)
 block|{
-comment|// remove this once 5_0_2 is released randomVersionBetween asserts that this version is in the constant table..
 name|version
 operator|=
 name|Version
 operator|.
-name|V_5_0_2_UNRELEASED
+name|V_5_0_2
 expr_stmt|;
 block|}
 name|ShardLockObtainFailedException

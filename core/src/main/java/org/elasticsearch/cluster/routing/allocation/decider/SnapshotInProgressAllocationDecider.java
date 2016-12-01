@@ -312,7 +312,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Preventing snapshotted shard [{}] to be moved from node [{}]"
+literal|"Preventing snapshotted shard [{}] from being moved away from node [{}]"
 argument_list|,
 name|shardRouting
 operator|.
@@ -333,11 +333,11 @@ name|decision
 argument_list|(
 name|Decision
 operator|.
-name|NO
+name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"snapshot for shard [%s] is currently running on node [%s]"
+literal|"waiting for snapshotting of shard [%s] to complete on this node [%s]"
 argument_list|,
 name|shardRouting
 operator|.
@@ -364,7 +364,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard is not primary or relocation is disabled"
+literal|"the shard is not being snapshotted"
 argument_list|)
 return|;
 block|}

@@ -11795,11 +11795,11 @@ return|;
 block|}
 annotation|@
 name|Before
-DECL|method|before
+DECL|method|setupTestCluster
 specifier|public
 specifier|final
 name|void
-name|before
+name|setupTestCluster
 parameter_list|()
 throws|throws
 name|Exception
@@ -11812,35 +11812,30 @@ condition|)
 block|{
 name|printTestMessage
 argument_list|(
-literal|"setup"
+literal|"setting up"
 argument_list|)
 expr_stmt|;
 name|beforeInternal
 argument_list|()
 expr_stmt|;
-block|}
 name|printTestMessage
 argument_list|(
-literal|"starting"
+literal|"all set up"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|After
-DECL|method|after
+DECL|method|cleanUpCluster
 specifier|public
 specifier|final
 name|void
-name|after
+name|cleanUpCluster
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|printTestMessage
-argument_list|(
-literal|"finished"
-argument_list|)
-expr_stmt|;
 comment|// Deleting indices is going to clear search contexts implicitly so we
 comment|// need to check that there are no more in-flight search contexts before
 comment|// we remove indices

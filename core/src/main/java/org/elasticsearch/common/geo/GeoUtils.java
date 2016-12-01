@@ -122,20 +122,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|GeoPointFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -199,11 +185,7 @@ specifier|final
 name|String
 name|LATITUDE
 init|=
-name|GeoPointFieldMapper
-operator|.
-name|Names
-operator|.
-name|LAT
+literal|"lat"
 decl_stmt|;
 DECL|field|LONGITUDE
 specifier|public
@@ -212,11 +194,7 @@ specifier|final
 name|String
 name|LONGITUDE
 init|=
-name|GeoPointFieldMapper
-operator|.
-name|Names
-operator|.
-name|LON
+literal|"lon"
 decl_stmt|;
 DECL|field|GEOHASH
 specifier|public
@@ -225,11 +203,7 @@ specifier|final
 name|String
 name|GEOHASH
 init|=
-name|GeoPointFieldMapper
-operator|.
-name|Names
-operator|.
-name|GEOHASH
+literal|"geohash"
 decl_stmt|;
 comment|/** Earth ellipsoid major axis defined by WGS 84 in meters */
 DECL|field|EARTH_SEMI_MAJOR_AXIS
