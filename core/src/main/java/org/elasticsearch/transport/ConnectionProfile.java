@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -159,6 +173,8 @@ argument_list|)
 argument_list|)
 argument_list|,
 literal|1
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 DECL|field|handles
@@ -176,6 +192,12 @@ specifier|final
 name|int
 name|numConnections
 decl_stmt|;
+DECL|field|connectTimeout
+specifier|private
+specifier|final
+name|TimeValue
+name|connectTimeout
+decl_stmt|;
 DECL|method|ConnectionProfile
 specifier|private
 name|ConnectionProfile
@@ -188,6 +210,9 @@ name|handles
 parameter_list|,
 name|int
 name|numConnections
+parameter_list|,
+name|TimeValue
+name|connectTimeout
 parameter_list|)
 block|{
 name|this
@@ -201,6 +226,12 @@ operator|.
 name|numConnections
 operator|=
 name|numConnections
+expr_stmt|;
+name|this
+operator|.
+name|connectTimeout
+operator|=
+name|connectTimeout
 expr_stmt|;
 block|}
 comment|/**      * A builder to build a new {@link ConnectionProfile}      */
@@ -253,6 +284,48 @@ name|offset
 init|=
 literal|0
 decl_stmt|;
+DECL|field|connectTimeout
+specifier|private
+name|TimeValue
+name|connectTimeout
+decl_stmt|;
+comment|/**          * Sets a connect connectTimeout for this connection profile          */
+DECL|method|setConnectTimeout
+specifier|public
+name|void
+name|setConnectTimeout
+parameter_list|(
+name|TimeValue
+name|connectTimeout
+parameter_list|)
+block|{
+if|if
+condition|(
+name|connectTimeout
+operator|.
+name|millis
+argument_list|()
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"connectTimeout must be non-negative but was: "
+operator|+
+name|connectTimeout
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|connectTimeout
+operator|=
+name|connectTimeout
+expr_stmt|;
+block|}
 comment|/**          * Adds a number of connections for one or more types. Each type can only be added once.          * @param numConnections the number of connections to use in the pool for the given connection types          * @param types a set of types that should share the given number of connections          */
 DECL|method|addConnections
 specifier|public
@@ -430,9 +503,22 @@ name|handles
 argument_list|)
 argument_list|,
 name|offset
+argument_list|,
+name|connectTimeout
 argument_list|)
 return|;
 block|}
+block|}
+comment|/**      * Returns the connect timeout or<code>null</code> if no explicit timeout is set on this profile.      */
+DECL|method|getConnectTimeout
+specifier|public
+name|TimeValue
+name|getConnectTimeout
+parameter_list|()
+block|{
+return|return
+name|connectTimeout
+return|;
 block|}
 comment|/**      * Returns the total number of connections for this profile      */
 DECL|method|getNumConnections
