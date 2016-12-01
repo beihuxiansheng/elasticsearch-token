@@ -927,7 +927,7 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|//TODO add a static whitelist like in reindex from remote
+comment|//TODO do we need a static whitelist like in reindex from remote?
 for|for
 control|(
 name|String
@@ -1468,8 +1468,6 @@ decl_stmt|;
 comment|//TODO we just take a random host for now, implement fallback in case of connect failure
 try|try
 block|{
-comment|//TODO we should call liveness api and get back an updated discovery node. that would have the updated version
-comment|// and would make the search shards call more future-proof. Also validating the cluster name may be a thing.
 return|return
 name|connectToRemoteNode
 argument_list|(
@@ -1530,7 +1528,6 @@ name|remoteNode
 argument_list|)
 expr_stmt|;
 comment|// disconnect the light connection
-comment|//TODO should the list of seeds get updated based on nodes that we get back from the remote cluster through search_shards?
 comment|// now go and do a real connection with the updated version of the node
 name|transportService
 operator|.
@@ -1542,7 +1539,6 @@ expr_stmt|;
 return|return
 name|discoveryNode
 return|;
-comment|//TODO is it ok to connect and leave the node connected? It will be pinged from now on?
 block|}
 DECL|method|sendSearchShards
 name|void
