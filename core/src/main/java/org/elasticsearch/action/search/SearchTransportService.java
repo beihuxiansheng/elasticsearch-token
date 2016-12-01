@@ -1536,6 +1536,8 @@ argument_list|(
 name|discoveryNode
 argument_list|)
 expr_stmt|;
+comment|//TODO at the moment the configured cluster names are really just labels. We should validate that all the nodes
+comment|//belong to the same cluster, also validate the cluster name against the configured label and make sure they match
 return|return
 name|discoveryNode
 return|;
