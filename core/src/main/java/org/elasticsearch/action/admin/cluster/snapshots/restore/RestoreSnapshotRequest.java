@@ -2341,6 +2341,26 @@ name|ignoreIndexSettings
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getDescription
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+return|return
+literal|"snapshot ["
+operator|+
+name|repository
+operator|+
+literal|":"
+operator|+
+name|snapshot
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 
