@@ -1468,12 +1468,14 @@ decl_stmt|;
 comment|//TODO we just take a random host for now, implement fallback in case of connect failure
 try|try
 block|{
+comment|//TODO at the moment the configured cluster names are really just labels. We should validate that all the nodes
+comment|//belong to the same cluster, also validate the cluster name against the configured label and make sure they match
 name|DiscoveryNode
 name|discoveryNode
 init|=
 name|transportService
 operator|.
-name|connectToNodeLightAndHandshake
+name|connectToNodeAndHandshake
 argument_list|(
 name|remoteNode
 argument_list|,
@@ -1496,8 +1498,6 @@ argument_list|(
 name|discoveryNode
 argument_list|)
 expr_stmt|;
-comment|//TODO at the moment the configured cluster names are really just labels. We should validate that all the nodes
-comment|//belong to the same cluster, also validate the cluster name against the configured label and make sure they match
 return|return
 name|discoveryNode
 return|;
