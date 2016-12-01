@@ -581,10 +581,10 @@ block|}
 block|}
 annotation|@
 name|Before
-DECL|method|before
+DECL|method|setup
 specifier|public
 name|void
-name|before
+name|setup
 parameter_list|()
 block|{
 name|templateBase

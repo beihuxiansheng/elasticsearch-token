@@ -370,10 +370,10 @@ name|parser
 decl_stmt|;
 annotation|@
 name|Before
-DECL|method|before
+DECL|method|setup
 specifier|public
 name|void
-name|before
+name|setup
 parameter_list|()
 block|{
 name|indexService
