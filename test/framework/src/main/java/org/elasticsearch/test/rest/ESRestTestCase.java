@@ -814,11 +814,11 @@ block|}
 comment|/**      * Clean up after the test case.      */
 annotation|@
 name|After
-DECL|method|after
+DECL|method|cleanUpCluster
 specifier|public
 specifier|final
 name|void
-name|after
+name|cleanUpCluster
 parameter_list|()
 throws|throws
 name|Exception
