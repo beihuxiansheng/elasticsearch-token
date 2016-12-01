@@ -3654,7 +3654,10 @@ name|SETTING_VERSION_CREATED
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0_beta1
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 operator|.
 name|id
 argument_list|)

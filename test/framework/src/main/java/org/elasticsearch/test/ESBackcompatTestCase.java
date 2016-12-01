@@ -705,7 +705,7 @@ block|{
 return|return
 name|Version
 operator|.
-name|smallest
+name|min
 argument_list|(
 name|Version
 operator|.

@@ -729,7 +729,10 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 condition|)
 continue|continue;
@@ -1774,7 +1777,9 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"should have failed to restore"
+literal|"should have failed to restore - "
+operator|+
+name|repo
 argument_list|)
 expr_stmt|;
 block|}

@@ -1481,6 +1481,8 @@ argument_list|,
 name|transportService
 argument_list|,
 name|this
+operator|::
+name|localNode
 argument_list|,
 operator|new
 name|MembershipListener
@@ -4910,6 +4912,26 @@ throw|;
 block|}
 else|else
 block|{
+comment|// we do this in a couple of places including the cluster update thread. This one here is really just best effort
+comment|// to ensure we fail as fast as possible.
+name|MembershipAction
+operator|.
+name|ensureIndexCompatibility
+argument_list|(
+name|node
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|getMetaData
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// try and connect to the node, if it fails, we can raise an exception back to the client...
 name|transportService
 operator|.

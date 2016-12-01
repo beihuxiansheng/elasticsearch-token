@@ -344,6 +344,9 @@ name|upgradeIndexMetaData
 parameter_list|(
 name|IndexMetaData
 name|indexMetaData
+parameter_list|,
+name|Version
+name|minimumIndexCompatibilityVersion
 parameter_list|)
 block|{
 comment|// Throws an exception if there are too-old segments:
@@ -372,6 +375,8 @@ block|}
 name|checkSupportedVersion
 argument_list|(
 name|indexMetaData
+argument_list|,
+name|minimumIndexCompatibilityVersion
 argument_list|)
 expr_stmt|;
 name|IndexMetaData
@@ -424,7 +429,7 @@ name|CURRENT
 argument_list|)
 return|;
 block|}
-comment|/**      * Elasticsearch 5.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be reindexed in Elasticsearch 2.x      * before they can be opened by this version of elasticsearch.     */
+comment|/**      * Elasticsearch v6.0 no longer supports indices created pre v5.0. All indices      * that were created before Elasticsearch v5.0 should be re-indexed in Elasticsearch 5.x      * before they can be opened by this version of elasticsearch.      */
 DECL|method|checkSupportedVersion
 specifier|private
 name|void
@@ -432,6 +437,9 @@ name|checkSupportedVersion
 parameter_list|(
 name|IndexMetaData
 name|indexMetaData
+parameter_list|,
+name|Version
+name|minimumIndexCompatibilityVersion
 parameter_list|)
 block|{
 if|if
@@ -450,6 +458,8 @@ operator|&&
 name|isSupportedVersion
 argument_list|(
 name|indexMetaData
+argument_list|,
+name|minimumIndexCompatibilityVersion
 argument_list|)
 operator|==
 literal|false
@@ -466,9 +476,24 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] was created before v2.0.0.beta1."
+literal|"] was created with version ["
 operator|+
-literal|" It should be reindexed in Elasticsearch 2.x before upgrading to "
+name|indexMetaData
+operator|.
+name|getCreationVersion
+argument_list|()
+operator|+
+literal|"] but the minimum compatible version is ["
+operator|+
+name|minimumIndexCompatibilityVersion
+operator|+
+literal|"]. It should be re-indexed in Elasticsearch "
+operator|+
+name|minimumIndexCompatibilityVersion
+operator|.
+name|major
+operator|+
+literal|".x before upgrading to "
 operator|+
 name|Version
 operator|.
@@ -488,6 +513,9 @@ name|isSupportedVersion
 parameter_list|(
 name|IndexMetaData
 name|indexMetaData
+parameter_list|,
+name|Version
+name|minimumIndexCompatibilityVersion
 parameter_list|)
 block|{
 return|return
@@ -498,9 +526,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|Version
-operator|.
-name|V_5_0_0_beta1
+name|minimumIndexCompatibilityVersion
 argument_list|)
 return|;
 block|}

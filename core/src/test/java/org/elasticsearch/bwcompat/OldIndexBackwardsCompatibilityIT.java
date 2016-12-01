@@ -1617,7 +1617,10 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
 argument_list|)
 condition|)
 continue|continue;

@@ -2451,7 +2451,7 @@ name|createdVersion
 init|=
 name|Version
 operator|.
-name|smallest
+name|min
 argument_list|(
 name|Version
 operator|.
