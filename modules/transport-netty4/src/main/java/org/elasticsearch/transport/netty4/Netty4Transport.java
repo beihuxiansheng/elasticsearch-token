@@ -2653,14 +2653,6 @@ decl_stmt|;
 try|try
 block|{
 specifier|final
-name|int
-name|numConnections
-init|=
-name|channels
-operator|.
-name|length
-decl_stmt|;
-specifier|final
 name|TimeValue
 name|connectTimeout
 decl_stmt|;
@@ -2772,7 +2764,9 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|numConnections
+name|channels
+operator|.
+name|length
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2796,7 +2790,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|numConnections
+name|channels
+operator|.
+name|length
 condition|;
 name|i
 operator|++
@@ -2933,6 +2929,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+assert|assert
+name|iterator
+operator|.
+name|hasNext
+argument_list|()
+operator|==
+literal|false
+operator|:
+literal|"not all created connection have been consumed"
+assert|;
 block|}
 catch|catch
 parameter_list|(
