@@ -212,6 +212,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|hamcrest
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -506,6 +516,12 @@ name|builder
 parameter_list|,
 name|CancelAssertion
 name|assertion
+parameter_list|,
+name|Matcher
+argument_list|<
+name|String
+argument_list|>
+name|taskDescriptionMatcher
 parameter_list|)
 throws|throws
 name|Exception
@@ -748,6 +764,17 @@ name|status
 operator|.
 name|getReasonCancelled
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Description shouldn't be empty
+name|assertThat
+argument_list|(
+name|mainTask
+operator|.
+name|getDescription
+argument_list|()
+argument_list|,
+name|taskDescriptionMatcher
 argument_list|)
 expr_stmt|;
 comment|// Cancel the request while the reindex action is blocked by the indexing operation listeners.
@@ -1322,6 +1349,19 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"reindex from ["
+operator|+
+name|INDEX
+operator|+
+literal|"] to [dest]["
+operator|+
+name|TYPE
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1455,6 +1495,15 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"update-by-query ["
+operator|+
+name|INDEX
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertAcked
@@ -1558,6 +1607,15 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"delete-by-query ["
+operator|+
+name|INDEX
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1665,6 +1723,19 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"reindex from ["
+operator|+
+name|INDEX
+operator|+
+literal|"] to [dest]["
+operator|+
+name|TYPE
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1811,6 +1882,15 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"update-by-query ["
+operator|+
+name|INDEX
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertAcked
@@ -1927,6 +2007,15 @@ name|modified
 argument_list|)
 expr_stmt|;
 block|}
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"delete-by-query ["
+operator|+
+name|INDEX
+operator|+
+literal|"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
