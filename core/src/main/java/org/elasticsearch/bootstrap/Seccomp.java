@@ -679,14 +679,9 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"len"
-block|,
+argument_list|,
 literal|"filter"
-block|}
 argument_list|)
 return|;
 block|}

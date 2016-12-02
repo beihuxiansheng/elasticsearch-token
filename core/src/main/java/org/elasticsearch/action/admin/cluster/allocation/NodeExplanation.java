@@ -705,9 +705,6 @@ argument_list|(
 literal|"final_explanation"
 argument_list|,
 name|finalExplanation
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

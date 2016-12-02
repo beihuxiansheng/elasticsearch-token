@@ -300,14 +300,9 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"rlim_cur"
-block|,
+argument_list|,
 literal|"rlim_max"
-block|}
 argument_list|)
 return|;
 block|}
