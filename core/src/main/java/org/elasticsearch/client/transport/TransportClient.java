@@ -1366,6 +1366,8 @@ operator|.
 name|getClusterSettings
 argument_list|()
 argument_list|,
+name|threadPool
+argument_list|,
 name|pluginsService
 operator|.
 name|filterPlugins
