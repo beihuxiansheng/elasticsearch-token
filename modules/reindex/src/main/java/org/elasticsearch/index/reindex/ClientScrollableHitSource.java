@@ -615,6 +615,11 @@ argument_list|>
 name|onResponse
 parameter_list|)
 block|{
+name|searchWithRetry
+argument_list|(
+name|listener
+lambda|->
+block|{
 name|SearchScrollRequest
 name|request
 init|=
@@ -652,10 +657,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|searchWithRetry
-argument_list|(
-name|listener
-lambda|->
 name|client
 operator|.
 name|searchScroll
@@ -664,6 +665,8 @@ name|request
 argument_list|,
 name|listener
 argument_list|)
+expr_stmt|;
+block|}
 argument_list|,
 name|r
 lambda|->
@@ -826,6 +829,11 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+comment|/**              * The runnable to run that retries in the same context as the original call.              */
+specifier|private
+name|Runnable
+name|retryWithContext
+decl_stmt|;
 specifier|private
 specifier|volatile
 name|int
@@ -954,7 +962,7 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
-name|this
+name|retryWithContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -1013,9 +1021,29 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|RetryHelper
+name|helper
+init|=
 operator|new
 name|RetryHelper
 argument_list|()
+decl_stmt|;
+comment|// Wrap the helper in a runnable that preserves the current context so we keep it on retry.
+name|helper
+operator|.
+name|retryWithContext
+operator|=
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
+operator|.
+name|preserveContext
+argument_list|(
+name|helper
+argument_list|)
+expr_stmt|;
+name|helper
 operator|.
 name|run
 argument_list|()
