@@ -621,7 +621,7 @@ name|getHostName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNotEquals
+name|assertEquals
 argument_list|(
 name|transportAddress
 operator|.
@@ -686,6 +686,27 @@ argument_list|()
 operator|.
 name|getPort
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"if the minimum compatibility version moves past 5.0.3, remove the special casing in DiscoverNode(StreamInput) and "
+operator|+
+literal|"the TransportAddress(StreamInput, String) constructor"
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_3_UNRELEASED
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

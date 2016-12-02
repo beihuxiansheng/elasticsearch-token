@@ -1047,6 +1047,21 @@ operator|.
 name|intern
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_3_UNRELEASED
+argument_list|)
+condition|)
+block|{
 name|this
 operator|.
 name|address
@@ -1057,6 +1072,25 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we need to do this to preserve the host information during pinging and joining of a master. Since the version of the
+comment|// DiscoveryNode is set to Version#minimumCompatibilityVersion(), the host information gets lost as we do not serialize the
+comment|// hostString for the address
+name|this
+operator|.
+name|address
+operator|=
+operator|new
+name|TransportAddress
+argument_list|(
+name|in
+argument_list|,
+name|hostName
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|size
 init|=
