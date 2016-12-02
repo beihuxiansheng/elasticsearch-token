@@ -413,6 +413,18 @@ name|build
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|ignoreExternalCluster
+specifier|protected
+name|boolean
+name|ignoreExternalCluster
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
