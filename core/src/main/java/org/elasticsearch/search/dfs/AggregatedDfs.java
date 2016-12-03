@@ -464,9 +464,6 @@ block|{
 name|Term
 name|term
 init|=
-operator|(
-name|Term
-operator|)
 name|c
 operator|.
 name|key
@@ -494,9 +491,6 @@ expr_stmt|;
 name|TermStatistics
 name|stats
 init|=
-operator|(
-name|TermStatistics
-operator|)
 name|c
 operator|.
 name|value
