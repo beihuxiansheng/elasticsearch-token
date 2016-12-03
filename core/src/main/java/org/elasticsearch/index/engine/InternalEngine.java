@@ -1303,7 +1303,7 @@ argument_list|)
 expr_stmt|;
 name|seqNoStats
 operator|=
-name|loadSeqNoStatsLucene
+name|loadSeqNoStatsFromLucene
 argument_list|(
 name|SequenceNumbersService
 operator|.
@@ -2369,7 +2369,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|loadSeqNoStatsLucene
+name|loadSeqNoStatsFromLucene
 argument_list|(
 name|globalCheckpoint
 argument_list|,
@@ -2378,11 +2378,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads the sequence number stats from the Lucene commit point (maximum sequence number and local checkpoint) and uses the      * specified global checkpoint.      *      * @param globalCheckpoint the global checkpoint to use      * @param indexWriter the index writer (for the Lucene commit point)      * @return the sequence number stats      */
-DECL|method|loadSeqNoStatsLucene
+DECL|method|loadSeqNoStatsFromLucene
 specifier|private
 specifier|static
 name|SeqNoStats
-name|loadSeqNoStatsLucene
+name|loadSeqNoStatsFromLucene
 parameter_list|(
 specifier|final
 name|long
