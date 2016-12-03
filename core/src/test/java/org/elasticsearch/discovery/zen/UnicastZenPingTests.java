@@ -3190,9 +3190,9 @@ argument_list|)
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueSeconds
 argument_list|(
-literal|100
+literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
