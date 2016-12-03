@@ -483,6 +483,10 @@ name|AwsS3Service
 operator|.
 name|REGION_SETTING
 argument_list|,
+name|AwsS3Service
+operator|.
+name|READ_TIMEOUT
+argument_list|,
 comment|// Register S3 specific settings: cloud.aws.s3
 name|AwsS3Service
 operator|.
@@ -543,6 +547,12 @@ operator|.
 name|CLOUD_S3
 operator|.
 name|ENDPOINT_SETTING
+argument_list|,
+name|AwsS3Service
+operator|.
+name|CLOUD_S3
+operator|.
+name|READ_TIMEOUT
 argument_list|,
 comment|// Register S3 repositories settings: repositories.s3
 name|S3Repository
