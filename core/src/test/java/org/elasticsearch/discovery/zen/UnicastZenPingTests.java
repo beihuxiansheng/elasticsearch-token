@@ -1813,7 +1813,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1904,7 +1904,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1992,7 +1992,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2037,7 +2037,7 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3817,13 +3817,13 @@ name|resolveTimeout
 init|=
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueSeconds
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|100
+literal|1
 argument_list|,
-literal|200
+literal|3
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4100,9 +4100,9 @@ argument_list|)
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueSeconds
 argument_list|(
-literal|100
+literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
