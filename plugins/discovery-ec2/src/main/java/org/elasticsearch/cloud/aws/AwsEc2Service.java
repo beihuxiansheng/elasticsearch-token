@@ -453,10 +453,7 @@ literal|"cloud.aws.read_timeout"
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueSeconds
-argument_list|(
-literal|50
-argument_list|)
+name|MINUS_ONE
 argument_list|,
 name|Property
 operator|.

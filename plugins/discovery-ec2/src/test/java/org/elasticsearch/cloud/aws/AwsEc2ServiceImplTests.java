@@ -456,7 +456,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|50000
+name|ClientConfiguration
+operator|.
+name|DEFAULT_SOCKET_TIMEOUT
 argument_list|)
 expr_stmt|;
 block|}
