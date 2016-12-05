@@ -1812,6 +1812,24 @@ literal|"include_in_all"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|parserContext
+operator|.
+name|isWithinMultiField
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"sub-fields shouldn't contain property: include_in_all, and current node is:"
+operator|+
+name|name
+argument_list|)
+throw|;
+block|}
 name|builder
 operator|.
 name|includeInAll
