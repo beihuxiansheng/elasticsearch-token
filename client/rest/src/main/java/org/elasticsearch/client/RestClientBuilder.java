@@ -175,7 +175,7 @@ specifier|final
 name|int
 name|DEFAULT_SOCKET_TIMEOUT_MILLIS
 init|=
-literal|10000
+literal|30000
 decl_stmt|;
 DECL|field|DEFAULT_MAX_RETRY_TIMEOUT_MILLIS
 specifier|public

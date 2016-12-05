@@ -835,6 +835,14 @@ literal|null
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|RemoteInfo
+operator|.
+name|DEFAULT_SOCKET_TIMEOUT
+argument_list|,
+name|RemoteInfo
+operator|.
+name|DEFAULT_CONNECT_TIMEOUT
 argument_list|)
 decl_stmt|;
 name|ReindexRequestBuilder
