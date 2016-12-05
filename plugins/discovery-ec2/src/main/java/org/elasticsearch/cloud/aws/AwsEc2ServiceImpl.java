@@ -829,6 +829,14 @@ literal|"ec2.us-east-1.amazonaws.com"
 expr_stmt|;
 break|break;
 case|case
+literal|"us-east-2"
+case|:
+name|endpoint
+operator|=
+literal|"ec2.us-east-2.amazonaws.com"
+expr_stmt|;
+break|break;
+case|case
 literal|"us-west"
 case|:
 case|case
@@ -858,6 +866,9 @@ operator|=
 literal|"ec2.ap-southeast-1.amazonaws.com"
 expr_stmt|;
 break|break;
+case|case
+literal|"ap-south"
+case|:
 case|case
 literal|"ap-south-1"
 case|:
