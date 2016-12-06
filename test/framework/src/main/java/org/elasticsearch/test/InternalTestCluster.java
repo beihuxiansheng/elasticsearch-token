@@ -11023,9 +11023,17 @@ name|ServiceDisruptionScheme
 name|scheme
 parameter_list|)
 block|{
-name|clearDisruptionScheme
-argument_list|()
-expr_stmt|;
+assert|assert
+name|activeDisruptionScheme
+operator|==
+literal|null
+operator|:
+literal|"there is already and active disruption ["
+operator|+
+name|activeDisruptionScheme
+operator|+
+literal|"]. call clearDisruptionScheme first"
+assert|;
 name|scheme
 operator|.
 name|applyToCluster

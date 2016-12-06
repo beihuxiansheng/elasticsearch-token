@@ -7876,9 +7876,10 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
-name|isolateAllNodes
+name|internalCluster
+argument_list|()
 operator|.
-name|stopDisrupting
+name|clearDisruptionScheme
 argument_list|()
 expr_stmt|;
 name|ensureStableCluster
