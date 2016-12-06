@@ -136,16 +136,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -383,20 +373,6 @@ operator|.
 name|index
 operator|.
 name|MockEngineFactoryPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TruncateTranslogCommand
 import|;
 end_import
 
@@ -773,7 +749,7 @@ block|{
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|1
 argument_list|,
@@ -781,9 +757,6 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|assertAcked
 argument_list|(

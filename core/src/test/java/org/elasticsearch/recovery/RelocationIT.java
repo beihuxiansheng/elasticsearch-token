@@ -4235,13 +4235,10 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 name|nodeSettings
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|String
 index|[]

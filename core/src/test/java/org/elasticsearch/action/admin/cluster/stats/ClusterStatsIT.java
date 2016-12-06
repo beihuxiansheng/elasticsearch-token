@@ -1498,7 +1498,7 @@ block|{
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -1507,9 +1507,6 @@ argument_list|,
 literal|3
 argument_list|)
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|index
 argument_list|(
@@ -2035,7 +2032,7 @@ comment|// start one node with 7 processors.
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNode
 argument_list|(
 name|Settings
 operator|.
@@ -2057,9 +2054,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|waitForNodes
 argument_list|(

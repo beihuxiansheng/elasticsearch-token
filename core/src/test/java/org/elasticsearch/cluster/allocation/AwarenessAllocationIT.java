@@ -348,7 +348,7 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|2
 argument_list|,
@@ -372,9 +372,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|createIndex
 argument_list|(
@@ -715,7 +712,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 name|Settings
 operator|.
@@ -797,9 +794,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|String
 name|A_0
@@ -1214,7 +1208,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 name|Settings
 operator|.
@@ -1256,9 +1250,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 name|String
 name|A_0

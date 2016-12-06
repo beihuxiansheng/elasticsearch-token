@@ -1511,10 +1511,7 @@ comment|// add one more node and wait for it to join
 name|internalCluster
 argument_list|()
 operator|.
-name|startDataOnlyNodeAsync
-argument_list|()
-operator|.
-name|get
+name|startDataOnlyNode
 argument_list|()
 expr_stmt|;
 name|assertNoTimeout

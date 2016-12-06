@@ -366,13 +366,10 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|3
 argument_list|)
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 comment|// Wait for all 3 nodes to be up
 name|assertBusy

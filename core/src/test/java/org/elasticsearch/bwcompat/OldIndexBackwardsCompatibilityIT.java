@@ -624,18 +624,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|OldIndexUtils
 import|;
 end_import
@@ -1094,21 +1082,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|InternalTestCluster
-operator|.
-name|Async
-argument_list|<
 name|List
 argument_list|<
 name|String
-argument_list|>
 argument_list|>
 name|replicas
 init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|1
 argument_list|)
@@ -1164,25 +1147,16 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// workaround for dangling index loading issue when node is master
-name|InternalTestCluster
-operator|.
-name|Async
-argument_list|<
-name|String
-argument_list|>
-name|singleDataPathNode
-init|=
+name|singleDataPathNodeName
+operator|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodeAsync
+name|startNode
 argument_list|(
 name|nodeSettings
-operator|.
-name|build
-argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// start multi data path node
 name|nodeSettings
 operator|=
@@ -1236,33 +1210,17 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// workaround for dangling index loading issue when node is master
-name|InternalTestCluster
-operator|.
-name|Async
-argument_list|<
-name|String
-argument_list|>
-name|multiDataPathNode
-init|=
+name|multiDataPathNodeName
+operator|=
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodeAsync
+name|startNode
 argument_list|(
 name|nodeSettings
-operator|.
-name|build
-argument_list|()
 argument_list|)
-decl_stmt|;
-comment|// find single data path dir
-name|singleDataPathNodeName
-operator|=
-name|singleDataPathNode
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
+comment|// find single data path dir
 name|Path
 index|[]
 name|nodePaths
@@ -1332,13 +1290,6 @@ name|singleDataPath
 argument_list|)
 expr_stmt|;
 comment|// find multi data path dirs
-name|multiDataPathNodeName
-operator|=
-name|multiDataPathNode
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
 name|nodePaths
 operator|=
 name|internalCluster
@@ -1459,12 +1410,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-name|replicas
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-comment|// wait for replicas
 block|}
 DECL|method|upgradeIndexFolder
 name|void

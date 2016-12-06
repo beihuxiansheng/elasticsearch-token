@@ -542,22 +542,6 @@ name|ExecutionException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertNoTimeout
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ESIntegTestCase
@@ -1875,10 +1859,7 @@ comment|// add one more node and wait for it to join
 name|internalCluster
 argument_list|()
 operator|.
-name|startDataOnlyNodeAsync
-argument_list|()
-operator|.
-name|get
+name|startDataOnlyNode
 argument_list|()
 expr_stmt|;
 name|ensureClusterSizeConsistency

@@ -928,13 +928,10 @@ block|{
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|2
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|assertAcked
 argument_list|(
@@ -1409,7 +1406,7 @@ block|{
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|2
 argument_list|,
@@ -1434,9 +1431,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|prepareCreate
 argument_list|(
