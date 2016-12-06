@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor implementation may modify the data belonging to a document.  * Whether changes are made and what exactly is modified is up to the implementation.  */
+comment|/**  * A processor implementation may modify the data belonging to a document.  * Whether changes are made and what exactly is modified is up to the implementation.  *  * Processors may get called concurrently and thus need to be thread-safe.  */
 end_comment
 
 begin_interface
