@@ -284,7 +284,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard cannot be allocated to the same node on which a copy of the shard [%s] already exists"
+literal|"the shard cannot be allocated to the same node on which a copy of the shard already exists [%s]"
 argument_list|,
 name|assignedShard
 operator|.

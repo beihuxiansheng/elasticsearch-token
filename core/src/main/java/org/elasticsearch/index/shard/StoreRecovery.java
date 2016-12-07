@@ -2414,7 +2414,7 @@ name|IndexShardRecoveryException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"failed to recovery from gateway"
+literal|"failed to recover from gateway"
 argument_list|,
 name|e
 argument_list|)

@@ -84,7 +84,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|RoutingAllocation
+name|AllocationDecision
 import|;
 end_import
 
@@ -100,9 +100,7 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|decider
-operator|.
-name|Decision
+name|RoutingAllocation
 import|;
 end_import
 
@@ -243,12 +241,10 @@ if|if
 condition|(
 name|allocateUnassignedDecision
 operator|.
-name|getFinalDecisionSafe
+name|getAllocationDecision
 argument_list|()
 operator|==
-name|Decision
-operator|.
-name|Type
+name|AllocationDecision
 operator|.
 name|YES
 condition|)
@@ -259,7 +255,10 @@ name|initialize
 argument_list|(
 name|allocateUnassignedDecision
 operator|.
-name|getAssignedNodeId
+name|getTargetNode
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 argument_list|,
 name|allocateUnassignedDecision

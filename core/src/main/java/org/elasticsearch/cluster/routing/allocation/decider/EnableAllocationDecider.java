@@ -852,7 +852,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"no rebalancing is allowed due to {}"
+literal|"no rebalancing is allowed due to %s"
 argument_list|,
 name|setting
 argument_list|(
@@ -901,7 +901,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"replica rebalancing is forbidden due to {}"
+literal|"replica rebalancing is forbidden due to %s"
 argument_list|,
 name|setting
 argument_list|(
@@ -953,7 +953,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"primary rebalancing is forbidden due to {}"
+literal|"primary rebalancing is forbidden due to %s"
 argument_list|,
 name|setting
 argument_list|(
