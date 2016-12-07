@@ -600,9 +600,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|bulk
 operator|.
-name|TransportIndexAction
+name|TransportShardBulkAction
 operator|.
 name|executeIndexRequestOnPrimary
 import|;
@@ -616,9 +616,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|bulk
 operator|.
-name|TransportIndexAction
+name|TransportShardBulkAction
 operator|.
 name|executeIndexRequestOnReplica
 import|;

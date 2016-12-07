@@ -855,8 +855,6 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-literal|false
-argument_list|,
 name|timeout
 argument_list|,
 name|client
@@ -901,8 +899,6 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-name|autoCreateIndex
-argument_list|,
 name|timeout
 argument_list|,
 name|client
@@ -947,8 +943,6 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-literal|false
-argument_list|,
 name|timeout
 argument_list|,
 name|client
@@ -985,8 +979,6 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-name|autoCreateIndex
-argument_list|,
 name|timeout
 argument_list|,
 name|client
@@ -1215,9 +1207,6 @@ DECL|method|checkWriteAction
 name|void
 name|checkWriteAction
 parameter_list|(
-name|boolean
-name|autoCreateIndex
-parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|,
@@ -1262,27 +1251,6 @@ name|MasterNotDiscoveredException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|e
-operator|instanceof
-name|MasterNotDiscoveredException
-condition|)
-block|{
-name|assertTrue
-argument_list|(
-name|autoCreateIndex
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertFalse
-argument_list|(
-name|autoCreateIndex
-argument_list|)
-expr_stmt|;
-block|}
 comment|// verify we waited before giving up...
 name|assertThat
 argument_list|(
@@ -1458,7 +1426,7 @@ name|timeout
 operator|.
 name|millis
 argument_list|()
-operator|-
+operator|+
 literal|50
 argument_list|)
 argument_list|)

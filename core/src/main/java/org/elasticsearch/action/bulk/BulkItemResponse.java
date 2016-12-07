@@ -570,7 +570,7 @@ decl_stmt|;
 DECL|field|cause
 specifier|private
 specifier|final
-name|Throwable
+name|Exception
 name|cause
 decl_stmt|;
 DECL|field|status
@@ -592,7 +592,7 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|Throwable
+name|Exception
 name|cause
 parameter_list|)
 block|{
@@ -794,7 +794,7 @@ block|}
 comment|/**          * The actual cause of the failure.          */
 DECL|method|getCause
 specifier|public
-name|Throwable
+name|Exception
 name|getCause
 parameter_list|()
 block|{

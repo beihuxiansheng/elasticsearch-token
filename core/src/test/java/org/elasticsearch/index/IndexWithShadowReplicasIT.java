@@ -4069,6 +4069,13 @@ name|numPhase2Docs
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"uncaught exception"
+argument_list|)
 DECL|method|testPrimaryRelocationWhereRecoveryFails
 specifier|public
 name|void
