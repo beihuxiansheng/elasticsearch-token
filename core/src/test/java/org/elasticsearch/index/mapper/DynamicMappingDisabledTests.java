@@ -737,6 +737,8 @@ name|clusterService
 argument_list|,
 name|indicesService
 argument_list|,
+literal|null
+argument_list|,
 name|THREAD_POOL
 argument_list|,
 name|shardStateAction

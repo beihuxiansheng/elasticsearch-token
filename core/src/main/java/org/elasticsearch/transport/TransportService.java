@@ -2403,7 +2403,6 @@ return|;
 block|}
 DECL|method|sendRequest
 specifier|public
-specifier|final
 parameter_list|<
 name|T
 extends|extends
@@ -3427,7 +3426,6 @@ block|}
 comment|/**      * Registers a new request handler      *      * @param action         The action the request handler is associated with      * @param requestFactory a callable to be used construct new instances for streaming      * @param executor       The executor the request handling will be executed on      * @param handler        The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
-specifier|final
 parameter_list|<
 name|Request
 extends|extends
@@ -3502,7 +3500,6 @@ block|}
 comment|/**      * Registers a new request handler      *      * @param action                The action the request handler is associated with      * @param request               The request class that will be used to construct new instances for streaming      * @param executor              The executor the request handling will be executed on      * @param forceExecution        Force execution on the executor queue and never reject it      * @param canTripCircuitBreaker Check the request size and raise an exception in case the limit is breached.      * @param handler               The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
-specifier|final
 parameter_list|<
 name|Request
 extends|extends
