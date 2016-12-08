@@ -799,13 +799,29 @@ operator|.
 name|setHasPendingAsyncFetch
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|NodeAllocationResult
+argument_list|>
+name|nodeDecisions
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|explain
-operator|==
-literal|false
 condition|)
 block|{
+name|nodeDecisions
+operator|=
+name|buildDecisionsForAllNodes
+argument_list|(
+name|unassignedShard
+argument_list|,
+name|allocation
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|AllocateUnassignedDecision
 operator|.
@@ -815,10 +831,9 @@ name|AllocationStatus
 operator|.
 name|FETCHING_SHARD_DATA
 argument_list|,
-literal|null
+name|nodeDecisions
 argument_list|)
 return|;
-block|}
 block|}
 comment|// don't create a new IndexSetting object for every shard as this could cause a lot of garbage
 comment|// on cluster restart if we allocate a boat load of shards
