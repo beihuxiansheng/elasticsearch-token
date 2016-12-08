@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -861,6 +875,15 @@ comment|/**  * Tests for indices that use shadow replicas and a shared filesyste
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fix this fails intermittently"
+argument_list|)
 annotation|@
 name|ESIntegTestCase
 operator|.
