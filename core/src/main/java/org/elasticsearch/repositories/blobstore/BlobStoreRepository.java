@@ -1126,16 +1126,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FilterInputStream
 import|;
 end_import
@@ -3214,8 +3204,6 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|FileNotFoundException
-decl||
 name|NoSuchFileException
 name|ex
 parameter_list|)
@@ -3359,8 +3347,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FileNotFoundException
-decl||
 name|NoSuchFileException
 name|ex
 parameter_list|)
@@ -3995,7 +3981,7 @@ block|}
 catch|catch
 parameter_list|(
 name|NoSuchFileException
-name|nsfe
+name|ex
 parameter_list|)
 block|{
 comment|// repository doesn't have an index blob, its a new blank repo
