@@ -40,6 +40,16 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple wrapper around {@link DateTimeFormatter} that retains the  * format that was used to create it.  */
 end_comment
@@ -127,23 +137,19 @@ name|this
 operator|.
 name|locale
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|locale
+argument_list|,
+literal|"A locale is required as JODA otherwise uses the default locale"
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|printer
 operator|=
-name|locale
-operator|==
-literal|null
-condition|?
-name|printer
-operator|.
-name|withDefaultYear
-argument_list|(
-literal|1970
-argument_list|)
-else|:
 name|printer
 operator|.
 name|withLocale
@@ -160,17 +166,6 @@ name|this
 operator|.
 name|parser
 operator|=
-name|locale
-operator|==
-literal|null
-condition|?
-name|parser
-operator|.
-name|withDefaultYear
-argument_list|(
-literal|1970
-argument_list|)
-else|:
 name|parser
 operator|.
 name|withLocale
