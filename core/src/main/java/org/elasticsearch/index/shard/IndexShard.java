@@ -3563,6 +3563,8 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|version
 argument_list|,
 name|versionType
@@ -3643,6 +3645,8 @@ name|source
 argument_list|,
 name|seqNo
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|version
 argument_list|,
 name|versionType
@@ -3692,6 +3696,9 @@ name|source
 parameter_list|,
 name|long
 name|seqNo
+parameter_list|,
+name|long
+name|primaryTerm
 parameter_list|,
 name|long
 name|version
@@ -3794,16 +3801,6 @@ argument_list|(
 name|uidQuery
 argument_list|)
 decl_stmt|;
-name|doc
-operator|.
-name|seqNo
-argument_list|()
-operator|.
-name|setLongValue
-argument_list|(
-name|seqNo
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|Engine
@@ -3815,6 +3812,8 @@ argument_list|,
 name|doc
 argument_list|,
 name|seqNo
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|version
 argument_list|,
@@ -4067,6 +4066,8 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|version
 argument_list|,
 name|versionType
@@ -4096,6 +4097,9 @@ name|id
 parameter_list|,
 name|long
 name|seqNo
+parameter_list|,
+name|long
+name|primaryTerm
 parameter_list|,
 name|long
 name|version
@@ -4173,6 +4177,8 @@ name|uid
 argument_list|,
 name|seqNo
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|version
 argument_list|,
 name|versionType
@@ -4205,6 +4211,9 @@ name|uid
 parameter_list|,
 name|long
 name|seqNo
+parameter_list|,
+name|long
+name|primaryTerm
 parameter_list|,
 name|long
 name|version
@@ -4241,6 +4250,8 @@ argument_list|,
 name|uid
 argument_list|,
 name|seqNo
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|version
 argument_list|,

@@ -1157,6 +1157,11 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
+name|primaryTerm
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|version
 argument_list|()
 argument_list|,
