@@ -102,7 +102,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryShardException
+name|QueryParseContext
 import|;
 end_import
 
@@ -112,13 +112,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|aggregations
+name|query
 operator|.
-name|support
-operator|.
-name|XContentParseContext
+name|QueryShardException
 import|;
 end_import
 
@@ -225,7 +223,7 @@ specifier|static
 name|SignificanceHeuristic
 name|parse
 parameter_list|(
-name|XContentParseContext
+name|QueryParseContext
 name|context
 parameter_list|)
 throws|throws
@@ -238,7 +236,7 @@ name|parser
 init|=
 name|context
 operator|.
-name|getParser
+name|parser
 argument_list|()
 decl_stmt|;
 comment|// move to the closing bracket

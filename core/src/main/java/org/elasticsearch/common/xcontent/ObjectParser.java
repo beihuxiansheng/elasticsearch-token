@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A declarative, stateless parser that turns XContent into setter calls. A single parser should be defined for each object being parsed,  * nested elements can be added via {@link #declareObject(BiConsumer, BiFunction, ParseField)} which should be satisfied where possible by  * passing another instance of {@link ObjectParser}, this one customized for that Object.  *<p>  * This class works well for object that do have a constructor argument or that can be built using information available from earlier in the  * XContent. For objects that have constructors with required arguments that are specified on the same level as other fields see  * {@link ConstructingObjectParser}.  *</p>  *<p>  * Instances of {@link ObjectParser} should be setup by declaring a constant field for the parsers and declaring all fields in a static  * block just below the creation of the parser. Like this:  *</p>  *<pre>{@code  *   private static final ObjectParser<Thing, SomeContext> PARSER = new ObjectParser<>("thing", Thing::new));  *   static {  *       PARSER.declareInt(Thing::setMineral, new ParseField("mineral"));  *       PARSER.declareInt(Thing::setFruit, new ParseField("fruit"));  *   }  * }</pre>  * It's highly recommended to use the high level declare methods like {@link #declareString(BiConsumer, ParseField)} instead of  * {@link #declareField} which can be used to implement exceptional parsing operations not covered by the high level methods.  */
+comment|/**  * A declarative, stateless parser that turns XContent into setter calls. A single parser should be defined for each object being parsed,  * nested elements can be added via {@link #declareObject(BiConsumer, ContextParser, ParseField)} which should be satisfied where possible  * by passing another instance of {@link ObjectParser}, this one customized for that Object.  *<p>  * This class works well for object that do have a constructor argument or that can be built using information available from earlier in the  * XContent. For objects that have constructors with required arguments that are specified on the same level as other fields see  * {@link ConstructingObjectParser}.  *</p>  *<p>  * Instances of {@link ObjectParser} should be setup by declaring a constant field for the parsers and declaring all fields in a static  * block just below the creation of the parser. Like this:  *</p>  *<pre>{@code  *   private static final ObjectParser<Thing, SomeContext> PARSER = new ObjectParser<>("thing", Thing::new));  *   static {  *       PARSER.declareInt(Thing::setMineral, new ParseField("mineral"));  *       PARSER.declareInt(Thing::setFruit, new ParseField("fruit"));  *   }  * }</pre>  * It's highly recommended to use the high level declare methods like {@link #declareString(BiConsumer, ParseField)} instead of  * {@link #declareField} which can be used to implement exceptional parsing operations not covered by the high level methods.  */
 end_comment
 
 begin_class
@@ -570,6 +570,8 @@ name|ignoreUnknownFields
 expr_stmt|;
 block|}
 comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param context must at least provide a {@link ParseFieldMatcher}      * @return a new value instance drawn from the provided value supplier on {@link #ObjectParser(String, Supplier)}      * @throws IOException if an IOException occurs.      */
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Value
@@ -2467,6 +2469,16 @@ DECL|enum constant|OBJECT_OR_STRING
 name|OBJECT_OR_STRING
 argument_list|(
 name|START_OBJECT
+argument_list|,
+name|VALUE_STRING
+argument_list|)
+operator|,
+DECL|enum constant|OBJECT_ARRAY_OR_STRING
+name|OBJECT_ARRAY_OR_STRING
+argument_list|(
+name|START_OBJECT
+argument_list|,
+name|START_ARRAY
 argument_list|,
 name|VALUE_STRING
 argument_list|)

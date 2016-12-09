@@ -166,34 +166,14 @@ name|Context
 argument_list|,
 name|Value
 argument_list|>
-block|{
-comment|/**      * Reads an object from a parser using some context.      */
-annotation|@
-name|FunctionalInterface
-DECL|interface|ContextParser
-specifier|public
-interface|interface
+implements|,
 name|ContextParser
-parameter_list|<
+argument_list|<
 name|Context
-parameter_list|,
-name|T
-parameter_list|>
+argument_list|,
+name|Value
+argument_list|>
 block|{
-DECL|method|parse
-name|T
-name|parse
-parameter_list|(
-name|XContentParser
-name|p
-parameter_list|,
-name|Context
-name|c
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-block|}
 comment|/**      * Reads an object right from the parser without any context.      */
 annotation|@
 name|FunctionalInterface
@@ -216,7 +196,7 @@ throws|throws
 name|IOException
 function_decl|;
 block|}
-comment|/**      * Declare some field. Usually it is easier to use {@link #declareString(BiConsumer, ParseField)} or      * {@link #declareObject(BiConsumer, BiFunction, ParseField)} rather than call this directly.      */
+comment|/**      * Declare some field. Usually it is easier to use {@link #declareString(BiConsumer, ParseField)} or      * {@link #declareObject(BiConsumer, ContextParser, ParseField)} rather than call this directly.      */
 DECL|method|declareField
 specifier|public
 specifier|abstract
@@ -332,10 +312,8 @@ name|T
 argument_list|>
 name|consumer
 parameter_list|,
-name|BiFunction
+name|ContextParser
 argument_list|<
-name|XContentParser
-argument_list|,
 name|Context
 argument_list|,
 name|T
@@ -358,7 +336,7 @@ parameter_list|)
 lambda|->
 name|objectParser
 operator|.
-name|apply
+name|parse
 argument_list|(
 name|p
 argument_list|,
@@ -657,10 +635,8 @@ argument_list|>
 argument_list|>
 name|consumer
 parameter_list|,
-name|BiFunction
+name|ContextParser
 argument_list|<
-name|XContentParser
-argument_list|,
 name|Context
 argument_list|,
 name|T
@@ -689,7 +665,7 @@ parameter_list|()
 lambda|->
 name|objectParser
 operator|.
-name|apply
+name|parse
 argument_list|(
 name|p
 argument_list|,
@@ -1072,6 +1048,17 @@ argument_list|()
 operator|.
 name|isValue
 argument_list|()
+operator|||
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
 condition|)
 block|{
 name|list

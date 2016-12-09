@@ -708,6 +708,14 @@ argument_list|,
 name|requiredSize
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shardSize
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -722,6 +730,7 @@ argument_list|,
 name|shardSize
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field

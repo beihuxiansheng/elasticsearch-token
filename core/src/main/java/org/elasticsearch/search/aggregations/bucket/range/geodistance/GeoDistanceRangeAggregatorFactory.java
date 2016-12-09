@@ -280,7 +280,7 @@ name|range
 operator|.
 name|geodistance
 operator|.
-name|GeoDistanceParser
+name|GeoDistanceAggregationBuilder
 operator|.
 name|Range
 import|;
