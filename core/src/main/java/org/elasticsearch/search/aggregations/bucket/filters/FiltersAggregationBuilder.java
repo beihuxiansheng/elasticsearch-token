@@ -1169,7 +1169,7 @@ decl_stmt|;
 name|Boolean
 name|otherBucket
 init|=
-literal|false
+literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -1606,15 +1606,18 @@ block|}
 if|if
 condition|(
 name|otherBucket
+operator|==
+literal|null
 operator|&&
 name|otherBucketKey
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-name|otherBucketKey
+comment|// automatically enable the other bucket if a key is set, as per the doc
+name|otherBucket
 operator|=
-literal|"_other_"
+literal|true
 expr_stmt|;
 block|}
 name|FiltersAggregationBuilder
