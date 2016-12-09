@@ -828,6 +828,23 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+literal|false
+operator|==
+name|fieldNode
+operator|instanceof
+name|Map
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[_parent] must be an object containing [type]"
+argument_list|)
+throw|;
+block|}
 name|Map
 argument_list|<
 name|String
