@@ -886,6 +886,10 @@ name|AwsEc2Service
 operator|.
 name|REGION_SETTING
 argument_list|,
+name|AwsEc2Service
+operator|.
+name|READ_TIMEOUT
+argument_list|,
 comment|// Register EC2 specific settings: cloud.aws.ec2
 name|AwsEc2Service
 operator|.
@@ -946,6 +950,12 @@ operator|.
 name|CLOUD_EC2
 operator|.
 name|ENDPOINT_SETTING
+argument_list|,
+name|AwsEc2Service
+operator|.
+name|CLOUD_EC2
+operator|.
+name|READ_TIMEOUT
 argument_list|,
 comment|// Register EC2 discovery settings: discovery.ec2
 name|AwsEc2Service

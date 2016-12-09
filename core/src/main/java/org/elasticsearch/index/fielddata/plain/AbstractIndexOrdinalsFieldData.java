@@ -590,6 +590,10 @@ argument_list|,
 name|breakerService
 argument_list|,
 name|logger
+argument_list|,
+name|AbstractAtomicOrdinalsFieldData
+operator|.
+name|DEFAULT_SCRIPT_FUNCTION
 argument_list|)
 return|;
 block|}

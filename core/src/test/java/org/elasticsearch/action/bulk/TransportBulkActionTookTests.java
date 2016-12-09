@@ -1166,6 +1166,8 @@ name|transportService
 argument_list|,
 name|clusterService
 argument_list|,
+literal|null
+argument_list|,
 name|shardBulkAction
 argument_list|,
 name|createIndexAction

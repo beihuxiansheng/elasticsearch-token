@@ -6069,6 +6069,24 @@ return|return
 name|targetAllocationID
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"request: "
+operator|+
+name|request
+operator|+
+literal|", target allocation id: "
+operator|+
+name|targetAllocationID
+return|;
+block|}
 block|}
 comment|/**      * Sets the current phase on the task if it isn't null. Pulled into its own      * method because its more convenient that way.      */
 DECL|method|setPhase

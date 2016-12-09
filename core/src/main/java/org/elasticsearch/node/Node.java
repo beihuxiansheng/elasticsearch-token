@@ -3126,13 +3126,6 @@ init|=
 operator|new
 name|ActionModule
 argument_list|(
-name|DiscoveryNode
-operator|.
-name|isIngestNode
-argument_list|(
-name|settings
-argument_list|)
-argument_list|,
 literal|false
 argument_list|,
 name|settings
