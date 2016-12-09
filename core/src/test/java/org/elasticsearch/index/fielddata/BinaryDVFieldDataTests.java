@@ -155,6 +155,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -576,8 +586,11 @@ name|rootDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|List
+argument_list|<
 name|LeafReaderContext
-name|reader
+argument_list|>
+name|readers
 init|=
 name|refreshReader
 argument_list|()
@@ -593,6 +606,14 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
+for|for
+control|(
+name|LeafReaderContext
+name|reader
+range|:
+name|readers
+control|)
+block|{
 name|AtomicFieldData
 name|fieldData
 init|=
@@ -820,6 +841,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|randomBytes
 specifier|private

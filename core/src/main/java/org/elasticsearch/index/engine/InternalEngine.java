@@ -3895,6 +3895,28 @@ argument_list|(
 name|updatedVersion
 argument_list|)
 expr_stmt|;
+comment|// Update the document's sequence number and primary term, the
+comment|// sequence number here is derived here from either the sequence
+comment|// number service if this is on the primary, or the existing
+comment|// document's sequence number if this is on the replica. The
+comment|// primary term here has already been set, see
+comment|// IndexShard.prepareIndex where the Engine.Index operation is
+comment|// created
+name|index
+operator|.
+name|parsedDoc
+argument_list|()
+operator|.
+name|updateSeqID
+argument_list|(
+name|seqNo
+argument_list|,
+name|index
+operator|.
+name|primaryTerm
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|currentVersion
