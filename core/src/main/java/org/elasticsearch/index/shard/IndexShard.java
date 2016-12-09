@@ -5093,7 +5093,7 @@ name|CommitId
 name|expectedCommitId
 parameter_list|)
 block|{
-name|verifyStartedOrRecovering
+name|verifyNotClosed
 argument_list|()
 expr_stmt|;
 name|logger
@@ -5198,7 +5198,7 @@ comment|// we allows flush while recovering, since we allow for operations to ha
 comment|// while recovering, and we want to keep the translog at bay (up to deletes, which
 comment|// we don't gc). Yet, we don't use flush internally to clear deletes and flush the indexwriter since
 comment|// we use #writeIndexingBuffer for this now.
-name|verifyStartedOrRecovering
+name|verifyNotClosed
 argument_list|()
 expr_stmt|;
 name|Engine
@@ -5279,7 +5279,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|verifyStarted
+name|verifyActive
 argument_list|()
 expr_stmt|;
 if|if
@@ -5346,7 +5346,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|verifyStarted
+name|verifyActive
 argument_list|()
 expr_stmt|;
 if|if
@@ -6964,57 +6964,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|verifyStartedOrRecovering
-specifier|protected
-specifier|final
-name|void
-name|verifyStartedOrRecovering
-parameter_list|()
-throws|throws
-name|IllegalIndexShardStateException
-block|{
-name|IndexShardState
-name|state
-init|=
-name|this
-operator|.
-name|state
-decl_stmt|;
-comment|// one time volatile read
-if|if
-condition|(
-name|state
-operator|!=
-name|IndexShardState
-operator|.
-name|STARTED
-operator|&&
-name|state
-operator|!=
-name|IndexShardState
-operator|.
-name|RECOVERING
-operator|&&
-name|state
-operator|!=
-name|IndexShardState
-operator|.
-name|POST_RECOVERY
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalIndexShardStateException
-argument_list|(
-name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"operation only allowed when started/recovering"
-argument_list|)
-throw|;
-block|}
-block|}
 DECL|method|verifyNotClosed
 specifier|private
 name|void
@@ -7089,11 +7038,11 @@ name|exc
 throw|;
 block|}
 block|}
-DECL|method|verifyStarted
+DECL|method|verifyActive
 specifier|protected
 specifier|final
 name|void
-name|verifyStarted
+name|verifyActive
 parameter_list|()
 throws|throws
 name|IllegalIndexShardStateException
@@ -7113,15 +7062,23 @@ operator|!=
 name|IndexShardState
 operator|.
 name|STARTED
+operator|&&
+name|state
+operator|!=
+name|IndexShardState
+operator|.
+name|RELOCATED
 condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardNotStartedException
+name|IllegalIndexShardStateException
 argument_list|(
 name|shardId
 argument_list|,
 name|state
+argument_list|,
+literal|"operation only allowed when shard is active"
 argument_list|)
 throw|;
 block|}
