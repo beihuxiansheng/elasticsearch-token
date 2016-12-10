@@ -219,12 +219,10 @@ argument_list|(
 literal|"id"
 argument_list|)
 argument_list|,
-name|RestActions
-operator|.
-name|getRestContent
-argument_list|(
 name|restRequest
-argument_list|)
+operator|.
+name|contentOrSourceParam
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|request

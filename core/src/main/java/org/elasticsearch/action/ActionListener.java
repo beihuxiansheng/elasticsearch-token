@@ -16,11 +16,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|common
+operator|.
+name|CheckedConsumer
 import|;
 end_import
 
@@ -49,27 +51,6 @@ parameter_list|<
 name|Response
 parameter_list|>
 block|{
-comment|/** A consumer interface which allows throwing checked exceptions. */
-annotation|@
-name|FunctionalInterface
-DECL|interface|CheckedConsumer
-interface|interface
-name|CheckedConsumer
-parameter_list|<
-name|T
-parameter_list|>
-block|{
-DECL|method|accept
-name|void
-name|accept
-parameter_list|(
-name|T
-name|t
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
 comment|/**      * Handle action response. This response may constitute a failure or a      * success but it is up to the listener to make that decision.      */
 DECL|method|onResponse
 name|void
@@ -103,6 +84,10 @@ parameter_list|(
 name|CheckedConsumer
 argument_list|<
 name|Response
+argument_list|,
+name|?
+extends|extends
+name|Exception
 argument_list|>
 name|onResponse
 parameter_list|,

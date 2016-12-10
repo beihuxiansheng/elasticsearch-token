@@ -106,20 +106,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -137,20 +123,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
 import|;
 end_import
 
@@ -605,25 +577,12 @@ operator|new
 name|SearchRequest
 argument_list|()
 decl_stmt|;
-name|BytesReference
-name|restContent
-init|=
-name|RestActions
-operator|.
-name|hasBodyContent
-argument_list|(
 name|request
-argument_list|)
-condition|?
-name|RestActions
 operator|.
-name|getRestContent
+name|withContentOrSourceParamParserOrNull
 argument_list|(
-name|request
-argument_list|)
-else|:
-literal|null
-decl_stmt|;
+name|parser
+lambda|->
 name|parseSearchRequest
 argument_list|(
 name|searchRequest
@@ -634,7 +593,8 @@ name|searchRequestParsers
 argument_list|,
 name|parseFieldMatcher
 argument_list|,
-name|restContent
+name|parser
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -655,7 +615,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the rest request on top of the SearchRequest, preserving values      * that are not overridden by the rest request.      *      * @param restContent      *            override body content to use for the request. If null body      *            content is read from the request using      *            RestAction.hasBodyContent.      */
+comment|/**      * Parses the rest request on top of the SearchRequest, preserving values that are not overridden by the rest request.      *      * @param requestContentParser body of the request to read. This method does not attempt to read the body from the {@code request}      *        parameter      */
 DECL|method|parseSearchRequest
 specifier|public
 specifier|static
@@ -674,8 +634,8 @@ parameter_list|,
 name|ParseFieldMatcher
 name|parseFieldMatcher
 parameter_list|,
-name|BytesReference
-name|restContent
+name|XContentParser
+name|requestContentParser
 parameter_list|)
 throws|throws
 name|IOException
@@ -719,28 +679,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|restContent
+name|requestContentParser
 operator|!=
 literal|null
 condition|)
-block|{
-try|try
-init|(
-name|XContentParser
-name|parser
-init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|restContent
-argument_list|)
-operator|.
-name|createParser
-argument_list|(
-name|restContent
-argument_list|)
-init|)
 block|{
 name|QueryParseContext
 name|context
@@ -752,7 +694,7 @@ name|searchRequestParsers
 operator|.
 name|queryParsers
 argument_list|,
-name|parser
+name|requestContentParser
 argument_list|,
 name|parseFieldMatcher
 argument_list|)
@@ -779,7 +721,6 @@ operator|.
 name|searchExtParsers
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// do not allow 'query_and_fetch' or 'dfs_query_and_fetch' search types
 comment|// from the REST layer. these modes are an internal optimization and should
