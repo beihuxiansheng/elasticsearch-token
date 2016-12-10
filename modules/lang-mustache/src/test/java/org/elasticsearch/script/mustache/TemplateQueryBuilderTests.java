@@ -405,7 +405,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|checkWarningHeaders
+name|assertWarningHeaders
 argument_list|(
 literal|"[template] query is deprecated, use search template api instead"
 argument_list|)

@@ -1118,36 +1118,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|parseQuery
-argument_list|(
-name|builder
-operator|.
-name|string
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Deprecated field [type] used, expected [parent_type] instead"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|HasParentQueryBuilder
 name|queryBuilder
 init|=
@@ -1160,10 +1130,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1176,7 +1142,7 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|checkWarningHeaders
+name|assertWarningHeaders
 argument_list|(
 literal|"Deprecated field [type] used, expected [parent_type] instead"
 argument_list|)

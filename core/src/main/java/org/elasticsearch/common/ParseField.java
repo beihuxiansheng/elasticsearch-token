@@ -347,16 +347,14 @@ return|return
 name|parseField
 return|;
 block|}
-comment|/**      * @param fieldName      *            the field name to match against this {@link ParseField}      * @param strict      *            if true an exception will be thrown if a deprecated field name      *            is given. If false the deprecated name will be matched but a      *            message will also be logged to the {@link DeprecationLogger}      * @return true if<code>fieldName</code> matches any of the acceptable      *         names for this {@link ParseField}.      */
+comment|/**      * @param fieldName      *            the field name to match against this {@link ParseField}      * @return true if<code>fieldName</code> matches any of the acceptable      *         names for this {@link ParseField}.      */
 DECL|method|match
+specifier|public
 name|boolean
 name|match
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|boolean
-name|strict
 parameter_list|)
 block|{
 name|Objects
@@ -447,21 +445,6 @@ operator|+
 literal|"]"
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|strict
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|msg
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 name|DEPRECATION_LOGGER
 operator|.
 name|deprecated
@@ -469,7 +452,6 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;

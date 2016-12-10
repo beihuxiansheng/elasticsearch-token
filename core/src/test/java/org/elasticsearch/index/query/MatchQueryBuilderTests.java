@@ -2127,46 +2127,11 @@ argument_list|(
 name|qb
 argument_list|)
 expr_stmt|;
-name|checkWarningHeaders
+name|assertWarningHeaders
 argument_list|(
 literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
 argument_list|,
 literal|"Deprecated field [slop] used, replaced by [match_phrase query]"
-argument_list|)
-expr_stmt|;
-comment|// Now check with strict parsing an exception is thrown
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|parseQuery
-argument_list|(
-name|json
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2276,46 +2241,11 @@ argument_list|(
 name|qb
 argument_list|)
 expr_stmt|;
-name|checkWarningHeaders
+name|assertWarningHeaders
 argument_list|(
 literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
 argument_list|,
 literal|"Deprecated field [slop] used, replaced by [match_phrase query]"
-argument_list|)
-expr_stmt|;
-comment|// Now check with strict parsing an exception is thrown
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
-name|parseQuery
-argument_list|(
-name|json
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
