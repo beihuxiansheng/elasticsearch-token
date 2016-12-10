@@ -1121,6 +1121,8 @@ init|=
 operator|new
 name|NodeChannels
 argument_list|(
+name|node
+argument_list|,
 name|mockChannels
 argument_list|,
 name|ConnectionProfile

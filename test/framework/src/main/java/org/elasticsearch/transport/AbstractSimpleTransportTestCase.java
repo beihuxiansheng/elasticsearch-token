@@ -382,29 +382,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|sql
-operator|.
-name|Time
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -3627,6 +3607,8 @@ init|=
 name|nodeB
 decl_stmt|;
 comment|// capture now
+try|try
+block|{
 name|serviceA
 operator|.
 name|sendRequest
@@ -3705,6 +3687,15 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NodeNotConnectedException
+name|ex
+parameter_list|)
+block|{
+comment|// ok
 block|}
 block|}
 block|}
@@ -7064,27 +7055,12 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
-operator|new
-name|TransportRequestHandler
-argument_list|<
-name|Version1Request
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|messageReceived
 parameter_list|(
-name|Version1Request
 name|request
 parameter_list|,
-name|TransportChannel
 name|channel
 parameter_list|)
-throws|throws
-name|Exception
+lambda|->
 block|{
 name|assertThat
 argument_list|(
@@ -7136,7 +7112,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -7507,6 +7482,8 @@ specifier|public
 name|void
 name|testMockFailToSendNoConnectRule
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|serviceA
 operator|.
@@ -7755,7 +7732,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ConnectTransportException
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{
@@ -7767,6 +7744,8 @@ specifier|public
 name|void
 name|testMockUnresponsiveRule
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|serviceA
 operator|.
@@ -8020,7 +7999,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ConnectTransportException
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{

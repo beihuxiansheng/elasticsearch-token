@@ -5597,12 +5597,12 @@ block|}
 annotation|@
 name|Override
 DECL|method|sendRequest
-specifier|public
+specifier|protected
 name|void
 name|sendRequest
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Connection
+name|connection
 parameter_list|,
 name|long
 name|requestId
@@ -5618,8 +5618,6 @@ name|options
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|TransportException
 block|{
 if|if
 condition|(
@@ -5663,7 +5661,10 @@ throw|throw
 operator|new
 name|ConnectTransportException
 argument_list|(
-name|node
+name|connection
+operator|.
+name|getNode
+argument_list|()
 argument_list|,
 literal|"DISCONNECT: prevented "
 operator|+
@@ -5673,11 +5674,11 @@ literal|" request"
 argument_list|)
 throw|;
 block|}
-name|transport
+name|super
 operator|.
 name|sendRequest
 argument_list|(
-name|node
+name|connection
 argument_list|,
 name|requestId
 argument_list|,

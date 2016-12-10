@@ -534,6 +534,18 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
+name|Transport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
 name|TransportException
 import|;
 end_import
@@ -1986,12 +1998,12 @@ argument_list|)
 block|{
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|void
 name|sendRequest
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Connection
+name|connection
 parameter_list|,
 name|long
 name|requestId
@@ -2007,8 +2019,6 @@ name|options
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|TransportException
 block|{
 if|if
 condition|(
@@ -2043,7 +2053,10 @@ throw|throw
 operator|new
 name|ConnectTransportException
 argument_list|(
-name|node
+name|connection
+operator|.
+name|getNode
+argument_list|()
 argument_list|,
 literal|"DISCONNECT: simulated"
 argument_list|)
@@ -2053,7 +2066,7 @@ name|super
 operator|.
 name|sendRequest
 argument_list|(
-name|node
+name|connection
 argument_list|,
 name|requestId
 argument_list|,
