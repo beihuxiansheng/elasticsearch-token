@@ -6233,6 +6233,13 @@ condition|(
 name|extBuilders
 operator|!=
 literal|null
+operator|&&
+name|extBuilders
+operator|.
+name|isEmpty
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|builder
