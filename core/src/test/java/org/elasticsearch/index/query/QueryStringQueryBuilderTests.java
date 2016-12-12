@@ -3430,10 +3430,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testToQueryFuzzyQueryAutoFuziness
+DECL|method|testToQueryFuzzyQueryAutoFuzziness
 specifier|public
 name|void
-name|testToQueryFuzzyQueryAutoFuziness
+name|testToQueryFuzzyQueryAutoFuzziness
 parameter_list|()
 throws|throws
 name|Exception

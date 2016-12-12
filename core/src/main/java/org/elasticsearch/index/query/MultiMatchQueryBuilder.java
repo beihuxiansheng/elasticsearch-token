@@ -3529,7 +3529,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"Fuziness not allowed for type ["
+literal|"Fuzziness not allowed for type ["
 operator|+
 name|type
 operator|.
