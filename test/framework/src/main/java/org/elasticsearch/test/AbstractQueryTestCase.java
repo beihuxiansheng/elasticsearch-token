@@ -3626,17 +3626,6 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
-operator|.
-name|orElseThrow
-argument_list|(
-parameter_list|()
-lambda|->
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"inner query body cannot be empty"
-argument_list|)
-argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(

@@ -172,9 +172,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
-operator|.
-name|Type
+name|AggregatorFactory
 import|;
 end_import
 
@@ -188,7 +186,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|InternalAggregation
+operator|.
+name|Type
 import|;
 end_import
 
@@ -285,22 +285,6 @@ operator|.
 name|util
 operator|.
 name|Objects
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
 import|;
 end_import
 
@@ -1471,12 +1455,6 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
-operator|.
-name|orElse
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|keyedFilters
 operator|.
@@ -1583,12 +1561,6 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
-operator|.
-name|orElse
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|nonKeyedFilters
 operator|.
