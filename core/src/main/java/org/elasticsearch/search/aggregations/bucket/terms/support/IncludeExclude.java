@@ -166,6 +166,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|automaton
 operator|.
 name|Automata
@@ -426,16 +440,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|ByteBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashSet
@@ -560,6 +564,18 @@ name|ParseField
 argument_list|(
 literal|"num_partitions"
 argument_list|)
+decl_stmt|;
+comment|// Needed to add this seed for a deterministic term hashing policy
+comment|// otherwise tests fail to get expected results and worse, shards
+comment|// can disagree on which terms hash to the required partition.
+DECL|field|HASH_PARTITIONING_SEED
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|HASH_PARTITIONING_SEED
+init|=
+literal|31
 decl_stmt|;
 comment|// for parsing purposes only
 comment|// TODO: move all aggs to the same package so that this stuff could be pkg-private
@@ -1350,10 +1366,14 @@ name|Math
 operator|.
 name|floorMod
 argument_list|(
-name|value
+name|StringHelper
 operator|.
-name|hashCode
-argument_list|()
+name|murmurhash3_x86_32
+argument_list|(
+name|value
+argument_list|,
+name|HASH_PARTITIONING_SEED
+argument_list|)
 argument_list|,
 name|incNumPartitions
 argument_list|)
@@ -1619,10 +1639,14 @@ name|Math
 operator|.
 name|floorMod
 argument_list|(
-name|term
+name|StringHelper
 operator|.
-name|hashCode
-argument_list|()
+name|murmurhash3_x86_32
+argument_list|(
+name|term
+argument_list|,
+name|HASH_PARTITIONING_SEED
+argument_list|)
 argument_list|,
 name|incNumPartitions
 argument_list|)
