@@ -4627,7 +4627,6 @@ expr_stmt|;
 block|}
 DECL|method|expectParsingException
 specifier|private
-specifier|static
 name|void
 name|expectParsingException
 parameter_list|(
@@ -4671,7 +4670,6 @@ expr_stmt|;
 block|}
 DECL|method|expectParsingException
 specifier|private
-specifier|static
 name|void
 name|expectParsingException
 parameter_list|(

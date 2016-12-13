@@ -3102,7 +3102,6 @@ block|}
 block|}
 DECL|method|queryWrappedInArrayTest
 specifier|private
-specifier|static
 name|void
 name|queryWrappedInArrayTest
 parameter_list|(
@@ -3305,7 +3304,6 @@ block|}
 comment|/**      * Parses the query provided as string argument and compares it with the expected result provided as argument as a {@link QueryBuilder}      */
 DECL|method|assertParsedQuery
 specifier|protected
-specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -3332,7 +3330,6 @@ expr_stmt|;
 block|}
 DECL|method|assertParsedQuery
 specifier|protected
-specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -3389,7 +3386,6 @@ block|}
 comment|/**      * Parses the query provided as bytes argument and compares it with the expected result provided as argument as a {@link QueryBuilder}      */
 DECL|method|assertParsedQuery
 specifier|private
-specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -3416,7 +3412,6 @@ expr_stmt|;
 block|}
 DECL|method|assertParsedQuery
 specifier|private
-specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -3472,7 +3467,6 @@ expr_stmt|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -3495,7 +3489,6 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -3511,13 +3504,6 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|queryAsString
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
 name|queryAsString
@@ -3534,7 +3520,6 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -3557,7 +3542,6 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -3573,13 +3557,6 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|queryAsBytes
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
 name|queryAsBytes
@@ -3596,7 +3573,6 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|private
-specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
