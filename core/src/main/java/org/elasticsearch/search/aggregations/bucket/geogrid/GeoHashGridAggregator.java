@@ -186,11 +186,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -303,7 +301,7 @@ parameter_list|,
 name|int
 name|shardSize
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|aggregationContext
 parameter_list|,
 name|Aggregator

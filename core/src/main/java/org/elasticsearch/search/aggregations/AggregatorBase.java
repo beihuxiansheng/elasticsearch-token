@@ -128,11 +128,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -257,7 +255,7 @@ decl_stmt|;
 DECL|field|context
 specifier|protected
 specifier|final
-name|AggregationContext
+name|SearchContext
 name|context
 decl_stmt|;
 DECL|field|metaData
@@ -331,7 +329,7 @@ parameter_list|,
 name|AggregatorFactories
 name|factories
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Aggregator
@@ -416,9 +414,6 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|searchContext
-argument_list|()
-operator|.
 name|addReleasable
 argument_list|(
 name|this
@@ -448,9 +443,6 @@ operator|.
 name|this
 operator|.
 name|context
-operator|.
-name|searchContext
-argument_list|()
 argument_list|,
 literal|"preCollection not called on new Aggregator before use"
 argument_list|,
@@ -1021,7 +1013,7 @@ annotation|@
 name|Override
 DECL|method|context
 specifier|public
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|()
 block|{

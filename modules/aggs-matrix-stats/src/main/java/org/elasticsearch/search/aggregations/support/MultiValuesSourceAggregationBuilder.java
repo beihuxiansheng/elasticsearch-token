@@ -258,6 +258,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1124,7 +1138,7 @@ name|?
 argument_list|>
 name|doBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -1193,7 +1207,7 @@ argument_list|>
 argument_list|>
 name|resolveConfig
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|)
 block|{
@@ -1261,7 +1275,7 @@ name|?
 argument_list|>
 name|innerBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Map
@@ -1297,7 +1311,7 @@ name|VS
 argument_list|>
 name|config
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|String
@@ -1454,9 +1468,6 @@ name|fieldType
 init|=
 name|context
 operator|.
-name|searchContext
-argument_list|()
-operator|.
 name|smartNameFieldType
 argument_list|(
 name|field
@@ -1538,9 +1549,6 @@ argument_list|>
 name|indexFieldData
 init|=
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|fieldData
 argument_list|()

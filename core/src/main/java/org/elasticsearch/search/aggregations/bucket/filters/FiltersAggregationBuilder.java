@@ -220,11 +220,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -907,7 +905,7 @@ name|?
 argument_list|>
 name|doBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -963,9 +961,6 @@ name|filter
 argument_list|()
 argument_list|,
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|getQueryShardContext
 argument_list|()

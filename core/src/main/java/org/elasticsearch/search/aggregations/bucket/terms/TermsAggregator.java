@@ -230,7 +230,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|AggregationContext
+name|AggregationPath
 import|;
 end_import
 
@@ -242,11 +242,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationPath
+name|SearchContext
 import|;
 end_import
 
@@ -928,7 +926,7 @@ parameter_list|,
 name|AggregatorFactories
 name|factories
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Aggregator

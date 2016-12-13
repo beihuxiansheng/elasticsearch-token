@@ -310,16 +310,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Objects
 import|;
 end_import
@@ -1334,7 +1324,7 @@ name|?
 argument_list|>
 name|doBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -1393,7 +1383,7 @@ name|VS
 argument_list|>
 name|resolveConfig
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|)
 block|{
@@ -1423,7 +1413,7 @@ name|?
 argument_list|>
 name|innerBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|ValuesSourceConfig
@@ -1454,7 +1444,7 @@ name|VS
 argument_list|>
 name|config
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|)
 block|{
@@ -1612,9 +1602,6 @@ argument_list|(
 name|script
 argument_list|,
 name|context
-operator|.
-name|searchContext
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1633,9 +1620,6 @@ name|MappedFieldType
 name|fieldType
 init|=
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|smartNameFieldType
 argument_list|(
@@ -1738,9 +1722,6 @@ argument_list|>
 name|indexFieldData
 init|=
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|fieldData
 argument_list|()
@@ -1868,9 +1849,6 @@ argument_list|(
 name|script
 argument_list|,
 name|context
-operator|.
-name|searchContext
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
