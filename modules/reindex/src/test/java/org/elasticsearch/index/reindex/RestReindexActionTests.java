@@ -903,12 +903,12 @@ init|(
 name|XContentParser
 name|p
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|request
 argument_list|)
 init|)

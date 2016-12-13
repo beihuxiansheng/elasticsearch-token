@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|TeardownSectionParserTests
 extends|extends
-name|AbstractParserTestCase
+name|AbstractClientYamlTestFragmentParserTestCase
 block|{
 DECL|method|testParseTeardownSection
 specifier|public
@@ -146,12 +146,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"  - do:\n"
 operator|+
 literal|"      delete:\n"
@@ -301,12 +301,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"  - skip:\n"
 operator|+
 literal|"      version:  \"2.0.0 - 2.3.0\"\n"

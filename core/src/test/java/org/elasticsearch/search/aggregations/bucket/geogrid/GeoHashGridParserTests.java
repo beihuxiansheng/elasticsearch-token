@@ -166,12 +166,12 @@ decl_stmt|;
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":"
 operator|+
 name|precision
@@ -250,12 +250,12 @@ decl_stmt|;
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":\""
 operator|+
 name|precision
@@ -324,12 +324,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":\"2.0\"}"
 argument_list|)
 decl_stmt|;
@@ -431,12 +431,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":false}"
 argument_list|)
 decl_stmt|;
@@ -520,12 +520,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":\"13\"}"
 argument_list|)
 decl_stmt|;

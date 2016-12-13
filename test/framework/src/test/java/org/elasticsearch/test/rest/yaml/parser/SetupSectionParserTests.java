@@ -58,42 +58,6 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|parser
-operator|.
-name|ClientYamlTestSuiteParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|SetupSectionParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
 name|section
 operator|.
 name|SetupSection
@@ -130,7 +94,7 @@ specifier|public
 class|class
 name|SetupSectionParserTests
 extends|extends
-name|AbstractParserTestCase
+name|AbstractClientYamlTestFragmentParserTestCase
 block|{
 DECL|method|testParseSetupSection
 specifier|public
@@ -142,12 +106,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"  - do:\n"
 operator|+
 literal|"      index1:\n"
@@ -297,12 +261,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"  - skip:\n"
 operator|+
 literal|"      version:  \"2.0.0 - 2.3.0\"\n"

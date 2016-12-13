@@ -1072,9 +1072,6 @@ name|disableCoord
 argument_list|(
 name|disableCoord
 argument_list|)
-operator|.
-name|buildAsBytes
-argument_list|()
 argument_list|)
 operator|.
 name|toQuery

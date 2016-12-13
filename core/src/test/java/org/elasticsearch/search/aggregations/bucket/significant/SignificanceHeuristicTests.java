@@ -2508,12 +2508,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"text\", "
 operator|+
 name|faultyHeuristicDefinition
@@ -2648,12 +2648,12 @@ expr_stmt|;
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|stXContentBuilder
 operator|.
 name|string
@@ -2807,12 +2807,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"text\", "
 operator|+
 name|heuristicString

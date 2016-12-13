@@ -311,12 +311,12 @@ decl_stmt|;
 name|XContentParser
 name|aggParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|agg
 argument_list|)
 decl_stmt|;
