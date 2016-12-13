@@ -1369,7 +1369,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Connection
+name|NodeChannels
 name|getConnection
 parameter_list|(
 name|DiscoveryNode

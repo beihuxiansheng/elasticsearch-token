@@ -66,18 +66,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|ReferenceCountUtil
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -99,6 +87,18 @@ operator|.
 name|transport
 operator|.
 name|TcpHeader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TcpTransport
 import|;
 end_import
 
@@ -340,6 +340,8 @@ argument_list|()
 operator|+
 name|remainingMessageSize
 decl_stmt|;
+try|try
+block|{
 name|InetSocketAddress
 name|remoteAddress
 init|=
@@ -354,10 +356,8 @@ operator|.
 name|remoteAddress
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 comment|// netty always copies a buffer, either in NioWorker in its read handler, where it copies to a fresh
-comment|// buffer, or in the cumulation buffer, which is cleaned each time so it could be bigger than the actual size
+comment|// buffer, or in the cumulative buffer, which is cleaned each time so it could be bigger than the actual size
 name|BytesReference
 name|reference
 init|=

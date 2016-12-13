@@ -391,6 +391,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -527,6 +541,16 @@ init|=
 name|ConcurrentCollections
 operator|.
 name|newBlockingQueue
+argument_list|()
+decl_stmt|;
+DECL|field|requestId
+specifier|private
+specifier|final
+name|AtomicLong
+name|requestId
+init|=
+operator|new
+name|AtomicLong
 argument_list|()
 decl_stmt|;
 comment|/** returns all requests captured so far. Doesn't clear the captured request list. See {@link #clear()} */
@@ -1250,6 +1274,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|newRequestId
+specifier|public
+name|long
+name|newRequestId
+parameter_list|()
+block|{
+return|return
+name|requestId
+operator|.
+name|incrementAndGet
+argument_list|()
+return|;
+block|}
 DECL|method|getConnection
 specifier|public
 name|Connection

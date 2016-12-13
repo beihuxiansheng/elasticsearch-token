@@ -74,20 +74,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -545,8 +531,6 @@ specifier|final
 name|Version
 name|mockVersion
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|MockTcpTransport
 specifier|public
 name|MockTcpTransport
@@ -717,7 +701,6 @@ operator|.
 name|get
 argument_list|(
 name|settings
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1454,7 +1437,6 @@ operator|.
 name|get
 argument_list|(
 name|settings
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

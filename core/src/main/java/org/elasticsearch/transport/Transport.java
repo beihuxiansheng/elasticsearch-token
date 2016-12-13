@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|node
@@ -306,6 +316,12 @@ literal|"in-flight-noop"
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a new request ID to use when sending a message via {@link Connection#sendRequest(long, String,      * TransportRequest, TransportRequestOptions)}      */
+DECL|method|newRequestId
+name|long
+name|newRequestId
+parameter_list|()
+function_decl|;
 comment|/**      * Returns a connection for the given node if the node is connected.      * Connections returned from this method must not be closed. The lifecylce of this connection is maintained by the Transport      * implementation.      *      * @throws NodeNotConnectedException if the node is not connected      * @see #connectToNode(DiscoveryNode, ConnectionProfile)      */
 DECL|method|getConnection
 name|Connection
@@ -364,6 +380,21 @@ name|IOException
 throws|,
 name|TransportException
 function_decl|;
+comment|/**          * Returns the version of the node this connection was established with.          */
+DECL|method|getVersion
+specifier|default
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|getNode
+argument_list|()
+operator|.
+name|getVersion
+argument_list|()
+return|;
+block|}
 block|}
 block|}
 end_interface
