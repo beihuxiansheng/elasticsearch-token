@@ -226,16 +226,6 @@ name|StandardCharsets
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|StringJoiner
-import|;
-end_import
-
 begin_comment
 comment|/**  * Helper class that exposes static methods to unify the way requests are logged.  * Includes trace logging to log complete requests and responses in curl format.  * Useful for debugging, manually sending logged requests via curl and checking their responses.  * Trace logging is a feature that all the language clients provide.  */
 end_comment
