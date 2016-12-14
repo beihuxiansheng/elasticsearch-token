@@ -40,7 +40,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -231,15 +233,12 @@ name|request
 operator|.
 name|source
 argument_list|(
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|data
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|data
 argument_list|)
 argument_list|)
