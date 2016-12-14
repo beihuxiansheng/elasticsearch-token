@@ -44,6 +44,22 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|json
+operator|.
+name|JsonXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|yaml
 operator|.
 name|YamlXContent
@@ -190,6 +206,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|parseAndExpectFailure
 argument_list|(
 literal|"{\n"
@@ -262,6 +288,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|parseAndExpectFailure
 argument_list|(
 literal|"{\n"

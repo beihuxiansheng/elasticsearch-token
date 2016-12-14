@@ -1385,6 +1385,22 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|percolateRequest
+operator|.
+name|onlyCount
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot set size if onlyCount == true"
+argument_list|)
+throw|;
+block|}
 name|searchSource
 operator|.
 name|field

@@ -1242,6 +1242,24 @@ literal|"Required [field]"
 argument_list|)
 expr_stmt|;
 comment|// test two fieldnames
+if|if
+condition|(
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Skipping test as it uses a custom duplicate check that is obsolete when strict duplicate checks are enabled."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|directGenerator
 operator|=
 literal|"{ \"field\" : \"f1\", \"field\" : \"f2\" }"
@@ -1257,6 +1275,7 @@ argument_list|,
 literal|"[direct_generator] failed to parse field [field]"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// test unknown field
 name|directGenerator
 operator|=

@@ -1267,6 +1267,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|XContentParser
 name|parser
 init|=
