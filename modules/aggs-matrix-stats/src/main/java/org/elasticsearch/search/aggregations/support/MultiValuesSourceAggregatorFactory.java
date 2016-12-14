@@ -328,6 +328,9 @@ operator|.
 name|toValuesSource
 argument_list|(
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
