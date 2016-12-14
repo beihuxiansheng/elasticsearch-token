@@ -232,7 +232,6 @@ end_comment
 
 begin_class
 DECL|class|RemovePluginCommand
-specifier|final
 class|class
 name|RemovePluginCommand
 extends|extends
