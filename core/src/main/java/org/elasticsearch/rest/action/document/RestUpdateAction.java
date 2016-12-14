@@ -603,23 +603,18 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// see if we have it in the body
-if|if
-condition|(
 name|request
 operator|.
-name|hasContent
-argument_list|()
-condition|)
+name|applyContentParser
+argument_list|(
+name|parser
+lambda|->
 block|{
 name|updateRequest
 operator|.
 name|fromXContent
 argument_list|(
-name|request
-operator|.
-name|content
-argument_list|()
+name|parser
 argument_list|)
 expr_stmt|;
 name|IndexRequest
@@ -773,6 +768,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+expr_stmt|;
 return|return
 name|channel
 lambda|->
