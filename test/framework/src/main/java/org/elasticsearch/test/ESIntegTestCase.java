@@ -6754,6 +6754,14 @@ name|cluster
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|cluster
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 comment|// if static init fails the cluster can be null
@@ -6819,6 +6827,14 @@ name|cluster
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|cluster
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|ClusterState
