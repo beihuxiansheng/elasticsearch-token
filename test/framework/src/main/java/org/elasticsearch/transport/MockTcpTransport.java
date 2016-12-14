@@ -2026,6 +2026,11 @@ init|(
 name|this
 init|)
 block|{
+name|onChannelClosed
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
