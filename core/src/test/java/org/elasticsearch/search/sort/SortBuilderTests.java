@@ -36,20 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|geo
 operator|.
 name|GeoPoint
@@ -138,7 +124,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentHelper
+name|XContentParser
 import|;
 end_import
 
@@ -152,7 +138,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -1489,7 +1477,6 @@ expr_stmt|;
 block|}
 DECL|method|parseSort
 specifier|private
-specifier|static
 name|List
 argument_list|<
 name|SortBuilder
@@ -1508,15 +1495,13 @@ block|{
 name|XContentParser
 name|itemParser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
-operator|new
-name|BytesArray
-argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|jsonString
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|QueryParseContext

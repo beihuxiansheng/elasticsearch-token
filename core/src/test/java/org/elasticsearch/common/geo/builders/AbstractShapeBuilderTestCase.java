@@ -424,14 +424,9 @@ decl_stmt|;
 name|XContentParser
 name|shapeParser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|shuffled
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|shapeParser

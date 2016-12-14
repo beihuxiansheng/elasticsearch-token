@@ -168,7 +168,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentHelper
+name|XContentParser
 import|;
 end_import
 
@@ -182,7 +182,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -1559,6 +1561,24 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
+name|XContentParser
+name|xContentParser
+init|=
+name|createParser
+argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
+name|source
+operator|.
+name|source
+argument_list|()
+argument_list|)
+init|)
+block|{
 name|ParseContext
 operator|.
 name|InternalParseContext
@@ -1577,15 +1597,7 @@ name|mapper
 argument_list|,
 name|source
 argument_list|,
-name|XContentHelper
-operator|.
-name|createParser
-argument_list|(
-name|source
-operator|.
-name|source
-argument_list|()
-argument_list|)
+name|xContentParser
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1659,6 +1671,7 @@ operator|.
 name|root
 argument_list|()
 return|;
+block|}
 block|}
 DECL|method|testDynamicMappingsNotNeeded
 specifier|public

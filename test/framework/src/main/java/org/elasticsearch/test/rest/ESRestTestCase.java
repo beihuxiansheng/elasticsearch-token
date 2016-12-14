@@ -512,7 +512,6 @@ decl_stmt|;
 comment|/**      * Convert the entity from a {@link Response} into a map of maps.      */
 DECL|method|entityAsMap
 specifier|public
-specifier|static
 name|Map
 argument_list|<
 name|String
@@ -551,13 +550,13 @@ init|(
 name|XContentParser
 name|parser
 init|=
+name|createParser
+argument_list|(
 name|xContentType
 operator|.
 name|xContent
 argument_list|()
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|response
 operator|.
 name|getEntity

@@ -474,14 +474,9 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|xContentBuilder
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QueryParseContext

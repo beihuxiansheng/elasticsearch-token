@@ -102,20 +102,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentParser
 import|;
 end_import
@@ -237,8 +223,6 @@ block|{
 name|XContentParser
 name|content
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -271,9 +255,6 @@ literal|"lowercase"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -405,8 +386,6 @@ block|{
 name|XContentParser
 name|content
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -497,9 +476,6 @@ name|endArray
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -770,8 +746,6 @@ decl_stmt|;
 name|XContentParser
 name|invalidContent
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -797,9 +771,6 @@ literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -866,8 +837,6 @@ decl_stmt|;
 name|XContentParser
 name|invalidExplain
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -886,9 +855,6 @@ literal|"fals"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -947,8 +913,6 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -981,9 +945,6 @@ literal|"lowercase"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1038,8 +999,6 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1072,9 +1031,6 @@ literal|"lowercase"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1129,8 +1085,6 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1163,9 +1117,6 @@ literal|"lowercase"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1220,8 +1171,6 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1254,9 +1203,6 @@ literal|"lowercase"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;

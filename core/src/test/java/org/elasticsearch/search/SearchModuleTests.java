@@ -124,7 +124,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentHelper
+name|XContentParser
 import|;
 end_import
 
@@ -138,7 +138,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -1860,10 +1862,12 @@ decl_stmt|;
 name|XContentParser
 name|dummyParser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
