@@ -274,6 +274,11 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Deprecated field [template] used, replaced by [index_patterns]"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testLogstashTemplatesBWC
 specifier|public
@@ -334,6 +339,11 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Deprecated field [template] used, replaced by [index_patterns]"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

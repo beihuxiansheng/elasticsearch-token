@@ -2467,7 +2467,7 @@ name|deprecatedJson
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [_name] used, replaced by [query name is not supported in short version of range query]"
 argument_list|)

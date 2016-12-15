@@ -88,18 +88,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|compress
 operator|.
 name|CompressedXContent
@@ -1142,7 +1130,7 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [type] used, expected [parent_type] instead"
 argument_list|)

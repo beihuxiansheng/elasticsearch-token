@@ -2217,6 +2217,11 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Object format in indices_boost is deprecated, please use array format instead"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|{

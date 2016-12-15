@@ -894,7 +894,7 @@ argument_list|(
 name|contentString
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [_type] used, expected [type] instead"
 argument_list|)
@@ -942,7 +942,7 @@ argument_list|(
 name|contentString2
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [types] used, expected [type] instead"
 argument_list|)

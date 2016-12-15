@@ -395,17 +395,18 @@ specifier|private
 name|QueryBuilder
 name|templateBase
 decl_stmt|;
-comment|/**      * All tests create deprecation warnings when an new {@link TemplateQueryBuilder} is created.      * Instead of having to check them once in every single test, this is done here after each test is run      */
-DECL|method|checkWarningHeaders
+comment|/**      * All tests in this class cause deprecation warnings when a new {@link TemplateQueryBuilder} is created.      * Instead of having to check them in every single test, we do it after each test is run      */
 annotation|@
 name|After
+DECL|method|checkWarning
+specifier|public
 name|void
-name|checkWarningHeaders
+name|checkWarning
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"[template] query is deprecated, use search template api instead"
 argument_list|)

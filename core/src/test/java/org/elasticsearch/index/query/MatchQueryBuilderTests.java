@@ -2127,7 +2127,7 @@ argument_list|(
 name|qb
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
 argument_list|,
@@ -2241,7 +2241,7 @@ argument_list|(
 name|qb
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
 argument_list|,

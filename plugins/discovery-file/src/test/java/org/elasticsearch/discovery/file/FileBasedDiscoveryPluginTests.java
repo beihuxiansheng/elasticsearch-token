@@ -54,6 +54,16 @@ name|ESTestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_class
 DECL|class|FileBasedDiscoveryPluginTests
 specifier|public
@@ -67,6 +77,8 @@ specifier|public
 name|void
 name|testHostsProviderBwc
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|FileBasedDiscoveryPlugin
 name|plugin
@@ -104,12 +116,21 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Using discovery.type setting to set hosts provider is deprecated. "
+operator|+
+literal|"Set \"discovery.zen.hosts_provider: file\" instead"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testHostsProviderExplicit
 specifier|public
 name|void
 name|testHostsProviderExplicit
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Settings
 name|settings
@@ -153,6 +174,13 @@ name|plugin
 operator|.
 name|additionalSettings
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Using discovery.type setting to set hosts provider is deprecated. "
+operator|+
+literal|"Set \"discovery.zen.hosts_provider: file\" instead"
 argument_list|)
 expr_stmt|;
 block|}

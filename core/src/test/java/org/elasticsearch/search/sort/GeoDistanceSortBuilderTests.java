@@ -1655,7 +1655,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [coerce] used, replaced by [validation_method]"
 argument_list|)
@@ -1733,7 +1733,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [ignore_malformed] used, replaced by [validation_method]"
 argument_list|)
@@ -2716,7 +2716,7 @@ argument_list|(
 name|sortBuilder
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [sort_mode] used, expected [mode] instead"
 argument_list|)

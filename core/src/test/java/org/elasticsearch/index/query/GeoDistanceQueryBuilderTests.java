@@ -1767,7 +1767,7 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [optimize_bbox] used, replaced by [no replacement: "
 operator|+
@@ -1811,7 +1811,7 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [coerce] used, replaced by [validation_method]"
 argument_list|)
@@ -1853,7 +1853,7 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|assertWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [ignore_malformed] used, replaced by [validation_method]"
 argument_list|)

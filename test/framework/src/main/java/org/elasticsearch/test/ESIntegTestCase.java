@@ -2517,6 +2517,21 @@ name|initializeSuiteScope
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|enableWarningsCheck
+specifier|protected
+specifier|final
+name|boolean
+name|enableWarningsCheck
+parameter_list|()
+block|{
+comment|//In an integ test it doesn't make sense to keep track of warnings: if the cluster is external the warnings are in another jvm,
+comment|//if the cluster is internal the deprecation logger is shared across all nodes
+return|return
+literal|false
+return|;
+block|}
 DECL|method|beforeInternal
 specifier|protected
 specifier|final
