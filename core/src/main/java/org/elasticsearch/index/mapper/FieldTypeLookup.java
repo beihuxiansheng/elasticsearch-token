@@ -490,8 +490,13 @@ expr_stmt|;
 if|if
 condition|(
 name|fieldType
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|fullNameFieldType
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 name|fullName

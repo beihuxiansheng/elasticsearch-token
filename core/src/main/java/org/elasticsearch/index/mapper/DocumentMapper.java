@@ -1791,6 +1791,32 @@ argument_list|(
 name|fullNameToFieldType
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|updated
+operator|==
+name|this
+operator|.
+name|mapping
+condition|)
+block|{
+comment|// no change
+return|return
+name|this
+return|;
+block|}
+assert|assert
+name|updated
+operator|==
+name|updated
+operator|.
+name|updateFieldType
+argument_list|(
+name|fullNameToFieldType
+argument_list|)
+operator|:
+literal|"updateFieldType operation is not idempotent"
+assert|;
 return|return
 operator|new
 name|DocumentMapper
