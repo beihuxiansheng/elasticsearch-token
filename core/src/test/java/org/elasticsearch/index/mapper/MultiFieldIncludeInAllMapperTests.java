@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.elasticsearch.index.mapper
 package|package
@@ -118,10 +122,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by makeyang on 2016/12/8.  */
-end_comment
-
 begin_class
 DECL|class|MultiFieldIncludeInAllMapperTests
 specifier|public
@@ -130,10 +130,10 @@ name|MultiFieldIncludeInAllMapperTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|method|testExceptionForCopyToInMultiFields
+DECL|method|testExceptionForIncludeInAllInMultiFields
 specifier|public
 name|void
-name|testExceptionForCopyToInMultiFields
+name|testExceptionForIncludeInAllInMultiFields
 parameter_list|()
 throws|throws
 name|IOException
@@ -141,10 +141,10 @@ block|{
 name|XContentBuilder
 name|mapping
 init|=
-name|createMappinmgWithIncludeInAllInMultiField
+name|createMappingWithIncludeInAllInMultiField
 argument_list|()
 decl_stmt|;
-comment|// first check that for newer versions we throw exception if copy_to is found withing multi field
+comment|// first check that for newer versions we throw exception if include_in_all is found withing multi field
 name|MapperService
 name|mapperService
 init|=
@@ -160,8 +160,17 @@ operator|.
 name|EMPTY
 argument_list|)
 decl_stmt|;
-try|try
-block|{
+name|Exception
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|MapperParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|mapperService
 operator|.
 name|parse
@@ -179,19 +188,8 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Parsing should throw an exception because the mapping contains a include_in_all in a multi field"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MapperParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -206,12 +204,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|createMappinmgWithIncludeInAllInMultiField
+DECL|method|createMappingWithIncludeInAllInMultiField
 specifier|private
 specifier|static
 name|XContentBuilder
-name|createMappinmgWithIncludeInAllInMultiField
+name|createMappingWithIncludeInAllInMultiField
 parameter_list|()
 throws|throws
 name|IOException
