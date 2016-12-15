@@ -4009,6 +4009,14 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|onChannelClosed
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -9597,6 +9605,28 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|isOpen
+argument_list|(
+name|channel
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// we have to protect ourself here since sendRequestToChannel won't barf if the channel is closed.
+comment|// it's weird but to change it will cause a lot of impact on the exception handling code all over the codebase.
+comment|// yet, if we don't check the state here we might have registered a pending handshake handler but the close
+comment|// listener calling #onChannelClosed might have already run and we are waiting on the latch below unitl we time out.
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"handshake failed, channel already closed"
+argument_list|)
+throw|;
+block|}
 comment|// for the request we use the minCompatVersion since we don't know what's the version of the node we talk to
 comment|// we also have no payload on the request but the response will contain the actual version of the node we talk
 comment|// to as the payload.
@@ -9850,7 +9880,7 @@ name|incrementAndGet
 argument_list|()
 return|;
 block|}
-comment|/**      * Called by sub-classes for each channel that is closed      */
+comment|/**      * Called once the channel is closed for instance due to a disconnect or a closed socket etc.      */
 DECL|method|onChannelClosed
 specifier|protected
 specifier|final
