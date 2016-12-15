@@ -118,7 +118,31 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|ScriptException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptType
 import|;
 end_import
 
@@ -196,20 +220,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|ConfigurationUtils
-operator|.
-name|readStringProperty
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|script
 operator|.
 name|ScriptType
@@ -247,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor that adds new fields with their corresponding values. If the field is already present, its value  * will be replaced with the provided one.  */
+comment|/**  * Processor that evaluates a script with an ingest document in its context.  */
 end_comment
 
 begin_class
@@ -280,6 +290,7 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
+comment|/**      * Processor that evaluates a script with an ingest document in its context      *      * @param tag The processor's tag.      * @param script The {@link Script} to execute.      * @param scriptService The {@link ScriptService} used to execute the script.      */
 DECL|method|ScriptProcessor
 name|ScriptProcessor
 parameter_list|(
@@ -311,6 +322,7 @@ operator|=
 name|scriptService
 expr_stmt|;
 block|}
+comment|/**      * Executes the script with the Ingest document in context.      *      * @param document The Ingest document passed into the script context under the "ctx" object.      */
 annotation|@
 name|Override
 DECL|method|execute
@@ -659,6 +671,9 @@ specifier|final
 name|Script
 name|script
 decl_stmt|;
+name|String
+name|scriptPropertyUsed
+decl_stmt|;
 if|if
 condition|(
 name|Strings
@@ -690,6 +705,10 @@ argument_list|>
 operator|)
 name|params
 argument_list|)
+expr_stmt|;
+name|scriptPropertyUsed
+operator|=
+literal|"file"
 expr_stmt|;
 block|}
 elseif|else
@@ -725,6 +744,10 @@ operator|)
 name|params
 argument_list|)
 expr_stmt|;
+name|scriptPropertyUsed
+operator|=
+literal|"inline"
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -759,6 +782,10 @@ operator|)
 name|params
 argument_list|)
 expr_stmt|;
+name|scriptPropertyUsed
+operator|=
+literal|"id"
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -772,6 +799,47 @@ argument_list|,
 literal|null
 argument_list|,
 literal|"Could not initialize script"
+argument_list|)
+throw|;
+block|}
+comment|// verify script is able to be compiled before successfully creating processor.
+try|try
+block|{
+name|scriptService
+operator|.
+name|compile
+argument_list|(
+name|script
+argument_list|,
+name|ScriptContext
+operator|.
+name|Standard
+operator|.
+name|INGEST
+argument_list|,
+name|script
+operator|.
+name|getOptions
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ScriptException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|newConfigurationException
+argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
+name|scriptPropertyUsed
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
