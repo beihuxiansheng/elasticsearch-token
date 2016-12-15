@@ -941,6 +941,13 @@ condition|(
 name|contentType
 operator|!=
 literal|null
+operator|&&
+name|contentType
+operator|.
+name|getCharset
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|charset
