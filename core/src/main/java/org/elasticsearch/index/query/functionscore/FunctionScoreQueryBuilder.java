@@ -2270,6 +2270,12 @@ name|maxBoost
 operator|=
 name|maxBoost
 expr_stmt|;
+name|newQueryBuilder
+operator|.
+name|boostMode
+operator|=
+name|boostMode
+expr_stmt|;
 return|return
 name|newQueryBuilder
 return|;
