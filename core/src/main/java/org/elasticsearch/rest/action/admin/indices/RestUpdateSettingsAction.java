@@ -254,6 +254,8 @@ name|unmodifiableSet
 argument_list|(
 name|newHashSet
 argument_list|(
+literal|"error_trace"
+argument_list|,
 literal|"pretty"
 argument_list|,
 literal|"timeout"
