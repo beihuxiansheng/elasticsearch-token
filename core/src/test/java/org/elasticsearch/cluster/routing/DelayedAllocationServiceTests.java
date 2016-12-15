@@ -556,7 +556,7 @@ argument_list|(
 name|clusterService
 argument_list|)
 operator|.
-name|addFirst
+name|addListener
 argument_list|(
 name|delayedAllocationService
 argument_list|)

@@ -180,7 +180,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -834,18 +834,6 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|min
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
 name|unmodifiableSet
 import|;
 end_import
@@ -1008,7 +996,7 @@ name|RestoreService
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|UNMODIFIABLE_SETTINGS
 specifier|private
@@ -1215,7 +1203,7 @@ name|metaDataIndexUpgradeService
 expr_stmt|;
 name|clusterService
 operator|.
-name|add
+name|addStateApplier
 argument_list|(
 name|this
 argument_list|)
@@ -5705,10 +5693,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 name|ClusterChangedEvent
 name|event

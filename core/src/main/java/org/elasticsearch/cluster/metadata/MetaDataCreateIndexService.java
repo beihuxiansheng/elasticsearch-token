@@ -728,6 +728,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -1757,9 +1775,16 @@ init|=
 literal|null
 decl_stmt|;
 name|String
-name|removalReason
+name|removalExtraInfo
 init|=
 literal|null
+decl_stmt|;
+name|IndexRemovalReason
+name|removalReason
+init|=
+name|IndexRemovalReason
+operator|.
+name|FAILURE
 decl_stmt|;
 try|try
 block|{
@@ -2769,7 +2794,7 @@ name|MapperParsingException
 name|mpe
 parameter_list|)
 block|{
-name|removalReason
+name|removalExtraInfo
 operator|=
 literal|"failed on parsing default mapping/mappings on index creation"
 expr_stmt|;
@@ -3118,7 +3143,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|removalReason
+name|removalExtraInfo
 operator|=
 literal|"failed to build index metadata"
 expr_stmt|;
@@ -3383,9 +3408,15 @@ literal|"] created"
 argument_list|)
 expr_stmt|;
 block|}
-name|removalReason
+name|removalExtraInfo
 operator|=
 literal|"cleaning up after validating index on master"
+expr_stmt|;
+name|removalReason
+operator|=
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
 expr_stmt|;
 return|return
 name|updatedState
@@ -3408,12 +3439,8 @@ argument_list|(
 name|createdIndex
 argument_list|,
 name|removalReason
-operator|!=
-literal|null
-condition|?
-name|removalReason
-else|:
-literal|"failed to create index"
+argument_list|,
+name|removalExtraInfo
 argument_list|)
 expr_stmt|;
 block|}

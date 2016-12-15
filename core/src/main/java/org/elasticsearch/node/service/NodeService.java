@@ -516,7 +516,7 @@ name|scriptService
 expr_stmt|;
 name|clusterService
 operator|.
-name|add
+name|addStateApplier
 argument_list|(
 name|ingestService
 operator|.
@@ -526,7 +526,7 @@ argument_list|)
 expr_stmt|;
 name|clusterService
 operator|.
-name|add
+name|addStateApplier
 argument_list|(
 name|ingestService
 operator|.

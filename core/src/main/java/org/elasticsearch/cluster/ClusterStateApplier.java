@@ -4,8 +4,18 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.service
+DECL|package|org.elasticsearch.cluster
 package|package
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+package|;
+end_package
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -13,25 +23,32 @@ operator|.
 name|cluster
 operator|.
 name|service
-package|;
-end_package
+operator|.
+name|ClusterService
+import|;
+end_import
 
-begin_enum
-DECL|enum|ClusterStateStatus
+begin_comment
+comment|/**  * A component that is in charge of applying an incoming cluster state to the node internal data structures.  * The single apply method is called before the cluster state becomes visible via {@link ClusterService#state()}.  */
+end_comment
+
+begin_interface
+DECL|interface|ClusterStateApplier
 specifier|public
-enum|enum
-name|ClusterStateStatus
+interface|interface
+name|ClusterStateApplier
 block|{
-DECL|enum constant|UNKNOWN
-name|UNKNOWN
-block|,
-DECL|enum constant|BEING_APPLIED
-name|BEING_APPLIED
-block|,
-DECL|enum constant|APPLIED
-name|APPLIED
-block|; }
-end_enum
+comment|/**      * Called when a new cluster state ({@link ClusterChangedEvent#state()} needs to be applied      */
+DECL|method|applyClusterState
+name|void
+name|applyClusterState
+parameter_list|(
+name|ClusterChangedEvent
+name|event
+parameter_list|)
+function_decl|;
+block|}
+end_interface
 
 end_unit
 

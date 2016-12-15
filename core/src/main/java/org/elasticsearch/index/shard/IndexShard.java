@@ -9180,7 +9180,7 @@ begin_else
 else|else
 block|{
 specifier|final
-name|Exception
+name|RuntimeException
 name|e
 decl_stmt|;
 if|if
@@ -9229,25 +9229,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|recoveryListener
-operator|.
-name|onRecoveryFailure
-argument_list|(
-name|recoveryState
-argument_list|,
-operator|new
-name|RecoveryFailedException
-argument_list|(
-name|recoveryState
-argument_list|,
-literal|null
-argument_list|,
+throw|throw
 name|e
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 end_else
 

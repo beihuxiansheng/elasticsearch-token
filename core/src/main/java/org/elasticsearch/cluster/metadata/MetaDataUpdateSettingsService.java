@@ -511,7 +511,7 @@ name|this
 operator|.
 name|clusterService
 operator|.
-name|add
+name|addListener
 argument_list|(
 name|this
 argument_list|)

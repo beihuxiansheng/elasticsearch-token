@@ -695,7 +695,7 @@ comment|// on the current master and as such it might miss some intermediary clu
 comment|// Clean up listener in that case and acknowledge completion of restore operation to client.
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|this
 argument_list|)
@@ -722,7 +722,7 @@ condition|)
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|this
 argument_list|)
@@ -843,7 +843,7 @@ block|}
 decl_stmt|;
 name|clusterService
 operator|.
-name|addLast
+name|addListener
 argument_list|(
 name|clusterStateListener
 argument_list|)

@@ -412,6 +412,26 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
+import|;
+end_import
+
 begin_comment
 comment|/**  * Service responsible for submitting index templates updates  */
 end_comment
@@ -1505,6 +1525,8 @@ operator|.
 name|removeIndex
 argument_list|(
 name|createdIndex
+argument_list|,
+name|NO_LONGER_ASSIGNED
 argument_list|,
 literal|" created for parsing template mapping"
 argument_list|)

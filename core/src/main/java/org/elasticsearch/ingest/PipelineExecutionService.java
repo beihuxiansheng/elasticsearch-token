@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -224,7 +224,7 @@ specifier|public
 class|class
 name|PipelineExecutionService
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|store
 specifier|private
@@ -637,10 +637,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 name|ClusterChangedEvent
 name|event

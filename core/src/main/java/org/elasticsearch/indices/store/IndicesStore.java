@@ -238,20 +238,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|ClusterServiceState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|collect
@@ -888,9 +874,12 @@ name|settings
 argument_list|)
 condition|)
 block|{
+comment|// we double check nothing has changed when responses come back from other nodes.
+comment|// it's easier to do that check when the current cluster state is visible.
+comment|// also it's good in general to let things settle down
 name|clusterService
 operator|.
-name|add
+name|addListener
 argument_list|(
 name|this
 argument_list|)
@@ -917,7 +906,7 @@ condition|)
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|this
 argument_list|)
@@ -2278,28 +2267,15 @@ block|}
 block|}
 block|}
 argument_list|,
-operator|new
-name|ClusterStateObserver
-operator|.
-name|ValidationPredicate
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|boolean
-name|validate
-parameter_list|(
-name|ClusterServiceState
 name|newState
-parameter_list|)
+lambda|->
 block|{
 comment|// the shard is not there in which case we want to send back a false (shard is not active), so the cluster state listener must be notified
 comment|// or the shard is active in which case we want to send back that the shard is active
 comment|// here we could also evaluate the cluster state and get the information from there. we
 comment|// don't do it because we would have to write another method for this that would have the same effect
 name|IndexShard
-name|indexShard
+name|currentShard
 init|=
 name|getShard
 argument_list|(
@@ -2307,16 +2283,15 @@ name|request
 argument_list|)
 decl_stmt|;
 return|return
-name|indexShard
+name|currentShard
 operator|==
 literal|null
 operator|||
 name|shardActive
 argument_list|(
-name|indexShard
+name|currentShard
 argument_list|)
 return|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
