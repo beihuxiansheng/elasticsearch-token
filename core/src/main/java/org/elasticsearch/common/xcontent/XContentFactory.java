@@ -605,7 +605,9 @@ name|xContent
 argument_list|()
 return|;
 block|}
-comment|/**      * Guesses the content type based on the provided char sequence.      */
+comment|/**      * Guesses the content type based on the provided char sequence.      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -802,7 +804,9 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Guesses the content (type) based on the provided char sequence.      */
+comment|/**      * Guesses the content (type) based on the provided char sequence and returns the corresponding {@link XContent}      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -843,7 +847,9 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Guesses the content type based on the provided bytes.      */
+comment|/**      * Guesses the content type based on the provided bytes and returns the corresponding {@link XContent}      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -868,7 +874,9 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Guesses the content type based on the provided bytes.      */
+comment|/**      * Guesses the content type based on the provided bytes and returns the corresponding {@link XContent}      *      * @deprecated guessing the content type should not be needed ideally. We should rather know the content type upfront or read it      * from headers. Till we fixed the REST layer to read the Content-Type header, that should be the only place where guessing is needed.      */
+annotation|@
+name|Deprecated
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -920,7 +928,9 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Guesses the content type based on the provided bytes.      */
+comment|/**      * Guesses the content type based on the provided bytes.      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -945,7 +955,9 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Guesses the content type based on the provided input stream without consuming it.      */
+comment|/**      * Guesses the content type based on the provided input stream without consuming it.      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -1038,7 +1050,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Guesses the content type based on the provided bytes.      */
+comment|/**      * Guesses the content type based on the provided bytes.      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContentType
 specifier|public
 specifier|static
@@ -1071,6 +1085,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Guesses the content type based on the provided bytes and returns the corresponding {@link XContent}      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContent
 specifier|public
 specifier|static
@@ -1111,7 +1128,9 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Guesses the content type based on the provided bytes.      */
+comment|/**      * Guesses the content type based on the provided bytes.      *      * @deprecated the content type should not be guessed except for few cases where we effectively don't know the content type.      * The REST layer should move to reading the Content-Type header instead. There are other places where auto-detection may be needed.      * This method is deprecated to prevent usages of it from spreading further without specific reasons.      */
+annotation|@
+name|Deprecated
 DECL|method|xContentType
 specifier|public
 specifier|static
