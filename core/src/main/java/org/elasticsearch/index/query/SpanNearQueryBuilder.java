@@ -196,16 +196,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * Matches spans which are near one another. One can specify slop, the maximum number  * of intervening unmatched positions, as well as whether matches are required to be in-order.  * The span near query maps to Lucene {@link SpanNearQuery}.  */
 end_comment
@@ -645,10 +635,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|SpanNearQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -792,10 +779,7 @@ operator|.
 name|END_ARRAY
 condition|)
 block|{
-name|Optional
-argument_list|<
 name|QueryBuilder
-argument_list|>
 name|query
 init|=
 name|parseContext
@@ -806,16 +790,6 @@ decl_stmt|;
 if|if
 condition|(
 name|query
-operator|.
-name|isPresent
-argument_list|()
-operator|==
-literal|false
-operator|||
-name|query
-operator|.
-name|get
-argument_list|()
 operator|instanceof
 name|SpanQueryBuilder
 operator|==
@@ -843,9 +817,6 @@ operator|(
 name|SpanQueryBuilder
 operator|)
 name|query
-operator|.
-name|get
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1128,12 +1099,7 @@ name|queryName
 argument_list|)
 expr_stmt|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|queryBuilder
-argument_list|)
 return|;
 block|}
 annotation|@

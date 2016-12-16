@@ -2243,7 +2243,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|.
-name|add
+name|addListener
 argument_list|(
 operator|new
 name|TribeClusterStateListener

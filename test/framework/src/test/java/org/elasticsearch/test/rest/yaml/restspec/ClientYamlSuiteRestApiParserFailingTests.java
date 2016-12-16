@@ -56,9 +56,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|ESTestCase
+name|xcontent
+operator|.
+name|yaml
+operator|.
+name|YamlXContent
 import|;
 end_import
 
@@ -70,23 +74,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|restspec
-operator|.
-name|ClientYamlSuiteRestApiParser
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|ESTestCase
 import|;
 end_import
 
@@ -218,6 +206,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|parseAndExpectFailure
 argument_list|(
 literal|"{\n"
@@ -290,6 +288,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|parseAndExpectFailure
 argument_list|(
 literal|"{\n"
@@ -399,12 +407,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|JsonXContent
-operator|.
-name|jsonXContent
-operator|.
 name|createParser
 argument_list|(
+name|YamlXContent
+operator|.
+name|yamlXContent
+argument_list|,
 name|brokenJson
 argument_list|)
 decl_stmt|;

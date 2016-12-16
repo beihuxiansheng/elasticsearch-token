@@ -207,6 +207,7 @@ block|{
 DECL|field|GUESS_HEADER_LENGTH
 specifier|private
 specifier|static
+specifier|final
 name|int
 name|GUESS_HEADER_LENGTH
 init|=

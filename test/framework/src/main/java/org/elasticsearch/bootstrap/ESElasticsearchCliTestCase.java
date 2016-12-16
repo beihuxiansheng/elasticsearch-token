@@ -248,6 +248,17 @@ name|esSettings
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|boolean
+name|addShutdownHook
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 argument_list|,
 name|terminal

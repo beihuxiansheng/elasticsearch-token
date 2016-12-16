@@ -44,79 +44,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|json
-operator|.
-name|JsonXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|yaml
 operator|.
 name|YamlXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|DoSectionParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|ClientYamlTestParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|ClientYamlTestSuiteParseContext
 import|;
 end_import
 
@@ -262,7 +192,7 @@ specifier|public
 class|class
 name|DoSectionParserTests
 extends|extends
-name|AbstractParserTestCase
+name|AbstractClientYamlTestFragmentParserTestCase
 block|{
 DECL|method|testParseDoSectionNoBody
 specifier|public
@@ -274,12 +204,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"get:\n"
 operator|+
 literal|"    index:    test_index\n"
@@ -437,12 +367,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"cluster.node_info: {}"
 argument_list|)
 expr_stmt|;
@@ -545,12 +475,12 @@ literal|"{ \"include\": { \"field1\": \"v1\", \"field2\": \"v2\" }, \"count\": 1
 decl_stmt|;
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"index:\n"
 operator|+
 literal|"    index:  test_1\n"
@@ -744,12 +674,12 @@ block|}
 decl_stmt|;
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"bulk:\n"
 operator|+
 literal|"    refresh: true\n"
@@ -926,12 +856,12 @@ block|,         }
 decl_stmt|;
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"bulk:\n"
 operator|+
 literal|"    refresh: true\n"
@@ -1123,12 +1053,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"search:\n"
 operator|+
 literal|"    body:\n"
@@ -1268,12 +1198,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"bulk:\n"
 operator|+
 literal|"    refresh: true\n"
@@ -1509,12 +1439,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"bulk:\n"
 operator|+
 literal|"    refresh: true\n"
@@ -1726,12 +1656,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"mget:\n"
 operator|+
 literal|"    body:\n"
@@ -1879,12 +1809,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"index:\n"
 operator|+
 literal|"    index:  test_1\n"
@@ -2076,12 +2006,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"index:\n"
 operator|+
 literal|"    body:\n"
@@ -2229,12 +2159,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"catch: missing\n"
 operator|+
 literal|"indices.get_warmer:\n"
@@ -2355,12 +2285,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"headers:\n"
 operator|+
 literal|"    Authorization: \"thing one\"\n"
@@ -2547,12 +2477,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"catch: missing\n"
 argument_list|)
 expr_stmt|;
@@ -2617,12 +2547,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"indices.get_field_mapping:\n"
 operator|+
 literal|"        index: test_index\n"
@@ -2823,12 +2753,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"indices.get_field_mapping:\n"
 operator|+
 literal|"        index: test_index\n"
@@ -3023,12 +2953,12 @@ argument_list|)
 expr_stmt|;
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"indices.get_field_mapping:\n"
 operator|+
 literal|"        index: test_index\n"
@@ -3096,7 +3026,6 @@ expr_stmt|;
 block|}
 DECL|method|assertJsonEquals
 specifier|private
-specifier|static
 name|void
 name|assertJsonEquals
 parameter_list|(
@@ -3127,12 +3056,12 @@ init|(
 name|XContentParser
 name|parser
 init|=
-name|JsonXContent
-operator|.
-name|jsonXContent
-operator|.
 name|createParser
 argument_list|(
+name|YamlXContent
+operator|.
+name|yamlXContent
+argument_list|,
 name|expected
 argument_list|)
 init|)

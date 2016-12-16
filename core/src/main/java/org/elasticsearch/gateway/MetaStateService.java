@@ -517,9 +517,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MetaData
-name|globalState
-init|=
+return|return
 name|MetaData
 operator|.
 name|FORMAT
@@ -533,33 +531,7 @@ operator|.
 name|nodeDataPaths
 argument_list|()
 argument_list|)
-decl_stmt|;
-comment|// ES 2.0 now requires units for all time and byte-sized settings, so we add the default unit if it's missing
-comment|// TODO: can we somehow only do this for pre-2.0 cluster state?
-if|if
-condition|(
-name|globalState
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|MetaData
-operator|.
-name|addDefaultUnitsIfNeeded
-argument_list|(
-name|logger
-argument_list|,
-name|globalState
-argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 comment|/**      * Writes the index state.      *      * This method is public for testing purposes.      */
 DECL|method|writeIndex

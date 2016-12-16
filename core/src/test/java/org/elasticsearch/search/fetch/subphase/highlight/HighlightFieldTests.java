@@ -390,17 +390,9 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|xcontentType
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
 name|builder
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|parser

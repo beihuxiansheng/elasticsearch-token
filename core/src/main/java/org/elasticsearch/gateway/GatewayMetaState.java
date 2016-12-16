@@ -70,7 +70,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -414,7 +414,7 @@ name|GatewayMetaState
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|nodeEnv
 specifier|private
@@ -427,12 +427,6 @@ specifier|private
 specifier|final
 name|MetaStateService
 name|metaStateService
-decl_stmt|;
-DECL|field|danglingIndicesState
-specifier|private
-specifier|final
-name|DanglingIndicesState
-name|danglingIndicesState
 decl_stmt|;
 annotation|@
 name|Nullable
@@ -469,9 +463,6 @@ parameter_list|,
 name|MetaStateService
 name|metaStateService
 parameter_list|,
-name|DanglingIndicesState
-name|danglingIndicesState
-parameter_list|,
 name|TransportNodesListGatewayMetaState
 name|nodesListGatewayMetaState
 parameter_list|,
@@ -500,12 +491,6 @@ operator|.
 name|metaStateService
 operator|=
 name|metaStateService
-expr_stmt|;
-name|this
-operator|.
-name|danglingIndicesState
-operator|=
-name|danglingIndicesState
 expr_stmt|;
 name|nodesListGatewayMetaState
 operator|.
@@ -748,10 +733,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 name|ClusterChangedEvent
 name|event
@@ -1092,13 +1077,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|danglingIndicesState
-operator|.
-name|processDanglingIndices
-argument_list|(
-name|newMetaData
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|success

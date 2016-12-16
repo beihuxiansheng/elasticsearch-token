@@ -795,6 +795,9 @@ name|version
 parameter_list|,
 name|InetSocketAddress
 name|remoteAddress
+parameter_list|,
+name|byte
+name|status
 parameter_list|)
 throws|throws
 name|IOException
@@ -819,6 +822,8 @@ argument_list|,
 name|version
 argument_list|,
 name|remoteAddress
+argument_list|,
+name|status
 argument_list|)
 decl_stmt|;
 name|channelProfileName

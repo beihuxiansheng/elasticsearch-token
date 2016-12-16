@@ -2617,9 +2617,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.initial_state_timeout"
+name|ElectMasterService
+operator|.
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
-literal|"500ms"
+literal|"1"
 argument_list|)
 operator|.
 name|build

@@ -118,7 +118,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -694,18 +694,6 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|RestoreService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|snapshots
-operator|.
 name|SnapshotShardsService
 import|;
 end_import
@@ -860,6 +848,86 @@ name|Collectors
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|CLOSED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|DELETED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|FAILURE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
+import|;
+end_import
+
 begin_class
 DECL|class|IndicesClusterStateService
 specifier|public
@@ -868,7 +936,7 @@ name|IndicesClusterStateService
 extends|extends
 name|AbstractLifecycleComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|indicesService
 specifier|final
@@ -961,12 +1029,6 @@ operator|.
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
-DECL|field|restoreService
-specifier|private
-specifier|final
-name|RestoreService
-name|restoreService
-decl_stmt|;
 DECL|field|repositoriesService
 specifier|private
 specifier|final
@@ -1028,9 +1090,6 @@ parameter_list|,
 name|RepositoriesService
 name|repositoriesService
 parameter_list|,
-name|RestoreService
-name|restoreService
-parameter_list|,
 name|SearchService
 name|searchService
 parameter_list|,
@@ -1051,23 +1110,6 @@ name|this
 argument_list|(
 name|settings
 argument_list|,
-operator|(
-name|AllocatedIndices
-argument_list|<
-name|?
-extends|extends
-name|Shard
-argument_list|,
-name|?
-extends|extends
-name|AllocatedIndex
-argument_list|<
-name|?
-extends|extends
-name|Shard
-argument_list|>
-argument_list|>
-operator|)
 name|indicesService
 argument_list|,
 name|clusterService
@@ -1081,8 +1123,6 @@ argument_list|,
 name|nodeMappingRefreshAction
 argument_list|,
 name|repositoriesService
-argument_list|,
-name|restoreService
 argument_list|,
 name|searchService
 argument_list|,
@@ -1139,9 +1179,6 @@ name|nodeMappingRefreshAction
 parameter_list|,
 name|RepositoriesService
 name|repositoriesService
-parameter_list|,
-name|RestoreService
-name|restoreService
 parameter_list|,
 name|SearchService
 name|searchService
@@ -1224,12 +1261,6 @@ name|nodeMappingRefreshAction
 expr_stmt|;
 name|this
 operator|.
-name|restoreService
-operator|=
-name|restoreService
-expr_stmt|;
-name|this
-operator|.
 name|repositoriesService
 operator|=
 name|repositoriesService
@@ -1284,7 +1315,7 @@ condition|)
 block|{
 name|clusterService
 operator|.
-name|addFirst
+name|addHighPriorityApplier
 argument_list|(
 name|this
 argument_list|)
@@ -1318,7 +1349,7 @@ condition|)
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeApplier
 argument_list|(
 name|this
 argument_list|)
@@ -1335,11 +1366,11 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 specifier|synchronized
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 specifier|final
 name|ClusterChangedEvent
@@ -1401,6 +1432,8 @@ name|indexService
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|NO_LONGER_ASSIGNED
 argument_list|,
 literal|"cleaning index (disabled block persistence)"
 argument_list|)
@@ -1632,6 +1665,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|SHARD_STATE_ACTION_LISTENER
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -1748,9 +1783,11 @@ argument_list|()
 expr_stmt|;
 name|indicesService
 operator|.
-name|deleteIndex
+name|removeIndex
 argument_list|(
 name|index
+argument_list|,
+name|DELETED
 argument_list|,
 literal|"index no longer part of the metadata"
 argument_list|)
@@ -2125,7 +2162,10 @@ comment|// if the cluster change indicates a brand new cluster, we only want
 comment|// to remove the in-memory structures for the index and not delete the
 comment|// contents on disk because the index will later be re-imported as a
 comment|// dangling index
-assert|assert
+specifier|final
+name|IndexMetaData
+name|indexMetaData
+init|=
 name|state
 operator|.
 name|metaData
@@ -2135,6 +2175,9 @@ name|index
 argument_list|(
 name|index
 argument_list|)
+decl_stmt|;
+assert|assert
+name|indexMetaData
 operator|!=
 literal|null
 operator|||
@@ -2151,13 +2194,40 @@ literal|" does not exist in the cluster state, it should either "
 operator|+
 literal|"have been deleted or the cluster must be new"
 assert|;
+specifier|final
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+name|reason
+init|=
+name|indexMetaData
+operator|!=
+literal|null
+operator|&&
+name|indexMetaData
+operator|.
+name|getState
+argument_list|()
+operator|==
+name|IndexMetaData
+operator|.
+name|State
+operator|.
+name|CLOSE
+condition|?
+name|CLOSED
+else|:
+name|NO_LONGER_ASSIGNED
+decl_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} removing index, no shards allocated"
+literal|"{} removing index, [{}]"
 argument_list|,
 name|index
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|indicesService
@@ -2165,6 +2235,8 @@ operator|.
 name|removeIndex
 argument_list|(
 name|index
+argument_list|,
+name|reason
 argument_list|,
 literal|"removing index (no shards allocated)"
 argument_list|)
@@ -2264,6 +2336,8 @@ argument_list|,
 literal|"master marked shard as active, but shard has not been created, mark shard as failed"
 argument_list|,
 literal|null
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -2897,6 +2971,8 @@ name|removeIndex
 argument_list|(
 name|index
 argument_list|,
+name|FAILURE
+argument_list|,
 literal|"removing index (mapping update failed)"
 argument_list|)
 expr_stmt|;
@@ -2919,6 +2995,8 @@ argument_list|,
 name|failShardReason
 argument_list|,
 name|e
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -3103,6 +3181,8 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
+name|FAILURE
+argument_list|,
 literal|"removing index (mapping update failed)"
 argument_list|)
 expr_stmt|;
@@ -3174,6 +3254,8 @@ argument_list|,
 literal|"failed to update mapping for index"
 argument_list|,
 name|e
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -3335,6 +3417,8 @@ argument_list|,
 name|routingTable
 argument_list|,
 name|shardRouting
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -3349,6 +3433,8 @@ argument_list|,
 name|shard
 argument_list|,
 name|routingTable
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -3368,6 +3454,9 @@ name|routingTable
 parameter_list|,
 name|ShardRouting
 name|shardRouting
+parameter_list|,
+name|ClusterState
+name|state
 parameter_list|)
 block|{
 assert|assert
@@ -3502,6 +3591,8 @@ argument_list|,
 literal|"failed to create shard"
 argument_list|,
 name|e
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -3522,6 +3613,9 @@ name|shard
 parameter_list|,
 name|RoutingTable
 name|routingTable
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 block|{
 specifier|final
@@ -3677,6 +3771,8 @@ argument_list|,
 literal|"failed updating shard routing entry"
 argument_list|,
 name|e
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3773,6 +3869,8 @@ operator|+
 literal|"], mark shard as started"
 argument_list|,
 name|SHARD_STATE_ACTION_LISTENER
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
@@ -4056,6 +4154,11 @@ argument_list|,
 literal|"failed recovery"
 argument_list|,
 name|failure
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4077,6 +4180,9 @@ annotation|@
 name|Nullable
 name|Exception
 name|failure
+parameter_list|,
+name|ClusterState
+name|state
 parameter_list|)
 block|{
 try|try
@@ -4193,6 +4299,8 @@ argument_list|,
 name|message
 argument_list|,
 name|failure
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -4212,6 +4320,9 @@ annotation|@
 name|Nullable
 name|Exception
 name|failure
+parameter_list|,
+name|ClusterState
+name|state
 parameter_list|)
 block|{
 try|try
@@ -4267,6 +4378,8 @@ argument_list|,
 name|failure
 argument_list|,
 name|SHARD_STATE_ACTION_LISTENER
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -4392,6 +4505,11 @@ argument_list|,
 name|shardFailure
 operator|.
 name|cause
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4583,19 +4701,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 function_decl|;
-comment|/**          * Deletes the given index. Persistent parts of the index          * like the shards files, state and transaction logs are removed once all resources are released.          *          * Equivalent to {@link #removeIndex(Index, String)} but fires          * different lifecycle events to ensure pending resources of this index are immediately removed.          * @param index the index to delete          * @param reason the high level reason causing this delete          */
-DECL|method|deleteIndex
-name|void
-name|deleteIndex
-parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|String
-name|reason
-parameter_list|)
-function_decl|;
-comment|/**          * Deletes an index that is not assigned to this node. This method cleans up all disk folders relating to the index          * but does not deal with in-memory structures. For those call {@link #deleteIndex(Index, String)}          */
+comment|/**          * Deletes an index that is not assigned to this node. This method cleans up all disk folders relating to the index          * but does not deal with in-memory structures. For those call {@link #removeIndex(Index, IndexRemovalReason, String)}          */
 DECL|method|deleteUnassignedIndex
 name|void
 name|deleteUnassignedIndex
@@ -4610,7 +4716,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 function_decl|;
-comment|/**          * Removes the given index from this service and releases all associated resources. Persistent parts of the index          * like the shards files, state and transaction logs are kept around in the case of a disaster recovery.          * @param index the index to remove          * @param reason  the high level reason causing this removal          */
+comment|/**          * Removes the given index from this service and releases all associated resources. Persistent parts of the index          * like the shards files, state and transaction logs are kept around in the case of a disaster recovery.          * @param index the index to remove          * @param reason the reason to remove the index          * @param extraInfo extra information that will be used for logging and reporting          */
 DECL|method|removeIndex
 name|void
 name|removeIndex
@@ -4618,8 +4724,11 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|String
+name|IndexRemovalReason
 name|reason
+parameter_list|,
+name|String
+name|extraInfo
 parameter_list|)
 function_decl|;
 comment|/**          * Returns an IndexService for the specified index if exists otherwise returns<code>null</code>.          */
@@ -4730,6 +4839,26 @@ name|InterruptedException
 throws|,
 name|ShardLockObtainFailedException
 function_decl|;
+DECL|enum|IndexRemovalReason
+enum|enum
+name|IndexRemovalReason
+block|{
+comment|/**              * Shard of this index were previously assigned to this node but all shards have been relocated.              * The index should be removed and all associated resources released. Persistent parts of the index              * like the shards files, state and transaction logs are kept around in the case of a disaster recovery.              */
+DECL|enum constant|NO_LONGER_ASSIGNED
+name|NO_LONGER_ASSIGNED
+block|,
+comment|/**              * The index is deleted. Persistent parts of the index  like the shards files, state and transaction logs are removed once              * all resources are released.              */
+DECL|enum constant|DELETED
+name|DELETED
+block|,
+comment|/**              * The index have been closed. The index should be removed and all associated resources released. Persistent parts of the index              * like the shards files, state and transaction logs are kept around in the case of a disaster recovery.              */
+DECL|enum constant|CLOSED
+name|CLOSED
+block|,
+comment|/**              * Something around index management has failed and the index should be removed.              * Persistent parts of the index like the shards files, state and transaction logs are kept around in the              * case of a disaster recovery.              */
+DECL|enum constant|FAILURE
+name|FAILURE
+block|}
 block|}
 block|}
 end_class

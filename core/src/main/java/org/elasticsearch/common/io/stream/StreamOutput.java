@@ -1851,13 +1851,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|writeByte
+name|writeBoolean
 argument_list|(
 name|b
-condition|?
-name|ONE
-else|:
-name|ZERO
 argument_list|)
 expr_stmt|;
 block|}

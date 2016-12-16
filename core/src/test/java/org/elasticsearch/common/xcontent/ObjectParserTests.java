@@ -76,22 +76,6 @@ name|xcontent
 operator|.
 name|AbstractObjectParser
 operator|.
-name|ContextParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|AbstractObjectParser
-operator|.
 name|NoContextParser
 import|;
 end_import
@@ -125,6 +109,22 @@ operator|.
 name|ObjectParser
 operator|.
 name|ValueType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -244,15 +244,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"test\" : \"foo\",\n"
@@ -763,15 +760,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"object\" : { \"test\": 2}}"
 argument_list|)
 decl_stmt|;
@@ -855,15 +849,12 @@ argument_list|)
 expr_stmt|;
 name|parser
 operator|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"object\" : false }"
 argument_list|)
 expr_stmt|;
@@ -887,15 +878,12 @@ argument_list|)
 expr_stmt|;
 name|parser
 operator|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"object\" : true }"
 argument_list|)
 expr_stmt|;
@@ -1368,15 +1356,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"test\" : \"foo\"}"
 argument_list|)
 decl_stmt|;
@@ -1477,15 +1462,12 @@ expr_stmt|;
 block|}
 name|parser
 operator|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"not_supported_field\" : \"foo\"}"
 argument_list|)
 expr_stmt|;
@@ -1537,15 +1519,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"old_test\" : \"foo\"}"
 argument_list|)
 decl_stmt|;
@@ -1660,15 +1639,12 @@ argument_list|)
 expr_stmt|;
 name|parser
 operator|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"old_test\" : \"foo\"}"
 argument_list|)
 expr_stmt|;
@@ -1708,15 +1684,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"numeric_value\" : false}"
 argument_list|)
 decl_stmt|;
@@ -1832,15 +1805,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{ \"test\" : 1, \"object\" : { \"test\": 2}}"
 argument_list|)
 decl_stmt|;
@@ -1996,15 +1966,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{ \"test\" : 1, \"object\" : { \"test\": 2}}"
 argument_list|)
 decl_stmt|;
@@ -2103,15 +2070,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"object\" : {}}"
 argument_list|)
 decl_stmt|;
@@ -2182,15 +2146,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"object_array\" : [{}]}"
 argument_list|)
 decl_stmt|;
@@ -2365,15 +2326,12 @@ block|}
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{ \"test\" : \"FOO\" }"
 argument_list|)
 decl_stmt|;
@@ -2758,15 +2716,12 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|builder
 operator|.
 name|string
@@ -3431,15 +3386,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"named\": {\n"
 operator|+
 literal|"  \"a\": {}"
@@ -3508,15 +3460,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"named\": [\n"
 operator|+
 literal|"  {\"a\": {}}"
@@ -3585,15 +3534,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"named\": [\n"
 operator|+
 literal|"  {\"a\": {}, \"b\": {}}"
@@ -3659,15 +3605,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"named\": [\n"
 operator|+
 literal|"  {}"
@@ -3733,15 +3676,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"named\": [\n"
 operator|+
 literal|"  \"junk\""
@@ -3807,15 +3747,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"named\": [\n"
 operator|+
 literal|"  {\"a\": {}}"
@@ -3971,15 +3908,12 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|b
 operator|.
 name|bytes
@@ -4150,15 +4084,12 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|b
 operator|.
 name|bytes
@@ -4341,15 +4272,12 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|b
 operator|.
 name|bytes

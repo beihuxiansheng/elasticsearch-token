@@ -102,7 +102,7 @@ name|xcontent
 operator|.
 name|AbstractObjectParser
 operator|.
-name|ContextParser
+name|NoContextParser
 import|;
 end_import
 
@@ -116,9 +116,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|AbstractObjectParser
+name|json
 operator|.
-name|NoContextParser
+name|JsonXContent
 import|;
 end_import
 
@@ -707,15 +707,12 @@ init|(
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|bytes
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|bytes
 argument_list|)
 init|)
@@ -862,15 +859,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"mineral\": 1\n"
@@ -963,15 +957,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"mineral\": 1\n"
@@ -1014,15 +1005,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"mineral\": 1,\n"
@@ -1077,15 +1065,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"mineral\": 1,\n"
@@ -1151,15 +1136,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"mineral\": 1,\n"
@@ -1226,15 +1208,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"mineral\": 1,\n"
@@ -1288,18 +1267,25 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"vegetable\": 1,\n"
@@ -1386,15 +1372,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"animal\": \"cat\",\n"
@@ -1477,15 +1460,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"a\": \"supercalifragilisticexpialidocious\",\n"
@@ -1657,15 +1637,12 @@ name|parser
 operator|.
 name|apply
 argument_list|(
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{}"
 argument_list|)
 argument_list|,
@@ -1851,15 +1828,12 @@ comment|// ctor arg first so we can test for the bug we found one time
 name|XContentParser
 name|xcontent
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"yeah\": \"!\",\n"
@@ -1891,15 +1865,12 @@ expr_stmt|;
 comment|// and ctor arg second just in case
 name|xcontent
 operator|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"foo\": \"foo\",\n"
@@ -1935,15 +1906,12 @@ block|{
 comment|// and without the constructor arg if we've made it optional
 name|xcontent
 operator|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"foo\": \"foo\"\n"
@@ -1982,15 +1950,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\n"
 operator|+
 literal|"  \"test\" : \"foo\",\n"

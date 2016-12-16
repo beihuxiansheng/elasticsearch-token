@@ -80,6 +80,36 @@ name|IndexService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+import|;
+end_import
+
 begin_comment
 comment|/**  * An index event listener is the primary extension point for plugins and build-in services  * to react / listen to per-index and per-shard events. These listeners are registered per-index  * via {@link org.elasticsearch.index.IndexModule#addIndexEventListener(IndexEventListener)}. All listeners have the same  * lifecycle as the {@link IndexService} they are created for.  *<p>  * An IndexEventListener can be used across multiple indices and shards since all callback methods receive sufficient  * local state via their arguments. Yet, if an instance is shared across indices they might be called concurrently and should not  * modify local state without sufficient synchronization.  *</p>  */
 end_comment
@@ -220,6 +250,35 @@ name|IndexService
 name|indexService
 parameter_list|)
 block|{      }
+comment|/**      * Called before the index get closed.      *      * @param indexService The index service      * @param reason       the reason for index removal      */
+DECL|method|beforeIndexRemoved
+specifier|default
+name|void
+name|beforeIndexRemoved
+parameter_list|(
+name|IndexService
+name|indexService
+parameter_list|,
+name|IndexRemovalReason
+name|reason
+parameter_list|)
+block|{      }
+comment|/**      * Called after the index has been removed.      *      * @param index The index      * @param reason       the reason for index removal      */
+DECL|method|afterIndexRemoved
+specifier|default
+name|void
+name|afterIndexRemoved
+parameter_list|(
+name|Index
+name|index
+parameter_list|,
+name|IndexSettings
+name|indexSettings
+parameter_list|,
+name|IndexRemovalReason
+name|reason
+parameter_list|)
+block|{      }
 comment|/**      * Called before the index shard gets created.      */
 DECL|method|beforeIndexShardCreated
 specifier|default
@@ -233,29 +292,6 @@ name|Settings
 name|indexSettings
 parameter_list|)
 block|{     }
-comment|/**      * Called before the index get closed.      *      * @param indexService The index service      */
-DECL|method|beforeIndexClosed
-specifier|default
-name|void
-name|beforeIndexClosed
-parameter_list|(
-name|IndexService
-name|indexService
-parameter_list|)
-block|{      }
-comment|/**      * Called after the index has been closed.      *      * @param index The index      */
-DECL|method|afterIndexClosed
-specifier|default
-name|void
-name|afterIndexClosed
-parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
-name|indexSettings
-parameter_list|)
-block|{      }
 comment|/**      * Called before the index shard gets deleted from disk      * Note: this method is only executed on the first attempt of deleting the shard. Retries are will not invoke      * this method.      * @param shardId The shard id      * @param indexSettings the shards index settings      */
 DECL|method|beforeIndexShardDeleted
 specifier|default
@@ -282,29 +318,6 @@ name|Settings
 name|indexSettings
 parameter_list|)
 block|{     }
-comment|/**      * Called after the index has been deleted.      * This listener method is invoked after {@link #afterIndexClosed(org.elasticsearch.index.Index, org.elasticsearch.common.settings.Settings)}      * when an index is deleted      *      * @param index The index      */
-DECL|method|afterIndexDeleted
-specifier|default
-name|void
-name|afterIndexDeleted
-parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
-name|indexSettings
-parameter_list|)
-block|{      }
-comment|/**      * Called before the index gets deleted.      * This listener method is invoked after      * {@link #beforeIndexClosed(org.elasticsearch.index.IndexService)} when an index is deleted      *      * @param indexService The index service      */
-DECL|method|beforeIndexDeleted
-specifier|default
-name|void
-name|beforeIndexDeleted
-parameter_list|(
-name|IndexService
-name|indexService
-parameter_list|)
-block|{      }
 comment|/**      * Called on the Master node only before the {@link IndexService} instances is created to simulate an index creation.      * This happens right before the index and it's metadata is registered in the cluster state      */
 DECL|method|beforeIndexAddedToCluster
 specifier|default

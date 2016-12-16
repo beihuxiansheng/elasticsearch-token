@@ -36,9 +36,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|xcontent
 operator|.
-name|BytesArray
+name|XContentParser
 import|;
 end_import
 
@@ -50,9 +50,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|xcontent
 operator|.
-name|BytesReference
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -77,6 +79,16 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -202,7 +214,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -288,7 +300,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -404,7 +416,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -477,7 +489,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -587,7 +599,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -653,7 +665,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -754,7 +766,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -820,7 +832,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 name|source
 argument_list|)
@@ -905,7 +917,7 @@ name|RestSearchTemplateAction
 operator|.
 name|parse
 argument_list|(
-name|newBytesReference
+name|newParser
 argument_list|(
 literal|"{'id' : 'another_temp }"
 argument_list|)
@@ -913,16 +925,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a {@link BytesReference} with the given string while replacing single quote to double quotes.      */
-DECL|method|newBytesReference
+comment|/**      * Creates a {@link XContentParser} with the given String while replacing single quote to double quotes.      */
+DECL|method|newParser
 specifier|private
-specifier|static
-name|BytesReference
-name|newBytesReference
+name|XContentParser
+name|newParser
 parameter_list|(
 name|String
 name|s
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|assertNotNull
 argument_list|(
@@ -930,9 +943,12 @@ name|s
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|BytesArray
+name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|s
 operator|.
 name|replace

@@ -44,7 +44,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
+name|XContentParser
 import|;
 end_import
 
@@ -58,7 +58,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -756,15 +758,12 @@ decl_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|json
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|json
 argument_list|)
 decl_stmt|;

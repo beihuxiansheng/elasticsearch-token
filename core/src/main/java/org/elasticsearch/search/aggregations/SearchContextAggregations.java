@@ -16,22 +16,6 @@ name|aggregations
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|AggregationContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * The aggregation context that is part of the search context.  */
 end_comment
@@ -53,11 +37,6 @@ specifier|private
 name|Aggregator
 index|[]
 name|aggregators
-decl_stmt|;
-DECL|field|aggregationContext
-specifier|private
-name|AggregationContext
-name|aggregationContext
 decl_stmt|;
 comment|/**      * Creates a new aggregation context with the parsed aggregator factories      */
 DECL|method|SearchContextAggregations
@@ -95,32 +74,6 @@ block|{
 return|return
 name|aggregators
 return|;
-block|}
-DECL|method|aggregationContext
-specifier|public
-name|AggregationContext
-name|aggregationContext
-parameter_list|()
-block|{
-return|return
-name|aggregationContext
-return|;
-block|}
-DECL|method|aggregationContext
-specifier|public
-name|void
-name|aggregationContext
-parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|aggregationContext
-operator|=
-name|aggregationContext
-expr_stmt|;
 block|}
 comment|/**      * Registers all the created aggregators (top level aggregators) for the search execution context.      *      * @param aggregators The top level aggregators of the search execution.      */
 DECL|method|aggregators

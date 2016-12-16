@@ -229,13 +229,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"unchecked"
-block|}
-argument_list|)
-annotation|@
 name|Override
 DECL|method|prepareRequest
 specifier|public

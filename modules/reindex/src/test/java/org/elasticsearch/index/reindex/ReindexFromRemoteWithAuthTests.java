@@ -526,7 +526,6 @@ name|nodeSettings
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// Weird incantation required to test with netty
 name|settings
 operator|.
 name|put

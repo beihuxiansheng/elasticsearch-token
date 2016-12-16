@@ -128,16 +128,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * A query that matches no document.  */
 end_comment
@@ -236,10 +226,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|MatchNoneQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -463,12 +450,7 @@ name|queryName
 argument_list|)
 expr_stmt|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|matchNoneQueryBuilder
-argument_list|)
 return|;
 block|}
 annotation|@

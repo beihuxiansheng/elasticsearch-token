@@ -1107,7 +1107,7 @@ argument_list|)
 decl_stmt|;
 name|clusterService
 operator|.
-name|add
+name|addStateApplier
 argument_list|(
 name|event
 lambda|->

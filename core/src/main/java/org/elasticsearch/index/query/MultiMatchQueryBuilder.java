@@ -2634,10 +2634,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|MultiMatchQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -3529,7 +3526,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"Fuziness not allowed for type ["
+literal|"Fuzziness not allowed for type ["
 operator|+
 name|type
 operator|.
@@ -3543,10 +3540,6 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 operator|new
 name|MultiMatchQueryBuilder
 argument_list|(
@@ -3636,7 +3629,6 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
-argument_list|)
 argument_list|)
 return|;
 block|}

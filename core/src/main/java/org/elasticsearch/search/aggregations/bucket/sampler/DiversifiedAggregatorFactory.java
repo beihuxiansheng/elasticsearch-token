@@ -100,7 +100,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|NonCollectingAggregator
+name|InternalAggregation
+operator|.
+name|Type
 import|;
 end_import
 
@@ -114,9 +116,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
-operator|.
-name|Type
+name|NonCollectingAggregator
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|AggregationContext
+name|ValuesSource
 import|;
 end_import
 
@@ -185,6 +185,8 @@ operator|.
 name|support
 operator|.
 name|ValuesSource
+operator|.
+name|Numeric
 import|;
 end_import
 
@@ -228,13 +230,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|ValuesSource
-operator|.
-name|Numeric
+name|SearchContext
 import|;
 end_import
 
@@ -324,7 +322,7 @@ parameter_list|,
 name|String
 name|executionHint
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -484,9 +482,6 @@ argument_list|(
 name|executionHint
 argument_list|,
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|parseFieldMatcher
 argument_list|()

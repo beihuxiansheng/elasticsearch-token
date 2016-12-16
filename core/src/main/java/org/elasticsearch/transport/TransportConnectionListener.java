@@ -34,22 +34,36 @@ specifier|public
 interface|interface
 name|TransportConnectionListener
 block|{
+comment|/**      * Called once a node connection is opened and registered.      */
 DECL|method|onNodeConnected
+specifier|default
 name|void
 name|onNodeConnected
 parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|)
-function_decl|;
+block|{}
+comment|/**      * Called once a node connection is closed and unregistered.      */
 DECL|method|onNodeDisconnected
+specifier|default
 name|void
 name|onNodeDisconnected
 parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|)
-function_decl|;
+block|{}
+comment|/**      * Called once a node connection is opened.      */
+DECL|method|onConnectionOpened
+specifier|default
+name|void
+name|onConnectionOpened
+parameter_list|(
+name|DiscoveryNode
+name|node
+parameter_list|)
+block|{}
 block|}
 end_interface
 

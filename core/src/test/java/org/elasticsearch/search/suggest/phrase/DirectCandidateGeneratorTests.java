@@ -110,20 +110,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentParser
 import|;
 end_import
@@ -139,6 +125,22 @@ operator|.
 name|xcontent
 operator|.
 name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -931,17 +933,12 @@ expr_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|shuffleXContent
 argument_list|(
 name|builder
 argument_list|)
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QueryParseContext
@@ -1245,6 +1242,24 @@ literal|"Required [field]"
 argument_list|)
 expr_stmt|;
 comment|// test two fieldnames
+if|if
+condition|(
+name|JsonXContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Skipping test as it uses a custom duplicate check that is obsolete when strict duplicate checks are enabled."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|directGenerator
 operator|=
 literal|"{ \"field\" : \"f1\", \"field\" : \"f2\" }"
@@ -1260,6 +1275,7 @@ argument_list|,
 literal|"[direct_generator] failed to parse field [field]"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// test unknown field
 name|directGenerator
 operator|=
@@ -1311,7 +1327,6 @@ expr_stmt|;
 block|}
 DECL|method|assertIllegalXContent
 specifier|private
-specifier|static
 name|void
 name|assertIllegalXContent
 parameter_list|(
@@ -1335,15 +1350,12 @@ block|{
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|directGenerator
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|directGenerator
 argument_list|)
 decl_stmt|;

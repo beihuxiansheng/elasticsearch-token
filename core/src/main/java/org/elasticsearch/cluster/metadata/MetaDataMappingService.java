@@ -428,6 +428,26 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
+import|;
+end_import
+
 begin_comment
 comment|/**  * Service responsible for submitting mapping changes  */
 end_comment
@@ -1023,6 +1043,8 @@ operator|.
 name|removeIndex
 argument_list|(
 name|index
+argument_list|,
+name|NO_LONGER_ASSIGNED
 argument_list|,
 literal|"created for mapping processing"
 argument_list|)

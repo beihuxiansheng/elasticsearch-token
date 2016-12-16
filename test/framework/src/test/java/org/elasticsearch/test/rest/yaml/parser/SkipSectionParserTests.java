@@ -70,60 +70,6 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|parser
-operator|.
-name|ClientYamlTestParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|ClientYamlTestSuiteParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|SkipSectionParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
 name|section
 operator|.
 name|SkipSection
@@ -194,7 +140,7 @@ specifier|public
 class|class
 name|SkipSectionParserTests
 extends|extends
-name|AbstractParserTestCase
+name|AbstractClientYamlTestFragmentParserTestCase
 block|{
 DECL|method|testParseSkipSectionVersionNoFeature
 specifier|public
@@ -206,12 +152,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"version:     \" - 2.1.0\"\n"
 operator|+
 literal|"reason:      Delete ignores the parent param"
@@ -321,12 +267,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"version:     \" all \"\n"
 operator|+
 literal|"reason:      Delete ignores the parent param"
@@ -436,12 +382,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"features:     regex"
 argument_list|)
 expr_stmt|;
@@ -547,12 +493,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"features:     [regex1,regex2,regex3]"
 argument_list|)
 expr_stmt|;
@@ -694,12 +640,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"version:     \" - 0.90.2\"\n"
 operator|+
 literal|"features:     regex\n"
@@ -796,12 +742,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"version:     \" - 0.90.2\"\n"
 argument_list|)
 expr_stmt|;
@@ -866,12 +812,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"reason:      Delete ignores the parent param\n"
 argument_list|)
 expr_stmt|;

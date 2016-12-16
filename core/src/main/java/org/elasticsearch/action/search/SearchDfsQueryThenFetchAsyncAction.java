@@ -417,6 +417,14 @@ name|AliasFilter
 argument_list|>
 name|aliasFilter
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Float
+argument_list|>
+name|concreteIndexBoosts
+parameter_list|,
 name|SearchPhaseController
 name|searchPhaseController
 parameter_list|,
@@ -454,6 +462,8 @@ argument_list|,
 name|nodeIdToDiscoveryNode
 argument_list|,
 name|aliasFilter
+argument_list|,
+name|concreteIndexBoosts
 argument_list|,
 name|executor
 argument_list|,

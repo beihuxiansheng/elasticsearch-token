@@ -1344,8 +1344,17 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1] and empty filter"
 argument_list|)
 expr_stmt|;
-name|assertAcked
+name|IllegalArgumentException
+name|iae
+init|=
+name|expectThrows
 argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|admin
 argument_list|()
 operator|.
@@ -1363,6 +1372,19 @@ literal|"alias1"
 argument_list|,
 literal|"{}"
 argument_list|)
+operator|.
+name|get
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"failed to parse filter for alias [alias1]"
+argument_list|,
+name|iae
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

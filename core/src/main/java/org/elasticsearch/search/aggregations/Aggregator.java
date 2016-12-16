@@ -150,11 +150,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -263,11 +261,11 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * Return the {@link AggregationContext} attached with this {@link Aggregator}.      */
+comment|/**      * Return the {@link SearchContext} attached with this {@link Aggregator}.      */
 DECL|method|context
 specifier|public
 specifier|abstract
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|()
 function_decl|;

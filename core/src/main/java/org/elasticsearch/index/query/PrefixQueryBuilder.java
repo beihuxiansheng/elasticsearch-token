@@ -232,16 +232,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Query that matches documents containing terms with a specified prefix.  */
 end_comment
@@ -582,10 +572,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|PrefixQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -912,10 +899,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 operator|new
 name|PrefixQueryBuilder
 argument_list|(
@@ -937,7 +920,6 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
-argument_list|)
 argument_list|)
 return|;
 block|}

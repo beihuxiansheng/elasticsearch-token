@@ -126,11 +126,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -251,7 +249,7 @@ parameter_list|(
 name|BigArrays
 name|bigArrays
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Aggregator
@@ -292,9 +290,6 @@ operator|=
 name|first
 expr_stmt|;
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|addReleasable
 argument_list|(
@@ -368,7 +363,7 @@ annotation|@
 name|Override
 DECL|method|context
 specifier|public
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|()
 block|{
@@ -871,7 +866,7 @@ decl_stmt|;
 DECL|field|context
 specifier|protected
 specifier|final
-name|AggregationContext
+name|SearchContext
 name|context
 decl_stmt|;
 comment|/**      * Constructs a new aggregator factory.      *      * @param name      *            The aggregation name      * @param type      *            The aggregation type      * @throws IOException      *             if an error occurs creating the factory      */
@@ -885,7 +880,7 @@ parameter_list|,
 name|Type
 name|type
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -1093,7 +1088,7 @@ argument_list|>
 name|factory
 parameter_list|,
 specifier|final
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 specifier|final

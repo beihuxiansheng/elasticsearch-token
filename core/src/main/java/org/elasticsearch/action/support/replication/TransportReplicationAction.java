@@ -3523,9 +3523,6 @@ name|observer
 operator|.
 name|observedState
 argument_list|()
-operator|.
-name|getClusterState
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

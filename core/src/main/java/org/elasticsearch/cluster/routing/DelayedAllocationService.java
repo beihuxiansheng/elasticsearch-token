@@ -625,7 +625,7 @@ name|allocationService
 expr_stmt|;
 name|clusterService
 operator|.
-name|addFirst
+name|addListener
 argument_list|(
 name|this
 argument_list|)
@@ -657,7 +657,7 @@ parameter_list|()
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|this
 argument_list|)

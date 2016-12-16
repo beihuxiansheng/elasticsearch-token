@@ -114,6 +114,18 @@ name|ESTestCase
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
 begin_class
 DECL|class|GeoHashGridParserTests
 specifier|public
@@ -154,12 +166,12 @@ decl_stmt|;
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":"
 operator|+
 name|precision
@@ -203,17 +215,10 @@ argument_list|,
 name|token
 argument_list|)
 expr_stmt|;
-name|GeoHashGridParser
-name|parser
-init|=
-operator|new
-name|GeoHashGridParser
-argument_list|()
-decl_stmt|;
 comment|// can create a factory
 name|assertNotNull
 argument_list|(
-name|parser
+name|GeoGridAggregationBuilder
 operator|.
 name|parse
 argument_list|(
@@ -245,12 +250,12 @@ decl_stmt|;
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":\""
 operator|+
 name|precision
@@ -294,17 +299,10 @@ argument_list|,
 name|token
 argument_list|)
 expr_stmt|;
-name|GeoHashGridParser
-name|parser
-init|=
-operator|new
-name|GeoHashGridParser
-argument_list|()
-decl_stmt|;
 comment|// can create a factory
 name|assertNotNull
 argument_list|(
-name|parser
+name|GeoGridAggregationBuilder
 operator|.
 name|parse
 argument_list|(
@@ -326,12 +324,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":\"2.0\"}"
 argument_list|)
 decl_stmt|;
@@ -371,16 +369,9 @@ argument_list|,
 name|token
 argument_list|)
 expr_stmt|;
-name|GeoHashGridParser
-name|parser
-init|=
-operator|new
-name|GeoHashGridParser
-argument_list|()
-decl_stmt|;
 try|try
 block|{
-name|parser
+name|GeoGridAggregationBuilder
 operator|.
 name|parse
 argument_list|(
@@ -395,15 +386,33 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NumberFormatException
+name|ParsingException
 name|ex
 parameter_list|)
 block|{
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|NumberFormatException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"For input string: \"2.0\""
 argument_list|,
 name|ex
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()
@@ -422,12 +431,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":false}"
 argument_list|)
 decl_stmt|;
@@ -467,16 +476,9 @@ argument_list|,
 name|token
 argument_list|)
 expr_stmt|;
-name|GeoHashGridParser
-name|parser
-init|=
-operator|new
-name|GeoHashGridParser
-argument_list|()
-decl_stmt|;
 try|try
 block|{
-name|parser
+name|GeoGridAggregationBuilder
 operator|.
 name|parse
 argument_list|(
@@ -491,13 +493,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ParsingException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Unexpected token VALUE_BOOLEAN [precision] in [geohash_grid]."
+literal|"[geohash_grid] precision doesn't support values of type: VALUE_BOOLEAN"
 argument_list|,
 name|ex
 operator|.
@@ -518,12 +520,12 @@ block|{
 name|XContentParser
 name|stParser
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"{\"field\":\"my_loc\", \"precision\":\"13\"}"
 argument_list|)
 decl_stmt|;
@@ -563,16 +565,9 @@ argument_list|,
 name|token
 argument_list|)
 expr_stmt|;
-name|GeoHashGridParser
-name|parser
-init|=
-operator|new
-name|GeoHashGridParser
-argument_list|()
-decl_stmt|;
 try|try
 block|{
-name|parser
+name|GeoGridAggregationBuilder
 operator|.
 name|parse
 argument_list|(
@@ -587,15 +582,33 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ParsingException
 name|ex
 parameter_list|)
 block|{
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Invalid geohash aggregation precision of 13. Must be between 1 and 12."
 argument_list|,
 name|ex
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()

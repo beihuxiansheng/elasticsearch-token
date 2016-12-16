@@ -6963,7 +6963,7 @@ try|try
 block|{
 name|clusterService
 operator|.
-name|addFirst
+name|addListener
 argument_list|(
 name|snapshotListener
 argument_list|)
@@ -7042,7 +7042,7 @@ finally|finally
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|snapshotListener
 argument_list|)

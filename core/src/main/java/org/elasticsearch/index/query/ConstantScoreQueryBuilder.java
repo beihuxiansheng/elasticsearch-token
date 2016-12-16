@@ -158,16 +158,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  */
 end_comment
@@ -362,10 +352,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|ConstantScoreQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -382,10 +369,7 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|Optional
-argument_list|<
 name|QueryBuilder
-argument_list|>
 name|query
 init|=
 literal|null
@@ -671,24 +655,6 @@ literal|"[constant_score] requires a 'filter' element"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|query
-operator|.
-name|isPresent
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-comment|// if inner query is empty, bubble this up to caller so they can decide how to deal with it
-return|return
-name|Optional
-operator|.
-name|empty
-argument_list|()
-return|;
-block|}
 name|ConstantScoreQueryBuilder
 name|constantScoreBuilder
 init|=
@@ -696,9 +662,6 @@ operator|new
 name|ConstantScoreQueryBuilder
 argument_list|(
 name|query
-operator|.
-name|get
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|constantScoreBuilder
@@ -716,12 +679,7 @@ name|queryName
 argument_list|)
 expr_stmt|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|constantScoreBuilder
-argument_list|)
 return|;
 block|}
 annotation|@

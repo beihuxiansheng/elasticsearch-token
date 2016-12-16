@@ -162,16 +162,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * Match query is a query that analyzes the text and constructs a phrase prefix  * query as the result of the analysis.  */
 end_comment
@@ -876,10 +866,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|MatchPhrasePrefixQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1361,12 +1348,7 @@ name|boost
 argument_list|)
 expr_stmt|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|matchQuery
-argument_list|)
 return|;
 block|}
 block|}

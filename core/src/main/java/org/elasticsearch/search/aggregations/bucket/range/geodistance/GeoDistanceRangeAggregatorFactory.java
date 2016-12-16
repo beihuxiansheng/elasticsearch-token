@@ -74,7 +74,9 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoPoint
+name|GeoDistance
+operator|.
+name|FixedSourceDistance
 import|;
 end_import
 
@@ -88,9 +90,7 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoDistance
-operator|.
-name|FixedSourceDistance
+name|GeoPoint
 import|;
 end_import
 
@@ -280,7 +280,7 @@ name|range
 operator|.
 name|geodistance
 operator|.
-name|GeoDistanceParser
+name|GeoDistanceAggregationBuilder
 operator|.
 name|Range
 import|;
@@ -299,22 +299,6 @@ operator|.
 name|pipeline
 operator|.
 name|PipelineAggregator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|AggregationContext
 import|;
 end_import
 
@@ -363,6 +347,20 @@ operator|.
 name|support
 operator|.
 name|ValuesSourceConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -495,7 +493,7 @@ parameter_list|,
 name|boolean
 name|keyed
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory

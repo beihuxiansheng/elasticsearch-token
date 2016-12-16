@@ -526,8 +526,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 parameter_list|()
 lambda|->
 name|nowInMillis

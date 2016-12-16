@@ -192,6 +192,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|netty4
+operator|.
+name|Netty4Utils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -252,6 +266,14 @@ name|Plugin
 implements|implements
 name|NetworkPlugin
 block|{
+static|static
+block|{
+name|Netty4Utils
+operator|.
+name|setup
+argument_list|()
+expr_stmt|;
+block|}
 DECL|field|NETTY_TRANSPORT_NAME
 specifier|public
 specifier|static

@@ -360,6 +360,26 @@ name|emptyList
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
+import|;
+end_import
+
 begin_comment
 comment|/**  * Service responsible for submitting add and remove aliases requests  */
 end_comment
@@ -1055,6 +1075,8 @@ operator|.
 name|removeIndex
 argument_list|(
 name|index
+argument_list|,
+name|NO_LONGER_ASSIGNED
 argument_list|,
 literal|"created for alias processing"
 argument_list|)

@@ -204,7 +204,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|AggregationContext
+name|ValuesSource
 import|;
 end_import
 
@@ -216,11 +216,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|ValuesSource
+name|SearchContext
 import|;
 end_import
 
@@ -345,7 +343,7 @@ operator|.
 name|Numeric
 name|valuesSource
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Aggregator

@@ -339,10 +339,10 @@ decl_stmt|;
 name|XContentParser
 name|jsonParser
 init|=
-name|xContent
-operator|.
 name|createParser
 argument_list|(
+name|xContent
+argument_list|,
 name|expected
 operator|.
 name|bytes
@@ -352,10 +352,10 @@ decl_stmt|;
 name|XContentParser
 name|testParser
 init|=
-name|xContent
-operator|.
 name|createParser
 argument_list|(
+name|xContent
+argument_list|,
 name|builder
 operator|.
 name|bytes

@@ -328,12 +328,10 @@ name|IOException
 block|{
 if|if
 condition|(
-name|RestActions
-operator|.
-name|hasBodyContent
-argument_list|(
 name|request
-argument_list|)
+operator|.
+name|hasContentOrSourceParam
+argument_list|()
 operator|==
 literal|false
 condition|)

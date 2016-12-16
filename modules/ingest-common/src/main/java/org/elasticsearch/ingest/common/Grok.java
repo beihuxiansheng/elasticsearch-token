@@ -118,6 +118,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -794,6 +804,7 @@ return|return
 name|grokPattern
 return|;
 block|}
+comment|/**      * Checks whether a specific text matches the defined grok expression.      *      * @param text the string to match      * @return true if grok expression matches text, false otherwise.      */
 DECL|method|match
 specifier|public
 name|boolean
@@ -848,6 +859,7 @@ literal|1
 operator|)
 return|;
 block|}
+comment|/**      * Matches and returns any named captures within a compiled grok expression that matched      * within the provided text.      *      * @param text the text to match and extract values from.      * @return a map containing field names and their respective coerced values that matched.      */
 DECL|method|captures
 specifier|public
 name|Map
@@ -967,17 +979,6 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|int
-name|number
-init|=
-name|e
-operator|.
-name|getBackRefs
-argument_list|()
-index|[
-literal|0
-index|]
-decl_stmt|;
 name|String
 name|groupName
 init|=
@@ -1005,11 +1006,17 @@ operator|.
 name|UTF_8
 argument_list|)
 decl_stmt|;
-name|String
-name|matchValue
-init|=
-literal|null
-decl_stmt|;
+for|for
+control|(
+name|int
+name|number
+range|:
+name|e
+operator|.
+name|getBackRefs
+argument_list|()
+control|)
+block|{
 if|if
 condition|(
 name|region
@@ -1022,8 +1029,9 @@ operator|>=
 literal|0
 condition|)
 block|{
+name|String
 name|matchValue
-operator|=
+init|=
 operator|new
 name|String
 argument_list|(
@@ -1054,8 +1062,7 @@ name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|GrokMatchGroup
 name|match
 init|=
@@ -1082,6 +1089,9 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
+block|}
+block|}
 block|}
 return|return
 name|fields

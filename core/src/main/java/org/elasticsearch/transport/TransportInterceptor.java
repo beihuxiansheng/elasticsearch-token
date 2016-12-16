@@ -95,7 +95,7 @@ return|return
 name|sender
 return|;
 block|}
-comment|/**      * A simple interface to decorate      * {@link #sendRequest(DiscoveryNode, String, TransportRequest, TransportRequestOptions, TransportResponseHandler)}      */
+comment|/**      * A simple interface to decorate      * {@link #sendRequest(Transport.Connection, String, TransportRequest, TransportRequestOptions, TransportResponseHandler)}      */
 DECL|interface|AsyncSender
 interface|interface
 name|AsyncSender
@@ -109,9 +109,10 @@ parameter_list|>
 name|void
 name|sendRequest
 parameter_list|(
-specifier|final
-name|DiscoveryNode
-name|node
+name|Transport
+operator|.
+name|Connection
+name|connection
 parameter_list|,
 specifier|final
 name|String

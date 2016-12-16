@@ -4457,6 +4457,16 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|)
+block|{             }
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onConnectionOpened
+parameter_list|(
+name|DiscoveryNode
+name|node
+parameter_list|)
 block|{
 name|counters
 operator|.

@@ -230,7 +230,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|AggregationContext
+name|AggregationPath
 import|;
 end_import
 
@@ -242,11 +242,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationPath
+name|SearchContext
 import|;
 end_import
 
@@ -708,6 +706,14 @@ argument_list|,
 name|requiredSize
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shardSize
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -722,6 +728,7 @@ argument_list|,
 name|shardSize
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field
@@ -919,7 +926,7 @@ parameter_list|,
 name|AggregatorFactories
 name|factories
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Aggregator

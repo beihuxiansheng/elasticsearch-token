@@ -738,6 +738,22 @@ name|void
 name|close
 parameter_list|()
 block|{
+name|super
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|/* This might be called on the RestClient's thread pool and attempting to close the client on its own threadpool causes it to fail          * to close. So we always shutdown the RestClient asynchronously on a thread in Elasticsearch's generic thread pool. That way we          * never close the client in its own thread pool. */
+name|threadPool
+operator|.
+name|generic
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 try|try
 block|{
 name|client
@@ -752,20 +768,19 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|fail
+name|logger
 operator|.
-name|accept
+name|error
 argument_list|(
-operator|new
-name|IOException
-argument_list|(
-literal|"couldn't close the remote connection"
+literal|"Failed to shutdown the remote connection"
 argument_list|,
 name|e
 argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

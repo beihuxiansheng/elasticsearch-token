@@ -4,34 +4,60 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.service
+DECL|package|org.elasticsearch.common.xcontent
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|common
 operator|.
-name|service
+name|xcontent
 package|;
 end_package
 
-begin_enum
-DECL|enum|ClusterStateStatus
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_comment
+comment|/**  * Reads an object from a parser using some context.  */
+end_comment
+
+begin_interface
+annotation|@
+name|FunctionalInterface
+DECL|interface|ContextParser
 specifier|public
-enum|enum
-name|ClusterStateStatus
+interface|interface
+name|ContextParser
+parameter_list|<
+name|Context
+parameter_list|,
+name|T
+parameter_list|>
 block|{
-DECL|enum constant|UNKNOWN
-name|UNKNOWN
-block|,
-DECL|enum constant|BEING_APPLIED
-name|BEING_APPLIED
-block|,
-DECL|enum constant|APPLIED
-name|APPLIED
-block|; }
-end_enum
+DECL|method|parse
+name|T
+name|parse
+parameter_list|(
+name|XContentParser
+name|p
+parameter_list|,
+name|Context
+name|c
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+block|}
+end_interface
 
 end_unit
 

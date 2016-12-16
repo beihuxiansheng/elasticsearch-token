@@ -68,12 +68,16 @@ name|nullValue
 import|;
 end_import
 
+begin_comment
+comment|/**  * Superclass for tests of subclasses of {@link ClientYamlTestFragmentParser}.  */
+end_comment
+
 begin_class
-DECL|class|AbstractParserTestCase
+DECL|class|AbstractClientYamlTestFragmentParserTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractParserTestCase
+name|AbstractClientYamlTestFragmentParserTestCase
 extends|extends
 name|ESTestCase
 block|{

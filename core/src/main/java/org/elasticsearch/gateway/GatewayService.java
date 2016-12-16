@@ -977,9 +977,10 @@ name|void
 name|doStart
 parameter_list|()
 block|{
+comment|// use post applied so that the state will be visible to the background recovery thread we spawn in performStateRecovery
 name|clusterService
 operator|.
-name|addLast
+name|addListener
 argument_list|(
 name|this
 argument_list|)
@@ -995,7 +996,7 @@ parameter_list|()
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|this
 argument_list|)

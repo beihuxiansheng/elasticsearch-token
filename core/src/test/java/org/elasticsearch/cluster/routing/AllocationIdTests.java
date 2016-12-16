@@ -84,7 +84,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentType
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -1119,17 +1121,12 @@ name|AllocationId
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|XContentType
-operator|.
-name|JSON
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 name|bytes
 argument_list|)
 argument_list|)

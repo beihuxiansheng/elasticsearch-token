@@ -1137,12 +1137,12 @@ name|Object
 argument_list|>
 name|serializedMap
 init|=
+name|createParser
+argument_list|(
 name|JsonXContent
 operator|.
 name|jsonXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|builder
 operator|.
 name|bytes
