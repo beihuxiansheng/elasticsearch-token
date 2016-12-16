@@ -2965,9 +2965,9 @@ literal|"OnError ["
 operator|+
 name|command
 operator|+
-literal|"] requires forking but is prevented by system call filters ([bootstrap.seccomp=true]);"
+literal|"] requires forking but is prevented by system call filters "
 operator|+
-literal|" upgrade to at least Java 8u92 and use ExitOnOutOfMemoryError"
+literal|"([bootstrap.system_call_filter=true]); upgrade to at least Java 8u92 and use ExitOnOutOfMemoryError"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3096,7 +3096,7 @@ name|command
 operator|+
 literal|"]"
 operator|+
-literal|" requires forking but is prevented by system call filters ([bootstrap.seccomp=true]);"
+literal|" requires forking but is prevented by system call filters ([bootstrap.system_call_filter=true]);"
 operator|+
 literal|" upgrade to at least Java 8u92 and use ExitOnOutOfMemoryError"
 argument_list|)

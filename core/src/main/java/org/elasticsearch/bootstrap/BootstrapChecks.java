@@ -950,7 +950,7 @@ name|SystemCallFilterCheck
 argument_list|(
 name|BootstrapSettings
 operator|.
-name|SECCOMP_SETTING
+name|SYSTEM_CALL_FILTER_SETTING
 operator|.
 name|get
 argument_list|(
@@ -2145,7 +2145,7 @@ argument_list|()
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|SECCOMP_SETTING
+name|SYSTEM_CALL_FILTER_SETTING
 operator|.
 name|getKey
 argument_list|()
@@ -2230,7 +2230,7 @@ argument_list|()
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|SECCOMP_SETTING
+name|SYSTEM_CALL_FILTER_SETTING
 operator|.
 name|getKey
 argument_list|()
