@@ -2550,7 +2550,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSecompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -2573,11 +2573,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSecompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2629,7 +2629,7 @@ literal|"check the logs and fix your configuration or disable system call filter
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|isSecompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -2669,11 +2669,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSecompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2681,7 +2681,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-name|isSecompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -2704,7 +2704,7 @@ argument_list|,
 literal|"testSystemCallFilterCheck"
 argument_list|)
 expr_stmt|;
-name|isSecompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -2738,7 +2738,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -2767,11 +2767,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2807,7 +2807,7 @@ name|runMightForkTest
 argument_list|(
 name|check
 argument_list|,
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|,
 parameter_list|()
 lambda|->
@@ -2854,7 +2854,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -2887,11 +2887,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2925,7 +2925,7 @@ name|runMightForkTest
 argument_list|(
 name|check
 argument_list|,
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|,
 parameter_list|()
 lambda|->
@@ -2983,7 +2983,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -3016,11 +3016,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -3054,7 +3054,7 @@ name|runMightForkTest
 argument_list|(
 name|check
 argument_list|,
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|,
 parameter_list|()
 lambda|->
@@ -3117,7 +3117,7 @@ name|check
 parameter_list|,
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|,
 specifier|final
 name|Runnable
@@ -3155,8 +3155,8 @@ operator|.
 name|getMethodName
 argument_list|()
 decl_stmt|;
-comment|// if seccomp is disabled, nothing should happen
-name|isSeccompInstalled
+comment|// if system call filter is disabled, nothing should happen
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -3199,9 +3199,9 @@ argument_list|,
 name|methodName
 argument_list|)
 expr_stmt|;
-comment|// if seccomp is enabled, but we will not fork, nothing should
+comment|// if system call filter is enabled, but we will not fork, nothing should
 comment|// happen
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -3229,10 +3229,9 @@ argument_list|,
 name|methodName
 argument_list|)
 expr_stmt|;
-comment|// if seccomp is enabled, and we might fork, the check should
-comment|// be enforced, regardless of bootstrap checks being enabled or
-comment|// not
-name|isSeccompInstalled
+comment|// if system call filter is enabled, and we might fork, the check should be enforced, regardless of bootstrap checks being enabled
+comment|// or not
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(

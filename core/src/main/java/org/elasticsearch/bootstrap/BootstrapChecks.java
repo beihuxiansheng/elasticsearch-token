@@ -1978,20 +1978,20 @@ return|return
 name|areSystemCallFiltersEnabled
 operator|&&
 operator|!
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|()
 return|;
 block|}
 comment|// visible for testing
-DECL|method|isSeccompInstalled
+DECL|method|isSystemCallFilterInstalled
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
 name|Natives
 operator|.
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|()
 return|;
 block|}
@@ -2027,7 +2027,7 @@ name|check
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|()
 operator|&&
 name|mightFork
@@ -2035,15 +2035,15 @@ argument_list|()
 return|;
 block|}
 comment|// visible for testing
-DECL|method|isSeccompInstalled
+DECL|method|isSystemCallFilterInstalled
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
 name|Natives
 operator|.
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|()
 return|;
 block|}

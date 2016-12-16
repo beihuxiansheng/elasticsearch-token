@@ -696,7 +696,7 @@ name|boolean
 name|mlockAll
 parameter_list|,
 name|boolean
-name|seccomp
+name|systemCallFilter
 parameter_list|,
 name|boolean
 name|ctrlHandler
@@ -732,15 +732,15 @@ literal|"can not run elasticsearch as root"
 argument_list|)
 throw|;
 block|}
-comment|// enable secure computing mode
+comment|// enable system call filter
 if|if
 condition|(
-name|seccomp
+name|systemCallFilter
 condition|)
 block|{
 name|Natives
 operator|.
-name|trySeccomp
+name|tryInstallSystemCallFilter
 argument_list|(
 name|tmpFile
 argument_list|)

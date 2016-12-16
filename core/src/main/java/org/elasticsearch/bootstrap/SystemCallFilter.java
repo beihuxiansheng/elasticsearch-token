@@ -261,7 +261,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Installs a limited form of secure computing mode,  * to filters system calls to block process execution.  *<p>  * This is supported on Linux, Solaris, FreeBSD, OpenBSD, Mac OS X, and Windows.  *<p>  * On Linux it currently supports amd64 and i386 architectures, requires Linux kernel 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method  * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Solaris 10 or higher, the following privileges are dropped with {@code priv_set(3C)}:  *<ul>  *<li>{@code PRIV_PROC_FORK}</li>  *<li>{@code PRIV_PROC_EXEC}</li>  *</ul>  *<p>  * On BSD systems, process creation is restricted with {@code setrlimit(RLIMIT_NPROC)}.  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * On Windows, process creation is restricted with {@code SetInformationJobObject/ActiveProcessLimit}.  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  * @see<a href="https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html">  *      https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html</a>  */
+comment|/**  * Installs a system call filter to block process execution.  *<p>  * This is supported on Linux, Solaris, FreeBSD, OpenBSD, Mac OS X, and Windows.  *<p>  * On Linux it currently supports amd64 and i386 architectures, requires Linux kernel 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method  * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Solaris 10 or higher, the following privileges are dropped with {@code priv_set(3C)}:  *<ul>  *<li>{@code PRIV_PROC_FORK}</li>  *<li>{@code PRIV_PROC_EXEC}</li>  *</ul>  *<p>  * On BSD systems, process creation is restricted with {@code setrlimit(RLIMIT_NPROC)}.  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * On Windows, process creation is restricted with {@code SetInformationJobObject/ActiveProcessLimit}.  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  * @see<a href="https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html">  *      https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html</a>  */
 end_comment
 
 begin_comment
@@ -269,10 +269,10 @@ comment|// not an example of how to write code!!!
 end_comment
 
 begin_class
-DECL|class|Seccomp
+DECL|class|SystemCallFilter
 specifier|final
 class|class
-name|Seccomp
+name|SystemCallFilter
 block|{
 DECL|field|logger
 specifier|private
@@ -285,7 +285,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Seccomp
+name|SystemCallFilter
 operator|.
 name|class
 argument_list|)
