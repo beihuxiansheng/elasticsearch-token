@@ -5840,6 +5840,15 @@ name|sliceBuilder
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|indexBoosts
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startArray
@@ -5887,6 +5896,7 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|aggregations
