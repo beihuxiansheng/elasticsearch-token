@@ -456,6 +456,17 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|float
+name|indexBoost
+parameter_list|()
+block|{
+return|return
+literal|1.0f
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|long
 name|nowInMillis
 parameter_list|()

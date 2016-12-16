@@ -317,6 +317,11 @@ name|QueryBuilder
 name|filteringAliases
 parameter_list|()
 function_decl|;
+DECL|method|indexBoost
+name|float
+name|indexBoost
+parameter_list|()
+function_decl|;
 DECL|method|nowInMillis
 name|long
 name|nowInMillis

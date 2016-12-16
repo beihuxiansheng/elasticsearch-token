@@ -1566,6 +1566,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 argument_list|)
+argument_list|,
+literal|1.0f
 argument_list|)
 argument_list|,
 operator|new
@@ -1803,6 +1805,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 argument_list|)
+argument_list|,
+literal|1.0f
 argument_list|)
 argument_list|,
 literal|null
@@ -1891,6 +1895,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 argument_list|)
+argument_list|,
+literal|1.0f
 argument_list|)
 argument_list|,
 literal|null
