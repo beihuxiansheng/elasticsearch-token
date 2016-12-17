@@ -1278,7 +1278,9 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"seccomp unavailable: could not link methods. requires kernel 3.5+ with CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in"
+literal|"seccomp unavailable: could not link methods. requires kernel 3.5+ "
+operator|+
+literal|"with CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in"
 argument_list|)
 throw|;
 block|}
@@ -1626,7 +1628,9 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"seccomp unavailable: requires kernel 3.5+ with CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in"
+literal|"seccomp unavailable: requires kernel 3.5+ with"
+operator|+
+literal|" CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in"
 argument_list|)
 throw|;
 block|}
@@ -1695,7 +1699,9 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"seccomp unavailable: CONFIG_SECCOMP not compiled into kernel, CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed"
+literal|"seccomp unavailable: CONFIG_SECCOMP not compiled into kernel,"
+operator|+
+literal|" CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed"
 argument_list|)
 throw|;
 block|}
@@ -1761,7 +1767,9 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"seccomp unavailable: CONFIG_SECCOMP_FILTER not compiled into kernel, CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed"
+literal|"seccomp unavailable: CONFIG_SECCOMP_FILTER not"
+operator|+
+literal|" compiled into kernel, CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed"
 argument_list|)
 throw|;
 default|default:
@@ -1855,7 +1863,8 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-comment|// BPF installed to check arch, limit, then syscall. See https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt for details.
+comment|// BPF installed to check arch, limit, then syscall.
+comment|// See https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt for details.
 name|SockFilter
 name|insns
 index|[]
