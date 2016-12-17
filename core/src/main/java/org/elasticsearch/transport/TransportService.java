@@ -1741,6 +1741,7 @@ name|getLocalAddresses
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the given node is already connected.      */
 DECL|method|nodeConnected
 specifier|public
 name|boolean
@@ -1821,6 +1822,52 @@ name|connectionProfile
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Establishes and returns a new connection to the given node. The connection is NOT maintained by this service, it's the callers      * responsibility to close the connection once it goes out of scope.      * @param node the node to connect to      * @param profile the connection profile to use      */
+DECL|method|openConnection
+specifier|public
+name|Transport
+operator|.
+name|Connection
+name|openConnection
+parameter_list|(
+specifier|final
+name|DiscoveryNode
+name|node
+parameter_list|,
+name|ConnectionProfile
+name|profile
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|node
+operator|.
+name|equals
+argument_list|(
+name|localNode
+argument_list|)
+condition|)
+block|{
+return|return
+name|localNodeConnection
+return|;
+block|}
+else|else
+block|{
+return|return
+name|transport
+operator|.
+name|openConnection
+argument_list|(
+name|node
+argument_list|,
+name|profile
+argument_list|)
+return|;
+block|}
+block|}
 comment|/**      * Lightly connect to the specified node, returning updated node      * information. The handshake will fail if the cluster name on the      * target node mismatches the local cluster name and      * {@code checkClusterName} is {@code true}.      *      * @param node             the node to connect to      * @param handshakeTimeout handshake timeout      * @return the connected node      * @throws ConnectTransportException if the connection failed      * @throws IllegalStateException if the handshake failed      */
 DECL|method|connectToNodeAndHandshake
 specifier|public
@@ -1897,8 +1944,9 @@ return|return
 name|handshakeNode
 return|;
 block|}
+comment|/**      * Executes a high-level handshake using the given connection      * and returns the discovery node of the node the connection      * was established with. The handshake will fail if the cluster      * name on the target node mismatches the local cluster name.      *      * @param connection       the connection to a specific node      * @param handshakeTimeout handshake timeout      * @return the connected node      * @throws ConnectTransportException if the connection failed      * @throws IllegalStateException if the handshake failed      */
 DECL|method|handshake
-specifier|private
+specifier|public
 name|DiscoveryNode
 name|handshake
 parameter_list|(
@@ -2628,6 +2676,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|sendRequest
+specifier|public
 specifier|final
 parameter_list|<
 name|T
@@ -2680,7 +2729,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns either a real transport connection or a local node connection if we are using the local node optimization.      * @throws NodeNotConnectedException if the given node is not connected      */
 DECL|method|getConnection
-specifier|private
+specifier|public
 name|Transport
 operator|.
 name|Connection
