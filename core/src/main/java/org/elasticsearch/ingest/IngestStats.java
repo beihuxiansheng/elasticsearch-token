@@ -283,7 +283,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVLong
+name|writeVInt
 argument_list|(
 name|statsPerPipeline
 operator|.
