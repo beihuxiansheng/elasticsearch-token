@@ -41,14 +41,14 @@ import|;
 end_import
 
 begin_comment
-comment|/** Simple tests seccomp filter is working. */
+comment|/** Simple tests system call filter is working. */
 end_comment
 
 begin_class
-DECL|class|SeccompTests
+DECL|class|SystemCallFilterTests
 specifier|public
 class|class
-name|SeccompTests
+name|SystemCallFilterTests
 extends|extends
 name|ESTestCase
 block|{
@@ -84,11 +84,11 @@ argument_list|()
 expr_stmt|;
 name|assumeTrue
 argument_list|(
-literal|"requires seccomp filter installation"
+literal|"requires system call filter installation"
 argument_list|,
 name|Natives
 operator|.
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -113,12 +113,12 @@ condition|(
 operator|!
 name|JNANatives
 operator|.
-name|LOCAL_SECCOMP_ALL
+name|LOCAL_SYSTEM_CALL_FILTER_ALL
 condition|)
 block|{
 try|try
 block|{
-name|Seccomp
+name|SystemCallFilter
 operator|.
 name|init
 argument_list|(
@@ -137,7 +137,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"unable to forcefully apply seccomp to test thread"
+literal|"unable to forcefully apply system call filter to test thread"
 argument_list|,
 name|e
 argument_list|)
@@ -178,7 +178,7 @@ name|expected
 parameter_list|)
 block|{
 comment|// we can't guarantee how its converted, currently its an IOException, like this:
-comment|/*             java.io.IOException: Cannot run program "ls": error=13, Permission denied                     at __randomizedtesting.SeedInfo.seed([65E6C4BED11899E:FC6E1CA6AA2DB634]:0)                     at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)                     at java.lang.Runtime.exec(Runtime.java:620)                     ...                   Caused by: java.io.IOException: error=13, Permission denied                     at java.lang.UNIXProcess.forkAndExec(Native Method)                     at java.lang.UNIXProcess.<init>(UNIXProcess.java:248)                     at java.lang.ProcessImpl.start(ProcessImpl.java:134)                     at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)                     ...              */
+comment|/*             java.io.IOException: Cannot run program "ls": error=13, Permission denied                     at __randomizedtesting.SeedInfo.seed([65E6C4BED11899E:FC6E1CA6AA2DB634]:0)                     at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)                     at java.lang.Runtime.exec(Runtime.java:620)                     ...                   Caused by: java.io.IOException: error=13, Permission denied                     at java.lang.UNIXProcess.forkAndExec(Native Method)                     at java.lang.UNIXProcess.<init>(UNIXProcess.java:248)                     at java.lang.ProcessImpl.start(ProcessImpl.java:134)                     at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)                     ...             */
 block|}
 block|}
 comment|// make sure thread inherits this too (its documented that way)

@@ -180,6 +180,18 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
+name|ExitCodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cli
+operator|.
 name|Terminal
 import|;
 end_import
@@ -231,6 +243,20 @@ operator|.
 name|inject
 operator|.
 name|CreationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|DeprecationLogger
 import|;
 end_import
 
@@ -484,7 +510,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -650,7 +696,7 @@ name|boolean
 name|mlockAll
 parameter_list|,
 name|boolean
-name|seccomp
+name|systemCallFilter
 parameter_list|,
 name|boolean
 name|ctrlHandler
@@ -686,15 +732,15 @@ literal|"can not run elasticsearch as root"
 argument_list|)
 throw|;
 block|}
-comment|// enable secure computing mode
+comment|// enable system call filter
 if|if
 condition|(
-name|seccomp
+name|systemCallFilter
 condition|)
 block|{
 name|Natives
 operator|.
-name|trySeccomp
+name|tryInstallSystemCallFilter
 argument_list|(
 name|tmpFile
 argument_list|)
@@ -969,7 +1015,7 @@ argument_list|)
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|SECCOMP_SETTING
+name|SYSTEM_CALL_FILTER_SETTING
 operator|.
 name|get
 argument_list|(

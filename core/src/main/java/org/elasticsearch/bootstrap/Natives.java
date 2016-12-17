@@ -291,10 +291,10 @@ operator|.
 name|LOCAL_MLOCKALL
 return|;
 block|}
-DECL|method|trySeccomp
+DECL|method|tryInstallSystemCallFilter
 specifier|static
 name|void
-name|trySeccomp
+name|tryInstallSystemCallFilter
 parameter_list|(
 name|Path
 name|tmpFile
@@ -310,14 +310,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"cannot install syscall filters because JNA is not available"
+literal|"cannot install system call filter because JNA is not available"
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
 name|JNANatives
 operator|.
-name|trySeccomp
+name|tryInstallSystemCallFilter
 argument_list|(
 name|tmpFile
 argument_list|)
@@ -377,10 +377,10 @@ name|trySetMaxSizeVirtualMemory
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|isSeccompInstalled
+DECL|method|isSystemCallFilterInstalled
 specifier|static
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 if|if
@@ -396,7 +396,7 @@ block|}
 return|return
 name|JNANatives
 operator|.
-name|LOCAL_SECCOMP
+name|LOCAL_SYSTEM_CALL_FILTER
 return|;
 block|}
 block|}
