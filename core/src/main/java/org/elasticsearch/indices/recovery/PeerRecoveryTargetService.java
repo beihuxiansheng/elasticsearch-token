@@ -2413,7 +2413,12 @@ name|status
 argument_list|()
 operator|.
 name|finalizeRecovery
+argument_list|(
+name|request
+operator|.
+name|globalCheckpoint
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|channel

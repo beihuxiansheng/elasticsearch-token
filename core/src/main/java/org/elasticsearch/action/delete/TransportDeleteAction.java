@@ -931,6 +931,16 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|request
+operator|.
+name|seqNo
+argument_list|(
+name|result
+operator|.
+name|getSeqNo
+argument_list|()
+argument_list|)
+expr_stmt|;
 assert|assert
 name|request
 operator|.

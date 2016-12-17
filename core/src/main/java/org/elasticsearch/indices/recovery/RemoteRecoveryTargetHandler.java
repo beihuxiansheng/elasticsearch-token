@@ -493,7 +493,11 @@ DECL|method|finalizeRecovery
 specifier|public
 name|void
 name|finalizeRecovery
-parameter_list|()
+parameter_list|(
+specifier|final
+name|long
+name|globalCheckpoint
+parameter_list|)
 block|{
 name|transportService
 operator|.
@@ -513,6 +517,8 @@ argument_list|(
 name|recoveryId
 argument_list|,
 name|shardId
+argument_list|,
+name|globalCheckpoint
 argument_list|)
 argument_list|,
 name|TransportRequestOptions

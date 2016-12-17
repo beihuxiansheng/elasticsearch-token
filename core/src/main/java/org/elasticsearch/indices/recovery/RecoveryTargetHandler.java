@@ -112,11 +112,14 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * The finalize request clears unreferenced translog files, refreshes the engine now that      * new segments are available, and enables garbage collection of      * tombstone files.      **/
+comment|/**      * The finalize request refreshes the engine now that new segments are available, enables garbage collection of tombstone files, and      * updates the global checkpoint.      *      * @param globalCheckpoint the global checkpoint on the recovery source      */
 DECL|method|finalizeRecovery
 name|void
 name|finalizeRecovery
-parameter_list|()
+parameter_list|(
+name|long
+name|globalCheckpoint
+parameter_list|)
 function_decl|;
 comment|/**      * Blockingly waits for cluster state with at least clusterStateVersion to be available      */
 DECL|method|ensureClusterStateVersion
