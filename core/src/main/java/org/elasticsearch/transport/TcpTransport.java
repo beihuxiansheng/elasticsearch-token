@@ -1597,25 +1597,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|// test-setting only
-DECL|field|CONNECTION_HANDSHAKE
-specifier|static
-specifier|final
-name|Setting
-argument_list|<
-name|Boolean
-argument_list|>
-name|CONNECTION_HANDSHAKE
-init|=
-name|Setting
-operator|.
-name|boolSetting
-argument_list|(
-literal|"transport.tcp.handshake"
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
 DECL|field|NINETY_PER_HEAP_SIZE
 specifier|private
 specifier|static
@@ -1696,12 +1677,6 @@ specifier|protected
 specifier|final
 name|NetworkService
 name|networkService
-decl_stmt|;
-DECL|field|doHandshakes
-specifier|private
-specifier|final
-name|boolean
-name|doHandshakes
 decl_stmt|;
 DECL|field|transportServiceAdapter
 specifier|protected
@@ -1969,17 +1944,6 @@ expr_stmt|;
 name|defaultConnectionProfile
 operator|=
 name|buildDefaultConnectionProfile
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|doHandshakes
-operator|=
-name|CONNECTION_HANDSHAKE
-operator|.
-name|get
 argument_list|(
 name|settings
 argument_list|)
@@ -3454,12 +3418,6 @@ throw|throw
 name|e
 throw|;
 block|}
-if|if
-condition|(
-name|doHandshakes
-condition|)
-block|{
-comment|// some tests need to disable this
 name|Channel
 name|channel
 init|=
@@ -3525,28 +3483,6 @@ argument_list|,
 name|handshakeTimeout
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|version
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// this is a BWC layer, if we talk to a pre 5.2 node then the handshake is not supported
-comment|// this will go away in master once it's all ported to 5.2 but for now we keep this to make
-comment|// the backport straight forward
-name|nodeChannels
-operator|=
-operator|new
-name|NodeChannels
-argument_list|(
-name|nodeChannels
-argument_list|,
-name|version
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// we acquire a connection lock, so no way there is an existing connection
 name|connectedNodes
 operator|.
@@ -7192,7 +7128,7 @@ block|}
 block|}
 comment|/**      * Writes the Tcp message header into a bytes reference.      *      * @param requestId       the request ID      * @param status          the request status      * @param protocolVersion the protocol version used to serialize the data in the message      * @param length          the payload length in bytes      * @see TcpHeader      */
 DECL|method|buildHeader
-specifier|private
+specifier|final
 name|BytesReference
 name|buildHeader
 parameter_list|(
@@ -8328,8 +8264,6 @@ name|isHandshake
 argument_list|(
 name|status
 argument_list|)
-operator|&&
-name|doHandshakes
 condition|)
 block|{
 name|handler
@@ -8862,8 +8796,6 @@ name|isHandshake
 argument_list|(
 name|status
 argument_list|)
-operator|&&
-name|doHandshakes
 condition|)
 block|{
 specifier|final
@@ -9474,9 +9406,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// pkg private for testing
 DECL|method|executeHandshake
-specifier|final
+specifier|protected
 name|Version
 name|executeHandshake
 parameter_list|(
@@ -9562,7 +9493,7 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// we have to protect ourself here since sendRequestToChannel won't barf if the channel is closed.
+comment|// we have to protect us here since sendRequestToChannel won't barf if the channel is closed.
 comment|// it's weird but to change it will cause a lot of impact on the exception handling code all over the codebase.
 comment|// yet, if we don't check the state here we might have registered a pending handshake handler but the close
 comment|// listener calling #onChannelClosed might have already run and we are waiting on the latch below unitl we time out.
