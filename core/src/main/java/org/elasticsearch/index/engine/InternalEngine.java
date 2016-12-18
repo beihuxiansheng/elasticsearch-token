@@ -1448,7 +1448,7 @@ lambda|->
 name|seqNoService
 argument_list|()
 operator|.
-name|getLocalCheckpoint
+name|getGlobalCheckpoint
 argument_list|()
 argument_list|)
 expr_stmt|;

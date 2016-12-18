@@ -1807,18 +1807,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -1866,6 +1854,26 @@ name|Operation
 operator|.
 name|Origin
 operator|.
+name|PEER_RECOVERY
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|Engine
+operator|.
+name|Operation
+operator|.
+name|Origin
+operator|.
 name|PRIMARY
 import|;
 end_import
@@ -1887,26 +1895,6 @@ operator|.
 name|Origin
 operator|.
 name|REPLICA
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|Engine
-operator|.
-name|Operation
-operator|.
-name|Origin
-operator|.
-name|PEER_RECOVERY
 import|;
 end_import
 
@@ -16675,13 +16663,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|randomInt
+argument_list|(
+literal|10
+argument_list|)
+operator|<
+literal|3
+condition|)
+block|{
+comment|// only update rarely as we do it every doc
 name|replicaLocalCheckpoint
 operator|=
-name|rarely
-argument_list|()
-condition|?
-name|replicaLocalCheckpoint
-else|:
 name|randomIntBetween
 argument_list|(
 name|Math
@@ -16699,6 +16693,7 @@ name|primarySeqNo
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|initialEngine
 operator|.
 name|seqNoService
@@ -16762,6 +16757,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"localcheckpoint {}, global {}"
+argument_list|,
+name|replicaLocalCheckpoint
+argument_list|,
+name|primarySeqNo
+argument_list|)
+expr_stmt|;
 name|initialEngine
 operator|.
 name|seqNoService
