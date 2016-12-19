@@ -520,6 +520,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -4275,7 +4287,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
 name|ex
 operator|.
@@ -4285,7 +4297,10 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
+name|containsString
+argument_list|(
 literal|"analyzer [test] not found for field [field1]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

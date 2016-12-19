@@ -680,6 +680,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|MapperService
+operator|.
+name|MergeReason
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryShardContext
@@ -2781,6 +2797,10 @@ name|merge
 argument_list|(
 name|mappings
 argument_list|,
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
+argument_list|,
 name|request
 operator|.
 name|updateAllTypes
@@ -2790,8 +2810,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MapperParsingException
-name|mpe
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|removalExtraInfo
@@ -2799,7 +2819,7 @@ operator|=
 literal|"failed on parsing default mapping/mappings on index creation"
 expr_stmt|;
 throw|throw
-name|mpe
+name|e
 throw|;
 block|}
 comment|// the context is only used for validation so it's fine to pass fake values for the shard id and the current
