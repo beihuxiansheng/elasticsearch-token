@@ -346,6 +346,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|Index
@@ -977,14 +989,8 @@ name|t
 argument_list|,
 name|options
 argument_list|,
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
+literal|null
+comment|/* TODO: env should be real here, and ttc should actually use it... */
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1287,14 +1293,8 @@ name|t
 argument_list|,
 name|options
 argument_list|,
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
+literal|null
+comment|/* TODO: env should be real here, and ttc should actually use it... */
 argument_list|)
 expr_stmt|;
 name|logger
