@@ -190,17 +190,14 @@ literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
+literal|"include_in_all in multi fields is not allowed. Found the include_in_all in field [c] which is within a multi field."
+argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"include_in_all in multi fields is not allowed. Found the include_in_all in field [c] which is within a multi field."
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
