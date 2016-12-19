@@ -1120,6 +1120,13 @@ argument_list|)
 operator|.
 name|replace
 argument_list|(
+literal|"\\r"
+argument_list|,
+literal|"\r"
+argument_list|)
+operator|.
+name|replace
+argument_list|(
 literal|"\\t"
 argument_list|,
 literal|"\t"
