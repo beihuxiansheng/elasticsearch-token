@@ -167,11 +167,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|wrapInObject
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
+block|}
 name|response
 operator|.
 name|toXContent
@@ -184,11 +191,18 @@ name|request
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|wrapInObject
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|BytesRestResponse
@@ -200,6 +214,19 @@ argument_list|)
 argument_list|,
 name|builder
 argument_list|)
+return|;
+block|}
+DECL|method|wrapInObject
+specifier|protected
+name|boolean
+name|wrapInObject
+parameter_list|()
+block|{
+comment|//Ideally, the toXContent method starts with startObject and ends with endObject.
+comment|//In practice, we have many places where toXContent produces a json fragment that's not valid by itself. We will
+comment|//migrate those step by step, so that we never have to start objects here, and we can remove this method.
+return|return
+literal|true
 return|;
 block|}
 DECL|method|getStatus
