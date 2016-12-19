@@ -1171,6 +1171,10 @@ specifier|final
 name|IndexResponse
 name|response
 decl_stmt|;
+specifier|final
+name|IndexRequest
+name|replicaRequest
+decl_stmt|;
 if|if
 condition|(
 name|indexResult
@@ -1213,7 +1217,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|seqNo
+name|setSeqNo
 argument_list|(
 name|indexResult
 operator|.
@@ -1235,6 +1239,10 @@ name|version
 argument_list|()
 argument_list|)
 assert|;
+name|replicaRequest
+operator|=
+name|request
+expr_stmt|;
 name|response
 operator|=
 operator|new
@@ -1278,12 +1286,16 @@ name|response
 operator|=
 literal|null
 expr_stmt|;
+name|replicaRequest
+operator|=
+literal|null
+expr_stmt|;
 block|}
 return|return
 operator|new
 name|WritePrimaryResult
 argument_list|(
-name|request
+name|replicaRequest
 argument_list|,
 name|response
 argument_list|,
@@ -1443,7 +1455,7 @@ name|sourceToParse
 argument_list|,
 name|request
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 argument_list|,
 name|request
@@ -1489,7 +1501,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 argument_list|)
 return|;
@@ -1687,7 +1699,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 argument_list|)
 return|;
@@ -1763,7 +1775,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 argument_list|)
 return|;
@@ -1803,7 +1815,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 argument_list|)
 return|;

@@ -67,6 +67,22 @@ name|shardId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"BasicReplicationRequest{"
+operator|+
+name|shardId
+operator|+
+literal|"}"
+return|;
+block|}
 block|}
 end_class
 

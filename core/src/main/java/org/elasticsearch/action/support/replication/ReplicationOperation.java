@@ -1870,6 +1870,12 @@ name|get
 argument_list|()
 operator|>
 literal|0
+operator|:
+literal|"pending action count goes below 0 for request ["
+operator|+
+name|request
+operator|+
+literal|"]"
 assert|;
 if|if
 condition|(

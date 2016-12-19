@@ -468,20 +468,6 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|GlobalCheckpointSyncAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|seqno
-operator|.
 name|SequenceNumbersService
 import|;
 end_import
@@ -1251,7 +1237,7 @@ argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|seqNo
+name|setSeqNo
 argument_list|(
 name|indexResult
 operator|.
@@ -1433,7 +1419,7 @@ argument_list|)
 expr_stmt|;
 name|deleteRequest
 operator|.
-name|seqNo
+name|setSeqNo
 argument_list|(
 name|deleteResult
 operator|.
@@ -2190,7 +2176,7 @@ argument_list|)
 expr_stmt|;
 name|indexRequest
 operator|.
-name|seqNo
+name|setSeqNo
 argument_list|(
 name|updateOperationResult
 operator|.
@@ -2270,7 +2256,7 @@ argument_list|)
 expr_stmt|;
 name|deleteRequest
 operator|.
-name|seqNo
+name|setSeqNo
 argument_list|(
 name|updateOperationResult
 operator|.
@@ -2753,7 +2739,7 @@ name|request
 argument_list|()
 operator|)
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 operator|!=
 name|SequenceNumbersService
@@ -2779,7 +2765,7 @@ name|request
 argument_list|()
 operator|)
 operator|.
-name|seqNo
+name|getSeqNo
 argument_list|()
 operator|!=
 name|SequenceNumbersService
