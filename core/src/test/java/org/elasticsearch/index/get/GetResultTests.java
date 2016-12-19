@@ -252,7 +252,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertEquivalent
+name|assertToXContentEquivalent
 import|;
 end_import
 
@@ -382,7 +382,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|assertEquivalent
+name|assertToXContentEquivalent
 argument_list|(
 name|originalBytes
 argument_list|,
