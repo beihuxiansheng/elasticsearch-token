@@ -102,21 +102,18 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 function_decl|;
-comment|/**          * Get the default {@link MetadataFieldMapper} to use, if nothing had to be parsed.          * @param fieldType null if this is the first root mapper on this index, the existing          *                  fieldType for this index otherwise          * @param indexSettings  the index-level settings          * @param fieldType      the existing field type for this meta mapper on the current index          *                       or null if this is the first type being introduced          * @param typeName       the name of the type that this mapper will be used on          */
+comment|/**          * Get the default {@link MetadataFieldMapper} to use, if nothing had to be parsed.          * @param fieldType null if this is the first root mapper on this index, the existing          *                  fieldType for this index otherwise          * @param fieldType      the existing field type for this meta mapper on the current index          *                       or null if this is the first type being introduced          * @param parserContext context that may be useful to build the field like analyzers          */
 comment|// TODO: remove the fieldType parameter which is only used for bw compat with pre-2.0
 comment|// since settings could be modified
 DECL|method|getDefault
 name|MetadataFieldMapper
 name|getDefault
 parameter_list|(
-name|Settings
-name|indexSettings
-parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
-name|String
-name|typeName
+name|ParserContext
+name|parserContext
 parameter_list|)
 function_decl|;
 block|}
