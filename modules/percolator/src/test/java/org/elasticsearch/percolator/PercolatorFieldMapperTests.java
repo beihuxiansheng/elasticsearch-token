@@ -3517,8 +3517,17 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-try|try
-block|{
+name|MapperParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|MapperParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|mapperService
 operator|.
 name|merge
@@ -3539,19 +3548,8 @@ name|MAPPING_UPDATE
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"MapperParsingException expected"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MapperParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -3559,7 +3557,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
 literal|"Mapping definition for ["
 operator|+
@@ -3569,7 +3567,6 @@ literal|"] has unsupported parameters:  [index : no]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// multiple percolator fields are allowed in the mapping, but only one field can be used at index time.
 DECL|method|testMultiplePercolatorFields

@@ -239,10 +239,7 @@ block|{
 return|return
 literal|"flush {"
 operator|+
-name|super
-operator|.
-name|toString
-argument_list|()
+name|shardId
 operator|+
 literal|"}"
 return|;

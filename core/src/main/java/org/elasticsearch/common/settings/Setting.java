@@ -4796,6 +4796,15 @@ name|Settings
 name|previous
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+comment|// getRaw can create quite some objects
 name|logger
 operator|.
 name|info
@@ -4815,6 +4824,7 @@ name|current
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|consumer
 operator|.
 name|accept

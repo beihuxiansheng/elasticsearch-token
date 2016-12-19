@@ -2094,11 +2094,14 @@ name|V_6_0_0_alpha1_UNRELEASED
 argument_list|)
 condition|)
 block|{
+comment|// Serialize a fake timestamp. 5.x expect this value to be set by the #process method so we can't use null.
+comment|// On the other hand, indices created on 5.x do not index the timestamp field.  Therefore passing a 0 (or any value) for
+comment|// the transport layer OK as it will be ignored.
 name|out
 operator|.
 name|writeOptionalString
 argument_list|(
-literal|null
+literal|"0"
 argument_list|)
 expr_stmt|;
 name|out

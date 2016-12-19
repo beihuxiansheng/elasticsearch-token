@@ -159,20 +159,20 @@ name|LOCAL_MLOCKALL
 init|=
 literal|false
 decl_stmt|;
-comment|// Set to true, in case native seccomp call was successful
-DECL|field|LOCAL_SECCOMP
+comment|// Set to true, in case native system call filter install was successful
+DECL|field|LOCAL_SYSTEM_CALL_FILTER
 specifier|static
 name|boolean
-name|LOCAL_SECCOMP
+name|LOCAL_SYSTEM_CALL_FILTER
 init|=
 literal|false
 decl_stmt|;
 comment|// Set to true, in case policy can be applied to all threads of the process (even existing ones)
 comment|// otherwise they are only inherited for new threads (ES app threads)
-DECL|field|LOCAL_SECCOMP_ALL
+DECL|field|LOCAL_SYSTEM_CALL_FILTER_ALL
 specifier|static
 name|boolean
-name|LOCAL_SECCOMP_ALL
+name|LOCAL_SYSTEM_CALL_FILTER_ALL
 init|=
 literal|false
 decl_stmt|;
@@ -1037,10 +1037,10 @@ comment|// this will have already been logged by Kernel32Library, no need to rep
 block|}
 block|}
 block|}
-DECL|method|trySeccomp
+DECL|method|tryInstallSystemCallFilter
 specifier|static
 name|void
-name|trySeccomp
+name|tryInstallSystemCallFilter
 parameter_list|(
 name|Path
 name|tmpFile
@@ -1051,14 +1051,14 @@ block|{
 name|int
 name|ret
 init|=
-name|Seccomp
+name|SystemCallFilter
 operator|.
 name|init
 argument_list|(
 name|tmpFile
 argument_list|)
 decl_stmt|;
-name|LOCAL_SECCOMP
+name|LOCAL_SYSTEM_CALL_FILTER
 operator|=
 literal|true
 expr_stmt|;
@@ -1069,7 +1069,7 @@ operator|==
 literal|1
 condition|)
 block|{
-name|LOCAL_SECCOMP_ALL
+name|LOCAL_SYSTEM_CALL_FILTER_ALL
 operator|=
 literal|true
 expr_stmt|;

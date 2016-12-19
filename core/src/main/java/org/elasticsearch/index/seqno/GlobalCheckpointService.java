@@ -504,6 +504,7 @@ name|long
 name|globalCheckpoint
 parameter_list|)
 block|{
+comment|/*          * The global checkpoint here is a local knowledge which is updated under the mandate of the primary. It can happen that the primary          * information is lagging compared to a replica (e.g., if a replica is promoted to primary but has stale info relative to other          * replica shards). In these cases, the local knowledge of the global checkpoint could be higher than sync from the lagging primary.          */
 if|if
 condition|(
 name|this
@@ -528,26 +529,6 @@ argument_list|,
 name|globalCheckpoint
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"global checkpoint from primary should never decrease. current ["
-operator|+
-name|this
-operator|.
-name|globalCheckpoint
-operator|+
-literal|"], got ["
-operator|+
-name|globalCheckpoint
-operator|+
-literal|"]"
-argument_list|)
-throw|;
 block|}
 block|}
 comment|/**      * Notifies the service of the current allocation ids in the cluster state. This method trims any shards that      * have been removed.      *      * @param activeAllocationIds       the allocation ids of the currently active shard copies      * @param initializingAllocationIds the allocation ids of the currently initializing shard copies      */

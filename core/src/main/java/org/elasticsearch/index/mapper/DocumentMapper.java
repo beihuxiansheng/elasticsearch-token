@@ -545,8 +545,6 @@ name|parser
 operator|.
 name|getDefault
 argument_list|(
-name|indexSettings
-argument_list|,
 name|mapperService
 operator|.
 name|fullName
@@ -554,10 +552,18 @@ argument_list|(
 name|name
 argument_list|)
 argument_list|,
+name|mapperService
+operator|.
+name|documentMapperParser
+argument_list|()
+operator|.
+name|parserContext
+argument_list|(
 name|builder
 operator|.
 name|name
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

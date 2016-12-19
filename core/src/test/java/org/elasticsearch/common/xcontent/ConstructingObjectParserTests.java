@@ -1269,9 +1269,9 @@ name|IOException
 block|{
 name|assumeFalse
 argument_list|(
-literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+literal|"Test only makes sense if XContent parser doesn't have strict duplicate checks enabled"
 argument_list|,
-name|JsonXContent
+name|XContent
 operator|.
 name|isStrictDuplicateDetectionEnabled
 argument_list|()

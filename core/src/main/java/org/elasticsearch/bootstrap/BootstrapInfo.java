@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Exposes system startup information   */
+comment|/**  * Exposes system startup information  */
 end_comment
 
 begin_class
@@ -70,7 +70,7 @@ specifier|private
 name|BootstrapInfo
 parameter_list|()
 block|{}
-comment|/**       * Returns true if we successfully loaded native libraries.      *<p>      * If this returns false, then native operations such as locking      * memory did not work.      */
+comment|/**      * Returns true if we successfully loaded native libraries.      *<p>      * If this returns false, then native operations such as locking      * memory did not work.      */
 DECL|method|isNativesAvailable
 specifier|public
 specifier|static
@@ -84,7 +84,7 @@ operator|.
 name|JNA_AVAILABLE
 return|;
 block|}
-comment|/**       * Returns true if we were able to lock the process's address space.      */
+comment|/**      * Returns true if we were able to lock the process's address space.      */
 DECL|method|isMemoryLocked
 specifier|public
 specifier|static
@@ -99,18 +99,18 @@ name|isMemoryLocked
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns true if secure computing mode is enabled (supported systems only)      */
-DECL|method|isSeccompInstalled
+comment|/**      * Returns true if system call filter is installed (supported systems only)      */
+DECL|method|isSystemCallFilterInstalled
 specifier|public
 specifier|static
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
 name|Natives
 operator|.
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|()
 return|;
 block|}

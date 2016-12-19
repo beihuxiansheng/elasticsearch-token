@@ -1165,9 +1165,10 @@ name|out
 operator|.
 name|writeOptionalString
 argument_list|(
-literal|null
+literal|"now"
 argument_list|)
 expr_stmt|;
+comment|// 5.x default
 name|out
 operator|.
 name|writeOptionalBoolean
