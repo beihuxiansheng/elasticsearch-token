@@ -672,6 +672,7 @@ operator|.
 name|VALUE_STRING
 condition|)
 block|{
+comment|//binary values will be parsed back and returned as base64 strings when reading from json and yaml
 name|value
 operator|=
 name|parser
@@ -732,6 +733,7 @@ operator|.
 name|VALUE_EMBEDDED_OBJECT
 condition|)
 block|{
+comment|//binary values will be parsed back and returned as BytesArray when reading from cbor and smile
 name|value
 operator|=
 operator|new
