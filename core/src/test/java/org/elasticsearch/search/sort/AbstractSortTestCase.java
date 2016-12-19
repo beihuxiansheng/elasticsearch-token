@@ -1776,7 +1776,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|/* The cast below is required to make Java 9 happy. Java 8 infers the T in copyWriterable to be the same as AbstractSortTestCase's          * T but Java 9 infers it to be SortBuilder. */
 return|return
+operator|(
+name|T
+operator|)
 name|copyWriteable
 argument_list|(
 name|original
