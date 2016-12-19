@@ -1052,7 +1052,7 @@ operator|.
 name|hasNested
 return|;
 block|}
-comment|/**      * Returns true if the "_all" field is enabled for the type      */
+comment|/**      * Returns true if the "_all" field is enabled on any type.      */
 DECL|method|allEnabled
 specifier|public
 name|boolean
@@ -2557,10 +2557,12 @@ name|parentTypes
 operator|=
 name|parentTypes
 expr_stmt|;
+comment|// this is only correct because types cannot be removed and we do not
+comment|// allow to disable an existing _all field
 name|this
 operator|.
 name|allEnabled
-operator|=
+operator||=
 name|mapper
 operator|.
 name|allFieldMapper
