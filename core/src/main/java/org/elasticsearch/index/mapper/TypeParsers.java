@@ -1750,6 +1750,28 @@ literal|"include_in_all"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|parserContext
+operator|.
+name|isWithinMultiField
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"include_in_all in multi fields is not allowed. Found the include_in_all in field ["
+operator|+
+name|name
+operator|+
+literal|"] which is within a multi field."
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 name|builder
 operator|.
 name|includeInAll
@@ -1764,6 +1786,7 @@ name|parserContext
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|iterator
 operator|.
 name|remove
