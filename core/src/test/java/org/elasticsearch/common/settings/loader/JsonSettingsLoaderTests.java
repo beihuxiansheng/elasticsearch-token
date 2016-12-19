@@ -66,9 +66,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|json
-operator|.
-name|JsonXContent
+name|XContent
 import|;
 end_import
 
@@ -296,9 +294,9 @@ parameter_list|()
 block|{
 name|assumeFalse
 argument_list|(
-literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+literal|"Test only makes sense if XContent parser doesn't have strict duplicate checks enabled"
 argument_list|,
-name|JsonXContent
+name|XContent
 operator|.
 name|isStrictDuplicateDetectionEnabled
 argument_list|()

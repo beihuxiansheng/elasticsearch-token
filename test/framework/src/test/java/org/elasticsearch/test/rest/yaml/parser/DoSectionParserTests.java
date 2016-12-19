@@ -30,6 +30,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentParser
 import|;
 end_import
@@ -841,6 +855,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if XContent parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|XContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 index|[]
 name|bodies
@@ -1437,6 +1461,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if XContent parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|XContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|parser
 operator|=
 name|createParser

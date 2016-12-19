@@ -82,6 +82,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -1244,7 +1258,7 @@ expr_stmt|;
 comment|// test two fieldnames
 if|if
 condition|(
-name|JsonXContent
+name|XContent
 operator|.
 name|isStrictDuplicateDetectionEnabled
 argument_list|()

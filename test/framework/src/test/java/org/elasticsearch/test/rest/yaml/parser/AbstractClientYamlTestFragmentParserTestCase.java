@@ -103,6 +103,14 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+comment|// test may be skipped so we did not create a parser instance
+if|if
+condition|(
+name|parser
+operator|!=
+literal|null
+condition|)
+block|{
 comment|//this is the way to make sure that we consumed the whole yaml
 name|assertThat
 argument_list|(
@@ -120,6 +128,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

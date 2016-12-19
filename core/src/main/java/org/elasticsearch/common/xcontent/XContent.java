@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Booleans
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -100,6 +112,30 @@ specifier|public
 interface|interface
 name|XContent
 block|{
+comment|/*      * NOTE: This comment is only meant for maintainers of the Elasticsearch code base and is intentionally not a Javadoc comment as it      *       describes an undocumented system property.      *      *      * Determines whether the XContent parser will always check for duplicate keys. This behavior is enabled by default but      * can be disabled by setting the otherwise undocumented system property "es.xcontent.strict_duplicate_detection to "false".      *      * Before we've enabled this mode, we had custom duplicate checks in various parts of the code base. As the user can still disable this      * mode and fall back to the legacy duplicate checks, we still need to keep the custom duplicate checks around and we also need to keep      * the tests around.      *      * If this fallback via system property is removed one day in the future you can remove all tests that call this method and also remove      * the corresponding custom duplicate check code.      *      */
+DECL|method|isStrictDuplicateDetectionEnabled
+specifier|static
+name|boolean
+name|isStrictDuplicateDetectionEnabled
+parameter_list|()
+block|{
+comment|// Don't allow duplicate keys in JSON content by default but let the user opt out
+return|return
+name|Booleans
+operator|.
+name|parseBooleanExact
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"es.xcontent.strict_duplicate_detection"
+argument_list|,
+literal|"true"
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * The type this content handles and produces.      */
 DECL|method|type
 name|XContentType

@@ -270,6 +270,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentParser
 import|;
 end_import
@@ -4756,9 +4770,9 @@ name|IOException
 block|{
 name|assumeFalse
 argument_list|(
-literal|"Test only makes sense if JSON parser doesn't have strict duplicate checks enabled"
+literal|"Test only makes sense if XContent parser doesn't have strict duplicate checks enabled"
 argument_list|,
-name|JsonXContent
+name|XContent
 operator|.
 name|isStrictDuplicateDetectionEnabled
 argument_list|()
