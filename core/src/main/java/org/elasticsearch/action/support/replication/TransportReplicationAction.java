@@ -360,6 +360,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -549,6 +561,18 @@ operator|.
 name|shard
 operator|.
 name|ShardNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndexClosedException
 import|;
 end_import
 
@@ -1235,7 +1259,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Cluster level block to check before request execution      */
+comment|/**      * Cluster level block to check before request execution. Returning null means that no blocks need to be checked.      */
+annotation|@
+name|Nullable
 DECL|method|globalBlockLevel
 specifier|protected
 name|ClusterBlockLevel
@@ -1243,12 +1269,12 @@ name|globalBlockLevel
 parameter_list|()
 block|{
 return|return
-name|ClusterBlockLevel
-operator|.
-name|WRITE
+literal|null
 return|;
 block|}
-comment|/**      * Index level block to check before request execution      */
+comment|/**      * Index level block to check before request execution. Returning null means that no blocks need to be checked.      */
+annotation|@
+name|Nullable
 DECL|method|indexBlockLevel
 specifier|protected
 name|ClusterBlockLevel
@@ -1256,9 +1282,7 @@ name|indexBlockLevel
 parameter_list|()
 block|{
 return|return
-name|ClusterBlockLevel
-operator|.
-name|WRITE
+literal|null
 return|;
 block|}
 comment|/**      * True if provided index should be resolved when resolving request      */
@@ -3555,6 +3579,31 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|indexMetaData
+operator|.
+name|getState
+argument_list|()
+operator|==
+name|IndexMetaData
+operator|.
+name|State
+operator|.
+name|CLOSE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexClosedException
+argument_list|(
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+throw|;
+block|}
 comment|// resolve all derived request fields, so we can route and apply it
 name|resolveRequest
 argument_list|(
@@ -4113,6 +4162,19 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+name|ClusterBlockLevel
+name|globalBlockLevel
+init|=
+name|globalBlockLevel
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|globalBlockLevel
+operator|!=
+literal|null
+condition|)
+block|{
 name|ClusterBlockException
 name|blockException
 init|=
@@ -4124,7 +4186,6 @@ operator|.
 name|globalBlockedException
 argument_list|(
 name|globalBlockLevel
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -4143,8 +4204,23 @@ return|return
 literal|true
 return|;
 block|}
+block|}
+name|ClusterBlockLevel
+name|indexBlockLevel
+init|=
+name|indexBlockLevel
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|indexBlockLevel
+operator|!=
+literal|null
+condition|)
+block|{
+name|ClusterBlockException
 name|blockException
-operator|=
+init|=
 name|state
 operator|.
 name|blocks
@@ -4153,14 +4229,13 @@ operator|.
 name|indexBlockedException
 argument_list|(
 name|indexBlockLevel
-argument_list|()
 argument_list|,
 name|concreteIndex
 argument_list|(
 name|state
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|blockException
@@ -4176,6 +4251,7 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
 block|}
 return|return
 literal|false
