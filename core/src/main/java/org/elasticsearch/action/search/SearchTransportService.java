@@ -1470,36 +1470,14 @@ try|try
 block|{
 comment|//TODO at the moment the configured cluster names are really just labels. We should validate that all the nodes
 comment|//belong to the same cluster, also validate the cluster name against the configured label and make sure they match
-name|DiscoveryNode
-name|discoveryNode
-init|=
-name|transportService
-operator|.
-name|connectToNodeAndHandshake
-argument_list|(
-name|remoteNode
-argument_list|,
-literal|10000
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-name|transportService
-operator|.
-name|disconnectFromNode
-argument_list|(
-name|remoteNode
-argument_list|)
-expr_stmt|;
-comment|// disconnect the light connection
 comment|// now go and do a real connection with the updated version of the node
 name|connectToRemoteNode
 argument_list|(
-name|discoveryNode
+name|remoteNode
 argument_list|)
 expr_stmt|;
 return|return
-name|discoveryNode
+name|remoteNode
 return|;
 block|}
 catch|catch
