@@ -773,7 +773,9 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"can't select channel size is 0"
+literal|"can't select channel size is 0 for types: "
+operator|+
+name|types
 argument_list|)
 throw|;
 block|}
