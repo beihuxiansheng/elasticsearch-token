@@ -681,6 +681,11 @@ argument_list|()
 operator|.
 name|createParser
 argument_list|(
+name|parser
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|builder
 operator|.
 name|bytes

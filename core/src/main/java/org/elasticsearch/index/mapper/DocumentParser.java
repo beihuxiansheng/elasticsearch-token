@@ -352,6 +352,11 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|docMapperParser
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|source
 operator|.
 name|source

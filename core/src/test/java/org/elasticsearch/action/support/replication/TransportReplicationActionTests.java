@@ -3034,7 +3034,10 @@ name|clusterService
 argument_list|,
 operator|new
 name|ClusterStateChanges
+argument_list|(
+name|xContentRegistry
 argument_list|()
+argument_list|)
 operator|.
 name|closeIndices
 argument_list|(

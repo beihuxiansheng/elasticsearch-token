@@ -162,7 +162,10 @@ operator|new
 name|FakeRestRequest
 operator|.
 name|Builder
+argument_list|(
+name|xContentRegistry
 argument_list|()
+argument_list|)
 operator|.
 name|withContent
 argument_list|(

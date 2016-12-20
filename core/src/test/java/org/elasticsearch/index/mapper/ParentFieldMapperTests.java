@@ -931,6 +931,9 @@ name|indexSettings
 argument_list|,
 name|indexAnalyzers
 argument_list|,
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|similarityService
 argument_list|,
 operator|new

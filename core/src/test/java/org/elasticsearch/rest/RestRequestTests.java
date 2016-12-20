@@ -70,6 +70,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -794,6 +808,10 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|params
 argument_list|,
 literal|"not used by this test"

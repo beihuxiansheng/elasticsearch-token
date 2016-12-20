@@ -708,6 +708,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|ToXContent
 import|;
 end_import
@@ -3947,6 +3961,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+comment|// EMPTY is safe here because RepositoryData#fromXContent calls namedObject
 try|try
 init|(
 name|XContentParser
@@ -3956,6 +3971,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|out
 operator|.
 name|bytes

@@ -126,6 +126,9 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
+name|xContentRegistry
+argument_list|()
+argument_list|,
 operator|new
 name|MapperRegistry
 argument_list|(
@@ -379,6 +382,9 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
+name|xContentRegistry
+argument_list|()
+argument_list|,
 operator|new
 name|MapperRegistry
 argument_list|(
@@ -521,6 +527,9 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|,
 operator|new
 name|MapperRegistry
@@ -681,6 +690,9 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|,
 operator|new
 name|MapperRegistry

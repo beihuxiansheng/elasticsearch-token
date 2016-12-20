@@ -658,6 +658,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContent
 import|;
 end_import
@@ -4766,7 +4780,6 @@ block|}
 comment|/**      * Randomly shuffles the fields inside objects in the {@link XContentBuilder} passed in.      * Recursively goes through inner objects and also shuffles them. Exceptions for this      * recursive shuffling behavior can be made by passing in the names of fields which      * internally should stay untouched.      */
 DECL|method|shuffleXContent
 specifier|public
-specifier|static
 name|XContentBuilder
 name|shuffleXContent
 parameter_list|(
@@ -4780,27 +4793,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|BytesReference
-name|bytes
-init|=
-name|builder
-operator|.
-name|bytes
-argument_list|()
-decl_stmt|;
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|bytes
-argument_list|)
-operator|.
 name|createParser
 argument_list|(
-name|bytes
+name|builder
 argument_list|)
 decl_stmt|;
 comment|// use ordered maps for reproducibility
@@ -5404,6 +5402,9 @@ argument_list|()
 operator|.
 name|createParser
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|builder
 operator|.
 name|bytes
@@ -5432,6 +5433,9 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|data
 argument_list|)
 return|;
@@ -5457,6 +5461,9 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|data
 argument_list|)
 return|;
@@ -5483,6 +5490,9 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|data
 argument_list|)
 return|;
@@ -5508,8 +5518,24 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|data
 argument_list|)
+return|;
+block|}
+comment|/**      * The {@link NamedXContentRegistry} to use for this test. Subclasses should override and use liberally.      */
+DECL|method|xContentRegistry
+specifier|protected
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|()
+block|{
+return|return
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
 return|;
 block|}
 comment|/** Returns the suite failure marker: internal use only! */

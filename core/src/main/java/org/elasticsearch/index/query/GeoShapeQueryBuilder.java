@@ -314,6 +314,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -1716,6 +1730,7 @@ name|currentPathSlot
 init|=
 literal|0
 decl_stmt|;
+comment|// It is safe to use EMPTY here because this never uses namedObject
 try|try
 init|(
 name|XContentParser
@@ -1725,6 +1740,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|response
 operator|.
 name|getSourceAsBytesRef

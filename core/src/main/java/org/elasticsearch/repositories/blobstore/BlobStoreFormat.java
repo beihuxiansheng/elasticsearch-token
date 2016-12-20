@@ -94,6 +94,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|ToXContent
 import|;
 end_import
@@ -453,6 +467,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// EMPTY is safe here because no reader calls namedObject
 try|try
 init|(
 name|XContentParser
@@ -462,6 +477,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|bytes
 argument_list|)
 init|)

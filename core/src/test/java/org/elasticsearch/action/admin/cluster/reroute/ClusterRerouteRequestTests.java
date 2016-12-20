@@ -1454,7 +1454,6 @@ return|;
 block|}
 DECL|method|toRestRequest
 specifier|private
-specifier|static
 name|RestRequest
 name|toRestRequest
 parameter_list|(
@@ -1719,7 +1718,10 @@ operator|new
 name|FakeRestRequest
 operator|.
 name|Builder
+argument_list|(
+name|xContentRegistry
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|requestBuilder
 operator|.

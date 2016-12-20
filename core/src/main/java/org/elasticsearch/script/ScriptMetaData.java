@@ -156,6 +156,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -450,6 +464,7 @@ comment|// 1) wrapped into a 'script' json object or field
 comment|// 2) wrapped into a 'template' json object or field
 comment|// 3) just as is
 comment|// In order to fetch the actual script in consistent manner this parsing logic is needed:
+comment|// EMPTY is ok here because we never call namedObject, we're just copying structure.
 try|try
 init|(
 name|XContentParser
@@ -459,6 +474,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|scriptAsBytes
 argument_list|)
 init|;

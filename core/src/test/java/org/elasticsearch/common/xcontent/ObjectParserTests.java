@@ -1215,15 +1215,12 @@ block|}
 name|XContentParser
 name|parser
 init|=
-name|XContentType
-operator|.
-name|JSON
-operator|.
-name|xContent
-argument_list|()
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 literal|"{\"url\" : { \"host\": \"http://foobar\", \"port\" : 80}, \"name\" : \"foobarbaz\"}"
 argument_list|)
 decl_stmt|;
