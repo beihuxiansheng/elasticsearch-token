@@ -997,7 +997,9 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"node does not match [index.routing.allocation.include] filters [foo:\"bar\"]"
+literal|"node does not match index setting [index.routing.allocation.include] "
+operator|+
+literal|"filters [foo:\"bar\"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1048,7 +1050,9 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"node does not match [index.routing.allocation.include] filters [foo:\"bar\"]"
+literal|"node does not match index setting [index.routing.allocation.include] "
+operator|+
+literal|"filters [foo:\"bar\"]"
 argument_list|)
 argument_list|)
 expr_stmt|;

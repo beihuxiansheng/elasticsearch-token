@@ -549,7 +549,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"allocation awareness is not enabled, set [%s] to enable it"
+literal|"allocation awareness is not enabled, set cluster setting [%s] to enable it"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTE_SETTING
 operator|.
@@ -622,7 +622,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not contain the awareness attribute [%s]; required attributes [%s=%s]"
+literal|"node does not contain the awareness attribute [%s]; required attributes cluster setting [%s=%s]"
 argument_list|,
 name|awarenessAttribute
 argument_list|,

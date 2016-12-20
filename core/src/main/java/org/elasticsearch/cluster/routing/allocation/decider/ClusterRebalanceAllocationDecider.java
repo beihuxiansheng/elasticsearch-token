@@ -477,7 +477,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has unassigned primary shards and [%s] is set to [%s]"
+literal|"the cluster has unassigned primary shards and cluster setting [%s] is set to [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
@@ -508,7 +508,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has inactive primary shards and [%s] is set to [%s]"
+literal|"the cluster has inactive primary shards and cluster setting [%s] is set to [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
@@ -563,7 +563,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has unassigned shards and [%s] is set to [%s]"
+literal|"the cluster has unassigned shards and cluster setting [%s] is set to [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
@@ -595,7 +595,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the cluster has inactive shards and [%s] is set to [%s]"
+literal|"the cluster has inactive shards and cluster setting [%s] is set to [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,

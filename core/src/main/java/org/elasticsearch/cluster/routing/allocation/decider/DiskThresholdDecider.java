@@ -735,7 +735,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the low watermark [%s=%s], having less than the minimum required [%s] free space, actual free: [%s]"
+literal|"the node is above the low watermark cluster setting [%s=%s], having less than the minimum required [%s] free "
+operator|+
+literal|"space, actual free: [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -868,9 +870,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the high watermark [%s=%s], having less than the minimum required [%s] free space, "
+literal|"the node is above the high watermark cluster setting [%s=%s], having less than the minimum required [%s] free "
 operator|+
-literal|"actual free: [%s]"
+literal|"space, actual free: [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -965,9 +967,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the low watermark [%s=%s], using more disk space than the maximum allowed [%s%%], "
+literal|"the node is above the low watermark cluster setting [%s=%s], using more disk space than the maximum allowed "
 operator|+
-literal|"actual free: [%s%%]"
+literal|"[%s%%], actual free: [%s%%]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
 operator|.
@@ -1115,9 +1117,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the node is above the high watermark [%s=%s], using more disk space than the maximum allowed [%s%%], "
+literal|"the node is above the high watermark cluster setting [%s=%s], using more disk space than the maximum allowed "
 operator|+
-literal|"actual free: [%s%%]"
+literal|"[%s%%], actual free: [%s%%]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
 operator|.
@@ -1212,7 +1214,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"allocating the shard to this node will bring the node above the high watermark [%s=%s] "
+literal|"allocating the shard to this node will bring the node above the high watermark cluster setting [%s=%s] "
 operator|+
 literal|"and cause it to have less than the minimum required [%s] of free space (free bytes after shard added: [%s])"
 argument_list|,
@@ -1295,7 +1297,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"allocating the shard to this node will bring the node above the high watermark [%s=%s] "
+literal|"allocating the shard to this node will bring the node above the high watermark cluster setting [%s=%s] "
 operator|+
 literal|"and cause it to use more disk space than the maximum allowed [%s%%] (free space after shard added: [%s%%])"
 argument_list|,
@@ -1605,7 +1607,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard cannot remain on this node because it is above the high watermark [%s=%s] "
+literal|"the shard cannot remain on this node because it is above the high watermark cluster setting [%s=%s] "
 operator|+
 literal|"and there is less than the required [%s] free space on node, actual free: [%s]"
 argument_list|,
@@ -1681,7 +1683,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"the shard cannot remain on this node because it is above the high watermark [%s=%s] "
+literal|"the shard cannot remain on this node because it is above the high watermark cluster setting [%s=%s] "
 operator|+
 literal|"and there is less than the required [%s%%] free disk on node, actual free: [%s%%]"
 argument_list|,
