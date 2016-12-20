@@ -264,10 +264,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|MatchAllQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -277,10 +274,6 @@ block|{
 try|try
 block|{
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|PARSER
 operator|.
 name|apply
@@ -291,7 +284,6 @@ name|parser
 argument_list|()
 argument_list|,
 name|context
-argument_list|)
 argument_list|)
 return|;
 block|}

@@ -62,6 +62,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -278,6 +292,16 @@ name|void
 name|testDuplicateKeysThrowsException
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Test only makes sense if XContent parser doesn't have strict duplicate checks enabled"
+argument_list|,
+name|XContent
+operator|.
+name|isStrictDuplicateDetectionEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 specifier|final
 name|String
 name|json

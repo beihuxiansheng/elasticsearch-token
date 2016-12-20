@@ -680,6 +680,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|MapperService
+operator|.
+name|MergeReason
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryShardContext
@@ -719,6 +735,24 @@ operator|.
 name|indices
 operator|.
 name|InvalidIndexNameException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
 import|;
 end_import
 
@@ -1757,9 +1791,16 @@ init|=
 literal|null
 decl_stmt|;
 name|String
-name|removalReason
+name|removalExtraInfo
 init|=
 literal|null
+decl_stmt|;
+name|IndexRemovalReason
+name|removalReason
+init|=
+name|IndexRemovalReason
+operator|.
+name|FAILURE
 decl_stmt|;
 try|try
 block|{
@@ -2756,6 +2797,10 @@ name|merge
 argument_list|(
 name|mappings
 argument_list|,
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
+argument_list|,
 name|request
 operator|.
 name|updateAllTypes
@@ -2765,16 +2810,16 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MapperParsingException
-name|mpe
+name|Exception
+name|e
 parameter_list|)
 block|{
-name|removalReason
+name|removalExtraInfo
 operator|=
 literal|"failed on parsing default mapping/mappings on index creation"
 expr_stmt|;
 throw|throw
-name|mpe
+name|e
 throw|;
 block|}
 comment|// the context is only used for validation so it's fine to pass fake values for the shard id and the current
@@ -3118,7 +3163,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|removalReason
+name|removalExtraInfo
 operator|=
 literal|"failed to build index metadata"
 expr_stmt|;
@@ -3383,9 +3428,15 @@ literal|"] created"
 argument_list|)
 expr_stmt|;
 block|}
-name|removalReason
+name|removalExtraInfo
 operator|=
 literal|"cleaning up after validating index on master"
+expr_stmt|;
+name|removalReason
+operator|=
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
 expr_stmt|;
 return|return
 name|updatedState
@@ -3408,12 +3459,8 @@ argument_list|(
 name|createdIndex
 argument_list|,
 name|removalReason
-operator|!=
-literal|null
-condition|?
-name|removalReason
-else|:
-literal|"failed to create index"
+argument_list|,
+name|removalExtraInfo
 argument_list|)
 expr_stmt|;
 block|}

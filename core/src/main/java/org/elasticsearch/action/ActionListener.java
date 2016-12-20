@@ -16,6 +16,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|CheckedConsumer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -69,9 +81,13 @@ name|Response
 argument_list|>
 name|wrap
 parameter_list|(
-name|Consumer
+name|CheckedConsumer
 argument_list|<
 name|Response
+argument_list|,
+name|?
+extends|extends
+name|Exception
 argument_list|>
 name|onResponse
 parameter_list|,

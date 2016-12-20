@@ -1334,8 +1334,6 @@ return|return
 name|q
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|randomFuzzyQuery
 specifier|private
 specifier|static

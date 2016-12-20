@@ -426,12 +426,12 @@ expr_stmt|;
 block|}
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|testSpecBuilder
 operator|.
 name|toString
@@ -1686,12 +1686,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"---\n"
 operator|+
 literal|"\"Index with ID\":\n"
@@ -2943,12 +2943,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"---\n"
 operator|+
 literal|"\"Missing document (partial doc)\":\n"
@@ -3746,12 +3746,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"---\n"
 operator|+
 literal|"\"Missing document (script)\":\n"

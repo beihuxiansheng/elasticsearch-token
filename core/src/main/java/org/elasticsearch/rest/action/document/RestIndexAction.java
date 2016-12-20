@@ -175,6 +175,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -589,6 +599,10 @@ name|channel
 argument_list|,
 name|r
 lambda|->
+block|{
+block|try
+block|{
+return|return
 name|r
 operator|.
 name|getLocation
@@ -598,12 +612,36 @@ operator|.
 name|routing
 argument_list|()
 argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Location string is not a valid URI."
+argument_list|,
+name|ex
 argument_list|)
-argument_list|)
+expr_stmt|;
+return|return
+literal|null
 return|;
 block|}
 block|}
+block|)
 end_class
 
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+unit|}  }
 end_unit
 

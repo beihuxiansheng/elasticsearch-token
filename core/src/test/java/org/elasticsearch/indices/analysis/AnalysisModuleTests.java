@@ -1140,6 +1140,17 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.foobar.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
+argument_list|,
+literal|"setting [index.analysis.analyzer.foobar_search.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testAnalyzerAliasReferencesAlias
 specifier|public
@@ -1293,6 +1304,17 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.foobar.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
+argument_list|,
+literal|"setting [index.analysis.analyzer.foobar_search.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testAnalyzerAliasDefault
 specifier|public
@@ -1431,6 +1453,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.foobar.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testAnalyzerAliasMoreThanOnce
 specifier|public
@@ -1554,6 +1583,17 @@ name|ise
 operator|.
 name|getMessage
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.foobar.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
+argument_list|,
+literal|"setting [index.analysis.analyzer.foobar1.alias] is only allowed on index [test] because it was created before "
+operator|+
+literal|"5.x; analyzer aliases can no longer be created on new indices."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2875,6 +2915,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.valid_name.alias] is only allowed on index [test] because it was "
+operator|+
+literal|"created before 5.x; analyzer aliases can no longer be created on new indices."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testDeprecatedPositionOffsetGap
 specifier|public

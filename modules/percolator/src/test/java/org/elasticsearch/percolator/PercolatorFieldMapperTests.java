@@ -3517,8 +3517,17 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-try|try
-block|{
+name|MapperParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|MapperParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|mapperService
 operator|.
 name|merge
@@ -3539,19 +3548,8 @@ name|MAPPING_UPDATE
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"MapperParsingException expected"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|MapperParsingException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -3559,7 +3557,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
 literal|"Mapping definition for ["
 operator|+
@@ -3569,7 +3567,6 @@ literal|"] has unsupported parameters:  [index : no]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// multiple percolator fields are allowed in the mapping, but only one field can be used at index time.
 DECL|method|testMultiplePercolatorFields
@@ -3755,7 +3752,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12
+literal|14
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3999,7 +3996,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|9
+literal|11
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4093,7 +4090,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|9
+literal|11
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4816,26 +4813,20 @@ block|{
 name|XContentParser
 name|sourceParser
 init|=
+name|createParser
+argument_list|(
 name|PercolatorFieldMapper
 operator|.
 name|QUERY_BUILDER_CONTENT_TYPE
 operator|.
 name|xContent
 argument_list|()
-operator|.
-name|createParser
+argument_list|,
+operator|new
+name|BytesArray
 argument_list|(
 name|actual
-operator|.
-name|bytes
-argument_list|,
-name|actual
-operator|.
-name|offset
-argument_list|,
-name|actual
-operator|.
-name|length
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QueryParseContext
@@ -4873,9 +4864,6 @@ argument_list|(
 name|qsc
 operator|.
 name|parseInnerQueryBuilder
-argument_list|()
-operator|.
-name|get
 argument_list|()
 argument_list|,
 name|equalTo

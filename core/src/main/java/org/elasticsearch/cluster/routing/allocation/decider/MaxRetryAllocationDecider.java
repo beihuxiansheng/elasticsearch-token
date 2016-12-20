@@ -285,25 +285,16 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard has already failed allocating ["
+literal|"shard has exceeded the maximum number of retries [%d] on "
 operator|+
-name|unassignedInfo
-operator|.
-name|getNumFailedAllocations
-argument_list|()
-operator|+
-literal|"] times vs. ["
-operator|+
+literal|"failed allocation attempts - retrying once due to a manual reroute command, [%s]"
+argument_list|,
 name|maxRetry
-operator|+
-literal|"] retries allowed "
-operator|+
+argument_list|,
 name|unassignedInfo
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|" - retrying once on manual allocation"
 argument_list|)
 expr_stmt|;
 block|}
@@ -330,25 +321,16 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard has already failed allocating ["
+literal|"shard has exceeded the maximum number of retries [%d] on "
 operator|+
-name|unassignedInfo
-operator|.
-name|getNumFailedAllocations
-argument_list|()
-operator|+
-literal|"] times vs. ["
-operator|+
+literal|"failed allocation attempts - manually call [/_cluster/reroute?retry_failed=true] to retry, [%s]"
+argument_list|,
 name|maxRetry
-operator|+
-literal|"] retries allowed "
-operator|+
+argument_list|,
 name|unassignedInfo
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|" - manually call [/_cluster/reroute?retry_failed=true] to retry"
 argument_list|)
 expr_stmt|;
 block|}
@@ -366,18 +348,14 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard has already failed allocating ["
-operator|+
+literal|"shard has failed allocating [%d] times but [%d] retries are allowed"
+argument_list|,
 name|unassignedInfo
 operator|.
 name|getNumFailedAllocations
 argument_list|()
-operator|+
-literal|"] times but ["
-operator|+
+argument_list|,
 name|maxRetry
-operator|+
-literal|"] retries are allowed"
 argument_list|)
 expr_stmt|;
 block|}

@@ -124,7 +124,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentHelper
+name|XContentParser
 import|;
 end_import
 
@@ -138,7 +138,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -388,24 +390,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
-operator|.
-name|terms
-operator|.
-name|TermsParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|pipeline
 operator|.
 name|AbstractPipelineAggregationBuilder
@@ -519,22 +503,6 @@ operator|.
 name|models
 operator|.
 name|SimpleModel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|AggregationContext
 import|;
 end_import
 
@@ -719,6 +687,20 @@ operator|.
 name|highlight
 operator|.
 name|PostingsHighlighter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -1419,9 +1401,9 @@ name|TermsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-operator|new
-name|TermsParser
-argument_list|()
+name|TermsAggregationBuilder
+operator|::
+name|parse
 argument_list|)
 argument_list|)
 return|;
@@ -1880,10 +1862,12 @@ decl_stmt|;
 name|XContentParser
 name|dummyParser
 init|=
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
@@ -2350,7 +2334,7 @@ name|?
 argument_list|>
 name|innerBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|ValuesSourceConfig

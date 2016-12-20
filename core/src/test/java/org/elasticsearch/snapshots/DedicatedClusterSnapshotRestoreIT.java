@@ -6194,15 +6194,12 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|2
 argument_list|,
 name|nodeSettings
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 comment|// Register mock repositories
 name|client
@@ -6966,7 +6963,7 @@ try|try
 block|{
 name|clusterService
 operator|.
-name|addFirst
+name|addListener
 argument_list|(
 name|snapshotListener
 argument_list|)
@@ -7045,7 +7042,7 @@ finally|finally
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeListener
 argument_list|(
 name|snapshotListener
 argument_list|)

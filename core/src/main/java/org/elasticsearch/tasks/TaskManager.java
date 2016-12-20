@@ -120,7 +120,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -374,7 +374,7 @@ name|TaskManager
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|WAIT_FOR_COMPLETION_POLL
 specifier|private
@@ -1643,10 +1643,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 name|ClusterChangedEvent
 name|event

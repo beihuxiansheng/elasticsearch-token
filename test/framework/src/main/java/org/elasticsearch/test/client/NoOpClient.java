@@ -150,6 +150,10 @@ name|TimeUnit
 import|;
 end_import
 
+begin_comment
+comment|/**  * Client that always responds with {@code null} to every request. Override this for testing.  */
+end_comment
+
 begin_class
 DECL|class|NoOpClient
 specifier|public
@@ -158,6 +162,26 @@ name|NoOpClient
 extends|extends
 name|AbstractClient
 block|{
+comment|/**      * Build with {@link ThreadPool}. This {@linkplain ThreadPool} is terminated on {@link #close()}.      */
+DECL|method|NoOpClient
+specifier|public
+name|NoOpClient
+parameter_list|(
+name|ThreadPool
+name|threadPool
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
+name|threadPool
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Create a new {@link TestThreadPool} for this client.      */
 DECL|method|NoOpClient
 specifier|public
 name|NoOpClient

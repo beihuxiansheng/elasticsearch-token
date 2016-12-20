@@ -390,7 +390,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//query_string params that don't need to be declared in the spec, they are supported by default
+comment|/**      * Query params that don't need to be declared in the spec, they are supported by default.      */
 DECL|field|ALWAYS_ACCEPTED_QUERY_STRING_PARAMS
 specifier|private
 specifier|static
@@ -405,11 +405,13 @@ name|Sets
 operator|.
 name|newHashSet
 argument_list|(
+literal|"error_trace"
+argument_list|,
+literal|"filter_path"
+argument_list|,
 literal|"pretty"
 argument_list|,
 literal|"source"
-argument_list|,
-literal|"filter_path"
 argument_list|)
 decl_stmt|;
 DECL|field|restSpec

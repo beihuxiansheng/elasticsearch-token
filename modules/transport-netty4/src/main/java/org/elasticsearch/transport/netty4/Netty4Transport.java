@@ -380,20 +380,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -1243,8 +1229,6 @@ init|=
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|Netty4Transport
 specifier|public
 name|Netty4Transport
@@ -2640,6 +2624,8 @@ init|=
 operator|new
 name|NodeChannels
 argument_list|(
+name|node
+argument_list|,
 name|channels
 argument_list|,
 name|profile
@@ -2652,14 +2638,6 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-specifier|final
-name|int
-name|numConnections
-init|=
-name|channels
-operator|.
-name|length
-decl_stmt|;
 specifier|final
 name|TimeValue
 name|connectTimeout
@@ -2772,7 +2750,9 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|numConnections
+name|channels
+operator|.
+name|length
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2796,7 +2776,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|numConnections
+name|channels
+operator|.
+name|length
 condition|;
 name|i
 operator|++
@@ -2933,6 +2915,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+assert|assert
+name|iterator
+operator|.
+name|hasNext
+argument_list|()
+operator|==
+literal|false
+operator|:
+literal|"not all created connection have been consumed"
+assert|;
 block|}
 catch|catch
 parameter_list|(
@@ -3011,11 +3003,6 @@ throw|throw
 name|e
 throw|;
 block|}
-name|onAfterChannelsConnected
-argument_list|(
-name|nodeChannels
-argument_list|)
-expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -3060,16 +3047,6 @@ return|return
 name|nodeChannels
 return|;
 block|}
-comment|/**      * Allows for logic to be executed after a connection has been made on all channels. While this method is being executed, the node is      * not listed as being connected to.      * @param nodeChannels the {@link NodeChannels} that have been connected      */
-DECL|method|onAfterChannelsConnected
-specifier|protected
-name|void
-name|onAfterChannelsConnected
-parameter_list|(
-name|NodeChannels
-name|nodeChannels
-parameter_list|)
-block|{     }
 DECL|class|ChannelCloseListener
 specifier|private
 class|class
@@ -3112,6 +3089,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|onChannelClosed
+argument_list|(
+name|future
+operator|.
+name|channel
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|NodeChannels
 name|nodeChannels
 init|=

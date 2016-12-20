@@ -274,24 +274,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-literal|false
-operator|==
-name|request
-operator|.
-name|hasContent
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchException
-argument_list|(
-literal|"_delete_by_query requires a request body"
-argument_list|)
-throw|;
-block|}
 return|return
 name|doPrepareRequest
 argument_list|(
@@ -318,6 +300,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+literal|false
+operator|==
+name|request
+operator|.
+name|hasContent
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"_delete_by_query requires a request body"
+argument_list|)
+throw|;
+block|}
 comment|/*          * Passing the search request through DeleteByQueryRequest first allows          * it to set its own defaults which differ from SearchRequest's          * defaults. Then the parseInternalRequest can override them.          */
 name|DeleteByQueryRequest
 name|internal

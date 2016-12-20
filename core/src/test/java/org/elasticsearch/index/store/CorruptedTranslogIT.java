@@ -591,7 +591,7 @@ block|{
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|1
 argument_list|,
@@ -599,9 +599,6 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|assertAcked
 argument_list|(

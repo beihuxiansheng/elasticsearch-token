@@ -346,16 +346,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * A query builder for<tt>has_child</tt> query.  */
 end_comment
@@ -1170,10 +1160,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|HasChildQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1248,16 +1235,10 @@ operator|.
 name|Token
 name|token
 decl_stmt|;
-name|Optional
-argument_list|<
 name|QueryBuilder
-argument_list|>
 name|iqb
 init|=
-name|Optional
-operator|.
-name|empty
-argument_list|()
+literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -1598,24 +1579,6 @@ throw|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|iqb
-operator|.
-name|isPresent
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-comment|// if inner query is empty, bubble this up to caller so they can decide how to deal with it
-return|return
-name|Optional
-operator|.
-name|empty
-argument_list|()
-return|;
-block|}
 name|HasChildQueryBuilder
 name|hasChildQueryBuilder
 init|=
@@ -1625,9 +1588,6 @@ argument_list|(
 name|childType
 argument_list|,
 name|iqb
-operator|.
-name|get
-argument_list|()
 argument_list|,
 name|scoreMode
 argument_list|)
@@ -1678,12 +1638,7 @@ name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|hasChildQueryBuilder
-argument_list|)
 return|;
 block|}
 DECL|method|parseScoreMode

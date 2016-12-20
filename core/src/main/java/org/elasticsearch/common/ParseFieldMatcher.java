@@ -29,24 +29,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Matcher to use in combination with {@link ParseField} while parsing requests. Matches a {@link ParseField}  * against a field name and throw deprecation exception depending on the current value of the {@link #PARSE_STRICT} setting.  */
+comment|/**  * Matcher to use in combination with {@link ParseField} while parsing requests.  *  * @deprecated This class used to be useful to parse in strict mode and emit errors rather than deprecation warnings. Now that we return  * warnings as response headers all the time, it is no longer useful and will soon be removed. The removal is in progress and there is  * already no strict mode in fact. Use {@link ParseField} directly.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ParseFieldMatcher
 specifier|public
 class|class
 name|ParseFieldMatcher
 block|{
-DECL|field|PARSE_STRICT
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PARSE_STRICT
-init|=
-literal|"index.query.parse.strict"
-decl_stmt|;
 DECL|field|EMPTY
 specifier|public
 specifier|static
@@ -57,7 +50,9 @@ init|=
 operator|new
 name|ParseFieldMatcher
 argument_list|(
-literal|false
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 decl_stmt|;
 DECL|field|STRICT
@@ -70,14 +65,10 @@ init|=
 operator|new
 name|ParseFieldMatcher
 argument_list|(
-literal|true
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
-decl_stmt|;
-DECL|field|strict
-specifier|private
-specifier|final
-name|boolean
-name|strict
 decl_stmt|;
 DECL|method|ParseFieldMatcher
 specifier|public
@@ -87,46 +78,9 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-name|this
-argument_list|(
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|PARSE_STRICT
-argument_list|,
-literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//we don't do anything with the settings argument, this whole class will be soon removed
 block|}
-DECL|method|ParseFieldMatcher
-specifier|public
-name|ParseFieldMatcher
-parameter_list|(
-name|boolean
-name|strict
-parameter_list|)
-block|{
-name|this
-operator|.
-name|strict
-operator|=
-name|strict
-expr_stmt|;
-block|}
-comment|/** Should deprecated settings be rejected? */
-DECL|method|isStrict
-specifier|public
-name|boolean
-name|isStrict
-parameter_list|()
-block|{
-return|return
-name|strict
-return|;
-block|}
-comment|/**      * Matches a {@link ParseField} against a field name, and throws deprecation exception depending on the current      * value of the {@link #PARSE_STRICT} setting.      * @param fieldName the field name found in the request while parsing      * @param parseField the parse field that we are looking for      * @throws IllegalArgumentException whenever we are in strict mode and the request contained a deprecated field      * @return true whenever the parse field that we are looking for was found, false otherwise      */
+comment|/**      * Matches a {@link ParseField} against a field name,      * @param fieldName the field name found in the request while parsing      * @param parseField the parse field that we are looking for      * @throws IllegalArgumentException whenever we are in strict mode and the request contained a deprecated field      * @return true whenever the parse field that we are looking for was found, false otherwise      */
 DECL|method|match
 specifier|public
 name|boolean
@@ -145,8 +99,6 @@ operator|.
 name|match
 argument_list|(
 name|fieldName
-argument_list|,
-name|strict
 argument_list|)
 return|;
 block|}

@@ -1798,20 +1798,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"cannot restore index"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"because it cannot be upgraded"
+literal|"snapshot does not exist"
 argument_list|)
 argument_list|)
 expr_stmt|;

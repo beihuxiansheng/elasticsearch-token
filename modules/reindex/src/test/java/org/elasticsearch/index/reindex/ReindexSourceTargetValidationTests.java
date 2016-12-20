@@ -231,16 +231,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -697,6 +687,14 @@ literal|null
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|RemoteInfo
+operator|.
+name|DEFAULT_SOCKET_TIMEOUT
+argument_list|,
+name|RemoteInfo
+operator|.
+name|DEFAULT_CONNECT_TIMEOUT
 argument_list|)
 argument_list|,
 literal|"does_not_exist"
@@ -731,6 +729,14 @@ literal|null
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|RemoteInfo
+operator|.
+name|DEFAULT_SOCKET_TIMEOUT
+argument_list|,
+name|RemoteInfo
+operator|.
+name|DEFAULT_CONNECT_TIMEOUT
 argument_list|)
 argument_list|,
 literal|"target"

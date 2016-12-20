@@ -395,17 +395,18 @@ specifier|private
 name|QueryBuilder
 name|templateBase
 decl_stmt|;
-comment|/**      * All tests create deprecation warnings when an new {@link TemplateQueryBuilder} is created.      * Instead of having to check them once in every single test, this is done here after each test is run      */
-DECL|method|checkWarningHeaders
+comment|/**      * All tests in this class cause deprecation warnings when a new {@link TemplateQueryBuilder} is created.      * Instead of having to check them in every single test, we do it after each test is run      */
 annotation|@
 name|After
+DECL|method|checkWarning
+specifier|public
 name|void
-name|checkWarningHeaders
+name|checkWarning
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|checkWarningHeaders
+name|assertWarnings
 argument_list|(
 literal|"[template] query is deprecated, use search template api instead"
 argument_list|)
@@ -739,13 +740,9 @@ init|=
 name|createTestQueryBuilder
 argument_list|()
 decl_stmt|;
-name|String
-name|testQueryAsString
+name|XContentType
+name|xContentType
 init|=
-name|toXContent
-argument_list|(
-name|testQuery
-argument_list|,
 name|randomFrom
 argument_list|(
 name|XContentType
@@ -756,6 +753,15 @@ name|XContentType
 operator|.
 name|YAML
 argument_list|)
+decl_stmt|;
+name|String
+name|testQueryAsString
+init|=
+name|toXContent
+argument_list|(
+name|testQuery
+argument_list|,
+name|xContentType
 argument_list|)
 operator|.
 name|string
@@ -777,7 +783,15 @@ try|try
 block|{
 name|parseQuery
 argument_list|(
+name|createParser
+argument_list|(
+name|xContentType
+operator|.
+name|xContent
+argument_list|()
+argument_list|,
 name|queryAsString
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fail

@@ -850,6 +850,11 @@ argument_list|()
 argument_list|,
 name|index
 operator|.
+name|primaryTerm
+argument_list|()
+argument_list|,
+name|index
+operator|.
 name|version
 argument_list|()
 argument_list|,
@@ -1014,6 +1019,11 @@ argument_list|,
 name|delete
 operator|.
 name|seqNo
+argument_list|()
+argument_list|,
+name|delete
+operator|.
+name|primaryTerm
 argument_list|()
 argument_list|,
 name|delete

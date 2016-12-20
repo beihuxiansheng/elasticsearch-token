@@ -742,6 +742,11 @@ argument_list|,
 literal|"This is a deprecation message"
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"This is a deprecation message"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFindAppender
 specifier|public

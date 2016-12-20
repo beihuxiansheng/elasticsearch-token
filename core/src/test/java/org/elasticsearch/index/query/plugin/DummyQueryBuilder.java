@@ -162,16 +162,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_class
 DECL|class|DummyQueryBuilder
 specifier|public
@@ -258,10 +248,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|DummyQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -293,14 +280,9 @@ operator|.
 name|END_OBJECT
 assert|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 operator|new
 name|DummyQueryBuilder
 argument_list|()
-argument_list|)
 return|;
 block|}
 annotation|@

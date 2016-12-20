@@ -196,6 +196,19 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|enableWarningsCheck
+specifier|protected
+name|boolean
+name|enableWarningsCheck
+parameter_list|()
+block|{
+comment|//this is a low level test for the deprecation logger, setup and checks are done manually
+return|return
+literal|false
+return|;
+block|}
 DECL|method|testAddsHeaderWithThreadContext
 specifier|public
 name|void
@@ -308,7 +321,7 @@ name|get
 argument_list|(
 name|DeprecationLogger
 operator|.
-name|DEPRECATION_HEADER
+name|WARNING_HEADER
 argument_list|)
 operator|.
 name|get
@@ -452,7 +465,7 @@ name|get
 argument_list|(
 name|DeprecationLogger
 operator|.
-name|DEPRECATION_HEADER
+name|WARNING_HEADER
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -568,7 +581,7 @@ name|get
 argument_list|(
 name|DeprecationLogger
 operator|.
-name|DEPRECATION_HEADER
+name|WARNING_HEADER
 argument_list|)
 decl_stmt|;
 comment|// ensure it works (note: concurrent tests may be adding to it, but in different threads, so it should have no impact)
@@ -627,7 +640,7 @@ name|get
 argument_list|(
 name|DeprecationLogger
 operator|.
-name|DEPRECATION_HEADER
+name|WARNING_HEADER
 argument_list|)
 expr_stmt|;
 name|assertThat

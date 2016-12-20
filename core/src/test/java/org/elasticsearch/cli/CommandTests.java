@@ -95,6 +95,18 @@ literal|"Bad input"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|addShutdownHook
+specifier|protected
+name|boolean
+name|addShutdownHook
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|class|UsageErrorCommand
 specifier|static
@@ -140,6 +152,18 @@ argument_list|,
 literal|"something was no good"
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|addShutdownHook
+specifier|protected
+name|boolean
+name|addShutdownHook
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 DECL|class|NoopCommand
@@ -237,6 +261,18 @@ argument_list|(
 literal|"Some extra help"
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|addShutdownHook
+specifier|protected
+name|boolean
+name|addShutdownHook
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 DECL|method|testHelp

@@ -202,11 +202,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -382,7 +380,7 @@ name|?
 argument_list|>
 name|doBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -401,9 +399,6 @@ name|ObjectMapper
 name|childObjectMapper
 init|=
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|getObjectMapper
 argument_list|(
@@ -472,9 +467,6 @@ name|parentObjectMapper
 init|=
 name|context
 operator|.
-name|searchContext
-argument_list|()
-operator|.
 name|getQueryShardContext
 argument_list|()
 operator|.
@@ -511,9 +503,6 @@ block|}
 finally|finally
 block|{
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|getQueryShardContext
 argument_list|()

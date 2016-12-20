@@ -302,6 +302,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
+operator|.
+name|MergeReason
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndexTemplateMissingException
@@ -409,6 +425,26 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|NO_LONGER_ASSIGNED
 import|;
 end_import
 
@@ -1487,6 +1523,10 @@ name|merge
 argument_list|(
 name|mappingsForValidation
 argument_list|,
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -1505,6 +1545,8 @@ operator|.
 name|removeIndex
 argument_list|(
 name|createdIndex
+argument_list|,
+name|NO_LONGER_ASSIGNED
 argument_list|,
 literal|" created for parsing template mapping"
 argument_list|)

@@ -497,15 +497,12 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startMasterOnlyNodesAsync
+name|startMasterOnlyNodes
 argument_list|(
 literal|3
 argument_list|,
 name|sharedSettings
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|String
 name|dataNode

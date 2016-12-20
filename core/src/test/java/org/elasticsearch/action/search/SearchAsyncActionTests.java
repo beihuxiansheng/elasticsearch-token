@@ -761,6 +761,11 @@ name|get
 argument_list|,
 name|aliasFilters
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
 literal|null
 argument_list|,
 name|request

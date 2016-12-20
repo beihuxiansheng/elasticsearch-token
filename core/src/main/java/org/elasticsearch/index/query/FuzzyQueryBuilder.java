@@ -148,34 +148,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|DeprecationLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|BytesRefs
@@ -274,23 +246,11 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
-comment|/**  * A Query that does fuzzy matching for a specific value.  *  * @deprecated Fuzzy queries are not useful enough. This class will be removed with Elasticsearch 4.0. In most cases you may want to use  * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.  */
+comment|/**  * A Query that does fuzzy matching for a specific value.  */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 DECL|class|FuzzyQueryBuilder
 specifier|public
 class|class
@@ -311,26 +271,6 @@ name|String
 name|NAME
 init|=
 literal|"fuzzy"
-decl_stmt|;
-DECL|field|DEPRECATION_LOGGER
-specifier|private
-specifier|static
-specifier|final
-name|DeprecationLogger
-name|DEPRECATION_LOGGER
-init|=
-operator|new
-name|DeprecationLogger
-argument_list|(
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|FuzzyQueryBuilder
-operator|.
-name|class
-argument_list|)
-argument_list|)
 decl_stmt|;
 comment|/** Default maximum edit distance. Defaults to AUTO. */
 DECL|field|DEFAULT_FUZZINESS
@@ -652,15 +592,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|DEPRECATION_LOGGER
-operator|.
-name|deprecated
-argument_list|(
-literal|"{} query is deprecated. Instead use the [match] query with fuzziness parameter"
-argument_list|,
-name|NAME
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|Strings
@@ -1175,10 +1106,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|FuzzyQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1660,10 +1588,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 operator|new
 name|FuzzyQueryBuilder
 argument_list|(
@@ -1705,7 +1629,6 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
-argument_list|)
 argument_list|)
 return|;
 block|}

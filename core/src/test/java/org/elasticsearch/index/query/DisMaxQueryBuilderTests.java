@@ -68,20 +68,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|PrefixQuery
 import|;
 end_import
@@ -97,18 +83,6 @@ operator|.
 name|search
 operator|.
 name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseFieldMatcher
 import|;
 end_import
 
@@ -559,97 +533,6 @@ expr_stmt|;
 return|return
 name|alternateVersions
 return|;
-block|}
-comment|/**      * Test with empty inner query body, this should be converted to a {@link MatchNoDocsQuery}.      * To test this, we use inner {@link ConstantScoreQueryBuilder} with empty inner filter.      */
-DECL|method|testInnerQueryEmptyException
-specifier|public
-name|void
-name|testInnerQueryEmptyException
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|String
-name|queryString
-init|=
-literal|"{ \""
-operator|+
-name|DisMaxQueryBuilder
-operator|.
-name|NAME
-operator|+
-literal|"\" :"
-operator|+
-literal|"             { \"queries\" : [ {\""
-operator|+
-name|ConstantScoreQueryBuilder
-operator|.
-name|NAME
-operator|+
-literal|"\" : { \"filter\" : { } } } ] "
-operator|+
-literal|"             }"
-operator|+
-literal|"           }"
-decl_stmt|;
-name|QueryBuilder
-name|queryBuilder
-init|=
-name|parseQuery
-argument_list|(
-name|queryString
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
-argument_list|)
-decl_stmt|;
-name|QueryShardContext
-name|context
-init|=
-name|createShardContext
-argument_list|()
-decl_stmt|;
-name|Query
-name|luceneQuery
-init|=
-name|queryBuilder
-operator|.
-name|toQuery
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|luceneQuery
-argument_list|,
-name|instanceOf
-argument_list|(
-name|MatchNoDocsQuery
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|luceneQuery
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"MatchNoDocsQuery(\"no clauses for dismax query.\")"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|checkWarningHeaders
-argument_list|(
-literal|"query malformed, empty clause found at [1:78]"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testIllegalArguments
 specifier|public

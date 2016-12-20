@@ -989,24 +989,30 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// TODO: do this in 6.0
-comment|/*if (indexVersionCreated.onOrAfter(Version.V_6_0_0)) {                     throw e;                 }*/
-name|DEPRECATION_LOGGER
+if|if
+condition|(
+name|indexVersionCreated
 operator|.
-name|deprecated
+name|onOrAfter
 argument_list|(
-literal|"Ignoring unrecognized match_mapping_type: ["
-operator|+
-name|matchMappingType
-operator|+
-literal|"]"
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+else|else
+block|{
 comment|// this template is on an unknown type so it will never match anything
 comment|// null indicates that the template should be ignored
 return|return
 literal|null
 return|;
+block|}
 block|}
 block|}
 return|return

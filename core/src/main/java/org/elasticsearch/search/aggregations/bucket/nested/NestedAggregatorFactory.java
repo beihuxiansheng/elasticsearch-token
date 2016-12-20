@@ -44,20 +44,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|Aggregator
 import|;
 end_import
@@ -114,7 +100,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|NonCollectingAggregator
+name|InternalAggregation
+operator|.
+name|Type
 import|;
 end_import
 
@@ -128,9 +116,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
-operator|.
-name|Type
+name|NonCollectingAggregator
 import|;
 end_import
 
@@ -158,11 +144,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -235,7 +219,7 @@ parameter_list|,
 name|ObjectMapper
 name|childObjectMapper
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -397,7 +381,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|Aggregator

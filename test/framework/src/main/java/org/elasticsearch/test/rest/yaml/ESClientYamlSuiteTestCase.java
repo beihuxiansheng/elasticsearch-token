@@ -1094,6 +1094,7 @@ argument_list|>
 name|errors
 parameter_list|)
 block|{
+comment|// Dump the stash on failure. Instead of dumping it in true json we escape `\n`s so stack traces are easier to read
 name|logger
 operator|.
 name|info
@@ -1108,6 +1109,27 @@ name|restTestExecutionContext
 operator|.
 name|stash
 argument_list|()
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|"\\n"
+argument_list|,
+literal|"\n"
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|"\\r"
+argument_list|,
+literal|"\r"
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|"\\t"
+argument_list|,
+literal|"\t"
 argument_list|)
 argument_list|)
 expr_stmt|;

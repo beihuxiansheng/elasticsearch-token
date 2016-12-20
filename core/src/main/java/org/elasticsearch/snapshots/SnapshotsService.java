@@ -170,7 +170,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -818,7 +818,7 @@ name|SnapshotsService
 extends|extends
 name|AbstractLifecycleComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|clusterService
 specifier|private
@@ -919,10 +919,10 @@ name|settings
 argument_list|)
 condition|)
 block|{
-comment|// addLast to make sure that Repository will be created before snapshot
+comment|// addLowPriorityApplier to make sure that Repository will be created before snapshot
 name|clusterService
 operator|.
-name|addLast
+name|addLowPriorityApplier
 argument_list|(
 name|this
 argument_list|)
@@ -3646,10 +3646,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 name|ClusterChangedEvent
 name|event
@@ -7852,7 +7852,7 @@ parameter_list|()
 block|{
 name|clusterService
 operator|.
-name|remove
+name|removeApplier
 argument_list|(
 name|this
 argument_list|)

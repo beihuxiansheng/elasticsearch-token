@@ -2724,11 +2724,13 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// the bulk operation should produce one main task
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|numberOfEvents
+name|List
+argument_list|<
+name|TaskInfo
+argument_list|>
+name|topTask
+init|=
+name|findEvents
 argument_list|(
 name|BulkAction
 operator|.
@@ -2738,6 +2740,30 @@ name|Tuple
 operator|::
 name|v1
 argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|topTask
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"requests[1], indices[test]"
+argument_list|,
+name|topTask
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getDescription
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we should also get 1 or 2 [s] operation with main operation as a parent
@@ -2828,6 +2854,16 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"requests[1], index[test]"
+argument_list|,
+name|shardTask
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -2894,6 +2930,16 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"requests[1], index[test]"
+argument_list|,
+name|shardTask
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -2932,6 +2978,16 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"requests[1], index[test]"
+argument_list|,
+name|shardTask
+operator|.
+name|getDescription
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

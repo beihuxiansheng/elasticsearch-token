@@ -3273,11 +3273,6 @@ name|client
 argument_list|,
 name|indexReader
 argument_list|,
-name|clusterService
-operator|.
-name|state
-argument_list|()
-argument_list|,
 name|nowInMillis
 argument_list|)
 return|;

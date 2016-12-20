@@ -103,7 +103,7 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-DECL|field|SECCOMP_SETTING
+DECL|field|SYSTEM_CALL_FILTER_SETTING
 specifier|public
 specifier|static
 specifier|final
@@ -111,13 +111,13 @@ name|Setting
 argument_list|<
 name|Boolean
 argument_list|>
-name|SECCOMP_SETTING
+name|SYSTEM_CALL_FILTER_SETTING
 init|=
 name|Setting
 operator|.
 name|boolSetting
 argument_list|(
-literal|"bootstrap.seccomp"
+literal|"bootstrap.system_call_filter"
 argument_list|,
 literal|true
 argument_list|,

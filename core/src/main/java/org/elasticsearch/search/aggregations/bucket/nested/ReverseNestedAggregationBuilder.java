@@ -230,11 +230,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|AggregationContext
+name|SearchContext
 import|;
 end_import
 
@@ -419,7 +417,7 @@ name|?
 argument_list|>
 name|doBuild
 parameter_list|(
-name|AggregationContext
+name|SearchContext
 name|context
 parameter_list|,
 name|AggregatorFactory
@@ -449,9 +447,6 @@ operator|new
 name|SearchParseException
 argument_list|(
 name|context
-operator|.
-name|searchContext
-argument_list|()
 argument_list|,
 literal|"Reverse nested aggregation ["
 operator|+
@@ -478,9 +473,6 @@ block|{
 name|parentObjectMapper
 operator|=
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|getObjectMapper
 argument_list|(
@@ -546,9 +538,6 @@ name|NestedScope
 name|nestedScope
 init|=
 name|context
-operator|.
-name|searchContext
-argument_list|()
 operator|.
 name|getQueryShardContext
 argument_list|()

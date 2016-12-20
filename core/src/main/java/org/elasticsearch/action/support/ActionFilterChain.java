@@ -107,27 +107,6 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Continue processing the response. Should only be called if a response has not been sent through      * the given {@link ActionListener listener}      */
-DECL|method|proceed
-name|void
-name|proceed
-parameter_list|(
-specifier|final
-name|String
-name|action
-parameter_list|,
-specifier|final
-name|Response
-name|response
-parameter_list|,
-specifier|final
-name|ActionListener
-argument_list|<
-name|Response
-argument_list|>
-name|listener
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 

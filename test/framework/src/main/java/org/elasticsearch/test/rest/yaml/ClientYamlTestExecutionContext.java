@@ -227,6 +227,16 @@ argument_list|(
 name|params
 argument_list|)
 decl_stmt|;
+name|requestParams
+operator|.
+name|putIfAbsent
+argument_list|(
+literal|"error_trace"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+comment|// By default ask for error traces, this my be overridden by params
 for|for
 control|(
 name|Map

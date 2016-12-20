@@ -336,16 +336,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Query that matches documents within an range of terms.  */
 end_comment
@@ -1627,10 +1617,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|RangeQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -2353,12 +2340,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|rangeQuery
-argument_list|)
 return|;
 block|}
 annotation|@

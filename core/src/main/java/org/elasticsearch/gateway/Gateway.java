@@ -100,7 +100,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -264,7 +264,7 @@ name|Gateway
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|clusterService
 specifier|private
@@ -361,7 +361,7 @@ name|getMinimumMasterNodes
 expr_stmt|;
 name|clusterService
 operator|.
-name|addLast
+name|addLowPriorityApplier
 argument_list|(
 name|this
 argument_list|)
@@ -1159,10 +1159,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 specifier|final
 name|ClusterChangedEvent
@@ -1173,7 +1173,7 @@ comment|// order is important, first metaState, and then shardsState
 comment|// so dangling indices will be recorded
 name|metaState
 operator|.
-name|clusterChanged
+name|applyClusterState
 argument_list|(
 name|event
 argument_list|)

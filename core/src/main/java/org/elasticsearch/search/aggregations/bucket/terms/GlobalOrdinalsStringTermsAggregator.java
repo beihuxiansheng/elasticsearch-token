@@ -130,22 +130,6 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
 name|StreamOutput
 import|;
 end_import
@@ -400,7 +384,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|AggregationContext
+name|ValuesSource
 import|;
 end_import
 
@@ -412,11 +396,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|support
-operator|.
-name|ValuesSource
+name|SearchContext
 import|;
 end_import
 
@@ -539,8 +521,8 @@ operator|.
 name|OrdinalsFilter
 name|includeExclude
 parameter_list|,
-name|AggregationContext
-name|aggregationContext
+name|SearchContext
+name|context
 parameter_list|,
 name|Aggregator
 name|parent
@@ -574,7 +556,7 @@ name|name
 argument_list|,
 name|factories
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -1724,8 +1706,8 @@ operator|.
 name|OrdinalsFilter
 name|includeExclude
 parameter_list|,
-name|AggregationContext
-name|aggregationContext
+name|SearchContext
+name|context
 parameter_list|,
 name|Aggregator
 name|parent
@@ -1769,7 +1751,7 @@ name|bucketCountThresholds
 argument_list|,
 name|includeExclude
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -1789,7 +1771,7 @@ name|LongHash
 argument_list|(
 literal|1
 argument_list|,
-name|aggregationContext
+name|context
 operator|.
 name|bigArrays
 argument_list|()
@@ -2127,8 +2109,8 @@ parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
-name|AggregationContext
-name|aggregationContext
+name|SearchContext
+name|context
 parameter_list|,
 name|Aggregator
 name|parent
@@ -2172,7 +2154,7 @@ name|bucketCountThresholds
 argument_list|,
 literal|null
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

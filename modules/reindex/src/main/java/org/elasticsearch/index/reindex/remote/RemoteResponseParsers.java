@@ -1373,6 +1373,8 @@ argument_list|,
 name|ThrowableBuilder
 operator|.
 name|PARSER
+operator|::
+name|apply
 argument_list|,
 operator|new
 name|ParseField
@@ -1536,6 +1538,8 @@ operator|::
 name|setCausedBy
 argument_list|,
 name|PARSER
+operator|::
+name|apply
 argument_list|,
 operator|new
 name|ParseField

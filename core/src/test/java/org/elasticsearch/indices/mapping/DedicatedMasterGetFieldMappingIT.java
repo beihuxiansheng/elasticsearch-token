@@ -137,7 +137,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 name|settings
 argument_list|,
@@ -145,9 +145,6 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 block|}
 block|}

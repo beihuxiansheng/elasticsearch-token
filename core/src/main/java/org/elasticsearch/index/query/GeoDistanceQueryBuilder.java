@@ -278,16 +278,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
-import|;
-end_import
-
 begin_comment
 comment|/**  * Filter results of a query to include only those within a specific distance to some  * geo point.  */
 end_comment
@@ -406,7 +396,7 @@ argument_list|)
 operator|.
 name|withAllDeprecated
 argument_list|(
-literal|"use validation_method instead"
+literal|"validation_method"
 argument_list|)
 decl_stmt|;
 DECL|field|COERCE_FIELD
@@ -426,7 +416,7 @@ argument_list|)
 operator|.
 name|withAllDeprecated
 argument_list|(
-literal|"use validation_method instead"
+literal|"validation_method"
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -1501,10 +1491,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|Optional
-argument_list|<
 name|GeoDistanceQueryBuilder
-argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -2442,12 +2429,7 @@ name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
-name|Optional
-operator|.
-name|of
-argument_list|(
 name|qb
-argument_list|)
 return|;
 block|}
 annotation|@

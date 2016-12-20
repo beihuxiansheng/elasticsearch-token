@@ -1353,8 +1353,6 @@ init|=
 operator|new
 name|ActionModule
 argument_list|(
-literal|false
-argument_list|,
 literal|true
 argument_list|,
 name|settings
@@ -1365,6 +1363,8 @@ name|settingsModule
 operator|.
 name|getClusterSettings
 argument_list|()
+argument_list|,
+name|threadPool
 argument_list|,
 name|pluginsService
 operator|.

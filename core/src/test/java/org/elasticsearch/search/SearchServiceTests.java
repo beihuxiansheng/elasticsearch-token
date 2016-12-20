@@ -566,6 +566,26 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|cluster
+operator|.
+name|IndicesClusterStateService
+operator|.
+name|AllocatedIndices
+operator|.
+name|IndexRemovalReason
+operator|.
+name|DELETED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|hamcrest
@@ -1340,7 +1360,7 @@ condition|)
 block|{
 name|service
 operator|.
-name|afterIndexDeleted
+name|afterIndexRemoved
 argument_list|(
 name|indexService
 operator|.
@@ -1351,9 +1371,8 @@ name|indexService
 operator|.
 name|getIndexSettings
 argument_list|()
-operator|.
-name|getSettings
-argument_list|()
+argument_list|,
+name|DELETED
 argument_list|)
 expr_stmt|;
 if|if
@@ -1547,6 +1566,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 argument_list|)
+argument_list|,
+literal|1.0f
 argument_list|)
 argument_list|,
 operator|new
@@ -1784,6 +1805,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 argument_list|)
+argument_list|,
+literal|1.0f
 argument_list|)
 argument_list|,
 literal|null
@@ -1872,6 +1895,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 argument_list|)
+argument_list|,
+literal|1.0f
 argument_list|)
 argument_list|,
 literal|null

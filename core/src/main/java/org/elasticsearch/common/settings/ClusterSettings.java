@@ -2502,7 +2502,7 @@ name|MEMORY_LOCK_SETTING
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|SECCOMP_SETTING
+name|SYSTEM_CALL_FILTER_SETTING
 argument_list|,
 name|BootstrapSettings
 operator|.

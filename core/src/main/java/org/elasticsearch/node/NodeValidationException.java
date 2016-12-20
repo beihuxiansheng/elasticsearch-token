@@ -42,8 +42,18 @@ name|BoundTransportAddress
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * An exception thrown during node validation. Node validation runs immediately before a node  * begins accepting network requests in  * {@link Node#validateNodeBeforeAcceptingRequests(Settings, BoundTransportAddress)}. This  * exception is a checked exception that is declared as thrown from this method for the purpose  * of bubbling up to the user.  */
+comment|/**  * An exception thrown during node validation. Node validation runs immediately before a node  * begins accepting network requests in  * {@link Node#validateNodeBeforeAcceptingRequests(Settings, BoundTransportAddress, List)}. This exception is a checked exception that  * is declared as thrown from this method for the purpose of bubbling up to the user.  */
 end_comment
 
 begin_class

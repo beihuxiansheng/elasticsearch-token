@@ -712,7 +712,61 @@ name|thisTask
 argument_list|,
 name|request
 argument_list|,
+name|ActionListener
+operator|.
+name|wrap
+argument_list|(
 name|listener
+operator|::
+name|onResponse
+argument_list|,
+name|e
+lambda|->
+block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|ResourceNotFoundException
+condition|)
+block|{
+name|e
+operator|=
+operator|new
+name|ResourceNotFoundException
+argument_list|(
+literal|"task ["
+operator|+
+name|request
+operator|.
+name|getTaskId
+argument_list|()
+operator|+
+literal|"] belongs to the node ["
+operator|+
+name|request
+operator|.
+name|getTaskId
+argument_list|()
+operator|.
+name|getNodeId
+argument_list|()
+operator|+
+literal|"] which isn't part of the cluster and there is no record of the task"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1342,7 +1396,7 @@ argument_list|(
 operator|new
 name|ResourceNotFoundException
 argument_list|(
-literal|"task [{}] isn't running or stored its results"
+literal|"task [{}] isn't running and hasn't stored its results"
 argument_list|,
 name|response
 operator|.

@@ -68,6 +68,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|IndexShardRoutingTable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|RecoverySource
 import|;
 end_import
@@ -989,6 +1003,8 @@ expr_stmt|;
 comment|// Prevent set of inSyncAllocationIds to grow unboundedly. This can happen for example if we don't write to a primary
 comment|// but repeatedly shut down nodes that have active replicas.
 comment|// We use number_of_replicas + 1 (= possible active shard copies) to bound the inSyncAllocationIds set
+comment|// Only trim the set of allocation ids when it grows, otherwise we might trim too eagerly when the number
+comment|// of replicas was decreased while shards were unassigned.
 name|int
 name|maxActiveShards
 init|=
@@ -1000,8 +1016,28 @@ operator|+
 literal|1
 decl_stmt|;
 comment|// +1 for the primary
+name|IndexShardRoutingTable
+name|newShardRoutingTable
+init|=
+name|newRoutingTable
+operator|.
+name|shardRoutingTable
+argument_list|(
+name|shardId
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+name|inSyncAllocationIds
+operator|.
+name|size
+argument_list|()
+operator|>
+name|oldInSyncAllocationIds
+operator|.
+name|size
+argument_list|()
+operator|&&
 name|inSyncAllocationIds
 operator|.
 name|size
@@ -1017,12 +1053,7 @@ name|ShardRouting
 argument_list|>
 name|assignedShards
 init|=
-name|newRoutingTable
-operator|.
-name|shardRoutingTable
-argument_list|(
-name|shardId
-argument_list|)
+name|newShardRoutingTable
 operator|.
 name|assignedShards
 argument_list|()
@@ -1112,37 +1143,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// only update in-sync allocation ids if there is at least one entry remaining. Assume for example that there only
-comment|// ever was a primary active and now it failed. If we were to remove the allocation id from the in-sync set, this would
-comment|// create an empty primary on the next allocation (see ShardRouting#allocatedPostIndexCreate)
+comment|// only remove allocation id of failed active primary if there is at least one active shard remaining. Assume for example that
+comment|// the primary fails but there is no new primary to fail over to. If we were to remove the allocation id of the primary from the
+comment|// in-sync set, this could create an empty primary on the next allocation.
 if|if
 condition|(
-name|inSyncAllocationIds
+name|newShardRoutingTable
+operator|.
+name|activeShards
+argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
 operator|&&
-name|oldInSyncAllocationIds
-operator|.
-name|isEmpty
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-assert|assert
-name|updates
-operator|.
-name|firstFailedPrimary
-operator|!=
-literal|null
-operator|:
-literal|"in-sync set became empty but active primary wasn't failed: "
-operator|+
-name|oldInSyncAllocationIds
-assert|;
-if|if
-condition|(
 name|updates
 operator|.
 name|firstFailedPrimary
@@ -1166,7 +1179,6 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 assert|assert
 name|inSyncAllocationIds

@@ -2517,6 +2517,21 @@ name|initializeSuiteScope
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|enableWarningsCheck
+specifier|protected
+specifier|final
+name|boolean
+name|enableWarningsCheck
+parameter_list|()
+block|{
+comment|//In an integ test it doesn't make sense to keep track of warnings: if the cluster is external the warnings are in another jvm,
+comment|//if the cluster is internal the deprecation logger is shared across all nodes
+return|return
+literal|false
+return|;
+block|}
 DECL|method|beforeInternal
 specifier|protected
 specifier|final
@@ -6754,6 +6769,14 @@ name|cluster
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|cluster
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 comment|// if static init fails the cluster can be null
@@ -6819,6 +6842,14 @@ name|cluster
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|cluster
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|ClusterState
@@ -8083,7 +8114,7 @@ name|builders
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes they in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      *      * @param forceRefresh   if<tt>true</tt> all involved indices are refreshed once the documents are indexed.      * @param dummyDocuments if<tt>true</tt> some empty dummy documents may be randomly inserted into the document list and deleted once      *                       all documents are indexed. This is useful to produce deleted documents on the server side.      * @param builders       the documents to index.      */
+comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes them in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      *      * @param forceRefresh   if<tt>true</tt> all involved indices are refreshed once the documents are indexed.      * @param dummyDocuments if<tt>true</tt> some empty dummy documents may be randomly inserted into the document list and deleted once      *                       all documents are indexed. This is useful to produce deleted documents on the server side.      * @param builders       the documents to index.      */
 DECL|method|indexRandom
 specifier|public
 name|void
@@ -8118,7 +8149,7 @@ name|builders
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes they in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      *      * @param forceRefresh   if<tt>true</tt> all involved indices are refreshed once the documents are indexed.      * @param dummyDocuments if<tt>true</tt> some empty dummy documents may be randomly inserted into the document list and deleted once      *                       all documents are indexed. This is useful to produce deleted documents on the server side.      * @param maybeFlush     if<tt>true</tt> this method may randomly execute full flushes after index operations.      * @param builders       the documents to index.      */
+comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes them in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      *      * @param forceRefresh   if<tt>true</tt> all involved indices are refreshed once the documents are indexed.      * @param dummyDocuments if<tt>true</tt> some empty dummy documents may be randomly inserted into the document list and deleted once      *                       all documents are indexed. This is useful to produce deleted documents on the server side.      * @param maybeFlush     if<tt>true</tt> this method may randomly execute full flushes after index operations.      * @param builders       the documents to index.      */
 DECL|method|indexRandom
 specifier|public
 name|void
@@ -11340,32 +11371,6 @@ name|InternalTestCluster
 operator|)
 name|currentCluster
 operator|)
-operator|.
-name|getDefaultSettings
-argument_list|()
-argument_list|)
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|currentCluster
-operator|instanceof
-name|CompositeTestCluster
-condition|)
-block|{
-return|return
-name|randomRepoPath
-argument_list|(
-operator|(
-operator|(
-name|CompositeTestCluster
-operator|)
-name|currentCluster
-operator|)
-operator|.
-name|internalCluster
-argument_list|()
 operator|.
 name|getDefaultSettings
 argument_list|()

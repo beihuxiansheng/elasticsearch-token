@@ -290,33 +290,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|hasToString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
 import|;
 end_import
 
@@ -329,18 +305,6 @@ operator|.
 name|Mockito
 operator|.
 name|mock
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|reset
 import|;
 end_import
 
@@ -510,7 +474,7 @@ argument_list|(
 name|publishAddress
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -519,6 +483,11 @@ operator|.
 name|EMPTY
 argument_list|,
 name|boundTransportAddress
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -541,7 +510,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -580,7 +549,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -770,7 +739,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|enforceLimits
 argument_list|(
@@ -895,7 +864,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|enforceLimits
 argument_list|(
@@ -914,8 +883,6 @@ specifier|final
 name|List
 argument_list|<
 name|BootstrapCheck
-operator|.
-name|Check
 argument_list|>
 name|checks
 init|=
@@ -925,8 +892,6 @@ name|asList
 argument_list|(
 operator|new
 name|BootstrapCheck
-operator|.
-name|Check
 argument_list|()
 block|{
 annotation|@
@@ -955,8 +920,6 @@ block|}
 argument_list|,
 operator|new
 name|BootstrapCheck
-operator|.
-name|Check
 argument_list|()
 block|{
 annotation|@
@@ -996,7 +959,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1178,13 +1141,13 @@ name|max
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|HeapSizeCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|HeapSizeCheck
 argument_list|()
@@ -1229,7 +1192,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1285,7 +1248,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1327,7 +1290,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1390,7 +1353,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|FileDescriptorCheck
 name|check
@@ -1403,7 +1366,7 @@ block|{
 name|check
 operator|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|OsXFileDescriptorCheck
 argument_list|()
@@ -1429,7 +1392,7 @@ block|{
 name|check
 operator|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|FileDescriptorCheck
 argument_list|()
@@ -1462,7 +1425,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1508,7 +1471,7 @@ name|MAX_VALUE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1534,7 +1497,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1570,7 +1533,7 @@ argument_list|,
 parameter_list|()
 lambda|->
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|FileDescriptorCheck
 argument_list|(
@@ -1744,13 +1707,13 @@ name|testCases
 control|)
 block|{
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MlockallCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MlockallCheck
 argument_list|(
@@ -1792,7 +1755,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1826,7 +1789,7 @@ block|}
 else|else
 block|{
 comment|// nothing should happen
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1879,13 +1842,13 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MaxNumberOfThreadsCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MaxNumberOfThreadsCheck
 argument_list|()
@@ -1917,7 +1880,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1963,7 +1926,7 @@ name|MAX_VALUE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -1989,7 +1952,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2045,13 +2008,13 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MaxSizeVirtualMemoryCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MaxSizeVirtualMemoryCheck
 argument_list|()
@@ -2093,7 +2056,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2130,7 +2093,7 @@ argument_list|(
 name|rlimInfinity
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2157,7 +2120,7 @@ operator|.
 name|MIN_VALUE
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2208,13 +2171,13 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MaxMapCountCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MaxMapCountCheck
 argument_list|()
@@ -2246,7 +2209,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2292,7 +2255,7 @@ name|MAX_VALUE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2318,7 +2281,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2359,12 +2322,10 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|BootstrapCheck
-operator|.
-name|Check
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|ClientJvmCheck
 argument_list|()
@@ -2396,7 +2357,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2435,7 +2396,7 @@ argument_list|(
 literal|"Java HotSpot(TM) 32-Bit Server VM"
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2476,12 +2437,10 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|BootstrapCheck
-operator|.
-name|Check
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|UseSerialGCCheck
 argument_list|()
@@ -2513,7 +2472,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2564,7 +2523,7 @@ argument_list|(
 literal|"false"
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -2581,6 +2540,194 @@ literal|"testUseSerialGCCheck"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSystemCallFilterCheck
+specifier|public
+name|void
+name|testSystemCallFilterCheck
+parameter_list|()
+throws|throws
+name|NodeValidationException
+block|{
+specifier|final
+name|AtomicBoolean
+name|isSystemCallFilterInstalled
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
+specifier|final
+name|BootstrapChecks
+operator|.
+name|SystemCallFilterCheck
+name|systemCallFilterEnabledCheck
+init|=
+operator|new
+name|BootstrapChecks
+operator|.
+name|SystemCallFilterCheck
+argument_list|(
+literal|true
+argument_list|)
+block|{
+annotation|@
+name|Override
+name|boolean
+name|isSystemCallFilterInstalled
+parameter_list|()
+block|{
+return|return
+name|isSystemCallFilterInstalled
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+block|}
+decl_stmt|;
+specifier|final
+name|NodeValidationException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|NodeValidationException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|BootstrapChecks
+operator|.
+name|check
+argument_list|(
+literal|true
+argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|systemCallFilterEnabledCheck
+argument_list|)
+argument_list|,
+literal|"testSystemCallFilterCheck"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"system call filters failed to install; "
+operator|+
+literal|"check the logs and fix your configuration or disable system call filters at your own risk"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|isSystemCallFilterInstalled
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|BootstrapChecks
+operator|.
+name|check
+argument_list|(
+literal|true
+argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|systemCallFilterEnabledCheck
+argument_list|)
+argument_list|,
+literal|"testSystemCallFilterCheck"
+argument_list|)
+expr_stmt|;
+specifier|final
+name|BootstrapChecks
+operator|.
+name|SystemCallFilterCheck
+name|systemCallFilterNotEnabledCheck
+init|=
+operator|new
+name|BootstrapChecks
+operator|.
+name|SystemCallFilterCheck
+argument_list|(
+literal|false
+argument_list|)
+block|{
+annotation|@
+name|Override
+name|boolean
+name|isSystemCallFilterInstalled
+parameter_list|()
+block|{
+return|return
+name|isSystemCallFilterInstalled
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+block|}
+decl_stmt|;
+name|isSystemCallFilterInstalled
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|BootstrapChecks
+operator|.
+name|check
+argument_list|(
+literal|true
+argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|systemCallFilterNotEnabledCheck
+argument_list|)
+argument_list|,
+literal|"testSystemCallFilterCheck"
+argument_list|)
+expr_stmt|;
+name|isSystemCallFilterInstalled
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|BootstrapChecks
+operator|.
+name|check
+argument_list|(
+literal|true
+argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|systemCallFilterNotEnabledCheck
+argument_list|)
+argument_list|,
+literal|"testSystemCallFilterCheck"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testMightForkCheck
 specifier|public
 name|void
@@ -2591,7 +2738,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -2606,13 +2753,13 @@ name|AtomicBoolean
 argument_list|()
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MightForkCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MightForkCheck
 argument_list|()
@@ -2620,11 +2767,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2660,7 +2807,7 @@ name|runMightForkTest
 argument_list|(
 name|check
 argument_list|,
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|,
 parameter_list|()
 lambda|->
@@ -2707,7 +2854,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -2726,13 +2873,13 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MightForkCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|OnErrorCheck
 argument_list|()
@@ -2740,11 +2887,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2778,7 +2925,7 @@ name|runMightForkTest
 argument_list|(
 name|check
 argument_list|,
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|,
 parameter_list|()
 lambda|->
@@ -2818,9 +2965,9 @@ literal|"OnError ["
 operator|+
 name|command
 operator|+
-literal|"] requires forking but is prevented by system call filters ([bootstrap.seccomp=true]);"
+literal|"] requires forking but is prevented by system call filters "
 operator|+
-literal|" upgrade to at least Java 8u92 and use ExitOnOutOfMemoryError"
+literal|"([bootstrap.system_call_filter=true]); upgrade to at least Java 8u92 and use ExitOnOutOfMemoryError"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2836,7 +2983,7 @@ name|NodeValidationException
 block|{
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 init|=
 operator|new
 name|AtomicBoolean
@@ -2855,13 +3002,13 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MightForkCheck
 name|check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|OnOutOfMemoryErrorCheck
 argument_list|()
@@ -2869,11 +3016,11 @@ block|{
 annotation|@
 name|Override
 name|boolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|()
 block|{
 return|return
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|get
 argument_list|()
@@ -2907,7 +3054,7 @@ name|runMightForkTest
 argument_list|(
 name|check
 argument_list|,
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 argument_list|,
 parameter_list|()
 lambda|->
@@ -2949,7 +3096,7 @@ name|command
 operator|+
 literal|"]"
 operator|+
-literal|" requires forking but is prevented by system call filters ([bootstrap.seccomp=true]);"
+literal|" requires forking but is prevented by system call filters ([bootstrap.system_call_filter=true]);"
 operator|+
 literal|" upgrade to at least Java 8u92 and use ExitOnOutOfMemoryError"
 argument_list|)
@@ -2963,14 +3110,14 @@ name|void
 name|runMightForkTest
 parameter_list|(
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|MightForkCheck
 name|check
 parameter_list|,
 specifier|final
 name|AtomicBoolean
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 parameter_list|,
 specifier|final
 name|Runnable
@@ -3008,8 +3155,8 @@ operator|.
 name|getMethodName
 argument_list|()
 decl_stmt|;
-comment|// if seccomp is disabled, nothing should happen
-name|isSeccompInstalled
+comment|// if system call filter is disabled, nothing should happen
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -3036,7 +3183,7 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3052,9 +3199,9 @@ argument_list|,
 name|methodName
 argument_list|)
 expr_stmt|;
-comment|// if seccomp is enabled, but we will not fork, nothing should
+comment|// if system call filter is enabled, but we will not fork, nothing should
 comment|// happen
-name|isSeccompInstalled
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -3066,7 +3213,7 @@ operator|.
 name|run
 argument_list|()
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3082,10 +3229,9 @@ argument_list|,
 name|methodName
 argument_list|)
 expr_stmt|;
-comment|// if seccomp is enabled, and we might fork, the check should
-comment|// be enforced, regardless of bootstrap checks being enabled or
-comment|// not
-name|isSeccompInstalled
+comment|// if system call filter is enabled, and we might fork, the check should be enforced, regardless of bootstrap checks being enabled
+comment|// or not
+name|isSystemCallFilterInstalled
 operator|.
 name|set
 argument_list|(
@@ -3109,7 +3255,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3201,13 +3347,13 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|G1GCCheck
 name|oracleCheck
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|G1GCCheck
 argument_list|()
@@ -3275,7 +3421,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3320,7 +3466,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3375,7 +3521,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3392,13 +3538,13 @@ literal|"testG1GCCheck"
 argument_list|)
 expr_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|G1GCCheck
 name|nonOracleCheck
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|G1GCCheck
 argument_list|()
@@ -3419,7 +3565,7 @@ block|}
 block|}
 decl_stmt|;
 comment|// if not on an Oracle JVM, nothing should happen
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3436,13 +3582,13 @@ literal|"testG1GCCheck"
 argument_list|)
 expr_stmt|;
 specifier|final
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|G1GCCheck
 name|nonJava8Check
 init|=
 operator|new
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|G1GCCheck
 argument_list|()
@@ -3460,7 +3606,7 @@ block|}
 block|}
 decl_stmt|;
 comment|// if not Java 8, nothing should happen
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(
@@ -3485,14 +3631,10 @@ parameter_list|()
 block|{
 specifier|final
 name|BootstrapCheck
-operator|.
-name|Check
 name|check
 init|=
 operator|new
 name|BootstrapCheck
-operator|.
-name|Check
 argument_list|()
 block|{
 annotation|@
@@ -3542,7 +3684,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|BootstrapCheck
+name|BootstrapChecks
 operator|.
 name|check
 argument_list|(

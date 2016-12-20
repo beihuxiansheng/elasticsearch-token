@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Doesn't actually test spawning a process, as seccomp is installed before tests run and forbids it.  */
+comment|/**  * Doesn't actually test spawning a process, as a system call filter is installed before tests run and forbids it.  */
 end_comment
 
 begin_class

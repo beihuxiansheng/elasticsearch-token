@@ -678,7 +678,10 @@ DECL|method|finalizeRecovery
 specifier|public
 name|void
 name|finalizeRecovery
-parameter_list|()
+parameter_list|(
+name|long
+name|globalCheckpoint
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -711,7 +714,9 @@ expr_stmt|;
 name|super
 operator|.
 name|finalizeRecovery
-argument_list|()
+argument_list|(
+name|globalCheckpoint
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -256,11 +256,21 @@ name|super
 argument_list|(
 name|shardId
 operator|+
-literal|": Recovery failed from "
+literal|": Recovery failed "
+operator|+
+operator|(
+name|sourceNode
+operator|!=
+literal|null
+condition|?
+literal|"from "
 operator|+
 name|sourceNode
 operator|+
 literal|" into "
+else|:
+literal|"on "
+operator|)
 operator|+
 name|targetNode
 operator|+

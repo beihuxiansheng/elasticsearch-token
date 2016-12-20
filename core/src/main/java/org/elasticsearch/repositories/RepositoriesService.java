@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateListener
+name|ClusterStateApplier
 import|;
 end_import
 
@@ -390,7 +390,7 @@ name|RepositoriesService
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ClusterStateListener
+name|ClusterStateApplier
 block|{
 DECL|field|typesRegistry
 specifier|private
@@ -497,7 +497,7 @@ condition|)
 block|{
 name|clusterService
 operator|.
-name|add
+name|addStateApplier
 argument_list|(
 name|this
 argument_list|)
@@ -1553,10 +1553,10 @@ block|}
 comment|/**      * Checks if new repositories appeared in or disappeared from cluster metadata and updates current list of      * repositories accordingly.      *      * @param event cluster changed event      */
 annotation|@
 name|Override
-DECL|method|clusterChanged
+DECL|method|applyClusterState
 specifier|public
 name|void
-name|clusterChanged
+name|applyClusterState
 parameter_list|(
 name|ClusterChangedEvent
 name|event

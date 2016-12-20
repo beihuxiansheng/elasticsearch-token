@@ -2192,7 +2192,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Fuziness not allowed for type ["
+literal|"Fuzziness not allowed for type ["
 operator|+
 name|type
 operator|+

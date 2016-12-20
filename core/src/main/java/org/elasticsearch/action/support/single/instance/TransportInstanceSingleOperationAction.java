@@ -292,18 +292,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|TransportResponseHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|ConnectTransportException
 import|;
 end_import
@@ -353,6 +341,18 @@ operator|.
 name|transport
 operator|.
 name|TransportRequestOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponseHandler
 import|;
 end_import
 
@@ -792,9 +792,6 @@ init|=
 name|observer
 operator|.
 name|observedState
-argument_list|()
-operator|.
-name|getClusterState
 argument_list|()
 decl_stmt|;
 name|nodes

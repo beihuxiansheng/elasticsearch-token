@@ -232,20 +232,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-operator|.
-name|TESTS_CLUSTER
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|rest
 operator|.
 name|yaml
@@ -699,8 +685,6 @@ block|{
 comment|// these properties only make sense for integration tests
 name|appendProperties
 argument_list|(
-name|TESTS_CLUSTER
-argument_list|,
 name|ESIntegTestCase
 operator|.
 name|TESTS_ENABLE_MOCK_MODULES

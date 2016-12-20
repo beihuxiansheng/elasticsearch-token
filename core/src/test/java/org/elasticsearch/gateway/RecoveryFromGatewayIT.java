@@ -2882,7 +2882,7 @@ comment|// clean two nodes
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|2
 argument_list|,
@@ -2901,9 +2901,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -3468,7 +3465,7 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|2
 argument_list|,
@@ -3487,9 +3484,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -3784,15 +3778,12 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|4
 argument_list|,
 name|settings
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 comment|// prevent any rebalance actions during the peer recovery
 comment|// if we run into a relocation the reuse count will be 0 and this fails the test. We are testing here if

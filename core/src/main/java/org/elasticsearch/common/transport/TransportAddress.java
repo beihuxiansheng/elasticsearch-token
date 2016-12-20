@@ -34,6 +34,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -266,6 +278,30 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+argument_list|(
+name|in
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Read from a stream and use the {@code hostString} when creating the InetAddress if the input comes from a version prior      * {@link Version#V_5_0_3_UNRELEASED} as the hostString was not serialized      */
+DECL|method|TransportAddress
+specifier|public
+name|TransportAddress
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|hostString
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|in
@@ -374,6 +410,7 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
+comment|// the host string was serialized so we can ignore the passed in version
 name|inetAddress
 operator|=
 name|InetAddress
@@ -388,12 +425,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// prior to this version, we did not serialize the host string so we used the passed in version
 name|inetAddress
 operator|=
 name|InetAddress
 operator|.
 name|getByAddress
 argument_list|(
+name|hostString
+argument_list|,
 name|a
 argument_list|)
 expr_stmt|;

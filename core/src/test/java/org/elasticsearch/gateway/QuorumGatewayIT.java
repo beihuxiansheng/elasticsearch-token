@@ -268,13 +268,10 @@ comment|// we are shutting down nodes - make sure we don't have 2 clusters if we
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodesAsync
+name|startNodes
 argument_list|(
 literal|3
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|createIndex
 argument_list|(

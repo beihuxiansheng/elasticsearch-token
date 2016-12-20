@@ -175,6 +175,8 @@ argument_list|,
 literal|1
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 DECL|field|handles
@@ -198,6 +200,12 @@ specifier|final
 name|TimeValue
 name|connectTimeout
 decl_stmt|;
+DECL|field|handshakeTimeout
+specifier|private
+specifier|final
+name|TimeValue
+name|handshakeTimeout
+decl_stmt|;
 DECL|method|ConnectionProfile
 specifier|private
 name|ConnectionProfile
@@ -213,6 +221,9 @@ name|numConnections
 parameter_list|,
 name|TimeValue
 name|connectTimeout
+parameter_list|,
+name|TimeValue
+name|handshakeTimeout
 parameter_list|)
 block|{
 name|this
@@ -232,6 +243,12 @@ operator|.
 name|connectTimeout
 operator|=
 name|connectTimeout
+expr_stmt|;
+name|this
+operator|.
+name|handshakeTimeout
+operator|=
+name|handshakeTimeout
 expr_stmt|;
 block|}
 comment|/**      * A builder to build a new {@link ConnectionProfile}      */
@@ -289,7 +306,12 @@ specifier|private
 name|TimeValue
 name|connectTimeout
 decl_stmt|;
-comment|/**          * Sets a connect connectTimeout for this connection profile          */
+DECL|field|handshakeTimeout
+specifier|private
+name|TimeValue
+name|handshakeTimeout
+decl_stmt|;
+comment|/**          * Sets a connect timeout for this connection profile          */
 DECL|method|setConnectTimeout
 specifier|public
 name|void
@@ -324,6 +346,43 @@ operator|.
 name|connectTimeout
 operator|=
 name|connectTimeout
+expr_stmt|;
+block|}
+comment|/**          * Sets a handshake timeout for this connection profile          */
+DECL|method|setHandshakeTimeout
+specifier|public
+name|void
+name|setHandshakeTimeout
+parameter_list|(
+name|TimeValue
+name|handshakeTimeout
+parameter_list|)
+block|{
+if|if
+condition|(
+name|handshakeTimeout
+operator|.
+name|millis
+argument_list|()
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"handshakeTimeout must be non-negative but was: "
+operator|+
+name|handshakeTimeout
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|handshakeTimeout
+operator|=
+name|handshakeTimeout
 expr_stmt|;
 block|}
 comment|/**          * Adds a number of connections for one or more types. Each type can only be added once.          * @param numConnections the number of connections to use in the pool for the given connection types          * @param types a set of types that should share the given number of connections          */
@@ -505,6 +564,8 @@ argument_list|,
 name|offset
 argument_list|,
 name|connectTimeout
+argument_list|,
+name|handshakeTimeout
 argument_list|)
 return|;
 block|}
@@ -518,6 +579,17 @@ parameter_list|()
 block|{
 return|return
 name|connectTimeout
+return|;
+block|}
+comment|/**      * Returns the handshake timeout or<code>null</code> if no explicit timeout is set on this profile.      */
+DECL|method|getHandshakeTimeout
+specifier|public
+name|TimeValue
+name|getHandshakeTimeout
+parameter_list|()
+block|{
+return|return
+name|handshakeTimeout
 return|;
 block|}
 comment|/**      * Returns the total number of connections for this profile      */

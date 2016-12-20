@@ -2929,7 +2929,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|seqNo
+name|setSeqNo
 argument_list|(
 name|indexResult
 operator|.

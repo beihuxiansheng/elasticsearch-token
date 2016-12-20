@@ -58,27 +58,9 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|parser
+name|section
 operator|.
-name|ClientYamlTestSectionParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|ClientYamlTestSuiteParseContext
+name|ClientYamlTestSection
 import|;
 end_import
 
@@ -246,24 +228,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|section
-operator|.
-name|ClientYamlTestSection
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -326,7 +290,7 @@ specifier|public
 class|class
 name|TestSectionParserTests
 extends|extends
-name|AbstractParserTestCase
+name|AbstractClientYamlTestFragmentParserTestCase
 block|{
 DECL|method|testParseTestSectionWithDoSection
 specifier|public
@@ -338,12 +302,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"\"First test section\": \n"
 operator|+
 literal|" - do :\n"
@@ -566,12 +530,12 @@ argument_list|()
 decl_stmt|;
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 name|yaml
 argument_list|)
 expr_stmt|;
@@ -845,12 +809,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"\"Basic\":\n"
 operator|+
 literal|"\n"
@@ -1143,12 +1107,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"\"Basic\":\n"
 operator|+
 literal|"\n"
@@ -1927,12 +1891,12 @@ name|Exception
 block|{
 name|parser
 operator|=
+name|createParser
+argument_list|(
 name|YamlXContent
 operator|.
 name|yamlXContent
-operator|.
-name|createParser
-argument_list|(
+argument_list|,
 literal|"\"node_info test\":\n"
 operator|+
 literal|"  - do:\n"
