@@ -266,6 +266,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -1251,6 +1265,7 @@ name|contentSize
 argument_list|)
 init|)
 block|{
+comment|// It is safe to use EMPTY here because this never uses namedObject
 try|try
 init|(
 name|XContentParser
@@ -1265,6 +1280,10 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 operator|new
 name|InputStreamIndexInput
 argument_list|(
@@ -1946,9 +1965,9 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+comment|// EMPTY is safe here because no parser uses namedObject
 try|try
 init|(
-specifier|final
 name|XContentParser
 name|parser
 init|=
@@ -1956,6 +1975,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(

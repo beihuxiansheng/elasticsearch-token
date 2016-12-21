@@ -892,15 +892,6 @@ operator|.
 name|getIndexMetaData
 argument_list|()
 decl_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"TTRACE: in bulk shardOperationPrimary for [{}]"
-argument_list|,
-name|request
-argument_list|)
-expr_stmt|;
 name|long
 index|[]
 name|preVersions
@@ -2837,15 +2828,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"TTRACE: in bulk shardOperationReplica for [{}]"
-argument_list|,
-name|request
-argument_list|)
-expr_stmt|;
 name|Translog
 operator|.
 name|Location

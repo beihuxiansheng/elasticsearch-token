@@ -48,22 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|message
-operator|.
-name|ParameterizedMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -137,12 +121,12 @@ name|Logger
 name|logger
 decl_stmt|;
 comment|/**      * The "Warning" Header comes from RFC-7234. As the RFC describes, it's generally used for caching purposes, but it can be      * used for<em>any</em> warning.      *      * https://tools.ietf.org/html/rfc7234#section-5.5      */
-DECL|field|DEPRECATION_HEADER
+DECL|field|WARNING_HEADER
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|DEPRECATION_HEADER
+name|WARNING_HEADER
 init|=
 literal|"Warning"
 decl_stmt|;
@@ -397,7 +381,7 @@ argument_list|()
 operator|.
 name|addResponseHeader
 argument_list|(
-name|DEPRECATION_HEADER
+name|WARNING_HEADER
 argument_list|,
 name|formattedMessage
 argument_list|)

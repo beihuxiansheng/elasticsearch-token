@@ -1077,15 +1077,20 @@ name|buf
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"["
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|usedIndexSetting
 condition|)
 block|{
+name|buf
+operator|.
+name|append
+argument_list|(
+literal|"index setting ["
+argument_list|)
+expr_stmt|;
 name|buf
 operator|.
 name|append
@@ -1099,6 +1104,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|buf
+operator|.
+name|append
+argument_list|(
+literal|"cluster setting ["
+argument_list|)
+expr_stmt|;
 name|buf
 operator|.
 name|append

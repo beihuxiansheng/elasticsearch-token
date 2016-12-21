@@ -90,6 +90,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentParser
 import|;
 end_import
@@ -224,6 +238,12 @@ specifier|final
 name|IndexSettings
 name|indexSettings
 decl_stmt|;
+DECL|field|xContentRegistry
+specifier|private
+specifier|final
+name|NamedXContentRegistry
+name|xContentRegistry
+decl_stmt|;
 DECL|field|indicesQueriesRegistry
 specifier|protected
 specifier|final
@@ -261,6 +281,9 @@ parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|,
@@ -291,6 +314,12 @@ operator|.
 name|indexSettings
 operator|=
 name|indexSettings
+expr_stmt|;
+name|this
+operator|.
+name|xContentRegistry
+operator|=
+name|xContentRegistry
 expr_stmt|;
 name|this
 operator|.
@@ -378,6 +407,17 @@ name|indexSettings
 operator|.
 name|getParseFieldMatcher
 argument_list|()
+return|;
+block|}
+comment|/**      * The registry used to build new {@link XContentParser}s. Contains registered named parsers needed to parse the query.      */
+DECL|method|getXContentRegistry
+specifier|public
+name|NamedXContentRegistry
+name|getXContentRegistry
+parameter_list|()
+block|{
+return|return
+name|xContentRegistry
 return|;
 block|}
 comment|/**      * Returns a new {@link QueryParseContext} that wraps the provided parser, using the ParseFieldMatcher settings that      * are configured in the index settings. The default script language will always default to Painless.      */

@@ -1698,6 +1698,11 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
+name|xContentRegistry
+argument_list|()
+argument_list|,
+name|indexService
+operator|.
 name|similarityService
 argument_list|()
 argument_list|,
@@ -1722,6 +1727,11 @@ argument_list|,
 name|indexService
 operator|.
 name|getIndexAnalyzers
+argument_list|()
+argument_list|,
+name|indexService
+operator|.
+name|xContentRegistry
 argument_list|()
 argument_list|,
 name|indexService

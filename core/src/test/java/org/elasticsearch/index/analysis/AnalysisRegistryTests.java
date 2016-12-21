@@ -856,6 +856,8 @@ specifier|public
 name|void
 name|testBackCompatOverrideDefaultIndexAnalyzer
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Version
 name|version
@@ -992,6 +994,13 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.default_index] is deprecated, use [index.analysis.analyzer.default] "
+operator|+
+literal|"instead for index [index]"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testOverrideDefaultSearchAnalyzer
 specifier|public
@@ -1126,6 +1135,8 @@ specifier|public
 name|void
 name|testBackCompatOverrideDefaultIndexAndSearchAnalyzer
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Version
 name|version
@@ -1298,6 +1309,13 @@ name|EnglishAnalyzer
 operator|.
 name|class
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"setting [index.analysis.analyzer.default_index] is deprecated, use [index.analysis.analyzer.default] "
+operator|+
+literal|"instead for index [index]"
 argument_list|)
 expr_stmt|;
 block|}

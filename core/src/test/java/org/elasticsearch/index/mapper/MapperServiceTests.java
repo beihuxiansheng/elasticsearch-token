@@ -1258,6 +1258,8 @@ specifier|public
 name|void
 name|testUnmappedFieldType
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|MapperService
 name|mapperService
@@ -1322,6 +1324,11 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"[unmapped_type:string] should be replaced with [unmapped_type:keyword]"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testMergeWithMap
 specifier|public
@@ -1377,6 +1384,9 @@ name|MapperService
 operator|.
 name|parseMapping
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 literal|"{}"
 argument_list|)
 argument_list|)
@@ -1440,6 +1450,9 @@ name|MapperService
 operator|.
 name|parseMapping
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 literal|"{}"
 argument_list|)
 argument_list|)
@@ -1637,20 +1650,12 @@ argument_list|,
 literal|"text"
 argument_list|)
 operator|.
-name|startObject
-argument_list|(
-literal|"norms"
-argument_list|)
-operator|.
 name|field
 argument_list|(
-literal|"enabled"
+literal|"norms"
 argument_list|,
 literal|false
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()

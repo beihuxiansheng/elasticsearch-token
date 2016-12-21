@@ -487,7 +487,9 @@ name|NAME
 argument_list|,
 literal|"the shard cannot be allocated on host %s [%s], where it already exists on node [%s]; "
 operator|+
-literal|"set [%s] to false to allow multiple nodes on the same host to hold the same shard copies"
+literal|"set cluster setting [%s] to false to allow multiple nodes on the same host to hold the same "
+operator|+
+literal|"shard copies"
 argument_list|,
 name|hostType
 argument_list|,

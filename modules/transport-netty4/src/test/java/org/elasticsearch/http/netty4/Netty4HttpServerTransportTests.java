@@ -1010,6 +1010,9 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -1242,6 +1245,9 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -1300,6 +1306,9 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 init|)
 block|{

@@ -1608,7 +1608,7 @@ literal|"  \"unit\" : \"m\",\n"
 operator|+
 literal|"  \"distance_type\" : \"sloppy_arc\",\n"
 operator|+
-literal|"  \"mode\" : \"SUM\",\n"
+literal|"  \"mode\" : \"MAX\",\n"
 operator|+
 literal|"  \"coerce\" : true\n"
 operator|+
@@ -1643,20 +1643,9 @@ name|itemParser
 argument_list|,
 name|ParseFieldMatcher
 operator|.
-name|STRICT
+name|EMPTY
 argument_list|)
 decl_stmt|;
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
 name|GeoDistanceSortBuilder
 operator|.
 name|fromXContent
@@ -1665,19 +1654,10 @@ name|context
 argument_list|,
 literal|""
 argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertTrue
+expr_stmt|;
+name|assertWarnings
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Deprecated field "
-argument_list|)
+literal|"Deprecated field [coerce] used, replaced by [validation_method]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1706,7 +1686,7 @@ literal|"  \"unit\" : \"m\",\n"
 operator|+
 literal|"  \"distance_type\" : \"sloppy_arc\",\n"
 operator|+
-literal|"  \"mode\" : \"SUM\",\n"
+literal|"  \"mode\" : \"MAX\",\n"
 operator|+
 literal|"  \"ignore_malformed\" : true\n"
 operator|+
@@ -1741,20 +1721,9 @@ name|itemParser
 argument_list|,
 name|ParseFieldMatcher
 operator|.
-name|STRICT
+name|EMPTY
 argument_list|)
 decl_stmt|;
-name|IllegalArgumentException
-name|e
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
 name|GeoDistanceSortBuilder
 operator|.
 name|fromXContent
@@ -1763,19 +1732,10 @@ name|context
 argument_list|,
 literal|""
 argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertTrue
+expr_stmt|;
+name|assertWarnings
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Deprecated field "
-argument_list|)
+literal|"Deprecated field [ignore_malformed] used, replaced by [validation_method]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2751,31 +2711,14 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-name|IllegalArgumentException
-name|ex
-init|=
-name|expectThrows
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
 name|parse
 argument_list|(
 name|sortBuilder
 argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertEquals
+expr_stmt|;
+name|assertWarnings
 argument_list|(
 literal|"Deprecated field [sort_mode] used, expected [mode] instead"
-argument_list|,
-name|ex
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

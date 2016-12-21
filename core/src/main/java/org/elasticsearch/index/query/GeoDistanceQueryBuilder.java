@@ -396,7 +396,7 @@ argument_list|)
 operator|.
 name|withAllDeprecated
 argument_list|(
-literal|"use validation_method instead"
+literal|"validation_method"
 argument_list|)
 decl_stmt|;
 DECL|field|COERCE_FIELD
@@ -416,7 +416,7 @@ argument_list|)
 operator|.
 name|withAllDeprecated
 argument_list|(
-literal|"use validation_method instead"
+literal|"validation_method"
 argument_list|)
 decl_stmt|;
 annotation|@

@@ -212,7 +212,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|SettingCommand
+name|EnvironmentAwareCommand
 import|;
 end_import
 
@@ -251,6 +251,18 @@ operator|.
 name|io
 operator|.
 name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|Environment
 import|;
 end_import
 
@@ -430,7 +442,7 @@ specifier|public
 class|class
 name|TruncateTranslogCommand
 extends|extends
-name|SettingCommand
+name|EnvironmentAwareCommand
 block|{
 DECL|field|translogFolder
 specifier|private
@@ -593,13 +605,8 @@ parameter_list|,
 name|OptionSet
 name|options
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|settings
+name|Environment
+name|env
 parameter_list|)
 throws|throws
 name|Exception

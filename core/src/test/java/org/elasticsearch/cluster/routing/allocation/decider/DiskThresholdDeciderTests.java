@@ -6636,9 +6636,11 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the node is above the low watermark [cluster.routing.allocation.disk.watermark.low=0.7], using "
+literal|"the node is above the low watermark cluster setting "
 operator|+
-literal|"more disk space than the maximum allowed [70.0%], actual free: [26.0%]"
+literal|"[cluster.routing.allocation.disk.watermark.low=0.7], using more disk space than the maximum "
+operator|+
+literal|"allowed [70.0%], actual free: [26.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7289,7 +7291,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the shard cannot remain on this node because it is above the high watermark "
+literal|"the shard cannot remain on this node because it is above the high watermark cluster setting "
 operator|+
 literal|"[cluster.routing.allocation.disk.watermark.high=70%] and there is less than the required [30.0%] free disk on node, "
 operator|+
@@ -7602,9 +7604,9 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the node is above the high watermark [cluster.routing.allocation.disk.watermark.high=70%], using more disk space than "
+literal|"the node is above the high watermark cluster setting [cluster.routing.allocation.disk.watermark.high=70%], using "
 operator|+
-literal|"the maximum allowed [70.0%], actual free: [20.0%]"
+literal|"more disk space than the maximum allowed [70.0%], actual free: [20.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7627,9 +7629,9 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the node is above the low watermark [cluster.routing.allocation.disk.watermark.low=60%], using more disk space than "
+literal|"the node is above the low watermark cluster setting [cluster.routing.allocation.disk.watermark.low=60%], using more "
 operator|+
-literal|"the maximum allowed [60.0%], actual free: [20.0%]"
+literal|"disk space than the maximum allowed [60.0%], actual free: [20.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|amazonaws
@@ -179,6 +169,16 @@ operator|.
 name|hamcrest
 operator|.
 name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -847,6 +847,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// make sure leading `/` is removed and trailing is added
+name|assertWarnings
+argument_list|(
+literal|"S3 repository base_path"
+operator|+
+literal|" trimming the leading `/`, and leading `/` will not be supported for the S3 repository in future releases"
+argument_list|)
+expr_stmt|;
 name|metadata
 operator|=
 operator|new
@@ -912,6 +919,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// make sure leading `/` is removed and trailing is added
+name|assertWarnings
+argument_list|(
+literal|"S3 repository base_path"
+operator|+
+literal|" trimming the leading `/`, and leading `/` will not be supported for the S3 repository in future releases"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testDefaultBufferSize
 specifier|public

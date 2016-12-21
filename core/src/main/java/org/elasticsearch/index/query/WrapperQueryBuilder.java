@@ -726,6 +726,11 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|context
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|source
 argument_list|)
 init|)

@@ -238,6 +238,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Locale
@@ -688,7 +708,7 @@ name|status
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the location of the written document as a string suitable for a {@code Location} header.      * @param routing any routing used in the request. If null the location doesn't include routing information.      */
+comment|/**      * Gets the location of the written document as a string suitable for a {@code Location} header.      * @param routing any routing used in the request. If null the location doesn't include routing information.      *      */
 DECL|method|getLocation
 specifier|public
 name|String
@@ -699,6 +719,8 @@ name|Nullable
 name|String
 name|routing
 parameter_list|)
+throws|throws
+name|URISyntaxException
 block|{
 comment|// Absolute path for the location of the document. This should be allowed as of HTTP/1.1:
 comment|// https://tools.ietf.org/html/rfc7231#section-7.1.2
@@ -830,10 +852,22 @@ name|routing
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|URI
+name|uri
+init|=
+operator|new
+name|URI
+argument_list|(
 name|location
 operator|.
 name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|uri
+operator|.
+name|toASCIIString
 argument_list|()
 return|;
 block|}

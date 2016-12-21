@@ -1953,6 +1953,11 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"[template] query is deprecated, use search template api instead"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Relates to #10397
 DECL|method|testIndexedTemplateOverwrite
@@ -2022,31 +2027,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|int
-name|iterations
-init|=
-name|randomIntBetween
-argument_list|(
-literal|2
-argument_list|,
-literal|11
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|1
-init|;
-name|i
-operator|<
-name|iterations
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|assertAcked
 argument_list|(
 name|client
@@ -2078,9 +2058,11 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"template\":{\"query\": {\"match\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\","
+literal|"{\"template\":{\"query\": {\"match_phrase_prefix\": "
 operator|+
-literal|"\"type\": \"ooophrase_prefix\"}}}}}"
+literal|"{\"searchtext\": {\"query\": \"{{P_Keyword1}}\","
+operator|+
+literal|"\"unsupported\": \"unsupported\"}}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2201,7 +2183,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match] query does not support type ooophrase_prefix"
+literal|"[match_phrase_prefix] query does not support [unsupported]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2236,9 +2218,7 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"query\": {\"match\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\","
-operator|+
-literal|"\"type\": \"phrase_prefix\"}}}}"
+literal|"{\"query\": {\"match_phrase_prefix\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\"}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2297,7 +2277,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testIndexedTemplateWithArray
 specifier|public

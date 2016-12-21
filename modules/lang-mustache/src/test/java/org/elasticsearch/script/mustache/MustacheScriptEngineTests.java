@@ -528,11 +528,9 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-operator|new
 name|ParseFieldMatcher
-argument_list|(
-literal|false
-argument_list|)
+operator|.
+name|EMPTY
 argument_list|)
 decl_stmt|;
 name|CompiledScript
@@ -650,11 +648,9 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-operator|new
 name|ParseFieldMatcher
-argument_list|(
-literal|false
-argument_list|)
+operator|.
+name|EMPTY
 argument_list|)
 decl_stmt|;
 name|CompiledScript

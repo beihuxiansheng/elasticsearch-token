@@ -152,6 +152,9 @@ name|MapperTestUtils
 operator|.
 name|newMapperService
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|,

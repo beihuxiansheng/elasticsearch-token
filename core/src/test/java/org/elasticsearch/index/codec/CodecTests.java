@@ -706,7 +706,6 @@ expr_stmt|;
 block|}
 DECL|method|createCodecService
 specifier|private
-specifier|static
 name|CodecService
 name|createCodecService
 parameter_list|()
@@ -801,6 +800,9 @@ argument_list|(
 name|settings
 argument_list|,
 name|indexAnalyzers
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|,
 name|similarityService
 argument_list|,

@@ -692,7 +692,10 @@ name|cluster
 init|=
 operator|new
 name|ClusterStateChanges
+argument_list|(
+name|xContentRegistry
 argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|method|testRandomClusterStateUpdates
 specifier|public

@@ -204,6 +204,9 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|String
 name|content
 parameter_list|)
@@ -215,6 +218,9 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|InputStream
 name|is
 parameter_list|)
@@ -226,6 +232,9 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|byte
 index|[]
 name|data
@@ -238,6 +247,9 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|byte
 index|[]
 name|data
@@ -256,6 +268,9 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|BytesReference
 name|bytes
 parameter_list|)
@@ -267,6 +282,9 @@ DECL|method|createParser
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|Reader
 name|reader
 parameter_list|)

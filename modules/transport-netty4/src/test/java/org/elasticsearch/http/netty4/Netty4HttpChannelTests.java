@@ -1538,6 +1538,9 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -1592,6 +1595,9 @@ init|=
 operator|new
 name|Netty4HttpRequest
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|httpRequest
 argument_list|,
 name|writeCapturingChannel
@@ -1817,6 +1823,9 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -1938,6 +1947,9 @@ init|=
 operator|new
 name|Netty4HttpRequest
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|httpRequest
 argument_list|,
 name|embeddedChannel
@@ -2064,6 +2076,9 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|threadPool
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -2141,6 +2156,9 @@ init|=
 operator|new
 name|Netty4HttpRequest
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|httpRequest
 argument_list|,
 name|writeCapturingChannel

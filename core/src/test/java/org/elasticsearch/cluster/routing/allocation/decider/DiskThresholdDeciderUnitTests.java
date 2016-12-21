@@ -1086,9 +1086,9 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"the node is above the high watermark [cluster.routing.allocation.disk.watermark.high=90%], using more disk space than "
+literal|"the node is above the high watermark cluster setting [cluster.routing.allocation.disk.watermark.high=90%], using more "
 operator|+
-literal|"the maximum allowed [90.0%]"
+literal|"disk space than the maximum allowed [90.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1969,9 +1969,9 @@ name|containsString
 argument_list|(
 literal|"the shard cannot remain on this node because it is "
 operator|+
-literal|"above the high watermark [cluster.routing.allocation.disk.watermark.high=90%] and there is less than the required [10.0%] "
+literal|"above the high watermark cluster setting [cluster.routing.allocation.disk.watermark.high=90%] and there is less than "
 operator|+
-literal|"free disk on node, actual free: [9.0%]"
+literal|"the required [10.0%] free disk on node, actual free: [9.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;

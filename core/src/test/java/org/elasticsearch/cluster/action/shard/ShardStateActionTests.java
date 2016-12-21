@@ -453,6 +453,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -666,6 +678,12 @@ name|shardEntry
 parameter_list|,
 name|Listener
 name|listener
+parameter_list|,
+name|Predicate
+argument_list|<
+name|ClusterState
+argument_list|>
+name|changePredicate
 parameter_list|)
 block|{
 name|onBeforeWaitForNewMasterAndRetry
@@ -684,6 +702,8 @@ argument_list|,
 name|shardEntry
 argument_list|,
 name|listener
+argument_list|,
+name|changePredicate
 argument_list|)
 expr_stmt|;
 name|onAfterWaitForNewMasterAndRetry

@@ -698,6 +698,11 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|queryRewriteContext
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|querySource
 argument_list|)
 init|)

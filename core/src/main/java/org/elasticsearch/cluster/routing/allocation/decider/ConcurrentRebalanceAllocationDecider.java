@@ -293,7 +293,7 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"reached the limit of concurrently rebalancing shards [%d], [%s=%d]"
+literal|"reached the limit of concurrently rebalancing shards [%d], cluster setting [%s=%d]"
 argument_list|,
 name|relocatingShards
 argument_list|,

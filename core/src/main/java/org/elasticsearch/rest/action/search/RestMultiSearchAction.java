@@ -999,6 +999,11 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|request
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|data
 operator|.
 name|slice
@@ -1340,6 +1345,11 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|request
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|bytes
 argument_list|)
 init|)

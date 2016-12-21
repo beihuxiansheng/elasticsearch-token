@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|SettingCommand
+name|EnvironmentAwareCommand
 import|;
 end_import
 
@@ -621,7 +621,7 @@ DECL|class|InstallPluginCommand
 class|class
 name|InstallPluginCommand
 extends|extends
-name|SettingCommand
+name|EnvironmentAwareCommand
 block|{
 DECL|field|PROPERTY_STAGING_ID
 specifier|private
@@ -1109,13 +1109,8 @@ parameter_list|,
 name|OptionSet
 name|options
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|settings
+name|Environment
+name|env
 parameter_list|)
 throws|throws
 name|Exception
@@ -1155,7 +1150,7 @@ name|pluginId
 argument_list|,
 name|isBatch
 argument_list|,
-name|settings
+name|env
 argument_list|)
 expr_stmt|;
 block|}
@@ -1173,13 +1168,8 @@ parameter_list|,
 name|boolean
 name|isBatch
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|settings
+name|Environment
+name|env
 parameter_list|)
 throws|throws
 name|Exception
@@ -1203,23 +1193,6 @@ literal|"plugin id is required"
 argument_list|)
 throw|;
 block|}
-specifier|final
-name|Environment
-name|env
-init|=
-name|InternalSettingsPreparer
-operator|.
-name|prepareEnvironment
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|,
-name|terminal
-argument_list|,
-name|settings
-argument_list|)
-decl_stmt|;
 comment|// TODO: remove this leniency!! is it needed anymore?
 if|if
 condition|(
