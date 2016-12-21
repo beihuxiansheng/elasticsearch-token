@@ -220,7 +220,7 @@ name|void
 name|testPluginInstalled
 parameter_list|()
 block|{
-comment|// TODO: remove when Netty 4.1.5 is upgraded to Netty 4.1.6 including https://github.com/netty/netty/pull/5778
+comment|// TODO: remove when Netty 4.1.6 is upgraded to Netty 4.1.7 including https://github.com/netty/netty/pull/6068
 name|assumeFalse
 argument_list|(
 name|Constants
