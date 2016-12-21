@@ -947,6 +947,14 @@ literal|"ec2.eu-west-1.amazonaws.com"
 expr_stmt|;
 break|break;
 case|case
+literal|"eu-west-2"
+case|:
+name|endpoint
+operator|=
+literal|"ec2.eu-west-2.amazonaws.com"
+expr_stmt|;
+break|break;
+case|case
 literal|"eu-central"
 case|:
 case|case
