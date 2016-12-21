@@ -6129,6 +6129,17 @@ literal|"direct"
 return|;
 block|}
 block|}
+comment|/**      * Returns the internal thread pool      */
+DECL|method|getThreadPool
+specifier|public
+name|ThreadPool
+name|getThreadPool
+parameter_list|()
+block|{
+return|return
+name|threadPool
+return|;
+block|}
 block|}
 end_class
 
