@@ -656,6 +656,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|NamedXContentRegistry
@@ -673,22 +689,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadContext
 import|;
 end_import
 
@@ -1474,18 +1474,6 @@ name|hasItem
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasSize
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base testcase for randomized unit testing with Elasticsearch  */
 end_comment
@@ -2180,16 +2168,42 @@ operator|.
 name|WARNING_HEADER
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
-name|actualWarnings
-argument_list|,
-name|hasSize
-argument_list|(
+literal|"Expected "
+operator|+
 name|expectedWarnings
 operator|.
 name|length
+operator|+
+literal|" warnings but found "
+operator|+
+name|actualWarnings
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|"\nExpected: "
+operator|+
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|expectedWarnings
 argument_list|)
+operator|+
+literal|"\nActual: "
+operator|+
+name|actualWarnings
+argument_list|,
+name|expectedWarnings
+operator|.
+name|length
+argument_list|,
+name|actualWarnings
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

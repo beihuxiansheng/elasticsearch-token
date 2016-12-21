@@ -28,20 +28,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentParser
 import|;
 end_import
@@ -59,18 +45,6 @@ operator|.
 name|json
 operator|.
 name|JsonXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|AbstractQueryTestCase
 import|;
 end_import
 
@@ -221,6 +195,18 @@ operator|.
 name|sort
 operator|.
 name|SortOrder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
 import|;
 end_import
 
@@ -1165,8 +1151,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|queriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|parseFieldMatcher

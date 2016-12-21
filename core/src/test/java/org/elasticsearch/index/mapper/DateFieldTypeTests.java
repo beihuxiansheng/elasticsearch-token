@@ -504,8 +504,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 parameter_list|()
 lambda|->
 name|nowInMillis
@@ -597,8 +595,6 @@ literal|null
 argument_list|,
 name|xContentRegistry
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1130,8 +1126,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 parameter_list|()
 lambda|->
 name|nowInMillis
@@ -1507,8 +1501,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 parameter_list|()
 lambda|->
 name|nowInMillis
@@ -1714,8 +1706,6 @@ literal|null
 argument_list|,
 name|xContentRegistry
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

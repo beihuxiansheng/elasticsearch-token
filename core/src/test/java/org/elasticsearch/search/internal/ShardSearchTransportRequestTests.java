@@ -1510,8 +1510,6 @@ return|return
 operator|new
 name|QueryParseContext
 argument_list|(
-name|queriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 operator|new
@@ -1769,8 +1767,6 @@ literal|null
 argument_list|,
 name|xContentRegistry
 argument_list|()
-argument_list|,
-name|queriesRegistry
 argument_list|,
 literal|null
 argument_list|,

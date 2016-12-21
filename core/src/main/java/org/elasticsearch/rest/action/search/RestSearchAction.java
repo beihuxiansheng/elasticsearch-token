@@ -690,10 +690,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|searchRequestParsers
-operator|.
-name|queryParsers
-argument_list|,
 name|requestContentParser
 argument_list|,
 name|parseFieldMatcher

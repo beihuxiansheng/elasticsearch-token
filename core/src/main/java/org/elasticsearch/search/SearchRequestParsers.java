@@ -34,20 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|query
-operator|.
-name|IndicesQueriesRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|aggregations
@@ -83,14 +69,6 @@ block|{
 comment|// TODO: this class should be renamed to SearchRequestParser, and all the parse
 comment|// methods split across RestSearchAction and SearchSourceBuilder should be moved here
 comment|// TODO: make all members private once parsing functions are moved here
-comment|// TODO: IndicesQueriesRegistry should be removed and just have the map of query parsers here
-comment|/**      * Query parsers that may be used in search requests.      * @see org.elasticsearch.index.query.QueryParseContext      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
-DECL|field|queryParsers
-specifier|public
-specifier|final
-name|IndicesQueriesRegistry
-name|queryParsers
-decl_stmt|;
 comment|// TODO: AggregatorParsers should be removed and the underlying maps of agg
 comment|// and pipeline agg parsers should be here
 comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
@@ -119,9 +97,6 @@ DECL|method|SearchRequestParsers
 specifier|public
 name|SearchRequestParsers
 parameter_list|(
-name|IndicesQueriesRegistry
-name|queryParsers
-parameter_list|,
 name|AggregatorParsers
 name|aggParsers
 parameter_list|,
@@ -132,12 +107,6 @@ name|SearchExtRegistry
 name|searchExtParsers
 parameter_list|)
 block|{
-name|this
-operator|.
-name|queryParsers
-operator|=
-name|queryParsers
-expr_stmt|;
 name|this
 operator|.
 name|aggParsers

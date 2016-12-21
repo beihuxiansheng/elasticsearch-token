@@ -90,20 +90,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Setting
@@ -833,7 +819,6 @@ block|}
 block|}
 comment|/**      * Returns the given nodes sorted by likelihood of being elected as master, most likely first.      * Non-master nodes are not removed but are rather put in the end      */
 DECL|method|sortByMasterLikelihood
-specifier|public
 specifier|static
 name|List
 argument_list|<

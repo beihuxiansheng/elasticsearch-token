@@ -265,7 +265,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Connects to a node with the given connection profile. Use {@link ConnectionProfile#LIGHT_PROFILE} when just connecting for ping      * and then disconnecting. If the node is already connected this method has no effect      */
+comment|/**      * Connects to a node with the given connection profile. If the node is already connected this method has no effect      */
 DECL|method|connectToNode
 name|void
 name|connectToNode
