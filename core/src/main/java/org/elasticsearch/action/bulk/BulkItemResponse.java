@@ -54,7 +54,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
+name|DocWriteRequest
+operator|.
+name|OpType
 import|;
 end_import
 
@@ -66,9 +68,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteRequest
-operator|.
-name|OpType
+name|DocWriteResponse
 import|;
 end_import
 
