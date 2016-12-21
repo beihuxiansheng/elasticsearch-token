@@ -204,27 +204,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
 import|;
 end_import
 
@@ -299,18 +279,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Executor
 import|;
 end_import
 
@@ -639,7 +607,7 @@ name|assertEquals
 argument_list|(
 name|UNICAST_HOST_PREFIX
 operator|+
-literal|"1#"
+literal|"192.168.0.1_0#"
 argument_list|,
 name|nodes
 operator|.
@@ -692,7 +660,7 @@ name|assertEquals
 argument_list|(
 name|UNICAST_HOST_PREFIX
 operator|+
-literal|"2#"
+literal|"192.168.0.2:9305_0#"
 argument_list|,
 name|nodes
 operator|.
@@ -745,7 +713,7 @@ name|assertEquals
 argument_list|(
 name|UNICAST_HOST_PREFIX
 operator|+
-literal|"3#"
+literal|"255.255.23.15_0#"
 argument_list|,
 name|nodes
 operator|.

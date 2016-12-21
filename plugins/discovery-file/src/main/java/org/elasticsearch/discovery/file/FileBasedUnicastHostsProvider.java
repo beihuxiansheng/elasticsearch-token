@@ -306,7 +306,7 @@ name|zen
 operator|.
 name|UnicastZenPing
 operator|.
-name|resolveDiscoveryNodes
+name|resolveHostsLists
 import|;
 end_import
 
@@ -594,7 +594,7 @@ name|discoNodes
 operator|.
 name|addAll
 argument_list|(
-name|resolveDiscoveryNodes
+name|resolveHostsLists
 argument_list|(
 name|executorService
 argument_list|,
@@ -606,16 +606,7 @@ literal|1
 argument_list|,
 name|transportService
 argument_list|,
-parameter_list|()
-lambda|->
 name|UNICAST_HOST_PREFIX
-operator|+
-name|nodeIdGenerator
-operator|.
-name|incrementAndGet
-argument_list|()
-operator|+
-literal|"#"
 argument_list|,
 name|resolveTimeout
 argument_list|)
