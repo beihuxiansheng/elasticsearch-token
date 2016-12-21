@@ -1986,10 +1986,6 @@ return|return
 operator|new
 name|QueryParseContext
 argument_list|(
-name|searchRequestParsers
-operator|.
-name|queryParsers
-argument_list|,
 name|parser
 argument_list|,
 name|parseFieldMatcher

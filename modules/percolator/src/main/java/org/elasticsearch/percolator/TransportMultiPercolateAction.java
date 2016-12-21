@@ -1208,10 +1208,6 @@ name|docSource
 argument_list|,
 name|searchRequestParsers
 operator|.
-name|queryParsers
-argument_list|,
-name|searchRequestParsers
-operator|.
 name|aggParsers
 argument_list|,
 name|searchRequestParsers

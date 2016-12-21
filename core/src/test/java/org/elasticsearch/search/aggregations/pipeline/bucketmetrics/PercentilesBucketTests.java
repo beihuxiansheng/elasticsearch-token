@@ -277,8 +277,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|queriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|parseFieldMatcher

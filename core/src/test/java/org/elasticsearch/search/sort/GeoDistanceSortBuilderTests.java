@@ -254,20 +254,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|query
-operator|.
-name|IndicesQueriesRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|DocValueFormat
@@ -1343,8 +1329,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -1435,8 +1419,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -1519,8 +1501,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -1637,8 +1617,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -1715,8 +1693,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -1791,8 +1767,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -1896,8 +1870,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|itemParser
 argument_list|,
 name|ParseFieldMatcher
@@ -2747,10 +2719,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-operator|new
-name|IndicesQueriesRegistry
-argument_list|()
-argument_list|,
 name|parser
 argument_list|,
 name|ParseFieldMatcher

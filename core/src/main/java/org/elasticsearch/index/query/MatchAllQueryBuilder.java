@@ -234,6 +234,7 @@ block|}
 DECL|field|PARSER
 specifier|private
 specifier|static
+specifier|final
 name|ObjectParser
 argument_list|<
 name|MatchAllQueryBuilder
