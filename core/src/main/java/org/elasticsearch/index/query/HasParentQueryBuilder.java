@@ -679,6 +679,9 @@ name|innerHit
 parameter_list|(
 name|InnerHitBuilder
 name|innerHit
+parameter_list|,
+name|boolean
+name|ignoreUnmapped
 parameter_list|)
 block|{
 name|this
@@ -693,6 +696,8 @@ argument_list|,
 name|query
 argument_list|,
 name|type
+argument_list|,
+name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
@@ -788,9 +793,6 @@ name|DocumentMapper
 name|parentDocMapper
 init|=
 name|context
-operator|.
-name|getMapperService
-argument_list|()
 operator|.
 name|documentMapper
 argument_list|(
@@ -1661,6 +1663,8 @@ operator|.
 name|innerHit
 argument_list|(
 name|innerHits
+argument_list|,
+name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 block|}

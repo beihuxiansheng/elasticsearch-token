@@ -603,6 +603,9 @@ name|innerHit
 parameter_list|(
 name|InnerHitBuilder
 name|innerHit
+parameter_list|,
+name|boolean
+name|ignoreUnmapped
 parameter_list|)
 block|{
 name|this
@@ -617,6 +620,8 @@ argument_list|,
 name|path
 argument_list|,
 name|query
+argument_list|,
+name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 return|return
@@ -1174,6 +1179,8 @@ operator|.
 name|innerHit
 argument_list|(
 name|innerHitBuilder
+argument_list|,
+name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 block|}
