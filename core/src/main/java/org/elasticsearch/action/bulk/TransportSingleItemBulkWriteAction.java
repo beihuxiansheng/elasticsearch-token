@@ -743,7 +743,8 @@ argument_list|,
 name|replica
 argument_list|)
 decl_stmt|;
-comment|// nocommit - is the null failure ok?
+comment|// a replica operation can never throw a document-level failure,
+comment|// as the same document has been already indexed successfully in the primary
 return|return
 operator|new
 name|WriteReplicaResult
