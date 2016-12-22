@@ -330,6 +330,22 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|transport
 operator|.
 name|MockTransportService
@@ -1027,6 +1043,13 @@ name|Exception
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"shutting down..."
+argument_list|)
+expr_stmt|;
 comment|// JDK stack is broken, it does not iterate in the expected order (http://bugs.java.com/bugdatabase/view_bug.do?bug_id=4475301)
 specifier|final
 name|List
@@ -4111,6 +4134,11 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"org.elasticsearch:DEBUG,org.elasticsearch.discovery:TRACE,org.elasticsearch.transport:TRACE"
+argument_list|)
 DECL|method|testResolveReuseExistingNodeConnections
 specifier|public
 name|void
