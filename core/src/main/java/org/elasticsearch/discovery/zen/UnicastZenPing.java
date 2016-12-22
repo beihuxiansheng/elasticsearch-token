@@ -2429,6 +2429,9 @@ operator|==
 literal|null
 condition|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -2467,7 +2470,10 @@ init|(
 name|this
 init|)
 block|{
-comment|// acquire lock to prevent concurrent closing
+comment|// acquire lock and check if closed, to prevent leaving an open connection after closing
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|Connection
 name|existing
 init|=
