@@ -1704,7 +1704,7 @@ block|{
 name|long
 name|firstRandom
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|ByteSizeUnit
@@ -1762,7 +1762,7 @@ block|{
 name|long
 name|firstRandom
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|long
@@ -1774,7 +1774,7 @@ name|firstRandom
 argument_list|,
 name|ESTestCase
 operator|::
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|)
 decl_stmt|;
 name|ByteSizeUnit
@@ -1852,7 +1852,7 @@ block|{
 name|long
 name|number
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|ByteSizeUnit
@@ -2043,7 +2043,7 @@ init|=
 operator|new
 name|ByteSizeValue
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|,
 name|randomFrom

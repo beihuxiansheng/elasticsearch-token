@@ -1919,7 +1919,7 @@ name|BulkIndexByScrollResponse
 argument_list|(
 name|timeValueMillis
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1974,7 +1974,7 @@ name|BulkIndexByScrollResponse
 argument_list|(
 name|timeValueMillis
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|)
 argument_list|,

@@ -392,7 +392,7 @@ argument_list|,
 operator|new
 name|GeoIpCache
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|)
 argument_list|)

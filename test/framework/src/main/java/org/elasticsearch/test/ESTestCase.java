@@ -2713,11 +2713,11 @@ name|nextInt
 argument_list|()
 return|;
 block|}
-DECL|method|randomPositiveLong
+DECL|method|randomNonNegativeLong
 specifier|public
 specifier|static
 name|long
-name|randomPositiveLong
+name|randomNonNegativeLong
 parameter_list|()
 block|{
 name|long

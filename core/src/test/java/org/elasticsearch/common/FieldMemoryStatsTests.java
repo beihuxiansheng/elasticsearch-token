@@ -598,7 +598,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|)
 expr_stmt|;

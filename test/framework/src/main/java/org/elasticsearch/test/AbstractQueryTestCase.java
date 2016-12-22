@@ -6062,7 +6062,7 @@ specifier|final
 name|long
 name|nowInMillis
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 DECL|method|ServiceHolder

@@ -147,7 +147,7 @@ init|=
 operator|new
 name|CompletionStats
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|,
 name|map

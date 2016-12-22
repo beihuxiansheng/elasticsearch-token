@@ -836,7 +836,7 @@ argument_list|(
 operator|new
 name|TimeValue
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 operator|%
 literal|100000

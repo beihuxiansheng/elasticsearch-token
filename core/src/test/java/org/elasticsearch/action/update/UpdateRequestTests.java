@@ -2649,7 +2649,7 @@ decl_stmt|;
 name|long
 name|nowInMillis
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 comment|// We simulate that the document is not existing yet

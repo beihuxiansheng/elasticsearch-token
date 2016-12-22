@@ -433,7 +433,7 @@ block|{
 name|long
 name|randomValue
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|SizeUnit
@@ -491,7 +491,7 @@ block|{
 name|long
 name|firstRandom
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|long
@@ -503,7 +503,7 @@ name|firstRandom
 argument_list|,
 name|ESTestCase
 operator|::
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|)
 decl_stmt|;
 name|SizeUnit
@@ -581,7 +581,7 @@ block|{
 name|long
 name|number
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|SizeUnit
