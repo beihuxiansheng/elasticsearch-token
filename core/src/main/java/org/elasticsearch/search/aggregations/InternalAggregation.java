@@ -824,8 +824,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|// norelease: make this abstract when all InternalAggregations implement this method
-comment|/**      * Opportunity for subclasses to the {@link #hashCode(Object)} for this      * class.      **/
+comment|/**      * Opportunity for subclasses to the {@link #hashCode()} for this      * class.      **/
 DECL|method|doHashCode
 specifier|protected
 name|int
@@ -927,7 +926,7 @@ argument_list|)
 return|;
 block|}
 comment|// norelease: make this abstract when all InternalAggregations implement this method
-comment|/**      * Opportunity for subclasses to add criteria to the {@link #equals(Object)}      * method for this class.      *       * This method can safely cast<code>obj</code> to the subclass since the      * {@link #equals(Object)} method checks that<code>obj</code> is the same      * class as<code>this</code>      */
+comment|/**      * Opportunity for subclasses to add criteria to the {@link #equals(Object)}      * method for this class.      *      * This method can safely cast<code>obj</code> to the subclass since the      * {@link #equals(Object)} method checks that<code>obj</code> is the same      * class as<code>this</code>      */
 DECL|method|doEquals
 specifier|protected
 name|boolean
