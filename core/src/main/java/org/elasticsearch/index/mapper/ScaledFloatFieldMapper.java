@@ -1109,6 +1109,8 @@ operator|.
 name|parse
 argument_list|(
 name|propNode
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1208,6 +1210,8 @@ operator|.
 name|parse
 argument_list|(
 name|propNode
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|doubleValue
@@ -1431,6 +1435,8 @@ operator|.
 name|parse
 argument_list|(
 name|value
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|doubleValue
@@ -1542,6 +1548,8 @@ operator|.
 name|parse
 argument_list|(
 name|value
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|doubleValue
@@ -1663,6 +1671,8 @@ operator|.
 name|parse
 argument_list|(
 name|lowerTerm
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|doubleValue
@@ -1726,6 +1736,8 @@ operator|.
 name|parse
 argument_list|(
 name|upperTerm
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|doubleValue
@@ -2605,6 +2617,8 @@ operator|.
 name|parse
 argument_list|(
 name|value
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

@@ -5536,6 +5536,8 @@ operator|.
 name|parse
 argument_list|(
 name|from
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|Number
@@ -5553,6 +5555,8 @@ operator|.
 name|parse
 argument_list|(
 name|to
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
