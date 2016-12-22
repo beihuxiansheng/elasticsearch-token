@@ -980,7 +980,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a non-negative long in a variable-length format.      * Writes between one and nine bytes. Smaller values take fewer bytes.      * Negative numbers are not supported.      */
+comment|/**      * Writes a non-negative long in a variable-length format. Writes between one and ten bytes. Smaller values take fewer bytes. Negative      * numbers use ten bytes and trip assertions (if running in tests) so prefer {@link #writeLong(long)} or {@link #writeZLong(long)} for      * negative numbers.      */
 DECL|method|writeVLong
 specifier|public
 name|void
@@ -992,11 +992,42 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
+if|if
+condition|(
 name|i
-operator|>=
+operator|<
 literal|0
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Negative longs unsupported, use writeLong or writeZLong for negative numbers ["
+operator|+
+name|i
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+name|writeVLongNoCheck
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Writes a long in a variable-length format without first checking if it is negative. Package private for testing. Use      * {@link #writeVLong(long)} instead.      */
+DECL|method|writeVLongNoCheck
+name|void
+name|writeVLongNoCheck
+parameter_list|(
+name|long
+name|i
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 while|while
 condition|(
 operator|(
