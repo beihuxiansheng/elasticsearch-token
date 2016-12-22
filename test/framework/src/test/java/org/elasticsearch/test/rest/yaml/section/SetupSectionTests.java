@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.rest.yaml.parser
+DECL|package|org.elasticsearch.test.rest.yaml.section
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|parser
+name|section
 package|;
 end_package
 
@@ -89,10 +89,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SetupSectionParserTests
+DECL|class|SetupSectionTests
 specifier|public
 class|class
-name|SetupSectionParserTests
+name|SetupSectionTests
 extends|extends
 name|AbstractClientYamlTestFragmentParserTestCase
 block|{
@@ -137,29 +137,14 @@ operator|+
 literal|"        body:   { \"include\": { \"field1\": \"v1\", \"field2\": \"v2\" }, \"count\": 1 }\n"
 argument_list|)
 expr_stmt|;
-name|SetupSectionParser
-name|setupSectionParser
-init|=
-operator|new
-name|SetupSectionParser
-argument_list|()
-decl_stmt|;
 name|SetupSection
 name|setupSection
 init|=
-name|setupSectionParser
+name|SetupSection
 operator|.
 name|parse
 argument_list|(
-operator|new
-name|ClientYamlTestSuiteParseContext
-argument_list|(
-literal|"api"
-argument_list|,
-literal|"suite"
-argument_list|,
 name|parser
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -298,29 +283,14 @@ operator|+
 literal|"        body:   { \"include\": { \"field1\": \"v1\", \"field2\": \"v2\" }, \"count\": 1 }\n"
 argument_list|)
 expr_stmt|;
-name|SetupSectionParser
-name|setupSectionParser
-init|=
-operator|new
-name|SetupSectionParser
-argument_list|()
-decl_stmt|;
 name|SetupSection
 name|setupSection
 init|=
-name|setupSectionParser
+name|SetupSection
 operator|.
 name|parse
 argument_list|(
-operator|new
-name|ClientYamlTestSuiteParseContext
-argument_list|(
-literal|"api"
-argument_list|,
-literal|"suite"
-argument_list|,
 name|parser
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat

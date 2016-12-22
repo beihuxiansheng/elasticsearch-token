@@ -76,24 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|ClientYamlTestParseException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -170,8 +152,6 @@ name|parameters
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ClientYamlTestParseException
 block|{
 return|return
 name|createParameters

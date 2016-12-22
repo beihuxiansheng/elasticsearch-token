@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test.rest.yaml.parser
+DECL|package|org.elasticsearch.test.rest.yaml.section
 package|package
 name|org
 operator|.
@@ -16,9 +16,23 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|parser
+name|section
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|NamedXContentRegistry
+import|;
+end_import
 
 begin_import
 import|import
@@ -50,6 +64,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|yaml
+operator|.
+name|section
+operator|.
+name|ExecutableSection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -69,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Superclass for tests of subclasses of {@link ClientYamlTestFragmentParser}.  */
+comment|/**  * Superclass for tests that parse parts of the test suite.  */
 end_comment
 
 begin_class
@@ -111,12 +143,34 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//this is the way to make sure that we consumed the whole yaml
+comment|//next token can be null even in the middle of the document (e.g. with "---"), but not too many consecutive times
 name|assertThat
 argument_list|(
 name|parser
 operator|.
 name|currentToken
+argument_list|()
+argument_list|,
+name|nullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+argument_list|,
+name|nullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|parser
+operator|.
+name|nextToken
 argument_list|()
 argument_list|,
 name|nullValue
@@ -129,6 +183,20 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|xContentRegistry
+specifier|protected
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|()
+block|{
+return|return
+name|ExecutableSection
+operator|.
+name|XCONTENT_REGISTRY
+return|;
 block|}
 block|}
 end_class
