@@ -616,7 +616,7 @@ condition|(
 name|loggerAndLevelArray
 operator|.
 name|length
-operator|>=
+operator|==
 literal|2
 condition|)
 block|{
@@ -635,6 +635,20 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"invalid test logging annotation ["
+operator|+
+name|loggerAndLevel
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 return|return
