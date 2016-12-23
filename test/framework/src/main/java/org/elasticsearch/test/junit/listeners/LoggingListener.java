@@ -120,7 +120,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Collections
 import|;
 end_import
 
@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RunListener} that allows to change the log level for a specific test method.  * When a test method is annotated with the {@link org.elasticsearch.test.junit.annotations.TestLogging} annotation, the level for the specified loggers  * will be internally saved before the test method execution and overridden with the specified ones.  * At the end of the test method execution the original loggers levels will be restored.  *  * Note: This class is not thread-safe. Given the static nature of the logging api, it assumes that tests  * are never run concurrently in the same jvm. For the very same reason no synchronization has been implemented  * regarding the save/restore process of the original loggers levels.  */
+comment|/**  * A {@link RunListener} that allows changing the log level for a specific test method. When a test method is annotated with the  * {@link TestLogging} annotation, the level for the specified loggers will be internally saved before the test method execution and  * overridden with the specified ones. At the end of the test method execution the original loggers levels will be restored.  *  * This class is not thread-safe. Given the static nature of the logging API, it assumes that tests are never run concurrently in the same  * JVM. For the very same reason no synchronization has been implemented regarding the save/restore process of the original loggers  * levels.  */
 end_comment
 
 begin_class
@@ -193,6 +193,7 @@ specifier|public
 name|void
 name|testRunStarted
 parameter_list|(
+specifier|final
 name|Description
 name|description
 parameter_list|)
@@ -252,6 +253,7 @@ specifier|public
 name|void
 name|testRunFinished
 parameter_list|(
+specifier|final
 name|Result
 name|result
 parameter_list|)
@@ -280,6 +282,7 @@ specifier|public
 name|void
 name|testStarted
 parameter_list|(
+specifier|final
 name|Description
 name|description
 parameter_list|)
@@ -314,6 +317,7 @@ specifier|public
 name|void
 name|testFinished
 parameter_list|(
+specifier|final
 name|Description
 name|description
 parameter_list|)
@@ -328,6 +332,7 @@ name|previousLoggingMap
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Obtain the logger with the given name.      *      * @param loggerName the logger to obtain      * @return the logger      */
 DECL|method|resolveLogger
 specifier|private
 specifier|static
@@ -364,6 +369,7 @@ name|loggerName
 argument_list|)
 return|;
 block|}
+comment|/**      * Applies the test logging annotation and returns the existing logging levels.      *      * @param testLogging the test logging annotation to apply      * @return the existing logging levels      */
 DECL|method|processTestLogging
 specifier|private
 name|Map
@@ -374,10 +380,12 @@ name|String
 argument_list|>
 name|processTestLogging
 parameter_list|(
+specifier|final
 name|TestLogging
 name|testLogging
 parameter_list|)
 block|{
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -399,51 +407,32 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 return|;
 block|}
-comment|// sort the logging keys so they wouldn't override each other.
-comment|// for example, processing org.elasticsearch:DEBUG after org.elasticsearch.transport:TRACE
-comment|// will reset the later
-name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|sortedLogNames
-init|=
-operator|new
-name|TreeMap
-argument_list|<>
-argument_list|(
-name|String
-operator|::
-name|compareTo
-argument_list|)
-decl_stmt|;
-name|sortedLogNames
-operator|.
-name|putAll
-argument_list|(
-name|map
-argument_list|)
-expr_stmt|;
+comment|// obtain the existing logging levels so that we can restore them at the end of the test; we have to do this separately from setting
+comment|// the logging levels so that setting foo does not impact the logging level for foo.bar when we check the existing logging level for
+comment|// for.bar
+specifier|final
 name|Map
 argument_list|<
 name|String
 argument_list|,
 name|String
 argument_list|>
-name|previousValues
+name|existing
 init|=
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Map
 operator|.
 name|Entry
@@ -454,12 +443,13 @@ name|String
 argument_list|>
 name|entry
 range|:
-name|sortedLogNames
+name|map
 operator|.
 name|entrySet
 argument_list|()
 control|)
 block|{
+specifier|final
 name|Logger
 name|logger
 init|=
@@ -471,7 +461,7 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|previousValues
+name|existing
 operator|.
 name|put
 argument_list|(
@@ -489,6 +479,38 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+for|for
+control|(
+specifier|final
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|entry
+range|:
+name|map
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+specifier|final
+name|Logger
+name|logger
+init|=
+name|resolveLogger
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|Loggers
 operator|.
 name|setLevel
@@ -503,11 +525,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|previousValues
+name|existing
 return|;
 block|}
+comment|/**      * Obtain the logging levels from the test logging annotation.      *      * @param testLogging the test logging annotation      * @return a map from logger name to logging level      */
 DECL|method|getLoggersAndLevelsFromAnnotation
-specifier|public
+specifier|private
 specifier|static
 name|Map
 argument_list|<
@@ -517,6 +540,7 @@ name|String
 argument_list|>
 name|getLoggersAndLevelsFromAnnotation
 parameter_list|(
+specifier|final
 name|TestLogging
 name|testLogging
 parameter_list|)
@@ -529,9 +553,15 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 return|;
 block|}
+comment|// use a sorted set so that we apply a parent logger before its children thus not overwriting the child setting when processing the
+comment|// parent setting
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -541,7 +571,7 @@ argument_list|>
 name|map
 init|=
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -562,12 +592,14 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|String
 name|loggerAndLevel
 range|:
 name|loggersAndLevels
 control|)
 block|{
+specifier|final
 name|String
 index|[]
 name|loggerAndLevelArray
@@ -588,29 +620,19 @@ operator|>=
 literal|2
 condition|)
 block|{
-name|String
-name|loggerName
-init|=
-name|loggerAndLevelArray
-index|[
-literal|0
-index|]
-decl_stmt|;
-name|String
-name|level
-init|=
-name|loggerAndLevelArray
-index|[
-literal|1
-index|]
-decl_stmt|;
 name|map
 operator|.
 name|put
 argument_list|(
-name|loggerName
+name|loggerAndLevelArray
+index|[
+literal|0
+index|]
 argument_list|,
-name|level
+name|loggerAndLevelArray
+index|[
+literal|1
+index|]
 argument_list|)
 expr_stmt|;
 block|}
@@ -619,6 +641,7 @@ return|return
 name|map
 return|;
 block|}
+comment|/**      * Reset the logging levels to the state provided by the map.      *      * @param map the logging levels to apply      * @return an empty map      */
 DECL|method|reset
 specifier|private
 name|Map
@@ -629,6 +652,7 @@ name|String
 argument_list|>
 name|reset
 parameter_list|(
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -638,15 +662,9 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-if|if
-condition|(
-name|map
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
+specifier|final
 name|Map
 operator|.
 name|Entry
@@ -663,6 +681,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+specifier|final
 name|Logger
 name|logger
 init|=
@@ -687,9 +706,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 return|return
-literal|null
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 return|;
 block|}
 block|}
