@@ -439,6 +439,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+init|(
+specifier|final
 name|XContentBuilder
 name|builder
 init|=
@@ -450,7 +453,8 @@ name|status
 argument_list|,
 name|e
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|this
 operator|.
 name|content
@@ -472,6 +476,7 @@ operator|.
 name|mediaType
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

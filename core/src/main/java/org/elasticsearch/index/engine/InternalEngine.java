@@ -3585,7 +3585,7 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 operator|:
-literal|"old op recovering but it already has a seq no."
+literal|"old op recovering but it already has a seq no.;"
 operator|+
 literal|" index version: "
 operator|+
@@ -3597,7 +3597,7 @@ operator|.
 name|getIndexVersionCreated
 argument_list|()
 operator|+
-literal|". seq no: "
+literal|", seqNo: "
 operator|+
 name|seqNo
 assert|;
@@ -3622,25 +3622,14 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 operator|:
-literal|"primary ops should never have an assigned seq no. got: "
+literal|"primary ops should never have an assigned seq no.; seqNo: "
 operator|+
 name|seqNo
 assert|;
 block|}
-else|else
-block|{
-comment|// sequence number should be set when operation origin is not primary
-assert|assert
-name|seqNo
-operator|>=
-literal|0
-operator|:
-literal|"recovery or replica ops should have an assigned seq no. origin: "
-operator|+
-name|origin
-operator|+
-literal|" index version: "
-operator|+
+elseif|else
+if|if
+condition|(
 name|engineConfig
 operator|.
 name|getIndexSettings
@@ -3648,6 +3637,24 @@ argument_list|()
 operator|.
 name|getIndexVersionCreated
 argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+argument_list|)
+condition|)
+block|{
+comment|// sequence number should be set when operation origin is not primary
+assert|assert
+name|seqNo
+operator|>=
+literal|0
+operator|:
+literal|"recovery or replica ops should have an assigned seq no.; origin: "
+operator|+
+name|origin
 assert|;
 block|}
 return|return
