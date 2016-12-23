@@ -134,6 +134,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link RunListener} that allows to change the log level for a specific test method.  * When a test method is annotated with the {@link org.elasticsearch.test.junit.annotations.TestLogging} annotation, the level for the specified loggers  * will be internally saved before the test method execution and overridden with the specified ones.  * At the end of the test method execution the original loggers levels will be restored.  *  * Note: This class is not thread-safe. Given the static nature of the logging api, it assumes that tests  * are never run concurrently in the same jvm. For the very same reason no synchronization has been implemented  * regarding the save/restore process of the original loggers levels.  */
 end_comment
@@ -392,6 +402,33 @@ return|return
 literal|null
 return|;
 block|}
+comment|// sort the logging keys so they wouldn't override each other.
+comment|// for example, processing org.elasticsearch:DEBUG after org.elasticsearch.transport:TRACE
+comment|// will reset the later
+name|TreeMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|sortedLogNames
+init|=
+operator|new
+name|TreeMap
+argument_list|<>
+argument_list|(
+name|String
+operator|::
+name|compareTo
+argument_list|)
+decl_stmt|;
+name|sortedLogNames
+operator|.
+name|putAll
+argument_list|(
+name|map
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -417,7 +454,7 @@ name|String
 argument_list|>
 name|entry
 range|:
-name|map
+name|sortedLogNames
 operator|.
 name|entrySet
 argument_list|()
