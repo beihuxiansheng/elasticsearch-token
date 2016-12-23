@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateUpdateTask
+name|LocalClusterUpdateTask
 import|;
 end_import
 
@@ -280,7 +280,7 @@ argument_list|(
 literal|"service_disruption_block"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|LocalClusterUpdateTask
 argument_list|(
 name|Priority
 operator|.
@@ -290,18 +290,10 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|runOnlyOnMaster
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|ClusterState
+name|ClusterTasksResult
+argument_list|<
+name|LocalClusterUpdateTask
+argument_list|>
 name|execute
 parameter_list|(
 name|ClusterState
@@ -337,7 +329,8 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|currentState
+name|unchanged
+argument_list|()
 return|;
 block|}
 annotation|@

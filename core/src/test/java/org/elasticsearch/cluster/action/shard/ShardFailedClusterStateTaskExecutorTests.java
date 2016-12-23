@@ -718,7 +718,7 @@ argument_list|()
 decl_stmt|;
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.
@@ -785,7 +785,7 @@ argument_list|)
 decl_stmt|;
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.
@@ -852,7 +852,7 @@ argument_list|)
 decl_stmt|;
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.
@@ -1009,7 +1009,7 @@ argument_list|)
 expr_stmt|;
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.
@@ -1328,7 +1328,7 @@ argument_list|)
 decl_stmt|;
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.
@@ -2019,7 +2019,7 @@ name|tasks
 parameter_list|,
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.
@@ -2105,7 +2105,7 @@ name|taskResultMap
 parameter_list|,
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardStateAction
 operator|.

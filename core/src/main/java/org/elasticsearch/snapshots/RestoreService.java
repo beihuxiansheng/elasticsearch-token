@@ -4582,7 +4582,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|public
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|Task
 argument_list|>
@@ -4603,7 +4603,7 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|Builder
 argument_list|<
@@ -4611,7 +4611,7 @@ name|Task
 argument_list|>
 name|resultBuilder
 init|=
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 expr|<
 name|Task

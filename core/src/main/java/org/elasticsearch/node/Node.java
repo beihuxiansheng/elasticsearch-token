@@ -5035,6 +5035,16 @@ argument_list|)
 decl_stmt|;
 name|clusterService
 operator|.
+name|setDiscoverySettings
+argument_list|(
+name|discovery
+operator|.
+name|getDiscoverySettings
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|clusterService
+operator|.
 name|addInitialStateBlock
 argument_list|(
 name|discovery

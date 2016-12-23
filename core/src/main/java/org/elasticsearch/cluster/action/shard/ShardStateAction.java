@@ -104,6 +104,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterStateTaskExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|ClusterState
 import|;
 end_import
@@ -129,18 +141,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterStateTaskConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterStateTaskExecutor
 import|;
 end_import
 
@@ -1931,7 +1931,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|public
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardEntry
 argument_list|>
@@ -1949,7 +1949,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|Builder
 argument_list|<
@@ -1957,7 +1957,7 @@ name|ShardEntry
 argument_list|>
 name|batchResultBuilder
 init|=
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|builder
 argument_list|()
@@ -2833,7 +2833,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|public
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ShardEntry
 argument_list|>
@@ -2851,7 +2851,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|Builder
 argument_list|<
@@ -2859,7 +2859,7 @@ name|ShardEntry
 argument_list|>
 name|builder
 init|=
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|builder
 argument_list|()
