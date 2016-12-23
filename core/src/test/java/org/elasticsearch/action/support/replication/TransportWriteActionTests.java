@@ -894,7 +894,7 @@ operator|.
 name|response
 argument_list|)
 expr_stmt|;
-comment|// Haven't reallresponded yet
+comment|// Haven't responded yet
 annotation|@
 name|SuppressWarnings
 argument_list|(
