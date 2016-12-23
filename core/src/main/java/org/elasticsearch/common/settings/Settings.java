@@ -615,6 +615,7 @@ argument_list|(
 literal|"(.*)\\.\\d+$"
 argument_list|)
 decl_stmt|;
+comment|/** The raw settings from the full key to raw string value. */
 DECL|field|settings
 specifier|private
 name|Map
@@ -624,6 +625,12 @@ argument_list|,
 name|String
 argument_list|>
 name|settings
+decl_stmt|;
+comment|/** The keystore storage associated with these settings. */
+DECL|field|keystore
+specifier|private
+name|KeyStoreWrapper
+name|keystore
 decl_stmt|;
 DECL|method|Settings
 name|Settings
@@ -635,19 +642,78 @@ argument_list|,
 name|String
 argument_list|>
 name|settings
+parameter_list|,
+name|KeyStoreWrapper
+name|keystore
 parameter_list|)
 block|{
+comment|// we use a sorted map for consistent serialization when using getAsMap()
 name|this
 operator|.
 name|settings
 operator|=
 name|Collections
 operator|.
-name|unmodifiableMap
+name|unmodifiableSortedMap
+argument_list|(
+operator|new
+name|TreeMap
+argument_list|<>
 argument_list|(
 name|settings
 argument_list|)
+argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|keystore
+operator|=
+name|keystore
+expr_stmt|;
+block|}
+comment|/**      * Retrieve the keystore that contains secure settings.      */
+DECL|method|getKeyStore
+name|KeyStoreWrapper
+name|getKeyStore
+parameter_list|()
+block|{
+comment|// pkg private so it can only be accessed by local subclasses of SecureSetting
+return|return
+name|keystore
+return|;
+block|}
+comment|/** Returns true if the setting exists, false otherwise. */
+DECL|method|contains
+specifier|public
+name|boolean
+name|contains
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|settings
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+operator|||
+name|keystore
+operator|!=
+literal|null
+operator|&&
+name|keystore
+operator|.
+name|getSettings
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|key
+argument_list|)
+return|;
 block|}
 comment|/**      * The settings as a flat {@link java.util.Map}.      * @return an unmodifiable map of settings      */
 DECL|method|getAsMap
@@ -1342,7 +1408,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/**      * A settings that are filtered (and key is removed) with the specified prefix.      */
+comment|/**      * A settings that are filtered (and key is removed) with the specified prefix.      * Secure settings may not be access through the prefixed settings.      */
 DECL|method|getByPrefix
 specifier|public
 name|Settings
@@ -1376,10 +1442,12 @@ argument_list|)
 argument_list|,
 name|prefix
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new settings object that contains all setting of the current one filtered by the given settings key predicate.      */
+comment|/**      * Returns a new settings object that contains all setting of the current one filtered by the given settings key predicate.      * Secure settings may not be accessed through a filter.      */
 DECL|method|filter
 specifier|public
 name|Settings
@@ -1407,6 +1475,8 @@ name|predicate
 argument_list|,
 literal|null
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -2510,6 +2580,8 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|)
+argument_list|,
+name|keystore
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3250,6 +3322,11 @@ name|TreeMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|keystore
+specifier|private
+name|KeyStoreWrapper
+name|keystore
+decl_stmt|;
 DECL|method|Builder
 specifier|private
 name|Builder
@@ -3309,6 +3386,42 @@ argument_list|(
 name|key
 argument_list|)
 return|;
+block|}
+comment|/** Sets the secret store for these settings. */
+DECL|method|setKeyStore
+specifier|public
+name|void
+name|setKeyStore
+parameter_list|(
+name|KeyStoreWrapper
+name|keystore
+parameter_list|)
+block|{
+assert|assert
+name|this
+operator|.
+name|keystore
+operator|==
+literal|null
+assert|;
+comment|// only set once!
+assert|assert
+name|keystore
+operator|.
+name|isLoaded
+argument_list|()
+assert|;
+name|this
+operator|.
+name|keystore
+operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|keystore
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**          * Puts tuples of key value pairs of settings. Simplified version instead of repeating calling          * put for each one.          */
 DECL|method|put
@@ -5046,6 +5159,8 @@ operator|new
 name|Settings
 argument_list|(
 name|map
+argument_list|,
+name|keystore
 argument_list|)
 return|;
 block|}
