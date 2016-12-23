@@ -10845,6 +10845,7 @@ name|numDocs
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Lucene will delete a segment if all docs are deleted from it; this means that we lose the deletes when deleting all docs
 name|assertThat
 argument_list|(
 name|docStats
@@ -10854,6 +10855,12 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
+name|numDocsToDelete
+operator|==
+name|numDocs
+condition|?
+literal|0
+else|:
 name|numDocsToDelete
 argument_list|)
 argument_list|)
