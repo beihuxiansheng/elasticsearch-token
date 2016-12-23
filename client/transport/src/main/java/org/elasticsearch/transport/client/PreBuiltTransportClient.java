@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create an instance of {@link TransportClient}  * This class pre-installs the  * {@link Netty4Plugin},  * {@link ReindexPlugin},  * {@link PercolatorPlugin},  * and {@link MustachePlugin}  * for the client. These plugins are all elasticsearch core modules required.  */
+comment|/**  * A builder to create an instance of {@link TransportClient}. This class pre-installs the  * {@link Netty4Plugin},  * {@link ReindexPlugin},  * {@link PercolatorPlugin},  * and {@link MustachePlugin}  * plugins for the client. These plugins are all the required modules for Elasticsearch.  */
 end_comment
 
 begin_class
@@ -270,6 +270,8 @@ literal|null
 condition|)
 block|{
 comment|// disable Netty from using unsafe
+comment|// while permissions are needed to set this, if a security exception is thrown the permission needed can either be granted or
+comment|// the system property can be set directly before starting the JVM; therefore, we do not catch a security exception here
 name|System
 operator|.
 name|setProperty
@@ -310,6 +312,8 @@ literal|null
 condition|)
 block|{
 comment|// disable Netty from replacing the selector key set
+comment|// while permissions are needed to set this, if a security exception is thrown the permission needed can either be granted or
+comment|// the system property can be set directly before starting the JVM; therefore, we do not catch a security exception here
 name|System
 operator|.
 name|setProperty
@@ -367,7 +371,7 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a new transport client with pre-installed plugins.      * @param settings the settings passed to this transport client      * @param plugins an optional array of additional plugins to run with this client      */
+comment|/**      * Creates a new transport client with pre-installed plugins.      *      * @param settings the settings passed to this transport client      * @param plugins  an optional array of additional plugins to run with this client      */
 annotation|@
 name|SafeVarargs
 DECL|method|PreBuiltTransportClient
@@ -400,7 +404,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new transport client with pre-installed plugins.      * @param settings the settings passed to this transport client      * @param plugins a collection of additional plugins to run with this client      */
+comment|/**      * Creates a new transport client with pre-installed plugins.      *      * @param settings the settings passed to this transport client      * @param plugins  a collection of additional plugins to run with this client      */
 DECL|method|PreBuiltTransportClient
 specifier|public
 name|PreBuiltTransportClient
@@ -430,7 +434,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new transport client with pre-installed plugins.      * @param settings the settings passed to this transport client      * @param plugins a collection of additional plugins to run with this client      * @param hostFailureListener a failure listener that is invoked if a node is disconnected. This can be<code>null</code>      */
+comment|/**      * Creates a new transport client with pre-installed plugins.      *      * @param settings            the settings passed to this transport client      * @param plugins             a collection of additional plugins to run with this client      * @param hostFailureListener a failure listener that is invoked if a node is disconnected; this can be<code>null</code>      */
 DECL|method|PreBuiltTransportClient
 specifier|public
 name|PreBuiltTransportClient
