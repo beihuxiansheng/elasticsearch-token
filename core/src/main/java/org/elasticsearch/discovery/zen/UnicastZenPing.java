@@ -2437,6 +2437,18 @@ name|success
 init|=
 literal|false
 decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] opening connection to [{}]"
+argument_list|,
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|transportService
@@ -2509,6 +2521,18 @@ operator|==
 literal|false
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] closing connection to [{}] due to failure"
+argument_list|,
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
