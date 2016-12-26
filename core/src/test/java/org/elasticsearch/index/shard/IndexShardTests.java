@@ -10429,13 +10429,25 @@ literal|32
 argument_list|)
 decl_stmt|;
 comment|// at least two documents so we have docs to delete
+comment|// Delete at least numDocs/10 documents otherwise the number of deleted docs will be below 10%
+comment|// and forceMerge will refuse to expunge deletes
 specifier|final
 name|long
 name|numDocsToDelete
 init|=
 name|randomIntBetween
 argument_list|(
-literal|1
+operator|(
+name|int
+operator|)
+name|Math
+operator|.
+name|ceil
+argument_list|(
+name|numDocs
+operator|/
+literal|10.0
+argument_list|)
 argument_list|,
 name|Math
 operator|.
