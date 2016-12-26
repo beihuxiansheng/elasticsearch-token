@@ -306,18 +306,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|assertThat
-argument_list|(
-name|objectName
-operator|+
-literal|" mutation should not be equal to original"
-argument_list|,
+name|T
+name|mutation
+init|=
 name|mutationFunction
 operator|.
 name|mutate
 argument_list|(
 name|original
 argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|objectName
+operator|+
+literal|" mutation should not be equal to original"
+argument_list|,
+name|mutation
 argument_list|,
 name|not
 argument_list|(
