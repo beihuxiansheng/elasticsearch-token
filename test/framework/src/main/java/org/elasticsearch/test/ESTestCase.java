@@ -1980,6 +1980,13 @@ name|getTestName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"Thread context initialized twice"
+argument_list|,
+name|threadContext
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|enableWarningsCheck
@@ -2032,14 +2039,23 @@ block|{
 name|checkStaticState
 argument_list|()
 expr_stmt|;
+comment|// We check threadContext != null rather than enableWarningsCheck()
+comment|// because after methods are still called in the event that before
+comment|// methods failed, in which case threadContext might not have been
+comment|// initialized
 if|if
 condition|(
-name|enableWarningsCheck
-argument_list|()
+name|threadContext
+operator|!=
+literal|null
 condition|)
 block|{
 name|ensureNoWarnings
 argument_list|()
+expr_stmt|;
+name|threadContext
+operator|=
+literal|null
 expr_stmt|;
 block|}
 name|ensureAllSearchContextsReleased

@@ -88,6 +88,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -157,11 +167,15 @@ name|ThreadContext
 name|threadContext
 parameter_list|)
 block|{
-assert|assert
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|threadContext
-operator|!=
-literal|null
-assert|;
+argument_list|,
+literal|"Cannot register a null ThreadContext"
+argument_list|)
+expr_stmt|;
 comment|// add returning false means it _did_ have it already
 if|if
 condition|(
