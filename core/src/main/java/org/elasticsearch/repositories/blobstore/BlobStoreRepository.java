@@ -296,6 +296,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|SnapshotsInProgress
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -2094,6 +2106,9 @@ name|deleteSnapshot
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|long
+name|repositoryStateId
 parameter_list|)
 block|{
 if|if
@@ -2306,6 +2321,8 @@ decl_stmt|;
 name|writeIndexGen
 argument_list|(
 name|updatedRepositoryData
+argument_list|,
+name|repositoryStateId
 argument_list|)
 expr_stmt|;
 comment|// delete the snapshot file
@@ -3005,6 +3022,10 @@ argument_list|<
 name|SnapshotShardFailure
 argument_list|>
 name|shardFailures
+parameter_list|,
+specifier|final
+name|long
+name|repositoryStateId
 parameter_list|)
 block|{
 try|try
@@ -3104,6 +3125,8 @@ name|snapshotId
 argument_list|,
 name|indices
 argument_list|)
+argument_list|,
+name|repositoryStateId
 argument_list|)
 expr_stmt|;
 block|}
@@ -3989,6 +4012,8 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
+argument_list|,
+name|indexGen
 argument_list|)
 expr_stmt|;
 block|}
@@ -4078,6 +4103,10 @@ parameter_list|(
 specifier|final
 name|RepositoryData
 name|repositoryData
+parameter_list|,
+specifier|final
+name|long
+name|repositoryStateId
 parameter_list|)
 throws|throws
 name|IOException
@@ -4089,6 +4118,57 @@ operator|==
 literal|false
 assert|;
 comment|// can not write to a read only repository
+specifier|final
+name|long
+name|currentGen
+init|=
+name|latestIndexBlobId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|repositoryStateId
+operator|!=
+name|SnapshotsInProgress
+operator|.
+name|UNDEFINED_REPOSITORY_STATE_ID
+operator|&&
+name|currentGen
+operator|!=
+name|repositoryStateId
+condition|)
+block|{
+comment|// the index file was updated by a concurrent operation, so we were operating on stale
+comment|// repository data
+throw|throw
+operator|new
+name|RepositoryException
+argument_list|(
+name|metadata
+operator|.
+name|name
+argument_list|()
+argument_list|,
+literal|"concurrent modification of the index-N file, expected current generation ["
+operator|+
+name|repositoryStateId
+operator|+
+literal|"], actual current generation ["
+operator|+
+name|currentGen
+operator|+
+literal|"] - possibly due to simultaneous snapshot deletion requests"
+argument_list|)
+throw|;
+block|}
+specifier|final
+name|long
+name|newGen
+init|=
+name|currentGen
+operator|+
+literal|1
+decl_stmt|;
 specifier|final
 name|BytesReference
 name|snapshotsBytes
@@ -4154,15 +4234,6 @@ name|bytes
 argument_list|()
 expr_stmt|;
 block|}
-specifier|final
-name|long
-name|gen
-init|=
-name|latestIndexBlobId
-argument_list|()
-operator|+
-literal|1
-decl_stmt|;
 comment|// write the index file
 name|writeAtomic
 argument_list|(
@@ -4172,7 +4243,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|gen
+name|newGen
 argument_list|)
 argument_list|,
 name|snapshotsBytes
@@ -4186,7 +4257,7 @@ argument_list|()
 operator|==
 literal|false
 operator|&&
-name|gen
+name|newGen
 operator|-
 literal|2
 operator|>=
@@ -4203,7 +4274,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|gen
+name|newGen
 operator|-
 literal|2
 argument_list|)
@@ -4265,7 +4336,7 @@ name|bStream
 operator|.
 name|writeLong
 argument_list|(
-name|gen
+name|newGen
 argument_list|)
 expr_stmt|;
 name|genBytes
@@ -4349,8 +4420,9 @@ comment|//      index-latest blob
 comment|// in a read-only repository, we can't know which of the two scenarios it is,
 comment|// but we will assume (1) because we can't do anything about (2) anyway
 return|return
-operator|-
-literal|1
+name|RepositoryData
+operator|.
+name|EMPTY_REPO_GEN
 return|;
 block|}
 block|}

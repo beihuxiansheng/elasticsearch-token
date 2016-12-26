@@ -217,6 +217,18 @@ name|RepositoryData
 implements|implements
 name|ToXContent
 block|{
+comment|/**      * The generation value indicating the repository has no index generational files.      */
+DECL|field|EMPTY_REPO_GEN
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|EMPTY_REPO_GEN
+init|=
+operator|-
+literal|1L
+decl_stmt|;
+comment|/**      * An instance initialized for an empty repository.      */
 DECL|field|EMPTY
 specifier|public
 specifier|static
@@ -227,6 +239,8 @@ init|=
 operator|new
 name|RepositoryData
 argument_list|(
+name|EMPTY_REPO_GEN
+argument_list|,
 name|Collections
 operator|.
 name|emptyList
@@ -237,6 +251,13 @@ operator|.
 name|emptyMap
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|/**      * The generational id of the index file from which the repository data was read.      */
+DECL|field|genId
+specifier|private
+specifier|final
+name|long
+name|genId
 decl_stmt|;
 comment|/**      * The ids of the snapshots in the repository.      */
 DECL|field|snapshotIds
@@ -276,9 +297,12 @@ argument_list|>
 name|indexSnapshots
 decl_stmt|;
 DECL|method|RepositoryData
-specifier|public
+specifier|private
 name|RepositoryData
 parameter_list|(
+name|long
+name|genId
+parameter_list|,
 name|List
 argument_list|<
 name|SnapshotId
@@ -297,6 +321,12 @@ argument_list|>
 name|indexSnapshots
 parameter_list|)
 block|{
+name|this
+operator|.
+name|genId
+operator|=
+name|genId
+expr_stmt|;
 name|this
 operator|.
 name|snapshotIds
@@ -354,6 +384,43 @@ name|indexSnapshots
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates an instance of {@link RepositoryData} on a fresh repository (one that has no index-N files).      */
+DECL|method|initRepositoryData
+specifier|public
+specifier|static
+name|RepositoryData
+name|initRepositoryData
+parameter_list|(
+name|List
+argument_list|<
+name|SnapshotId
+argument_list|>
+name|snapshotIds
+parameter_list|,
+name|Map
+argument_list|<
+name|IndexId
+argument_list|,
+name|Set
+argument_list|<
+name|SnapshotId
+argument_list|>
+argument_list|>
+name|indexSnapshots
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RepositoryData
+argument_list|(
+name|EMPTY_REPO_GEN
+argument_list|,
+name|snapshotIds
+argument_list|,
+name|indexSnapshots
+argument_list|)
+return|;
+block|}
 DECL|method|copy
 specifier|protected
 name|RepositoryData
@@ -364,10 +431,23 @@ return|return
 operator|new
 name|RepositoryData
 argument_list|(
+name|genId
+argument_list|,
 name|snapshotIds
 argument_list|,
 name|indexSnapshots
 argument_list|)
+return|;
+block|}
+comment|/**      * Gets the generational index file id from which this instance was read.      */
+DECL|method|getGenId
+specifier|public
+name|long
+name|getGenId
+parameter_list|()
+block|{
+return|return
+name|genId
 return|;
 block|}
 comment|/**      * Returns an unmodifiable list of the snapshot ids.      */
@@ -428,17 +508,12 @@ name|snapshotId
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"["
-operator|+
-name|snapshotId
-operator|+
-literal|"] already exists in the repository data"
-argument_list|)
-throw|;
+comment|// if the snapshot id already exists in the repository data, it means an old master
+comment|// that is blocked from the cluster is trying to finalize a snapshot concurrently with
+comment|// the new master, so we make the operation idempotent
+return|return
+name|this
+return|;
 block|}
 name|List
 argument_list|<
@@ -577,38 +652,11 @@ return|return
 operator|new
 name|RepositoryData
 argument_list|(
+name|genId
+argument_list|,
 name|snapshots
 argument_list|,
 name|allIndexSnapshots
-argument_list|)
-return|;
-block|}
-comment|/**      * Initializes the indices in the repository metadata; returns a new instance.      */
-DECL|method|initIndices
-specifier|public
-name|RepositoryData
-name|initIndices
-parameter_list|(
-specifier|final
-name|Map
-argument_list|<
-name|IndexId
-argument_list|,
-name|Set
-argument_list|<
-name|SnapshotId
-argument_list|>
-argument_list|>
-name|indexSnapshots
-parameter_list|)
-block|{
-return|return
-operator|new
-name|RepositoryData
-argument_list|(
-name|snapshotIds
-argument_list|,
-name|indexSnapshots
 argument_list|)
 return|;
 block|}
@@ -771,6 +819,8 @@ return|return
 operator|new
 name|RepositoryData
 argument_list|(
+name|genId
+argument_list|,
 name|newSnapshotIds
 argument_list|,
 name|indexSnapshots
@@ -1327,6 +1377,10 @@ parameter_list|(
 specifier|final
 name|XContentParser
 name|parser
+parameter_list|,
+specifier|final
+name|long
+name|genId
 parameter_list|)
 throws|throws
 name|IOException
@@ -1717,6 +1771,8 @@ return|return
 operator|new
 name|RepositoryData
 argument_list|(
+name|genId
+argument_list|,
 name|snapshots
 argument_list|,
 name|indexSnapshots

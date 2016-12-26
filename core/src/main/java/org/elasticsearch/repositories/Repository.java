@@ -291,7 +291,7 @@ name|MetaData
 name|metaData
 parameter_list|)
 function_decl|;
-comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param indices       list of indices in the snapshot      * @param startTime     start time of the snapshot      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
+comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param indices       list of indices in the snapshot      * @param startTime     start time of the snapshot      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @param repositoryStateId the unique id identifying the state of the repository when the snapshot began      * @return snapshot description      */
 DECL|method|finalizeSnapshot
 name|SnapshotInfo
 name|finalizeSnapshot
@@ -319,15 +319,21 @@ argument_list|<
 name|SnapshotShardFailure
 argument_list|>
 name|shardFailures
+parameter_list|,
+name|long
+name|repositoryStateId
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes snapshot      *      * @param snapshotId snapshot id      */
+comment|/**      * Deletes snapshot      *      * @param snapshotId snapshot id      * @param repositoryStateId the unique id identifying the state of the repository when the snapshot deletion began      */
 DECL|method|deleteSnapshot
 name|void
 name|deleteSnapshot
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|long
+name|repositoryStateId
 parameter_list|)
 function_decl|;
 comment|/**      * Returns snapshot throttle time in nanoseconds      */

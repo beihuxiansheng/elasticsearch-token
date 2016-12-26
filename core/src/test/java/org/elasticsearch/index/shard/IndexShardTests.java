@@ -11112,8 +11112,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
 name|RepositoryData
+operator|.
+name|initRepositoryData
 argument_list|(
 name|Collections
 operator|.
@@ -11174,6 +11175,9 @@ argument_list|<
 name|SnapshotShardFailure
 argument_list|>
 name|shardFailures
+parameter_list|,
+name|long
+name|repositoryStateId
 parameter_list|)
 block|{
 return|return
@@ -11189,6 +11193,9 @@ name|deleteSnapshot
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|long
+name|repositoryStateId
 parameter_list|)
 block|{         }
 annotation|@
