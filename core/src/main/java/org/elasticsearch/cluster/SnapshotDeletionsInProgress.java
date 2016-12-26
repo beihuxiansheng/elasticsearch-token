@@ -214,7 +214,7 @@ name|VERSION_INTRODUCED
 init|=
 name|Version
 operator|.
-name|V_6_0_0_alpha1_UNRELEASED
+name|V_5_2_0_UNRELEASED
 decl_stmt|;
 comment|// the list of snapshot deletion request entries
 DECL|field|entries
