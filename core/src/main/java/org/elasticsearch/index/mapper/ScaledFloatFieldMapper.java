@@ -3180,11 +3180,11 @@ name|NumericType
 name|getNumericType
 parameter_list|()
 block|{
+comment|/**              * {@link ScaledFloatLeafFieldData#getDoubleValues()} transforms the raw long values in `scaled` floats.              */
 return|return
-name|scaledFieldData
+name|NumericType
 operator|.
-name|getNumericType
-argument_list|()
+name|DOUBLE
 return|;
 block|}
 block|}
