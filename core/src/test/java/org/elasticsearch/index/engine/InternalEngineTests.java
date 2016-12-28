@@ -20397,6 +20397,9 @@ name|loadLatestState
 argument_list|(
 name|logger
 argument_list|,
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|src
 argument_list|)
 decl_stmt|;

@@ -337,8 +337,6 @@ name|readMetaData
 init|=
 name|IndexTemplateMetaData
 operator|.
-name|Builder
-operator|.
 name|readFrom
 argument_list|(
 name|in

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.xcontent
+DECL|package|org.elasticsearch.cluster
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
+name|cluster
 package|;
 end_package
 
@@ -24,48 +22,39 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
-name|IOException
+name|stream
+operator|.
+name|NamedWriteable
 import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates that the class supports XContent deserialization.  */
+comment|/**  * Diff that also support NamedWriteable interface  */
 end_comment
 
 begin_interface
-DECL|interface|FromXContentBuilder
+DECL|interface|NamedDiff
 specifier|public
 interface|interface
-name|FromXContentBuilder
+name|NamedDiff
+parameter_list|<
+name|T
+extends|extends
+name|Diffable
 parameter_list|<
 name|T
 parameter_list|>
-block|{
-comment|/**      * Parses an object with the type T from parser      */
-DECL|method|fromXContent
+parameter_list|>
+extends|extends
+name|Diff
+argument_list|<
 name|T
-name|fromXContent
-parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-block|}
+argument_list|>
+extends|,
+name|NamedWriteable
+block|{  }
 end_interface
 
 end_unit

@@ -1126,6 +1126,9 @@ specifier|final
 name|T
 name|read
 parameter_list|(
+name|NamedXContentRegistry
+name|namedXContentRegistry
+parameter_list|,
 name|Path
 name|file
 parameter_list|)
@@ -1265,7 +1268,6 @@ name|contentSize
 argument_list|)
 init|)
 block|{
-comment|// It is safe to use EMPTY here because this never uses namedObject
 try|try
 init|(
 name|XContentParser
@@ -1280,9 +1282,7 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
-name|NamedXContentRegistry
-operator|.
-name|EMPTY
+name|namedXContentRegistry
 argument_list|,
 operator|new
 name|InputStreamIndexInput
@@ -1633,6 +1633,9 @@ parameter_list|(
 name|Logger
 name|logger
 parameter_list|,
+name|NamedXContentRegistry
+name|namedXContentRegistry
+parameter_list|,
 name|Path
 modifier|...
 name|dataLocations
@@ -1965,7 +1968,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-comment|// EMPTY is safe here because no parser uses namedObject
 try|try
 init|(
 name|XContentParser
@@ -1975,9 +1977,7 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
-name|NamedXContentRegistry
-operator|.
-name|EMPTY
+name|namedXContentRegistry
 argument_list|,
 operator|new
 name|BytesArray
@@ -2024,6 +2024,8 @@ name|state
 operator|=
 name|read
 argument_list|(
+name|namedXContentRegistry
+argument_list|,
 name|stateFile
 argument_list|)
 expr_stmt|;

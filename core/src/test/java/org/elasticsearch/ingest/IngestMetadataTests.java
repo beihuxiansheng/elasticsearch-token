@@ -372,7 +372,7 @@ operator|.
 name|Custom
 name|custom
 init|=
-name|ingestMetadata
+name|IngestMetadata
 operator|.
 name|fromXContent
 argument_list|(

@@ -262,8 +262,6 @@ literal|0
 argument_list|,
 name|IndexTemplateMetaData
 operator|.
-name|Builder
-operator|.
 name|readFrom
 argument_list|(
 name|in

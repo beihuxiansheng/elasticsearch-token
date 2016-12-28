@@ -592,8 +592,6 @@ name|result
 init|=
 name|ScriptMetaData
 operator|.
-name|PROTO
-operator|.
 name|fromXContent
 argument_list|(
 name|parser
@@ -663,11 +661,8 @@ expr_stmt|;
 name|ScriptMetaData
 name|result
 init|=
+operator|new
 name|ScriptMetaData
-operator|.
-name|PROTO
-operator|.
-name|readFrom
 argument_list|(
 operator|new
 name|InputStreamStreamInput

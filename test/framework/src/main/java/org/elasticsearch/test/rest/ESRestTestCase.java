@@ -942,6 +942,17 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Returns whether to preserve the repositories on completion of this test.      */
+DECL|method|preserveReposUponCompletion
+specifier|protected
+name|boolean
+name|preserveReposUponCompletion
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|wipeCluster
 specifier|private
 name|void
@@ -1238,6 +1249,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|preserveReposUponCompletion
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -1259,6 +1278,7 @@ operator|+
 name|repoName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Logs a message if there are still running tasks. The reasoning is that any tasks still running are state the is trying to bleed into      * other tests.      */
