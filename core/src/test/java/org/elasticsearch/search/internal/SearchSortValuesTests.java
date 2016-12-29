@@ -563,8 +563,6 @@ argument_list|(
 name|parsed
 argument_list|,
 name|xcontentType
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 name|xcontentType

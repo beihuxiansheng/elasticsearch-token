@@ -300,8 +300,6 @@ operator|.
 name|toString
 argument_list|(
 name|getField
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -396,8 +394,6 @@ argument_list|(
 name|getField
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|//test that we can parse what we print out
@@ -510,8 +506,6 @@ argument_list|(
 name|parsedGetField
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertToXContentEquivalent

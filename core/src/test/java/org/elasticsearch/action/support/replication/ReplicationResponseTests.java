@@ -1310,8 +1310,6 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// Expected JSON is {"_shards":{"total":5,"successful":3,"failed":0}}
@@ -1631,8 +1629,6 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|ReplicationResponse
@@ -1723,8 +1719,6 @@ argument_list|(
 name|parsedShardInfo
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1775,8 +1769,6 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -2184,8 +2176,6 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|ReplicationResponse
@@ -2523,8 +2513,6 @@ argument_list|(
 name|shardInfoFailure
 argument_list|,
 name|xContentType
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 try|try
@@ -2594,8 +2582,6 @@ argument_list|(
 name|shardInfoFailure
 argument_list|,
 name|xContentType
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ReplicationResponse

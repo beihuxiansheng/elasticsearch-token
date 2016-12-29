@@ -104,6 +104,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|ToXContentObject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -3414,7 +3428,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * Return a {@link String} that is the json representation of the provided      * {@link ToXContent}.      */
+comment|/**      * Return a {@link String} that is the json representation of the provided {@link ToXContent}.      * Wraps the output into an anonymous object.      */
 DECL|method|toString
 specifier|public
 specifier|static
@@ -3423,29 +3437,6 @@ name|toString
 parameter_list|(
 name|ToXContent
 name|toXContent
-parameter_list|)
-block|{
-return|return
-name|toString
-argument_list|(
-name|toXContent
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-comment|/**      * Return a {@link String} that is the json representation of the provided      * {@link ToXContent}.      * @param wrapInObject set this to true if the ToXContent instance expects to be inside an object      */
-DECL|method|toString
-specifier|public
-specifier|static
-name|String
-name|toString
-parameter_list|(
-name|ToXContent
-name|toXContent
-parameter_list|,
-name|boolean
-name|wrapInObject
 parameter_list|)
 block|{
 try|try
@@ -3460,7 +3451,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|wrapInObject
+name|toXContent
+operator|.
+name|isFragment
+argument_list|()
 condition|)
 block|{
 name|builder
@@ -3482,7 +3476,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|wrapInObject
+name|toXContent
+operator|.
+name|isFragment
+argument_list|()
 condition|)
 block|{
 name|builder

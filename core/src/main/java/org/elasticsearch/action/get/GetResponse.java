@@ -700,8 +700,6 @@ operator|.
 name|toString
 argument_list|(
 name|this
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

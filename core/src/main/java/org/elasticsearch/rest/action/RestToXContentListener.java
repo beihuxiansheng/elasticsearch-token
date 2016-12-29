@@ -92,6 +92,16 @@ name|RestStatus
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A REST based action listener that assumes the response is of type {@link ToXContent} and automatically  * builds an XContent based response (wrapping the toXContent in startObject/endObject).  */
 end_comment
@@ -152,11 +162,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|buildResponse
-specifier|public
+DECL|method|toXContent
+specifier|protected
 specifier|final
-name|RestResponse
-name|buildResponse
+name|void
+name|toXContent
 parameter_list|(
 name|Response
 name|response
@@ -165,12 +175,20 @@ name|XContentBuilder
 name|builder
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
+specifier|final
+name|boolean
+name|needsNewObject
+init|=
+name|response
+operator|.
+name|isFragment
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-name|wrapInObject
-argument_list|()
+name|needsNewObject
 condition|)
 block|{
 name|builder
@@ -193,8 +211,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|wrapInObject
-argument_list|()
+name|needsNewObject
 condition|)
 block|{
 name|builder
@@ -203,6 +220,28 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|buildResponse
+specifier|public
+name|RestResponse
+name|buildResponse
+parameter_list|(
+name|Response
+name|response
+parameter_list|,
+name|XContentBuilder
+name|builder
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|toXContent
+argument_list|(
+name|response
+argument_list|,
+name|builder
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|BytesRestResponse
@@ -214,19 +253,6 @@ argument_list|)
 argument_list|,
 name|builder
 argument_list|)
-return|;
-block|}
-DECL|method|wrapInObject
-specifier|protected
-name|boolean
-name|wrapInObject
-parameter_list|()
-block|{
-comment|//Ideally, the toXContent method starts with startObject and ends with endObject.
-comment|//In practice, we have many places where toXContent produces a json fragment that's not valid by itself. We will
-comment|//migrate those step by step, so that we never have to start objects here, and we can remove this method.
-return|return
-literal|true
 return|;
 block|}
 DECL|method|getStatus
