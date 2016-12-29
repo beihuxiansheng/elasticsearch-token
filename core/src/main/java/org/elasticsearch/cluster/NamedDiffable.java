@@ -45,20 +45,15 @@ comment|/**  * Diff that also support NamedWriteable interface  */
 end_comment
 
 begin_interface
-DECL|interface|NamedDiff
+DECL|interface|NamedDiffable
 specifier|public
 interface|interface
-name|NamedDiff
+name|NamedDiffable
 parameter_list|<
 name|T
+parameter_list|>
 extends|extends
 name|Diffable
-parameter_list|<
-name|T
-parameter_list|>
-parameter_list|>
-extends|extends
-name|Diff
 argument_list|<
 name|T
 argument_list|>

@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -97,12 +107,10 @@ name|AbstractNamedDiffable
 parameter_list|<
 name|T
 extends|extends
-name|Diffable
+name|NamedDiffable
 parameter_list|<
 name|T
 parameter_list|>
-operator|&
-name|NamedWriteable
 parameter_list|>
 implements|implements
 name|Diffable
@@ -148,6 +156,11 @@ name|previousState
 operator|.
 name|getWriteableName
 argument_list|()
+argument_list|,
+name|previousState
+operator|.
+name|getMinimalSupportedVersion
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -170,12 +183,10 @@ specifier|static
 parameter_list|<
 name|T
 extends|extends
-name|Diffable
+name|NamedDiffable
 argument_list|<
 name|T
 argument_list|>
-operator|&
-name|NamedWriteable
 parameter_list|>
 name|NamedDiff
 argument_list|<
@@ -221,12 +232,10 @@ name|CompleteNamedDiff
 parameter_list|<
 name|T
 extends|extends
-name|Diffable
+name|NamedDiffable
 parameter_list|<
 name|T
 parameter_list|>
-operator|&
-name|NamedWriteable
 parameter_list|>
 implements|implements
 name|NamedDiff
@@ -247,6 +256,15 @@ specifier|private
 specifier|final
 name|String
 name|name
+decl_stmt|;
+comment|/**          * A non-null value is only required for write operation, if the diff was just read from the stream the version          * is unnecessary.          */
+annotation|@
+name|Nullable
+DECL|field|minimalSupportedVersion
+specifier|private
+specifier|final
+name|Version
+name|minimalSupportedVersion
 decl_stmt|;
 comment|/**          * Creates simple diff with changes          */
 DECL|method|CompleteNamedDiff
@@ -272,6 +290,15 @@ operator|.
 name|getWriteableName
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|minimalSupportedVersion
+operator|=
+name|part
+operator|.
+name|getMinimalSupportedVersion
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**          * Creates simple diff without changes          */
 DECL|method|CompleteNamedDiff
@@ -280,6 +307,9 @@ name|CompleteNamedDiff
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|Version
+name|minimalSupportedVersion
 parameter_list|)
 block|{
 name|this
@@ -293,6 +323,12 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+name|this
+operator|.
+name|minimalSupportedVersion
+operator|=
+name|minimalSupportedVersion
 expr_stmt|;
 block|}
 comment|/**          * Read simple diff from the stream          */
@@ -338,6 +374,15 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|minimalSupportedVersion
+operator|=
+name|part
+operator|.
+name|getMinimalSupportedVersion
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -347,6 +392,13 @@ name|part
 operator|=
 literal|null
 expr_stmt|;
+name|this
+operator|.
+name|minimalSupportedVersion
+operator|=
+literal|null
+expr_stmt|;
+comment|// We just read this diff, so it's not going to be written
 block|}
 name|this
 operator|.
@@ -368,6 +420,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|minimalSupportedVersion
+operator|!=
+literal|null
+operator|:
+literal|"shouldn't be called on diff that was de-serialized from the stream"
+assert|;
 if|if
 condition|(
 name|part
@@ -444,6 +503,25 @@ parameter_list|()
 block|{
 return|return
 name|name
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMinimalSupportedVersion
+specifier|public
+name|Version
+name|getMinimalSupportedVersion
+parameter_list|()
+block|{
+assert|assert
+name|minimalSupportedVersion
+operator|!=
+literal|null
+operator|:
+literal|"shouldn't be called on the diff that was de-serialized from the stream"
+assert|;
+return|return
+name|minimalSupportedVersion
 return|;
 block|}
 block|}
