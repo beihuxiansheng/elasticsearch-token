@@ -472,8 +472,6 @@ operator|.
 name|toString
 argument_list|(
 name|getResponse
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -520,8 +518,6 @@ operator|.
 name|toString
 argument_list|(
 name|getResponse
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
