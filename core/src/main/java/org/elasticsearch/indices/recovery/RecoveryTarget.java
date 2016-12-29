@@ -1015,6 +1015,10 @@ literal|true
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
+comment|// yes, this is just a logger call in a try-finally block. The reason for this is that resetRecovery is called from
+comment|// CancellableThreads and we have to make sure that all references to IndexShard are cleaned up before exiting this method
 name|logger
 operator|.
 name|debug
@@ -1026,10 +1030,14 @@ argument_list|,
 name|recoveryId
 argument_list|)
 expr_stmt|;
-comment|// release the initial reference. recovery files will be cleaned as soon as ref count goes to zero, potentially now
+block|}
+finally|finally
+block|{
+comment|// release the initial reference. recovery files will be cleaned as soon as ref count goes to zero, potentially now.
 name|decRef
 argument_list|()
 expr_stmt|;
+block|}
 name|closedLatch
 operator|.
 name|await
