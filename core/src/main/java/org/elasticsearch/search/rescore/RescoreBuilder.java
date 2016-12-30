@@ -445,16 +445,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|parseContext
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|WINDOW_SIZE_FIELD
 operator|.
 name|match
 argument_list|(
 name|fieldName
-argument_list|,
-name|WINDOW_SIZE_FIELD
 argument_list|)
 condition|)
 block|{
