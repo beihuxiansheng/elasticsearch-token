@@ -10462,9 +10462,14 @@ name|Math
 operator|.
 name|ceil
 argument_list|(
+name|Math
+operator|.
+name|nextUp
+argument_list|(
 name|numDocs
 operator|/
 literal|10.0
+argument_list|)
 argument_list|)
 argument_list|,
 name|Math
