@@ -294,8 +294,6 @@ name|setting
 parameter_list|)
 block|{
 return|return
-name|this
-operator|.
 name|CACHE
 operator|.
 name|match
@@ -303,8 +301,6 @@ argument_list|(
 name|setting
 argument_list|)
 operator|||
-name|this
-operator|.
 name|CACHE_KEY
 operator|.
 name|match
