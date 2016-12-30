@@ -1349,6 +1349,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1518,6 +1521,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1660,6 +1666,9 @@ operator|new
 name|AnalysisRegistry
 argument_list|(
 name|environment
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -1821,6 +1830,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1958,6 +1970,9 @@ operator|new
 name|AnalysisRegistry
 argument_list|(
 name|environment
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2196,6 +2211,9 @@ operator|new
 name|AnalysisRegistry
 argument_list|(
 name|environment
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2474,6 +2492,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2659,6 +2680,9 @@ operator|new
 name|AnalysisRegistry
 argument_list|(
 name|environment
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2944,6 +2968,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3062,6 +3089,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3161,6 +3191,9 @@ operator|new
 name|AnalysisRegistry
 argument_list|(
 name|environment
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -3326,6 +3359,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3440,6 +3476,9 @@ operator|new
 name|AnalysisRegistry
 argument_list|(
 name|environment
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

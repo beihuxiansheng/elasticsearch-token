@@ -3867,7 +3867,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Unknown tokenfilter type [icu_collation] for [myCollator]"
+literal|"Unknown filter type [icu_collation] for [myCollator]"
 argument_list|)
 expr_stmt|;
 block|}
