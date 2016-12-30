@@ -1275,7 +1275,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|PREFIX_FIELD
+name|REGEX_FIELD
 operator|.
 name|match
 argument_list|(
