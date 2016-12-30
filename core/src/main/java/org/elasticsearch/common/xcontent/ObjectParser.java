@@ -2163,13 +2163,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|matcher
+name|parseField
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
-argument_list|,
-name|parseField
 argument_list|)
 operator|==
 literal|false
