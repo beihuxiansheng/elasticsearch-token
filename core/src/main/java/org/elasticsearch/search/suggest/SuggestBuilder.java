@@ -801,13 +801,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|parseFieldMatcher
+name|GLOBAL_TEXT_FIELD
 operator|.
 name|match
 argument_list|(
 name|fieldName
-argument_list|,
-name|GLOBAL_TEXT_FIELD
 argument_list|)
 condition|)
 block|{
