@@ -243,8 +243,6 @@ operator|.
 name|lookupReturningNullIfNotFound
 argument_list|(
 name|type
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
@@ -269,8 +267,6 @@ operator|.
 name|lookupReturningNullIfNotFound
 argument_list|(
 name|type
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 return|;
 block|}

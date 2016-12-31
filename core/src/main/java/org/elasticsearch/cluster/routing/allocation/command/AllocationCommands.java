@@ -697,8 +697,6 @@ name|lookup
 argument_list|(
 name|commandName
 argument_list|,
-name|parseFieldMatcher
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
