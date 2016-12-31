@@ -731,10 +731,6 @@ operator|.
 name|fromString
 argument_list|(
 name|searchType
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
 argument_list|)
 argument_list|)
 return|;
