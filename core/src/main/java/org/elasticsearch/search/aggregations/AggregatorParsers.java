@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -222,7 +210,7 @@ operator|=
 name|pipelineAggregationParserRegistry
 expr_stmt|;
 block|}
-comment|/**      * Returns the parser that is registered under the given aggregation type.      *      * @param type The aggregation type      * @param parseFieldMatcher used for making error messages.      * @return The parser associated with the given aggregation type or null if it wasn't found.      */
+comment|/**      * Returns the parser that is registered under the given aggregation type.      *      * @param type The aggregation type      * @return The parser associated with the given aggregation type or null if it wasn't found.      */
 DECL|method|parser
 specifier|public
 name|Aggregator
@@ -232,9 +220,6 @@ name|parser
 parameter_list|(
 name|String
 name|type
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 return|return
@@ -246,7 +231,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the parser that is registered under the given pipeline aggregator type.      *      * @param type The pipeline aggregator type      * @param parseFieldMatcher used for making error messages.      * @return The parser associated with the given pipeline aggregator type or null if it wasn't found.      */
+comment|/**      * Returns the parser that is registered under the given pipeline aggregator type.      *      * @param type The pipeline aggregator type      * @return The parser associated with the given pipeline aggregator type or null if it wasn't found.      */
 DECL|method|pipelineParser
 specifier|public
 name|PipelineAggregator
@@ -256,9 +241,6 @@ name|pipelineParser
 parameter_list|(
 name|String
 name|type
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 return|return
@@ -736,11 +718,6 @@ init|=
 name|parser
 argument_list|(
 name|fieldName
-argument_list|,
-name|parseContext
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -758,11 +735,6 @@ init|=
 name|pipelineParser
 argument_list|(
 name|fieldName
-argument_list|,
-name|parseContext
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
