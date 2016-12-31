@@ -480,11 +480,6 @@ operator|.
 name|fromString
 argument_list|(
 name|executionHint
-argument_list|,
-name|context
-operator|.
-name|parseFieldMatcher
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -555,23 +555,6 @@ name|SearchContext
 name|in
 parameter_list|)
 block|{
-comment|//inner_hits in percolator ends up with null inner search context
-name|super
-argument_list|(
-name|in
-operator|==
-literal|null
-condition|?
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
-else|:
-name|in
-operator|.
-name|parseFieldMatcher
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|in

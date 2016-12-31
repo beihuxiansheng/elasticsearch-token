@@ -3941,8 +3941,6 @@ operator|.
 name|estimatedTimeInMillisCounter
 argument_list|()
 argument_list|,
-name|parseFieldMatcher
-argument_list|,
 name|timeout
 argument_list|,
 name|fetchPhase
