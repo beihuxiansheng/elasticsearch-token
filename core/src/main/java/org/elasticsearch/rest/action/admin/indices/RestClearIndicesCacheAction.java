@@ -108,18 +108,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -452,8 +440,6 @@ argument_list|(
 name|request
 argument_list|,
 name|clearIndicesCacheRequest
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 return|return
@@ -553,9 +539,6 @@ name|request
 parameter_list|,
 name|ClearIndicesCacheRequest
 name|clearIndicesCacheRequest
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 for|for
