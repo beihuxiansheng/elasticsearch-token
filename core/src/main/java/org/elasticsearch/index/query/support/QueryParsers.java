@@ -56,18 +56,6 @@ name|ParseField
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
 begin_class
 DECL|class|QueryParsers
 specifier|public
@@ -204,9 +192,6 @@ operator|.
 name|RewriteMethod
 name|parseRewriteMethod
 parameter_list|(
-name|ParseFieldMatcher
-name|matcher
-parameter_list|,
 annotation|@
 name|Nullable
 name|String
@@ -216,8 +201,6 @@ block|{
 return|return
 name|parseRewriteMethod
 argument_list|(
-name|matcher
-argument_list|,
 name|rewriteMethod
 argument_list|,
 name|MultiTermQuery
@@ -234,9 +217,6 @@ operator|.
 name|RewriteMethod
 name|parseRewriteMethod
 parameter_list|(
-name|ParseFieldMatcher
-name|matcher
-parameter_list|,
 annotation|@
 name|Nullable
 name|String

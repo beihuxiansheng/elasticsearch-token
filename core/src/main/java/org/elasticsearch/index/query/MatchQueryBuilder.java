@@ -1978,11 +1978,6 @@ name|QueryParsers
 operator|.
 name|parseRewriteMethod
 argument_list|(
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
-argument_list|,
 name|fuzzyRewrite
 argument_list|,
 literal|null
