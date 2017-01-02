@@ -497,7 +497,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"cannot allocate because a previous copy of the shard existed"
+literal|"cannot allocate because a previous copy of the primary shard existed"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -810,7 +810,7 @@ name|assertEquals
 argument_list|(
 name|AllocationDecision
 operator|.
-name|THROTTLE
+name|THROTTLED
 argument_list|,
 name|throttleDecision
 operator|.

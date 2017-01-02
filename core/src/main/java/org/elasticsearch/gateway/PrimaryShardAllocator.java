@@ -1207,6 +1207,13 @@ name|AllocationStatus
 operator|.
 name|NO_VALID_SHARD_COPY
 argument_list|,
+name|explain
+condition|?
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+else|:
 literal|null
 argument_list|)
 return|;
