@@ -398,7 +398,7 @@ condition|)
 block|{
 name|query
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 name|randomMinimumShouldMatch
 argument_list|()
@@ -2119,7 +2119,7 @@ literal|"bar2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|"3"
 argument_list|)
@@ -2171,7 +2171,7 @@ literal|"bar2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|3
 argument_list|)
@@ -2233,7 +2233,7 @@ literal|"bar2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|"3"
 argument_list|)

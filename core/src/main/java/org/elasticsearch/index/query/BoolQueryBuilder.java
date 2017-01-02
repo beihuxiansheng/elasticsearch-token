@@ -379,18 +379,7 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"minimum_should_match"
-argument_list|)
-decl_stmt|;
-DECL|field|MINIMUM_NUMBER_SHOULD_MATCH
-specifier|private
-specifier|static
-specifier|final
-name|ParseField
-name|MINIMUM_NUMBER_SHOULD_MATCH
-init|=
-operator|new
-name|ParseField
-argument_list|(
+argument_list|,
 literal|"minimum_number_should_match"
 argument_list|)
 decl_stmt|;
@@ -785,7 +774,7 @@ operator|.
 name|mustNotClauses
 return|;
 block|}
-comment|/**      * Adds a clause that<i>should</i> be matched by the returned documents. For a boolean query with no      *<tt>MUST</tt> clauses one or more<code>SHOULD</code> clauses must match a document      * for the BooleanQuery to match. No<tt>null</tt> value allowed.      *      * @see #minimumNumberShouldMatch(int)      */
+comment|/**      * Adds a clause that<i>should</i> be matched by the returned documents. For a boolean query with no      *<tt>MUST</tt> clauses one or more<code>SHOULD</code> clauses must match a document      * for the BooleanQuery to match. No<tt>null</tt> value allowed.      *      * @see #minimumShouldMatch(int)      */
 DECL|method|should
 specifier|public
 name|BoolQueryBuilder
@@ -821,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Gets the list of clauses that<b>should</b> be matched by the returned documents.      *      * @see #should(QueryBuilder)      *  @see #minimumNumberShouldMatch(int)      */
+comment|/**      * Gets the list of clauses that<b>should</b> be matched by the returned documents.      *      * @see #should(QueryBuilder)      *  @see #minimumShouldMatch(int)      */
 DECL|method|should
 specifier|public
 name|List
@@ -870,51 +859,6 @@ operator|.
 name|disableCoord
 return|;
 block|}
-comment|/**      * Specifies a minimum number of the optional (should) boolean clauses which must be satisfied.      *<p>      * By default no optional clauses are necessary for a match      * (unless there are no required clauses).  If this method is used,      * then the specified number of clauses is required.      *<p>      * Use of this method is totally independent of specifying that      * any specific clauses are required (or prohibited).  This number will      * only be compared against the number of matching optional clauses.      *      * @param minimumNumberShouldMatch the number of optional clauses that must match      */
-DECL|method|minimumNumberShouldMatch
-specifier|public
-name|BoolQueryBuilder
-name|minimumNumberShouldMatch
-parameter_list|(
-name|int
-name|minimumNumberShouldMatch
-parameter_list|)
-block|{
-name|this
-operator|.
-name|minimumShouldMatch
-operator|=
-name|Integer
-operator|.
-name|toString
-argument_list|(
-name|minimumNumberShouldMatch
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Specifies a minimum number of the optional (should) boolean clauses which must be satisfied.      * @see BoolQueryBuilder#minimumNumberShouldMatch(int)      */
-DECL|method|minimumNumberShouldMatch
-specifier|public
-name|BoolQueryBuilder
-name|minimumNumberShouldMatch
-parameter_list|(
-name|String
-name|minimumNumberShouldMatch
-parameter_list|)
-block|{
-name|this
-operator|.
-name|minimumShouldMatch
-operator|=
-name|minimumNumberShouldMatch
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * @return the string representation of the minimumShouldMatch settings for this query      */
 DECL|method|minimumShouldMatch
 specifier|public
@@ -943,6 +887,31 @@ operator|.
 name|minimumShouldMatch
 operator|=
 name|minimumShouldMatch
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the minimum should match as an integer value.      */
+DECL|method|minimumShouldMatch
+specifier|public
+name|BoolQueryBuilder
+name|minimumShouldMatch
+parameter_list|(
+name|int
+name|minimumShouldMatch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|minimumShouldMatch
+operator|=
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|minimumShouldMatch
+argument_list|)
 expr_stmt|;
 return|return
 name|this
@@ -1640,25 +1609,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|MINIMUM_NUMBER_SHOULD_MATCH
-operator|.
-name|match
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|minimumShouldMatch
-operator|=
-name|parser
-operator|.
-name|textOrNull
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 name|ADJUST_PURE_NEGATIVE
 operator|.
 name|match
@@ -1811,7 +1761,7 @@ argument_list|)
 expr_stmt|;
 name|boolQuery
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 name|minimumShouldMatch
 argument_list|)
