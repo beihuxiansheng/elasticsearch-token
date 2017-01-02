@@ -813,6 +813,18 @@ operator|.
 name|AWAITING_INFO
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|allocateDecision
+operator|.
+name|getAllocationDecision
+argument_list|()
+operator|==
+name|AllocationDecision
+operator|.
+name|NO_VALID_SHARD_COPY
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 literal|"cannot allocate because a previous copy of the primary shard existed but can no longer be "
@@ -825,6 +837,20 @@ name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+literal|"cannot allocate because information about existing shard data is still being retrieved from some of the nodes"
+argument_list|,
+name|allocateDecision
+operator|.
+name|getExplanation
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertNull
 argument_list|(
 name|allocateDecision
