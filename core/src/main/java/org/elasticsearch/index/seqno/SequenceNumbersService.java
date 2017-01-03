@@ -241,7 +241,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
+comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. See      * {@link GlobalCheckpointService#updateLocalCheckpoint(String, long)} for details.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
 DECL|method|updateLocalCheckpointForShard
 specifier|public
 name|void
@@ -346,7 +346,7 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation ids of the currently active shard copies      * @param initializingAllocationIds the allocation ids of the currently initializing shard copies      */
+comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
 specifier|public
 name|void
