@@ -444,20 +444,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -2142,20 +2128,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|DeprecationLogger
-operator|.
-name|removeThreadContext
-argument_list|(
-name|this
-operator|.
-name|threadContext
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|threadContext
-operator|.
-name|close
+name|resetDeprecationLogger
 argument_list|()
 expr_stmt|;
 block|}
@@ -2170,8 +2143,6 @@ name|String
 modifier|...
 name|expectedWarnings
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -2273,6 +2244,17 @@ block|}
 block|}
 finally|finally
 block|{
+name|resetDeprecationLogger
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|resetDeprecationLogger
+specifier|private
+name|void
+name|resetDeprecationLogger
+parameter_list|()
+block|{
 comment|// "clear" current warning headers by setting a new ThreadContext
 name|DeprecationLogger
 operator|.
@@ -2283,6 +2265,8 @@ operator|.
 name|threadContext
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|this
 operator|.
 name|threadContext
@@ -2290,6 +2274,25 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// catch IOException to avoid that call sites have to deal with it. It is only declared because this class implements Closeable
+comment|// but it is impossible that this implementation will ever throw an IOException.
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+literal|"IOException thrown while closing deprecation logger's thread context"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|threadContext
@@ -2311,7 +2314,6 @@ operator|.
 name|threadContext
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|field|statusData
 specifier|private
