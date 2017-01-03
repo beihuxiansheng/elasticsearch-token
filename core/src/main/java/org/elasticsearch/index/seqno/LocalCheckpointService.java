@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class generates sequences numbers and keeps track of the so called local checkpoint - the highest number for which  * all previous seqNo have been processed (including)  */
+comment|/**  * This class generates sequences numbers and keeps track of the so called local checkpoint - the highest number for which all previous  * sequence numbers have been processed (inclusive).  */
 end_comment
 
 begin_class
@@ -106,7 +106,7 @@ name|LocalCheckpointService
 extends|extends
 name|AbstractIndexShardComponent
 block|{
-comment|/**      * we keep a bit for each seq No that is still pending. to optimize allocation, we do so in multiple arrays      * allocating them on demand and cleaning up while completed. This setting controls the size of the arrays      */
+comment|/**      * We keep a bit for each sequence number that is still pending. To optimize allocation, we do so in multiple arrays allocating them on      * demand and cleaning up while completed. This setting controls the size of the arrays.      */
 DECL|field|SETTINGS_BIT_ARRAYS_SIZE
 specifier|public
 specifier|static
@@ -133,7 +133,7 @@ operator|.
 name|IndexScope
 argument_list|)
 decl_stmt|;
-comment|/**      * an ordered list of bit arrays representing pending seq nos. The list is "anchored" in {@link #firstProcessedSeqNo}      * which marks the seqNo the fist bit in the first array corresponds to.      */
+comment|/**      * An ordered list of bit arrays representing pending sequence numbers. The list is "anchored" in {@link #firstProcessedSeqNo} which      * marks the sequence number the fist bit in the first array corresponds to.      */
 DECL|field|processedSeqNo
 specifier|final
 name|LinkedList
@@ -141,31 +141,38 @@ argument_list|<
 name|FixedBitSet
 argument_list|>
 name|processedSeqNo
+init|=
+operator|new
+name|LinkedList
+argument_list|<>
+argument_list|()
 decl_stmt|;
+comment|/**      * The size of each bit set representing processed sequence numbers.      */
 DECL|field|bitArraysSize
 specifier|private
 specifier|final
 name|int
 name|bitArraysSize
 decl_stmt|;
+comment|/**      * The sequence number that the first bit in the first array corresponds to.      */
 DECL|field|firstProcessedSeqNo
 name|long
 name|firstProcessedSeqNo
 decl_stmt|;
-comment|/** the current local checkpoint, i.e., all seqNo lower (&lt;=) than this number have been completed */
+comment|/**      * The current local checkpoint, i.e., all sequence numbers no more than this number have been completed.      */
 DECL|field|checkpoint
 specifier|volatile
 name|long
 name|checkpoint
 decl_stmt|;
-comment|/** the next available seqNo - used for seqNo generation */
+comment|/**      * The next available sequence number.      */
 DECL|field|nextSeqNo
 specifier|private
 specifier|volatile
 name|long
 name|nextSeqNo
 decl_stmt|;
-comment|/**      * Initialize the local checkpoint service. The {@code maxSeqNo} should be      * set to the last sequence number assigned by this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED} and      * {@code localCheckpoint} should be set to the last known local checkpoint      * for this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}.      *      * @param shardId         the shard this service is providing tracking      *                        local checkpoints for      * @param indexSettings   the index settings      * @param maxSeqNo        the last sequence number assigned by this shard, or      *                        {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint the last known local checkpoint for this shard, or      *                        {@link SequenceNumbersService#NO_OPS_PERFORMED}      */
+comment|/**      * Initialize the local checkpoint service. The {@code maxSeqNo} should be set to the last sequence number assigned by this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED} and {@code localCheckpoint} should be set to the last known local checkpoint for this      * shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}.      *      * @param shardId         the shard this service is providing tracking local checkpoints for      * @param indexSettings   the index settings      * @param maxSeqNo        the last sequence number assigned by this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint the last known local checkpoint for this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}      */
 DECL|method|LocalCheckpointService
 name|LocalCheckpointService
 parameter_list|(
@@ -269,13 +276,6 @@ name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|processedSeqNo
-operator|=
-operator|new
-name|LinkedList
-argument_list|<>
-argument_list|()
-expr_stmt|;
 name|firstProcessedSeqNo
 operator|=
 name|localCheckpoint
@@ -290,8 +290,6 @@ name|localCheckpoint
 operator|+
 literal|1
 expr_stmt|;
-name|this
-operator|.
 name|nextSeqNo
 operator|=
 name|maxSeqNo
@@ -306,14 +304,12 @@ name|maxSeqNo
 operator|+
 literal|1
 expr_stmt|;
-name|this
-operator|.
 name|checkpoint
 operator|=
 name|localCheckpoint
 expr_stmt|;
 block|}
-comment|/**      * issue the next sequence number      **/
+comment|/**      * Issue the next sequence number.      *      * @return the next assigned sequence number      */
 DECL|method|generateSeqNo
 specifier|synchronized
 name|long
@@ -325,17 +321,18 @@ name|nextSeqNo
 operator|++
 return|;
 block|}
-comment|/**      * marks the processing of the given seqNo have been completed      **/
+comment|/**      * Marks the processing of the provided sequence number as completed as updates the checkpoint if possible.      *      * @param seqNo the sequence number to mark as completed      */
 DECL|method|markSeqNoAsCompleted
 specifier|synchronized
 name|void
 name|markSeqNoAsCompleted
 parameter_list|(
+specifier|final
 name|long
 name|seqNo
 parameter_list|)
 block|{
-comment|// make sure we track highest seen seqNo
+comment|// make sure we track highest seen sequence number
 if|if
 condition|(
 name|seqNo
@@ -357,9 +354,10 @@ operator|<=
 name|checkpoint
 condition|)
 block|{
-comment|// this is possible during recovery where we might replay an op that was also replicated
+comment|// this is possible during recovery where we might replay an operation that was also replicated
 return|return;
 block|}
+specifier|final
 name|FixedBitSet
 name|bitSet
 init|=
@@ -368,6 +366,7 @@ argument_list|(
 name|seqNo
 argument_list|)
 decl_stmt|;
+specifier|final
 name|int
 name|offset
 init|=
@@ -397,7 +396,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** gets the current check point */
+comment|/**      * The current checkpoint which can be advanced by {@link #markSeqNoAsCompleted(long)}.      *      * @return the current checkpoint      */
 DECL|method|getCheckpoint
 specifier|public
 name|long
@@ -408,7 +407,7 @@ return|return
 name|checkpoint
 return|;
 block|}
-comment|/** gets the maximum seqno seen so far */
+comment|/**      * The maximum sequence number issued so far.      *      * @return the maximum sequence number      */
 DECL|method|getMaxSeqNo
 name|long
 name|getMaxSeqNo
@@ -420,7 +419,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/**      * moves the checkpoint to the last consecutively processed seqNo      * Note: this method assumes that the seqNo following the current checkpoint is processed.      */
+comment|/**      * Moves the checkpoint to the last consecutively processed sequence number. This method assumes that the sequence number following the      * current checkpoint is processed.      */
 DECL|method|updateCheckpoint
 specifier|private
 name|void
@@ -481,7 +480,7 @@ argument_list|)
 operator|:
 literal|"updateCheckpoint is called but the bit following the checkpoint is not set"
 assert|;
-comment|// keep it simple for now, get the checkpoint one by one. in the future we can optimize and read words
+comment|// keep it simple for now, get the checkpoint one by one; in the future we can optimize and read words
 name|FixedBitSet
 name|current
 init|=
@@ -553,12 +552,13 @@ argument_list|)
 condition|)
 do|;
 block|}
-comment|/**      * gets the bit array for the given seqNo, allocating new ones if needed.      */
+comment|/**      * Return the bit array for the provided sequence number, possibly allocating a new array if needed.      *      * @param seqNo the sequence number to obtain the bit array for      * @return the bit array corresponding to the provided sequence number      */
 DECL|method|getBitSetForSeqNo
 specifier|private
 name|FixedBitSet
 name|getBitSetForSeqNo
 parameter_list|(
+specifier|final
 name|long
 name|seqNo
 parameter_list|)
@@ -609,7 +609,7 @@ throw|throw
 operator|new
 name|IndexOutOfBoundsException
 argument_list|(
-literal|"seqNo too high. got ["
+literal|"sequence number too high; got ["
 operator|+
 name|seqNo
 operator|+
@@ -655,12 +655,13 @@ name|bitSetOffset
 argument_list|)
 return|;
 block|}
-comment|/** maps the given seqNo to a position in the bit set returned by {@link #getBitSetForSeqNo} */
+comment|/**      * Obtain the position in the bit array corresponding to the provided sequence number. The bit array corresponding to the sequence      * number can be obtained via {@link #getBitSetForSeqNo(long)}.      *      * @param seqNo the sequence number to obtain the position for      * @return the position in the bit array corresponding to the provided sequence number      */
 DECL|method|seqNoToBitSetOffset
 specifier|private
 name|int
 name|seqNoToBitSetOffset
 parameter_list|(
+specifier|final
 name|long
 name|seqNo
 parameter_list|)
