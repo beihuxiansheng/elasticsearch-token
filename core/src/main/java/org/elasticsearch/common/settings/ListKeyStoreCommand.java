@@ -237,10 +237,6 @@ name|entry
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO:
-comment|// 2. delete command
-comment|// 3. tests for delete
-comment|// 4. shell script
 block|}
 block|}
 end_class

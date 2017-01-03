@@ -262,7 +262,7 @@ literal|"Cannot get subsequence of SecureString"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Convert to a {@link String}. This only be used with APIs that do not take {@link CharSequence}.      */
+comment|/**      * Convert to a {@link String}. This should only be used with APIs that do not take {@link CharSequence}.      */
 annotation|@
 name|Override
 DECL|method|toString

@@ -70,6 +70,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
 name|joptsimple
 operator|.
 name|OptionSet
@@ -350,27 +360,19 @@ operator|==
 literal|false
 condition|)
 block|{
-name|String
-name|answer
-init|=
+if|if
+condition|(
 name|terminal
 operator|.
-name|readText
+name|promptYesNo
 argument_list|(
 literal|"Setting "
 operator|+
 name|setting
 operator|+
-literal|" already exists. Overwrite? [y/N]"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|answer
-operator|.
-name|equals
-argument_list|(
-literal|"y"
+literal|" already exists. Overwrite?"
+argument_list|,
+literal|false
 argument_list|)
 operator|==
 literal|false

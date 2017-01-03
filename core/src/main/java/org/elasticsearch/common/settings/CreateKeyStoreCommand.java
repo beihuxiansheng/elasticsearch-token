@@ -147,23 +147,15 @@ name|keystoreFile
 argument_list|)
 condition|)
 block|{
-name|String
-name|answer
-init|=
-name|terminal
-operator|.
-name|readText
-argument_list|(
-literal|"An elasticsearch keystore already exists. Overwrite? [y/N] "
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|answer
+name|terminal
 operator|.
-name|equals
+name|promptYesNo
 argument_list|(
-literal|"y"
+literal|"An elasticsearch keystore already exists. Overwrite?"
+argument_list|,
+literal|false
 argument_list|)
 operator|==
 literal|false
