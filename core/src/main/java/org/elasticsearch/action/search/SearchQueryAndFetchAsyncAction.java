@@ -140,6 +140,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|Transport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -211,9 +223,11 @@ name|Function
 argument_list|<
 name|String
 argument_list|,
-name|DiscoveryNode
+name|Transport
+operator|.
+name|Connection
 argument_list|>
-name|nodeIdToDiscoveryNode
+name|nodeIdToConnection
 parameter_list|,
 name|Map
 argument_list|<
@@ -265,7 +279,7 @@ name|logger
 argument_list|,
 name|searchTransportService
 argument_list|,
-name|nodeIdToDiscoveryNode
+name|nodeIdToConnection
 argument_list|,
 name|aliasFilter
 argument_list|,
@@ -312,8 +326,10 @@ specifier|protected
 name|void
 name|sendExecuteFirstPhase
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Transport
+operator|.
+name|Connection
+name|connection
 parameter_list|,
 name|ShardSearchTransportRequest
 name|request
@@ -329,7 +345,7 @@ name|searchTransportService
 operator|.
 name|sendExecuteFetch
 argument_list|(
-name|node
+name|connection
 argument_list|,
 name|request
 argument_list|,

@@ -1934,6 +1934,10 @@ name|SearchTransportService
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 argument_list|,
+name|SearchTransportService
+operator|.
+name|NUM_REMOTE_CONNECTIONS
+argument_list|,
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
