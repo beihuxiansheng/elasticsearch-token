@@ -379,8 +379,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"minimum_should_match"
-argument_list|,
-literal|"minimum_number_should_match"
 argument_list|)
 decl_stmt|;
 DECL|field|ADJUST_PURE_NEGATIVE
@@ -872,7 +870,7 @@ operator|.
 name|minimumShouldMatch
 return|;
 block|}
-comment|/**      * Sets the minimum should match using the special syntax (for example, supporting percentage).      */
+comment|/**      * Sets the minimum should match parameter using the special syntax (for example, supporting percentage).      * @see BoolQueryBuilder#minimumShouldMatch(int)      */
 DECL|method|minimumShouldMatch
 specifier|public
 name|BoolQueryBuilder
@@ -892,7 +890,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the minimum should match as an integer value.      */
+comment|/**      * Specifies a minimum number of the optional (should) boolean clauses which must be satisfied.      *<p>      * By default no optional clauses are necessary for a match      * (unless there are no required clauses).  If this method is used,      * then the specified number of clauses is required.      *<p>      * Use of this method is totally independent of specifying that      * any specific clauses are required (or prohibited).  This number will      * only be compared against the number of matching optional clauses.      *      * @param minimumShouldMatch the number of optional clauses that must match      */
 DECL|method|minimumShouldMatch
 specifier|public
 name|BoolQueryBuilder
