@@ -365,16 +365,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|MULTI_VALUE_MODE
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
-argument_list|,
-name|MULTI_VALUE_MODE
 argument_list|)
 condition|)
 block|{

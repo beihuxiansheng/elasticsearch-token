@@ -821,7 +821,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match [%s] filters [%s]"
+literal|"node does not match index setting [%s] filters [%s]"
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -873,7 +873,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match [%s] filters [%s]"
+literal|"node does not match index setting [%s] filters [%s]"
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -924,7 +924,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node matches [%s] filters [%s]"
+literal|"node matches index setting [%s] filters [%s]"
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -989,7 +989,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not match [%s] filters [%s]"
+literal|"node does not match cluster setting [%s] filters [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_REQUIRE_GROUP_PREFIX
 argument_list|,
@@ -1030,7 +1030,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not [%s] filters [%s]"
+literal|"node does not cluster setting [%s] filters [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_INCLUDE_GROUP_PREFIX
 argument_list|,
@@ -1070,7 +1070,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node matches [%s] filters [%s]"
+literal|"node matches cluster setting [%s] filters [%s]"
 argument_list|,
 name|CLUSTER_ROUTING_EXCLUDE_GROUP_PREFIX
 argument_list|,

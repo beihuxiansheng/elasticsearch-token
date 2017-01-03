@@ -90,6 +90,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentParser
 import|;
 end_import
@@ -117,20 +131,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|query
-operator|.
-name|IndicesQueriesRegistry
 import|;
 end_import
 
@@ -224,11 +224,11 @@ specifier|final
 name|IndexSettings
 name|indexSettings
 decl_stmt|;
-DECL|field|indicesQueriesRegistry
-specifier|protected
+DECL|field|xContentRegistry
+specifier|private
 specifier|final
-name|IndicesQueriesRegistry
-name|indicesQueriesRegistry
+name|NamedXContentRegistry
+name|xContentRegistry
 decl_stmt|;
 DECL|field|client
 specifier|protected
@@ -261,8 +261,8 @@ parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
-name|IndicesQueriesRegistry
-name|indicesQueriesRegistry
+name|NamedXContentRegistry
+name|xContentRegistry
 parameter_list|,
 name|Client
 name|client
@@ -294,9 +294,9 @@ name|indexSettings
 expr_stmt|;
 name|this
 operator|.
-name|indicesQueriesRegistry
+name|xContentRegistry
 operator|=
-name|indicesQueriesRegistry
+name|xContentRegistry
 expr_stmt|;
 name|this
 operator|.
@@ -380,6 +380,17 @@ name|getParseFieldMatcher
 argument_list|()
 return|;
 block|}
+comment|/**      * The registry used to build new {@link XContentParser}s. Contains registered named parsers needed to parse the query.      */
+DECL|method|getXContentRegistry
+specifier|public
+name|NamedXContentRegistry
+name|getXContentRegistry
+parameter_list|()
+block|{
+return|return
+name|xContentRegistry
+return|;
+block|}
 comment|/**      * Returns a new {@link QueryParseContext} that wraps the provided parser, using the ParseFieldMatcher settings that      * are configured in the index settings. The default script language will always default to Painless.      */
 DECL|method|newParseContext
 specifier|public
@@ -394,8 +405,6 @@ return|return
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|indexSettings

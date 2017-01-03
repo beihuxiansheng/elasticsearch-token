@@ -556,6 +556,13 @@ specifier|private
 name|Locale
 name|locale
 decl_stmt|;
+DECL|field|dateTimeFormatterSet
+specifier|private
+name|boolean
+name|dateTimeFormatterSet
+init|=
+literal|false
+decl_stmt|;
 DECL|method|Builder
 specifier|public
 name|Builder
@@ -687,6 +694,17 @@ operator|.
 name|IGNORE_MALFORMED
 return|;
 block|}
+comment|/** Whether an explicit format for this date field has been set already. */
+DECL|method|isDateTimeFormatterSet
+specifier|public
+name|boolean
+name|isDateTimeFormatterSet
+parameter_list|()
+block|{
+return|return
+name|dateTimeFormatterSet
+return|;
+block|}
 DECL|method|dateTimeFormatter
 specifier|public
 name|Builder
@@ -703,6 +721,10 @@ name|setDateTimeFormatter
 argument_list|(
 name|dateTimeFormatter
 argument_list|)
+expr_stmt|;
+name|dateTimeFormatterSet
+operator|=
+literal|true
 expr_stmt|;
 return|return
 name|this

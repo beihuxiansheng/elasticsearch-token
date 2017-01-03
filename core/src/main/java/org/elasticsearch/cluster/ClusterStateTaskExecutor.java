@@ -16,6 +16,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -55,7 +67,7 @@ parameter_list|>
 block|{
 comment|/**      * Update the cluster state based on the current state and the given tasks. Return the *same instance* if no state      * should be changed.      */
 DECL|method|execute
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|T
 argument_list|>
@@ -73,7 +85,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * indicates whether this task should only run if current node is master      */
+comment|/**      * indicates whether this executor should only run if the current node is master      */
 DECL|method|runOnlyOnMaster
 specifier|default
 name|boolean
@@ -174,13 +186,21 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Represents the result of a batched execution of cluster state update tasks      * @param<T> the type of the cluster state update task      */
-DECL|class|BatchResult
+DECL|class|ClusterTasksResult
 class|class
-name|BatchResult
+name|ClusterTasksResult
 parameter_list|<
 name|T
 parameter_list|>
 block|{
+DECL|field|noMaster
+specifier|public
+specifier|final
+name|boolean
+name|noMaster
+decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|resultingState
 specifier|public
 specifier|final
@@ -198,10 +218,13 @@ name|TaskResult
 argument_list|>
 name|executionResults
 decl_stmt|;
-comment|/**          * Construct an execution result instance with a correspondence between the tasks and their execution result          * @param resultingState the resulting cluster state          * @param executionResults the correspondence between tasks and their outcome          */
-DECL|method|BatchResult
-name|BatchResult
+comment|/**          * Construct an execution result instance with a correspondence between the tasks and their execution result          * @param noMaster whether this node steps down as master or has lost connection to the master          * @param resultingState the resulting cluster state          * @param executionResults the correspondence between tasks and their outcome          */
+DECL|method|ClusterTasksResult
+name|ClusterTasksResult
 parameter_list|(
+name|boolean
+name|noMaster
+parameter_list|,
 name|ClusterState
 name|resultingState
 parameter_list|,
@@ -225,6 +248,12 @@ operator|.
 name|executionResults
 operator|=
 name|executionResults
+expr_stmt|;
+name|this
+operator|.
+name|noMaster
+operator|=
+name|noMaster
 expr_stmt|;
 block|}
 DECL|method|builder
@@ -440,7 +469,7 @@ return|;
 block|}
 DECL|method|build
 specifier|public
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|T
 argument_list|>
@@ -452,9 +481,53 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<>
 argument_list|(
+literal|false
+argument_list|,
+name|resultingState
+argument_list|,
+name|executionResults
+argument_list|)
+return|;
+block|}
+DECL|method|build
+name|ClusterTasksResult
+argument_list|<
+name|T
+argument_list|>
+name|build
+parameter_list|(
+name|ClusterTasksResult
+argument_list|<
+name|T
+argument_list|>
+name|result
+parameter_list|,
+name|ClusterState
+name|previousState
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ClusterTasksResult
+argument_list|<>
+argument_list|(
+name|result
+operator|.
+name|noMaster
+argument_list|,
+name|result
+operator|.
+name|resultingState
+operator|==
+literal|null
+condition|?
+name|previousState
+else|:
+name|result
+operator|.
 name|resultingState
 argument_list|,
 name|executionResults

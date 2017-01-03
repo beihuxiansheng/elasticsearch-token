@@ -128,6 +128,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterStateTaskExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|ClusterState
 import|;
 end_import
@@ -141,18 +153,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterStateTaskConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterStateTaskExecutor
 import|;
 end_import
 
@@ -490,10 +490,7 @@ name|indicesService
 decl_stmt|;
 DECL|field|refreshExecutor
 specifier|final
-name|ClusterStateTaskExecutor
-argument_list|<
-name|RefreshTask
-argument_list|>
+name|RefreshTaskExecutor
 name|refreshExecutor
 init|=
 operator|new
@@ -502,10 +499,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|putMappingExecutor
 specifier|final
-name|ClusterStateTaskExecutor
-argument_list|<
-name|PutMappingClusterStateUpdateRequest
-argument_list|>
+name|PutMappingExecutor
 name|putMappingExecutor
 init|=
 operator|new
@@ -619,7 +613,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|public
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|RefreshTask
 argument_list|>
@@ -648,7 +642,7 @@ name|tasks
 argument_list|)
 decl_stmt|;
 return|return
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 expr|<
 name|RefreshTask
@@ -1341,7 +1335,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|public
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|PutMappingClusterStateUpdateRequest
 argument_list|>
@@ -1372,7 +1366,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|Builder
 argument_list|<
@@ -1380,7 +1374,7 @@ name|PutMappingClusterStateUpdateRequest
 argument_list|>
 name|builder
 init|=
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 name|builder
 argument_list|()

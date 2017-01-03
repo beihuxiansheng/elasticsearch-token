@@ -929,7 +929,7 @@ condition|?
 operator|-
 literal|1
 else|:
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|String
@@ -998,7 +998,7 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|)
 decl_stmt|;

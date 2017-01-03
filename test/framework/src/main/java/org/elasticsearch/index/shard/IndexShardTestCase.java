@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|cursors
-operator|.
-name|ObjectObjectCursor
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -181,20 +167,6 @@ operator|.
 name|metadata
 operator|.
 name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|MappingMetaData
 import|;
 end_import
 
@@ -1664,6 +1636,9 @@ name|MapperTestUtils
 operator|.
 name|newMapperService
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|,

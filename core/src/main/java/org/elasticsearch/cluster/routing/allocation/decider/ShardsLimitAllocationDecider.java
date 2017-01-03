@@ -559,7 +559,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards [%d] allocated to this node, [%s=%d]"
+literal|"too many shards [%d] allocated to this node, cluster setting [%s=%d]"
 argument_list|,
 name|nodeShardCount
 argument_list|,
@@ -599,7 +599,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards [%d] allocated to this node for index [%s], [%s=%d]"
+literal|"too many shards [%d] allocated to this node for index [%s], index setting [%s=%d]"
 argument_list|,
 name|indexShardCount
 argument_list|,
@@ -737,7 +737,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards [%d] allocated to this node, [%s=%d]"
+literal|"too many shards [%d] allocated to this node, cluster setting [%s=%d]"
 argument_list|,
 name|nodeShardCount
 argument_list|,

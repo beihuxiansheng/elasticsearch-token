@@ -429,11 +429,13 @@ operator|.
 name|PingCollection
 argument_list|()
 decl_stmt|;
-name|collection
-operator|.
-name|addPings
-argument_list|(
 name|pings
+operator|.
+name|forEach
+argument_list|(
+name|collection
+operator|::
+name|addPing
 argument_list|)
 expr_stmt|;
 name|List

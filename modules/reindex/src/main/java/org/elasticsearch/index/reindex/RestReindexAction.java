@@ -681,6 +681,11 @@ argument_list|()
 operator|.
 name|createParser
 argument_list|(
+name|parser
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|builder
 operator|.
 name|bytes
@@ -1981,10 +1986,6 @@ return|return
 operator|new
 name|QueryParseContext
 argument_list|(
-name|searchRequestParsers
-operator|.
-name|queryParsers
-argument_list|,
 name|parser
 argument_list|,
 name|parseFieldMatcher

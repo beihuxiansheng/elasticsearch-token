@@ -108,20 +108,6 @@ name|jsonBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|core
-operator|.
-name|IsEqual
-operator|.
-name|equalTo
-import|;
-end_import
-
 begin_class
 DECL|class|MultiFieldIncludeInAllMapperTests
 specifier|public
@@ -152,6 +138,9 @@ name|MapperTestUtils
 operator|.
 name|newMapperService
 argument_list|(
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|,

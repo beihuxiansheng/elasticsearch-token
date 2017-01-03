@@ -665,7 +665,7 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"reached the limit of ongoing initial primary recoveries [%d], [%s=%d]"
+literal|"reached the limit of ongoing initial primary recoveries [%d], cluster setting [%s=%d]"
 argument_list|,
 name|primariesInRecovery
 argument_list|,
@@ -755,7 +755,7 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"reached the limit of incoming shard recoveries [%d], [%s=%d] (can also be set via [%s])"
+literal|"reached the limit of incoming shard recoveries [%d], cluster setting [%s=%d] (can also be set via [%s])"
 argument_list|,
 name|currentInRecoveries
 argument_list|,
@@ -848,7 +848,7 @@ name|NAME
 argument_list|,
 literal|"reached the limit of outgoing shard recoveries [%d] on the node [%s] which holds the primary, "
 operator|+
-literal|"[%s=%d] (can also be set via [%s])"
+literal|"cluster setting [%s=%d] (can also be set via [%s])"
 argument_list|,
 name|primaryNodeOutRecoveries
 argument_list|,

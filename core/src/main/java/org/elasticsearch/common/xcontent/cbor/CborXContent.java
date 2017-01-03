@@ -124,6 +124,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContent
 import|;
 end_import
@@ -426,6 +440,9 @@ specifier|public
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|String
 name|content
 parameter_list|)
@@ -436,6 +453,8 @@ return|return
 operator|new
 name|CborXContentParser
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cborFactory
 operator|.
 name|createParser
@@ -456,6 +475,9 @@ specifier|public
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|InputStream
 name|is
 parameter_list|)
@@ -466,6 +488,8 @@ return|return
 operator|new
 name|CborXContentParser
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cborFactory
 operator|.
 name|createParser
@@ -482,6 +506,9 @@ specifier|public
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|byte
 index|[]
 name|data
@@ -493,6 +520,8 @@ return|return
 operator|new
 name|CborXContentParser
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cborFactory
 operator|.
 name|createParser
@@ -509,6 +538,9 @@ specifier|public
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|byte
 index|[]
 name|data
@@ -526,6 +558,8 @@ return|return
 operator|new
 name|CborXContentParser
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cborFactory
 operator|.
 name|createParser
@@ -546,6 +580,9 @@ specifier|public
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|BytesReference
 name|bytes
 parameter_list|)
@@ -555,6 +592,8 @@ block|{
 return|return
 name|createParser
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|bytes
 operator|.
 name|streamInput
@@ -569,6 +608,9 @@ specifier|public
 name|XContentParser
 name|createParser
 parameter_list|(
+name|NamedXContentRegistry
+name|xContentRegistry
+parameter_list|,
 name|Reader
 name|reader
 parameter_list|)
@@ -579,6 +621,8 @@ return|return
 operator|new
 name|CborXContentParser
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cborFactory
 operator|.
 name|createParser

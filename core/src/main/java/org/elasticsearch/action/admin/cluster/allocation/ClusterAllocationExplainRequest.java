@@ -36,6 +36,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -269,21 +279,49 @@ literal|"primary"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|PARSER
+operator|.
+name|declareString
+argument_list|(
+name|ClusterAllocationExplainRequest
+operator|::
+name|setCurrentNode
+argument_list|,
+operator|new
+name|ParseField
+argument_list|(
+literal|"current_node"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
+annotation|@
+name|Nullable
 DECL|field|index
 specifier|private
 name|String
 name|index
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|shard
 specifier|private
 name|Integer
 name|shard
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|primary
 specifier|private
 name|Boolean
 name|primary
+decl_stmt|;
+annotation|@
+name|Nullable
+DECL|field|currentNode
+specifier|private
+name|String
+name|currentNode
 decl_stmt|;
 DECL|field|includeYesDecisions
 specifier|private
@@ -299,7 +337,7 @@ name|includeDiskInfo
 init|=
 literal|false
 decl_stmt|;
-comment|/** Explain the first unassigned shard */
+comment|/**      * Create a new allocation explain request to explain any unassigned shard in the cluster.      */
 DECL|method|ClusterAllocationExplainRequest
 specifier|public
 name|ClusterAllocationExplainRequest
@@ -323,10 +361,15 @@ name|primary
 operator|=
 literal|null
 expr_stmt|;
+name|this
+operator|.
+name|currentNode
+operator|=
+literal|null
+expr_stmt|;
 block|}
-comment|/**      * Create a new allocation explain request. If {@code primary} is false, the first unassigned replica      * will be picked for explanation. If no replicas are unassigned, the first assigned replica will      * be explained.      */
+comment|/**      * Create a new allocation explain request. If {@code primary} is false, the first unassigned replica      * will be picked for explanation. If no replicas are unassigned, the first assigned replica will      * be explained.      *      * Package private for testing.      */
 DECL|method|ClusterAllocationExplainRequest
-specifier|public
 name|ClusterAllocationExplainRequest
 parameter_list|(
 name|String
@@ -337,6 +380,11 @@ name|shard
 parameter_list|,
 name|boolean
 name|primary
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|currentNode
 parameter_list|)
 block|{
 name|this
@@ -356,6 +404,12 @@ operator|.
 name|primary
 operator|=
 name|primary
+expr_stmt|;
+name|this
+operator|.
+name|currentNode
+operator|=
+name|currentNode
 expr_stmt|;
 block|}
 annotation|@
@@ -468,8 +522,15 @@ operator|.
 name|primary
 operator|==
 literal|null
+operator|&&
+name|this
+operator|.
+name|currentNode
+operator|==
+literal|null
 return|;
 block|}
+comment|/**      * Sets the index name of the shard to explain.      */
 DECL|method|setIndex
 specifier|public
 name|ClusterAllocationExplainRequest
@@ -489,6 +550,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Returns the index name of the shard to explain, or {@code null} to use any unassigned shard (see {@link #useAnyUnassignedShard()}).      */
 annotation|@
 name|Nullable
 DECL|method|getIndex
@@ -503,6 +565,7 @@ operator|.
 name|index
 return|;
 block|}
+comment|/**      * Sets the shard id of the shard to explain.      */
 DECL|method|setShard
 specifier|public
 name|ClusterAllocationExplainRequest
@@ -522,6 +585,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Returns the shard id of the shard to explain, or {@code null} to use any unassigned shard (see {@link #useAnyUnassignedShard()}).      */
 annotation|@
 name|Nullable
 DECL|method|getShard
@@ -536,6 +600,7 @@ operator|.
 name|shard
 return|;
 block|}
+comment|/**      * Sets whether to explain the allocation of the primary shard or a replica shard copy      * for the shard id (see {@link #getShard()}).      */
 DECL|method|setPrimary
 specifier|public
 name|ClusterAllocationExplainRequest
@@ -555,6 +620,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Returns {@code true} if explaining the primary shard for the shard id (see {@link #getShard()}),      * {@code false} if explaining a replica shard copy for the shard id, or {@code null} to use any      * unassigned shard (see {@link #useAnyUnassignedShard()}).      */
 annotation|@
 name|Nullable
 DECL|method|isPrimary
@@ -569,6 +635,40 @@ operator|.
 name|primary
 return|;
 block|}
+comment|/**      * Requests the explain API to explain an already assigned replica shard currently allocated to      * the given node.      */
+DECL|method|setCurrentNode
+specifier|public
+name|ClusterAllocationExplainRequest
+name|setCurrentNode
+parameter_list|(
+name|String
+name|currentNodeId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|currentNode
+operator|=
+name|currentNodeId
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Returns the node holding the replica shard to be explained.  Returns {@code null} if any replica shard      * can be explained.      */
+annotation|@
+name|Nullable
+DECL|method|getCurrentNode
+specifier|public
+name|String
+name|getCurrentNode
+parameter_list|()
+block|{
+return|return
+name|currentNode
+return|;
+block|}
+comment|/**      * Set to {@code true} to include yes decisions for a particular node.      */
 DECL|method|includeYesDecisions
 specifier|public
 name|void
@@ -585,7 +685,7 @@ operator|=
 name|includeYesDecisions
 expr_stmt|;
 block|}
-comment|/** Returns true if all decisions should be included. Otherwise only "NO" and "THROTTLE" decisions are returned */
+comment|/**      * Returns {@code true} if yes decisions should be included.  Otherwise only "no" and "throttle"      * decisions are returned.      */
 DECL|method|includeYesDecisions
 specifier|public
 name|boolean
@@ -598,7 +698,7 @@ operator|.
 name|includeYesDecisions
 return|;
 block|}
-comment|/** {@code true} to include information about the gathered disk information of nodes in the cluster */
+comment|/**      * Set to {@code true} to include information about the gathered disk information of nodes in the cluster.      */
 DECL|method|includeDiskInfo
 specifier|public
 name|void
@@ -615,7 +715,7 @@ operator|=
 name|includeDiskInfo
 expr_stmt|;
 block|}
-comment|/** Returns true if information about disk usage and shard sizes should also be returned */
+comment|/**      * Returns {@code true} if information about disk usage and shard sizes should also be returned.      */
 DECL|method|includeDiskInfo
 specifier|public
 name|boolean
@@ -699,6 +799,26 @@ argument_list|(
 name|primary
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|currentNode
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|",currentNode="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|currentNode
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|sb
 operator|.
@@ -793,6 +913,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkVersion
+argument_list|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|readFrom
@@ -829,6 +957,15 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
+name|currentNode
+operator|=
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|includeYesDecisions
 operator|=
 name|in
@@ -859,6 +996,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkVersion
+argument_list|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|writeTo
@@ -889,6 +1034,13 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
+name|writeOptionalString
+argument_list|(
+name|currentNode
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
 name|writeBoolean
 argument_list|(
 name|includeYesDecisions
@@ -901,6 +1053,46 @@ argument_list|(
 name|includeDiskInfo
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|checkVersion
+specifier|private
+name|void
+name|checkVersion
+parameter_list|(
+name|Version
+name|version
+parameter_list|)
+block|{
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_2_0_UNRELEASED
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot explain shards in a mixed-cluster with pre-"
+operator|+
+name|Version
+operator|.
+name|V_5_2_0_UNRELEASED
+operator|+
+literal|" nodes, node version ["
+operator|+
+name|version
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

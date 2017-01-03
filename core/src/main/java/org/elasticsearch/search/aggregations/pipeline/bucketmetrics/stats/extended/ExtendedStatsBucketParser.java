@@ -224,16 +224,11 @@ name|IOException
 block|{
 if|if
 condition|(
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|SIGMA
 operator|.
 name|match
 argument_list|(
 name|field
-argument_list|,
-name|SIGMA
 argument_list|)
 operator|&&
 name|token

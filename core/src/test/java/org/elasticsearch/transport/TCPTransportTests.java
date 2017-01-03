@@ -1385,7 +1385,7 @@ argument_list|,
 operator|new
 name|Object
 index|[
-name|ConnectionProfile
+name|MockTcpTransport
 operator|.
 name|LIGHT_PROFILE
 operator|.
@@ -1393,7 +1393,7 @@ name|getNumConnections
 argument_list|()
 index|]
 argument_list|,
-name|ConnectionProfile
+name|MockTcpTransport
 operator|.
 name|LIGHT_PROFILE
 argument_list|)

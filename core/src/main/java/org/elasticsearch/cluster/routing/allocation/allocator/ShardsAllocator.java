@@ -28,9 +28,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
+name|routing
 operator|.
-name|DiscoveryNode
+name|ShardRouting
 import|;
 end_import
 
@@ -44,7 +44,25 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|allocation
+operator|.
+name|AllocateUnassignedDecision
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|MoveDecision
 import|;
 end_import
 
@@ -66,11 +84,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|Map
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|ShardAllocationDecision
 import|;
 end_import
 
@@ -93,21 +117,16 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a map of node to a float "weight" of where the allocator would like to place the shard.      * Higher weights signify greater desire to place the shard on that node.      * Does not modify the allocation at all.      *      * @param allocation current node allocation      * @param shard shard to weigh      * @return map of nodes to float weights      */
-DECL|method|weighShard
-name|Map
-argument_list|<
-name|DiscoveryNode
-argument_list|,
-name|Float
-argument_list|>
-name|weighShard
+comment|/**      * Returns the decision for where a shard should reside in the cluster.  If the shard is unassigned,      * then the {@link AllocateUnassignedDecision} will be non-null.  If the shard is not in the unassigned      * state, then the {@link MoveDecision} will be non-null.      *      * This method is primarily used by the cluster allocation explain API to provide detailed explanations      * for the allocation of a single shard.  Implementations of the {@link #allocate(RoutingAllocation)} method      * may use the results of this method implementation to decide on allocating shards in the routing table      * to the cluster.      *      * If an implementation of this interface does not support explaining decisions for a single shard through      * the cluster explain API, then this method should throw a {@code UnsupportedOperationException}.      */
+DECL|method|decideShardAllocation
+name|ShardAllocationDecision
+name|decideShardAllocation
 parameter_list|(
-name|RoutingAllocation
-name|allocation
-parameter_list|,
 name|ShardRouting
 name|shard
+parameter_list|,
+name|RoutingAllocation
+name|allocation
 parameter_list|)
 function_decl|;
 block|}

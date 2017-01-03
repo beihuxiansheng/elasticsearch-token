@@ -266,6 +266,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -1112,6 +1126,9 @@ specifier|final
 name|T
 name|read
 parameter_list|(
+name|NamedXContentRegistry
+name|namedXContentRegistry
+parameter_list|,
 name|Path
 name|file
 parameter_list|)
@@ -1265,6 +1282,8 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|namedXContentRegistry
+argument_list|,
 operator|new
 name|InputStreamIndexInput
 argument_list|(
@@ -1614,6 +1633,9 @@ parameter_list|(
 name|Logger
 name|logger
 parameter_list|,
+name|NamedXContentRegistry
+name|namedXContentRegistry
+parameter_list|,
 name|Path
 modifier|...
 name|dataLocations
@@ -1948,7 +1970,6 @@ continue|continue;
 block|}
 try|try
 init|(
-specifier|final
 name|XContentParser
 name|parser
 init|=
@@ -1956,6 +1977,8 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|namedXContentRegistry
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
@@ -2001,6 +2024,8 @@ name|state
 operator|=
 name|read
 argument_list|(
+name|namedXContentRegistry
+argument_list|,
 name|stateFile
 argument_list|)
 expr_stmt|;

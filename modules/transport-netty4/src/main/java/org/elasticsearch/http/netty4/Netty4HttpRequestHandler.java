@@ -337,6 +337,10 @@ init|=
 operator|new
 name|Netty4HttpRequest
 argument_list|(
+name|serverTransport
+operator|.
+name|xContentRegistry
+argument_list|,
 name|copy
 argument_list|,
 name|ctx

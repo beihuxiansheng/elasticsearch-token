@@ -753,6 +753,14 @@ argument_list|,
 name|max
 argument_list|)
 expr_stmt|;
+name|hqb
+operator|.
+name|ignoreUnmapped
+argument_list|(
+name|randomBoolean
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|randomBoolean
@@ -802,17 +810,14 @@ operator|.
 name|ASC
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+argument_list|,
 name|hqb
 operator|.
 name|ignoreUnmapped
-argument_list|(
-name|randomBoolean
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|hqb
 return|;
@@ -1412,6 +1417,8 @@ literal|"    \"inner_hits\" : {\n"
 operator|+
 literal|"      \"name\" : \"inner_hits_name\",\n"
 operator|+
+literal|"      \"ignore_unmapped\" : false,\n"
+operator|+
 literal|"      \"from\" : 0,\n"
 operator|+
 literal|"      \"size\" : 100,\n"
@@ -1558,6 +1565,8 @@ name|query
 argument_list|()
 argument_list|,
 literal|"child"
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|setName

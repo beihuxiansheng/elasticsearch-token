@@ -314,6 +314,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentFactory
 import|;
 end_import
@@ -1353,6 +1367,7 @@ name|ee
 throw|;
 block|}
 block|}
+comment|// EMPTY is safe here because we don't call namedObject
 try|try
 init|(
 name|XContentParser
@@ -1365,6 +1380,10 @@ argument_list|()
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|content
 argument_list|)
 init|)

@@ -401,13 +401,11 @@ decl_stmt|;
 name|boolean
 name|match
 init|=
-name|parseFieldMatcher
+name|parseField
 operator|.
 name|match
 argument_list|(
 name|name
-argument_list|,
-name|parseField
 argument_list|)
 decl_stmt|;
 comment|//this is always expected to match, ParseField is useful for deprecation warnings etc. here

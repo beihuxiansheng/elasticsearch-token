@@ -296,6 +296,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|SnapshotsInProgress
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -353,18 +365,6 @@ operator|.
 name|common
 operator|.
 name|Numbers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseFieldMatcher
 import|;
 end_import
 
@@ -695,6 +695,20 @@ operator|.
 name|set
 operator|.
 name|Sets
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|NamedXContentRegistry
 import|;
 end_import
 
@@ -1306,6 +1320,12 @@ specifier|final
 name|RepositoryMetaData
 name|metadata
 decl_stmt|;
+DECL|field|namedXContentRegistry
+specifier|protected
+specifier|final
+name|NamedXContentRegistry
+name|namedXContentRegistry
+decl_stmt|;
 DECL|field|BUFFER_SIZE
 specifier|private
 specifier|static
@@ -1507,12 +1527,6 @@ specifier|final
 name|boolean
 name|readOnly
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|private
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 DECL|field|indexShardSnapshotFormat
 specifier|private
 specifier|final
@@ -1541,6 +1555,9 @@ name|metadata
 parameter_list|,
 name|Settings
 name|globalSettings
+parameter_list|,
+name|NamedXContentRegistry
+name|namedXContentRegistry
 parameter_list|)
 block|{
 name|super
@@ -1554,13 +1571,11 @@ name|metadata
 operator|=
 name|metadata
 expr_stmt|;
-name|parseFieldMatcher
+name|this
+operator|.
+name|namedXContentRegistry
 operator|=
-operator|new
-name|ParseFieldMatcher
-argument_list|(
-name|settings
-argument_list|)
+name|namedXContentRegistry
 expr_stmt|;
 name|snapshotRateLimiter
 operator|=
@@ -1631,10 +1646,10 @@ argument_list|,
 name|SNAPSHOT_NAME_FORMAT
 argument_list|,
 name|BlobStoreIndexShardSnapshot
-operator|.
-name|PROTO
+operator|::
+name|fromXContent
 argument_list|,
-name|parseFieldMatcher
+name|namedXContentRegistry
 argument_list|,
 name|isCompress
 argument_list|()
@@ -1651,10 +1666,10 @@ argument_list|,
 name|SNAPSHOT_INDEX_NAME_FORMAT
 argument_list|,
 name|BlobStoreIndexShardSnapshots
-operator|.
-name|PROTO
+operator|::
+name|fromXContent
 argument_list|,
-name|parseFieldMatcher
+name|namedXContentRegistry
 argument_list|,
 name|isCompress
 argument_list|()
@@ -1682,15 +1697,6 @@ name|basePath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ParseFieldMatcher
-name|parseFieldMatcher
-init|=
-operator|new
-name|ParseFieldMatcher
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
 name|globalMetaDataFormat
 operator|=
 operator|new
@@ -1702,10 +1708,10 @@ argument_list|,
 name|METADATA_NAME_FORMAT
 argument_list|,
 name|MetaData
-operator|.
-name|PROTO
+operator|::
+name|fromXContent
 argument_list|,
-name|parseFieldMatcher
+name|namedXContentRegistry
 argument_list|,
 name|isCompress
 argument_list|()
@@ -1722,10 +1728,10 @@ argument_list|,
 name|METADATA_NAME_FORMAT
 argument_list|,
 name|IndexMetaData
-operator|.
-name|PROTO
+operator|::
+name|fromXContent
 argument_list|,
-name|parseFieldMatcher
+name|namedXContentRegistry
 argument_list|,
 name|isCompress
 argument_list|()
@@ -1742,10 +1748,10 @@ argument_list|,
 name|SNAPSHOT_NAME_FORMAT
 argument_list|,
 name|SnapshotInfo
-operator|.
-name|PROTO
+operator|::
+name|fromXContent
 argument_list|,
-name|parseFieldMatcher
+name|namedXContentRegistry
 argument_list|,
 name|isCompress
 argument_list|()
@@ -2080,6 +2086,9 @@ name|deleteSnapshot
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|long
+name|repositoryStateId
 parameter_list|)
 block|{
 if|if
@@ -2292,6 +2301,8 @@ decl_stmt|;
 name|writeIndexGen
 argument_list|(
 name|updatedRepositoryData
+argument_list|,
+name|repositoryStateId
 argument_list|)
 expr_stmt|;
 comment|// delete the snapshot file
@@ -2991,6 +3002,10 @@ argument_list|<
 name|SnapshotShardFailure
 argument_list|>
 name|shardFailures
+parameter_list|,
+specifier|final
+name|long
+name|repositoryStateId
 parameter_list|)
 block|{
 try|try
@@ -3090,6 +3105,8 @@ name|snapshotId
 argument_list|,
 name|indices
 argument_list|)
+argument_list|,
+name|repositoryStateId
 argument_list|)
 expr_stmt|;
 block|}
@@ -3947,6 +3964,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+comment|// EMPTY is safe here because RepositoryData#fromXContent calls namedObject
 try|try
 init|(
 name|XContentParser
@@ -3956,6 +3974,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|out
 operator|.
 name|bytes
@@ -3970,6 +3992,8 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
+argument_list|,
+name|indexGen
 argument_list|)
 expr_stmt|;
 block|}
@@ -4059,6 +4083,10 @@ parameter_list|(
 specifier|final
 name|RepositoryData
 name|repositoryData
+parameter_list|,
+specifier|final
+name|long
+name|repositoryStateId
 parameter_list|)
 throws|throws
 name|IOException
@@ -4070,6 +4098,57 @@ operator|==
 literal|false
 assert|;
 comment|// can not write to a read only repository
+specifier|final
+name|long
+name|currentGen
+init|=
+name|latestIndexBlobId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|repositoryStateId
+operator|!=
+name|SnapshotsInProgress
+operator|.
+name|UNDEFINED_REPOSITORY_STATE_ID
+operator|&&
+name|currentGen
+operator|!=
+name|repositoryStateId
+condition|)
+block|{
+comment|// the index file was updated by a concurrent operation, so we were operating on stale
+comment|// repository data
+throw|throw
+operator|new
+name|RepositoryException
+argument_list|(
+name|metadata
+operator|.
+name|name
+argument_list|()
+argument_list|,
+literal|"concurrent modification of the index-N file, expected current generation ["
+operator|+
+name|repositoryStateId
+operator|+
+literal|"], actual current generation ["
+operator|+
+name|currentGen
+operator|+
+literal|"] - possibly due to simultaneous snapshot deletion requests"
+argument_list|)
+throw|;
+block|}
+specifier|final
+name|long
+name|newGen
+init|=
+name|currentGen
+operator|+
+literal|1
+decl_stmt|;
 specifier|final
 name|BytesReference
 name|snapshotsBytes
@@ -4135,15 +4214,6 @@ name|bytes
 argument_list|()
 expr_stmt|;
 block|}
-specifier|final
-name|long
-name|gen
-init|=
-name|latestIndexBlobId
-argument_list|()
-operator|+
-literal|1
-decl_stmt|;
 comment|// write the index file
 name|writeAtomic
 argument_list|(
@@ -4153,7 +4223,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|gen
+name|newGen
 argument_list|)
 argument_list|,
 name|snapshotsBytes
@@ -4167,7 +4237,7 @@ argument_list|()
 operator|==
 literal|false
 operator|&&
-name|gen
+name|newGen
 operator|-
 literal|2
 operator|>=
@@ -4184,7 +4254,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|gen
+name|newGen
 operator|-
 literal|2
 argument_list|)
@@ -4246,7 +4316,7 @@ name|bStream
 operator|.
 name|writeLong
 argument_list|(
-name|gen
+name|newGen
 argument_list|)
 expr_stmt|;
 name|genBytes
@@ -4330,8 +4400,9 @@ comment|//      index-latest blob
 comment|// in a read-only repository, we can't know which of the two scenarios it is,
 comment|// but we will assume (1) because we can't do anything about (2) anyway
 return|return
-operator|-
-literal|1
+name|RepositoryData
+operator|.
+name|EMPTY_REPO_GEN
 return|;
 block|}
 block|}

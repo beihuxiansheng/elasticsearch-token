@@ -575,6 +575,36 @@ name|XContentLocation
 name|getTokenLocation
 parameter_list|()
 function_decl|;
+comment|// TODO remove context entirely when it isn't needed
+comment|/**      * Parse an object by name.      */
+DECL|method|namedObject
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|namedObject
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|categoryClass
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|context
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * The registry used to resolve {@link #namedObject(Class, String, Object)}. Use this when building a sub-parser from this parser.      */
+DECL|method|getXContentRegistry
+name|NamedXContentRegistry
+name|getXContentRegistry
+parameter_list|()
+function_decl|;
 DECL|method|isClosed
 name|boolean
 name|isClosed

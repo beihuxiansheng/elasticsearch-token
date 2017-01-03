@@ -876,13 +876,11 @@ comment|// This "include":{"pattern":"foo.*"} syntax is undocumented since 2.0
 comment|// Regexes should be "include":"foo.*"
 if|if
 condition|(
-name|parseFieldMatcher
+name|PATTERN_FIELD
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
-argument_list|,
-name|PATTERN_FIELD
 argument_list|)
 condition|)
 block|{
@@ -902,13 +900,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|parseFieldMatcher
+name|NUM_PARTITIONS_FIELD
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
-argument_list|,
-name|NUM_PARTITIONS_FIELD
 argument_list|)
 condition|)
 block|{
@@ -923,13 +919,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|parseFieldMatcher
+name|PARTITION_FIELD
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
-argument_list|,
-name|PARTITION_FIELD
 argument_list|)
 condition|)
 block|{

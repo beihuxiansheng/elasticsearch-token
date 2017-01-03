@@ -810,10 +810,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|INCLUDE_NEGATIVES_FIELD
 operator|.
 name|match
 argument_list|(
@@ -821,8 +818,6 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
-argument_list|,
-name|INCLUDE_NEGATIVES_FIELD
 argument_list|)
 condition|)
 block|{
@@ -842,10 +837,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|BACKGROUND_IS_SUPERSET
 operator|.
 name|match
 argument_list|(
@@ -853,8 +845,6 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
-argument_list|,
-name|BACKGROUND_IS_SUPERSET
 argument_list|)
 condition|)
 block|{

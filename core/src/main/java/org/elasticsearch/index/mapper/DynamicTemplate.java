@@ -602,7 +602,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No xcontent type matched on ["
+literal|"No field type matched on ["
 operator|+
 name|value
 operator|+
@@ -1007,6 +1007,22 @@ throw|;
 block|}
 else|else
 block|{
+name|DEPRECATION_LOGGER
+operator|.
+name|deprecated
+argument_list|(
+literal|"match_mapping_type ["
+operator|+
+name|matchMappingType
+operator|+
+literal|"] is invalid and will be ignored: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// this template is on an unknown type so it will never match anything
 comment|// null indicates that the template should be ignored
 return|return

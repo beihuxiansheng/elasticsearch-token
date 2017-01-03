@@ -300,6 +300,13 @@ name|V_5_0_0_alpha5
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"match_mapping_type [short] is invalid and will be ignored: No field type matched on [short], "
+operator|+
+literal|"possible values are [object, string, long, double, boolean, date, binary]"
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -366,7 +373,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"No xcontent type matched on [text], possible values are [object, string, long, double, boolean, date, binary]"
+literal|"No field type matched on [text], possible values are [object, string, long, double, boolean, date, binary]"
 argument_list|,
 name|e
 operator|.

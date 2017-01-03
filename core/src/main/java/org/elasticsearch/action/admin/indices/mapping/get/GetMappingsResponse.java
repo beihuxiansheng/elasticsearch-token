@@ -333,11 +333,8 @@ operator|.
 name|readString
 argument_list|()
 argument_list|,
+operator|new
 name|MappingMetaData
-operator|.
-name|PROTO
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)

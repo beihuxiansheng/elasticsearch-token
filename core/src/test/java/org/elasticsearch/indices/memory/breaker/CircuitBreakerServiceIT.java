@@ -434,6 +434,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -1646,6 +1662,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that a breaker correctly redistributes to a different breaker, in      * this case, the fielddata breaker borrows space from the request breaker      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,org.elasticsearch.action.search:TRACE"
+argument_list|)
 DECL|method|testParentChecking
 specifier|public
 name|void

@@ -473,7 +473,7 @@ argument_list|)
 expr_stmt|;
 name|nowInMillis
 operator|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 expr_stmt|;
 block|}
@@ -497,7 +497,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|xContentRegistry
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -592,7 +593,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|xContentRegistry
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -1117,7 +1119,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|xContentRegistry
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -1491,7 +1494,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|xContentRegistry
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -1700,7 +1704,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|xContentRegistry
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,

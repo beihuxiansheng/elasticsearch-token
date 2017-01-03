@@ -118,6 +118,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|json
+operator|.
+name|JsonXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -422,8 +438,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -442,9 +456,6 @@ literal|"script1"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -539,8 +550,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -567,9 +576,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -669,8 +675,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -712,9 +716,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -839,8 +840,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -882,9 +881,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1010,8 +1006,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1083,9 +1077,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1282,8 +1273,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1355,9 +1344,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1549,8 +1535,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1592,9 +1576,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1686,10 +1667,12 @@ argument_list|)
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
@@ -1749,10 +1732,12 @@ argument_list|)
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
+name|JsonXContent
+operator|.
+name|jsonXContent
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
@@ -1826,8 +1811,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1846,9 +1829,6 @@ literal|true
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1920,8 +1900,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -1940,9 +1918,6 @@ literal|false
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2014,8 +1989,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -2034,9 +2007,6 @@ literal|"path.inner.*"
 argument_list|)
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2127,8 +2097,6 @@ name|request
 operator|.
 name|fromXContent
 argument_list|(
-name|XContentHelper
-operator|.
 name|createParser
 argument_list|(
 name|XContentFactory
@@ -2162,9 +2130,6 @@ name|endObject
 argument_list|()
 operator|.
 name|endObject
-argument_list|()
-operator|.
-name|bytes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2684,7 +2649,7 @@ decl_stmt|;
 name|long
 name|nowInMillis
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 comment|// We simulate that the document is not existing yet

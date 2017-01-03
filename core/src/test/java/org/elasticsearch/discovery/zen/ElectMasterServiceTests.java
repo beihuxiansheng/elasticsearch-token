@@ -434,7 +434,7 @@ name|MasterCandidate
 operator|.
 name|UNRECOVERED_CLUSTER_VERSION
 else|:
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|)
 argument_list|)

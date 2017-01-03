@@ -307,7 +307,7 @@ specifier|final
 name|long
 name|nowInMillis
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|QueryShardContext
@@ -330,7 +330,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|xContentRegistry
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,

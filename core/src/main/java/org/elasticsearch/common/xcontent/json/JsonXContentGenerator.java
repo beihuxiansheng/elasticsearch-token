@@ -212,6 +212,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContent
 import|;
 end_import
@@ -1602,6 +1616,7 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// EMPTY is safe here because we never call namedObject when writing raw data
 try|try
 init|(
 name|XContentParser
@@ -1616,6 +1631,10 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|content
 argument_list|)
 init|)
@@ -1907,6 +1926,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// EMPTY is safe here because we never call namedObject
 try|try
 init|(
 name|StreamInput
@@ -1924,6 +1944,10 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|input
 argument_list|)
 init|)

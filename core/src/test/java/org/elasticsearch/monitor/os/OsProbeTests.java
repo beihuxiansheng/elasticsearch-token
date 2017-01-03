@@ -220,7 +220,7 @@ condition|?
 operator|-
 literal|1
 else|:
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|OsInfo

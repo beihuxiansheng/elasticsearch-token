@@ -1073,8 +1073,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|ParseFieldMatcher
@@ -1266,8 +1264,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|ParseFieldMatcher
@@ -1449,8 +1445,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|ParseFieldMatcher
@@ -1538,8 +1532,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|ParseFieldMatcher
@@ -1627,8 +1619,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|indicesQueriesRegistry
-argument_list|,
 name|parser
 argument_list|,
 name|ParseFieldMatcher

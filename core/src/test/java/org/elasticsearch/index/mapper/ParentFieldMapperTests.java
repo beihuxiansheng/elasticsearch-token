@@ -905,6 +905,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SimilarityService
@@ -930,6 +935,9 @@ argument_list|(
 name|indexSettings
 argument_list|,
 name|indexAnalyzers
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|,
 name|similarityService
 argument_list|,

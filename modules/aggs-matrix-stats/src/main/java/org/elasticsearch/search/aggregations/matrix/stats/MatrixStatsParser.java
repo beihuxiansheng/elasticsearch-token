@@ -214,13 +214,11 @@ name|IOException
 block|{
 if|if
 condition|(
-name|parseFieldMatcher
+name|MULTIVALUE_MODE_FIELD
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
-argument_list|,
-name|MULTIVALUE_MODE_FIELD
 argument_list|)
 condition|)
 block|{

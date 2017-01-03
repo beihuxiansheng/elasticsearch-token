@@ -143,8 +143,8 @@ literal|0
 argument_list|)
 block|,
 comment|/**      * The allocation attempt was throttled for the shard.      */
-DECL|enum constant|THROTTLE
-name|THROTTLE
+DECL|enum constant|THROTTLED
+name|THROTTLED
 argument_list|(
 operator|(
 name|byte
@@ -173,8 +173,8 @@ literal|3
 argument_list|)
 block|,
 comment|/**      * Waiting on getting shard data from all nodes before making a decision      * about where to allocate the shard.      */
-DECL|enum constant|FETCH_PENDING
-name|FETCH_PENDING
+DECL|enum constant|AWAITING_INFO
+name|AWAITING_INFO
 argument_list|(
 operator|(
 name|byte
@@ -183,8 +183,8 @@ literal|4
 argument_list|)
 block|,
 comment|/**      * The allocation decision has been delayed waiting for a replica with a shard copy      * that left the cluster to rejoin.      */
-DECL|enum constant|DELAYED_ALLOCATION
-name|DELAYED_ALLOCATION
+DECL|enum constant|ALLOCATION_DELAYED
+name|ALLOCATION_DELAYED
 argument_list|(
 operator|(
 name|byte
@@ -288,7 +288,7 @@ case|case
 literal|1
 case|:
 return|return
-name|THROTTLE
+name|THROTTLED
 return|;
 case|case
 literal|2
@@ -306,13 +306,13 @@ case|case
 literal|4
 case|:
 return|return
-name|FETCH_PENDING
+name|AWAITING_INFO
 return|;
 case|case
 literal|5
 case|:
 return|return
-name|DELAYED_ALLOCATION
+name|ALLOCATION_DELAYED
 return|;
 case|case
 literal|6
@@ -373,19 +373,19 @@ case|case
 name|DECIDERS_THROTTLED
 case|:
 return|return
-name|THROTTLE
+name|THROTTLED
 return|;
 case|case
 name|FETCHING_SHARD_DATA
 case|:
 return|return
-name|FETCH_PENDING
+name|AWAITING_INFO
 return|;
 case|case
 name|DELAYED_ALLOCATION
 case|:
 return|return
-name|DELAYED_ALLOCATION
+name|ALLOCATION_DELAYED
 return|;
 case|case
 name|NO_VALID_SHARD_COPY
@@ -447,7 +447,7 @@ case|case
 name|THROTTLE
 case|:
 return|return
-name|THROTTLE
+name|THROTTLED
 return|;
 default|default:
 assert|assert

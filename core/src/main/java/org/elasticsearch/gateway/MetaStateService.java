@@ -120,6 +120,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|NodeEnvironment
@@ -198,6 +212,12 @@ specifier|final
 name|NodeEnvironment
 name|nodeEnv
 decl_stmt|;
+DECL|field|namedXContentRegistry
+specifier|private
+specifier|final
+name|NamedXContentRegistry
+name|namedXContentRegistry
+decl_stmt|;
 DECL|method|MetaStateService
 specifier|public
 name|MetaStateService
@@ -207,6 +227,9 @@ name|settings
 parameter_list|,
 name|NodeEnvironment
 name|nodeEnv
+parameter_list|,
+name|NamedXContentRegistry
+name|namedXContentRegistry
 parameter_list|)
 block|{
 name|super
@@ -219,6 +242,12 @@ operator|.
 name|nodeEnv
 operator|=
 name|nodeEnv
+expr_stmt|;
+name|this
+operator|.
+name|namedXContentRegistry
+operator|=
+name|namedXContentRegistry
 expr_stmt|;
 block|}
 comment|/**      * Loads the full state, which includes both the global state and all the indices      * meta state.      */
@@ -289,6 +318,8 @@ name|loadLatestState
 argument_list|(
 name|logger
 argument_list|,
+name|namedXContentRegistry
+argument_list|,
 name|nodeEnv
 operator|.
 name|resolveIndexFolder
@@ -356,6 +387,8 @@ operator|.
 name|loadLatestState
 argument_list|(
 name|logger
+argument_list|,
+name|namedXContentRegistry
 argument_list|,
 name|nodeEnv
 operator|.
@@ -427,6 +460,8 @@ operator|.
 name|loadLatestState
 argument_list|(
 name|logger
+argument_list|,
+name|namedXContentRegistry
 argument_list|,
 name|nodeEnv
 operator|.
@@ -525,6 +560,8 @@ operator|.
 name|loadLatestState
 argument_list|(
 name|logger
+argument_list|,
+name|namedXContentRegistry
 argument_list|,
 name|nodeEnv
 operator|.

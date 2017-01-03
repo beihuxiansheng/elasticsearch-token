@@ -592,6 +592,11 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|builder
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|BytesRestResponse
@@ -619,6 +624,11 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|builder
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|BytesRestResponse

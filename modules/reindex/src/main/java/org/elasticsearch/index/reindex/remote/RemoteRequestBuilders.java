@@ -170,6 +170,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -853,6 +867,7 @@ name|BytesReference
 name|query
 parameter_list|)
 block|{
+comment|// EMPTY is safe here because we're not calling namedObject
 try|try
 init|(
 name|XContentBuilder
@@ -870,6 +885,10 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|query
 argument_list|)
 init|)

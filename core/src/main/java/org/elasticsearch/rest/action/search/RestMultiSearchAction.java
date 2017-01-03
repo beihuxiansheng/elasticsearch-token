@@ -656,10 +656,6 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|searchRequestParsers
-operator|.
-name|queryParsers
-argument_list|,
 name|parser
 argument_list|,
 name|parseFieldMatcher
@@ -999,6 +995,11 @@ name|xContent
 operator|.
 name|createParser
 argument_list|(
+name|request
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|data
 operator|.
 name|slice
@@ -1340,6 +1341,11 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|request
+operator|.
+name|getXContentRegistry
+argument_list|()
+argument_list|,
 name|bytes
 argument_list|)
 init|)

@@ -212,8 +212,6 @@ name|state
 operator|=
 name|ClusterState
 operator|.
-name|Builder
-operator|.
 name|readFrom
 argument_list|(
 name|in

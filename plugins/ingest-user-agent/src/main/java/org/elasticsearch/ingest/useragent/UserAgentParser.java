@@ -36,6 +36,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentFactory
 import|;
 end_import
@@ -274,6 +288,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// EMPTY is safe here because we don't use namedObject
 name|XContentParser
 name|yamlParser
 init|=
@@ -288,6 +303,10 @@ argument_list|)
 operator|.
 name|createParser
 argument_list|(
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
+argument_list|,
 name|regexStream
 argument_list|)
 decl_stmt|;

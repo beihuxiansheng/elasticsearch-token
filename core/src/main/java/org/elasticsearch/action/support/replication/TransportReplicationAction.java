@@ -3524,7 +3524,7 @@ name|state
 init|=
 name|observer
 operator|.
-name|observedState
+name|setAndGetObservedState
 argument_list|()
 decl_stmt|;
 if|if

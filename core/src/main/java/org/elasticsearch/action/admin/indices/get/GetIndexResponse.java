@@ -597,11 +597,8 @@ operator|.
 name|readString
 argument_list|()
 argument_list|,
+operator|new
 name|MappingMetaData
-operator|.
-name|PROTO
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
@@ -715,11 +712,8 @@ name|aliasEntryBuilder
 operator|.
 name|add
 argument_list|(
+operator|new
 name|AliasMetaData
-operator|.
-name|Builder
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)

@@ -403,12 +403,18 @@ name|assertThat
 argument_list|(
 name|exception
 operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
+operator|.
 name|getMessage
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"com.fasterxml.jackson.core.JsonParseException: Unrecognized token"
+literal|"Unrecognized token"
 operator|+
 literal|" 'invalid': was expecting ('true', 'false' or 'null')\n"
 operator|+

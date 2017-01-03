@@ -818,16 +818,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|parserContext
-operator|.
-name|parseFieldMatcher
-argument_list|()
+name|FIELDDATA
 operator|.
 name|match
 argument_list|(
 name|fieldName
-argument_list|,
-name|FIELDDATA
 argument_list|)
 condition|)
 block|{

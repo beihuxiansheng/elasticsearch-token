@@ -50,6 +50,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Unchecked exception that is translated into a {@code 400 BAD REQUEST} error when it bubbles out over HTTP.  */
+end_comment
+
 begin_class
 DECL|class|ElasticsearchParseException
 specifier|public

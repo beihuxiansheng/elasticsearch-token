@@ -182,7 +182,7 @@ block|{
 name|long
 name|refreshInterval
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|ProcessInfo

@@ -790,7 +790,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|,
 name|getResult
@@ -1057,7 +1057,7 @@ condition|)
 block|{
 name|version
 operator|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 expr_stmt|;
 name|exists

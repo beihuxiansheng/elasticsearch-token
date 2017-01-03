@@ -578,6 +578,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentHelper
 import|;
 end_import
@@ -1101,6 +1115,12 @@ specifier|final
 name|ActiveShardsObserver
 name|activeShardsObserver
 decl_stmt|;
+DECL|field|xContentRegistry
+specifier|private
+specifier|final
+name|NamedXContentRegistry
+name|xContentRegistry
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|MetaDataCreateIndexService
@@ -1130,6 +1150,9 @@ name|indexScopedSettings
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|NamedXContentRegistry
+name|xContentRegistry
 parameter_list|)
 block|{
 name|super
@@ -1186,6 +1209,12 @@ name|clusterService
 argument_list|,
 name|threadPool
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|xContentRegistry
+operator|=
+name|xContentRegistry
 expr_stmt|;
 block|}
 comment|/**      * Validate the name for an index against some static rules and a cluster state.      */
@@ -1945,6 +1974,8 @@ name|MapperService
 operator|.
 name|parseMapping
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|entry
 operator|.
 name|getValue
@@ -2054,6 +2085,8 @@ name|MapperService
 operator|.
 name|parseMapping
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cursor
 operator|.
 name|value
@@ -2078,6 +2111,8 @@ name|MapperService
 operator|.
 name|parseMapping
 argument_list|(
+name|xContentRegistry
+argument_list|,
 name|cursor
 operator|.
 name|value
@@ -2880,6 +2915,8 @@ name|filter
 argument_list|()
 argument_list|,
 name|queryShardContext
+argument_list|,
+name|xContentRegistry
 argument_list|)
 expr_stmt|;
 block|}
@@ -2923,6 +2960,8 @@ name|uncompressed
 argument_list|()
 argument_list|,
 name|queryShardContext
+argument_list|,
+name|xContentRegistry
 argument_list|)
 expr_stmt|;
 block|}
