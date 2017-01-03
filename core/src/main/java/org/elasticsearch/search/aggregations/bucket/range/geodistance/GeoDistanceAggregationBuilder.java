@@ -42,18 +42,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -214,9 +202,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactories
-operator|.
-name|Builder
+name|AggregationBuilder
 import|;
 end_import
 
@@ -230,7 +216,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
+name|AggregatorFactories
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -1304,14 +1292,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ParseFieldMatcher
-name|parseFieldMatcher
-init|=
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
-decl_stmt|;
 name|String
 name|fromAsStr
 init|=

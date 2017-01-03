@@ -64,18 +64,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -330,7 +318,7 @@ argument_list|,
 literal|"mult"
 argument_list|)
 block|;
-comment|/**          * Parse a string SeasonalityType into the byte enum          *          * @param text                SeasonalityType in string format (e.g. "add")          * @param parseFieldMatcher   Matcher for field names          * @return                    SeasonalityType enum          */
+comment|/**          * Parse a string SeasonalityType into the byte enum          *          * @param text                SeasonalityType in string format (e.g. "add")          * @return                    SeasonalityType enum          */
 annotation|@
 name|Nullable
 DECL|method|parse
@@ -341,9 +329,6 @@ name|parse
 parameter_list|(
 name|String
 name|text
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 if|if
@@ -1834,9 +1819,6 @@ name|pipelineName
 parameter_list|,
 name|int
 name|windowSize
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|ParseException
@@ -1966,8 +1948,6 @@ operator|(
 name|String
 operator|)
 name|value
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 name|settings
