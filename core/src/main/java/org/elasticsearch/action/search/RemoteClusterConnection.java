@@ -991,7 +991,7 @@ block|{
 comment|// try to reconnect and fill up the slot of the disconnected node
 name|connectHandler
 operator|.
-name|maybeConnect
+name|forceConnect
 argument_list|()
 expr_stmt|;
 block|}
@@ -1384,6 +1384,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TODO document this class
 DECL|class|ConnectHandler
 specifier|private
 class|class
@@ -1435,7 +1436,6 @@ literal|100
 argument_list|)
 decl_stmt|;
 DECL|method|maybeConnect
-specifier|public
 name|void
 name|maybeConnect
 parameter_list|()
@@ -1447,7 +1447,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|connect
-specifier|public
 name|void
 name|connect
 parameter_list|(
@@ -1456,6 +1455,42 @@ argument_list|<
 name|Void
 argument_list|>
 name|connectListener
+parameter_list|)
+block|{
+name|connect
+argument_list|(
+name|connectListener
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|forceConnect
+name|void
+name|forceConnect
+parameter_list|()
+block|{
+name|connect
+argument_list|(
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|connect
+specifier|private
+name|void
+name|connect
+parameter_list|(
+name|ActionListener
+argument_list|<
+name|Void
+argument_list|>
+name|connectListener
+parameter_list|,
+name|boolean
+name|forceRun
 parameter_list|)
 block|{
 specifier|final
@@ -1503,9 +1538,9 @@ throw|;
 block|}
 if|if
 condition|(
-name|connectListener
-operator|!=
-literal|null
+name|forceRun
+operator|==
+literal|false
 operator|&&
 name|queue
 operator|.
@@ -1567,11 +1602,12 @@ argument_list|(
 operator|new
 name|AlreadyClosedException
 argument_list|(
-literal|"connecte handler is already closed"
+literal|"connect handler is already closed"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return;
 block|}
 block|}
 else|else
@@ -2088,9 +2124,12 @@ block|}
 catch|catch
 parameter_list|(
 name|ConnectTransportException
+decl||
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
+comment|// ISE if we fail the handshake with an version incompatible node
 comment|// fair enough we can't connect just move on
 name|logger
 operator|.
@@ -2118,6 +2157,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|connection
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|listener
 operator|.
 name|onResponse
@@ -2209,6 +2253,18 @@ argument_list|,
 name|exp
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|connection
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|collectRemoteNodes
 argument_list|(
 name|seedNodes
@@ -2218,13 +2274,7 @@ argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|connection
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2283,10 +2333,15 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|ConnectTransportException
+decl||
 name|IOException
+decl||
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
+comment|// ISE if we fail the handshake with an version incompatible node
 if|if
 condition|(
 name|seedNodes
@@ -2387,18 +2442,24 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 block|}
-synchronized|synchronized
-init|(
-name|queue
-init|)
+block|}
+block|}
+DECL|method|isConnectRunning
+name|boolean
+name|isConnectRunning
+parameter_list|()
 block|{
+comment|// for testing only
+return|return
+name|connectHandler
+operator|.
 name|running
 operator|.
-name|release
+name|availablePermits
 argument_list|()
-expr_stmt|;
-block|}
-block|}
+operator|==
+literal|0
+return|;
 block|}
 block|}
 end_class
