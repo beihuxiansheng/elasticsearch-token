@@ -3575,6 +3575,19 @@ operator|+
 name|openConnections
 assert|;
 block|}
+DECL|method|getLocalDiscoNode
+specifier|public
+name|DiscoveryNode
+name|getLocalDiscoNode
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getLocalNode
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

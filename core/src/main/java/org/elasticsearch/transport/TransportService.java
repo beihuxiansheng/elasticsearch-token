@@ -1182,6 +1182,7 @@ expr_stmt|;
 block|}
 comment|// for testing
 DECL|method|getLocalNode
+specifier|protected
 name|DiscoveryNode
 name|getLocalNode
 parameter_list|()

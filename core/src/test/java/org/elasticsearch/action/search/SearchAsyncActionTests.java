@@ -682,7 +682,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 argument_list|)

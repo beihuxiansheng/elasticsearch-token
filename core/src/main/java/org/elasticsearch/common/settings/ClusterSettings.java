@@ -44,7 +44,7 @@ name|action
 operator|.
 name|search
 operator|.
-name|SearchTransportService
+name|RemoteClusterService
 import|;
 end_import
 
@@ -1930,13 +1930,13 @@ name|TransportSearchAction
 operator|.
 name|SHARD_COUNT_LIMIT_SETTING
 argument_list|,
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 argument_list|,
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
-name|NUM_REMOTE_CONNECTIONS
+name|REMOTE_CONNECTIONS_PER_CLUSTER
 argument_list|,
 name|TransportService
 operator|.

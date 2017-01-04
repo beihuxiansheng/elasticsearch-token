@@ -13548,7 +13548,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"action.search.remote.test_remote_cluster"
+literal|"search.remote.seeds.test_remote_cluster"
 argument_list|,
 name|seedNode
 operator|.

@@ -630,6 +630,12 @@ specifier|final
 name|SearchTransportService
 name|searchTransportService
 decl_stmt|;
+DECL|field|remoteClusterService
+specifier|private
+specifier|final
+name|RemoteClusterService
+name|remoteClusterService
+decl_stmt|;
 DECL|field|searchPhaseController
 specifier|private
 specifier|final
@@ -708,6 +714,15 @@ operator|.
 name|searchTransportService
 operator|=
 name|searchTransportService
+expr_stmt|;
+name|this
+operator|.
+name|remoteClusterService
+operator|=
+name|searchTransportService
+operator|.
+name|getRemoteClusterService
+argument_list|()
 expr_stmt|;
 name|SearchTransportService
 operator|.
@@ -1049,7 +1064,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|searchTransportService
+name|remoteClusterService
 operator|.
 name|isCrossClusterSearchEnabled
 argument_list|()
@@ -1108,7 +1123,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|searchTransportService
+name|remoteClusterService
 operator|.
 name|isRemoteClusterRegistered
 argument_list|(
@@ -1265,8 +1280,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// nocommit we have to extract this logic to add unittests ideally with manually prepared searchShardsResponses etc.
-name|searchTransportService
+name|remoteClusterService
 operator|.
 name|sendSearchShards
 argument_list|(
@@ -1291,17 +1305,6 @@ name|remoteShardIterators
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
-name|Set
-argument_list|<
-name|DiscoveryNode
-argument_list|>
-name|remoteNodes
-init|=
-operator|new
-name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1478,9 +1481,9 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|searchTransportService
+name|remoteClusterService
 operator|.
-name|getRemoteConnection
+name|getConnection
 argument_list|(
 name|remoteNode
 argument_list|,

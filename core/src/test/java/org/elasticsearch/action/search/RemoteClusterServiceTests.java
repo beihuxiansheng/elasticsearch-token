@@ -121,10 +121,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SearchTransportServiceTests
+DECL|class|RemoteClusterServiceTests
 specifier|public
 class|class
-name|SearchTransportServiceTests
+name|RemoteClusterServiceTests
 extends|extends
 name|ESTestCase
 block|{
@@ -135,7 +135,7 @@ name|testRemoteClusterSeedSetting
 parameter_list|()
 block|{
 comment|// simple validation
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 operator|.
@@ -148,14 +148,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"action.search.remote.foo"
+literal|"search.remote.seeds.foo"
 argument_list|,
 literal|"192.168.0.1:8080"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"action.search.remote.bar"
+literal|"search.remote.seeds.bar"
 argument_list|,
 literal|"[::1]:9090"
 argument_list|)
@@ -172,7 +172,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 operator|.
@@ -185,7 +185,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"action.search.remote.foo"
+literal|"search.remote.seeds.foo"
 argument_list|,
 literal|"192.168.0.1"
 argument_list|)
@@ -215,11 +215,11 @@ argument_list|>
 argument_list|>
 name|map
 init|=
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
 name|buildRemoteClustersSeeds
 argument_list|(
-name|SearchTransportService
+name|RemoteClusterService
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 operator|.
@@ -232,14 +232,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"action.search.remote.foo"
+literal|"search.remote.seeds.foo"
 argument_list|,
 literal|"192.168.0.1:8080"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"action.search.remote.bar"
+literal|"search.remote.seeds.bar"
 argument_list|,
 literal|"[::1]:9090"
 argument_list|)
