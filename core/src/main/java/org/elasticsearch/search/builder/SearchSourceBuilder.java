@@ -3982,7 +3982,7 @@ name|fetchSourceContext
 operator|=
 name|FetchSourceContext
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|context
 operator|.
@@ -4187,7 +4187,7 @@ name|fetchSourceContext
 operator|=
 name|FetchSourceContext
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|context
 operator|.
@@ -5040,7 +5040,7 @@ name|fetchSourceContext
 operator|=
 name|FetchSourceContext
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|context
 operator|.

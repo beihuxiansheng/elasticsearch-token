@@ -2057,7 +2057,7 @@ name|fetchSourceContext
 operator|=
 name|FetchSourceContext
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|)
@@ -2185,7 +2185,7 @@ name|fetchSourceContext
 operator|=
 name|FetchSourceContext
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|)

@@ -897,7 +897,7 @@ name|setFetchSourceContext
 argument_list|(
 name|FetchSourceContext
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|c
 operator|.
