@@ -3119,8 +3119,6 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|parseFieldMatcher
-argument_list|,
 literal|"mustache"
 argument_list|)
 decl_stmt|;
