@@ -1197,7 +1197,7 @@ name|settings
 parameter_list|)
 lambda|->
 operator|new
-name|SynonymGraphFilterFactory
+name|SynonymGraphTokenFilterFactory
 argument_list|(
 name|is
 argument_list|,
@@ -1675,7 +1675,7 @@ name|settings
 parameter_list|)
 lambda|->
 operator|new
-name|SynonymGraphFilterFactory
+name|SynonymGraphTokenFilterFactory
 argument_list|(
 name|is
 argument_list|,

@@ -60,22 +60,6 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertNoSearchHits
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
 name|assertSearchHits
 import|;
 end_import
@@ -781,11 +765,19 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-comment|// 0 = say, 1 = OR(wtf, what), 2 = the, 3 = fudge
-comment|// "the" and "fudge" are required here, even though they were part of the synonym which is also expanded
-name|assertNoSearchHits
+comment|// Old synonyms work fine in that case, but it is coincidental
+name|assertHitCount
 argument_list|(
 name|searchResponse
+argument_list|,
+literal|1L
+argument_list|)
+expr_stmt|;
+name|assertSearchHits
+argument_list|(
+name|searchResponse
+argument_list|,
+literal|"1"
 argument_list|)
 expr_stmt|;
 comment|// same query using graph should find correct result
