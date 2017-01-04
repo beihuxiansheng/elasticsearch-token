@@ -5067,11 +5067,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
-argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
