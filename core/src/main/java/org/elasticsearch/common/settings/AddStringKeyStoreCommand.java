@@ -70,16 +70,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
 name|joptsimple
 operator|.
 name|OptionSet
@@ -289,7 +279,7 @@ name|keystore
 init|=
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|env
 operator|.
@@ -318,7 +308,7 @@ throw|;
 block|}
 name|keystore
 operator|.
-name|loadKeystore
+name|decrypt
 argument_list|(
 operator|new
 name|char
@@ -448,6 +438,8 @@ literal|": "
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|keystore
 operator|.
 name|setStringSetting
@@ -457,6 +449,25 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UserException
+argument_list|(
+name|ExitCodes
+operator|.
+name|DATA_ERROR
+argument_list|,
+literal|"String value must contain only ASCII"
+argument_list|)
+throw|;
+block|}
 name|keystore
 operator|.
 name|save

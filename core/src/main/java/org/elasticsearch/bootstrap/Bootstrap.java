@@ -1207,7 +1207,7 @@ name|keystore
 operator|=
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|env0
 operator|.
@@ -1246,7 +1246,7 @@ try|try
 block|{
 name|keystore
 operator|.
-name|loadKeystore
+name|decrypt
 argument_list|(
 operator|new
 name|char

@@ -3441,12 +3441,7 @@ name|keystore
 operator|.
 name|set
 argument_list|(
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|keystore
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

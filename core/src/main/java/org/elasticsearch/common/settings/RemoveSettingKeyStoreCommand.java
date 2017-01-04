@@ -198,7 +198,7 @@ name|keystore
 init|=
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|env
 operator|.
@@ -227,7 +227,7 @@ throw|;
 block|}
 name|keystore
 operator|.
-name|loadKeystore
+name|decrypt
 argument_list|(
 operator|new
 name|char

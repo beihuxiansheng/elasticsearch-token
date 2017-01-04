@@ -180,18 +180,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -511,7 +499,7 @@ name|keystore
 init|=
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|env
 operator|.
@@ -521,7 +509,7 @@ argument_list|)
 decl_stmt|;
 name|keystore
 operator|.
-name|loadKeystore
+name|decrypt
 argument_list|(
 name|password
 operator|.

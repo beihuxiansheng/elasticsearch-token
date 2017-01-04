@@ -84,6 +84,7 @@ annotation|@
 name|Override
 DECL|method|equals
 specifier|public
+specifier|synchronized
 name|boolean
 name|equals
 parameter_list|(
@@ -189,6 +190,7 @@ annotation|@
 name|Override
 DECL|method|hashCode
 specifier|public
+specifier|synchronized
 name|int
 name|hashCode
 parameter_list|()
@@ -206,6 +208,7 @@ annotation|@
 name|Override
 DECL|method|length
 specifier|public
+specifier|synchronized
 name|int
 name|length
 parameter_list|()
@@ -223,6 +226,7 @@ annotation|@
 name|Override
 DECL|method|charAt
 specifier|public
+specifier|synchronized
 name|char
 name|charAt
 parameter_list|(
@@ -267,6 +271,7 @@ annotation|@
 name|Override
 DECL|method|toString
 specifier|public
+specifier|synchronized
 name|String
 name|toString
 parameter_list|()
@@ -284,6 +289,7 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
+specifier|synchronized
 name|void
 name|close
 parameter_list|()

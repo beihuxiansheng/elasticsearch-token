@@ -82,18 +82,6 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|MockTerminal
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cli
-operator|.
 name|Terminal
 import|;
 end_import
@@ -179,7 +167,7 @@ name|assertNotNull
 argument_list|(
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|configDir
 argument_list|)
@@ -214,7 +202,7 @@ name|assertNotNull
 argument_list|(
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|configDir
 argument_list|)
@@ -324,7 +312,7 @@ name|assertNotNull
 argument_list|(
 name|KeyStoreWrapper
 operator|.
-name|loadMetadata
+name|load
 argument_list|(
 name|env
 operator|.
