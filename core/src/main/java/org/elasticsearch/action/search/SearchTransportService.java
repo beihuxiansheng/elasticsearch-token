@@ -2840,7 +2840,13 @@ name|doClose
 parameter_list|()
 throws|throws
 name|IOException
-block|{}
+block|{
+name|remoteClusterService
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 
 unit|}
