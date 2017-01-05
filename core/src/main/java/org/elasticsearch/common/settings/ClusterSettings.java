@@ -1942,9 +1942,10 @@ name|RemoteClusterService
 operator|.
 name|REMOTE_INITIAL_CONNECTION_TIMEOUT_SETTING
 argument_list|,
-name|RemoteClusterServic
+name|RemoteClusterService
 operator|.
 name|REMOTE_NODE_ATTRIBUTE
+argument_list|,
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING

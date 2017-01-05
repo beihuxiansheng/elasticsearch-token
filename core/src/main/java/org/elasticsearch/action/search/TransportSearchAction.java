@@ -944,6 +944,11 @@ operator|.
 name|filterIndices
 argument_list|(
 name|remoteIndicesByCluster
+argument_list|,
+name|searchRequest
+operator|.
+name|indices
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
