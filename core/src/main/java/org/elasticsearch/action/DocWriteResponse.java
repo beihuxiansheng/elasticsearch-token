@@ -154,21 +154,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|ToXContentObject
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -293,9 +279,7 @@ name|ReplicationResponse
 implements|implements
 name|WriteResponse
 implements|,
-name|StatusToXContent
-implements|,
-name|ToXContentObject
+name|StatusToXContentObject
 block|{
 comment|/**      * An enum that represents the the results of CRUD operations, primarily used to communicate the type of      * operation that occurred.      */
 DECL|enum|Result

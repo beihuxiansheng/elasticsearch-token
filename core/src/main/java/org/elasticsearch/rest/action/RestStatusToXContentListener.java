@@ -26,7 +26,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|RestStatusToXContentListener
 parameter_list|<
 name|Response
 extends|extends
-name|StatusToXContent
+name|StatusToXContentObject
 parameter_list|>
 extends|extends
 name|RestToXContentListener
@@ -208,11 +208,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+assert|assert
+name|response
+operator|.
+name|isFragment
+argument_list|()
+operator|==
+literal|false
+assert|;
+comment|//would be nice if we could make default methods final
+name|response
+operator|.
 name|toXContent
 argument_list|(
-name|response
-argument_list|,
 name|builder
+argument_list|,
+name|channel
+operator|.
+name|request
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|RestResponse

@@ -70,21 +70,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|ToXContentObject
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -160,9 +146,7 @@ name|ClearScrollResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|StatusToXContent
-implements|,
-name|ToXContentObject
+name|StatusToXContentObject
 block|{
 DECL|field|succeeded
 specifier|private
