@@ -173,7 +173,7 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 decl_stmt|;
-comment|// less than 25% off
+comment|// less than 50% off
 name|assertEquals
 argument_list|(
 name|actualRamBytesUsed
@@ -182,7 +182,7 @@ name|estimatedRamBytesUsed
 argument_list|,
 name|actualRamBytesUsed
 operator|/
-literal|4
+literal|2
 argument_list|)
 expr_stmt|;
 comment|// now refresh
