@@ -95,16 +95,16 @@ import|;
 end_import
 
 begin_class
-DECL|class|SynonymGraphFilterFactory
+DECL|class|SynonymGraphTokenFilterFactory
 specifier|public
 class|class
-name|SynonymGraphFilterFactory
+name|SynonymGraphTokenFilterFactory
 extends|extends
 name|SynonymTokenFilterFactory
 block|{
-DECL|method|SynonymGraphFilterFactory
+DECL|method|SynonymGraphTokenFilterFactory
 specifier|public
-name|SynonymGraphFilterFactory
+name|SynonymGraphTokenFilterFactory
 parameter_list|(
 name|IndexSettings
 name|indexSettings

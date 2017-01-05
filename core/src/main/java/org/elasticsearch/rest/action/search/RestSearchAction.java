@@ -738,8 +738,6 @@ operator|.
 name|fromString
 argument_list|(
 name|searchType
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 operator|.
 name|equals
@@ -754,8 +752,6 @@ operator|.
 name|fromString
 argument_list|(
 name|searchType
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 operator|.
 name|equals

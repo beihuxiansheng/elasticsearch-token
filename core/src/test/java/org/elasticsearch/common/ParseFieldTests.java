@@ -27,16 +27,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -99,8 +89,6 @@ specifier|public
 name|void
 name|testParse
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|String
 name|name
@@ -277,8 +265,6 @@ specifier|public
 name|void
 name|testAllDeprecated
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|String
 name|name

@@ -403,8 +403,6 @@ specifier|public
 name|void
 name|checkWarning
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|assertWarnings
 argument_list|(

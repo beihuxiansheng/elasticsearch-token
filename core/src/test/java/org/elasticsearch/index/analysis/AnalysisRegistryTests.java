@@ -868,8 +868,6 @@ specifier|public
 name|void
 name|testBackCompatOverrideDefaultIndexAnalyzer
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Version
 name|version
@@ -1153,8 +1151,6 @@ specifier|public
 name|void
 name|testBackCompatOverrideDefaultIndexAndSearchAnalyzer
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Version
 name|version

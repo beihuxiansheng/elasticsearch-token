@@ -72,18 +72,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -460,8 +448,6 @@ argument_list|(
 name|parser
 argument_list|,
 name|analyzeRequest
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}
@@ -515,9 +501,6 @@ name|parser
 parameter_list|,
 name|AnalyzeRequest
 name|analyzeRequest
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException

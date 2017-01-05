@@ -77,8 +77,6 @@ specifier|public
 name|void
 name|testHostsProviderBwc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|FileBasedDiscoveryPlugin
 name|plugin
@@ -129,8 +127,6 @@ specifier|public
 name|void
 name|testHostsProviderExplicit
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Settings
 name|settings

@@ -3525,6 +3525,7 @@ argument_list|,
 name|connectionProfile
 argument_list|)
 decl_stmt|;
+specifier|final
 name|Channel
 name|channel
 init|=
@@ -3538,6 +3539,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// one channel is guaranteed by the connection profile
 specifier|final
 name|TimeValue
 name|connectTimeout
@@ -3577,6 +3579,7 @@ operator|.
 name|getHandshakeTimeout
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Version
 name|version
 init|=
@@ -3605,6 +3608,7 @@ argument_list|,
 name|version
 argument_list|)
 return|;
+comment|// clone the channels - we now have the correct version
 block|}
 catch|catch
 parameter_list|(

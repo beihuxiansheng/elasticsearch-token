@@ -887,6 +887,18 @@ name|getRemainingDelayInMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|allocateDecision
+operator|.
+name|getAllocationDecision
+argument_list|()
+operator|==
+name|AllocationDecision
+operator|.
+name|NO_VALID_SHARD_COPY
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 literal|0
@@ -1004,6 +1016,7 @@ name|nextToken
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testUnassignedReplicaDelayedAllocation

@@ -84,18 +84,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -476,9 +464,6 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
-parameter_list|,
 name|AllocationCommandRegistry
 name|registry
 parameter_list|)
@@ -696,8 +681,6 @@ operator|.
 name|lookup
 argument_list|(
 name|commandName
-argument_list|,
-name|parseFieldMatcher
 argument_list|,
 name|parser
 operator|.

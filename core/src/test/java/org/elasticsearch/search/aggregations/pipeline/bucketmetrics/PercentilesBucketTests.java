@@ -301,8 +301,6 @@ argument_list|(
 name|PercentilesBucketPipelineAggregationBuilder
 operator|.
 name|NAME
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 operator|.
 name|parse

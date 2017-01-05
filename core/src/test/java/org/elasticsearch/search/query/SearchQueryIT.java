@@ -9358,7 +9358,7 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|3
 argument_list|)
@@ -9438,14 +9438,14 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|1
 argument_list|)
 argument_list|)
 comment|// Only one should clause is defined, returns no docs.
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|2
 argument_list|)
@@ -9513,13 +9513,13 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|3
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|1
 argument_list|)
@@ -9597,7 +9597,7 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|3
 argument_list|)

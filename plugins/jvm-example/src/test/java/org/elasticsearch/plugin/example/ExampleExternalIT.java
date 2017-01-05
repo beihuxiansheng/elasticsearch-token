@@ -22,6 +22,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|mocksocket
+operator|.
+name|MockSocket
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -161,7 +173,7 @@ name|Socket
 name|socket
 init|=
 operator|new
-name|Socket
+name|MockSocket
 argument_list|(
 name|address
 argument_list|,
