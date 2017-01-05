@@ -649,11 +649,6 @@ range|:
 name|items
 control|)
 block|{
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|item
@@ -662,6 +657,11 @@ name|isFailure
 argument_list|()
 condition|)
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
 name|ElasticsearchException
 operator|.
 name|renderException
@@ -675,6 +675,11 @@ operator|.
 name|getFailure
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -692,11 +697,6 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 block|}
 name|builder
 operator|.

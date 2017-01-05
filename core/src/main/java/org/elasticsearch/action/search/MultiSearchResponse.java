@@ -704,7 +704,7 @@ operator|.
 name|getResponse
 argument_list|()
 operator|.
-name|toXContent
+name|innerToXContent
 argument_list|(
 name|builder
 argument_list|,
