@@ -1938,6 +1938,13 @@ name|RemoteClusterService
 operator|.
 name|REMOTE_CONNECTIONS_PER_CLUSTER
 argument_list|,
+name|RemoteClusterService
+operator|.
+name|REMOTE_INITIAL_CONNECTION_TIMEOUT_SETTING
+argument_list|,
+name|RemoteClusterServic
+operator|.
+name|REMOTE_NODE_ATTRIBUTE
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
