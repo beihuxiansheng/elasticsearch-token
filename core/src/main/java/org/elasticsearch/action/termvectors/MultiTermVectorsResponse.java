@@ -590,11 +590,6 @@ operator|.
 name|getResponse
 argument_list|()
 decl_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 name|getResponse
 operator|.
 name|toXContent
@@ -603,11 +598,6 @@ name|builder
 argument_list|,
 name|params
 argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
 expr_stmt|;
 block|}
 block|}

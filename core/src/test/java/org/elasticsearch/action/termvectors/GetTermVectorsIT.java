@@ -717,9 +717,6 @@ name|toXContent
 argument_list|(
 name|jsonBuilder
 argument_list|()
-operator|.
-name|startObject
-argument_list|()
 argument_list|,
 name|ToXContent
 operator|.
