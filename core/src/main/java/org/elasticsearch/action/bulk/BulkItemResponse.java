@@ -327,7 +327,7 @@ condition|)
 block|{
 name|response
 operator|.
-name|toXContent
+name|innerToXContent
 argument_list|(
 name|builder
 argument_list|,

@@ -490,11 +490,6 @@ name|contentBuilder
 argument_list|()
 init|)
 block|{
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 name|response
 operator|.
 name|toXContent
@@ -505,11 +500,6 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
 expr_stmt|;
 try|try
 init|(
@@ -565,11 +555,6 @@ name|contentBuilder
 argument_list|()
 init|)
 block|{
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 name|response
 operator|.
 name|toXContent
@@ -580,11 +565,6 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
 expr_stmt|;
 try|try
 init|(
