@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|// nocommit javadocs
+comment|/**  * TransportActionProxy allows an arbitrary action to be executed on a defined target node while the initial request is send to a second  * node that acts as a request proxy to the target node. This is useful if a node is not directly connected to a target node but is  * connected to an intermediate node that establishes a transitive connection.  */
 end_comment
 
 begin_class
@@ -645,6 +645,7 @@ operator|+
 name|action
 return|;
 block|}
+comment|/**      * Wraps the actual request in a proxy request object that encodes the target node.      */
 DECL|method|wrapRequest
 specifier|public
 specifier|static
