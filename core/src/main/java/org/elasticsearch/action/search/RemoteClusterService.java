@@ -658,7 +658,7 @@ specifier|final
 name|char
 name|REMOTE_CLUSTER_INDEX_SEPARATOR
 init|=
-literal|'|'
+literal|':'
 decl_stmt|;
 DECL|field|transportService
 specifier|private
