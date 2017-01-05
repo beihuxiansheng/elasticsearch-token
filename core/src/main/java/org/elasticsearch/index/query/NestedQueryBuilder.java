@@ -1508,7 +1508,9 @@ argument_list|,
 name|rewrittenQuery
 argument_list|)
 decl_stmt|;
-return|return
+name|NestedQueryBuilder
+name|nestedQuery
+init|=
 operator|new
 name|NestedQueryBuilder
 argument_list|(
@@ -1520,6 +1522,16 @@ name|scoreMode
 argument_list|,
 name|rewrittenInnerHit
 argument_list|)
+decl_stmt|;
+name|nestedQuery
+operator|.
+name|ignoreUnmapped
+argument_list|(
+name|ignoreUnmapped
+argument_list|)
+expr_stmt|;
+return|return
+name|nestedQuery
 return|;
 block|}
 return|return

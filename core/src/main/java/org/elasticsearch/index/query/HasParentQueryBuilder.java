@@ -1779,7 +1779,9 @@ argument_list|,
 name|rewrittenQuery
 argument_list|)
 decl_stmt|;
-return|return
+name|HasParentQueryBuilder
+name|hasParentQueryBuilder
+init|=
 operator|new
 name|HasParentQueryBuilder
 argument_list|(
@@ -1791,6 +1793,16 @@ name|score
 argument_list|,
 name|rewrittenInnerHit
 argument_list|)
+decl_stmt|;
+name|hasParentQueryBuilder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+name|ignoreUnmapped
+argument_list|)
+expr_stmt|;
+return|return
+name|hasParentQueryBuilder
 return|;
 block|}
 return|return
