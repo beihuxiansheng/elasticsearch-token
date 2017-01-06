@@ -310,6 +310,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|network
+operator|.
+name|IfConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -1115,6 +1129,12 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// Log ifconfig output before SecurityManager is installed
+name|IfConfig
+operator|.
+name|logIfNecessary
+argument_list|()
+expr_stmt|;
 comment|// install SM after natives, shutdown hooks, etc.
 try|try
 block|{

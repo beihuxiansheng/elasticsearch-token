@@ -130,6 +130,7 @@ end_comment
 
 begin_class
 DECL|class|IfConfig
+specifier|public
 specifier|final
 class|class
 name|IfConfig
@@ -161,6 +162,7 @@ literal|"        "
 decl_stmt|;
 comment|/** log interface configuration at debug level, if its enabled */
 DECL|method|logIfNecessary
+specifier|public
 specifier|static
 name|void
 name|logIfNecessary
@@ -183,8 +185,6 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-decl||
-name|SecurityException
 name|e
 parameter_list|)
 block|{
