@@ -79,6 +79,20 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
+block|,
+comment|/**      * Snapshot is incompatible with the current version of the cluster      */
+DECL|enum constant|INCOMPATIBLE
+name|INCOMPATIBLE
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|4
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
 block|;
 DECL|field|value
 specifier|private
@@ -96,7 +110,6 @@ name|boolean
 name|restorable
 decl_stmt|;
 DECL|method|SnapshotState
-specifier|private
 name|SnapshotState
 parameter_list|(
 name|byte
@@ -200,6 +213,12 @@ literal|3
 case|:
 return|return
 name|PARTIAL
+return|;
+case|case
+literal|4
+case|:
+return|return
+name|INCOMPATIBLE
 return|;
 default|default:
 throw|throw
