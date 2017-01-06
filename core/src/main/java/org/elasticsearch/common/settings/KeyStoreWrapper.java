@@ -392,7 +392,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|NIOFSDirectory
+name|SimpleFSDirectory
 import|;
 end_import
 
@@ -752,11 +752,11 @@ return|return
 literal|null
 return|;
 block|}
-name|NIOFSDirectory
+name|SimpleFSDirectory
 name|directory
 init|=
 operator|new
-name|NIOFSDirectory
+name|SimpleFSDirectory
 argument_list|(
 name|configDir
 argument_list|)
@@ -1105,11 +1105,11 @@ operator|.
 name|getPassword
 argument_list|()
 decl_stmt|;
-name|NIOFSDirectory
+name|SimpleFSDirectory
 name|directory
 init|=
 operator|new
-name|NIOFSDirectory
+name|SimpleFSDirectory
 argument_list|(
 name|configDir
 argument_list|)
@@ -1268,6 +1268,10 @@ argument_list|,
 name|StandardCopyOption
 operator|.
 name|REPLACE_EXISTING
+argument_list|,
+name|StandardCopyOption
+operator|.
+name|ATOMIC_MOVE
 argument_list|)
 expr_stmt|;
 name|PosixFileAttributeView
@@ -1320,6 +1324,7 @@ return|return
 name|settingNames
 return|;
 block|}
+comment|// TODO: make settings accessible only to code that registered the setting
 comment|/** Retrieve a string setting. The {@link SecureString} should be closed once it is used. */
 DECL|method|getStringSetting
 name|SecureString

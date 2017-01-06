@@ -1192,7 +1192,7 @@ name|KeyStoreWrapper
 name|loadKeyStore
 parameter_list|(
 name|Environment
-name|env0
+name|initialEnv
 parameter_list|)
 throws|throws
 name|BootstrapException
@@ -1209,7 +1209,7 @@ name|KeyStoreWrapper
 operator|.
 name|load
 argument_list|(
-name|env0
+name|initialEnv
 operator|.
 name|configFile
 argument_list|()
@@ -1465,7 +1465,7 @@ name|quiet
 parameter_list|,
 specifier|final
 name|Environment
-name|env0
+name|initialEnv
 parameter_list|)
 throws|throws
 name|BootstrapException
@@ -1497,7 +1497,7 @@ name|keystore
 init|=
 name|loadKeyStore
 argument_list|(
-name|env0
+name|initialEnv
 argument_list|)
 decl_stmt|;
 name|Environment
@@ -1511,7 +1511,7 @@ name|pidFile
 argument_list|,
 name|keystore
 argument_list|,
-name|env0
+name|initialEnv
 operator|.
 name|settings
 argument_list|()
