@@ -519,7 +519,7 @@ import|;
 end_import
 
 begin_comment
-comment|//nocommit this class needs more javadocs and must be unittested
+comment|/**  * Basic service for accessing remote clusters via gateway nodes  */
 end_comment
 
 begin_class
@@ -1066,6 +1066,7 @@ operator|==
 literal|false
 return|;
 block|}
+comment|/**      * Filters out indices that refer to a remote cluster and adds them to the given per cluster indices map.      *      * @param perClusterIndices a map to fill with remote cluster indices from the given request indices      * @param requestIndices the indices in the search request to filter      * @return all indices in the requestIndices array that are not remote cluster indices      */
 DECL|method|filterIndices
 specifier|public
 name|String
