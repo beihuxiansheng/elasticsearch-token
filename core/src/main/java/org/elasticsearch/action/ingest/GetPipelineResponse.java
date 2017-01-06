@@ -254,7 +254,7 @@ name|add
 argument_list|(
 name|PipelineConfiguration
 operator|.
-name|readPipelineConfiguration
+name|readFrom
 argument_list|(
 name|in
 argument_list|)

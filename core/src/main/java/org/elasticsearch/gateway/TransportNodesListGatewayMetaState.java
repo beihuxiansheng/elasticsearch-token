@@ -962,8 +962,6 @@ name|metaData
 operator|=
 name|MetaData
 operator|.
-name|Builder
-operator|.
 name|readFrom
 argument_list|(
 name|in

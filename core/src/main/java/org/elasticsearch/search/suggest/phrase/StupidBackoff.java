@@ -503,16 +503,11 @@ operator|.
 name|isValue
 argument_list|()
 operator|&&
-name|parseContext
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|DISCOUNT_FIELD
 operator|.
 name|match
 argument_list|(
 name|fieldName
-argument_list|,
-name|DISCOUNT_FIELD
 argument_list|)
 condition|)
 block|{

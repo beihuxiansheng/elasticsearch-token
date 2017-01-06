@@ -121,7 +121,7 @@ name|Override
 DECL|method|execute
 specifier|public
 specifier|final
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ClusterStateUpdateTask
 argument_list|>
@@ -148,7 +148,7 @@ name|currentState
 argument_list|)
 decl_stmt|;
 return|return
-name|BatchResult
+name|ClusterTasksResult
 operator|.
 expr|<
 name|ClusterStateUpdateTask
@@ -236,6 +236,20 @@ parameter_list|()
 block|{
 return|return
 name|priority
+return|;
+block|}
+comment|/**      * Marked as final as cluster state update tasks should only run on master.      * For local requests, use {@link LocalClusterUpdateTask} instead.      */
+annotation|@
+name|Override
+DECL|method|runOnlyOnMaster
+specifier|public
+specifier|final
+name|boolean
+name|runOnlyOnMaster
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}

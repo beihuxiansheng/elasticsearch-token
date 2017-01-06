@@ -597,6 +597,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -4451,6 +4463,25 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+comment|// capture listeners before spawning the background callback so the following pattern won't trigger a call
+comment|// connectToNode(); connection is completed successfully
+comment|// addConnectionListener(); this listener shouldn't be called
+specifier|final
+name|Stream
+argument_list|<
+name|TransportConnectionListener
+argument_list|>
+name|listenersToNotify
+init|=
+name|TransportService
+operator|.
+name|this
+operator|.
+name|connectionListeners
+operator|.
+name|stream
+argument_list|()
+decl_stmt|;
 name|threadPool
 operator|.
 name|generic
@@ -4460,24 +4491,19 @@ name|execute
 argument_list|(
 parameter_list|()
 lambda|->
-block|{
-for|for
-control|(
-name|TransportConnectionListener
-name|connectionListener
-range|:
-name|connectionListeners
-control|)
-block|{
-name|connectionListener
+name|listenersToNotify
+operator|.
+name|forEach
+argument_list|(
+name|listener
+lambda|->
+name|listener
 operator|.
 name|onNodeConnected
 argument_list|(
 name|node
 argument_list|)
-expr_stmt|;
-block|}
-block|}
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4492,6 +4518,25 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+comment|// capture listeners before spawning the background callback so the following pattern won't trigger a call
+comment|// connectToNode(); connection is completed successfully
+comment|// addConnectionListener(); this listener shouldn't be called
+specifier|final
+name|Stream
+argument_list|<
+name|TransportConnectionListener
+argument_list|>
+name|listenersToNotify
+init|=
+name|TransportService
+operator|.
+name|this
+operator|.
+name|connectionListeners
+operator|.
+name|stream
+argument_list|()
+decl_stmt|;
 name|threadPool
 operator|.
 name|generic
@@ -4501,24 +4546,19 @@ name|execute
 argument_list|(
 parameter_list|()
 lambda|->
-block|{
-for|for
-control|(
-name|TransportConnectionListener
-name|connectionListener
-range|:
-name|connectionListeners
-control|)
-block|{
-name|connectionListener
+name|listenersToNotify
+operator|.
+name|forEach
+argument_list|(
+name|listener
+lambda|->
+name|listener
 operator|.
 name|onConnectionOpened
 argument_list|(
 name|node
 argument_list|)
-expr_stmt|;
-block|}
-block|}
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

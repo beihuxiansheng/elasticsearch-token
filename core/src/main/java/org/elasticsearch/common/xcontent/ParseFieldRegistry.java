@@ -36,18 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -288,7 +276,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @param parseFieldMatcher to build nice error messages.      * @return The value being looked up. Never null.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
+comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @return The value being looked up. Never null.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
 DECL|method|lookup
 specifier|public
 name|T
@@ -296,9 +284,6 @@ name|lookup
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|,
 name|XContentLocation
 name|xContentLocation
@@ -310,8 +295,6 @@ init|=
 name|lookupReturningNullIfNotFound
 argument_list|(
 name|name
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 if|if
@@ -343,7 +326,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @param parseFieldMatcher The parseFieldMatcher. This is used to resolve the {@link ParseFieldMatcher} and to build nice      *        error messages.      * @return The value being looked up or null if it wasn't found.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
+comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @return The value being looked up or null if it wasn't found.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
 DECL|method|lookupReturningNullIfNotFound
 specifier|public
 name|T
@@ -351,9 +334,6 @@ name|lookupReturningNullIfNotFound
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 name|Tuple
@@ -401,13 +381,11 @@ decl_stmt|;
 name|boolean
 name|match
 init|=
-name|parseFieldMatcher
+name|parseField
 operator|.
 name|match
 argument_list|(
 name|name
-argument_list|,
-name|parseField
 argument_list|)
 decl_stmt|;
 comment|//this is always expected to match, ParseField is useful for deprecation warnings etc. here

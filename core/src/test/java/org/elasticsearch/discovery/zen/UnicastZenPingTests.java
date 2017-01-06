@@ -330,22 +330,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|transport
 operator|.
 name|MockTransportService
@@ -4134,11 +4118,6 @@ block|}
 end_function
 
 begin_function
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"org.elasticsearch:DEBUG,org.elasticsearch.discovery:TRACE,org.elasticsearch.transport:TRACE"
-argument_list|)
 DECL|method|testResolveReuseExistingNodeConnections
 specifier|public
 name|void

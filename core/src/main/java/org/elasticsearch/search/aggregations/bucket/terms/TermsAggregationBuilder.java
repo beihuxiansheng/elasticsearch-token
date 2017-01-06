@@ -715,11 +715,6 @@ name|p
 operator|.
 name|text
 argument_list|()
-argument_list|,
-name|c
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|)
 argument_list|,
 name|SubAggCollectionMode

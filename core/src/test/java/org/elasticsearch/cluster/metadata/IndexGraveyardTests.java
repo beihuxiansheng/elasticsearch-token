@@ -361,9 +361,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+operator|new
 name|IndexGraveyard
-operator|.
-name|fromStream
 argument_list|(
 name|out
 operator|.
@@ -450,8 +449,6 @@ comment|// the beginning of the parser
 name|assertThat
 argument_list|(
 name|IndexGraveyard
-operator|.
-name|PROTO
 operator|.
 name|fromXContent
 argument_list|(

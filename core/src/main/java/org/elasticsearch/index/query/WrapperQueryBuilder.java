@@ -549,16 +549,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|parseContext
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|QUERY_FIELD
 operator|.
 name|match
 argument_list|(
 name|fieldName
-argument_list|,
-name|QUERY_FIELD
 argument_list|)
 condition|)
 block|{

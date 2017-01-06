@@ -963,6 +963,16 @@ operator|.
 name|RELOCATED
 condition|)
 block|{
+assert|assert
+name|request
+operator|.
+name|isPrimaryRelocation
+argument_list|()
+operator|==
+literal|false
+operator|:
+literal|"recovery target should not retry primary relocation if previous attempt made it past finalization step"
+assert|;
 comment|/**                  * The primary shard has been relocated while we copied files. This means that we can't guarantee any more that all                  * operations that were replicated during the file copy (when the target engine was not yet opened) will be present in the                  * local translog and thus will be resent on phase 2. The reason is that an operation replicated by the target primary is                  * sent to the recovery target and the local shard (old primary) concurrently, meaning it may have arrived at the recovery                  * target before we opened the engine and is still in-flight on the local shard.                  *                  * Checking the relocated status here, after we opened the engine on the target, is safe because primary relocation waits                  * for all ongoing operations to complete and be fully replicated. Therefore all future operation by the new primary are                  * guaranteed to reach the target shard when it's engine is open.                  */
 throw|throw
 operator|new

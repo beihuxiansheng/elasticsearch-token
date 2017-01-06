@@ -2465,7 +2465,7 @@ argument_list|(
 name|boolQuery
 argument_list|()
 operator|.
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 argument_list|(
 literal|1
 argument_list|)

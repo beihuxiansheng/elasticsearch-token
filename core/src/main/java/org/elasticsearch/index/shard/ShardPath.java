@@ -64,6 +64,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|NodeEnvironment
@@ -584,6 +598,7 @@ range|:
 name|paths
 control|)
 block|{
+comment|// EMPTY is safe here because we never call namedObject
 name|ShardStateMetaData
 name|load
 init|=
@@ -594,6 +609,10 @@ operator|.
 name|loadLatestState
 argument_list|(
 name|logger
+argument_list|,
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
 argument_list|,
 name|path
 argument_list|)
@@ -826,6 +845,7 @@ range|:
 name|paths
 control|)
 block|{
+comment|// EMPTY is safe here because we never call namedObject
 name|ShardStateMetaData
 name|load
 init|=
@@ -836,6 +856,10 @@ operator|.
 name|loadLatestState
 argument_list|(
 name|logger
+argument_list|,
+name|NamedXContentRegistry
+operator|.
+name|EMPTY
 argument_list|,
 name|path
 argument_list|)

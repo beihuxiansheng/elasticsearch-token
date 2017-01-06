@@ -192,7 +192,7 @@ literal|1
 argument_list|,
 name|AllocationDecision
 operator|.
-name|THROTTLE
+name|THROTTLED
 operator|.
 name|ordinal
 argument_list|()
@@ -228,7 +228,7 @@ literal|4
 argument_list|,
 name|AllocationDecision
 operator|.
-name|FETCH_PENDING
+name|AWAITING_INFO
 operator|.
 name|ordinal
 argument_list|()
@@ -240,7 +240,7 @@ literal|5
 argument_list|,
 name|AllocationDecision
 operator|.
-name|DELAYED_ALLOCATION
+name|ALLOCATION_DELAYED
 operator|.
 name|ordinal
 argument_list|()
@@ -302,7 +302,7 @@ name|assertEquals
 argument_list|(
 name|AllocationDecision
 operator|.
-name|THROTTLE
+name|THROTTLED
 argument_list|,
 name|decisions
 index|[
@@ -338,7 +338,7 @@ name|assertEquals
 argument_list|(
 name|AllocationDecision
 operator|.
-name|FETCH_PENDING
+name|AWAITING_INFO
 argument_list|,
 name|decisions
 index|[
@@ -350,7 +350,7 @@ name|assertEquals
 argument_list|(
 name|AllocationDecision
 operator|.
-name|DELAYED_ALLOCATION
+name|ALLOCATION_DELAYED
 argument_list|,
 name|decisions
 index|[
@@ -432,7 +432,7 @@ name|THROTTLE
 condition|?
 name|AllocationDecision
 operator|.
-name|THROTTLE
+name|THROTTLED
 else|:
 name|AllocationDecision
 operator|.
@@ -510,7 +510,7 @@ name|expected
 operator|=
 name|AllocationDecision
 operator|.
-name|THROTTLE
+name|THROTTLED
 expr_stmt|;
 block|}
 elseif|else
@@ -527,7 +527,7 @@ name|expected
 operator|=
 name|AllocationDecision
 operator|.
-name|FETCH_PENDING
+name|AWAITING_INFO
 expr_stmt|;
 block|}
 elseif|else
@@ -544,7 +544,7 @@ name|expected
 operator|=
 name|AllocationDecision
 operator|.
-name|DELAYED_ALLOCATION
+name|ALLOCATION_DELAYED
 expr_stmt|;
 block|}
 elseif|else

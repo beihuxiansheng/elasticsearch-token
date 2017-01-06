@@ -289,6 +289,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|DanglingIndicesState
@@ -371,6 +374,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|DanglingIndicesState
@@ -554,6 +560,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|DanglingIndicesState
@@ -743,6 +752,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|DanglingIndicesState
@@ -1107,6 +1119,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|DanglingIndicesState

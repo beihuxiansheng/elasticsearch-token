@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|blobstore
 operator|.
 name|BlobContainer
@@ -80,7 +68,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|FromXContentBuilder
+name|NamedXContentRegistry
 import|;
 end_import
 
@@ -95,6 +83,8 @@ operator|.
 name|xcontent
 operator|.
 name|NamedXContentRegistry
+operator|.
+name|FromXContent
 import|;
 end_import
 
@@ -217,17 +207,17 @@ decl_stmt|;
 DECL|field|reader
 specifier|protected
 specifier|final
-name|FromXContentBuilder
+name|FromXContent
 argument_list|<
 name|T
 argument_list|>
 name|reader
 decl_stmt|;
-DECL|field|parseFieldMatcher
+DECL|field|namedXContentRegistry
 specifier|protected
 specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
+name|NamedXContentRegistry
+name|namedXContentRegistry
 decl_stmt|;
 comment|// Serialization parameters to specify correct context for metadata serialization
 DECL|field|SNAPSHOT_ONLY_FORMAT_PARAMS
@@ -294,7 +284,7 @@ name|snapshotOnlyParams
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param blobNameFormat format of the blobname in {@link String#format(Locale, String, Object...)} format      * @param reader the prototype object that can deserialize objects with type T      * @param parseFieldMatcher parse field matcher      */
+comment|/**      * @param blobNameFormat format of the blobname in {@link String#format(Locale, String, Object...)} format      * @param reader the prototype object that can deserialize objects with type T      */
 DECL|method|BlobStoreFormat
 specifier|protected
 name|BlobStoreFormat
@@ -302,14 +292,14 @@ parameter_list|(
 name|String
 name|blobNameFormat
 parameter_list|,
-name|FromXContentBuilder
+name|FromXContent
 argument_list|<
 name|T
 argument_list|>
 name|reader
 parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
+name|NamedXContentRegistry
+name|namedXContentRegistry
 parameter_list|)
 block|{
 name|this
@@ -326,9 +316,9 @@ name|blobNameFormat
 expr_stmt|;
 name|this
 operator|.
-name|parseFieldMatcher
+name|namedXContentRegistry
 operator|=
-name|parseFieldMatcher
+name|namedXContentRegistry
 expr_stmt|;
 block|}
 comment|/**      * Reads and parses the blob with given blob name.      *      * @param blobContainer blob container      * @param blobName blob name      * @return parsed blob object      */
@@ -467,7 +457,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// EMPTY is safe here because no reader calls namedObject
 try|try
 init|(
 name|XContentParser
@@ -477,9 +466,7 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
-name|NamedXContentRegistry
-operator|.
-name|EMPTY
+name|namedXContentRegistry
 argument_list|,
 name|bytes
 argument_list|)
@@ -493,8 +480,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 return|return

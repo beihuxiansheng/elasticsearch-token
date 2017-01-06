@@ -328,11 +328,8 @@ name|value
 operator|.
 name|add
 argument_list|(
+operator|new
 name|AliasMetaData
-operator|.
-name|Builder
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)

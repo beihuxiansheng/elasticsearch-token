@@ -1258,8 +1258,6 @@ specifier|public
 name|void
 name|testUnmappedFieldType
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|MapperService
 name|mapperService

@@ -126,6 +126,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|NamedXContentRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -245,6 +259,9 @@ argument_list|<
 name|RepositoryPlugin
 argument_list|>
 name|repoPlugins
+parameter_list|,
+name|NamedXContentRegistry
+name|namedXContentRegistry
 parameter_list|)
 block|{
 name|Map
@@ -280,6 +297,8 @@ argument_list|(
 name|metadata
 argument_list|,
 name|env
+argument_list|,
+name|namedXContentRegistry
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -301,6 +320,8 @@ argument_list|(
 name|metadata
 argument_list|,
 name|env
+argument_list|,
+name|namedXContentRegistry
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -327,6 +348,8 @@ operator|.
 name|getRepositories
 argument_list|(
 name|env
+argument_list|,
+name|namedXContentRegistry
 argument_list|)
 decl_stmt|;
 for|for

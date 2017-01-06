@@ -456,6 +456,16 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 argument_list|,
+operator|(
+name|long
+operator|)
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+literal|1000
+argument_list|)
+argument_list|,
 name|ImmutableOpenMap
 operator|.
 name|of

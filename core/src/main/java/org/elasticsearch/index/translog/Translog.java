@@ -496,16 +496,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Optional
 import|;
 end_import
@@ -3874,12 +3864,12 @@ name|Index
 implements|implements
 name|Operation
 block|{
-DECL|field|FORMAT_2x
+DECL|field|FORMAT_2_X
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|FORMAT_2x
+name|FORMAT_2_X
 init|=
 literal|6
 decl_stmt|;
@@ -3891,7 +3881,9 @@ specifier|final
 name|int
 name|FORMAT_AUTO_GENERATED_IDS
 init|=
-literal|7
+name|FORMAT_2_X
+operator|+
+literal|1
 decl_stmt|;
 comment|// since 5.0.0-beta1
 DECL|field|FORMAT_SEQ_NO
@@ -4002,7 +3994,7 @@ comment|// SERIALIZATION_FORMAT
 assert|assert
 name|format
 operator|>=
-name|FORMAT_2x
+name|FORMAT_2_X
 operator|:
 literal|"format was: "
 operator|+
@@ -4951,7 +4943,7 @@ specifier|final
 name|int
 name|FORMAT_5_X
 init|=
-literal|3
+literal|2
 decl_stmt|;
 DECL|field|FORMAT_SEQ_NO
 specifier|private
@@ -5035,9 +5027,7 @@ comment|// SERIALIZATION_FORMAT
 assert|assert
 name|format
 operator|>=
-name|SERIALIZATION_FORMAT
-operator|-
-literal|1
+name|FORMAT_5_X
 operator|:
 literal|"format was: "
 operator|+

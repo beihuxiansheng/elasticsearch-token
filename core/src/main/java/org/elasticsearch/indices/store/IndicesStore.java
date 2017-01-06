@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateUpdateTask
+name|LocalClusterUpdateTask
 import|;
 end_import
 
@@ -1837,24 +1837,16 @@ operator|+
 literal|"] active fully on other nodes)"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|LocalClusterUpdateTask
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|runOnlyOnMaster
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|ClusterState
+name|ClusterTasksResult
+argument_list|<
+name|LocalClusterUpdateTask
+argument_list|>
 name|execute
 parameter_list|(
 name|ClusterState
@@ -1890,7 +1882,8 @@ name|clusterStateVersion
 argument_list|)
 expr_stmt|;
 return|return
-name|currentState
+name|unchanged
+argument_list|()
 return|;
 block|}
 try|try
@@ -1938,7 +1931,8 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|currentState
+name|unchanged
+argument_list|()
 return|;
 block|}
 annotation|@

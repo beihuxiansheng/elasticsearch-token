@@ -652,20 +652,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|DocsStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ElasticsearchMergePolicy
 import|;
 end_import
@@ -3585,7 +3571,7 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 operator|:
-literal|"old op recovering but it already has a seq no."
+literal|"old op recovering but it already has a seq no.;"
 operator|+
 literal|" index version: "
 operator|+
@@ -3597,7 +3583,7 @@ operator|.
 name|getIndexVersionCreated
 argument_list|()
 operator|+
-literal|". seq no: "
+literal|", seqNo: "
 operator|+
 name|seqNo
 assert|;
@@ -3622,25 +3608,14 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 operator|:
-literal|"primary ops should never have an assigned seq no. got: "
+literal|"primary ops should never have an assigned seq no.; seqNo: "
 operator|+
 name|seqNo
 assert|;
 block|}
-else|else
-block|{
-comment|// sequence number should be set when operation origin is not primary
-assert|assert
-name|seqNo
-operator|>=
-literal|0
-operator|:
-literal|"recovery or replica ops should have an assigned seq no. origin: "
-operator|+
-name|origin
-operator|+
-literal|" index version: "
-operator|+
+elseif|else
+if|if
+condition|(
 name|engineConfig
 operator|.
 name|getIndexSettings
@@ -3648,6 +3623,24 @@ argument_list|()
 operator|.
 name|getIndexVersionCreated
 argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+argument_list|)
+condition|)
+block|{
+comment|// sequence number should be set when operation origin is not primary
+assert|assert
+name|seqNo
+operator|>=
+literal|0
+operator|:
+literal|"recovery or replica ops should have an assigned seq no.; origin: "
+operator|+
+name|origin
 assert|;
 block|}
 return|return
@@ -8764,44 +8757,6 @@ parameter_list|()
 block|{
 return|return
 name|seqNoService
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getDocStats
-specifier|public
-name|DocsStats
-name|getDocStats
-parameter_list|()
-block|{
-specifier|final
-name|int
-name|numDocs
-init|=
-name|indexWriter
-operator|.
-name|numDocs
-argument_list|()
-decl_stmt|;
-specifier|final
-name|int
-name|maxDoc
-init|=
-name|indexWriter
-operator|.
-name|maxDoc
-argument_list|()
-decl_stmt|;
-return|return
-operator|new
-name|DocsStats
-argument_list|(
-name|numDocs
-argument_list|,
-name|maxDoc
-operator|-
-name|numDocs
-argument_list|)
 return|;
 block|}
 comment|/**      * Returns the number of times a version was looked up either from the index.      * Note this is only available if assertions are enabled      */

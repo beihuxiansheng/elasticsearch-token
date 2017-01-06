@@ -80,28 +80,6 @@ parameter_list|)
 block|{
 comment|//we don't do anything with the settings argument, this whole class will be soon removed
 block|}
-comment|/**      * Matches a {@link ParseField} against a field name,      * @param fieldName the field name found in the request while parsing      * @param parseField the parse field that we are looking for      * @throws IllegalArgumentException whenever we are in strict mode and the request contained a deprecated field      * @return true whenever the parse field that we are looking for was found, false otherwise      */
-DECL|method|match
-specifier|public
-name|boolean
-name|match
-parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
-name|ParseField
-name|parseField
-parameter_list|)
-block|{
-return|return
-name|parseField
-operator|.
-name|match
-argument_list|(
-name|fieldName
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 

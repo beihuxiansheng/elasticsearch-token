@@ -1943,7 +1943,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|parseFieldMatcher
+name|IncludeExclude
+operator|.
+name|INCLUDE_FIELD
 operator|.
 name|match
 argument_list|(
@@ -1951,10 +1953,6 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
-argument_list|,
-name|IncludeExclude
-operator|.
-name|INCLUDE_FIELD
 argument_list|)
 condition|)
 block|{
@@ -1980,7 +1978,9 @@ block|}
 elseif|else
 if|if
 condition|(
-name|parseFieldMatcher
+name|IncludeExclude
+operator|.
+name|EXCLUDE_FIELD
 operator|.
 name|match
 argument_list|(
@@ -1988,10 +1988,6 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
-argument_list|,
-name|IncludeExclude
-operator|.
-name|EXCLUDE_FIELD
 argument_list|)
 condition|)
 block|{

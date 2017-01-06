@@ -219,6 +219,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexMetaData
@@ -296,6 +299,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -347,6 +353,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|MetaData
@@ -436,6 +445,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|MetaData
@@ -581,6 +593,9 @@ operator|.
 name|EMPTY
 argument_list|,
 name|env
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexMetaData

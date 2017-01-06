@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A shard component that is responsible of tracking the global checkpoint. The global checkpoint  * is the highest seq_no for which all lower (or equal) seq_no have been processed on all shards that  * are currently active. Since shards count as "active" when the master starts them, and before this primary shard  * has been notified of this fact, we also include shards that have completed recovery. These shards have received  * all old operations via the recovery mechanism and are kept up to date by the various replications actions. The set  * of shards that are taken into account for the global checkpoint calculation are called the "in sync" shards.  *  *<p>  * The global checkpoint is maintained by the primary shard and is replicated to all the replicas  * (via {@link GlobalCheckpointSyncAction}).  */
+comment|/**  * A shard component that is responsible of tracking the global checkpoint. The global checkpoint is the highest sequence number for which  * all lower (or equal) sequence number have been processed on all shards that are currently active. Since shards count as "active" when the  * master starts them, and before this primary shard has been notified of this fact, we also include shards that have completed recovery.  * These shards have received all old operations via the recovery mechanism and are kept up to date by the various replications actions.  * The set of shards that are taken into account for the global checkpoint calculation are called the "in-sync shards".  *<p>  * The global checkpoint is maintained by the primary shard and is replicated to all the replicas (via {@link GlobalCheckpointSyncAction}).  */
 end_comment
 
 begin_class
@@ -142,7 +142,7 @@ name|GlobalCheckpointService
 extends|extends
 name|AbstractIndexShardComponent
 block|{
-comment|/**      * This map holds the last known local checkpoint for every active shard and initializing shard copies that has been brought up      * to speed through recovery. These shards are treated as valid copies and participate in determining the global      * checkpoint.      *<p>      * Keyed by allocation ids.      */
+comment|/*      * This map holds the last known local checkpoint for every active shard and initializing shard copies that has been brought up to speed      * through recovery. These shards are treated as valid copies and participate in determining the global checkpoint. This map is keyed by      * allocation IDs. All accesses to this set are guarded by a lock on this.      */
 DECL|field|inSyncLocalCheckpoints
 specifier|private
 specifier|final
@@ -152,8 +152,7 @@ name|String
 argument_list|>
 name|inSyncLocalCheckpoints
 decl_stmt|;
-comment|// keyed by allocation ids
-comment|/**      * This set holds the last set of known valid allocation ids as received by the master. This is important to make sure      * shard that are failed or relocated are cleaned up from {@link #inSyncLocalCheckpoints} and do not hold the global      * checkpoint back      */
+comment|/*      * This set holds the last set of known valid allocation ids as received by the master. This is important to make sure shard that are      * failed or relocated are cleaned up from {@link #inSyncLocalCheckpoints} and do not hold the global checkpoint back. All accesses to      * this set are guarded by a lock on this.      */
 DECL|field|assignedAllocationIds
 specifier|private
 specifier|final
@@ -163,12 +162,13 @@ name|String
 argument_list|>
 name|assignedAllocationIds
 decl_stmt|;
+comment|/*      * The current global checkpoint for this shard. Note that this field is guarded by a lock on this and thus this field does not need to      * be volatile.      */
 DECL|field|globalCheckpoint
 specifier|private
 name|long
 name|globalCheckpoint
 decl_stmt|;
-comment|/**      * Initialize the global checkpoint service. The {@code globalCheckpoint}      * should be set to the last known global checkpoint for this shard, or      * {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard this service is providing tracking      *                         local checkpoints for      * @param indexSettings    the index settings      * @param globalCheckpoint the last known global checkpoint for this shard,      *                         or      *                         {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
+comment|/**      * Initialize the global checkpoint service. The specified global checkpoint should be set to the last known global checkpoint for this      * shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard this service is tracking local checkpoints for      * @param indexSettings    the index settings      * @param globalCheckpoint the last known global checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
 DECL|method|GlobalCheckpointService
 name|GlobalCheckpointService
 parameter_list|(
@@ -197,7 +197,7 @@ name|globalCheckpoint
 operator|>=
 name|UNASSIGNED_SEQ_NO
 operator|:
-literal|"illegal initial global checkpoint:"
+literal|"illegal initial global checkpoint: "
 operator|+
 name|globalCheckpoint
 assert|;
@@ -236,18 +236,20 @@ operator|=
 name|globalCheckpoint
 expr_stmt|;
 block|}
-comment|/**      * Notifies the service of a local checkpoint. If the checkpoint is lower than the currently known one,      * this is a noop. Last, if the allocation id is not in sync, it is ignored. This to prevent late      * arrivals from shards that are removed to be re-added.      */
+comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. If the checkpoint is lower than      * the currently known one, this is a no-op. If the allocation ID is not in sync, it is ignored. This is to prevent late arrivals from      * shards that are removed to be re-added.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
 DECL|method|updateLocalCheckpoint
 specifier|public
 specifier|synchronized
 name|void
 name|updateLocalCheckpoint
 parameter_list|(
+specifier|final
 name|String
 name|allocationId
 parameter_list|,
+specifier|final
 name|long
-name|localCheckpoint
+name|checkpoint
 parameter_list|)
 block|{
 specifier|final
@@ -283,7 +285,7 @@ if|if
 condition|(
 name|current
 operator|<
-name|localCheckpoint
+name|checkpoint
 condition|)
 block|{
 name|inSyncLocalCheckpoints
@@ -292,7 +294,7 @@ name|indexReplace
 argument_list|(
 name|indexOfKey
 argument_list|,
-name|localCheckpoint
+name|checkpoint
 argument_list|)
 expr_stmt|;
 if|if
@@ -311,7 +313,7 @@ literal|"updated local checkpoint of [{}] to [{}] (was [{}])"
 argument_list|,
 name|allocationId
 argument_list|,
-name|localCheckpoint
+name|checkpoint
 argument_list|,
 name|current
 argument_list|)
@@ -324,15 +326,13 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"skipping update of local checkpoint [{}], current checkpoint is higher "
-operator|+
-literal|"(current [{}], incoming [{}], type [{}])"
+literal|"skipping update of local checkpoint [{}], current checkpoint is higher (current [{}], incoming [{}], type [{}])"
 argument_list|,
 name|allocationId
 argument_list|,
 name|current
 argument_list|,
-name|localCheckpoint
+name|checkpoint
 argument_list|,
 name|allocationId
 argument_list|)
@@ -349,12 +349,12 @@ literal|"[{}] isn't marked as in sync. ignoring local checkpoint of [{}]."
 argument_list|,
 name|allocationId
 argument_list|,
-name|localCheckpoint
+name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Scans through the currently known local checkpoints and updates the global checkpoint accordingly.      *      * @return true if the checkpoint has been updated or if it can not be updated since one of the local checkpoints      * of one of the active allocations is not known.      */
+comment|/**      * Scans through the currently known local checkpoint and updates the global checkpoint accordingly.      *      * @return {@code true} if the checkpoint has been updated or if it can not be updated since one of the local checkpoints of one of the      * active allocations is not known.      */
 DECL|method|updateCheckpointOnPrimary
 specifier|synchronized
 name|boolean
@@ -382,6 +382,7 @@ return|;
 block|}
 for|for
 control|(
+specifier|final
 name|ObjectLongCursor
 argument_list|<
 name|String
@@ -482,7 +483,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * gets the current global checkpoint. See java docs for {@link GlobalCheckpointService} for more details      */
+comment|/**      * Returns the global checkpoint for the shard.      *      * @return the global checkpoint      */
 DECL|method|getCheckpoint
 specifier|public
 specifier|synchronized
@@ -494,14 +495,15 @@ return|return
 name|globalCheckpoint
 return|;
 block|}
-comment|/**      * updates the global checkpoint on a replica shard (after it has been updated by the primary).      */
+comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param checkpoint the global checkpoint      */
 DECL|method|updateCheckpointOnReplica
 specifier|synchronized
 name|void
 name|updateCheckpointOnReplica
 parameter_list|(
+specifier|final
 name|long
-name|globalCheckpoint
+name|checkpoint
 parameter_list|)
 block|{
 comment|/*          * The global checkpoint here is a local knowledge which is updated under the mandate of the primary. It can happen that the primary          * information is lagging compared to a replica (e.g., if a replica is promoted to primary but has stale info relative to other          * replica shards). In these cases, the local knowledge of the global checkpoint could be higher than sync from the lagging primary.          */
@@ -511,14 +513,14 @@ name|this
 operator|.
 name|globalCheckpoint
 operator|<=
-name|globalCheckpoint
+name|checkpoint
 condition|)
 block|{
 name|this
 operator|.
 name|globalCheckpoint
 operator|=
-name|globalCheckpoint
+name|checkpoint
 expr_stmt|;
 name|logger
 operator|.
@@ -526,24 +528,26 @@ name|trace
 argument_list|(
 literal|"global checkpoint updated from primary to [{}]"
 argument_list|,
-name|globalCheckpoint
+name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Notifies the service of the current allocation ids in the cluster state. This method trims any shards that      * have been removed.      *      * @param activeAllocationIds       the allocation ids of the currently active shard copies      * @param initializingAllocationIds the allocation ids of the currently initializing shard copies      */
+comment|/**      * Notifies the service of the current allocation ids in the cluster state. This method trims any shards that have been removed.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
 specifier|public
 specifier|synchronized
 name|void
 name|updateAllocationIdsFromMaster
 parameter_list|(
+specifier|final
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|activeAllocationIds
 parameter_list|,
+specifier|final
 name|Set
 argument_list|<
 name|String
@@ -638,13 +642,14 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * marks the allocationId as "in sync" with the primary shard. This should be called at the end of recovery      * where the primary knows all operation below the global checkpoint have been completed on this shard.      *      * @param allocationId    allocationId of the recovering shard      */
+comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. This should be called at the end of recovery where      * the primary knows all operations below the global checkpoint have been completed on this shard.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 specifier|synchronized
 name|void
 name|markAllocationIdAsInSync
 parameter_list|(
+specifier|final
 name|String
 name|allocationId
 parameter_list|)
@@ -661,7 +666,7 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// master have change it's mind and removed this allocation, ignore.
+comment|// master has removed this allocation, ignore
 return|return;
 block|}
 name|logger
@@ -683,12 +688,13 @@ name|UNASSIGNED_SEQ_NO
 argument_list|)
 expr_stmt|;
 block|}
-comment|// for testing
-DECL|method|getLocalCheckpointForAllocation
+comment|/**      * Returns the local checkpoint for the shard with the specified allocation ID, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO} if      * the shard is not in-sync.      *      * @param allocationId the allocation ID of the shard to obtain the local checkpoint for      * @return the local checkpoint, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
+DECL|method|getLocalCheckpointForAllocationId
 specifier|synchronized
 name|long
-name|getLocalCheckpointForAllocation
+name|getLocalCheckpointForAllocationId
 parameter_list|(
+specifier|final
 name|String
 name|allocationId
 parameter_list|)

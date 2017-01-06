@@ -174,18 +174,6 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
 name|Consumer
 import|;
 end_import
@@ -508,7 +496,7 @@ decl_stmt|;
 specifier|final
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ZenDiscovery
 operator|.
@@ -820,7 +808,7 @@ decl_stmt|;
 specifier|final
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ZenDiscovery
 operator|.
@@ -1235,7 +1223,7 @@ decl_stmt|;
 specifier|final
 name|ClusterStateTaskExecutor
 operator|.
-name|BatchResult
+name|ClusterTasksResult
 argument_list|<
 name|ZenDiscovery
 operator|.
