@@ -1275,11 +1275,11 @@ return|return
 name|keystore
 return|;
 block|}
-DECL|method|initialEnvironment
+DECL|method|createEnvironment
 specifier|private
 specifier|static
 name|Environment
-name|initialEnvironment
+name|createEnvironment
 parameter_list|(
 name|boolean
 name|foreground
@@ -1344,6 +1344,13 @@ argument_list|(
 name|initialSettings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|keystore
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|setKeyStore
@@ -1351,6 +1358,7 @@ argument_list|(
 name|keystore
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|InternalSettingsPreparer
 operator|.
@@ -1503,7 +1511,7 @@ decl_stmt|;
 name|Environment
 name|environment
 init|=
-name|initialEnvironment
+name|createEnvironment
 argument_list|(
 name|foreground
 argument_list|,
