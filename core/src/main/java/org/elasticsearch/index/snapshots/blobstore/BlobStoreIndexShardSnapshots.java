@@ -48,18 +48,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|ToXContent
@@ -863,17 +851,6 @@ literal|"snapshots"
 argument_list|)
 decl_stmt|;
 block|}
-DECL|field|parseFieldMatcher
-specifier|private
-specifier|static
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-init|=
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
-decl_stmt|;
 comment|/**      * Writes index file for the shard in the following format.      *<pre>      *<code>      * {      *     "files": [{      *         "name": "__3",      *         "physical_name": "_0.si",      *         "length": 310,      *         "checksum": "1tpsg3p",      *         "written_by": "5.1.0",      *         "meta_hash": "P9dsFxNMdWNlb......"      *     }, {      *         "name": "__2",      *         "physical_name": "segments_2",      *         "length": 150,      *         "checksum": "11qjpz6",      *         "written_by": "5.1.0",      *         "meta_hash": "P9dsFwhzZWdtZ......."      *     }, {      *         "name": "__1",      *         "physical_name": "_0.cfe",      *         "length": 363,      *         "checksum": "er9r9g",      *         "written_by": "5.1.0"      *     }, {      *         "name": "__0",      *         "physical_name": "_0.cfs",      *         "length": 3354,      *         "checksum": "491liz",      *         "written_by": "5.1.0"      *     }, {      *         "name": "__4",      *         "physical_name": "segments_3",      *         "length": 150,      *         "checksum": "134567",      *         "written_by": "5.1.0",      *         "meta_hash": "P9dsFwhzZWdtZ......."      *     }],      *     "snapshots": {      *         "snapshot_1": {      *             "files": ["__0", "__1", "__2", "__3"]      *         },      *         "snapshot_2": {      *             "files": ["__0", "__1", "__2", "__4"]      *         }      *     }      * }      * }      *</code>      *</pre>      */
 annotation|@
 name|Override

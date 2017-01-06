@@ -42,18 +42,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -383,7 +371,7 @@ specifier|static
 class|class
 name|AbstractModelParser
 block|{
-comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings           Map of settings, extracted from the request          * @param pipelineName       Name of the parent pipeline agg          * @param windowSize         Size of the window for this moving avg          * @param parseFieldMatcher  Matcher for field names          * @return                   A fully built moving average model          */
+comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings           Map of settings, extracted from the request          * @param pipelineName       Name of the parent pipeline agg          * @param windowSize         Size of the window for this moving avg          * @return                   A fully built moving average model          */
 DECL|method|parse
 specifier|public
 specifier|abstract
@@ -405,9 +393,6 @@ name|pipelineName
 parameter_list|,
 name|int
 name|windowSize
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|ParseException

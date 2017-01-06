@@ -983,11 +983,6 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|getParseFieldMatcher
-argument_list|()
-argument_list|,
-name|context
-operator|.
 name|getDefaultScriptLanguage
 argument_list|()
 argument_list|)
@@ -1190,11 +1185,6 @@ operator|.
 name|parse
 argument_list|(
 name|parser
-argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|,
 name|context
 operator|.

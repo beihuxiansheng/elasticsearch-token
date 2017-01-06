@@ -794,12 +794,9 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|parseContext
+name|Script
 operator|.
-name|getParseFieldMatcher
-argument_list|()
-argument_list|,
-literal|"mustache"
+name|DEFAULT_TEMPLATE_LANG
 argument_list|)
 decl_stmt|;
 return|return

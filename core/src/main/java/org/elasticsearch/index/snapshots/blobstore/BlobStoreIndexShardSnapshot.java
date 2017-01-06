@@ -76,18 +76,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -1947,17 +1935,6 @@ name|ParseField
 argument_list|(
 literal|"files"
 argument_list|)
-decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|private
-specifier|static
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-init|=
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
 decl_stmt|;
 comment|/**      * Serializes shard snapshot metadata info into JSON      *      * @param builder  XContent builder      * @param params   parameters      */
 annotation|@

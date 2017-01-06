@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -104,7 +92,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregator
+name|AggregationBuilder
+operator|.
+name|CommonFields
 import|;
 end_import
 
@@ -118,9 +108,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
-operator|.
-name|CommonFields
+name|Aggregator
 import|;
 end_import
 
@@ -469,15 +457,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-init|=
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
-decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
@@ -639,11 +618,6 @@ name|token
 argument_list|,
 name|parser
 argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
-argument_list|,
 name|otherOptions
 argument_list|)
 condition|)
@@ -785,11 +759,6 @@ argument_list|,
 name|token
 argument_list|,
 name|parser
-argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|,
 name|otherOptions
 argument_list|)
@@ -975,11 +944,6 @@ name|token
 argument_list|,
 name|parser
 argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
-argument_list|,
 name|otherOptions
 argument_list|)
 condition|)
@@ -1023,11 +987,6 @@ argument_list|,
 name|token
 argument_list|,
 name|parser
-argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|,
 name|otherOptions
 argument_list|)
@@ -1305,7 +1264,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Creates a {@link ValuesSourceAggregationBuilder} from the information      * gathered by the subclass. Options parsed in      * {@link MultiValuesSourceParser} itself will be added to the factory      * after it has been returned by this method.      *      * @param aggregationName      *            the name of the aggregation      * @param valuesSourceType      *            the type of the {@link ValuesSource}      * @param targetValueType      *            the target type of the final value output by the aggregation      * @param otherOptions      *            a {@link Map} containing the extra options parsed by the      *            {@link #token(String, String, org.elasticsearch.common.xcontent.XContentParser.Token,      *             XContentParser, ParseFieldMatcher, Map)}      *            method      * @return the created factory      */
+comment|/**      * Creates a {@link ValuesSourceAggregationBuilder} from the information      * gathered by the subclass. Options parsed in      * {@link MultiValuesSourceParser} itself will be added to the factory      * after it has been returned by this method.      *      * @param aggregationName      *            the name of the aggregation      * @param valuesSourceType      *            the type of the {@link ValuesSource}      * @param targetValueType      *            the target type of the final value output by the aggregation      * @param otherOptions      *            a {@link Map} containing the extra options parsed by the      *            {@link #token(String, String, XContentParser.Token, XContentParser, Map)}      *            method      * @return the created factory      */
 DECL|method|createFactory
 specifier|protected
 specifier|abstract
@@ -1335,7 +1294,7 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 function_decl|;
-comment|/**      * Allows subclasses of {@link MultiValuesSourceParser} to parse extra      * parameters and store them in a {@link Map} which will later be passed to      * {@link #createFactory(String, ValuesSourceType, ValueType, Map)}.      *      * @param aggregationName      *            the name of the aggregation      * @param currentFieldName      *            the name of the current field being parsed      * @param token      *            the current token for the parser      * @param parser      *            the parser      * @param parseFieldMatcher      *            the {@link ParseFieldMatcher} to use to match field names      * @param otherOptions      *            a {@link Map} of options to be populated by successive calls      *            to this method which will then be passed to the      *            {@link #createFactory(String, ValuesSourceType, ValueType, Map)}      *            method      * @return<code>true</code> if the current token was correctly parsed,      *<code>false</code> otherwise      * @throws IOException      *             if an error occurs whilst parsing      */
+comment|/**      * Allows subclasses of {@link MultiValuesSourceParser} to parse extra      * parameters and store them in a {@link Map} which will later be passed to      * {@link #createFactory(String, ValuesSourceType, ValueType, Map)}.      *      * @param aggregationName      *            the name of the aggregation      * @param currentFieldName      *            the name of the current field being parsed      * @param token      *            the current token for the parser      * @param parser      *            the parser      * @param otherOptions      *            a {@link Map} of options to be populated by successive calls      *            to this method which will then be passed to the      *            {@link #createFactory(String, ValuesSourceType, ValueType, Map)}      *            method      * @return<code>true</code> if the current token was correctly parsed,      *<code>false</code> otherwise      * @throws IOException      *             if an error occurs whilst parsing      */
 DECL|method|token
 specifier|protected
 specifier|abstract
@@ -1355,9 +1314,6 @@ name|token
 parameter_list|,
 name|XContentParser
 name|parser
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|,
 name|Map
 argument_list|<

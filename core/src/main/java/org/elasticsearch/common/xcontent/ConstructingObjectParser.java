@@ -36,18 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -160,8 +148,6 @@ parameter_list|<
 name|Value
 parameter_list|,
 name|Context
-extends|extends
-name|ParseFieldMatcherSupplier
 parameter_list|>
 extends|extends
 name|AbstractObjectParser
@@ -820,7 +806,7 @@ expr_stmt|;
 block|}
 return|;
 block|}
-comment|/**      * The target of the {@linkplain ConstructingObjectParser}. One of these is built every time you call      * {@linkplain ConstructingObjectParser#apply(XContentParser, ParseFieldMatcherSupplier)} Note that it is not static so it inherits      * {@linkplain ConstructingObjectParser}'s type parameters.      */
+comment|/**      * The target of the {@linkplain ConstructingObjectParser}. One of these is built every time you call      * {@linkplain ConstructingObjectParser#apply(XContentParser, Object)} Note that it is not static so it inherits      * {@linkplain ConstructingObjectParser}'s type parameters.      */
 DECL|class|Target
 specifier|private
 class|class

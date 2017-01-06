@@ -36,18 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -154,8 +142,6 @@ parameter_list|<
 name|Value
 parameter_list|,
 name|Context
-extends|extends
-name|ParseFieldMatcherSupplier
 parameter_list|>
 implements|implements
 name|BiFunction
