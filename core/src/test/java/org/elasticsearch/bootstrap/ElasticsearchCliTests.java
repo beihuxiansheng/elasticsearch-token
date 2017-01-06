@@ -900,7 +900,7 @@ name|pidFile
 parameter_list|,
 name|quiet
 parameter_list|,
-name|esSettings
+name|env
 parameter_list|)
 lambda|->
 block|{
@@ -912,7 +912,10 @@ name|String
 argument_list|>
 name|settings
 init|=
-name|esSettings
+name|env
+operator|.
+name|settings
+argument_list|()
 operator|.
 name|getAsMap
 argument_list|()

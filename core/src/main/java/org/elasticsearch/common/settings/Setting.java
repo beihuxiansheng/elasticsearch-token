@@ -1033,7 +1033,6 @@ block|}
 comment|/**      * Returns the default value string representation for this setting.      * @param settings a settings object for settings that has a default value depending on another setting if available      */
 DECL|method|getDefaultRaw
 specifier|public
-specifier|final
 name|String
 name|getDefaultRaw
 parameter_list|(
@@ -1053,7 +1052,6 @@ block|}
 comment|/**      * Returns the default value for this setting.      * @param settings a settings object for settings that has a default value depending on another setting if available      */
 DECL|method|getDefault
 specifier|public
-specifier|final
 name|T
 name|getDefault
 parameter_list|(
@@ -1086,13 +1084,11 @@ block|{
 return|return
 name|settings
 operator|.
-name|get
+name|contains
 argument_list|(
 name|getKey
 argument_list|()
 argument_list|)
-operator|!=
-literal|null
 return|;
 block|}
 comment|/**      * Returns the settings value. If the setting is not present in the given settings object the default value is returned      * instead.      */
@@ -1257,6 +1253,38 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+name|checkDeprecation
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+return|return
+name|settings
+operator|.
+name|get
+argument_list|(
+name|getKey
+argument_list|()
+argument_list|,
+name|defaultValue
+operator|.
+name|apply
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/** Logs a deprecation warning if the setting is deprecated and used. */
+DECL|method|checkDeprecation
+specifier|protected
+name|void
+name|checkDeprecation
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
 comment|// They're using the setting, so we need to tell them to stop
 if|if
 condition|(
@@ -1303,22 +1331,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|settings
-operator|.
-name|get
-argument_list|(
-name|getKey
-argument_list|()
-argument_list|,
-name|defaultValue
-operator|.
-name|apply
-argument_list|(
-name|settings
-argument_list|)
-argument_list|)
-return|;
 block|}
 comment|/**      * Returns<code>true</code> iff the given key matches the settings key or if this setting is a group setting if the      * given key is part of the settings group.      * @see #isGroupSetting()      */
 DECL|method|match
