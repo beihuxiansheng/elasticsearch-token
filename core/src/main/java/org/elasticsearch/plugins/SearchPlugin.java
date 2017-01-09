@@ -116,6 +116,22 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|AbstractObjectParser
+operator|.
+name|NoContextParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContent
 import|;
 end_import
@@ -189,18 +205,6 @@ operator|.
 name|search
 operator|.
 name|SearchExtBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchExtParser
 import|;
 end_import
 
@@ -574,7 +578,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * The new {@link SearchExtParser}s defined by this plugin.      */
+comment|/**      * The new {@link SearchExtBuilder}s defined by this plugin.      */
 DECL|method|getSearchExts
 specifier|default
 name|List
@@ -1313,7 +1317,7 @@ name|SearchExtensionSpec
 argument_list|<
 name|T
 argument_list|,
-name|SearchExtParser
+name|NoContextParser
 argument_list|<
 name|T
 argument_list|>
@@ -1336,7 +1340,7 @@ name|T
 argument_list|>
 name|reader
 parameter_list|,
-name|SearchExtParser
+name|NoContextParser
 argument_list|<
 name|T
 argument_list|>
@@ -1370,7 +1374,7 @@ name|T
 argument_list|>
 name|reader
 parameter_list|,
-name|SearchExtParser
+name|NoContextParser
 argument_list|<
 name|T
 argument_list|>

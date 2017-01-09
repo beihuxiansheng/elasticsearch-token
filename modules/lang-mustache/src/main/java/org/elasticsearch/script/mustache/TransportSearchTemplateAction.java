@@ -616,10 +616,6 @@ argument_list|,
 name|searchRequestParsers
 operator|.
 name|suggesters
-argument_list|,
-name|searchRequestParsers
-operator|.
-name|searchExtParsers
 argument_list|)
 expr_stmt|;
 name|builder
