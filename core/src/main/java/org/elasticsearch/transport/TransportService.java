@@ -1911,7 +1911,7 @@ name|equals
 argument_list|)
 return|;
 block|}
-comment|/**      * Executes a high-level handshake using the given connection      * and returns the discovery node of the node the connection      * was established with. The handshake will fail if the cluster      * name on the target node mismatches the local cluster name.      *      * @param connection       the connection to a specific node      * @param handshakeTimeout handshake timeout      * @param clusterNamePredicate cluster name validation predicate      * @return the connected node      * @throws ConnectTransportException if the connection failed      * @throws IllegalStateException if the handshake failed      */
+comment|/**      * Executes a high-level handshake using the given connection      * and returns the discovery node of the node the connection      * was established with. The handshake will fail if the cluster      * name on the target node doesn't match the local cluster name.      *      * @param connection       the connection to a specific node      * @param handshakeTimeout handshake timeout      * @param clusterNamePredicate cluster name validation predicate      * @return the connected node      * @throws ConnectTransportException if the connection failed      * @throws IllegalStateException if the handshake failed      */
 DECL|method|handshake
 specifier|public
 name|DiscoveryNode

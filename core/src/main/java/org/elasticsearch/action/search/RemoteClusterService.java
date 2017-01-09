@@ -719,7 +719,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method updates the list of remote clusters. it's intendet to be used as a update consumer on the settings infrastructure      * @param seedSettings the group settings returned from {@link #REMOTE_CLUSTERS_SEEDS}      * @param connectionListener a listener invoked once every configured cluster has been connected to      */
+comment|/**      * This method updates the list of remote clusters. It's intended to be used as an update consumer on the settings infrastructure      * @param seedSettings the group settings returned from {@link #REMOTE_CLUSTERS_SEEDS}      * @param connectionListener a listener invoked once every configured cluster has been connected to      */
 DECL|method|updateRemoteClusters
 name|void
 name|updateRemoteClusters
@@ -1888,6 +1888,7 @@ return|;
 block|}
 comment|/**      * Returns a connection to the given node on the given remote cluster      * @throws IllegalArgumentException if the remote cluster is unknown      */
 DECL|method|getConnection
+specifier|private
 name|Transport
 operator|.
 name|Connection

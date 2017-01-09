@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TransportActionProxy allows an arbitrary action to be executed on a defined target node while the initial request is send to a second  * node that acts as a request proxy to the target node. This is useful if a node is not directly connected to a target node but is  * connected to an intermediate node that establishes a transitive connection.  */
+comment|/**  * TransportActionProxy allows an arbitrary action to be executed on a defined target node while the initial request is sent to a second  * node that acts as a request proxy to the target node. This is useful if a node is not directly connected to a target node but is  * connected to an intermediate node that establishes a transitive connection.  */
 end_comment
 
 begin_class
@@ -163,7 +163,6 @@ argument_list|>
 name|responseFactory
 decl_stmt|;
 DECL|method|ProxyRequestHandler
-specifier|public
 name|ProxyRequestHandler
 parameter_list|(
 name|TransportService
@@ -282,7 +281,6 @@ name|TransportChannel
 name|channel
 decl_stmt|;
 DECL|method|ProxyResponseHandler
-specifier|public
 name|ProxyResponseHandler
 parameter_list|(
 name|TransportChannel
@@ -440,7 +438,6 @@ name|DiscoveryNode
 name|targetNode
 decl_stmt|;
 DECL|method|ProxyRequest
-specifier|public
 name|ProxyRequest
 parameter_list|(
 name|Supplier
@@ -458,7 +455,6 @@ name|supplier
 expr_stmt|;
 block|}
 DECL|method|ProxyRequest
-specifier|public
 name|ProxyRequest
 parameter_list|(
 name|T
