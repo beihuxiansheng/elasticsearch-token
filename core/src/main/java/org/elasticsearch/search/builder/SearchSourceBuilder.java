@@ -314,20 +314,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorParsers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|PipelineAggregationBuilder
 import|;
 end_import
@@ -1006,9 +992,6 @@ parameter_list|(
 name|QueryParseContext
 name|context
 parameter_list|,
-name|AggregatorParsers
-name|aggParsers
-parameter_list|,
 name|Suggesters
 name|suggesters
 parameter_list|)
@@ -1027,8 +1010,6 @@ operator|.
 name|parseXContent
 argument_list|(
 name|context
-argument_list|,
-name|aggParsers
 argument_list|,
 name|suggesters
 argument_list|)
@@ -3629,7 +3610,7 @@ return|return
 name|rewrittenBuilder
 return|;
 block|}
-comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(QueryParseContext, AggregatorParsers, Suggesters)} if you have normal defaults.      */
+comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(QueryParseContext, Suggesters)} if you have normal defaults.      */
 DECL|method|parseXContent
 specifier|public
 name|void
@@ -3637,9 +3618,6 @@ name|parseXContent
 parameter_list|(
 name|QueryParseContext
 name|context
-parameter_list|,
-name|AggregatorParsers
-name|aggParsers
 parameter_list|,
 name|Suggesters
 name|suggesters
@@ -4344,7 +4322,7 @@ condition|)
 block|{
 name|aggregations
 operator|=
-name|aggParsers
+name|AggregatorFactories
 operator|.
 name|parseAggregators
 argument_list|(

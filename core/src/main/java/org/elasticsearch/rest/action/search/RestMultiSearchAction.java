@@ -673,10 +673,6 @@ name|queryParseContext
 argument_list|,
 name|searchRequestParsers
 operator|.
-name|aggParsers
-argument_list|,
-name|searchRequestParsers
-operator|.
 name|suggesters
 argument_list|)
 argument_list|)

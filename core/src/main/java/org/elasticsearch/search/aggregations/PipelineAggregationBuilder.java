@@ -56,7 +56,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorFactories
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -120,6 +122,8 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
+implements|,
+name|BaseAggregationBuilder
 block|{
 DECL|field|name
 specifier|protected
@@ -260,6 +264,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/** Associate metadata with this {@link PipelineAggregationBuilder}. */
+annotation|@
+name|Override
 DECL|method|setMetaData
 specifier|public
 specifier|abstract
@@ -275,6 +281,29 @@ argument_list|>
 name|metaData
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|subAggregations
+specifier|public
+name|PipelineAggregationBuilder
+name|subAggregations
+parameter_list|(
+name|Builder
+name|subFactories
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Aggregation ["
+operator|+
+name|name
+operator|+
+literal|"] cannot define sub-aggregations"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 
