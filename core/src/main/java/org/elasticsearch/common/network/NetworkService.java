@@ -627,11 +627,6 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|IfConfig
-operator|.
-name|logIfNecessary
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|customNameResolvers

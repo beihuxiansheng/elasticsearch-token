@@ -100,7 +100,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -183,7 +183,7 @@ operator|.
 name|AnalyzeToken
 argument_list|>
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|class|AnalyzeToken
 specifier|public
@@ -193,7 +193,7 @@ name|AnalyzeToken
 implements|implements
 name|Streamable
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|term
 specifier|private
@@ -797,6 +797,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|tokens
@@ -868,6 +873,11 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 return|return
 name|builder
 return|;

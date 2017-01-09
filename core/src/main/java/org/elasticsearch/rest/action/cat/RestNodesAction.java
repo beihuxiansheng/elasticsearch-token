@@ -1577,6 +1577,17 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"refresh.listeners"
+argument_list|,
+literal|"alias:rli,refreshListeners;default:false;text-align:right;"
+operator|+
+literal|"desc:number of pending refresh listeners"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"script.compilations"
 argument_list|,
 literal|"alias:scrcc,scriptCompilations;default:false;text-align:right;desc:script compilations"
@@ -3319,6 +3330,22 @@ else|:
 name|refreshStats
 operator|.
 name|getTotalTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|refreshStats
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|refreshStats
+operator|.
+name|getListeners
 argument_list|()
 argument_list|)
 expr_stmt|;

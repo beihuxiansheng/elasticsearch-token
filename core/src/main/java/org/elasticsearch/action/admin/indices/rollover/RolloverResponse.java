@@ -74,7 +74,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -163,7 +163,7 @@ name|RolloverResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|NEW_INDEX
 specifier|private
@@ -741,6 +741,11 @@ name|IOException
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|field
 argument_list|(
 name|OLD_INDEX
@@ -831,6 +836,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject

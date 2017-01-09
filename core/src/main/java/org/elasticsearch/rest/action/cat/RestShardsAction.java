@@ -1066,6 +1066,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"refresh.listeners"
+argument_list|,
+literal|"alias:rli,refreshListeners;default:false;text-align:right;desc:number of pending refresh listeners"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"search.fetch_current"
 argument_list|,
 literal|"alias:sfc,searchFetchCurrent;default:false;text-align:right;desc:current fetch phase ops"
@@ -2494,6 +2503,25 @@ name|getRefresh
 argument_list|()
 operator|.
 name|getTotalTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|commonStats
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|commonStats
+operator|.
+name|getRefresh
+argument_list|()
+operator|.
+name|getListeners
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1163,6 +1163,17 @@ operator|=
 literal|"s3-us-gov-west-1.amazonaws.com"
 expr_stmt|;
 break|break;
+case|case
+literal|"ca-central"
+case|:
+case|case
+literal|"ca-central-1"
+case|:
+name|endpoint
+operator|=
+literal|"s3.ca-central-1.amazonaws.com"
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new

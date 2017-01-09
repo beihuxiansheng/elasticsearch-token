@@ -297,8 +297,6 @@ name|toString
 argument_list|(
 name|getShardInfo
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -316,10 +314,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|toXContent
+DECL|method|innerToXContent
 specifier|public
 name|XContentBuilder
-name|toXContent
+name|innerToXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -332,7 +330,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|toXContent
+name|innerToXContent
 argument_list|(
 name|builder
 argument_list|,

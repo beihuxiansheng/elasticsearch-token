@@ -70,7 +70,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|GetPipelineResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|StatusToXContent
+name|StatusToXContentObject
 block|{
 DECL|field|pipelines
 specifier|private
@@ -360,6 +360,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|PipelineConfiguration
@@ -384,6 +389,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 return|return
 name|builder
 return|;

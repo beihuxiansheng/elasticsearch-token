@@ -200,7 +200,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -266,7 +266,7 @@ name|BulkItemResponse
 implements|implements
 name|Streamable
 implements|,
-name|StatusToXContent
+name|StatusToXContentObject
 block|{
 annotation|@
 name|Override
@@ -311,6 +311,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 name|opType
 operator|.
@@ -327,7 +332,7 @@ condition|)
 block|{
 name|response
 operator|.
-name|toXContent
+name|innerToXContent
 argument_list|(
 name|builder
 argument_list|,
@@ -442,6 +447,11 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject
@@ -906,8 +916,6 @@ operator|.
 name|toString
 argument_list|(
 name|this
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

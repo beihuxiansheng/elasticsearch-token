@@ -268,7 +268,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -358,7 +358,7 @@ name|TermVectorsResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|class|FieldStrings
 specifier|private
@@ -1080,6 +1080,11 @@ literal|null
 assert|;
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|field
 argument_list|(
 name|FieldStrings
@@ -1155,15 +1160,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|isExists
 argument_list|()
 condition|)
 block|{
-return|return
-name|builder
-return|;
-block|}
 name|builder
 operator|.
 name|startObject
@@ -1216,6 +1216,12 @@ name|theFields
 argument_list|,
 name|fieldIter
 argument_list|)
+expr_stmt|;
+block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 block|}
 name|builder

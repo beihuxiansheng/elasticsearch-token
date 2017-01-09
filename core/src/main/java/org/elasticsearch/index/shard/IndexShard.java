@@ -4629,6 +4629,21 @@ name|RefreshStats
 name|refreshStats
 parameter_list|()
 block|{
+comment|// Null refreshListeners means this shard doesn't support them so there can't be any.
+name|int
+name|listeners
+init|=
+name|refreshListeners
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|refreshListeners
+operator|.
+name|pendingCount
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|RefreshStats
@@ -4649,6 +4664,8 @@ operator|.
 name|sum
 argument_list|()
 argument_list|)
+argument_list|,
+name|listeners
 argument_list|)
 return|;
 block|}
@@ -5951,11 +5968,14 @@ block|}
 finally|finally
 block|{
 comment|// playing safe here and close the engine even if the above succeeds - close can be called multiple times
+comment|// Also closing refreshListeners to prevent us from accumulating any more listeners
 name|IOUtils
 operator|.
 name|close
 argument_list|(
 name|engine
+argument_list|,
+name|refreshListeners
 argument_list|)
 expr_stmt|;
 name|indexShardOperationsLock

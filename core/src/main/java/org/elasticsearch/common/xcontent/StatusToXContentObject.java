@@ -33,12 +33,12 @@ comment|/**  * Objects that can both render themselves in as json/yaml/etc and c
 end_comment
 
 begin_interface
-DECL|interface|StatusToXContent
+DECL|interface|StatusToXContentObject
 specifier|public
 interface|interface
-name|StatusToXContent
+name|StatusToXContentObject
 extends|extends
-name|ToXContent
+name|ToXContentObject
 block|{
 comment|/**      * Returns the REST status to make sure it is returned correctly      */
 DECL|method|status

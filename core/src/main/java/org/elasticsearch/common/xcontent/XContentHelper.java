@@ -2112,7 +2112,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the bytes that represent the XContent output of the provided {@link ToXContent} object, using the provided      * {@link XContentType}. Wraps the output into a new anonymous object depending on the value of the wrapInObject argument.      */
+comment|/**      * Returns the bytes that represent the XContent output of the provided {@link ToXContent} object, using the provided      * {@link XContentType}. Wraps the output into a new anonymous object.      */
 DECL|method|toXContent
 specifier|public
 specifier|static
@@ -2124,9 +2124,6 @@ name|toXContent
 parameter_list|,
 name|XContentType
 name|xContentType
-parameter_list|,
-name|boolean
-name|wrapInObject
 parameter_list|)
 throws|throws
 name|IOException
@@ -2149,7 +2146,10 @@ init|)
 block|{
 if|if
 condition|(
-name|wrapInObject
+name|toXContent
+operator|.
+name|isFragment
+argument_list|()
 condition|)
 block|{
 name|builder
@@ -2171,7 +2171,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|wrapInObject
+name|toXContent
+operator|.
+name|isFragment
+argument_list|()
 condition|)
 block|{
 name|builder

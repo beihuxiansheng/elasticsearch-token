@@ -414,10 +414,10 @@ decl_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|toXContent
+DECL|method|innerToXContent
 specifier|public
 name|XContentBuilder
-name|toXContent
+name|innerToXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -430,7 +430,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|toXContent
+name|innerToXContent
 argument_list|(
 name|builder
 argument_list|,

@@ -324,8 +324,6 @@ argument_list|(
 name|getResponse
 argument_list|,
 name|xContentType
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|//test that we can parse what we print out
@@ -382,8 +380,6 @@ argument_list|(
 name|parsedGetResponse
 argument_list|,
 name|xContentType
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertToXContentEquivalent
@@ -476,8 +472,6 @@ operator|.
 name|toString
 argument_list|(
 name|getResponse
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -524,8 +518,6 @@ operator|.
 name|toString
 argument_list|(
 name|getResponse
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals

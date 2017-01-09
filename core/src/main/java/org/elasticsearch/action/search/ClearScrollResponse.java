@@ -70,7 +70,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -146,7 +146,7 @@ name|ClearScrollResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|StatusToXContent
+name|StatusToXContentObject
 block|{
 DECL|field|succeeded
 specifier|private
@@ -244,6 +244,11 @@ name|IOException
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|field
 argument_list|(
 name|Fields
@@ -263,6 +268,11 @@ name|NUMFREED
 argument_list|,
 name|numFreed
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 return|return
 name|builder

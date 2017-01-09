@@ -98,7 +98,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|ClusterSearchShardsResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|groups
 specifier|private
@@ -604,6 +604,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 literal|"nodes"
 argument_list|)
@@ -770,6 +775,11 @@ block|}
 name|builder
 operator|.
 name|endArray
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
 argument_list|()
 expr_stmt|;
 return|return

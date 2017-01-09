@@ -96,7 +96,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -157,7 +157,7 @@ argument_list|<
 name|MultiTermVectorsItemResponse
 argument_list|>
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 comment|/**      * Represents a failure.      */
 DECL|class|Failure
@@ -477,6 +477,11 @@ name|IOException
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|startArray
 argument_list|(
 name|Fields
@@ -585,11 +590,6 @@ operator|.
 name|getResponse
 argument_list|()
 decl_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 name|getResponse
 operator|.
 name|toXContent
@@ -599,16 +599,16 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 name|builder
 operator|.
 name|endArray
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
 argument_list|()
 expr_stmt|;
 return|return

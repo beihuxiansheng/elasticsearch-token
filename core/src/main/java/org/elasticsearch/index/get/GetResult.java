@@ -112,7 +112,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -339,7 +339,7 @@ argument_list|<
 name|GetField
 argument_list|>
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|_INDEX
 specifier|private

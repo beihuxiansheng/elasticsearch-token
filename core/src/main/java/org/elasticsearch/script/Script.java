@@ -138,7 +138,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -285,7 +285,7 @@ specifier|final
 class|class
 name|Script
 implements|implements
-name|ToXContent
+name|ToXContentObject
 implements|,
 name|Writeable
 block|{

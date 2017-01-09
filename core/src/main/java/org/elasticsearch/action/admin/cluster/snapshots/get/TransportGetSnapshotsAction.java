@@ -576,10 +576,13 @@ name|snapshotId
 range|:
 name|snapshotsService
 operator|.
-name|snapshotIds
+name|getRepositoryData
 argument_list|(
 name|repository
 argument_list|)
+operator|.
+name|getAllSnapshotIds
+argument_list|()
 control|)
 block|{
 name|allSnapshotIds

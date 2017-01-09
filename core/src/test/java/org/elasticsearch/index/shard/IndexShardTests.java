@@ -1452,6 +1452,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|RepositoryData
+operator|.
+name|EMPTY_REPO_GEN
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -11147,16 +11161,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
+operator|new
 name|RepositoryData
-operator|.
-name|initRepositoryData
 argument_list|(
+name|EMPTY_REPO_GEN
+argument_list|,
 name|Collections
 operator|.
 name|emptyList
 argument_list|()
 argument_list|,
 name|map
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 return|;
 block|}

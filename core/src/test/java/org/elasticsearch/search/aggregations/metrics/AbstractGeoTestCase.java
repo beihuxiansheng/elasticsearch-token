@@ -1695,9 +1695,6 @@ name|XContentFactory
 operator|.
 name|jsonBuilder
 argument_list|()
-operator|.
-name|startObject
-argument_list|()
 decl_stmt|;
 name|response
 operator|.
@@ -1709,11 +1706,6 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
 expr_stmt|;
 name|logger
 operator|.
