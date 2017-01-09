@@ -709,12 +709,6 @@ name|queryParseContext
 argument_list|(
 name|innerParser
 argument_list|)
-argument_list|,
-name|context
-operator|.
-name|searchRequestParsers
-operator|.
-name|suggesters
 argument_list|)
 expr_stmt|;
 block|}

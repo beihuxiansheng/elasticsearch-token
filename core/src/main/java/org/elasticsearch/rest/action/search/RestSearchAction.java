@@ -703,10 +703,6 @@ operator|.
 name|parseXContent
 argument_list|(
 name|context
-argument_list|,
-name|searchRequestParsers
-operator|.
-name|suggesters
 argument_list|)
 expr_stmt|;
 block|}

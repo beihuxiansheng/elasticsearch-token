@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
+name|xcontent
 operator|.
-name|QueryParseContext
+name|XContentParser
 import|;
 end_import
 
@@ -351,8 +351,8 @@ specifier|protected
 name|SmoothingModel
 name|fromXContent
 parameter_list|(
-name|QueryParseContext
-name|context
+name|XContentParser
+name|parser
 parameter_list|)
 throws|throws
 name|IOException
@@ -360,9 +360,9 @@ block|{
 return|return
 name|LinearInterpolation
 operator|.
-name|innerFromXContent
+name|fromXContent
 argument_list|(
-name|context
+name|parser
 argument_list|)
 return|;
 block|}

@@ -4060,7 +4060,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Response didn't include Content-Type: body={\n  \"ok\""
+literal|"Response didn't include Content-Type: body={"
 argument_list|)
 argument_list|)
 expr_stmt|;
