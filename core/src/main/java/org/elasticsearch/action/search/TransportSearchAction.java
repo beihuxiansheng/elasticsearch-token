@@ -1517,7 +1517,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IllegalStateException
 argument_list|(
 literal|"no node found for id: "
 operator|+

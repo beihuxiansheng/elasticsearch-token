@@ -959,7 +959,7 @@ name|ActionListener
 operator|.
 name|wrap
 argument_list|(
-name|x
+name|response
 lambda|->
 block|{
 if|if
@@ -974,13 +974,13 @@ name|connectionListener
 operator|.
 name|onResponse
 argument_list|(
-name|x
+name|response
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 argument_list|,
-name|e
+name|exception
 lambda|->
 block|{
 if|if
@@ -995,7 +995,7 @@ name|connectionListener
 operator|.
 name|onFailure
 argument_list|(
-name|e
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
@@ -1010,7 +1010,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|e
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
@@ -2107,7 +2107,6 @@ name|minimumCompatibilityVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//don't connect yet as that would require the remote node to be up and would fail the local node startup otherwise
 name|List
 argument_list|<
 name|DiscoveryNode

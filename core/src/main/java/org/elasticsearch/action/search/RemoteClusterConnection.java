@@ -644,11 +644,11 @@ name|DiscoveryNode
 argument_list|>
 name|nodeSupplier
 decl_stmt|;
-DECL|field|clusterName
+DECL|field|clusterAlias
 specifier|private
 specifier|final
 name|String
-name|clusterName
+name|clusterAlias
 decl_stmt|;
 DECL|field|maxNumRemoteConnections
 specifier|private
@@ -680,7 +680,7 @@ specifier|final
 name|ConnectHandler
 name|connectHandler
 decl_stmt|;
-comment|/**      * Creates a new {@link RemoteClusterConnection}      * @param settings the nodes settings object      * @param clusterName the configured name of the cluster to connect to      * @param seedNodes a list of seed nodes to discover eligible nodes from      * @param transportService the local nodes transport service      * @param maxNumRemoteConnections the maximum number of connections to the remote cluster      * @param nodePredicate a predicate to filter eligible remote nodes to connect to      */
+comment|/**      * Creates a new {@link RemoteClusterConnection}      * @param settings the nodes settings object      * @param clusterAlias the configured alias of the cluster to connect to      * @param seedNodes a list of seed nodes to discover eligible nodes from      * @param transportService the local nodes transport service      * @param maxNumRemoteConnections the maximum number of connections to the remote cluster      * @param nodePredicate a predicate to filter eligible remote nodes to connect to      */
 DECL|method|RemoteClusterConnection
 name|RemoteClusterConnection
 parameter_list|(
@@ -688,7 +688,7 @@ name|Settings
 name|settings
 parameter_list|,
 name|String
-name|clusterName
+name|clusterAlias
 parameter_list|,
 name|List
 argument_list|<
@@ -734,9 +734,9 @@ name|nodePredicate
 expr_stmt|;
 name|this
 operator|.
-name|clusterName
+name|clusterAlias
 operator|=
-name|clusterName
+name|clusterAlias
 expr_stmt|;
 name|ConnectionProfile
 operator|.
@@ -891,7 +891,7 @@ name|IllegalStateException
 argument_list|(
 literal|"No node available for cluster: "
 operator|+
-name|clusterName
+name|clusterAlias
 operator|+
 literal|" nodes: "
 operator|+
@@ -1383,15 +1383,15 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns the name of the remote cluster      */
-DECL|method|getClusterName
+comment|/**      * Returns the alias / name of the remote cluster      */
+DECL|method|getClusterAlias
 specifier|public
 name|String
-name|getClusterName
+name|getClusterAlias
 parameter_list|()
 block|{
 return|return
-name|clusterName
+name|clusterAlias
 return|;
 block|}
 annotation|@
@@ -2045,7 +2045,7 @@ operator|.
 name|EMPTY
 argument_list|,
 operator|new
-name|StateResponseHandler
+name|SniffClusterStateResponseHandler
 argument_list|(
 name|transportService
 argument_list|,
@@ -2152,7 +2152,7 @@ name|ParameterizedMessage
 argument_list|(
 literal|"fetching nodes from external cluster {} failed"
 argument_list|,
-name|clusterName
+name|clusterAlias
 argument_list|)
 argument_list|,
 name|ex
@@ -2240,10 +2240,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|class|StateResponseHandler
+comment|/* This class handles the _state response from the remote cluster when sniffing nodes to connect to */
+DECL|class|SniffClusterStateResponseHandler
 specifier|private
 class|class
-name|StateResponseHandler
+name|SniffClusterStateResponseHandler
 implements|implements
 name|TransportResponseHandler
 argument_list|<
@@ -2288,8 +2289,8 @@ specifier|final
 name|CancellableThreads
 name|cancellableThreads
 decl_stmt|;
-DECL|method|StateResponseHandler
-name|StateResponseHandler
+DECL|method|SniffClusterStateResponseHandler
+name|SniffClusterStateResponseHandler
 parameter_list|(
 name|TransportService
 name|transportService
@@ -2541,7 +2542,7 @@ name|ParameterizedMessage
 argument_list|(
 literal|"fetching nodes from external cluster {} failed"
 argument_list|,
-name|clusterName
+name|clusterAlias
 argument_list|)
 argument_list|,
 name|ex
@@ -2597,7 +2598,7 @@ name|ParameterizedMessage
 argument_list|(
 literal|"fetching nodes from external cluster {} failed"
 argument_list|,
-name|clusterName
+name|clusterAlias
 argument_list|)
 argument_list|,
 name|exp
