@@ -126,6 +126,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_class
 DECL|class|CompressorFactory
 specifier|public
@@ -304,7 +314,7 @@ literal|1
 operator|)
 return|;
 block|}
-comment|/**      * Uncompress the provided data, data can be detected as compressed using {@link #isCompressed(BytesReference)}.      */
+comment|/**      * Uncompress the provided data, data can be detected as compressed using {@link #isCompressed(BytesReference)}.      * @throws NullPointerException a NullPointerException will be thrown when bytes is null      */
 DECL|method|uncompressIfNeeded
 specifier|public
 specifier|static
@@ -322,7 +332,14 @@ name|compressor
 init|=
 name|compressor
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|bytes
+argument_list|,
+literal|"the BytesReference must not be null"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|BytesReference
