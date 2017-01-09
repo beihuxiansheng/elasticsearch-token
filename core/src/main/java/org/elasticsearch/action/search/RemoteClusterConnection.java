@@ -1410,7 +1410,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * The connect handler manages node discovery and the actual connect to the remote cluster.      * There is at most one connect job running at any time. If such a connect job is triggered      * while another job is running the provided listeners are queued and batched up once the current running job returns.      *      * The handler has a built-in queue that can hold up to 100 connect attempts and will reject requests once the queue is full.      * In a scenario when a remote cluster becomes unavailable we will queue up immediate request but if we can't connect quick enough      * we will just reject the connect trigger which will lead to failing searches.      */
+comment|/**      * The connect handler manages node discovery and the actual connect to the remote cluster.      * There is at most one connect job running at any time. If such a connect job is triggered      * while another job is running the provided listeners are queued and batched up until the current running job returns.      *      * The handler has a built-in queue that can hold up to 100 connect attempts and will reject requests once the queue is full.      * In a scenario when a remote cluster becomes unavailable we will queue requests up but if we can't connect quick enough      * we will just reject the connect trigger which will lead to failing searches.      */
 DECL|class|ConnectHandler
 specifier|private
 class|class
