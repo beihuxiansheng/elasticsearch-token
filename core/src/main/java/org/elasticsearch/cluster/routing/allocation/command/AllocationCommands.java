@@ -454,7 +454,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reads {@link AllocationCommands} from a {@link XContentParser}      *<pre>      *     {      *         "commands" : [      *              {"allocate" : {"index" : "test", "shard" : 0, "node" : "test"}}      *         ]      *     }      *</pre>      * @param parser {@link XContentParser} to read the commands from      * @param registry of allocation command parsers      * @return {@link AllocationCommands} read      * @throws IOException if something bad happens while reading the stream      */
+comment|/**      * Reads {@link AllocationCommands} from a {@link XContentParser}      *<pre>      *     {      *         "commands" : [      *              {"allocate" : {"index" : "test", "shard" : 0, "node" : "test"}}      *         ]      *     }      *</pre>      * @param parser {@link XContentParser} to read the commands from      * @return {@link AllocationCommands} read      * @throws IOException if something bad happens while reading the stream      */
 DECL|method|fromXContent
 specifier|public
 specifier|static
@@ -463,9 +463,6 @@ name|fromXContent
 parameter_list|(
 name|XContentParser
 name|parser
-parameter_list|,
-name|AllocationCommandRegistry
-name|registry
 parameter_list|)
 throws|throws
 name|IOException
@@ -676,21 +673,17 @@ name|commands
 operator|.
 name|add
 argument_list|(
-name|registry
+name|parser
 operator|.
-name|lookup
+name|namedObject
 argument_list|(
+name|AllocationCommand
+operator|.
+name|class
+argument_list|,
 name|commandName
 argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
-argument_list|)
-operator|.
-name|fromXContent
-argument_list|(
-name|parser
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
