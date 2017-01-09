@@ -921,8 +921,6 @@ operator|new
 name|SearchRequestParsers
 argument_list|(
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|RestReindexAction
@@ -993,8 +991,6 @@ init|=
 operator|new
 name|SearchRequestParsers
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;

@@ -78,6 +78,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -138,6 +152,8 @@ implements|implements
 name|NamedWriteable
 implements|,
 name|ToXContent
+implements|,
+name|BaseAggregationBuilder
 block|{
 DECL|field|name
 specifier|protected
@@ -260,6 +276,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/** Associate metadata with this {@link AggregationBuilder}. */
+annotation|@
+name|Override
 DECL|method|setMetaData
 specifier|public
 specifier|abstract
@@ -297,9 +315,11 @@ name|PipelineAggregationBuilder
 name|aggregation
 parameter_list|)
 function_decl|;
-comment|/**      * Internal: Registers sub-factories with this factory. The sub-factory will be      * responsible for the creation of sub-aggregators under the aggregator      * created by this factory. This is only for use by {@link AggregatorParsers}.      *      * @param subFactories      *            The sub-factories      * @return this factory (fluent interface)      */
+comment|/**      * Internal: Registers sub-factories with this factory. The sub-factory will be      * responsible for the creation of sub-aggregators under the aggregator      * created by this factory. This is only for use by {@link AggregatorFactories#parseAggregators(QueryParseContext)}.      *      * @param subFactories      *            The sub-factories      * @return this factory (fluent interface)      */
+annotation|@
+name|Override
 DECL|method|subAggregations
-specifier|protected
+specifier|public
 specifier|abstract
 name|AggregationBuilder
 name|subAggregations

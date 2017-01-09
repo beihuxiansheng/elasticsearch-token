@@ -20,34 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorParsers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|suggest
@@ -69,17 +41,8 @@ block|{
 comment|// TODO: this class should be renamed to SearchRequestParser, and all the parse
 comment|// methods split across RestSearchAction and SearchSourceBuilder should be moved here
 comment|// TODO: make all members private once parsing functions are moved here
-comment|// TODO: AggregatorParsers should be removed and the underlying maps of agg
-comment|// and pipeline agg parsers should be here
-comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters)      */
-DECL|field|aggParsers
-specifier|public
-specifier|final
-name|AggregatorParsers
-name|aggParsers
-decl_stmt|;
 comment|// TODO: Suggesters should be removed and the underlying map moved here
-comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters)      */
+comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, Suggesters)      */
 DECL|field|suggesters
 specifier|public
 specifier|final
@@ -90,19 +53,10 @@ DECL|method|SearchRequestParsers
 specifier|public
 name|SearchRequestParsers
 parameter_list|(
-name|AggregatorParsers
-name|aggParsers
-parameter_list|,
 name|Suggesters
 name|suggesters
 parameter_list|)
 block|{
-name|this
-operator|.
-name|aggParsers
-operator|=
-name|aggParsers
-expr_stmt|;
 name|this
 operator|.
 name|suggesters

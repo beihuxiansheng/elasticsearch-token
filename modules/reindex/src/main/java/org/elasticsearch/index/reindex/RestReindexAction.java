@@ -714,12 +714,6 @@ name|context
 operator|.
 name|searchRequestParsers
 operator|.
-name|aggParsers
-argument_list|,
-name|context
-operator|.
-name|searchRequestParsers
-operator|.
 name|suggesters
 argument_list|)
 expr_stmt|;

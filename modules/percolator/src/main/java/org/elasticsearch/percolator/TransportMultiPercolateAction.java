@@ -1178,10 +1178,6 @@ name|percolateRequest
 argument_list|,
 name|docSource
 argument_list|,
-name|searchRequestParsers
-operator|.
-name|aggParsers
-argument_list|,
 name|xContentRegistry
 argument_list|,
 name|parseFieldMatcher

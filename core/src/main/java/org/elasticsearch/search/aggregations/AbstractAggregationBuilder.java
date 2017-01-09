@@ -471,6 +471,8 @@ operator|)
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getType
 specifier|public
 name|String
