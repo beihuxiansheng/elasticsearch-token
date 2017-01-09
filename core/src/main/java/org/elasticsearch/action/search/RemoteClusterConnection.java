@@ -246,34 +246,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lease
-operator|.
-name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -623,7 +595,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a connection to a single remote cluster. In contrast to a local cluster a remote cluster is not joined such that the  * current node is part of the cluster and it won't receive cluster state updated from the remote cluster. Remote clusters are also not  * fully connected with the current node. From a connection perspective a local cluster forms a bi-directional star network while in the  * remote case we only connect to a subset of the nodes in the cluster in an uni-directional fashion.  *  * This class also handles the discovery of nodes from the remote cluster. The initial list of seed nodes is only used to discover all nodes  * in the remote cluster and connects to all eligible nodes, for details see {@link RemoteClusterService#REMOTE_NODE_ATTRIBUTE}.  *  * In the case of a disconnection, this class will issue a re-connect task to establish at most  * {@link RemoteClusterService#REMOTE_CONNECTIONS_PER_CLUSTER} until either all eligible nodes are exhausted or the maximum number of  * connections per cluster has been reached.  */
+comment|/**  * Represents a connection to a single remote cluster. In contrast to a local cluster a remote cluster is not joined such that the  * current node is part of the cluster and it won't receive cluster state updates from the remote cluster. Remote clusters are also not  * fully connected with the current node. From a connection perspective a local cluster forms a bi-directional star network while in the  * remote case we only connect to a subset of the nodes in the cluster in an uni-directional fashion.  *  * This class also handles the discovery of nodes from the remote cluster. The initial list of seed nodes is only used to discover all nodes  * in the remote cluster and connects to all eligible nodes, for details see {@link RemoteClusterService#REMOTE_NODE_ATTRIBUTE}.  *  * In the case of a disconnection, this class will issue a re-connect task to establish at most  * {@link RemoteClusterService#REMOTE_CONNECTIONS_PER_CLUSTER} until either all eligible nodes are exhausted or the maximum number of  * connections per cluster has been reached.  */
 end_comment
 
 begin_class
@@ -1081,7 +1053,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// just in case if we are not connected for some reason we try to connect and if we fail we to and notify the listener
+comment|// just in case if we are not connected for some reason we try to connect and if we fail we have to notify the listener
 comment|// this will cause some back pressure on the search end and eventually will cause rejections but that's fine
 comment|// we can't proceed with a search on a cluster level.
 comment|// in the future we might want to just skip the remote nodes in such a case but that can already be implemented on the caller
@@ -1438,7 +1410,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * The connect handler manages node discovery and the actual connect to the remote cluster.      * There is at most one connect job running at any time. If such a connect job is triggered      * while another job is running the provided listeners are queued and batched up once the current running job returns.      *      * The handler has ab built-in queue that can hold up to 100 connect attempts and will reject request once the queue is full.      * In a scenario when a remote cluster becomes unavailable we will queue up immediate request but if we can't connect quick enough      * we will just reject the connect trigger which will lead to failing searches.      */
+comment|/**      * The connect handler manages node discovery and the actual connect to the remote cluster.      * There is at most one connect job running at any time. If such a connect job is triggered      * while another job is running the provided listeners are queued and batched up once the current running job returns.      *      * The handler has a built-in queue that can hold up to 100 connect attempts and will reject requests once the queue is full.      * In a scenario when a remote cluster becomes unavailable we will queue up immediate request but if we can't connect quick enough      * we will just reject the connect trigger which will lead to failing searches.      */
 DECL|class|ConnectHandler
 specifier|private
 class|class
@@ -2317,7 +2289,6 @@ name|CancellableThreads
 name|cancellableThreads
 decl_stmt|;
 DECL|method|StateResponseHandler
-specifier|public
 name|StateResponseHandler
 parameter_list|(
 name|TransportService
