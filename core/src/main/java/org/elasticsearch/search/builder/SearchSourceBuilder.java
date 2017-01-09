@@ -494,20 +494,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|Suggesters
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -991,9 +977,6 @@ name|fromXContent
 parameter_list|(
 name|QueryParseContext
 name|context
-parameter_list|,
-name|Suggesters
-name|suggesters
 parameter_list|)
 throws|throws
 name|IOException
@@ -1010,8 +993,6 @@ operator|.
 name|parseXContent
 argument_list|(
 name|context
-argument_list|,
-name|suggesters
 argument_list|)
 expr_stmt|;
 return|return
@@ -3610,7 +3591,7 @@ return|return
 name|rewrittenBuilder
 return|;
 block|}
-comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(QueryParseContext, Suggesters)} if you have normal defaults.      */
+comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(QueryParseContext)} if you have normal defaults.      */
 DECL|method|parseXContent
 specifier|public
 name|void
@@ -3618,9 +3599,6 @@ name|parseXContent
 parameter_list|(
 name|QueryParseContext
 name|context
-parameter_list|,
-name|Suggesters
-name|suggesters
 parameter_list|)
 throws|throws
 name|IOException
@@ -4369,8 +4347,9 @@ operator|.
 name|fromXContent
 argument_list|(
 name|context
-argument_list|,
-name|suggesters
+operator|.
+name|parser
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -608,10 +608,6 @@ name|parser
 argument_list|,
 name|parseFieldMatcher
 argument_list|)
-argument_list|,
-name|searchRequestParsers
-operator|.
-name|suggesters
 argument_list|)
 expr_stmt|;
 name|builder

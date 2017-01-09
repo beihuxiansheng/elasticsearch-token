@@ -14,20 +14,6 @@ name|search
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|Suggesters
-import|;
-end_import
-
 begin_comment
 comment|/**  * A container for all parsers used to parse  * {@link org.elasticsearch.action.search.SearchRequest} objects from a rest request.  */
 end_comment
@@ -38,32 +24,11 @@ specifier|public
 class|class
 name|SearchRequestParsers
 block|{
-comment|// TODO: this class should be renamed to SearchRequestParser, and all the parse
-comment|// methods split across RestSearchAction and SearchSourceBuilder should be moved here
-comment|// TODO: make all members private once parsing functions are moved here
-comment|// TODO: Suggesters should be removed and the underlying map moved here
-comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, Suggesters)      */
-DECL|field|suggesters
-specifier|public
-specifier|final
-name|Suggesters
-name|suggesters
-decl_stmt|;
 DECL|method|SearchRequestParsers
 specifier|public
 name|SearchRequestParsers
-parameter_list|(
-name|Suggesters
-name|suggesters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|suggesters
-operator|=
-name|suggesters
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 block|}
 end_class
 

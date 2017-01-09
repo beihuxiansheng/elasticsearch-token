@@ -919,9 +919,7 @@ name|searchParsers
 init|=
 operator|new
 name|SearchRequestParsers
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|RestReindexAction
 operator|.
@@ -990,9 +988,7 @@ name|parsers
 init|=
 operator|new
 name|SearchRequestParsers
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|RestReindexAction
 name|action
