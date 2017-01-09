@@ -238,6 +238,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -2299,6 +2311,13 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"calls getLocalHost here but it's fine in this case"
+argument_list|)
 DECL|method|testSlowNodeCanBeCanceled
 specifier|public
 name|void
