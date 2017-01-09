@@ -533,7 +533,7 @@ name|AbstractComponent
 implements|implements
 name|Closeable
 block|{
-comment|/**      * A list of initial seed nodes to discover eligibale nodes from the remote cluster      */
+comment|/**      * A list of initial seed nodes to discover eligible nodes from the remote cluster      */
 comment|//TODO this should be an affix settings?
 DECL|field|REMOTE_CLUSTERS_SEEDS
 specifier|public
@@ -627,7 +627,7 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**      * The name of a node attribute to filter out nodes that should not be connected to in the remote cluster.      * For instance a node can be configured with<tt>node.node_attr.gateway: true</tt> in order to be eligible as a gateway node between      * clusters. In that case<tt>search.remote.node_attribute: gateway</tt> can be used to filter out other nodes in the remote cluster      */
+comment|/**      * The name of a node attribute to select nodes that should be connected to in the remote cluster.      * For instance a node can be configured with<tt>node.node_attr.gateway: true</tt> in order to be eligible as a gateway node between      * clusters. In that case<tt>search.remote.node_attribute: gateway</tt> can be used to filter out other nodes in the remote cluster.      * The value of the setting is expected to be a boolean,<tt><true/tt> for nodes that can become gateways,<tt>false</tt> otherwise.      */
 DECL|field|REMOTE_NODE_ATTRIBUTE
 specifier|public
 specifier|static
@@ -2166,7 +2166,6 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|//TODO do we need a static whitelist like in reindex from remote?
 for|for
 control|(
 name|String
