@@ -70,7 +70,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|SimulatePipelineResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|pipelineId
 specifier|private
@@ -418,6 +418,11 @@ name|IOException
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|startArray
 argument_list|(
 name|Fields
@@ -446,6 +451,11 @@ block|}
 name|builder
 operator|.
 name|endArray
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
 argument_list|()
 expr_stmt|;
 return|return

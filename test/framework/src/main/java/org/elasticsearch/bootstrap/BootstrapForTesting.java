@@ -94,6 +94,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|network
+operator|.
+name|IfConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|PluginInfo
@@ -430,6 +444,12 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// Log ifconfig output before SecurityManager is installed
+name|IfConfig
+operator|.
+name|logIfNecessary
+argument_list|()
+expr_stmt|;
 comment|// install security manager if requested
 if|if
 condition|(

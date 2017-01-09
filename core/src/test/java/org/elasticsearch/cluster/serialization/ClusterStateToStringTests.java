@@ -436,8 +436,6 @@ operator|.
 name|toString
 argument_list|(
 name|clusterState
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertNotNull

@@ -88,7 +88,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|CreateSnapshotResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 annotation|@
 name|Nullable
@@ -295,6 +295,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|snapshotInfo
@@ -331,6 +336,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 return|return
 name|builder
 return|;

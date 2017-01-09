@@ -716,21 +716,10 @@ argument_list|>
 name|entrySet
 parameter_list|()
 block|{
-comment|// just to ensure we can iterate over this single analzyer
 return|return
 name|Collections
 operator|.
-name|singletonMap
-argument_list|(
-name|fakeDefault
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|fakeDefault
-argument_list|)
-operator|.
-name|entrySet
+name|emptySet
 argument_list|()
 return|;
 block|}
@@ -751,6 +740,8 @@ argument_list|,
 name|fakeDefault
 argument_list|,
 name|fakeDefault
+argument_list|,
+name|analyzerMap
 argument_list|,
 name|analyzerMap
 argument_list|)

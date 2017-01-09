@@ -328,20 +328,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentParser
 import|;
 end_import
@@ -1304,31 +1290,13 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//auto-detect as a fallback
-name|xContentType
-operator|=
-name|XContentFactory
-operator|.
-name|xContentType
-argument_list|(
-name|content
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|xContentType
-operator|==
-literal|null
-condition|)
-block|{
 try|try
 block|{
 throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"Can't detect content type for response: "
+literal|"Response didn't include Content-Type: "
 operator|+
 name|bodyMessage
 argument_list|(

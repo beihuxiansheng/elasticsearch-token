@@ -565,6 +565,27 @@ throw|;
 block|}
 annotation|@
 name|Override
+DECL|method|noOp
+specifier|public
+name|NoOpResult
+name|noOp
+parameter_list|(
+name|NoOp
+name|noOp
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+name|shardId
+operator|+
+literal|" no-op operation not allowed on shadow engine"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
 DECL|method|syncFlush
 specifier|public
 name|SyncedFlushResult

@@ -98,7 +98,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|StatusToXContent
+name|StatusToXContentObject
 import|;
 end_import
 
@@ -146,7 +146,7 @@ name|SearchTemplateResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|StatusToXContent
+name|StatusToXContentObject
 block|{
 comment|/** Contains the source of the rendered template **/
 DECL|field|source
@@ -338,12 +338,22 @@ else|else
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|rawField
 argument_list|(
 literal|"template_output"
 argument_list|,
 name|source
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 block|}
 return|return

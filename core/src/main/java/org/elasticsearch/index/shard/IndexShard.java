@@ -4629,6 +4629,21 @@ name|RefreshStats
 name|refreshStats
 parameter_list|()
 block|{
+comment|// Null refreshListeners means this shard doesn't support them so there can't be any.
+name|int
+name|listeners
+init|=
+name|refreshListeners
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|refreshListeners
+operator|.
+name|pendingCount
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|RefreshStats
@@ -4649,6 +4664,8 @@ operator|.
 name|sum
 argument_list|()
 argument_list|)
+argument_list|,
+name|listeners
 argument_list|)
 return|;
 block|}
@@ -4687,22 +4704,42 @@ name|DocsStats
 name|docStats
 parameter_list|()
 block|{
-name|readAllowed
-argument_list|()
-expr_stmt|;
+try|try
+init|(
 specifier|final
 name|Engine
-name|engine
-init|=
-name|getEngine
-argument_list|()
-decl_stmt|;
-return|return
-name|engine
 operator|.
-name|getDocStats
+name|Searcher
+name|searcher
+init|=
+name|acquireSearcher
+argument_list|(
+literal|"doc_stats"
+argument_list|)
+init|)
+block|{
+return|return
+operator|new
+name|DocsStats
+argument_list|(
+name|searcher
+operator|.
+name|reader
 argument_list|()
+operator|.
+name|numDocs
+argument_list|()
+argument_list|,
+name|searcher
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|numDeletedDocs
+argument_list|()
+argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * @return {@link CommitStats} if engine is open, otherwise null      */
 annotation|@
@@ -5931,11 +5968,14 @@ block|}
 finally|finally
 block|{
 comment|// playing safe here and close the engine even if the above succeeds - close can be called multiple times
+comment|// Also closing refreshListeners to prevent us from accumulating any more listeners
 name|IOUtils
 operator|.
 name|close
 argument_list|(
 name|engine
+argument_list|,
+name|refreshListeners
 argument_list|)
 expr_stmt|;
 name|indexShardOperationsLock
@@ -7954,15 +7994,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * notifies the service of a local checkpoint. see {@link GlobalCheckpointService#updateLocalCheckpoint(String, long)} for details.      */
+comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. See      * {@link GlobalCheckpointService#updateLocalCheckpoint(String, long)} for details.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
 DECL|method|updateLocalCheckpointForShard
 specifier|public
 name|void
 name|updateLocalCheckpointForShard
 parameter_list|(
+specifier|final
 name|String
 name|allocationId
 parameter_list|,
+specifier|final
 name|long
 name|checkpoint
 parameter_list|)
@@ -7984,12 +8026,13 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * marks the allocationId as "in sync" with the primary shard. see {@link GlobalCheckpointService#markAllocationIdAsInSync(String)}      * for details.      *      * @param allocationId    allocationId of the recovering shard      */
+comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointService#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 name|void
 name|markAllocationIdAsInSync
 parameter_list|(
+specifier|final
 name|String
 name|allocationId
 parameter_list|)
@@ -8009,6 +8052,7 @@ name|allocationId
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the local checkpoint for the shard.      *      * @return the local checkpoint      */
 DECL|method|getLocalCheckpoint
 specifier|public
 name|long
@@ -8026,6 +8070,7 @@ name|getLocalCheckpoint
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the global checkpoint for the shard.      *      * @return the global checkpoint      */
 DECL|method|getGlobalCheckpoint
 specifier|public
 name|long
@@ -8043,7 +8088,7 @@ name|getGlobalCheckpoint
 argument_list|()
 return|;
 block|}
-comment|/**      * Checks whether the global checkpoint can be updated based on current knowledge of local checkpoints on the different      * shard copies. The checkpoint is updated or more information is required from the replica, a global checkpoint sync      * is initiated.      */
+comment|/**      * Checks whether the global checkpoint can be updated based on current knowledge of local checkpoints on the different shard copies.      * The checkpoint is updated or if more information is required from the replica, a global checkpoint sync is initiated.      */
 DECL|method|updateGlobalCheckpointOnPrimary
 specifier|public
 name|void
@@ -8072,12 +8117,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * updates the global checkpoint on a replica shard (after it has been updated by the primary).      */
+comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param checkpoint the global checkpoint      */
 DECL|method|updateGlobalCheckpointOnReplica
 specifier|public
 name|void
 name|updateGlobalCheckpointOnReplica
 parameter_list|(
+specifier|final
 name|long
 name|checkpoint
 parameter_list|)
@@ -8097,18 +8143,20 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Notifies the service of the current allocation ids in the cluster state.      * see {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation ids of the currently active shard copies      * @param initializingAllocationIds the allocation ids of the currently initializing shard copies      */
+comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
 specifier|public
 name|void
 name|updateAllocationIdsFromMaster
 parameter_list|(
+specifier|final
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|activeAllocationIds
 parameter_list|,
+specifier|final
 name|Set
 argument_list|<
 name|String
@@ -8119,13 +8167,14 @@ block|{
 name|verifyPrimary
 argument_list|()
 expr_stmt|;
+specifier|final
 name|Engine
 name|engine
 init|=
 name|getEngineOrNull
 argument_list|()
 decl_stmt|;
-comment|// if engine is not yet started, we are not ready yet and can just ignore this
+comment|// if the engine is not yet started, we are not ready yet and can just ignore this
 if|if
 condition|(
 name|engine

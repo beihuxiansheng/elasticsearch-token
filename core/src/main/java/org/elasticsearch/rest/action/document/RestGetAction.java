@@ -551,22 +551,8 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-block|@Override             protected boolean wrapInObject(
+block|@Override             protected RestStatus getStatus(GetResponse response
 block|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-specifier|protected
-name|RestStatus
-name|getStatus
-parameter_list|(
-name|GetResponse
-name|response
-parameter_list|)
 block|{
 return|return
 name|response

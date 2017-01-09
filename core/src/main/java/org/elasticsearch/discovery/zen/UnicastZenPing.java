@@ -2429,11 +2429,26 @@ operator|==
 literal|null
 condition|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|boolean
 name|success
 init|=
 literal|false
 decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] opening connection to [{}]"
+argument_list|,
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|transportService
@@ -2467,7 +2482,10 @@ init|(
 name|this
 init|)
 block|{
-comment|// acquire lock to prevent concurrent closing
+comment|// acquire lock and check if closed, to prevent leaving an open connection after closing
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|Connection
 name|existing
 init|=
@@ -2503,6 +2521,18 @@ operator|==
 literal|false
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] closing connection to [{}] due to failure"
+argument_list|,
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
 name|IOUtils
 operator|.
 name|closeWhileHandlingException

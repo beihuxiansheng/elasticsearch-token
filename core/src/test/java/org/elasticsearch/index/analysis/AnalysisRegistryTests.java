@@ -445,6 +445,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -526,6 +529,9 @@ name|Environment
 argument_list|(
 name|settings
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -664,6 +670,9 @@ argument_list|(
 literal|"default"
 argument_list|)
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -834,6 +843,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -856,8 +868,6 @@ specifier|public
 name|void
 name|testBackCompatOverrideDefaultIndexAnalyzer
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Version
 name|version
@@ -929,6 +939,9 @@ argument_list|(
 literal|"default_index"
 argument_list|)
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -1073,6 +1086,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1135,8 +1151,6 @@ specifier|public
 name|void
 name|testBackCompatOverrideDefaultIndexAndSearchAnalyzer
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Version
 name|version
@@ -1240,6 +1254,11 @@ name|settings
 argument_list|)
 argument_list|,
 name|analyzers
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1833,6 +1852,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1851,6 +1873,9 @@ name|Environment
 argument_list|(
 name|settings
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2063,6 +2088,9 @@ argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -2165,6 +2193,9 @@ name|Environment
 argument_list|(
 name|settings
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|,
 name|emptyMap
 argument_list|()

@@ -2039,7 +2039,7 @@ block|{
 name|long
 name|randomLong
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|TimeUnit
@@ -2097,7 +2097,7 @@ block|{
 name|long
 name|firstRandom
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|long
@@ -2109,7 +2109,7 @@ name|firstRandom
 argument_list|,
 name|ESTestCase
 operator|::
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|)
 decl_stmt|;
 name|TimeUnit
@@ -2187,7 +2187,7 @@ block|{
 name|long
 name|number
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 name|TimeUnit

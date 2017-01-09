@@ -4384,6 +4384,9 @@ name|loadLatestState
 argument_list|(
 name|logger
 argument_list|,
+name|xContentRegistry
+argument_list|()
+argument_list|,
 name|nodeDir
 argument_list|)
 decl_stmt|;
@@ -4470,6 +4473,9 @@ operator|.
 name|loadLatestState
 argument_list|(
 name|logger
+argument_list|,
+name|xContentRegistry
+argument_list|()
 argument_list|,
 name|indexDir
 argument_list|)

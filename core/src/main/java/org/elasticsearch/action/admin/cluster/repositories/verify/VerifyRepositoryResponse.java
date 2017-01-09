@@ -68,6 +68,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -102,7 +114,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -117,20 +129,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentHelper
 import|;
 end_import
 
@@ -156,7 +154,7 @@ name|VerifyRepositoryResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|nodes
 specifier|private
@@ -383,6 +381,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 name|Fields
 operator|.
@@ -432,6 +435,11 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 return|return
 name|builder
 return|;
@@ -445,7 +453,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-name|XContentHelper
+name|Strings
 operator|.
 name|toString
 argument_list|(

@@ -848,11 +848,6 @@ operator|.
 name|lookupReturningNullIfNotFound
 argument_list|(
 name|name
-argument_list|,
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

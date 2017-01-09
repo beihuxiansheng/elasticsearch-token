@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A lexer that is customized for painless. It will:  *<ul>  *<li>will override the default error behavior to fail on the first error  *<li>store the last token in case we need to do lookbehind for semicolon insertion and regex vs division detection  *<li>insert semicolons where they'd improve the language's readability. Rather than hack this into the parser and create a ton of  * ambiguity we hack them here where we can use heuristics to do it quickly.  *</ul>  */
+comment|/**  * A lexer that is customized for painless. It:  *<ul>  *<li>Overrides the default error behavior to fail on the first error  *<li>Stores the last token in case we need to do lookbehind for semicolon insertion and regex vs division detection  *<li>Insert semicolons where they'd improve the language's readability. Rather than hack this into the parser and create a ton of  * ambiguity we hack them here where we can use heuristics to do it quickly.  *<li>Enhances the error message when a string contains invalid escape sequences to include a list of valid escape sequences.  *</ul>  */
 end_comment
 
 begin_class
@@ -369,14 +369,9 @@ argument_list|,
 name|_tokenStartCharIndex
 argument_list|)
 decl_stmt|;
-throw|throw
-name|location
-operator|.
-name|createError
-argument_list|(
-operator|new
-name|IllegalArgumentException
-argument_list|(
+name|String
+name|message
+init|=
 literal|"unexpected character ["
 operator|+
 name|getErrorDisplay
@@ -385,6 +380,76 @@ name|text
 argument_list|)
 operator|+
 literal|"]."
+decl_stmt|;
+name|char
+name|firstChar
+init|=
+name|text
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|firstChar
+operator|==
+literal|'\''
+operator|||
+name|firstChar
+operator|==
+literal|'"'
+operator|)
+operator|&&
+name|text
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|2
+operator|>
+literal|0
+operator|&&
+name|text
+operator|.
+name|charAt
+argument_list|(
+name|text
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|2
+argument_list|)
+operator|==
+literal|'\\'
+condition|)
+block|{
+comment|/* Use a simple heuristic to guess if the unrecognized characters were trying to be a string but has a broken escape sequence.              * If it was add an extra message about valid string escape sequences. */
+name|message
+operator|+=
+literal|" The only valid escape sequences in strings starting with ["
+operator|+
+name|firstChar
+operator|+
+literal|"] are [\\\\] and [\\"
+operator|+
+name|firstChar
+operator|+
+literal|"]."
+expr_stmt|;
+block|}
+throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
 argument_list|,
 name|lnvae
 argument_list|)

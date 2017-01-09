@@ -621,6 +621,16 @@ name|String
 name|label
 parameter_list|()
 function_decl|;
+comment|/**      * Get the explanation for this decision.      */
+annotation|@
+name|Nullable
+DECL|method|getExplanation
+specifier|public
+specifier|abstract
+name|String
+name|getExplanation
+parameter_list|()
+function_decl|;
 comment|/**      * Return the list of all decisions that make up this decision      */
 DECL|method|getDecisions
 specifier|public
@@ -798,6 +808,8 @@ argument_list|)
 return|;
 block|}
 comment|/**          * Returns the explanation string, fully formatted.  Only formats the string once.          */
+annotation|@
+name|Override
 annotation|@
 name|Nullable
 DECL|method|getExplanation
@@ -1279,6 +1291,24 @@ comment|// Multi decisions have no labels
 return|return
 literal|null
 return|;
+block|}
+annotation|@
+name|Override
+annotation|@
+name|Nullable
+DECL|method|getExplanation
+specifier|public
+name|String
+name|getExplanation
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"multi-level decisions do not have an explanation"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override

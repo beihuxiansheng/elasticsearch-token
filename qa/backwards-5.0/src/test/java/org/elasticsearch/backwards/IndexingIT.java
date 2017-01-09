@@ -543,8 +543,6 @@ operator|.
 name|toString
 argument_list|(
 name|settings
-argument_list|,
-literal|true
 argument_list|)
 operator|+
 literal|" }"
@@ -620,8 +618,6 @@ operator|.
 name|toString
 argument_list|(
 name|settings
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 argument_list|)

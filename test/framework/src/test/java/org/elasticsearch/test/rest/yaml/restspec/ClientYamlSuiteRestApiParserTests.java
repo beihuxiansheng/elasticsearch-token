@@ -48,7 +48,7 @@ name|rest
 operator|.
 name|yaml
 operator|.
-name|parser
+name|section
 operator|.
 name|AbstractClientYamlTestFragmentParserTestCase
 import|;

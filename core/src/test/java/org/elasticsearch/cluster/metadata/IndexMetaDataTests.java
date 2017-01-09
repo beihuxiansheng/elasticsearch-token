@@ -322,13 +322,9 @@ name|fromXContentMeta
 init|=
 name|IndexMetaData
 operator|.
-name|PROTO
-operator|.
 name|fromXContent
 argument_list|(
 name|parser
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -465,8 +461,6 @@ name|IndexMetaData
 name|deserialized
 init|=
 name|IndexMetaData
-operator|.
-name|PROTO
 operator|.
 name|readFrom
 argument_list|(

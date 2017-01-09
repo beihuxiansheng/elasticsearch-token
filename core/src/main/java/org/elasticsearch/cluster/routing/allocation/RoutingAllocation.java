@@ -355,10 +355,12 @@ name|retryFailed
 decl_stmt|;
 DECL|field|debugDecision
 specifier|private
-name|boolean
+name|DebugMode
 name|debugDecision
 init|=
-literal|false
+name|DebugMode
+operator|.
+name|OFF
 decl_stmt|;
 DECL|field|hasPendingAsyncFetch
 specifier|private
@@ -663,6 +665,22 @@ operator|.
 name|ignoreDisable
 return|;
 block|}
+DECL|method|setDebugMode
+specifier|public
+name|void
+name|setDebugMode
+parameter_list|(
+name|DebugMode
+name|debug
+parameter_list|)
+block|{
+name|this
+operator|.
+name|debugDecision
+operator|=
+name|debug
+expr_stmt|;
+block|}
 DECL|method|debugDecision
 specifier|public
 name|void
@@ -677,12 +695,36 @@ operator|.
 name|debugDecision
 operator|=
 name|debug
+condition|?
+name|DebugMode
+operator|.
+name|ON
+else|:
+name|DebugMode
+operator|.
+name|OFF
 expr_stmt|;
 block|}
 DECL|method|debugDecision
 specifier|public
 name|boolean
 name|debugDecision
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|debugDecision
+operator|!=
+name|DebugMode
+operator|.
+name|OFF
+return|;
+block|}
+DECL|method|getDebugMode
+specifier|public
+name|DebugMode
+name|getDebugMode
 parameter_list|()
 block|{
 return|return
@@ -1024,6 +1066,23 @@ block|{
 return|return
 name|retryFailed
 return|;
+block|}
+DECL|enum|DebugMode
+specifier|public
+enum|enum
+name|DebugMode
+block|{
+comment|/**          * debug mode is off          */
+DECL|enum constant|OFF
+name|OFF
+block|,
+comment|/**          * debug mode is on          */
+DECL|enum constant|ON
+name|ON
+block|,
+comment|/**          * debug mode is on, but YES decisions from a {@link org.elasticsearch.cluster.routing.allocation.decider.Decision.Multi}          * are not included.          */
+DECL|enum constant|EXCLUDE_YES_DECISIONS
+name|EXCLUDE_YES_DECISIONS
 block|}
 block|}
 end_class

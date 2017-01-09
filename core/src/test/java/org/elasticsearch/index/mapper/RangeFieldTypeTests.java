@@ -325,7 +325,7 @@ argument_list|)
 expr_stmt|;
 name|nowInMillis
 operator|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 expr_stmt|;
 if|if

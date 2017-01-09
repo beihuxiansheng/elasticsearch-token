@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link XContentBuilder}.  */
+comment|/**  * An interface allowing to transfer an object to "XContent" using an {@link XContentBuilder}.  * The output may or may not be a value object. Objects implementing {@link ToXContentObject} output a valid value  * but those that don't may or may not require emitting a startObject and an endObject.  */
 end_comment
 
 begin_interface
@@ -509,6 +509,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|isFragment
+specifier|default
+name|boolean
+name|isFragment
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_interface
 

@@ -90,7 +90,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|GetTaskResponse
 extends|extends
 name|ActionResponse
 implements|implements
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|task
 specifier|private
@@ -273,7 +273,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
 name|task
 operator|.
 name|innerToXContent
@@ -282,6 +286,14 @@ name|builder
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
+return|return
+name|builder
 return|;
 block|}
 annotation|@

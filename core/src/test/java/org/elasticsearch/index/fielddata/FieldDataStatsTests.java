@@ -129,10 +129,10 @@ init|=
 operator|new
 name|FieldDataStats
 argument_list|(
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|,
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 argument_list|,
 name|map

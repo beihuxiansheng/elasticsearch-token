@@ -2073,8 +2073,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
-argument_list|,
-literal|null
 argument_list|)
 operator|.
 name|getSortValues

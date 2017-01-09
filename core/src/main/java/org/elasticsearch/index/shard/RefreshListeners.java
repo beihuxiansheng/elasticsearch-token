@@ -78,6 +78,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -151,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows for the registration of listeners that are called when a change becomes visible for search. This functionality is exposed from  * {@link IndexShard} but kept here so it can be tested without standing up the entire thing.   */
+comment|/**  * Allows for the registration of listeners that are called when a change becomes visible for search. This functionality is exposed from  * {@link IndexShard} but kept here so it can be tested without standing up the entire thing.  *  * When {@link Closeable#close()}d it will no longer accept listeners and flush any existing listeners.  */
 end_comment
 
 begin_class
@@ -164,6 +174,8 @@ implements|implements
 name|ReferenceManager
 operator|.
 name|RefreshListener
+implements|,
+name|Closeable
 block|{
 DECL|field|getMaxRefreshListeners
 specifier|private
@@ -189,7 +201,16 @@ specifier|final
 name|Logger
 name|logger
 decl_stmt|;
-comment|/**      * List of refresh listeners. Defaults to null and built on demand because most refresh cycles won't need it. Entries are never removed      * from it, rather, it is nulled and rebuilt when needed again. The (hopefully) rare entries that didn't make the current refresh cycle      * are just added back to the new list. Both the reference and the contents are always modified while synchronized on {@code this}.      */
+comment|/**      * Is this closed? If true then we won't add more listeners and have flushed all pending listeners.      */
+DECL|field|closed
+specifier|private
+specifier|volatile
+name|boolean
+name|closed
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * List of refresh listeners. Defaults to null and built on demand because most refresh cycles won't need it. Entries are never removed      * from it, rather, it is nulled and rebuilt when needed again. The (hopefully) rare entries that didn't make the current refresh cycle      * are just added back to the new list. Both the reference and the contents are always modified while synchronized on {@code this}.      *      * We never set this to non-null while closed it {@code true}.      */
 DECL|field|refreshListeners
 specifier|private
 specifier|volatile
@@ -327,24 +348,59 @@ init|(
 name|this
 init|)
 block|{
+name|List
+argument_list|<
+name|Tuple
+argument_list|<
+name|Translog
+operator|.
+name|Location
+argument_list|,
+name|Consumer
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|>
+argument_list|>
+name|listeners
+init|=
+name|refreshListeners
+decl_stmt|;
 if|if
 condition|(
-name|refreshListeners
+name|listeners
 operator|==
 literal|null
 condition|)
 block|{
-name|refreshListeners
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"can't wait for refresh on a closed index"
+argument_list|)
+throw|;
+block|}
+name|listeners
 operator|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
+name|refreshListeners
+operator|=
+name|listeners
+expr_stmt|;
 block|}
 if|if
 condition|(
-name|refreshListeners
+name|listeners
 operator|.
 name|size
 argument_list|()
@@ -356,7 +412,7 @@ argument_list|()
 condition|)
 block|{
 comment|// We have a free slot so register the listener
-name|refreshListeners
+name|listeners
 operator|.
 name|add
 argument_list|(
@@ -392,6 +448,57 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|List
+argument_list|<
+name|Tuple
+argument_list|<
+name|Translog
+operator|.
+name|Location
+argument_list|,
+name|Consumer
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|>
+argument_list|>
+name|oldListeners
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|oldListeners
+operator|=
+name|refreshListeners
+expr_stmt|;
+name|refreshListeners
+operator|=
+literal|null
+expr_stmt|;
+name|closed
+operator|=
+literal|true
+expr_stmt|;
+block|}
+comment|// Fire any listeners we might have had
+name|fireListeners
+argument_list|(
+name|oldListeners
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Returns true if there are pending listeners.      */
 DECL|method|refreshNeeded
 specifier|public
@@ -399,11 +506,55 @@ name|boolean
 name|refreshNeeded
 parameter_list|()
 block|{
-comment|// No need to synchronize here because we're doing a single volatile read
+comment|// A null list doesn't need a refresh. If we're closed we don't need a refresh either.
 return|return
 name|refreshListeners
 operator|!=
 literal|null
+operator|&&
+literal|false
+operator|==
+name|closed
+return|;
+block|}
+comment|/**      * The number of pending listeners.      */
+DECL|method|pendingCount
+specifier|public
+name|int
+name|pendingCount
+parameter_list|()
+block|{
+comment|// No need to synchronize here because we're doing a single volatile read
+name|List
+argument_list|<
+name|Tuple
+argument_list|<
+name|Translog
+operator|.
+name|Location
+argument_list|,
+name|Consumer
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|>
+argument_list|>
+name|listeners
+init|=
+name|refreshListeners
+decl_stmt|;
+comment|// A null list means we haven't accumulated any listeners. Otherwise we need the size.
+return|return
+name|listeners
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|listeners
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 comment|/**      * Setup the translog used to find the last refreshed location.      */
@@ -468,7 +619,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|/*          * We intentionally ignore didRefresh here because our timing is a little off. It'd be a useful flag if we knew everything that made          * it into the refresh, but the way we snapshot the translog position before the refresh, things can sneak into the refresh that we          * don't know about.          */
+comment|/* We intentionally ignore didRefresh here because our timing is a little off. It'd be a useful flag if we knew everything that made          * it into the refresh, but the way we snapshot the translog position before the refresh, things can sneak into the refresh that we          * don't know about. */
 if|if
 condition|(
 literal|null
@@ -476,15 +627,15 @@ operator|==
 name|currentRefreshLocation
 condition|)
 block|{
-comment|/*              * The translog had an empty last write location at the start of the refresh so we can't alert anyone to anything. This              * usually happens during recovery. The next refresh cycle out to pick up this refresh.              */
+comment|/* The translog had an empty last write location at the start of the refresh so we can't alert anyone to anything. This              * usually happens during recovery. The next refresh cycle out to pick up this refresh. */
 return|return;
 block|}
-comment|/*          * Set the lastRefreshedLocation so listeners that come in for locations before that will just execute inline without messing          * around with refreshListeners or synchronizing at all. Note that it is not safe for us to abort early if we haven't advanced the          * position here because we set and read lastRefreshedLocation outside of a synchronized block. We do that so that waiting for a          * refresh that has already passed is just a volatile read but the cost is that any check whether or not we've advanced the          * position will introduce a race between adding the listener and the position check. We could work around this by moving this          * assignment into the synchronized block below and double checking lastRefreshedLocation in addOrNotify's synchronized block but          * that doesn't seem worth it given that we already skip this process early if there aren't any listeners to iterate.          */
+comment|/* Set the lastRefreshedLocation so listeners that come in for locations before that will just execute inline without messing          * around with refreshListeners or synchronizing at all. Note that it is not safe for us to abort early if we haven't advanced the          * position here because we set and read lastRefreshedLocation outside of a synchronized block. We do that so that waiting for a          * refresh that has already passed is just a volatile read but the cost is that any check whether or not we've advanced the          * position will introduce a race between adding the listener and the position check. We could work around this by moving this          * assignment into the synchronized block below and double checking lastRefreshedLocation in addOrNotify's synchronized block but          * that doesn't seem worth it given that we already skip this process early if there aren't any listeners to iterate. */
 name|lastRefreshedLocation
 operator|=
 name|currentRefreshLocation
 expr_stmt|;
-comment|/*          * Grab the current refresh listeners and replace them with null while synchronized. Any listeners that come in after this won't be          * in the list we iterate over and very likely won't be candidates for refresh anyway because we've already moved the          * lastRefreshedLocation.          */
+comment|/* Grab the current refresh listeners and replace them with null while synchronized. Any listeners that come in after this won't be          * in the list we iterate over and very likely won't be candidates for refresh anyway because we've already moved the          * lastRefreshedLocation. */
 name|List
 argument_list|<
 name|Tuple
@@ -528,9 +679,16 @@ block|}
 comment|// Iterate the list of listeners, copying the listeners to fire to one list and those to preserve to another list.
 name|List
 argument_list|<
+name|Tuple
+argument_list|<
+name|Translog
+operator|.
+name|Location
+argument_list|,
 name|Consumer
 argument_list|<
 name|Boolean
+argument_list|>
 argument_list|>
 argument_list|>
 name|listenersToFire
@@ -583,17 +741,6 @@ operator|.
 name|v1
 argument_list|()
 decl_stmt|;
-name|Consumer
-argument_list|<
-name|Boolean
-argument_list|>
-name|listener
-init|=
-name|tuple
-operator|.
-name|v2
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|location
@@ -625,7 +772,7 @@ name|listenersToFire
 operator|.
 name|add
 argument_list|(
-name|listener
+name|tuple
 argument_list|)
 expr_stmt|;
 block|}
@@ -655,7 +802,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*          * Now add any preserved listeners back to the running list of refresh listeners while under lock. We'll try them next time. While          * we were iterating the list of listeners new listeners could have come in. That means that adding all of our preserved listeners          * might push our list of listeners above the maximum number of slots allowed. This seems unlikely because we expect few listeners          * to be preserved. And the next listener while we're full will trigger a refresh anyway.          */
+comment|/* Now deal with the listeners that it isn't time yet to fire. We need to do this under lock so we don't miss a concurrent close or          * newly registered listener. If we're not closed we just add the listeners to the list of listeners we check next time. If we are          * closed we fire the listeners even though it isn't time for them. */
 if|if
 condition|(
 name|preservedListeners
@@ -675,14 +822,36 @@ operator|==
 literal|null
 condition|)
 block|{
-name|refreshListeners
-operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+name|listenersToFire
+operator|.
+name|addAll
+argument_list|(
+name|preservedListeners
+argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|refreshListeners
+operator|=
+name|preservedListeners
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+assert|assert
+name|closed
+operator|==
+literal|false
+operator|:
+literal|"Can't be closed and have non-null refreshListeners"
+assert|;
 name|refreshListeners
 operator|.
 name|addAll
@@ -692,7 +861,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|// Lastly, fire the listeners that are ready on the listener thread pool
+name|fireListeners
+argument_list|(
+name|listenersToFire
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Fire some listeners. Does nothing if the list of listeners is null.      */
+DECL|method|fireListeners
+specifier|private
+name|void
+name|fireListeners
+parameter_list|(
+name|List
+argument_list|<
+name|Tuple
+argument_list|<
+name|Translog
+operator|.
+name|Location
+argument_list|,
+name|Consumer
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|>
+argument_list|>
+name|listenersToFire
+parameter_list|)
+block|{
 if|if
 condition|(
 name|listenersToFire
@@ -700,18 +899,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
-name|List
-argument_list|<
-name|Consumer
-argument_list|<
-name|Boolean
-argument_list|>
-argument_list|>
-name|finalListenersToFire
-init|=
-name|listenersToFire
-decl_stmt|;
 name|listenerExecutor
 operator|.
 name|execute
@@ -721,18 +908,28 @@ lambda|->
 block|{
 for|for
 control|(
+name|Tuple
+argument_list|<
+name|Translog
+operator|.
+name|Location
+argument_list|,
 name|Consumer
 argument_list|<
 name|Boolean
 argument_list|>
+argument_list|>
 name|listener
 range|:
-name|finalListenersToFire
+name|listenersToFire
 control|)
 block|{
 try|try
 block|{
 name|listener
+operator|.
+name|v2
+argument_list|()
 operator|.
 name|accept
 argument_list|(

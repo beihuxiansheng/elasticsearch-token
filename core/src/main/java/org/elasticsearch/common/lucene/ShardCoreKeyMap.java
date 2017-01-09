@@ -130,16 +130,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|IdentityHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -151,6 +141,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 
@@ -198,7 +200,7 @@ block|{
 name|coreKeyToShard
 operator|=
 operator|new
-name|IdentityHashMap
+name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -257,6 +259,21 @@ operator|.
 name|getCoreCacheKey
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|coreKeyToShard
+operator|.
+name|containsKey
+argument_list|(
+name|coreKey
+argument_list|)
+condition|)
+block|{
+comment|// Do this check before entering the synchronized block in order to
+comment|// avoid taking the mutex if possible (which should happen most of
+comment|// the time).
+return|return;
+block|}
 specifier|final
 name|String
 name|index
@@ -275,14 +292,12 @@ if|if
 condition|(
 name|coreKeyToShard
 operator|.
-name|put
+name|containsKey
 argument_list|(
 name|coreKey
-argument_list|,
-name|shardId
 argument_list|)
 operator|==
-literal|null
+literal|false
 condition|)
 block|{
 name|Set
@@ -426,6 +441,28 @@ name|addedListener
 operator|=
 literal|true
 expr_stmt|;
+comment|// Only add the core key to the map as a last operation so that
+comment|// if another thread sees that the core key is already in the
+comment|// map (like the check just before this synchronized block),
+comment|// then it means that the closed listener has already been
+comment|// registered.
+name|ShardId
+name|previous
+init|=
+name|coreKeyToShard
+operator|.
+name|put
+argument_list|(
+name|coreKey
+argument_list|,
+name|shardId
+argument_list|)
+decl_stmt|;
+assert|assert
+name|previous
+operator|==
+literal|null
+assert|;
 block|}
 finally|finally
 block|{

@@ -1508,7 +1508,7 @@ decl_stmt|;
 name|long
 name|nowInMillis
 init|=
-name|randomPositiveLong
+name|randomNonNegativeLong
 argument_list|()
 decl_stmt|;
 return|return

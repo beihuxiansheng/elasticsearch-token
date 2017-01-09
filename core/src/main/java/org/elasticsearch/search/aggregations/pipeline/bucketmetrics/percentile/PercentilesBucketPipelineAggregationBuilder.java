@@ -758,16 +758,11 @@ name|IOException
 block|{
 if|if
 condition|(
-name|context
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|PERCENTS_FIELD
 operator|.
 name|match
 argument_list|(
 name|field
-argument_list|,
-name|PERCENTS_FIELD
 argument_list|)
 operator|&&
 name|token

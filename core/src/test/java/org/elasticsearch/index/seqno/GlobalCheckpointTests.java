@@ -858,7 +858,7 @@ name|assertThat
 argument_list|(
 name|checkpointService
 operator|.
-name|getLocalCheckpointForAllocation
+name|getLocalCheckpointForAllocationId
 argument_list|(
 name|extraId
 argument_list|)

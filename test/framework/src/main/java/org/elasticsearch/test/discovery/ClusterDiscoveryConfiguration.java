@@ -124,6 +124,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|mocksocket
+operator|.
+name|MockServerSocket
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|InternalTestCluster
@@ -873,7 +885,7 @@ name|ServerSocket
 name|serverSocket
 init|=
 operator|new
-name|ServerSocket
+name|MockServerSocket
 argument_list|()
 init|)
 block|{

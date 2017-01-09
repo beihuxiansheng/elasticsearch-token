@@ -96,7 +96,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -157,7 +157,7 @@ argument_list|<
 name|MultiGetItemResponse
 argument_list|>
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 comment|/**      * Represents a failure.      */
 DECL|class|Failure
@@ -494,6 +494,11 @@ name|IOException
 block|{
 name|builder
 operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
 name|startArray
 argument_list|(
 name|Fields
@@ -616,6 +621,11 @@ block|}
 name|builder
 operator|.
 name|endArray
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
 argument_list|()
 expr_stmt|;
 return|return

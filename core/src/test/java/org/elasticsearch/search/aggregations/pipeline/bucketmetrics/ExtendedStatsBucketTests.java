@@ -254,8 +254,6 @@ argument_list|(
 name|ExtendedStatsBucketPipelineAggregationBuilder
 operator|.
 name|NAME
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 operator|.
 name|parse

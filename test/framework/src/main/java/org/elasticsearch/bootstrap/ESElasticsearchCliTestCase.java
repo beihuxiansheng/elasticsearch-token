@@ -165,8 +165,8 @@ name|boolean
 name|quiet
 parameter_list|,
 specifier|final
-name|Settings
-name|initialSettings
+name|Environment
+name|initialEnv
 parameter_list|)
 function_decl|;
 block|}
@@ -304,8 +304,8 @@ specifier|final
 name|boolean
 name|quiet
 parameter_list|,
-name|Settings
-name|initialSettings
+name|Environment
+name|initialEnv
 parameter_list|)
 block|{
 name|init
@@ -326,7 +326,7 @@ name|pidFile
 argument_list|,
 name|quiet
 argument_list|,
-name|initialSettings
+name|initialEnv
 argument_list|)
 expr_stmt|;
 block|}

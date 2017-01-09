@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|carrotsearch
@@ -88,19 +78,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|parser
-operator|.
-name|ClientYamlTestParseException
+name|IOException
 import|;
 end_import
 
@@ -145,8 +127,6 @@ name|parameters
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ClientYamlTestParseException
 block|{
 return|return
 name|ESClientYamlSuiteTestCase

@@ -106,7 +106,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -223,7 +223,7 @@ argument_list|<
 name|GetField
 argument_list|>
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 DECL|field|getResult
 name|GetResult
@@ -700,8 +700,6 @@ operator|.
 name|toString
 argument_list|(
 name|this
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

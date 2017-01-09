@@ -71,7 +71,7 @@ comment|// methods split across RestSearchAction and SearchSourceBuilder should 
 comment|// TODO: make all members private once parsing functions are moved here
 comment|// TODO: AggregatorParsers should be removed and the underlying maps of agg
 comment|// and pipeline agg parsers should be here
-comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
+comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters)      */
 DECL|field|aggParsers
 specifier|public
 specifier|final
@@ -79,19 +79,12 @@ name|AggregatorParsers
 name|aggParsers
 decl_stmt|;
 comment|// TODO: Suggesters should be removed and the underlying map moved here
-comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
+comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters)      */
 DECL|field|suggesters
 specifier|public
 specifier|final
 name|Suggesters
 name|suggesters
-decl_stmt|;
-comment|/**      * Pluggable section that can be parsed out of a search section, within the ext element      */
-DECL|field|searchExtParsers
-specifier|public
-specifier|final
-name|SearchExtRegistry
-name|searchExtParsers
 decl_stmt|;
 DECL|method|SearchRequestParsers
 specifier|public
@@ -102,9 +95,6 @@ name|aggParsers
 parameter_list|,
 name|Suggesters
 name|suggesters
-parameter_list|,
-name|SearchExtRegistry
-name|searchExtParsers
 parameter_list|)
 block|{
 name|this
@@ -118,12 +108,6 @@ operator|.
 name|suggesters
 operator|=
 name|suggesters
-expr_stmt|;
-name|this
-operator|.
-name|searchExtParsers
-operator|=
-name|searchExtParsers
 expr_stmt|;
 block|}
 block|}

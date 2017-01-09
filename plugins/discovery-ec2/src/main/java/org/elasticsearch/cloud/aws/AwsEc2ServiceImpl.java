@@ -987,6 +987,17 @@ operator|=
 literal|"ec2.cn-north-1.amazonaws.com.cn"
 expr_stmt|;
 break|break;
+case|case
+literal|"ca-central"
+case|:
+case|case
+literal|"ca-central-1"
+case|:
+name|endpoint
+operator|=
+literal|"ec2.ca-central-1.amazonaws.com"
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new

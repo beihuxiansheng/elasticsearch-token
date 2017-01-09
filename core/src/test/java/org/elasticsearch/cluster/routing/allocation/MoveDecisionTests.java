@@ -502,14 +502,6 @@ name|getNodeDecisions
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|stay
-operator|.
-name|getExplanation
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 name|AllocationDecision
@@ -562,16 +554,6 @@ argument_list|(
 name|stay
 operator|.
 name|getNodeDecisions
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"shard can remain on its current node"
-argument_list|,
-name|stay
-operator|.
-name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
