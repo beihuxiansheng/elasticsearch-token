@@ -401,6 +401,11 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 comment|// skip to the opening object token, fromXContent advances from here and starts with the field name
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
 name|HighlightField
 name|parsedField
 init|=

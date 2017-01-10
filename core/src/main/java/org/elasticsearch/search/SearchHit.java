@@ -92,7 +92,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|SearchHit
 extends|extends
 name|Streamable
 extends|,
-name|ToXContent
+name|ToXContentObject
 extends|,
 name|Iterable
 argument_list|<
