@@ -562,6 +562,7 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
+specifier|final
 name|void
 name|close
 parameter_list|()
@@ -589,10 +590,21 @@ block|{
 name|clearScroll
 argument_list|(
 name|scrollId
+argument_list|,
+name|this
+operator|::
+name|cleanup
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|cleanup
+argument_list|()
+expr_stmt|;
 block|}
+block|}
+comment|/**      * Called to clear a scroll id.      * @param scrollId the id to clear      * @param onCompletion implementers must call this after completing the clear whether they are successful or not      */
 DECL|method|clearScroll
 specifier|protected
 specifier|abstract
@@ -601,7 +613,18 @@ name|clearScroll
 parameter_list|(
 name|String
 name|scrollId
+parameter_list|,
+name|Runnable
+name|onCompletion
 parameter_list|)
+function_decl|;
+comment|/**      * Called after the process has been totally finished to clean up any resources the process needed like remote connections.      */
+DECL|method|cleanup
+specifier|protected
+specifier|abstract
+name|void
+name|cleanup
+parameter_list|()
 function_decl|;
 comment|/**      * Set the id of the last scroll. Used for debugging.      */
 DECL|method|setScroll
