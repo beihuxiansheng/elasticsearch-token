@@ -1294,7 +1294,7 @@ literal|" from primary shard with sync id but number "
 operator|+
 literal|"of docs differ: "
 operator|+
-name|numDocsTarget
+name|numDocsSource
 operator|+
 literal|" ("
 operator|+
@@ -1308,7 +1308,7 @@ argument_list|()
 operator|+
 literal|", primary) vs "
 operator|+
-name|numDocsSource
+name|numDocsTarget
 operator|+
 literal|"("
 operator|+
