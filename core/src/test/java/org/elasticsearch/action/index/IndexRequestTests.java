@@ -1149,7 +1149,7 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 operator|+
-literal|",shards={\"_shards\":{\"total\":"
+literal|",shards={\"total\":"
 operator|+
 name|total
 operator|+
@@ -1157,7 +1157,7 @@ literal|",\"successful\":"
 operator|+
 name|successful
 operator|+
-literal|",\"failed\":0}}]"
+literal|",\"failed\":0}]"
 argument_list|,
 name|indexResponse
 operator|.
