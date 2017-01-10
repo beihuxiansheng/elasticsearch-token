@@ -4508,6 +4508,16 @@ argument_list|>
 argument_list|()
 block|{}
 argument_list|)
+argument_list|,
+parameter_list|()
+lambda|->
+name|clusterService
+operator|.
+name|localNode
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
