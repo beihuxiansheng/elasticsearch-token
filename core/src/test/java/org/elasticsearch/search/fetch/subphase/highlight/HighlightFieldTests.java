@@ -221,14 +221,14 @@ argument_list|()
 condition|?
 name|randomAsciiOfLengthBetween
 argument_list|(
-literal|1
+literal|5
 argument_list|,
 literal|20
 argument_list|)
 else|:
 name|randomRealisticUnicodeOfCodepointLengthBetween
 argument_list|(
-literal|1
+literal|5
 argument_list|,
 literal|20
 argument_list|)
