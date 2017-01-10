@@ -825,6 +825,8 @@ argument_list|)
 argument_list|,
 name|initialSearchEntity
 argument_list|(
+name|searchRequest
+argument_list|,
 name|query
 argument_list|)
 argument_list|,
