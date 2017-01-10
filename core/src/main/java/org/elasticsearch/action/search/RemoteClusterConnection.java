@@ -633,6 +633,7 @@ name|connectedNodes
 init|=
 operator|new
 name|CopyOnWriteArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|nodeSupplier
