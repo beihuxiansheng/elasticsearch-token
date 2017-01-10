@@ -168,6 +168,16 @@ name|prefixKeySetting
 argument_list|(
 literal|"logger."
 argument_list|,
+parameter_list|(
+name|key
+parameter_list|)
+lambda|->
+operator|new
+name|Setting
+argument_list|<>
+argument_list|(
+name|key
+argument_list|,
 name|Level
 operator|.
 name|INFO
@@ -186,6 +196,7 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|method|getLogger
