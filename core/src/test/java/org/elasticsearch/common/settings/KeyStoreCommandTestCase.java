@@ -451,7 +451,7 @@ control|)
 block|{
 name|keystore
 operator|.
-name|setStringSetting
+name|setString
 argument_list|(
 name|settings
 index|[
@@ -569,7 +569,7 @@ name|value
 argument_list|,
 name|keystore
 operator|.
-name|getStringSetting
+name|getString
 argument_list|(
 name|setting
 argument_list|)

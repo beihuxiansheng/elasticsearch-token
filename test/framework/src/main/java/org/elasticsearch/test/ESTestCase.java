@@ -1458,6 +1458,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|empty
 import|;
 end_import
@@ -2233,7 +2245,7 @@ name|actualWarnings
 argument_list|,
 name|hasItem
 argument_list|(
-name|equalTo
+name|containsString
 argument_list|(
 name|msg
 argument_list|)
