@@ -3956,6 +3956,33 @@ name|indexGen
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|NotXContentException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] index blob is not valid x-content [{} bytes]"
+argument_list|,
+name|snapshotsIndexBlobName
+argument_list|,
+name|out
+operator|.
+name|bytes
+argument_list|()
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 comment|// now load the incompatible snapshot ids, if they exist
 try|try
