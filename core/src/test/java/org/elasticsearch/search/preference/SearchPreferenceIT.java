@@ -846,7 +846,7 @@ operator|.
 name|shard
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 decl_stmt|;
 name|searchResponse
@@ -886,7 +886,7 @@ operator|.
 name|shard
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2157,7 +2157,7 @@ operator|.
 name|shard
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
