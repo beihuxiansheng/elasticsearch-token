@@ -396,11 +396,6 @@ specifier|protected
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 decl_stmt|;
-DECL|field|searchRequestParsers
-specifier|protected
-name|SearchRequestParsers
-name|searchRequestParsers
-decl_stmt|;
 DECL|field|searchExtPlugin
 specifier|private
 name|TestSearchExtPlugin
@@ -513,13 +508,6 @@ operator|.
 name|getNamedXContents
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|searchRequestParsers
-operator|=
-name|searchModule
-operator|.
-name|getSearchRequestParsers
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@

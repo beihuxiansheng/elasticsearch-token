@@ -326,18 +326,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|SearchRequestParsers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ExecutorBuilder
@@ -492,7 +480,7 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      * @param resourceWatcherService A service to watch for changes to node local files      * @param scriptService A service to allow running scripts on the local node      * @param searchRequestParsers Parsers for search requests which may be used to templatize search requests      */
+comment|/**      * Returns components added by this plugin.      *      * Any components returned that implement {@link LifecycleComponent} will have their lifecycle managed.      * Note: To aid in the migration away from guice, all objects returned as components will be bound in guice      * to themselves.      *      * @param client A client to make requests to the system      * @param clusterService A service to allow watching and updating cluster state      * @param threadPool A service to allow retrieving an executor to run an async action      * @param resourceWatcherService A service to watch for changes to node local files      * @param scriptService A service to allow running scripts on the local node      */
 DECL|method|createComponents
 specifier|public
 name|Collection
@@ -515,9 +503,6 @@ name|resourceWatcherService
 parameter_list|,
 name|ScriptService
 name|scriptService
-parameter_list|,
-name|SearchRequestParsers
-name|searchRequestParsers
 parameter_list|,
 name|NamedXContentRegistry
 name|xContentRegistry

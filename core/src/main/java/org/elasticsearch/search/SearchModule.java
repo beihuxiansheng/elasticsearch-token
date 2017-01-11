@@ -4066,12 +4066,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|searchRequestParsers
-specifier|private
-specifier|final
-name|SearchRequestParsers
-name|searchRequestParsers
-decl_stmt|;
 DECL|method|SearchModule
 specifier|public
 name|SearchModule
@@ -4167,12 +4161,6 @@ expr_stmt|;
 name|registerShapes
 argument_list|()
 expr_stmt|;
-name|searchRequestParsers
-operator|=
-operator|new
-name|SearchRequestParsers
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|getNamedWriteables
 specifier|public
@@ -4202,16 +4190,6 @@ parameter_list|()
 block|{
 return|return
 name|namedXContents
-return|;
-block|}
-DECL|method|getSearchRequestParsers
-specifier|public
-name|SearchRequestParsers
-name|getSearchRequestParsers
-parameter_list|()
-block|{
-return|return
-name|searchRequestParsers
 return|;
 block|}
 comment|/**      * Returns the {@link Highlighter} registry      */
