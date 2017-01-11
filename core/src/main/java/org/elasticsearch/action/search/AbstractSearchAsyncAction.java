@@ -1065,7 +1065,8 @@ name|ex
 parameter_list|)
 block|{
 comment|// we are getting the connection early here so we might run into nodes that are not connected. in that case we move on to
-comment|// the next shard.
+comment|// the next shard. previously when using discovery nodes here we had a special case for null when a node was not connected
+comment|// at all which is not not needed anymore.
 name|onFirstPhaseResult
 argument_list|(
 name|shardIndex
