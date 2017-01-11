@@ -142,18 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchRequestParsers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -242,9 +230,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|SearchRequestParsers
-name|searchRequestParsers
-parameter_list|,
 name|A
 name|action
 parameter_list|)
@@ -252,8 +237,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|searchRequestParsers
 argument_list|,
 name|action
 argument_list|)
@@ -354,8 +337,6 @@ argument_list|(
 name|searchRequest
 argument_list|,
 name|restRequest
-argument_list|,
-name|searchRequestParsers
 argument_list|,
 name|parseFieldMatcher
 argument_list|,

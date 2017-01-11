@@ -144,18 +144,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchRequestParsers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -270,16 +258,11 @@ name|settings
 parameter_list|,
 name|RestController
 name|controller
-parameter_list|,
-name|SearchRequestParsers
-name|searchRequestParsers
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|searchRequestParsers
 argument_list|,
 name|UpdateByQueryAction
 operator|.
