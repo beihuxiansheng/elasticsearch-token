@@ -1334,7 +1334,7 @@ argument_list|)
 decl_stmt|;
 name|innerHit1
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|target
 argument_list|)
@@ -1360,7 +1360,7 @@ argument_list|)
 decl_stmt|;
 name|innerInnerHit2
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|target
 argument_list|)
@@ -1415,7 +1415,7 @@ argument_list|)
 decl_stmt|;
 name|innerHit2
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|target
 argument_list|)
@@ -1441,7 +1441,7 @@ argument_list|)
 decl_stmt|;
 name|innerHit3
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|target
 argument_list|)
@@ -1520,7 +1520,7 @@ argument_list|)
 expr_stmt|;
 name|hit1
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|target
 argument_list|)
@@ -1553,7 +1553,7 @@ argument_list|)
 decl_stmt|;
 name|hit2
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|target
 argument_list|)

@@ -1174,7 +1174,7 @@ operator|.
 name|shard
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 decl_stmt|;
 name|failures

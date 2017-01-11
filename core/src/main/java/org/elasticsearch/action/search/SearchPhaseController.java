@@ -688,7 +688,7 @@ operator|.
 name|shardTarget
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
 name|compareTo
@@ -700,7 +700,7 @@ operator|.
 name|shardTarget
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -720,7 +720,7 @@ operator|.
 name|shardTarget
 argument_list|()
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|.
 name|id
@@ -733,7 +733,7 @@ operator|.
 name|shardTarget
 argument_list|()
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|.
 name|id

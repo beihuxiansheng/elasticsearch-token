@@ -415,7 +415,7 @@ block|{
 return|return
 name|shardTarget
 operator|.
-name|index
+name|getIndex
 argument_list|()
 return|;
 block|}
@@ -442,7 +442,7 @@ block|{
 return|return
 name|shardTarget
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|.
 name|id
@@ -718,7 +718,7 @@ literal|"node"
 argument_list|,
 name|shardTarget
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
