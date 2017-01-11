@@ -109,13 +109,13 @@ name|INITIAL_CALL_SITE_DEPTH
 init|=
 literal|"initialCallSiteDepth"
 decl_stmt|;
-comment|/**      * The maximum number of statements allowed to be run in a loop.      */
+comment|/**      * The maximum number of statements allowed to be run in a loop.      * For now the number is set fairly high to accommodate users      * doing large update queries.      */
 DECL|field|maxLoopCounter
 specifier|private
 name|int
 name|maxLoopCounter
 init|=
-literal|10000
+literal|1000000
 decl_stmt|;
 comment|/**      * Whether to throw exception on ambiguity or other internal parsing issues. This option      * makes things slower too, it is only for debugging.      */
 DECL|field|picky
