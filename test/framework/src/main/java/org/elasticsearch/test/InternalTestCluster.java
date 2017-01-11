@@ -1500,6 +1500,20 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
+name|awaitBusy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+operator|.
 name|randomFrom
 import|;
 end_import
@@ -7088,7 +7102,7 @@ name|newSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** ensure a cluster is form with {@link #nodes}.size() nodes. */
+comment|/** ensure a cluster is formed with all published nodes. */
 DECL|method|validateClusterFormed
 specifier|private
 name|void
@@ -7112,7 +7126,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** ensure a cluster is form with {@link #nodes}.size() nodes, but do so by using the client of the specified node */
+comment|/** ensure a cluster is formed with all published nodes, but do so by using the client of the specified node */
 DECL|method|validateClusterFormed
 specifier|private
 name|void
@@ -7122,24 +7136,58 @@ name|String
 name|viaNode
 parameter_list|)
 block|{
-specifier|final
-name|int
-name|size
+name|Set
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|expectedNodes
 init|=
-name|nodes
-operator|.
-name|size
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
+for|for
+control|(
+name|NodeAndClient
+name|nodeAndClient
+range|:
+name|nodes
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|expectedNodes
+operator|.
+name|add
+argument_list|(
+name|getInstanceFromNode
+argument_list|(
+name|ClusterService
+operator|.
+name|class
+argument_list|,
+name|nodeAndClient
+operator|.
+name|node
+argument_list|()
+argument_list|)
+operator|.
+name|localNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"validating cluster formed via [{}], expecting [{}]"
+literal|"validating cluster formed via [{}], expecting {}"
 argument_list|,
 name|viaNode
 argument_list|,
-name|size
+name|expectedNodes
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -7151,8 +7199,17 @@ argument_list|(
 name|viaNode
 argument_list|)
 decl_stmt|;
-name|ClusterHealthResponse
-name|response
+try|try
+block|{
+if|if
+condition|(
+name|awaitBusy
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+name|DiscoveryNodes
+name|discoveryNodes
 init|=
 name|client
 operator|.
@@ -7162,55 +7219,126 @@ operator|.
 name|cluster
 argument_list|()
 operator|.
-name|prepareHealth
+name|prepareState
 argument_list|()
 operator|.
-name|setWaitForNodes
-argument_list|(
-name|Integer
-operator|.
-name|toString
-argument_list|(
-name|size
-argument_list|)
-argument_list|)
-operator|.
 name|get
+argument_list|()
+operator|.
+name|getState
+argument_list|()
+operator|.
+name|nodes
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|response
+name|discoveryNodes
 operator|.
-name|isTimedOut
+name|getSize
+argument_list|()
+operator|!=
+name|expectedNodes
+operator|.
+name|size
 argument_list|()
 condition|)
 block|{
-name|logger
+return|return
+literal|false
+return|;
+block|}
+for|for
+control|(
+name|DiscoveryNode
+name|expectedNode
+range|:
+name|expectedNodes
+control|)
+block|{
+if|if
+condition|(
+name|discoveryNodes
 operator|.
-name|warn
+name|nodeExists
 argument_list|(
-literal|"failed to wait for a cluster of size [{}], got [{}]"
-argument_list|,
-name|size
-argument_list|,
-name|response
+name|expectedNode
 argument_list|)
-expr_stmt|;
+operator|==
+literal|false
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+return|return
+literal|true
+return|;
+block|}
+operator|,
+literal|30
+operator|,
+name|TimeUnit
+operator|.
+name|SECONDS
+block|)
+function|== false
+block|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"cluster failed to reach the expected size of ["
+literal|"cluster failed to from with expected nodes "
 operator|+
-name|size
+name|expectedNodes
 operator|+
-literal|"]"
+literal|" and actual nodes "
+operator|+
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareState
+argument_list|()
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getState
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
 argument_list|)
 throw|;
 block|}
-block|}
-annotation|@
+end_class
+
+begin_expr_stmt
+unit|} catch
+operator|(
+name|InterruptedException
+name|e
+operator|)
+block|{
+throw|throw
+argument_list|new
+name|IllegalStateException
+argument_list|(
+name|e
+argument_list|)
+block|;         }
+end_expr_stmt
+
+begin_function
+unit|}      @
 name|Override
 DECL|method|afterTest
 specifier|public
@@ -7229,6 +7357,9 @@ argument_list|()
 expr_stmt|;
 comment|/* reset all clients - each test gets its own client based on the Random instance created above. */
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|beforeIndexDeletion
@@ -7252,6 +7383,9 @@ name|assertSameSyncIdSameDocs
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertSameSyncIdSameDocs
 specifier|private
 name|void
@@ -7432,6 +7566,9 @@ block|}
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|assertShardIndexCounter
 specifier|private
 name|void
@@ -7614,15 +7751,11 @@ name|emptyList
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|XContentBuilder
 name|builder
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|builder
-operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -7631,17 +7764,11 @@ operator|.
 name|prettyPrint
 argument_list|()
 operator|.
-name|startObject
-argument_list|()
-operator|.
 name|value
 argument_list|(
 name|response
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
+decl_stmt|;
 throw|throw
 operator|new
 name|AssertionError
@@ -7700,6 +7827,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|randomlyResetClients
 specifier|private
 name|void
@@ -7750,6 +7880,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|wipePendingDataDirectories
 specifier|private
 name|void
@@ -7830,6 +7963,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|markNodeDataDirsAsPendingForWipe
 specifier|private
 name|void
@@ -7880,6 +8016,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|markNodeDataDirsAsNotEligableForWipe
 specifier|private
 name|void
@@ -7930,7 +8069,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a reference to a random node's {@link ClusterService}      */
+end_comment
+
+begin_function
 DECL|method|clusterService
 specifier|public
 name|ClusterService
@@ -7944,7 +8089,13 @@ literal|null
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a reference to a node's {@link ClusterService}. If the given node is null, a random node will be selected.      */
+end_comment
+
+begin_function
 DECL|method|clusterService
 specifier|public
 specifier|synchronized
@@ -7968,7 +8119,13 @@ name|node
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns an Iterable to all instances for the given class&gt;T&lt; across all nodes in the cluster.      */
+end_comment
+
+begin_function
 DECL|method|getInstances
 specifier|public
 specifier|synchronized
@@ -8034,7 +8191,13 @@ return|return
 name|instances
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns an Iterable to all instances for the given class&gt;T&lt; across all data nodes in the cluster.      */
+end_comment
+
+begin_function
 DECL|method|getDataNodeInstances
 specifier|public
 specifier|synchronized
@@ -8065,7 +8228,13 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns an Iterable to all instances for the given class&gt;T&lt; across all data and master nodes      * in the cluster.      */
+end_comment
+
+begin_function
 DECL|method|getDataOrMasterNodeInstances
 specifier|public
 specifier|synchronized
@@ -8096,6 +8265,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getInstances
 specifier|private
 specifier|synchronized
@@ -8180,7 +8352,13 @@ return|return
 name|instances
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a reference to the given nodes instances of the given class&gt;T&lt;      */
+end_comment
+
+begin_function
 DECL|method|getInstance
 specifier|public
 specifier|synchronized
@@ -8223,6 +8401,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDataNodeInstance
 specifier|public
 specifier|synchronized
@@ -8250,6 +8431,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getInstance
 specifier|private
 specifier|synchronized
@@ -8296,7 +8480,13 @@ name|node
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a reference to a random nodes instances of the given class&gt;T&lt;      */
+end_comment
+
+begin_function
 DECL|method|getInstance
 specifier|public
 specifier|synchronized
@@ -8324,6 +8514,9 @@ literal|true
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getInstanceFromNode
 specifier|private
 specifier|synchronized
@@ -8355,6 +8548,9 @@ name|clazz
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|size
@@ -8373,6 +8569,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|httpAddresses
@@ -8439,7 +8638,13 @@ index|]
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Stops a random data node in the cluster. Returns true if a node was found to stop, false otherwise.      */
+end_comment
+
+begin_function
 DECL|method|stopRandomDataNode
 specifier|public
 specifier|synchronized
@@ -8493,7 +8698,13 @@ return|return
 literal|false
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Stops a random node in the cluster that applies to the given filter or non if the non of the nodes applies to the      * filter.      */
+end_comment
+
+begin_function
 DECL|method|stopRandomNode
 specifier|public
 specifier|synchronized
@@ -8558,7 +8769,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Stops the current master node forcefully      */
+end_comment
+
+begin_function
 DECL|method|stopCurrentMasterNode
 specifier|public
 specifier|synchronized
@@ -8611,7 +8828,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Stops any of the current nodes but not the master node.      */
+end_comment
+
+begin_function
 DECL|method|stopRandomNonMasterNode
 specifier|public
 specifier|synchronized
@@ -8665,6 +8888,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|startAndPublishNodesAndClients
 specifier|private
 specifier|synchronized
@@ -8880,6 +9106,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|stopNodesAndClient
 specifier|private
 specifier|synchronized
@@ -8903,6 +9132,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|stopNodesAndClients
 specifier|private
 specifier|synchronized
@@ -9005,7 +9237,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts a random node in the cluster      */
+end_comment
+
+begin_function
 DECL|method|restartRandomNode
 specifier|public
 name|void
@@ -9020,7 +9258,13 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts a random node in the cluster and calls the callback during restart.      */
+end_comment
+
+begin_function
 DECL|method|restartRandomNode
 specifier|public
 name|void
@@ -9042,7 +9286,13 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts a random data node in the cluster      */
+end_comment
+
+begin_function
 DECL|method|restartRandomDataNode
 specifier|public
 name|void
@@ -9057,7 +9307,13 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts a random data node in the cluster and calls the callback during restart.      */
+end_comment
+
+begin_function
 DECL|method|restartRandomDataNode
 specifier|public
 name|void
@@ -9079,7 +9335,13 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts a random node in the cluster and calls the callback during restart.      */
+end_comment
+
+begin_function
 DECL|method|restartRandomNode
 specifier|private
 specifier|synchronized
@@ -9125,7 +9387,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts a node and calls the callback during restart.      */
+end_comment
+
+begin_function
 DECL|method|restartNode
 specifier|public
 specifier|synchronized
@@ -9170,6 +9438,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_decl_stmt
 DECL|field|EMPTY_CALLBACK
 specifier|public
 specifier|static
@@ -9197,7 +9468,13 @@ return|;
 block|}
 block|}
 decl_stmt|;
+end_decl_stmt
+
+begin_comment
 comment|/**      * Restarts all nodes in the cluster. It first stops all nodes and then restarts all the nodes again.      */
+end_comment
+
+begin_function
 DECL|method|fullRestart
 specifier|public
 name|void
@@ -9212,7 +9489,13 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts all nodes in a rolling restart fashion ie. only restarts on node a time.      */
+end_comment
+
+begin_function
 DECL|method|rollingRestart
 specifier|public
 name|void
@@ -9227,7 +9510,13 @@ name|EMPTY_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts all nodes in a rolling restart fashion ie. only restarts on node a time.      */
+end_comment
+
+begin_function
 DECL|method|rollingRestart
 specifier|public
 specifier|synchronized
@@ -9278,6 +9567,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|restartNode
 specifier|private
 name|void
@@ -9430,7 +9722,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Restarts all nodes in the cluster. It first stops all nodes and then restarts all the nodes again.      */
+end_comment
+
+begin_function
 DECL|method|fullRestart
 specifier|public
 specifier|synchronized
@@ -9793,7 +10091,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns the name of the current master node in the cluster.      */
+end_comment
+
+begin_function
 DECL|method|getMasterName
 specifier|public
 name|String
@@ -9807,7 +10111,13 @@ literal|null
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns the name of the current master node in the cluster and executes the request via the node specified      * in the viaNode parameter. If viaNode isn't specified a random node will be picked to the send the request to.      */
+end_comment
+
+begin_function
 DECL|method|getMasterName
 specifier|public
 name|String
@@ -9903,6 +10213,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|allDataNodesButN
 specifier|synchronized
 name|Set
@@ -9925,6 +10238,9 @@ name|numNodes
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|nRandomDataNodes
 specifier|private
 specifier|synchronized
@@ -10054,7 +10370,13 @@ return|return
 name|set
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a set of nodes that have at least one shard of the given index.      */
+end_comment
+
+begin_function
 DECL|method|nodesInclude
 specifier|public
 specifier|synchronized
@@ -10180,7 +10502,13 @@ name|emptySet
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts a node with default settings and returns it's name.      */
+end_comment
+
+begin_function
 DECL|method|startNode
 specifier|public
 specifier|synchronized
@@ -10197,7 +10525,13 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts a node with the given settings builder and returns it's name.      */
+end_comment
+
+begin_function
 DECL|method|startNode
 specifier|public
 specifier|synchronized
@@ -10220,7 +10554,13 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts a node with the given settings and returns it's name.      */
+end_comment
+
+begin_function
 DECL|method|startNode
 specifier|public
 specifier|synchronized
@@ -10282,7 +10622,13 @@ operator|.
 name|name
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts multiple nodes with default settings and returns their names      */
+end_comment
+
+begin_function
 DECL|method|startNodes
 specifier|public
 specifier|synchronized
@@ -10307,7 +10653,13 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts multiple nodes with the given settings and returns their names      */
+end_comment
+
+begin_function
 DECL|method|startNodes
 specifier|public
 specifier|synchronized
@@ -10349,7 +10701,13 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Starts multiple nodes with the given settings and returns their names      */
+end_comment
+
+begin_function
 DECL|method|startNodes
 specifier|public
 specifier|synchronized
@@ -10485,6 +10843,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startMasterOnlyNodes
 specifier|public
 specifier|synchronized
@@ -10509,6 +10870,9 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startMasterOnlyNodes
 specifier|public
 specifier|synchronized
@@ -10574,6 +10938,9 @@ name|settings1
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startDataOnlyNodes
 specifier|public
 specifier|synchronized
@@ -10598,6 +10965,9 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startDataOnlyNodes
 specifier|public
 specifier|synchronized
@@ -10663,7 +11033,13 @@ name|settings1
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * updates the min master nodes setting in the current running cluster.      *      * @param eligibleMasterNodeCount the number of master eligible nodes to use as basis for the min master node setting      */
+end_comment
+
+begin_function
 DECL|method|updateMinMasterNodes
 specifier|private
 name|int
@@ -10765,7 +11141,13 @@ return|return
 name|minMasterNodes
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/** calculates a min master nodes value based on the given number of master nodes */
+end_comment
+
+begin_function
 DECL|method|getMinMasterNodes
 specifier|private
 name|int
@@ -10783,6 +11165,9 @@ operator|+
 literal|1
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getMasterNodesCount
 specifier|private
 name|int
@@ -10825,6 +11210,9 @@ name|count
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startMasterOnlyNode
 specifier|public
 specifier|synchronized
@@ -10841,6 +11229,9 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startMasterOnlyNode
 specifier|public
 specifier|synchronized
@@ -10898,6 +11289,9 @@ name|settings1
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startDataOnlyNode
 specifier|public
 specifier|synchronized
@@ -10914,6 +11308,9 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|startDataOnlyNode
 specifier|public
 specifier|synchronized
@@ -10971,6 +11368,9 @@ name|settings1
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|publishNode
 specifier|private
 specifier|synchronized
@@ -11008,6 +11408,9 @@ name|nodeAndClient
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|closeNonSharedNodes
 specifier|public
 name|void
@@ -11025,6 +11428,9 @@ name|wipeData
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|numDataNodes
@@ -11041,6 +11447,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|numDataAndMasterNodes
@@ -11057,6 +11466,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|numMasterNodes
 specifier|public
 specifier|synchronized
@@ -11078,6 +11490,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|setDisruptionScheme
 specifier|public
 name|void
@@ -11110,6 +11525,9 @@ operator|=
 name|scheme
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|clearDisruptionScheme
 specifier|public
 name|void
@@ -11122,6 +11540,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|clearDisruptionScheme
 specifier|public
 name|void
@@ -11186,6 +11607,9 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|applyDisruptionSchemeToNode
 specifier|private
 name|void
@@ -11225,6 +11649,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|removeDisruptionSchemeFromNode
 specifier|private
 name|void
@@ -11264,6 +11691,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|dataNodeAndClients
 specifier|private
 specifier|synchronized
@@ -11285,6 +11715,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|dataAndMasterNodes
 specifier|private
 specifier|synchronized
@@ -11306,6 +11739,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|filterNodes
 specifier|private
 specifier|synchronized
@@ -11359,6 +11795,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|DataNodePredicate
 specifier|private
 specifier|static
@@ -11397,6 +11836,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|DataOrMasterNodePredicate
 specifier|private
 specifier|static
@@ -11447,6 +11889,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|MasterNodePredicate
 specifier|private
 specifier|static
@@ -11503,6 +11948,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|NoDataNoMasterNodePredicate
 specifier|private
 specifier|static
@@ -11557,6 +12005,9 @@ literal|false
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|EntryNodePredicate
 specifier|private
 specifier|static
@@ -11633,6 +12084,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|routingKeyForShard
 specifier|synchronized
 name|String
@@ -11832,6 +12286,9 @@ return|return
 literal|null
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getClients
 specifier|public
 specifier|synchronized
@@ -11928,7 +12385,13 @@ return|;
 block|}
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns a predicate that only accepts settings of nodes with one of the given names.      */
+end_comment
+
+begin_function
 DECL|method|nameFilter
 specifier|public
 specifier|static
@@ -11961,6 +12424,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|NodeNamePredicate
 specifier|private
 specifier|static
@@ -12026,7 +12492,13 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * An abstract class that is called during {@link #rollingRestart(InternalTestCluster.RestartCallback)}      * and / or {@link #fullRestart(InternalTestCluster.RestartCallback)} to execute actions at certain      * stages of the restart.      */
+end_comment
+
+begin_class
 DECL|class|RestartCallback
 specifier|public
 specifier|static
@@ -12092,6 +12564,9 @@ literal|true
 return|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|getDefaultSettings
 specifier|public
 name|Settings
@@ -12102,6 +12577,9 @@ return|return
 name|defaultSettings
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|ensureEstimatedStats
@@ -12428,6 +12906,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|assertAfterTest
@@ -12528,6 +13009,9 @@ block|}
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|assertRequestsFinished
 specifier|private
 name|void
@@ -12645,8 +13129,8 @@ block|}
 block|}
 block|}
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

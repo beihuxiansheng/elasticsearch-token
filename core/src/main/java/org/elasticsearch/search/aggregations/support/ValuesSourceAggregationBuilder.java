@@ -156,22 +156,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
-operator|.
-name|InternalAggregation
-operator|.
-name|Type
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|SearchContext
@@ -271,9 +255,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Type
-name|type
-parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
 parameter_list|,
@@ -284,8 +265,6 @@ block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|type
 argument_list|,
 name|valuesSourceType
 argument_list|,
@@ -301,9 +280,6 @@ parameter_list|(
 name|StreamInput
 name|in
 parameter_list|,
-name|Type
-name|type
-parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
 parameter_list|,
@@ -316,8 +292,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|type
 argument_list|,
 name|valuesSourceType
 argument_list|,
@@ -333,9 +307,6 @@ parameter_list|(
 name|StreamInput
 name|in
 parameter_list|,
-name|Type
-name|type
-parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
 parameter_list|)
@@ -345,8 +316,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|type
 argument_list|,
 name|valuesSourceType
 argument_list|)
@@ -373,7 +342,8 @@ name|name
 operator|+
 literal|"] of type ["
 operator|+
-name|type
+name|getType
+argument_list|()
 operator|+
 literal|"] cannot accept sub-aggregations"
 argument_list|)
@@ -449,9 +419,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Type
-name|type
-parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
 parameter_list|,
@@ -462,8 +429,6 @@ block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|type
 argument_list|)
 expr_stmt|;
 if|if
@@ -506,9 +471,6 @@ parameter_list|(
 name|StreamInput
 name|in
 parameter_list|,
-name|Type
-name|type
-parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
 parameter_list|,
@@ -521,8 +483,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|type
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -559,9 +519,6 @@ parameter_list|(
 name|StreamInput
 name|in
 parameter_list|,
-name|Type
-name|type
-parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
 parameter_list|)
@@ -571,8 +528,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|type
 argument_list|)
 expr_stmt|;
 assert|assert

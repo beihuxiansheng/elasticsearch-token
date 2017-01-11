@@ -134,6 +134,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -188,6 +202,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_comment
 comment|/**  * Client that executes actions on the local node.  */
 end_comment
@@ -209,6 +235,15 @@ argument_list|,
 name|TransportAction
 argument_list|>
 name|actions
+decl_stmt|;
+comment|/**      * The id of the local {@link DiscoveryNode}. Useful for generating task ids from tasks returned by      * {@link #executeLocally(GenericAction, ActionRequest, TaskListener)}.      */
+DECL|field|localNodeId
+specifier|private
+name|Supplier
+argument_list|<
+name|String
+argument_list|>
+name|localNodeId
 decl_stmt|;
 DECL|method|NodeClient
 specifier|public
@@ -241,6 +276,12 @@ argument_list|,
 name|TransportAction
 argument_list|>
 name|actions
+parameter_list|,
+name|Supplier
+argument_list|<
+name|String
+argument_list|>
+name|localNodeId
 parameter_list|)
 block|{
 name|this
@@ -248,6 +289,12 @@ operator|.
 name|actions
 operator|=
 name|actions
+expr_stmt|;
+name|this
+operator|.
+name|localNodeId
+operator|=
+name|localNodeId
 expr_stmt|;
 block|}
 annotation|@
@@ -410,6 +457,20 @@ name|request
 argument_list|,
 name|listener
 argument_list|)
+return|;
+block|}
+comment|/**      * The id of the local {@link DiscoveryNode}. Useful for generating task ids from tasks returned by      * {@link #executeLocally(GenericAction, ActionRequest, TaskListener)}.      */
+DECL|method|getLocalNodeId
+specifier|public
+name|String
+name|getLocalNodeId
+parameter_list|()
+block|{
+return|return
+name|localNodeId
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 comment|/**      * Get the {@link TransportAction} for an {@link Action}, throwing exceptions if the action isn't available.      */

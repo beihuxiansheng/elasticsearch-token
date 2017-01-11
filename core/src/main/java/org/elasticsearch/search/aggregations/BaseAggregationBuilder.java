@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search
+DECL|package|org.elasticsearch.search.aggregations
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|search
+operator|.
+name|aggregations
 package|;
 end_package
 
@@ -30,41 +32,68 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregatorFactories
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  * Defines a parser that is able to parse {@link org.elasticsearch.search.SearchExtBuilder}s  * from {@link org.elasticsearch.common.xcontent.XContent}.  *  * Registration happens through {@link org.elasticsearch.plugins.SearchPlugin#getSearchExts()}, which also needs a {@link SearchExtBuilder}  * implementation which is the object that this parser returns when reading an incoming request form the REST layer.  *  * @see SearchExtBuilder  * @see org.elasticsearch.plugins.SearchPlugin.SearchExtSpec  */
+comment|/**  * Interface shared by {@link AggregationBuilder} and {@link PipelineAggregationBuilder} so they can conveniently share the same namespace  * for {@link XContentParser#namedObject(Class, String, Object)}.  */
 end_comment
 
 begin_interface
-annotation|@
-name|FunctionalInterface
-DECL|interface|SearchExtParser
+DECL|interface|BaseAggregationBuilder
 specifier|public
 interface|interface
-name|SearchExtParser
-parameter_list|<
-name|T
-extends|extends
-name|SearchExtBuilder
-parameter_list|>
+name|BaseAggregationBuilder
 block|{
-comment|/**      * Parses the supported element placed within the ext section of a search request      */
-DECL|method|fromXContent
-name|T
-name|fromXContent
+comment|/**      * The name of the type of aggregation built by this builder.       */
+DECL|method|getType
+name|String
+name|getType
+parameter_list|()
+function_decl|;
+comment|/**      * Set the aggregation's metadata. Returns {@code this} for chaining.      */
+DECL|method|setMetaData
+name|BaseAggregationBuilder
+name|setMetaData
 parameter_list|(
-name|XContentParser
-name|parser
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
-throws|throws
-name|IOException
+function_decl|;
+comment|/**      * Set the sub aggregations if this aggregation supports sub aggregations. Returns {@code this} for chaining.      */
+DECL|method|subAggregations
+name|BaseAggregationBuilder
+name|subAggregations
+parameter_list|(
+name|Builder
+name|subFactories
+parameter_list|)
 function_decl|;
 block|}
 end_interface

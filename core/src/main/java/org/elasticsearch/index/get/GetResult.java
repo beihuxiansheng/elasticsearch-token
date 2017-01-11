@@ -656,6 +656,17 @@ name|BytesReference
 name|sourceRef
 parameter_list|()
 block|{
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 try|try
 block|{
 name|this

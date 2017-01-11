@@ -303,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Imelementation of {@link Histogram}.  */
+comment|/**  * Implementation of {@link Histogram}.  */
 end_comment
 
 begin_class
@@ -326,18 +326,6 @@ name|Histogram
 implements|,
 name|HistogramFactory
 block|{
-DECL|field|TYPE
-specifier|static
-specifier|final
-name|Type
-name|TYPE
-init|=
-operator|new
-name|Type
-argument_list|(
-literal|"date_histogram"
-argument_list|)
-decl_stmt|;
 DECL|class|Bucket
 specifier|public
 specifier|static

@@ -14,48 +14,6 @@ name|search
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorParsers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|Suggesters
-import|;
-end_import
-
 begin_comment
 comment|/**  * A container for all parsers used to parse  * {@link org.elasticsearch.action.search.SearchRequest} objects from a rest request.  */
 end_comment
@@ -66,66 +24,11 @@ specifier|public
 class|class
 name|SearchRequestParsers
 block|{
-comment|// TODO: this class should be renamed to SearchRequestParser, and all the parse
-comment|// methods split across RestSearchAction and SearchSourceBuilder should be moved here
-comment|// TODO: make all members private once parsing functions are moved here
-comment|// TODO: AggregatorParsers should be removed and the underlying maps of agg
-comment|// and pipeline agg parsers should be here
-comment|/**      * Agg and pipeline agg parsers that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
-DECL|field|aggParsers
-specifier|public
-specifier|final
-name|AggregatorParsers
-name|aggParsers
-decl_stmt|;
-comment|// TODO: Suggesters should be removed and the underlying map moved here
-comment|/**      * Suggesters that may be used in search requests.      * @see org.elasticsearch.search.builder.SearchSourceBuilder#fromXContent(QueryParseContext, AggregatorParsers,      *      Suggesters, SearchExtRegistry)      */
-DECL|field|suggesters
-specifier|public
-specifier|final
-name|Suggesters
-name|suggesters
-decl_stmt|;
-comment|/**      * Pluggable section that can be parsed out of a search section, within the ext element      */
-DECL|field|searchExtParsers
-specifier|public
-specifier|final
-name|SearchExtRegistry
-name|searchExtParsers
-decl_stmt|;
 DECL|method|SearchRequestParsers
 specifier|public
 name|SearchRequestParsers
-parameter_list|(
-name|AggregatorParsers
-name|aggParsers
-parameter_list|,
-name|Suggesters
-name|suggesters
-parameter_list|,
-name|SearchExtRegistry
-name|searchExtParsers
-parameter_list|)
-block|{
-name|this
-operator|.
-name|aggParsers
-operator|=
-name|aggParsers
-expr_stmt|;
-name|this
-operator|.
-name|suggesters
-operator|=
-name|suggesters
-expr_stmt|;
-name|this
-operator|.
-name|searchExtParsers
-operator|=
-name|searchExtParsers
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 block|}
 end_class
 

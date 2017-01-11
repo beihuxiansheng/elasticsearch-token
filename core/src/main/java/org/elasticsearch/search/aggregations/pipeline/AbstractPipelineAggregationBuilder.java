@@ -813,6 +813,18 @@ name|Object
 name|obj
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
 block|}
 end_class
 

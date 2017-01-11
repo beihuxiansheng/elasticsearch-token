@@ -844,16 +844,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We always want the _source document and this will force it to be returned.
-name|params
-operator|.
-name|put
-argument_list|(
-literal|"_source"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
 return|return
 name|params
 return|;
@@ -863,6 +853,9 @@ specifier|static
 name|HttpEntity
 name|initialSearchEntity
 parameter_list|(
+name|SearchRequest
+name|searchRequest
+parameter_list|,
 name|BytesReference
 name|query
 parameter_list|)
@@ -905,7 +898,8 @@ argument_list|(
 literal|"query"
 argument_list|)
 expr_stmt|;
-comment|/*              * We're intentionally a bit paranoid here - copying the query as xcontent rather than writing a raw field. We don't want poorly              * written queries to escape. Ever.              */
+block|{
+comment|/* We're intentionally a bit paranoid here - copying the query as xcontent rather than writing a raw field. We don't want                  * poorly written queries to escape. Ever. */
 name|entity
 operator|.
 name|copyCurrentStructure
@@ -941,6 +935,36 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
+block|}
+block|}
+if|if
+condition|(
+name|searchRequest
+operator|.
+name|source
+argument_list|()
+operator|.
+name|fetchSource
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|entity
+operator|.
+name|field
+argument_list|(
+literal|"_source"
+argument_list|,
+name|searchRequest
+operator|.
+name|source
+argument_list|()
+operator|.
+name|fetchSource
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|entity
 operator|.

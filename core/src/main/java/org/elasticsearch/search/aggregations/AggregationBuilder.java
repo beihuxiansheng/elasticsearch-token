@@ -78,13 +78,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|aggregations
+name|query
 operator|.
-name|InternalAggregation
-operator|.
-name|Type
+name|QueryParseContext
 import|;
 end_import
 
@@ -138,18 +136,14 @@ implements|implements
 name|NamedWriteable
 implements|,
 name|ToXContent
+implements|,
+name|BaseAggregationBuilder
 block|{
 DECL|field|name
 specifier|protected
 specifier|final
 name|String
 name|name
-decl_stmt|;
-DECL|field|type
-specifier|protected
-specifier|final
-name|Type
-name|type
 decl_stmt|;
 DECL|field|factoriesBuilder
 specifier|protected
@@ -163,16 +157,13 @@ operator|.
 name|builder
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructs a new aggregation builder.      *      * @param name  The aggregation name      * @param type  The aggregation type      */
+comment|/**      * Constructs a new aggregation builder.      *      * @param name  The aggregation name      */
 DECL|method|AggregationBuilder
 specifier|protected
 name|AggregationBuilder
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|Type
-name|type
 parameter_list|)
 block|{
 if|if
@@ -194,36 +185,11 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"[type] must not be null: ["
-operator|+
-name|name
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|name
 operator|=
 name|name
-expr_stmt|;
-name|this
-operator|.
-name|type
-operator|=
-name|type
 expr_stmt|;
 block|}
 comment|/** Return this aggregation's name. */
@@ -260,6 +226,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/** Associate metadata with this {@link AggregationBuilder}. */
+annotation|@
+name|Override
 DECL|method|setMetaData
 specifier|public
 specifier|abstract
@@ -297,9 +265,11 @@ name|PipelineAggregationBuilder
 name|aggregation
 parameter_list|)
 function_decl|;
-comment|/**      * Internal: Registers sub-factories with this factory. The sub-factory will be      * responsible for the creation of sub-aggregators under the aggregator      * created by this factory. This is only for use by {@link AggregatorParsers}.      *      * @param subFactories      *            The sub-factories      * @return this factory (fluent interface)      */
+comment|/**      * Internal: Registers sub-factories with this factory. The sub-factory will be      * responsible for the creation of sub-aggregators under the aggregator      * created by this factory. This is only for use by {@link AggregatorFactories#parseAggregators(QueryParseContext)}.      *      * @param subFactories      *            The sub-factories      * @return this factory (fluent interface)      */
+annotation|@
+name|Override
 DECL|method|subAggregations
-specifier|protected
+specifier|public
 specifier|abstract
 name|AggregationBuilder
 name|subAggregations
