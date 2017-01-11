@@ -688,9 +688,11 @@ name|clearScroll
 parameter_list|(
 name|String
 name|scrollId
+parameter_list|,
+name|Runnable
+name|onCompletion
 parameter_list|)
 block|{
-comment|/*          * Fire off the clear scroll but don't wait for it it return before          * we send the use their response.          */
 name|ClearScrollRequest
 name|clearScrollRequest
 init|=
@@ -744,6 +746,11 @@ name|getNumFreed
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|onCompletion
+operator|.
+name|run
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -778,10 +785,25 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|onCompletion
+operator|.
+name|run
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|cleanup
+specifier|protected
+name|void
+name|cleanup
+parameter_list|()
+block|{
+comment|// Nothing to do
 block|}
 comment|/**      * Run a search action and call onResponse when a the response comes in, retrying if the action fails with an exception caused by      * rejected execution.      *      * @param action consumes a listener and starts the action. The listener it consumes is rigged to retry on failure.      * @param onResponse consumes the response from the action      */
 DECL|method|searchWithRetry
@@ -1152,7 +1174,7 @@ operator|.
 name|shard
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 decl_stmt|;
 name|failures

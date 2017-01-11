@@ -2575,10 +2575,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getWriteableName
+DECL|method|getType
 specifier|public
 name|String
-name|getWriteableName
+name|getType
 parameter_list|()
 block|{
 return|return

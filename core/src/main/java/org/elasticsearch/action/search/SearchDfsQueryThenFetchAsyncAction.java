@@ -640,7 +640,7 @@ operator|.
 name|shardTarget
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1110,7 +1110,7 @@ operator|.
 name|shardTarget
 argument_list|()
 operator|.
-name|nodeId
+name|getNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;

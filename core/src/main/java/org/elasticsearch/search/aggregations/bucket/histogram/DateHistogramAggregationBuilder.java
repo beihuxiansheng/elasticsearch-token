@@ -430,12 +430,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|InternalDateHistogram
-operator|.
-name|TYPE
-operator|.
-name|name
-argument_list|()
+literal|"date_histogram"
 decl_stmt|;
 DECL|field|DATE_FIELD_UNITS
 specifier|public
@@ -1012,10 +1007,6 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|InternalDateHistogram
-operator|.
-name|TYPE
-argument_list|,
 name|ValuesSourceType
 operator|.
 name|NUMERIC
@@ -1040,10 +1031,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|InternalDateHistogram
-operator|.
-name|TYPE
 argument_list|,
 name|ValuesSourceType
 operator|.
@@ -1820,10 +1807,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getWriteableName
+DECL|method|getType
 specifier|public
 name|String
-name|getWriteableName
+name|getType
 parameter_list|()
 block|{
 return|return
@@ -1913,8 +1900,6 @@ operator|new
 name|DateHistogramAggregatorFactory
 argument_list|(
 name|name
-argument_list|,
-name|type
 argument_list|,
 name|config
 argument_list|,

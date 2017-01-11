@@ -379,8 +379,10 @@ expr_stmt|;
 name|int
 name|size
 init|=
-name|randomInt
+name|randomIntBetween
 argument_list|(
+literal|1
+argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
@@ -523,7 +525,12 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-comment|// skip to the elements field name token, fromXContent advances from there if called from ourside
+comment|// skip to the elements start array token, fromXContent advances from there if called
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
 name|parser
 operator|.
 name|nextToken

@@ -561,6 +561,13 @@ name|getResult
 operator|.
 name|isExists
 argument_list|()
+operator|&&
+name|getResult
+operator|.
+name|isSourceEmpty
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|assertNotNull

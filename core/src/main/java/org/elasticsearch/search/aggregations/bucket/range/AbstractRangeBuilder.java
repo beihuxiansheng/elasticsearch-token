@@ -323,11 +323,6 @@ name|name
 argument_list|,
 name|rangeFactory
 operator|.
-name|type
-argument_list|()
-argument_list|,
-name|rangeFactory
-operator|.
 name|getValueSourceType
 argument_list|()
 argument_list|,
@@ -376,11 +371,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|rangeFactory
-operator|.
-name|type
-argument_list|()
 argument_list|,
 name|rangeFactory
 operator|.

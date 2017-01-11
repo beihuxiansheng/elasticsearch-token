@@ -371,11 +371,11 @@ specifier|public
 name|void
 name|connectToNodes
 parameter_list|(
-name|List
+name|Iterable
 argument_list|<
 name|DiscoveryNode
 argument_list|>
-name|addedNodes
+name|discoveryNodes
 parameter_list|)
 block|{
 comment|// skip
@@ -384,13 +384,13 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|disconnectFromNodes
+name|disconnectFromNodesExcept
 parameter_list|(
-name|List
+name|Iterable
 argument_list|<
 name|DiscoveryNode
 argument_list|>
-name|removedNodes
+name|nodesToKeep
 parameter_list|)
 block|{
 comment|// skip

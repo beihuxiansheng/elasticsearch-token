@@ -221,14 +221,14 @@ argument_list|()
 condition|?
 name|randomAsciiOfLengthBetween
 argument_list|(
-literal|1
+literal|5
 argument_list|,
 literal|20
 argument_list|)
 else|:
 name|randomRealisticUnicodeOfCodepointLengthBetween
 argument_list|(
-literal|1
+literal|5
 argument_list|,
 literal|20
 argument_list|)
@@ -401,6 +401,11 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 comment|// skip to the opening object token, fromXContent advances from here and starts with the field name
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
 name|HighlightField
 name|parsedField
 init|=

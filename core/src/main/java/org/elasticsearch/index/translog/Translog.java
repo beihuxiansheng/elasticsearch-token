@@ -4087,6 +4087,12 @@ name|this
 operator|.
 name|version
 argument_list|)
+operator|:
+literal|"invalid version for writes: "
+operator|+
+name|this
+operator|.
+name|version
 assert|;
 if|if
 condition|(
@@ -5093,14 +5099,14 @@ name|seqNo
 operator|=
 name|in
 operator|.
-name|readVLong
+name|readLong
 argument_list|()
 expr_stmt|;
 name|primaryTerm
 operator|=
 name|in
 operator|.
-name|readVLong
+name|readLong
 argument_list|()
 expr_stmt|;
 block|}
@@ -5406,14 +5412,14 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVLong
+name|writeLong
 argument_list|(
 name|seqNo
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVLong
+name|writeLong
 argument_list|(
 name|primaryTerm
 argument_list|)
