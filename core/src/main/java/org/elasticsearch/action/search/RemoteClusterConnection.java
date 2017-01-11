@@ -2259,6 +2259,10 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+name|maybeConnect
+argument_list|()
+expr_stmt|;
+comment|// now go an notify pending listeners
 block|}
 block|}
 catch|catch
