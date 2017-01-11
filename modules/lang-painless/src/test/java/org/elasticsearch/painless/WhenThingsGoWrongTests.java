@@ -696,7 +696,7 @@ block|{
 comment|// right below limit: ok
 name|exec
 argument_list|(
-literal|"for (int x = 0; x< 9999; ++x) {}"
+literal|"for (int x = 0; x< 999999; ++x) {}"
 argument_list|)
 expr_stmt|;
 name|PainlessError
@@ -713,7 +713,7 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"for (int x = 0; x< 10000; ++x) {}"
+literal|"for (int x = 0; x< 1000000; ++x) {}"
 argument_list|)
 expr_stmt|;
 block|}

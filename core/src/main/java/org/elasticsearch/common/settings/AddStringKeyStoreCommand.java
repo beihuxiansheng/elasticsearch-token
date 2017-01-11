@@ -442,7 +442,7 @@ try|try
 block|{
 name|keystore
 operator|.
-name|setStringSetting
+name|setString
 argument_list|(
 name|setting
 argument_list|,

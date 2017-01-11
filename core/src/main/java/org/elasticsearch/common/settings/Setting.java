@@ -590,6 +590,10 @@ name|properties
 parameter_list|)
 block|{
 assert|assert
+name|this
+operator|instanceof
+name|SecureSetting
+operator|||
 name|parser
 operator|.
 name|apply
@@ -1128,7 +1132,10 @@ block|{
 return|return
 name|settings
 operator|.
-name|contains
+name|getAsMap
+argument_list|()
+operator|.
+name|containsKey
 argument_list|(
 name|getKey
 argument_list|()

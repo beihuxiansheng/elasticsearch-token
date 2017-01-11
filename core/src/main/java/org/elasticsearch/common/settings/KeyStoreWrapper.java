@@ -410,6 +410,16 @@ name|SetOnce
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A wrapper around a Java KeyStore which provides supplements the keystore with extra metadata.  *  * Loading a keystore has 2 phases. First, call {@link #load(Path)}. Then call  * {@link #decrypt(char[])} with the keystore password, or an empty char array if  * {@link #hasPassword()} is {@code false}.  Loading and decrypting should happen  * in a single thread. Once decrypted, keys may be read with the wrapper in  * multiple threads.  */
 end_comment
@@ -420,7 +430,7 @@ specifier|public
 class|class
 name|KeyStoreWrapper
 implements|implements
-name|Closeable
+name|SecureSettings
 block|{
 comment|/** The name of the keystore file to read and write. */
 DECL|field|KEYSTORE_FILENAME
@@ -911,7 +921,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Returns true iff {@link #decrypt(char[])} has been called. */
+annotation|@
+name|Override
 DECL|method|isLoaded
 specifier|public
 name|boolean
@@ -1310,7 +1321,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** Returns the names of all settings in this keystore. */
 DECL|method|getSettings
 specifier|public
 name|Set
@@ -1324,11 +1334,34 @@ return|return
 name|settingNames
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|hasSetting
+specifier|public
+name|boolean
+name|hasSetting
+parameter_list|(
+name|String
+name|setting
+parameter_list|)
+block|{
+return|return
+name|settingNames
+operator|.
+name|contains
+argument_list|(
+name|setting
+argument_list|)
+return|;
+block|}
 comment|// TODO: make settings accessible only to code that registered the setting
 comment|/** Retrieve a string setting. The {@link SecureString} should be closed once it is used. */
-DECL|method|getStringSetting
+annotation|@
+name|Override
+DECL|method|getString
+specifier|public
 name|SecureString
-name|getStringSetting
+name|getString
 parameter_list|(
 name|String
 name|setting
@@ -1434,9 +1467,9 @@ name|value
 return|;
 block|}
 comment|/**      * Set a string setting.      *      * @throws IllegalArgumentException if the value is not ASCII      */
-DECL|method|setStringSetting
+DECL|method|setString
 name|void
-name|setStringSetting
+name|setString
 parameter_list|(
 name|String
 name|setting

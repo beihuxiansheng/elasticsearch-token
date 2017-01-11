@@ -240,6 +240,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -1388,6 +1400,23 @@ name|STRICT
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+comment|/* Because we're streaming the response we can't get a copy of it here. The best we can do is hint that it                                  * is totally wrong and we're probably not talking to Elasticsearch. */
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"Error parsing the response, remote is likely not an Elasticsearch instance"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1399,7 +1428,7 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"Error deserializing response"
+literal|"Error deserializing response, remote is likely not an Elasticsearch instance"
 argument_list|,
 name|e
 argument_list|)

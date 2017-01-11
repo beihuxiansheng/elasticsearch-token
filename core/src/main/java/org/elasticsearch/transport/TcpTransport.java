@@ -5704,6 +5704,7 @@ annotation|@
 name|Override
 DECL|method|doClose
 specifier|protected
+specifier|final
 name|void
 name|doClose
 parameter_list|()

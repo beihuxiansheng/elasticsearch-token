@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -49,7 +59,7 @@ name|SecureString
 implements|implements
 name|CharSequence
 implements|,
-name|AutoCloseable
+name|Closeable
 block|{
 DECL|field|chars
 specifier|private
