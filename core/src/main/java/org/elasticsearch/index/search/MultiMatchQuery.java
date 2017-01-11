@@ -432,42 +432,17 @@ argument_list|,
 name|value
 argument_list|)
 decl_stmt|;
-comment|// If the coordination factor is disabled on a boolean query we don't apply the minimum should match.
-comment|// This is done to make sure that the minimum_should_match doesn't get applied when there is only one word
-comment|// and multiple variations of the same word in the query (synonyms for instance).
-if|if
-condition|(
-name|query
-operator|instanceof
-name|BooleanQuery
-operator|&&
-operator|!
-operator|(
-operator|(
-name|BooleanQuery
-operator|)
-name|query
-operator|)
-operator|.
-name|isCoordDisabled
-argument_list|()
-condition|)
-block|{
 name|query
 operator|=
 name|Queries
 operator|.
-name|applyMinimumShouldMatch
+name|maybeApplyMinimumShouldMatch
 argument_list|(
-operator|(
-name|BooleanQuery
-operator|)
 name|query
 argument_list|,
 name|minimumShouldMatch
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|query
