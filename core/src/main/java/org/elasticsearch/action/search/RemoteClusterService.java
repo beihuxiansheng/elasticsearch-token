@@ -2273,7 +2273,6 @@ return|;
 block|}
 DECL|method|parseSeedAddress
 specifier|static
-specifier|final
 name|InetSocketAddress
 name|parseSeedAddress
 parameter_list|(
