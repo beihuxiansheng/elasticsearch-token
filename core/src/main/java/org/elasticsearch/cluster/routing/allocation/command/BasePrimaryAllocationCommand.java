@@ -151,7 +151,7 @@ name|ObjectParser
 argument_list|<
 name|T
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|createAllocatePrimaryParser
 parameter_list|(
@@ -163,7 +163,7 @@ name|ObjectParser
 argument_list|<
 name|T
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|parser
 init|=

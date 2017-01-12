@@ -36,30 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -220,19 +196,6 @@ name|ObjectParserTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|field|STRICT_PARSING
-specifier|private
-specifier|static
-specifier|final
-name|ParseFieldMatcherSupplier
-name|STRICT_PARSING
-init|=
-parameter_list|()
-lambda|->
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-decl_stmt|;
 DECL|method|testBasics
 specifier|public
 name|void
@@ -320,7 +283,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -410,7 +373,7 @@ name|parser
 argument_list|,
 name|s
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -478,7 +441,7 @@ name|ObjectParser
 argument_list|<
 name|Void
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -563,7 +526,7 @@ argument_list|,
 operator|(
 name|ContextParser
 argument_list|<
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|,
 name|Object
 argument_list|>
@@ -773,7 +736,7 @@ name|ObjectParser
 argument_list|<
 name|StaticTestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -833,7 +796,7 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -866,7 +829,7 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -895,7 +858,7 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -1140,16 +1103,14 @@ expr_stmt|;
 block|}
 block|}
 class|class
-name|CustomParseFieldMatchSupplier
-implements|implements
-name|ParseFieldMatcherSupplier
+name|CustomParseContext
 block|{
 specifier|public
 specifier|final
 name|ClassicParser
 name|parser
 decl_stmt|;
-name|CustomParseFieldMatchSupplier
+name|CustomParseContext
 parameter_list|(
 name|ClassicParser
 name|parser
@@ -1161,19 +1122,6 @@ name|parser
 operator|=
 name|parser
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
-return|;
 block|}
 specifier|public
 name|URI
@@ -1228,7 +1176,7 @@ name|ObjectParser
 argument_list|<
 name|Foo
 argument_list|,
-name|CustomParseFieldMatchSupplier
+name|CustomParseContext
 argument_list|>
 name|objectParser
 init|=
@@ -1300,7 +1248,7 @@ name|Foo
 argument_list|()
 argument_list|,
 operator|new
-name|CustomParseFieldMatchSupplier
+name|CustomParseContext
 argument_list|(
 operator|new
 name|ClassicParser
@@ -1378,7 +1326,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -1421,7 +1369,7 @@ name|parser
 argument_list|,
 name|s
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1478,7 +1426,7 @@ name|parser
 argument_list|,
 name|s
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1525,7 +1473,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -1602,11 +1550,7 @@ name|parser
 argument_list|,
 name|s
 argument_list|,
-parameter_list|()
-lambda|->
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1656,7 +1600,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -1718,7 +1662,7 @@ name|parser
 argument_list|,
 name|s
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1780,7 +1724,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -1860,7 +1804,7 @@ name|c
 operator|.
 name|object
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 argument_list|,
 operator|new
@@ -1882,7 +1826,7 @@ name|parser
 argument_list|,
 name|s
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1930,7 +1874,7 @@ name|ObjectParser
 argument_list|<
 name|StaticTestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -1986,7 +1930,7 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -2034,7 +1978,7 @@ name|ObjectParser
 argument_list|<
 name|StaticTestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -2075,7 +2019,7 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2110,7 +2054,7 @@ name|ObjectParser
 argument_list|<
 name|StaticTestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -2151,7 +2095,7 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2290,7 +2234,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -2343,7 +2287,7 @@ operator|new
 name|TestStruct
 argument_list|()
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -2935,7 +2879,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -3139,7 +3083,7 @@ operator|new
 name|TestStruct
 argument_list|()
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertArrayEquals
@@ -3361,7 +3305,7 @@ name|apply
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -3435,7 +3379,7 @@ name|apply
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -3517,7 +3461,7 @@ name|apply
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3588,7 +3532,7 @@ name|apply
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3659,7 +3603,7 @@ name|apply
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3716,7 +3660,7 @@ name|ObjectParser
 argument_list|<
 name|NamedObjectHolder
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -3768,7 +3712,7 @@ name|apply
 argument_list|(
 name|parser
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3883,7 +3827,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -3945,7 +3889,7 @@ operator|new
 name|TestStruct
 argument_list|()
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4059,7 +4003,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -4121,7 +4065,7 @@ operator|new
 name|TestStruct
 argument_list|()
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4247,7 +4191,7 @@ name|ObjectParser
 argument_list|<
 name|TestStruct
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|objectParser
 init|=
@@ -4309,7 +4253,7 @@ operator|new
 name|TestStruct
 argument_list|()
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4335,7 +4279,7 @@ name|ObjectParser
 argument_list|<
 name|NamedObjectHolder
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|PARSER
 init|=
@@ -4436,7 +4380,7 @@ name|NamedObjectParser
 argument_list|<
 name|NamedObject
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|PARSER
 decl_stmt|;
@@ -4446,7 +4390,7 @@ name|ObjectParser
 argument_list|<
 name|NamedObject
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|parser
 init|=
@@ -4478,7 +4422,7 @@ parameter_list|(
 name|XContentParser
 name|p
 parameter_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 name|v
 parameter_list|,
 name|String
@@ -4497,7 +4441,7 @@ argument_list|(
 name|name
 argument_list|)
 argument_list|,
-name|STRICT_PARSING
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

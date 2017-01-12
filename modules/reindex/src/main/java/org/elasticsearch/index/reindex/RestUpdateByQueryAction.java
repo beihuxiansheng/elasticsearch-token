@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -409,8 +397,6 @@ name|Object
 argument_list|>
 operator|)
 name|o
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 argument_list|)
 argument_list|)
@@ -446,6 +432,7 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|parseScript
+specifier|private
 specifier|static
 name|Script
 name|parseScript
@@ -457,9 +444,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|config
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 name|String

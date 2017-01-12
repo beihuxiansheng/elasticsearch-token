@@ -813,7 +813,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|TaskResult
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|PARSER
 init|=
