@@ -615,7 +615,7 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
-name|getQuery
+name|apply
 argument_list|(
 name|segmentDocId
 argument_list|)
