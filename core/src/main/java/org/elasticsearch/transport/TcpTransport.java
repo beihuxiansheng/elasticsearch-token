@@ -3277,23 +3277,6 @@ name|connectionProfile
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|lifecycle
-operator|.
-name|started
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"can't add nodes to a stopped transport"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
 name|node
 operator|==
 literal|null
@@ -3317,8 +3300,12 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+comment|// ensure we don't open connections while we are closing
 try|try
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 try|try
 init|(
 name|Releasable
@@ -3513,6 +3500,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|node
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ConnectTransportException
+argument_list|(
+literal|null
+argument_list|,
+literal|"can't open connection to a null node"
+argument_list|)
+throw|;
+block|}
 name|boolean
 name|success
 init|=
@@ -3523,6 +3527,20 @@ name|nodeChannels
 init|=
 literal|null
 decl_stmt|;
+name|globalLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+comment|// ensure we don't open connections while we are closing
+try|try
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|nodeChannels
@@ -3674,6 +3692,18 @@ name|nodeChannels
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|globalLock
+operator|.
+name|readLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Disconnects from a node, only if the relevant channel is found to be part of the node channels.      */
@@ -9891,6 +9921,33 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|/**      * Ensures this transport is still started / open      * @throws IllegalStateException if the transport is not started / open      */
+DECL|method|ensureOpen
+specifier|protected
+specifier|final
+name|void
+name|ensureOpen
+parameter_list|()
+block|{
+if|if
+condition|(
+name|lifecycle
+operator|.
+name|started
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"transport has been stopped"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
