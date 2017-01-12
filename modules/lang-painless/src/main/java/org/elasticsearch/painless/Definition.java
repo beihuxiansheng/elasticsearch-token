@@ -3753,6 +3753,19 @@ name|equals
 argument_list|(
 literal|"->"
 argument_list|)
+operator|:
+literal|"Invalid struct definition ["
+operator|+
+name|String
+operator|.
+name|join
+argument_list|(
+literal|" "
+argument_list|,
+name|elements
+argument_list|)
+operator|+
+literal|"]"
 assert|;
 if|if
 condition|(
@@ -3797,6 +3810,19 @@ operator|.
 name|length
 operator|==
 literal|5
+operator|:
+literal|"Invalid struct definition ["
+operator|+
+name|String
+operator|.
+name|join
+argument_list|(
+literal|" "
+argument_list|,
+name|elements
+argument_list|)
+operator|+
+literal|"]"
 assert|;
 block|}
 name|String
@@ -3950,7 +3976,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"syntax error in "
+literal|"error in "
 operator|+
 name|file
 operator|+
