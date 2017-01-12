@@ -431,8 +431,6 @@ operator|.
 name|getQueryContent
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 argument_list|)
 expr_stmt|;

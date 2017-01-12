@@ -406,11 +406,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|indexSettings
-operator|.
-name|getParseFieldMatcher
-argument_list|()
 argument_list|)
 return|;
 block|}

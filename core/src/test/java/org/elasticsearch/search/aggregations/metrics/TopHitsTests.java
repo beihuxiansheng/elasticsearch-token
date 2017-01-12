@@ -1164,8 +1164,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame

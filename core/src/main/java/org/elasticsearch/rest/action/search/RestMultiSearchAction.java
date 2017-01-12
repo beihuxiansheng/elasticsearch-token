@@ -92,18 +92,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -524,8 +512,6 @@ argument_list|(
 name|request
 argument_list|,
 name|allowExplicitIndex
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 return|return
@@ -558,9 +544,6 @@ name|restRequest
 parameter_list|,
 name|boolean
 name|allowExplicitIndex
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException
@@ -625,8 +608,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|searchRequest

@@ -591,9 +591,16 @@ argument_list|)
 expr_stmt|;
 block|}
 argument_list|,
+name|parser
+lambda|->
 name|EXTENDED_BOUNDS_PARSER
-operator|::
+operator|.
 name|apply
+argument_list|(
+name|parser
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 name|ExtendedBounds
 operator|.

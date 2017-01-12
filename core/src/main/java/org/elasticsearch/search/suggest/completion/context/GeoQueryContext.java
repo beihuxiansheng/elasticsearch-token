@@ -50,18 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|geo
 operator|.
 name|GeoPoint
@@ -609,7 +597,7 @@ name|GeoQueryContext
 operator|.
 name|Builder
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|GEO_CONTEXT_PARSER
 init|=
@@ -807,7 +795,7 @@ name|parser
 argument_list|,
 name|builder
 argument_list|,
-name|context
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
