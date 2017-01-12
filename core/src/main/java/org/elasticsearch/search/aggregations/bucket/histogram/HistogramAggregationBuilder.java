@@ -40,18 +40,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -391,7 +379,7 @@ argument_list|<
 name|double
 index|[]
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|EXTENDED_BOUNDS_PARSER
 init|=
