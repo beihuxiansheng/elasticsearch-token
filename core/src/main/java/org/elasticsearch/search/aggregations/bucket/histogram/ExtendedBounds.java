@@ -40,6 +40,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcherSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -310,7 +322,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|ExtendedBounds
 argument_list|,
-name|Void
+name|ParseFieldMatcherSupplier
 argument_list|>
 name|PARSER
 init|=
