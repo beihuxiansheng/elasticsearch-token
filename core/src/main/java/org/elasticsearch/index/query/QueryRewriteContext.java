@@ -50,30 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -203,8 +179,6 @@ DECL|class|QueryRewriteContext
 specifier|public
 class|class
 name|QueryRewriteContext
-implements|implements
-name|ParseFieldMatcherSupplier
 block|{
 DECL|field|mapperService
 specifier|protected
@@ -363,23 +337,6 @@ return|return
 name|reader
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getParseFieldMatcher
-specifier|public
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|indexSettings
-operator|.
-name|getParseFieldMatcher
-argument_list|()
-return|;
-block|}
 comment|/**      * The registry used to build new {@link XContentParser}s. Contains registered named parsers needed to parse the query.      */
 DECL|method|getXContentRegistry
 specifier|public
@@ -391,7 +348,7 @@ return|return
 name|xContentRegistry
 return|;
 block|}
-comment|/**      * Returns a new {@link QueryParseContext} that wraps the provided parser, using the ParseFieldMatcher settings that      * are configured in the index settings. The default script language will always default to Painless.      */
+comment|/**      * Returns a new {@link QueryParseContext} that wraps the provided parser.      */
 DECL|method|newParseContext
 specifier|public
 name|QueryParseContext
