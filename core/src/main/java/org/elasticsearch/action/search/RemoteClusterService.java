@@ -673,7 +673,7 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**      * The name of a node attribute to select nodes that should be connected to in the remote cluster.      * For instance a node can be configured with<tt>node.node_attr.gateway: true</tt> in order to be eligible as a gateway node between      * clusters. In that case<tt>search.remote.node_attribute: gateway</tt> can be used to filter out other nodes in the remote cluster.      * The value of the setting is expected to be a boolean,<tt>true</tt> for nodes that can become gateways,<tt>false</tt> otherwise.      */
+comment|/**      * The name of a node attribute to select nodes that should be connected to in the remote cluster.      * For instance a node can be configured with<tt>node.attr.gateway: true</tt> in order to be eligible as a gateway node between      * clusters. In that case<tt>search.remote.node_attribute: gateway</tt> can be used to filter out other nodes in the remote cluster.      * The value of the setting is expected to be a boolean,<tt>true</tt> for nodes that can become gateways,<tt>false</tt> otherwise.      */
 DECL|field|REMOTE_NODE_ATTRIBUTE
 specifier|public
 specifier|static
@@ -1168,7 +1168,7 @@ operator|==
 literal|false
 return|;
 block|}
-comment|/**      * Filters out indices that refer to a remote cluster and adds them to the given per cluster indices map.      *      * @param perClusterIndices a map to fill with remote cluster indices from the given request indices      * @param requestIndices the indices in the search request to filter      * @return all indices in the requestIndices array that are not remote cluster indices      */
+comment|/**      * Filters out indices that refer to a remote cluster and adds them to the given per cluster indices map.      *      * @param perClusterIndices a map to fill with remote cluster indices from the given request indices      * @param requestIndices the indices in the search request to filter      * @param indexExists a predicate that can test if a certain index or alias exists      *      * @return all indices in the requestIndices array that are not remote cluster indices      */
 DECL|method|filterIndices
 specifier|public
 name|String
@@ -1189,6 +1189,12 @@ parameter_list|,
 name|String
 index|[]
 name|requestIndices
+parameter_list|,
+name|Predicate
+argument_list|<
+name|String
+argument_list|>
+name|indexExists
 parameter_list|)
 block|{
 name|List
@@ -1247,6 +1253,35 @@ name|remoteCluster
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|indexExists
+operator|.
+name|test
+argument_list|(
+name|index
+argument_list|)
+condition|)
+block|{
+comment|// we use : as a separator for remote clusters. might conflict if there is an index that is actually named
+comment|// remote_cluster_alias:index_name - for this case we fail the request. the user can easily change the cluster alias
+comment|// if that happens
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Index "
+operator|+
+name|index
+operator|+
+literal|" exists but there is also a remote cluster named: "
+operator|+
+name|remoteCluster
+operator|+
+literal|" can't filter indices"
+argument_list|)
+throw|;
+block|}
 name|String
 name|remoteIndex
 init|=
