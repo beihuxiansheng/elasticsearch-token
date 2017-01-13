@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|CompositeIndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|DocWriteRequest
 import|;
 end_import
@@ -171,6 +183,8 @@ name|DocWriteRequest
 argument_list|<
 name|DeleteRequest
 argument_list|>
+implements|,
+name|CompositeIndicesRequest
 block|{
 DECL|field|type
 specifier|private
