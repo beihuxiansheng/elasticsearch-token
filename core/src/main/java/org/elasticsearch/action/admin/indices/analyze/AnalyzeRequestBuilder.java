@@ -346,6 +346,7 @@ name|AnalyzeRequestBuilder
 name|setAttributes
 parameter_list|(
 name|String
+modifier|...
 name|attributes
 parameter_list|)
 block|{
