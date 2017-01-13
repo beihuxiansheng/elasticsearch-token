@@ -502,6 +502,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ArrayBlockingQueue
@@ -517,6 +527,18 @@ operator|.
 name|concurrent
 operator|.
 name|BlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 
@@ -625,16 +647,21 @@ decl_stmt|;
 DECL|field|connectedNodes
 specifier|private
 specifier|final
-name|CopyOnWriteArrayList
+name|Set
 argument_list|<
 name|DiscoveryNode
 argument_list|>
 name|connectedNodes
 init|=
+name|Collections
+operator|.
+name|newSetFromMap
+argument_list|(
 operator|new
-name|CopyOnWriteArrayList
+name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|field|nodeSupplier
 specifier|private
@@ -2262,7 +2289,7 @@ expr_stmt|;
 name|maybeConnect
 argument_list|()
 expr_stmt|;
-comment|// now go an notify pending listeners
+comment|// now go and notify pending listeners
 block|}
 block|}
 catch|catch
