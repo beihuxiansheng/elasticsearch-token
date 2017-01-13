@@ -402,6 +402,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -1725,18 +1735,21 @@ decl_stmt|;
 DECL|field|workerChannels
 specifier|private
 specifier|final
-name|ConcurrentHashMap
+name|Set
 argument_list|<
 name|MockChannel
-argument_list|,
-name|Boolean
 argument_list|>
 name|workerChannels
 init|=
+name|Collections
+operator|.
+name|newSetFromMap
+argument_list|(
 operator|new
 name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
+argument_list|)
 decl_stmt|;
 DECL|field|activeChannel
 specifier|private
@@ -1971,13 +1984,9 @@ expr_stmt|;
 comment|//establish a happens-before edge between closing and accepting a new connection
 name|workerChannels
 operator|.
-name|put
+name|add
 argument_list|(
 name|incomingChannel
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
 argument_list|)
 expr_stmt|;
 comment|// this spawns a new thread immediately, so OK under lock
@@ -2065,7 +2074,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|ex
 parameter_list|)
 block|{
@@ -2078,6 +2087,16 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|MockChannel
+operator|.
+name|this
+argument_list|)
+expr_stmt|;
+comment|// pure paranoia
 block|}
 block|}
 block|}
@@ -2150,12 +2169,19 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
+specifier|synchronized
 name|void
 name|close
 parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// establish a happens-before edge between closing and accepting a new connection
+comment|// we have to sync this entire block to ensure that our openChannels checks work correctly.
+comment|// The close block below will close all worker channels but if one of the worker channels runs into an exception
+comment|// for instance due to a disconnect the handling of this exception might be executed concurrently.
+comment|// now if we are in-turn concurrently call close we might not wait for the actual close to happen and that will, down the road
+comment|// make the assertion trip that not all channels are closed.
 if|if
 condition|(
 name|isOpen
@@ -2187,12 +2213,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|//establish a happens-before edge between closing and accepting a new connection
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
 name|onChannelClosed
 argument_list|(
 name|this
@@ -2213,9 +2233,6 @@ operator|.
 name|close
 argument_list|(
 name|workerChannels
-operator|.
-name|keySet
-argument_list|()
 argument_list|)
 argument_list|,
 parameter_list|()
@@ -2230,7 +2247,6 @@ argument_list|,
 name|onClose
 argument_list|)
 expr_stmt|;
-block|}
 assert|assert
 name|removedChannel
 operator|:
