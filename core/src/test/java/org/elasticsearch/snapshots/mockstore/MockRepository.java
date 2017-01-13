@@ -1652,7 +1652,19 @@ block|}
 block|}
 block|}
 block|}
-else|else
+comment|// don't block on the index-N files, as getRepositoryData depends on it
+elseif|else
+if|if
+condition|(
+name|blobName
+operator|.
+name|startsWith
+argument_list|(
+literal|"index-"
+argument_list|)
+operator|==
+literal|false
+condition|)
 block|{
 if|if
 condition|(
