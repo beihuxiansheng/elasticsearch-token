@@ -60,6 +60,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|node
+operator|.
+name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|service
 operator|.
 name|ClusterService
@@ -91,6 +105,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|transport
+operator|.
+name|BoundTransportAddress
 import|;
 end_import
 
@@ -352,6 +380,18 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  * A node for testing which allows:  *<ul>  *<li>Overriding Version.CURRENT</li>  *<li>Adding test plugins that exist on the classpath</li>  *</ul>  */
 end_comment
@@ -588,6 +628,14 @@ parameter_list|,
 name|TransportInterceptor
 name|interceptor
 parameter_list|,
+name|Function
+argument_list|<
+name|BoundTransportAddress
+argument_list|,
+name|DiscoveryNode
+argument_list|>
+name|localNodeFactory
+parameter_list|,
 name|ClusterSettings
 name|clusterSettings
 parameter_list|)
@@ -627,6 +675,8 @@ name|threadPool
 argument_list|,
 name|interceptor
 argument_list|,
+name|localNodeFactory
+argument_list|,
 name|clusterSettings
 argument_list|)
 return|;
@@ -644,6 +694,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|interceptor
+argument_list|,
+name|localNodeFactory
 argument_list|,
 name|clusterSettings
 argument_list|)

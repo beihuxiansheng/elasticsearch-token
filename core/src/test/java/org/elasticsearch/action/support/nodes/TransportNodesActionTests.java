@@ -1400,6 +1400,13 @@ name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
 argument_list|,
+name|x
+lambda|->
+name|clusterService
+operator|.
+name|localNode
+argument_list|()
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
