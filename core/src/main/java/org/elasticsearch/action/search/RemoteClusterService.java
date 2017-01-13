@@ -2459,6 +2459,8 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"port must be a number"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
