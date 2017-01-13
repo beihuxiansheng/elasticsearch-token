@@ -409,6 +409,8 @@ literal|"error_trace"
 argument_list|,
 literal|"filter_path"
 argument_list|,
+literal|"human"
+argument_list|,
 literal|"pretty"
 argument_list|,
 literal|"source"

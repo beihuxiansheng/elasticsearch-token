@@ -124,18 +124,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -1453,8 +1441,6 @@ extends|extends
 name|QueryBuilder
 argument_list|,
 name|?
-extends|extends
-name|ParseFieldMatcherSupplier
 argument_list|>
 name|parser
 parameter_list|)

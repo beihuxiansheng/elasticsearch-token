@@ -48,18 +48,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -555,7 +543,7 @@ operator|=
 name|ignoreUnknownFields
 expr_stmt|;
 block|}
-comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param context must at least provide a {@link ParseFieldMatcher}      * @return a new value instance drawn from the provided value supplier on {@link #ObjectParser(String, Supplier)}      * @throws IOException if an IOException occurs.      */
+comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param context context needed for parsing      * @return a new value instance drawn from the provided value supplier on {@link #ObjectParser(String, Supplier)}      * @throws IOException if an IOException occurs.      */
 annotation|@
 name|Override
 DECL|method|parse

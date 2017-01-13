@@ -756,8 +756,6 @@ argument_list|,
 literal|"_primary_term"
 argument_list|,
 literal|"_source"
-argument_list|,
-literal|"_all"
 argument_list|)
 argument_list|,
 name|doc
@@ -914,8 +912,6 @@ argument_list|,
 literal|"_primary_term"
 argument_list|,
 literal|"_source"
-argument_list|,
-literal|"_all"
 argument_list|)
 argument_list|,
 name|doc

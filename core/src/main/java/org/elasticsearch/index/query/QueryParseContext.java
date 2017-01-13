@@ -36,30 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -145,8 +121,6 @@ DECL|class|QueryParseContext
 specifier|public
 class|class
 name|QueryParseContext
-implements|implements
-name|ParseFieldMatcherSupplier
 block|{
 DECL|field|CACHE
 specifier|private
@@ -190,12 +164,6 @@ specifier|final
 name|XContentParser
 name|parser
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|private
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 DECL|field|defaultScriptLanguage
 specifier|private
 specifier|final
@@ -208,9 +176,6 @@ name|QueryParseContext
 parameter_list|(
 name|XContentParser
 name|parser
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 name|this
@@ -220,11 +185,10 @@ operator|.
 name|DEFAULT_SCRIPT_LANG
 argument_list|,
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}
+comment|//TODO this constructor can be removed from master branch
 DECL|method|QueryParseContext
 specifier|public
 name|QueryParseContext
@@ -234,9 +198,6 @@ name|defaultScriptLanguage
 parameter_list|,
 name|XContentParser
 name|parser
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 name|this
@@ -250,19 +211,6 @@ argument_list|(
 name|parser
 argument_list|,
 literal|"parser cannot be null"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|parseFieldMatcher
-operator|=
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|parseFieldMatcher
-argument_list|,
-literal|"parse field matcher cannot be null"
 argument_list|)
 expr_stmt|;
 name|this
@@ -738,18 +686,6 @@ throw|;
 block|}
 return|return
 name|result
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getParseFieldMatcher
-specifier|public
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|parseFieldMatcher
 return|;
 block|}
 comment|/**      * Returns the default scripting language, that should be used if scripts don't specify the script language      * explicitly.      */

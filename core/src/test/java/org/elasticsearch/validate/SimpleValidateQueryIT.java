@@ -716,6 +716,11 @@ name|queryStringQuery
 argument_list|(
 literal|"bar:hey"
 argument_list|)
+operator|.
+name|lenient
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 operator|.
 name|execute
@@ -1194,7 +1199,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"_all:foo"
+literal|"(foo:foo | baz:foo)"
 argument_list|)
 argument_list|)
 expr_stmt|;

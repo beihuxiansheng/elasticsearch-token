@@ -220,14 +220,6 @@ name|void
 name|testPluginInstalled
 parameter_list|()
 block|{
-comment|// TODO: remove when Netty 4.1.6 is upgraded to Netty 4.1.7 including https://github.com/netty/netty/pull/6068
-name|assumeFalse
-argument_list|(
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-argument_list|)
-expr_stmt|;
 try|try
 init|(
 name|TransportClient

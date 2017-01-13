@@ -74,18 +74,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|Loggers
@@ -968,12 +956,6 @@ specifier|final
 name|boolean
 name|isShadowReplicaIndex
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|private
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 comment|// volatile fields are updated via #updateIndexMetaData(IndexMetaData) under lock
 DECL|field|settings
 specifier|private
@@ -1368,16 +1350,6 @@ operator|.
 name|get
 argument_list|(
 name|nodeSettings
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|parseFieldMatcher
-operator|=
-operator|new
-name|ParseFieldMatcher
-argument_list|(
-name|settings
 argument_list|)
 expr_stmt|;
 name|this
@@ -2007,17 +1979,6 @@ parameter_list|()
 block|{
 return|return
 name|nodeSettings
-return|;
-block|}
-comment|/**      * Returns a {@link ParseFieldMatcher} for this index.      */
-DECL|method|getParseFieldMatcher
-specifier|public
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|parseFieldMatcher
 return|;
 block|}
 comment|/**      * Updates the settings and index metadata and notifies all registered settings consumers with the new settings iff at least one setting has changed.      *      * @return<code>true</code> iff any setting has been updated otherwise<code>false</code>.      */

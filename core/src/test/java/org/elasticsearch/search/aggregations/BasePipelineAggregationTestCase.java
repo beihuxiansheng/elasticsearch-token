@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -461,11 +449,6 @@ specifier|private
 name|NamedXContentRegistry
 name|xContentRegistry
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|protected
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 DECL|method|createTestAggregatorFactory
 specifier|protected
 specifier|abstract
@@ -652,12 +635,6 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-name|parseFieldMatcher
-operator|=
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-expr_stmt|;
 block|}
 comment|/**      * Generic test that creates new AggregatorFactory from the test      * AggregatorFactory and checks both for equality and asserts equality on      * the two queries.      */
 DECL|method|testFromXContent
@@ -827,8 +804,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame

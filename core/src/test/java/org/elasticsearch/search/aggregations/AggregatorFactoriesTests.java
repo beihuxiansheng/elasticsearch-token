@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -315,11 +303,6 @@ specifier|private
 name|NamedXContentRegistry
 name|xContentRegistry
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|protected
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
@@ -454,12 +437,6 @@ operator|.
 name|getNamedXContents
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|parseFieldMatcher
-operator|=
-name|ParseFieldMatcher
-operator|.
-name|STRICT
 expr_stmt|;
 block|}
 DECL|method|testGetAggregatorFactories_returnsUnmodifiableList
@@ -703,8 +680,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -894,8 +869,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -1129,8 +1102,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -1288,8 +1259,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -1436,8 +1405,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame
@@ -1580,8 +1547,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|assertSame

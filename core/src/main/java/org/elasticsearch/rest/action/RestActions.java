@@ -106,18 +106,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|uid
@@ -1055,9 +1043,6 @@ name|getQueryContent
 parameter_list|(
 name|XContentParser
 name|requestParser
-parameter_list|,
-name|ParseFieldMatcher
-name|parseFieldMatcher
 parameter_list|)
 block|{
 name|QueryParseContext
@@ -1067,8 +1052,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|requestParser
-argument_list|,
-name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 return|return

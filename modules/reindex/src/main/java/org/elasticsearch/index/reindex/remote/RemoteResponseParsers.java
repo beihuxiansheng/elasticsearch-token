@@ -48,18 +48,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -370,7 +358,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|BasicHit
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|HIT_PARSER
 init|=
@@ -657,7 +645,7 @@ name|ObjectParser
 argument_list|<
 name|Fields
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|fieldsParser
 init|=
@@ -777,7 +765,7 @@ argument_list|<
 name|Object
 index|[]
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|HITS_PARSER
 init|=
@@ -836,7 +824,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|SearchFailure
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|SEARCH_FAILURE_PARSER
 init|=
@@ -1073,7 +1061,7 @@ argument_list|<
 name|Throwable
 argument_list|>
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|SHARDS_PARSER
 init|=
@@ -1154,7 +1142,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|Response
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|RESPONSE_PARSER
 init|=
@@ -1459,7 +1447,7 @@ name|BiFunction
 argument_list|<
 name|XContentParser
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|,
 name|Throwable
 argument_list|>
@@ -1471,7 +1459,7 @@ name|ObjectParser
 argument_list|<
 name|ThrowableBuilder
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|parser
 init|=
@@ -1816,7 +1804,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|Version
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|MAIN_ACTION_PARSER
 init|=
@@ -1845,7 +1833,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|Version
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|versionParser
 init|=

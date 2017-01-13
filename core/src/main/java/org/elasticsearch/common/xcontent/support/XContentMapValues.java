@@ -1491,13 +1491,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|includeAutomaton
-operator|.
-name|isAccept
-argument_list|(
-name|includeState
-argument_list|)
-operator|||
 name|filteredValue
 operator|.
 name|isEmpty
@@ -1603,6 +1596,16 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
+decl_stmt|;
+name|boolean
+name|isInclude
+init|=
+name|includeAutomaton
+operator|.
+name|isAccept
+argument_list|(
+name|initialIncludeState
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -1760,10 +1763,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|isInclude
+condition|)
 block|{
-comment|// TODO: we have tests relying on this behavior on arrays even
-comment|// if the path does not match, but this looks like a bug?
+comment|// #22557: only accept this array value if the key we are on is accepted:
 name|filtered
 operator|.
 name|add

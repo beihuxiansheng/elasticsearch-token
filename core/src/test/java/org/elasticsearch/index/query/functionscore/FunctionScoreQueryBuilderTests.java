@@ -96,18 +96,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -299,22 +287,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|json
-operator|.
-name|JsonXContent
 import|;
 end_import
 
@@ -4141,10 +4113,6 @@ operator|)
 name|parseQuery
 argument_list|(
 name|json
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
 argument_list|)
 decl_stmt|;
 comment|// this should be equivalent to the same with a match_all query
@@ -4196,10 +4164,6 @@ operator|)
 name|parseQuery
 argument_list|(
 name|json
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
 argument_list|)
 decl_stmt|;
 name|assertEquals

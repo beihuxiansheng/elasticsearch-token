@@ -126,18 +126,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcherSupplier
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -235,7 +223,7 @@ name|ObjectParser
 argument_list|<
 name|ShrinkRequest
 argument_list|,
-name|ParseFieldMatcherSupplier
+name|Void
 argument_list|>
 name|PARSER
 init|=
@@ -259,7 +247,7 @@ name|parser
 parameter_list|,
 name|request
 parameter_list|,
-name|parseFieldMatcherSupplier
+name|context
 parameter_list|)
 lambda|->
 name|request
@@ -297,7 +285,7 @@ name|parser
 parameter_list|,
 name|request
 parameter_list|,
-name|parseFieldMatcherSupplier
+name|context
 parameter_list|)
 lambda|->
 name|request

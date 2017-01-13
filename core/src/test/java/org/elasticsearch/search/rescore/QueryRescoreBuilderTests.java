@@ -72,18 +72,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -796,10 +784,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|STRICT
 argument_list|)
 decl_stmt|;
 name|parser
@@ -1525,10 +1509,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|parser
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|STRICT
 argument_list|)
 decl_stmt|;
 comment|// move to first token, this is where the internal fromXContent

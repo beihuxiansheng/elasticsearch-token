@@ -52,18 +52,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -477,20 +465,6 @@ operator|.
 name|pipeline
 operator|.
 name|PipelineAggregator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -2166,21 +2140,12 @@ operator|.
 name|getSignificanceHeuristicParserRegistry
 argument_list|()
 decl_stmt|;
-name|SearchContext
-name|searchContext
-init|=
-operator|new
-name|SignificantTermsTestSearchContext
-argument_list|()
-decl_stmt|;
 comment|// test jlh with string
 name|assertTrue
 argument_list|(
 name|parseFromString
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 literal|"\"jlh\":{}"
 argument_list|)
@@ -2194,8 +2159,6 @@ argument_list|(
 name|parseFromString
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 literal|"\"gnd\":{}"
 argument_list|)
@@ -2243,8 +2206,6 @@ name|parseFromString
 argument_list|(
 name|heuristicParserMapper
 argument_list|,
-name|searchContext
-argument_list|,
 name|mutual
 argument_list|)
 argument_list|)
@@ -2276,8 +2237,6 @@ name|parseFromString
 argument_list|(
 name|heuristicParserMapper
 argument_list|,
-name|searchContext
-argument_list|,
 name|chiSquare
 argument_list|)
 argument_list|)
@@ -2288,8 +2247,6 @@ argument_list|(
 name|parseFromBuilder
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 operator|new
 name|JLHScore
@@ -2309,8 +2266,6 @@ argument_list|(
 name|parseFromBuilder
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 operator|new
 name|GND
@@ -2340,8 +2295,6 @@ argument_list|,
 name|parseFromBuilder
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 operator|new
 name|MutualInformation
@@ -2366,8 +2319,6 @@ argument_list|,
 name|parseFromBuilder
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 operator|new
 name|ChiSquare
@@ -2394,8 +2345,6 @@ name|checkParseException
 argument_list|(
 name|heuristicParserMapper
 argument_list|,
-name|searchContext
-argument_list|,
 name|faultyHeuristicdefinition
 argument_list|,
 name|expectedError
@@ -2412,8 +2361,6 @@ expr_stmt|;
 name|checkParseException
 argument_list|(
 name|heuristicParserMapper
-argument_list|,
-name|searchContext
 argument_list|,
 name|faultyHeuristicdefinition
 argument_list|,
@@ -2432,8 +2379,6 @@ name|checkParseException
 argument_list|(
 name|heuristicParserMapper
 argument_list|,
-name|searchContext
-argument_list|,
 name|faultyHeuristicdefinition
 argument_list|,
 name|expectedError
@@ -2451,8 +2396,6 @@ name|checkParseException
 argument_list|(
 name|heuristicParserMapper
 argument_list|,
-name|searchContext
-argument_list|,
 name|faultyHeuristicdefinition
 argument_list|,
 name|expectedError
@@ -2469,9 +2412,6 @@ argument_list|<
 name|SignificanceHeuristicParser
 argument_list|>
 name|significanceHeuristicParserRegistry
-parameter_list|,
-name|SearchContext
-name|searchContext
 parameter_list|,
 name|String
 name|faultyHeuristicDefinition
@@ -2507,10 +2447,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|stParser
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|STRICT
 argument_list|)
 decl_stmt|;
 name|stParser
@@ -2570,9 +2506,6 @@ argument_list|<
 name|SignificanceHeuristicParser
 argument_list|>
 name|significanceHeuristicParserRegistry
-parameter_list|,
-name|SearchContext
-name|searchContext
 parameter_list|,
 name|SignificanceHeuristic
 name|significanceHeuristic
@@ -2642,8 +2575,6 @@ name|parseSignificanceHeuristic
 argument_list|(
 name|significanceHeuristicParserRegistry
 argument_list|,
-name|searchContext
-argument_list|,
 name|stParser
 argument_list|)
 return|;
@@ -2659,9 +2590,6 @@ name|SignificanceHeuristicParser
 argument_list|>
 name|significanceHeuristicParserRegistry
 parameter_list|,
-name|SearchContext
-name|searchContext
-parameter_list|,
 name|XContentParser
 name|stParser
 parameter_list|)
@@ -2675,10 +2603,6 @@ operator|new
 name|QueryParseContext
 argument_list|(
 name|stParser
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|STRICT
 argument_list|)
 decl_stmt|;
 name|stParser
@@ -2763,9 +2687,6 @@ name|SignificanceHeuristicParser
 argument_list|>
 name|significanceHeuristicParserRegistry
 parameter_list|,
-name|SearchContext
-name|searchContext
-parameter_list|,
 name|String
 name|heuristicString
 parameter_list|)
@@ -2792,8 +2713,6 @@ return|return
 name|parseSignificanceHeuristic
 argument_list|(
 name|significanceHeuristicParserRegistry
-argument_list|,
-name|searchContext
 argument_list|,
 name|stParser
 argument_list|)

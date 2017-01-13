@@ -338,8 +338,6 @@ name|searchRequest
 argument_list|,
 name|restRequest
 argument_list|,
-name|parseFieldMatcher
-argument_list|,
 name|searchRequestParser
 argument_list|)
 expr_stmt|;
