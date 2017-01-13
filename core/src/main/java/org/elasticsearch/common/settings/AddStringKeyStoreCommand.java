@@ -341,9 +341,9 @@ name|UserException
 argument_list|(
 name|ExitCodes
 operator|.
-name|DATA_ERROR
+name|USAGE
 argument_list|,
-literal|"the setting name can not be null."
+literal|"The setting name can not be null"
 argument_list|)
 throw|;
 block|}
