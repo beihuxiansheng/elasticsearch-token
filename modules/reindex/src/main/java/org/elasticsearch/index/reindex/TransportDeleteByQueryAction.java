@@ -329,7 +329,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doExecute
-specifier|protected
+specifier|public
 name|void
 name|doExecute
 parameter_list|(

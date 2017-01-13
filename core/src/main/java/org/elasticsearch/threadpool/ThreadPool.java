@@ -1349,10 +1349,11 @@ name|BULK
 argument_list|,
 name|availableProcessors
 argument_list|,
-literal|50
+literal|200
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// now that we reuse bulk for index/delete ops
 name|builders
 operator|.
 name|put

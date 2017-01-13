@@ -54,7 +54,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
+name|DocWriteRequest
+operator|.
+name|OpType
 import|;
 end_import
 
@@ -66,9 +68,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteRequest
-operator|.
-name|OpType
+name|DocWriteResponse
 import|;
 end_import
 
@@ -580,7 +580,7 @@ decl_stmt|;
 DECL|field|cause
 specifier|private
 specifier|final
-name|Throwable
+name|Exception
 name|cause
 decl_stmt|;
 DECL|field|status
@@ -602,7 +602,7 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
-name|Throwable
+name|Exception
 name|cause
 parameter_list|)
 block|{
@@ -804,7 +804,7 @@ block|}
 comment|/**          * The actual cause of the failure.          */
 DECL|method|getCause
 specifier|public
-name|Throwable
+name|Exception
 name|getCause
 parameter_list|()
 block|{

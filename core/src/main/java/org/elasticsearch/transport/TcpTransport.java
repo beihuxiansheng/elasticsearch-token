@@ -3322,23 +3322,6 @@ argument_list|()
 argument_list|)
 init|)
 block|{
-if|if
-condition|(
-operator|!
-name|lifecycle
-operator|.
-name|started
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"can't add nodes to a stopped transport"
-argument_list|)
-throw|;
-block|}
 name|NodeChannels
 name|nodeChannels
 init|=
@@ -5967,7 +5950,14 @@ name|started
 argument_list|()
 condition|)
 block|{
-comment|// ignore
+comment|// just close and ignore - we are already stopped and just need to make sure we release all resources
+name|disconnectFromNodeChannel
+argument_list|(
+name|channel
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if

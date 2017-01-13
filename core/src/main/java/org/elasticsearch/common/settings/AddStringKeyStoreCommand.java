@@ -330,6 +330,25 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|setting
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|UserException
+argument_list|(
+name|ExitCodes
+operator|.
+name|USAGE
+argument_list|,
+literal|"The setting name can not be null"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|keystore
 operator|.
 name|getSettings

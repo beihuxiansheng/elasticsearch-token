@@ -913,6 +913,10 @@ name|TransportService
 operator|.
 name|NOOP_TRANSPORT_INTERCEPTOR
 argument_list|,
+name|x
+lambda|->
+literal|null
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
