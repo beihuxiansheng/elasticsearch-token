@@ -9273,7 +9273,7 @@ argument_list|(
 name|waitForConnection
 argument_list|)
 expr_stmt|;
-name|serviceB
+name|serviceC
 operator|.
 name|removeConnectionListener
 argument_list|(
