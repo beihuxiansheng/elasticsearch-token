@@ -1383,7 +1383,6 @@ return|;
 block|}
 annotation|@
 name|Override
-specifier|protected
 name|boolean
 name|areCgroupStatsAvailable
 parameter_list|()

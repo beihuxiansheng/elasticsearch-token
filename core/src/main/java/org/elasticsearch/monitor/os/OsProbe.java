@@ -903,9 +903,7 @@ argument_list|(
 name|line
 argument_list|)
 decl_stmt|;
-comment|// note that Matcher#matches must be invoked as
-comment|// matching is lazy; this can not happen in an assert
-comment|// as assertions might not be enabled
+comment|// Matcher#matches must be invoked as matching is lazy; this can not happen in an assert as assertions might not be enabled
 specifier|final
 name|boolean
 name|matches
@@ -920,8 +918,7 @@ name|matches
 operator|:
 name|line
 assert|;
-comment|// at this point we have captured the subsystems and the
-comment|// control group
+comment|// at this point we have captured the subsystems and the control group
 specifier|final
 name|String
 index|[]
@@ -1430,7 +1427,6 @@ operator|=
 literal|"access /proc/self/cgroup, /sys/fs/cgroup/cpu, and /sys/fs/cgroup/cpuacct"
 argument_list|)
 DECL|method|areCgroupStatsAvailable
-specifier|protected
 name|boolean
 name|areCgroupStatsAvailable
 parameter_list|()
@@ -1642,14 +1638,6 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
@@ -1659,7 +1647,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
