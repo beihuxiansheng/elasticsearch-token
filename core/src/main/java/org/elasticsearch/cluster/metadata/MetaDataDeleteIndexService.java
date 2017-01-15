@@ -648,9 +648,9 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"[{}] deleting index"
+literal|"{} deleting index"
 argument_list|,
 name|index
 argument_list|)
