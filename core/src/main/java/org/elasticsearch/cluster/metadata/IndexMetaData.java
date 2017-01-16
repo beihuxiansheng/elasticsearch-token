@@ -1386,10 +1386,6 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
-argument_list|,
-name|Property
-operator|.
-name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_SHARED_FILESYSTEM
@@ -1417,15 +1413,11 @@ name|boolSetting
 argument_list|(
 name|SETTING_SHARED_FILESYSTEM
 argument_list|,
-name|INDEX_SHADOW_REPLICAS_SETTING
+literal|false
 argument_list|,
 name|Property
 operator|.
 name|IndexScope
-argument_list|,
-name|Property
-operator|.
-name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_AUTO_EXPAND_REPLICAS
@@ -1750,10 +1742,6 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
-argument_list|,
-name|Property
-operator|.
-name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
@@ -1790,10 +1778,6 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
-argument_list|,
-name|Property
-operator|.
-name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|INDEX_UUID_NA_VALUE
@@ -7739,7 +7723,6 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|// don't use the settings directly, not to trigger manny deprecation
 return|return
 name|settings
 operator|.
@@ -7765,7 +7748,6 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|// don't use the settings directly, not to trigger manny deprecation
 return|return
 name|settings
 operator|.

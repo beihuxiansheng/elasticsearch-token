@@ -284,6 +284,20 @@ name|common
 operator|.
 name|logging
 operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
 name|Loggers
 import|;
 end_import
@@ -1114,10 +1128,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**      * Seed for determining a persisted unique uuid of this node. If the node has already a persisted uuid on disk,      * this seed will be ignored and the uuid from disk will be reused.      */

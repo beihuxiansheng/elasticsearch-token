@@ -428,10 +428,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|PIDFILE_SETTING
