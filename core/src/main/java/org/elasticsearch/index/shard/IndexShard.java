@@ -3897,6 +3897,8 @@ name|indexingOperationListeners
 operator|.
 name|preIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -3953,6 +3955,8 @@ name|indexingOperationListeners
 operator|.
 name|postIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|index
 argument_list|,
 name|e
@@ -3966,6 +3970,8 @@ name|indexingOperationListeners
 operator|.
 name|postIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|index
 argument_list|,
 name|result
@@ -4331,6 +4337,8 @@ name|indexingOperationListeners
 operator|.
 name|preDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|)
 expr_stmt|;
@@ -4380,6 +4388,8 @@ name|indexingOperationListeners
 operator|.
 name|postDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|,
 name|e
@@ -4393,6 +4403,8 @@ name|indexingOperationListeners
 operator|.
 name|postDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|,
 name|result

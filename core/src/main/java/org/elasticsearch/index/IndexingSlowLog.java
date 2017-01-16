@@ -168,6 +168,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -932,6 +946,9 @@ specifier|public
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -1240,7 +1257,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"], took_millis["
+literal|"], "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"took_millis["
 argument_list|)
 operator|.
 name|append

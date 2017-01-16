@@ -104,6 +104,9 @@ operator|.
 name|Index
 name|preIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -114,12 +117,15 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Called after the indexing operation occurred. Note that this is      * also called when indexing a document did not succeed due to document      * related failures. See {@link #postIndex(Engine.Index, Exception)}      * for engine level failures      */
+comment|/**      * Called after the indexing operation occurred. Note that this is      * also called when indexing a document did not succeed due to document      * related failures. See {@link #postIndex(ShardId, Engine.Index, Exception)}      * for engine level failures      */
 DECL|method|postIndex
 specifier|default
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -131,12 +137,15 @@ name|IndexResult
 name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the indexing operation occurred with engine level exception.      * See {@link #postIndex(Engine.Index, Engine.IndexResult)} for document      * related failures      */
+comment|/**      * Called after the indexing operation occurred with engine level exception.      * See {@link #postIndex(ShardId, Engine.Index, Engine.IndexResult)} for document      * related failures      */
 DECL|method|postIndex
 specifier|default
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -154,6 +163,9 @@ operator|.
 name|Delete
 name|preDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -164,12 +176,15 @@ return|return
 name|delete
 return|;
 block|}
-comment|/**      * Called after the delete operation occurred. Note that this is      * also called when deleting a document did not succeed due to document      * related failures. See {@link #postDelete(Engine.Delete, Exception)}      * for engine level failures      */
+comment|/**      * Called after the delete operation occurred. Note that this is      * also called when deleting a document did not succeed due to document      * related failures. See {@link #postDelete(ShardId, Engine.Delete, Exception)}      * for engine level failures      */
 DECL|method|postDelete
 specifier|default
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -181,12 +196,15 @@ name|DeleteResult
 name|result
 parameter_list|)
 block|{}
-comment|/**      * Called after the delete operation occurred with engine level exception.      * See {@link #postDelete(Engine.Delete, Engine.DeleteResult)} for document      * related failures      */
+comment|/**      * Called after the delete operation occurred with engine level exception.      * See {@link #postDelete(ShardId, Engine.Delete, Engine.DeleteResult)} for document      * related failures      */
 DECL|method|postDelete
 specifier|default
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -255,6 +273,9 @@ operator|.
 name|Index
 name|preIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -280,6 +301,8 @@ name|listener
 operator|.
 name|preIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
@@ -326,6 +349,9 @@ specifier|public
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -356,6 +382,8 @@ name|listener
 operator|.
 name|postIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|index
 argument_list|,
 name|result
@@ -401,6 +429,9 @@ specifier|public
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -433,6 +464,8 @@ name|listener
 operator|.
 name|postIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|index
 argument_list|,
 name|ex
@@ -487,6 +520,9 @@ operator|.
 name|Delete
 name|preDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -512,6 +548,8 @@ name|listener
 operator|.
 name|preDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|)
 expr_stmt|;
@@ -558,6 +596,9 @@ specifier|public
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -588,6 +629,8 @@ name|listener
 operator|.
 name|postDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|,
 name|result
@@ -633,6 +676,9 @@ specifier|public
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -665,6 +711,8 @@ name|listener
 operator|.
 name|postDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|,
 name|ex
