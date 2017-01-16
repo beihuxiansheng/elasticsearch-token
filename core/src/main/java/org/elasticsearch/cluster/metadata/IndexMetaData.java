@@ -7739,7 +7739,7 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|// don't use the settings directly, not to trigger manny deprecation
+comment|// don't use the settings directly, not to trigger manny deprecation logging
 return|return
 name|settings
 operator|.
@@ -7765,7 +7765,7 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-comment|// don't use the settings directly, not to trigger manny deprecation
+comment|// don't use the settings directly, not to trigger manny deprecation logging
 return|return
 name|settings
 operator|.
