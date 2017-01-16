@@ -466,20 +466,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|EngineClosedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|VersionConflictEngineException
 import|;
 end_import
@@ -551,20 +537,6 @@ operator|.
 name|shard
 operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShardClosedException
 import|;
 end_import
 
@@ -2987,14 +2959,6 @@ operator|||
 name|failure
 operator|instanceof
 name|MapperParsingException
-operator|||
-name|failure
-operator|instanceof
-name|EngineClosedException
-operator|||
-name|failure
-operator|instanceof
-name|IndexShardClosedException
 operator|:
 literal|"expected any one of [version conflict, mapper parsing, engine closed, index shard closed]"
 operator|+

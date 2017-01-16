@@ -1717,7 +1717,10 @@ name|Term
 argument_list|(
 literal|"_uid"
 argument_list|,
-literal|"1"
+name|doc
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|,
 name|doc
@@ -2061,7 +2064,10 @@ name|Term
 argument_list|(
 literal|"_uid"
 argument_list|,
-literal|"1"
+name|doc
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|,
 name|doc

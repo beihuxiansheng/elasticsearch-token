@@ -947,21 +947,6 @@ name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{
-comment|// This means there's a bug somewhere: don't suppress it
-throw|throw
-operator|new
-name|AssertionError
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|EngineClosedException
-name|e
-parameter_list|)
-block|{
 throw|throw
 name|e
 throw|;

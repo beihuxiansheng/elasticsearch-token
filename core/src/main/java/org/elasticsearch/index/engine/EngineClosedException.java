@@ -75,6 +75,8 @@ comment|/**  * An engine is already closed.  *<p>  * Note, the relationship betw
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|EngineClosedException
 specifier|public
 class|class

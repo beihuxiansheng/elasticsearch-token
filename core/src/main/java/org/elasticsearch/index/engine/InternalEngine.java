@@ -3293,6 +3293,19 @@ argument_list|)
 operator|==
 literal|false
 expr_stmt|;
+if|if
+condition|(
+name|failure
+operator|instanceof
+name|AlreadyClosedException
+condition|)
+block|{
+comment|// ensureOpen throws AlreadyClosedException which is not a document level issue
+name|isDocumentFailure
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -5333,16 +5346,6 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|EngineClosedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|Exception
 name|e
 parameter_list|)
@@ -5535,16 +5538,6 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-throw|throw
-name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|EngineClosedException
-name|e
-parameter_list|)
-block|{
 throw|throw
 name|e
 throw|;
@@ -6410,8 +6403,6 @@ parameter_list|)
 throws|throws
 name|EngineException
 throws|,
-name|EngineClosedException
-throws|,
 name|IOException
 block|{
 comment|/*          * We do NOT acquire the readlock here since we are waiting on the merges to finish          * that's fine since the IW.rollback should stop all the threads and trigger an IOException          * causing us to fail the forceMerge          *          * The way we implement upgrades is a bit hackish in the sense that we set an instance          * variable and that this setting will thus apply to the next forced merge that will be run.          * This is ok because (1) this is the only place we call forceMerge, (2) we have a single          * thread for optimize, and the 'optimizeLock' guarding this code, and (3) ConcurrentMergeScheduler          * syncs calls to findForcedMerges.          */
@@ -6767,13 +6758,17 @@ literal|"finally"
 argument_list|)
 DECL|method|failOnTragicEvent
 specifier|private
-name|void
+name|boolean
 name|failOnTragicEvent
 parameter_list|(
 name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{
+specifier|final
+name|boolean
+name|engineFailed
+decl_stmt|;
 comment|// if we are already closed due to some tragic exception
 comment|// we need to fail the engine. it might have already been failed before
 comment|// but we are double-checking it's failed and closed
@@ -6844,6 +6839,10 @@ name|getTragicException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|engineFailed
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 elseif|else
@@ -6874,6 +6873,10 @@ name|getTragicException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|engineFailed
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -6884,6 +6887,13 @@ name|get
 argument_list|()
 operator|==
 literal|null
+operator|&&
+name|isClosed
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 comment|// we are closed but the engine is not failed yet?
@@ -6899,6 +6909,16 @@ name|ex
 argument_list|)
 throw|;
 block|}
+else|else
+block|{
+name|engineFailed
+operator|=
+literal|false
+expr_stmt|;
+block|}
+return|return
+name|engineFailed
+return|;
 block|}
 annotation|@
 name|Override
@@ -6945,6 +6965,7 @@ operator|instanceof
 name|AlreadyClosedException
 condition|)
 block|{
+return|return
 name|failOnTragicEvent
 argument_list|(
 operator|(
@@ -6952,9 +6973,6 @@ name|AlreadyClosedException
 operator|)
 name|e
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
 return|;
 block|}
 elseif|else
