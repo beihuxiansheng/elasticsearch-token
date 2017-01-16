@@ -4183,6 +4183,9 @@ specifier|public
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -4253,6 +4256,9 @@ specifier|public
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete

@@ -374,6 +374,9 @@ operator|.
 name|Index
 name|preIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -424,6 +427,9 @@ specifier|public
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -514,6 +520,8 @@ else|else
 block|{
 name|postIndex
 argument_list|(
+name|shardId
+argument_list|,
 name|index
 argument_list|,
 name|result
@@ -531,6 +539,9 @@ specifier|public
 name|void
 name|postIndex
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Index
@@ -603,6 +614,9 @@ operator|.
 name|Delete
 name|preDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -653,6 +667,9 @@ specifier|public
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete
@@ -743,6 +760,8 @@ else|else
 block|{
 name|postDelete
 argument_list|(
+name|shardId
+argument_list|,
 name|delete
 argument_list|,
 name|result
@@ -760,6 +779,9 @@ specifier|public
 name|void
 name|postDelete
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|Engine
 operator|.
 name|Delete

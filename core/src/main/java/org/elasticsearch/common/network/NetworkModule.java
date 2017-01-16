@@ -1069,6 +1069,11 @@ operator|.
 name|getTransportInterceptors
 argument_list|(
 name|namedWriteableRegistry
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for

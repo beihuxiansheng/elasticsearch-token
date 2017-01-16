@@ -122,6 +122,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|NamedXContentRegistry
@@ -200,7 +216,7 @@ specifier|public
 interface|interface
 name|NetworkPlugin
 block|{
-comment|/**      * Returns a list of {@link TransportInterceptor} instances that are used to intercept incoming and outgoing      * transport (inter-node) requests. This must not return<code>null</code>      */
+comment|/**      * Returns a list of {@link TransportInterceptor} instances that are used to intercept incoming and outgoing      * transport (inter-node) requests. This must not return<code>null</code>      *      * @param namedWriteableRegistry registry of all named writeables registered      * @param threadContext a {@link ThreadContext} of the current nodes or clients {@link ThreadPool} that can be used to set additional      *                      headers in the interceptors      */
 DECL|method|getTransportInterceptors
 specifier|default
 name|List
@@ -211,6 +227,9 @@ name|getTransportInterceptors
 parameter_list|(
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
+parameter_list|,
+name|ThreadContext
+name|threadContext
 parameter_list|)
 block|{
 return|return
