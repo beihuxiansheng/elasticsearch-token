@@ -787,12 +787,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Configures the logging levels for loggers configured in the specified settings.      *      * @param settings the settings from which logger levels will be extracted      */
 DECL|method|configureLoggerLevels
 specifier|private
 specifier|static
 name|void
 name|configureLoggerLevels
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|)
@@ -860,6 +862,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|String
 name|key
 range|:
@@ -868,6 +871,23 @@ operator|.
 name|keySet
 argument_list|()
 control|)
+block|{
+comment|// do not set a log level for a logger named level (from the default log setting)
+if|if
+condition|(
+operator|!
+name|key
+operator|.
+name|equals
+argument_list|(
+name|ESLoggerFactory
+operator|.
+name|LOG_DEFAULT_LEVEL_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+condition|)
 block|{
 specifier|final
 name|Level
@@ -909,6 +929,7 @@ argument_list|,
 name|level
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
