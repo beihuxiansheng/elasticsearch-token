@@ -1774,7 +1774,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|failShard
+name|failShardIfNeeded
 parameter_list|(
 name|ShardRouting
 name|replica
@@ -1811,7 +1811,7 @@ condition|)
 block|{
 name|super
 operator|.
-name|failShard
+name|failShardIfNeeded
 argument_list|(
 name|replica
 argument_list|,
@@ -1858,7 +1858,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|markShardCopyAsStale
+name|markShardCopyAsStaleIfNeeded
 parameter_list|(
 name|ShardId
 name|shardId
@@ -1906,7 +1906,7 @@ else|else
 block|{
 name|super
 operator|.
-name|markShardCopyAsStale
+name|markShardCopyAsStaleIfNeeded
 argument_list|(
 name|shardId
 argument_list|,
@@ -3670,10 +3670,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|failShard
+DECL|method|failShardIfNeeded
 specifier|public
 name|void
-name|failShard
+name|failShardIfNeeded
 parameter_list|(
 name|ShardRouting
 name|replica
@@ -3777,10 +3777,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|markShardCopyAsStale
+DECL|method|markShardCopyAsStaleIfNeeded
 specifier|public
 name|void
-name|markShardCopyAsStale
+name|markShardCopyAsStaleIfNeeded
 parameter_list|(
 name|ShardId
 name|shardId

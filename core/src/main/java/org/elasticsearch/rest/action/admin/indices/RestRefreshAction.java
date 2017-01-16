@@ -448,7 +448,10 @@ return|return
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|OK
+name|response
+operator|.
+name|getStatus
+argument_list|()
 argument_list|,
 name|builder
 argument_list|)

@@ -2923,10 +2923,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|failShard
+DECL|method|failShardIfNeeded
 specifier|public
 name|void
-name|failShard
+name|failShardIfNeeded
 parameter_list|(
 name|ShardRouting
 name|replica
@@ -2964,10 +2964,10 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|markShardCopyAsStale
+DECL|method|markShardCopyAsStaleIfNeeded
 specifier|public
 name|void
-name|markShardCopyAsStale
+name|markShardCopyAsStaleIfNeeded
 parameter_list|(
 name|ShardId
 name|shardId

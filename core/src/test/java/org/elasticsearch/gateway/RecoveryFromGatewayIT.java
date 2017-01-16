@@ -3138,25 +3138,13 @@ argument_list|()
 expr_stmt|;
 comment|// TODO: remove once refresh doesn't fail immediately if there a master block:
 comment|// https://github.com/elastic/elasticsearch/issues/9997
-name|client
-argument_list|()
+comment|// client().admin().cluster().prepareHealth("test").setWaitForYellowStatus().get();
+name|logger
 operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareHealth
+name|info
 argument_list|(
-literal|"test"
+literal|"--> refreshing all indices after indexing is complete"
 argument_list|)
-operator|.
-name|setWaitForYellowStatus
-argument_list|()
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -3175,6 +3163,13 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> checking if documents exist, there should be 3"
+argument_list|)
 expr_stmt|;
 for|for
 control|(
