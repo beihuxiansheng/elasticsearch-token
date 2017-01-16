@@ -329,7 +329,7 @@ name|randomFrom
 argument_list|(
 name|random
 argument_list|,
-name|ALL_ERROR_STATUS_CODES
+name|ALL_STATUS_CODES
 argument_list|)
 return|;
 block|}
