@@ -56,20 +56,6 @@ name|MonitorService
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|service
-operator|.
-name|NodeService
-import|;
-end_import
-
 begin_class
 DECL|class|NodeModule
 specifier|public
@@ -145,16 +131,6 @@ name|toInstance
 argument_list|(
 name|monitorService
 argument_list|)
-expr_stmt|;
-name|bind
-argument_list|(
-name|NodeService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(

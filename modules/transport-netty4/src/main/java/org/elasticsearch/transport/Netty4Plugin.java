@@ -531,6 +531,11 @@ name|xContentRegistry
 parameter_list|,
 name|NetworkService
 name|networkService
+parameter_list|,
+name|HttpServerTransport
+operator|.
+name|Dispatcher
+name|dispatcher
 parameter_list|)
 block|{
 return|return
@@ -554,6 +559,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|xContentRegistry
+argument_list|,
+name|dispatcher
 argument_list|)
 argument_list|)
 return|;
