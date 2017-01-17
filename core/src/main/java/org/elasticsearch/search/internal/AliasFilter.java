@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|CheckedFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -345,9 +357,15 @@ name|getIndexMetaData
 argument_list|()
 decl_stmt|;
 comment|/* Being static, parseAliasFilter doesn't have access to whatever guts it needs to parse a query. Instead of passing in a bunch              * of dependencies we pass in a function that can perform the parsing. */
-name|ShardSearchRequest
-operator|.
-name|FilterParser
+name|CheckedFunction
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|QueryBuilder
+argument_list|,
+name|IOException
+argument_list|>
 name|filterParser
 init|=
 name|bytes

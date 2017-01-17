@@ -2678,7 +2678,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|EngineClosedException
+name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{
@@ -2774,9 +2774,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|EngineClosedException
+name|AlreadyClosedException
 argument_list|(
 name|shardId
+operator|+
+literal|" engine is closed"
 argument_list|,
 name|failedEngine
 operator|.
@@ -5136,6 +5138,31 @@ argument_list|,
 name|startTime
 argument_list|)
 expr_stmt|;
+assert|assert
+name|uid
+operator|.
+name|bytes
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|doc
+operator|.
+name|uid
+argument_list|()
+argument_list|)
+operator|:
+literal|"term uid "
+operator|+
+name|uid
+operator|+
+literal|" doesn't match doc uid "
+operator|+
+name|doc
+operator|.
+name|uid
+argument_list|()
+assert|;
 name|this
 operator|.
 name|doc
@@ -6237,7 +6264,7 @@ comment|// TODO we might force a flush in the future since we have the write loc
 block|}
 catch|catch
 parameter_list|(
-name|EngineClosedException
+name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{

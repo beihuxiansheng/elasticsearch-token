@@ -898,8 +898,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
 name|InternalSettingsPreparer
 import|;
 end_import

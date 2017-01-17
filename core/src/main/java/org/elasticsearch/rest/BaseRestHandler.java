@@ -66,6 +66,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|CheckedConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -747,19 +759,14 @@ DECL|interface|RestChannelConsumer
 specifier|protected
 interface|interface
 name|RestChannelConsumer
-block|{
-comment|/**          * Executes a request against the given channel.          *          * @param channel the channel for sending the response          * @throws Exception if an exception occurred executing the request          */
-DECL|method|accept
-name|void
-name|accept
-parameter_list|(
+extends|extends
+name|CheckedConsumer
+argument_list|<
 name|RestChannel
-name|channel
-parameter_list|)
-throws|throws
+argument_list|,
 name|Exception
-function_decl|;
-block|}
+argument_list|>
+block|{     }
 comment|/**      * Prepare the request for execution. Implementations should consume all request params before      * returning the runnable for actual execution. Unconsumed params will immediately terminate      * execution of the request. However, some params are only used in processing the response;      * implementations can override {@link BaseRestHandler#responseParams()} to indicate such      * params.      *      * @param request the request to execute      * @param client  client for executing actions on the local node      * @return the action to execute      * @throws IOException if an I/O exception occurred parsing the request and preparing for      *                     execution      */
 DECL|method|prepareRequest
 specifier|protected

@@ -356,6 +356,20 @@ name|index
 operator|.
 name|analysis
 operator|.
+name|FlattenGraphTokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
 name|GermanNormalizationFilterFactory
 import|;
 end_import
@@ -2319,6 +2333,15 @@ name|WordDelimiterTokenFilterFactory
 operator|.
 name|class
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"flattengraph"
+argument_list|,
+name|FlattenGraphTokenFilterFactory
+operator|.
+name|class
+argument_list|)
 comment|// TODO: these tokenfilters are not yet exposed: useful?
 comment|// suggest stop
 operator|.
@@ -2445,16 +2468,6 @@ operator|.
 name|put
 argument_list|(
 literal|"daterecognizer"
-argument_list|,
-name|Void
-operator|.
-name|class
-argument_list|)
-comment|// to flatten graphs created by the synonym graph filter
-operator|.
-name|put
-argument_list|(
-literal|"flattengraph"
 argument_list|,
 name|Void
 operator|.

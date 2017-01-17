@@ -1202,6 +1202,16 @@ name|threadPool
 argument_list|,
 name|xContentRegistry
 argument_list|()
+argument_list|,
+parameter_list|(
+name|request
+parameter_list|,
+name|channel
+parameter_list|,
+name|context
+parameter_list|)
+lambda|->
+block|{}
 argument_list|)
 expr_stmt|;
 block|}

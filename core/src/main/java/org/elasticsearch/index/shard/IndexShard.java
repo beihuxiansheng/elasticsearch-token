@@ -814,20 +814,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|EngineClosedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|EngineConfig
 import|;
 end_import
@@ -4444,7 +4430,7 @@ name|acquireSearcher
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes all indexing changes to disk and opens a new searcher reflecting all changes.  This can throw {@link EngineClosedException}.      */
+comment|/**      * Writes all indexing changes to disk and opens a new searcher reflecting all changes.  This can throw {@link AlreadyClosedException}.      */
 DECL|method|refresh
 specifier|public
 name|void
@@ -7595,8 +7581,6 @@ block|}
 catch|catch
 parameter_list|(
 name|AlreadyClosedException
-decl||
-name|EngineClosedException
 name|ex
 parameter_list|)
 block|{
@@ -7745,7 +7729,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|EngineClosedException
+name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{
@@ -7769,7 +7753,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|EngineClosedException
+name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{
@@ -7789,7 +7773,7 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|EngineClosedException
+name|AlreadyClosedException
 condition|)
 block|{
 comment|// ignore
@@ -8666,9 +8650,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|EngineClosedException
+name|AlreadyClosedException
 argument_list|(
-name|shardId
+literal|"engine is closed"
 argument_list|)
 throw|;
 block|}
@@ -9452,9 +9436,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|EngineClosedException
+name|AlreadyClosedException
 argument_list|(
 name|shardId
+operator|+
+literal|" can't create engine - shard is closed"
 argument_list|)
 throw|;
 block|}
@@ -10058,7 +10044,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|EngineClosedException
+name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{
@@ -10458,7 +10444,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher *or* there are pending      * refresh listeners.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException  if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
+comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher *or* there are pending      * refresh listeners.      * Otherwise<code>false</code>.      *      * @throws AlreadyClosedException if the engine or internal indexwriter in the engine is already closed      */
 end_comment
 
 begin_function

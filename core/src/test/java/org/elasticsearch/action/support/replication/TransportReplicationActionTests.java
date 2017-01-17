@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -515,20 +529,6 @@ operator|.
 name|index
 operator|.
 name|IndexService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineClosedException
 import|;
 end_import
 
@@ -3600,7 +3600,7 @@ block|}
 block|}
 DECL|method|randomRetryPrimaryException
 specifier|private
-name|ElasticsearchException
+name|Exception
 name|randomRetryPrimaryException
 parameter_list|(
 name|ShardId
@@ -3632,9 +3632,11 @@ name|shardId
 argument_list|)
 argument_list|,
 operator|new
-name|EngineClosedException
+name|AlreadyClosedException
 argument_list|(
 name|shardId
+operator|+
+literal|" primary is closed"
 argument_list|)
 argument_list|,
 operator|new

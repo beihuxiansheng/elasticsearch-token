@@ -60,8 +60,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|service
-operator|.
 name|NodeService
 import|;
 end_import

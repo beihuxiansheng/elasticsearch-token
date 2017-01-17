@@ -180,6 +180,20 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IOContext
 import|;
 end_import
@@ -4538,9 +4552,6 @@ name|ParsedDocument
 name|testParsedDocument
 parameter_list|(
 name|String
-name|uid
-parameter_list|,
-name|String
 name|id
 parameter_list|,
 name|String
@@ -4569,7 +4580,14 @@ name|Field
 argument_list|(
 literal|"_uid"
 argument_list|,
-name|uid
+name|Uid
+operator|.
+name|createUid
+argument_list|(
+name|type
+argument_list|,
+name|id
+argument_list|)
 argument_list|,
 name|UidFieldMapper
 operator|.
@@ -5000,8 +5018,6 @@ name|testParsedDocument
 argument_list|(
 literal|"1"
 argument_list|,
-literal|"1"
-argument_list|,
 literal|"test"
 argument_list|,
 literal|null
@@ -5041,7 +5057,10 @@ name|Term
 argument_list|(
 literal|"_uid"
 argument_list|,
-literal|"1"
+name|doc
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|,
 name|doc
@@ -5220,7 +5239,10 @@ name|Term
 argument_list|(
 literal|"_uid"
 argument_list|,
-literal|"1"
+name|doc
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5334,7 +5356,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalIndexShardStateException
+name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{          }
@@ -5423,7 +5445,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalIndexShardStateException
+name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{          }
@@ -10562,8 +10584,6 @@ name|testParsedDocument
 argument_list|(
 name|id
 argument_list|,
-name|id
-argument_list|,
 literal|"test"
 argument_list|,
 literal|null
@@ -10599,7 +10619,10 @@ name|Term
 argument_list|(
 literal|"_uid"
 argument_list|,
-name|id
+name|doc
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|,
 name|doc
@@ -10772,8 +10795,6 @@ name|testParsedDocument
 argument_list|(
 name|id
 argument_list|,
-name|id
-argument_list|,
 literal|"test"
 argument_list|,
 literal|null
@@ -10809,7 +10830,10 @@ name|Term
 argument_list|(
 literal|"_uid"
 argument_list|,
-name|id
+name|doc
+operator|.
+name|uid
+argument_list|()
 argument_list|)
 argument_list|,
 name|doc

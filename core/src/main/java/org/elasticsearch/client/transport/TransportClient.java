@@ -386,8 +386,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
 name|InternalSettingsPreparer
 import|;
 end_import
@@ -1519,6 +1517,10 @@ name|ActionPlugin
 operator|.
 name|class
 argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|modules
@@ -1608,6 +1610,8 @@ argument_list|,
 name|xContentRegistry
 argument_list|,
 name|networkService
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 specifier|final
