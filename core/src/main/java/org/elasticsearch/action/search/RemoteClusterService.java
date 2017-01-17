@@ -1313,8 +1313,6 @@ operator|+
 literal|" exists but there is also a remote cluster named: "
 operator|+
 name|remoteClusterName
-operator|+
-literal|" can't filter indices"
 argument_list|)
 throw|;
 block|}

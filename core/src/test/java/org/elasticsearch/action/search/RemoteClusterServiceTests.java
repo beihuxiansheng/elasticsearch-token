@@ -1318,7 +1318,7 @@ name|assertEquals
 argument_list|(
 literal|"Can not filter indices; index cluster_1:bar exists but there is also a remote cluster named:"
 operator|+
-literal|" cluster_1 can't filter indices"
+literal|" cluster_1"
 argument_list|,
 name|iae
 operator|.
