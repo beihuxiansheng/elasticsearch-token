@@ -1031,8 +1031,6 @@ decl_stmt|;
 if|if
 condition|(
 name|remove
-operator|==
-literal|true
 operator|&&
 name|connectedNodes
 operator|.
@@ -1409,17 +1407,6 @@ literal|"proxy connections must not be closed"
 assert|;
 block|}
 block|}
-return|;
-block|}
-comment|/**      * Returns the alias / name of the remote cluster      */
-DECL|method|getClusterAlias
-specifier|public
-name|String
-name|getClusterAlias
-parameter_list|()
-block|{
-return|return
-name|clusterAlias
 return|;
 block|}
 annotation|@

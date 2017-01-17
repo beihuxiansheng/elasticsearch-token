@@ -673,7 +673,7 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**      * The name of a node attribute to select nodes that should be connected to in the remote cluster.      * For instance a node can be configured with<tt>node.attr.gateway: true</tt> in order to be eligible as a gateway node between      * clusters. In that case<tt>search.remote.node_attribute: gateway</tt> can be used to filter out other nodes in the remote cluster.      * The value of the setting is expected to be a boolean,<tt>true</tt> for nodes that can become gateways,<tt>false</tt> otherwise.      */
+comment|/**      * The name of a node attribute to select nodes that should be connected to in the remote cluster.      * For instance a node can be configured with<tt>node.attr.gateway: true</tt> in order to be eligible as a gateway node between      * clusters. In that case<tt>search.remote.node.attr: gateway</tt> can be used to filter out other nodes in the remote cluster.      * The value of the setting is expected to be a boolean,<tt>true</tt> for nodes that can become gateways,<tt>false</tt> otherwise.      */
 DECL|field|REMOTE_NODE_ATTRIBUTE
 specifier|public
 specifier|static
@@ -688,7 +688,7 @@ name|Setting
 operator|.
 name|simpleString
 argument_list|(
-literal|"search.remote.node_attribute"
+literal|"search.remote.node.attr"
 argument_list|,
 name|Setting
 operator|.
@@ -1170,7 +1170,6 @@ return|;
 block|}
 comment|/**      * Filters out indices that refer to a remote cluster and adds them to the given per cluster indices map.      *      * @param perClusterIndices a map to fill with remote cluster indices from the given request indices      * @param requestIndices the indices in the search request to filter      * @param indexExists a predicate that can test if a certain index or alias exists      *      * @return all indices in the requestIndices array that are not remote cluster indices      */
 DECL|method|filterIndices
-specifier|public
 name|String
 index|[]
 name|filterIndices
@@ -2075,7 +2074,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|updateRemoteCluster
-specifier|public
 name|void
 name|updateRemoteCluster
 parameter_list|(
@@ -2307,6 +2305,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseSeedAddress
+specifier|private
 specifier|static
 name|InetSocketAddress
 name|parseSeedAddress

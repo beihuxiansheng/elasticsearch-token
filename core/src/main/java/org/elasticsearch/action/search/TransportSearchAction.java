@@ -1220,11 +1220,9 @@ condition|)
 block|{
 name|indices
 operator|=
-operator|new
 name|Index
-index|[
-literal|0
-index|]
+operator|.
+name|EMPTY_ARRAY
 expr_stmt|;
 comment|// don't search on _all if only remote indices were specified
 block|}
