@@ -86,6 +86,18 @@ name|parentTaskId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|shouldCancelChildrenOnCancellation
+specifier|public
+name|boolean
+name|shouldCancelChildrenOnCancellation
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
