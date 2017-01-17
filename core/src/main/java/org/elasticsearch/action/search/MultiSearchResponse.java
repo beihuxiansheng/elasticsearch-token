@@ -662,7 +662,7 @@ condition|)
 block|{
 name|ElasticsearchException
 operator|.
-name|renderException
+name|generateFailureXContent
 argument_list|(
 name|builder
 argument_list|,
@@ -672,6 +672,8 @@ name|item
 operator|.
 name|getFailure
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|builder

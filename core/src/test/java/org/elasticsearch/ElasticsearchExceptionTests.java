@@ -16,6 +16,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -438,6 +452,18 @@ operator|+
 literal|"\"caused_by\":{\"type\":\"illegal_state_exception\",\"reason\":\"bar\","
 operator|+
 literal|"\"stack_trace\":\"java.lang.IllegalStateException: bar"
+operator|+
+operator|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|?
+literal|"\\r\\n"
+else|:
+literal|"\\n"
+operator|)
+operator|+
+literal|"\\tat org.elasticsearch."
 argument_list|)
 argument_list|)
 expr_stmt|;

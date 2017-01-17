@@ -340,10 +340,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|innerToXContent
+DECL|method|metadataToXContent
 specifier|protected
 name|void
-name|innerToXContent
+name|metadataToXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -380,15 +380,6 @@ name|columnNumber
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|innerToXContent
-argument_list|(
-name|builder
-argument_list|,
-name|params
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Line number of the location of the error      *      * @return the line number or -1 if unknown      */
 DECL|method|getLineNumber

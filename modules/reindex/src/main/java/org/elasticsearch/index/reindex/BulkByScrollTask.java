@@ -2317,7 +2317,7 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchException
 operator|.
-name|toXContent
+name|generateThrowableXContent
 argument_list|(
 name|builder
 argument_list|,
