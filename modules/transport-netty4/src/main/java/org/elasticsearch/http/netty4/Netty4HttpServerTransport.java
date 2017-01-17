@@ -3167,7 +3167,7 @@ name|strMethods
 init|=
 name|Strings
 operator|.
-name|splitStringByCommaToArray
+name|tokenizeToStringArray
 argument_list|(
 name|SETTING_CORS_ALLOW_METHODS
 operator|.
@@ -3175,6 +3175,8 @@ name|get
 argument_list|(
 name|settings
 argument_list|)
+argument_list|,
+literal|","
 argument_list|)
 decl_stmt|;
 name|HttpMethod
@@ -3231,7 +3233,7 @@ name|allowedRequestHeaders
 argument_list|(
 name|Strings
 operator|.
-name|splitStringByCommaToArray
+name|tokenizeToStringArray
 argument_list|(
 name|SETTING_CORS_ALLOW_HEADERS
 operator|.
@@ -3239,6 +3241,8 @@ name|get
 argument_list|(
 name|settings
 argument_list|)
+argument_list|,
+literal|","
 argument_list|)
 argument_list|)
 operator|.

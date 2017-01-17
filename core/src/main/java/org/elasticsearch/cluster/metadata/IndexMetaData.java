@@ -658,6 +658,22 @@ name|node
 operator|.
 name|DiscoveryNodeFilters
 operator|.
+name|IP_VALIDATOR
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNodeFilters
+operator|.
 name|OpType
 operator|.
 name|AND
@@ -1834,6 +1850,8 @@ name|INDEX_ROUTING_REQUIRE_GROUP_PREFIX
 operator|+
 literal|"."
 argument_list|,
+name|IP_VALIDATOR
+argument_list|,
 name|Property
 operator|.
 name|Dynamic
@@ -1861,6 +1879,8 @@ name|INDEX_ROUTING_INCLUDE_GROUP_PREFIX
 operator|+
 literal|"."
 argument_list|,
+name|IP_VALIDATOR
+argument_list|,
 name|Property
 operator|.
 name|Dynamic
@@ -1887,6 +1907,8 @@ argument_list|(
 name|INDEX_ROUTING_EXCLUDE_GROUP_PREFIX
 operator|+
 literal|"."
+argument_list|,
+name|IP_VALIDATOR
 argument_list|,
 name|Property
 operator|.
