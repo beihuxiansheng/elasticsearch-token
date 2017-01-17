@@ -347,10 +347,6 @@ name|SETTING_HTTP_TCP_KEEP_ALIVE
 argument_list|,
 name|Netty4HttpServerTransport
 operator|.
-name|SETTING_HTTP_TCP_BLOCKING_SERVER
-argument_list|,
-name|Netty4HttpServerTransport
-operator|.
 name|SETTING_HTTP_TCP_REUSE_ADDRESS
 argument_list|,
 name|Netty4HttpServerTransport
