@@ -558,7 +558,6 @@ implements|implements
 name|Closeable
 block|{
 DECL|field|LOCAL_CLUSTER_GROUP_KEY
-specifier|public
 specifier|static
 specifier|final
 name|String
@@ -813,7 +812,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"remote clusters must have the empty string as it's key"
+literal|"remote clusters must not have the empty string as its key"
 argument_list|)
 throw|;
 block|}
@@ -1307,7 +1306,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Index "
+literal|"Can not filter indices; index "
 operator|+
 name|index
 operator|+

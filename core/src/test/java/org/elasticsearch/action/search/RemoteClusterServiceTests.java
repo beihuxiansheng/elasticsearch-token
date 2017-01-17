@@ -1316,7 +1316,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Index cluster_1:bar exists but there is also a remote cluster named: cluster_1 can't filter indices"
+literal|"Can not filter indices; index cluster_1:bar exists but there is also a remote cluster named:"
+operator|+
+literal|" cluster_1 can't filter indices"
 argument_list|,
 name|iae
 operator|.
@@ -1642,6 +1644,9 @@ literal|"cluster_2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|IllegalArgumentException
+name|iae
+init|=
 name|expectThrows
 argument_list|(
 name|IllegalArgumentException
@@ -1663,6 +1668,16 @@ operator|.
 name|emptyList
 argument_list|()
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"remote clusters must not have the empty string as its key"
+argument_list|,
+name|iae
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
