@@ -1271,6 +1271,9 @@ literal|"cluster_2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|IllegalArgumentException
+name|iae
+init|=
 name|expectThrows
 argument_list|(
 name|IllegalArgumentException
@@ -1309,6 +1312,16 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Index cluster_1:bar exists but there is also a remote cluster named: cluster_1 can't filter indices"
+argument_list|,
+name|iae
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

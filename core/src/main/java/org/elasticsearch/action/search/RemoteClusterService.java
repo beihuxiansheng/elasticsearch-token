@@ -1313,7 +1313,7 @@ name|index
 operator|+
 literal|" exists but there is also a remote cluster named: "
 operator|+
-name|clusterName
+name|remoteClusterName
 operator|+
 literal|" can't filter indices"
 argument_list|)
