@@ -558,9 +558,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown type 1. "
-operator|+
-name|type
+literal|"Unknown type."
 argument_list|)
 throw|;
 block|}
@@ -4102,9 +4100,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown type 2. "
-operator|+
-name|type
+literal|"Unknown type."
 argument_list|)
 throw|;
 block|}
