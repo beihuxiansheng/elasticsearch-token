@@ -347,6 +347,18 @@ argument_list|>
 name|sliceInfo
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|shouldCancelChildrenOnCancellation
+specifier|public
+name|boolean
+name|shouldCancelChildrenOnCancellation
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|class|Status
 specifier|public
 specifier|static
@@ -2317,7 +2329,7 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchException
 operator|.
-name|toXContent
+name|generateThrowableXContent
 argument_list|(
 name|builder
 argument_list|,

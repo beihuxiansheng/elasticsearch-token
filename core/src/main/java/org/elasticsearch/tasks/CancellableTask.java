@@ -47,6 +47,7 @@ end_comment
 begin_class
 DECL|class|CancellableTask
 specifier|public
+specifier|abstract
 class|class
 name|CancellableTask
 extends|extends
@@ -141,6 +142,14 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Returns true if this task should can potentially have children that needs to be cancelled when the parent is cancelled.      */
+DECL|method|shouldCancelChildrenOnCancellation
+specifier|public
+specifier|abstract
+name|boolean
+name|shouldCancelChildrenOnCancellation
+parameter_list|()
+function_decl|;
 DECL|method|isCancelled
 specifier|public
 name|boolean

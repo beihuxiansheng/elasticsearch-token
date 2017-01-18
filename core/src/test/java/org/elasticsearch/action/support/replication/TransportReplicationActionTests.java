@@ -9358,6 +9358,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Using the diamond operator (<>) prevents Eclipse from being able to compile this code
 name|this
 operator|.
 name|resultListener
@@ -9368,7 +9369,11 @@ operator|new
 name|TransportReplicationAction
 operator|.
 name|PrimaryResult
-argument_list|<>
+argument_list|<
+name|Request
+argument_list|,
+name|Response
+argument_list|>
 argument_list|(
 literal|null
 argument_list|,

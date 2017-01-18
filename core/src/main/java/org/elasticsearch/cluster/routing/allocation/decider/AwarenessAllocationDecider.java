@@ -220,9 +220,16 @@ literal|"cluster.routing.allocation.awareness.attributes"
 argument_list|,
 literal|""
 argument_list|,
+name|s
+lambda|->
 name|Strings
-operator|::
-name|splitStringByCommaToArray
+operator|.
+name|tokenizeToStringArray
+argument_list|(
+name|s
+argument_list|,
+literal|","
+argument_list|)
 argument_list|,
 name|Property
 operator|.
@@ -260,6 +267,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|awarenessAttributes
 specifier|private
+specifier|volatile
 name|String
 index|[]
 name|awarenessAttributes

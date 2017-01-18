@@ -310,16 +310,6 @@ argument_list|,
 name|sliceListener
 argument_list|)
 expr_stmt|;
-comment|/* Explicitly tell the task manager that we're running child tasks on the local node so it will cancel them when the parent is              * cancelled. */
-name|taskManager
-operator|.
-name|registerChildTask
-argument_list|(
-name|task
-argument_list|,
-name|localNodeId
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Slice a search request into {@code times} separate search requests slicing on {@code field}. Note that the slices are *shallow*      * copies of this request so don't change them.      */

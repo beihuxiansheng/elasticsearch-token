@@ -414,6 +414,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|Strings
+operator|.
+name|collectionToDelimitedString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|http
 operator|.
 name|HttpTransportSettings
@@ -680,6 +694,18 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
+name|String
+name|suffix
+init|=
+name|randomBoolean
+argument_list|()
+condition|?
+literal|" "
+else|:
+literal|""
+decl_stmt|;
+comment|// sometimes have a leading whitespace between comma delimited elements
+specifier|final
 name|Settings
 name|settings
 init|=
@@ -715,11 +741,15 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|Strings
-operator|.
-name|collectionToCommaDelimitedString
+name|collectionToDelimitedString
 argument_list|(
 name|methods
+argument_list|,
+literal|","
+argument_list|,
+name|suffix
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 operator|.
@@ -730,11 +760,15 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|Strings
-operator|.
-name|collectionToCommaDelimitedString
+name|collectionToDelimitedString
 argument_list|(
 name|headers
+argument_list|,
+literal|","
+argument_list|,
+name|suffix
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 operator|.

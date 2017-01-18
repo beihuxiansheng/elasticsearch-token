@@ -337,13 +337,15 @@ else|else
 block|{
 name|ElasticsearchException
 operator|.
-name|renderException
+name|generateFailureXContent
 argument_list|(
 name|builder
 argument_list|,
 name|params
 argument_list|,
 name|failure
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
