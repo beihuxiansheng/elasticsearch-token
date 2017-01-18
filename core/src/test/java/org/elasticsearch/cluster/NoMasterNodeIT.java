@@ -298,6 +298,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+operator|.
+name|timeValueSeconds
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|hamcrest
@@ -452,22 +468,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// note, sometimes, we want to check with the fact that an index gets created, sometimes not...
-name|boolean
-name|autoCreateIndex
-init|=
-name|randomBoolean
-argument_list|()
-decl_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"auto_create_index set to {}"
-argument_list|,
-name|autoCreateIndex
-argument_list|)
-expr_stmt|;
 name|Settings
 name|settings
 init|=
@@ -487,7 +487,7 @@ name|put
 argument_list|(
 literal|"action.auto_create_index"
 argument_list|,
-name|autoCreateIndex
+literal|true
 argument_list|)
 operator|.
 name|put
@@ -901,7 +901,7 @@ argument_list|)
 expr_stmt|;
 name|checkUpdateAction
 argument_list|(
-name|autoCreateIndex
+literal|true
 argument_list|,
 name|timeout
 argument_list|,
@@ -985,7 +985,7 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-name|autoCreateIndex
+literal|true
 argument_list|,
 name|timeout
 argument_list|,
@@ -1187,33 +1187,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|autoCreateIndex
-condition|)
-block|{
-comment|// we expect the bulk to fail because it will try to go to the master. Use small timeout and detect it has passed
-name|timeout
-operator|=
-operator|new
-name|TimeValue
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// the request should fail very quickly - use a large timeout and make sure it didn't pass...
-name|timeout
-operator|=
-operator|new
-name|TimeValue
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
-block|}
 name|bulkRequestBuilder
 operator|.
 name|setTimeout
@@ -1223,9 +1196,12 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-name|autoCreateIndex
+literal|true
 argument_list|,
-name|timeout
+name|timeValueSeconds
+argument_list|(
+literal|5
+argument_list|)
 argument_list|,
 name|bulkRequestBuilder
 argument_list|)

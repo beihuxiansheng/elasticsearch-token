@@ -160,6 +160,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|MapperService
@@ -318,7 +330,7 @@ operator|.
 name|autoCreateIndex
 return|;
 block|}
-comment|/**      * Should the index be auto created?      */
+comment|/**      * Should the index be auto created?      * @throws IndexNotFoundException if the the index doesn't exist and shouldn't be auto created      */
 DECL|method|shouldAutoCreate
 specifier|public
 name|boolean
@@ -331,6 +343,22 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+if|if
+condition|(
+name|resolver
+operator|.
+name|hasIndexOrAlias
+argument_list|(
+name|index
+argument_list|,
+name|state
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|// One volatile read, so that all checks are done against the same instance:
 specifier|final
 name|AutoCreate
@@ -349,34 +377,46 @@ operator|==
 literal|false
 condition|)
 block|{
-return|return
-literal|false
-return|;
+throw|throw
+operator|new
+name|IndexNotFoundException
+argument_list|(
+literal|"no such index and ["
+operator|+
+name|AUTO_CREATE_INDEX_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] is [false]"
+argument_list|,
+name|index
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
 name|dynamicMappingDisabled
 condition|)
 block|{
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|resolver
-operator|.
-name|hasIndexOrAlias
+throw|throw
+operator|new
+name|IndexNotFoundException
 argument_list|(
-name|index
+literal|"no such index and ["
+operator|+
+name|MapperService
+operator|.
+name|INDEX_MAPPER_DYNAMIC_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] is [false]"
 argument_list|,
-name|state
+name|index
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
+throw|;
 block|}
 comment|// matches not set, default value of "true"
 if|if
@@ -436,14 +476,57 @@ name|index
 argument_list|)
 condition|)
 block|{
-return|return
+if|if
+condition|(
 name|include
-return|;
-block|}
-block|}
+condition|)
+block|{
 return|return
-literal|false
+literal|true
 return|;
+block|}
+throw|throw
+operator|new
+name|IndexNotFoundException
+argument_list|(
+literal|"no such index and ["
+operator|+
+name|AUTO_CREATE_INDEX_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] contains [-"
+operator|+
+name|indexExpression
+operator|+
+literal|"] which forbids automatic creation of the index"
+argument_list|,
+name|index
+argument_list|)
+throw|;
+block|}
+block|}
+throw|throw
+operator|new
+name|IndexNotFoundException
+argument_list|(
+literal|"no such index and ["
+operator|+
+name|AUTO_CREATE_INDEX_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] (["
+operator|+
+name|autoCreate
+operator|+
+literal|"]) doesn't match"
+argument_list|,
+name|index
+argument_list|)
+throw|;
 block|}
 DECL|method|getAutoCreate
 name|AutoCreate
@@ -493,6 +576,12 @@ name|Boolean
 argument_list|>
 argument_list|>
 name|expressions
+decl_stmt|;
+DECL|field|string
+specifier|private
+specifier|final
+name|String
+name|string
 decl_stmt|;
 DECL|method|AutoCreate
 specifier|private
@@ -585,7 +674,9 @@ literal|"Can't parse ["
 operator|+
 name|value
 operator|+
-literal|"] for setting [action.auto_create_index] must be either [true, false, or a comma separated list of index patterns]"
+literal|"] for setting [action.auto_create_index] must "
+operator|+
+literal|"be either [true, false, or a comma separated list of index patterns]"
 argument_list|)
 throw|;
 block|}
@@ -632,7 +723,9 @@ literal|"Can't parse ["
 operator|+
 name|value
 operator|+
-literal|"] for setting [action.auto_create_index] must contain an index name after [-]"
+literal|"] for setting [action.auto_create_index] "
+operator|+
+literal|"must contain an index name after [-]"
 argument_list|)
 throw|;
 block|}
@@ -682,7 +775,9 @@ literal|"Can't parse ["
 operator|+
 name|value
 operator|+
-literal|"] for setting [action.auto_create_index] must contain an index name after [+]"
+literal|"] for setting [action.auto_create_index] "
+operator|+
+literal|"must contain an index name after [+]"
 argument_list|)
 throw|;
 block|}
@@ -760,6 +855,12 @@ name|autoCreateIndex
 operator|=
 name|autoCreateIndex
 expr_stmt|;
+name|this
+operator|.
+name|string
+operator|=
+name|value
+expr_stmt|;
 block|}
 DECL|method|isAutoCreateIndex
 name|boolean
@@ -785,6 +886,18 @@ parameter_list|()
 block|{
 return|return
 name|expressions
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|string
 return|;
 block|}
 block|}
