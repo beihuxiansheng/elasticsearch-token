@@ -942,6 +942,26 @@ throw|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|IndexMetaData
+operator|.
+name|INDEX_ROUTING_PARTITION_SIZE_SETTING
+operator|.
+name|exists
+argument_list|(
+name|targetIndexSettings
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot provide a routing partition size value when shrinking an index"
+argument_list|)
+throw|;
+block|}
 name|targetIndex
 operator|.
 name|cause

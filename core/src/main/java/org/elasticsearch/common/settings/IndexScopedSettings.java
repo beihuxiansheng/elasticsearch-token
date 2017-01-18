@@ -507,6 +507,10 @@ name|INDEX_NUMBER_OF_SHARDS_SETTING
 argument_list|,
 name|IndexMetaData
 operator|.
+name|INDEX_ROUTING_PARTITION_SIZE_SETTING
+argument_list|,
+name|IndexMetaData
+operator|.
 name|INDEX_SHADOW_REPLICAS_SETTING
 argument_list|,
 name|IndexMetaData
