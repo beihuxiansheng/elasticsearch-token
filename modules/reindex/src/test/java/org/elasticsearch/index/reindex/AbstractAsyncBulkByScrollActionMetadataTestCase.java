@@ -17,11 +17,11 @@ package|;
 end_package
 
 begin_class
-DECL|class|AbstractAsyncBulkIndexbyScrollActionMetadataTestCase
+DECL|class|AbstractAsyncBulkByScrollActionMetadataTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAsyncBulkIndexbyScrollActionMetadataTestCase
+name|AbstractAsyncBulkByScrollActionMetadataTestCase
 parameter_list|<
 name|Request
 extends|extends
@@ -35,7 +35,7 @@ extends|extends
 name|BulkIndexByScrollResponse
 parameter_list|>
 extends|extends
-name|AbstractAsyncBulkIndexByScrollActionTestCase
+name|AbstractAsyncBulkByScrollActionTestCase
 argument_list|<
 name|Request
 argument_list|,
@@ -69,7 +69,7 @@ block|}
 DECL|method|action
 specifier|protected
 specifier|abstract
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 argument_list|<
 name|Request
 argument_list|>

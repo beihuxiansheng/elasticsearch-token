@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|ReindexMetadataTests
 extends|extends
-name|AbstractAsyncBulkIndexbyScrollActionMetadataTestCase
+name|AbstractAsyncBulkByScrollActionMetadataTestCase
 argument_list|<
 name|ReindexRequest
 argument_list|,
@@ -81,7 +81,7 @@ argument_list|()
 operator|.
 name|copyMetadata
 argument_list|(
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|wrap
 argument_list|(
@@ -147,7 +147,7 @@ name|action
 operator|.
 name|copyMetadata
 argument_list|(
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|wrap
 argument_list|(
@@ -213,7 +213,7 @@ name|action
 operator|.
 name|copyMetadata
 argument_list|(
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|wrap
 argument_list|(
@@ -279,7 +279,7 @@ name|action
 operator|.
 name|copyMetadata
 argument_list|(
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|wrap
 argument_list|(
@@ -345,7 +345,7 @@ name|action
 operator|.
 name|copyMetadata
 argument_list|(
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|wrap
 argument_list|(
@@ -399,12 +399,12 @@ argument_list|,
 name|request
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|listener
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}

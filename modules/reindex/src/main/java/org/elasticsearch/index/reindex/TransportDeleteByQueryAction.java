@@ -431,11 +431,11 @@ name|threadPool
 argument_list|,
 name|request
 argument_list|,
-name|listener
-argument_list|,
 name|scriptService
 argument_list|,
 name|state
+argument_list|,
+name|listener
 argument_list|)
 operator|.
 name|start
@@ -474,7 +474,7 @@ specifier|static
 class|class
 name|AsyncDeleteBySearchAction
 extends|extends
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 argument_list|<
 name|DeleteByQueryRequest
 argument_list|>
@@ -498,17 +498,17 @@ parameter_list|,
 name|DeleteByQueryRequest
 name|request
 parameter_list|,
-name|ActionListener
-argument_list|<
-name|BulkIndexByScrollResponse
-argument_list|>
-name|listener
-parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|BulkIndexByScrollResponse
+argument_list|>
+name|listener
 parameter_list|)
 block|{
 name|super
@@ -523,11 +523,11 @@ name|threadPool
 argument_list|,
 name|request
 argument_list|,
-name|listener
-argument_list|,
 name|scriptService
 argument_list|,
 name|clusterState
+argument_list|,
+name|listener
 argument_list|)
 expr_stmt|;
 block|}
@@ -633,7 +633,7 @@ name|delete
 argument_list|)
 return|;
 block|}
-comment|/**          * Overrides the parent {@link AbstractAsyncBulkIndexByScrollAction#copyMetadata(RequestWrapper, ScrollableHitSource.Hit)}          * method that is much more Update/Reindex oriented and so also copies things like timestamp/ttl which we          * don't care for a deletion.          */
+comment|/**          * Overrides the parent's implementation is much more Update/Reindex oriented and so also copies things like timestamp/ttl which we          * don't care for a deletion.          */
 annotation|@
 name|Override
 DECL|method|copyMetadata

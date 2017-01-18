@@ -66,7 +66,7 @@ name|index
 operator|.
 name|reindex
 operator|.
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|OpType
 import|;
@@ -82,7 +82,7 @@ name|index
 operator|.
 name|reindex
 operator|.
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|RequestWrapper
 import|;
@@ -239,11 +239,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractAsyncBulkIndexByScrollActionScriptTestCase
+DECL|class|AbstractAsyncBulkByScrollActionScriptTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAsyncBulkIndexByScrollActionScriptTestCase
+name|AbstractAsyncBulkByScrollActionScriptTestCase
 parameter_list|<
 name|Request
 extends|extends
@@ -257,7 +257,7 @@ extends|extends
 name|BulkIndexByScrollResponse
 parameter_list|>
 extends|extends
-name|AbstractAsyncBulkIndexByScrollActionTestCase
+name|AbstractAsyncBulkByScrollActionTestCase
 argument_list|<
 name|Request
 argument_list|,
@@ -411,7 +411,7 @@ argument_list|(
 name|executableScript
 argument_list|)
 expr_stmt|;
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 argument_list|<
 name|Request
 argument_list|>
@@ -443,7 +443,7 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 operator|.
 name|wrap
 argument_list|(
@@ -814,7 +814,7 @@ block|}
 DECL|method|action
 specifier|protected
 specifier|abstract
-name|AbstractAsyncBulkIndexByScrollAction
+name|AbstractAsyncBulkByScrollAction
 argument_list|<
 name|Request
 argument_list|>

@@ -99,11 +99,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractAsyncBulkIndexByScrollActionTestCase
+DECL|class|AbstractAsyncBulkByScrollActionTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAsyncBulkIndexByScrollActionTestCase
+name|AbstractAsyncBulkByScrollActionTestCase
 parameter_list|<
 name|Request
 extends|extends
