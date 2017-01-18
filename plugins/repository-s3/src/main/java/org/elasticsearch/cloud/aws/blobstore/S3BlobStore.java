@@ -178,6 +178,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cloud
+operator|.
+name|aws
+operator|.
+name|util
+operator|.
+name|SocketAccess
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -279,6 +295,26 @@ operator|.
 name|unit
 operator|.
 name|ByteSizeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|AccessController
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|PrivilegedAction
 import|;
 end_import
 
@@ -458,6 +494,13 @@ comment|// but we don't have access to it (ie, 403 Forbidden response code)
 comment|// Also, if invalid security credentials are used to execute this method, the
 comment|// client is not able to distinguish between bucket permission errors and
 comment|// invalid credential errors, and this method could return an incorrect result.
+name|SocketAccess
+operator|.
+name|doPrivilegedVoid
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 name|int
 name|retry
 init|=
@@ -485,8 +528,6 @@ condition|)
 block|{
 name|CreateBucketRequest
 name|request
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -573,6 +614,9 @@ throw|;
 block|}
 block|}
 block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -683,32 +727,45 @@ name|BlobPath
 name|path
 parameter_list|)
 block|{
+name|AccessController
+operator|.
+name|doPrivileged
+argument_list|(
+call|(
+name|PrivilegedAction
+argument_list|<
+name|Object
+argument_list|>
+call|)
+argument_list|()
+operator|->
+block|{
 name|ObjectListing
 name|prevListing
-init|=
+operator|=
 literal|null
-decl_stmt|;
+block|;
 comment|//From http://docs.amazonwebservices.com/AmazonS3/latest/dev/DeletingMultipleObjectsUsingJava.html
 comment|//we can do at most 1K objects per delete
 comment|//We don't know the bucket name until first object listing
 name|DeleteObjectsRequest
 name|multiObjectDeleteRequest
-init|=
+operator|=
 literal|null
-decl_stmt|;
+block|;
 name|ArrayList
 argument_list|<
 name|KeyVersion
 argument_list|>
 name|keys
-init|=
+operator|=
 operator|new
 name|ArrayList
 argument_list|<
 name|KeyVersion
 argument_list|>
 argument_list|()
-decl_stmt|;
+block|;
 while|while
 condition|(
 literal|true
@@ -762,16 +819,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-for|for
-control|(
+argument_list|for
+operator|(
 name|S3ObjectSummary
 name|summary
-range|:
+operator|:
 name|list
 operator|.
 name|getObjectSummaries
 argument_list|()
-control|)
+operator|)
 block|{
 name|keys
 operator|.
@@ -786,7 +843,7 @@ name|getKey
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 comment|//Every 500 objects batch the delete request
 if|if
 condition|(
@@ -848,6 +905,9 @@ block|{
 break|break;
 block|}
 block|}
+end_class
+
+begin_if
 if|if
 condition|(
 operator|!
@@ -872,9 +932,22 @@ name|multiObjectDeleteRequest
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+end_if
+
+begin_return
+return|return
+literal|null
+return|;
+end_return
+
+begin_empty_stmt
+unit|})
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}      protected
 DECL|method|shouldRetry
-specifier|protected
 name|boolean
 name|shouldRetry
 parameter_list|(
@@ -929,6 +1002,9 @@ name|isRetryable
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|close
@@ -937,6 +1013,9 @@ name|void
 name|close
 parameter_list|()
 block|{     }
+end_function
+
+begin_function
 DECL|method|getCannedACL
 specifier|public
 name|CannedAccessControlList
@@ -947,6 +1026,9 @@ return|return
 name|cannedACL
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getStorageClass
 specifier|public
 name|StorageClass
@@ -957,6 +1039,9 @@ return|return
 name|storageClass
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|initStorageClass
 specifier|public
 specifier|static
@@ -1049,7 +1134,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Constructs canned acl from string      */
+end_comment
+
+begin_function
 DECL|method|initCannedACL
 specifier|public
 specifier|static
@@ -1121,8 +1212,8 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
