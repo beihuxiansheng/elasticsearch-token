@@ -161,6 +161,7 @@ name|ClusterSearchShardsGroup
 parameter_list|()
 block|{      }
 DECL|method|ClusterSearchShardsGroup
+specifier|public
 name|ClusterSearchShardsGroup
 parameter_list|(
 name|ShardId

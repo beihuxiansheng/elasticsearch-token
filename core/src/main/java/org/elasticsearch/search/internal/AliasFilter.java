@@ -665,6 +665,37 @@ name|reparseAliases
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"AliasFilter{"
+operator|+
+literal|"aliases="
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|aliases
+argument_list|)
+operator|+
+literal|", filter="
+operator|+
+name|filter
+operator|+
+literal|", reparseAliases="
+operator|+
+name|reparseAliases
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

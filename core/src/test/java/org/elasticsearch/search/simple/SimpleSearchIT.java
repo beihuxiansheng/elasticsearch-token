@@ -3916,10 +3916,7 @@ name|assertThat
 argument_list|(
 name|ex
 operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getCause
+name|getRootCause
 argument_list|()
 operator|.
 name|getMessage

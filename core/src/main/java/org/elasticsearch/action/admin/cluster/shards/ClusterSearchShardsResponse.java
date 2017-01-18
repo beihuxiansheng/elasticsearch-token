@@ -198,6 +198,7 @@ name|ClusterSearchShardsResponse
 parameter_list|()
 block|{      }
 DECL|method|ClusterSearchShardsResponse
+specifier|public
 name|ClusterSearchShardsResponse
 parameter_list|(
 name|ClusterSearchShardsGroup
