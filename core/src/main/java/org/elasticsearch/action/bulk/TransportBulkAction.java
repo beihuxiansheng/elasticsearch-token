@@ -2777,20 +2777,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-specifier|final
-name|ThreadContext
-operator|.
-name|StoredContext
-name|context
-init|=
-name|threadPool
-operator|.
-name|getThreadContext
-argument_list|()
-operator|.
-name|newStoredContext
-argument_list|()
-decl_stmt|;
 name|observer
 operator|.
 name|waitForNextChange
@@ -2811,11 +2797,6 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
-name|context
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|run
 argument_list|()
 expr_stmt|;
@@ -2850,11 +2831,6 @@ name|TimeValue
 name|timeout
 parameter_list|)
 block|{
-name|context
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|// Try one more time...
 name|run
 argument_list|()

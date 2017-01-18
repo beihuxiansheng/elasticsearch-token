@@ -1461,17 +1461,6 @@ operator|.
 name|getThreadContext
 argument_list|()
 operator|.
-name|newStoredContext
-argument_list|()
-expr_stmt|;
-name|client
-operator|.
-name|threadPool
-argument_list|()
-operator|.
-name|getThreadContext
-argument_list|()
-operator|.
 name|putHeader
 argument_list|(
 name|expectedHeaders
