@@ -1089,7 +1089,7 @@ specifier|final
 name|int
 name|numIterations
 init|=
-literal|5
+literal|10
 decl_stmt|;
 name|int
 name|count
@@ -1170,6 +1170,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> [{}] repository failed to read x-content from index file, on iteration [{}] the repository data was [{}]"
+argument_list|,
+name|metadata
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|count
+argument_list|,
+name|repositoryData
+argument_list|)
+expr_stmt|;
 throw|throw
 name|ex
 throw|;
