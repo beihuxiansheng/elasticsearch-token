@@ -697,6 +697,19 @@ name|xContentRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|/**      * needed due to random usage of {@link IndexMetaData#INDEX_SHADOW_REPLICAS_SETTING}. removed once      * shadow replicas are removed.      */
+annotation|@
+name|Override
+DECL|method|enableWarningsCheck
+specifier|protected
+name|boolean
+name|enableWarningsCheck
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|testRandomClusterStateUpdates
 specifier|public
 name|void

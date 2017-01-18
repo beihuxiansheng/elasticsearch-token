@@ -674,6 +674,19 @@ specifier|private
 name|TestAllocator
 name|testAllocator
 decl_stmt|;
+comment|/**      * needed due to random usage of {@link IndexMetaData#INDEX_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE_SETTING}. removed once      * shadow replicas are removed.      */
+annotation|@
+name|Override
+DECL|method|enableWarningsCheck
+specifier|protected
+name|boolean
+name|enableWarningsCheck
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Before
 DECL|method|buildTestAllocator
