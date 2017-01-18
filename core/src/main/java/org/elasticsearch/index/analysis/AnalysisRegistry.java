@@ -1150,7 +1150,7 @@ name|put
 argument_list|(
 literal|"synonym"
 argument_list|,
-name|requriesAnalysisSettings
+name|requiresAnalysisSettings
 argument_list|(
 parameter_list|(
 name|is
@@ -1184,7 +1184,7 @@ name|put
 argument_list|(
 literal|"synonym_graph"
 argument_list|,
-name|requriesAnalysisSettings
+name|requiresAnalysisSettings
 argument_list|(
 parameter_list|(
 name|is
@@ -1622,7 +1622,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|requriesAnalysisSettings
+name|requiresAnalysisSettings
 argument_list|(
 parameter_list|(
 name|is
@@ -1662,7 +1662,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|requriesAnalysisSettings
+name|requiresAnalysisSettings
 argument_list|(
 parameter_list|(
 name|is
@@ -1803,7 +1803,7 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|requriesAnalysisSettings
+DECL|method|requiresAnalysisSettings
 specifier|private
 specifier|static
 parameter_list|<
@@ -1815,7 +1815,7 @@ name|AnalysisProvider
 argument_list|<
 name|T
 argument_list|>
-name|requriesAnalysisSettings
+name|requiresAnalysisSettings
 parameter_list|(
 name|AnalysisModule
 operator|.
