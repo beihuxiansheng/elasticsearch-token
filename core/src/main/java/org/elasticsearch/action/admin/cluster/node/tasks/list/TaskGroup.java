@@ -347,7 +347,7 @@ argument_list|()
 expr_stmt|;
 name|task
 operator|.
-name|innerToXContent
+name|toXContent
 argument_list|(
 name|builder
 argument_list|,
