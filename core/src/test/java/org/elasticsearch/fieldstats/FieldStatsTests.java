@@ -5781,7 +5781,8 @@ block|}
 block|}
 comment|/**      * creates a random field stats which does not guarantee that {@link FieldStats#maxValue} is greater than {@link FieldStats#minValue}      **/
 DECL|method|randomFieldStats
-specifier|private
+specifier|public
+specifier|static
 name|FieldStats
 name|randomFieldStats
 parameter_list|(

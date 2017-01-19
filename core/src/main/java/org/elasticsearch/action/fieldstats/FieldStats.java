@@ -1250,6 +1250,26 @@ block|}
 block|}
 else|else
 block|{
+assert|assert
+name|hasMinMax
+operator|:
+literal|"cannot serialize null min/max fieldstats in a mixed-cluster "
+operator|+
+literal|"with pre-"
+operator|+
+name|Version
+operator|.
+name|V_5_2_0_UNRELEASED
+operator|+
+literal|" nodes, remote version ["
+operator|+
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|"]"
+assert|;
 name|writeMinMax
 argument_list|(
 name|out
