@@ -3086,6 +3086,8 @@ argument_list|,
 name|nodeEnvironment
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterInfoService
 argument_list|)
 decl_stmt|;
 name|modules

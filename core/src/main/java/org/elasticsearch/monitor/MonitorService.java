@@ -138,6 +138,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterInfoService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -196,6 +208,9 @@ name|nodeEnvironment
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ClusterInfoService
+name|clusterInfoService
 parameter_list|)
 throws|throws
 name|IOException
@@ -257,6 +272,8 @@ argument_list|(
 name|settings
 argument_list|,
 name|nodeEnvironment
+argument_list|,
+name|clusterInfoService
 argument_list|)
 expr_stmt|;
 block|}
