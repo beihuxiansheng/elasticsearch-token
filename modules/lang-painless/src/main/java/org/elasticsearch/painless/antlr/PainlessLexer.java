@@ -151,6 +151,7 @@ literal|"cast"
 block|}
 argument_list|)
 DECL|class|PainlessLexer
+specifier|abstract
 class|class
 name|PainlessLexer
 extends|extends
@@ -1302,37 +1303,25 @@ return|return
 name|VOCABULARY
 return|;
 block|}
+comment|/**    * Check against the current whitelist to determine whether a token is a type    * or not. Called by the {@code TYPE} token defined in {@code PainlessLexer.g4}.    * See also    *<a href="https://en.wikipedia.org/wiki/The_lexer_hack">The lexer hack</a>.    */
 DECL|method|isSimpleType
 specifier|protected
+specifier|abstract
 name|boolean
 name|isSimpleType
 parameter_list|(
 name|String
 name|name
 parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Must be implemented in a subclass"
-argument_list|)
-throw|;
-block|}
+function_decl|;
+comment|/**    * Is the preceding {@code /} a the beginning of a regex (true) or a division    * (false).    */
 DECL|method|slashIsRegex
 specifier|protected
+specifier|abstract
 name|boolean
 name|slashIsRegex
 parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Must be implemented in a subclass"
-argument_list|)
-throw|;
-block|}
+function_decl|;
 DECL|method|PainlessLexer
 specifier|public
 name|PainlessLexer
