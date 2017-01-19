@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|auth
+operator|.
+name|InstanceProfileCredentialsProvider
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -185,6 +197,8 @@ name|buildCredentials
 argument_list|(
 name|logger
 argument_list|,
+name|deprecationLogger
+argument_list|,
 name|Settings
 operator|.
 name|EMPTY
@@ -200,7 +214,7 @@ name|credentialsProvider
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DefaultAWSCredentialsProviderChain
+name|InstanceProfileCredentialsProvider
 operator|.
 name|class
 argument_list|)
@@ -2320,6 +2334,8 @@ operator|.
 name|buildCredentials
 argument_list|(
 name|logger
+argument_list|,
+name|deprecationLogger
 argument_list|,
 name|settings
 argument_list|,
