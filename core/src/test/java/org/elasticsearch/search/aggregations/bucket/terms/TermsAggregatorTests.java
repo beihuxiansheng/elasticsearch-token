@@ -618,9 +618,9 @@ name|createAggregator
 argument_list|(
 name|aggregationBuilder
 argument_list|,
-name|fieldType
-argument_list|,
 name|indexSearcher
+argument_list|,
+name|fieldType
 argument_list|)
 init|)
 block|{
@@ -834,7 +834,7 @@ name|void
 name|testMixLongAndDouble
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 for|for
 control|(
@@ -1704,9 +1704,9 @@ name|createAggregator
 argument_list|(
 name|builder
 argument_list|,
-name|fieldType
-argument_list|,
 name|searcher
+argument_list|,
+name|fieldType
 argument_list|)
 init|)
 block|{
