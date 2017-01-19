@@ -163,6 +163,8 @@ argument_list|,
 literal|"ignore_case"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 name|Set

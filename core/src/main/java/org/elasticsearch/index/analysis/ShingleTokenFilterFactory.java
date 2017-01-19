@@ -167,6 +167,8 @@ argument_list|,
 literal|"output_unigrams"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 name|Boolean
@@ -184,6 +186,8 @@ argument_list|,
 literal|"output_unigrams_if_no_shingles"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 name|String

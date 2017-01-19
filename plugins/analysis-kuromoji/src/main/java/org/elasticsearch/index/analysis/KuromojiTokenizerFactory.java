@@ -270,6 +270,8 @@ argument_list|,
 literal|"discard_punctuation"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 name|nBestCost

@@ -431,6 +431,8 @@ argument_list|,
 literal|"ignore_case"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -448,6 +450,8 @@ argument_list|,
 literal|"expand"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 name|String

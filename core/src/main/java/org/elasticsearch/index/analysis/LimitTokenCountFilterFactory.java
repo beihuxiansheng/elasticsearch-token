@@ -175,6 +175,8 @@ argument_list|,
 literal|"consume_all_tokens"
 argument_list|,
 name|DEFAULT_CONSUME_ALL_TOKENS
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

@@ -174,6 +174,8 @@ argument_list|,
 literal|"lowercase"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 name|CharArraySet

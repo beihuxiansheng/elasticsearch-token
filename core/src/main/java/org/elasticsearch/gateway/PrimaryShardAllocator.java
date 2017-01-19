@@ -3304,6 +3304,8 @@ operator|.
 name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 operator|||
 name|this
@@ -3322,6 +3324,8 @@ operator|.
 name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 operator|)
 return|;

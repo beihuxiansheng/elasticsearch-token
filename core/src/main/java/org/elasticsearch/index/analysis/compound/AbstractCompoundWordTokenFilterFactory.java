@@ -236,6 +236,8 @@ argument_list|,
 literal|"only_longest_match"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 name|wordList

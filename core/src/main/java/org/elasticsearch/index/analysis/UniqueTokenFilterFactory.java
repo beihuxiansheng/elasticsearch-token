@@ -140,6 +140,8 @@ argument_list|,
 literal|"only_on_same_position"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

@@ -142,6 +142,8 @@ argument_list|,
 name|JapaneseIterationMarkCharFilter
 operator|.
 name|NORMALIZE_KANJI_DEFAULT
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 name|normalizeKana
@@ -160,6 +162,8 @@ argument_list|,
 name|JapaneseIterationMarkCharFilter
 operator|.
 name|NORMALIZE_KANA_DEFAULT
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

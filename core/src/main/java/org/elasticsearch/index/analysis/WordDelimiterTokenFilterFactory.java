@@ -699,6 +699,8 @@ argument_list|,
 name|key
 argument_list|,
 name|defaultValue
+argument_list|,
+name|deprecationLogger
 argument_list|)
 condition|)
 block|{

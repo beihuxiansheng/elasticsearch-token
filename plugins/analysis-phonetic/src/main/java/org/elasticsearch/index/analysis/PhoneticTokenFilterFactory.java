@@ -491,6 +491,8 @@ argument_list|,
 literal|"replace"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 comment|// weird, encoder is null at last step in SimplePhoneticAnalysisTests, so we set it to metaphone as default

@@ -733,6 +733,8 @@ argument_list|,
 literal|"caseLevel"
 argument_list|,
 literal|null
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 if|if
@@ -832,6 +834,8 @@ argument_list|,
 literal|"numeric"
 argument_list|,
 literal|null
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 if|if
@@ -889,6 +893,8 @@ argument_list|,
 literal|"hiraganaQuaternaryMode"
 argument_list|,
 literal|null
+argument_list|,
+name|deprecationLogger
 argument_list|)
 decl_stmt|;
 if|if

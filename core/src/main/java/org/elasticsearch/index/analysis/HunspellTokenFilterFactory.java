@@ -254,6 +254,8 @@ argument_list|,
 literal|"dedup"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 name|longestOnly
@@ -270,6 +272,8 @@ argument_list|,
 literal|"longest_only"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

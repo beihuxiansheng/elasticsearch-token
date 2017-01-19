@@ -324,6 +324,8 @@ argument_list|,
 literal|"reverse"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

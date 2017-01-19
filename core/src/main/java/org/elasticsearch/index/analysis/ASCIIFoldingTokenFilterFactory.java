@@ -179,6 +179,8 @@ name|getPreferredName
 argument_list|()
 argument_list|,
 name|DEFAULT_PRESERVE_ORIGINAL
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

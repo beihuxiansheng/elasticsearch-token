@@ -240,6 +240,8 @@ argument_list|,
 literal|"all"
 argument_list|,
 literal|true
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}

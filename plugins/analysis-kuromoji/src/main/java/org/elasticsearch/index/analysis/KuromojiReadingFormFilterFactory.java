@@ -138,6 +138,8 @@ argument_list|,
 literal|"use_romaji"
 argument_list|,
 literal|false
+argument_list|,
+name|deprecationLogger
 argument_list|)
 expr_stmt|;
 block|}
