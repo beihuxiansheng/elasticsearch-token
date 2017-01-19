@@ -5491,7 +5491,7 @@ literal|"type=long"
 argument_list|,
 literal|"location"
 argument_list|,
-literal|"type=geo_point,index=no"
+literal|"type=geo_point,index=false"
 argument_list|)
 argument_list|)
 expr_stmt|;
