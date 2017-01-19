@@ -580,9 +580,9 @@ name|createAggregator
 argument_list|(
 name|aggregationBuilder
 argument_list|,
-name|fieldType
-argument_list|,
 name|indexSearcher
+argument_list|,
+name|fieldType
 argument_list|)
 init|)
 block|{
