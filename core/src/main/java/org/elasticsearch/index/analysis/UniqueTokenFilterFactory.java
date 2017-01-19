@@ -130,8 +130,13 @@ name|onlyOnSamePosition
 operator|=
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 literal|"only_on_same_position"
 argument_list|,
 literal|false

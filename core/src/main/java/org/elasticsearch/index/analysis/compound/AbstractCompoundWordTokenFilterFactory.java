@@ -226,8 +226,13 @@ name|onlyLongestMatch
 operator|=
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 literal|"only_longest_match"
 argument_list|,
 literal|false
@@ -240,6 +245,11 @@ operator|.
 name|getWordSet
 argument_list|(
 name|env
+argument_list|,
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
 argument_list|,
 name|settings
 argument_list|,

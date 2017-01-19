@@ -150,24 +150,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|support
-operator|.
-name|XContentMapValues
-operator|.
-name|lenientNodeBooleanValue
-import|;
-end_import
-
 begin_class
 DECL|class|RoutingFieldMapper
 specifier|public
@@ -526,9 +508,17 @@ name|builder
 operator|.
 name|required
 argument_list|(
-name|lenientNodeBooleanValue
+name|TypeParsers
+operator|.
+name|nodeBooleanValue
 argument_list|(
+name|name
+argument_list|,
+literal|"required"
+argument_list|,
 name|fieldNode
+argument_list|,
+name|parserContext
 argument_list|)
 argument_list|)
 expr_stmt|;

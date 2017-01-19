@@ -3254,15 +3254,10 @@ decl_stmt|;
 name|String
 name|maybeShadowIndicator
 init|=
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
 name|indexMetaData
 operator|.
-name|getSettings
+name|isIndexUsingShadowReplicas
 argument_list|()
-argument_list|)
 condition|?
 literal|"s"
 else|:

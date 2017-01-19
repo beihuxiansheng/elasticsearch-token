@@ -123,7 +123,7 @@ comment|// Don't allow duplicate keys in JSON content by default but let the use
 return|return
 name|Booleans
 operator|.
-name|parseBooleanExact
+name|parseBoolean
 argument_list|(
 name|System
 operator|.

@@ -106,9 +106,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|block
+name|metadata
 operator|.
-name|ClusterBlockLevel
+name|IndexMetaData
 import|;
 end_import
 
@@ -418,8 +418,8 @@ specifier|protected
 name|boolean
 name|shouldExecuteReplication
 parameter_list|(
-name|Settings
-name|settings
+name|IndexMetaData
+name|indexMetaData
 parameter_list|)
 block|{
 return|return

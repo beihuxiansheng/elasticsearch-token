@@ -1415,15 +1415,10 @@ condition|)
 block|{
 name|usesShadowReplicas
 operator|=
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
 name|indexMeta
 operator|.
-name|getSettings
+name|isIndexUsingShadowReplicas
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 if|if

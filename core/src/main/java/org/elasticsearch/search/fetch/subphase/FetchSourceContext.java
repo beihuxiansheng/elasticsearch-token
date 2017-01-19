@@ -582,7 +582,7 @@ if|if
 condition|(
 name|Booleans
 operator|.
-name|isExplicitTrue
+name|isTrue
 argument_list|(
 name|source
 argument_list|)
@@ -598,7 +598,7 @@ if|if
 condition|(
 name|Booleans
 operator|.
-name|isExplicitFalse
+name|isFalse
 argument_list|(
 name|source
 argument_list|)

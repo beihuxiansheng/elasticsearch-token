@@ -616,7 +616,7 @@ name|autoCreateIndex
 operator|=
 name|Booleans
 operator|.
-name|parseBooleanExact
+name|parseBoolean
 argument_list|(
 name|value
 argument_list|)

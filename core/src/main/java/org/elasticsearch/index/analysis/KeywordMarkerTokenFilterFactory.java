@@ -153,8 +153,13 @@ name|ignoreCase
 init|=
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 literal|"ignore_case"
 argument_list|,
 literal|false
@@ -171,6 +176,11 @@ operator|.
 name|getWordSet
 argument_list|(
 name|env
+argument_list|,
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
 argument_list|,
 name|settings
 argument_list|,

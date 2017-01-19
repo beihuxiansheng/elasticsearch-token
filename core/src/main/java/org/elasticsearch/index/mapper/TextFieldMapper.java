@@ -898,6 +898,8 @@ operator|.
 name|nodeBooleanValue
 argument_list|(
 name|propNode
+argument_list|,
+literal|"fielddata"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -927,6 +929,8 @@ operator|.
 name|nodeBooleanValue
 argument_list|(
 name|propNode
+argument_list|,
+literal|"eager_global_ordinals"
 argument_list|)
 argument_list|)
 expr_stmt|;

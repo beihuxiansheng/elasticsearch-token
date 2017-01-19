@@ -584,8 +584,13 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 name|INDEX_MERGE_ENABLED
 argument_list|,
 literal|true

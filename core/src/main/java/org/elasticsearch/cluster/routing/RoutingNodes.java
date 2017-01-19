@@ -2944,15 +2944,10 @@ name|activeReplica
 operator|==
 literal|null
 operator|||
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
 name|indexMetaData
 operator|.
-name|getSettings
+name|isIndexUsingShadowReplicas
 argument_list|()
-argument_list|)
 operator|:
 literal|"initializing primary ["
 operator|+
@@ -3276,15 +3271,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
 name|indexMetaData
 operator|.
-name|getSettings
+name|isIndexUsingShadowReplicas
 argument_list|()
-argument_list|)
 condition|)
 block|{
 name|ShardRouting

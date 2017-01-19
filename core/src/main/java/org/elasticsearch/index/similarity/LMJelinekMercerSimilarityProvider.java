@@ -89,6 +89,9 @@ name|name
 parameter_list|,
 name|Settings
 name|settings
+parameter_list|,
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 name|super

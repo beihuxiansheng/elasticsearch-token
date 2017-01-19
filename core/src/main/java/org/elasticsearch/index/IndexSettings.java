@@ -1301,7 +1301,7 @@ argument_list|)
 expr_stmt|;
 name|isShadowReplicaIndex
 operator|=
-name|IndexMetaData
+name|indexMetaData
 operator|.
 name|isIndexUsingShadowReplicas
 argument_list|(
@@ -1869,24 +1869,7 @@ name|isOnSharedFilesystem
 parameter_list|()
 block|{
 return|return
-name|IndexMetaData
-operator|.
-name|isOnSharedFilesystem
-argument_list|(
-name|getSettings
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns<code>true</code> iff the given settings indicate that the index associated      * with these settings uses shadow replicas. Otherwise<code>false</code>. The default      * setting for this is<code>false</code>.      */
-DECL|method|isIndexUsingShadowReplicas
-specifier|public
-name|boolean
-name|isIndexUsingShadowReplicas
-parameter_list|()
-block|{
-return|return
-name|IndexMetaData
+name|indexMetaData
 operator|.
 name|isOnSharedFilesystem
 argument_list|(

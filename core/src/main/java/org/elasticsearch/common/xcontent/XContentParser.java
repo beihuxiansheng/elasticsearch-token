@@ -545,7 +545,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * returns true if the current value is boolean in nature.      * values that are considered booleans:      * - boolean value (true/false)      * - numeric integers (=0 is considered as false, !=0 is true)      * - one of the following strings: "true","false","on","off","yes","no","1","0"      */
+comment|/**      * @return true iff the current value is either boolean (<code>true</code> or<code>false</code>) or one of "false", "true".      */
 DECL|method|isBooleanValue
 name|boolean
 name|isBooleanValue
@@ -556,6 +556,28 @@ function_decl|;
 DECL|method|booleanValue
 name|boolean
 name|booleanValue
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|// TODO #22298: Remove this method and replace all call sites with #isBooleanValue()
+comment|/**      * returns true if the current value is boolean in nature.      * values that are considered booleans:      * - boolean value (true/false)      * - numeric integers (=0 is considered as false, !=0 is true)      * - one of the following strings: "true","false","on","off","yes","no","1","0"      *      * @deprecated Just present for providing backwards compatibility. Use {@link #isBooleanValue()} instead.      */
+annotation|@
+name|Deprecated
+DECL|method|isBooleanValueLenient
+name|boolean
+name|isBooleanValueLenient
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|// TODO #22298: Remove this method and replace all call sites with #booleanValue()
+comment|/**      * @deprecated Just present for providing backwards compatibility. Use {@link #booleanValue()} instead.      */
+annotation|@
+name|Deprecated
+DECL|method|booleanValueLenient
+name|boolean
+name|booleanValueLenient
 parameter_list|()
 throws|throws
 name|IOException

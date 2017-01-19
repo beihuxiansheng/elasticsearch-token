@@ -6324,11 +6324,9 @@ if|if
 condition|(
 name|Booleans
 operator|.
-name|parseBoolean
+name|isTrue
 argument_list|(
 name|checkIndexOnStartup
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{

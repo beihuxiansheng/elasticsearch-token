@@ -318,7 +318,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|lenientNodeBooleanValue
+name|nodeBooleanValue
 import|;
 end_import
 
@@ -1117,12 +1117,14 @@ condition|)
 block|{
 name|partial
 argument_list|(
-name|lenientNodeBooleanValue
+name|nodeBooleanValue
 argument_list|(
 name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|"partial"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1189,12 +1191,14 @@ condition|)
 block|{
 name|includeGlobalState
 operator|=
-name|lenientNodeBooleanValue
+name|nodeBooleanValue
 argument_list|(
 name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|"include_global_state"
 argument_list|)
 expr_stmt|;
 block|}

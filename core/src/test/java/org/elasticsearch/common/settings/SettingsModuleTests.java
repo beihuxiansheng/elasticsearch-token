@@ -718,7 +718,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to parse value [BOOM] cannot be parsed to boolean [ true/1/on/yes OR false/0/off/no ]"
+literal|"Failed to parse value [BOOM] as only [true] or [false] are allowed."
 argument_list|,
 name|ex
 operator|.

@@ -608,6 +608,11 @@ name|getWordSet
 argument_list|(
 name|env
 argument_list|,
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 name|settings
 argument_list|,
 literal|"protected_words"
@@ -684,8 +689,13 @@ if|if
 condition|(
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 name|key
 argument_list|,
 name|defaultValue

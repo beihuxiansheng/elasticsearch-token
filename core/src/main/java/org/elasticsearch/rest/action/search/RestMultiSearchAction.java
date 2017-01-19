@@ -304,7 +304,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|lenientNodeBooleanValue
+name|nodeBooleanValue
 import|;
 end_import
 
@@ -1137,9 +1137,14 @@ name|searchRequest
 operator|.
 name|requestCache
 argument_list|(
-name|lenientNodeBooleanValue
+name|nodeBooleanValue
 argument_list|(
 name|value
+argument_list|,
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

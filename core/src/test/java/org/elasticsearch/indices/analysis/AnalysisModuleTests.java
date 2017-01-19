@@ -2489,6 +2489,10 @@ name|getWordSet
 argument_list|(
 literal|null
 argument_list|,
+name|Version
+operator|.
+name|CURRENT
+argument_list|,
 name|settings
 argument_list|,
 literal|"index.analysis.filter.dict_dec.word_list"
@@ -2615,6 +2619,10 @@ operator|.
 name|getWordSet
 argument_list|(
 name|env
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
 argument_list|,
 name|settings
 argument_list|,

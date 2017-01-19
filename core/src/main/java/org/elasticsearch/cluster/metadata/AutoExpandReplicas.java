@@ -115,14 +115,10 @@ if|if
 condition|(
 name|Booleans
 operator|.
-name|parseBoolean
+name|isFalse
 argument_list|(
 name|value
-argument_list|,
-literal|true
 argument_list|)
-operator|==
-literal|false
 condition|)
 block|{
 return|return

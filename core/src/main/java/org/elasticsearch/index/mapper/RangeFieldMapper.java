@@ -1219,6 +1219,8 @@ name|TypeParsers
 operator|.
 name|nodeBooleanValue
 argument_list|(
+name|name
+argument_list|,
 literal|"coerce"
 argument_list|,
 name|propNode

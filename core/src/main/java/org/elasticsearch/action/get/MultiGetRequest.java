@@ -2221,11 +2221,12 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+comment|// check lenient to avoid interpreting the value as string but parse strict in order to provoke an error early on.
 if|if
 condition|(
 name|parser
 operator|.
-name|isBooleanValue
+name|isBooleanValueLenient
 argument_list|()
 condition|)
 block|{

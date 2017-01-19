@@ -476,15 +476,10 @@ operator|!=
 literal|null
 operator|&&
 comment|// and we have the index
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
 name|indexMeta
 operator|.
-name|getSettings
+name|isIndexUsingShadowReplicas
 argument_list|()
-argument_list|)
 condition|)
 block|{
 comment|// and the index uses shadow replicas

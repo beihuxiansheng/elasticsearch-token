@@ -844,15 +844,10 @@ operator|.
 name|V_5_0_0_alpha1
 argument_list|)
 operator|&&
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
 name|indexMetaData
 operator|.
-name|getSettings
+name|isIndexUsingShadowReplicas
 argument_list|()
-argument_list|)
 operator|==
 literal|false
 operator|&&

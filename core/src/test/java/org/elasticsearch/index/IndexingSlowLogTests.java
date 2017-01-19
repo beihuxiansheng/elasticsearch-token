@@ -711,7 +711,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse value [NOT A BOOLEAN] cannot be parsed to boolean [ true/1/on/yes OR false/0/off/no ]"
+literal|"Failed to parse value [NOT A BOOLEAN] as only [true] or [false] are allowed."
 argument_list|)
 expr_stmt|;
 block|}

@@ -74,6 +74,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|TriFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Setting
@@ -587,7 +599,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexModule represents the central extension point for index level custom implementations like:  *<ul>  *<li>{@link SimilarityProvider} - New {@link SimilarityProvider} implementations can be registered through  *     {@link #addSimilarity(String, BiFunction)}while existing Providers can be referenced through Settings under the  *     {@link IndexModule#SIMILARITY_SETTINGS_PREFIX} prefix along with the "type" value.  For example, to reference the  *     {@link BM25SimilarityProvider}, the configuration<tt>"index.similarity.my_similarity.type : "BM25"</tt> can be used.</li>  *<li>{@link IndexStore} - Custom {@link IndexStore} instances can be registered via {@link #addIndexStore(String, Function)}</li>  *<li>{@link IndexEventListener} - Custom {@link IndexEventListener} instances can be registered via  *      {@link #addIndexEventListener(IndexEventListener)}</li>  *<li>Settings update listener - Custom settings update listener can be registered via  *      {@link #addSettingsUpdateConsumer(Setting, Consumer)}</li>  *</ul>  */
+comment|/**  * IndexModule represents the central extension point for index level custom implementations like:  *<ul>  *<li>{@link SimilarityProvider} - New {@link SimilarityProvider} implementations can be registered through  *     {@link #addSimilarity(String, TriFunction)}while existing Providers can be referenced through Settings under the  *     {@link IndexModule#SIMILARITY_SETTINGS_PREFIX} prefix along with the "type" value.  For example, to reference the  *     {@link BM25SimilarityProvider}, the configuration<tt>"index.similarity.my_similarity.type : "BM25"</tt> can be used.</li>  *<li>{@link IndexStore} - Custom {@link IndexStore} instances can be registered via {@link #addIndexStore(String, Function)}</li>  *<li>{@link IndexEventListener} - Custom {@link IndexEventListener} instances can be registered via  *      {@link #addIndexEventListener(IndexEventListener)}</li>  *<li>Settings update listener - Custom settings update listener can be registered via  *      {@link #addSettingsUpdateConsumer(Setting, Consumer)}</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -810,9 +822,11 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|BiFunction
+name|TriFunction
 argument_list|<
 name|String
+argument_list|,
+name|Settings
 argument_list|,
 name|Settings
 argument_list|,
@@ -1330,9 +1344,11 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|BiFunction
+name|TriFunction
 argument_list|<
 name|String
+argument_list|,
+name|Settings
 argument_list|,
 name|Settings
 argument_list|,

@@ -2574,7 +2574,9 @@ argument_list|,
 parameter_list|(
 name|string
 parameter_list|,
-name|settings
+name|providerSettings
+parameter_list|,
+name|indexLevelSettings
 parameter_list|)
 lambda|->
 operator|new
@@ -2599,7 +2601,7 @@ return|return
 operator|new
 name|TestSimilarity
 argument_list|(
-name|settings
+name|providerSettings
 operator|.
 name|get
 argument_list|(

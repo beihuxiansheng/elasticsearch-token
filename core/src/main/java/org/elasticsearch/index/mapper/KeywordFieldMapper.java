@@ -881,6 +881,8 @@ operator|.
 name|nodeBooleanValue
 argument_list|(
 name|propNode
+argument_list|,
+literal|"norms"
 argument_list|)
 operator|==
 literal|false
@@ -912,6 +914,8 @@ operator|.
 name|nodeBooleanValue
 argument_list|(
 name|propNode
+argument_list|,
+literal|"eager_global_ordinals"
 argument_list|)
 argument_list|)
 expr_stmt|;

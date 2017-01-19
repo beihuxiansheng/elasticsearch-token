@@ -1056,12 +1056,7 @@ literal|"date_detection"
 argument_list|)
 condition|)
 block|{
-operator|(
-operator|(
-name|Builder
-operator|)
 name|builder
-operator|)
 operator|.
 name|dateDetection
 operator|=
@@ -1072,6 +1067,8 @@ argument_list|(
 name|nodeBooleanValue
 argument_list|(
 name|fieldNode
+argument_list|,
+literal|"date_detection"
 argument_list|)
 argument_list|,
 literal|true
@@ -1092,12 +1089,7 @@ literal|"numeric_detection"
 argument_list|)
 condition|)
 block|{
-operator|(
-operator|(
-name|Builder
-operator|)
 name|builder
-operator|)
 operator|.
 name|numericDetection
 operator|=
@@ -1108,6 +1100,8 @@ argument_list|(
 name|nodeBooleanValue
 argument_list|(
 name|fieldNode
+argument_list|,
+literal|"numeric_detection"
 argument_list|)
 argument_list|,
 literal|true

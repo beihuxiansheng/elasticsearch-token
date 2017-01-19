@@ -170,6 +170,11 @@ name|parseStopWords
 argument_list|(
 name|env
 argument_list|,
+name|indexSettings
+operator|.
+name|getIndexVersionCreated
+argument_list|()
+argument_list|,
 name|settings
 argument_list|,
 name|defaultStopwords

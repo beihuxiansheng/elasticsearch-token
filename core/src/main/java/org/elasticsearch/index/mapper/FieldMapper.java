@@ -1309,7 +1309,7 @@ block|}
 block|}
 block|}
 DECL|field|indexCreatedVersion
-specifier|private
+specifier|protected
 specifier|final
 name|Version
 name|indexCreatedVersion

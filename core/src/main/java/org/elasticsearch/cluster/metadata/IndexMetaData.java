@@ -7924,7 +7924,6 @@ block|}
 comment|/**      * Returns<code>true</code> iff the given settings indicate that the index      * associated with these settings allocates it's shards on a shared      * filesystem. Otherwise<code>false</code>. The default setting for this      * is the returned value from      * {@link #isIndexUsingShadowReplicas(org.elasticsearch.common.settings.Settings)}.      */
 DECL|method|isOnSharedFilesystem
 specifier|public
-specifier|static
 name|boolean
 name|isOnSharedFilesystem
 parameter_list|(
@@ -7936,8 +7935,12 @@ comment|// don't use the setting directly, not to trigger verbose deprecation lo
 return|return
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|this
+operator|.
+name|indexCreatedVersion
+argument_list|,
 name|SETTING_SHARED_FILESYSTEM
 argument_list|,
 name|isIndexUsingShadowReplicas
@@ -7950,7 +7953,21 @@ block|}
 comment|/**      * Returns<code>true</code> iff the given settings indicate that the index associated      * with these settings uses shadow replicas. Otherwise<code>false</code>. The default      * setting for this is<code>false</code>.      */
 DECL|method|isIndexUsingShadowReplicas
 specifier|public
-specifier|static
+name|boolean
+name|isIndexUsingShadowReplicas
+parameter_list|()
+block|{
+return|return
+name|isIndexUsingShadowReplicas
+argument_list|(
+name|this
+operator|.
+name|settings
+argument_list|)
+return|;
+block|}
+DECL|method|isIndexUsingShadowReplicas
+specifier|public
 name|boolean
 name|isIndexUsingShadowReplicas
 parameter_list|(
@@ -7962,8 +7979,12 @@ comment|// don't use the setting directly, not to trigger verbose deprecation lo
 return|return
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|this
+operator|.
+name|indexCreatedVersion
+argument_list|,
 name|SETTING_SHADOW_REPLICAS
 argument_list|,
 literal|false

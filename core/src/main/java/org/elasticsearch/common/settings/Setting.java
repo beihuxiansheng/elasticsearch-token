@@ -3716,7 +3716,7 @@ argument_list|)
 argument_list|,
 name|Booleans
 operator|::
-name|parseBooleanExact
+name|parseBoolean
 argument_list|,
 name|properties
 argument_list|)
@@ -3759,7 +3759,7 @@ name|fallbackSetting
 argument_list|,
 name|Booleans
 operator|::
-name|parseBooleanExact
+name|parseBoolean
 argument_list|,
 name|properties
 argument_list|)
@@ -3804,7 +3804,7 @@ name|defaultValueFn
 argument_list|,
 name|Booleans
 operator|::
-name|parseBooleanExact
+name|parseBoolean
 argument_list|,
 name|properties
 argument_list|)

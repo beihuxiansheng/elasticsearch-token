@@ -3266,7 +3266,7 @@ block|{
 comment|// don't use the setting directly, not to trigger verbose deprecation logging
 return|return
 operator|(
-name|IndexMetaData
+name|metaData
 operator|.
 name|isOnSharedFilesystem
 argument_list|(
@@ -3276,7 +3276,7 @@ name|getSettings
 argument_list|()
 argument_list|)
 operator|||
-name|IndexMetaData
+name|metaData
 operator|.
 name|isOnSharedFilesystem
 argument_list|(
@@ -3292,8 +3292,13 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|metaData
+operator|.
+name|getCreationVersion
+argument_list|()
+argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
@@ -3305,8 +3310,13 @@ name|this
 operator|.
 name|settings
 operator|.
-name|getAsBoolean
+name|getAsBooleanLenientForPreEs6Indices
 argument_list|(
+name|metaData
+operator|.
+name|getCreationVersion
+argument_list|()
+argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE

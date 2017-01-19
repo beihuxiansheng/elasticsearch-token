@@ -903,6 +903,8 @@ operator|.
 name|nodeBooleanValue
 argument_list|(
 name|fieldNode
+argument_list|,
+literal|"eager_global_ordinals"
 argument_list|)
 argument_list|)
 expr_stmt|;

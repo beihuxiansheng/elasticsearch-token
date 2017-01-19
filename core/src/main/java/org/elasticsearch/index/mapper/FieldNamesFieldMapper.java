@@ -198,24 +198,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|support
-operator|.
-name|XContentMapValues
-operator|.
-name|lenientNodeBooleanValue
-import|;
-end_import
-
 begin_comment
 comment|/**  * A mapper that indexes the field names of a document under<code>_field_names</code>. This mapper is typically useful in order  * to have fast<code>exists</code> and<code>missing</code> queries/filters.  *  * Added in Elasticsearch 1.3.  */
 end_comment
@@ -632,9 +614,17 @@ name|builder
 operator|.
 name|enabled
 argument_list|(
-name|lenientNodeBooleanValue
+name|TypeParsers
+operator|.
+name|nodeBooleanValue
 argument_list|(
+name|name
+argument_list|,
+literal|"enabled"
+argument_list|,
 name|fieldNode
+argument_list|,
+name|parserContext
 argument_list|)
 argument_list|)
 expr_stmt|;
