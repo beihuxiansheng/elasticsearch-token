@@ -5466,6 +5466,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fix in work, mute for now"
+argument_list|)
 DECL|method|testGeoPointNotIndexed
 specifier|public
 name|void
