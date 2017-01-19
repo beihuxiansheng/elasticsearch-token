@@ -4279,6 +4279,11 @@ name|scriptModule
 operator|.
 name|getScriptService
 argument_list|()
+argument_list|,
+name|searchModule
+operator|.
+name|getSearchResponseListeners
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
