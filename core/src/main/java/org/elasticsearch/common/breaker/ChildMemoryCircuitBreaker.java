@@ -345,7 +345,23 @@ literal|"] Data too large, data for ["
 operator|+
 name|fieldName
 operator|+
-literal|"] would be larger than limit of ["
+literal|"]"
+operator|+
+literal|" would be ["
+operator|+
+name|bytesNeeded
+operator|+
+literal|"/"
+operator|+
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|bytesNeeded
+argument_list|)
+operator|+
+literal|"]"
+operator|+
+literal|", which is larger than the limit of ["
 operator|+
 name|memoryBytesLimit
 operator|+
@@ -376,8 +392,6 @@ name|message
 argument_list|,
 name|bytesNeeded
 argument_list|,
-name|this
-operator|.
 name|memoryBytesLimit
 argument_list|)
 throw|;

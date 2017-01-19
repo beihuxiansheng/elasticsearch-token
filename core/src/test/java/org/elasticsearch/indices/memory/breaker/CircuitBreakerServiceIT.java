@@ -1252,6 +1252,11 @@ operator|.
 name|DESC
 argument_list|)
 decl_stmt|;
+name|String
+name|errMsg
+init|=
+literal|"Data too large, data for [test] would be"
+decl_stmt|;
 name|assertFailures
 argument_list|(
 name|searchRequest
@@ -1262,7 +1267,25 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Data too large, data for [test] would be larger than limit of [100/100b]"
+name|errMsg
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|errMsg
+operator|=
+literal|"which is larger than the limit of [100/100b]"
+expr_stmt|;
+name|assertFailures
+argument_list|(
+name|searchRequest
+argument_list|,
+name|RestStatus
+operator|.
+name|INTERNAL_SERVER_ERROR
+argument_list|,
+name|containsString
+argument_list|(
+name|errMsg
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1555,8 +1578,9 @@ argument_list|)
 expr_stmt|;
 comment|// execute a search that loads field data (sorting on the "test" field)
 comment|// again, this time it should trip the breaker
-name|assertFailures
-argument_list|(
+name|SearchRequestBuilder
+name|searchRequest
+init|=
 name|client
 operator|.
 name|prepareSearch
@@ -1578,6 +1602,15 @@ name|SortOrder
 operator|.
 name|DESC
 argument_list|)
+decl_stmt|;
+name|String
+name|errMsg
+init|=
+literal|"Data too large, data for [test] would be"
+decl_stmt|;
+name|assertFailures
+argument_list|(
+name|searchRequest
 argument_list|,
 name|RestStatus
 operator|.
@@ -1585,7 +1618,25 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Data too large, data for [test] would be larger than limit of [100/100b]"
+name|errMsg
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|errMsg
+operator|=
+literal|"which is larger than the limit of [100/100b]"
+expr_stmt|;
+name|assertFailures
+argument_list|(
+name|searchRequest
+argument_list|,
+name|RestStatus
+operator|.
+name|INTERNAL_SERVER_ERROR
+argument_list|,
+name|containsString
+argument_list|(
+name|errMsg
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1904,7 +1955,7 @@ block|{
 name|String
 name|errMsg
 init|=
-literal|"[fielddata] Data too large, data for [test] would be larger than limit of [10/10b]"
+literal|"CircuitBreakingException[[fielddata] Data too large, data for [test] would be"
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1928,9 +1979,38 @@ name|errMsg
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-name|assertFailures
+name|errMsg
+operator|=
+literal|"which is larger than the limit of [10/10b]]"
+expr_stmt|;
+name|assertThat
 argument_list|(
+literal|"Exception: ["
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"] should contain a CircuitBreakingException"
+argument_list|,
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+name|errMsg
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// execute a search that loads field data (sorting on the "test" field)
+comment|// again, this time it should trip the breaker
+name|SearchRequestBuilder
+name|searchRequest
+init|=
 name|client
 operator|.
 name|prepareSearch
@@ -1952,6 +2032,15 @@ name|SortOrder
 operator|.
 name|DESC
 argument_list|)
+decl_stmt|;
+name|String
+name|errMsg
+init|=
+literal|"Data too large, data for [test] would be"
+decl_stmt|;
+name|assertFailures
+argument_list|(
+name|searchRequest
 argument_list|,
 name|RestStatus
 operator|.
@@ -1959,7 +2048,25 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Data too large, data for [test] would be larger than limit of [10/10b]"
+name|errMsg
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|errMsg
+operator|=
+literal|"which is larger than the limit of [10/10b]"
+expr_stmt|;
+name|assertFailures
+argument_list|(
+name|searchRequest
+argument_list|,
+name|RestStatus
+operator|.
+name|INTERNAL_SERVER_ERROR
+argument_list|,
+name|containsString
+argument_list|(
+name|errMsg
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2464,7 +2571,7 @@ argument_list|)
 expr_stmt|;
 name|errMsg
 operator|=
-literal|"would be larger than limit of [10/10b]]"
+literal|"which is larger than the limit of [10/10b]]"
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2724,20 +2831,44 @@ block|{
 name|String
 name|errMsg
 init|=
-literal|"CircuitBreakingException[[request] "
-operator|+
-literal|"Data too large, data for [<agg [my_terms]>] would be larger than limit of [100/100b]]"
+literal|"CircuitBreakingException[[request] Data too large, data for [<agg [my_terms]>] would be"
 decl_stmt|;
 name|assertThat
 argument_list|(
-literal|"Exception: "
+literal|"Exception: ["
 operator|+
 name|e
 operator|.
 name|toString
 argument_list|()
 operator|+
-literal|" should contain a CircuitBreakingException"
+literal|"] should contain a CircuitBreakingException"
+argument_list|,
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+name|errMsg
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|errMsg
+operator|=
+literal|"which is larger than the limit of [100/100b]]"
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"Exception: ["
+operator|+
+name|e
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"] should contain a CircuitBreakingException"
 argument_list|,
 name|e
 operator|.
