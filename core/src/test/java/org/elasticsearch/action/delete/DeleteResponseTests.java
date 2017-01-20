@@ -399,8 +399,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We can't use equals() to compare the original and the parsed index response
-comment|// because the random index response can contain shard failures with exceptions,
+comment|// We can't use equals() to compare the original and the parsed delete response
+comment|// because the random delete response can contain shard failures with exceptions,
 comment|// and those exceptions are not parsed back with the same types.
 comment|// Print the parsed object out and test that the output is the same as the original output
 name|BytesReference
