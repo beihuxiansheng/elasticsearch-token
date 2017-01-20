@@ -25441,6 +25441,14 @@ argument_list|)
 operator|/
 literal|100f
 argument_list|)
+comment|// test that we can take a snapshot after a failed one, even if a partial index-N was written
+operator|.
+name|put
+argument_list|(
+literal|"atomic_move"
+argument_list|,
+literal|false
+argument_list|)
 operator|.
 name|put
 argument_list|(

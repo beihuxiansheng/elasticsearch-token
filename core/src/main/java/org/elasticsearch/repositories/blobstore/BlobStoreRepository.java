@@ -1417,7 +1417,7 @@ init|=
 literal|"index-metadata"
 decl_stmt|;
 DECL|field|SNAPSHOT_NAME_FORMAT
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1428,7 +1428,7 @@ operator|+
 literal|"%s.dat"
 decl_stmt|;
 DECL|field|SNAPSHOT_INDEX_PREFIX
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1437,7 +1437,7 @@ init|=
 literal|"index-"
 decl_stmt|;
 DECL|field|SNAPSHOT_INDEX_NAME_FORMAT
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1448,7 +1448,7 @@ operator|+
 literal|"%s"
 decl_stmt|;
 DECL|field|SNAPSHOT_INDEX_CODEC
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1457,7 +1457,7 @@ init|=
 literal|"snapshots"
 decl_stmt|;
 DECL|field|DATA_BLOB_PREFIX
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -4506,22 +4506,7 @@ name|IOException
 block|{
 try|try
 block|{
-comment|// first, try listing the blobs and determining which index blob is the latest
-return|return
-name|listBlobsToGetLatestIndexId
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|UnsupportedOperationException
-name|e
-parameter_list|)
-block|{
-comment|// could not list the blobs because the repository does not support the operation,
-comment|// try reading from the index-latest file
-try|try
-block|{
+comment|// first, try reading the latest index generation from the index.latest blob
 return|return
 name|readSnapshotIndexLatestBlob
 argument_list|()
@@ -4533,15 +4518,29 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-comment|// we likely could not find the blob, this can happen in two scenarios:
+comment|// we could not find the index.latest blob, this can happen in two scenarios:
 comment|//  (1) its an empty repository
 comment|//  (2) when writing the index-latest blob, if the blob already exists,
 comment|//      we first delete it, then atomically write the new blob.  there is
 comment|//      a small window in time when the blob is deleted and the new one
 comment|//      written - if the node crashes during that time, we won't have an
 comment|//      index-latest blob
-comment|// in a read-only repository, we can't know which of the two scenarios it is,
-comment|// but we will assume (1) because we can't do anything about (2) anyway
+comment|// lets try to list all index-N blobs to determine the last one, if listing the blobs
+comment|// is not a supported operation (which is the case for read-only repositories), then
+comment|// assume its an empty repository.
+try|try
+block|{
+return|return
+name|listBlobsToGetLatestIndexId
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedOperationException
+name|uoe
+parameter_list|)
+block|{
 return|return
 name|RepositoryData
 operator|.
