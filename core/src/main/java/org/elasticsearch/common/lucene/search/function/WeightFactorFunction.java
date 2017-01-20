@@ -300,7 +300,10 @@ name|needsScores
 parameter_list|()
 block|{
 return|return
-literal|false
+name|scoreFunction
+operator|.
+name|needsScores
+argument_list|()
 return|;
 block|}
 DECL|method|explainWeight
