@@ -3044,6 +3044,8 @@ name|ClusterStateChanges
 argument_list|(
 name|xContentRegistry
 argument_list|()
+argument_list|,
+name|threadPool
 argument_list|)
 operator|.
 name|closeIndices

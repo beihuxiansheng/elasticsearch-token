@@ -1183,6 +1183,9 @@ name|ClusterStateChanges
 parameter_list|(
 name|NamedXContentRegistry
 name|xContentRegistry
+parameter_list|,
+name|ThreadPool
+name|threadPool
 parameter_list|)
 block|{
 name|super
@@ -1345,12 +1348,6 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|ThreadPool
-name|threadPool
-init|=
-literal|null
-decl_stmt|;
-comment|// it's not used
 name|Transport
 name|transport
 init|=
@@ -1678,6 +1675,8 @@ operator|.
 name|DEFAULT_SCOPED_SETTINGS
 argument_list|,
 name|indicesService
+argument_list|,
+name|threadPool
 argument_list|)
 decl_stmt|;
 name|MetaDataCreateIndexService
