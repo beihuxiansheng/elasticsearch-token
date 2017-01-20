@@ -2360,6 +2360,8 @@ parameter_list|,
 name|IndexShard
 name|replica
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|class|PrimaryRef
 class|class
@@ -3038,6 +3040,8 @@ parameter_list|,
 name|IndexShard
 name|replica
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|Engine

@@ -2077,6 +2077,8 @@ specifier|public
 name|void
 name|testCommitStats
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// create a doc and refresh
 name|ParsedDocument
@@ -8054,6 +8056,8 @@ specifier|public
 name|void
 name|testFailEngineOnCorruption
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|ParsedDocument
 name|doc

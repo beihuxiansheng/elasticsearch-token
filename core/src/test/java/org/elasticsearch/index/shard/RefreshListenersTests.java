@@ -2343,6 +2343,8 @@ parameter_list|(
 name|String
 name|id
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|index
@@ -2366,6 +2368,8 @@ parameter_list|,
 name|String
 name|testFieldValue
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|String
 name|type

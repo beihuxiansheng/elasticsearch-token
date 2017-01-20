@@ -3827,6 +3827,8 @@ operator|.
 name|Index
 name|index
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|ensureWriteAllowed
 argument_list|(
@@ -3863,6 +3865,8 @@ operator|.
 name|Index
 name|index
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|active
 operator|.
@@ -4267,6 +4271,8 @@ operator|.
 name|Delete
 name|delete
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|ensureWriteAllowed
 argument_list|(
@@ -4303,6 +4309,8 @@ operator|.
 name|Delete
 name|delete
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|active
 operator|.
@@ -10640,6 +10648,8 @@ operator|.
 name|Index
 name|engineIndex
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|IndexShard
 operator|.
@@ -10668,6 +10678,8 @@ operator|.
 name|Delete
 name|engineDelete
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|IndexShard
 operator|.

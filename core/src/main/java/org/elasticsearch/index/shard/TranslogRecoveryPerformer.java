@@ -785,6 +785,8 @@ operator|.
 name|Origin
 name|origin
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 try|try
 block|{
@@ -1282,6 +1284,8 @@ operator|.
 name|Index
 name|engineIndex
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|engine
 operator|.
@@ -1304,6 +1308,8 @@ operator|.
 name|Delete
 name|engineDelete
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|engine
 operator|.

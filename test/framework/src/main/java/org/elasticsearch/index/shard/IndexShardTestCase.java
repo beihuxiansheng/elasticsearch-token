@@ -2755,6 +2755,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|indexDoc
@@ -2788,6 +2790,8 @@ parameter_list|,
 name|String
 name|source
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|Engine
@@ -2942,6 +2946,8 @@ parameter_list|,
 name|String
 name|id
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|Engine

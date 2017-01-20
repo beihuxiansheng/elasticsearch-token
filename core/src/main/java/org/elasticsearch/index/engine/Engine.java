@@ -1736,6 +1736,8 @@ specifier|final
 name|Index
 name|index
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Perform document delete operation on the engine      * @param delete operation to perform      * @return {@link DeleteResult} containing updated translog location, version and      * document specific failures      *      * Note: engine level failures (i.e. persistent engine failures) are thrown      */
 DECL|method|delete
@@ -1748,6 +1750,8 @@ specifier|final
 name|Delete
 name|delete
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|noOp
 specifier|public
