@@ -24,20 +24,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Setting
@@ -92,16 +78,6 @@ name|Path
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
 begin_comment
 comment|/**  * Example configuration.  */
 end_comment
@@ -151,8 +127,6 @@ operator|.
 name|Dynamic
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|ExamplePluginConfiguration
 specifier|public
 name|ExamplePluginConfiguration
@@ -160,8 +134,6 @@ parameter_list|(
 name|Environment
 name|env
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// The directory part of the location matches the artifactId of this plugin
 name|Path
@@ -177,6 +149,8 @@ argument_list|(
 literal|"jvm-example/example.yaml"
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|customSettings
 operator|=
 name|Settings
@@ -192,6 +166,23 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Failed to load settings, giving up"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// asserts for tests
 assert|assert
 name|customSettings

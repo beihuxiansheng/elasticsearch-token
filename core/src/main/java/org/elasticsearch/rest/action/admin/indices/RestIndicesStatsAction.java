@@ -104,20 +104,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -348,8 +334,6 @@ name|RestIndicesStatsAction
 extends|extends
 name|BaseRestHandler
 block|{
-annotation|@
-name|Inject
 DECL|method|RestIndicesStatsAction
 specifier|public
 name|RestIndicesStatsAction
@@ -413,6 +397,7 @@ expr_stmt|;
 block|}
 DECL|field|METRICS
 specifier|static
+specifier|final
 name|Map
 argument_list|<
 name|String

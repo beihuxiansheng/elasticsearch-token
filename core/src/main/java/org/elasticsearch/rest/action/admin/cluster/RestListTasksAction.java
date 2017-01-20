@@ -98,9 +98,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|service
+name|node
 operator|.
-name|ClusterService
+name|DiscoveryNodes
 import|;
 end_import
 
@@ -113,20 +113,6 @@ operator|.
 name|common
 operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -307,6 +293,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -330,14 +328,15 @@ name|RestListTasksAction
 extends|extends
 name|BaseRestHandler
 block|{
-DECL|field|clusterService
+DECL|field|nodesInCluster
 specifier|private
 specifier|final
-name|ClusterService
-name|clusterService
+name|Supplier
+argument_list|<
+name|DiscoveryNodes
+argument_list|>
+name|nodesInCluster
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|RestListTasksAction
 specifier|public
 name|RestListTasksAction
@@ -348,8 +347,11 @@ parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
-name|ClusterService
-name|clusterService
+name|Supplier
+argument_list|<
+name|DiscoveryNodes
+argument_list|>
+name|nodesInCluster
 parameter_list|)
 block|{
 name|super
@@ -359,9 +361,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|clusterService
+name|nodesInCluster
 operator|=
-name|clusterService
+name|nodesInCluster
 expr_stmt|;
 name|controller
 operator|.
@@ -432,7 +434,7 @@ name|listTasksRequest
 argument_list|,
 name|listTasksResponseListener
 argument_list|(
-name|clusterService
+name|nodesInCluster
 argument_list|,
 name|groupBy
 argument_list|,
@@ -601,8 +603,11 @@ name|T
 argument_list|>
 name|listTasksResponseListener
 parameter_list|(
-name|ClusterService
-name|clusterService
+name|Supplier
+argument_list|<
+name|DiscoveryNodes
+argument_list|>
+name|nodesInCluster
 parameter_list|,
 name|String
 name|groupBy
@@ -663,12 +668,9 @@ operator|.
 name|request
 argument_list|()
 argument_list|,
-name|clusterService
+name|nodesInCluster
 operator|.
-name|state
-argument_list|()
-operator|.
-name|nodes
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;

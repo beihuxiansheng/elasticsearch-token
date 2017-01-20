@@ -136,7 +136,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|List
 import|;
 end_import
 
@@ -202,7 +202,7 @@ parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
-name|Set
+name|List
 argument_list|<
 name|AbstractCatAction
 argument_list|>

@@ -1504,7 +1504,17 @@ literal|null
 argument_list|,
 name|settingsModule
 operator|.
+name|getIndexScopedSettings
+argument_list|()
+argument_list|,
+name|settingsModule
+operator|.
 name|getClusterSettings
+argument_list|()
+argument_list|,
+name|settingsModule
+operator|.
+name|getSettingsFilter
 argument_list|()
 argument_list|,
 name|threadPool

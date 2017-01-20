@@ -28,7 +28,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
+name|DocWriteRequest
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteRequest
+name|DocWriteResponse
 import|;
 end_import
 
@@ -149,20 +149,6 @@ operator|.
 name|common
 operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -358,8 +344,6 @@ name|RestNoopBulkAction
 extends|extends
 name|BaseRestHandler
 block|{
-annotation|@
-name|Inject
 DECL|method|RestNoopBulkAction
 specifier|public
 name|RestNoopBulkAction
