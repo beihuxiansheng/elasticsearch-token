@@ -585,31 +585,11 @@ literal|"ec2"
 decl_stmt|;
 static|static
 block|{
-name|SecurityManager
-name|sm
-init|=
-name|System
-operator|.
-name|getSecurityManager
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|sm
-operator|!=
-literal|null
-condition|)
-block|{
-name|sm
-operator|.
-name|checkPermission
-argument_list|(
-operator|new
 name|SpecialPermission
+operator|.
+name|check
 argument_list|()
-argument_list|)
 expr_stmt|;
-block|}
 comment|// Initializing Jackson requires RuntimePermission accessDeclaredMembers
 comment|// The ClientConfiguration class requires RuntimePermission getClassLoader
 name|AccessController

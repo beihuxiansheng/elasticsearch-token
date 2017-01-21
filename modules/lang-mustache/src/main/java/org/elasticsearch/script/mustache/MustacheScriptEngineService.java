@@ -650,17 +650,6 @@ parameter_list|()
 block|{
 comment|// Nothing to do here
 block|}
-comment|// permission checked before doing crazy reflection
-DECL|field|SPECIAL_PERMISSION
-specifier|static
-specifier|final
-name|SpecialPermission
-name|SPECIAL_PERMISSION
-init|=
-operator|new
-name|SpecialPermission
-argument_list|()
-decl_stmt|;
 comment|/**      * Used at query execution time by script service in order to execute a query template.      * */
 DECL|class|MustacheExecutableScript
 specifier|private
@@ -787,29 +776,11 @@ argument_list|)
 init|)
 block|{
 comment|// crazy reflection here
-name|SecurityManager
-name|sm
-init|=
-name|System
+name|SpecialPermission
 operator|.
-name|getSecurityManager
+name|check
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|sm
-operator|!=
-literal|null
-condition|)
-block|{
-name|sm
-operator|.
-name|checkPermission
-argument_list|(
-name|SPECIAL_PERMISSION
-argument_list|)
 expr_stmt|;
-block|}
 name|AccessController
 operator|.
 name|doPrivileged

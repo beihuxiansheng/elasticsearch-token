@@ -632,32 +632,11 @@ throw|;
 block|}
 block|}
 comment|// Check we ourselves are not being called by unprivileged code.
-specifier|final
-name|SecurityManager
-name|sm
-init|=
-name|System
-operator|.
-name|getSecurityManager
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|sm
-operator|!=
-literal|null
-condition|)
-block|{
-name|sm
-operator|.
-name|checkPermission
-argument_list|(
-operator|new
 name|SpecialPermission
+operator|.
+name|check
 argument_list|()
-argument_list|)
 expr_stmt|;
-block|}
 comment|// Create our loader (which loads compiled code with no permissions).
 specifier|final
 name|Loader
