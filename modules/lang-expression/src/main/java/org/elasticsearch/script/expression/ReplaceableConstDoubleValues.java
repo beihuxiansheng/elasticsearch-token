@@ -24,25 +24,33 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|function
+name|DoubleValues
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|FunctionValues
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
 begin_comment
-comment|/**  * A support class for an executable expression script that allows the double returned  * by a {@link FunctionValues} to be modified.  */
+comment|/**  * A support class for an executable expression script that allows the double returned  * by a {@link DoubleValues} to be modified.  */
 end_comment
 
 begin_class
-DECL|class|ReplaceableConstFunctionValues
+DECL|class|ReplaceableConstDoubleValues
 specifier|final
 class|class
-name|ReplaceableConstFunctionValues
+name|ReplaceableConstDoubleValues
 extends|extends
-name|FunctionValues
+name|DoubleValues
 block|{
 DECL|field|value
 specifier|private
@@ -68,14 +76,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doubleVal
+DECL|method|doubleValue
 specifier|public
 name|double
-name|doubleVal
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
+name|doubleValue
+parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|value
@@ -83,19 +90,19 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|toString
+DECL|method|advanceExact
 specifier|public
-name|String
-name|toString
+name|boolean
+name|advanceExact
 parameter_list|(
 name|int
-name|i
+name|doc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
-literal|"ReplaceableConstFunctionValues: "
-operator|+
-name|value
+literal|true
 return|;
 block|}
 block|}
