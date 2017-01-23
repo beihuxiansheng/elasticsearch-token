@@ -130,7 +130,7 @@ specifier|static
 name|void
 name|doPrivilegedVoid
 parameter_list|(
-name|DiscoveryRunnable
+name|Runnable
 name|action
 parameter_list|)
 block|{
@@ -154,7 +154,7 @@ operator|->
 block|{
 name|action
 operator|.
-name|execute
+name|run
 argument_list|()
 block|;
 return|return
@@ -219,22 +219,6 @@ throw|;
 block|}
 block|}
 end_function
-
-begin_interface
-annotation|@
-name|FunctionalInterface
-DECL|interface|DiscoveryRunnable
-specifier|public
-interface|interface
-name|DiscoveryRunnable
-block|{
-DECL|method|execute
-name|void
-name|execute
-parameter_list|()
-function_decl|;
-block|}
-end_interface
 
 unit|}
 end_unit

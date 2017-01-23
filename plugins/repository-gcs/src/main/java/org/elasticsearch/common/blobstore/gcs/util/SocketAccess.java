@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|CheckedRunnable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -163,7 +175,10 @@ specifier|static
 name|void
 name|doPrivilegedVoidIOException
 parameter_list|(
-name|StorageRunnable
+name|CheckedRunnable
+argument_list|<
+name|IOException
+argument_list|>
 name|action
 parameter_list|)
 throws|throws
@@ -191,7 +206,7 @@ operator|->
 block|{
 name|action
 operator|.
-name|executeCouldThrow
+name|run
 argument_list|()
 block|;
 return|return
@@ -219,24 +234,6 @@ throw|;
 block|}
 block|}
 end_class
-
-begin_interface
-annotation|@
-name|FunctionalInterface
-DECL|interface|StorageRunnable
-specifier|public
-interface|interface
-name|StorageRunnable
-block|{
-DECL|method|executeCouldThrow
-name|void
-name|executeCouldThrow
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
-block|}
-end_interface
 
 unit|}
 end_unit
