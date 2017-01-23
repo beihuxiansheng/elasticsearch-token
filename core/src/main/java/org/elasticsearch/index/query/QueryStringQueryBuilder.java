@@ -754,12 +754,12 @@ argument_list|(
 literal|"auto_generate_phrase_queries"
 argument_list|)
 decl_stmt|;
-DECL|field|MAX_DETERMINED_STATES_FIELD
+DECL|field|MAX_DETERMINIZED_STATES_FIELD
 specifier|private
 specifier|static
 specifier|final
 name|ParseField
-name|MAX_DETERMINED_STATES_FIELD
+name|MAX_DETERMINIZED_STATES_FIELD
 init|=
 operator|new
 name|ParseField
@@ -3089,7 +3089,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|MAX_DETERMINED_STATES_FIELD
+name|MAX_DETERMINIZED_STATES_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -4020,7 +4020,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|MAX_DETERMINED_STATES_FIELD
+name|MAX_DETERMINIZED_STATES_FIELD
 operator|.
 name|match
 argument_list|(
@@ -4375,7 +4375,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|MAX_DETERMINED_STATES_FIELD
+name|MAX_DETERMINIZED_STATES_FIELD
 operator|.
 name|match
 argument_list|(
