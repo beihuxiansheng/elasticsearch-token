@@ -3171,6 +3171,8 @@ name|SearchPlugin
 operator|.
 name|class
 argument_list|)
+argument_list|,
+name|client
 argument_list|)
 decl_stmt|;
 name|CircuitBreakerService

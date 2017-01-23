@@ -177,6 +177,10 @@ parameter_list|()
 lambda|->
 name|emptyList
 argument_list|()
+argument_list|,
+parameter_list|()
+lambda|->
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;

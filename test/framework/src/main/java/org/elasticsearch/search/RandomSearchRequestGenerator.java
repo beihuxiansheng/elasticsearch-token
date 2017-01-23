@@ -216,6 +216,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|collapse
+operator|.
+name|CollapseBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|fetch
 operator|.
 name|subphase
@@ -605,7 +619,7 @@ specifier|private
 name|RandomSearchRequestGenerator
 parameter_list|()
 block|{}
-comment|/**      * Build a random search request.      *      * @param randomSearchSourceBuilder builds a random {@link SearchSourceBuilder}. You can use      *        {@link #randomSearchSourceBuilder(Supplier, Supplier, Supplier, Supplier)}.      */
+comment|/**      * Build a random search request.      *      * @param randomSearchSourceBuilder builds a random {@link SearchSourceBuilder}. You can use      *        {@link #randomSearchSourceBuilder(Supplier, Supplier, Supplier, Supplier, Supplier)}.      */
 DECL|method|randomSearchRequest
 specifier|public
 specifier|static
@@ -847,6 +861,12 @@ name|SearchExtBuilder
 argument_list|>
 argument_list|>
 name|randomExtBuilders
+parameter_list|,
+name|Supplier
+argument_list|<
+name|CollapseBuilder
+argument_list|>
+name|randomCollapseBuilder
 parameter_list|)
 block|{
 name|SearchSourceBuilder
@@ -2295,6 +2315,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|collapse
+argument_list|(
+name|randomCollapseBuilder
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|builder
