@@ -3690,6 +3690,8 @@ name|action
 argument_list|,
 name|executor
 argument_list|,
+literal|false
+argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
@@ -3769,6 +3771,8 @@ argument_list|(
 name|action
 argument_list|,
 name|executor
+argument_list|,
+name|forceExecution
 argument_list|,
 name|handler
 argument_list|)
