@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.painless
+DECL|package|org.elasticsearch.painless.api
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|painless
+operator|.
+name|api
 package|;
 end_package
 

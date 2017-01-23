@@ -44,6 +44,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|api
+operator|.
+name|Augmentation
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
