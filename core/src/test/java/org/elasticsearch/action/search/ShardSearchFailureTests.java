@@ -529,6 +529,9 @@ argument_list|,
 name|XContentType
 operator|.
 name|JSON
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals

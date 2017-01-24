@@ -316,6 +316,12 @@ name|v2
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|boolean
+name|humanReadable
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|BytesReference
 name|originalBytes
 init|=
@@ -324,6 +330,8 @@ argument_list|(
 name|getResponse
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 comment|//test that we can parse what we print out
@@ -380,6 +388,8 @@ argument_list|(
 name|parsedGetResponse
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 name|assertToXContentEquivalent

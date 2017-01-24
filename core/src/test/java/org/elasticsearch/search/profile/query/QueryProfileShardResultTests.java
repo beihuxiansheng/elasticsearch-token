@@ -309,6 +309,12 @@ name|values
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|boolean
+name|humanReadable
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|BytesReference
 name|originalBytes
 init|=
@@ -317,6 +323,8 @@ argument_list|(
 name|profileResult
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 name|QueryProfileShardResult
@@ -399,6 +407,8 @@ argument_list|(
 name|parsed
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 argument_list|,
 name|xContentType

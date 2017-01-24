@@ -1350,6 +1350,9 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Expected JSON is {"total":5,"successful":3,"failed":0}
@@ -1618,6 +1621,12 @@ literal|5
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|boolean
+name|humanReadable
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 specifier|final
 name|BytesReference
 name|shardInfoBytes
@@ -1629,6 +1638,8 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 name|ReplicationResponse
@@ -1705,6 +1716,8 @@ argument_list|(
 name|parsedShardInfo
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1762,6 +1775,9 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
@@ -2125,6 +2141,9 @@ argument_list|(
 name|shardInfo
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ReplicationResponse
@@ -2453,6 +2472,9 @@ argument_list|(
 name|shardInfoFailure
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
@@ -2528,6 +2550,9 @@ argument_list|(
 name|shardInfoFailure
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ReplicationResponse

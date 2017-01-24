@@ -666,6 +666,9 @@ argument_list|(
 name|toXContent
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -682,6 +685,9 @@ argument_list|(
 name|toXContent
 argument_list|,
 name|xContentType
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

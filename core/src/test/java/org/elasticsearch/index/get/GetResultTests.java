@@ -366,6 +366,12 @@ operator|.
 name|v2
 argument_list|()
 decl_stmt|;
+name|boolean
+name|humanReadable
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|BytesReference
 name|originalBytes
 init|=
@@ -374,6 +380,8 @@ argument_list|(
 name|getResult
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 comment|//test that we can parse what we print out
@@ -430,6 +438,8 @@ argument_list|(
 name|parsedGetResult
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 name|assertToXContentEquivalent
@@ -649,6 +659,12 @@ name|getFields
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|boolean
+name|humanReadable
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|BytesReference
 name|originalBytes
 init|=
@@ -657,6 +673,8 @@ argument_list|(
 name|getResult
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 comment|// Test that we can parse the result of toXContentEmbedded()
@@ -731,6 +749,8 @@ argument_list|(
 name|parsedEmbeddedGetResult
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 decl_stmt|;
 name|assertToXContentEquivalent
@@ -853,6 +873,8 @@ argument_list|,
 name|XContentType
 operator|.
 name|JSON
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -907,6 +929,8 @@ argument_list|,
 name|XContentType
 operator|.
 name|JSON
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1816,6 +1840,9 @@ name|getResult
 parameter_list|,
 name|XContentType
 name|xContentType
+parameter_list|,
+name|boolean
+name|humanReadable
 parameter_list|)
 throws|throws
 name|IOException
@@ -1830,6 +1857,8 @@ operator|::
 name|toXContentEmbedded
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 return|;
 block|}

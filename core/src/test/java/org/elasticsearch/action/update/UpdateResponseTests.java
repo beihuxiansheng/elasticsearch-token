@@ -626,6 +626,12 @@ argument_list|(
 name|xContentType
 argument_list|)
 decl_stmt|;
+name|boolean
+name|humanReadable
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 comment|// Parse the XContent bytes to obtain a parsed UpdateResponse
 name|UpdateResponse
 name|parsedUpdateResponse
@@ -650,6 +656,8 @@ name|v1
 argument_list|()
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 argument_list|)
 init|)
@@ -698,6 +706,8 @@ argument_list|(
 name|parsedUpdateResponse
 argument_list|,
 name|xContentType
+argument_list|,
+name|humanReadable
 argument_list|)
 argument_list|)
 init|)
