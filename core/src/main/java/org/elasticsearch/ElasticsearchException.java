@@ -770,7 +770,6 @@ name|readString
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//TODO change to onOrAfter once backported to 5.x
 if|if
 condition|(
 name|in
@@ -778,7 +777,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
@@ -1394,7 +1393,6 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-comment|//TODO change to onOrAfter once backported to 5.x
 if|if
 condition|(
 name|out
@@ -1402,7 +1400,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
