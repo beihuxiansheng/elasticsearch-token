@@ -204,16 +204,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -845,6 +835,22 @@ argument_list|(
 literal|"\\d+:([^:,]+(?:,[^:,]+)?):(/.*)"
 argument_list|)
 decl_stmt|;
+comment|// this property is to support a hack to workaround an issue with Docker containers mounting the cgroups hierarchy inconsistently with
+comment|// respect to /proc/self/cgroup; for Docker containers this should be set to "/"
+DECL|field|CONTROL_GROUPS_HIERARCHY_OVERRIDE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CONTROL_GROUPS_HIERARCHY_OVERRIDE
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"es.cgroups.hierarchy.override"
+argument_list|)
+decl_stmt|;
 comment|/**      * A map of the control groups to which the Elasticsearch process belongs. Note that this is a map because the control groups can vary      * from subsystem to subsystem. Additionally, this map can not be cached because a running process can be reclassified.      *      * @return a map from subsystems to the control group for the Elasticsearch process.      * @throws IOException if an I/O exception occurs reading {@code /proc/self/cgroup}      */
 DECL|method|getControlGroups
 specifier|private
@@ -945,6 +951,26 @@ range|:
 name|controllers
 control|)
 block|{
+if|if
+condition|(
+name|CONTROL_GROUPS_HIERARCHY_OVERRIDE
+operator|!=
+literal|null
+condition|)
+block|{
+comment|/*                      * Docker violates the relationship between /proc/self/cgroups and the /sys/fs/cgroup hierarchy. It's possible that this                      * will be fixed in future versions of Docker with cgroup namespaces, but this requires modern kernels. Thus, we provide                      * an undocumented hack for overriding the control group path. Do not rely on this hack, it will be removed.                      */
+name|controllerMap
+operator|.
+name|put
+argument_list|(
+name|controller
+argument_list|,
+name|CONTROL_GROUPS_HIERARCHY_OVERRIDE
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|controllerMap
 operator|.
 name|put
@@ -959,6 +985,7 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
