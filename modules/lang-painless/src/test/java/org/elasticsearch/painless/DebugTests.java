@@ -199,7 +199,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getHeaders
+name|getMetadata
 argument_list|()
 argument_list|,
 name|hasEntry
@@ -217,7 +217,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getHeaders
+name|getMetadata
 argument_list|()
 argument_list|,
 name|hasEntry
@@ -265,7 +265,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getHeaders
+name|getMetadata
 argument_list|()
 argument_list|,
 name|hasEntry
@@ -283,7 +283,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getHeaders
+name|getMetadata
 argument_list|()
 argument_list|,
 name|hasEntry
@@ -393,7 +393,7 @@ argument_list|)
 argument_list|,
 name|e
 operator|.
-name|getHeader
+name|getMetadata
 argument_list|(
 literal|"es.class"
 argument_list|)
@@ -408,7 +408,7 @@ argument_list|)
 argument_list|,
 name|e
 operator|.
-name|getHeader
+name|getMetadata
 argument_list|(
 literal|"es.to_string"
 argument_list|)
@@ -465,7 +465,7 @@ argument_list|)
 argument_list|,
 name|read
 operator|.
-name|getHeader
+name|getMetadata
 argument_list|(
 literal|"es.class"
 argument_list|)
@@ -480,7 +480,7 @@ argument_list|)
 argument_list|,
 name|read
 operator|.
-name|getHeader
+name|getMetadata
 argument_list|(
 literal|"es.to_string"
 argument_list|)

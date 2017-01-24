@@ -2506,16 +2506,6 @@ argument_list|)
 decl_stmt|;
 name|failure
 operator|.
-name|setIndex
-argument_list|(
-name|shardRouting
-operator|.
-name|getIndexName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|failure
-operator|.
 name|setShard
 argument_list|(
 name|shardRouting

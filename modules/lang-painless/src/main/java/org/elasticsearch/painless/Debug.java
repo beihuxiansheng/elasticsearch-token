@@ -154,7 +154,7 @@ name|objectToExplain
 return|;
 block|}
 comment|/**          * Headers to be added to the {@link ScriptException} for structured rendering.          */
-DECL|method|getHeaders
+DECL|method|getMetadata
 name|Map
 argument_list|<
 name|String
@@ -164,7 +164,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|getHeaders
+name|getMetadata
 parameter_list|()
 block|{
 name|Map
@@ -176,14 +176,14 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|headers
+name|metadata
 init|=
 operator|new
 name|TreeMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|headers
+name|metadata
 operator|.
 name|put
 argument_list|(
@@ -207,7 +207,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|headers
+name|metadata
 operator|.
 name|put
 argument_list|(
@@ -225,7 +225,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|headers
+name|metadata
 return|;
 block|}
 block|}

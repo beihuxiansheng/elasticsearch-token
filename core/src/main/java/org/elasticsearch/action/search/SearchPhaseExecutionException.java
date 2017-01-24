@@ -902,6 +902,9 @@ argument_list|,
 name|getHeaders
 argument_list|()
 argument_list|,
+name|getMetadata
+argument_list|()
+argument_list|,
 name|super
 operator|.
 name|getCause

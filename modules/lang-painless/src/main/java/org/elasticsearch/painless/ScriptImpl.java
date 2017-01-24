@@ -382,7 +382,7 @@ name|e
 argument_list|,
 name|e
 operator|.
-name|getHeaders
+name|getMetadata
 argument_list|()
 argument_list|)
 throw|;
@@ -430,7 +430,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|headers
+name|metadata
 parameter_list|)
 block|{
 comment|// create a script stack: this is just the script portion
@@ -724,9 +724,9 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|header
+name|entry
 range|:
-name|headers
+name|metadata
 operator|.
 name|entrySet
 argument_list|()
@@ -734,14 +734,14 @@ control|)
 block|{
 name|scriptException
 operator|.
-name|addHeader
+name|addMetadata
 argument_list|(
-name|header
+name|entry
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|header
+name|entry
 operator|.
 name|getValue
 argument_list|()
