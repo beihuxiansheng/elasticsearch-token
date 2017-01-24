@@ -382,6 +382,18 @@ name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|docValues
+operator|==
+literal|null
+condition|)
+block|{
+comment|// hit has no _parent field.
+return|return
+literal|null
+return|;
+block|}
 name|BytesRef
 name|parentId
 init|=
