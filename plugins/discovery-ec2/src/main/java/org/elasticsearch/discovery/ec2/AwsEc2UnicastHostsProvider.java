@@ -1292,6 +1292,11 @@ argument_list|(
 operator|new
 name|DiscoveryNode
 argument_list|(
+name|instance
+operator|.
+name|getInstanceId
+argument_list|()
+argument_list|,
 literal|"#cloud-"
 operator|+
 name|instance
