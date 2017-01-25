@@ -6909,38 +6909,7 @@ argument_list|,
 name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
-DECL|enum constant|ENGINE_CLOSED_EXCEPTION
-name|ENGINE_CLOSED_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineClosedException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineClosedException
-operator|::
-operator|new
-argument_list|,
-literal|129
-argument_list|,
-name|UNKNOWN_VERSION_ADDED
-argument_list|)
-block|,
+comment|// 129 was EngineClosedException
 DECL|enum constant|NO_SHARD_AVAILABLE_ACTION_EXCEPTION
 name|NO_SHARD_AVAILABLE_ACTION_EXCEPTION
 argument_list|(
