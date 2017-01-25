@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.repositories.uri
+DECL|package|org.elasticsearch.repositories.url
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|repositories
 operator|.
-name|uri
+name|url
 package|;
 end_package
 
@@ -762,11 +762,18 @@ operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|logMessage
+init|=
+literal|"The specified url [{}] doesn't start with any repository paths specified by the "
+operator|+
+literal|"path.repo setting or by {} setting: [{}] "
+decl_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"The specified url [{}] doesn't start with any repository paths specified by the path.repo setting or by {} setting: [{}] "
+name|logMessage
 argument_list|,
 name|url
 argument_list|,
@@ -781,16 +788,9 @@ name|repoFiles
 argument_list|()
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|RepositoryException
-argument_list|(
-name|getMetadata
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
+name|String
+name|exceptionMessage
+init|=
 literal|"file url ["
 operator|+
 name|url
@@ -801,6 +801,18 @@ name|ALLOWED_URLS_SETTING
 operator|.
 name|getKey
 argument_list|()
+decl_stmt|;
+throw|throw
+operator|new
+name|RepositoryException
+argument_list|(
+name|getMetadata
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|exceptionMessage
 argument_list|)
 throw|;
 block|}
