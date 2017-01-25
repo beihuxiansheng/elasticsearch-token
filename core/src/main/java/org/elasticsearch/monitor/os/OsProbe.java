@@ -958,7 +958,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/*                      * Docker violates the relationship between /proc/self/cgroups and the /sys/fs/cgroup hierarchy. It's possible that this                      * will be fixed in future versions of Docker with cgroup namespaces, but this requires modern kernels. Thus, we provide                      * an undocumented hack for overriding the control group path. Do not rely on this hack, it will be removed.                      */
+comment|/*                      * Docker violates the relationship between /proc/self/cgroup and the /sys/fs/cgroup hierarchy. It's possible that this                      * will be fixed in future versions of Docker with cgroup namespaces, but this requires modern kernels. Thus, we provide                      * an undocumented hack for overriding the control group path. Do not rely on this hack, it will be removed.                      */
 name|controllerMap
 operator|.
 name|put
