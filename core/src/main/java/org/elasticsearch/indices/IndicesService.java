@@ -7062,6 +7062,47 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|context
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|searchTimedOut
+argument_list|()
+condition|)
+block|{
+comment|// we have to invalidate the cache entry if we cached a query result form a request that timed out.
+comment|// we can't really throw exceptions in the loading part to signal a timed out search to the outside world since if there are
+comment|// multiple requests that wait for the cache entry to be calculated they'd fail all with the same exception.
+comment|// instead we all caching such a result for the time being, return the timed out result for all other searches with that cache
+comment|// key invalidate the result in the thread that caused the timeout. This will end up to be simpler and eventually correct since
+comment|// running a search that times out concurrently will likely timeout again if it's run while we have this `stale` result in the
+comment|// cache. One other option is to not cache requests with a timeout at all...
+name|indicesRequestCache
+operator|.
+name|invalidate
+argument_list|(
+operator|new
+name|IndexShardCacheEntity
+argument_list|(
+name|context
+operator|.
+name|indexShard
+argument_list|()
+argument_list|)
+argument_list|,
+name|directoryReader
+argument_list|,
+name|request
+operator|.
+name|cacheKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Fetch {@linkplain FieldStats} for a field. These stats are cached until the shard changes.      * @param shard the shard to use with the cache key      * @param searcher searcher to use to lookup the field stats      * @param field the actual field      * @param useCache should this request use the cache?      */
 DECL|method|getFieldStats
