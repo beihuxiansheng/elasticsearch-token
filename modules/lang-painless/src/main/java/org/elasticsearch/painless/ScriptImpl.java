@@ -365,12 +365,9 @@ argument_list|,
 name|aggregationValue
 argument_list|)
 return|;
-comment|// Note that it is safe to catch any of the following errors since Painless is stateless.
 block|}
 catch|catch
 parameter_list|(
-name|Debug
-operator|.
 name|PainlessExplainError
 name|e
 parameter_list|)
@@ -382,10 +379,11 @@ name|e
 argument_list|,
 name|e
 operator|.
-name|getMetadata
+name|getHeaders
 argument_list|()
 argument_list|)
 throw|;
+comment|// Note that it is safe to catch any of the following errors since Painless is stateless.
 block|}
 catch|catch
 parameter_list|(

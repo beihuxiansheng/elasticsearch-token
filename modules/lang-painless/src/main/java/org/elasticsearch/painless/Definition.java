@@ -182,6 +182,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -3047,6 +3057,12 @@ specifier|final
 class|class
 name|RuntimeClass
 block|{
+DECL|field|struct
+specifier|private
+specifier|final
+name|Struct
+name|struct
+decl_stmt|;
 DECL|field|methods
 specifier|public
 specifier|final
@@ -3085,6 +3101,10 @@ specifier|private
 name|RuntimeClass
 parameter_list|(
 specifier|final
+name|Struct
+name|struct
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|MethodKey
@@ -3114,6 +3134,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|struct
+operator|=
+name|struct
+expr_stmt|;
+name|this
+operator|.
 name|methods
 operator|=
 name|Collections
@@ -3145,6 +3171,16 @@ argument_list|(
 name|setters
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getStruct
+specifier|public
+name|Struct
+name|getStruct
+parameter_list|()
+block|{
+return|return
+name|struct
+return|;
 block|}
 block|}
 comment|/** Returns whether or not a non-array type exists. */
@@ -3276,6 +3312,25 @@ name|get
 argument_list|(
 name|clazz
 argument_list|)
+return|;
+block|}
+comment|/** Collection of all simple types. Used by {@code PainlessDocGenerator} to generate an API reference. */
+DECL|method|allSimpleTypes
+specifier|static
+name|Collection
+argument_list|<
+name|Type
+argument_list|>
+name|allSimpleTypes
+parameter_list|()
+block|{
+return|return
+name|INSTANCE
+operator|.
+name|simpleTypesMap
+operator|.
+name|values
+argument_list|()
 return|;
 block|}
 comment|// INTERNAL IMPLEMENTATION:
@@ -7144,6 +7199,8 @@ argument_list|,
 operator|new
 name|RuntimeClass
 argument_list|(
+name|struct
+argument_list|,
 name|methods
 argument_list|,
 name|getters
