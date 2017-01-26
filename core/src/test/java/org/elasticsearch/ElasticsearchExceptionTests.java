@@ -5456,7 +5456,7 @@ name|actualException
 operator|.
 name|addMetadata
 argument_list|(
-literal|"ignored"
+literal|"es.ignored"
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -5511,16 +5511,6 @@ name|String
 index|[]
 name|resourceIds
 init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|frequently
-argument_list|()
-condition|)
-block|{
-name|resourceIds
-operator|=
 operator|new
 name|String
 index|[
@@ -5531,7 +5521,7 @@ argument_list|,
 literal|3
 argument_list|)
 index|]
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -5564,7 +5554,6 @@ argument_list|)
 else|:
 literal|""
 expr_stmt|;
-block|}
 block|}
 name|actualException
 operator|.
