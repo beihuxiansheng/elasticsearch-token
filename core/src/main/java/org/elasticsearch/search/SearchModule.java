@@ -6595,7 +6595,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO Merge NoContextParser and FromXContent
 name|namedXContents
 operator|.
 name|add
@@ -6614,17 +6613,10 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|p
-lambda|->
 name|suggester
 operator|.
 name|getParser
 argument_list|()
-operator|.
-name|parse
-argument_list|(
-name|p
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7690,7 +7682,6 @@ argument_list|>
 name|spec
 parameter_list|)
 block|{
-comment|// TODO merge NoContextParser and ToXContent
 name|namedXContents
 operator|.
 name|add
@@ -7709,17 +7700,10 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|p
-lambda|->
 name|spec
 operator|.
 name|getParser
 argument_list|()
-operator|.
-name|parse
-argument_list|(
-name|p
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

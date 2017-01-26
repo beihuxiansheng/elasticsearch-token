@@ -148,6 +148,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|CheckedFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParseField
 import|;
 end_import
@@ -266,9 +278,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|NamedXContentRegistry
-operator|.
-name|FromXContent
+name|XContentParser
 import|;
 end_import
 
@@ -391,6 +401,16 @@ operator|.
 name|transport
 operator|.
 name|TransportRequestHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -1233,9 +1253,13 @@ name|T
 argument_list|>
 name|reader
 parameter_list|,
-name|FromXContent
+name|CheckedFunction
 argument_list|<
+name|XContentParser
+argument_list|,
 name|T
+argument_list|,
+name|IOException
 argument_list|>
 name|parser
 parameter_list|,
