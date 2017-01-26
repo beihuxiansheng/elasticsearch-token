@@ -2079,6 +2079,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// here we pass on the connection since we can only close it once the sendRequest returns otherwise
+comment|// due to the async nature (it will return before it's actually sent) this can cause the request to fail
+comment|// due to an already closed connection.
 name|transportService
 operator|.
 name|sendRequest
@@ -2442,6 +2445,20 @@ parameter_list|)
 block|{
 try|try
 block|{
+try|try
+init|(
+name|Closeable
+name|theConnection
+init|=
+name|connection
+init|)
+block|{
+comment|// the connection is unused - see comment in #collectRemoteNodes
+comment|// we have to close this connection before we notify listeners - this is mainly needed for test correctness
+comment|// since if we do it afterwards we might fail assertions that check if all high level connections are closed.
+comment|// from a code correctness perspective we could also close it afterwards. This try/with block will
+comment|// maintain the possibly exceptions thrown from within the try block and suppress the ones that are possible thrown
+comment|// by closing the connection
 name|cancellableThreads
 operator|.
 name|executeIO
@@ -2557,11 +2574,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|connection
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|listener
 operator|.
 name|onResponse
@@ -2623,17 +2636,6 @@ argument_list|,
 name|transportService
 argument_list|,
 name|listener
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// just to make sure we don't leak anything we close the connection here again even if we managed to do so before
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|connection
 argument_list|)
 expr_stmt|;
 block|}
