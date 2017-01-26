@@ -1128,16 +1128,14 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
+comment|// We do not use LuceneTestCase.newSearcher because we need a DirectoryReader for "testInsideTerms"
 name|IndexSearcher
 name|indexSearcher
 init|=
-name|newSearcher
+operator|new
+name|IndexSearcher
 argument_list|(
 name|indexReader
-argument_list|,
-literal|true
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|Aggregation
