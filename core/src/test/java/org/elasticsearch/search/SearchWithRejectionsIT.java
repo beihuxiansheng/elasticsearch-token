@@ -359,10 +359,6 @@ name|QUERY_THEN_FETCH
 argument_list|,
 name|SearchType
 operator|.
-name|DFS_QUERY_AND_FETCH
-argument_list|,
-name|SearchType
-operator|.
 name|DFS_QUERY_THEN_FETCH
 argument_list|)
 decl_stmt|;

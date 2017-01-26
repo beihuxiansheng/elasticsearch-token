@@ -187,12 +187,6 @@ operator|==
 name|SearchType
 operator|.
 name|QUERY_AND_FETCH
-operator|||
-name|searchType
-operator|==
-name|SearchType
-operator|.
-name|DFS_QUERY_AND_FETCH
 condition|)
 block|{
 return|return

@@ -46,16 +46,7 @@ operator|)
 literal|1
 argument_list|)
 block|,
-comment|/**      * Same as {@link #QUERY_AND_FETCH}, except for an initial scatter phase which goes and computes the distributed      * term frequencies for more accurate scoring.      */
-DECL|enum constant|DFS_QUERY_AND_FETCH
-name|DFS_QUERY_AND_FETCH
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|2
-argument_list|)
-block|,
+comment|// 2 used to be DFS_QUERY_AND_FETCH
 comment|/**      * The most naive (and possibly fastest) implementation is to simply execute the query on all relevant shards      * and return the results. Each shard returns size results. Since each shard already returns size hits, this      * type actually returns size times number of shards results back to the caller.      */
 DECL|enum constant|QUERY_AND_FETCH
 name|QUERY_AND_FETCH
@@ -147,18 +138,6 @@ if|if
 condition|(
 name|id
 operator|==
-literal|2
-condition|)
-block|{
-return|return
-name|DFS_QUERY_AND_FETCH
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|id
-operator|==
 literal|3
 condition|)
 block|{
@@ -219,23 +198,6 @@ return|return
 name|SearchType
 operator|.
 name|DFS_QUERY_THEN_FETCH
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"dfs_query_and_fetch"
-operator|.
-name|equals
-argument_list|(
-name|searchType
-argument_list|)
-condition|)
-block|{
-return|return
-name|SearchType
-operator|.
-name|DFS_QUERY_AND_FETCH
 return|;
 block|}
 elseif|else

@@ -1794,10 +1794,7 @@ block|{
 case|case
 name|QUERY_AND_FETCH
 case|:
-case|case
-name|DFS_QUERY_AND_FETCH
-case|:
-comment|// for (DFS_)QUERY_AND_FETCH, we already know the last emitted doc
+comment|// for QUERY_AND_FETCH, we already know the last emitted doc
 if|if
 condition|(
 name|topDocs
