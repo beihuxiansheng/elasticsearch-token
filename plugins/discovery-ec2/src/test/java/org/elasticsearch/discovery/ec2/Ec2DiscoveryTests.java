@@ -1436,7 +1436,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"No enum constant"
+literal|"does_not_exist is unknown for discovery.ec2.host_type"
 argument_list|)
 argument_list|)
 expr_stmt|;

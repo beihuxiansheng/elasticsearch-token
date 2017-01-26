@@ -1226,6 +1226,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|hostType
+operator|+
+literal|" is unknown for discovery.ec2.host_type"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|address
