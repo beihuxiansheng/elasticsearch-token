@@ -655,6 +655,13 @@ literal|"org.elasticsearch.cluster.service:TRACE,org.elasticsearch.indices.recov
 operator|+
 literal|"org.elasticsearch.indices.cluster:TRACE,org.elasticsearch.index.shard:TRACE"
 argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"boaz is looking into failures: https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+java9-periodic/1545"
+argument_list|)
 DECL|method|testRecoveryWaitsForOps
 specifier|public
 name|void
