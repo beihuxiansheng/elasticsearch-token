@@ -3906,7 +3906,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"index [{}][{}]{}"
+literal|"index [{}][{}] (seq# [{}], source {})"
 argument_list|,
 name|index
 operator|.
@@ -3920,7 +3920,15 @@ argument_list|()
 argument_list|,
 name|index
 operator|.
-name|docs
+name|seqNo
+argument_list|()
+argument_list|,
+name|index
+operator|.
+name|source
+argument_list|()
+operator|.
+name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4350,7 +4358,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"delete [{}]"
+literal|"delete [{}] (seq no [{}])"
 argument_list|,
 name|delete
 operator|.
@@ -4358,6 +4366,11 @@ name|uid
 argument_list|()
 operator|.
 name|text
+argument_list|()
+argument_list|,
+name|delete
+operator|.
+name|seqNo
 argument_list|()
 argument_list|)
 expr_stmt|;

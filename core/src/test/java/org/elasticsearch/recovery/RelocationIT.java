@@ -1802,7 +1802,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.action.index:TRACE,org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
+literal|"org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
 argument_list|)
 DECL|method|testRelocationWhileIndexingRandom
 specifier|public
@@ -2622,7 +2622,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.action.index:TRACE,org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
+literal|"org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
 argument_list|)
 DECL|method|testRelocationWhileRefreshing
 specifier|public
@@ -3968,7 +3968,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.action.index:TRACE,org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
+literal|"org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
 argument_list|)
 DECL|method|testIndexAndRelocateConcurrently
 specifier|public

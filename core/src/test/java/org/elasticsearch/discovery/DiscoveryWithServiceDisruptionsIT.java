@@ -3054,9 +3054,11 @@ comment|/**      * Test that we do not loose document whose indexing request was
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,org.elasticsearch.action.index:TRACE,org.elasticsearch.action.get:TRACE,discovery:TRACE,org.elasticsearch.cluster.service:TRACE,"
+literal|"_root:DEBUG,org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.get:TRACE,discovery:TRACE,"
 operator|+
-literal|"org.elasticsearch.indices.recovery:TRACE,org.elasticsearch.indices.cluster:TRACE"
+literal|"org.elasticsearch.cluster.service:TRACE,org.elasticsearch.indices.recovery:TRACE,"
+operator|+
+literal|"org.elasticsearch.indices.cluster:TRACE,org.elasticsearch.index.shard:TRACE"
 argument_list|)
 DECL|method|testAckedIndexing
 specifier|public
