@@ -458,7 +458,7 @@ comment|/**      * A setting which contains a sensitive string.      *      * Th
 DECL|method|secureString
 specifier|public
 specifier|static
-name|SecureSetting
+name|Setting
 argument_list|<
 name|SecureString
 argument_list|>
@@ -467,7 +467,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|SecureSetting
+name|Setting
 argument_list|<
 name|SecureString
 argument_list|>

@@ -86,6 +86,8 @@ argument_list|,
 name|Settings
 operator|.
 name|EMPTY
+argument_list|,
+literal|"default"
 argument_list|)
 decl_stmt|;
 comment|// NOTE: env vars are setup by the test runner in gradle

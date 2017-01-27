@@ -435,6 +435,14 @@ name|build
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|output
+operator|=
+name|Settings
+operator|.
+name|builder
+argument_list|()
+expr_stmt|;
+comment|// start with a fresh output
 name|boolean
 name|settingsFileFound
 init|=

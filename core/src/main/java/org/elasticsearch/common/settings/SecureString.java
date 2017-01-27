@@ -89,6 +89,26 @@ name|chars
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new SecureString from an existing String.      *      * NOTE: This is not actually secure, since the provided String cannot be deallocated, but      * this constructor allows for easy compatibility between new and old apis.      *      * @deprecated Only use for compatibility between deprecated string settings and new secure strings      */
+annotation|@
+name|Deprecated
+DECL|method|SecureString
+specifier|public
+name|SecureString
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|s
+operator|.
+name|toCharArray
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** Constant time equality to avoid potential timing attacks. */
 annotation|@
 name|Override

@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|amazonaws
+name|util
 operator|.
-name|Protocol
+name|IdentityHashMap
 import|;
 end_import
 
@@ -37,6 +37,20 @@ operator|.
 name|s3
 operator|.
 name|AmazonS3
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|AmazonS3Client
 import|;
 end_import
 
@@ -77,16 +91,6 @@ operator|.
 name|s3
 operator|.
 name|S3RepositoryPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|IdentityHashMap
 import|;
 end_import
 
@@ -169,15 +173,6 @@ parameter_list|(
 name|Settings
 name|repositorySettings
 parameter_list|,
-name|String
-name|endpoint
-parameter_list|,
-name|Protocol
-name|protocol
-parameter_list|,
-name|String
-name|region
-parameter_list|,
 name|Integer
 name|maxRetries
 parameter_list|,
@@ -196,12 +191,6 @@ operator|.
 name|client
 argument_list|(
 name|repositorySettings
-argument_list|,
-name|endpoint
-argument_list|,
-name|protocol
-argument_list|,
-name|region
 argument_list|,
 name|maxRetries
 argument_list|,
