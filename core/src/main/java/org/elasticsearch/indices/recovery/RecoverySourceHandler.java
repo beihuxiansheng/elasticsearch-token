@@ -324,6 +324,34 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|seqno
+operator|.
+name|LocalCheckpointTracker
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|seqno
+operator|.
+name|SequenceNumbersService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -819,6 +847,7 @@ name|IOException
 block|{
 try|try
 init|(
+specifier|final
 name|Translog
 operator|.
 name|View
@@ -834,7 +863,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"captured translog id [{}] for recovery"
+literal|"{} captured translog id [{}] for recovery"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|translogView
 operator|.
@@ -842,6 +876,29 @@ name|minTranslogGeneration
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|boolean
+name|isSequenceNumberBasedRecoveryPossible
+init|=
+name|request
+operator|.
+name|startingSeqNo
+argument_list|()
+operator|!=
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+operator|&&
+name|isTranslogReadyForSequenceNumberBasedRecovery
+argument_list|(
+name|translogView
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|isSequenceNumberBasedRecoveryPossible
+condition|)
+block|{
 specifier|final
 name|IndexCommit
 name|phase1Snapshot
@@ -860,6 +917,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|e
 parameter_list|)
@@ -882,7 +940,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-literal|"Snapshot failed"
+literal|"snapshot failed"
 argument_list|,
 name|e
 argument_list|)
@@ -900,6 +958,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|e
 parameter_list|)
@@ -935,6 +994,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|IOException
 name|ex
 parameter_list|)
@@ -950,7 +1010,53 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// engine was just started at the end of phase 1
+block|}
+try|try
+block|{
+name|prepareTargetForTranslog
+argument_list|(
+name|translogView
+operator|.
+name|totalOperations
+argument_list|()
+argument_list|,
+name|shard
+operator|.
+name|segmentStats
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|getMaxUnsafeAutoIdTimestamp
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+specifier|final
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RecoveryEngineException
+argument_list|(
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+literal|1
+argument_list|,
+literal|"prepare target for translog failed"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// engine was just started at the end of phase1
 if|if
 condition|(
 name|shard
@@ -973,7 +1079,7 @@ literal|false
 operator|:
 literal|"recovery target should not retry primary relocation if previous attempt made it past finalization step"
 assert|;
-comment|/**                  * The primary shard has been relocated while we copied files. This means that we can't guarantee any more that all                  * operations that were replicated during the file copy (when the target engine was not yet opened) will be present in the                  * local translog and thus will be resent on phase 2. The reason is that an operation replicated by the target primary is                  * sent to the recovery target and the local shard (old primary) concurrently, meaning it may have arrived at the recovery                  * target before we opened the engine and is still in-flight on the local shard.                  *                  * Checking the relocated status here, after we opened the engine on the target, is safe because primary relocation waits                  * for all ongoing operations to complete and be fully replicated. Therefore all future operation by the new primary are                  * guaranteed to reach the target shard when it's engine is open.                  */
+comment|/*                  * The primary shard has been relocated while we copied files. This means that we can't guarantee any more that all                  * operations that were replicated during the file copy (when the target engine was not yet opened) will be present in the                  * local translog and thus will be resent on phase2. The reason is that an operation replicated by the target primary is                  * sent to the recovery target and the local shard (old primary) concurrently, meaning it may have arrived at the recovery                  * target before we opened the engine and is still in-flight on the local shard.                  *                  * Checking the relocated status here, after we opened the engine on the target, is safe because primary relocation waits                  * for all ongoing operations to complete and be fully replicated. Therefore all future operation by the new primary are                  * guaranteed to reach the target shard when its engine is open.                  */
 throw|throw
 operator|new
 name|IndexShardRelocatedException
@@ -989,7 +1095,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} snapshot translog for recovery. current size is [{}]"
+literal|"{} snapshot translog for recovery; current size is [{}]"
 argument_list|,
 name|shard
 operator|.
@@ -1043,6 +1149,195 @@ block|}
 return|return
 name|response
 return|;
+block|}
+comment|/**      * Determines if the source translog is ready for a sequence-number-based peer recovery. The main condition here is that the source      * translog contains all operations between the local checkpoint on the target and the current maximum sequence number on the source.      *      * @param translogView a view of the translog on the source      * @return {@code true} if the source is ready for a sequence-number-based recovery      * @throws IOException if an I/O exception occurred reading the translog snapshot      */
+DECL|method|isTranslogReadyForSequenceNumberBasedRecovery
+name|boolean
+name|isTranslogReadyForSequenceNumberBasedRecovery
+parameter_list|(
+specifier|final
+name|Translog
+operator|.
+name|View
+name|translogView
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+specifier|final
+name|long
+name|startingSeqNo
+init|=
+name|request
+operator|.
+name|startingSeqNo
+argument_list|()
+decl_stmt|;
+assert|assert
+name|startingSeqNo
+operator|>=
+literal|0
+assert|;
+specifier|final
+name|long
+name|endingSeqNo
+init|=
+name|shard
+operator|.
+name|seqNoStats
+argument_list|()
+operator|.
+name|getMaxSeqNo
+argument_list|()
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} starting: [{}], ending: [{}]"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|startingSeqNo
+argument_list|,
+name|endingSeqNo
+argument_list|)
+expr_stmt|;
+comment|// the start recovery request is initialized with the starting sequence number set to the target shard's local checkpoint plus one
+if|if
+condition|(
+name|startingSeqNo
+operator|-
+literal|1
+operator|<=
+name|endingSeqNo
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} waiting for all operations in the range [{}, {}] to complete"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|startingSeqNo
+argument_list|,
+name|endingSeqNo
+argument_list|)
+expr_stmt|;
+comment|/*              * We need to wait for all operations up to the current max to complete, otherwise we can not guarantee that all              * operations in the required range will be available for replaying from the translog of the source.              */
+name|cancellableThreads
+operator|.
+name|execute
+argument_list|(
+parameter_list|()
+lambda|->
+name|shard
+operator|.
+name|waitForOpsToComplete
+argument_list|(
+name|endingSeqNo
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|final
+name|LocalCheckpointTracker
+name|tracker
+init|=
+operator|new
+name|LocalCheckpointTracker
+argument_list|(
+name|shard
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|,
+name|startingSeqNo
+argument_list|,
+name|startingSeqNo
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+specifier|final
+name|Translog
+operator|.
+name|Snapshot
+name|snapshot
+init|=
+name|translogView
+operator|.
+name|snapshot
+argument_list|()
+decl_stmt|;
+name|Translog
+operator|.
+name|Operation
+name|operation
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|operation
+operator|=
+name|snapshot
+operator|.
+name|next
+argument_list|()
+operator|)
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|operation
+operator|.
+name|seqNo
+argument_list|()
+operator|!=
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+condition|)
+block|{
+name|tracker
+operator|.
+name|markSeqNoAsCompleted
+argument_list|(
+name|operation
+operator|.
+name|seqNo
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|tracker
+operator|.
+name|getCheckpoint
+argument_list|()
+operator|>=
+name|endingSeqNo
+return|;
+block|}
+else|else
+block|{
+comment|// norelease this can currently happen if a snapshot restore rolls the primary back to a previous commit point; in this
+comment|// situation the local checkpoint on the replica can be far in advance of the maximum sequence number on the primary violating
+comment|// all assumptions regarding local and global checkpoints
+return|return
+literal|false
+return|;
+block|}
 block|}
 comment|/**      * Perform phase1 of the recovery operations. Once this {@link IndexCommit}      * snapshot has been performed no commit operations (files being fsync'd)      * are effectively allowed on this index until all recovery phases are done      *<p>      * Phase1 examines the segment files on the target node and copies over the      * segments that are missing. Only segments that have the same size and      * checksum can be reused      */
 DECL|method|phase1
@@ -1416,7 +1711,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: not recovering [{}], exists in local store and has checksum [{}],"
+literal|"[{}][{}] recovery [phase1] to {}: not recovering [{}], exist in local store and has checksum [{}],"
 operator|+
 literal|" size [{}]"
 argument_list|,
@@ -1572,7 +1867,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: recovering [{}], does not exists in remote"
+literal|"[{}][{}] recovery [phase1] to {}: recovering [{}], does not exist in remote"
 argument_list|,
 name|indexName
 argument_list|,
@@ -2055,24 +2350,6 @@ throw|;
 block|}
 block|}
 block|}
-name|prepareTargetForTranslog
-argument_list|(
-name|translogView
-operator|.
-name|totalOperations
-argument_list|()
-argument_list|,
-name|shard
-operator|.
-name|segmentStats
-argument_list|(
-literal|false
-argument_list|)
-operator|.
-name|getMaxUnsafeAutoIdTimestamp
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|trace
@@ -2149,7 +2426,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|prepareTargetForTranslog
-specifier|protected
 name|void
 name|prepareTargetForTranslog
 parameter_list|(
@@ -2157,6 +2433,7 @@ specifier|final
 name|int
 name|totalTranslogOps
 parameter_list|,
+specifier|final
 name|long
 name|maxUnsafeAutoIdTimestamp
 parameter_list|)
@@ -2202,9 +2479,8 @@ operator|.
 name|millis
 argument_list|()
 decl_stmt|;
-comment|// Send a request preparing the new shard's translog to receive
-comment|// operations. This ensures the shard engine is started and disables
-comment|// garbage collection (not the JVM's GC!) of tombstone deletes
+comment|// Send a request preparing the new shard's translog to receive operations. This ensures the shard engine is started and disables
+comment|// garbage collection (not the JVM's GC!) of tombstone deletes.
 name|cancellableThreads
 operator|.
 name|executeIO
@@ -2263,17 +2539,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Perform phase2 of the recovery process      *<p>      * Phase2 takes a snapshot of the current translog *without* acquiring the      * write lock (however, the translog snapshot is a point-in-time view of      * the translog). It then sends each translog operation to the target node      * so it can be replayed into the new shard.      */
+comment|/**      * Perform phase two of the recovery process.      *<p>      * Phase two uses a snapshot of the current translog *without* acquiring the write lock (however, the translog snapshot is      * point-in-time view of the translog). It then sends each translog operation to the target node so it can be replayed into the new      * shard.      *      * @param snapshot a snapshot of the translog      */
 DECL|method|phase2
-specifier|public
 name|void
 name|phase2
 parameter_list|(
+specifier|final
 name|Translog
 operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -2303,6 +2581,7 @@ operator|.
 name|checkForCancel
 argument_list|()
 expr_stmt|;
+specifier|final
 name|StopWatch
 name|stopWatch
 init|=
@@ -2330,12 +2609,18 @@ name|targetNode
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Send all the snapshot's translog operations to the target
+comment|// send all the snapshot's translog operations to the target
+specifier|final
 name|int
 name|totalOperations
 init|=
 name|sendSnapshot
 argument_list|(
+name|request
+operator|.
+name|startingSeqNo
+argument_list|()
+argument_list|,
 name|snapshot
 argument_list|)
 decl_stmt|;
@@ -2385,7 +2670,7 @@ operator|=
 name|totalOperations
 expr_stmt|;
 block|}
-comment|/**      * finalizes the recovery process      */
+comment|/*      * finalizes the recovery process      */
 DECL|method|finalizeRecovery
 specifier|public
 name|void
@@ -2580,7 +2865,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * if the recovery process fails after setting the shard state to RELOCATED, both relocation source and              * target are failed (see {@link IndexShard#updateRoutingEntry}).              */
+comment|/*              * if the recovery process fails after setting the shard state to RELOCATED, both relocation source and              * target are failed (see {@link IndexShard#updateRoutingEntry}).              */
 block|}
 name|stopWatch
 operator|.
@@ -2609,18 +2894,24 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Send the given snapshot's operations to this handler's target node.      *<p>      * Operations are bulked into a single request depending on an operation      * count limit or size-in-bytes limit      *      * @return the total number of translog operations that were sent      */
+comment|/**      * Send the given snapshot's operations with a sequence number greater than the specified staring sequence number to this handler's      * target node.      *<p>      * Operations are bulked into a single request depending on an operation count limit or size-in-bytes limit.      *      * @param startingSeqNo the sequence number for which only operations with a sequence number greater than this will be sent      * @param snapshot      the translog snapshot to replay operations from      * @return the total number of translog operations that were sent      * @throws IOException if an I/O exception occurred reading the translog snapshot      */
 DECL|method|sendSnapshot
 specifier|protected
 name|int
 name|sendSnapshot
 parameter_list|(
 specifier|final
+name|long
+name|startingSeqNo
+parameter_list|,
+specifier|final
 name|Translog
 operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|int
 name|ops
@@ -2651,43 +2942,14 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Translog
-operator|.
-name|Operation
-name|operation
-decl_stmt|;
-try|try
-block|{
-name|operation
-operator|=
-name|snapshot
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-comment|// this ex should bubble up
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchException
-argument_list|(
-literal|"failed to get next operation from translog"
-argument_list|,
-name|ex
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
-name|operation
+name|snapshot
+operator|.
+name|totalOperations
+argument_list|()
 operator|==
-literal|null
+literal|0
 condition|)
 block|{
 name|logger
@@ -2707,9 +2969,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// send operations in batches
+name|Translog
+operator|.
+name|Operation
+name|operation
+decl_stmt|;
 while|while
 condition|(
+operator|(
 name|operation
+operator|=
+name|snapshot
+operator|.
+name|next
+argument_list|()
+operator|)
 operator|!=
 literal|null
 condition|)
@@ -2742,6 +3017,26 @@ operator|.
 name|checkForCancel
 argument_list|()
 expr_stmt|;
+comment|// we have to send older ops for which no sequence number was assigned, and any ops after the starting sequence number
+if|if
+condition|(
+name|operation
+operator|.
+name|seqNo
+argument_list|()
+operator|==
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+operator|||
+name|operation
+operator|.
+name|seqNo
+argument_list|()
+operator|<
+name|startingSeqNo
+condition|)
+continue|continue;
 name|operations
 operator|.
 name|add
@@ -2750,8 +3045,7 @@ name|operation
 argument_list|)
 expr_stmt|;
 name|ops
-operator|+=
-literal|1
+operator|++
 expr_stmt|;
 name|size
 operator|+=
@@ -2763,8 +3057,7 @@ expr_stmt|;
 name|totalOperations
 operator|++
 expr_stmt|;
-comment|// Check if this request is past bytes threshold, and
-comment|// if so, send it off
+comment|// check if this request is past bytes threshold, and if so, send it off
 if|if
 condition|(
 name|size
@@ -2772,11 +3065,6 @@ operator|>=
 name|chunkSizeInBytes
 condition|)
 block|{
-comment|// don't throttle translog, since we lock for phase3 indexing,
-comment|// so we need to move it as fast as possible. Note, since we
-comment|// index docs to replicas while the index files are recovered
-comment|// the lock can potentially be removed, in which case, it might
-comment|// make sense to re-enable throttling in this phase
 name|cancellableThreads
 operator|.
 name|execute
@@ -2848,35 +3136,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-try|try
-block|{
-name|operation
-operator|=
-name|snapshot
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-comment|// this ex should bubble up
 block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchException
-argument_list|(
-literal|"failed to get next operation from translog"
-argument_list|,
-name|ex
-argument_list|)
-throw|;
-block|}
-block|}
-comment|// send the leftover
+comment|// send the leftover operations
 if|if
 condition|(
 operator|!

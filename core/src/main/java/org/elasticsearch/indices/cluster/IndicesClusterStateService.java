@@ -488,7 +488,7 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|GlobalCheckpointService
+name|GlobalCheckpointTracker
 import|;
 end_import
 
@@ -4620,7 +4620,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * Notifies the service of the current allocation ids in the cluster state.          * See {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.          *          * @param activeAllocationIds       the allocation ids of the currently active shard copies          * @param initializingAllocationIds the allocation ids of the currently initializing shard copies          */
+comment|/**          * Notifies the service of the current allocation ids in the cluster state.          * See {@link GlobalCheckpointTracker#updateAllocationIdsFromMaster(Set, Set)} for details.          *          * @param activeAllocationIds       the allocation ids of the currently active shard copies          * @param initializingAllocationIds the allocation ids of the currently initializing shard copies          */
 DECL|method|updateAllocationIdsFromMaster
 name|void
 name|updateAllocationIdsFromMaster

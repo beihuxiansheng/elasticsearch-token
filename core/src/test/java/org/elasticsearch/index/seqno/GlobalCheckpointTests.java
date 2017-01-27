@@ -250,9 +250,9 @@ name|GlobalCheckpointTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|field|checkpointService
-name|GlobalCheckpointService
-name|checkpointService
+DECL|field|tracker
+name|GlobalCheckpointTracker
+name|tracker
 decl_stmt|;
 annotation|@
 name|Override
@@ -271,10 +271,10 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|checkpointService
+name|tracker
 operator|=
 operator|new
-name|GlobalCheckpointService
+name|GlobalCheckpointTracker
 argument_list|(
 operator|new
 name|ShardId
@@ -311,7 +311,7 @@ name|assertFalse
 argument_list|(
 literal|"checkpoint shouldn't be updated when the are no active shards"
 argument_list|,
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -319,7 +319,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -560,7 +560,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -656,7 +656,7 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -671,7 +671,7 @@ name|forEach
 argument_list|(
 name|aId
 lambda|->
-name|checkpointService
+name|tracker
 operator|.
 name|markAllocationIdAsInSync
 argument_list|(
@@ -688,7 +688,7 @@ name|forEach
 argument_list|(
 name|aId
 lambda|->
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -705,7 +705,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -718,7 +718,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -733,7 +733,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -810,7 +810,7 @@ name|forEach
 argument_list|(
 name|aId
 lambda|->
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -838,7 +838,7 @@ literal|5
 argument_list|)
 decl_stmt|;
 comment|// first check that adding it without the master blessing doesn't change anything.
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -856,7 +856,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getLocalCheckpointForAllocationId
 argument_list|(
@@ -889,7 +889,7 @@ argument_list|(
 name|extraId
 argument_list|)
 expr_stmt|;
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -901,7 +901,7 @@ expr_stmt|;
 comment|// we should ask for a refresh , but not update the checkpoint
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -909,7 +909,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -921,7 +921,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now notify for the new id
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -940,7 +940,7 @@ expr_stmt|;
 comment|// now it should be incremented
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -948,7 +948,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -1026,7 +1026,7 @@ argument_list|(
 name|initializing
 argument_list|)
 expr_stmt|;
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1069,7 +1069,7 @@ argument_list|)
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|markAllocationIdAsInSync
 argument_list|)
@@ -1078,13 +1078,13 @@ name|assigned
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|updateLocalCheckpoint
 argument_list|)
 expr_stmt|;
 comment|// now mark all active shards
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1102,7 +1102,7 @@ expr_stmt|;
 comment|// global checkpoint can't be advanced, but we need a sync
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1110,7 +1110,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -1126,14 +1126,14 @@ name|assigned
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|updateLocalCheckpoint
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1141,7 +1141,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -1194,7 +1194,7 @@ argument_list|,
 literal|5
 argument_list|)
 decl_stmt|;
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1216,7 +1216,7 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|markAllocationIdAsInSync
 argument_list|)
@@ -1243,7 +1243,7 @@ name|forEach
 argument_list|(
 name|aId
 lambda|->
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -1262,7 +1262,7 @@ name|active
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|updateLocalCheckpoint
 argument_list|)
@@ -1270,7 +1270,7 @@ expr_stmt|;
 comment|// global checkpoint can't be advanced, but we need a sync
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1278,7 +1278,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -1294,14 +1294,14 @@ name|initializing
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|updateLocalCheckpoint
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1309,7 +1309,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -1378,7 +1378,7 @@ argument_list|,
 literal|5
 argument_list|)
 decl_stmt|;
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1400,7 +1400,7 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|markAllocationIdAsInSync
 argument_list|)
@@ -1412,7 +1412,7 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|markAllocationIdAsInSync
 argument_list|)
@@ -1459,7 +1459,7 @@ name|a
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|updateLocalCheckpoint
 argument_list|)
@@ -1468,7 +1468,7 @@ expr_stmt|;
 comment|// global checkpoint can be advanced, but we need a sync
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1476,7 +1476,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -1661,7 +1661,7 @@ name|initializingToBeRemoved
 argument_list|)
 expr_stmt|;
 block|}
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1683,7 +1683,7 @@ argument_list|()
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|markAllocationIdAsInSync
 argument_list|)
@@ -1695,7 +1695,7 @@ name|initializing
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|markAllocationIdAsInSync
 argument_list|)
@@ -1711,7 +1711,7 @@ name|allocations
 operator|.
 name|forEach
 argument_list|(
-name|checkpointService
+name|tracker
 operator|::
 name|updateLocalCheckpoint
 argument_list|)
@@ -1720,7 +1720,7 @@ block|}
 comment|// global checkpoint may be advanced, but we need a sync in any case
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1733,7 +1733,7 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1758,7 +1758,7 @@ parameter_list|,
 name|ckp
 parameter_list|)
 lambda|->
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -1783,7 +1783,7 @@ parameter_list|,
 name|ckp
 parameter_list|)
 lambda|->
-name|checkpointService
+name|tracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -1795,7 +1795,7 @@ literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|checkpointService
+name|tracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(
@@ -1852,7 +1852,7 @@ comment|// we added 10 to make sure it's advanced in the second time
 comment|// global checkpoint is advanced and we need a sync
 name|assertTrue
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -1860,7 +1860,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|checkpointService
+name|tracker
 operator|.
 name|getCheckpoint
 argument_list|()

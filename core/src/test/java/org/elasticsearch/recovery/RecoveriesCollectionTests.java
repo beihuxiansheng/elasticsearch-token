@@ -928,12 +928,12 @@ name|assertNotSame
 argument_list|(
 name|recoveryTarget
 operator|.
-name|CancellableThreads
+name|cancellableThreads
 argument_list|()
 argument_list|,
 name|resetRecovery
 operator|.
-name|CancellableThreads
+name|cancellableThreads
 argument_list|()
 argument_list|)
 expr_stmt|;

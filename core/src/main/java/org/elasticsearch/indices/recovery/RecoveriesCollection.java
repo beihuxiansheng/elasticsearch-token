@@ -270,6 +270,18 @@ name|AtomicBoolean
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class holds a collection of all on going recoveries on the current node (i.e., the node is the target node  * of those recoveries). The class is used to guarantee concurrent semantics such that once a recoveries was done/cancelled/failed  * no other thread will be able to find it. Last, the {@link RecoveryRef} inner class verifies that recovery temporary files  * and store will only be cleared once on going usage is finished.  */
 end_comment
@@ -500,6 +512,7 @@ specifier|final
 name|long
 name|recoveryId
 parameter_list|,
+specifier|final
 name|TimeValue
 name|activityTimeout
 parameter_list|)
@@ -567,7 +580,7 @@ name|resetRecovery
 argument_list|(
 name|newRecoveryTarget
 operator|.
-name|CancellableThreads
+name|cancellableThreads
 argument_list|()
 argument_list|)
 decl_stmt|;

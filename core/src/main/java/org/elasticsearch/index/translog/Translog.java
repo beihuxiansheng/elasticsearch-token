@@ -3666,6 +3666,11 @@ name|Source
 name|getSource
 parameter_list|()
 function_decl|;
+DECL|method|seqNo
+name|long
+name|seqNo
+parameter_list|()
+function_decl|;
 comment|/**          * Reads the type and the operation from the given stream. The operatino must be written with          * {@link Operation#writeType(Operation, StreamOutput)}          */
 DECL|method|readType
 specifier|static
@@ -4427,6 +4432,8 @@ operator|.
 name|source
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|seqNo
 specifier|public
 name|long
@@ -5293,6 +5300,8 @@ operator|.
 name|uid
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|seqNo
 specifier|public
 name|long
@@ -5624,6 +5633,8 @@ specifier|final
 name|String
 name|reason
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|seqNo
 specifier|public
 name|long

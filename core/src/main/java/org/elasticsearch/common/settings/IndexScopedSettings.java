@@ -280,7 +280,7 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|LocalCheckpointService
+name|LocalCheckpointTracker
 import|;
 end_import
 
@@ -689,7 +689,7 @@ name|IndexSettings
 operator|.
 name|INDEX_SEQ_NO_CHECKPOINT_SYNC_INTERVAL
 argument_list|,
-name|LocalCheckpointService
+name|LocalCheckpointTracker
 operator|.
 name|SETTINGS_BIT_ARRAYS_SIZE
 argument_list|,

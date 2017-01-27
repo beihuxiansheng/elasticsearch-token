@@ -1168,7 +1168,7 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|GlobalCheckpointService
+name|GlobalCheckpointTracker
 import|;
 end_import
 
@@ -7996,7 +7996,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. See      * {@link GlobalCheckpointService#updateLocalCheckpoint(String, long)} for details.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
+comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. See      * {@link GlobalCheckpointTracker#updateLocalCheckpoint(String, long)} for details.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
 DECL|method|updateLocalCheckpointForShard
 specifier|public
 name|void
@@ -8028,7 +8028,32 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointService#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
+comment|/**      * Waits for all operations up to the provided sequence number to complete.      *      * @param seqNo the sequence number that the checkpoint must advance to before this method returns      * @throws InterruptedException if the thread was interrupted while blocking on the condition      */
+DECL|method|waitForOpsToComplete
+specifier|public
+name|void
+name|waitForOpsToComplete
+parameter_list|(
+specifier|final
+name|long
+name|seqNo
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+name|getEngine
+argument_list|()
+operator|.
+name|seqNoService
+argument_list|()
+operator|.
+name|waitForOpsToComplete
+argument_list|(
+name|seqNo
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointTracker#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 name|void
@@ -8145,7 +8170,7 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
+comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointTracker#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
 specifier|public
 name|void

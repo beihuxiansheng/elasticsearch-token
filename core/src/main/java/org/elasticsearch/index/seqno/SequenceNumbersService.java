@@ -100,17 +100,17 @@ init|=
 operator|-
 literal|1L
 decl_stmt|;
-DECL|field|localCheckpointService
+DECL|field|localCheckpointTracker
 specifier|private
 specifier|final
-name|LocalCheckpointService
-name|localCheckpointService
+name|LocalCheckpointTracker
+name|localCheckpointTracker
 decl_stmt|;
-DECL|field|globalCheckpointService
+DECL|field|globalCheckpointTracker
 specifier|private
 specifier|final
-name|GlobalCheckpointService
-name|globalCheckpointService
+name|GlobalCheckpointTracker
+name|globalCheckpointTracker
 decl_stmt|;
 comment|/**      * Initialize the sequence number service. The {@code maxSeqNo} should be set to the last sequence number assigned by this shard, or      * {@link SequenceNumbersService#NO_OPS_PERFORMED}, {@code localCheckpoint} should be set to the last known local checkpoint for this      * shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}, and {@code globalCheckpoint} should be set to the last known global      * checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard this service is providing tracking local checkpoints for      * @param indexSettings    the index settings      * @param maxSeqNo         the last sequence number assigned by this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param localCheckpoint  the last known local checkpoint for this shard, or {@link SequenceNumbersService#NO_OPS_PERFORMED}      * @param globalCheckpoint the last known global checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
 DECL|method|SequenceNumbersService
@@ -145,13 +145,11 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
-name|localCheckpointService
+name|localCheckpointTracker
 operator|=
 operator|new
-name|LocalCheckpointService
+name|LocalCheckpointTracker
 argument_list|(
-name|shardId
-argument_list|,
 name|indexSettings
 argument_list|,
 name|maxSeqNo
@@ -159,10 +157,10 @@ argument_list|,
 name|localCheckpoint
 argument_list|)
 expr_stmt|;
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|=
 operator|new
-name|GlobalCheckpointService
+name|GlobalCheckpointTracker
 argument_list|(
 name|shardId
 argument_list|,
@@ -180,13 +178,13 @@ name|generateSeqNo
 parameter_list|()
 block|{
 return|return
-name|localCheckpointService
+name|localCheckpointTracker
 operator|.
 name|generateSeqNo
 argument_list|()
 return|;
 block|}
-comment|/**      * The maximum sequence number issued so far. See {@link LocalCheckpointService#getMaxSeqNo()} for additional details.      *      * @return the maximum sequence number      */
+comment|/**      * The maximum sequence number issued so far. See {@link LocalCheckpointTracker#getMaxSeqNo()} for additional details.      *      * @return the maximum sequence number      */
 DECL|method|getMaxSeqNo
 specifier|public
 name|long
@@ -194,13 +192,34 @@ name|getMaxSeqNo
 parameter_list|()
 block|{
 return|return
-name|localCheckpointService
+name|localCheckpointTracker
 operator|.
 name|getMaxSeqNo
 argument_list|()
 return|;
 block|}
-comment|/**      * Marks the processing of the provided sequence number as completed as updates the checkpoint if possible.      * See {@link LocalCheckpointService#markSeqNoAsCompleted(long)} for additional details.      *      * @param seqNo the sequence number to mark as completed      */
+comment|/**      * Waits for all operations up to the provided sequence number to complete.      *      * @param seqNo the sequence number that the checkpoint must advance to before this method returns      * @throws InterruptedException if the thread was interrupted while blocking on the condition      */
+DECL|method|waitForOpsToComplete
+specifier|public
+name|void
+name|waitForOpsToComplete
+parameter_list|(
+specifier|final
+name|long
+name|seqNo
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+name|localCheckpointTracker
+operator|.
+name|waitForOpsToComplete
+argument_list|(
+name|seqNo
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Marks the processing of the provided sequence number as completed as updates the checkpoint if possible.      * See {@link LocalCheckpointTracker#markSeqNoAsCompleted(long)} for additional details.      *      * @param seqNo the sequence number to mark as completed      */
 DECL|method|markSeqNoAsCompleted
 specifier|public
 name|void
@@ -211,7 +230,7 @@ name|long
 name|seqNo
 parameter_list|)
 block|{
-name|localCheckpointService
+name|localCheckpointTracker
 operator|.
 name|markSeqNoAsCompleted
 argument_list|(
@@ -241,7 +260,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. See      * {@link GlobalCheckpointService#updateLocalCheckpoint(String, long)} for details.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
+comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. See      * {@link GlobalCheckpointTracker#updateLocalCheckpoint(String, long)} for details.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param checkpoint   the local checkpoint for the shard      */
 DECL|method|updateLocalCheckpointForShard
 specifier|public
 name|void
@@ -256,7 +275,7 @@ name|long
 name|checkpoint
 parameter_list|)
 block|{
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|.
 name|updateLocalCheckpoint
 argument_list|(
@@ -266,7 +285,7 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointService#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
+comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointTracker#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 name|void
@@ -277,7 +296,7 @@ name|String
 name|allocationId
 parameter_list|)
 block|{
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|.
 name|markAllocationIdAsInSync
 argument_list|(
@@ -293,7 +312,7 @@ name|getLocalCheckpoint
 parameter_list|()
 block|{
 return|return
-name|localCheckpointService
+name|localCheckpointTracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -307,7 +326,7 @@ name|getGlobalCheckpoint
 parameter_list|()
 block|{
 return|return
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|.
 name|getCheckpoint
 argument_list|()
@@ -321,7 +340,7 @@ name|updateGlobalCheckpointOnPrimary
 parameter_list|()
 block|{
 return|return
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|.
 name|updateCheckpointOnPrimary
 argument_list|()
@@ -338,7 +357,7 @@ name|long
 name|checkpoint
 parameter_list|)
 block|{
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|.
 name|updateCheckpointOnReplica
 argument_list|(
@@ -346,7 +365,7 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointService#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
+comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointTracker#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
 specifier|public
 name|void
@@ -367,7 +386,7 @@ argument_list|>
 name|initializingAllocationIds
 parameter_list|)
 block|{
-name|globalCheckpointService
+name|globalCheckpointTracker
 operator|.
 name|updateAllocationIdsFromMaster
 argument_list|(

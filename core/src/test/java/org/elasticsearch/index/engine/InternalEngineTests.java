@@ -1302,6 +1302,20 @@ name|index
 operator|.
 name|seqno
 operator|.
+name|SequenceNumbers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|seqno
+operator|.
 name|SequenceNumbersService
 import|;
 end_import
@@ -6429,7 +6443,7 @@ argument_list|()
 argument_list|,
 name|hasKey
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -6448,7 +6462,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -6471,7 +6485,7 @@ argument_list|()
 argument_list|,
 name|hasKey
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -6490,7 +6504,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -6754,7 +6768,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -6778,7 +6792,7 @@ argument_list|()
 argument_list|,
 name|hasKey
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -6797,7 +6811,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -16565,7 +16579,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -16618,7 +16632,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -16702,7 +16716,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -16746,7 +16760,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -17159,7 +17173,7 @@ name|userData
 operator|.
 name|containsKey
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -17172,7 +17186,7 @@ name|userData
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|)
@@ -17189,7 +17203,7 @@ name|userData
 operator|.
 name|containsKey
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)
@@ -17202,7 +17216,7 @@ name|userData
 operator|.
 name|get
 argument_list|(
-name|InternalEngine
+name|SequenceNumbers
 operator|.
 name|MAX_SEQ_NO
 argument_list|)

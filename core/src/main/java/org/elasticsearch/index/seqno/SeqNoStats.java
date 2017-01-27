@@ -128,7 +128,7 @@ specifier|final
 name|String
 name|MAX_SEQ_NO
 init|=
-literal|"max"
+literal|"max_seq_no"
 decl_stmt|;
 DECL|field|LOCAL_CHECKPOINT
 specifier|private

@@ -58,6 +58,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|index
@@ -110,6 +124,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -131,14 +155,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A shard component that is responsible of tracking the global checkpoint. The global checkpoint is the highest sequence number for which  * all lower (or equal) sequence number have been processed on all shards that are currently active. Since shards count as "active" when the  * master starts them, and before this primary shard has been notified of this fact, we also include shards that have completed recovery.  * These shards have received all old operations via the recovery mechanism and are kept up to date by the various replications actions.  * The set of shards that are taken into account for the global checkpoint calculation are called the "in-sync shards".  *<p>  * The global checkpoint is maintained by the primary shard and is replicated to all the replicas (via {@link GlobalCheckpointSyncAction}).  */
+comment|/**  * This class is responsible of tracking the global checkpoint. The global checkpoint is the highest sequence number for which all lower (or  * equal) sequence number have been processed on all shards that are currently active. Since shards count as "active" when the master starts  * them, and before this primary shard has been notified of this fact, we also include shards that have completed recovery. These shards  * have received all old operations via the recovery mechanism and are kept up to date by the various replications actions. The set of  * shards that are taken into account for the global checkpoint calculation are called the "in-sync shards".  *<p>  * The global checkpoint is maintained by the primary shard and is replicated to all the replicas (via {@link GlobalCheckpointSyncAction}).  */
 end_comment
 
 begin_class
-DECL|class|GlobalCheckpointService
+DECL|class|GlobalCheckpointTracker
 specifier|public
 class|class
-name|GlobalCheckpointService
+name|GlobalCheckpointTracker
 extends|extends
 name|AbstractIndexShardComponent
 block|{
@@ -168,9 +192,9 @@ specifier|private
 name|long
 name|globalCheckpoint
 decl_stmt|;
-comment|/**      * Initialize the global checkpoint service. The specified global checkpoint should be set to the last known global checkpoint for this      * shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard this service is tracking local checkpoints for      * @param indexSettings    the index settings      * @param globalCheckpoint the last known global checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
-DECL|method|GlobalCheckpointService
-name|GlobalCheckpointService
+comment|/**      * Initialize the global checkpoint service. The specified global checkpoint should be set to the last known global checkpoint, or      * {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}.      *      * @param shardId          the shard ID      * @param indexSettings    the index settings      * @param globalCheckpoint the last known global checkpoint for this shard, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
+DECL|method|GlobalCheckpointTracker
+name|GlobalCheckpointTracker
 parameter_list|(
 specifier|final
 name|ShardId
@@ -437,21 +461,30 @@ operator|<
 name|globalCheckpoint
 condition|)
 block|{
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"new global checkpoint [%d] is lower than previous one [%d]"
+argument_list|,
+name|minCheckpoint
+argument_list|,
+name|globalCheckpoint
+argument_list|)
+decl_stmt|;
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-name|shardId
-operator|+
-literal|" new global checkpoint ["
-operator|+
-name|minCheckpoint
-operator|+
-literal|"] is lower than previous one ["
-operator|+
-name|globalCheckpoint
-operator|+
-literal|"]"
+name|message
 argument_list|)
 throw|;
 block|}

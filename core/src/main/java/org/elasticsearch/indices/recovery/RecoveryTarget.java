@@ -422,6 +422,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Arrays
 import|;
 end_import
@@ -719,22 +729,26 @@ operator|.
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
-comment|/**      * creates a new recovery target object that represents a recovery to the provided indexShard      *      * @param indexShard local shard where we want to recover to      * @param sourceNode source node of the recovery where we recover from      * @param listener called when recovery is completed / failed      * @param ensureClusterStateVersionCallback callback to ensure that the current node is at least on a cluster state with the provided      *                                          version. Necessary for primary relocation so that new primary knows about all other ongoing      *                                          replica recoveries when replicating documents (see {@link RecoverySourceHandler}).      */
+comment|/**      * Creates a new recovery target object that represents a recovery to the provided shard.      *      * @param indexShard                        local shard where we want to recover to      * @param sourceNode                        source node of the recovery where we recover from      * @param listener                          called when recovery is completed/failed      * @param ensureClusterStateVersionCallback callback to ensure that the current node is at least on a cluster state with the provided      *                                          version; necessary for primary relocation so that new primary knows about all other ongoing      *                                          replica recoveries when replicating documents (see {@link RecoverySourceHandler})      */
 DECL|method|RecoveryTarget
 specifier|public
 name|RecoveryTarget
 parameter_list|(
+specifier|final
 name|IndexShard
 name|indexShard
 parameter_list|,
+specifier|final
 name|DiscoveryNode
 name|sourceNode
 parameter_list|,
+specifier|final
 name|PeerRecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
 parameter_list|,
+specifier|final
 name|Callback
 argument_list|<
 name|Long
@@ -859,7 +873,7 @@ name|incCurrentAsTarget
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * returns a fresh RecoveryTarget to retry recovery from the same source node onto the same IndexShard and using the same listener      */
+comment|/**      * Returns a fresh recovery target to retry recovery from the same source node onto the same shard and using the same listener.      *      * @return a copy of this recovery target      */
 DECL|method|retryCopy
 specifier|public
 name|RecoveryTarget
@@ -870,20 +884,12 @@ return|return
 operator|new
 name|RecoveryTarget
 argument_list|(
-name|this
-operator|.
 name|indexShard
 argument_list|,
-name|this
-operator|.
 name|sourceNode
 argument_list|,
-name|this
-operator|.
 name|listener
 argument_list|,
-name|this
-operator|.
 name|ensureClusterStateVersionCallback
 argument_list|)
 return|;
@@ -946,10 +952,10 @@ name|recoveryState
 argument_list|()
 return|;
 block|}
-DECL|method|CancellableThreads
+DECL|method|cancellableThreads
 specifier|public
 name|CancellableThreads
-name|CancellableThreads
+name|cancellableThreads
 parameter_list|()
 block|{
 return|return
@@ -1188,7 +1194,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * cancel the recovery. calling this method will clean temporary files and release the store      * unless this object is in use (in which case it will be cleaned once all ongoing users call      * {@link #decRef()}      *<p>      * if {@link #CancellableThreads()} was used, the threads will be interrupted.      */
+comment|/**      * cancel the recovery. calling this method will clean temporary files and release the store      * unless this object is in use (in which case it will be cleaned once all ongoing users call      * {@link #decRef()}      *<p>      * if {@link #cancellableThreads()} was used, the threads will be interrupted.      */
 DECL|method|cancel
 specifier|public
 name|void

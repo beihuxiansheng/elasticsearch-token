@@ -1523,7 +1523,7 @@ name|evaluate
 argument_list|(
 name|shard
 argument_list|,
-literal|"seq_no.max"
+literal|"seq_no.max_seq_no"
 argument_list|)
 decl_stmt|;
 name|Integer

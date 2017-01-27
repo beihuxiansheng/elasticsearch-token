@@ -52,6 +52,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|seqno
+operator|.
+name|LocalCheckpointTracker
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -107,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A recovery handler that skips phase 1 as well as sending the snapshot. During phase 3 the shard is marked  * as relocated an closed to ensure that the engine is closed and the target can acquire the IW write lock.  */
+comment|/**  * A recovery handler that skips phase one as well as sending the translog snapshot.  */
 end_comment
 
 begin_class
@@ -131,7 +145,6 @@ name|StartRecoveryRequest
 name|request
 decl_stmt|;
 DECL|method|SharedFSRecoverySourceHandler
-specifier|public
 name|SharedFSRecoverySourceHandler
 parameter_list|(
 name|IndexShard
@@ -213,7 +226,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase1] to {}: skipping phase 1 for shared filesystem"
+literal|"{} recovery [phase1] to {}: skipping phase1 for shared filesystem"
 argument_list|,
 name|request
 operator|.
@@ -226,6 +239,7 @@ name|targetNode
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
 name|long
 name|maxUnsafeAutoIdTimestamp
 init|=
@@ -365,6 +379,11 @@ specifier|protected
 name|int
 name|sendSnapshot
 parameter_list|(
+specifier|final
+name|long
+name|startingSeqNo
+parameter_list|,
+specifier|final
 name|Translog
 operator|.
 name|Snapshot
