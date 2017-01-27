@@ -3902,11 +3902,12 @@ name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
+comment|// don't use index.source().utf8ToString() here source might not be valid UTF-8
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"index [{}][{}] (seq# [{}], source {})"
+literal|"index [{}][{}] (seq# [{}])"
 argument_list|,
 name|index
 operator|.
@@ -3921,14 +3922,6 @@ argument_list|,
 name|index
 operator|.
 name|seqNo
-argument_list|()
-argument_list|,
-name|index
-operator|.
-name|source
-argument_list|()
-operator|.
-name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;
