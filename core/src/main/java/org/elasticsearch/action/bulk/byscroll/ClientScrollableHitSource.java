@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 

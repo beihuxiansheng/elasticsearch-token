@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 
@@ -41,6 +43,24 @@ operator|.
 name|BulkItemResponse
 operator|.
 name|Failure
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|ScrollableHitSource
+operator|.
+name|SearchFailure
 import|;
 end_import
 
@@ -132,22 +152,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|reindex
-operator|.
-name|ScrollableHitSource
-operator|.
-name|SearchFailure
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -233,10 +237,10 @@ comment|/**  * Response used for actions that index many documents using a scrol
 end_comment
 
 begin_class
-DECL|class|BulkIndexByScrollResponse
+DECL|class|BulkByScrollResponse
 specifier|public
 class|class
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 extends|extends
 name|ActionResponse
 implements|implements
@@ -275,14 +279,14 @@ specifier|private
 name|boolean
 name|timedOut
 decl_stmt|;
-DECL|method|BulkIndexByScrollResponse
+DECL|method|BulkByScrollResponse
 specifier|public
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 parameter_list|()
 block|{     }
-DECL|method|BulkIndexByScrollResponse
+DECL|method|BulkByScrollResponse
 specifier|public
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 parameter_list|(
 name|TimeValue
 name|took
@@ -344,13 +348,13 @@ operator|=
 name|timedOut
 expr_stmt|;
 block|}
-DECL|method|BulkIndexByScrollResponse
+DECL|method|BulkByScrollResponse
 specifier|public
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 parameter_list|(
 name|Iterable
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|toMerge
 parameter_list|,
@@ -394,7 +398,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|response
 range|:
 name|toMerge
@@ -489,7 +493,7 @@ name|took
 return|;
 block|}
 DECL|method|getStatus
-specifier|protected
+specifier|public
 name|BulkByScrollTask
 operator|.
 name|Status

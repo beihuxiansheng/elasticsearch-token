@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 
@@ -185,6 +187,24 @@ operator|.
 name|bulk
 operator|.
 name|Retry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|ScrollableHitSource
+operator|.
+name|SearchFailure
 import|;
 end_import
 
@@ -407,22 +427,6 @@ operator|.
 name|mapper
 operator|.
 name|VersionFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|reindex
-operator|.
-name|ScrollableHitSource
-operator|.
-name|SearchFailure
 import|;
 end_import
 
@@ -742,13 +746,15 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|unit
+name|bulk
 operator|.
-name|TimeValue
+name|byscroll
 operator|.
-name|timeValueNanos
+name|AbstractBulkByScrollRequest
+operator|.
+name|SIZE_ALL_MATCHES
 import|;
 end_import
 
@@ -758,13 +764,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|reindex
+name|unit
 operator|.
-name|AbstractBulkByScrollRequest
+name|TimeValue
 operator|.
-name|SIZE_ALL_MATCHES
+name|timeValueNanos
 import|;
 end_import
 
@@ -897,7 +903,7 @@ specifier|private
 specifier|final
 name|ActionListener
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|listener
 decl_stmt|;
@@ -962,7 +968,7 @@ name|clusterState
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -1130,9 +1136,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Build the {@link BiFunction} to apply to all {@link RequestWrapper}.      */
+comment|/**      * Build the {@link BiFunction} to apply to all {@link RequestWrapper}.      *      * Public for testings....      */
 DECL|method|buildScriptApplier
-specifier|protected
+specifier|public
 name|BiFunction
 argument_list|<
 name|RequestWrapper
@@ -1439,7 +1445,7 @@ block|}
 comment|/**      * Build the response for reindex actions.      */
 DECL|method|buildResponse
 specifier|protected
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|buildResponse
 parameter_list|(
 name|TimeValue
@@ -1465,7 +1471,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|(
 name|took
 argument_list|,
@@ -2541,6 +2547,7 @@ expr_stmt|;
 block|}
 comment|/**      * Finish the request.      *      * @param failure if non null then the request failed catastrophically with this exception      */
 DECL|method|finishHim
+specifier|protected
 name|void
 name|finishHim
 parameter_list|(
@@ -2564,6 +2571,7 @@ expr_stmt|;
 block|}
 comment|/**      * Finish the request.      * @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      * @param timedOut have any of the sub-requests timed out?      */
 DECL|method|finishHim
+specifier|protected
 name|void
 name|finishHim
 parameter_list|(
@@ -2697,6 +2705,7 @@ expr_stmt|;
 block|}
 comment|/**      * Wrapper for the {@link DocWriteRequest} that are used in this action class.      */
 DECL|interface|RequestWrapper
+specifier|public
 interface|interface
 name|RequestWrapper
 parameter_list|<
@@ -3144,6 +3153,7 @@ block|}
 block|}
 comment|/**      * Wraps a {@link IndexRequest} in a {@link RequestWrapper}      */
 DECL|method|wrap
+specifier|public
 specifier|static
 name|RequestWrapper
 argument_list|<

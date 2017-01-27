@@ -24,6 +24,22 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|BulkByScrollResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|get
 operator|.
 name|GetResponse
@@ -413,7 +429,7 @@ block|}
 comment|/**      * Perform a reindex with EXTERNAL versioning which has "refresh" semantics.      */
 DECL|method|reindexExternal
 specifier|private
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|reindexExternal
 parameter_list|()
 block|{
@@ -458,7 +474,7 @@ block|}
 comment|/**      * Perform a reindex with INTERNAL versioning which has "overwrite" semantics.      */
 DECL|method|reindexInternal
 specifier|private
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|reindexInternal
 parameter_list|()
 block|{
@@ -503,7 +519,7 @@ block|}
 comment|/**      * Perform a reindex with CREATE OpType which has "create" semantics.      */
 DECL|method|reindexCreate
 specifier|private
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|reindexCreate
 parameter_list|()
 block|{

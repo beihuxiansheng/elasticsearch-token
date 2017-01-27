@@ -604,6 +604,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|forSlice
+specifier|protected
 name|ReindexRequest
 name|forSlice
 parameter_list|(

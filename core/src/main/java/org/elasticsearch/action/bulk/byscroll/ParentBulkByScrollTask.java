@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 
@@ -144,6 +146,7 @@ end_comment
 
 begin_class
 DECL|class|ParentBulkByScrollTask
+specifier|public
 class|class
 name|ParentBulkByScrollTask
 extends|extends
@@ -157,7 +160,7 @@ name|AtomicArray
 argument_list|<
 name|Tuple
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|,
 name|Exception
 argument_list|>
@@ -231,6 +234,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|rethrottle
+specifier|public
 name|void
 name|rethrottle
 parameter_list|(
@@ -291,6 +295,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|runningSliceSubTasks
+specifier|public
 name|int
 name|runningSliceSubTasks
 parameter_list|()
@@ -425,7 +430,7 @@ name|Entry
 argument_list|<
 name|Tuple
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|,
 name|Exception
 argument_list|>
@@ -511,19 +516,20 @@ block|}
 block|}
 comment|/**      * Record a response from a slice and respond to the listener if the request is finished.      */
 DECL|method|onSliceResponse
+specifier|public
 name|void
 name|onSliceResponse
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|listener
 parameter_list|,
 name|int
 name|sliceId
 parameter_list|,
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|response
 parameter_list|)
 block|{
@@ -557,7 +563,7 @@ name|onSliceFailure
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|listener
 parameter_list|,
@@ -598,7 +604,7 @@ name|recordSliceCompletionAndRespondIfAllDone
 parameter_list|(
 name|ActionListener
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -617,7 +623,7 @@ return|return;
 block|}
 name|List
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|responses
 init|=
@@ -644,7 +650,7 @@ name|Entry
 argument_list|<
 name|Tuple
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|,
 name|Exception
 argument_list|>
@@ -754,7 +760,7 @@ operator|.
 name|onResponse
 argument_list|(
 operator|new
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|(
 name|responses
 argument_list|,

@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 
@@ -303,8 +305,9 @@ name|parentTaskId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The number of sub-slices that are still running. {@link WorkingBulkByScrollTask} will always have 0 and      * {@link ParentBulkByScrollTask} will return the number of waiting tasks. Used by {@link TransportRethrottleAction} to decide how to      * perform the rethrottling.      */
+comment|/**      * The number of sub-slices that are still running. {@link WorkingBulkByScrollTask} will always have 0 and      * {@link ParentBulkByScrollTask} will return the number of waiting tasks. Used to decide how to perform rethrottling.      */
 DECL|method|runningSliceSubTasks
+specifier|public
 specifier|abstract
 name|int
 name|runningSliceSubTasks
@@ -312,6 +315,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Apply the {@code newRequestsPerSecond}.      */
 DECL|method|rethrottle
+specifier|public
 specifier|abstract
 name|void
 name|rethrottle

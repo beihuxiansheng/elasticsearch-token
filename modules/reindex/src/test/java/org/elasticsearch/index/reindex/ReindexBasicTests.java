@@ -24,6 +24,22 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|BulkByScrollResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|index
 operator|.
 name|IndexRequestBuilder
@@ -1074,7 +1090,7 @@ name|half
 argument_list|)
 expr_stmt|;
 comment|// The real "size" of the request.
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|response
 init|=
 name|copy

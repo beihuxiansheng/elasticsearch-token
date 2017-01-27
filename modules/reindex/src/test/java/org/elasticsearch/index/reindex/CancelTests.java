@@ -80,6 +80,54 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|AbstractBulkByScrollRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|BulkByScrollResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|BulkByScrollTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ingest
 operator|.
 name|DeletePipelineRequest
@@ -395,7 +443,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that you can actually cancel a reindex/update-by-query/delete-by-query request and all the plumbing works. Doesn't test all of the  * different cancellation places - that is the responsibility of {@link AsyncBulkByScrollActionTests} which have more precise control to  * simulate failures but do not exercise important portion of the stack like transport and task management.  */
+comment|/**  * Test that you can actually cancel a reindex/update-by-query/delete-by-query request and all the plumbing works. Doesn't test all of the  * different cancellation places - that is the responsibility of AsyncBulkByScrollActionTests which have more precise control to  * simulate failures but do not exercise important portion of the stack like transport and task management.  */
 end_comment
 
 begin_class
@@ -713,7 +761,7 @@ name|ListenableActionFuture
 argument_list|<
 name|?
 extends|extends
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 name|future
 init|=
@@ -1068,7 +1116,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// And check the status of the response
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|response
 init|=
 name|future
@@ -2043,7 +2091,7 @@ DECL|method|assertThat
 name|void
 name|assertThat
 parameter_list|(
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|response
 parameter_list|,
 name|int

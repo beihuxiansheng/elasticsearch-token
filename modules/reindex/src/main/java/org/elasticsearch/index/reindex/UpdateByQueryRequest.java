@@ -218,6 +218,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|forSlice
+specifier|protected
 name|UpdateByQueryRequest
 name|forSlice
 parameter_list|(

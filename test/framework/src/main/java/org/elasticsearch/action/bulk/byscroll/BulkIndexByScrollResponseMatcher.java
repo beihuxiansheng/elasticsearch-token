@@ -4,17 +4,35 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|bulk
+operator|.
+name|byscroll
+operator|.
+name|BulkByScrollResponse
+import|;
+end_import
 
 begin_import
 import|import
@@ -100,7 +118,7 @@ name|BulkIndexByScrollResponseMatcher
 extends|extends
 name|TypeSafeMatcher
 argument_list|<
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 argument_list|>
 block|{
 DECL|field|createdMatcher
@@ -542,7 +560,7 @@ specifier|protected
 name|boolean
 name|matchesSafely
 parameter_list|(
-name|BulkIndexByScrollResponse
+name|BulkByScrollResponse
 name|item
 parameter_list|)
 block|{

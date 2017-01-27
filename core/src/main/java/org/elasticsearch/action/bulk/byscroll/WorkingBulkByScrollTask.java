@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 
@@ -587,6 +589,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|runningSliceSubTasks
+specifier|public
 name|int
 name|runningSliceSubTasks
 parameter_list|()
@@ -832,6 +835,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|countSearchRetry
+specifier|public
 name|void
 name|countSearchRetry
 parameter_list|()
@@ -1018,6 +1022,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|rethrottle
+specifier|public
 name|void
 name|rethrottle
 parameter_list|(

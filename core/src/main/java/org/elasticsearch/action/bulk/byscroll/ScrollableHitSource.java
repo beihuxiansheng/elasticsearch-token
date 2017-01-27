@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.reindex
+DECL|package|org.elasticsearch.action.bulk.byscroll
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|action
 operator|.
-name|reindex
+name|bulk
+operator|.
+name|byscroll
 package|;
 end_package
 
@@ -193,22 +195,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|reindex
-operator|.
-name|remote
-operator|.
-name|RemoteScrollableHitSource
 import|;
 end_import
 
@@ -870,7 +856,7 @@ name|getRouting
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * An implementation of {@linkplain Hit} that uses getters and setters. Primarily used for testing and {@link RemoteScrollableHitSource}      * .      */
+comment|/**      * An implementation of {@linkplain Hit} that uses getters and setters.      */
 DECL|class|BasicHit
 specifier|public
 specifier|static
