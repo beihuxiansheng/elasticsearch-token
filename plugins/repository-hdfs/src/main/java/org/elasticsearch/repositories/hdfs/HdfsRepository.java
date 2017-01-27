@@ -986,19 +986,14 @@ name|doAs
 argument_list|(
 name|subject
 argument_list|,
-operator|new
+call|(
 name|PrivilegedAction
 argument_list|<
 name|FileContext
 argument_list|>
+call|)
 argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|FileContext
-name|run
-parameter_list|()
+operator|->
 block|{
 try|try
 block|{
@@ -1040,11 +1035,12 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
-argument_list|)
-return|;
-block|}
-annotation|@
+block|)
+class|;
+end_class
+
+begin_function
+unit|}      @
 name|Override
 DECL|method|blobStore
 specifier|protected
@@ -1056,6 +1052,9 @@ return|return
 name|blobStore
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|basePath
@@ -1068,6 +1067,9 @@ return|return
 name|basePath
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|isCompress
@@ -1080,6 +1082,9 @@ return|return
 name|compress
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|chunkSize
@@ -1092,8 +1097,8 @@ return|return
 name|chunkSize
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
