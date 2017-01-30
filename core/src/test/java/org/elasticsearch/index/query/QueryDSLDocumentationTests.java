@@ -1207,12 +1207,6 @@ operator|.
 name|KILOMETERS
 argument_list|)
 operator|.
-name|optimizeBbox
-argument_list|(
-literal|"memory"
-argument_list|)
-comment|// TODO switch to geoexectype see also bounding box
-operator|.
 name|geoDistance
 argument_list|(
 name|GeoDistance
