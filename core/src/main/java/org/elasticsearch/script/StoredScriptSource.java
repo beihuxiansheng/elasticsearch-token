@@ -1765,6 +1765,18 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isFragment
+specifier|public
+name|boolean
+name|isFragment
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * @return The language used for compiling this script.      */
 DECL|method|getLang
 specifier|public

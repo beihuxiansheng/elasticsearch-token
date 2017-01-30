@@ -26,17 +26,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|Writeable
 import|;
 end_import
 
@@ -52,6 +42,8 @@ name|Diff
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|Writeable
 block|{
 comment|/**      * Applies difference to the specified part and returns the resulted part      */
 DECL|method|apply
@@ -61,17 +53,6 @@ parameter_list|(
 name|T
 name|part
 parameter_list|)
-function_decl|;
-comment|/**      * Writes the differences into the output stream      */
-DECL|method|writeTo
-name|void
-name|writeTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 block|}
 end_interface

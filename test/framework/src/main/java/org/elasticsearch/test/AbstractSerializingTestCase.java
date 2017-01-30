@@ -405,8 +405,10 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
-comment|/**      * Renders the provided instance in XContent      *       * @param instance      *            the instance to render      * @param contentType      *            the content type to render to      */
+comment|/**      * Renders the provided instance in XContent      *      * @param instance      *            the instance to render      * @param contentType      *            the content type to render to      */
 DECL|method|toXContent
 specifier|protected
 name|XContentBuilder
@@ -443,6 +445,20 @@ name|prettyPrint
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|instance
+operator|.
+name|isFragment
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+block|}
 name|instance
 operator|.
 name|toXContent
@@ -454,11 +470,25 @@ operator|.
 name|EMPTY_PARAMS
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|instance
+operator|.
+name|isFragment
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|builder
 return|;
 block|}
-comment|/**      * Returns alternate string representation of the instance that need to be      * tested as they are never used as output of the test instance. By default      * there are no alternate versions.      *       * These alternatives must be JSON strings.      */
+comment|/**      * Returns alternate string representation of the instance that need to be      * tested as they are never used as output of the test instance. By default      * there are no alternate versions.      *      * These alternatives must be JSON strings.      */
 DECL|method|getAlternateVersions
 specifier|protected
 name|Map
