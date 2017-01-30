@@ -268,11 +268,32 @@ specifier|final
 name|String
 name|message
 init|=
-literal|"Data too large, data for field ["
+literal|"["
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|"] Data too large, data for field ["
 operator|+
 name|fieldName
 operator|+
-literal|"] would be larger than limit of ["
+literal|"]"
+operator|+
+literal|" would be ["
+operator|+
+name|bytesNeeded
+operator|+
+literal|"/"
+operator|+
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|bytesNeeded
+argument_list|)
+operator|+
+literal|"]"
+operator|+
+literal|", which is larger than the limit of ["
 operator|+
 name|memoryBytesLimit
 operator|+

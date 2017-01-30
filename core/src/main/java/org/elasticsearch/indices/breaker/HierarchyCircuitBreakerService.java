@@ -1449,15 +1449,31 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-throw|throw
-operator|new
-name|CircuitBreakingException
-argument_list|(
+specifier|final
+name|String
+name|message
+init|=
 literal|"[parent] Data too large, data for ["
 operator|+
 name|label
 operator|+
-literal|"] would be larger than limit of ["
+literal|"]"
+operator|+
+literal|" would be ["
+operator|+
+name|totalUsed
+operator|+
+literal|"/"
+operator|+
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|totalUsed
+argument_list|)
+operator|+
+literal|"]"
+operator|+
+literal|", which is larger than the limit of ["
 operator|+
 name|parentLimit
 operator|+
@@ -1470,6 +1486,12 @@ name|parentLimit
 argument_list|)
 operator|+
 literal|"]"
+decl_stmt|;
+throw|throw
+operator|new
+name|CircuitBreakingException
+argument_list|(
+name|message
 argument_list|,
 name|totalUsed
 argument_list|,
