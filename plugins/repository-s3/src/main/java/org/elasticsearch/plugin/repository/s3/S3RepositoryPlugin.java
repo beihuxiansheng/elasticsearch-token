@@ -489,10 +489,6 @@ name|SIGNER_SETTING
 argument_list|,
 name|AwsS3Service
 operator|.
-name|REGION_SETTING
-argument_list|,
-name|AwsS3Service
-operator|.
 name|READ_TIMEOUT
 argument_list|,
 comment|// Register S3 specific settings: cloud.aws.s3
@@ -548,12 +544,6 @@ name|AwsS3Service
 operator|.
 name|CLOUD_S3
 operator|.
-name|REGION_SETTING
-argument_list|,
-name|AwsS3Service
-operator|.
-name|CLOUD_S3
-operator|.
 name|ENDPOINT_SETTING
 argument_list|,
 name|AwsS3Service
@@ -580,12 +570,6 @@ operator|.
 name|Repositories
 operator|.
 name|BUCKET_SETTING
-argument_list|,
-name|S3Repository
-operator|.
-name|Repositories
-operator|.
-name|REGION_SETTING
 argument_list|,
 name|S3Repository
 operator|.
