@@ -1351,7 +1351,7 @@ name|this
 operator|::
 name|delayNewRecoveries
 argument_list|,
-name|logger
+name|settings
 argument_list|)
 expr_stmt|;
 block|}
@@ -1382,7 +1382,7 @@ operator|.
 name|bytesAsInt
 argument_list|()
 argument_list|,
-name|logger
+name|settings
 argument_list|)
 expr_stmt|;
 block|}

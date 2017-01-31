@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -50,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|seqno
+name|settings
 operator|.
-name|LocalCheckpointTracker
+name|Settings
 import|;
 end_import
 
@@ -170,8 +156,8 @@ name|Releasable
 argument_list|>
 name|delayNewRecoveries
 parameter_list|,
-name|Logger
-name|logger
+name|Settings
+name|nodeSettings
 parameter_list|)
 block|{
 name|super
@@ -189,7 +175,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|logger
+name|nodeSettings
 argument_list|)
 expr_stmt|;
 name|this
@@ -226,17 +212,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase1] to {}: skipping phase1 for shared filesystem"
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: skipping phase1 for shared filesystem"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -394,17 +370,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} skipping recovery of translog snapshot on shared filesystem to: {}"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"skipping recovery of translog snapshot on shared filesystem"
 argument_list|)
 expr_stmt|;
 return|return

@@ -180,6 +180,23 @@ name|long
 name|globalCheckpoint
 parameter_list|)
 block|{
+assert|assert
+name|localCheckpoint
+operator|<=
+name|maxSeqNo
+operator|:
+literal|"local checkpoint ["
+operator|+
+name|localCheckpoint
+operator|+
+literal|"] is above maximum seq no ["
+operator|+
+name|maxSeqNo
+operator|+
+literal|"]"
+assert|;
+comment|// note that the the global checkpoint can be higher from both maxSeqNo and localCheckpoint
+comment|// as we use this stats object to describe lucene commits as well as live statistic.
 name|this
 operator|.
 name|maxSeqNo

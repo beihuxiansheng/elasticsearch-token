@@ -178,16 +178,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -266,11 +256,39 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|store
 operator|.
 name|InputStreamIndexInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -750,8 +768,8 @@ name|int
 name|fileChunkSizeInBytes
 parameter_list|,
 specifier|final
-name|Logger
-name|logger
+name|Settings
+name|nodeSettings
 parameter_list|)
 block|{
 name|this
@@ -786,12 +804,6 @@ name|delayNewRecoveries
 expr_stmt|;
 name|this
 operator|.
-name|logger
-operator|=
-name|logger
-expr_stmt|;
-name|this
-operator|.
 name|indexName
 operator|=
 name|this
@@ -820,6 +832,35 @@ argument_list|()
 operator|.
 name|id
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|logger
+operator|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|,
+name|nodeSettings
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+literal|"recover to "
+operator|+
+name|request
+operator|.
+name|targetNode
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -863,12 +904,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} captured translog id [{}] for recovery"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
+literal|"captured translog id [{}] for recovery"
 argument_list|,
 name|translogView
 operator|.
@@ -895,9 +931,23 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|isSequenceNumberBasedRecoveryPossible
 condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"performing sequence numbers based recovery. starting at [{}]"
+argument_list|,
+name|request
+operator|.
+name|startingSeqNo
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 specifier|final
 name|IndexCommit
@@ -1095,12 +1145,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} snapshot translog for recovery; current size is [{}]"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
+literal|"snapshot translog for recovery; current size is [{}]"
 argument_list|,
 name|translogView
 operator|.
@@ -1112,6 +1157,17 @@ try|try
 block|{
 name|phase2
 argument_list|(
+name|isSequenceNumberBasedRecoveryPossible
+condition|?
+name|request
+operator|.
+name|startingSeqNo
+argument_list|()
+else|:
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 name|translogView
 operator|.
 name|snapshot
@@ -1194,12 +1250,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} starting: [{}], ending: [{}]"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
+literal|"testing sequence numbers in range: [{}, {}]"
 argument_list|,
 name|startingSeqNo
 argument_list|,
@@ -1216,22 +1267,6 @@ operator|<=
 name|endingSeqNo
 condition|)
 block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"{} waiting for all operations in the range [{}, {}] to complete"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|startingSeqNo
-argument_list|,
-name|endingSeqNo
-argument_list|)
-expr_stmt|;
 comment|/*              * We need to wait for all operations up to the current max to complete, otherwise we can not guarantee that all              * operations in the required range will be available for replaying from the translog of the source.              */
 name|cancellableThreads
 operator|.
@@ -1245,6 +1280,15 @@ name|waitForOpsToComplete
 argument_list|(
 name|endingSeqNo
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"all operations up to [{}] completed, checking translog content"
+argument_list|,
+name|endingSeqNo
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1625,16 +1669,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] skipping [phase1] to {} - identical sync id [{}] found on both source and target"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"skipping [phase1]- identical sync id [{}] found on both source and target"
 argument_list|,
 name|recoverySourceSyncId
 argument_list|)
@@ -1711,18 +1746,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: not recovering [{}], exist in local store and has checksum [{}],"
+literal|"recovery [phase1]: not recovering [{}], exist in local store and has checksum [{}],"
 operator|+
 literal|" size [{}]"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
 argument_list|,
 name|md
 operator|.
@@ -1823,18 +1849,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: recovering [{}], exists in local store, but is different: remote "
-operator|+
-literal|"[{}], local [{}]"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: recovering [{}], exists in local store, but is different: remote [{}], local [{}]"
 argument_list|,
 name|md
 operator|.
@@ -1867,16 +1882,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: recovering [{}], does not exist in remote"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: recovering [{}], does not exist in remote"
 argument_list|,
 name|md
 operator|.
@@ -1933,18 +1939,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: recovering_files [{}] with total_size [{}], reusing_files [{}] with "
-operator|+
-literal|"total_size [{}]"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: recovering_files [{}] with total_size [{}], reusing_files [{}] with total_size [{}]"
 argument_list|,
 name|response
 operator|.
@@ -2207,12 +2202,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} checking integrity for file {} after remove corruption exception"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
+literal|"checking integrity for file {} after remove corruption exception"
 argument_list|,
 name|md
 argument_list|)
@@ -2243,12 +2233,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} Corrupted file detected {} checksum mismatch"
-argument_list|,
-name|shard
-operator|.
-name|shardId
-argument_list|()
+literal|"Corrupted file detected {} checksum mismatch"
 argument_list|,
 name|md
 argument_list|)
@@ -2354,16 +2339,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] recovery [phase1] to {}: took [{}]"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: took [{}]"
 argument_list|,
 name|stopWatch
 operator|.
@@ -2454,17 +2430,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase1] to {}: prepare remote engine for translog"
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: prepare remote engine for translog"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2520,17 +2486,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase1] to {}: remote engine start took [{}]"
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase1]: remote engine start took [{}]"
 argument_list|,
 name|stopWatch
 operator|.
@@ -2539,11 +2495,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Perform phase two of the recovery process.      *<p>      * Phase two uses a snapshot of the current translog *without* acquiring the write lock (however, the translog snapshot is      * point-in-time view of the translog). It then sends each translog operation to the target node so it can be replayed into the new      * shard.      *      * @param snapshot a snapshot of the translog      */
+comment|/**      * Perform phase two of the recovery process.      *<p>      * Phase two uses a snapshot of the current translog *without* acquiring the write lock (however, the translog snapshot is      * point-in-time view of the translog). It then sends each translog operation to the target node so it can be replayed into the new      * shard.      *      * @param startingSeqNo the sequence number to start recovery from, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO} if all      *                      ops should be sent      * @param snapshot      a snapshot of the translog      */
 DECL|method|phase2
 name|void
 name|phase2
 parameter_list|(
+specifier|final
+name|long
+name|startingSeqNo
+parameter_list|,
 specifier|final
 name|Translog
 operator|.
@@ -2596,17 +2556,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase2] to {}: sending transaction log operations"
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase2]: sending transaction log operations"
 argument_list|)
 expr_stmt|;
 comment|// send all the snapshot's translog operations to the target
@@ -2616,10 +2566,7 @@ name|totalOperations
 init|=
 name|sendSnapshot
 argument_list|(
-name|request
-operator|.
 name|startingSeqNo
-argument_list|()
 argument_list|,
 name|snapshot
 argument_list|)
@@ -2633,17 +2580,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase2] to {}: took [{}]"
-argument_list|,
-name|request
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"recovery [phase2]: took [{}]"
 argument_list|,
 name|stopWatch
 operator|.
@@ -2719,16 +2656,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] finalizing recovery to {}"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"finalizing recovery"
 argument_list|)
 expr_stmt|;
 name|cancellableThreads
@@ -2801,16 +2729,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] waiting on {} to have cluster state with version [{}]"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"waiting on remote node to have cluster state with version [{}]"
 argument_list|,
 name|currentClusterStateVersion
 argument_list|)
@@ -2833,16 +2752,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] performing relocation hand-off to {}"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"performing relocation hand-off"
 argument_list|)
 expr_stmt|;
 name|cancellableThreads
@@ -2876,16 +2786,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] finalizing recovery to {}: took [{}]"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"finalizing recovery took [{}]"
 argument_list|,
 name|stopWatch
 operator|.
@@ -2956,16 +2857,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] no translog operations to send to {}"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
-argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
+literal|"no translog operations to send"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3096,11 +2988,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] sent batch of [{}][{}] (total: [{}]) translog operations to {}"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
+literal|"sent batch of [{}][{}] (total: [{}]) translog operations"
 argument_list|,
 name|ops
 argument_list|,
@@ -3113,11 +3001,6 @@ argument_list|,
 name|snapshot
 operator|.
 name|totalOperations
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3179,11 +3062,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] sent final batch of [{}][{}] (total: [{}]) translog operations to {}"
-argument_list|,
-name|indexName
-argument_list|,
-name|shardId
+literal|"sent final batch of [{}][{}] (total: [{}]) translog operations"
 argument_list|,
 name|ops
 argument_list|,
@@ -3196,11 +3075,6 @@ argument_list|,
 name|snapshot
 operator|.
 name|totalOperations
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|targetNode
 argument_list|()
 argument_list|)
 expr_stmt|;

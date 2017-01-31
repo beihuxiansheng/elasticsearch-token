@@ -392,6 +392,31 @@ operator|-
 literal|1
 return|;
 block|}
+comment|/**      * constructs a {@link SeqNoStats} object, using local state and the supplied global checkpoint      *      * @implNote this is needed to make sure the local checkpoint and max seq no are consistent      */
+DECL|method|getStats
+specifier|synchronized
+name|SeqNoStats
+name|getStats
+parameter_list|(
+specifier|final
+name|long
+name|globalCheckpoint
+parameter_list|)
+block|{
+return|return
+operator|new
+name|SeqNoStats
+argument_list|(
+name|getMaxSeqNo
+argument_list|()
+argument_list|,
+name|getCheckpoint
+argument_list|()
+argument_list|,
+name|globalCheckpoint
+argument_list|)
+return|;
+block|}
 comment|/**      * Waits for all operations up to the provided sequence number to complete.      *      * @param seqNo the sequence number that the checkpoint must advance to before this method returns      * @throws InterruptedException if the thread was interrupted while blocking on the condition      */
 annotation|@
 name|SuppressForbidden

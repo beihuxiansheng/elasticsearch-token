@@ -649,7 +649,9 @@ comment|/*      * This tests that sequence-number-based recoveries wait for in-f
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"_root:DEBUG,org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.get:TRACE,discovery:TRACE,"
+literal|"_root:DEBUG,org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.get:TRACE,"
+operator|+
+literal|"org.elasticsearch.discovery:TRACE,"
 operator|+
 literal|"org.elasticsearch.cluster.service:TRACE,org.elasticsearch.indices.recovery:TRACE,"
 operator|+

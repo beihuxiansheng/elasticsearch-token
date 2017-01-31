@@ -948,7 +948,9 @@ operator|.
 name|bytesAsInt
 argument_list|()
 argument_list|,
-name|logger
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 decl_stmt|;
 name|Directory
@@ -1479,7 +1481,9 @@ operator|.
 name|bytesAsInt
 argument_list|()
 argument_list|,
-name|logger
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 block|{             @
 name|Override
@@ -2032,7 +2036,9 @@ operator|.
 name|bytesAsInt
 argument_list|()
 argument_list|,
-name|logger
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 block|{             @
 name|Override
@@ -2619,7 +2625,7 @@ name|e
 lambda|->
 parameter_list|()
 lambda|->
-block|{             }
+block|{}
 argument_list|,
 name|recoverySettings
 operator|.
@@ -2629,7 +2635,9 @@ operator|.
 name|bytesAsInt
 argument_list|()
 argument_list|,
-name|logger
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 block|{              @
 name|Override
@@ -2696,15 +2704,19 @@ argument_list|)
 block|;             }
 annotation|@
 name|Override
-specifier|public
 name|void
 name|phase2
 parameter_list|(
+name|long
+name|startingSeqNo
+parameter_list|,
 name|Translog
 operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|phase2Called
 operator|.
@@ -3208,7 +3220,9 @@ operator|.
 name|bytesAsInt
 argument_list|()
 argument_list|,
-name|logger
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 block|{
 annotation|@
@@ -3278,16 +3292,19 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-specifier|public
 name|void
 name|phase2
 parameter_list|(
-specifier|final
+name|long
+name|startingSeqNo
+parameter_list|,
 name|Translog
 operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|phase2Called
 operator|.
