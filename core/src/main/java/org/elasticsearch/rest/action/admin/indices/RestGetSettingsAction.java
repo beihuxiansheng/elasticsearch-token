@@ -545,9 +545,6 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|isEmpty
 argument_list|()
 condition|)

@@ -281,16 +281,10 @@ if|if
 condition|(
 name|transientSettings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|isEmpty
 argument_list|()
 operator|&&
 name|persistentSettings
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|isEmpty
 argument_list|()

@@ -1095,9 +1095,6 @@ literal|2
 argument_list|,
 name|fooSettings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -1675,9 +1672,6 @@ literal|2
 argument_list|,
 name|firstLevelSettings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -1735,9 +1729,6 @@ argument_list|(
 literal|2
 argument_list|,
 name|secondLevelSetting
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1826,9 +1817,6 @@ argument_list|(
 literal|1
 argument_list|,
 name|thirdLevelSetting
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3196,9 +3184,6 @@ name|assertThat
 argument_list|(
 name|settings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -3268,9 +3253,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|settings
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3349,9 +3331,6 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|settings
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()

@@ -1487,9 +1487,6 @@ condition|(
 operator|!
 name|skippedSettigns
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|isEmpty
 argument_list|()
 operator|&&

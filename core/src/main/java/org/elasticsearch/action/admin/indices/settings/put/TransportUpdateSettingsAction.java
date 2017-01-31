@@ -412,9 +412,6 @@ operator|.
 name|settings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 operator|==

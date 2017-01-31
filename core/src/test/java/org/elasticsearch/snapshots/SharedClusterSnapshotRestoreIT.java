@@ -18572,9 +18572,6 @@ condition|(
 operator|!
 name|initialSettings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|isEmpty
 argument_list|()
 condition|)

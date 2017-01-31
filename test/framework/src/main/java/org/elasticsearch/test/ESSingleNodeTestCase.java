@@ -881,9 +881,6 @@ operator|.
 name|persistentSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -908,9 +905,6 @@ argument_list|,
 name|metaData
 operator|.
 name|transientSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size

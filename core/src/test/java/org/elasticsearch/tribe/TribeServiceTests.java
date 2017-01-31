@@ -388,9 +388,6 @@ literal|9
 argument_list|,
 name|clientSettings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)

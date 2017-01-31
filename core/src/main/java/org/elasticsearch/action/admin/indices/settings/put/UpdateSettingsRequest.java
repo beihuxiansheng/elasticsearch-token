@@ -380,9 +380,6 @@ if|if
 condition|(
 name|settings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|isEmpty
 argument_list|()
 condition|)

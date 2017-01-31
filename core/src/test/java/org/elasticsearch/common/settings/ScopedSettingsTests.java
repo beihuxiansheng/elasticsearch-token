@@ -2729,9 +2729,6 @@ literal|4
 argument_list|,
 name|diff
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -2831,9 +2828,6 @@ literal|4
 argument_list|,
 name|diff
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -2925,9 +2919,6 @@ argument_list|(
 literal|6
 argument_list|,
 name|diff
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3064,9 +3055,6 @@ argument_list|(
 literal|6
 argument_list|,
 name|diff
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3372,9 +3360,6 @@ literal|1
 argument_list|,
 name|diff
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -3462,9 +3447,6 @@ argument_list|(
 literal|4
 argument_list|,
 name|diff
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3556,9 +3538,6 @@ argument_list|(
 literal|3
 argument_list|,
 name|diff
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3684,9 +3663,6 @@ argument_list|(
 literal|3
 argument_list|,
 name|diff
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -3834,9 +3810,6 @@ argument_list|(
 literal|9
 argument_list|,
 name|diff
-operator|.
-name|getAsMap
-argument_list|()
 operator|.
 name|size
 argument_list|()

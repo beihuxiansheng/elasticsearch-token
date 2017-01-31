@@ -132,20 +132,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|Loggers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|loader
@@ -3199,9 +3185,6 @@ name|writeVInt
 argument_list|(
 name|settings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -3430,6 +3413,24 @@ operator|.
 name|isEmpty
 argument_list|()
 return|;
+comment|// TODO: account for secure settings
+block|}
+comment|/** Returns the number of settings in this settings object. */
+DECL|method|size
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|settings
+operator|.
+name|size
+argument_list|()
+return|;
+comment|// TODO: account for secure settings
 block|}
 comment|/**      * A builder allowing to put different settings and then {@link #build()} an immutable      * settings implementation. Use {@link Settings#builder()} in order to      * construct it.      */
 DECL|class|Builder

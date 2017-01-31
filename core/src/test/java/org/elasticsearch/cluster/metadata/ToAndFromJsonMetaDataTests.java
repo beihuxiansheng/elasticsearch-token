@@ -1172,9 +1172,6 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -1284,9 +1281,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size
@@ -1406,9 +1400,6 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -1513,9 +1504,6 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -1595,9 +1583,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size
@@ -1764,9 +1749,6 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -1881,9 +1863,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size
@@ -2013,9 +1992,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size
@@ -2238,9 +2214,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size
@@ -2466,9 +2439,6 @@ operator|.
 name|getSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -2690,9 +2660,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size
@@ -3003,9 +2970,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|size

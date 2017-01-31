@@ -5834,9 +5834,6 @@ operator|.
 name|persistentSettings
 argument_list|()
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|isEmpty
 argument_list|()
 condition|)
@@ -5906,9 +5903,6 @@ operator|!
 name|metaData
 operator|.
 name|transientSettings
-argument_list|()
-operator|.
-name|getAsMap
 argument_list|()
 operator|.
 name|isEmpty
