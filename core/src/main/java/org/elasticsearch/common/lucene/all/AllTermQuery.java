@@ -212,20 +212,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -538,11 +524,6 @@ name|rewritten
 return|;
 block|}
 name|boolean
-name|fieldExists
-init|=
-literal|false
-decl_stmt|;
-name|boolean
 name|hasPayloads
 init|=
 literal|false
@@ -582,10 +563,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|fieldExists
-operator|=
-literal|true
-expr_stmt|;
 if|if
 condition|(
 name|terms
@@ -602,19 +579,8 @@ break|break;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|fieldExists
-operator|==
-literal|false
-condition|)
-block|{
-return|return
-operator|new
-name|MatchNoDocsQuery
-argument_list|()
-return|;
-block|}
+comment|// if the terms does not exist we could return a MatchNoDocsQuery but this would break the unified highlighter
+comment|// which rewrites query with an empty reader.
 if|if
 condition|(
 name|hasPayloads

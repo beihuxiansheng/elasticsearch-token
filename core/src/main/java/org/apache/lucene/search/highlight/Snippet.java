@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.search.postingshighlight
+DECL|package|org.apache.lucene.search.highlight
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|postingshighlight
+name|highlight
 package|;
 end_package
 

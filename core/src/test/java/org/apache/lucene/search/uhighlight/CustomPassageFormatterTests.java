@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.search.postingshighlight
+DECL|package|org.apache.lucene.search.uhighlight
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|postingshighlight
+name|uhighlight
 package|;
 end_package
 
@@ -133,7 +133,7 @@ block|{
 name|String
 name|content
 init|=
-literal|"This is a really cool highlighter. Postings highlighter gives nice snippets back. No matches here."
+literal|"This is a really cool highlighter. Unified highlighter gives nice snippets back. No matches here."
 decl_stmt|;
 name|CustomPassageFormatter
 name|passageFormatter
@@ -203,17 +203,19 @@ argument_list|()
 decl_stmt|;
 name|passage1
 operator|.
-name|startOffset
-operator|=
+name|setStartOffset
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|passage1
 operator|.
-name|endOffset
-operator|=
+name|setEndOffset
+argument_list|(
 name|end
 operator|+
 literal|2
+argument_list|)
 expr_stmt|;
 comment|//lets include the whitespace at the end to make sure we trim it
 name|passage1
@@ -261,19 +263,22 @@ argument_list|()
 expr_stmt|;
 name|passage2
 operator|.
-name|startOffset
-operator|=
+name|setStartOffset
+argument_list|(
 name|passage1
 operator|.
-name|endOffset
+name|getEndOffset
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|passage2
 operator|.
-name|endOffset
-operator|=
+name|setEndOffset
+argument_list|(
 name|end
 operator|+
 literal|26
+argument_list|)
 expr_stmt|;
 name|passage2
 operator|.
@@ -302,20 +307,23 @@ argument_list|()
 decl_stmt|;
 name|passage3
 operator|.
-name|startOffset
-operator|=
+name|setStartOffset
+argument_list|(
 name|passage2
 operator|.
-name|endOffset
+name|getEndOffset
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|passage3
 operator|.
-name|endOffset
-operator|=
+name|setEndOffset
+argument_list|(
 name|content
 operator|.
 name|length
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|passages
 index|[
@@ -401,7 +409,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Postings<em>highlighter</em> gives nice snippets back."
+literal|"Unified<em>highlighter</em> gives nice snippets back."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -463,7 +471,7 @@ block|{
 name|String
 name|content
 init|=
-literal|"<b>This is a really cool highlighter.</b> Postings highlighter gives nice snippets back."
+literal|"<b>This is a really cool highlighter.</b> Unified highlighter gives nice snippets back."
 decl_stmt|;
 name|CustomPassageFormatter
 name|passageFormatter
@@ -533,17 +541,19 @@ argument_list|()
 decl_stmt|;
 name|passage1
 operator|.
-name|startOffset
-operator|=
+name|setStartOffset
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|passage1
 operator|.
-name|endOffset
-operator|=
+name|setEndOffset
+argument_list|(
 name|end
 operator|+
 literal|6
+argument_list|)
 expr_stmt|;
 comment|//lets include the whitespace at the end to make sure we trim it
 name|passage1
@@ -591,20 +601,23 @@ argument_list|()
 expr_stmt|;
 name|passage2
 operator|.
-name|startOffset
-operator|=
+name|setStartOffset
+argument_list|(
 name|passage1
 operator|.
-name|endOffset
+name|getEndOffset
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|passage2
 operator|.
-name|endOffset
-operator|=
+name|setEndOffset
+argument_list|(
 name|content
 operator|.
 name|length
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|passage2
 operator|.
@@ -685,7 +698,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Postings<em>highlighter</em> gives nice snippets back."
+literal|"Unified<em>highlighter</em> gives nice snippets back."
 argument_list|)
 argument_list|)
 expr_stmt|;

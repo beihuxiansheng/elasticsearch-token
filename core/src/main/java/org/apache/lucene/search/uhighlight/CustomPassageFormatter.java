@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.search.postingshighlight
+DECL|package|org.apache.lucene.search.uhighlight
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|postingshighlight
+name|uhighlight
 package|;
 end_package
 
@@ -30,7 +30,7 @@ name|search
 operator|.
 name|highlight
 operator|.
-name|Snippet
+name|Encoder
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|search
 operator|.
 name|highlight
 operator|.
-name|Encoder
+name|Snippet
 import|;
 end_import
 
@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Custom passage formatter that allows us to: 1) extract different snippets (instead of a single big string) together with their scores ({@link Snippet}) 2) use the {@link Encoder} implementations that are already used with the other highlighters  */
+comment|/**  * Custom passage formatter that allows us to:  * 1) extract different snippets (instead of a single big string) together with their scores ({@link Snippet})  * 2) use the {@link Encoder} implementations that are already used with the other highlighters  */
 end_comment
 
 begin_class
@@ -430,7 +430,7 @@ name|snippets
 return|;
 block|}
 DECL|method|append
-specifier|protected
+specifier|private
 name|void
 name|append
 parameter_list|(
