@@ -897,7 +897,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -909,7 +909,7 @@ argument_list|(
 literal|"testTemplate"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -947,7 +947,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -959,7 +959,7 @@ argument_list|(
 literal|"testTemplate"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1011,7 +1011,7 @@ name|assertNotNull
 argument_list|(
 name|getResponse
 operator|.
-name|getStoredScript
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1278,7 +1278,7 @@ name|assertNull
 argument_list|(
 name|getResponse
 operator|.
-name|getStoredScript
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1344,7 +1344,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Illegal index script format [/template_index/mustache/1000] should be /lang/id"
+literal|"illegal stored script format [/template_index/mustache/1000] use only<id>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1371,7 +1371,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -1383,7 +1383,7 @@ argument_list|(
 literal|"1a"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1421,7 +1421,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -1433,7 +1433,7 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1471,7 +1471,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -1483,7 +1483,7 @@ argument_list|(
 literal|"3"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1693,7 +1693,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-literal|"/mustache/1a"
+literal|"1a"
 argument_list|)
 operator|.
 name|setScriptType
@@ -1889,6 +1889,13 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"use of</lang/id> [/mustache/2] for looking up"
+operator|+
+literal|" stored scripts/templates has been deprecated, use only<id> [2] instead"
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -2027,6 +2034,31 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|int
+name|iterations
+init|=
+name|randomIntBetween
+argument_list|(
+literal|2
+argument_list|,
+literal|11
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|1
+init|;
+name|i
+operator|<
+name|iterations
+condition|;
+name|i
+operator|++
+control|)
+block|{
 name|assertAcked
 argument_list|(
 name|client
@@ -2041,7 +2073,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -2053,16 +2085,14 @@ argument_list|(
 literal|"git01"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"template\":{\"query\": {\"match_phrase_prefix\": "
+literal|"{\"template\":{\"query\": {\"match\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\","
 operator|+
-literal|"{\"searchtext\": {\"query\": \"{{P_Keyword1}}\","
-operator|+
-literal|"\"unsupported\": \"unsupported\"}}}}}"
+literal|"\"type\": \"ooophrase_prefix\"}}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2095,7 +2125,7 @@ name|assertNotNull
 argument_list|(
 name|getResponse
 operator|.
-name|getStoredScript
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2183,8 +2213,13 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_phrase_prefix] query does not support [unsupported]"
+literal|"[match] query does not support type ooophrase_prefix"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
 argument_list|)
 expr_stmt|;
 name|assertAcked
@@ -2201,7 +2236,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -2213,12 +2248,14 @@ argument_list|(
 literal|"git01"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"query\": {\"match_phrase_prefix\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\"}}}}"
+literal|"{\"query\": {\"match\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\","
+operator|+
+literal|"\"type\": \"phrase_prefix\"}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2277,6 +2314,12 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testIndexedTemplateWithArray
 specifier|public
@@ -2305,7 +2348,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MustacheScriptEngineService
 operator|.
@@ -2317,7 +2360,7 @@ argument_list|(
 literal|"4"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 name|jsonBuilder
 argument_list|()
@@ -2537,7 +2580,7 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
-literal|"/mustache/4"
+literal|"4"
 argument_list|)
 operator|.
 name|setScriptType

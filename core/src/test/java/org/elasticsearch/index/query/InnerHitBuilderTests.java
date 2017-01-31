@@ -3425,6 +3425,14 @@ name|Script
 argument_list|(
 name|randomScriptType
 argument_list|,
+name|randomScriptType
+operator|==
+name|ScriptType
+operator|.
+name|STORED
+condition|?
+literal|null
+else|:
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1

@@ -230,11 +230,6 @@ operator|.
 name|Standard
 operator|.
 name|INGEST
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

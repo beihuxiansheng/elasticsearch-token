@@ -325,7 +325,7 @@ name|Exception
 block|{
 name|scriptService
 operator|.
-name|storeScript
+name|putStoredScript
 argument_list|(
 name|clusterService
 argument_list|,

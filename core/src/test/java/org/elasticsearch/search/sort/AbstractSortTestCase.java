@@ -891,14 +891,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 name|scriptContext
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
 parameter_list|)
 block|{
 return|return

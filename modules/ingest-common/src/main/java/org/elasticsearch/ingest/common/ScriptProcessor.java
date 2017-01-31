@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -136,13 +126,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|script
-operator|.
-name|ScriptType
+name|Map
 import|;
 end_import
 
@@ -816,11 +804,6 @@ operator|.
 name|Standard
 operator|.
 name|INGEST
-argument_list|,
-name|script
-operator|.
-name|getOptions
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

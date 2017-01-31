@@ -252,7 +252,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|LANG
 argument_list|)
@@ -262,7 +262,7 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -294,7 +294,10 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getStoredScript
+name|getSource
+argument_list|()
+operator|.
+name|getCode
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -328,14 +331,15 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|LANG
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|script
-operator|=
+name|StoredScriptSource
+name|source
+init|=
 name|client
 argument_list|()
 operator|.
@@ -355,12 +359,12 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getStoredScript
+name|getSource
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|assertNull
 argument_list|(
-name|script
+name|source
 argument_list|)
 expr_stmt|;
 name|IllegalArgumentException
@@ -386,7 +390,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 literal|"lang#"
 argument_list|)
@@ -396,7 +400,7 @@ argument_list|(
 literal|"id#"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -411,7 +415,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Validation Failed: 1: id can't contain: '#';2: lang can't contain: '#';"
+literal|"Validation Failed: 1: id cannot contain '#' for stored script;"
+operator|+
+literal|"2: lang cannot contain '#' for stored script;"
 argument_list|,
 name|e
 operator|.
@@ -449,7 +455,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|LANG
 argument_list|)
@@ -459,7 +465,7 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -479,7 +485,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Limit of script size in bytes [64] has been exceeded for script [foobar] with size [65]"
+literal|"exceeded max allowed stored script size in bytes [64] with size [65] for script [foobar]"
 argument_list|,
 name|e
 operator|.

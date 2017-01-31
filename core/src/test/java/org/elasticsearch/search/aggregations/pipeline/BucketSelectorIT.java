@@ -3416,7 +3416,7 @@ argument_list|(
 literal|"my_script"
 argument_list|)
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|CustomScriptPlugin
 operator|.
@@ -3424,7 +3424,7 @@ name|NAME
 argument_list|)
 comment|// Source is not interpreted but my_script is defined in CustomScriptPlugin
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray

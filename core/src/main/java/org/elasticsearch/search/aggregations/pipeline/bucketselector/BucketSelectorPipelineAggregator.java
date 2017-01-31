@@ -544,11 +544,6 @@ operator|.
 name|Standard
 operator|.
 name|AGGS
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|List

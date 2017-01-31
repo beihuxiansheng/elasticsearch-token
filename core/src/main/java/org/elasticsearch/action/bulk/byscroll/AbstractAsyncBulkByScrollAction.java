@@ -3702,9 +3702,6 @@ operator|.
 name|Standard
 operator|.
 name|UPDATE
-argument_list|,
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|executable

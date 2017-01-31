@@ -1469,7 +1469,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|CustomScriptPlugin
 operator|.
@@ -1481,7 +1481,7 @@ argument_list|(
 literal|"initScript_stored"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1505,7 +1505,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|CustomScriptPlugin
 operator|.
@@ -1517,7 +1517,7 @@ argument_list|(
 literal|"mapScript_stored"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1541,7 +1541,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|CustomScriptPlugin
 operator|.
@@ -1553,7 +1553,7 @@ argument_list|(
 literal|"combineScript_stored"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -1577,7 +1577,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|CustomScriptPlugin
 operator|.
@@ -1589,7 +1589,7 @@ argument_list|(
 literal|"reduceScript_stored"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray

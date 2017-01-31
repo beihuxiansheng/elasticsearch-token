@@ -1896,11 +1896,6 @@ argument_list|(
 name|script
 argument_list|,
 name|context
-argument_list|,
-name|script
-operator|.
-name|getOptions
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -1986,11 +1981,6 @@ argument_list|(
 name|script
 argument_list|,
 name|context
-argument_list|,
-name|script
-operator|.
-name|getOptions
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

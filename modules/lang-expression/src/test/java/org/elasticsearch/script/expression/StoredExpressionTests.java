@@ -167,10 +167,10 @@ comment|//TODO: please convert to unit tests!
 end_comment
 
 begin_class
-DECL|class|IndexedExpressionTests
+DECL|class|StoredExpressionTests
 specifier|public
 class|class
-name|IndexedExpressionTests
+name|StoredExpressionTests
 extends|extends
 name|ESIntegTestCase
 block|{
@@ -277,7 +277,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|ExpressionScriptEngineService
 operator|.
@@ -289,7 +289,7 @@ argument_list|(
 literal|"script1"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -397,7 +397,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"scripts of type [stored], operation [update] and lang [expression] are disabled"
+literal|"scripts of type [stored], operation [update] and lang [expression] are not supported"
 argument_list|)
 argument_list|)
 expr_stmt|;

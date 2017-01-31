@@ -5410,7 +5410,7 @@ operator|.
 name|preparePutStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|MockScriptEngine
 operator|.
@@ -5422,7 +5422,7 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 operator|.
-name|setSource
+name|setContent
 argument_list|(
 operator|new
 name|BytesArray
@@ -6045,7 +6045,7 @@ name|assertNotNull
 argument_list|(
 name|getStoredScriptResponse
 operator|.
-name|getStoredScript
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6517,7 +6517,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getStoredScript
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;

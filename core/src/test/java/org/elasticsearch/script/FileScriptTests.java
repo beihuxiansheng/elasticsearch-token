@@ -376,11 +376,6 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -546,11 +541,6 @@ argument_list|(
 name|script
 argument_list|,
 name|context
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail

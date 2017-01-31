@@ -10359,7 +10359,7 @@ return|return
 name|prepareDeleteStoredScript
 argument_list|()
 operator|.
-name|setScriptLang
+name|setLang
 argument_list|(
 name|scriptLang
 argument_list|)

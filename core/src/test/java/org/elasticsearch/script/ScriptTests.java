@@ -508,6 +508,14 @@ name|Script
 argument_list|(
 name|scriptType
 argument_list|,
+name|scriptType
+operator|==
+name|ScriptType
+operator|.
+name|STORED
+condition|?
+literal|null
+else|:
 name|randomFrom
 argument_list|(
 literal|"_lang1"
@@ -542,10 +550,7 @@ name|mediaType
 argument_list|()
 argument_list|)
 else|:
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
+literal|null
 argument_list|,
 name|params
 argument_list|)
