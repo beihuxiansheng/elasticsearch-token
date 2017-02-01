@@ -1714,13 +1714,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|""
-argument_list|)
 DECL|method|testOldIndexes
 specifier|public
 name|void
