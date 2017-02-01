@@ -2257,12 +2257,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|IllegalArgumentException
+name|IllegalStateException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|IllegalArgumentException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|,
@@ -2309,6 +2309,9 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
+operator|.
+name|getStatus
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder
@@ -2352,7 +2355,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Unable to parse elasticsearch status exception"
+literal|"Failed to parse elasticsearch status exception: no exception was found"
 argument_list|,
 name|e
 operator|.
