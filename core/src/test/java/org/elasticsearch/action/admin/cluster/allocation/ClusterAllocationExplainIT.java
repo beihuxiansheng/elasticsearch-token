@@ -7304,13 +7304,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|""
-argument_list|)
 DECL|method|testCannotAllocateStaleReplicaExplanation
 specifier|public
 name|void
