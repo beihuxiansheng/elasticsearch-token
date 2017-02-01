@@ -3151,7 +3151,7 @@ name|token
 init|=
 name|parser
 operator|.
-name|nextToken
+name|currentToken
 argument_list|()
 decl_stmt|;
 name|ensureFieldName
