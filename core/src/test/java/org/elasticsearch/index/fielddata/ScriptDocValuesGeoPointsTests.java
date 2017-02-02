@@ -67,10 +67,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ScriptDocValuesTests
+DECL|class|ScriptDocValuesGeoPointsTests
 specifier|public
 class|class
-name|ScriptDocValuesTests
+name|ScriptDocValuesGeoPointsTests
 extends|extends
 name|ESTestCase
 block|{
