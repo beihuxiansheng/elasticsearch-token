@@ -764,8 +764,16 @@ name|logger
 argument_list|)
 return|;
 block|}
+specifier|public
+specifier|static
+parameter_list|<
+name|Response
+extends|extends
+name|ReplicationResponse
+operator|&
+name|WriteResponse
+parameter_list|>
 DECL|method|wrapBulkResponse
-specifier|private
 name|ActionListener
 argument_list|<
 name|BulkResponse
