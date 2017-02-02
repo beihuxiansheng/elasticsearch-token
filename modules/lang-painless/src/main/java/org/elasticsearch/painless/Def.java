@@ -1491,7 +1491,7 @@ name|separator
 init|=
 name|signature
 operator|.
-name|indexOf
+name|lastIndexOf
 argument_list|(
 literal|'.'
 argument_list|)
