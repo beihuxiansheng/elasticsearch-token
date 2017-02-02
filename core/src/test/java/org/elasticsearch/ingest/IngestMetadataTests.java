@@ -245,6 +245,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field\", \"value\": \"_value\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|PipelineConfiguration
@@ -260,6 +264,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field1\", \"value\": \"_value1\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|Map
@@ -528,6 +536,10 @@ argument_list|(
 literal|"1"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -543,6 +555,10 @@ argument_list|(
 literal|"2"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -574,6 +590,10 @@ argument_list|(
 literal|"1"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -589,6 +609,10 @@ argument_list|(
 literal|"3"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -604,6 +628,10 @@ argument_list|(
 literal|"4"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -826,6 +854,10 @@ argument_list|(
 literal|"1"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -850,6 +882,10 @@ argument_list|(
 literal|"3"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -874,6 +910,10 @@ argument_list|(
 literal|"4"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -901,6 +941,10 @@ name|BytesArray
 argument_list|(
 literal|"{}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -920,6 +964,10 @@ name|BytesArray
 argument_list|(
 literal|"{}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1054,6 +1102,10 @@ argument_list|(
 literal|"1"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1078,6 +1130,10 @@ argument_list|(
 literal|"2"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1105,6 +1161,10 @@ name|BytesArray
 argument_list|(
 literal|"{}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1124,6 +1184,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"key\" : \"value\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1263,6 +1327,10 @@ argument_list|(
 literal|"1"
 argument_list|,
 name|pipelineConfig
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1291,6 +1359,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"key\" : \"value\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 argument_list|)

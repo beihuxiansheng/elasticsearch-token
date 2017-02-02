@@ -1132,6 +1132,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|json
 operator|.
 name|JsonXContent
@@ -7699,7 +7713,7 @@ name|actionGet
 argument_list|()
 return|;
 block|}
-comment|/**      * Syntactic sugar for:      *<pre>      *   return client().prepareIndex(index, type, id).setSource(source).execute().actionGet();      *</pre>      *<p>      * where source is a String.      */
+comment|/**      * Syntactic sugar for:      *<pre>      *   return client().prepareIndex(index, type, id).setSource(source).execute().actionGet();      *</pre>      *<p>      * where source is a JSON String.      */
 DECL|method|index
 specifier|protected
 specifier|final
@@ -7735,6 +7749,10 @@ operator|.
 name|setSource
 argument_list|(
 name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -8462,6 +8480,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

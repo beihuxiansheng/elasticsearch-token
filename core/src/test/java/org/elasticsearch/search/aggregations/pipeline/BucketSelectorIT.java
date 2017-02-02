@@ -80,6 +80,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -3431,6 +3445,10 @@ name|BytesArray
 argument_list|(
 literal|"{ \"script\": \"Double.isNaN(_value0) ? false : (_value0 + _value1> 100)\" }"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

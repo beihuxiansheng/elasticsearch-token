@@ -84,6 +84,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|Index
@@ -267,7 +281,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The mapping source definition.      */
+comment|/**      * The mapping source definition.      * @deprecated use {@link #setSource(String, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|PutMappingRequestBuilder
@@ -282,6 +298,32 @@ operator|.
 name|source
 argument_list|(
 name|mappingSource
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The mapping source definition.      */
+DECL|method|setSource
+specifier|public
+name|PutMappingRequestBuilder
+name|setSource
+parameter_list|(
+name|String
+name|mappingSource
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|mappingSource
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return

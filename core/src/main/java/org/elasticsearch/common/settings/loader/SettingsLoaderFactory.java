@@ -18,6 +18,20 @@ name|loader
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
 begin_comment
 comment|/**  * A class holding factory methods for settings loaders that attempts  * to infer the type of the underlying settings content.  */
 end_comment
@@ -34,7 +48,7 @@ specifier|private
 name|SettingsLoaderFactory
 parameter_list|()
 block|{     }
-comment|/**      * Returns a {@link SettingsLoader} based on the source resource      * name. This factory method assumes that if the resource name ends      * with ".json" then the content should be parsed as JSON, else if      * the resource name ends with ".yml" or ".yaml" then the content      * should be parsed as YAML, else if the resource name ends with      * ".properties" then the content should be parsed as properties,      * otherwise default to attempting to parse as JSON. Note that the      * parsers returned by this method will not accept null-valued      * keys.      *      * @param resourceName The resource name containing the settings      *                     content.      * @return A settings loader.      */
+comment|/**      * Returns a {@link SettingsLoader} based on the source resource      * name. This factory method assumes that if the resource name ends      * with ".json" then the content should be parsed as JSON, else if      * the resource name ends with ".yml" or ".yaml" then the content      * should be parsed as YAML, otherwise throws an exception. Note that the      * parsers returned by this method will not accept null-valued      * keys.      *      * @param resourceName The resource name containing the settings      *                     content.      * @return A settings loader.      */
 DECL|method|loaderFromResource
 specifier|public
 specifier|static
@@ -104,7 +118,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a {@link SettingsLoader} based on the source content.      * This factory method assumes that if the underlying content      * contains an opening and closing brace ('{' and '}') then the      * content should be parsed as JSON, else if the underlying content      * fails this condition but contains a ':' then the content should      * be parsed as YAML, and otherwise should be parsed as properties.      * Note that the JSON and YAML parsers returned by this method will      * accept null-valued keys.      *      * @param source The underlying settings content.      * @return A settings loader.      */
+comment|/**      * Returns a {@link SettingsLoader} based on the source content.      * This factory method assumes that if the underlying content      * contains an opening and closing brace ('{' and '}') then the      * content should be parsed as JSON, else if the underlying content      * fails this condition but contains a ':' then the content should      * be parsed as YAML, and otherwise throws an exception.      * Note that the JSON and YAML parsers returned by this method will      * accept null-valued keys.      *      * @param source The underlying settings content.      * @return A settings loader.      * @deprecated use {@link #loaderFromXContentType(XContentType)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|loaderFromSource
 specifier|public
 specifier|static
@@ -177,6 +193,67 @@ argument_list|(
 literal|"unable to detect content type from source ["
 operator|+
 name|source
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Returns a {@link SettingsLoader} based on the {@link XContentType}. Note only {@link XContentType#JSON} and      * {@link XContentType#YAML} are supported      *      * @param xContentType The content type      * @return A settings loader.      */
+DECL|method|loaderFromXContentType
+specifier|public
+specifier|static
+name|SettingsLoader
+name|loaderFromXContentType
+parameter_list|(
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+if|if
+condition|(
+name|xContentType
+operator|==
+name|XContentType
+operator|.
+name|JSON
+condition|)
+block|{
+return|return
+operator|new
+name|JsonSettingsLoader
+argument_list|(
+literal|true
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|xContentType
+operator|==
+name|XContentType
+operator|.
+name|YAML
+condition|)
+block|{
+return|return
+operator|new
+name|YamlSettingsLoader
+argument_list|(
+literal|true
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"unsupported content type ["
+operator|+
+name|xContentType
 operator|+
 literal|"]"
 argument_list|)

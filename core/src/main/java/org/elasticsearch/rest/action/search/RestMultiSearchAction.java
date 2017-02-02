@@ -118,6 +118,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|Tuple
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -148,7 +162,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
+name|XContentParser
 import|;
 end_import
 
@@ -162,7 +176,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
+name|XContentType
 import|;
 end_import
 
@@ -637,7 +651,7 @@ return|return
 name|multiRequest
 return|;
 block|}
-comment|/**      * Parses a multi-line {@link RestRequest} body, instanciating a {@link SearchRequest} for each line and applying the given consumer.      */
+comment|/**      * Parses a multi-line {@link RestRequest} body, instantiating a {@link SearchRequest} for each line and applying the given consumer.      */
 DECL|method|parseMultiLineRequest
 specifier|public
 specifier|static
@@ -717,23 +731,39 @@ literal|"routing"
 argument_list|)
 decl_stmt|;
 specifier|final
+name|Tuple
+argument_list|<
+name|XContentType
+argument_list|,
 name|BytesReference
-name|data
+argument_list|>
+name|sourceTuple
 init|=
 name|request
 operator|.
 name|contentOrSourceParam
 argument_list|()
 decl_stmt|;
+specifier|final
 name|XContent
 name|xContent
 init|=
-name|XContentFactory
+name|sourceTuple
+operator|.
+name|v1
+argument_list|()
 operator|.
 name|xContent
-argument_list|(
+argument_list|()
+decl_stmt|;
+specifier|final
+name|BytesReference
 name|data
-argument_list|)
+init|=
+name|sourceTuple
+operator|.
+name|v2
+argument_list|()
 decl_stmt|;
 name|int
 name|from
@@ -1258,12 +1288,7 @@ init|(
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
-operator|.
 name|xContent
-argument_list|(
-name|bytes
-argument_list|)
 operator|.
 name|createParser
 argument_list|(

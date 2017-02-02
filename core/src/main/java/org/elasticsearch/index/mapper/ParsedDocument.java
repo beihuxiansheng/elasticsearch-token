@@ -64,13 +64,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|mapper
+name|xcontent
 operator|.
-name|ParseContext
-operator|.
-name|Document
+name|XContentType
 import|;
 end_import
 
@@ -84,7 +82,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|SeqNoFieldMapper
+name|ParseContext
+operator|.
+name|Document
 import|;
 end_import
 
@@ -157,6 +157,11 @@ specifier|private
 name|BytesReference
 name|source
 decl_stmt|;
+DECL|field|xContentType
+specifier|private
+name|XContentType
+name|xContentType
+decl_stmt|;
 DECL|field|dynamicMappingsUpdate
 specifier|private
 name|Mapping
@@ -196,6 +201,9 @@ name|documents
 parameter_list|,
 name|BytesReference
 name|source
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|,
 name|Mapping
 name|dynamicMappingsUpdate
@@ -261,6 +269,12 @@ operator|.
 name|dynamicMappingsUpdate
 operator|=
 name|dynamicMappingsUpdate
+expr_stmt|;
+name|this
+operator|.
+name|xContentType
+operator|=
+name|xContentType
 expr_stmt|;
 block|}
 DECL|method|uid
@@ -412,6 +426,18 @@ operator|.
 name|source
 return|;
 block|}
+DECL|method|getXContentType
+specifier|public
+name|XContentType
+name|getXContentType
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|xContentType
+return|;
+block|}
 DECL|method|setSource
 specifier|public
 name|void
@@ -419,6 +445,9 @@ name|setSource
 parameter_list|(
 name|BytesReference
 name|source
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 block|{
 name|this
@@ -426,6 +455,12 @@ operator|.
 name|source
 operator|=
 name|source
+expr_stmt|;
+name|this
+operator|.
+name|xContentType
+operator|=
+name|xContentType
 expr_stmt|;
 block|}
 DECL|method|parent

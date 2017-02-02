@@ -379,6 +379,9 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Writes a raw field with the value taken from the bytes in the stream      * @deprecated use {@link #writeRawField(String, InputStream, XContentType)} to avoid content type auto-detection      */
+annotation|@
+name|Deprecated
 DECL|method|writeRawField
 name|void
 name|writeRawField
@@ -392,6 +395,26 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Writes a raw field with the value taken from the bytes in the stream      */
+DECL|method|writeRawField
+name|void
+name|writeRawField
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|InputStream
+name|value
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Writes a raw field with the given bytes as the value      * @deprecated use {@link #writeRawField(String, BytesReference, XContentType)} to avoid content type auto-detection      */
+annotation|@
+name|Deprecated
 DECL|method|writeRawField
 name|void
 name|writeRawField
@@ -405,12 +428,46 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Writes a raw field with the given bytes as the value      */
+DECL|method|writeRawField
+name|void
+name|writeRawField
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|BytesReference
+name|value
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Writes a value with the source coming directly from the bytes      * @deprecated use {@link #writeRawValue(BytesReference, XContentType)} to avoid content type auto-detection      */
+annotation|@
+name|Deprecated
 DECL|method|writeRawValue
 name|void
 name|writeRawValue
 parameter_list|(
 name|BytesReference
 name|value
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Writes a value with the source coming directly from the bytes      */
+DECL|method|writeRawValue
+name|void
+name|writeRawValue
+parameter_list|(
+name|BytesReference
+name|value
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 throws|throws
 name|IOException

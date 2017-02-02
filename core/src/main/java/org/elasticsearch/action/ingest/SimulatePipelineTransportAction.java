@@ -300,6 +300,11 @@ name|getSource
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|request
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 operator|.
 name|v2

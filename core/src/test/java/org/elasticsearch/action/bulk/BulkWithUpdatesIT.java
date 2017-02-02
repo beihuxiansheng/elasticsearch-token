@@ -166,6 +166,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|Requests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|bytes
@@ -185,6 +197,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
 import|;
 end_import
 
@@ -2559,6 +2585,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"2"
@@ -2581,6 +2611,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"2"
@@ -2608,6 +2642,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"3"
@@ -2952,6 +2990,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"2"
@@ -2980,6 +3022,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"3"
@@ -5656,6 +5702,10 @@ argument_list|,
 name|addParent
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder
@@ -5669,6 +5719,10 @@ argument_list|,
 name|addChild
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|BulkResponse
@@ -5987,6 +6041,10 @@ argument_list|,
 name|addParent
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder
@@ -6000,6 +6058,10 @@ argument_list|,
 name|addChild1
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder
@@ -6013,6 +6075,10 @@ argument_list|,
 name|addChild2
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|BulkResponse
@@ -6346,6 +6412,10 @@ argument_list|,
 name|addParent
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder
@@ -6359,6 +6429,10 @@ argument_list|,
 name|addChildOK
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder
@@ -6372,6 +6446,10 @@ argument_list|,
 name|addChildMissingRouting
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder
@@ -6385,6 +6463,10 @@ argument_list|,
 name|addChildOK
 operator|.
 name|length
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|BulkResponse
@@ -6633,6 +6715,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 name|threadID
@@ -7012,6 +7098,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{ \"title\" : \"Great Title of doc 3\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7030,6 +7120,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{ \"title\" : \"Great Title of doc 4\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7048,6 +7142,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{ \"title\" : \"Great Title of doc 5\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7066,6 +7164,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{ \"title\" : \"Great Title of doc 6\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7108,6 +7210,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{ \"title\" : \"Great Title of doc 1\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7126,6 +7232,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{ \"title\" : \"Great Title of doc 2\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7144,6 +7254,10 @@ operator|.
 name|doc
 argument_list|(
 literal|"{ \"date\" : \"2014-01-30T23:59:57\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7162,6 +7276,10 @@ operator|.
 name|doc
 argument_list|(
 literal|"{ \"date\" : \"2014-13-30T23:59:57\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -7405,6 +7523,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"text"
 argument_list|,
 literal|"hallo1"
@@ -7425,6 +7547,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"text"
 argument_list|,
 literal|"hallo2"
@@ -7443,6 +7569,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"text"
 argument_list|,
 literal|"hallo2"
@@ -7463,6 +7593,10 @@ argument_list|)
 operator|.
 name|doc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"foo"
 argument_list|,
 literal|"bar"
@@ -7670,6 +7804,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"text"
 argument_list|,
 literal|"hallo1"
@@ -7690,6 +7828,10 @@ argument_list|)
 operator|.
 name|doc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"foo"
 argument_list|,
 literal|"bar"
@@ -7859,6 +8001,10 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|1
@@ -7890,6 +8036,10 @@ argument_list|)
 operator|.
 name|setDoc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 name|randomInt

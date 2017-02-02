@@ -110,6 +110,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -3299,6 +3313,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"dates\": {\"month\": {\"label\": \"2014-11\", \"end\": \"2014-11-30\", \"start\": \"2014-11-01\"}, \"day\": \"2014-11-30\"}, \"comments\": [{\"cid\": 3,\"identifier\": \"29111\"}, {\"cid\": 4,\"tags\": [{\"tid\" :44,\"name\": \"Roles\"}], \"identifier\": \"29101\"}]}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3321,6 +3339,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"dates\": {\"month\": {\"label\": \"2014-12\", \"end\": \"2014-12-31\", \"start\": \"2014-12-01\"}, \"day\": \"2014-12-03\"}, \"comments\": [{\"cid\": 1, \"identifier\": \"29111\"}, {\"cid\": 2,\"tags\": [{\"tid\" : 22, \"name\": \"DataChannels\"}], \"identifier\": \"29101\"}]}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -260,6 +260,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|support
 operator|.
 name|XContentMapValues
@@ -2046,6 +2060,11 @@ name|request
 operator|.
 name|doc
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|xContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// select the right fields and generate term vectors
@@ -2228,6 +2247,11 @@ name|source
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|request
+operator|.
+name|xContentType
+argument_list|()
 argument_list|)
 operator|.
 name|v2
@@ -2266,6 +2290,9 @@ name|type
 parameter_list|,
 name|BytesReference
 name|doc
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 block|{
 name|MapperService
@@ -2305,6 +2332,8 @@ argument_list|,
 literal|"_id_for_tv_api"
 argument_list|,
 name|doc
+argument_list|,
+name|xContentType
 argument_list|)
 argument_list|)
 decl_stmt|;

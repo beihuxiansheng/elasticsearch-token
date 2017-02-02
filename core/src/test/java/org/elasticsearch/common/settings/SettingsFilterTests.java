@@ -638,6 +638,11 @@ operator|.
 name|loadFromSource
 argument_list|(
 name|filteredSettingsString
+argument_list|,
+name|xContentBuilder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 operator|.
 name|build

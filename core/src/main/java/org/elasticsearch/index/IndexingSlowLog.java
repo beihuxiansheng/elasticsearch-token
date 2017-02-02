@@ -1411,6 +1411,11 @@ name|source
 argument_list|()
 argument_list|,
 name|reformat
+argument_list|,
+name|doc
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|sb

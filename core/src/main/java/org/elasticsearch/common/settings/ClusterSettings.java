@@ -1854,6 +1854,10 @@ name|SETTING_HTTP_DETAILED_ERRORS_ENABLED
 argument_list|,
 name|HttpTransportSettings
 operator|.
+name|SETTING_HTTP_CONTENT_TYPE_REQUIRED
+argument_list|,
+name|HttpTransportSettings
+operator|.
 name|SETTING_HTTP_MAX_CONTENT_LENGTH
 argument_list|,
 name|HttpTransportSettings

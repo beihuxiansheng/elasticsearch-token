@@ -76,6 +76,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -243,6 +257,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"test_field\" : \"foobar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 block|,
 name|client
@@ -262,6 +280,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"test_field\" : \"foobar\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 block|,
 name|client
@@ -281,6 +303,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"test_field\" : \"foobar\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 block|,
 name|client
@@ -305,6 +331,10 @@ argument_list|(
 literal|"{\"test_field\" : \"foobar\"}"
 argument_list|)
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 block|,
 name|client

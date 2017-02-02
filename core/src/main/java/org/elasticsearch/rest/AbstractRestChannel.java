@@ -46,20 +46,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -348,15 +334,8 @@ name|newBuilder
 argument_list|(
 name|request
 operator|.
-name|hasContent
+name|getXContentType
 argument_list|()
-condition|?
-name|request
-operator|.
-name|content
-argument_list|()
-else|:
-literal|null
 argument_list|,
 literal|true
 argument_list|)
@@ -378,20 +357,14 @@ name|newBuilder
 argument_list|(
 name|request
 operator|.
-name|hasContent
+name|getXContentType
 argument_list|()
-condition|?
-name|request
-operator|.
-name|content
-argument_list|()
-else|:
-literal|null
 argument_list|,
 literal|false
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new {@link XContentBuilder} for a response to be sent using this channel. The builder's type is determined by the following      * logic. If the request has a format parameter that will be used to attempt to map to an {@link XContentType}. If there is no format      * parameter, the HTTP Accept header is checked to see if it can be matched to a {@link XContentType}. If this first attempt to map      * fails, the request content type will be used if the value is not {@code null}; if the value is {@code null} the output format falls      * back to JSON.      */
 annotation|@
 name|Override
 DECL|method|newBuilder
@@ -401,8 +374,8 @@ name|newBuilder
 parameter_list|(
 annotation|@
 name|Nullable
-name|BytesReference
-name|autoDetectSource
+name|XContentType
+name|requestContentType
 parameter_list|,
 name|boolean
 name|useFiltering
@@ -410,8 +383,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// try to determine the response content type from the media type or the format query string parameter, with the format parameter
+comment|// taking precedence over the Accept header
 name|XContentType
-name|contentType
+name|responseContentType
 init|=
 name|XContentType
 operator|.
@@ -422,44 +397,35 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|contentType
+name|responseContentType
 operator|==
 literal|null
 condition|)
 block|{
-comment|// try and guess it from the auto detect source
 if|if
 condition|(
-name|autoDetectSource
+name|requestContentType
 operator|!=
 literal|null
 condition|)
 block|{
-name|contentType
+comment|// if there was a parsed content-type for the incoming request use that since no format was specified using the query
+comment|// string parameter or the HTTP Accept header
+name|responseContentType
 operator|=
-name|XContentFactory
-operator|.
-name|xContentType
-argument_list|(
-name|autoDetectSource
-argument_list|)
+name|requestContentType
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|contentType
-operator|==
-literal|null
-condition|)
+else|else
 block|{
-comment|// default to JSON
-name|contentType
+comment|// default to JSON output when all else fails
+name|responseContentType
 operator|=
 name|XContentType
 operator|.
 name|JSON
 expr_stmt|;
+block|}
 block|}
 name|Set
 argument_list|<
@@ -560,7 +526,7 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|contentType
+name|responseContentType
 argument_list|)
 argument_list|,
 name|bytesOutput

@@ -433,6 +433,10 @@ name|docOut
 operator|.
 name|toByteArray
 argument_list|()
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -452,6 +456,14 @@ name|source
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|indexRequestBuilder
+operator|.
+name|request
+argument_list|()
+operator|.
+name|getContentType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -80,6 +80,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -223,7 +237,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json or yaml format)      * @deprecated use {@link #setSettings(String, XContentType)} to avoid content type detection      */
+annotation|@
+name|Deprecated
 DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequestBuilder
@@ -244,7 +260,33 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json or yaml format)      */
+DECL|method|setSettings
+specifier|public
+name|UpdateSettingsRequestBuilder
+name|setSettings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|settings
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the settings to be updated      */
 DECL|method|setSettings
 specifier|public
 name|UpdateSettingsRequestBuilder

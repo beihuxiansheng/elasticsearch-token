@@ -142,6 +142,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -928,6 +942,10 @@ operator|.
 name|setSettings
 argument_list|(
 literal|"{\"number_of_replicas\": 1}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -1399,6 +1417,10 @@ operator|.
 name|setSettings
 argument_list|(
 literal|"{\"number_of_replicas\": 0}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -1531,6 +1553,10 @@ operator|.
 name|setSettings
 argument_list|(
 literal|"{\"number_of_replicas\": 1}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get

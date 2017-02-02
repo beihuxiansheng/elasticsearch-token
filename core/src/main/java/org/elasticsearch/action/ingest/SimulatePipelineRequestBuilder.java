@@ -54,6 +54,20 @@ name|BytesReference
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
 begin_class
 DECL|class|SimulatePipelineRequestBuilder
 specifier|public
@@ -69,6 +83,7 @@ argument_list|,
 name|SimulatePipelineRequestBuilder
 argument_list|>
 block|{
+comment|/**      * Create a new builder for {@link SimulatePipelineRequest}s      */
 DECL|method|SimulatePipelineRequestBuilder
 specifier|public
 name|SimulatePipelineRequestBuilder
@@ -92,6 +107,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new builder for {@link SimulatePipelineRequest}s      * @deprecated use {@link #SimulatePipelineRequestBuilder(ElasticsearchClient, SimulatePipelineAction, BytesReference, XContentType)} to      *             avoid content type auto-detection on the source bytes      */
+annotation|@
+name|Deprecated
 DECL|method|SimulatePipelineRequestBuilder
 specifier|public
 name|SimulatePipelineRequestBuilder
@@ -120,6 +138,41 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new builder for {@link SimulatePipelineRequest}s      */
+DECL|method|SimulatePipelineRequestBuilder
+specifier|public
+name|SimulatePipelineRequestBuilder
+parameter_list|(
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|SimulatePipelineAction
+name|action
+parameter_list|,
+name|BytesReference
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|client
+argument_list|,
+name|action
+argument_list|,
+operator|new
+name|SimulatePipelineRequest
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the id for the pipeline to simulate      */
 DECL|method|setId
 specifier|public
 name|SimulatePipelineRequestBuilder
@@ -140,6 +193,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enable or disable verbose mode      */
 DECL|method|setVerbose
 specifier|public
 name|SimulatePipelineRequestBuilder

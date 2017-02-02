@@ -484,6 +484,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -626,6 +630,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -688,6 +696,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -750,6 +762,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1111,6 +1127,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|false
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1154,6 +1174,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|false
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 block|}
@@ -1198,6 +1222,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"value"
@@ -1220,6 +1248,10 @@ argument_list|)
 operator|.
 name|doc
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"value"
@@ -1382,6 +1414,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1456,6 +1492,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1530,6 +1570,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1604,6 +1648,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1667,6 +1715,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1777,6 +1829,10 @@ operator|.
 name|doc
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -1804,6 +1860,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -1956,6 +2016,8 @@ argument_list|(
 literal|"script or doc is missing"
 argument_list|,
 literal|"source is missing"
+argument_list|,
+literal|"content type is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;

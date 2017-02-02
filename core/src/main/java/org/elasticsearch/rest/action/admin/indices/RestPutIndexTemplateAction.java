@@ -424,6 +424,11 @@ name|request
 operator|.
 name|content
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

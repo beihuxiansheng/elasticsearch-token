@@ -454,7 +454,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the repository settings.      *      * @param source repository settings in json, yaml or properties format      * @return this request      */
+comment|/**      * Sets the repository settings.      *      * @param source repository settings in json or yaml format      * @return this request      * @deprecated use {@link #settings(String, XContentType)} to avoid content type auto-detection      */
+annotation|@
+name|Deprecated
 DECL|method|settings
 specifier|public
 name|PutRepositoryRequest
@@ -476,6 +478,42 @@ operator|.
 name|loadFromSource
 argument_list|(
 name|source
+argument_list|)
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the repository settings.      *      * @param source repository settings in json or yaml format      * @param xContentType the content type of the source      * @return this request      */
+DECL|method|settings
+specifier|public
+name|PutRepositoryRequest
+name|settings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|loadFromSource
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 operator|.
 name|build
@@ -526,6 +564,11 @@ argument_list|(
 name|builder
 operator|.
 name|string
+argument_list|()
+argument_list|,
+name|builder
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 expr_stmt|;

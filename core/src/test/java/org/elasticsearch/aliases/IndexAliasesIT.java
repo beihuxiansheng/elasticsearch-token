@@ -270,6 +270,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -939,6 +953,10 @@ literal|"1"
 argument_list|,
 literal|"test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -1043,6 +1061,10 @@ literal|"1"
 argument_list|,
 literal|"test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -1585,6 +1607,10 @@ literal|"1"
 argument_list|,
 literal|"foo test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -1626,6 +1652,10 @@ literal|"2"
 argument_list|,
 literal|"bar test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -1667,6 +1697,10 @@ literal|"3"
 argument_list|,
 literal|"baz test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -1708,6 +1742,10 @@ literal|"4"
 argument_list|,
 literal|"something else"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -2668,6 +2706,10 @@ literal|"1"
 argument_list|,
 literal|"foo test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2702,6 +2744,10 @@ literal|"2"
 argument_list|,
 literal|"bar test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2736,6 +2782,10 @@ literal|"3"
 argument_list|,
 literal|"baz test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2770,6 +2820,10 @@ literal|"4"
 argument_list|,
 literal|"something else"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2811,6 +2865,10 @@ literal|"5"
 argument_list|,
 literal|"foo test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2845,6 +2903,10 @@ literal|"6"
 argument_list|,
 literal|"bar test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2879,6 +2941,10 @@ literal|"7"
 argument_list|,
 literal|"baz test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2913,6 +2979,10 @@ literal|"8"
 argument_list|,
 literal|"something else"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3707,6 +3777,10 @@ literal|"11"
 argument_list|,
 literal|"foo test1"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3741,6 +3815,10 @@ literal|"12"
 argument_list|,
 literal|"bar test1"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3775,6 +3853,10 @@ literal|"13"
 argument_list|,
 literal|"baz test1"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3809,6 +3891,10 @@ literal|"21"
 argument_list|,
 literal|"foo test2"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3843,6 +3929,10 @@ literal|"22"
 argument_list|,
 literal|"bar test2"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3877,6 +3967,10 @@ literal|"23"
 argument_list|,
 literal|"baz test2"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3911,6 +4005,10 @@ literal|"31"
 argument_list|,
 literal|"foo test3"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3945,6 +4043,10 @@ literal|"32"
 argument_list|,
 literal|"bar test3"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3979,6 +4081,10 @@ literal|"33"
 argument_list|,
 literal|"baz test3"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -4812,6 +4918,10 @@ literal|"1"
 argument_list|,
 literal|"foo test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -4846,6 +4956,10 @@ literal|"2"
 argument_list|,
 literal|"bar test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -4880,6 +4994,10 @@ literal|"3"
 argument_list|,
 literal|"baz test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -4914,6 +5032,10 @@ literal|"4"
 argument_list|,
 literal|"something else"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -4955,6 +5077,10 @@ literal|"5"
 argument_list|,
 literal|"foo test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -4989,6 +5115,10 @@ literal|"6"
 argument_list|,
 literal|"bar test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -5023,6 +5153,10 @@ literal|"7"
 argument_list|,
 literal|"baz test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -5057,6 +5191,10 @@ literal|"8"
 argument_list|,
 literal|"something else"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -5467,6 +5605,10 @@ literal|"1"
 argument_list|,
 literal|"test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -5601,6 +5743,10 @@ literal|"1"
 argument_list|,
 literal|"test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -5733,6 +5879,10 @@ literal|"1"
 argument_list|,
 literal|"test"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -9476,6 +9626,10 @@ operator|+
 literal|"    }\n"
 operator|+
 literal|"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10002,6 +10156,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -10022,6 +10180,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setParent

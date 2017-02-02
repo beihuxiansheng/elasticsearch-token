@@ -158,6 +158,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -587,6 +601,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field\", \"value\": \"_value\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|IngestMetadata
@@ -808,6 +826,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": []}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|ClusterState
@@ -905,6 +927,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [], \"description\": \"_description\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|previousClusterState
@@ -1050,6 +1076,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"description\": \"empty processors\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|ClusterState
@@ -1142,6 +1172,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field\", \"value\": \"_value\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|IngestMetadata
@@ -1359,6 +1393,10 @@ argument_list|(
 literal|"p1"
 argument_list|,
 name|definition
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1374,6 +1412,10 @@ argument_list|(
 literal|"p2"
 argument_list|,
 name|definition
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1389,6 +1431,10 @@ argument_list|(
 literal|"q1"
 argument_list|,
 name|definition
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1739,6 +1785,10 @@ argument_list|(
 literal|"p1"
 argument_list|,
 name|definition
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1906,6 +1956,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": []}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1925,6 +1979,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": []}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2379,6 +2437,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field\", \"value\": \"_value\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|ClusterState
@@ -2556,6 +2618,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field\", \"value\": \"_value\"}},{\"remove\" : {\"field\": \"_field\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode
@@ -2765,6 +2831,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"processors\": [{\"set\" : {\"field\": \"_field\", \"value\": \"_value\"}}]}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 try|try

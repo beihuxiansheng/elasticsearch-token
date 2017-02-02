@@ -1040,6 +1040,11 @@ name|body
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|body
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

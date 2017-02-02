@@ -2091,6 +2091,11 @@ name|compressedReference
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|builder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 operator|.
 name|v2

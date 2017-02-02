@@ -84,6 +84,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|support
 operator|.
 name|XContentMapValues
@@ -1488,6 +1502,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"script\":\"vars.multiplier = 3\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1524,6 +1542,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"script\":\"_agg.add(vars.multiplier)\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1560,6 +1582,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"script\":\"sum agg values as a new aggregation\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1596,6 +1622,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"script\":\"sum aggs of agg values as a new aggregation\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

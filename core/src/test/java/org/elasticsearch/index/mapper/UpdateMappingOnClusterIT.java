@@ -52,26 +52,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|mapping
-operator|.
-name|put
-operator|.
-name|PutMappingResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|Client
@@ -89,20 +69,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperParsingException
 import|;
 end_import
 
@@ -163,16 +129,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -185,20 +141,6 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|StreamsUtils
-operator|.
-name|copyToStringFromClasspath
 import|;
 end_import
 

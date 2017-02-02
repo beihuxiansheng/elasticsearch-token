@@ -132,6 +132,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|Tuple
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -236,9 +250,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|json
-operator|.
-name|JsonXContent
+name|XContentType
 import|;
 end_import
 
@@ -366,7 +378,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|BasicHit
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|HIT_PARSER
 init|=
@@ -519,9 +531,28 @@ name|HIT_PARSER
 operator|.
 name|declareObject
 argument_list|(
-name|BasicHit
-operator|::
+operator|(
+parameter_list|(
+name|basicHit
+parameter_list|,
+name|tuple
+parameter_list|)
+lambda|->
+name|basicHit
+operator|.
 name|setSource
+argument_list|(
+name|tuple
+operator|.
+name|v1
+argument_list|()
+argument_list|,
+name|tuple
+operator|.
+name|v2
+argument_list|()
+argument_list|)
+operator|)
 argument_list|,
 parameter_list|(
 name|p
@@ -538,10 +569,15 @@ init|(
 name|XContentBuilder
 name|b
 init|=
-name|JsonXContent
+name|XContentBuilder
 operator|.
-name|contentBuilder
+name|builder
+argument_list|(
+name|s
+operator|.
+name|xContent
 argument_list|()
+argument_list|)
 init|)
 block|{
 name|b
@@ -551,11 +587,19 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+comment|// a hack but this lets us get the right xcontent type to go with the source
 return|return
+operator|new
+name|Tuple
+argument_list|<>
+argument_list|(
 name|b
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|s
+argument_list|)
 return|;
 block|}
 block|}
@@ -581,14 +625,17 @@ argument_list|)
 throw|;
 block|}
 block|}
-argument_list|,
+operator|,
 operator|new
 name|ParseField
 argument_list|(
 literal|"_source"
 argument_list|)
-argument_list|)
-expr_stmt|;
+block|)
+class|;
+end_class
+
+begin_decl_stmt
 name|ParseField
 name|routingField
 init|=
@@ -598,6 +645,9 @@ argument_list|(
 literal|"_routing"
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 name|ParseField
 name|parentField
 init|=
@@ -607,6 +657,9 @@ argument_list|(
 literal|"_parent"
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 name|ParseField
 name|ttlField
 init|=
@@ -616,6 +669,9 @@ argument_list|(
 literal|"_ttl"
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_expr_stmt
 name|HIT_PARSER
 operator|.
 name|declareString
@@ -627,6 +683,9 @@ argument_list|,
 name|routingField
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|HIT_PARSER
 operator|.
 name|declareString
@@ -638,7 +697,13 @@ argument_list|,
 name|parentField
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_comment
 comment|// Pre-2.0.0 parent and routing come back in "fields"
+end_comment
+
+begin_class
 class|class
 name|Fields
 block|{
@@ -649,11 +714,14 @@ name|String
 name|parent
 decl_stmt|;
 block|}
+end_class
+
+begin_decl_stmt
 name|ObjectParser
 argument_list|<
 name|Fields
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|fieldsParser
 init|=
@@ -668,6 +736,9 @@ operator|::
 operator|new
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_expr_stmt
 name|HIT_PARSER
 operator|.
 name|declareObject
@@ -708,6 +779,9 @@ literal|"fields"
 argument_list|)
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|fieldsParser
 operator|.
 name|declareString
@@ -727,6 +801,9 @@ argument_list|,
 name|routingField
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|fieldsParser
 operator|.
 name|declareString
@@ -746,6 +823,9 @@ argument_list|,
 name|parentField
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|fieldsParser
 operator|.
 name|declareLong
@@ -761,11 +841,20 @@ argument_list|,
 name|ttlField
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_comment
 comment|// ignore ttls since they have been removed
-block|}
+end_comment
+
+begin_comment
+unit|}
 comment|/**      * Parser for the {@code hits} element. Parsed to an array of {@code [total (Long), hits (List<Hit>)]}.      */
+end_comment
+
+begin_decl_stmt
 DECL|field|HITS_PARSER
-specifier|public
+unit|public
 specifier|static
 specifier|final
 name|ConstructingObjectParser
@@ -773,7 +862,7 @@ argument_list|<
 name|Object
 index|[]
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|HITS_PARSER
 init|=
@@ -790,6 +879,9 @@ lambda|->
 name|a
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_static
 static|static
 block|{
 name|HITS_PARSER
@@ -823,7 +915,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_static
+
+begin_comment
 comment|/**      * Parser for {@code failed} shards in the {@code _shards} elements.      */
+end_comment
+
+begin_decl_stmt
 DECL|field|SEARCH_FAILURE_PARSER
 specifier|public
 specifier|static
@@ -832,7 +930,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|SearchFailure
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|SEARCH_FAILURE_PARSER
 init|=
@@ -949,6 +1047,9 @@ return|;
 block|}
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_static
 static|static
 block|{
 name|SEARCH_FAILURE_PARSER
@@ -1057,7 +1158,13 @@ name|OBJECT_OR_STRING
 argument_list|)
 expr_stmt|;
 block|}
+end_static
+
+begin_comment
 comment|/**      * Parser for the {@code _shards} element. Throws everything out except the errors array if there is one. If there isn't one then it      * parses to an empty list.      */
+end_comment
+
+begin_decl_stmt
 DECL|field|SHARDS_PARSER
 specifier|public
 specifier|static
@@ -1069,7 +1176,7 @@ argument_list|<
 name|Throwable
 argument_list|>
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|SHARDS_PARSER
 init|=
@@ -1123,6 +1230,9 @@ return|;
 block|}
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_static
 static|static
 block|{
 name|SHARDS_PARSER
@@ -1142,6 +1252,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_static
+
+begin_decl_stmt
 DECL|field|RESPONSE_PARSER
 specifier|public
 specifier|static
@@ -1150,7 +1263,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|Response
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|RESPONSE_PARSER
 init|=
@@ -1357,6 +1470,9 @@ return|;
 block|}
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_static
 static|static
 block|{
 name|RESPONSE_PARSER
@@ -1440,7 +1556,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_static
+
+begin_comment
 comment|/**      * Collects stuff about Throwables and attempts to rebuild them.      */
+end_comment
+
+begin_class
 DECL|class|ThrowableBuilder
 specifier|public
 specifier|static
@@ -1455,7 +1577,7 @@ name|BiFunction
 argument_list|<
 name|XContentParser
 argument_list|,
-name|Void
+name|XContentType
 argument_list|,
 name|Throwable
 argument_list|>
@@ -1467,7 +1589,7 @@ name|ObjectParser
 argument_list|<
 name|ThrowableBuilder
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|parser
 init|=
@@ -1803,7 +1925,13 @@ name|causedBy
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Parses the main action to return just the {@linkplain Version} that it returns. We throw everything else out.      */
+end_comment
+
+begin_decl_stmt
 DECL|field|MAIN_ACTION_PARSER
 specifier|public
 specifier|static
@@ -1812,7 +1940,7 @@ name|ConstructingObjectParser
 argument_list|<
 name|Version
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|MAIN_ACTION_PARSER
 init|=
@@ -1835,13 +1963,16 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
+end_decl_stmt
+
+begin_static
 static|static
 block|{
 name|ConstructingObjectParser
 argument_list|<
 name|Version
 argument_list|,
-name|Void
+name|XContentType
 argument_list|>
 name|versionParser
 init|=
@@ -1900,8 +2031,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_static
 
+unit|}
 end_unit
 

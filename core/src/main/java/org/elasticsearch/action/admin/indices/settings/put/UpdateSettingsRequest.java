@@ -519,7 +519,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json or yaml format)      * @deprecated use {@link #settings(String, XContentType)} to avoid content type detection      */
+annotation|@
+name|Deprecated
 DECL|method|settings
 specifier|public
 name|UpdateSettingsRequest
@@ -541,6 +543,42 @@ operator|.
 name|loadFromSource
 argument_list|(
 name|source
+argument_list|)
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the settings to be updated (either json or yaml format)      */
+DECL|method|settings
+specifier|public
+name|UpdateSettingsRequest
+name|settings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|settings
+operator|=
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|loadFromSource
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 operator|.
 name|build
@@ -581,7 +619,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the settings to be updated (either json/yaml/properties format)      */
+comment|/**      * Sets the settings to be updated (either json or yaml format)      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -622,6 +660,11 @@ argument_list|(
 name|builder
 operator|.
 name|string
+argument_list|()
+argument_list|,
+name|builder
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 expr_stmt|;

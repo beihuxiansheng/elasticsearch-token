@@ -26,6 +26,20 @@ name|http
 operator|.
 name|entity
 operator|.
+name|ContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|entity
+operator|.
 name|StringEntity
 import|;
 end_import
@@ -178,6 +192,10 @@ operator|+
 literal|"\"doc\": {\"test\": \"test\"},"
 operator|+
 literal|"\"doc_as_upsert\": true}"
+argument_list|,
+name|ContentType
+operator|.
+name|APPLICATION_JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -215,6 +233,10 @@ operator|new
 name|StringEntity
 argument_list|(
 literal|"{\"test\": \"test\"}"
+argument_list|,
+name|ContentType
+operator|.
+name|APPLICATION_JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -239,6 +261,10 @@ operator|new
 name|StringEntity
 argument_list|(
 literal|"{\"test\": \"test\"}"
+argument_list|,
+name|ContentType
+operator|.
+name|APPLICATION_JSON
 argument_list|)
 argument_list|)
 argument_list|)

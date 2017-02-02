@@ -307,7 +307,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the source.      */
+comment|/**      * Sets the source.      * @deprecated use {@link #setSource(BytesReference, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
@@ -322,6 +324,32 @@ operator|.
 name|source
 argument_list|(
 name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the source.      */
+DECL|method|setSource
+specifier|public
+name|IndexRequestBuilder
+name|setSource
+parameter_list|(
+name|BytesReference
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -385,7 +413,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document source to index.      *<p>      * Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
+comment|/**      * Sets the document source to index.      *<p>      * Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[], XContentType)}.      * @deprecated use {@link #setSource(String, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
@@ -400,6 +430,32 @@ operator|.
 name|source
 argument_list|(
 name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the document source to index.      *<p>      * Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[], XContentType)}.      */
+DECL|method|setSource
+specifier|public
+name|IndexRequestBuilder
+name|setSource
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -427,7 +483,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document to index in bytes form.      */
+comment|/**      * Sets the document to index in bytes form.      * @deprecated use {@link #setSource(byte[], XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
@@ -449,7 +507,36 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
+comment|/**      * Sets the document to index in bytes form.      */
+DECL|method|setSource
+specifier|public
+name|IndexRequestBuilder
+name|setSource
+parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @deprecated use {@link #setSource(byte[], int, int, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
@@ -475,6 +562,43 @@ argument_list|,
 name|offset
 argument_list|,
 name|length
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @param xContentType The type/format of the source      */
+DECL|method|setSource
+specifier|public
+name|IndexRequestBuilder
+name|setSource
+parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|,
+name|int
+name|offset
+parameter_list|,
+name|int
+name|length
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|,
+name|offset
+argument_list|,
+name|length
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -503,21 +627,27 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The content type that will be used to generate a document from user provided objects (like Map).      */
-DECL|method|setContentType
+comment|/**      * Constructs a simple document with a field name and value pairs.      *<p>      *<b>Note: the number of objects passed as varargs to this method must be an even      * number. Also the first argument in each pair (the field name) must have a      * valid String representation.</b>      *</p>      */
+DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
-name|setContentType
+name|setSource
 parameter_list|(
 name|XContentType
-name|contentType
+name|xContentType
+parameter_list|,
+name|Object
+modifier|...
+name|source
 parameter_list|)
 block|{
 name|request
 operator|.
-name|contentType
+name|source
 argument_list|(
-name|contentType
+name|xContentType
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 return|return

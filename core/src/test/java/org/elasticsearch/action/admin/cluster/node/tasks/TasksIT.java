@@ -510,6 +510,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -2717,6 +2731,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"foo\": \"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -3123,6 +3141,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"foo\": \"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy

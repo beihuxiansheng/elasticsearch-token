@@ -336,6 +336,11 @@ argument_list|,
 name|lang
 argument_list|,
 name|content
+argument_list|,
+name|request
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

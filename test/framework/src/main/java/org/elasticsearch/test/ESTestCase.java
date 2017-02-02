@@ -2173,7 +2173,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//Check that there are no unaccounted warning headers. These should be checked with {@link #checkWarningHeaders(String...)} in the
+comment|//Check that there are no unaccounted warning headers. These should be checked with {@link #assertWarnings(String...)} in the
 comment|//appropriate test
 try|try
 block|{

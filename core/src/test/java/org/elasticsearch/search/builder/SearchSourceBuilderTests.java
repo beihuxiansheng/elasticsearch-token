@@ -1788,6 +1788,8 @@ argument_list|(
 name|source
 argument_list|,
 literal|false
+argument_list|,
+name|xContentType
 argument_list|)
 operator|.
 name|v2
@@ -1869,6 +1871,8 @@ argument_list|(
 name|source
 argument_list|,
 literal|false
+argument_list|,
+name|xContentType
 argument_list|)
 operator|.
 name|v2

@@ -214,6 +214,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -231,6 +245,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
 import|;
 end_import
 
@@ -3085,7 +3113,11 @@ name|addMapping
 argument_list|(
 literal|"type1"
 argument_list|,
-literal|"abcde"
+literal|"{\"foo\": \"abcde\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -3372,6 +3404,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 literal|"{\"type1\" : {\"properties\" : {\"value\" : {\"type\" : \"text\"}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addAlias
@@ -3852,6 +3888,9 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{\n"
 operator|+
 literal|"    \"template\" : \"*\",\n"
@@ -3875,6 +3914,11 @@ operator|+
 literal|"    }\n"
 operator|+
 literal|"}"
+argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -5703,6 +5747,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -5732,6 +5780,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -5861,6 +5913,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -5889,6 +5945,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -6018,6 +6078,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -6046,6 +6110,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -6183,6 +6251,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -6211,6 +6283,10 @@ operator|.
 name|source
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -6393,6 +6469,10 @@ operator|+
 literal|"         }\n"
 operator|+
 literal|"    }\n"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get

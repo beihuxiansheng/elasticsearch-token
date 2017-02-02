@@ -660,6 +660,11 @@ argument_list|,
 literal|null
 argument_list|,
 name|allowExplicitIndex
+argument_list|,
+name|request
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

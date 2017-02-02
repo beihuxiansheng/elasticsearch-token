@@ -1708,6 +1708,11 @@ name|builder
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|builder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

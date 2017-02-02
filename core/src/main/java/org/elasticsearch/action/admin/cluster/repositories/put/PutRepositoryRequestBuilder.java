@@ -66,6 +66,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -232,7 +246,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the repository settings in Json, Yaml or properties format      *      * @param source repository settings      * @return this builder      */
+comment|/**      * Sets the repository settings in Json or Yaml format      *      * @param source repository settings      * @return this builder      * @deprecated use {@link #setSettings(String, XContentType)} instead to avoid content type auto detection      */
+annotation|@
+name|Deprecated
 DECL|method|setSettings
 specifier|public
 name|PutRepositoryRequestBuilder
@@ -247,6 +263,32 @@ operator|.
 name|settings
 argument_list|(
 name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the repository settings in Json or Yaml format      *      * @param source repository settings      * @param xContentType the contenty type of the source      * @return this builder      */
+DECL|method|setSettings
+specifier|public
+name|PutRepositoryRequestBuilder
+name|setSettings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|settings
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return

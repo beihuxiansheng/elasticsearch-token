@@ -222,6 +222,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -1953,6 +1967,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{ xxx }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 comment|// failure

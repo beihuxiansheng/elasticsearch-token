@@ -418,6 +418,11 @@ name|builder
 operator|.
 name|string
 argument_list|()
+argument_list|,
+name|builder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 operator|.
 name|build

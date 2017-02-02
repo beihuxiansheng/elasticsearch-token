@@ -1486,6 +1486,14 @@ argument_list|(
 name|source
 argument_list|,
 literal|true
+argument_list|,
+name|context
+operator|.
+name|sourceToParse
+argument_list|()
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Map

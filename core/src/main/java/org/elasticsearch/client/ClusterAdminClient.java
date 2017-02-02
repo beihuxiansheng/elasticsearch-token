@@ -1736,6 +1736,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|tasks
 operator|.
 name|TaskId
@@ -2595,6 +2609,20 @@ name|PutPipelineRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Stores an ingest pipeline      * @deprecated use {@link #preparePutPipeline(String, BytesReference, XContentType)}      */
+annotation|@
+name|Deprecated
+DECL|method|preparePutPipeline
+name|PutPipelineRequestBuilder
+name|preparePutPipeline
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|BytesReference
+name|source
+parameter_list|)
+function_decl|;
 comment|/**      * Stores an ingest pipeline      */
 DECL|method|preparePutPipeline
 name|PutPipelineRequestBuilder
@@ -2605,6 +2633,9 @@ name|id
 parameter_list|,
 name|BytesReference
 name|source
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 function_decl|;
 comment|/**      * Deletes a stored ingest pipeline      */
@@ -2714,12 +2745,26 @@ name|request
 parameter_list|)
 function_decl|;
 comment|/**      * Simulates an ingest pipeline      */
+annotation|@
+name|Deprecated
 DECL|method|prepareSimulatePipeline
 name|SimulatePipelineRequestBuilder
 name|prepareSimulatePipeline
 parameter_list|(
 name|BytesReference
 name|source
+parameter_list|)
+function_decl|;
+comment|/**      * Simulates an ingest pipeline      */
+DECL|method|prepareSimulatePipeline
+name|SimulatePipelineRequestBuilder
+name|prepareSimulatePipeline
+parameter_list|(
+name|BytesReference
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 function_decl|;
 comment|/**      * Explain the allocation of a shard      */

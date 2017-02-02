@@ -237,6 +237,11 @@ name|sourceBuilder
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -277,6 +282,11 @@ argument_list|,
 name|sourceBuilder
 operator|.
 name|bytes
+argument_list|()
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 argument_list|)
@@ -326,6 +336,11 @@ argument_list|,
 name|sourceBuilder
 operator|.
 name|bytes
+argument_list|()
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 argument_list|)
@@ -368,6 +383,11 @@ name|sourceBuilder
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -408,6 +428,11 @@ argument_list|,
 name|sourceBuilder
 operator|.
 name|bytes
+argument_list|()
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 argument_list|)
@@ -544,6 +569,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"foo\":\"abc\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -564,6 +593,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"foo\":\"def\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -584,6 +617,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"foo\":\"ghi\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -622,6 +659,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"foo\":\"changed\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -651,6 +692,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"foo\":\"jkl\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -914,6 +959,10 @@ name|BytesArray
 argument_list|(
 literal|"{\"script\":\"1 + 1\"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1051,6 +1100,11 @@ argument_list|,
 name|sourceBuilder
 operator|.
 name|bytes
+argument_list|()
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 argument_list|)

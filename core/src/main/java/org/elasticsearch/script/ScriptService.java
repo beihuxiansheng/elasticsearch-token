@@ -2453,6 +2453,11 @@ name|request
 operator|.
 name|content
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|xContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

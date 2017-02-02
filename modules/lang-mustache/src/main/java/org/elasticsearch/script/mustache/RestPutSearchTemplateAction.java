@@ -274,6 +274,11 @@ operator|.
 name|DEFAULT_TEMPLATE_LANG
 argument_list|,
 name|content
+argument_list|,
+name|request
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

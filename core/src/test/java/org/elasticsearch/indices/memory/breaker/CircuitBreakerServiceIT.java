@@ -198,6 +198,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|Requests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -319,6 +331,20 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
 import|;
 end_import
 
@@ -1404,6 +1430,10 @@ argument_list|(
 literal|"{\"mappings\": {\"type\": {\"properties\": {\"test\": "
 operator|+
 literal|"{\"type\": \"text\",\"fielddata\": true,\"fielddata_frequency_filter\": {\"max\": 10000}}}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3576,6 +3606,10 @@ name|indexRequest
 operator|.
 name|source
 argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"value"

@@ -154,6 +154,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|compress
 operator|.
 name|CompressedXContent
@@ -243,6 +257,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
 import|;
 end_import
 
@@ -1203,6 +1231,7 @@ operator|.
 name|documentParser
 return|;
 block|}
+comment|/**      * Parses the mappings (formatted as JSON) into a map      */
 DECL|method|parseMapping
 specifier|public
 specifier|static
@@ -1228,12 +1257,12 @@ init|(
 name|XContentParser
 name|parser
 init|=
-name|XContentFactory
+name|XContentType
+operator|.
+name|JSON
 operator|.
 name|xContent
-argument_list|(
-name|mappingSource
-argument_list|)
+argument_list|()
 operator|.
 name|createParser
 argument_list|(

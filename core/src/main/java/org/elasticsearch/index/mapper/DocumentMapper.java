@@ -176,6 +176,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentType
 import|;
 end_import
@@ -1428,6 +1442,7 @@ operator|.
 name|objectMappers
 return|;
 block|}
+comment|// TODO this method looks like it is only used in tests...
 DECL|method|parse
 specifier|public
 name|ParsedDocument
@@ -1462,6 +1477,10 @@ argument_list|,
 name|id
 argument_list|,
 name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 return|;

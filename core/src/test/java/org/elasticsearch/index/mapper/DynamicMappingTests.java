@@ -1559,6 +1559,11 @@ name|builder
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|builder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
@@ -4287,6 +4292,11 @@ argument_list|,
 name|json
 operator|.
 name|bytes
+argument_list|()
+argument_list|,
+name|json
+operator|.
+name|contentType
 argument_list|()
 argument_list|)
 decl_stmt|;

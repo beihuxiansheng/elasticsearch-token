@@ -270,6 +270,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -4699,7 +4713,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Loads settings from the actual string content that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
+comment|/**          * Loads settings from the actual string content that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          * @deprecated use {@link #loadFromSource(String, XContentType)} to avoid content type detection          */
+annotation|@
+name|Deprecated
 DECL|method|loadFromSource
 specifier|public
 name|Builder
@@ -4766,7 +4782,77 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Loads settings from a url that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
+comment|/**          * Loads settings from the actual string content that represents them using the          * {@link SettingsLoaderFactory#loaderFromXContentType(XContentType)} method to obtain a loader          */
+DECL|method|loadFromSource
+specifier|public
+name|Builder
+name|loadFromSource
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|SettingsLoader
+name|settingsLoader
+init|=
+name|SettingsLoaderFactory
+operator|.
+name|loaderFromXContentType
+argument_list|(
+name|xContentType
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|loadedSettings
+init|=
+name|settingsLoader
+operator|.
+name|load
+argument_list|(
+name|source
+argument_list|)
+decl_stmt|;
+name|put
+argument_list|(
+name|loadedSettings
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|SettingsException
+argument_list|(
+literal|"Failed to load settings from ["
+operator|+
+name|source
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Loads settings from a url that represents them using the          * {@link SettingsLoaderFactory#loaderFromResource(String)}.          */
 DECL|method|loadFromPath
 specifier|public
 name|Builder
@@ -4799,7 +4885,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Loads settings from a stream that represents them using the          * {@link SettingsLoaderFactory#loaderFromSource(String)}.          */
+comment|/**          * Loads settings from a stream that represents them using the          * {@link SettingsLoaderFactory#loaderFromResource(String)}.          */
 DECL|method|loadFromStream
 specifier|public
 name|Builder

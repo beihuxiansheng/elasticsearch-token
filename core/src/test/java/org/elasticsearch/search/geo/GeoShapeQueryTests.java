@@ -44,6 +44,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|locationtech
 operator|.
 name|spatial4j
@@ -637,6 +651,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"location\": null}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -2438,6 +2456,10 @@ name|location
 argument_list|,
 name|location
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy

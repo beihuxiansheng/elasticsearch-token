@@ -504,9 +504,9 @@ name|channel
 operator|.
 name|newBuilder
 argument_list|(
-name|response
+name|request
 operator|.
-name|getSourceInternal
+name|getXContentType
 argument_list|()
 argument_list|,
 literal|false

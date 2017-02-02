@@ -112,6 +112,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|json
 operator|.
 name|JsonXContent
@@ -930,6 +944,10 @@ literal|"}"
 operator|+
 literal|"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -980,6 +998,10 @@ literal|"}"
 operator|+
 literal|"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1043,6 +1065,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1065,6 +1091,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 2\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1087,6 +1117,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 3\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1109,6 +1143,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 4\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1131,6 +1169,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1404,6 +1446,10 @@ literal|"}"
 operator|+
 literal|"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1454,6 +1500,10 @@ literal|"}"
 operator|+
 literal|"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1500,6 +1550,10 @@ literal|"       }"
 operator|+
 literal|"}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1531,6 +1585,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1553,6 +1611,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 2\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1575,6 +1637,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 3\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1597,6 +1663,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 4\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1619,6 +1689,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2094,6 +2168,10 @@ literal|"{\"template\":{\"query\": {\"match\": {\"searchtext\": {\"query\": \"{{
 operator|+
 literal|"\"type\": \"ooophrase_prefix\"}}}}}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2257,6 +2335,10 @@ literal|"{\"query\": {\"match\": {\"searchtext\": {\"query\": \"{{P_Keyword1}}\"
 operator|+
 literal|"\"type\": \"phrase_prefix\"}}}}"
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2380,6 +2462,10 @@ argument_list|()
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2411,6 +2497,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2433,6 +2523,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 2\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2455,6 +2549,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 3\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2477,6 +2575,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"foo 4\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2499,6 +2601,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"theField\":\"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

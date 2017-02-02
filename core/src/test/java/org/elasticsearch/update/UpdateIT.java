@@ -224,6 +224,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|MergePolicyConfig
@@ -3715,6 +3729,10 @@ operator|.
 name|setUpsert
 argument_list|(
 literal|"{ \"text\": \"v0\" }"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get

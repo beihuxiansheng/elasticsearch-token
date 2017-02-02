@@ -376,6 +376,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -1042,6 +1056,9 @@ parameter_list|,
 name|BytesReference
 name|source
 parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|,
 name|Mapping
 name|mappingUpdate
 parameter_list|)
@@ -1156,6 +1173,8 @@ name|document
 argument_list|)
 argument_list|,
 name|source
+argument_list|,
+name|xContentType
 argument_list|,
 name|mappingUpdate
 argument_list|)
@@ -1421,6 +1440,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -1620,6 +1643,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -1711,6 +1738,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -1852,6 +1883,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -1926,6 +1961,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 operator|.
@@ -2278,6 +2317,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -2411,6 +2454,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -2703,6 +2750,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -3243,6 +3294,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -3297,6 +3352,10 @@ block|{
 literal|1
 block|}
 argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|,
 literal|null
 argument_list|)
@@ -3371,6 +3430,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -3783,6 +3846,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy
@@ -3967,6 +4034,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -4105,6 +4176,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"foo\" : \"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -4140,6 +4215,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"foo\" : \"bar\"}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setRefreshPolicy

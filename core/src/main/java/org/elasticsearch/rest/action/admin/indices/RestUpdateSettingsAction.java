@@ -453,6 +453,11 @@ operator|.
 name|loadFromSource
 argument_list|(
 name|bodySettingsStr
+argument_list|,
+name|request
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 operator|.
 name|build

@@ -365,6 +365,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -379,7 +389,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *  * The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *  * The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *  * If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
+comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *  * The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[], XContentType)} to be set.  *  * The source (content to index) can be set in its bytes form using ({@link #source(byte[], XContentType)}),  * its string form ({@link #source(String, XContentType)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *  * If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -460,10 +470,6 @@ DECL|field|contentType
 specifier|private
 name|XContentType
 name|contentType
-init|=
-name|Requests
-operator|.
-name|INDEX_CONTENT_TYPE
 decl_stmt|;
 DECL|field|pipeline
 specifier|private
@@ -500,7 +506,7 @@ specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[])} must be set.      */
+comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[], XContentType)} must be set.      */
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
@@ -620,6 +626,23 @@ operator|=
 name|addValidationError
 argument_list|(
 literal|"source is missing"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|contentType
+operator|==
+literal|null
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"content type is missing"
 argument_list|,
 name|validationException
 argument_list|)
@@ -843,7 +866,7 @@ return|return
 name|validationException
 return|;
 block|}
-comment|/**      * The content type that will be used when generating a document from user provided objects like Maps.      */
+comment|/**      * The content type. This will be used when generating a document from user provided objects like Maps and when parsing the      * source at index time      */
 DECL|method|getContentType
 specifier|public
 name|XContentType
@@ -852,26 +875,6 @@ parameter_list|()
 block|{
 return|return
 name|contentType
-return|;
-block|}
-comment|/**      * Sets the content type that will be used when generating a document from user provided objects (like Map).      */
-DECL|method|contentType
-specifier|public
-name|IndexRequest
-name|contentType
-parameter_list|(
-name|XContentType
-name|contentType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|contentType
-operator|=
-name|contentType
-expr_stmt|;
-return|return
-name|this
 return|;
 block|}
 comment|/**      * The type of the indexed document.      */
@@ -1098,13 +1101,15 @@ argument_list|(
 name|source
 argument_list|,
 literal|false
+argument_list|,
+name|contentType
 argument_list|)
 operator|.
 name|v2
 argument_list|()
 return|;
 block|}
-comment|/**      * Index the Map as a {@link org.elasticsearch.client.Requests#INDEX_CONTENT_TYPE}.      *      * @param source The map to index      */
+comment|/**      * Index the Map in {@link Requests#INDEX_CONTENT_TYPE} format      *      * @param source The map to index      */
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1121,7 +1126,9 @@ name|source
 argument_list|(
 name|source
 argument_list|,
-name|contentType
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
 argument_list|)
 return|;
 block|}
@@ -1187,7 +1194,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document source to index.      *      * Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
+comment|/**      * Sets the document source to index.      *      * @deprecated use {@link #source(String, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1197,25 +1206,48 @@ name|String
 name|source
 parameter_list|)
 block|{
-name|this
-operator|.
+return|return
 name|source
-operator|=
+argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
 name|source
+argument_list|)
+argument_list|,
+name|XContentFactory
 operator|.
-name|getBytes
+name|xContentType
 argument_list|(
-name|StandardCharsets
-operator|.
-name|UTF_8
+name|source
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
+block|}
+comment|/**      * Sets the document source to index.      *      * Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[], XContentType)}.      */
+DECL|method|source
+specifier|public
+name|IndexRequest
+name|source
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
 return|return
-name|this
+name|source
+argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
+name|source
+argument_list|)
+argument_list|,
+name|xContentType
+argument_list|)
 return|;
 block|}
 comment|/**      * Sets the content source to index.      */
@@ -1228,23 +1260,52 @@ name|XContentBuilder
 name|sourceBuilder
 parameter_list|)
 block|{
+return|return
 name|source
-operator|=
+argument_list|(
 name|sourceBuilder
 operator|.
 name|bytes
 argument_list|()
-expr_stmt|;
-return|return
-name|this
+argument_list|,
+name|sourceBuilder
+operator|.
+name|contentType
+argument_list|()
+argument_list|)
 return|;
 block|}
-comment|/**      * Sets the content source to index.      *<p>      *<b>Note: the number of objects passed to this method must be an even      * number. Also the first argument in each pair (the field name) must have a      * valid String representation.</b>      *</p>      */
+comment|/**      * Sets the content source to index using the default content type ({@link Requests#INDEX_CONTENT_TYPE})      *<p>      *<b>Note: the number of objects passed to this method must be an even      * number. Also the first argument in each pair (the field name) must have a      * valid String representation.</b>      *</p>      */
 DECL|method|source
 specifier|public
 name|IndexRequest
 name|source
 parameter_list|(
+name|Object
+modifier|...
+name|source
+parameter_list|)
+block|{
+return|return
+name|source
+argument_list|(
+name|Requests
+operator|.
+name|INDEX_CONTENT_TYPE
+argument_list|,
+name|source
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the content source to index.      *<p>      *<b>Note: the number of objects passed to this method as varargs must be an even      * number. Also the first argument in each pair (the field name) must have a      * valid String representation.</b>      *</p>      */
+DECL|method|source
+specifier|public
+name|IndexRequest
+name|source
+parameter_list|(
+name|XContentType
+name|xContentType
+parameter_list|,
 name|Object
 modifier|...
 name|source
@@ -1315,7 +1376,7 @@ name|XContentFactory
 operator|.
 name|contentBuilder
 argument_list|(
-name|contentType
+name|xContentType
 argument_list|)
 decl_stmt|;
 name|builder
@@ -1389,7 +1450,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document to index in bytes form.      */
+comment|/**      * Sets the document to index in bytes form.      * @deprecated use {@link #source(BytesReference, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1399,17 +1462,62 @@ name|BytesReference
 name|source
 parameter_list|)
 block|{
+return|return
+name|source
+argument_list|(
+name|source
+argument_list|,
+name|XContentFactory
+operator|.
+name|xContentType
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the document to index in bytes form.      */
+DECL|method|source
+specifier|public
+name|IndexRequest
+name|source
+parameter_list|(
+name|BytesReference
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
 name|this
 operator|.
 name|source
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|source
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|contentType
+operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|xContentType
+argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document to index in bytes form.      */
+comment|/**      * Sets the document to index in bytes form.      * @deprecated use {@link #source(byte[], XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1433,7 +1541,38 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
+comment|/**      * Sets the document to index in bytes form.      */
+DECL|method|source
+specifier|public
+name|IndexRequest
+name|source
+parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+return|return
+name|source
+argument_list|(
+name|source
+argument_list|,
+literal|0
+argument_list|,
+name|source
+operator|.
+name|length
+argument_list|,
+name|xContentType
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      * @deprecated use {@link #source(byte[], int, int, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|source
 specifier|public
 name|IndexRequest
@@ -1450,10 +1589,9 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|this
-operator|.
+return|return
 name|source
-operator|=
+argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
@@ -1463,9 +1601,51 @@ name|offset
 argument_list|,
 name|length
 argument_list|)
-expr_stmt|;
+argument_list|,
+name|XContentFactory
+operator|.
+name|xContentType
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Sets the document to index in bytes form (assumed to be safe to be used from different      * threads).      *      * @param source The source to index      * @param offset The offset in the byte array      * @param length The length of the data      */
+DECL|method|source
+specifier|public
+name|IndexRequest
+name|source
+parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|,
+name|int
+name|offset
+parameter_list|,
+name|int
+name|length
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
 return|return
-name|this
+name|source
+argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
+name|source
+argument_list|,
+name|offset
+argument_list|,
+name|length
+argument_list|)
+argument_list|,
+name|xContentType
+argument_list|)
 return|;
 block|}
 comment|/**      * Sets the type of operation to perform.      */
@@ -2044,6 +2224,46 @@ operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|after
+argument_list|(
+name|Version
+operator|.
+name|V_5_3_0_UNRELEASED
+argument_list|)
+condition|)
+block|{
+comment|// TODO update to onOrAfter after backporting
+name|contentType
+operator|=
+name|in
+operator|.
+name|readOptionalWriteable
+argument_list|(
+name|XContentType
+operator|::
+name|readFrom
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|contentType
+operator|=
+name|XContentFactory
+operator|.
+name|xContentType
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -2209,6 +2429,30 @@ argument_list|(
 name|autoGeneratedTimestamp
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|after
+argument_list|(
+name|Version
+operator|.
+name|V_5_3_0_UNRELEASED
+argument_list|)
+condition|)
+block|{
+comment|// TODO update to onOrAfter after backporting
+name|out
+operator|.
+name|writeOptionalWriteable
+argument_list|(
+name|contentType
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

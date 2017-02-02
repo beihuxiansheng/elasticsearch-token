@@ -89,18 +89,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -297,7 +285,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-literal|"application/json"
+literal|"application/json; charset=UTF-8"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -64,6 +64,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -158,7 +172,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the source containing the transient settings to be updated. They will not survive a full cluster restart      */
+comment|/**      * Sets the source containing the transient settings to be updated. They will not survive a full cluster restart      * @deprecated use {@link #setTransientSettings(String, XContentType)} to avoid content type detection      */
+annotation|@
+name|Deprecated
 DECL|method|setTransientSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -173,6 +189,32 @@ operator|.
 name|transientSettings
 argument_list|(
 name|settings
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the source containing the transient settings to be updated. They will not survive a full cluster restart      */
+DECL|method|setTransientSettings
+specifier|public
+name|ClusterUpdateSettingsRequestBuilder
+name|setTransientSettings
+parameter_list|(
+name|String
+name|settings
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|transientSettings
+argument_list|(
+name|settings
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -244,7 +286,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the source containing the persistent settings to be updated. They will get applied cross restarts      */
+comment|/**      * Sets the source containing the persistent settings to be updated. They will get applied cross restarts      * @deprecated use {@link #setPersistentSettings(String, XContentType)} to avoid content type detection      */
+annotation|@
+name|Deprecated
 DECL|method|setPersistentSettings
 specifier|public
 name|ClusterUpdateSettingsRequestBuilder
@@ -259,6 +303,32 @@ operator|.
 name|persistentSettings
 argument_list|(
 name|settings
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the source containing the persistent settings to be updated. They will get applied cross restarts      */
+DECL|method|setPersistentSettings
+specifier|public
+name|ClusterUpdateSettingsRequestBuilder
+name|setPersistentSettings
+parameter_list|(
+name|String
+name|settings
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|persistentSettings
+argument_list|(
+name|settings
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return

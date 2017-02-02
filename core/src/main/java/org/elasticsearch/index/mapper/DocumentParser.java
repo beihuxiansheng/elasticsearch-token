@@ -941,6 +941,14 @@ operator|.
 name|source
 argument_list|()
 argument_list|,
+name|context
+operator|.
+name|sourceToParse
+argument_list|()
+operator|.
+name|getXContentType
+argument_list|()
+argument_list|,
 name|update
 argument_list|)
 operator|.

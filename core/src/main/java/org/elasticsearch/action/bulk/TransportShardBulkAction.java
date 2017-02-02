@@ -2504,6 +2504,11 @@ argument_list|(
 name|indexSourceAsBytes
 argument_list|,
 literal|true
+argument_list|,
+name|updateIndexRequest
+operator|.
+name|getContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|updateResponse
@@ -3156,6 +3161,11 @@ name|request
 operator|.
 name|source
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|getContentType
+argument_list|()
 argument_list|)
 operator|.
 name|routing
@@ -3328,6 +3338,11 @@ argument_list|,
 name|request
 operator|.
 name|source
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|getContentType
 argument_list|()
 argument_list|)
 operator|.

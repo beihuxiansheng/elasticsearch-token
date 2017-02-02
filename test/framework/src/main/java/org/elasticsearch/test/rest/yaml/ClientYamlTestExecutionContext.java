@@ -336,7 +336,7 @@ finally|finally
 block|{
 comment|// if we hit a bad exception the response is null
 name|Object
-name|repsponseBody
+name|responseBody
 init|=
 name|response
 operator|!=
@@ -356,7 +356,7 @@ name|stashValue
 argument_list|(
 literal|"body"
 argument_list|,
-name|repsponseBody
+name|responseBody
 argument_list|)
 expr_stmt|;
 block|}

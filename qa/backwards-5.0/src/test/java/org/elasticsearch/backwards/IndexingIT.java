@@ -36,6 +36,20 @@ name|http
 operator|.
 name|entity
 operator|.
+name|ContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|entity
+operator|.
 name|StringEntity
 import|;
 end_import
@@ -546,6 +560,10 @@ name|settings
 argument_list|)
 operator|+
 literal|" }"
+argument_list|,
+name|ContentType
+operator|.
+name|APPLICATION_JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -692,6 +710,10 @@ operator|+
 name|id
 operator|+
 literal|"\"}"
+argument_list|,
+name|ContentType
+operator|.
+name|APPLICATION_JSON
 argument_list|)
 argument_list|)
 argument_list|)
@@ -715,6 +737,19 @@ init|=
 name|buildNodeAndVersions
 argument_list|()
 decl_stmt|;
+name|assumeFalse
+argument_list|(
+literal|"new nodes is empty"
+argument_list|,
+name|nodes
+operator|.
+name|getNewNodes
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info

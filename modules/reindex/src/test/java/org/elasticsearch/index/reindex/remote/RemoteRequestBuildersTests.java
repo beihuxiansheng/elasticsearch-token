@@ -1560,7 +1560,7 @@ name|assertEquals
 argument_list|(
 name|ContentType
 operator|.
-name|TEXT_PLAIN
+name|APPLICATION_JSON
 operator|.
 name|toString
 argument_list|()
@@ -1574,10 +1574,8 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
-name|scroll
-argument_list|,
 name|Streams
 operator|.
 name|copyToString
@@ -1594,6 +1592,15 @@ name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
+argument_list|)
+argument_list|,
+name|containsString
+argument_list|(
+literal|"\""
+operator|+
+name|scroll
+operator|+
+literal|"\""
 argument_list|)
 argument_list|)
 expr_stmt|;

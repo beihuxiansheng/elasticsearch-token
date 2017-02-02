@@ -1831,12 +1831,6 @@ operator|.
 name|setDoc
 argument_list|(
 name|xContentBuilder
-operator|.
-name|bytes
-argument_list|()
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 operator|.
 name|setDocAsUpsert

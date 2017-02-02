@@ -1505,6 +1505,11 @@ argument_list|(
 name|upsertSourceBytes
 argument_list|,
 literal|true
+argument_list|,
+name|upsertRequest
+operator|.
+name|getContentType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|update

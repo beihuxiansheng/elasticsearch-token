@@ -226,6 +226,20 @@ name|TimeValue
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
 begin_class
 DECL|class|NoopBulkRequestBuilder
 specifier|public
@@ -431,6 +445,9 @@ name|from
 parameter_list|,
 name|int
 name|length
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 throws|throws
 name|Exception
@@ -448,6 +465,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -479,6 +498,9 @@ annotation|@
 name|Nullable
 name|String
 name|defaultType
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 throws|throws
 name|Exception
@@ -496,6 +518,8 @@ argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return

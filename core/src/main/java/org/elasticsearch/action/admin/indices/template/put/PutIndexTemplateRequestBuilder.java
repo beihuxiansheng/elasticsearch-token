@@ -112,6 +112,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -361,7 +375,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index template with (either json/yaml/properties format)      */
+comment|/**      * The settings to crete the index template with (either json or yaml format)      * @deprecated use {@link #setSettings(String, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSettings
 specifier|public
 name|PutIndexTemplateRequestBuilder
@@ -382,7 +398,33 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The settings to crete the index template with (either json/yaml/properties format)      */
+comment|/**      * The settings to crete the index template with (either json or yaml format)      */
+DECL|method|setSettings
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setSettings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|settings
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The settings to crete the index template with (either json or yaml format)      */
 DECL|method|setSettings
 specifier|public
 name|PutIndexTemplateRequestBuilder
@@ -408,7 +450,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds mapping that will be added when the index template gets created.      *      * @param type   The mapping type      * @param source The mapping source      */
+comment|/**      * Adds mapping that will be added when the index template gets created.      *      * @param type   The mapping type      * @param source The mapping source      * @deprecated use {@link #addMapping(String, String, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|addMapping
 specifier|public
 name|PutIndexTemplateRequestBuilder
@@ -428,6 +472,37 @@ argument_list|(
 name|type
 argument_list|,
 name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds mapping that will be added when the index template gets created.      *      * @param type   The mapping type      * @param source The mapping source      * @param xContentType The type/format of the source      */
+DECL|method|addMapping
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|addMapping
+parameter_list|(
+name|String
+name|type
+parameter_list|,
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|mapping
+argument_list|(
+name|type
+argument_list|,
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -686,7 +761,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The template source definition.      */
+comment|/**      * The template source definition.      * @deprecated use {@link #setSource(BytesReference, XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|PutIndexTemplateRequestBuilder
@@ -715,6 +792,34 @@ name|setSource
 parameter_list|(
 name|BytesReference
 name|templateSource
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|templateSource
+argument_list|,
+name|xContentType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The template source definition.      * @deprecated use {@link #setSource(BytesReference, XContentType)}      */
+annotation|@
+name|Deprecated
+DECL|method|setSource
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setSource
+parameter_list|(
+name|BytesReference
+name|templateSource
 parameter_list|)
 block|{
 name|request
@@ -728,7 +833,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The template source definition.      */
+comment|/**      * The template source definition.      * @deprecated use {@link #setSource(byte[], XContentType)}      */
+annotation|@
+name|Deprecated
 DECL|method|setSource
 specifier|public
 name|PutIndexTemplateRequestBuilder
@@ -760,6 +867,35 @@ name|byte
 index|[]
 name|templateSource
 parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|templateSource
+argument_list|,
+name|xContentType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The template source definition.      * @deprecated use {@link #setSource(byte[], int, int, XContentType)}      */
+annotation|@
+name|Deprecated
+DECL|method|setSource
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setSource
+parameter_list|(
+name|byte
+index|[]
+name|templateSource
+parameter_list|,
 name|int
 name|offset
 parameter_list|,
@@ -776,6 +912,43 @@ argument_list|,
 name|offset
 argument_list|,
 name|length
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The template source definition.      */
+DECL|method|setSource
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|setSource
+parameter_list|(
+name|byte
+index|[]
+name|templateSource
+parameter_list|,
+name|int
+name|offset
+parameter_list|,
+name|int
+name|length
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|source
+argument_list|(
+name|templateSource
+argument_list|,
+name|offset
+argument_list|,
+name|length
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return

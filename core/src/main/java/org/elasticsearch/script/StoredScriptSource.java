@@ -310,6 +310,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -874,6 +888,9 @@ name|lang
 parameter_list|,
 name|BytesReference
 name|content
+parameter_list|,
+name|XContentType
+name|xContentType
 parameter_list|)
 block|{
 try|try
@@ -881,7 +898,10 @@ init|(
 name|XContentParser
 name|parser
 init|=
-name|XContentHelper
+name|xContentType
+operator|.
+name|xContent
+argument_list|()
 operator|.
 name|createParser
 argument_list|(

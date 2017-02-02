@@ -38,7 +38,7 @@ specifier|public
 interface|interface
 name|RestHandler
 block|{
-comment|/**      * Handles a rest request.      *      * @param request The request to handle      * @param channel The channel to write the request response to      * @param client A client to use to make internal requests on behalf of the original request      */
+comment|/**      * Handles a rest request.      * @param request The request to handle      * @param channel The channel to write the request response to      * @param client A client to use to make internal requests on behalf of the original request      */
 DECL|method|handleRequest
 name|void
 name|handleRequest
@@ -63,6 +63,19 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+comment|/**      * Indicates if a RestHandler supports plain text bodies      * @deprecated use request parameters or bodies that can be parsed with XContent!      */
+annotation|@
+name|Deprecated
+DECL|method|supportsPlainText
+specifier|default
+name|boolean
+name|supportsPlainText
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 block|}

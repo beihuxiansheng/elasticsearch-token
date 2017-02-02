@@ -80,6 +80,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -346,7 +360,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings in JSON, YAML or properties format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific restore settings in JSON or YAML format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      * @deprecated use {@link #setSettings(String, XContentType)} to avoid content type detection      */
+annotation|@
+name|Deprecated
 DECL|method|setSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -361,6 +377,32 @@ operator|.
 name|settings
 argument_list|(
 name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets repository-specific restore settings in JSON or YAML format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @param xContentType the content type of the source      * @return this builder      */
+DECL|method|setSettings
+specifier|public
+name|RestoreSnapshotRequestBuilder
+name|setSettings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|settings
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return
@@ -521,7 +563,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param source index settings      * @return this builder      */
+comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param source index settings      * @return this builder      * @deprecated use {@link #setIndexSettings(String, XContentType)} to avoid content type detection      */
+annotation|@
+name|Deprecated
 DECL|method|setIndexSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -536,6 +580,32 @@ operator|.
 name|indexSettings
 argument_list|(
 name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param source index settings      * @param xContentType the content type of the source      * @return this builder      */
+DECL|method|setIndexSettings
+specifier|public
+name|RestoreSnapshotRequestBuilder
+name|setIndexSettings
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
+name|request
+operator|.
+name|indexSettings
+argument_list|(
+name|source
+argument_list|,
+name|xContentType
 argument_list|)
 expr_stmt|;
 return|return

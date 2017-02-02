@@ -193,6 +193,11 @@ name|bytes
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|builder
+operator|.
+name|contentType
+argument_list|()
 argument_list|)
 operator|.
 name|v2
