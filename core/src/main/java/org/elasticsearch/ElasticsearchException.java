@@ -2166,6 +2166,8 @@ return|return
 name|innerFromXContent
 argument_list|(
 name|parser
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -2177,6 +2179,9 @@ name|innerFromXContent
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|boolean
+name|parseRootCauses
 parameter_list|)
 throws|throws
 name|IOException
@@ -2253,6 +2258,17 @@ name|headers
 init|=
 operator|new
 name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|List
+argument_list|<
+name|ElasticsearchException
+argument_list|>
+name|rootCauses
+init|=
+operator|new
+name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -2621,6 +2637,50 @@ operator|.
 name|START_ARRAY
 condition|)
 block|{
+if|if
+condition|(
+name|parseRootCauses
+operator|&&
+name|ROOT_CAUSE
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+while|while
+condition|(
+operator|(
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+operator|)
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_ARRAY
+condition|)
+block|{
+name|rootCauses
+operator|.
+name|add
+argument_list|(
+name|fromXContent
+argument_list|(
+name|parser
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 comment|// Parse the array and add each item to the corresponding list of metadata.
 comment|// Arrays of objects are not supported yet and just ignored and skipped.
 name|List
@@ -2728,6 +2788,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 name|ElasticsearchException
 name|e
 init|=
@@ -2825,6 +2886,24 @@ name|header
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Adds root causes as suppressed exception. This way they are not lost
+comment|// after parsing and can be retrieved using getSuppressed() method.
+for|for
+control|(
+name|ElasticsearchException
+name|rootCause
+range|:
+name|rootCauses
+control|)
+block|{
+name|e
+operator|.
+name|addSuppressed
+argument_list|(
+name|rootCause
 argument_list|)
 expr_stmt|;
 block|}
@@ -3218,13 +3297,13 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-comment|// TODO Root causes are ignored for now. They will be skipped by innerFromXContent() because
-comment|// it ignores metadata arrays of objects. If we decide to parse root causes, we'll have to
-comment|// change innerFromXContent() so that it does not parse root causes on its own.
+comment|// Root causes are parsed in the innerFromXContent() and are added as suppressed exceptions.
 return|return
 name|innerFromXContent
 argument_list|(
 name|parser
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
