@@ -1311,7 +1311,7 @@ literal|"{\"query\":"
 operator|+
 name|query
 operator|+
-literal|"}"
+literal|",\"_source\":true}"
 argument_list|,
 name|Streams
 operator|.
