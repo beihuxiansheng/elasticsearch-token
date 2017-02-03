@@ -2909,24 +2909,34 @@ operator|.
 name|checkForCancel
 argument_list|()
 expr_stmt|;
-comment|// we have to send older ops for which no sequence number was assigned, and any ops after the starting sequence number
-if|if
-condition|(
+comment|// if we are doing a sequence-number-based recovery, we have to skip older ops for which no sequence number was assigned, and
+comment|// any ops before the starting sequence number
+specifier|final
+name|long
+name|seqNo
+init|=
 name|operation
 operator|.
 name|seqNo
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|startingSeqNo
+operator|>=
+literal|0
+operator|&&
+operator|(
+name|seqNo
 operator|==
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 operator|||
-name|operation
-operator|.
 name|seqNo
-argument_list|()
 operator|<
 name|startingSeqNo
+operator|)
 condition|)
 continue|continue;
 name|operations
