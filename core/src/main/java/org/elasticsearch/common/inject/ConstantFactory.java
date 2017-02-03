@@ -139,7 +139,6 @@ argument_list|>
 name|initializable
 decl_stmt|;
 DECL|method|ConstantFactory
-specifier|public
 name|ConstantFactory
 parameter_list|(
 name|Initializable

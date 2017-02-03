@@ -1732,7 +1732,6 @@ specifier|abstract
 name|IndexResult
 name|index
 parameter_list|(
-specifier|final
 name|Index
 name|index
 parameter_list|)
@@ -1746,7 +1745,6 @@ specifier|abstract
 name|DeleteResult
 name|delete
 parameter_list|(
-specifier|final
 name|Delete
 name|delete
 parameter_list|)
@@ -1759,7 +1757,6 @@ specifier|abstract
 name|NoOpResult
 name|noOp
 parameter_list|(
-specifier|final
 name|NoOp
 name|noOp
 parameter_list|)
@@ -2930,7 +2927,6 @@ argument_list|()
 expr_stmt|;
 try|try
 init|(
-specifier|final
 name|Searcher
 name|searcher
 init|=

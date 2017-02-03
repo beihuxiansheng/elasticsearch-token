@@ -1663,7 +1663,6 @@ condition|)
 block|{
 try|try
 init|(
-specifier|final
 name|TokenStream
 name|ts
 init|=

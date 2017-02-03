@@ -131,7 +131,6 @@ name|reuse
 decl_stmt|;
 comment|/**      * Create a snapshot of translog file channel. The length parameter should be consistent with totalOperations and point      * at the end of the last operation in this snapshot.      */
 DECL|method|TranslogSnapshot
-specifier|public
 name|TranslogSnapshot
 parameter_list|(
 name|long

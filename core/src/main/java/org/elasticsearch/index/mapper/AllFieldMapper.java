@@ -1071,7 +1071,6 @@ extends|extends
 name|StringFieldType
 block|{
 DECL|method|AllFieldType
-specifier|public
 name|AllFieldType
 parameter_list|()
 block|{         }

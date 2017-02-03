@@ -425,7 +425,6 @@ init|=
 name|DEFAULT_SCORER
 decl_stmt|;
 DECL|method|PhraseSuggestionContext
-specifier|public
 name|PhraseSuggestionContext
 parameter_list|(
 name|QueryShardContext

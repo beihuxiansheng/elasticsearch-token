@@ -173,7 +173,6 @@ name|String
 name|repeat
 decl_stmt|;
 DECL|method|MockRepeatFilter
-specifier|public
 name|MockRepeatFilter
 parameter_list|(
 name|TokenStream

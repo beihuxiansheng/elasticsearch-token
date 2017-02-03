@@ -156,36 +156,31 @@ name|value
 decl_stmt|;
 end_decl_stmt
 
-begin_constructor
+begin_expr_stmt
 DECL|method|SimpleQueryStringFlag
-specifier|private
 name|SimpleQueryStringFlag
-parameter_list|(
+argument_list|(
 name|int
 name|value
-parameter_list|)
+argument_list|)
 block|{
 name|this
 operator|.
 name|value
 operator|=
 name|value
-expr_stmt|;
-block|}
-end_constructor
-
-begin_function
+block|;     }
 DECL|method|value
 specifier|public
 name|int
 name|value
-parameter_list|()
+argument_list|()
 block|{
 return|return
 name|value
 return|;
 block|}
-end_function
+end_expr_stmt
 
 begin_function
 DECL|method|resolveFlags

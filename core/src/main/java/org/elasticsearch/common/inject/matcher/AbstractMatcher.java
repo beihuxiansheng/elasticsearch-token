@@ -127,7 +127,6 @@ decl_stmt|,
 name|b
 decl_stmt|;
 DECL|method|AndMatcher
-specifier|public
 name|AndMatcher
 parameter_list|(
 name|Matcher
@@ -312,7 +311,6 @@ decl_stmt|,
 name|b
 decl_stmt|;
 DECL|method|OrMatcher
-specifier|public
 name|OrMatcher
 parameter_list|(
 name|Matcher

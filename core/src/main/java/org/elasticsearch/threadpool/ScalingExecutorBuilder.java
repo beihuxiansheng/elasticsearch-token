@@ -650,7 +650,6 @@ name|TimeValue
 name|keepAlive
 decl_stmt|;
 DECL|method|ScalingExecutorSettings
-specifier|public
 name|ScalingExecutorSettings
 parameter_list|(
 specifier|final

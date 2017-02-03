@@ -2511,7 +2511,6 @@ parameter_list|()
 block|{
 try|try
 init|(
-specifier|final
 name|ReleasableLock
 name|ignored
 init|=

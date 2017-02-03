@@ -842,7 +842,6 @@ name|Path
 argument_list|>
 name|temp
 decl_stmt|;
-specifier|public
 name|Parameter
 parameter_list|(
 name|FileSystem
@@ -895,7 +894,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-specifier|public
 name|Parameter
 parameter_list|(
 name|FileSystem

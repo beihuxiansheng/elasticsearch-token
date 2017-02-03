@@ -1730,7 +1730,6 @@ block|}
 block|}
 block|}
 DECL|method|MockBlobContainer
-specifier|public
 name|MockBlobContainer
 parameter_list|(
 name|BlobContainer

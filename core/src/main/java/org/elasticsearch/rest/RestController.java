@@ -1963,7 +1963,6 @@ name|AtomicBoolean
 argument_list|()
 decl_stmt|;
 DECL|method|ResourceHandlingHttpChannel
-specifier|public
 name|ResourceHandlingHttpChannel
 parameter_list|(
 name|RestChannel

@@ -200,7 +200,7 @@ specifier|final
 name|int
 name|MAX_ATTEMPTS
 init|=
-literal|10
+literal|50
 decl_stmt|;
 DECL|method|testUpdateWhileReindexing
 specifier|public
@@ -541,7 +541,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Caught expected version conflict trying to perform mutation number {} with version {}. Retrying."
+literal|"Caught expected version conflict trying to perform mutation number [{}] with version [{}] "
+operator|+
+literal|"on attempt [{}]. Retrying."
 argument_list|,
 name|i
 argument_list|,
@@ -549,6 +551,8 @@ name|get
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+name|attempts
 argument_list|)
 expr_stmt|;
 name|get

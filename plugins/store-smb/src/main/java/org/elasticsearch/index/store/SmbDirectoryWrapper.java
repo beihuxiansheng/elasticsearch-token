@@ -225,7 +225,6 @@ init|=
 literal|8192
 decl_stmt|;
 DECL|method|SmbFSIndexOutput
-specifier|public
 name|SmbFSIndexOutput
 parameter_list|(
 name|String

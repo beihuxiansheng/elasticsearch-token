@@ -3078,7 +3078,6 @@ name|String
 name|reason
 decl_stmt|;
 DECL|method|Task
-specifier|public
 name|Task
 parameter_list|(
 specifier|final
@@ -6592,7 +6591,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|JoinThreadControl
-specifier|public
 name|JoinThreadControl
 parameter_list|(
 name|ThreadPool

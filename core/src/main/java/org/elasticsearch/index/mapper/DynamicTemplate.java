@@ -196,7 +196,6 @@ argument_list|)
 decl_stmt|;
 DECL|enum|MatchType
 specifier|public
-specifier|static
 enum|enum
 name|MatchType
 block|{

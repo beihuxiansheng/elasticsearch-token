@@ -209,7 +209,6 @@ name|double
 name|term
 decl_stmt|;
 DECL|method|Bucket
-specifier|public
 name|Bucket
 parameter_list|(
 name|double
@@ -253,7 +252,6 @@ expr_stmt|;
 block|}
 comment|/**          * Read from a stream.          */
 DECL|method|Bucket
-specifier|public
 name|Bucket
 parameter_list|(
 name|StreamInput

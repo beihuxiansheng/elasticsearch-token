@@ -286,7 +286,6 @@ argument_list|>
 name|fieldFunction
 decl_stmt|;
 DECL|method|DateTimeUnit
-specifier|private
 name|DateTimeUnit
 parameter_list|(
 name|byte

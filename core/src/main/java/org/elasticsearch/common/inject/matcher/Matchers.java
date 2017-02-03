@@ -460,7 +460,6 @@ argument_list|>
 name|annotationType
 decl_stmt|;
 DECL|method|AnnotatedWithType
-specifier|public
 name|AnnotatedWithType
 parameter_list|(
 name|Class
@@ -622,7 +621,6 @@ name|Annotation
 name|annotation
 decl_stmt|;
 DECL|method|AnnotatedWith
-specifier|public
 name|AnnotatedWith
 parameter_list|(
 name|Annotation
@@ -800,7 +798,6 @@ argument_list|>
 name|superclass
 decl_stmt|;
 DECL|method|SubclassesOf
-specifier|public
 name|SubclassesOf
 parameter_list|(
 name|Class
@@ -952,7 +949,6 @@ name|Object
 name|value
 decl_stmt|;
 DECL|method|Only
-specifier|public
 name|Only
 parameter_list|(
 name|Object
@@ -1099,7 +1095,6 @@ name|Object
 name|value
 decl_stmt|;
 DECL|method|IdenticalTo
-specifier|public
 name|IdenticalTo
 parameter_list|(
 name|Object
@@ -1249,7 +1244,6 @@ name|String
 name|packageName
 decl_stmt|;
 DECL|method|InPackage
-specifier|public
 name|InPackage
 parameter_list|(
 name|Package
@@ -1429,7 +1423,6 @@ name|String
 name|targetPackageName
 decl_stmt|;
 DECL|method|InSubpackage
-specifier|public
 name|InSubpackage
 parameter_list|(
 name|String
@@ -1605,7 +1598,6 @@ argument_list|>
 name|returnType
 decl_stmt|;
 DECL|method|Returns
-specifier|public
 name|Returns
 parameter_list|(
 name|Matcher

@@ -532,7 +532,6 @@ else|else
 block|{
 try|try
 init|(
-specifier|final
 name|XContentBuilder
 name|builder
 init|=

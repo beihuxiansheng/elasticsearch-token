@@ -6121,7 +6121,6 @@ parameter_list|>
 name|void
 name|doExecute
 parameter_list|(
-specifier|final
 name|Action
 argument_list|<
 name|Request
@@ -6132,7 +6131,6 @@ name|RequestBuilder
 argument_list|>
 name|action
 parameter_list|,
-specifier|final
 name|Request
 name|request
 parameter_list|,
@@ -7576,7 +7574,6 @@ name|IndicesAdmin
 name|indicesAdmin
 decl_stmt|;
 DECL|method|Admin
-specifier|public
 name|Admin
 parameter_list|(
 name|ElasticsearchClient
@@ -7643,7 +7640,6 @@ name|ElasticsearchClient
 name|client
 decl_stmt|;
 DECL|method|ClusterAdmin
-specifier|public
 name|ClusterAdmin
 parameter_list|(
 name|ElasticsearchClient
@@ -10464,7 +10460,6 @@ name|ElasticsearchClient
 name|client
 decl_stmt|;
 DECL|method|IndicesAdmin
-specifier|public
 name|IndicesAdmin
 parameter_list|(
 name|ElasticsearchClient

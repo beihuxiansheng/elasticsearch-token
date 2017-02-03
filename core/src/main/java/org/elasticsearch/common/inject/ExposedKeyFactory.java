@@ -173,7 +173,6 @@ argument_list|>
 name|delegate
 decl_stmt|;
 DECL|method|ExposedKeyFactory
-specifier|public
 name|ExposedKeyFactory
 parameter_list|(
 name|Key

@@ -237,7 +237,6 @@ literal|false
 argument_list|)
 decl_stmt|;
 DECL|method|LocalShardSnapshot
-specifier|public
 name|LocalShardSnapshot
 parameter_list|(
 name|IndexShard

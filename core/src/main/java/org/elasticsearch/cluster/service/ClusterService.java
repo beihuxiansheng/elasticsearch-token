@@ -3198,7 +3198,6 @@ name|String
 name|source
 decl_stmt|;
 DECL|method|SourcePrioritizedRunnable
-specifier|public
 name|SourcePrioritizedRunnable
 parameter_list|(
 name|Priority
@@ -5187,7 +5186,6 @@ argument_list|>
 name|executionResults
 decl_stmt|;
 DECL|method|TaskOutputs
-specifier|public
 name|TaskOutputs
 parameter_list|(
 name|TaskInputs
@@ -5735,7 +5733,6 @@ name|Logger
 name|logger
 decl_stmt|;
 DECL|method|SafeClusterStateTaskListener
-specifier|public
 name|SafeClusterStateTaskListener
 parameter_list|(
 name|ClusterStateTaskListener
@@ -5969,7 +5966,6 @@ name|Logger
 name|logger
 decl_stmt|;
 DECL|method|SafeAckedClusterStateTaskListener
-specifier|public
 name|SafeAckedClusterStateTaskListener
 parameter_list|(
 name|AckedClusterStateTaskListener

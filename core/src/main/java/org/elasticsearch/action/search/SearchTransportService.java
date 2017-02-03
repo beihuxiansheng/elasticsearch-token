@@ -1407,7 +1407,6 @@ name|OriginalIndices
 name|originalIndices
 decl_stmt|;
 DECL|method|SearchFreeContextRequest
-specifier|public
 name|SearchFreeContextRequest
 parameter_list|()
 block|{         }

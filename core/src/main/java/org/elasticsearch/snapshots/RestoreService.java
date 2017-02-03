@@ -4685,7 +4685,6 @@ name|Logger
 name|logger
 decl_stmt|;
 DECL|method|CleanRestoreStateTaskExecutor
-specifier|public
 name|CleanRestoreStateTaskExecutor
 parameter_list|(
 name|Logger

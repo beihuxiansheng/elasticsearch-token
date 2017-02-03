@@ -1270,7 +1270,6 @@ name|int
 name|precision
 decl_stmt|;
 DECL|method|CellIdSource
-specifier|public
 name|CellIdSource
 parameter_list|(
 name|ValuesSource

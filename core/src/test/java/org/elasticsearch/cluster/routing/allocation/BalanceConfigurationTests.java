@@ -3233,7 +3233,6 @@ extends|extends
 name|GatewayAllocator
 block|{
 DECL|method|NoopGatewayAllocator
-specifier|public
 name|NoopGatewayAllocator
 parameter_list|()
 block|{

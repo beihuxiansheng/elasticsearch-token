@@ -1068,7 +1068,6 @@ init|)
 block|{
 try|try
 init|(
-specifier|final
 name|Engine
 operator|.
 name|Searcher
@@ -1791,7 +1790,6 @@ name|AtomicInteger
 name|closeCalls
 decl_stmt|;
 DECL|method|FieldMaskingReader
-specifier|public
 name|FieldMaskingReader
 parameter_list|(
 name|String
@@ -1934,7 +1932,6 @@ name|boolean
 name|hideDelegate
 decl_stmt|;
 DECL|method|BrokenWrapper
-specifier|public
 name|BrokenWrapper
 parameter_list|(
 name|DirectoryReader

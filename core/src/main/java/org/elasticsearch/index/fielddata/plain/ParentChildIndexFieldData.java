@@ -1124,7 +1124,6 @@ index|[]
 name|fieldData
 decl_stmt|;
 DECL|method|OrdinalMapAndAtomicFieldData
-specifier|public
 name|OrdinalMapAndAtomicFieldData
 parameter_list|(
 name|OrdinalMap
@@ -1417,7 +1416,6 @@ name|int
 name|segmentIndex
 decl_stmt|;
 DECL|method|GlobalAtomicFieldData
-specifier|public
 name|GlobalAtomicFieldData
 parameter_list|(
 name|Set

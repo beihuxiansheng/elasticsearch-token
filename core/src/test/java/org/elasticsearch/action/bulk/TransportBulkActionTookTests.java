@@ -1103,7 +1103,6 @@ extends|extends
 name|IndexNameExpressionResolver
 block|{
 DECL|method|Resolver
-specifier|public
 name|Resolver
 parameter_list|(
 name|Settings
@@ -1147,7 +1146,6 @@ extends|extends
 name|TransportBulkAction
 block|{
 DECL|method|TestTransportBulkAction
-specifier|public
 name|TestTransportBulkAction
 parameter_list|(
 name|Settings
@@ -1246,7 +1244,6 @@ extends|extends
 name|TransportCreateIndexAction
 block|{
 DECL|method|TestTransportCreateIndexAction
-specifier|public
 name|TestTransportCreateIndexAction
 parameter_list|(
 name|Settings

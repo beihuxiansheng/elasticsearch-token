@@ -1111,7 +1111,6 @@ argument_list|)
 decl_stmt|;
 DECL|enum|State
 specifier|public
-specifier|static
 enum|enum
 name|State
 block|{
@@ -3684,7 +3683,6 @@ argument_list|>
 name|inSyncAllocationIds
 decl_stmt|;
 DECL|method|IndexMetaDataDiff
-specifier|public
 name|IndexMetaDataDiff
 parameter_list|(
 name|IndexMetaData
@@ -3822,7 +3820,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IndexMetaDataDiff
-specifier|public
 name|IndexMetaDataDiff
 parameter_list|(
 name|StreamInput

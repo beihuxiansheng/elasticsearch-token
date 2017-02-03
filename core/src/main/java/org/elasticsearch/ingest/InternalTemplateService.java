@@ -338,7 +338,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|StringTemplate
-specifier|public
 name|StringTemplate
 parameter_list|(
 name|String

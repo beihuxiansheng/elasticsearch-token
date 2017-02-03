@@ -59,7 +59,6 @@ index|[]
 name|context
 decl_stmt|;
 DECL|method|ParsedScrollId
-specifier|public
 name|ParsedScrollId
 parameter_list|(
 name|String

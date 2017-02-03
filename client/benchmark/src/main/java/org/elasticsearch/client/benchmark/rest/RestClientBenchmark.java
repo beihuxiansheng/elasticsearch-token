@@ -501,7 +501,6 @@ name|String
 name|actionMetaData
 decl_stmt|;
 DECL|method|RestBulkRequestExecutor
-specifier|public
 name|RestBulkRequestExecutor
 parameter_list|(
 name|RestClient

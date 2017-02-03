@@ -3416,7 +3416,6 @@ index|[]
 name|toClose
 decl_stmt|;
 DECL|method|StoreCloseListener
-specifier|public
 name|StoreCloseListener
 parameter_list|(
 name|ShardId
@@ -3715,7 +3714,6 @@ name|IndexService
 name|indexService
 decl_stmt|;
 DECL|method|FieldDataCacheListener
-specifier|public
 name|FieldDataCacheListener
 parameter_list|(
 name|IndexService

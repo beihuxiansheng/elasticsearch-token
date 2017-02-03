@@ -229,7 +229,6 @@ specifier|abstract
 name|Result
 name|evaluate
 parameter_list|(
-specifier|final
 name|Stats
 name|stats
 parameter_list|)

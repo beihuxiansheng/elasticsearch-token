@@ -3232,7 +3232,6 @@ name|ReplicaResponse
 name|replicaResponse
 decl_stmt|;
 DECL|method|ResponseListener
-specifier|public
 name|ResponseListener
 parameter_list|(
 name|ReplicaResponse

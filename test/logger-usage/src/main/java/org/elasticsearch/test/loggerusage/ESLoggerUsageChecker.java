@@ -1341,7 +1341,6 @@ argument_list|>
 name|methodsToCheck
 decl_stmt|;
 DECL|method|ClassChecker
-specifier|public
 name|ClassChecker
 parameter_list|(
 name|Consumer
@@ -1565,7 +1564,6 @@ name|boolean
 name|ignoreChecks
 decl_stmt|;
 DECL|method|MethodChecker
-specifier|public
 name|MethodChecker
 parameter_list|(
 name|String
@@ -3131,7 +3129,6 @@ name|int
 name|maxValue
 decl_stmt|;
 DECL|method|IntMinMaxTrackingBasicValue
-specifier|public
 name|IntMinMaxTrackingBasicValue
 parameter_list|(
 name|Type
@@ -3160,7 +3157,6 @@ name|value
 expr_stmt|;
 block|}
 DECL|method|IntMinMaxTrackingBasicValue
-specifier|public
 name|IntMinMaxTrackingBasicValue
 parameter_list|(
 name|Type
@@ -3351,7 +3347,6 @@ literal|"java/lang/String"
 argument_list|)
 decl_stmt|;
 DECL|method|PlaceHolderStringBasicValue
-specifier|public
 name|PlaceHolderStringBasicValue
 parameter_list|(
 name|int
@@ -3367,7 +3362,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|PlaceHolderStringBasicValue
-specifier|public
 name|PlaceHolderStringBasicValue
 parameter_list|(
 name|int
@@ -3398,7 +3392,6 @@ extends|extends
 name|IntMinMaxTrackingBasicValue
 block|{
 DECL|method|ArraySizeBasicValue
-specifier|public
 name|ArraySizeBasicValue
 parameter_list|(
 name|Type
@@ -3432,7 +3425,6 @@ extends|extends
 name|IntMinMaxTrackingBasicValue
 block|{
 DECL|method|IntegerConstantBasicValue
-specifier|public
 name|IntegerConstantBasicValue
 parameter_list|(
 name|Type
@@ -3451,7 +3443,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IntegerConstantBasicValue
-specifier|public
 name|IntegerConstantBasicValue
 parameter_list|(
 name|Type

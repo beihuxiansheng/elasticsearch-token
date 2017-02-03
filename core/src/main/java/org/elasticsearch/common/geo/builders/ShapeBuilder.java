@@ -1783,7 +1783,6 @@ block|}
 block|}
 DECL|enum|Orientation
 specifier|public
-specifier|static
 enum|enum
 name|Orientation
 block|{
@@ -2012,7 +2011,6 @@ block|}
 comment|/**      * Enumeration that lists all {@link GeoShapeType}s that can be handled      */
 DECL|enum|GeoShapeType
 specifier|public
-specifier|static
 enum|enum
 name|GeoShapeType
 block|{
@@ -2077,7 +2075,6 @@ name|String
 name|shapename
 decl_stmt|;
 DECL|method|GeoShapeType
-specifier|private
 name|GeoShapeType
 parameter_list|(
 name|String

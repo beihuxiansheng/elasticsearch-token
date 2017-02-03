@@ -583,7 +583,6 @@ extends|extends
 name|ShardStateAction
 block|{
 DECL|method|TestShardStateAction
-specifier|public
 name|TestShardStateAction
 parameter_list|(
 name|Settings

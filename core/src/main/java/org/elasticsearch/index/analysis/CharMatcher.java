@@ -114,7 +114,6 @@ return|;
 block|}
 block|}
 DECL|enum|Basic
-specifier|public
 enum|enum
 name|Basic
 implements|implements
@@ -316,7 +315,6 @@ block|}
 block|}
 block|}
 DECL|class|Builder
-specifier|public
 specifier|final
 class|class
 name|Builder

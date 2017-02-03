@@ -621,7 +621,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|RoutingFieldType
-specifier|public
 name|RoutingFieldType
 parameter_list|()
 block|{         }

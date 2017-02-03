@@ -5962,7 +5962,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|Tracer
-specifier|public
 name|Tracer
 parameter_list|(
 name|Set
@@ -8998,12 +8997,10 @@ name|String
 name|info
 decl_stmt|;
 DECL|method|TestResponse
-specifier|public
 name|TestResponse
 parameter_list|()
 block|{         }
 DECL|method|TestResponse
-specifier|public
 name|TestResponse
 parameter_list|(
 name|String
@@ -9814,7 +9811,6 @@ specifier|final
 name|int
 name|id
 decl_stmt|;
-specifier|public
 name|TestResponseHandler
 parameter_list|(
 name|int

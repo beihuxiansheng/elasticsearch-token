@@ -28,8 +28,6 @@ name|AtomicNumericFieldData
 argument_list|>
 block|{
 DECL|enum|NumericType
-specifier|public
-specifier|static
 enum|enum
 name|NumericType
 block|{
@@ -88,7 +86,6 @@ name|boolean
 name|floatingPoint
 decl_stmt|;
 DECL|method|NumericType
-specifier|private
 name|NumericType
 parameter_list|(
 name|boolean

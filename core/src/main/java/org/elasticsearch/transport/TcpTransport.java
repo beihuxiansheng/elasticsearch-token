@@ -2186,7 +2186,6 @@ name|Channel
 name|channel
 decl_stmt|;
 DECL|method|HandshakeResponseHandler
-specifier|public
 name|HandshakeResponseHandler
 parameter_list|(
 name|Channel
@@ -9130,7 +9129,6 @@ name|TransportChannel
 name|transportChannel
 decl_stmt|;
 DECL|method|RequestHandler
-specifier|public
 name|RequestHandler
 parameter_list|(
 name|RequestHandlerRegistry

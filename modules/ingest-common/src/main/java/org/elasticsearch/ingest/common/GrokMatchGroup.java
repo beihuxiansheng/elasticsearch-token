@@ -56,7 +56,6 @@ name|String
 name|groupValue
 decl_stmt|;
 DECL|method|GrokMatchGroup
-specifier|public
 name|GrokMatchGroup
 parameter_list|(
 name|String

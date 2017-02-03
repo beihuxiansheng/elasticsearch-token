@@ -11891,7 +11891,6 @@ name|String
 name|masterNodeName
 decl_stmt|;
 DECL|method|MasterNodePredicate
-specifier|public
 name|MasterNodePredicate
 parameter_list|(
 name|String
@@ -12429,7 +12428,6 @@ argument_list|>
 name|nodeNames
 decl_stmt|;
 DECL|method|NodeNamePredicate
-specifier|public
 name|NodeNamePredicate
 parameter_list|(
 name|HashSet

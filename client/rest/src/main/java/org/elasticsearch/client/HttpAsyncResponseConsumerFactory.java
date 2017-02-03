@@ -114,7 +114,6 @@ name|int
 name|bufferLimit
 decl_stmt|;
 DECL|method|HeapBufferedResponseConsumerFactory
-specifier|public
 name|HeapBufferedResponseConsumerFactory
 parameter_list|(
 name|int

@@ -456,7 +456,6 @@ argument_list|>
 name|scheduledRequestFuture
 decl_stmt|;
 DECL|method|AbstractRetryHandler
-specifier|public
 name|AbstractRetryHandler
 parameter_list|(
 name|Class
@@ -1064,7 +1063,6 @@ extends|extends
 name|AbstractRetryHandler
 block|{
 DECL|method|AsyncRetryHandler
-specifier|public
 name|AsyncRetryHandler
 parameter_list|(
 name|Class
@@ -1164,7 +1162,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|SyncRetryHandler
-specifier|public
 name|SyncRetryHandler
 parameter_list|(
 name|Class

@@ -245,7 +245,6 @@ block|{
 comment|/**      * A gap policy determines how "holes" in a set of buckets should be handled.  For example,      * a date_histogram might have empty buckets due to no data existing for that time interval.      * This can cause problems for operations like a derivative, which relies on a continuous      * function.      *      * "insert_zeros": empty buckets will be filled with zeros for all metrics      * "ignore": empty buckets will simply be ignored      */
 DECL|enum|GapPolicy
 specifier|public
-specifier|static
 enum|enum
 name|GapPolicy
 block|{
@@ -425,7 +424,6 @@ name|ParseField
 name|parseField
 decl_stmt|;
 DECL|method|GapPolicy
-specifier|private
 name|GapPolicy
 parameter_list|(
 name|byte

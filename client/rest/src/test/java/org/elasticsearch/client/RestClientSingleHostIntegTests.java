@@ -1365,7 +1365,6 @@ block|}
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|RestClient
 name|restClient
 init|=
@@ -1441,7 +1440,6 @@ block|}
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|RestClient
 name|restClient
 init|=

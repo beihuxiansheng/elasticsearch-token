@@ -2264,7 +2264,6 @@ name|CountDownLatch
 name|waitForPings
 decl_stmt|;
 DECL|method|PingProbe
-specifier|public
 name|PingProbe
 parameter_list|(
 name|int

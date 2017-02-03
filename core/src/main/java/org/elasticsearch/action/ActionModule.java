@@ -5540,7 +5540,6 @@ name|?
 argument_list|>
 argument_list|>
 block|{
-specifier|public
 name|ActionRegistry
 parameter_list|()
 block|{

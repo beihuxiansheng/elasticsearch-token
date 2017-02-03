@@ -1108,7 +1108,6 @@ extends|extends
 name|FileDescriptorCheck
 block|{
 DECL|method|OsXFileDescriptorCheck
-specifier|public
 name|OsXFileDescriptorCheck
 parameter_list|()
 block|{
@@ -1266,7 +1265,6 @@ name|boolean
 name|mlockallSet
 decl_stmt|;
 DECL|method|MlockallCheck
-specifier|public
 name|MlockallCheck
 parameter_list|(
 specifier|final
@@ -1602,7 +1600,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|BufferedReader
 name|bufferedReader
 init|=

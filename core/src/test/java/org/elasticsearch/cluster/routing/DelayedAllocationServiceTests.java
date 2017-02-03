@@ -3867,7 +3867,6 @@ operator|-
 literal|1L
 decl_stmt|;
 DECL|method|TestDelayAllocationService
-specifier|public
 name|TestDelayAllocationService
 parameter_list|(
 name|Settings

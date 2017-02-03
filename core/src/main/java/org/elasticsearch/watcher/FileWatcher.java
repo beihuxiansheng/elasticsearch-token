@@ -297,7 +297,6 @@ index|[]
 name|children
 decl_stmt|;
 DECL|method|FileObserver
-specifier|public
 name|FileObserver
 parameter_list|(
 name|Path

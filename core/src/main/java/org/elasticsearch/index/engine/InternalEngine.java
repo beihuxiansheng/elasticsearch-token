@@ -4160,7 +4160,6 @@ else|else
 block|{
 try|try
 init|(
-specifier|final
 name|Searcher
 name|searcher
 init|=
@@ -4946,7 +4945,6 @@ name|noOpResult
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|ReleasableLock
 name|ignored
 init|=
@@ -7291,7 +7289,6 @@ argument_list|()
 assert|;
 try|try
 init|(
-specifier|final
 name|Searcher
 name|searcher
 init|=

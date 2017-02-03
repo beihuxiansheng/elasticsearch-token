@@ -2853,7 +2853,6 @@ specifier|public
 name|void
 name|updateRoutingEntry
 parameter_list|(
-specifier|final
 name|ShardRouting
 name|newRouting
 parameter_list|)
@@ -4718,7 +4717,6 @@ parameter_list|()
 block|{
 try|try
 init|(
-specifier|final
 name|Engine
 operator|.
 name|Searcher
@@ -5092,7 +5090,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|Engine
 operator|.
 name|Searcher

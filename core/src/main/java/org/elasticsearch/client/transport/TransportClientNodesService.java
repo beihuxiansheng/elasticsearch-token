@@ -1677,7 +1677,6 @@ name|int
 name|i
 decl_stmt|;
 DECL|method|RetryListener
-specifier|public
 name|RetryListener
 parameter_list|(
 name|NodeListenerCallback

@@ -34,7 +34,6 @@ name|long
 name|scrollId
 decl_stmt|;
 DECL|method|ScrollIdForNode
-specifier|public
 name|ScrollIdForNode
 parameter_list|(
 name|String

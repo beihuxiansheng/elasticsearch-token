@@ -3384,7 +3384,6 @@ argument_list|>
 name|customs
 decl_stmt|;
 DECL|method|MetaDataDiff
-specifier|public
 name|MetaDataDiff
 parameter_list|(
 name|MetaData
@@ -3482,7 +3481,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|MetaDataDiff
-specifier|public
 name|MetaDataDiff
 parameter_list|(
 name|StreamInput

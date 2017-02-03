@@ -1908,7 +1908,6 @@ name|emptyList
 argument_list|()
 decl_stmt|;
 DECL|method|AsyncIndexBySearchAction
-specifier|public
 name|AsyncIndexBySearchAction
 parameter_list|(
 name|WorkingBulkByScrollTask

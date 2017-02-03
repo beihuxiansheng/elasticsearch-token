@@ -557,7 +557,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|IdFieldType
-specifier|public
 name|IdFieldType
 parameter_list|()
 block|{         }

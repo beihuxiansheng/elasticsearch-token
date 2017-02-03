@@ -633,7 +633,6 @@ name|boolean
 name|fielddata
 decl_stmt|;
 DECL|method|TypeFieldType
-specifier|public
 name|TypeFieldType
 parameter_list|()
 block|{

@@ -511,7 +511,6 @@ implements|implements
 name|HttpServerTransport
 block|{
 DECL|method|FakeHttpTransport
-specifier|public
 name|FakeHttpTransport
 parameter_list|()
 block|{
@@ -590,7 +589,6 @@ extends|extends
 name|BaseRestHandler
 block|{
 DECL|method|FakeRestHandler
-specifier|public
 name|FakeRestHandler
 parameter_list|()
 block|{
@@ -631,7 +629,6 @@ extends|extends
 name|AbstractCatAction
 block|{
 DECL|method|FakeCatRestHandler
-specifier|public
 name|FakeCatRestHandler
 parameter_list|()
 block|{

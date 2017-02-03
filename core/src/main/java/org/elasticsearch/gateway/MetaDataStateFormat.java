@@ -1151,7 +1151,6 @@ init|)
 block|{
 try|try
 init|(
-specifier|final
 name|IndexInput
 name|indexInput
 init|=

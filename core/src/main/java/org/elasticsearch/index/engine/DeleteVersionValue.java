@@ -64,7 +64,6 @@ name|long
 name|time
 decl_stmt|;
 DECL|method|DeleteVersionValue
-specifier|public
 name|DeleteVersionValue
 parameter_list|(
 name|long

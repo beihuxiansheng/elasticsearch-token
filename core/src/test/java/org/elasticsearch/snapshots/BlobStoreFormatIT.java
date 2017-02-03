@@ -432,7 +432,6 @@ name|String
 name|text
 decl_stmt|;
 DECL|method|BlobObj
-specifier|public
 name|BlobObj
 parameter_list|(
 name|String

@@ -161,7 +161,6 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|TermBasedFieldType
-specifier|public
 name|TermBasedFieldType
 parameter_list|()
 block|{}

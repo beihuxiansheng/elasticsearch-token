@@ -2711,7 +2711,6 @@ argument_list|)
 expr_stmt|;
 try|try
 init|(
-specifier|final
 name|XContentBuilder
 name|builder
 init|=
@@ -3614,7 +3613,6 @@ name|Location
 name|location
 decl_stmt|;
 DECL|method|LocationOperation
-specifier|public
 name|LocationOperation
 parameter_list|(
 name|Translog
@@ -7119,7 +7117,6 @@ argument_list|)
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|TranslogReader
 name|reader
 init|=
@@ -10754,7 +10751,6 @@ name|Translog
 name|translog
 decl_stmt|;
 DECL|method|TranslogThread
-specifier|public
 name|TranslogThread
 parameter_list|(
 name|Translog

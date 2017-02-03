@@ -655,7 +655,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|TestTransportInstanceSingleOperationAction
-specifier|public
 name|TestTransportInstanceSingleOperationAction
 parameter_list|(
 name|Settings
@@ -838,7 +837,6 @@ extends|extends
 name|IndexNameExpressionResolver
 block|{
 DECL|method|MyResolver
-specifier|public
 name|MyResolver
 parameter_list|()
 block|{

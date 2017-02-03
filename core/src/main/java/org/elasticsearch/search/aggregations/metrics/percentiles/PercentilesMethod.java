@@ -129,7 +129,6 @@ name|ParseField
 name|parseField
 decl_stmt|;
 DECL|method|PercentilesMethod
-specifier|private
 name|PercentilesMethod
 parameter_list|(
 name|String

@@ -368,7 +368,6 @@ name|ValuesHolder
 name|values
 decl_stmt|;
 DECL|method|Docs
-specifier|public
 name|Docs
 parameter_list|(
 name|SinglePackedOrdinals

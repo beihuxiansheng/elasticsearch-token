@@ -311,7 +311,6 @@ name|InternalAggregations
 name|aggregations
 decl_stmt|;
 DECL|method|Bucket
-specifier|public
 name|Bucket
 parameter_list|(
 name|long
@@ -1247,7 +1246,6 @@ name|Bucket
 argument_list|>
 block|{
 DECL|method|BucketPriorityQueue
-specifier|public
 name|BucketPriorityQueue
 parameter_list|(
 name|int

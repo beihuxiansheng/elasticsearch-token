@@ -692,7 +692,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|ExternalFieldType
-specifier|public
 name|ExternalFieldType
 parameter_list|()
 block|{}

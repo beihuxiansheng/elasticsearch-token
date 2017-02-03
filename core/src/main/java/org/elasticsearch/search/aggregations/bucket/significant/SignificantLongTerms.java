@@ -203,7 +203,6 @@ name|long
 name|term
 decl_stmt|;
 DECL|method|Bucket
-specifier|public
 name|Bucket
 parameter_list|(
 name|long
@@ -251,7 +250,6 @@ name|term
 expr_stmt|;
 block|}
 DECL|method|Bucket
-specifier|public
 name|Bucket
 parameter_list|(
 name|long
@@ -301,7 +299,6 @@ name|score
 expr_stmt|;
 block|}
 DECL|method|Bucket
-specifier|public
 name|Bucket
 parameter_list|(
 name|StreamInput

@@ -2827,7 +2827,6 @@ name|Exception
 name|e
 decl_stmt|;
 DECL|method|CleanupAfterErrorListener
-specifier|public
 name|CleanupAfterErrorListener
 parameter_list|(
 name|SnapshotsInProgress

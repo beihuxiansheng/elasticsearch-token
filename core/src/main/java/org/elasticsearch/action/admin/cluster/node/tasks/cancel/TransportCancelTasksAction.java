@@ -1459,7 +1459,6 @@ name|int
 name|nodesSize
 decl_stmt|;
 DECL|method|BanLock
-specifier|public
 name|BanLock
 parameter_list|(
 name|int
@@ -1661,7 +1660,6 @@ literal|false
 expr_stmt|;
 block|}
 DECL|method|BanParentTaskRequest
-specifier|public
 name|BanParentTaskRequest
 parameter_list|()
 block|{         }

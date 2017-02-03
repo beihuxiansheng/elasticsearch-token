@@ -1363,7 +1363,6 @@ name|long
 name|insertionOrder
 decl_stmt|;
 DECL|method|PrioritizedFutureTask
-specifier|public
 name|PrioritizedFutureTask
 parameter_list|(
 name|Runnable
@@ -1406,7 +1405,6 @@ name|insertionOrder
 expr_stmt|;
 block|}
 DECL|method|PrioritizedFutureTask
-specifier|public
 name|PrioritizedFutureTask
 parameter_list|(
 name|PrioritizedCallable

@@ -262,7 +262,6 @@ name|int
 name|hitIndex
 decl_stmt|;
 DECL|method|ShardRef
-specifier|public
 name|ShardRef
 parameter_list|(
 name|int
@@ -333,7 +332,6 @@ index|[]
 name|reverseMul
 decl_stmt|;
 DECL|method|MergeSortQueue
-specifier|public
 name|MergeSortQueue
 parameter_list|(
 name|Sort

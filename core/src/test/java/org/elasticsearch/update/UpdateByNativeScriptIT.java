@@ -560,7 +560,6 @@ literal|2
 argument_list|)
 decl_stmt|;
 DECL|method|CustomScript
-specifier|public
 name|CustomScript
 parameter_list|(
 name|Map

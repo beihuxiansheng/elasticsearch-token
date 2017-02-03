@@ -4158,7 +4158,6 @@ argument_list|>
 name|customs
 decl_stmt|;
 DECL|method|ClusterStateDiff
-specifier|public
 name|ClusterStateDiff
 parameter_list|(
 name|ClusterState
@@ -4268,7 +4267,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ClusterStateDiff
-specifier|public
 name|ClusterStateDiff
 parameter_list|(
 name|StreamInput

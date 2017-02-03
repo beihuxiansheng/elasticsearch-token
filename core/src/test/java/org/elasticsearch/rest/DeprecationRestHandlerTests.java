@@ -707,7 +707,6 @@ return|;
 block|}
 comment|/**          * Create a generator for characters [32, 126].          */
 DECL|method|ASCIIHeaderGenerator
-specifier|public
 name|ASCIIHeaderGenerator
 parameter_list|()
 block|{

@@ -1412,7 +1412,6 @@ name|TestRuleMarkFailure
 name|failureMarker
 decl_stmt|;
 DECL|method|CloseableDirectory
-specifier|public
 name|CloseableDirectory
 parameter_list|(
 name|BaseDirectoryWrapper

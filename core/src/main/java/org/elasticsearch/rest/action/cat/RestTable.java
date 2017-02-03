@@ -3375,7 +3375,6 @@ name|boolean
 name|reverse
 decl_stmt|;
 DECL|method|ColumnOrderElement
-specifier|public
 name|ColumnOrderElement
 parameter_list|(
 name|String

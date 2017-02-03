@@ -163,7 +163,6 @@ name|InjectionPoint
 name|injectionPoint
 decl_stmt|;
 DECL|method|SingleMethodInjector
-specifier|public
 name|SingleMethodInjector
 parameter_list|(
 name|InjectorImpl

@@ -1459,7 +1459,6 @@ argument_list|>
 name|ctx
 decl_stmt|;
 DECL|method|ShardSearcher
-specifier|public
 name|ShardSearcher
 parameter_list|(
 name|LeafReaderContext

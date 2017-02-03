@@ -486,7 +486,6 @@ extends|extends
 name|FilterFileSystemProvider
 block|{
 DECL|method|MockUsableSpaceFileSystemProvider
-specifier|public
 name|MockUsableSpaceFileSystemProvider
 parameter_list|(
 name|FileSystem
@@ -584,7 +583,6 @@ name|String
 name|desc
 decl_stmt|;
 DECL|method|MockFileStore
-specifier|public
 name|MockFileStore
 parameter_list|(
 name|String

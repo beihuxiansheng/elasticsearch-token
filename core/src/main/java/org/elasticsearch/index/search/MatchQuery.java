@@ -446,7 +446,6 @@ name|MatchQuery
 block|{
 DECL|enum|Type
 specifier|public
-specifier|static
 enum|enum
 name|Type
 implements|implements
@@ -480,7 +479,6 @@ name|int
 name|ordinal
 decl_stmt|;
 DECL|method|Type
-specifier|private
 name|Type
 parameter_list|(
 name|int
@@ -577,7 +575,6 @@ block|}
 block|}
 DECL|enum|ZeroTermsQuery
 specifier|public
-specifier|static
 enum|enum
 name|ZeroTermsQuery
 implements|implements
@@ -602,7 +599,6 @@ name|int
 name|ordinal
 decl_stmt|;
 DECL|method|ZeroTermsQuery
-specifier|private
 name|ZeroTermsQuery
 parameter_list|(
 name|int
@@ -1490,7 +1486,6 @@ name|mapper
 decl_stmt|;
 comment|/**          * Creates a new QueryBuilder using the given analyzer.          */
 DECL|method|MatchQueryBuilder
-specifier|public
 name|MatchQueryBuilder
 parameter_list|(
 name|Analyzer

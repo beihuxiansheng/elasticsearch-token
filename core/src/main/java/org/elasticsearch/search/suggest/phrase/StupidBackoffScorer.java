@@ -102,7 +102,6 @@ name|double
 name|discount
 decl_stmt|;
 DECL|method|StupidBackoffScorer
-specifier|public
 name|StupidBackoffScorer
 parameter_list|(
 name|IndexReader

@@ -103,7 +103,6 @@ name|int
 name|gramSize
 decl_stmt|;
 DECL|method|CandidateScorer
-specifier|public
 name|CandidateScorer
 parameter_list|(
 name|WordScorer

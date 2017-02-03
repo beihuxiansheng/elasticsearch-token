@@ -1387,7 +1387,6 @@ throw|;
 block|}
 block|}
 DECL|enum|NullAnnotationStrategy
-specifier|static
 enum|enum
 name|NullAnnotationStrategy
 implements|implements

@@ -1589,7 +1589,6 @@ specifier|final
 name|boolean
 name|shouldFail
 decl_stmt|;
-specifier|public
 name|MlockallCheckTestCase
 parameter_list|(
 specifier|final

@@ -93,7 +93,6 @@ argument_list|>
 name|paramList
 decl_stmt|;
 DECL|method|ParameterListKey
-specifier|public
 name|ParameterListKey
 parameter_list|(
 name|List
@@ -116,7 +115,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ParameterListKey
-specifier|public
 name|ParameterListKey
 parameter_list|(
 name|Type

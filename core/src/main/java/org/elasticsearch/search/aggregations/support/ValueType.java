@@ -549,7 +549,6 @@ name|String
 name|preferredName
 decl_stmt|;
 DECL|method|ValueType
-specifier|private
 name|ValueType
 parameter_list|(
 name|byte

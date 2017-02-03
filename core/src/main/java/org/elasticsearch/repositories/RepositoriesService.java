@@ -2428,7 +2428,6 @@ argument_list|>
 name|listener
 decl_stmt|;
 DECL|method|VerifyingRegisterRepositoryListener
-specifier|public
 name|VerifyingRegisterRepositoryListener
 parameter_list|(
 name|String

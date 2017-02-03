@@ -968,7 +968,6 @@ extends|extends
 name|AzureStorageServiceImpl
 block|{
 DECL|method|AzureStorageServiceMock
-specifier|public
 name|AzureStorageServiceMock
 parameter_list|(
 name|Settings

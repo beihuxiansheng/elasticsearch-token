@@ -268,7 +268,6 @@ name|PackedLongValues
 name|buckets
 decl_stmt|;
 DECL|method|Entry
-specifier|public
 name|Entry
 parameter_list|(
 name|LeafReaderContext

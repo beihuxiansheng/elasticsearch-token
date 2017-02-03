@@ -6910,7 +6910,6 @@ argument_list|>
 name|data
 decl_stmt|;
 DECL|method|TestAllocator
-specifier|public
 name|TestAllocator
 parameter_list|()
 block|{

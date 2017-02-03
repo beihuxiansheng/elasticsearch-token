@@ -388,7 +388,6 @@ name|LongHash
 name|bucketOrds
 decl_stmt|;
 DECL|method|HistogramAggregator
-specifier|public
 name|HistogramAggregator
 parameter_list|(
 name|String

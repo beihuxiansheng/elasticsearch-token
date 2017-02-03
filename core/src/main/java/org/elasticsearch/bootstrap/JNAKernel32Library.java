@@ -410,7 +410,6 @@ name|ConsoleCtrlHandler
 name|handler
 decl_stmt|;
 DECL|method|NativeHandlerCallback
-specifier|public
 name|NativeHandlerCallback
 parameter_list|(
 name|ConsoleCtrlHandler
@@ -585,7 +584,6 @@ extends|extends
 name|IntegerType
 block|{
 DECL|method|SizeT
-specifier|public
 name|SizeT
 parameter_list|()
 block|{
@@ -596,7 +594,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|SizeT
-specifier|public
 name|SizeT
 parameter_list|(
 name|long

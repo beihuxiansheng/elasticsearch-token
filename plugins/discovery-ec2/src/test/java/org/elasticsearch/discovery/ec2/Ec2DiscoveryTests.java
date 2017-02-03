@@ -2081,7 +2081,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|DummyEc2HostProvider
-specifier|public
 name|DummyEc2HostProvider
 parameter_list|(
 name|Settings

@@ -205,7 +205,6 @@ block|{
 comment|/**      * enum that can be added to over time with more meta-data types (such as ipv6 when this is available)      *      * @author Paul_Loy      */
 DECL|enum|Ec2HostnameType
 specifier|private
-specifier|static
 enum|enum
 name|Ec2HostnameType
 block|{
@@ -283,7 +282,6 @@ name|String
 name|ec2Name
 decl_stmt|;
 DECL|method|Ec2HostnameType
-specifier|private
 name|Ec2HostnameType
 parameter_list|(
 name|String

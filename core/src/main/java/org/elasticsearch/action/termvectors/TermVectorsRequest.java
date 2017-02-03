@@ -2522,7 +2522,6 @@ expr_stmt|;
 block|}
 DECL|enum|Flag
 specifier|public
-specifier|static
 enum|enum
 name|Flag
 block|{

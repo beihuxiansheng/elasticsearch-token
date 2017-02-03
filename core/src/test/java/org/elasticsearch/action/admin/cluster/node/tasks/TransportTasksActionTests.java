@@ -1285,7 +1285,6 @@ name|String
 name|status
 decl_stmt|;
 DECL|method|TestTaskResponse
-specifier|public
 name|TestTaskResponse
 parameter_list|(
 name|StreamInput
@@ -1324,7 +1323,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|TestTaskResponse
-specifier|public
 name|TestTaskResponse
 parameter_list|(
 name|String
@@ -1375,12 +1373,10 @@ argument_list|>
 name|tasks
 decl_stmt|;
 DECL|method|TestTasksResponse
-specifier|public
 name|TestTasksResponse
 parameter_list|()
 block|{          }
 DECL|method|TestTasksResponse
-specifier|public
 name|TestTasksResponse
 parameter_list|(
 name|List

@@ -711,7 +711,6 @@ name|Executor
 name|executor
 decl_stmt|;
 DECL|method|FieldDataWarmer
-specifier|public
 name|FieldDataWarmer
 parameter_list|(
 name|Executor

@@ -43,7 +43,6 @@ DECL|method|writeTo
 name|void
 name|writeTo
 parameter_list|(
-specifier|final
 name|StreamOutput
 name|out
 parameter_list|)
@@ -65,11 +64,9 @@ DECL|method|write
 name|void
 name|write
 parameter_list|(
-specifier|final
 name|StreamOutput
 name|out
 parameter_list|,
-specifier|final
 name|V
 name|value
 parameter_list|)
@@ -92,7 +89,6 @@ DECL|method|read
 name|V
 name|read
 parameter_list|(
-specifier|final
 name|StreamInput
 name|in
 parameter_list|)

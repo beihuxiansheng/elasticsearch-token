@@ -3736,7 +3736,6 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-specifier|public
 name|TaskExecutor
 parameter_list|(
 name|List
@@ -7379,7 +7378,6 @@ literal|1
 argument_list|)
 decl_stmt|;
 DECL|method|BlockingTask
-specifier|public
 name|BlockingTask
 parameter_list|(
 name|Priority
@@ -7571,7 +7569,6 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|TimedClusterService
-specifier|public
 name|TimedClusterService
 parameter_list|(
 name|Settings

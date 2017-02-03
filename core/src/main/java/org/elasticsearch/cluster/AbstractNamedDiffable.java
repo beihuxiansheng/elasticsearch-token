@@ -268,7 +268,6 @@ name|minimalSupportedVersion
 decl_stmt|;
 comment|/**          * Creates simple diff with changes          */
 DECL|method|CompleteNamedDiff
-specifier|public
 name|CompleteNamedDiff
 parameter_list|(
 name|T
@@ -302,7 +301,6 @@ expr_stmt|;
 block|}
 comment|/**          * Creates simple diff without changes          */
 DECL|method|CompleteNamedDiff
-specifier|public
 name|CompleteNamedDiff
 parameter_list|(
 name|String
@@ -333,7 +331,6 @@ expr_stmt|;
 block|}
 comment|/**          * Read simple diff from the stream          */
 DECL|method|CompleteNamedDiff
-specifier|public
 name|CompleteNamedDiff
 parameter_list|(
 name|Class

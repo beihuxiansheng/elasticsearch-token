@@ -24,7 +24,6 @@ name|SnapshotStatus
 block|{
 DECL|enum|Stage
 specifier|public
-specifier|static
 enum|enum
 name|Stage
 block|{

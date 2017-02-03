@@ -468,7 +468,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MockController
-specifier|public
 name|MockController
 parameter_list|(
 name|Settings

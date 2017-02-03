@@ -2692,7 +2692,6 @@ argument_list|>
 name|queryResults
 decl_stmt|;
 DECL|method|FetchPhase
-specifier|public
 name|FetchPhase
 parameter_list|(
 name|AtomicArray

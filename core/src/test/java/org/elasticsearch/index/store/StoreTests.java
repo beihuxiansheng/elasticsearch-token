@@ -3935,7 +3935,6 @@ name|Random
 name|random
 decl_stmt|;
 DECL|method|LuceneManagedDirectoryService
-specifier|public
 name|LuceneManagedDirectoryService
 parameter_list|(
 name|Random
@@ -3951,7 +3950,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|LuceneManagedDirectoryService
-specifier|public
 name|LuceneManagedDirectoryService
 parameter_list|(
 name|Random

@@ -1618,7 +1618,6 @@ name|TestRequest
 argument_list|>
 block|{
 DECL|method|TestRequest
-specifier|public
 name|TestRequest
 parameter_list|()
 block|{

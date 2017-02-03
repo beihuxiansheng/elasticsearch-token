@@ -1833,7 +1833,6 @@ name|SortedNumericDocValues
 name|values
 decl_stmt|;
 DECL|method|Long
-specifier|public
 name|Long
 parameter_list|(
 name|SortedNumericDocValues
@@ -1922,7 +1921,6 @@ name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|method|Double
-specifier|public
 name|Double
 parameter_list|(
 name|SortedNumericDoubleValues
@@ -2050,7 +2048,6 @@ name|SortedBinaryDocValues
 name|values
 decl_stmt|;
 DECL|method|Bytes
-specifier|public
 name|Bytes
 parameter_list|(
 name|SortedBinaryDocValues

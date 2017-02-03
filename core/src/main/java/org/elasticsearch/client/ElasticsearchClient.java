@@ -132,7 +132,6 @@ name|Response
 argument_list|>
 name|execute
 parameter_list|(
-specifier|final
 name|Action
 argument_list|<
 name|Request
@@ -143,7 +142,6 @@ name|RequestBuilder
 argument_list|>
 name|action
 parameter_list|,
-specifier|final
 name|Request
 name|request
 parameter_list|)
@@ -173,7 +171,6 @@ parameter_list|>
 name|void
 name|execute
 parameter_list|(
-specifier|final
 name|Action
 argument_list|<
 name|Request
@@ -184,7 +181,6 @@ name|RequestBuilder
 argument_list|>
 name|action
 parameter_list|,
-specifier|final
 name|Request
 name|request
 parameter_list|,
@@ -220,7 +216,6 @@ parameter_list|>
 name|RequestBuilder
 name|prepareExecute
 parameter_list|(
-specifier|final
 name|Action
 argument_list|<
 name|Request

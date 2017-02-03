@@ -1058,7 +1058,6 @@ name|DiscoveryNode
 name|discoveryNode
 decl_stmt|;
 DECL|method|NetworkHandle
-specifier|public
 name|NetworkHandle
 parameter_list|(
 name|TransportService

@@ -2268,7 +2268,6 @@ name|Query
 name|unsupportedQuery
 decl_stmt|;
 DECL|method|UnsupportedQueryException
-specifier|public
 name|UnsupportedQueryException
 parameter_list|(
 name|Query

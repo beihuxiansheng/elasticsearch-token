@@ -1839,7 +1839,6 @@ extends|extends
 name|RuntimeException
 block|{
 DECL|method|AddressNotFoundRuntimeException
-specifier|public
 name|AddressNotFoundRuntimeException
 parameter_list|(
 name|Throwable

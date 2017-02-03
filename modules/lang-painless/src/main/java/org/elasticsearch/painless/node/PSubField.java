@@ -143,7 +143,6 @@ name|Field
 name|field
 decl_stmt|;
 DECL|method|PSubField
-specifier|public
 name|PSubField
 parameter_list|(
 name|Location

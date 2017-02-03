@@ -756,7 +756,6 @@ extends|extends
 name|TestSearchContext
 block|{
 DECL|method|SignificantTermsTestSearchContext
-specifier|public
 name|SignificantTermsTestSearchContext
 parameter_list|()
 block|{

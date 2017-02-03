@@ -5662,7 +5662,6 @@ name|deleteIndex
 decl_stmt|;
 comment|/**          * Creates a new pending delete of an index          */
 DECL|method|PendingDelete
-specifier|public
 name|PendingDelete
 parameter_list|(
 name|ShardId
@@ -5705,7 +5704,6 @@ expr_stmt|;
 block|}
 comment|/**          * Creates a new pending delete of a shard          */
 DECL|method|PendingDelete
-specifier|public
 name|PendingDelete
 parameter_list|(
 name|Index
@@ -6462,7 +6460,6 @@ name|IndicesRequestCache
 name|requestCache
 decl_stmt|;
 DECL|method|CacheCleaner
-specifier|public
 name|CacheCleaner
 parameter_list|(
 name|IndicesFieldDataCache

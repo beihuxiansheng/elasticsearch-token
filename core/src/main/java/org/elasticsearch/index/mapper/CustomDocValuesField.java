@@ -157,7 +157,6 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|CustomDocValuesField
-specifier|public
 name|CustomDocValuesField
 parameter_list|(
 name|String

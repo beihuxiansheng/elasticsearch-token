@@ -3900,7 +3900,6 @@ name|IngestDocument
 name|ingestDocument
 decl_stmt|;
 DECL|method|IngestDocumentMatcher
-specifier|public
 name|IngestDocumentMatcher
 parameter_list|(
 name|String

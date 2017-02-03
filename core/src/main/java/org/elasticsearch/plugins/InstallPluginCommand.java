@@ -1840,7 +1840,6 @@ name|boolean
 name|enabled
 decl_stmt|;
 DECL|method|TerminalProgressInputStream
-specifier|public
 name|TerminalProgressInputStream
 parameter_list|(
 name|InputStream

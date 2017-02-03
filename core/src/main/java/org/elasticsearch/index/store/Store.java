@@ -4943,7 +4943,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|IndexInput
 name|in
 init|=
@@ -6660,7 +6659,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|VerifyingIndexInput
-specifier|public
 name|VerifyingIndexInput
 parameter_list|(
 name|IndexInput
@@ -6682,7 +6680,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|VerifyingIndexInput
-specifier|public
 name|VerifyingIndexInput
 parameter_list|(
 name|IndexInput
@@ -7504,7 +7501,6 @@ name|Directory
 name|directory
 decl_stmt|;
 DECL|method|StoreStatsCache
-specifier|public
 name|StoreStatsCache
 parameter_list|(
 name|TimeValue

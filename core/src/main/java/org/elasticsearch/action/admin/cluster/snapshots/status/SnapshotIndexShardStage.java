@@ -99,7 +99,6 @@ name|boolean
 name|completed
 decl_stmt|;
 DECL|method|SnapshotIndexShardStage
-specifier|private
 name|SnapshotIndexShardStage
 parameter_list|(
 name|byte

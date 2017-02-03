@@ -606,7 +606,6 @@ return|;
 block|}
 block|}
 DECL|method|AbstractIndexGeoPointFieldData
-specifier|public
 name|AbstractIndexGeoPointFieldData
 parameter_list|(
 name|IndexSettings

@@ -94,7 +94,6 @@ name|long
 name|version
 decl_stmt|;
 DECL|method|VersionValue
-specifier|public
 name|VersionValue
 parameter_list|(
 name|long

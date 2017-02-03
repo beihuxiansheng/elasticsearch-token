@@ -273,7 +273,6 @@ name|ProcessStats
 argument_list|>
 block|{
 DECL|method|ProcessStatsCache
-specifier|public
 name|ProcessStatsCache
 parameter_list|(
 name|TimeValue

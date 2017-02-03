@@ -3541,7 +3541,6 @@ name|AuthCache
 name|authCache
 decl_stmt|;
 DECL|method|HostTuple
-specifier|public
 name|HostTuple
 parameter_list|(
 specifier|final

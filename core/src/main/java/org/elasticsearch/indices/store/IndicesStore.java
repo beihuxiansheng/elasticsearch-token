@@ -1567,7 +1567,6 @@ name|AtomicInteger
 name|activeCopies
 decl_stmt|;
 DECL|method|ShardActiveResponseHandler
-specifier|public
 name|ShardActiveResponseHandler
 parameter_list|(
 name|ShardId
@@ -2458,7 +2457,6 @@ name|ShardId
 name|shardId
 decl_stmt|;
 DECL|method|ShardActiveRequest
-specifier|public
 name|ShardActiveRequest
 parameter_list|()
 block|{         }

@@ -117,15 +117,12 @@ operator|.
 name|Connection
 name|connection
 parameter_list|,
-specifier|final
 name|String
 name|action
 parameter_list|,
-specifier|final
 name|TransportRequest
 name|request
 parameter_list|,
-specifier|final
 name|TransportRequestOptions
 name|options
 parameter_list|,

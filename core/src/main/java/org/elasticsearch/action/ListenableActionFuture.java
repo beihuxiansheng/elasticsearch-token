@@ -37,7 +37,6 @@ DECL|method|addListener
 name|void
 name|addListener
 parameter_list|(
-specifier|final
 name|ActionListener
 argument_list|<
 name|T

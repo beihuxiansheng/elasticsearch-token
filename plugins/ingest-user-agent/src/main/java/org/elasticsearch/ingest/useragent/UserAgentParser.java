@@ -227,7 +227,6 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|UserAgentParser
-specifier|public
 name|UserAgentParser
 parameter_list|(
 name|String
@@ -1174,7 +1173,6 @@ name|VersionedName
 name|device
 decl_stmt|;
 DECL|method|Details
-specifier|public
 name|Details
 parameter_list|(
 name|VersionedName
@@ -1244,7 +1242,6 @@ name|String
 name|build
 decl_stmt|;
 DECL|method|VersionedName
-specifier|public
 name|VersionedName
 parameter_list|(
 name|String
@@ -1327,7 +1324,6 @@ decl_stmt|,
 name|v4Replacement
 decl_stmt|;
 DECL|method|UserAgentSubpattern
-specifier|public
 name|UserAgentSubpattern
 parameter_list|(
 name|Pattern

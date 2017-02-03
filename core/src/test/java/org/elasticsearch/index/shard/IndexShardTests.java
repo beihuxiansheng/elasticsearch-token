@@ -11101,7 +11101,6 @@ name|String
 name|indexName
 decl_stmt|;
 DECL|method|RestoreOnlyRepository
-specifier|public
 name|RestoreOnlyRepository
 parameter_list|(
 name|String

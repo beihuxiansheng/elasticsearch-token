@@ -1704,7 +1704,6 @@ argument_list|>
 name|failures
 decl_stmt|;
 DECL|method|Response
-specifier|public
 name|Response
 parameter_list|(
 name|ShardId

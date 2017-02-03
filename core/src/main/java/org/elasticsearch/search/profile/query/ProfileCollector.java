@@ -131,7 +131,6 @@ name|time
 decl_stmt|;
 comment|/** Sole constructor. */
 DECL|method|ProfileCollector
-specifier|public
 name|ProfileCollector
 parameter_list|(
 name|Collector

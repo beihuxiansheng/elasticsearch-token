@@ -675,7 +675,6 @@ init|=
 literal|true
 decl_stmt|;
 DECL|method|TestTask
-specifier|public
 name|TestTask
 parameter_list|(
 name|long

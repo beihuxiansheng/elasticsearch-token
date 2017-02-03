@@ -1446,7 +1446,6 @@ argument_list|>
 name|invalids
 decl_stmt|;
 DECL|method|TermListBackedStringFilter
-specifier|public
 name|TermListBackedStringFilter
 parameter_list|(
 name|Set
@@ -1796,7 +1795,6 @@ argument_list|>
 name|excludeValues
 decl_stmt|;
 DECL|method|TermListBackedOrdinalsFilter
-specifier|public
 name|TermListBackedOrdinalsFilter
 parameter_list|(
 name|SortedSet

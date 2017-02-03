@@ -2700,7 +2700,6 @@ name|boolean
 name|upgrade
 decl_stmt|;
 DECL|method|MockMetaDataIndexUpgradeService
-specifier|public
 name|MockMetaDataIndexUpgradeService
 parameter_list|(
 name|boolean

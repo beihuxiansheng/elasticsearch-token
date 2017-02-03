@@ -468,7 +468,6 @@ name|MergeSchedulerConfig
 name|config
 decl_stmt|;
 DECL|method|ElasticsearchConcurrentMergeScheduler
-specifier|public
 name|ElasticsearchConcurrentMergeScheduler
 parameter_list|(
 name|ShardId

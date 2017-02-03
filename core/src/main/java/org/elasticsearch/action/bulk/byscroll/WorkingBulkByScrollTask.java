@@ -1463,7 +1463,6 @@ name|AbstractRunnable
 name|delegate
 decl_stmt|;
 DECL|method|RunOnce
-specifier|public
 name|RunOnce
 parameter_list|(
 name|AbstractRunnable

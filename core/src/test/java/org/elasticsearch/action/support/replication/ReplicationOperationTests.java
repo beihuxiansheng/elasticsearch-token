@@ -3296,7 +3296,6 @@ name|ShardInfo
 name|shardInfo
 decl_stmt|;
 DECL|method|Result
-specifier|public
 name|Result
 parameter_list|(
 name|Request
@@ -3874,7 +3873,6 @@ name|Result
 argument_list|>
 block|{
 DECL|method|TestReplicationOperation
-specifier|public
 name|TestReplicationOperation
 parameter_list|(
 name|Request
@@ -3938,7 +3936,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|TestReplicationOperation
-specifier|public
 name|TestReplicationOperation
 parameter_list|(
 name|Request

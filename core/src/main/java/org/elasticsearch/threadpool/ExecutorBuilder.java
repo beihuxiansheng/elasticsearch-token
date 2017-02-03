@@ -209,7 +209,6 @@ name|String
 name|nodeName
 decl_stmt|;
 DECL|method|ExecutorSettings
-specifier|public
 name|ExecutorSettings
 parameter_list|(
 name|String

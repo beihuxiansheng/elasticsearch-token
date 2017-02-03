@@ -2536,7 +2536,6 @@ implements|implements
 name|HttpServerTransport
 block|{
 DECL|method|TestHttpServerTransport
-specifier|public
 name|TestHttpServerTransport
 parameter_list|()
 block|{

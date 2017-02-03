@@ -2762,7 +2762,6 @@ argument_list|>
 name|accept
 decl_stmt|;
 DECL|method|Updater
-specifier|public
 name|Updater
 parameter_list|(
 name|Consumer

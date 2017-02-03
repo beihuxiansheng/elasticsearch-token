@@ -132,7 +132,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|DeferredLookups
-specifier|public
 name|DeferredLookups
 parameter_list|(
 name|InjectorImpl

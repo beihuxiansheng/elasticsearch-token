@@ -251,11 +251,9 @@ specifier|abstract
 name|RestChannelConsumer
 name|doCatRequest
 parameter_list|(
-specifier|final
 name|RestRequest
 name|request
 parameter_list|,
-specifier|final
 name|NodeClient
 name|client
 parameter_list|)
@@ -276,7 +274,6 @@ specifier|abstract
 name|Table
 name|getTableWithHeader
 parameter_list|(
-specifier|final
 name|RestRequest
 name|request
 parameter_list|)

@@ -81,7 +81,6 @@ name|int
 name|count
 decl_stmt|;
 DECL|method|SingletonSortedNumericDoubleValues
-specifier|public
 name|SingletonSortedNumericDoubleValues
 parameter_list|(
 name|NumericDoubleValues

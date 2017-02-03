@@ -1406,7 +1406,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|DummyFieldType
-specifier|public
 name|DummyFieldType
 parameter_list|()
 block|{

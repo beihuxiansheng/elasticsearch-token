@@ -405,7 +405,6 @@ name|FsInfo
 name|initialValue
 decl_stmt|;
 DECL|method|FsInfoCache
-specifier|public
 name|FsInfoCache
 parameter_list|(
 name|TimeValue

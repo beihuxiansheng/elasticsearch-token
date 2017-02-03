@@ -2597,7 +2597,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|Context
-specifier|public
 name|Context
 parameter_list|(
 name|ClusterState
@@ -2623,7 +2622,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|Context
-specifier|public
 name|Context
 parameter_list|(
 name|ClusterState
@@ -4110,7 +4108,6 @@ name|DateTimeFormatter
 name|defaultDateFormatter
 decl_stmt|;
 DECL|method|DateMathExpressionResolver
-specifier|public
 name|DateMathExpressionResolver
 parameter_list|(
 name|Settings

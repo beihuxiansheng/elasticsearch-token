@@ -186,7 +186,6 @@ name|boolean
 name|keyed
 decl_stmt|;
 DECL|method|AbstractInternalTDigestPercentiles
-specifier|public
 name|AbstractInternalTDigestPercentiles
 parameter_list|(
 name|String

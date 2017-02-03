@@ -137,7 +137,6 @@ name|IOException
 block|{
 try|try
 init|(
-specifier|final
 name|BlobStore
 name|store
 init|=

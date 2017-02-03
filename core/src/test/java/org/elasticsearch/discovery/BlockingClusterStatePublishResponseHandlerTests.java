@@ -250,7 +250,6 @@ name|BlockingClusterStatePublishResponseHandler
 name|handler
 decl_stmt|;
 DECL|method|PublishResponder
-specifier|public
 name|PublishResponder
 parameter_list|(
 name|boolean

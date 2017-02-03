@@ -635,7 +635,6 @@ name|Thrower
 name|thrower
 decl_stmt|;
 DECL|method|ThrowingTermsEnum
-specifier|public
 name|ThrowingTermsEnum
 parameter_list|(
 name|TermsEnum

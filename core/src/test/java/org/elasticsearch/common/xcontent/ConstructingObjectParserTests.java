@@ -1656,7 +1656,6 @@ decl_stmt|;
 class|class
 name|CalledOneTime
 block|{
-specifier|public
 name|CalledOneTime
 parameter_list|(
 name|String
@@ -1936,7 +1935,6 @@ specifier|final
 name|String
 name|test
 decl_stmt|;
-specifier|public
 name|TestStruct
 parameter_list|(
 name|String
@@ -2065,7 +2063,6 @@ name|boolean
 name|d
 decl_stmt|;
 DECL|method|HasCtorArguments
-specifier|public
 name|HasCtorArguments
 parameter_list|(
 annotation|@

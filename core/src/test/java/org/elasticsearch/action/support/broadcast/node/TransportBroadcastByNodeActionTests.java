@@ -961,7 +961,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|TestTransportBroadcastByNodeAction
-specifier|public
 name|TestTransportBroadcastByNodeAction
 parameter_list|(
 name|Settings
@@ -1297,7 +1296,6 @@ extends|extends
 name|IndexNameExpressionResolver
 block|{
 DECL|method|MyResolver
-specifier|public
 name|MyResolver
 parameter_list|()
 block|{

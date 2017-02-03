@@ -2968,7 +2968,6 @@ init|=
 literal|true
 decl_stmt|;
 DECL|method|Loader
-specifier|public
 name|Loader
 parameter_list|(
 name|DirectoryReader
