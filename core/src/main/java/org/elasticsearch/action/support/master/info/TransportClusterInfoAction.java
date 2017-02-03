@@ -324,7 +324,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|,
-specifier|final
 name|ActionListener
 argument_list|<
 name|Response

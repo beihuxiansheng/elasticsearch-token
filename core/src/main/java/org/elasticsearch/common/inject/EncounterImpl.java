@@ -176,7 +176,6 @@ init|=
 literal|true
 decl_stmt|;
 DECL|method|EncounterImpl
-specifier|public
 name|EncounterImpl
 parameter_list|(
 name|Errors

@@ -281,7 +281,6 @@ name|DocumentMapper
 name|docMapper
 decl_stmt|;
 DECL|method|DocumentParser
-specifier|public
 name|DocumentParser
 parameter_list|(
 name|IndexSettings

@@ -248,7 +248,6 @@ name|docsEnum
 decl_stmt|;
 comment|/**      * Initialize lookup for the provided segment      */
 DECL|method|PerThreadIDAndVersionLookup
-specifier|public
 name|PerThreadIDAndVersionLookup
 parameter_list|(
 name|LeafReader

@@ -923,7 +923,6 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|SeqNoFieldType
-specifier|public
 name|SeqNoFieldType
 parameter_list|()
 block|{         }

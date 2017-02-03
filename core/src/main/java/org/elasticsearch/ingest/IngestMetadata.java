@@ -767,7 +767,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IngestMetadataDiff
-specifier|public
 name|IngestMetadataDiff
 parameter_list|(
 name|StreamInput

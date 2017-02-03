@@ -1960,7 +1960,6 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|CancellableTaskHolder
-specifier|public
 name|CancellableTaskHolder
 parameter_list|(
 name|CancellableTask

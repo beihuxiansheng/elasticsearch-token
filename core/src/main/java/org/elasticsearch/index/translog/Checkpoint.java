@@ -611,7 +611,6 @@ init|)
 block|{
 try|try
 init|(
-specifier|final
 name|IndexInput
 name|indexInput
 init|=
@@ -796,7 +795,6 @@ literal|")"
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|OutputStreamIndexOutput
 name|indexOutput
 init|=

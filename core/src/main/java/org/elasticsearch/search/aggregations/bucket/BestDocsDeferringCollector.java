@@ -772,7 +772,6 @@ name|int
 name|matchedDocs
 decl_stmt|;
 DECL|method|PerParentBucketSamples
-specifier|public
 name|PerParentBucketSamples
 parameter_list|(
 name|long

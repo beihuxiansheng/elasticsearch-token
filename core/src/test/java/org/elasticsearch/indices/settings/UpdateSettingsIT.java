@@ -1949,7 +1949,6 @@ name|boolean
 name|sawUpdateAutoThrottle
 decl_stmt|;
 DECL|method|MockAppender
-specifier|public
 name|MockAppender
 parameter_list|(
 specifier|final

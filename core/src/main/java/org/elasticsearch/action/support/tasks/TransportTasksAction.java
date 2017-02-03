@@ -2615,12 +2615,10 @@ argument_list|>
 name|results
 decl_stmt|;
 DECL|method|NodeTasksResponse
-specifier|public
 name|NodeTasksResponse
 parameter_list|()
 block|{         }
 DECL|method|NodeTasksResponse
-specifier|public
 name|NodeTasksResponse
 parameter_list|(
 name|String

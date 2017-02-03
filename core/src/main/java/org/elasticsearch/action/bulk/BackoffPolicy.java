@@ -521,7 +521,6 @@ name|int
 name|numberOfElements
 decl_stmt|;
 DECL|method|ConstantBackoff
-specifier|public
 name|ConstantBackoff
 parameter_list|(
 name|TimeValue
@@ -601,7 +600,6 @@ name|int
 name|curr
 decl_stmt|;
 DECL|method|ConstantBackoffIterator
-specifier|public
 name|ConstantBackoffIterator
 parameter_list|(
 name|TimeValue
@@ -689,7 +687,6 @@ name|Runnable
 name|onBackoff
 decl_stmt|;
 DECL|method|WrappedBackoffPolicy
-specifier|public
 name|WrappedBackoffPolicy
 parameter_list|(
 name|BackoffPolicy
@@ -765,7 +762,6 @@ name|Runnable
 name|onBackoff
 decl_stmt|;
 DECL|method|WrappedBackoffIterator
-specifier|public
 name|WrappedBackoffIterator
 parameter_list|(
 name|Iterator

@@ -75,7 +75,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|ProgressInputStream
-specifier|public
 name|ProgressInputStream
 parameter_list|(
 name|InputStream

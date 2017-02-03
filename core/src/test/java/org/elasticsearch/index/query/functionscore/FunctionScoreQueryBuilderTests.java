@@ -4869,13 +4869,11 @@ init|=
 literal|"random_with_fixed_seed"
 decl_stmt|;
 DECL|method|RandomScoreFunctionBuilderWithFixedSeed
-specifier|public
 name|RandomScoreFunctionBuilderWithFixedSeed
 parameter_list|()
 block|{         }
 comment|/**          * Read from a stream.          */
 DECL|method|RandomScoreFunctionBuilderWithFixedSeed
-specifier|public
 name|RandomScoreFunctionBuilderWithFixedSeed
 parameter_list|(
 name|StreamInput

@@ -1281,7 +1281,6 @@ name|IndexShard
 name|shard
 decl_stmt|;
 DECL|method|ShardAndBytesUsed
-specifier|public
 name|ShardAndBytesUsed
 parameter_list|(
 name|long

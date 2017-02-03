@@ -1948,7 +1948,6 @@ name|Throwable
 name|failure
 decl_stmt|;
 DECL|method|NodeEntry
-specifier|public
 name|NodeEntry
 parameter_list|(
 name|String

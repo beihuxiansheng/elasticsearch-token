@@ -1140,7 +1140,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|DirectoryStream
 argument_list|<
 name|Path

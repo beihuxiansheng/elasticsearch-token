@@ -383,7 +383,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-specifier|final
 name|void
 name|remove
 parameter_list|()

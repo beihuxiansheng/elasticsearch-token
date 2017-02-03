@@ -2237,7 +2237,6 @@ operator|.
 name|ARC
 decl_stmt|;
 DECL|method|GeoFieldDataScoreFunction
-specifier|public
 name|GeoFieldDataScoreFunction
 parameter_list|(
 name|GeoPoint
@@ -2712,7 +2711,6 @@ name|double
 name|origin
 decl_stmt|;
 DECL|method|NumericFieldDataScoreFunction
-specifier|public
 name|NumericFieldDataScoreFunction
 parameter_list|(
 name|double

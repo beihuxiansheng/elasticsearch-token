@@ -399,7 +399,6 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|VersionFieldType
-specifier|public
 name|VersionFieldType
 parameter_list|()
 block|{         }

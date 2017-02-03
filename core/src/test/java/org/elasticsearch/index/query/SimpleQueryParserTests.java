@@ -335,7 +335,6 @@ extends|extends
 name|SimpleQueryParser
 block|{
 DECL|method|MockSimpleQueryParser
-specifier|public
 name|MockSimpleQueryParser
 parameter_list|(
 name|Analyzer

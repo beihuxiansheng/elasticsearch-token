@@ -725,7 +725,6 @@ name|GeoPoint
 name|origin
 decl_stmt|;
 DECL|method|DistanceSource
-specifier|public
 name|DistanceSource
 parameter_list|(
 name|ValuesSource

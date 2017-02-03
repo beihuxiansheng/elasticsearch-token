@@ -232,7 +232,6 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|SSubEachArray
-specifier|public
 name|SSubEachArray
 parameter_list|(
 name|Location

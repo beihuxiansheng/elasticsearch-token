@@ -1490,7 +1490,6 @@ argument_list|>
 name|orderElements
 decl_stmt|;
 DECL|method|CompoundOrder
-specifier|public
 name|CompoundOrder
 parameter_list|(
 name|List
@@ -1511,7 +1510,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|CompoundOrder
-specifier|public
 name|CompoundOrder
 parameter_list|(
 name|List
@@ -1798,7 +1796,6 @@ name|Aggregator
 name|aggregator
 decl_stmt|;
 DECL|method|CompoundOrderComparator
-specifier|public
 name|CompoundOrderComparator
 parameter_list|(
 name|List

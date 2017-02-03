@@ -30,7 +30,6 @@ extends|extends
 name|NullPointerException
 block|{
 DECL|method|NullOutputException
-specifier|public
 name|NullOutputException
 parameter_list|(
 name|String

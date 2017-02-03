@@ -2866,7 +2866,6 @@ specifier|private
 name|long
 name|weight
 decl_stmt|;
-specifier|public
 name|Value
 parameter_list|(
 name|String
@@ -3772,7 +3771,6 @@ specifier|final
 name|int
 name|key
 decl_stmt|;
-specifier|public
 name|Key
 parameter_list|(
 name|int

@@ -93,7 +93,6 @@ name|pages
 decl_stmt|;
 comment|/** Constructor. */
 DECL|method|BigIntArray
-specifier|public
 name|BigIntArray
 parameter_list|(
 name|long

@@ -161,7 +161,6 @@ name|boolean
 name|showTermDocCountError
 decl_stmt|;
 DECL|method|AbstractStringTermsAggregator
-specifier|public
 name|AbstractStringTermsAggregator
 parameter_list|(
 name|String

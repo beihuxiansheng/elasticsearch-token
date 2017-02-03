@@ -557,7 +557,6 @@ name|filter
 decl_stmt|;
 comment|// filters
 DECL|method|SockFProg
-specifier|public
 name|SockFProg
 parameter_list|(
 name|SockFilter

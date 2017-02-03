@@ -209,7 +209,6 @@ argument_list|>
 name|plugins
 decl_stmt|;
 DECL|method|ESPolicy
-specifier|public
 name|ESPolicy
 parameter_list|(
 name|PermissionCollection
@@ -684,7 +683,6 @@ name|preImplies
 decl_stmt|;
 comment|/**          * Construct an instance with a pre-implies check to apply to desired permissions.          *          * @param badDefaultPermission the bad default permission to wrap          * @param preImplies           a test that is applied to a desired permission before checking if the bad default permission that          *                             this instance wraps implies the desired permission          */
 DECL|method|BadDefaultPermission
-specifier|public
 name|BadDefaultPermission
 parameter_list|(
 specifier|final

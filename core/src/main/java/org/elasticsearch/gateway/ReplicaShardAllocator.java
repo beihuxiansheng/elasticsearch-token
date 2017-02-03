@@ -2619,7 +2619,6 @@ argument_list|>
 name|nodeDecisions
 decl_stmt|;
 DECL|method|MatchingNodes
-specifier|public
 name|MatchingNodes
 parameter_list|(
 name|ObjectLongMap

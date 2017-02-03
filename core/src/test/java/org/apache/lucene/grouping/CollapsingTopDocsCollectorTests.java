@@ -496,7 +496,6 @@ argument_list|>
 name|ctx
 decl_stmt|;
 DECL|method|SegmentSearcher
-specifier|public
 name|SegmentSearcher
 parameter_list|(
 name|LeafReaderContext

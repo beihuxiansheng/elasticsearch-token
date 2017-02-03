@@ -237,7 +237,6 @@ name|path
 parameter_list|)
 function_decl|;
 DECL|class|SubAggregationComparator
-specifier|static
 class|class
 name|SubAggregationComparator
 parameter_list|<

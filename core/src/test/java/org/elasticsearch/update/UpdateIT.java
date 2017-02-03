@@ -7143,7 +7143,6 @@ argument_list|(
 name|maxDeleteRequests
 argument_list|)
 decl_stmt|;
-specifier|public
 name|UpdateThread
 parameter_list|(
 name|int
@@ -7178,7 +7177,6 @@ block|{
 name|int
 name|id
 decl_stmt|;
-specifier|public
 name|UpdateListener
 parameter_list|(
 name|int
@@ -7254,7 +7252,6 @@ block|{
 name|int
 name|id
 decl_stmt|;
-specifier|public
 name|DeleteListener
 parameter_list|(
 name|int

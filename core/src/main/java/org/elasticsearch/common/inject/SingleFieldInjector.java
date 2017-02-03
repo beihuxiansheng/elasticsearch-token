@@ -162,7 +162,6 @@ argument_list|>
 name|factory
 decl_stmt|;
 DECL|method|SingleFieldInjector
-specifier|public
 name|SingleFieldInjector
 parameter_list|(
 name|InjectorImpl

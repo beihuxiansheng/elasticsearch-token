@@ -4623,7 +4623,6 @@ name|CountDownLatch
 name|corruptionCount
 decl_stmt|;
 DECL|method|RecoveryCorruption
-specifier|public
 name|RecoveryCorruption
 parameter_list|(
 name|Transport

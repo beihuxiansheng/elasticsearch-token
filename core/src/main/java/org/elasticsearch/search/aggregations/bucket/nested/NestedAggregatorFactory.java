@@ -354,7 +354,6 @@ extends|extends
 name|NonCollectingAggregator
 block|{
 DECL|method|Unmapped
-specifier|public
 name|Unmapped
 parameter_list|(
 name|String

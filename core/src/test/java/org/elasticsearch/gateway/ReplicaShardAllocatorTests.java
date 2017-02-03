@@ -3164,7 +3164,6 @@ literal|false
 argument_list|)
 decl_stmt|;
 DECL|method|TestAllocator
-specifier|public
 name|TestAllocator
 parameter_list|()
 block|{

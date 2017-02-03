@@ -1398,7 +1398,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|BytesStreamOutput
 name|bytesOut
 init|=

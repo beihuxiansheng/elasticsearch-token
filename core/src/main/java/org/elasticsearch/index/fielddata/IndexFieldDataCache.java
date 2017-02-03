@@ -125,11 +125,9 @@ parameter_list|>
 name|IFD
 name|load
 parameter_list|(
-specifier|final
 name|DirectoryReader
 name|indexReader
 parameter_list|,
-specifier|final
 name|IFD
 name|indexFieldData
 parameter_list|)

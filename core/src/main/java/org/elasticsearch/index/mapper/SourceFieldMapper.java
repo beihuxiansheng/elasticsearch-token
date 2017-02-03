@@ -1036,7 +1036,6 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|SourceFieldType
-specifier|public
 name|SourceFieldType
 parameter_list|()
 block|{}

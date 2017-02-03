@@ -458,7 +458,6 @@ name|Exception
 block|{
 try|try
 init|(
-specifier|final
 name|ReplicationGroup
 name|shards
 init|=
@@ -854,7 +853,6 @@ name|Exception
 block|{
 try|try
 init|(
-specifier|final
 name|ReplicationGroup
 name|shards
 init|=

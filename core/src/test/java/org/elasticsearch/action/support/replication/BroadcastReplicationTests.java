@@ -1785,7 +1785,6 @@ name|newConcurrentSet
 argument_list|()
 decl_stmt|;
 DECL|method|TestBroadcastReplicationAction
-specifier|public
 name|TestBroadcastReplicationAction
 parameter_list|(
 name|Settings

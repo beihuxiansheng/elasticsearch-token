@@ -1669,7 +1669,6 @@ extends|extends
 name|BufferedOutputStream
 block|{
 DECL|method|BufferedChannelOutputStream
-specifier|public
 name|BufferedChannelOutputStream
 parameter_list|(
 name|OutputStream

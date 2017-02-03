@@ -1054,7 +1054,6 @@ name|GeoPoint
 name|bottomRight
 decl_stmt|;
 DECL|method|BoundingBox
-specifier|public
 name|BoundingBox
 parameter_list|(
 name|GeoPoint

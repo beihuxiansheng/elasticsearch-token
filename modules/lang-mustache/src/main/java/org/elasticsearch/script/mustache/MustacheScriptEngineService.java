@@ -677,7 +677,6 @@ name|vars
 decl_stmt|;
 comment|/**          * @param template the compiled template object wrapper          * @param vars the parameters to fill above object with          **/
 DECL|method|MustacheExecutableScript
-specifier|public
 name|MustacheExecutableScript
 parameter_list|(
 name|CompiledScript

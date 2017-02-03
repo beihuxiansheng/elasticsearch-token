@@ -480,7 +480,6 @@ operator|.
 name|AsyncIndexBySearchAction
 block|{
 DECL|method|TestAction
-specifier|public
 name|TestAction
 parameter_list|()
 block|{

@@ -310,7 +310,6 @@ name|String
 name|expression
 decl_stmt|;
 DECL|method|Grok
-specifier|public
 name|Grok
 parameter_list|(
 name|Map
@@ -341,7 +340,6 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|Grok
-specifier|public
 name|Grok
 parameter_list|(
 name|Map

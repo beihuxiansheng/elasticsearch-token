@@ -785,7 +785,6 @@ name|SearchScript
 name|searchScript
 decl_stmt|;
 DECL|method|ScriptQuery
-specifier|public
 name|ScriptQuery
 parameter_list|(
 name|Script

@@ -1253,7 +1253,6 @@ name|long
 name|version
 decl_stmt|;
 DECL|method|StoredState
-specifier|public
 name|StoredState
 parameter_list|(
 name|ClusterState
@@ -1366,7 +1365,6 @@ argument_list|>
 name|statePredicate
 decl_stmt|;
 DECL|method|ObservingContext
-specifier|public
 name|ObservingContext
 parameter_list|(
 name|Listener

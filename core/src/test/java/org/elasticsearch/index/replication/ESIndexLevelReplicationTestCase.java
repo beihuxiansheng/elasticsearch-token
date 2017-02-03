@@ -2415,7 +2415,6 @@ name|String
 name|opType
 decl_stmt|;
 DECL|method|ReplicationAction
-specifier|public
 name|ReplicationAction
 parameter_list|(
 name|Request
@@ -3024,7 +3023,6 @@ name|Response
 name|finalResponse
 decl_stmt|;
 DECL|method|PrimaryResult
-specifier|public
 name|PrimaryResult
 parameter_list|(
 name|ReplicaRequest
@@ -3119,7 +3117,6 @@ name|IndexResponse
 argument_list|>
 block|{
 DECL|method|IndexingAction
-specifier|public
 name|IndexingAction
 parameter_list|(
 name|IndexRequest
@@ -3457,7 +3454,6 @@ name|ReplicationResponse
 argument_list|>
 block|{
 DECL|method|GlobalCheckpointSync
-specifier|public
 name|GlobalCheckpointSync
 parameter_list|(
 name|ActionListener

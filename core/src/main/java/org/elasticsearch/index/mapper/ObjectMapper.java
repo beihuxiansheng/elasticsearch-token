@@ -327,7 +327,6 @@ comment|// not set, inherited from root
 block|}
 DECL|enum|Dynamic
 specifier|public
-specifier|static
 enum|enum
 name|Dynamic
 block|{

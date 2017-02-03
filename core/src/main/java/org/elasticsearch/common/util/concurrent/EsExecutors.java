@@ -837,7 +837,6 @@ name|String
 name|namePrefix
 decl_stmt|;
 DECL|method|EsThreadFactory
-specifier|public
 name|EsThreadFactory
 parameter_list|(
 name|String
@@ -951,7 +950,6 @@ name|ThreadPoolExecutor
 name|executor
 decl_stmt|;
 DECL|method|ExecutorScalingQueue
-specifier|public
 name|ExecutorScalingQueue
 parameter_list|()
 block|{         }

@@ -144,7 +144,7 @@ return|return
 name|source
 return|;
 block|}
-comment|/**       * Finds the start of the first statement boundary that is      * on or before {@code offset}. If one is not found, {@code -1}      * is returned.      */
+comment|/**      * Finds the start of the first statement boundary that is      * on or before {@code offset}. If one is not found, {@code -1}      * is returned.      */
 DECL|method|getPreviousStatement
 specifier|public
 name|int
@@ -163,7 +163,7 @@ name|offset
 argument_list|)
 return|;
 block|}
-comment|/**       * Finds the start of the first statement boundary that is      * after {@code offset}. If one is not found, {@code -1}      * is returned.      */
+comment|/**      * Finds the start of the first statement boundary that is      * after {@code offset}. If one is not found, {@code -1}      * is returned.      */
 DECL|method|getNextStatement
 specifier|public
 name|int
@@ -190,7 +190,6 @@ specifier|abstract
 name|Object
 name|execute
 parameter_list|(
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -199,15 +198,12 @@ name|Object
 argument_list|>
 name|params
 parameter_list|,
-specifier|final
 name|Scorer
 name|scorer
 parameter_list|,
-specifier|final
 name|LeafDocLookup
 name|doc
 parameter_list|,
-specifier|final
 name|Object
 name|value
 parameter_list|)

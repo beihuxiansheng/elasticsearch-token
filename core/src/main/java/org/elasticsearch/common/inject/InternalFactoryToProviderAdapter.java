@@ -160,7 +160,6 @@ name|Object
 name|source
 decl_stmt|;
 DECL|method|InternalFactoryToProviderAdapter
-specifier|public
 name|InternalFactoryToProviderAdapter
 parameter_list|(
 name|Initializable
@@ -186,7 +185,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|InternalFactoryToProviderAdapter
-specifier|public
 name|InternalFactoryToProviderAdapter
 parameter_list|(
 name|Initializable

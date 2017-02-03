@@ -5022,7 +5022,6 @@ name|DummyAbstractBulkByScrollRequest
 argument_list|>
 block|{
 DECL|method|DummyAsyncBulkByScrollAction
-specifier|public
 name|DummyAsyncBulkByScrollAction
 parameter_list|()
 block|{
@@ -5143,7 +5142,6 @@ name|DummyAbstractBulkByScrollRequest
 argument_list|>
 block|{
 DECL|method|DummyAbstractBulkByScrollRequest
-specifier|public
 name|DummyAbstractBulkByScrollRequest
 parameter_list|(
 name|SearchRequest
@@ -5339,7 +5337,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|MyMockClient
-specifier|public
 name|MyMockClient
 parameter_list|(
 name|Client
@@ -6213,7 +6210,6 @@ argument_list|>
 name|listener
 decl_stmt|;
 DECL|method|RequestAndListener
-specifier|public
 name|RequestAndListener
 parameter_list|(
 name|Request

@@ -121,7 +121,6 @@ extends|extends
 name|MultiBucketsAggregation
 block|{
 DECL|enum|ValueType
-specifier|static
 enum|enum
 name|ValueType
 block|{
@@ -181,7 +180,6 @@ name|ValueType
 name|scriptValueType
 decl_stmt|;
 DECL|method|ValueType
-specifier|private
 name|ValueType
 parameter_list|(
 name|org
@@ -298,7 +296,6 @@ end_comment
 begin_class
 DECL|class|Bucket
 specifier|abstract
-specifier|static
 class|class
 name|Bucket
 extends|extends
@@ -397,7 +394,6 @@ end_comment
 begin_class
 DECL|class|Order
 specifier|abstract
-specifier|static
 class|class
 name|Order
 implements|implements

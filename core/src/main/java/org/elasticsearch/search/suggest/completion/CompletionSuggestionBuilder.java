@@ -1105,7 +1105,6 @@ name|String
 name|field
 decl_stmt|;
 DECL|method|InnerBuilder
-specifier|public
 name|InnerBuilder
 parameter_list|()
 block|{

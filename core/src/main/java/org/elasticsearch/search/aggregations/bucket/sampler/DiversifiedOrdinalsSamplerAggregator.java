@@ -398,7 +398,6 @@ extends|extends
 name|BestDocsDeferringCollector
 block|{
 DECL|method|DiverseDocsDeferringCollector
-specifier|public
 name|DiverseDocsDeferringCollector
 parameter_list|()
 block|{
@@ -446,7 +445,6 @@ extends|extends
 name|DiversifiedTopDocsCollector
 block|{
 DECL|method|ValuesDiversifiedTopDocsCollector
-specifier|public
 name|ValuesDiversifiedTopDocsCollector
 parameter_list|(
 name|int

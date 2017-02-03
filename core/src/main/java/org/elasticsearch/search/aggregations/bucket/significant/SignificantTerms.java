@@ -97,7 +97,6 @@ argument_list|>
 block|{
 DECL|class|Bucket
 specifier|abstract
-specifier|static
 class|class
 name|Bucket
 extends|extends

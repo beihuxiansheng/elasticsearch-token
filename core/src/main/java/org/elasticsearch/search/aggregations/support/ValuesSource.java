@@ -1853,7 +1853,6 @@ name|LeafSearchScript
 name|script
 decl_stmt|;
 DECL|method|LongValues
-specifier|public
 name|LongValues
 parameter_list|(
 name|SortedNumericDocValues
@@ -1994,7 +1993,6 @@ name|LeafSearchScript
 name|script
 decl_stmt|;
 DECL|method|DoubleValues
-specifier|public
 name|DoubleValues
 parameter_list|(
 name|SortedNumericDoubleValues
@@ -2506,7 +2504,6 @@ name|LeafSearchScript
 name|script
 decl_stmt|;
 DECL|method|BytesValues
-specifier|public
 name|BytesValues
 parameter_list|(
 name|SortedBinaryDocValues

@@ -214,7 +214,6 @@ name|UUIDGenerator
 name|uuidSource
 decl_stmt|;
 DECL|method|UUIDGenRunner
-specifier|public
 name|UUIDGenRunner
 parameter_list|(
 name|int

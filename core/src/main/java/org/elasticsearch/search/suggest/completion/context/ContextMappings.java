@@ -581,7 +581,6 @@ name|Document
 name|document
 decl_stmt|;
 DECL|method|TypedContextField
-specifier|public
 name|TypedContextField
 parameter_list|(
 name|String

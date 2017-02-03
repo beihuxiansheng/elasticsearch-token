@@ -156,7 +156,6 @@ argument_list|>
 name|arguments
 decl_stmt|;
 DECL|method|PSubCallInvoke
-specifier|public
 name|PSubCallInvoke
 parameter_list|(
 name|Location

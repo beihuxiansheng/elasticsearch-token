@@ -550,7 +550,6 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|IndexFieldType
-specifier|public
 name|IndexFieldType
 parameter_list|()
 block|{}

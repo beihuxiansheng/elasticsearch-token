@@ -1805,7 +1805,6 @@ literal|true
 argument_list|)
 decl_stmt|;
 DECL|method|NativeTestScriptedBlockFactory
-specifier|public
 name|NativeTestScriptedBlockFactory
 parameter_list|()
 block|{         }

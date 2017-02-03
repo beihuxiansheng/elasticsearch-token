@@ -378,8 +378,6 @@ extends|extends
 name|IndexComponent
 block|{
 DECL|class|CommonSettings
-specifier|public
-specifier|static
 class|class
 name|CommonSettings
 block|{

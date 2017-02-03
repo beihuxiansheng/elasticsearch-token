@@ -122,7 +122,6 @@ name|offset
 decl_stmt|;
 comment|// the current position of the stream
 DECL|method|BytesReferenceStreamInput
-specifier|public
 name|BytesReferenceStreamInput
 parameter_list|(
 name|BytesRefIterator

@@ -91,15 +91,12 @@ parameter_list|(
 name|Task
 name|task
 parameter_list|,
-specifier|final
 name|String
 name|action
 parameter_list|,
-specifier|final
 name|Request
 name|request
 parameter_list|,
-specifier|final
 name|ActionListener
 argument_list|<
 name|Response

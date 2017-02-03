@@ -637,7 +637,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|HttpServerTransport
 name|httpServerTransport
 init|=
@@ -838,7 +837,6 @@ argument_list|()
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|HttpServerTransport
 name|httpServerTransport
 init|=

@@ -476,7 +476,6 @@ argument_list|)
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|Directory
 name|directory
 init|=

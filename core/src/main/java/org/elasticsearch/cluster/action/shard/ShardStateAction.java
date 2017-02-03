@@ -1529,7 +1529,6 @@ name|Logger
 name|logger
 decl_stmt|;
 DECL|method|ShardFailedTransportHandler
-specifier|public
 name|ShardFailedTransportHandler
 parameter_list|(
 name|ClusterService
@@ -2684,7 +2683,6 @@ name|Logger
 name|logger
 decl_stmt|;
 DECL|method|ShardStartedTransportHandler
-specifier|public
 name|ShardStartedTransportHandler
 parameter_list|(
 name|ClusterService

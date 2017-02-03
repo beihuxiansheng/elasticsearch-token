@@ -1221,7 +1221,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|JdkMapDiff
-specifier|public
 name|JdkMapDiff
 parameter_list|(
 name|Map
@@ -2212,7 +2211,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ImmutableOpenIntMapDiff
-specifier|public
 name|ImmutableOpenIntMapDiff
 parameter_list|(
 name|ImmutableOpenIntMap

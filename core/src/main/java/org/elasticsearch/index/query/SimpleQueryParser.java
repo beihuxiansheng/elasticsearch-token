@@ -1669,12 +1669,10 @@ literal|null
 decl_stmt|;
 comment|/**          * Generates default {@link Settings} object (uses ROOT locale, does          * lowercase terms, no lenient parsing, no wildcard analysis).          * */
 DECL|method|Settings
-specifier|public
 name|Settings
 parameter_list|()
 block|{         }
 DECL|method|Settings
-specifier|public
 name|Settings
 parameter_list|(
 name|Settings

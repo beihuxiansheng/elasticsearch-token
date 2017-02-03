@@ -788,7 +788,6 @@ argument_list|>
 name|suggestScoreDocs
 decl_stmt|;
 DECL|method|SuggestDoc
-specifier|public
 name|SuggestDoc
 parameter_list|(
 name|int
@@ -1052,7 +1051,6 @@ name|SuggestDoc
 argument_list|>
 block|{
 DECL|method|SuggestDocPriorityQueue
-specifier|public
 name|SuggestDocPriorityQueue
 parameter_list|(
 name|int
@@ -1223,7 +1221,6 @@ argument_list|>
 name|scoreDocMap
 decl_stmt|;
 DECL|method|TopDocumentsCollector
-specifier|public
 name|TopDocumentsCollector
 parameter_list|(
 name|int

@@ -391,7 +391,6 @@ name|TaskManager
 name|taskManager
 decl_stmt|;
 DECL|method|TransportChannelWrapper
-specifier|public
 name|TransportChannelWrapper
 parameter_list|(
 name|TaskManager

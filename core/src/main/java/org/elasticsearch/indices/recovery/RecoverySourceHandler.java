@@ -888,7 +888,6 @@ name|IOException
 block|{
 try|try
 init|(
-specifier|final
 name|Translog
 operator|.
 name|View
@@ -3443,7 +3442,6 @@ index|]
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|IndexInput
 name|indexInput
 init|=

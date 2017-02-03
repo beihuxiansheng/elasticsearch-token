@@ -518,7 +518,6 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|BinaryFieldType
-specifier|public
 name|BinaryFieldType
 parameter_list|()
 block|{}

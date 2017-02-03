@@ -1367,7 +1367,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|OtherFakeFieldType
-specifier|public
 name|OtherFakeFieldType
 parameter_list|()
 block|{         }

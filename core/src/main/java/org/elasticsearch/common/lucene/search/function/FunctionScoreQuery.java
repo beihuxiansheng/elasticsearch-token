@@ -527,7 +527,6 @@ name|boolean
 name|needsScores
 decl_stmt|;
 DECL|method|CustomBoostFactorWeight
-specifier|public
 name|CustomBoostFactorWeight
 parameter_list|(
 name|Query

@@ -381,7 +381,6 @@ name|long
 name|offset
 decl_stmt|;
 DECL|method|DateHistogramAggregator
-specifier|public
 name|DateHistogramAggregator
 parameter_list|(
 name|String

@@ -5950,7 +5950,6 @@ argument_list|>
 name|counters
 decl_stmt|;
 DECL|method|NetworkHandle
-specifier|public
 name|NetworkHandle
 parameter_list|(
 specifier|final
@@ -6013,7 +6012,6 @@ extends|extends
 name|UnicastZenPing
 block|{
 DECL|method|TestUnicastZenPing
-specifier|public
 name|TestUnicastZenPing
 parameter_list|(
 name|Settings

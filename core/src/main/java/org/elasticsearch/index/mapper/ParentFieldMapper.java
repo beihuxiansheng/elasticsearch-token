@@ -1093,7 +1093,6 @@ name|String
 name|documentType
 decl_stmt|;
 DECL|method|ParentFieldType
-specifier|public
 name|ParentFieldType
 parameter_list|()
 block|{

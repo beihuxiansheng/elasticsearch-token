@@ -107,7 +107,6 @@ name|getVarianceAsString
 parameter_list|()
 function_decl|;
 DECL|enum|Bounds
-specifier|public
 enum|enum
 name|Bounds
 block|{

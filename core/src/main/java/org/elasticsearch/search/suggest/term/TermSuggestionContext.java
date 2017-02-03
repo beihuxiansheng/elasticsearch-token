@@ -81,7 +81,6 @@ name|DirectSpellcheckerSettings
 argument_list|()
 decl_stmt|;
 DECL|method|TermSuggestionContext
-specifier|public
 name|TermSuggestionContext
 parameter_list|(
 name|QueryShardContext

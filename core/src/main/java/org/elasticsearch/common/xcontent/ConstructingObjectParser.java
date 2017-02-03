@@ -869,7 +869,6 @@ name|Value
 name|targetObject
 decl_stmt|;
 DECL|method|Target
-specifier|public
 name|Target
 parameter_list|(
 name|XContentParser
@@ -1291,7 +1290,6 @@ name|boolean
 name|required
 decl_stmt|;
 DECL|method|ConstructorArgInfo
-specifier|public
 name|ConstructorArgInfo
 parameter_list|(
 name|ParseField

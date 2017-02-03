@@ -245,7 +245,6 @@ name|String
 name|output
 decl_stmt|;
 DECL|method|FakeAnalyzer
-specifier|public
 name|FakeAnalyzer
 parameter_list|(
 name|String
@@ -349,7 +348,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|FakeFieldType
-specifier|public
 name|FakeFieldType
 parameter_list|()
 block|{
@@ -433,7 +431,6 @@ name|build
 argument_list|()
 decl_stmt|;
 DECL|method|FakeFieldMapper
-specifier|public
 name|FakeFieldMapper
 parameter_list|(
 name|String

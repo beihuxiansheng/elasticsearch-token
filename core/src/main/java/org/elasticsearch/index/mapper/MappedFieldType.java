@@ -2303,7 +2303,6 @@ block|}
 comment|/**      * An enum used to describe the relation between the range of terms in a      * shard when compared with a query range      */
 DECL|enum|Relation
 specifier|public
-specifier|static
 enum|enum
 name|Relation
 block|{

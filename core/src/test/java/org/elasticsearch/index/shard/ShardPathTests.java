@@ -192,7 +192,6 @@ name|IOException
 block|{
 try|try
 init|(
-specifier|final
 name|NodeEnvironment
 name|env
 init|=
@@ -409,7 +408,6 @@ name|IOException
 block|{
 try|try
 init|(
-specifier|final
 name|NodeEnvironment
 name|env
 init|=
@@ -598,7 +596,6 @@ name|IOException
 block|{
 try|try
 init|(
-specifier|final
 name|NodeEnvironment
 name|env
 init|=
@@ -1128,7 +1125,6 @@ expr_stmt|;
 block|}
 try|try
 init|(
-specifier|final
 name|NodeEnvironment
 name|env
 init|=

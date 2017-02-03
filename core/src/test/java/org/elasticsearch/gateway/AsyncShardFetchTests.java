@@ -1822,7 +1822,6 @@ literal|1
 argument_list|)
 decl_stmt|;
 DECL|method|Entry
-specifier|public
 name|Entry
 parameter_list|(
 name|Response
@@ -1878,7 +1877,6 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|method|TestFetch
-specifier|public
 name|TestFetch
 parameter_list|(
 name|ThreadPool
@@ -2241,7 +2239,6 @@ extends|extends
 name|BaseNodeResponse
 block|{
 DECL|method|Response
-specifier|public
 name|Response
 parameter_list|(
 name|DiscoveryNode

@@ -504,7 +504,6 @@ argument_list|>
 name|nextPhaseFactory
 decl_stmt|;
 DECL|method|DfsQueryPhase
-specifier|public
 name|DfsQueryPhase
 parameter_list|(
 name|AtomicArray

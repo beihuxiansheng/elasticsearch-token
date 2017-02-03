@@ -186,7 +186,6 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|AssistedConstructor
-specifier|public
 name|AssistedConstructor
 parameter_list|(
 name|Constructor

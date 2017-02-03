@@ -310,7 +310,6 @@ name|BackoffPolicy
 name|backoffPolicy
 decl_stmt|;
 DECL|method|SyncBulkRequestHandler
-specifier|public
 name|SyncBulkRequestHandler
 parameter_list|(
 name|Client

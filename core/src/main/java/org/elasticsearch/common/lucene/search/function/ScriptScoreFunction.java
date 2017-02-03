@@ -183,7 +183,6 @@ name|float
 name|score
 decl_stmt|;
 DECL|method|CannedScorer
-specifier|public
 name|CannedScorer
 parameter_list|()
 block|{

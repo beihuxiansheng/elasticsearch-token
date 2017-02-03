@@ -697,7 +697,6 @@ name|RestRequest
 name|request
 decl_stmt|;
 DECL|method|BulkRestBuilderListener
-specifier|public
 name|BulkRestBuilderListener
 parameter_list|(
 name|RestChannel

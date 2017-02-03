@@ -869,7 +869,6 @@ name|T
 argument_list|>
 block|{
 DECL|method|InternalAsyncFetch
-specifier|public
 name|InternalAsyncFetch
 parameter_list|(
 name|Logger
@@ -954,7 +953,6 @@ name|TransportNodesListGatewayStartedShards
 name|startedAction
 decl_stmt|;
 DECL|method|InternalPrimaryShardAllocator
-specifier|public
 name|InternalPrimaryShardAllocator
 parameter_list|(
 name|Settings
@@ -1094,7 +1092,6 @@ name|TransportNodesListShardStoreMetaData
 name|storeAction
 decl_stmt|;
 DECL|method|InternalReplicaShardAllocator
-specifier|public
 name|InternalReplicaShardAllocator
 parameter_list|(
 name|Settings

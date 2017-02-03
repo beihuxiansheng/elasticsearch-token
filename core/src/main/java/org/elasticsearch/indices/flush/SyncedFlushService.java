@@ -3858,12 +3858,10 @@ name|int
 name|opCount
 decl_stmt|;
 DECL|method|InFlightOpsResponse
-specifier|public
 name|InFlightOpsResponse
 parameter_list|()
 block|{         }
 DECL|method|InFlightOpsResponse
-specifier|public
 name|InFlightOpsResponse
 parameter_list|(
 name|int

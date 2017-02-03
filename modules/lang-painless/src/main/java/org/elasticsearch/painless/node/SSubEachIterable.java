@@ -321,7 +321,6 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|SSubEachIterable
-specifier|public
 name|SSubEachIterable
 parameter_list|(
 name|Location

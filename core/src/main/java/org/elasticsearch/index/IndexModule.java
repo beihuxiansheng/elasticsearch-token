@@ -1574,7 +1574,6 @@ DECL|method|newWrapper
 name|IndexSearcherWrapper
 name|newWrapper
 parameter_list|(
-specifier|final
 name|IndexService
 name|indexService
 parameter_list|)

@@ -633,7 +633,6 @@ name|int
 name|docCount
 decl_stmt|;
 DECL|method|TermVector
-specifier|public
 name|TermVector
 parameter_list|(
 name|BytesReference

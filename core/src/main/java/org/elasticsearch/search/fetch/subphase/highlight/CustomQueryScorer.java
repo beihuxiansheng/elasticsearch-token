@@ -336,7 +336,6 @@ extends|extends
 name|WeightedSpanTermExtractor
 block|{
 DECL|method|CustomWeightedSpanTermExtractor
-specifier|public
 name|CustomWeightedSpanTermExtractor
 parameter_list|()
 block|{
@@ -345,7 +344,6 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|CustomWeightedSpanTermExtractor
-specifier|public
 name|CustomWeightedSpanTermExtractor
 parameter_list|(
 name|String

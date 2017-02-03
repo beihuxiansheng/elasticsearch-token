@@ -368,7 +368,6 @@ argument_list|>
 name|memberInjectors
 decl_stmt|;
 DECL|method|StaticInjection
-specifier|public
 name|StaticInjection
 parameter_list|(
 name|InjectorImpl

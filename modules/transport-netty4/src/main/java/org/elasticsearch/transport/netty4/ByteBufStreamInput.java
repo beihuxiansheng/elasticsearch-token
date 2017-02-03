@@ -122,7 +122,6 @@ name|int
 name|endIndex
 decl_stmt|;
 DECL|method|ByteBufStreamInput
-specifier|public
 name|ByteBufStreamInput
 parameter_list|(
 name|ByteBuf

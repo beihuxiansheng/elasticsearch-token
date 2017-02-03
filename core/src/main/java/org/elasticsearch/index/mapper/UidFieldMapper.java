@@ -432,7 +432,6 @@ extends|extends
 name|TermBasedFieldType
 block|{
 DECL|method|UidFieldType
-specifier|public
 name|UidFieldType
 parameter_list|()
 block|{         }

@@ -1068,7 +1068,6 @@ name|FakeHandler
 implements|implements
 name|RestHandler
 block|{
-specifier|public
 name|FakeHandler
 parameter_list|(
 name|RestController

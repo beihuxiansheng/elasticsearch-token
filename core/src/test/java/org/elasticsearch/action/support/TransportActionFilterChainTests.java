@@ -1500,7 +1500,6 @@ block|}
 block|}
 DECL|enum|RequestOperation
 specifier|private
-specifier|static
 enum|enum
 name|RequestOperation
 implements|implements

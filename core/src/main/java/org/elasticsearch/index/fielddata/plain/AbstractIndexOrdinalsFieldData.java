@@ -767,7 +767,6 @@ name|int
 name|maxFreq
 decl_stmt|;
 DECL|method|FrequencyFilter
-specifier|public
 name|FrequencyFilter
 parameter_list|(
 name|TermsEnum

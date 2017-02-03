@@ -77,7 +77,6 @@ implements|implements
 name|NamedWriteable
 block|{
 DECL|method|DummyNamedWriteable
-specifier|public
 name|DummyNamedWriteable
 parameter_list|(
 name|StreamInput

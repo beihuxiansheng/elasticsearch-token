@@ -158,7 +158,6 @@ name|boolean
 name|isProvider
 decl_stmt|;
 DECL|method|Parameter
-specifier|public
 name|Parameter
 parameter_list|(
 name|Type

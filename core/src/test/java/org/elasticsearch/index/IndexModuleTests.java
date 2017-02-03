@@ -3704,7 +3704,6 @@ name|String
 name|key
 decl_stmt|;
 DECL|method|TestSimilarity
-specifier|public
 name|TestSimilarity
 parameter_list|(
 name|String

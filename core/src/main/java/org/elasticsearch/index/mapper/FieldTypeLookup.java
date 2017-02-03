@@ -165,7 +165,6 @@ name|fullNameToTypes
 decl_stmt|;
 comment|/** Create a new empty instance. */
 DECL|method|FieldTypeLookup
-specifier|public
 name|FieldTypeLookup
 parameter_list|()
 block|{

@@ -200,7 +200,6 @@ argument_list|>
 name|old
 decl_stmt|;
 DECL|method|Maps
-specifier|public
 name|Maps
 parameter_list|(
 name|Map
@@ -234,7 +233,6 @@ name|old
 expr_stmt|;
 block|}
 DECL|method|Maps
-specifier|public
 name|Maps
 parameter_list|()
 block|{

@@ -1978,7 +1978,6 @@ argument_list|>
 name|nodesWithShard
 decl_stmt|;
 DECL|method|IndexNodePredicate
-specifier|public
 name|IndexNodePredicate
 parameter_list|(
 name|String

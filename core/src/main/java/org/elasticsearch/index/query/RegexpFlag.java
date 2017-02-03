@@ -133,36 +133,31 @@ name|value
 decl_stmt|;
 end_decl_stmt
 
-begin_constructor
+begin_expr_stmt
 DECL|method|RegexpFlag
-specifier|private
 name|RegexpFlag
-parameter_list|(
+argument_list|(
 name|int
 name|value
-parameter_list|)
+argument_list|)
 block|{
 name|this
 operator|.
 name|value
 operator|=
 name|value
-expr_stmt|;
-block|}
-end_constructor
-
-begin_function
+block|;     }
 DECL|method|value
 specifier|public
 name|int
 name|value
-parameter_list|()
+argument_list|()
 block|{
 return|return
 name|value
 return|;
 block|}
-end_function
+end_expr_stmt
 
 begin_comment
 comment|/**      * Resolves the combined OR'ed value for the given list of regular expression flags. The given flags must follow the      * following syntax:      *<p>      *<tt>flag_name</tt>(|<tt>flag_name</tt>)*      *<p>      * Where<tt>flag_name</tt> is one of the following:      *<ul>      *<li>INTERSECTION</li>      *<li>COMPLEMENT</li>      *<li>EMPTY</li>      *<li>ANYSTRING</li>      *<li>INTERVAL</li>      *<li>NONE</li>      *<li>ALL</li>      *</ul>      *<p>      * Example:<tt>INTERSECTION|COMPLEMENT|EMPTY</tt>      *      * @param flags A string representing a list of regular expression flags      * @return The combined OR'ed value for all the flags      */

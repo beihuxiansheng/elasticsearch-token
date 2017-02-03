@@ -692,7 +692,6 @@ name|UpdateByQueryRequest
 argument_list|>
 block|{
 DECL|method|AsyncIndexBySearchAction
-specifier|public
 name|AsyncIndexBySearchAction
 parameter_list|(
 name|WorkingBulkByScrollTask

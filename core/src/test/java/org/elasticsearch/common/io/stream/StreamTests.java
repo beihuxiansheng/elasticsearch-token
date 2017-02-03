@@ -1821,7 +1821,6 @@ name|String
 name|string
 decl_stmt|;
 DECL|method|WriteableString
-specifier|public
 name|WriteableString
 parameter_list|(
 name|String
@@ -1836,7 +1835,6 @@ name|string
 expr_stmt|;
 block|}
 DECL|method|WriteableString
-specifier|public
 name|WriteableString
 parameter_list|(
 name|StreamInput

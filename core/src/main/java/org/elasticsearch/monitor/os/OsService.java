@@ -297,7 +297,6 @@ name|OsStats
 argument_list|>
 block|{
 DECL|method|OsStatsCache
-specifier|public
 name|OsStatsCache
 parameter_list|(
 name|TimeValue

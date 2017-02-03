@@ -1423,7 +1423,6 @@ control|)
 block|{
 try|try
 init|(
-specifier|final
 name|TestIteration
 name|iteration
 init|=
@@ -1954,7 +1953,6 @@ control|)
 block|{
 try|try
 init|(
-specifier|final
 name|TestIteration
 name|iteration
 init|=
@@ -2103,7 +2101,6 @@ block|}
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|TestIteration
 name|iteration
 init|=

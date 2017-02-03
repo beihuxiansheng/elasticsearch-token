@@ -1108,7 +1108,6 @@ index|[]
 name|blendedFields
 decl_stmt|;
 DECL|method|CrossFieldsQueryBuilder
-specifier|public
 name|CrossFieldsQueryBuilder
 parameter_list|(
 name|float

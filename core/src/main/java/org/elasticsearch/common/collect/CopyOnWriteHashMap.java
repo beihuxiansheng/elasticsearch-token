@@ -2555,7 +2555,6 @@ argument_list|>
 name|nodes
 decl_stmt|;
 DECL|method|EntryIterator
-specifier|public
 name|EntryIterator
 parameter_list|(
 name|Node

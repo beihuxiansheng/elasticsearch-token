@@ -9306,7 +9306,6 @@ argument_list|>
 argument_list|>
 block|{
 DECL|method|NoopReplicationOperation
-specifier|public
 name|NoopReplicationOperation
 parameter_list|(
 name|Request

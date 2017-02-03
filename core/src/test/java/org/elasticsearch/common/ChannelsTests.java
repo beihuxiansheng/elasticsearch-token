@@ -1113,7 +1113,6 @@ name|FileChannel
 name|delegate
 decl_stmt|;
 DECL|method|MockFileChannel
-specifier|public
 name|MockFileChannel
 parameter_list|(
 name|FileChannel

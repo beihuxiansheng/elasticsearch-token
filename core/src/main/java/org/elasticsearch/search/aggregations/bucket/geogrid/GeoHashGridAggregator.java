@@ -586,7 +586,6 @@ name|long
 name|bucketOrd
 decl_stmt|;
 DECL|method|OrdinalBucket
-specifier|public
 name|OrdinalBucket
 parameter_list|()
 block|{

@@ -101,7 +101,6 @@ name|String
 name|strategyName
 decl_stmt|;
 DECL|method|SpatialStrategy
-specifier|private
 name|SpatialStrategy
 parameter_list|(
 name|String

@@ -2857,7 +2857,6 @@ argument_list|>
 block|{
 comment|/**          * Read from a stream.          */
 DECL|method|TestPipelineAggregationBuilder
-specifier|public
 name|TestPipelineAggregationBuilder
 parameter_list|(
 name|StreamInput
@@ -2997,7 +2996,6 @@ name|PipelineAggregator
 block|{
 comment|/**          * Read from a stream.          */
 DECL|method|TestPipelineAggregator
-specifier|public
 name|TestPipelineAggregator
 parameter_list|(
 name|StreamInput

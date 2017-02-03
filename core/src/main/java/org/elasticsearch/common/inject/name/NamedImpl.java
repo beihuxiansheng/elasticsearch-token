@@ -54,7 +54,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|NamedImpl
-specifier|public
 name|NamedImpl
 parameter_list|(
 name|String

@@ -210,7 +210,6 @@ name|part
 decl_stmt|;
 comment|/**          * Creates simple diff with changes          */
 DECL|method|CompleteDiff
-specifier|public
 name|CompleteDiff
 parameter_list|(
 name|T
@@ -226,7 +225,6 @@ expr_stmt|;
 block|}
 comment|/**          * Creates simple diff without changes          */
 DECL|method|CompleteDiff
-specifier|public
 name|CompleteDiff
 parameter_list|()
 block|{
@@ -239,7 +237,6 @@ expr_stmt|;
 block|}
 comment|/**          * Read simple diff from the stream          */
 DECL|method|CompleteDiff
-specifier|public
 name|CompleteDiff
 parameter_list|(
 name|Reader

@@ -155,7 +155,6 @@ name|correlation
 decl_stmt|;
 comment|/** Base ctor */
 DECL|method|MatrixStatsResults
-specifier|public
 name|MatrixStatsResults
 parameter_list|()
 block|{
@@ -177,7 +176,6 @@ expr_stmt|;
 block|}
 comment|/** creates and computes result from provided stats */
 DECL|method|MatrixStatsResults
-specifier|public
 name|MatrixStatsResults
 parameter_list|(
 name|RunningStats

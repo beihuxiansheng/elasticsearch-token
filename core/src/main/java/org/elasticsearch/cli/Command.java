@@ -356,14 +356,13 @@ parameter_list|)
 block|{
 try|try
 init|(
-specifier|final
 name|StringWriter
 name|sw
 init|=
 operator|new
 name|StringWriter
 argument_list|()
-init|;                         final PrintWriter pw = new PrintWriter(sw)
+init|;                         PrintWriter pw = new PrintWriter(sw)
 argument_list|)
 block|{
 name|e

@@ -245,7 +245,6 @@ name|int
 name|length
 decl_stmt|;
 DECL|method|ArrayMap
-specifier|public
 name|ArrayMap
 parameter_list|(
 name|Object
@@ -539,7 +538,6 @@ argument_list|>
 name|col
 decl_stmt|;
 DECL|method|CollectionMap
-specifier|public
 name|CollectionMap
 parameter_list|(
 name|Collection

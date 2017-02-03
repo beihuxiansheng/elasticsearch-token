@@ -14016,7 +14016,6 @@ name|ByteBuffer
 name|writeSpare
 decl_stmt|;
 DECL|method|Hashset
-specifier|public
 name|Hashset
 parameter_list|(
 name|long

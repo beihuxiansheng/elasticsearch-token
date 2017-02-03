@@ -1060,7 +1060,6 @@ argument_list|>
 name|causeType
 decl_stmt|;
 DECL|method|GroupBy
-specifier|public
 name|GroupBy
 parameter_list|(
 name|Throwable

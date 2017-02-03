@@ -1816,7 +1816,6 @@ name|char
 name|sepLabel
 decl_stmt|;
 DECL|method|EscapingTokenStreamToAutomaton
-specifier|public
 name|EscapingTokenStreamToAutomaton
 parameter_list|(
 name|char
@@ -2025,7 +2024,6 @@ name|boolean
 name|hasPayloads
 decl_stmt|;
 DECL|method|AnalyzingComparator
-specifier|public
 name|AnalyzingComparator
 parameter_list|(
 name|boolean
@@ -5739,7 +5737,6 @@ name|long
 name|weight
 decl_stmt|;
 DECL|method|SurfaceFormAndPayload
-specifier|public
 name|SurfaceFormAndPayload
 parameter_list|(
 name|BytesRef

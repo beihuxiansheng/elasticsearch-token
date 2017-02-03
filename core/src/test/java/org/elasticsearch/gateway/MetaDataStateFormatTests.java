@@ -1816,7 +1816,6 @@ name|file
 decl_stmt|;
 try|try
 init|(
-specifier|final
 name|SimpleFSDirectory
 name|dir
 init|=
@@ -3440,7 +3439,6 @@ literal|'}'
 return|;
 block|}
 DECL|method|DummyState
-specifier|public
 name|DummyState
 parameter_list|(
 name|String
@@ -3491,7 +3489,6 @@ name|aBoolean
 expr_stmt|;
 block|}
 DECL|method|DummyState
-specifier|public
 name|DummyState
 parameter_list|()
 block|{          }

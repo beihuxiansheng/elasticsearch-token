@@ -218,7 +218,6 @@ name|boolean
 name|keyed
 decl_stmt|;
 DECL|method|AbstractInternalHDRPercentiles
-specifier|public
 name|AbstractInternalHDRPercentiles
 parameter_list|(
 name|String

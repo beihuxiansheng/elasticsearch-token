@@ -61,7 +61,6 @@ operator|.
 name|QueryCache
 block|{
 DECL|class|EntriesStats
-specifier|static
 class|class
 name|EntriesStats
 block|{

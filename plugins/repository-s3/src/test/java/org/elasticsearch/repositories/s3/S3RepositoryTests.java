@@ -303,7 +303,6 @@ implements|implements
 name|AwsS3Service
 block|{
 DECL|method|DummyS3Service
-specifier|public
 name|DummyS3Service
 parameter_list|()
 block|{

@@ -3542,7 +3542,6 @@ name|int
 name|allocationsFound
 decl_stmt|;
 DECL|method|NodeShardsResult
-specifier|public
 name|NodeShardsResult
 parameter_list|(
 name|List
@@ -3599,7 +3598,6 @@ argument_list|>
 name|noNodeShards
 decl_stmt|;
 DECL|method|NodesToAllocate
-specifier|public
 name|NodesToAllocate
 parameter_list|(
 name|List

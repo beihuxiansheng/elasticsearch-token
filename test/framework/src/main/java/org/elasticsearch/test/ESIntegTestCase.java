@@ -9623,7 +9623,6 @@ name|CountDownLatch
 name|latch
 decl_stmt|;
 DECL|method|LatchedActionListener
-specifier|public
 name|LatchedActionListener
 parameter_list|(
 name|CountDownLatch
@@ -9739,7 +9738,6 @@ name|T
 name|builder
 decl_stmt|;
 DECL|method|PayloadLatchedActionListener
-specifier|public
 name|PayloadLatchedActionListener
 parameter_list|(
 name|T

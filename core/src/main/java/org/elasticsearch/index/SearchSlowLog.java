@@ -1247,7 +1247,6 @@ name|long
 name|tookInNanos
 decl_stmt|;
 DECL|method|SlowLogSearchContextPrinter
-specifier|public
 name|SlowLogSearchContextPrinter
 parameter_list|(
 name|SearchContext

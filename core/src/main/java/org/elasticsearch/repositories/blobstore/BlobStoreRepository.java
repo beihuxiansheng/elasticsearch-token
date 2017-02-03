@@ -5453,7 +5453,6 @@ name|Version
 name|version
 decl_stmt|;
 DECL|method|Context
-specifier|public
 name|Context
 parameter_list|(
 name|SnapshotId
@@ -5484,7 +5483,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|Context
-specifier|public
 name|Context
 parameter_list|(
 name|SnapshotId
@@ -6505,7 +6503,6 @@ name|snapshotStatus
 decl_stmt|;
 comment|/**          * Constructs new context          *          * @param shard          shard to be snapshotted          * @param snapshotId     snapshot id          * @param indexId        the id of the index being snapshotted          * @param snapshotStatus snapshot status to report progress          */
 DECL|method|SnapshotContext
-specifier|public
 name|SnapshotContext
 parameter_list|(
 name|IndexShard
@@ -7665,7 +7662,6 @@ name|String
 name|fileName
 decl_stmt|;
 DECL|method|AbortableInputStream
-specifier|public
 name|AbortableInputStream
 parameter_list|(
 name|InputStream
@@ -7864,7 +7860,6 @@ comment|// to calculate it.
 comment|// we might have multiple parts even though the file is small... make sure we read all of it.
 try|try
 init|(
-specifier|final
 name|InputStream
 name|stream
 init|=
@@ -7971,7 +7966,6 @@ name|FileInfo
 name|info
 decl_stmt|;
 DECL|method|PartSliceStream
-specifier|public
 name|PartSliceStream
 parameter_list|(
 name|BlobContainer
@@ -8054,7 +8048,6 @@ name|recoveryState
 decl_stmt|;
 comment|/**          * Constructs new restore context          *          * @param shard           shard to restore into          * @param snapshotId      snapshot id          * @param indexId         id of the index being restored          * @param snapshotShardId shard in the snapshot that data should be restored from          * @param recoveryState   recovery state to report progress          */
 DECL|method|RestoreContext
-specifier|public
 name|RestoreContext
 parameter_list|(
 name|IndexShard
@@ -9150,7 +9143,6 @@ expr_stmt|;
 block|}
 try|try
 init|(
-specifier|final
 name|IndexOutput
 name|indexOutput
 init|=

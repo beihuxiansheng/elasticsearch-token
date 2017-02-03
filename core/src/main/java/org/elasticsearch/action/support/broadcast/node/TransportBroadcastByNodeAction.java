@@ -2876,12 +2876,10 @@ argument_list|>
 name|results
 decl_stmt|;
 DECL|method|NodeResponse
-specifier|public
 name|NodeResponse
 parameter_list|()
 block|{         }
 DECL|method|NodeResponse
-specifier|public
 name|NodeResponse
 parameter_list|(
 name|String

@@ -163,7 +163,6 @@ name|AtomicBoolean
 argument_list|()
 decl_stmt|;
 DECL|method|TestRoutingService
-specifier|public
 name|TestRoutingService
 parameter_list|()
 block|{

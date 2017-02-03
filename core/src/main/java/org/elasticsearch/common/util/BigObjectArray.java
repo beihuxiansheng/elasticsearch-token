@@ -99,7 +99,6 @@ name|pages
 decl_stmt|;
 comment|/** Constructor. */
 DECL|method|BigObjectArray
-specifier|public
 name|BigObjectArray
 parameter_list|(
 name|long

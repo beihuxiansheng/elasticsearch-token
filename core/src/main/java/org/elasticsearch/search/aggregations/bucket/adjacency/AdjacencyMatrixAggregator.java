@@ -877,7 +877,6 @@ name|Bits
 name|b
 decl_stmt|;
 DECL|method|BitsIntersector
-specifier|public
 name|BitsIntersector
 parameter_list|(
 name|Bits

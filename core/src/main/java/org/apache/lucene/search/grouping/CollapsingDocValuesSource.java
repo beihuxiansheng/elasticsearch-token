@@ -271,7 +271,6 @@ name|Bits
 name|docsWithField
 decl_stmt|;
 DECL|method|Numeric
-specifier|public
 name|Numeric
 parameter_list|(
 name|String
@@ -569,7 +568,6 @@ name|SortedDocValues
 name|values
 decl_stmt|;
 DECL|method|Keyword
-specifier|public
 name|Keyword
 parameter_list|(
 name|String

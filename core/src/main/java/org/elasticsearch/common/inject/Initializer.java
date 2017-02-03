@@ -453,7 +453,6 @@ argument_list|>
 name|membersInjector
 decl_stmt|;
 DECL|method|InjectableReference
-specifier|public
 name|InjectableReference
 parameter_list|(
 name|InjectorImpl

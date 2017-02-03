@@ -569,7 +569,6 @@ name|int
 name|bulkSize
 decl_stmt|;
 DECL|method|LoadGenerator
-specifier|public
 name|LoadGenerator
 parameter_list|(
 name|Path
@@ -843,7 +842,6 @@ name|SampleRecorder
 name|sampleRecorder
 decl_stmt|;
 DECL|method|BulkIndexer
-specifier|public
 name|BulkIndexer
 parameter_list|(
 name|BlockingQueue

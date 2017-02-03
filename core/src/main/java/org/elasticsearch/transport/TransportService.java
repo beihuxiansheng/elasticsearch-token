@@ -2157,12 +2157,10 @@ name|Version
 name|version
 decl_stmt|;
 DECL|method|HandshakeResponse
-specifier|public
 name|HandshakeResponse
 parameter_list|()
 block|{         }
 DECL|method|HandshakeResponse
-specifier|public
 name|HandshakeResponse
 parameter_list|(
 name|DiscoveryNode
@@ -5577,7 +5575,6 @@ name|ThreadPool
 name|threadPool
 decl_stmt|;
 DECL|method|DirectResponseChannel
-specifier|public
 name|DirectResponseChannel
 parameter_list|(
 name|Logger

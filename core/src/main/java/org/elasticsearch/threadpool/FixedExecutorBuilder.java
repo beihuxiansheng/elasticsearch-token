@@ -681,7 +681,6 @@ name|int
 name|queueSize
 decl_stmt|;
 DECL|method|FixedExecutorSettings
-specifier|public
 name|FixedExecutorSettings
 parameter_list|(
 specifier|final

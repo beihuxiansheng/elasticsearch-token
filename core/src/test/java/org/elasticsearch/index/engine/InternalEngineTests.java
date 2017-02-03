@@ -15590,7 +15590,6 @@ name|boolean
 name|sawIndexWriterIFDMessage
 decl_stmt|;
 DECL|method|MockAppender
-specifier|public
 name|MockAppender
 parameter_list|(
 specifier|final
@@ -16873,14 +16872,12 @@ name|Exception
 block|{
 try|try
 init|(
-specifier|final
 name|Store
 name|store
 init|=
 name|createStore
 argument_list|()
 init|;
-name|final
 name|InternalEngine
 name|engine
 operator|=
@@ -23146,7 +23143,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|ThrowingIndexWriter
-specifier|public
 name|ThrowingIndexWriter
 parameter_list|(
 name|Directory
@@ -27654,7 +27650,6 @@ expr_stmt|;
 block|}
 try|try
 init|(
-specifier|final
 name|Engine
 name|recoveringEngine
 init|=
@@ -28053,7 +28048,6 @@ expr_stmt|;
 block|}
 try|try
 init|(
-specifier|final
 name|Engine
 name|recoveringEngine
 init|=
@@ -28553,7 +28547,6 @@ argument_list|)
 expr_stmt|;
 try|try
 init|(
-specifier|final
 name|Engine
 operator|.
 name|GetResult

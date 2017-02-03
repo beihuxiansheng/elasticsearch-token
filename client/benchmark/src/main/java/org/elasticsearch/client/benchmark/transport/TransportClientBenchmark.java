@@ -517,7 +517,6 @@ name|String
 name|typeName
 decl_stmt|;
 DECL|method|TransportBulkRequestExecutor
-specifier|public
 name|TransportBulkRequestExecutor
 parameter_list|(
 name|TransportClient

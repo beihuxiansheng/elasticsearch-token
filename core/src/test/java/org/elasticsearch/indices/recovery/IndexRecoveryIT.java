@@ -5620,7 +5620,6 @@ name|CountDownLatch
 name|requestBlocked
 decl_stmt|;
 DECL|method|RecoveryActionBlocker
-specifier|public
 name|RecoveryActionBlocker
 parameter_list|(
 name|boolean

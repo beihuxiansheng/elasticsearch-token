@@ -131,7 +131,6 @@ argument_list|>
 name|internalFactory
 decl_stmt|;
 DECL|method|ProviderToInternalFactoryAdapter
-specifier|public
 name|ProviderToInternalFactoryAdapter
 parameter_list|(
 name|InjectorImpl

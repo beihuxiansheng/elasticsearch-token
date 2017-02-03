@@ -5800,7 +5800,6 @@ name|RoutingNode
 name|routingNode
 decl_stmt|;
 DECL|method|ModelNode
-specifier|public
 name|ModelNode
 parameter_list|(
 name|RoutingNode
@@ -6203,7 +6202,6 @@ operator|-
 literal|1
 decl_stmt|;
 DECL|method|ModelIndex
-specifier|public
 name|ModelIndex
 parameter_list|(
 name|String
@@ -6452,7 +6450,6 @@ name|float
 name|pivotWeight
 decl_stmt|;
 DECL|method|NodeSorter
-specifier|public
 name|NodeSorter
 parameter_list|(
 name|ModelNode

@@ -143,7 +143,6 @@ argument_list|>
 block|{
 DECL|enum|Feature
 specifier|public
-specifier|static
 enum|enum
 name|Feature
 block|{
@@ -266,7 +265,6 @@ name|byte
 name|id
 decl_stmt|;
 DECL|method|Feature
-specifier|private
 name|Feature
 parameter_list|(
 name|byte

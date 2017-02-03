@@ -3927,7 +3927,6 @@ name|field2
 expr_stmt|;
 block|}
 DECL|method|TestNamedWriteable
-specifier|public
 name|TestNamedWriteable
 parameter_list|(
 name|StreamInput
@@ -4393,12 +4392,10 @@ name|boolean
 name|value
 decl_stmt|;
 DECL|method|TestStreamable
-specifier|public
 name|TestStreamable
 parameter_list|()
 block|{ }
 DECL|method|TestStreamable
-specifier|public
 name|TestStreamable
 parameter_list|(
 name|boolean

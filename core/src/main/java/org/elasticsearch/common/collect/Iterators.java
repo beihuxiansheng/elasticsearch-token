@@ -124,7 +124,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|ConcatenatedIterator
-specifier|public
 name|ConcatenatedIterator
 parameter_list|(
 name|Iterator

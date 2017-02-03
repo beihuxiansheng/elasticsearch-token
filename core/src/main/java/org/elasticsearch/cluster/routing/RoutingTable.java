@@ -1955,7 +1955,6 @@ argument_list|>
 name|indicesRouting
 decl_stmt|;
 DECL|method|RoutingTableDiff
-specifier|public
 name|RoutingTableDiff
 parameter_list|(
 name|RoutingTable
@@ -1993,7 +1992,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|RoutingTableDiff
-specifier|public
 name|RoutingTableDiff
 parameter_list|(
 name|StreamInput

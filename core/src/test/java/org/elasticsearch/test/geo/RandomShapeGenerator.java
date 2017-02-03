@@ -405,7 +405,6 @@ literal|true
 decl_stmt|;
 DECL|enum|ShapeType
 specifier|public
-specifier|static
 enum|enum
 name|ShapeType
 block|{

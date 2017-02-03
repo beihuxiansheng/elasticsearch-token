@@ -649,7 +649,6 @@ extends|extends
 name|DefaultMustacheVisitor
 block|{
 DECL|method|CustomMustacheVisitor
-specifier|public
 name|CustomMustacheVisitor
 parameter_list|(
 name|DefaultMustacheFactory
@@ -830,7 +829,6 @@ name|String
 name|code
 decl_stmt|;
 DECL|method|CustomCode
-specifier|public
 name|CustomCode
 parameter_list|(
 name|TemplateContext
@@ -1150,7 +1148,6 @@ init|=
 literal|"toJson"
 decl_stmt|;
 DECL|method|ToJsonCode
-specifier|public
 name|ToJsonCode
 parameter_list|(
 name|TemplateContext
@@ -1425,7 +1422,6 @@ name|String
 name|delimiter
 decl_stmt|;
 DECL|method|JoinerCode
-specifier|public
 name|JoinerCode
 parameter_list|(
 name|TemplateContext
@@ -1460,7 +1456,6 @@ name|delimiter
 expr_stmt|;
 block|}
 DECL|method|JoinerCode
-specifier|public
 name|JoinerCode
 parameter_list|(
 name|TemplateContext
@@ -1615,7 +1610,6 @@ literal|" delimiter='(.*)')$"
 argument_list|)
 decl_stmt|;
 DECL|method|CustomJoinerCode
-specifier|public
 name|CustomJoinerCode
 parameter_list|(
 name|TemplateContext
@@ -1737,7 +1731,6 @@ name|Encoder
 name|encoder
 decl_stmt|;
 DECL|method|UrlEncoderCode
-specifier|public
 name|UrlEncoderCode
 parameter_list|(
 name|TemplateContext
@@ -1912,11 +1905,9 @@ DECL|method|encode
 name|void
 name|encode
 parameter_list|(
-specifier|final
 name|String
 name|s
 parameter_list|,
-specifier|final
 name|Writer
 name|writer
 parameter_list|)

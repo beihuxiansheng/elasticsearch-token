@@ -1170,7 +1170,6 @@ name|int
 name|distance
 decl_stmt|;
 DECL|method|RotatedList
-specifier|public
 name|RotatedList
 parameter_list|(
 name|List

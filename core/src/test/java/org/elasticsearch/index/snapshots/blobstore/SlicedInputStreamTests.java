@@ -712,7 +712,6 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|CheckClosedInputStream
-specifier|public
 name|CheckClosedInputStream
 parameter_list|(
 name|InputStream
