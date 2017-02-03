@@ -795,7 +795,7 @@ init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"enable_position_increment"
+literal|"enable_position_increments"
 argument_list|)
 decl_stmt|;
 DECL|field|ESCAPE_FIELD
