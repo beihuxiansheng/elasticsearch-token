@@ -261,6 +261,7 @@ operator|.
 name|SingleValue
 block|{
 DECL|field|valuesSource
+specifier|private
 specifier|final
 name|ValuesSource
 operator|.
@@ -268,16 +269,17 @@ name|Numeric
 name|valuesSource
 decl_stmt|;
 DECL|field|format
+specifier|private
 specifier|final
 name|DocValueFormat
 name|format
 decl_stmt|;
 DECL|field|sums
+specifier|private
 name|DoubleArray
 name|sums
 decl_stmt|;
 DECL|method|SumAggregator
-specifier|public
 name|SumAggregator
 parameter_list|(
 name|String
