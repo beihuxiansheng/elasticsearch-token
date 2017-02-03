@@ -126,20 +126,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|LeafReaderContext
 import|;
 end_import
@@ -334,7 +320,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|LatLonPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -1143,7 +1129,7 @@ block|{
 name|fieldType
 operator|=
 operator|new
-name|LatLonPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Builder
 argument_list|(

@@ -50,28 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|geo
@@ -162,7 +140,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|LatLonPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -680,7 +658,7 @@ block|{
 name|MappedFieldType
 name|clone
 init|=
-name|LatLonPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Defaults
 operator|.

@@ -280,7 +280,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|LatLonPointFieldMapper
+name|GeoPointFieldMapper
 import|;
 end_import
 
@@ -1263,7 +1263,7 @@ name|GEOPOINT
 case|:
 return|return
 operator|new
-name|LatLonPointFieldMapper
+name|GeoPointFieldMapper
 operator|.
 name|Builder
 argument_list|(

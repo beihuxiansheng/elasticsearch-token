@@ -374,7 +374,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|BaseGeoPointFieldMapper
+name|GeoPointFieldMapper
+operator|.
+name|GeoPointFieldType
 import|;
 end_import
 
@@ -1263,8 +1265,6 @@ if|if
 condition|(
 name|fieldType
 operator|instanceof
-name|BaseGeoPointFieldMapper
-operator|.
 name|GeoPointFieldType
 condition|)
 block|{
