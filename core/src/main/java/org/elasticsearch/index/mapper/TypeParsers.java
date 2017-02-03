@@ -1855,6 +1855,34 @@ literal|"] which is within a multi field."
 argument_list|)
 throw|;
 block|}
+elseif|else
+if|if
+condition|(
+name|parserContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"[include_in_all] is not allowed for indices created on or after version 6.0.0 as "
+operator|+
+literal|"[_all] is deprecated. As a replacement, you can use an [copy_to] on mapping fields to create your "
+operator|+
+literal|"own catch all field."
+argument_list|)
+throw|;
+block|}
 else|else
 block|{
 name|builder
