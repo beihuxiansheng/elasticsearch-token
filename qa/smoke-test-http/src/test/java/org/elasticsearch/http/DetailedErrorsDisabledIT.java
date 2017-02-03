@@ -16,6 +16,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -109,22 +129,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|io
+name|hamcrest
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|Matchers
 operator|.
-name|util
-operator|.
-name|Collections
+name|containsString
 import|;
 end_import
 
@@ -233,8 +245,17 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
+name|ResponseException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ResponseException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|getRestClient
 argument_list|()
 operator|.
@@ -253,19 +274,8 @@ argument_list|,
 literal|"true"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"request should have failed"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ResponseException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|Response
 name|response
 init|=
@@ -304,9 +314,9 @@ name|getEntity
 argument_list|()
 argument_list|)
 argument_list|,
-name|is
+name|containsString
 argument_list|(
-literal|"{\"error\":\"error traces in responses are disabled.\"}"
+literal|"\"error\":\"error traces in responses are disabled.\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -326,7 +336,6 @@ literal|400
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
