@@ -3732,6 +3732,15 @@ name|Sort
 operator|.
 name|DEF
 operator|||
+operator|(
+name|actual
+operator|.
+name|sort
+operator|!=
+name|Sort
+operator|.
+name|VOID
+operator|&&
 name|expected
 operator|.
 name|sort
@@ -3739,6 +3748,7 @@ operator|==
 name|Sort
 operator|.
 name|DEF
+operator|)
 operator|||
 name|expected
 operator|.
@@ -3751,6 +3761,7 @@ operator|.
 name|clazz
 argument_list|)
 operator|||
+operator|(
 name|explicit
 operator|&&
 name|actual
@@ -3763,6 +3774,7 @@ name|expected
 operator|.
 name|clazz
 argument_list|)
+operator|)
 condition|)
 block|{
 return|return
