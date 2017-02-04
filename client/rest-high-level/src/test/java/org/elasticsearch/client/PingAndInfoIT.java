@@ -14,11 +14,21 @@ name|client
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_class
-DECL|class|MainActionIT
+DECL|class|PingAndInfoIT
 specifier|public
 class|class
-name|MainActionIT
+name|PingAndInfoIT
 extends|extends
 name|ESRestHighLevelClientTestCase
 block|{
@@ -27,6 +37,8 @@ specifier|public
 name|void
 name|testPing
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|assertTrue
 argument_list|(
@@ -38,6 +50,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|//TODO add here integ tests for info api: "GET /" once we have parsing code for MainResponse
 block|}
 end_class
 
