@@ -386,6 +386,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|/* Because this is called once per document we end up creating a new ScriptDocValues for every document which is important                  * because the values inside ScriptDocValues might be reused for different documents (Dates do this). */
 name|AtomicFieldData
 name|data
 init|=
@@ -408,6 +409,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|ScriptDocValues
+argument_list|<
+name|?
+argument_list|>
 name|values
 init|=
 name|data
@@ -433,9 +437,6 @@ operator|.
 name|addAll
 argument_list|(
 name|values
-operator|.
-name|getValues
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

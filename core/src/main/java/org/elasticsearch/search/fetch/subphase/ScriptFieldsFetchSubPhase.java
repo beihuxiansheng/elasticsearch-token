@@ -195,6 +195,7 @@ name|fields
 argument_list|()
 control|)
 block|{
+comment|/* Because this is called once per document we end up creating new ScriptDocValues for every document which is important because              * the values inside ScriptDocValues might be reused for different documents (Dates do this). */
 name|LeafSearchScript
 name|leafScript
 decl_stmt|;

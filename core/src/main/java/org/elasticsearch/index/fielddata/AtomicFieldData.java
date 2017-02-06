@@ -61,6 +61,9 @@ block|{
 comment|/**      * Returns a "scripting" based values.      */
 DECL|method|getScriptValues
 name|ScriptDocValues
+argument_list|<
+name|?
+argument_list|>
 name|getScriptValues
 parameter_list|()
 function_decl|;

@@ -2427,7 +2427,7 @@ name|numericType
 argument_list|(
 name|NumericType
 operator|.
-name|LONG
+name|DATE
 argument_list|)
 return|;
 block|}

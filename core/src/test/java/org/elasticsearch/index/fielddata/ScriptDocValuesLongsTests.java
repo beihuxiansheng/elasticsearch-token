@@ -735,6 +735,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|assertWarnings
+argument_list|(
+literal|"getDate on numeric fields is deprecated. Use a date field to get dates."
+argument_list|,
+literal|"getDates on numeric fields is deprecated. Use a date field to get dates."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|wrap
 specifier|private

@@ -104,6 +104,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|ReadableInstant
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -404,6 +416,27 @@ if|if
 condition|(
 name|o
 operator|instanceof
+name|ReadableInstant
+condition|)
+block|{
+comment|// Dates are exposed in scripts as ReadableDateTimes but aggregations want them to be numeric
+return|return
+operator|(
+operator|(
+name|ReadableInstant
+operator|)
+name|o
+operator|)
+operator|.
+name|getMillis
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|o
+operator|instanceof
 name|Boolean
 condition|)
 block|{
@@ -437,7 +470,7 @@ literal|"Unsupported script value ["
 operator|+
 name|o
 operator|+
-literal|"], expected a number"
+literal|"], expected a number, date, or boolean"
 argument_list|)
 throw|;
 block|}
