@@ -584,6 +584,7 @@ extends|extends
 name|IntegerType
 block|{
 DECL|method|SizeT
+specifier|public
 name|SizeT
 parameter_list|()
 block|{
