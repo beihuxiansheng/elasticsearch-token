@@ -583,6 +583,8 @@ name|SizeT
 extends|extends
 name|IntegerType
 block|{
+comment|// JNA requires this no-arg constructor to be public,
+comment|// otherwise it fails to register kernel32 library
 DECL|method|SizeT
 specifier|public
 name|SizeT
