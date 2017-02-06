@@ -958,6 +958,11 @@ name|ctx
 operator|=
 name|adjustDF
 argument_list|(
+name|reader
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|ctx
 argument_list|,
 name|Math
@@ -1076,6 +1081,11 @@ index|]
 operator|=
 name|adjustTTF
 argument_list|(
+name|reader
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
 name|contexts
 index|[
 name|i
@@ -1091,6 +1101,9 @@ specifier|private
 name|TermContext
 name|adjustTTF
 parameter_list|(
+name|IndexReaderContext
+name|readerContext
+parameter_list|,
 name|TermContext
 name|termContext
 parameter_list|,
@@ -1098,6 +1111,14 @@ name|long
 name|sumTTF
 parameter_list|)
 block|{
+assert|assert
+name|termContext
+operator|.
+name|wasBuiltFor
+argument_list|(
+name|readerContext
+argument_list|)
+assert|;
 if|if
 condition|(
 name|sumTTF
@@ -1124,9 +1145,7 @@ init|=
 operator|new
 name|TermContext
 argument_list|(
-name|termContext
-operator|.
-name|topReaderContext
+name|readerContext
 argument_list|)
 decl_stmt|;
 name|List
@@ -1135,9 +1154,7 @@ name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
-name|termContext
-operator|.
-name|topReaderContext
+name|readerContext
 operator|.
 name|leaves
 argument_list|()
@@ -1247,6 +1264,9 @@ specifier|static
 name|TermContext
 name|adjustDF
 parameter_list|(
+name|IndexReaderContext
+name|readerContext
+parameter_list|,
 name|TermContext
 name|ctx
 parameter_list|,
@@ -1254,6 +1274,14 @@ name|int
 name|newDocFreq
 parameter_list|)
 block|{
+assert|assert
+name|ctx
+operator|.
+name|wasBuiltFor
+argument_list|(
+name|readerContext
+argument_list|)
+assert|;
 comment|// Use a value of ttf that is consistent with the doc freq (ie. gte)
 name|long
 name|newTTF
@@ -1297,9 +1325,7 @@ name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
-name|ctx
-operator|.
-name|topReaderContext
+name|readerContext
 operator|.
 name|leaves
 argument_list|()
@@ -1336,9 +1362,7 @@ init|=
 operator|new
 name|TermContext
 argument_list|(
-name|ctx
-operator|.
-name|topReaderContext
+name|readerContext
 argument_list|)
 decl_stmt|;
 for|for
