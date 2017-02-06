@@ -1070,6 +1070,18 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
+name|InvalidSnapshotNameException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|snapshots
+operator|.
 name|SnapshotCreationException
 import|;
 end_import
@@ -1936,7 +1948,7 @@ condition|)
 block|{
 throw|throw
 argument_list|new
-name|SnapshotCreationException
+name|InvalidSnapshotNameException
 argument_list|(
 name|metadata
 operator|.
@@ -1944,6 +1956,9 @@ name|name
 argument_list|()
 argument_list|,
 name|snapshotId
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|"snapshot with the same name already exists"
 argument_list|)
@@ -1965,7 +1980,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SnapshotCreationException
+name|InvalidSnapshotNameException
 argument_list|(
 name|metadata
 operator|.
@@ -1973,8 +1988,11 @@ name|name
 argument_list|()
 argument_list|,
 name|snapshotId
+operator|.
+name|getName
+argument_list|()
 argument_list|,
-literal|"snapshot with such name already exists"
+literal|"snapshot with the same name already exists"
 argument_list|)
 throw|;
 block|}
