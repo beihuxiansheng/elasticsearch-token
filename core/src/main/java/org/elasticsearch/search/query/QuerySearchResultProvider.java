@@ -34,6 +34,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|FetchSearchResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|transport
 operator|.
 name|TransportResponse
@@ -51,21 +65,28 @@ name|TransportResponse
 implements|implements
 name|SearchPhaseResult
 block|{
-comment|/**      * If both query and fetch happened on the same call.      */
-DECL|method|includeFetch
-specifier|public
-specifier|abstract
-name|boolean
-name|includeFetch
-parameter_list|()
-function_decl|;
+comment|/**      * Returns the query result iff it's included in this response otherwise<code>null</code>      */
 DECL|method|queryResult
 specifier|public
-specifier|abstract
 name|QuerySearchResult
 name|queryResult
 parameter_list|()
-function_decl|;
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Returns the fetch result iff it's included in this response otherwise<code>null</code>      */
+DECL|method|fetchResult
+specifier|public
+name|FetchSearchResult
+name|fetchResult
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 

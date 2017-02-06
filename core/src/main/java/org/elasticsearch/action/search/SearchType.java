@@ -45,18 +45,9 @@ name|byte
 operator|)
 literal|1
 argument_list|)
-block|,
-comment|// 2 used to be DFS_QUERY_AND_FETCH
-comment|/**      * The most naive (and possibly fastest) implementation is to simply execute the query on all relevant shards      * and return the results. Each shard returns size results. Since each shard already returns size hits, this      * type actually returns size times number of shards results back to the caller.      */
-DECL|enum constant|QUERY_AND_FETCH
-name|QUERY_AND_FETCH
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|3
-argument_list|)
 block|;
+comment|// 2 used to be DFS_QUERY_AND_FETCH
+comment|// 3 used to be QUERY_AND_FETCH
 comment|/**      * The default search type ({@link #QUERY_THEN_FETCH}.      */
 DECL|field|DEFAULT
 specifier|public
@@ -127,22 +118,15 @@ condition|(
 name|id
 operator|==
 literal|1
-condition|)
-block|{
-return|return
-name|QUERY_THEN_FETCH
-return|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|||
 name|id
 operator|==
 literal|3
 condition|)
 block|{
+comment|// TODO this bwc layer can be removed once this is back-ported to 5.3 QUERY_AND_FETCH is removed now
 return|return
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 return|;
 block|}
 else|else
@@ -215,23 +199,6 @@ return|return
 name|SearchType
 operator|.
 name|QUERY_THEN_FETCH
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"query_and_fetch"
-operator|.
-name|equals
-argument_list|(
-name|searchType
-argument_list|)
-condition|)
-block|{
-return|return
-name|SearchType
-operator|.
-name|QUERY_AND_FETCH
 return|;
 block|}
 else|else

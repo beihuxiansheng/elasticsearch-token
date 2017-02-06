@@ -400,6 +400,7 @@ break|break;
 case|case
 name|QUERY_AND_FETCH_TYPE
 case|:
+comment|// TODO can we get rid of this?
 name|action
 operator|=
 operator|new

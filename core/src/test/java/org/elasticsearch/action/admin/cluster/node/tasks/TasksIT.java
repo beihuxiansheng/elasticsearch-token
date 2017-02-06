@@ -3323,11 +3323,6 @@ case|:
 case|case
 name|SearchTransportService
 operator|.
-name|QUERY_FETCH_ACTION_NAME
-case|:
-case|case
-name|SearchTransportService
-operator|.
 name|DFS_ACTION_NAME
 case|:
 name|assertTrue

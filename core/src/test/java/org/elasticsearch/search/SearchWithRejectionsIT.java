@@ -351,10 +351,6 @@ name|DEFAULT
 argument_list|,
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
-argument_list|,
-name|SearchType
-operator|.
 name|QUERY_THEN_FETCH
 argument_list|,
 name|SearchType

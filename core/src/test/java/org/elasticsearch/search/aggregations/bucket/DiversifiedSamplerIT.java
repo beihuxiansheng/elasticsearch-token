@@ -750,7 +750,7 @@ name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|addAggregation
@@ -1025,7 +1025,7 @@ name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|setQuery
@@ -1228,7 +1228,7 @@ name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|addAggregation
@@ -1476,7 +1476,7 @@ name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|addAggregation
@@ -1690,7 +1690,7 @@ name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|setQuery
@@ -1864,7 +1864,7 @@ name|setSearchType
 argument_list|(
 name|SearchType
 operator|.
-name|QUERY_AND_FETCH
+name|QUERY_THEN_FETCH
 argument_list|)
 operator|.
 name|setQuery

@@ -137,8 +137,6 @@ class|class
 name|QueryFetchSearchResult
 extends|extends
 name|QuerySearchResultProvider
-implements|implements
-name|FetchSearchResultProvider
 block|{
 DECL|field|queryResult
 specifier|private
@@ -234,18 +232,6 @@ argument_list|(
 name|shardTarget
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|includeFetch
-specifier|public
-name|boolean
-name|includeFetch
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 annotation|@
 name|Override

@@ -1786,15 +1786,20 @@ name|maxScore
 argument_list|)
 expr_stmt|;
 block|}
-switch|switch
+if|if
 condition|(
-name|searchType
+name|searchContext
+operator|.
+name|request
+argument_list|()
+operator|.
+name|numberOfShards
+argument_list|()
+operator|==
+literal|1
 condition|)
 block|{
-case|case
-name|QUERY_AND_FETCH
-case|:
-comment|// for QUERY_AND_FETCH, we already know the last emitted doc
+comment|// if we fetch the document in the same roundtrip, we already know the last emitted doc
 if|if
 condition|(
 name|topDocs
@@ -1825,9 +1830,6 @@ literal|1
 index|]
 expr_stmt|;
 block|}
-break|break;
-default|default:
-break|break;
 block|}
 block|}
 return|return
