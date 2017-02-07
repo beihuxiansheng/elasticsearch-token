@@ -572,7 +572,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Invalid protocol [http], must be [file]"
+literal|"Invalid protocol [http], must be [file] or [jar]"
 argument_list|,
 name|e
 operator|.
