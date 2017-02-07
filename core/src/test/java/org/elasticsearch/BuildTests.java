@@ -18,6 +18,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|FileSystemUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -85,10 +99,12 @@ init|(
 name|InputStream
 name|ignored
 init|=
-name|url
+name|FileSystemUtils
 operator|.
-name|openStream
-argument_list|()
+name|openFileURLStream
+argument_list|(
+name|url
+argument_list|)
 init|)
 block|{}
 comment|// these should never be null
