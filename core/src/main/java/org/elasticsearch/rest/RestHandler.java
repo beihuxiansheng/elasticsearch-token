@@ -28,6 +28,20 @@ name|NodeClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Handler for REST requests  */
 end_comment
@@ -72,6 +86,17 @@ DECL|method|supportsPlainText
 specifier|default
 name|boolean
 name|supportsPlainText
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Indicates if the RestHandler supports content as a stream. A stream would be multiple objects delineated by      * {@link XContent#streamSeparator()}. If a handler returns true this will affect the types of content that can be sent to      * this endpoint.      */
+DECL|method|supportsContentStream
+specifier|default
+name|boolean
+name|supportsContentStream
 parameter_list|()
 block|{
 return|return

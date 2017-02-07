@@ -403,8 +403,10 @@ name|type
 return|;
 block|}
 block|}
-if|if
-condition|(
+specifier|final
+name|String
+name|lowercaseMediaType
+init|=
 name|mediaType
 operator|.
 name|toLowerCase
@@ -413,6 +415,10 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|lowercaseMediaType
 operator|.
 name|startsWith
 argument_list|(

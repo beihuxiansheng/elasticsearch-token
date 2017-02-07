@@ -808,9 +808,24 @@ unit|)
 empty_stmt|;
 end_empty_stmt
 
+begin_function
+unit|}      @
+name|Override
+DECL|method|supportsContentStream
+specifier|public
+name|boolean
+name|supportsContentStream
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+end_function
+
 begin_class
-unit|}      static
 DECL|class|Fields
+specifier|static
 specifier|final
 class|class
 name|Fields

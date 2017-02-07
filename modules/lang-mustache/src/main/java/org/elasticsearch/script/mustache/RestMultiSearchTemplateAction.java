@@ -460,6 +460,18 @@ return|return
 name|multiRequest
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|supportsContentStream
+specifier|public
+name|boolean
+name|supportsContentStream
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
