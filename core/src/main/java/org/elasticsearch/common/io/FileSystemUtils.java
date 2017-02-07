@@ -58,6 +58,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -461,6 +473,13 @@ literal|true
 return|;
 block|}
 comment|/**      * Returns an InputStream the given url if the url has a protocol of 'file' or 'jar', no host, and no port.      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Will only open url streams for local files"
+argument_list|)
 DECL|method|openFileURLStream
 specifier|public
 specifier|static

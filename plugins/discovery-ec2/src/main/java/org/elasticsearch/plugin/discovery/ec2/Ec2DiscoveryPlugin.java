@@ -330,6 +330,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -1168,6 +1180,13 @@ comment|// pkg private for testing
 end_comment
 
 begin_function
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"We call getInputStream in doPrivileged and provide SocketPermission"
+argument_list|)
 DECL|method|getAvailabilityZoneNodeAttributes
 specifier|static
 name|Settings

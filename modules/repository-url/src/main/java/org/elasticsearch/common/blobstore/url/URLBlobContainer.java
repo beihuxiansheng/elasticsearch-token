@@ -26,6 +26,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|blobstore
 operator|.
 name|BlobMetaData
@@ -434,6 +446,13 @@ literal|"URL repository doesn't support this operation"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"We call connect in doPrivileged and provide SocketPermission"
+argument_list|)
 DECL|method|getInputStream
 specifier|private
 specifier|static

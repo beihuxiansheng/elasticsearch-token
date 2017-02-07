@@ -152,6 +152,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -1698,6 +1710,13 @@ argument_list|)
 return|;
 block|}
 comment|/** Downloads a zip from the url, into a temp file under the given temp dir. */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"We use getInputStream to download plugins"
+argument_list|)
 DECL|method|downloadZip
 specifier|private
 name|Path
@@ -2026,6 +2045,13 @@ block|}
 block|}
 block|}
 comment|/** Downloads a zip from the url, as well as a SHA1 checksum, and checks the checksum. */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"We use openStream to download plugins"
+argument_list|)
 DECL|method|downloadZipAndChecksum
 specifier|private
 name|Path

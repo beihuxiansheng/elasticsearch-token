@@ -70,6 +70,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -321,6 +333,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @param type the ec2 hostname type to discover.      * @return the appropriate host resolved from ec2 meta-data, or null if it cannot be obtained.      * @see CustomNameResolver#resolveIfPossible(String)      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"We call getInputStream in doPrivileged and provide SocketPermission"
+argument_list|)
 DECL|method|resolve
 specifier|public
 name|InetAddress
