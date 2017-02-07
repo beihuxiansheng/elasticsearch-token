@@ -460,7 +460,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Returns an InputStream the given url if the url has a protocol of 'file', no host, and no port.      */
+comment|/**      * Returns an InputStream the given url if the url has a protocol of 'file' or 'jar', no host, and no port.      */
 DECL|method|openFileURLStream
 specifier|public
 specifier|static
@@ -491,6 +491,15 @@ name|protocol
 argument_list|)
 operator|==
 literal|false
+operator|&&
+literal|"jar"
+operator|.
+name|equals
+argument_list|(
+name|protocol
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -501,7 +510,7 @@ literal|"Invalid protocol ["
 operator|+
 name|protocol
 operator|+
-literal|"], must be [file]"
+literal|"], must be [file] or [jar]"
 argument_list|)
 throw|;
 block|}
