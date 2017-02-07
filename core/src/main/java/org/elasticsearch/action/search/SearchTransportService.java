@@ -621,6 +621,12 @@ specifier|final
 name|RemoteClusterService
 name|remoteClusterService
 decl_stmt|;
+DECL|field|connectToRemote
+specifier|private
+specifier|final
+name|boolean
+name|connectToRemote
+decl_stmt|;
 DECL|method|SearchTransportService
 specifier|public
 name|SearchTransportService
@@ -636,6 +642,19 @@ name|transportService
 parameter_list|)
 block|{
 name|super
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|connectToRemote
+operator|=
+name|RemoteClusterService
+operator|.
+name|ENABLE_REMOTE_CLUSTERS
+operator|.
+name|get
 argument_list|(
 name|settings
 argument_list|)
@@ -658,6 +677,11 @@ argument_list|,
 name|transportService
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|connectToRemote
+condition|)
+block|{
 name|clusterSettings
 operator|.
 name|addAffixUpdateConsumer
@@ -676,9 +700,10 @@ parameter_list|,
 name|value
 parameter_list|)
 lambda|->
-block|{}
+block|{                 }
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|sendFreeContext
 specifier|public
@@ -2693,12 +2718,18 @@ name|void
 name|doStart
 parameter_list|()
 block|{
+if|if
+condition|(
+name|connectToRemote
+condition|)
+block|{
 comment|// here we start to connect to the remote clusters
 name|remoteClusterService
 operator|.
 name|initializeRemoteClusters
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 

@@ -1954,6 +1954,10 @@ name|RemoteClusterService
 operator|.
 name|REMOTE_NODE_ATTRIBUTE
 argument_list|,
+name|RemoteClusterService
+operator|.
+name|ENABLE_REMOTE_CLUSTERS
+argument_list|,
 name|TransportService
 operator|.
 name|TRACE_LOG_EXCLUDE_SETTING
