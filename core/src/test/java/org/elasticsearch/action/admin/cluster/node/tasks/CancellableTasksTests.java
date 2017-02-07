@@ -1260,9 +1260,7 @@ index|[
 name|i
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|shouldBlock
@@ -1516,9 +1514,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|mainTask
@@ -1777,9 +1773,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|mainTask
@@ -2002,9 +1996,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|mainTask
@@ -2110,9 +2102,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|mainTask
@@ -2333,9 +2323,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 decl_stmt|;
 comment|// Make sure that tasks are running
@@ -2446,6 +2434,7 @@ name|i
 index|]
 operator|.
 name|discoveryNode
+argument_list|()
 expr_stmt|;
 block|}
 name|DiscoveryNode
@@ -2493,6 +2482,7 @@ name|i
 index|]
 operator|.
 name|discoveryNode
+argument_list|()
 argument_list|,
 name|master
 argument_list|,
@@ -2540,9 +2530,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|mainTask

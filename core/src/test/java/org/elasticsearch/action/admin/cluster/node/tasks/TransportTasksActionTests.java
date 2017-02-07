@@ -1970,6 +1970,7 @@ name|node
 index|]
 operator|.
 name|discoveryNode
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2441,9 +2442,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|)
 operator|.
@@ -2485,9 +2484,7 @@ index|[
 name|i
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|)
 operator|.
@@ -3752,9 +3749,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3865,9 +3860,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|,
 name|task
@@ -5471,9 +5464,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -5547,9 +5538,7 @@ index|[
 name|i
 index|]
 operator|.
-name|discoveryNode
-operator|.
-name|getId
+name|getNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -299,8 +299,9 @@ decl_stmt|;
 name|MockTransportService
 name|mockTransportService
 init|=
-operator|new
 name|MockTransportService
+operator|.
+name|createNewService
 argument_list|(
 name|Settings
 operator|.
@@ -308,11 +309,9 @@ name|EMPTY
 argument_list|,
 name|transport
 argument_list|,
-name|threadPool
+name|version
 argument_list|,
-name|TransportService
-operator|.
-name|NOOP_TRANSPORT_INTERCEPTOR
+name|threadPool
 argument_list|,
 name|clusterSettings
 argument_list|)

@@ -46,6 +46,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|CheckedBiConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|breaker
 operator|.
 name|CircuitBreaker
@@ -265,7 +277,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Connects to a node with the given connection profile. If the node is already connected this method has no effect      */
+comment|/**      * Connects to a node with the given connection profile. If the node is already connected this method has no effect.      * Once a successful is established, it can be validated before being exposed.      */
 DECL|method|connectToNode
 name|void
 name|connectToNode
@@ -275,6 +287,16 @@ name|node
 parameter_list|,
 name|ConnectionProfile
 name|connectionProfile
+parameter_list|,
+name|CheckedBiConsumer
+argument_list|<
+name|Connection
+argument_list|,
+name|ConnectionProfile
+argument_list|,
+name|IOException
+argument_list|>
+name|connectionValidator
 parameter_list|)
 throws|throws
 name|ConnectTransportException
@@ -322,7 +344,7 @@ name|long
 name|newRequestId
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a connection for the given node if the node is connected.      * Connections returned from this method must not be closed. The lifecylce of this connection is maintained by the Transport      * implementation.      *      * @throws NodeNotConnectedException if the node is not connected      * @see #connectToNode(DiscoveryNode, ConnectionProfile)      */
+comment|/**      * Returns a connection for the given node if the node is connected.      * Connections returned from this method must not be closed. The lifecylce of this connection is maintained by the Transport      * implementation.      *      * @throws NodeNotConnectedException if the node is not connected      * @see #connectToNode(DiscoveryNode, ConnectionProfile, CheckedBiConsumer)      */
 DECL|method|getConnection
 name|Connection
 name|getConnection
@@ -331,7 +353,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Opens a new connection to the given node and returns it. In contrast to {@link #connectToNode(DiscoveryNode, ConnectionProfile)}      * the returned connection is not managed by the transport implementation. This connection must be closed once it's not needed anymore.      * This connection type can be used to execute a handshake between two nodes before the node will be published via      * {@link #connectToNode(DiscoveryNode, ConnectionProfile)}.      */
+comment|/**      * Opens a new connection to the given node and returns it. In contrast to      * {@link #connectToNode(DiscoveryNode, ConnectionProfile, CheckedBiConsumer)} the returned connection is not managed by      * the transport implementation. This connection must be closed once it's not needed anymore.      * This connection type can be used to execute a handshake between two nodes before the node will be published via      * {@link #connectToNode(DiscoveryNode, ConnectionProfile, CheckedBiConsumer)}.      */
 DECL|method|openConnection
 name|Connection
 name|openConnection
