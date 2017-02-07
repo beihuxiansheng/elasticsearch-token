@@ -254,7 +254,7 @@ if|if
 condition|(
 name|keystore
 operator|.
-name|getSettings
+name|getSettingNames
 argument_list|()
 operator|.
 name|contains

@@ -346,7 +346,10 @@ literal|null
 operator|&&
 name|secureSettings
 operator|.
-name|hasSetting
+name|getSettingNames
+argument_list|()
+operator|.
+name|contains
 argument_list|(
 name|getKey
 argument_list|()
@@ -386,7 +389,10 @@ literal|null
 operator|||
 name|secureSettings
 operator|.
-name|hasSetting
+name|getSettingNames
+argument_list|()
+operator|.
+name|contains
 argument_list|(
 name|getKey
 argument_list|()

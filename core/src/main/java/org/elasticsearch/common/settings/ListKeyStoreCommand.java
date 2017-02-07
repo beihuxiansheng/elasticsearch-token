@@ -210,7 +210,7 @@ argument_list|<>
 argument_list|(
 name|keystore
 operator|.
-name|getSettings
+name|getSettingNames
 argument_list|()
 argument_list|)
 decl_stmt|;

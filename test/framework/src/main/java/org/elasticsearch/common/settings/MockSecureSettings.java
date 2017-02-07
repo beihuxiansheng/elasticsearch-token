@@ -46,6 +46,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * A mock implementation of secure settings for tests to use.  */
 end_comment
@@ -87,22 +97,20 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|hasSetting
+DECL|method|getSettingNames
 specifier|public
-name|boolean
-name|hasSetting
-parameter_list|(
+name|Set
+argument_list|<
 name|String
-name|setting
-parameter_list|)
+argument_list|>
+name|getSettingNames
+parameter_list|()
 block|{
 return|return
 name|secureStrings
 operator|.
-name|containsKey
-argument_list|(
-name|setting
-argument_list|)
+name|keySet
+argument_list|()
 return|;
 block|}
 annotation|@

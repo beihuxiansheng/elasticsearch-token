@@ -415,7 +415,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^(?:[-\\w]+[.])+(?:[*][.])+[-\\w]+$"
+literal|"^(?:[-\\w]+[.])+[*](?:[.][-\\w]+)+$"
 argument_list|)
 decl_stmt|;
 DECL|method|AbstractScopedSettings
@@ -804,8 +804,8 @@ name|matches
 argument_list|()
 return|;
 block|}
+comment|// pkg private for tests
 DECL|method|isValidAffixKey
-specifier|private
 specifier|static
 name|boolean
 name|isValidAffixKey
@@ -1563,9 +1563,6 @@ name|key
 range|:
 name|settings
 operator|.
-name|getAsMap
-argument_list|()
-operator|.
 name|keySet
 argument_list|()
 control|)
@@ -1731,9 +1728,49 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|String
+name|msgPrefix
+init|=
+literal|"unknown setting"
+decl_stmt|;
+name|SecureSettings
+name|secureSettings
+init|=
+name|settings
+operator|.
+name|getSecureSettings
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|secureSettings
+operator|!=
+literal|null
+operator|&&
+name|settings
+operator|.
+name|getSecureSettings
+argument_list|()
+operator|.
+name|getSettingNames
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+name|msgPrefix
+operator|=
+literal|"unknown secure setting"
+expr_stmt|;
+block|}
+name|String
 name|msg
 init|=
-literal|"unknown setting ["
+name|msgPrefix
+operator|+
+literal|" ["
 operator|+
 name|key
 operator|+

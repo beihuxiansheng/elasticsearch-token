@@ -370,7 +370,7 @@ argument_list|(
 literal|""
 argument_list|)
 operator|.
-name|getSettings
+name|getSettingNames
 argument_list|()
 operator|.
 name|contains
@@ -423,7 +423,7 @@ argument_list|(
 literal|""
 argument_list|)
 operator|.
-name|getSettings
+name|getSettingNames
 argument_list|()
 decl_stmt|;
 name|assertFalse

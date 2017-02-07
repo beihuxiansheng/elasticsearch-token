@@ -36,6 +36,16 @@ name|GeneralSecurityException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * An accessor for settings which are securely stored. See {@link SecureSetting}.  */
 end_comment
@@ -54,14 +64,14 @@ name|boolean
 name|isLoaded
 parameter_list|()
 function_decl|;
-comment|/** Returns true iff the given setting exists in this secure settings. */
-DECL|method|hasSetting
-name|boolean
-name|hasSetting
-parameter_list|(
+comment|/** Returns the names of all secure settings available. */
+DECL|method|getSettingNames
+name|Set
+argument_list|<
 name|String
-name|setting
-parameter_list|)
+argument_list|>
+name|getSettingNames
+parameter_list|()
 function_decl|;
 comment|/** Return a string setting. The {@link SecureString} should be closed once it is used. */
 DECL|method|getString
