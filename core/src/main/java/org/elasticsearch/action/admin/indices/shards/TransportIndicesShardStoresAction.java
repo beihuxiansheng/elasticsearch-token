@@ -1373,11 +1373,6 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|legacyVersion
-argument_list|()
-argument_list|,
-name|response
-operator|.
 name|allocationId
 argument_list|()
 argument_list|,
@@ -1641,14 +1636,6 @@ name|storeException
 argument_list|()
 operator|!=
 literal|null
-operator|||
-name|response
-operator|.
-name|legacyVersion
-argument_list|()
-operator|!=
-operator|-
-literal|1
 operator|||
 name|response
 operator|.

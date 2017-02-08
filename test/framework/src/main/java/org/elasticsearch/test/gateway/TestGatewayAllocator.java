@@ -461,9 +461,6 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 argument_list|,
-operator|-
-literal|1
-argument_list|,
 name|routing
 operator|.
 name|allocationId

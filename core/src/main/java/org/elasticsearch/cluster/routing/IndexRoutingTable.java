@@ -834,18 +834,6 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|getCreationVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_5_0_0_alpha1
-argument_list|)
-operator|&&
-name|indexMetaData
-operator|.
 name|isIndexUsingShadowReplicas
 argument_list|()
 operator|==
@@ -2261,43 +2249,6 @@ literal|false
 condition|)
 block|{
 comment|// we have previous valid copies for this shard. use them for recovery
-name|primaryRecoverySource
-operator|=
-name|StoreRecoverySource
-operator|.
-name|EXISTING_STORE_INSTANCE
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|indexMetaData
-operator|.
-name|getCreationVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_5_0_0_alpha1
-argument_list|)
-operator|&&
-name|unassignedInfo
-operator|.
-name|getReason
-argument_list|()
-operator|!=
-name|UnassignedInfo
-operator|.
-name|Reason
-operator|.
-name|INDEX_CREATED
-comment|// tests can create old indices
-condition|)
-block|{
-comment|// the index is old and didn't maintain inSyncAllocationIds. Fall back to old behavior and require
-comment|// finding existing copies
 name|primaryRecoverySource
 operator|=
 name|StoreRecoverySource

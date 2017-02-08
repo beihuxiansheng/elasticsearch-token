@@ -2122,10 +2122,6 @@ name|IndexSettings
 operator|.
 name|QUERY_STRING_ALLOW_LEADING_WILDCARD
 argument_list|,
-name|PrimaryShardAllocator
-operator|.
-name|NODE_INITIAL_SHARDS_SETTING
-argument_list|,
 name|ScriptService
 operator|.
 name|SCRIPT_CACHE_SIZE_SETTING
