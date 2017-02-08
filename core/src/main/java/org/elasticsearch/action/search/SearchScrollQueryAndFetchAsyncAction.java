@@ -1113,7 +1113,15 @@ literal|true
 argument_list|,
 name|sortedShardDocs
 argument_list|,
+name|searchPhaseController
+operator|.
+name|reducedQueryPhase
+argument_list|(
 name|queryFetchResults
+operator|.
+name|asList
+argument_list|()
+argument_list|)
 argument_list|,
 name|queryFetchResults
 argument_list|)

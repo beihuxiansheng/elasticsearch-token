@@ -524,10 +524,8 @@ operator|.
 name|queryResult
 argument_list|()
 operator|.
-name|aggregations
+name|hasAggs
 argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
 comment|// no need to compute the aggs twice, they should be computed on a per context basis

@@ -837,7 +837,15 @@ literal|true
 argument_list|,
 name|sortedDocs
 argument_list|,
+name|searchPhaseController
+operator|.
+name|reducedQueryPhase
+argument_list|(
 name|queryResults
+operator|.
+name|asList
+argument_list|()
+argument_list|)
 argument_list|,
 name|generateFetchResults
 argument_list|(
