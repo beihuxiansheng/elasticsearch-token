@@ -2560,12 +2560,7 @@ specifier|final
 name|String
 name|mimeType
 init|=
-name|randomFrom
-argument_list|(
-literal|"application/x-ldjson"
-argument_list|,
 literal|"application/x-ndjson"
-argument_list|)
 decl_stmt|;
 name|String
 name|content

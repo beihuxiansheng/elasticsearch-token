@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Constants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -133,18 +119,6 @@ operator|.
 name|common
 operator|.
 name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -446,28 +420,6 @@ argument_list|(
 literal|"/org/elasticsearch/action/bulk/simple-bulk.json"
 argument_list|)
 decl_stmt|;
-comment|// translate Windows line endings (\r\n) to standard ones (\n)
-if|if
-condition|(
-name|Constants
-operator|.
-name|WINDOWS
-condition|)
-block|{
-name|bulkAction
-operator|=
-name|Strings
-operator|.
-name|replace
-argument_list|(
-name|bulkAction
-argument_list|,
-literal|"\r\n"
-argument_list|,
-literal|"\n"
-argument_list|)
-expr_stmt|;
-block|}
 name|BulkRequest
 name|bulkRequest
 init|=
@@ -685,7 +637,7 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{ \"field1\" : \"value1\" }\r"
+literal|"{ \"field1\" : \"value1\" }"
 argument_list|)
 argument_list|)
 argument_list|)

@@ -968,9 +968,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the {@link XContentType}      * @deprecated this is only used to allow BWC with content-type detection      */
-annotation|@
-name|Deprecated
+comment|/**      * Sets the {@link XContentType}      */
 DECL|method|setXContentType
 specifier|final
 name|void

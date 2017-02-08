@@ -1522,18 +1522,9 @@ operator|.
 name|ROOT
 argument_list|)
 decl_stmt|;
-comment|// we also support line-delimited JSON, which isn't official and has a few variations
-comment|// http://specs.okfnlabs.org/ndjson/
-comment|// https://github.com/ndjson/ndjson-spec/blob/48ea03cea6796b614cfbff4d4eb921f0b1d35c26/specification.md
+comment|// we also support newline delimited JSON: http://specs.okfnlabs.org/ndjson/
 if|if
 condition|(
-name|lowercaseMediaType
-operator|.
-name|equals
-argument_list|(
-literal|"application/x-ldjson"
-argument_list|)
-operator|||
 name|lowercaseMediaType
 operator|.
 name|equals
