@@ -1250,7 +1250,7 @@ operator|>
 name|expectedTotalOps
 condition|)
 block|{
-name|raiseEarlyFailure
+name|raisePhaseFailure
 argument_list|(
 operator|new
 name|IllegalStateException
@@ -1350,7 +1350,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|raiseEarlyFailure
+name|raisePhaseFailure
 argument_list|(
 operator|new
 name|ReduceSearchPhaseException
@@ -1579,7 +1579,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// no successful ops, raise an exception
-name|raiseEarlyFailure
+name|raisePhaseFailure
 argument_list|(
 operator|new
 name|SearchPhaseExecutionException
@@ -2024,10 +2024,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|raiseEarlyFailure
-specifier|private
+comment|/**      * This method should be called if a search phase failed to ensure all relevant search contexts and resources are released.      * this method will also notify the listener and sends back a failure to the user.      * @param e the exception explaining or causing the phase failure      */
+DECL|method|raisePhaseFailure
+specifier|protected
 name|void
-name|raiseEarlyFailure
+name|raisePhaseFailure
 parameter_list|(
 name|Exception
 name|e
@@ -2754,9 +2755,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|ReduceSearchPhaseException
-name|failure
-init|=
+name|raisePhaseFailure
+argument_list|(
 operator|new
 name|ReduceSearchPhaseException
 argument_list|(
@@ -2769,30 +2769,6 @@ argument_list|,
 name|buildShardFailures
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"failed to reduce search"
-argument_list|,
-name|failure
-argument_list|)
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|onFailure
-argument_list|(
-name|failure
 argument_list|)
 expr_stmt|;
 block|}
