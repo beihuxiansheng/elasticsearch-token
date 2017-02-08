@@ -1807,7 +1807,7 @@ argument_list|)
 decl_stmt|;
 name|masterFD
 operator|.
-name|start
+name|restart
 argument_list|(
 name|nodeB
 argument_list|,
@@ -2146,7 +2146,7 @@ argument_list|)
 decl_stmt|;
 name|masterFDNodeA
 operator|.
-name|start
+name|restart
 argument_list|(
 name|nodeB
 argument_list|,
@@ -2215,7 +2215,7 @@ argument_list|)
 decl_stmt|;
 name|masterFDNodeB
 operator|.
-name|start
+name|restart
 argument_list|(
 name|nodeB
 argument_list|,
