@@ -857,7 +857,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|shard
+name|getShard
 argument_list|()
 operator|.
 name|getNodeId
@@ -897,7 +897,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|shard
+name|getShard
 argument_list|()
 operator|.
 name|getNodeId
@@ -1013,7 +1013,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1054,7 +1054,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1095,7 +1095,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1136,7 +1136,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1177,7 +1177,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1218,7 +1218,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1259,7 +1259,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1300,7 +1300,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1341,7 +1341,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1382,7 +1382,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1527,7 +1527,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1599,7 +1599,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2180,7 +2180,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|shard
+name|getShard
 argument_list|()
 operator|.
 name|getNodeId

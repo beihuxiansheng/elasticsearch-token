@@ -884,7 +884,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1019,7 +1019,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1734,7 +1734,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|is
@@ -1768,7 +1768,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 condition|;
 name|hitId
@@ -1903,7 +1903,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2025,7 +2025,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2115,7 +2115,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo

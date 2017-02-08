@@ -80,9 +80,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -136,7 +134,7 @@ name|HitContext
 block|{
 DECL|field|hit
 specifier|private
-name|InternalSearchHit
+name|SearchHit
 name|hit
 decl_stmt|;
 DECL|field|searcher
@@ -169,7 +167,7 @@ specifier|public
 name|void
 name|reset
 parameter_list|(
-name|InternalSearchHit
+name|SearchHit
 name|hit
 parameter_list|,
 name|LeafReaderContext
@@ -209,7 +207,7 @@ expr_stmt|;
 block|}
 DECL|method|hit
 specifier|public
-name|InternalSearchHit
+name|SearchHit
 name|hit
 parameter_list|()
 block|{
@@ -315,7 +313,7 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|,
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 parameter_list|)

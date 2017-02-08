@@ -940,7 +940,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -957,7 +957,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|i
@@ -986,7 +986,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1002,7 +1002,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1258,7 +1258,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1274,7 +1274,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1290,7 +1290,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1519,7 +1519,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1535,7 +1535,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2185,7 +2185,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2322,7 +2322,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2347,7 +2347,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2363,7 +2363,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2488,7 +2488,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2513,7 +2513,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -2529,7 +2529,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2881,7 +2881,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2906,7 +2906,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2922,7 +2922,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3044,7 +3044,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3069,7 +3069,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3085,7 +3085,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3207,7 +3207,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3232,7 +3232,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3248,7 +3248,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3637,7 +3637,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3662,7 +3662,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3678,7 +3678,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3808,7 +3808,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3824,7 +3824,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3933,14 +3933,14 @@ block|{
 return|return
 name|hit1
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
 name|hit2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 return|;
@@ -4313,7 +4313,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -5181,7 +5181,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -5200,7 +5200,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|isMatch
@@ -5224,7 +5224,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -5250,7 +5250,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -5287,7 +5287,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -5320,7 +5320,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDescription
@@ -5344,7 +5344,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -5380,7 +5380,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -5643,7 +5643,7 @@ argument_list|(
 name|j
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDescription
@@ -5860,7 +5860,7 @@ argument_list|(
 name|j
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -6323,7 +6323,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6339,7 +6339,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -7514,7 +7514,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7530,7 +7530,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -7946,7 +7946,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

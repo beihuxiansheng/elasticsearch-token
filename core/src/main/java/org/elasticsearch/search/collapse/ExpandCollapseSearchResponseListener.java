@@ -152,20 +152,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|InternalSearchHit
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -303,14 +289,6 @@ name|getHits
 argument_list|()
 control|)
 block|{
-name|InternalSearchHit
-name|internalHit
-init|=
-operator|(
-name|InternalSearchHit
-operator|)
-name|hit
-decl_stmt|;
 name|BoolQueryBuilder
 name|groupQuery
 init|=
@@ -321,7 +299,7 @@ decl_stmt|;
 name|Object
 name|collapseValue
 init|=
-name|internalHit
+name|hit
 operator|.
 name|field
 argument_list|(
@@ -467,7 +445,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|internalHit
+name|hit
 operator|.
 name|getInnerHits
 argument_list|()
@@ -475,7 +453,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|internalHit
+name|hit
 operator|.
 name|setInnerHits
 argument_list|(
@@ -488,7 +466,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|internalHit
+name|hit
 operator|.
 name|getInnerHits
 argument_list|()

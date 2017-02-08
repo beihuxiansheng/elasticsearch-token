@@ -192,22 +192,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|profile
-operator|.
-name|query
-operator|.
-name|CollectorResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|sort
 operator|.
 name|SortOrder
@@ -1091,7 +1075,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 operator|+
 literal|"] is not close to Vanilla totalHits ["
@@ -1101,7 +1085,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 operator|+
 literal|"]"

@@ -1132,7 +1132,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -1289,7 +1289,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -1318,7 +1318,7 @@ argument_list|(
 literal|"field2"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -3772,7 +3772,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4105,7 +4105,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4374,7 +4374,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7025,7 +7025,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -7113,7 +7113,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString

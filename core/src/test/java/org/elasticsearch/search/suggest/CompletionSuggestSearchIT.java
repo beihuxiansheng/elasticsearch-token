@@ -22,18 +22,6 @@ name|com
 operator|.
 name|carrotsearch
 operator|.
-name|hppc
-operator|.
-name|ObjectLongHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
 name|randomizedtesting
 operator|.
 name|generators
@@ -2000,7 +1988,7 @@ operator|.
 name|getHit
 argument_list|()
 operator|.
-name|source
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2301,7 +2289,7 @@ operator|.
 name|getHit
 argument_list|()
 operator|.
-name|source
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2618,7 +2606,7 @@ operator|.
 name|getHit
 argument_list|()
 operator|.
-name|source
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2633,7 +2621,7 @@ operator|.
 name|getHit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|keySet
@@ -8107,7 +8095,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 argument_list|)

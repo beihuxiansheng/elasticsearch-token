@@ -826,7 +826,7 @@ name|assertThat
 argument_list|(
 name|sh
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

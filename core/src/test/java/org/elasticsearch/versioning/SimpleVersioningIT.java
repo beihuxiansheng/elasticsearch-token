@@ -2171,7 +2171,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2230,7 +2230,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2787,7 +2787,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo

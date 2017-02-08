@@ -2787,7 +2787,7 @@ name|String
 operator|)
 name|bestHit
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -3805,7 +3805,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 name|assertHitCount
@@ -3955,7 +3955,7 @@ literal|100
 argument_list|,
 name|hits
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3989,7 +3989,7 @@ name|value
 init|=
 name|field
 operator|.
-name|value
+name|getValue
 argument_list|()
 decl_stmt|;
 name|assertTrue

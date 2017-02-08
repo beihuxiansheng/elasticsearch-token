@@ -5665,7 +5665,7 @@ name|append
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -6447,7 +6447,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 if|if

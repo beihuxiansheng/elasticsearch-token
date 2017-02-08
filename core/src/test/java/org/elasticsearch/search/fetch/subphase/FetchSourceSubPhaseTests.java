@@ -122,9 +122,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -293,7 +291,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -357,7 +355,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -390,7 +388,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -419,7 +417,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -452,7 +450,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -532,7 +530,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -572,7 +570,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -608,7 +606,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -632,7 +630,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -846,7 +844,7 @@ operator|.
 name|reset
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 literal|1
 argument_list|,

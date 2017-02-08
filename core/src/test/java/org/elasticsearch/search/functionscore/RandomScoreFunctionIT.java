@@ -1185,7 +1185,7 @@ index|[
 name|j
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1195,7 +1195,7 @@ index|[
 name|j
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1211,7 +1211,7 @@ index|[
 name|j
 index|]
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1221,7 +1221,7 @@ index|[
 name|j
 index|]
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2062,7 +2062,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2083,7 +2083,7 @@ name|assertThat
 argument_list|(
 name|firstHit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|toString
@@ -2156,7 +2156,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2326,7 +2326,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|allOf
@@ -2660,7 +2660,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 index|]

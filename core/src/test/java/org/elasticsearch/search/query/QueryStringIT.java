@@ -3163,7 +3163,7 @@ name|assertThat
 argument_list|(
 name|hits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3205,7 +3205,7 @@ name|add
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -593,7 +593,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

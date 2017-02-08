@@ -460,9 +460,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -1744,7 +1742,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1760,7 +1758,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1789,7 +1787,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2068,14 +2066,14 @@ specifier|private
 name|boolean
 name|isParentHit
 parameter_list|(
-name|InternalSearchHit
+name|SearchHit
 name|hit
 parameter_list|)
 block|{
 return|return
 name|hit
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|.
 name|equals
@@ -2095,7 +2093,7 @@ specifier|private
 name|boolean
 name|isChildHit
 parameter_list|(
-name|InternalSearchHit
+name|SearchHit
 name|hit
 parameter_list|)
 block|{
@@ -2108,7 +2106,7 @@ name|documentMapper
 argument_list|(
 name|hit
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;

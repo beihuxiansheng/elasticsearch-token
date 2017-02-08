@@ -404,7 +404,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -455,7 +455,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

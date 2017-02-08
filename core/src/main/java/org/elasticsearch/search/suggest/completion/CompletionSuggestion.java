@@ -130,23 +130,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHit
 import|;
 end_import
 
@@ -171,16 +155,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 
@@ -1024,7 +998,7 @@ name|doc
 decl_stmt|;
 DECL|field|hit
 specifier|private
-name|InternalSearchHit
+name|SearchHit
 name|hit
 decl_stmt|;
 DECL|method|Option
@@ -1142,7 +1116,7 @@ return|;
 block|}
 DECL|method|getHit
 specifier|public
-name|InternalSearchHit
+name|SearchHit
 name|getHit
 parameter_list|()
 block|{
@@ -1173,7 +1147,7 @@ specifier|public
 name|void
 name|setHit
 parameter_list|(
-name|InternalSearchHit
+name|SearchHit
 name|hit
 parameter_list|)
 block|{
@@ -1369,7 +1343,7 @@ name|this
 operator|.
 name|hit
 operator|=
-name|InternalSearchHit
+name|SearchHit
 operator|.
 name|readSearchHit
 argument_list|(

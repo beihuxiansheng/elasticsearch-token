@@ -198,18 +198,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|Scroll
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|SearchHit
 import|;
 end_import
@@ -330,16 +318,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -427,22 +405,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-operator|.
-name|timeValueMinutes
 import|;
 end_import
 
@@ -547,18 +509,6 @@ operator|.
 name|Matchers
 operator|.
 name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -1100,7 +1050,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1118,7 +1068,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 if|if
@@ -1162,7 +1112,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1173,7 +1123,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1191,7 +1141,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1215,7 +1165,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1245,7 +1195,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1279,7 +1229,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1313,7 +1263,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1347,7 +1297,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1383,14 +1333,14 @@ literal|"id["
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"] -> "
 operator|+
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|toString
@@ -1398,7 +1348,7 @@ argument_list|()
 argument_list|,
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1559,7 +1509,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1577,7 +1527,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 if|if
@@ -1621,7 +1571,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1632,7 +1582,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1650,7 +1600,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1674,7 +1624,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1704,7 +1654,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1738,7 +1688,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1772,7 +1722,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1806,7 +1756,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails
@@ -1842,14 +1792,14 @@ literal|"id["
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"]"
 argument_list|,
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2006,7 +1956,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2024,7 +1974,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 if|if
@@ -2068,7 +2018,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -2081,14 +2031,14 @@ literal|"id["
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"]"
 argument_list|,
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2252,7 +2202,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2268,7 +2218,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2302,7 +2252,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|i
@@ -2314,7 +2264,7 @@ name|add
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2367,7 +2317,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2383,7 +2333,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2417,7 +2367,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|i
@@ -2429,7 +2379,7 @@ name|add
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2531,7 +2481,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2549,7 +2499,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 if|if
@@ -2593,7 +2543,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -2606,14 +2556,14 @@ literal|"id["
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"]"
 argument_list|,
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2799,7 +2749,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3108,7 +3058,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3200,7 +3150,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3249,7 +3199,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3298,7 +3248,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3479,7 +3429,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3523,7 +3473,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3732,7 +3682,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3776,7 +3726,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

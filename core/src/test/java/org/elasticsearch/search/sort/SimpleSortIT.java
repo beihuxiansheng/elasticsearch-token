@@ -1452,7 +1452,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1495,7 +1495,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1543,7 +1543,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -1615,7 +1615,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1658,7 +1658,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1716,7 +1716,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2223,7 +2223,7 @@ argument_list|(
 literal|"min"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2365,7 +2365,7 @@ argument_list|(
 literal|"min"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2507,7 +2507,7 @@ argument_list|(
 literal|"min"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2646,7 +2646,7 @@ argument_list|(
 literal|"min"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2966,7 +2966,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2992,7 +2992,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3018,7 +3018,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3115,7 +3115,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3141,7 +3141,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3167,7 +3167,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3294,7 +3294,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3320,7 +3320,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3346,7 +3346,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3478,7 +3478,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo

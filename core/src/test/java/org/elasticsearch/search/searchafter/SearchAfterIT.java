@@ -1306,7 +1306,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1335,7 +1335,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -2123,7 +2123,7 @@ name|asList
 argument_list|(
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2142,7 +2142,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|searchResponse
@@ -2150,7 +2150,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

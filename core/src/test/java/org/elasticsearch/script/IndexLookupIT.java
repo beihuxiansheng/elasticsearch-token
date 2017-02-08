@@ -4786,7 +4786,7 @@ name|closeTo
 argument_list|(
 name|hit
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 literal|1.e-4
@@ -7284,7 +7284,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -7549,7 +7549,7 @@ name|closeTo
 argument_list|(
 name|hit
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 literal|1.e-4

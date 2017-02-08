@@ -290,9 +290,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -439,7 +437,7 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|,
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 parameter_list|)
@@ -562,7 +560,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|InternalSearchHit
+name|SearchHit
 name|hit
 range|:
 name|hits
@@ -658,7 +656,7 @@ operator|.
 name|reset
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 literal|0
 argument_list|,
@@ -705,7 +703,7 @@ argument_list|)
 expr_stmt|;
 name|hit
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|putAll

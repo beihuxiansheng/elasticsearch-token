@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.internal
+DECL|package|org.elasticsearch.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|search
-operator|.
-name|internal
 package|;
 end_package
 
@@ -142,21 +140,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|DocValueFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 operator|.
 name|Fields
 import|;

@@ -66,20 +66,6 @@ name|search
 operator|.
 name|internal
 operator|.
-name|InternalSearchHitField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
 name|SearchContext
 import|;
 end_import
@@ -319,7 +305,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -383,7 +369,7 @@ block|}
 name|hitField
 operator|=
 operator|new
-name|InternalSearchHitField
+name|SearchHitField
 argument_list|(
 name|scriptField
 operator|.
@@ -398,7 +384,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|put

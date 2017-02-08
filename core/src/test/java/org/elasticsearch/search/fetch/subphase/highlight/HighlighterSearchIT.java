@@ -8409,7 +8409,7 @@ literal|"<em>test</em> "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -13340,13 +13340,13 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
 index|]
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|isEmpty
@@ -18168,7 +18168,7 @@ name|equals
 argument_list|(
 name|searchHit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -18203,7 +18203,7 @@ name|equals
 argument_list|(
 name|searchHit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -18844,7 +18844,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -22238,7 +22238,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -22269,7 +22269,7 @@ name|get
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -23519,7 +23519,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -23540,7 +23540,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|get
@@ -23794,7 +23794,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -23969,7 +23969,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -24289,7 +24289,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|get
@@ -24479,7 +24479,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|get
@@ -24691,7 +24691,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|get

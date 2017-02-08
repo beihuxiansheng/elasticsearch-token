@@ -245,7 +245,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sourceAsString
+name|getSourceAsString
 argument_list|()
 argument_list|,
 name|nullValue
@@ -320,7 +320,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sourceAsString
+name|getSourceAsString
 argument_list|()
 argument_list|,
 name|nullValue
@@ -473,7 +473,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sourceAsString
+name|getSourceAsString
 argument_list|()
 argument_list|,
 name|nullValue
@@ -548,7 +548,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sourceAsString
+name|getSourceAsString
 argument_list|()
 argument_list|,
 name|nullValue

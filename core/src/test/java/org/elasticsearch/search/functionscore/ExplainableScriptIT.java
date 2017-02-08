@@ -791,7 +791,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|toString
@@ -821,7 +821,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|toString
@@ -837,7 +837,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|getDetails

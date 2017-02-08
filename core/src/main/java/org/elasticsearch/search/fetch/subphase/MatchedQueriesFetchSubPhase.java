@@ -162,9 +162,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -277,7 +275,7 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|,
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 parameter_list|)
@@ -527,7 +525,7 @@ operator|++
 name|i
 control|)
 block|{
-name|InternalSearchHit
+name|SearchHit
 name|hit
 init|=
 name|hits

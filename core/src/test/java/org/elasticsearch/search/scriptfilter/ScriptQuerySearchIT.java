@@ -973,7 +973,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -994,7 +994,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1015,7 +1015,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1023,7 +1023,7 @@ argument_list|(
 literal|"sbinaryData"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1362,7 +1362,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1383,7 +1383,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1404,7 +1404,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1412,7 +1412,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1438,7 +1438,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1459,7 +1459,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1467,7 +1467,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1583,7 +1583,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1604,7 +1604,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1625,7 +1625,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1633,7 +1633,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1744,7 +1744,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1765,7 +1765,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1786,7 +1786,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1794,7 +1794,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1820,7 +1820,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1841,7 +1841,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1849,7 +1849,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1875,7 +1875,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1896,7 +1896,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1904,7 +1904,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get

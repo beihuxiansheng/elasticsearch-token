@@ -1202,7 +1202,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1489,7 +1489,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1888,7 +1888,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|toString
@@ -2448,7 +2448,7 @@ name|assertThat
 argument_list|(
 name|inner
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2561,7 +2561,7 @@ name|assertThat
 argument_list|(
 name|inner
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3072,7 +3072,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3108,7 +3108,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3144,7 +3144,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3266,7 +3266,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3302,7 +3302,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3338,7 +3338,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3374,7 +3374,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3556,7 +3556,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 operator|.
 name|toString
@@ -4230,7 +4230,7 @@ name|assertThat
 argument_list|(
 name|inner
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4356,7 +4356,7 @@ name|assertThat
 argument_list|(
 name|inner
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4813,7 +4813,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4924,7 +4924,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5310,7 +5310,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5346,7 +5346,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5376,7 +5376,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5412,7 +5412,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5552,7 +5552,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5588,7 +5588,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5618,7 +5618,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5654,7 +5654,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6113,7 +6113,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6221,7 +6221,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6473,7 +6473,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6747,7 +6747,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6855,7 +6855,7 @@ name|assertThat
 argument_list|(
 name|innerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7159,7 +7159,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7222,7 +7222,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7587,7 +7587,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7631,7 +7631,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7773,7 +7773,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7816,7 +7816,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8033,7 +8033,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8076,7 +8076,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8909,7 +8909,7 @@ name|assertThat
 argument_list|(
 name|innerInnerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8957,7 +8957,7 @@ name|assertThat
 argument_list|(
 name|innerInnerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9005,7 +9005,7 @@ name|assertThat
 argument_list|(
 name|innerInnerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9053,7 +9053,7 @@ name|assertThat
 argument_list|(
 name|innerInnerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9152,7 +9152,7 @@ name|assertThat
 argument_list|(
 name|innerInnerHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9734,7 +9734,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9758,7 +9758,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9954,7 +9954,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10092,7 +10092,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10467,7 +10467,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10590,7 +10590,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10780,7 +10780,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11414,7 +11414,7 @@ argument_list|(
 literal|"comments"
 argument_list|)
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11452,7 +11452,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 argument_list|,
@@ -11491,7 +11491,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 argument_list|)
 argument_list|,

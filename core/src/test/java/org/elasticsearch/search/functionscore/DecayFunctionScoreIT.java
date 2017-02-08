@@ -2128,7 +2128,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2140,7 +2140,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2346,7 +2346,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2358,7 +2358,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2564,7 +2564,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2576,7 +2576,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3418,7 +3418,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -3550,7 +3550,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -3837,7 +3837,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -3962,7 +3962,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -4087,7 +4087,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -4116,7 +4116,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|sr
@@ -4129,7 +4129,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|explanation
+name|getExplanation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4247,7 +4247,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -4378,7 +4378,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -4503,7 +4503,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -5503,7 +5503,7 @@ name|assertThat
 argument_list|(
 name|sh
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -5535,7 +5535,7 @@ name|i
 operator|<
 name|sh
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6123,7 +6123,7 @@ name|assertThat
 argument_list|(
 name|sh
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6155,7 +6155,7 @@ name|i
 operator|<
 name|sh
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6765,7 +6765,7 @@ name|assertThat
 argument_list|(
 name|sh
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

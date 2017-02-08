@@ -581,7 +581,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.

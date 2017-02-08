@@ -230,7 +230,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|+
 literal|"#"
@@ -240,7 +240,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"]"

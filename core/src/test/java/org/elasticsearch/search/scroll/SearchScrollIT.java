@@ -794,7 +794,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -824,7 +824,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -894,7 +894,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -924,7 +924,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -994,7 +994,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1024,7 +1024,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -1335,7 +1335,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1365,7 +1365,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -1450,7 +1450,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1480,7 +1480,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -1552,7 +1552,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1582,7 +1582,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -1653,7 +1653,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1683,7 +1683,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -1906,7 +1906,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1947,7 +1947,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1988,7 +1988,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2029,7 +2029,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2070,7 +2070,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2140,7 +2140,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -2154,7 +2154,7 @@ name|map
 init|=
 name|searchHit
 operator|.
-name|sourceAsMap
+name|getSourceAsMap
 argument_list|()
 decl_stmt|;
 name|map
@@ -2177,7 +2177,7 @@ literal|"tweet"
 argument_list|,
 name|searchHit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2230,7 +2230,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2284,7 +2284,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2325,7 +2325,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2366,7 +2366,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2407,7 +2407,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2448,7 +2448,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2782,7 +2782,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2812,7 +2812,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2853,7 +2853,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2883,7 +2883,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2982,7 +2982,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3012,7 +3012,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3053,7 +3053,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3083,7 +3083,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3762,7 +3762,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3792,7 +3792,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3833,7 +3833,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3863,7 +3863,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3962,7 +3962,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3992,7 +3992,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -4033,7 +4033,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -4063,7 +4063,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -4940,7 +4940,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -4970,7 +4970,7 @@ name|Number
 operator|)
 name|hit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0

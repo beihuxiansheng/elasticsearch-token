@@ -390,9 +390,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -404,9 +402,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHits
 import|;
 end_import
 
@@ -2939,7 +2935,7 @@ operator|.
 name|asList
 argument_list|()
 decl_stmt|;
-name|InternalSearchHits
+name|SearchHits
 name|hits
 init|=
 name|getHits
@@ -3094,7 +3090,7 @@ operator|.
 name|length
 condition|)
 block|{
-name|InternalSearchHit
+name|SearchHit
 name|hit
 init|=
 name|fetchResult
@@ -3182,7 +3178,7 @@ return|;
 block|}
 DECL|method|getHits
 specifier|private
-name|InternalSearchHits
+name|SearchHits
 name|getHits
 parameter_list|(
 name|ReducedQueryPhase
@@ -3436,7 +3432,7 @@ expr_stmt|;
 comment|// merge hits
 name|List
 argument_list|<
-name|InternalSearchHit
+name|SearchHit
 argument_list|>
 name|hits
 init|=
@@ -3529,7 +3525,7 @@ operator|.
 name|length
 condition|)
 block|{
-name|InternalSearchHit
+name|SearchHit
 name|searchHit
 init|=
 name|fetchResult
@@ -3633,14 +3629,14 @@ block|}
 block|}
 return|return
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 name|hits
 operator|.
 name|toArray
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[
 name|hits
 operator|.
@@ -4503,7 +4499,7 @@ specifier|public
 name|InternalSearchResponse
 name|buildResponse
 parameter_list|(
-name|InternalSearchHits
+name|SearchHits
 name|hits
 parameter_list|)
 block|{

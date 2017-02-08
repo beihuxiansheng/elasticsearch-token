@@ -5879,7 +5879,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 name|assertThat

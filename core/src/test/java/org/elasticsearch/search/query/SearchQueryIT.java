@@ -110,20 +110,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -1158,18 +1144,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|is
 import|;
 end_import
@@ -1895,7 +1869,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -1982,7 +1956,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2045,7 +2019,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2133,7 +2107,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2148,7 +2122,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -2323,7 +2297,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 name|SearchHits
@@ -2421,7 +2395,7 @@ name|assertThat
 argument_list|(
 name|hits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2447,7 +2421,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 decl_stmt|;
 for|for
@@ -2646,7 +2620,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2672,7 +2646,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -2903,7 +2877,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3794,7 +3768,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9319,7 +9293,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -9336,7 +9310,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 literal|.1
@@ -9421,7 +9395,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|closeTo
@@ -9438,7 +9412,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 literal|.1
@@ -11728,7 +11702,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11775,7 +11749,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11824,7 +11798,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11875,7 +11849,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11926,7 +11900,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11985,7 +11959,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -18850,7 +18824,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -18871,7 +18845,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -18953,7 +18927,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -18974,7 +18948,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo

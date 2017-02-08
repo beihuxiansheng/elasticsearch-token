@@ -80,9 +80,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHits
 import|;
 end_import
 
@@ -116,18 +114,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -156,7 +142,7 @@ name|shardTarget
 decl_stmt|;
 DECL|field|hits
 specifier|private
-name|InternalSearchHits
+name|SearchHits
 name|hits
 decl_stmt|;
 comment|// client side counter
@@ -270,7 +256,7 @@ specifier|public
 name|void
 name|hits
 parameter_list|(
-name|InternalSearchHits
+name|SearchHits
 name|hits
 parameter_list|)
 block|{
@@ -292,7 +278,7 @@ specifier|private
 name|boolean
 name|assertNoSearchTarget
 parameter_list|(
-name|InternalSearchHits
+name|SearchHits
 name|hits
 parameter_list|)
 block|{
@@ -303,7 +289,7 @@ name|hit
 range|:
 name|hits
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -329,7 +315,7 @@ return|;
 block|}
 DECL|method|hits
 specifier|public
-name|InternalSearchHits
+name|SearchHits
 name|hits
 parameter_list|()
 block|{
@@ -421,7 +407,7 @@ argument_list|()
 expr_stmt|;
 name|hits
 operator|=
-name|InternalSearchHits
+name|SearchHits
 operator|.
 name|readSearchHits
 argument_list|(

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.internal
+DECL|package|org.elasticsearch.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|search
-operator|.
-name|internal
 package|;
 end_package
 
@@ -191,7 +189,7 @@ block|{
 DECL|method|createTestItem
 specifier|public
 specifier|static
-name|InternalSearchHits
+name|SearchHits
 name|createTestItem
 parameter_list|()
 block|{
@@ -205,12 +203,12 @@ argument_list|,
 literal|5
 argument_list|)
 decl_stmt|;
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 init|=
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[
 name|searchHits
 index|]
@@ -265,7 +263,7 @@ name|NaN
 decl_stmt|;
 return|return
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 name|hits
 argument_list|,
@@ -283,7 +281,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|InternalSearchHits
+name|SearchHits
 name|searchHits
 init|=
 name|createTestItem
@@ -318,7 +316,7 @@ argument_list|,
 name|humanReadable
 argument_list|)
 decl_stmt|;
-name|InternalSearchHits
+name|SearchHits
 name|parsed
 decl_stmt|;
 try|try
@@ -339,7 +337,7 @@ init|)
 block|{
 name|parsed
 operator|=
-name|InternalSearchHits
+name|SearchHits
 operator|.
 name|fromXContent
 argument_list|(
@@ -408,16 +406,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 init|=
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[]
 block|{
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 literal|1
 argument_list|,
@@ -436,7 +434,7 @@ argument_list|()
 argument_list|)
 block|,
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 literal|2
 argument_list|,
@@ -465,11 +463,11 @@ name|maxScore
 init|=
 literal|1.5f
 decl_stmt|;
-name|InternalSearchHits
+name|SearchHits
 name|searchHits
 init|=
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 name|hits
 argument_list|,

@@ -678,7 +678,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 name|int
@@ -1189,7 +1189,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 expr_stmt|;
 name|logger

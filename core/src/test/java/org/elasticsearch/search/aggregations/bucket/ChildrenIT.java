@@ -1918,7 +1918,7 @@ literal|"hit= {} {} {}"
 argument_list|,
 name|searchHit
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2034,7 +2034,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2219,7 +2219,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2362,7 +2362,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo

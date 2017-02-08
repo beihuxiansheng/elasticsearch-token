@@ -228,9 +228,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -242,9 +240,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHits
 import|;
 end_import
 
@@ -481,12 +477,12 @@ index|[
 name|actualSize
 index|]
 decl_stmt|;
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 init|=
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[
 name|actualSize
 index|]
@@ -662,7 +658,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 name|docId
 argument_list|,
@@ -703,11 +699,11 @@ argument_list|,
 literal|500000
 argument_list|)
 decl_stmt|;
-name|InternalSearchHits
-name|internalSearchHits
+name|SearchHits
+name|searchHits
 init|=
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 name|hits
 argument_list|,
@@ -776,7 +772,7 @@ name|requestedSize
 argument_list|,
 name|topDocs
 argument_list|,
-name|internalSearchHits
+name|searchHits
 argument_list|,
 name|pipelineAggregators
 argument_list|,
@@ -919,12 +915,9 @@ argument_list|>
 name|inputs
 parameter_list|)
 block|{
-name|InternalSearchHits
+name|SearchHits
 name|actualHits
 init|=
-operator|(
-name|InternalSearchHits
-operator|)
 name|reduced
 operator|.
 name|getHits
@@ -936,7 +929,7 @@ name|Tuple
 argument_list|<
 name|ScoreDoc
 argument_list|,
-name|InternalSearchHit
+name|SearchHit
 argument_list|>
 argument_list|>
 name|allHits
@@ -976,12 +969,9 @@ name|input
 operator|++
 control|)
 block|{
-name|InternalSearchHits
+name|SearchHits
 name|internalHits
 init|=
-operator|(
-name|InternalSearchHits
-operator|)
 name|inputs
 operator|.
 name|get
@@ -996,7 +986,7 @@ name|totalHits
 operator|+=
 name|internalHits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 expr_stmt|;
 name|maxScore
@@ -1007,7 +997,7 @@ name|maxScore
 argument_list|,
 name|internalHits
 operator|.
-name|maxScore
+name|getMaxScore
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1136,12 +1126,12 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|expectedHitsHits
 init|=
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[
 name|min
 argument_list|(
@@ -1195,11 +1185,11 @@ name|v2
 argument_list|()
 expr_stmt|;
 block|}
-name|InternalSearchHits
+name|SearchHits
 name|expectedHits
 init|=
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 name|expectedHitsHits
 argument_list|,

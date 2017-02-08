@@ -1817,7 +1817,7 @@ literal|"], index ["
 operator|+
 name|hit
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|+
 literal|"])"
@@ -2027,7 +2027,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2065,7 +2065,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|i
@@ -2129,7 +2129,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 operator|!=
 name|expectedHitCount
@@ -2144,7 +2144,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 operator|+
 literal|" but "
@@ -2399,7 +2399,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -3111,7 +3111,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3129,7 +3129,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|hit
@@ -3215,7 +3215,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|highlightFields
+name|getHighlightFields
 argument_list|()
 operator|.
 name|get
@@ -3266,7 +3266,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -3284,7 +3284,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|hit

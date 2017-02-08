@@ -120,9 +120,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -134,9 +132,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHits
 import|;
 end_import
 
@@ -261,7 +257,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|InternalSearchHits
+name|SearchHits
 argument_list|>
 name|results
 init|=
@@ -440,7 +436,7 @@ operator|.
 name|fetchResult
 argument_list|()
 decl_stmt|;
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|internalHits
 init|=
@@ -482,7 +478,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|InternalSearchHit
+name|SearchHit
 name|searchHitFields
 init|=
 name|internalHits

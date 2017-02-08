@@ -166,9 +166,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -180,9 +178,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHits
 import|;
 end_import
 
@@ -347,10 +343,10 @@ operator|new
 name|InternalSearchResponse
 argument_list|(
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[
 literal|0
 index|]

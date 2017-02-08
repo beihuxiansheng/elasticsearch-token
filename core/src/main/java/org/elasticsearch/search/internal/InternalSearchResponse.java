@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -214,22 +204,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|InternalSearchHits
-operator|.
-name|readSearchHits
-import|;
-end_import
-
 begin_class
 DECL|class|InternalSearchResponse
 specifier|public
@@ -251,7 +225,7 @@ return|return
 operator|new
 name|InternalSearchResponse
 argument_list|(
-name|InternalSearchHits
+name|SearchHits
 operator|.
 name|empty
 argument_list|()
@@ -270,7 +244,7 @@ return|;
 block|}
 DECL|field|hits
 specifier|private
-name|InternalSearchHits
+name|SearchHits
 name|hits
 decl_stmt|;
 DECL|field|aggregations
@@ -309,7 +283,7 @@ DECL|method|InternalSearchResponse
 specifier|public
 name|InternalSearchResponse
 parameter_list|(
-name|InternalSearchHits
+name|SearchHits
 name|hits
 parameter_list|,
 name|InternalAggregations
@@ -577,6 +551,8 @@ name|IOException
 block|{
 name|hits
 operator|=
+name|SearchHits
+operator|.
 name|readSearchHits
 argument_list|(
 name|in

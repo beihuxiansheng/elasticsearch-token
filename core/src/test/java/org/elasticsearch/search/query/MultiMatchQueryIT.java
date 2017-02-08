@@ -1514,7 +1514,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1559,7 +1559,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -1575,7 +1575,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -1660,7 +1660,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -1676,7 +1676,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -2514,7 +2514,7 @@ literal|0
 argument_list|,
 name|hits
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2532,7 +2532,7 @@ name|j
 operator|<
 name|hits
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2551,7 +2551,7 @@ index|[
 name|j
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2567,7 +2567,7 @@ index|[
 name|j
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2645,7 +2645,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 name|MatchQuery
@@ -2773,7 +2773,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2818,7 +2818,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -2834,7 +2834,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -2956,7 +2956,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -2972,7 +2972,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -3414,7 +3414,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 name|int
@@ -4532,7 +4532,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -4548,7 +4548,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -5352,7 +5352,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 decl_stmt|;
 name|searchResponse
@@ -5712,7 +5712,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -5728,7 +5728,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -5823,7 +5823,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|0
@@ -5839,7 +5839,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 literal|1
@@ -6533,7 +6533,7 @@ index|[
 literal|1
 index|]
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)

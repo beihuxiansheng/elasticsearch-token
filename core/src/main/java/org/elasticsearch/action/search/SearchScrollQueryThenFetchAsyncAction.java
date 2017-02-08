@@ -182,20 +182,6 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|QueryFetchSearchResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
 name|ShardFetchRequest
 import|;
 end_import
@@ -253,16 +239,6 @@ operator|.
 name|query
 operator|.
 name|ScrollQuerySearchResult
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 

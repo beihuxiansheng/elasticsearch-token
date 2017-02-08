@@ -1710,7 +1710,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1733,7 +1733,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -1757,7 +1757,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1765,7 +1765,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -1826,7 +1826,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1849,7 +1849,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -1873,7 +1873,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1933,7 +1933,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1956,7 +1956,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -1980,7 +1980,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -1988,7 +1988,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2048,7 +2048,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2071,7 +2071,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -2095,7 +2095,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2103,7 +2103,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2170,7 +2170,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2193,7 +2193,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -2217,7 +2217,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2225,7 +2225,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2249,7 +2249,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2257,7 +2257,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2317,7 +2317,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2340,7 +2340,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -2364,7 +2364,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2372,7 +2372,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2396,7 +2396,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2404,7 +2404,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2464,7 +2464,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2487,7 +2487,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -2511,7 +2511,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2519,7 +2519,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2579,7 +2579,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2602,7 +2602,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|source
+name|getSourceAsMap
 argument_list|()
 argument_list|,
 name|nullValue
@@ -2621,7 +2621,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -2645,7 +2645,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2653,7 +2653,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2677,7 +2677,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2685,7 +2685,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2747,7 +2747,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2770,7 +2770,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|source
+name|getSourceAsMap
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -2789,7 +2789,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|size
@@ -2813,7 +2813,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2821,7 +2821,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -2845,7 +2845,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -2853,7 +2853,7 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -3284,7 +3284,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3321,7 +3321,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3350,7 +3350,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -3386,7 +3386,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3394,7 +3394,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3420,7 +3420,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3428,7 +3428,7 @@ argument_list|(
 literal|"sNum1_field"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3454,7 +3454,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3462,7 +3462,7 @@ argument_list|(
 literal|"date1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3488,7 +3488,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3513,7 +3513,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -3549,7 +3549,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3557,7 +3557,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3583,7 +3583,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3591,7 +3591,7 @@ argument_list|(
 literal|"sNum1_field"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3617,7 +3617,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3625,7 +3625,7 @@ argument_list|(
 literal|"date1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3651,7 +3651,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3676,7 +3676,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -3712,7 +3712,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3720,7 +3720,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3746,7 +3746,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3754,7 +3754,7 @@ argument_list|(
 literal|"sNum1_field"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3780,7 +3780,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3788,7 +3788,7 @@ argument_list|(
 literal|"date1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -3891,7 +3891,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3912,7 +3912,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3937,7 +3937,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -3969,7 +3969,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -3977,7 +3977,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -4003,7 +4003,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4028,7 +4028,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -4060,7 +4060,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -4068,7 +4068,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -4094,7 +4094,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4119,7 +4119,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -4151,7 +4151,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -4159,7 +4159,7 @@ argument_list|(
 literal|"sNum1"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -4354,7 +4354,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4393,7 +4393,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4427,7 +4427,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -4459,7 +4459,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -4467,7 +4467,7 @@ argument_list|(
 literal|"uid"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4551,7 +4551,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4590,7 +4590,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4624,7 +4624,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -4656,7 +4656,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -4664,7 +4664,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4746,7 +4746,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4785,7 +4785,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4819,7 +4819,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -4851,7 +4851,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -4859,7 +4859,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4984,7 +4984,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5023,7 +5023,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5057,7 +5057,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -5093,7 +5093,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -5101,7 +5101,7 @@ argument_list|(
 literal|"uid"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5129,7 +5129,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -5137,7 +5137,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5158,7 +5158,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -5166,7 +5166,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5487,7 +5487,7 @@ argument_list|(
 literal|"s_obj1_test"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -5522,7 +5522,7 @@ argument_list|(
 literal|"s_obj1"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -5560,7 +5560,7 @@ argument_list|(
 literal|"s_obj1_test"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -5595,7 +5595,7 @@ argument_list|(
 literal|"s_obj2"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 decl_stmt|;
 name|List
@@ -5683,7 +5683,7 @@ argument_list|(
 literal|"s_obj2_arr2"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -5756,7 +5756,7 @@ argument_list|(
 literal|"s_arr3"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -5909,7 +5909,7 @@ name|fieldValues
 init|=
 name|fieldObj
 operator|.
-name|values
+name|getValues
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -6600,7 +6600,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6631,7 +6631,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -6684,7 +6684,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6692,7 +6692,7 @@ argument_list|(
 literal|"byte_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -6708,7 +6708,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6716,7 +6716,7 @@ argument_list|(
 literal|"short_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -6732,7 +6732,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6740,7 +6740,7 @@ argument_list|(
 literal|"integer_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6756,7 +6756,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6764,7 +6764,7 @@ argument_list|(
 literal|"long_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6780,7 +6780,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6788,7 +6788,7 @@ argument_list|(
 literal|"float_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6804,7 +6804,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6812,7 +6812,7 @@ argument_list|(
 literal|"double_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6862,7 +6862,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6870,7 +6870,7 @@ argument_list|(
 literal|"date_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6886,7 +6886,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6894,7 +6894,7 @@ argument_list|(
 literal|"boolean_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6912,7 +6912,7 @@ name|assertThat
 argument_list|(
 name|searchHit
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -6920,7 +6920,7 @@ argument_list|(
 literal|"binary_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7027,7 +7027,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7543,7 +7543,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7705,7 +7705,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7982,7 +7982,7 @@ argument_list|(
 literal|"test_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8537,7 +8537,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -8568,7 +8568,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|keySet
@@ -8620,7 +8620,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8628,7 +8628,7 @@ argument_list|(
 literal|"byte_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -8652,7 +8652,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8660,7 +8660,7 @@ argument_list|(
 literal|"short_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 operator|.
 name|toString
@@ -8684,7 +8684,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8692,7 +8692,7 @@ argument_list|(
 literal|"integer_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8716,7 +8716,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8724,7 +8724,7 @@ argument_list|(
 literal|"long_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8748,7 +8748,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8756,7 +8756,7 @@ argument_list|(
 literal|"float_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8780,7 +8780,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8788,7 +8788,7 @@ argument_list|(
 literal|"double_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8812,7 +8812,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8820,7 +8820,7 @@ argument_list|(
 literal|"date_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8841,7 +8841,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8849,7 +8849,7 @@ argument_list|(
 literal|"boolean_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8873,7 +8873,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8881,7 +8881,7 @@ argument_list|(
 literal|"text_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8902,7 +8902,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8910,7 +8910,7 @@ argument_list|(
 literal|"keyword_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8931,7 +8931,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|fields
+name|getFields
 argument_list|()
 operator|.
 name|get
@@ -8939,7 +8939,7 @@ argument_list|(
 literal|"ip_field"
 argument_list|)
 operator|.
-name|value
+name|getValue
 argument_list|()
 argument_list|,
 name|equalTo

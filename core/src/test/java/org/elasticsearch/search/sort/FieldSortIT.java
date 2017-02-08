@@ -959,7 +959,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -979,13 +979,13 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|j
 index|]
 operator|.
-name|getSource
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1004,7 +1004,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|j
@@ -1012,7 +1012,7 @@ operator|-
 literal|1
 index|]
 operator|.
-name|getSource
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1106,7 +1106,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1126,13 +1126,13 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|j
 index|]
 operator|.
-name|getSource
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1151,7 +1151,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|j
@@ -1159,7 +1159,7 @@ operator|-
 literal|1
 index|]
 operator|.
-name|getSource
+name|getSourceAsMap
 argument_list|()
 operator|.
 name|get
@@ -1614,7 +1614,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1642,7 +1642,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|j
@@ -1658,7 +1658,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 index|[
 name|j
@@ -2331,7 +2331,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2431,7 +2431,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2455,7 +2455,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2579,7 +2579,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -2675,7 +2675,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2699,7 +2699,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2867,7 +2867,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2894,7 +2894,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -2921,7 +2921,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3026,7 +3026,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3053,7 +3053,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3080,7 +3080,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3182,7 +3182,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3209,7 +3209,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3236,7 +3236,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3344,7 +3344,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3371,7 +3371,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3398,7 +3398,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3467,7 +3467,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3494,7 +3494,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3521,7 +3521,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -3699,7 +3699,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -3716,7 +3716,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3754,7 +3754,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -3771,7 +3771,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3873,7 +3873,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -3890,7 +3890,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3928,7 +3928,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -3945,7 +3945,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4236,7 +4236,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -4253,7 +4253,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4291,7 +4291,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -4308,7 +4308,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4406,7 +4406,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -4423,7 +4423,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4461,7 +4461,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|Matchers
@@ -4478,7 +4478,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|)
 argument_list|)
@@ -5044,7 +5044,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -5133,7 +5133,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -5631,7 +5631,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -5669,7 +5669,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5695,7 +5695,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -5795,7 +5795,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -5833,7 +5833,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5861,7 +5861,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -5986,7 +5986,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6024,7 +6024,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6054,7 +6054,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -6133,7 +6133,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6171,7 +6171,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6203,7 +6203,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -6303,7 +6303,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6341,7 +6341,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6371,7 +6371,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -6450,7 +6450,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6488,7 +6488,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6520,7 +6520,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -6620,7 +6620,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6658,7 +6658,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6688,7 +6688,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -6780,7 +6780,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6818,7 +6818,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6850,7 +6850,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -6947,7 +6947,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -6985,7 +6985,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7015,7 +7015,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -7117,7 +7117,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -7155,7 +7155,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7187,7 +7187,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -7287,7 +7287,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -7325,7 +7325,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7355,7 +7355,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -7451,7 +7451,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -7489,7 +7489,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7521,7 +7521,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -7622,7 +7622,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -7660,7 +7660,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7690,7 +7690,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -7786,7 +7786,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -7824,7 +7824,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7856,7 +7856,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -8193,7 +8193,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8214,7 +8214,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8235,7 +8235,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8326,7 +8326,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8347,7 +8347,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8368,7 +8368,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8459,7 +8459,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8480,7 +8480,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8501,7 +8501,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8827,7 +8827,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8848,7 +8848,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8869,7 +8869,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8978,7 +8978,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8999,7 +8999,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9020,7 +9020,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9129,7 +9129,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9150,7 +9150,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9171,7 +9171,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9280,7 +9280,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9301,7 +9301,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -9322,7 +9322,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10125,7 +10125,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -10148,7 +10148,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10178,7 +10178,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10207,7 +10207,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10237,7 +10237,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10265,7 +10265,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10295,7 +10295,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10368,7 +10368,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -10391,7 +10391,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10421,7 +10421,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10449,7 +10449,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10479,7 +10479,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10507,7 +10507,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10537,7 +10537,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10625,7 +10625,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -10648,7 +10648,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10678,7 +10678,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10706,7 +10706,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10736,7 +10736,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10764,7 +10764,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10794,7 +10794,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10882,7 +10882,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -10905,7 +10905,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10935,7 +10935,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -10963,7 +10963,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -10993,7 +10993,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11021,7 +11021,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11051,7 +11051,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11139,7 +11139,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11162,7 +11162,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11192,7 +11192,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11220,7 +11220,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11250,7 +11250,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11278,7 +11278,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11308,7 +11308,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11381,7 +11381,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11404,7 +11404,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11434,7 +11434,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11463,7 +11463,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11493,7 +11493,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11521,7 +11521,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11551,7 +11551,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11624,7 +11624,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11647,7 +11647,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11677,7 +11677,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11705,7 +11705,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11735,7 +11735,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11763,7 +11763,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11793,7 +11793,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11866,7 +11866,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -11889,7 +11889,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11919,7 +11919,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -11948,7 +11948,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11978,7 +11978,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12006,7 +12006,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12036,7 +12036,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12109,7 +12109,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -12132,7 +12132,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12162,7 +12162,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12190,7 +12190,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12220,7 +12220,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12248,7 +12248,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12278,7 +12278,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12351,7 +12351,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -12374,7 +12374,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12404,7 +12404,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12433,7 +12433,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12463,7 +12463,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12491,7 +12491,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12521,7 +12521,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12594,7 +12594,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -12617,7 +12617,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12647,7 +12647,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12675,7 +12675,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12705,7 +12705,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12733,7 +12733,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12763,7 +12763,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12836,7 +12836,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -12859,7 +12859,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12889,7 +12889,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12918,7 +12918,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -12948,7 +12948,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -12976,7 +12976,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13006,7 +13006,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13079,7 +13079,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -13102,7 +13102,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13132,7 +13132,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13160,7 +13160,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13190,7 +13190,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13218,7 +13218,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13248,7 +13248,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13321,7 +13321,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -13344,7 +13344,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13374,7 +13374,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13403,7 +13403,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13433,7 +13433,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13461,7 +13461,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13491,7 +13491,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13564,7 +13564,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -13587,7 +13587,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13617,7 +13617,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13645,7 +13645,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13675,7 +13675,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13703,7 +13703,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13733,7 +13733,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13806,7 +13806,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -13829,7 +13829,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13855,7 +13855,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13879,7 +13879,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13905,7 +13905,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -13929,7 +13929,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -13955,7 +13955,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14024,7 +14024,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -14047,7 +14047,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14073,7 +14073,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14097,7 +14097,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14123,7 +14123,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14147,7 +14147,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14173,7 +14173,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14345,7 +14345,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -14368,7 +14368,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14394,7 +14394,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14558,7 +14558,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -14581,7 +14581,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14607,7 +14607,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14631,7 +14631,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14657,7 +14657,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14821,7 +14821,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -14844,7 +14844,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14870,7 +14870,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14894,7 +14894,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14920,7 +14920,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -14944,7 +14944,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -14970,7 +14970,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -15086,7 +15086,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -15109,7 +15109,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -15135,7 +15135,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -15159,7 +15159,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -15185,7 +15185,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -15209,7 +15209,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -15235,7 +15235,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -15398,7 +15398,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 name|BytesRef
@@ -15451,7 +15451,7 @@ index|[
 name|i
 index|]
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|hits
@@ -15459,7 +15459,7 @@ index|[
 name|i
 index|]
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -15721,7 +15721,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 decl_stmt|;
 for|for
@@ -15834,7 +15834,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 expr_stmt|;
 for|for
@@ -16169,7 +16169,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -16179,7 +16179,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 argument_list|)
@@ -16245,7 +16245,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -16263,7 +16263,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|sortValues
+name|getSortValues
 argument_list|()
 index|[
 literal|0
@@ -16283,7 +16283,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -16298,7 +16298,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -16414,7 +16414,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -16511,7 +16511,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -16524,7 +16524,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length

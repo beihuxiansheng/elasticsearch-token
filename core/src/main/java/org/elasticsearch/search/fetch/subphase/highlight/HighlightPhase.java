@@ -393,7 +393,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -456,7 +456,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 operator|.
@@ -487,7 +487,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 operator|+
 literal|"] has disabled _source"
@@ -817,7 +817,7 @@ operator|.
 name|hit
 argument_list|()
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 decl_stmt|;

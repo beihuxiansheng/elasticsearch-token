@@ -461,7 +461,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -471,7 +471,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -484,7 +484,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -499,7 +499,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -514,7 +514,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -527,7 +527,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -542,7 +542,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -560,7 +560,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -641,7 +641,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -651,7 +651,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -664,7 +664,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -679,7 +679,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -694,7 +694,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -707,7 +707,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -722,7 +722,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -740,7 +740,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -912,7 +912,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -925,7 +925,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -940,7 +940,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -953,7 +953,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -968,7 +968,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -978,7 +978,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -991,7 +991,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1006,7 +1006,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1024,7 +1024,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1105,7 +1105,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1118,7 +1118,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1133,7 +1133,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1146,7 +1146,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1161,7 +1161,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1171,7 +1171,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1184,7 +1184,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1199,7 +1199,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1217,7 +1217,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1401,7 +1401,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1411,7 +1411,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1421,7 +1421,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1434,7 +1434,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1449,7 +1449,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1462,7 +1462,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1480,7 +1480,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1553,7 +1553,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1563,7 +1563,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1573,7 +1573,7 @@ argument_list|)
 operator|||
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1586,7 +1586,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1601,7 +1601,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1614,7 +1614,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1632,7 +1632,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1729,7 +1729,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1742,7 +1742,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1757,7 +1757,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1775,7 +1775,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1872,7 +1872,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1885,7 +1885,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -1900,7 +1900,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -1918,7 +1918,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2015,7 +2015,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2028,7 +2028,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -2043,7 +2043,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -2061,7 +2061,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2158,7 +2158,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2171,7 +2171,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -2186,7 +2186,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -2204,7 +2204,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2308,7 +2308,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2321,7 +2321,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -2336,7 +2336,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -2354,7 +2354,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2527,7 +2527,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2540,7 +2540,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -2555,7 +2555,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -2570,7 +2570,7 @@ if|if
 condition|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2583,7 +2583,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 operator|.
 name|length
@@ -2598,7 +2598,7 @@ name|assertThat
 argument_list|(
 name|hit
 operator|.
-name|matchedQueries
+name|getMatchedQueries
 argument_list|()
 argument_list|,
 name|hasItemInArray
@@ -2616,7 +2616,7 @@ literal|"Unexpected document returned with id "
 operator|+
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

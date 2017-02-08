@@ -1248,7 +1248,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|hits
+name|getHits
 argument_list|()
 operator|.
 name|length
@@ -1289,7 +1289,7 @@ name|add
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1320,7 +1320,7 @@ name|id
 init|=
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 if|if
@@ -1492,7 +1492,7 @@ argument_list|(
 literal|"foo.token_count"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|size
@@ -1535,7 +1535,7 @@ argument_list|(
 literal|"foo.token_count"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|get
@@ -1569,7 +1569,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|values
+name|getValues
 argument_list|()
 operator|.
 name|size

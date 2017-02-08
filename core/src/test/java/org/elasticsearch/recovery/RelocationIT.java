@@ -1592,7 +1592,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1803,7 +1803,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2461,7 +2461,7 @@ if|if
 condition|(
 name|hits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 operator|!=
 name|indexer
@@ -2531,7 +2531,7 @@ name|hit
 range|:
 name|hits
 operator|.
-name|hits
+name|getHits
 argument_list|()
 control|)
 block|{
@@ -2544,7 +2544,7 @@ name|parseInt
 argument_list|(
 name|hit
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2597,7 +2597,7 @@ name|assertThat
 argument_list|(
 name|hits
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3340,7 +3340,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 expr_stmt|;
 block|}
@@ -3355,7 +3355,7 @@ operator|.
 name|getHits
 argument_list|()
 operator|.
-name|totalHits
+name|getTotalHits
 argument_list|()
 argument_list|)
 expr_stmt|;

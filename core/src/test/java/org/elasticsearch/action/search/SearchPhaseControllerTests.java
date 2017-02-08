@@ -148,9 +148,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHit
+name|SearchHit
 import|;
 end_import
 
@@ -162,9 +160,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|InternalSearchHits
+name|SearchHits
 import|;
 end_import
 
@@ -1845,9 +1841,9 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|InternalSearchHit
+name|SearchHit
 argument_list|>
-name|internalSearchHits
+name|searchHits
 init|=
 operator|new
 name|ArrayList
@@ -1871,12 +1867,12 @@ operator|==
 name|shardIndex
 condition|)
 block|{
-name|internalSearchHits
+name|searchHits
 operator|.
 name|add
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 name|scoreDoc
 operator|.
@@ -1972,12 +1968,12 @@ operator|==
 name|shardIndex
 condition|)
 block|{
-name|internalSearchHits
+name|searchHits
 operator|.
 name|add
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 argument_list|(
 name|doc
 operator|.
@@ -2018,18 +2014,18 @@ block|}
 block|}
 block|}
 block|}
-name|InternalSearchHit
+name|SearchHit
 index|[]
 name|hits
 init|=
-name|internalSearchHits
+name|searchHits
 operator|.
 name|toArray
 argument_list|(
 operator|new
-name|InternalSearchHit
+name|SearchHit
 index|[
-name|internalSearchHits
+name|searchHits
 operator|.
 name|size
 argument_list|()
@@ -2041,7 +2037,7 @@ operator|.
 name|hits
 argument_list|(
 operator|new
-name|InternalSearchHits
+name|SearchHits
 argument_list|(
 name|hits
 argument_list|,

@@ -3965,7 +3965,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4009,7 +4009,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4053,7 +4053,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4097,7 +4097,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|score
+name|getScore
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5377,7 +5377,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5398,7 +5398,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5482,7 +5482,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5503,7 +5503,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
