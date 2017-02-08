@@ -1472,7 +1472,7 @@ operator|.
 name|millis
 argument_list|()
 operator|+
-literal|50
+literal|300
 argument_list|)
 argument_list|)
 expr_stmt|;
