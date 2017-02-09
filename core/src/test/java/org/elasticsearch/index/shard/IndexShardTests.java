@@ -8152,6 +8152,8 @@ argument_list|,
 parameter_list|()
 lambda|->
 block|{}
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|recoveryShardFromStore
@@ -9222,6 +9224,8 @@ argument_list|,
 parameter_list|()
 lambda|->
 block|{}
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|recoveryShardFromStore
