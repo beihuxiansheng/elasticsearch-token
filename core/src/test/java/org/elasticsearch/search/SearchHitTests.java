@@ -238,6 +238,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|SearchHit
+operator|.
+name|NestedIdentity
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|fetch
 operator|.
 name|subphase
@@ -263,20 +277,6 @@ operator|.
 name|highlight
 operator|.
 name|HighlightFieldTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchHit
-operator|.
-name|NestedIdentity
 import|;
 end_import
 
@@ -453,10 +453,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalSearchHitTests
+DECL|class|SearchHitTests
 specifier|public
 class|class
-name|InternalSearchHitTests
+name|SearchHitTests
 extends|extends
 name|ESTestCase
 block|{
@@ -997,7 +997,7 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|InternalSearchHitsTests
+name|SearchHitsTests
 operator|.
 name|createTestItem
 argument_list|()

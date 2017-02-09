@@ -179,10 +179,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalSearchHitsTests
+DECL|class|SearchHitsTests
 specifier|public
 class|class
-name|InternalSearchHitsTests
+name|SearchHitsTests
 extends|extends
 name|ESTestCase
 block|{
@@ -233,7 +233,7 @@ index|[
 name|i
 index|]
 operator|=
-name|InternalSearchHitTests
+name|SearchHitTests
 operator|.
 name|createTestItem
 argument_list|(
