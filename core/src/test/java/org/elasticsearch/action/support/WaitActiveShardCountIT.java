@@ -202,6 +202,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests setting the active shard count for replication operations (e.g. index) operates correctly.  */
 end_comment
@@ -374,9 +386,9 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"[test][0] Not enough active copies to meet shard count of [2] (have 1, needed 2). Timeout: [100ms], request: [BulkShardRequest to [[test][0]] containing [1] requests]"
+literal|"[test][0] Not enough active copies to meet shard count of [2] (have 1, needed 2). Timeout: [100ms], request:"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -594,7 +606,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
 literal|"[test][0] Not enough active copies to meet shard count of ["
 operator|+
@@ -602,7 +614,7 @@ name|ActiveShardCount
 operator|.
 name|ALL
 operator|+
-literal|"] (have 2, needed 3). Timeout: [100ms], request: [BulkShardRequest to [[test][0]] containing [1] requests]"
+literal|"] (have 2, needed 3). Timeout: [100ms], request:"
 argument_list|)
 argument_list|)
 expr_stmt|;
