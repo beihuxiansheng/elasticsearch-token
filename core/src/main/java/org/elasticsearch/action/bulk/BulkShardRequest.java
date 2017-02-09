@@ -408,20 +408,31 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"BulkShardRequest to ["
+literal|"BulkShardRequest ["
 argument_list|)
 decl_stmt|;
 name|b
 operator|.
 name|append
 argument_list|(
-name|index
+name|shardId
 argument_list|)
 operator|.
 name|append
 argument_list|(
 literal|"] containing ["
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|items
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
+name|b
 operator|.
 name|append
 argument_list|(
@@ -435,6 +446,28 @@ argument_list|(
 literal|"] requests"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|b
+operator|.
+name|append
+argument_list|(
+name|items
+index|[
+literal|0
+index|]
+operator|.
+name|request
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 switch|switch
 condition|(
 name|getRefreshPolicy
