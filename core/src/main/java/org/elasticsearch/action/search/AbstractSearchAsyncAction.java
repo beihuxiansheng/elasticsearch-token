@@ -1250,25 +1250,22 @@ operator|>
 name|expectedTotalOps
 condition|)
 block|{
-name|raisePhaseFailure
-argument_list|(
+comment|// this is fatal - something is completely wrong here?
+throw|throw
 operator|new
-name|IllegalStateException
+name|AssertionError
 argument_list|(
 literal|"unexpected higher total ops ["
 operator|+
 name|xTotalOps
 operator|+
-literal|"] compared "
-operator|+
-literal|"to expected ["
+literal|"] compared to expected ["
 operator|+
 name|expectedTotalOps
 operator|+
 literal|"]"
 argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 DECL|method|executePhase
@@ -2024,14 +2021,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This method should be called if a search phase failed to ensure all relevant search contexts and resources are released.      * this method will also notify the listener and sends back a failure to the user.      * @param e the exception explaining or causing the phase failure      */
+comment|/**      * This method should be called if a search phase failed to ensure all relevant search contexts and resources are released.      * this method will also notify the listener and sends back a failure to the user.      * @param exception the exception explaining or causing the phase failure      */
 DECL|method|raisePhaseFailure
 specifier|protected
 name|void
 name|raisePhaseFailure
 parameter_list|(
-name|Exception
-name|e
+name|SearchPhaseExecutionException
+name|exception
 parameter_list|)
 block|{
 for|for
@@ -2095,7 +2092,7 @@ name|inner
 operator|.
 name|addSuppressed
 argument_list|(
-name|e
+name|exception
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2113,7 +2110,7 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
-name|e
+name|exception
 argument_list|)
 expr_stmt|;
 block|}
