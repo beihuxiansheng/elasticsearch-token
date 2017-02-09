@@ -3171,8 +3171,6 @@ name|SearchPlugin
 operator|.
 name|class
 argument_list|)
-argument_list|,
-name|client
 argument_list|)
 decl_stmt|;
 name|CircuitBreakerService
@@ -4292,11 +4290,6 @@ argument_list|,
 name|scriptModule
 operator|.
 name|getScriptService
-argument_list|()
-argument_list|,
-name|searchModule
-operator|.
-name|getSearchResponseListeners
 argument_list|()
 argument_list|)
 argument_list|)
