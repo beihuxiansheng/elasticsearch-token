@@ -596,11 +596,6 @@ operator|.
 name|parse
 argument_list|(
 name|parser
-argument_list|,
-name|parseContext
-operator|.
-name|getDefaultScriptLanguage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

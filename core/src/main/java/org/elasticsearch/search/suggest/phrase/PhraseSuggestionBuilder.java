@@ -3083,7 +3083,9 @@ name|parse
 argument_list|(
 name|parser
 argument_list|,
-literal|"mustache"
+name|Script
+operator|.
+name|DEFAULT_TEMPLATE_LANG
 argument_list|)
 decl_stmt|;
 name|tmpSuggestion

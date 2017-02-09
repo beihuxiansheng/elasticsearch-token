@@ -546,11 +546,6 @@ operator|.
 name|parse
 argument_list|(
 name|parser
-argument_list|,
-name|context
-operator|.
-name|getDefaultScriptLanguage
-argument_list|()
 argument_list|)
 argument_list|,
 name|Script
