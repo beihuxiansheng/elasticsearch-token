@@ -104,17 +104,15 @@ name|count
 init|=
 name|between
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
-name|BulkShardRequest
-name|r
+specifier|final
+name|ShardId
+name|shardId
 init|=
-operator|new
-name|BulkShardRequest
-argument_list|(
 operator|new
 name|ShardId
 argument_list|(
@@ -124,6 +122,14 @@ literal|"ignored"
 argument_list|,
 literal|0
 argument_list|)
+decl_stmt|;
+name|BulkShardRequest
+name|r
+init|=
+operator|new
+name|BulkShardRequest
+argument_list|(
+name|shardId
 argument_list|,
 name|RefreshPolicy
 operator|.
@@ -138,9 +144,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"BulkShardRequest to ["
+literal|"BulkShardRequest ["
 operator|+
-name|index
+name|shardId
 operator|+
 literal|"] containing ["
 operator|+
@@ -159,15 +165,7 @@ operator|=
 operator|new
 name|BulkShardRequest
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
-name|index
-argument_list|,
-literal|"ignored"
-argument_list|,
-literal|0
-argument_list|)
+name|shardId
 argument_list|,
 name|RefreshPolicy
 operator|.
@@ -182,9 +180,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"BulkShardRequest to ["
+literal|"BulkShardRequest ["
 operator|+
-name|index
+name|shardId
 operator|+
 literal|"] containing ["
 operator|+
@@ -203,15 +201,7 @@ operator|=
 operator|new
 name|BulkShardRequest
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
-name|index
-argument_list|,
-literal|"ignored"
-argument_list|,
-literal|0
-argument_list|)
+name|shardId
 argument_list|,
 name|RefreshPolicy
 operator|.
@@ -226,9 +216,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"BulkShardRequest to ["
+literal|"BulkShardRequest ["
 operator|+
-name|index
+name|shardId
 operator|+
 literal|"] containing ["
 operator|+
