@@ -314,7 +314,7 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThan
 argument_list|(
 literal|0
 argument_list|)
@@ -331,7 +331,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 argument_list|,
-name|equalTo
+name|greaterThan
 argument_list|(
 literal|0
 argument_list|)
