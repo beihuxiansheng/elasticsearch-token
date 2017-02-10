@@ -1874,10 +1874,16 @@ operator|.
 name|getQuery
 argument_list|()
 decl_stmt|;
+comment|// we need to rewrite once for TermsQuery -> TermInSetQuery and than againt TermInSetQuery -> ConstantScoreQuery
 name|Query
 name|rewrittenTermsQuery
 init|=
 name|termsQuery
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 operator|.
 name|rewrite
 argument_list|(

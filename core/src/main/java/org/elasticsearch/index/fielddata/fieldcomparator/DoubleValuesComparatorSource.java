@@ -360,8 +360,6 @@ parameter_list|,
 name|boolean
 name|reversed
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 assert|assert
 name|indexFieldData

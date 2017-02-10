@@ -1136,6 +1136,13 @@ literal|"8"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/23102"
+argument_list|)
 DECL|method|testCommonTerms
 specifier|public
 name|void

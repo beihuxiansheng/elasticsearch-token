@@ -2892,8 +2892,6 @@ parameter_list|,
 name|boolean
 name|reversed
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new

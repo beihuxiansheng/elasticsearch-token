@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|synonym
+name|core
 operator|.
 name|FlattenGraphFilter
 import|;
