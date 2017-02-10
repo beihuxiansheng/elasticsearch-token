@@ -852,7 +852,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This method should be overidden by subclasses that want to defer calculation      * of a child aggregation until a first pass is complete and a set of buckets has      * been pruned.      * Deferring collection will require the recording of all doc/bucketIds from the first      * pass and then the sub class should call {@link #runDeferredCollections(long...)}      * for the selected set of buckets that survive the pruning.      * @param aggregator the child aggregator      * @return true if the aggregator should be deferred      * until a first pass at collection has completed      */
+comment|/**      * This method should be overridden by subclasses that want to defer calculation      * of a child aggregation until a first pass is complete and a set of buckets has      * been pruned.      * Deferring collection will require the recording of all doc/bucketIds from the first      * pass and then the sub class should call {@link #runDeferredCollections(long...)}      * for the selected set of buckets that survive the pruning.      * @param aggregator the child aggregator      * @return true if the aggregator should be deferred      * until a first pass at collection has completed      */
 DECL|method|shouldDefer
 specifier|protected
 name|boolean

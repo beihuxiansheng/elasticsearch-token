@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A specialized, bytes only request, that can potentially be optimized on the network  * layer, specifically for teh same large buffer send to several nodes.  */
+comment|/**  * A specialized, bytes only request, that can potentially be optimized on the network  * layer, specifically for the same large buffer send to several nodes.  */
 end_comment
 
 begin_class

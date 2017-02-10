@@ -1287,7 +1287,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to perform extra effort to detect noop updates via docAsUpsert.      * Defautls to true.      */
+comment|/**      * Sets whether to perform extra effort to detect noop updates via docAsUpsert.      * Defaults to true.      */
 DECL|method|setDetectNoop
 specifier|public
 name|UpdateRequestBuilder

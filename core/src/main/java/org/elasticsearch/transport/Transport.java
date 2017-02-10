@@ -344,7 +344,7 @@ name|long
 name|newRequestId
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a connection for the given node if the node is connected.      * Connections returned from this method must not be closed. The lifecylce of this connection is maintained by the Transport      * implementation.      *      * @throws NodeNotConnectedException if the node is not connected      * @see #connectToNode(DiscoveryNode, ConnectionProfile, CheckedBiConsumer)      */
+comment|/**      * Returns a connection for the given node if the node is connected.      * Connections returned from this method must not be closed. The lifecycle of this connection is maintained by the Transport      * implementation.      *      * @throws NodeNotConnectedException if the node is not connected      * @see #connectToNode(DiscoveryNode, ConnectionProfile, CheckedBiConsumer)      */
 DECL|method|getConnection
 name|Connection
 name|getConnection

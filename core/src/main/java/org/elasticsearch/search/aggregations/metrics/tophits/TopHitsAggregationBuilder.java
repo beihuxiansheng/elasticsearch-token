@@ -1511,7 +1511,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Gets the hightlighter builder for this request.      */
+comment|/**      * Gets the highlighter builder for this request.      */
 DECL|method|highlighter
 specifier|public
 name|HighlightBuilder

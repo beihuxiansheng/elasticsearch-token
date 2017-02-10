@@ -165,7 +165,7 @@ specifier|abstract
 class|class
 name|NetworkUtils
 block|{
-comment|/** no instantation */
+comment|/** no instantiation */
 DECL|method|NetworkUtils
 specifier|private
 name|NetworkUtils

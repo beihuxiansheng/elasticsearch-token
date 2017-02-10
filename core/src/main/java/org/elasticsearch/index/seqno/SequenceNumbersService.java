@@ -238,7 +238,7 @@ name|seqNo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The current sequence number stats.      *      * @return stats encapuslating the maximum sequence number, the local checkpoint and the global checkpoint      */
+comment|/**      * The current sequence number stats.      *      * @return stats encapsulating the maximum sequence number, the local checkpoint and the global checkpoint      */
 DECL|method|stats
 specifier|public
 name|SeqNoStats

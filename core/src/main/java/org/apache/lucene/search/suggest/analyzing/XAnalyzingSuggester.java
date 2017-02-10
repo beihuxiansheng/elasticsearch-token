@@ -2356,7 +2356,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Non-null if this sugggester created a temp dir, needed only during build */
+comment|/** Non-null if this suggester created a temp dir, needed only during build */
 DECL|field|tmpBuildDir
 specifier|private
 specifier|static

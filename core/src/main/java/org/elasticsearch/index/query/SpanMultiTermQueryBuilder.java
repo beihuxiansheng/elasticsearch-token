@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Query that allows wraping a {@link MultiTermQueryBuilder} (one of wildcard, fuzzy, prefix, term, range or regexp query)  * as a {@link SpanQueryBuilder} so it can be nested.  */
+comment|/**  * Query that allows wrapping a {@link MultiTermQueryBuilder} (one of wildcard, fuzzy, prefix, term, range or regexp query)  * as a {@link SpanQueryBuilder} so it can be nested.  */
 end_comment
 
 begin_class

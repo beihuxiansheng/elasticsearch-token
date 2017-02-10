@@ -96,7 +96,7 @@ name|ScriptType
 implements|implements
 name|Writeable
 block|{
-comment|/**      * INLINE scripts are specified in numerous queries and compiled on-the-fly.      * They will be cached based on the lang and code of the script.      * They are turned off by default because most languages are insecure      * (Groovy and others), but can be overriden by the specific {@link ScriptEngineService}      * if the language is naturally secure (Painless, Mustache, and Expressions).      */
+comment|/**      * INLINE scripts are specified in numerous queries and compiled on-the-fly.      * They will be cached based on the lang and code of the script.      * They are turned off by default because most languages are insecure      * (Groovy and others), but can be overridden by the specific {@link ScriptEngineService}      * if the language is naturally secure (Painless, Mustache, and Expressions).      */
 DECL|enum constant|INLINE
 name|INLINE
 argument_list|(
@@ -111,7 +111,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|,
-comment|/**      * STORED scripts are saved as part of the {@link org.elasticsearch.cluster.ClusterState}      * based on user requests.  They will be cached when they are first used in a query.      * They are turned off by default because most languages are insecure      * (Groovy and others), but can be overriden by the specific {@link ScriptEngineService}      * if the language is naturally secure (Painless, Mustache, and Expressions).      */
+comment|/**      * STORED scripts are saved as part of the {@link org.elasticsearch.cluster.ClusterState}      * based on user requests.  They will be cached when they are first used in a query.      * They are turned off by default because most languages are insecure      * (Groovy and others), but can be overridden by the specific {@link ScriptEngineService}      * if the language is naturally secure (Painless, Mustache, and Expressions).      */
 DECL|enum constant|STORED
 name|STORED
 argument_list|(
@@ -371,7 +371,7 @@ return|return
 name|parseField
 return|;
 block|}
-comment|/**      * @return Whether or not a {@link ScriptType} can be run by default.  Note      * this can be potentially overriden by any {@link ScriptEngineService}.      */
+comment|/**      * @return Whether or not a {@link ScriptType} can be run by default.  Note      * this can be potentially overridden by any {@link ScriptEngineService}.      */
 DECL|method|isDefaultEnabled
 specifier|public
 name|boolean

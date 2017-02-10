@@ -556,7 +556,7 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**      * Configures an index to optimize documents with auto generated ids for append only. If this setting is updated from<code>false</code>      * to<code>true</code> might not take effect immediately. In other words, disabling the optimiation will be immediately applied while      * re-enabling it might not be applied until the engine is in a safe state to do so. Depending on the engine implementation a change to      * this setting won't be reflected re-enabled optimization until the engine is restarted or the index is closed and reopened.      * The default is<code>true</code>      */
+comment|/**      * Configures an index to optimize documents with auto generated ids for append only. If this setting is updated from<code>false</code>      * to<code>true</code> might not take effect immediately. In other words, disabling the optimization will be immediately applied while      * re-enabling it might not be applied until the engine is in a safe state to do so. Depending on the engine implementation a change to      * this setting won't be reflected re-enabled optimization until the engine is restarted or the index is closed and reopened.      * The default is<code>true</code>      */
 DECL|field|INDEX_OPTIMIZE_AUTO_GENERATED_IDS
 specifier|public
 specifier|static

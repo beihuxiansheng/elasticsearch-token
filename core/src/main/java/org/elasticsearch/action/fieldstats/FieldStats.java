@@ -563,7 +563,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @return true if min/max informations are available for this field      */
+comment|/**      * @return true if min/max information is available for this field      */
 DECL|method|hasMinMax
 specifier|public
 name|boolean

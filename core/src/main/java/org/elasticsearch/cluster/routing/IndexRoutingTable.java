@@ -351,7 +351,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link IndexRoutingTable} represents routing information for a single  * index. The routing table maintains a list of all shards in the index. A  * single shard in this context has one more instances namely exactly one  * {@link ShardRouting#primary() primary} and 1 or more replicas. In other  * words, each instance of a shard is considered a replica while only one  * replica per shard is a<tt>primary</tt> replica. The<tt>primary</tt> replica  * can be seen as the "leader" of the shard acting as the primary entry point  * for operations on a specific shard.  *<p>  * Note: The term replica is not directly  * reflected in the routing table or in releated classes, replicas are  * represented as {@link ShardRouting}.  *</p>  */
+comment|/**  * The {@link IndexRoutingTable} represents routing information for a single  * index. The routing table maintains a list of all shards in the index. A  * single shard in this context has one more instances namely exactly one  * {@link ShardRouting#primary() primary} and 1 or more replicas. In other  * words, each instance of a shard is considered a replica while only one  * replica per shard is a<tt>primary</tt> replica. The<tt>primary</tt> replica  * can be seen as the "leader" of the shard acting as the primary entry point  * for operations on a specific shard.  *<p>  * Note: The term replica is not directly  * reflected in the routing table or in related classes, replicas are  * represented as {@link ShardRouting}.  *</p>  */
 end_comment
 
 begin_class

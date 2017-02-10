@@ -1728,7 +1728,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Explicitely set the fetch source context for this request      */
+comment|/**      * Explicitly set the fetch source context for this request      */
 DECL|method|fetchSource
 specifier|public
 name|UpdateRequest

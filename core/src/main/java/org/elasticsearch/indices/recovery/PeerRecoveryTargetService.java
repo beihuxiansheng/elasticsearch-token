@@ -2169,7 +2169,7 @@ end_catch
 
 begin_comment
 unit|}
-comment|/**      * Obtains a snapshot of the store metadata for the recovery target.      *      * @param recoveryTarget the target of the recovery      * @return a snapshot of the store metdata      */
+comment|/**      * Obtains a snapshot of the store metadata for the recovery target.      *      * @param recoveryTarget the target of the recovery      * @return a snapshot of the store metadata      */
 end_comment
 
 begin_function

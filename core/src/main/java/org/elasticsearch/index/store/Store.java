@@ -2161,7 +2161,7 @@ name|tryIncRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Decreases the refCount of this Store instance.If the refCount drops to 0, then this      * store is closed.      *      * @see #incRef      */
+comment|/**      * Decreases the refCount of this Store instance. If the refCount drops to 0, then this      * store is closed.      *      * @see #incRef      */
 annotation|@
 name|Override
 DECL|method|decRef

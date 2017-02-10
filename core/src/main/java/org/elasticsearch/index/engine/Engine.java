@@ -2592,7 +2592,7 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Returns a new searcher instance. The consumer of this      * API is responsible for releasing the returned seacher in a      * safe manner, preferably in a try/finally block.      *      * @see Searcher#close()      */
+comment|/**      * Returns a new searcher instance. The consumer of this      * API is responsible for releasing the returned searcher in a      * safe manner, preferably in a try/finally block.      *      * @see Searcher#close()      */
 DECL|method|acquireSearcher
 specifier|public
 specifier|final

@@ -426,7 +426,7 @@ return|return
 name|clusterState
 return|;
 block|}
-comment|/** indicates whether this observer has timedout */
+comment|/** indicates whether this observer has timed out */
 DECL|method|isTimedOut
 specifier|public
 name|boolean

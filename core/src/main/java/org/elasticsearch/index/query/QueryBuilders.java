@@ -1331,7 +1331,7 @@ name|scoreMode
 argument_list|)
 return|;
 block|}
-comment|/**      * Constructs a new parent query, with the parent type and the query to run on the parent documents. The      * results of this query are the children docs that those parent docs matched.      *      * @param type      The parent type.      * @param query     The query.      * @param score     Whether the score from the parent hit should propogate to the child hit      */
+comment|/**      * Constructs a new parent query, with the parent type and the query to run on the parent documents. The      * results of this query are the children docs that those parent docs matched.      *      * @param type      The parent type.      * @param query     The query.      * @param score     Whether the score from the parent hit should propagate to the child hit      */
 DECL|method|hasParentQuery
 specifier|public
 specifier|static

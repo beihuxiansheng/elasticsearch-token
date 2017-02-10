@@ -882,7 +882,7 @@ return|return
 name|minNodeVersion
 return|;
 block|}
-comment|/**      * Returns the version of the node with the yougest version in the cluster      *      * @return the oldest version in the cluster      */
+comment|/**      * Returns the version of the node with the youngest version in the cluster      *      * @return the oldest version in the cluster      */
 DECL|method|getMaxNodeVersion
 specifier|public
 name|Version

@@ -2141,7 +2141,7 @@ name|CancelTasksRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Cancel active tasks      *      * @param request  The nodes tasks request      * @param listener A cancelener to be notified with a result      * @see org.elasticsearch.client.Requests#cancelTasksRequest()      */
+comment|/**      * Cancel active tasks      *      * @param request  The nodes tasks request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#cancelTasksRequest()      */
 DECL|method|cancelTasks
 name|void
 name|cancelTasks

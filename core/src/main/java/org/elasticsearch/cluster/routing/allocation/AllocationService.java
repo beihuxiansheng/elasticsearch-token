@@ -2360,7 +2360,7 @@ return|return
 name|explanations
 return|;
 block|}
-comment|/**          * thre resulting cluster state, after the commands were applied          */
+comment|/**          * the resulting cluster state, after the commands were applied          */
 DECL|method|getClusterState
 specifier|public
 name|ClusterState

@@ -5435,7 +5435,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This handler wrapper ensures that the response thread executes with the correct thread context. Before any of the4 handle methods      * are invoked we restore the context.      */
+comment|/**      * This handler wrapper ensures that the response thread executes with the correct thread context. Before any of the handle methods      * are invoked we restore the context.      */
 DECL|class|ContextRestoreResponseHandler
 specifier|public
 specifier|static

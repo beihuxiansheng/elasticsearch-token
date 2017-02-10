@@ -2427,7 +2427,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Explicitly force mergee one or more indices into a the number of segments.      */
+comment|/**      * Explicitly force merge one or more indices into a the number of segments.      */
 DECL|method|prepareForceMerge
 name|ForceMergeRequestBuilder
 name|prepareForceMerge

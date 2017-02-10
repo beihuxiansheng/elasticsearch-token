@@ -262,7 +262,7 @@ name|NAME
 init|=
 literal|"umsigterms"
 decl_stmt|;
-comment|/**      * Concrete type that can't be built because Java needs a concrent type so {@link InternalTerms.Bucket} can have a self type but      * {@linkplain UnmappedTerms} doesn't ever need to build it because it never returns any buckets.      */
+comment|/**      * Concrete type that can't be built because Java needs a concrete type so {@link InternalTerms.Bucket} can have a self type but      * {@linkplain UnmappedTerms} doesn't ever need to build it because it never returns any buckets.      */
 DECL|class|Bucket
 specifier|protected
 specifier|abstract

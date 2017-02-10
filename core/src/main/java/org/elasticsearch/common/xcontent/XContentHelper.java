@@ -1172,7 +1172,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Updates the provided changes into the source. If the key exists in the changes, it overrides the one in source      * unless both are Maps, in which case it recuersively updated it.      *      * @param source                 the original map to be updated      * @param changes                the changes to update into updated      * @param checkUpdatesAreUnequal should this method check if updates to the same key (that are not both maps) are      *                               unequal?  This is just a .equals check on the objects, but that can take some time on long strings.      * @return true if the source map was modified      */
+comment|/**      * Updates the provided changes into the source. If the key exists in the changes, it overrides the one in source      * unless both are Maps, in which case it recursively updated it.      *      * @param source                 the original map to be updated      * @param changes                the changes to update into updated      * @param checkUpdatesAreUnequal should this method check if updates to the same key (that are not both maps) are      *                               unequal?  This is just a .equals check on the objects, but that can take some time on long strings.      * @return true if the source map was modified      */
 DECL|method|update
 specifier|public
 specifier|static

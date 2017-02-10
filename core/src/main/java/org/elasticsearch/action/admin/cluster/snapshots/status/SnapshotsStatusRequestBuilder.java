@@ -83,7 +83,7 @@ argument_list|,
 name|SnapshotsStatusRequestBuilder
 argument_list|>
 block|{
-comment|/**      * Constructs the new snapshotstatus request      */
+comment|/**      * Constructs the new snapshot status request      */
 DECL|method|SnapshotsStatusRequestBuilder
 specifier|public
 name|SnapshotsStatusRequestBuilder

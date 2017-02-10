@@ -2331,7 +2331,7 @@ name|lon2
 argument_list|)
 return|;
 block|}
-comment|/**      * Return the distance (in meters) between 2 lat,lon geo points using a simple tangential plane      * this provides a faster alternative to {@link GeoUtils#arcDistance} but is innaccurate for distances greater than      * 4 decimal degrees      */
+comment|/**      * Return the distance (in meters) between 2 lat,lon geo points using a simple tangential plane      * this provides a faster alternative to {@link GeoUtils#arcDistance} but is inaccurate for distances greater than      * 4 decimal degrees      */
 DECL|method|planeDistance
 specifier|public
 specifier|static

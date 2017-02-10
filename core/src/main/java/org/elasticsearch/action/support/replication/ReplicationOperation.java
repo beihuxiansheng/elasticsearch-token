@@ -2031,7 +2031,7 @@ name|Exception
 name|exception
 parameter_list|)
 function_decl|;
-comment|/**          * Performs the given request on this primary. Yes, this returns as soon as it can with the request for the replicas and calls a          * listener when the primary request is completed. Yes, the primary request might complete before the method returns. Yes, it might          * also complete after. Deal with it.          *          * @param request the request to perform          * @return the request to send to the repicas          */
+comment|/**          * Performs the given request on this primary. Yes, this returns as soon as it can with the request for the replicas and calls a          * listener when the primary request is completed. Yes, the primary request might complete before the method returns. Yes, it might          * also complete after. Deal with it.          *          * @param request the request to perform          * @return the request to send to the replicas          */
 DECL|method|perform
 name|PrimaryResultT
 name|perform
@@ -2075,7 +2075,7 @@ name|RequestT
 parameter_list|>
 parameter_list|>
 block|{
-comment|/**          * performs the the given request on the specified replica          *          * @param replica        {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to peform          * @param listener       a callback to call once the operation has been complicated, either successfully or with an error.          */
+comment|/**          * performs the the given request on the specified replica          *          * @param replica        {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to perform          * @param listener       a callback to call once the operation has been complicated, either successfully or with an error.          */
 DECL|method|performOn
 name|void
 name|performOn

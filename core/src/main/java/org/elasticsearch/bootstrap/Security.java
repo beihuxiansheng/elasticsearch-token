@@ -1379,7 +1379,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add dynamic {@link SocketPermission} based on HTTP settings.      *      * @param policy the {@link Permissions} instance to apply the dynamic {@link SocketPermission}s to.      * @param settings the {@link Settings} instance to read the HTTP settingsfrom      */
+comment|/**      * Add dynamic {@link SocketPermission} based on HTTP settings.      *      * @param policy the {@link Permissions} instance to apply the dynamic {@link SocketPermission}s to.      * @param settings the {@link Settings} instance to read the HTTP settings from      */
 DECL|method|addSocketPermissionForHttp
 specifier|private
 specifier|static
@@ -1739,7 +1739,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add access to path (and all files underneath it)      * @param policy current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path the path itself      * @param permissions set of filepermissions to grant to the path      */
+comment|/**      * Add access to path (and all files underneath it)      * @param policy current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path the path itself      * @param permissions set of file permissions to grant to the path      */
 DECL|method|addPath
 specifier|static
 name|void
@@ -1835,7 +1835,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add access to a directory iff it exists already      * @param policy current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path the path itself      * @param permissions set of filepermissions to grant to the path      */
+comment|/**      * Add access to a directory iff it exists already      * @param policy current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path the path itself      * @param permissions set of file permissions to grant to the path      */
 DECL|method|addPathIfExists
 specifier|static
 name|void

@@ -269,7 +269,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the repository settings in Json or Yaml format      *      * @param source repository settings      * @param xContentType the contenty type of the source      * @return this builder      */
+comment|/**      * Sets the repository settings in Json or Yaml format      *      * @param source repository settings      * @param xContentType the content type of the source      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|PutRepositoryRequestBuilder

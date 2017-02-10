@@ -671,7 +671,7 @@ name|completedOperations
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** the number of succesful operations performed before the exception was thrown */
+comment|/** the number of successful operations performed before the exception was thrown */
 DECL|method|completedOperations
 specifier|public
 name|int

@@ -1028,7 +1028,7 @@ name|BytesReference
 name|value
 parameter_list|)
 function_decl|;
-comment|/**          * Returns<code>true</code> iff the resource behind this entity is still open ie.          * entities assiciated with it can remain in the cache. ie. IndexShard is still open.          */
+comment|/**          * Returns<code>true</code> iff the resource behind this entity is still open ie.          * entities associated with it can remain in the cache. ie. IndexShard is still open.          */
 DECL|method|isOpen
 name|boolean
 name|isOpen

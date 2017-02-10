@@ -2053,7 +2053,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a cluster state listener that is expected to be removed during a short period of time.      * If provided, the listener will be notified once a specific time has elapsed.      *      * NOTE: the listener is not remmoved on timeout. This is the responsibility of the caller.      */
+comment|/**      * Adds a cluster state listener that is expected to be removed during a short period of time.      * If provided, the listener will be notified once a specific time has elapsed.      *      * NOTE: the listener is not removed on timeout. This is the responsibility of the caller.      */
 DECL|method|addTimeoutListener
 specifier|public
 name|void
@@ -3070,7 +3070,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** asserts that the current stack trace does<b>NOT</b> invlove a cluster state applier */
+comment|/** asserts that the current stack trace does<b>NOT</b> involve a cluster state applier */
 DECL|method|assertNotCalledFromClusterStateApplier
 specifier|private
 specifier|static

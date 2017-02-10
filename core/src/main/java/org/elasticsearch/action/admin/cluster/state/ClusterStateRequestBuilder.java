@@ -194,7 +194,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the cluster state result include teh {@link org.elasticsearch.cluster.routing.RoutingTable}. Defaults      * to<tt>true</tt>.      */
+comment|/**      * Should the cluster state result include the {@link org.elasticsearch.cluster.routing.RoutingTable}. Defaults      * to<tt>true</tt>.      */
 DECL|method|setRoutingTable
 specifier|public
 name|ClusterStateRequestBuilder
