@@ -434,6 +434,15 @@ name|RestSearchAction
 extends|extends
 name|BaseRestHandler
 block|{
+DECL|field|TYPED_KEYS_PARAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPED_KEYS_PARAM
+init|=
+literal|"typed_keys"
+decl_stmt|;
 DECL|field|RESPONSE_PARAMS
 specifier|private
 specifier|static
@@ -448,7 +457,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-literal|"typed_keys"
+name|TYPED_KEYS_PARAM
 argument_list|)
 decl_stmt|;
 DECL|method|RestSearchAction

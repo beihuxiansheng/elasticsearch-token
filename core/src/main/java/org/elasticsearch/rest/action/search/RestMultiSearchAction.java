@@ -418,7 +418,9 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-literal|"typed_keys"
+name|RestSearchAction
+operator|.
+name|TYPED_KEYS_PARAM
 argument_list|)
 decl_stmt|;
 DECL|field|allowExplicitIndex

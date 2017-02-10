@@ -132,6 +132,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|RestSearchAction
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -214,7 +230,9 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-literal|"typed_keys"
+name|RestSearchAction
+operator|.
+name|TYPED_KEYS_PARAM
 argument_list|)
 decl_stmt|;
 DECL|field|allowExplicitIndex
