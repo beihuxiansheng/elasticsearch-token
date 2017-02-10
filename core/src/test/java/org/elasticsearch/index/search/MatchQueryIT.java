@@ -17,54 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertHitCount
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertSearchHits
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -241,6 +193,54 @@ operator|.
 name|concurrent
 operator|.
 name|ExecutionException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
 import|;
 end_import
 
@@ -1136,13 +1136,6 @@ literal|"8"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/23102"
-argument_list|)
 DECL|method|testCommonTerms
 specifier|public
 name|void
@@ -1218,7 +1211,7 @@ name|matchQuery
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"foo three happened"
+literal|"bar three happened"
 argument_list|)
 operator|.
 name|operator
@@ -1226,11 +1219,6 @@ argument_list|(
 name|Operator
 operator|.
 name|OR
-argument_list|)
-operator|.
-name|analyzer
-argument_list|(
-literal|"lower_graphsyns"
 argument_list|)
 argument_list|)
 operator|.
@@ -1282,7 +1270,7 @@ name|matchQuery
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"foo three happened"
+literal|"bar three happened"
 argument_list|)
 operator|.
 name|operator
@@ -1290,11 +1278,6 @@ argument_list|(
 name|Operator
 operator|.
 name|OR
-argument_list|)
-operator|.
-name|analyzer
-argument_list|(
-literal|"lower_graphsyns"
 argument_list|)
 operator|.
 name|cutoffFrequency
