@@ -206,6 +206,22 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|HEAD
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
 name|RestStatus
 operator|.
 name|NOT_FOUND
@@ -226,6 +242,10 @@ name|OK
 import|;
 end_import
 
+begin_comment
+comment|/**  * The REST handler for get template and head template APIs.  */
+end_comment
+
 begin_class
 DECL|class|RestGetIndexTemplateAction
 specifier|public
@@ -238,9 +258,11 @@ DECL|method|RestGetIndexTemplateAction
 specifier|public
 name|RestGetIndexTemplateAction
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|,
+specifier|final
 name|RestController
 name|controller
 parameter_list|)
@@ -266,6 +288,17 @@ operator|.
 name|registerHandler
 argument_list|(
 name|GET
+argument_list|,
+literal|"/_template/{name}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|HEAD
 argument_list|,
 literal|"/_template/{name}"
 argument_list|,
@@ -308,6 +341,7 @@ literal|"name"
 argument_list|)
 argument_list|)
 decl_stmt|;
+specifier|final
 name|GetIndexTemplatesRequest
 name|getIndexTemplatesRequest
 init|=
@@ -388,14 +422,13 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-block|@Override                             protected RestStatus getStatus(GetIndexTemplatesResponse response
+block|@Override                             protected RestStatus getStatus(final GetIndexTemplatesResponse response
 block|)
 block|{
+specifier|final
 name|boolean
 name|templateExists
 init|=
-literal|false
-operator|==
 name|response
 operator|.
 name|getIndexTemplates
@@ -403,6 +436,8 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|==
+literal|false
 decl_stmt|;
 return|return
 operator|(
