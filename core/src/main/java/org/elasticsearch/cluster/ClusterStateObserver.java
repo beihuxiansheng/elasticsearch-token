@@ -693,7 +693,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|// sample a new state
+comment|// sample a new state. This state maybe *older* than the supplied state if we are called from an applier,
+comment|// which wants to wait for something else to happen
 name|ClusterState
 name|newState
 init|=
@@ -709,12 +710,10 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|sameState
+name|isOlderOrDifferentMaster
 argument_list|(
 name|newState
 argument_list|)
-operator|==
-literal|false
 operator|&&
 name|statePredicate
 operator|.
@@ -996,12 +995,10 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|sameState
+name|isOlderOrDifferentMaster
 argument_list|(
 name|newState
 argument_list|)
-operator|==
-literal|false
 operator|&&
 name|context
 operator|.
@@ -1281,10 +1278,11 @@ name|version
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|sameState
+comment|/**          * returns true if stored state is older then given state or they are from a different master, meaning they can't be compared          * */
+DECL|method|isOlderOrDifferentMaster
 specifier|public
 name|boolean
-name|sameState
+name|isOlderOrDifferentMaster
 parameter_list|(
 name|ClusterState
 name|clusterState
@@ -1292,12 +1290,12 @@ parameter_list|)
 block|{
 return|return
 name|version
-operator|==
+operator|<
 name|clusterState
 operator|.
 name|version
 argument_list|()
-operator|&&
+operator|||
 name|Objects
 operator|.
 name|equals
@@ -1312,6 +1310,8 @@ operator|.
 name|getMasterNodeId
 argument_list|()
 argument_list|)
+operator|==
+literal|false
 return|;
 block|}
 block|}
