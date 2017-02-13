@@ -415,7 +415,7 @@ if|if
 condition|(
 name|nodeVersion
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.

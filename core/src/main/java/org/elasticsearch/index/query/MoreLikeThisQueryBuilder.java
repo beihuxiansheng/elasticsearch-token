@@ -1624,7 +1624,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
@@ -1632,7 +1632,6 @@ name|V_5_3_0_UNRELEASED
 argument_list|)
 condition|)
 block|{
-comment|// TODO update to onOrAfter after backporting
 name|xContentType
 operator|=
 name|XContentType
@@ -1769,7 +1768,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
@@ -1777,7 +1776,6 @@ name|V_5_3_0_UNRELEASED
 argument_list|)
 condition|)
 block|{
-comment|// TODO update to onOrAfter after backporting
 name|xContentType
 operator|.
 name|writeTo
