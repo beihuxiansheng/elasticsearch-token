@@ -441,6 +441,18 @@ return|return
 name|channel
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getVersion
+specifier|public
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|version
+return|;
+block|}
 block|}
 end_class
 

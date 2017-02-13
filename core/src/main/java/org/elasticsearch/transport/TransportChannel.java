@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -87,6 +97,19 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the version of the other party that this channel will send a response to.      */
+DECL|method|getVersion
+specifier|default
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|Version
+operator|.
+name|CURRENT
+return|;
+block|}
 block|}
 end_interface
 

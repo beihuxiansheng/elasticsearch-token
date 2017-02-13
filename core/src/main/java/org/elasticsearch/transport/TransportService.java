@@ -6176,6 +6176,21 @@ return|return
 literal|"direct"
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getVersion
+specifier|public
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|localNode
+operator|.
+name|getVersion
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * Returns the internal thread pool      */
 DECL|method|getThreadPool
