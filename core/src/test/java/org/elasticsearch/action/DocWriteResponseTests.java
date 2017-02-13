@@ -155,16 +155,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -213,9 +203,8 @@ specifier|public
 name|void
 name|testGetLocation
 parameter_list|()
-throws|throws
-name|URISyntaxException
 block|{
+specifier|final
 name|DocWriteResponse
 name|response
 init|=
@@ -246,9 +235,7 @@ name|Result
 operator|.
 name|CREATED
 argument_list|)
-block|{
-comment|// DocWriteResponse is abstract so we have to sneak a subclass in here to test it.
-block|}
+block|{}
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -280,9 +267,8 @@ specifier|public
 name|void
 name|testGetLocationNonAscii
 parameter_list|()
-throws|throws
-name|URISyntaxException
 block|{
+specifier|final
 name|DocWriteResponse
 name|response
 init|=
@@ -313,7 +299,7 @@ name|Result
 operator|.
 name|CREATED
 argument_list|)
-block|{             }
+block|{}
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -335,24 +321,20 @@ name|response
 operator|.
 name|getLocation
 argument_list|(
-literal|"%C3%A4"
+literal|"Ã¤"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testInvalidGetLocation
+DECL|method|testGetLocationWithSpaces
 specifier|public
 name|void
-name|testInvalidGetLocation
+name|testGetLocationWithSpaces
 parameter_list|()
 block|{
-name|String
-name|invalidPath
-init|=
-literal|"!^*$(@!^!#@"
-decl_stmt|;
+specifier|final
 name|DocWriteResponse
-name|invalid
+name|response
 init|=
 operator|new
 name|DocWriteResponse
@@ -369,7 +351,7 @@ argument_list|)
 argument_list|,
 literal|"type"
 argument_list|,
-name|invalidPath
+literal|"a b"
 argument_list|,
 name|SequenceNumbersService
 operator|.
@@ -381,37 +363,29 @@ name|Result
 operator|.
 name|CREATED
 argument_list|)
-block|{             }
+block|{}
 decl_stmt|;
-name|Throwable
-name|exception
-init|=
-name|expectThrows
+name|assertEquals
 argument_list|(
-name|URISyntaxException
-operator|.
-name|class
+literal|"/index/type/a+b"
 argument_list|,
-parameter_list|()
-lambda|->
-name|invalid
+name|response
 operator|.
 name|getLocation
 argument_list|(
 literal|null
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|assertTrue
+expr_stmt|;
+name|assertEquals
 argument_list|(
-name|exception
+literal|"/index/type/a+b?routing=c+d"
+argument_list|,
+name|response
 operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|contains
+name|getLocation
 argument_list|(
-name|invalidPath
+literal|"c d"
 argument_list|)
 argument_list|)
 expr_stmt|;
