@@ -22,34 +22,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|component
-operator|.
-name|LifecycleComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
-name|BoundTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -82,42 +54,20 @@ name|RestRequest
 import|;
 end_import
 
-begin_interface
-DECL|interface|HttpServerTransport
+begin_class
+DECL|class|NullDispatcher
 specifier|public
-interface|interface
+class|class
+name|NullDispatcher
+implements|implements
 name|HttpServerTransport
-extends|extends
-name|LifecycleComponent
-block|{
-DECL|field|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
-name|String
-name|HTTP_SERVER_WORKER_THREAD_NAME_PREFIX
-init|=
-literal|"http_server_worker"
-decl_stmt|;
-DECL|method|boundAddress
-name|BoundTransportAddress
-name|boundAddress
-parameter_list|()
-function_decl|;
-DECL|method|info
-name|HttpInfo
-name|info
-parameter_list|()
-function_decl|;
-DECL|method|stats
-name|HttpStats
-name|stats
-parameter_list|()
-function_decl|;
-comment|/**      * Dispatches HTTP requests.      */
-DECL|interface|Dispatcher
-interface|interface
+operator|.
 name|Dispatcher
 block|{
-comment|/**          * Dispatches the {@link RestRequest} to the relevant request handler or responds to the given rest channel directly if          * the request can't be handled by any request handler.          *          * @param request       the request to dispatch          * @param channel       the response channel of this request          * @param threadContext the thread context          */
+annotation|@
+name|Override
 DECL|method|dispatchRequest
+specifier|public
 name|void
 name|dispatchRequest
 parameter_list|(
@@ -130,9 +80,11 @@ parameter_list|,
 name|ThreadContext
 name|threadContext
 parameter_list|)
-function_decl|;
-comment|/**          * Dispatches a bad request. For example, if a request is malformed it will be dispatched via this method with the cause of the bad          * request.          *          * @param request       the request to dispatch          * @param channel       the response channel of this request          * @param threadContext the thread context          * @param cause         the cause of the bad request          */
+block|{      }
+annotation|@
+name|Override
 DECL|method|dispatchBadRequest
+specifier|public
 name|void
 name|dispatchBadRequest
 parameter_list|(
@@ -148,10 +100,9 @@ parameter_list|,
 name|Throwable
 name|cause
 parameter_list|)
-function_decl|;
+block|{      }
 block|}
-block|}
-end_interface
+end_class
 
 end_unit
 

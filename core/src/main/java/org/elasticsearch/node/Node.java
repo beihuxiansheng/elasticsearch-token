@@ -3722,8 +3722,6 @@ argument_list|,
 name|networkService
 argument_list|,
 name|restController
-operator|::
-name|dispatchRequest
 argument_list|)
 decl_stmt|;
 specifier|final
