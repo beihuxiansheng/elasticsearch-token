@@ -249,15 +249,54 @@ block|{
 comment|/**          * Don't refresh after this request. The default.          */
 DECL|enum constant|NONE
 name|NONE
+argument_list|(
+literal|"false"
+argument_list|)
 block|,
 comment|/**          * Force a refresh as part of this request. This refresh policy does not scale for high indexing or search throughput but is useful          * to present a consistent view to for indices with very low traffic. And it is wonderful for tests!          */
 DECL|enum constant|IMMEDIATE
 name|IMMEDIATE
+argument_list|(
+literal|"true"
+argument_list|)
 block|,
 comment|/**          * Leave this request open until a refresh has made the contents of this request visible to search. This refresh policy is          * compatible with high indexing and search throughput but it causes the request to wait to reply until a refresh occurs.          */
 DECL|enum constant|WAIT_UNTIL
 name|WAIT_UNTIL
+argument_list|(
+literal|"wait_for"
+argument_list|)
 block|;
+DECL|field|value
+specifier|private
+specifier|final
+name|String
+name|value
+decl_stmt|;
+DECL|method|RefreshPolicy
+name|RefreshPolicy
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|getValue
+specifier|public
+name|String
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
 comment|/**          * Parse the string representation of a refresh policy, usually from a request parameter.          */
 DECL|method|parse
 specifier|public
@@ -266,35 +305,50 @@ name|RefreshPolicy
 name|parse
 parameter_list|(
 name|String
-name|string
+name|value
 parameter_list|)
 block|{
-switch|switch
+for|for
+control|(
+name|RefreshPolicy
+name|policy
+range|:
+name|values
+argument_list|()
+control|)
+block|{
+if|if
 condition|(
-name|string
+name|policy
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|value
+argument_list|)
 condition|)
 block|{
-case|case
-literal|"false"
-case|:
 return|return
-name|NONE
+name|policy
 return|;
-comment|/*              * Empty string is IMMEDIATE because that makes "POST /test/test/1?refresh" perform a refresh which reads well and is what folks              * are used to.              */
-case|case
+block|}
+block|}
+if|if
+condition|(
 literal|""
-case|:
-case|case
-literal|"true"
-case|:
+operator|.
+name|equals
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+comment|// Empty string is IMMEDIATE because that makes "POST /test/test/1?refresh" perform
+comment|// a refresh which reads well and is what folks are used to.
 return|return
 name|IMMEDIATE
-return|;
-case|case
-literal|"wait_for"
-case|:
-return|return
-name|WAIT_UNTIL
 return|;
 block|}
 throw|throw
@@ -303,7 +357,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unknown value for refresh: ["
 operator|+
-name|string
+name|value
 operator|+
 literal|"]."
 argument_list|)
