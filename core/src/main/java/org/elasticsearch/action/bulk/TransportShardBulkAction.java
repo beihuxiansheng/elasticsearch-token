@@ -2860,6 +2860,28 @@ operator|.
 name|request
 argument_list|()
 decl_stmt|;
+comment|// ensure request version is updated for replica operation during request execution in the primary
+assert|assert
+name|docWriteRequest
+operator|.
+name|versionType
+argument_list|()
+operator|==
+name|docWriteRequest
+operator|.
+name|versionType
+argument_list|()
+operator|.
+name|versionTypeForReplicationAndRecovery
+argument_list|()
+operator|:
+literal|"unexpected version in replica "
+operator|+
+name|docWriteRequest
+operator|.
+name|version
+argument_list|()
+assert|;
 specifier|final
 name|Engine
 operator|.
