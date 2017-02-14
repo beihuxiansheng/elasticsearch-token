@@ -1021,33 +1021,17 @@ name|fieldType
 operator|.
 name|tokenized
 argument_list|()
-operator|==
-literal|false
-operator|&&
-name|fieldType
-operator|instanceof
-name|KeywordFieldMapper
-operator|.
-name|KeywordFieldType
-operator|==
-literal|false
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Can't process field ["
-operator|+
-name|request
+name|analyzer
+operator|=
+name|fieldType
 operator|.
-name|field
+name|indexAnalyzer
 argument_list|()
-operator|+
-literal|"], Analysis requests are only supported on tokenized fields"
-argument_list|)
-throw|;
+expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|fieldType
@@ -1078,6 +1062,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// this will be KeywordAnalyzer
 name|analyzer
 operator|=
 name|fieldType
@@ -1089,13 +1074,20 @@ block|}
 block|}
 else|else
 block|{
-name|analyzer
-operator|=
-name|fieldType
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Can't process field ["
+operator|+
+name|request
 operator|.
-name|indexAnalyzer
+name|field
 argument_list|()
-expr_stmt|;
+operator|+
+literal|"], Analysis requests are only supported on tokenized fields"
+argument_list|)
+throw|;
 block|}
 name|field
 operator|=
