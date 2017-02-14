@@ -768,12 +768,6 @@ name|Object
 argument_list|>
 name|sourceAsMap
 decl_stmt|;
-DECL|field|sourceAsBytes
-specifier|private
-name|byte
-index|[]
-name|sourceAsBytes
-decl_stmt|;
 DECL|field|innerHits
 specifier|private
 name|Map
@@ -1129,12 +1123,6 @@ operator|.
 name|source
 operator|=
 name|source
-expr_stmt|;
-name|this
-operator|.
-name|sourceAsBytes
-operator|=
-literal|null
 expr_stmt|;
 name|this
 operator|.
@@ -1558,11 +1546,6 @@ name|matchedQueries
 return|;
 block|}
 comment|/**      * @return Inner hits or<code>null</code> if there are none      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getInnerHits
 specifier|public
 name|Map
@@ -1575,9 +1558,6 @@ name|getInnerHits
 parameter_list|()
 block|{
 return|return
-operator|(
-name|Map
-operator|)
 name|innerHits
 return|;
 block|}
