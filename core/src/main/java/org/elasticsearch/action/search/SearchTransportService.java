@@ -1344,9 +1344,6 @@ DECL|method|sendExecuteMultiSearch
 name|void
 name|sendExecuteMultiSearch
 parameter_list|(
-name|DiscoveryNode
-name|node
-parameter_list|,
 specifier|final
 name|MultiSearchRequest
 name|request
@@ -1370,7 +1367,10 @@ name|transportService
 operator|.
 name|getConnection
 argument_list|(
-name|node
+name|transportService
+operator|.
+name|getLocalNode
+argument_list|()
 argument_list|)
 argument_list|,
 name|MultiSearchAction

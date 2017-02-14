@@ -341,11 +341,24 @@ parameter_list|(
 name|response
 parameter_list|)
 lambda|->
-name|sendResponsePhase
+operator|new
+name|ExpandSearchPhase
 argument_list|(
+name|context
+argument_list|,
 name|response
 argument_list|,
+comment|// collapse only happens if the request has inner hits
+parameter_list|(
+name|finalResponse
+parameter_list|)
+lambda|->
+name|sendResponsePhase
+argument_list|(
+name|finalResponse
+argument_list|,
 name|context
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
