@@ -916,14 +916,13 @@ parameter_list|)
 block|{     }
 annotation|@
 name|Override
-DECL|method|searchFilter
+DECL|method|buildFilteredQuery
 specifier|public
 name|Query
-name|searchFilter
+name|buildFilteredQuery
 parameter_list|(
-name|String
-index|[]
-name|types
+name|Query
+name|query
 parameter_list|)
 block|{
 return|return

@@ -859,15 +859,15 @@ name|boolean
 name|rewrite
 parameter_list|)
 function_decl|;
-DECL|method|searchFilter
+comment|/** Automatically apply all required filters to the given query such as      *  alias filters, types filters, etc. */
+DECL|method|buildFilteredQuery
 specifier|public
 specifier|abstract
 name|Query
-name|searchFilter
+name|buildFilteredQuery
 parameter_list|(
-name|String
-index|[]
-name|types
+name|Query
+name|query
 parameter_list|)
 function_decl|;
 DECL|method|id
