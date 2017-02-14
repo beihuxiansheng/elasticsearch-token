@@ -2634,9 +2634,6 @@ operator|.
 name|getCause
 argument_list|()
 operator|.
-name|getCause
-argument_list|()
-operator|.
 name|getMessage
 argument_list|()
 argument_list|,

@@ -1193,7 +1193,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ReduceSearchPhaseException
+name|SearchPhaseExecutionException
 name|ex
 parameter_list|)
 block|{
@@ -1314,7 +1314,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ReduceSearchPhaseException
+name|SearchPhaseExecutionException
 name|ex
 parameter_list|)
 block|{
