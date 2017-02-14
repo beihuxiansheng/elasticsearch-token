@@ -224,6 +224,22 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|HEAD
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
 name|RestStatus
 operator|.
 name|NOT_FOUND
@@ -244,6 +260,10 @@ name|OK
 import|;
 end_import
 
+begin_comment
+comment|/**  * The REST handler for get source and head source APIs.  */
+end_comment
+
 begin_class
 DECL|class|RestGetSourceAction
 specifier|public
@@ -256,9 +276,11 @@ DECL|method|RestGetSourceAction
 specifier|public
 name|RestGetSourceAction
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|,
+specifier|final
 name|RestController
 name|controller
 parameter_list|)
@@ -273,6 +295,17 @@ operator|.
 name|registerHandler
 argument_list|(
 name|GET
+argument_list|,
+literal|"/{index}/{type}/{id}/_source"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|HEAD
 argument_list|,
 literal|"/{index}/{type}/{id}/_source"
 argument_list|,
@@ -363,7 +396,6 @@ literal|"routing"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// order is important, set it after routing, so it will set the routing
 name|getRequest
 operator|.
 name|parent
@@ -440,6 +472,7 @@ name|fetchSource
 argument_list|()
 condition|)
 block|{
+specifier|final
 name|ActionRequestValidationException
 name|validationError
 init|=
@@ -491,12 +524,14 @@ specifier|public
 name|RestResponse
 name|buildResponse
 parameter_list|(
+specifier|final
 name|GetResponse
 name|response
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|XContentBuilder
 name|builder
 init|=
@@ -512,6 +547,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// check if doc source (or doc itself) is missing
 if|if
 condition|(
 name|response
@@ -520,7 +556,6 @@ name|isSourceEmpty
 argument_list|()
 condition|)
 block|{
-comment|// check if doc source (or doc itself) is missing
 return|return
 operator|new
 name|BytesRestResponse
