@@ -918,6 +918,8 @@ argument_list|,
 name|includeLower
 argument_list|,
 name|includeUpper
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|Query

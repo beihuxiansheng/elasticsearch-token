@@ -1802,6 +1802,9 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|hasDocValues
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
