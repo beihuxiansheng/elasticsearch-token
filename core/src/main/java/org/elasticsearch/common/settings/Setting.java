@@ -1373,9 +1373,9 @@ name|deprecationLogger
 operator|.
 name|deprecated
 argument_list|(
-literal|"[{}] setting was deprecated in Elasticsearch and it will be removed in a future release! "
+literal|"[{}] setting was deprecated in Elasticsearch and will be removed in a future release! "
 operator|+
-literal|"See the breaking changes lists in the documentation for details"
+literal|"See the breaking changes documentation for the next major version."
 argument_list|,
 name|getKey
 argument_list|()
