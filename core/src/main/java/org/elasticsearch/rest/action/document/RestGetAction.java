@@ -224,6 +224,22 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|HEAD
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
 name|RestStatus
 operator|.
 name|NOT_FOUND
@@ -256,9 +272,11 @@ DECL|method|RestGetAction
 specifier|public
 name|RestGetAction
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|,
+specifier|final
 name|RestController
 name|controller
 parameter_list|)
@@ -273,6 +291,17 @@ operator|.
 name|registerHandler
 argument_list|(
 name|GET
+argument_list|,
+literal|"/{index}/{type}/{id}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|HEAD
 argument_list|,
 literal|"/{index}/{type}/{id}"
 argument_list|,
@@ -421,14 +450,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The parameter [fields] is no longer supported, "
+literal|"the parameter [fields] is no longer supported, "
 operator|+
 literal|"please use [stored_fields] to retrieve stored fields or [_source] to load the field from _source"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|String
-name|sField
+name|fieldsParam
 init|=
 name|request
 operator|.
@@ -439,25 +469,26 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|sField
+name|fieldsParam
 operator|!=
 literal|null
 condition|)
 block|{
+specifier|final
 name|String
 index|[]
-name|sFields
+name|fields
 init|=
 name|Strings
 operator|.
 name|splitStringByCommaToArray
 argument_list|(
-name|sField
+name|fieldsParam
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|sFields
+name|fields
 operator|!=
 literal|null
 condition|)
@@ -466,7 +497,7 @@ name|getRequest
 operator|.
 name|storedFields
 argument_list|(
-name|sFields
+name|fields
 argument_list|)
 expr_stmt|;
 block|}
@@ -535,7 +566,7 @@ argument_list|(
 name|channel
 argument_list|)
 block|{
-block|@Override             protected RestStatus getStatus(GetResponse response
+block|@Override             protected RestStatus getStatus(final GetResponse response
 block|)
 block|{
 return|return
@@ -557,6 +588,6 @@ unit|)
 empty_stmt|;
 end_empty_stmt
 
-unit|} }
+unit|}  }
 end_unit
 
