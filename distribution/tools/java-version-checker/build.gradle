@@ -17,12 +17,25 @@
  * under the License.
  */
 
+
+import org.elasticsearch.gradle.precommit.PrecommitTasks
 import org.gradle.api.JavaVersion
 
 apply plugin: 'elasticsearch.build'
+apply plugin: 'ru.vyarus.animalsniffer'
 
-targetCompatibility = JavaVersion.VERSION_1_6
 sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+
+dependencies {
+    signature "org.codehaus.mojo.signature:java16:1.0@signature"
+}
+
+forbiddenApisMain {
+    // java-version-checker does not depend on core so only JDK signatures should be checked
+    signaturesURLs = [PrecommitTasks.getResource('/forbidden/jdk-signatures.txt')]
+}
 
 test.enabled = false
 loggerUsageCheck.enabled = false
+jarHell.enabled=false
