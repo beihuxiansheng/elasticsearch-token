@@ -158,6 +158,34 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|index
+operator|.
+name|IndexRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|index
+operator|.
+name|IndexResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|main
 operator|.
 name|MainRequest
@@ -294,6 +322,30 @@ name|Function
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
 begin_comment
 comment|/**  * High level REST client that wraps an instance of the low level {@link RestClient} and allows to build requests and read responses.  * The provided {@link RestClient} is externally built and closed.  */
 end_comment
@@ -363,8 +415,6 @@ name|RestHighLevelClient
 operator|::
 name|convertExistsResponse
 argument_list|,
-name|Collections
-operator|.
 name|emptySet
 argument_list|()
 argument_list|,
@@ -372,7 +422,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Retrieves a document by id using the get api      */
+comment|/**      * Retrieves a document by id using the Get API      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">Get API on elastic.co</a>      */
 DECL|method|get
 specifier|public
 name|GetResponse
@@ -401,8 +451,6 @@ name|GetResponse
 operator|::
 name|fromXContent
 argument_list|,
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 literal|404
@@ -412,7 +460,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Asynchronously retrieves a document by id using the get api      */
+comment|/**      * Asynchronously retrieves a document by id using the Get API      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">Get API on elastic.co</a>      */
 DECL|method|getAsync
 specifier|public
 name|void
@@ -446,8 +494,6 @@ name|fromXContent
 argument_list|,
 name|listener
 argument_list|,
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 literal|404
@@ -457,7 +503,7 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks for the existence of a document. Returns true if it exists, false otherwise      */
+comment|/**      * Checks for the existence of a document. Returns true if it exists, false otherwise      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">Get API on elastic.co</a>      */
 DECL|method|exists
 specifier|public
 name|boolean
@@ -486,8 +532,6 @@ name|RestHighLevelClient
 operator|::
 name|convertExistsResponse
 argument_list|,
-name|Collections
-operator|.
 name|emptySet
 argument_list|()
 argument_list|,
@@ -495,7 +539,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Asynchronously checks for the existence of a document. Returns true if it exists, false otherwise      */
+comment|/**      * Asynchronously checks for the existence of a document. Returns true if it exists, false otherwise      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">Get API on elastic.co</a>      */
 DECL|method|existsAsync
 specifier|public
 name|void
@@ -529,8 +573,83 @@ name|convertExistsResponse
 argument_list|,
 name|listener
 argument_list|,
-name|Collections
-operator|.
+name|emptySet
+argument_list|()
+argument_list|,
+name|headers
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Index a document using the Index API      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">Index API on elastic.co</a>      */
+DECL|method|index
+specifier|public
+name|IndexResponse
+name|index
+parameter_list|(
+name|IndexRequest
+name|indexRequest
+parameter_list|,
+name|Header
+modifier|...
+name|headers
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|performRequestAndParseEntity
+argument_list|(
+name|indexRequest
+argument_list|,
+name|Request
+operator|::
+name|index
+argument_list|,
+name|IndexResponse
+operator|::
+name|fromXContent
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
+name|headers
+argument_list|)
+return|;
+block|}
+comment|/**      * Asynchronously index a document using the Index API      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">Index API on elastic.co</a>      */
+DECL|method|indexAsync
+specifier|public
+name|void
+name|indexAsync
+parameter_list|(
+name|IndexRequest
+name|indexRequest
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|IndexResponse
+argument_list|>
+name|listener
+parameter_list|,
+name|Header
+modifier|...
+name|headers
+parameter_list|)
+block|{
+name|performRequestAsyncAndParseEntity
+argument_list|(
+name|indexRequest
+argument_list|,
+name|Request
+operator|::
+name|index
+argument_list|,
+name|IndexResponse
+operator|::
+name|fromXContent
+argument_list|,
+name|listener
+argument_list|,
 name|emptySet
 argument_list|()
 argument_list|,
