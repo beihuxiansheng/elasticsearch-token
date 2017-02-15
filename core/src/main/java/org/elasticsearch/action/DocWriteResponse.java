@@ -290,39 +290,7 @@ name|java
 operator|.
 name|net
 operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URLEncoder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
 import|;
 end_import
 
@@ -886,6 +854,8 @@ name|forcedRefresh
 expr_stmt|;
 block|}
 comment|/** returns the rest status for this response (based on {@link ShardInfo#status()} */
+annotation|@
+name|Override
 DECL|method|status
 specifier|public
 name|RestStatus
@@ -1814,8 +1784,8 @@ block|}
 comment|/**      * {@link DocWriteResponseBuilder} is used to build {@link DocWriteResponse} objects during XContent parsing.      */
 DECL|class|DocWriteResponseBuilder
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|DocWriteResponseBuilder
 block|{
