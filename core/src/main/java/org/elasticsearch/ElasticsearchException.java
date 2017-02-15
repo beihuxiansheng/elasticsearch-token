@@ -3277,13 +3277,13 @@ return|;
 block|}
 name|ensureExpectedToken
 argument_list|(
-name|token
-argument_list|,
 name|XContentParser
 operator|.
 name|Token
 operator|.
 name|START_OBJECT
+argument_list|,
+name|token
 argument_list|,
 name|parser
 operator|::

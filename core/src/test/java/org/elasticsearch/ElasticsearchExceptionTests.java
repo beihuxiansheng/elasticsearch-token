@@ -6410,7 +6410,7 @@ condition|)
 do|;
 block|}
 DECL|method|randomExceptions
-specifier|private
+specifier|public
 specifier|static
 name|Tuple
 argument_list|<
