@@ -272,6 +272,13 @@ name|CrudIT
 extends|extends
 name|ESRestHighLevelClientTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/pull/23196"
+argument_list|)
 DECL|method|testExists
 specifier|public
 name|void
