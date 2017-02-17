@@ -392,7 +392,6 @@ literal|"routing"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// order is important, set it after routing, so it will set the routing
 name|getRequest
 operator|.
 name|parent

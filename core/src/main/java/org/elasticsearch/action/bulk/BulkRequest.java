@@ -2648,7 +2648,6 @@ block|}
 name|line
 operator|++
 expr_stmt|;
-comment|// order is important, we set parent after routing, so routing will be set to parent if not set explicitly
 comment|// we use internalAdd so we don't fork here, this allows us not to copy over the big byte array to small chunks
 comment|// of index request.
 if|if
