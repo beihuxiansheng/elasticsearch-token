@@ -64,6 +64,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|MasterNotDiscoveredException
@@ -1609,7 +1623,13 @@ name|addMapping
 argument_list|(
 literal|"type1"
 argument_list|,
-literal|"{\"type1\" : {\"properties\" : {\"table_a\" : { \"type\" : \"nested\", \"properties\" : {\"field_a\" : { \"type\" : \"keyword\" },\"field_b\" :{ \"type\" : \"keyword\" }}}}}}"
+literal|"{\"type1\" : {\"properties\" : {\"table_a\" : { \"type\" : \"nested\", "
+operator|+
+literal|"\"properties\" : {\"field_a\" : { \"type\" : \"keyword\" },\"field_b\" :{ \"type\" : \"keyword\" }}}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

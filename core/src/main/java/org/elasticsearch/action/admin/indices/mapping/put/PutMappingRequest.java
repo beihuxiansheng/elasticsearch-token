@@ -1222,32 +1222,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The mapping source definition.      * @deprecated use {@link #source(String, XContentType)}      */
-annotation|@
-name|Deprecated
-DECL|method|source
-specifier|public
-name|PutMappingRequest
-name|source
-parameter_list|(
-name|String
-name|mappingSource
-parameter_list|)
-block|{
-return|return
-name|source
-argument_list|(
-name|mappingSource
-argument_list|,
-name|XContentFactory
-operator|.
-name|xContentType
-argument_list|(
-name|mappingSource
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|/**      * The mapping source definition.      */
 DECL|method|source
 specifier|public

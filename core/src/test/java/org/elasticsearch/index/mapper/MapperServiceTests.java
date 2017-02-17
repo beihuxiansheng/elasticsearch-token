@@ -1921,6 +1921,10 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"{\"type\":{}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setSettings
@@ -2004,6 +2008,10 @@ argument_list|(
 literal|"parent"
 argument_list|,
 literal|"{\"parent\":{\"_routing\":{\"required\":true}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addMapping
@@ -2011,6 +2019,10 @@ argument_list|(
 literal|"child"
 argument_list|,
 literal|"{\"child\": {\"_routing\":{\"required\":true}, \"_parent\": {\"type\": \"parent\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setSettings
@@ -2084,6 +2096,10 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"{\"type\":{\"_routing\":{\"required\":true}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setSettings

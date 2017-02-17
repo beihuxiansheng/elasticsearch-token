@@ -278,6 +278,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|zen
@@ -3943,6 +3957,10 @@ operator|+
 literal|"    }\n"
 operator|+
 literal|"  }}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get

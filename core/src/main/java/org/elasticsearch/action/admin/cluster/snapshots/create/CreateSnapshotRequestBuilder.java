@@ -350,29 +350,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings in YAML, JSON or properties format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      * @deprecated use {@link #setSettings(String, XContentType)} to avoid content type detection      */
-annotation|@
-name|Deprecated
-DECL|method|setSettings
-specifier|public
-name|CreateSnapshotRequestBuilder
-name|setSettings
-parameter_list|(
-name|String
-name|source
-parameter_list|)
-block|{
-name|request
-operator|.
-name|settings
-argument_list|(
-name|source
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets repository-specific snapshot settings in YAML or JSON format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @param xContentType the content type of the source      * @return this builder      */
 DECL|method|setSettings
 specifier|public

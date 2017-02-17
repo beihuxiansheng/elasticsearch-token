@@ -368,6 +368,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -564,6 +578,10 @@ name|TASK_TYPE
 argument_list|,
 name|taskResultIndexMapping
 argument_list|()
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|createIndexRequest
@@ -729,6 +747,10 @@ name|setSource
 argument_list|(
 name|taskResultIndexMapping
 argument_list|()
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute

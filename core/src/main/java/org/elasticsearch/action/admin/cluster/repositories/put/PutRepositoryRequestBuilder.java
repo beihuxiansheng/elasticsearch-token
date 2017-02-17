@@ -246,29 +246,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the repository settings in Json or Yaml format      *      * @param source repository settings      * @return this builder      * @deprecated use {@link #setSettings(String, XContentType)} instead to avoid content type auto detection      */
-annotation|@
-name|Deprecated
-DECL|method|setSettings
-specifier|public
-name|PutRepositoryRequestBuilder
-name|setSettings
-parameter_list|(
-name|String
-name|source
-parameter_list|)
-block|{
-name|request
-operator|.
-name|settings
-argument_list|(
-name|source
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the repository settings in Json or Yaml format      *      * @param source repository settings      * @param xContentType the content type of the source      * @return this builder      */
 DECL|method|setSettings
 specifier|public

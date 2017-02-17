@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|ResponseException
@@ -79,9 +69,6 @@ name|ClientYamlTestResponseException
 parameter_list|(
 name|ResponseException
 name|responseException
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 throws|throws
 name|IOException
@@ -108,8 +95,6 @@ name|responseException
 operator|.
 name|getResponse
 argument_list|()
-argument_list|,
-name|version
 argument_list|)
 expr_stmt|;
 block|}

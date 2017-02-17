@@ -878,6 +878,11 @@ name|doc
 operator|.
 name|getSource
 argument_list|()
+argument_list|,
+name|doc
+operator|.
+name|getXContentType
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|index

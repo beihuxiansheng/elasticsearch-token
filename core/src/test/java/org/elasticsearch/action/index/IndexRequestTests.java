@@ -1658,6 +1658,10 @@ operator|.
 name|source
 argument_list|(
 name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1692,6 +1696,10 @@ operator|.
 name|source
 argument_list|(
 name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|int

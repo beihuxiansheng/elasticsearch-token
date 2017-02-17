@@ -281,29 +281,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The mapping source definition.      * @deprecated use {@link #setSource(String, XContentType)}      */
-annotation|@
-name|Deprecated
-DECL|method|setSource
-specifier|public
-name|PutMappingRequestBuilder
-name|setSource
-parameter_list|(
-name|String
-name|mappingSource
-parameter_list|)
-block|{
-name|request
-operator|.
-name|source
-argument_list|(
-name|mappingSource
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * The mapping source definition.      */
 DECL|method|setSource
 specifier|public

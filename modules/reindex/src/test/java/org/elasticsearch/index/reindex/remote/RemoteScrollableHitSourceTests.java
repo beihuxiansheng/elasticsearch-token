@@ -3453,9 +3453,9 @@ name|StringEntity
 argument_list|(
 literal|"test body"
 argument_list|,
-name|StandardCharsets
+name|ContentType
 operator|.
-name|UTF_8
+name|TEXT_PLAIN
 argument_list|)
 decl_stmt|;
 name|wrapped
