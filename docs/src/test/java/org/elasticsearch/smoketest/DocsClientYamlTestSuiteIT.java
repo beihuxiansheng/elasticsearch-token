@@ -217,6 +217,18 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|randomizeContentType
+specifier|protected
+name|boolean
+name|randomizeContentType
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

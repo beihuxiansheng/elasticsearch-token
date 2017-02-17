@@ -832,6 +832,9 @@ operator|new
 name|ClientYamlTestExecutionContext
 argument_list|(
 name|clientYamlTestClient
+argument_list|,
+name|randomizeContentType
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|adminExecutionContext
@@ -840,6 +843,8 @@ operator|new
 name|ClientYamlTestExecutionContext
 argument_list|(
 name|clientYamlTestClient
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|String
@@ -2340,6 +2345,16 @@ name|t
 operator|.
 name|getMessage
 argument_list|()
+return|;
+block|}
+DECL|method|randomizeContentType
+specifier|protected
+name|boolean
+name|randomizeContentType
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}
