@@ -211,7 +211,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//only string based formats are supported, no cbor nor smile
 name|XContentType
 name|xContentType
 init|=
@@ -219,11 +218,8 @@ name|randomFrom
 argument_list|(
 name|XContentType
 operator|.
-name|JSON
-argument_list|,
-name|XContentType
-operator|.
-name|YAML
+name|values
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -302,7 +298,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -401,7 +397,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -562,7 +558,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -661,7 +657,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -762,7 +758,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1013,7 +1009,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1233,7 +1229,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1388,7 +1384,7 @@ argument_list|()
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1824,14 +1820,15 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|XContentType
+name|xContentBuilder
 operator|.
-name|YAML
+name|contentType
+argument_list|()
 argument_list|)
 argument_list|,
 name|xContentBuilder
 operator|.
-name|string
+name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
