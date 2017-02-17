@@ -657,7 +657,7 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Deletes a document by id using the delete api      */
+comment|/**      * Deletes a document by id using the Delete api      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html">Delete API on elastic.co</a>      */
 DECL|method|delete
 specifier|public
 name|DeleteResponse
@@ -697,7 +697,7 @@ name|headers
 argument_list|)
 return|;
 block|}
-comment|/**      * Asynchronously deletes a document by id using the delete api      */
+comment|/**      * Asynchronously deletes a document by id using the Delete api      *      * See<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html">Delete API on elastic.co</a>      */
 DECL|method|deleteAsync
 specifier|public
 name|void
