@@ -466,7 +466,6 @@ operator|+
 literal|'}'
 return|;
 block|}
-comment|// For developers please add your new methods in the alphabetical order
 DECL|method|delete
 specifier|static
 name|Request
