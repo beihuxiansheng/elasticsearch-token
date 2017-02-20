@@ -1182,14 +1182,14 @@ name|generation
 init|=
 literal|1
 decl_stmt|;
+specifier|final
 name|Checkpoint
 name|checkpoint
 init|=
-operator|new
 name|Checkpoint
+operator|.
+name|emptyTranslogCheckpoint
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|,
 name|generation
@@ -2225,12 +2225,13 @@ return|return
 name|newFile
 return|;
 block|}
-comment|/**      * Adds a delete / index operations to the transaction log.      *      * @see org.elasticsearch.index.translog.Translog.Operation      * @see Index      * @see org.elasticsearch.index.translog.Translog.Delete      */
+comment|/**      * Adds an operation to the transaction log.      *      * @param operation the operation to add      * @return the location of the operation in the translog      * @throws IOException if adding the operation to the translog resulted in an I/O exception      */
 DECL|method|add
 specifier|public
 name|Location
 name|add
 parameter_list|(
+specifier|final
 name|Operation
 name|operation
 parameter_list|)
@@ -2343,7 +2344,7 @@ decl_stmt|;
 try|try
 init|(
 name|ReleasableLock
-name|lock
+name|ignored
 init|=
 name|readLock
 operator|.
@@ -2354,23 +2355,24 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|Location
-name|location
-init|=
+return|return
 name|current
 operator|.
 name|add
 argument_list|(
 name|bytes
+argument_list|,
+name|operation
+operator|.
+name|seqNo
+argument_list|()
 argument_list|)
-decl_stmt|;
-return|return
-name|location
 return|;
 block|}
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|AlreadyClosedException
 decl||
 name|IOException
@@ -2387,6 +2389,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|inner
 parameter_list|)
@@ -2405,6 +2408,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|e
 parameter_list|)
@@ -2419,6 +2423,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|inner
 parameter_list|)
@@ -5965,7 +5970,7 @@ block|,
 comment|/**          * Request durability - translogs are synced for each high level request (bulk, index, delete)          */
 DECL|enum constant|REQUEST
 name|REQUEST
-block|;      }
+block|}
 DECL|method|verifyChecksum
 specifier|private
 specifier|static
