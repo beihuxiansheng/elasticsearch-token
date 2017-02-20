@@ -246,7 +246,7 @@ name|Entry
 argument_list|>
 block|{
 DECL|field|NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
