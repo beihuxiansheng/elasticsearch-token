@@ -443,6 +443,13 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/23272"
+argument_list|)
 DECL|method|testRanges
 specifier|public
 name|void
