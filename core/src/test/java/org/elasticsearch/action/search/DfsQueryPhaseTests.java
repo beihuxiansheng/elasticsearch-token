@@ -936,6 +936,8 @@ operator|.
 name|set
 argument_list|(
 name|response
+operator|.
+name|results
 argument_list|)
 decl_stmt|;
 block|}
@@ -1579,6 +1581,8 @@ operator|.
 name|set
 argument_list|(
 name|response
+operator|.
+name|results
 argument_list|)
 decl_stmt|;
 block|}
@@ -2212,6 +2216,8 @@ operator|.
 name|set
 argument_list|(
 name|response
+operator|.
+name|results
 argument_list|)
 decl_stmt|;
 block|}

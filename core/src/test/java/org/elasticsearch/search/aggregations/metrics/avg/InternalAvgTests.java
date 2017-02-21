@@ -267,9 +267,7 @@ operator|.
 name|getSum
 argument_list|()
 argument_list|,
-name|Double
-operator|.
-name|MIN_VALUE
+literal|0.00000001
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -283,9 +281,7 @@ operator|.
 name|value
 argument_list|()
 argument_list|,
-name|Double
-operator|.
-name|MIN_VALUE
+literal|0.00000001
 argument_list|)
 expr_stmt|;
 block|}

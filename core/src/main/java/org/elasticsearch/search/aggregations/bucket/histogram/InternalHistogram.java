@@ -1777,6 +1777,13 @@ name|getDocCount
 argument_list|()
 operator|>=
 name|minDocCount
+operator|||
+name|reduceContext
+operator|.
+name|isFinalReduce
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|reducedBuckets
@@ -1911,6 +1918,13 @@ name|getDocCount
 argument_list|()
 operator|>=
 name|minDocCount
+operator|||
+name|reduceContext
+operator|.
+name|isFinalReduce
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|reducedBuckets
@@ -2369,6 +2383,13 @@ operator|==
 name|InternalOrder
 operator|.
 name|KEY_ASC
+operator|||
+name|reduceContext
+operator|.
+name|isFinalReduce
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 comment|// nothing to do, data are already sorted since shards return
