@@ -80,9 +80,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermsQuery
+name|TermInSetQuery
 import|;
 end_import
 
@@ -650,7 +650,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|TermsQuery
+name|TermInSetQuery
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -678,7 +678,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TermsQuery
+name|TermInSetQuery
 argument_list|(
 name|UidFieldMapper
 operator|.

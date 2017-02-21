@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermsQuery
+name|Query
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|TermInSetQuery
 import|;
 end_import
 
@@ -917,7 +917,7 @@ block|}
 name|query
 operator|=
 operator|new
-name|TermsQuery
+name|TermInSetQuery
 argument_list|(
 name|UidFieldMapper
 operator|.

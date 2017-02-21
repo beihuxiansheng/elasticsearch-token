@@ -196,9 +196,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermsQuery
+name|TermInSetQuery
 import|;
 end_import
 
@@ -940,7 +940,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|Term
+name|BytesRef
 argument_list|>
 name|filterTerms
 init|=
@@ -1021,10 +1021,8 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Term
+name|BytesRef
 argument_list|(
-literal|"id"
-argument_list|,
 name|doc
 operator|.
 name|getField
@@ -1050,8 +1048,10 @@ block|}
 name|filter
 operator|=
 operator|new
-name|TermsQuery
+name|TermInSetQuery
 argument_list|(
+literal|"id"
+argument_list|,
 name|filterTerms
 argument_list|)
 expr_stmt|;

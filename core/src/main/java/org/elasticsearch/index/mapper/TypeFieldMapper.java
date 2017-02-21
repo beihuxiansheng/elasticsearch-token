@@ -122,20 +122,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
-operator|.
-name|TermsQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|BooleanClause
@@ -209,6 +195,20 @@ operator|.
 name|search
 operator|.
 name|TermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermInSetQuery
 import|;
 end_import
 
@@ -982,7 +982,7 @@ name|TypesQuery
 extends|extends
 name|Query
 block|{
-comment|// Same threshold as TermsQuery
+comment|// Same threshold as TermInSetQuery
 DECL|field|BOOLEAN_REWRITE_TERM_COUNT_THRESHOLD
 specifier|private
 specifier|static
@@ -1249,7 +1249,7 @@ return|;
 block|}
 return|return
 operator|new
-name|TermsQuery
+name|TermInSetQuery
 argument_list|(
 name|CONTENT_TYPE
 argument_list|,
