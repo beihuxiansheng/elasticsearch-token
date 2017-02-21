@@ -841,6 +841,7 @@ argument_list|(
 name|invocation
 lambda|->
 block|{
+comment|/* Store the releasables so we can release them at the end of the test case. This is important because aggregations don't              * close their sub-aggregations. This is fairly similar to what the production code does. */
 name|releasables
 operator|.
 name|add
