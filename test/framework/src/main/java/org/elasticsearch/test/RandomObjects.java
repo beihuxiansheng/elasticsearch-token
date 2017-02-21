@@ -945,9 +945,11 @@ name|random
 parameter_list|)
 block|{
 comment|//the source can be stored in any format and eventually converted when retrieved depending on the format of the response
-name|XContentType
-name|xContentType
-init|=
+return|return
+name|randomSource
+argument_list|(
+name|random
+argument_list|,
 name|RandomPicks
 operator|.
 name|randomFrom
@@ -959,7 +961,23 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
-decl_stmt|;
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a random source in a given XContentType containing a random number of fields, objects and array, with maximum depth 5.      *      * @param random Random generator      */
+DECL|method|randomSource
+specifier|public
+specifier|static
+name|BytesReference
+name|randomSource
+parameter_list|(
+name|Random
+name|random
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|)
+block|{
 try|try
 init|(
 name|XContentBuilder
