@@ -147,6 +147,7 @@ name|BulkShardRequest
 parameter_list|()
 block|{     }
 DECL|method|BulkShardRequest
+specifier|public
 name|BulkShardRequest
 parameter_list|(
 name|ShardId
