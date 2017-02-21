@@ -126,6 +126,7 @@ return|;
 block|}
 comment|/**      * Headers to be added to the {@link ScriptException} for structured rendering.      */
 DECL|method|getHeaders
+specifier|public
 name|Map
 argument_list|<
 name|String

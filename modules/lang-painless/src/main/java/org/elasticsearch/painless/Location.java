@@ -205,7 +205,7 @@ return|return
 name|exception
 return|;
 block|}
-comment|// This maximum length is theoretically 65535 bytes, but as it's CESU-8 encoded we dont know how large it is in bytes, so be safe
+comment|// This maximum length is theoretically 65535 bytes, but as it's CESU-8 encoded we don't know how large it is in bytes, so be safe
 DECL|field|MAX_NAME_LENGTH
 specifier|private
 specifier|static

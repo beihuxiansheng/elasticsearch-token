@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|AssertionFailedError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -137,16 +147,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
 import|;
 end_import
 
@@ -370,6 +370,17 @@ condition|(
 name|picky
 condition|)
 block|{
+name|ScriptInterface
+name|scriptInterface
+init|=
+operator|new
+name|ScriptInterface
+argument_list|(
+name|GenericElasticsearchScript
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|CompilerSettings
 name|pickySettings
 init|=
@@ -403,6 +414,8 @@ name|Walker
 operator|.
 name|buildPainlessTree
 argument_list|(
+name|scriptInterface
+argument_list|,
 name|getTestName
 argument_list|()
 argument_list|,
