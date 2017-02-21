@@ -3776,15 +3776,6 @@ name|consumeAggs
 operator|=
 literal|false
 expr_stmt|;
-assert|assert
-name|numReducePhases
-operator|>
-literal|1
-operator|:
-literal|"num reduce phases must be> 1 but was: "
-operator|+
-name|numReducePhases
-assert|;
 comment|// we already have results from intermediate reduces and just need to perform the final reduce
 assert|assert
 name|firstResult
