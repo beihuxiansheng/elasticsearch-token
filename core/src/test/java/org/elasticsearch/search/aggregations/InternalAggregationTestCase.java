@@ -326,12 +326,9 @@ if|if
 condition|(
 name|randomBoolean
 argument_list|()
-operator|&&
-name|toReduceSize
-operator|>=
-literal|2
 condition|)
 block|{
+comment|// we leave at least one in the list
 name|List
 argument_list|<
 name|InternalAggregation
@@ -342,11 +339,9 @@ name|randomSubsetOf
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|toReduceSize
-operator|-
-literal|2
 argument_list|)
 argument_list|,
 name|toReduce
