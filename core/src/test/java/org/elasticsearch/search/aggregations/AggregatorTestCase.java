@@ -1356,16 +1356,9 @@ if|if
 condition|(
 name|randomBoolean
 argument_list|()
-operator|&&
-name|aggs
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1
 condition|)
 block|{
-comment|// never do am incremental reduce with only one - some aggs can't deal with this.
+comment|// sometimes do an incremental reduce
 name|List
 argument_list|<
 name|InternalAggregation
@@ -1376,7 +1369,7 @@ name|randomSubsetOf
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|aggs
 operator|.

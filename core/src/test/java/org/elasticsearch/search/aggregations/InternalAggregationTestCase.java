@@ -326,13 +326,9 @@ if|if
 condition|(
 name|randomBoolean
 argument_list|()
-operator|&&
-name|toReduceSize
-operator|>
-literal|1
 condition|)
 block|{
-comment|// never do am incremental reduce with only one - some aggs can't deal with this.
+comment|// we leave at least one in the list
 name|List
 argument_list|<
 name|InternalAggregation
@@ -343,7 +339,7 @@ name|randomSubsetOf
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|toReduceSize
 argument_list|)
@@ -365,7 +361,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 decl_stmt|;
 annotation|@
