@@ -577,9 +577,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-name|Double
-operator|.
-name|MIN_NORMAL
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
