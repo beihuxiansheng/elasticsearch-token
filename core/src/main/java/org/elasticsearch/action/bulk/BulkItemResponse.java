@@ -281,18 +281,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -666,7 +654,7 @@ argument_list|)
 expr_stmt|;
 name|DocWriteResponse
 operator|.
-name|DocWriteResponseBuilder
+name|Builder
 name|builder
 init|=
 literal|null
@@ -699,13 +687,13 @@ block|{
 specifier|final
 name|IndexResponse
 operator|.
-name|IndexResponseBuilder
+name|Builder
 name|indexResponseBuilder
 init|=
 operator|new
 name|IndexResponse
 operator|.
-name|IndexResponseBuilder
+name|Builder
 argument_list|()
 decl_stmt|;
 name|builder
@@ -741,13 +729,13 @@ block|{
 specifier|final
 name|UpdateResponse
 operator|.
-name|UpdateResponseBuilder
+name|Builder
 name|updateResponseBuilder
 init|=
 operator|new
 name|UpdateResponse
 operator|.
-name|UpdateResponseBuilder
+name|Builder
 argument_list|()
 decl_stmt|;
 name|builder
@@ -783,13 +771,13 @@ block|{
 specifier|final
 name|DeleteResponse
 operator|.
-name|DeleteResponseBuilder
+name|Builder
 name|deleteResponseBuilder
 init|=
 operator|new
 name|DeleteResponse
 operator|.
-name|DeleteResponseBuilder
+name|Builder
 argument_list|()
 decl_stmt|;
 name|builder

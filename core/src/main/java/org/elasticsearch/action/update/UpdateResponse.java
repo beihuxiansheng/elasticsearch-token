@@ -641,11 +641,11 @@ operator|::
 name|getTokenLocation
 argument_list|)
 expr_stmt|;
-name|UpdateResponseBuilder
+name|Builder
 name|context
 init|=
 operator|new
-name|UpdateResponseBuilder
+name|Builder
 argument_list|()
 decl_stmt|;
 while|while
@@ -687,7 +687,7 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|UpdateResponseBuilder
+name|Builder
 name|context
 parameter_list|)
 throws|throws
@@ -759,15 +759,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|UpdateResponseBuilder
+comment|/**      * Builder class for {@link UpdateResponse}. This builder is usually used during xcontent parsing to      * temporarily store the parsed values, then the {@link DocWriteResponse.Builder#build()} method is called to      * instantiate the {@link UpdateResponse}.      */
+DECL|class|Builder
 specifier|public
 specifier|static
 class|class
-name|UpdateResponseBuilder
+name|Builder
 extends|extends
 name|DocWriteResponse
 operator|.
-name|DocWriteResponseBuilder
+name|Builder
 block|{
 DECL|field|getResult
 specifier|private

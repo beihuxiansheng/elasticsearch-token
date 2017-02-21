@@ -423,11 +423,11 @@ operator|::
 name|getTokenLocation
 argument_list|)
 expr_stmt|;
-name|IndexResponseBuilder
+name|Builder
 name|context
 init|=
 operator|new
-name|IndexResponseBuilder
+name|Builder
 argument_list|()
 decl_stmt|;
 while|while
@@ -469,7 +469,7 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|IndexResponseBuilder
+name|Builder
 name|context
 parameter_list|)
 throws|throws
@@ -536,15 +536,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|IndexResponseBuilder
+comment|/**      * Builder class for {@link IndexResponse}. This builder is usually used during xcontent parsing to      * temporarily store the parsed values, then the {@link Builder#build()} method is called to      * instantiate the {@link IndexResponse}.      */
+DECL|class|Builder
 specifier|public
 specifier|static
 class|class
-name|IndexResponseBuilder
+name|Builder
 extends|extends
 name|DocWriteResponse
 operator|.
-name|DocWriteResponseBuilder
+name|Builder
 block|{
 DECL|field|created
 specifier|private
