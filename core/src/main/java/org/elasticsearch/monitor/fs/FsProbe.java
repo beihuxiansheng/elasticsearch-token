@@ -1022,8 +1022,8 @@ argument_list|)
 return|;
 block|}
 comment|/* See: https://bugs.openjdk.java.net/browse/JDK-8162520 */
+comment|/**      * Take a large value intended to be positive, and if it has overflowed,      * return {@code Long.MAX_VALUE} instead of a negative number.      */
 DECL|method|adjustForHugeFilesystems
-specifier|private
 specifier|static
 name|long
 name|adjustForHugeFilesystems
