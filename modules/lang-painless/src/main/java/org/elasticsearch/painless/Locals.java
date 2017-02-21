@@ -471,9 +471,10 @@ name|Locals
 argument_list|(
 name|programScope
 argument_list|,
-name|Definition
+name|scriptInterface
 operator|.
-name|OBJECT_TYPE
+name|getExecuteMethodReturnType
+argument_list|()
 argument_list|,
 name|KEYWORDS
 argument_list|)
@@ -505,7 +506,7 @@ name|arg
 range|:
 name|scriptInterface
 operator|.
-name|getArguments
+name|getExecuteArguments
 argument_list|()
 control|)
 block|{
