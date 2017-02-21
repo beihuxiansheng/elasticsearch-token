@@ -220,16 +220,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -1319,6 +1309,30 @@ name|order
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|terms
+operator|.
+name|getDocCountError
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+comment|// If there is an existing docCountError for this agg then
+comment|// use this as the error for this aggregation
+name|thisAggDocCountError
+operator|=
+name|terms
+operator|.
+name|getDocCountError
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// otherwise use the doc count of the last term in the
+comment|// aggregation
 name|thisAggDocCountError
 operator|=
 name|terms
@@ -1341,6 +1355,7 @@ argument_list|)
 operator|.
 name|docCount
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
