@@ -164,11 +164,11 @@ specifier|final
 name|String
 name|defaultPreference
 decl_stmt|;
-DECL|field|reduceUpTo
+DECL|field|batchedReduceSize
 specifier|private
 specifier|final
 name|int
-name|reduceUpTo
+name|batchedReduceSize
 decl_stmt|;
 DECL|method|RandomizingClient
 specifier|public
@@ -299,7 +299,7 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|reduceUpTo
+name|batchedReduceSize
 operator|=
 literal|2
 operator|+
@@ -341,9 +341,9 @@ argument_list|(
 name|defaultPreference
 argument_list|)
 operator|.
-name|setReduceUpTo
+name|setBatchedReduceSize
 argument_list|(
-name|reduceUpTo
+name|batchedReduceSize
 argument_list|)
 return|;
 block|}

@@ -339,10 +339,10 @@ specifier|private
 name|Scroll
 name|scroll
 decl_stmt|;
-DECL|field|reduceUpTo
+DECL|field|batchedReduceSize
 specifier|private
 name|int
-name|reduceUpTo
+name|batchedReduceSize
 init|=
 literal|512
 decl_stmt|;
@@ -924,18 +924,18 @@ name|requestCache
 return|;
 block|}
 comment|/**      * Sets the number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection      * mechanism to reduce the memory overhead per search request if the potential number of shards in the request can be large.      */
-DECL|method|setReduceUpTo
+DECL|method|setBatchedReduceSize
 specifier|public
 name|void
-name|setReduceUpTo
+name|setBatchedReduceSize
 parameter_list|(
 name|int
-name|reduceUpTo
+name|batchedReduceSize
 parameter_list|)
 block|{
 if|if
 condition|(
-name|reduceUpTo
+name|batchedReduceSize
 operator|<=
 literal|1
 condition|)
@@ -944,26 +944,26 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"reduceUpTo must be>= 2"
+literal|"batchedReduceSize must be>= 2"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|reduceUpTo
+name|batchedReduceSize
 operator|=
-name|reduceUpTo
+name|batchedReduceSize
 expr_stmt|;
 block|}
 comment|/**      * Returns the number of shard results that should be reduced at once on the coordinating node. This value should be used as a      * protection mechanism to reduce the memory overhead per search request if the potential number of shards in the request can be large.      */
-DECL|method|getReduceUpTo
+DECL|method|getBatchedReduceSize
 specifier|public
 name|int
-name|getReduceUpTo
+name|getBatchedReduceSize
 parameter_list|()
 block|{
 return|return
-name|reduceUpTo
+name|batchedReduceSize
 return|;
 block|}
 comment|/**      * @return true if the request only has suggest      */
@@ -1296,7 +1296,7 @@ name|V_6_0_0_alpha1_UNRELEASED
 argument_list|)
 condition|)
 block|{
-name|reduceUpTo
+name|batchedReduceSize
 operator|=
 name|in
 operator|.
@@ -1428,7 +1428,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|reduceUpTo
+name|batchedReduceSize
 argument_list|)
 expr_stmt|;
 block|}

@@ -277,18 +277,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -551,7 +539,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|.
-name|setReduceUpTo
+name|setBatchedReduceSize
 argument_list|(
 literal|512
 argument_list|)

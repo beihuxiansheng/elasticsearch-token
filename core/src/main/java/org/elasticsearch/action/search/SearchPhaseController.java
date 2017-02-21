@@ -3607,10 +3607,12 @@ argument_list|(
 name|queryResults
 argument_list|,
 literal|null
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Reduces the given query results and consumes all aggregations and profile results.      * @param queryResults a list of non-null query shard results      * @param bufferdAggs a list of pre-collected / buffered aggregations. if this list is non-null all aggregations have been consumed      *                    from all non-null query results.      * @see QuerySearchResult#consumeAggs()      * @see QuerySearchResult#consumeProfileResult()      */
+comment|/**      * Reduces the given query results and consumes all aggregations and profile results.      * @param queryResults a list of non-null query shard results      * @param bufferdAggs a list of pre-collected / buffered aggregations. if this list is non-null all aggregations have been consumed      *                    from all non-null query results.      * @param numReducePhases the number of non-final reduce phases applied to the query results.      * @see QuerySearchResult#consumeAggs()      * @see QuerySearchResult#consumeProfileResult()      */
 DECL|method|reducedQueryPhase
 specifier|private
 name|ReducedQueryPhase
@@ -3636,8 +3638,24 @@ argument_list|<
 name|InternalAggregations
 argument_list|>
 name|bufferdAggs
+parameter_list|,
+name|int
+name|numReducePhases
 parameter_list|)
 block|{
+assert|assert
+name|numReducePhases
+operator|>=
+literal|0
+operator|:
+literal|"num reduce phases must be>= 0 but was: "
+operator|+
+name|numReducePhases
+assert|;
+name|numReducePhases
+operator|++
+expr_stmt|;
+comment|// increment for this phase
 name|long
 name|totalHits
 init|=
@@ -3695,6 +3713,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|numReducePhases
 argument_list|)
 return|;
 block|}
@@ -3756,6 +3776,15 @@ name|consumeAggs
 operator|=
 literal|false
 expr_stmt|;
+assert|assert
+name|numReducePhases
+operator|>
+literal|1
+operator|:
+literal|"num reduce phases must be> 1 but was: "
+operator|+
+name|numReducePhases
+assert|;
 comment|// we already have results from intermediate reduces and just need to perform the final reduce
 assert|assert
 name|firstResult
@@ -4213,6 +4242,8 @@ argument_list|,
 name|aggregations
 argument_list|,
 name|shardResults
+argument_list|,
+name|numReducePhases
 argument_list|)
 return|;
 block|}
@@ -4443,6 +4474,12 @@ specifier|final
 name|SearchProfileShardResults
 name|shardResults
 decl_stmt|;
+comment|// the number of reduces phases
+DECL|field|numReducePhases
+specifier|final
+name|int
+name|numReducePhases
+decl_stmt|;
 DECL|method|ReducedQueryPhase
 name|ReducedQueryPhase
 parameter_list|(
@@ -4472,8 +4509,28 @@ name|aggregations
 parameter_list|,
 name|SearchProfileShardResults
 name|shardResults
+parameter_list|,
+name|int
+name|numReducePhases
 parameter_list|)
 block|{
+if|if
+condition|(
+name|numReducePhases
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"at least one reduce phase must have been applied but was: "
+operator|+
+name|numReducePhases
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|totalHits
@@ -4550,6 +4607,12 @@ name|shardResults
 operator|=
 name|shardResults
 expr_stmt|;
+name|this
+operator|.
+name|numReducePhases
+operator|=
+name|numReducePhases
+expr_stmt|;
 block|}
 comment|/**          * Creates a new search response from the given merged hits.          * @see #merge(boolean, ScoreDoc[], ReducedQueryPhase, AtomicArray)          */
 DECL|method|buildResponse
@@ -4576,6 +4639,8 @@ argument_list|,
 name|timedOut
 argument_list|,
 name|terminatedEarly
+argument_list|,
+name|numReducePhases
 argument_list|)
 return|;
 block|}
@@ -4624,6 +4689,13 @@ specifier|private
 specifier|final
 name|SearchPhaseController
 name|controller
+decl_stmt|;
+DECL|field|numReducePhases
+specifier|private
+name|int
+name|numReducePhases
+init|=
+literal|0
 decl_stmt|;
 comment|/**          * Creates a new {@link QueryPhaseResultConsumer}          * @param controller a controller instance to reduce the query response objects          * @param expectedResultSize the expected number of query results. Corresponds to the number of shards queried          * @param bufferSize the size of the reduce buffer. if the buffer size is smaller than the number of expected results          *                   the buffer is used to incrementally reduce aggregation results before all shards responded.          */
 DECL|method|QueryPhaseResultConsumer
@@ -4796,6 +4868,9 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|numReducePhases
+operator|++
+expr_stmt|;
 name|buffer
 index|[
 literal|0
@@ -4869,6 +4944,8 @@ argument_list|()
 argument_list|,
 name|getRemaining
 argument_list|()
+argument_list|,
+name|numReducePhases
 argument_list|)
 return|;
 block|}
@@ -4880,6 +4957,15 @@ parameter_list|()
 block|{
 return|return
 name|index
+return|;
+block|}
+DECL|method|getNumReducePhases
+name|int
+name|getNumReducePhases
+parameter_list|()
+block|{
+return|return
+name|numReducePhases
 return|;
 block|}
 block|}
@@ -4926,7 +5012,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|getReduceUpTo
+name|getBatchedReduceSize
 argument_list|()
 operator|<
 name|numShards
@@ -4943,7 +5029,7 @@ name|numShards
 argument_list|,
 name|request
 operator|.
-name|getReduceUpTo
+name|getBatchedReduceSize
 argument_list|()
 argument_list|)
 return|;

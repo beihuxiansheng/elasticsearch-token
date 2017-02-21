@@ -40,20 +40,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|SearchType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -685,6 +671,29 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|int
+name|batchedReduceSize
+init|=
+name|request
+operator|.
+name|paramAsInt
+argument_list|(
+literal|"batched_reduce_size"
+argument_list|,
+name|searchRequest
+operator|.
+name|getBatchedReduceSize
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|searchRequest
+operator|.
+name|setBatchedReduceSize
+argument_list|(
+name|batchedReduceSize
+argument_list|)
+expr_stmt|;
 comment|// do not allow 'query_and_fetch' or 'dfs_query_and_fetch' search types
 comment|// from the REST layer. these modes are an internal optimization and should
 comment|// not be specified explicitly by the user.
