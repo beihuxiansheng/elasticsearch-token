@@ -1539,10 +1539,6 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|this
-operator|::
-name|localNode
-argument_list|,
 operator|new
 name|MembershipListener
 argument_list|()
