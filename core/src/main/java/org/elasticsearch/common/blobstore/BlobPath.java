@@ -249,6 +249,13 @@ name|p
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|p
+operator|.
+name|endsWith
+argument_list|(
+name|SEPARATOR
+argument_list|)
 condition|)
 block|{
 return|return
