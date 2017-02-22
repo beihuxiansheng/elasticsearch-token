@@ -354,14 +354,6 @@ name|CustomMustacheFactory
 extends|extends
 name|DefaultMustacheFactory
 block|{
-DECL|field|CONTENT_TYPE_PARAM
-specifier|static
-specifier|final
-name|String
-name|CONTENT_TYPE_PARAM
-init|=
-literal|"content_type"
-decl_stmt|;
 DECL|field|JSON_MIME_TYPE_WITH_CHARSET
 specifier|static
 specifier|final
