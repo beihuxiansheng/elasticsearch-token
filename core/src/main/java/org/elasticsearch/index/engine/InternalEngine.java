@@ -1210,7 +1210,7 @@ operator|.
 name|getThreadPool
 argument_list|()
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 expr_stmt|;
 name|mergeScheduler
@@ -2883,7 +2883,7 @@ operator|.
 name|getThreadPool
 argument_list|()
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 operator|-
 name|versionValue
@@ -4503,7 +4503,7 @@ operator|.
 name|getThreadPool
 argument_list|()
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 operator|-
 name|lastDeleteVersionPruneTimeMSec
@@ -4854,7 +4854,7 @@ operator|.
 name|getThreadPool
 argument_list|()
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 argument_list|)
 argument_list|)
@@ -6217,7 +6217,7 @@ operator|.
 name|getThreadPool
 argument_list|()
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 decl_stmt|;
 comment|// TODO: not good that we reach into LiveVersionMap here; can we move this inside VersionMap instead?  problem is the dirtyLock...

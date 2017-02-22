@@ -3744,7 +3744,7 @@ name|accessed
 argument_list|(
 name|threadPool
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5355,7 +5355,7 @@ name|time
 init|=
 name|threadPool
 operator|.
-name|estimatedTimeInMillis
+name|relativeTimeInMillis
 argument_list|()
 decl_stmt|;
 for|for

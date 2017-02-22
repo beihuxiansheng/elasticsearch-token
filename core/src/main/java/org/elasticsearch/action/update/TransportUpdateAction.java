@@ -1340,7 +1340,7 @@ name|indexShard
 argument_list|,
 name|threadPool
 operator|::
-name|estimatedTimeInMillis
+name|absoluteTimeInMillis
 argument_list|)
 decl_stmt|;
 switch|switch
