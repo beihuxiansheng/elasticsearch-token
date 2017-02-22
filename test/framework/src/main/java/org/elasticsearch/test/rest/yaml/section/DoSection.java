@@ -263,6 +263,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -462,9 +472,13 @@ argument_list|>
 name|headers
 init|=
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|<>
-argument_list|()
+argument_list|(
+name|String
+operator|.
+name|CASE_INSENSITIVE_ORDER
+argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
@@ -929,16 +943,6 @@ literal|"client call section is mandatory within a do section"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|headers
-operator|.
-name|isEmpty
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
 name|apiCallSection
 operator|.
 name|addHeaders
@@ -946,7 +950,6 @@ argument_list|(
 name|headers
 argument_list|)
 expr_stmt|;
-block|}
 name|doSection
 operator|.
 name|setApiCallSection
