@@ -1696,14 +1696,6 @@ operator|.
 name|createHttpResponse
 argument_list|(
 name|httpResponse
-argument_list|,
-name|ctx
-operator|.
-name|channel
-argument_list|()
-operator|.
-name|newPromise
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
