@@ -142,6 +142,7 @@ specifier|private
 name|int
 name|writeSequence
 decl_stmt|;
+comment|// we use a priority queue so that responses are ordered by their sequence number
 DECL|field|holdingQueue
 specifier|private
 specifier|final
@@ -167,7 +168,6 @@ name|maxEventsHeld
 operator|=
 name|maxEventsHeld
 expr_stmt|;
-comment|// we use a priority queue so that responses are ordered by their sequence number
 name|this
 operator|.
 name|holdingQueue
