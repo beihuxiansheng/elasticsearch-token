@@ -104,18 +104,8 @@ name|PriorityQueue
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Queue
-import|;
-end_import
-
 begin_comment
-comment|/**  * Implements HTTP pipelining ordering, ensuring that responses are completely served in the same order as their  * corresponding requests. NOTE: A side effect of using this handler is that upstream HttpRequest objects will  * cause the original message event to be effectively transformed into an OrderedUpstreamMessageEvent. Conversely  * OrderedDownstreamChannelEvent objects are expected to be received for the correlating response objects.  */
+comment|/**  * Implements HTTP pipelining ordering, ensuring that responses are completely served in the same order as their corresponding requests.  */
 end_comment
 
 begin_class
@@ -133,7 +123,7 @@ specifier|final
 name|int
 name|INITIAL_EVENTS_HELD
 init|=
-literal|3
+literal|8
 decl_stmt|;
 DECL|field|maxEventsHeld
 specifier|private
@@ -141,6 +131,7 @@ specifier|final
 name|int
 name|maxEventsHeld
 decl_stmt|;
+comment|/*      * The current read and write sequence numbers. Read sequence numbers are attached to requests in the order they are read from the      * channel, and then transferred to responses. A response is not written to the channel context until its sequence number matches the      * current write sequence, implying that all preceding messages have been written.      */
 DECL|field|readSequence
 specifier|private
 name|int
@@ -154,13 +145,13 @@ decl_stmt|;
 DECL|field|holdingQueue
 specifier|private
 specifier|final
-name|Queue
+name|PriorityQueue
 argument_list|<
 name|HttpPipelinedResponse
 argument_list|>
 name|holdingQueue
 decl_stmt|;
-comment|/**      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel      *                      connection. This is required as events cannot queue up indefinitely; we would run out of      *                      memory if this was the case.      */
+comment|/**      * Construct a new pipelining handler; this handler should be used downstream of HTTP decoding/aggregation.      *      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel connection; this is      *                      required as events cannot queue up indefinitely      */
 DECL|method|HttpPipeliningHandler
 specifier|public
 name|HttpPipeliningHandler
@@ -176,6 +167,7 @@ name|maxEventsHeld
 operator|=
 name|maxEventsHeld
 expr_stmt|;
+comment|// we use a priority queue so that responses are ordered by their sequence number
 name|this
 operator|.
 name|holdingQueue
@@ -195,9 +187,11 @@ specifier|public
 name|void
 name|channelRead
 parameter_list|(
+specifier|final
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
+specifier|final
 name|Object
 name|msg
 parameter_list|)
@@ -252,12 +246,15 @@ specifier|public
 name|void
 name|write
 parameter_list|(
+specifier|final
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
+specifier|final
 name|Object
 name|msg
 parameter_list|,
+specifier|final
 name|ChannelPromise
 name|promise
 parameter_list|)
@@ -310,6 +307,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|/*                          * Since the response with the lowest sequence number is the top of the priority queue, we know if its sequence                          * number does not match the current write sequence then we have not processed all preceding responses yet.                          */
 specifier|final
 name|HttpPipelinedResponse
 name|response
