@@ -62,18 +62,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|auth
-operator|.
-name|InstanceProfileCredentialsProvider
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -123,18 +111,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
 import|;
 end_import
 
@@ -204,7 +180,7 @@ name|credentialsProvider
 argument_list|,
 name|instanceOf
 argument_list|(
-name|InstanceProfileCredentialsProvider
+name|AWSCredentialsProvider
 operator|.
 name|class
 argument_list|)
