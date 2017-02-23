@@ -116,14 +116,15 @@ name|HttpPipeliningHandler
 extends|extends
 name|ChannelDuplexHandler
 block|{
-DECL|field|INITIAL_EVENTS_HELD
+comment|// we use a priority queue so that responses are ordered by their sequence number
+DECL|field|holdingQueue
 specifier|private
-specifier|static
 specifier|final
-name|int
-name|INITIAL_EVENTS_HELD
-init|=
-literal|8
+name|PriorityQueue
+argument_list|<
+name|HttpPipelinedResponse
+argument_list|>
+name|holdingQueue
 decl_stmt|;
 DECL|field|maxEventsHeld
 specifier|private
@@ -141,16 +142,6 @@ DECL|field|writeSequence
 specifier|private
 name|int
 name|writeSequence
-decl_stmt|;
-comment|// we use a priority queue so that responses are ordered by their sequence number
-DECL|field|holdingQueue
-specifier|private
-specifier|final
-name|PriorityQueue
-argument_list|<
-name|HttpPipelinedResponse
-argument_list|>
-name|holdingQueue
 decl_stmt|;
 comment|/**      * Construct a new pipelining handler; this handler should be used downstream of HTTP decoding/aggregation.      *      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel connection; this is      *                      required as events cannot queue up indefinitely      */
 DECL|method|HttpPipeliningHandler
@@ -176,7 +167,7 @@ operator|new
 name|PriorityQueue
 argument_list|<>
 argument_list|(
-name|INITIAL_EVENTS_HELD
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
