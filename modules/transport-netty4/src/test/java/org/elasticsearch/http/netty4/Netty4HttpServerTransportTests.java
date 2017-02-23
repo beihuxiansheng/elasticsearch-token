@@ -941,7 +941,7 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|String
-name|suffix
+name|prefix
 init|=
 name|randomBoolean
 argument_list|()
@@ -993,7 +993,7 @@ name|methods
 argument_list|,
 literal|","
 argument_list|,
-name|suffix
+name|prefix
 argument_list|,
 literal|""
 argument_list|)
@@ -1012,7 +1012,7 @@ name|headers
 argument_list|,
 literal|","
 argument_list|,
-name|suffix
+name|prefix
 argument_list|,
 literal|""
 argument_list|)
