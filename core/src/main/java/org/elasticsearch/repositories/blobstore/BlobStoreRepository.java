@@ -4524,30 +4524,17 @@ name|IOException
 block|{
 try|try
 block|{
-comment|// first, try reading the latest index generation from the index.latest blob
-return|return
-name|readSnapshotIndexLatestBlob
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{
-comment|// we could not find the index.latest blob, this can happen in two scenarios:
-comment|//  (1) its an empty repository
-comment|//  (2) when writing the index-latest blob, if the blob already exists,
-comment|//      we first delete it, then atomically write the new blob.  there is
-comment|//      a small window in time when the blob is deleted and the new one
-comment|//      written - if the node crashes during that time, we won't have an
-comment|//      index-latest blob
-comment|// lets try to list all index-N blobs to determine the last one, if listing the blobs
-comment|// is not a supported operation (which is the case for read-only repositories), then
-comment|// assume its an empty repository.
-try|try
-block|{
+comment|// First, try listing all index-N blobs (there should only be two index-N blobs at any given
+comment|// time in a repository if cleanup is happening properly) and pick the index-N blob with the
+comment|// highest N value - this will be the latest index blob for the repository.  Note, we do this
+comment|// instead of directly reading the index.latest blob to get the current index-N blob because
+comment|// index.latest is not written atomically and is not immutable - on every index-N change,
+comment|// we first delete the old index.latest and then write the new one.  If the repository is not
+comment|// read-only, it is possible that we try deleting the index.latest blob while it is being read
+comment|// by some other operation (such as the get snapshots operation).  In some file systems, it is
+comment|// illegal to delete a file while it is being read elsewhere (e.g. Windows).  For read-only
+comment|// repositories, we read for index.latest, both because listing blob prefixes is often unsupported
+comment|// and because the index.latest blob will never be deleted and re-written.
 return|return
 name|listBlobsToGetLatestIndexId
 argument_list|()
@@ -4556,15 +4543,15 @@ block|}
 catch|catch
 parameter_list|(
 name|UnsupportedOperationException
-name|uoe
+name|e
 parameter_list|)
 block|{
+comment|// If its a read-only repository, listing blobs by prefix may not be supported (e.g. a URL repository),
+comment|// in this case, try reading the latest index generation from the index.latest blob
 return|return
-name|RepositoryData
-operator|.
-name|EMPTY_REPO_GEN
+name|readSnapshotIndexLatestBlob
+argument_list|()
 return|;
-block|}
 block|}
 block|}
 comment|// package private for testing
@@ -4646,8 +4633,9 @@ decl_stmt|;
 name|long
 name|latest
 init|=
-operator|-
-literal|1
+name|RepositoryData
+operator|.
+name|EMPTY_REPO_GEN
 decl_stmt|;
 if|if
 condition|(
