@@ -881,6 +881,8 @@ operator|.
 name|createHttpResponse
 argument_list|(
 name|resp
+argument_list|,
+name|promise
 argument_list|)
 expr_stmt|;
 block|}

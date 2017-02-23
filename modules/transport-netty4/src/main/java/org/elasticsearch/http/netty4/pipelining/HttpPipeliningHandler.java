@@ -268,6 +268,24 @@ operator|instanceof
 name|HttpPipelinedResponse
 condition|)
 block|{
+specifier|final
+name|HttpPipelinedResponse
+name|current
+init|=
+operator|(
+name|HttpPipelinedResponse
+operator|)
+name|msg
+decl_stmt|;
+comment|/*              * We attach the promise to the response. When we invoke a write on the channel with the response, we must ensure that we invoke              * the write methods that accept the same promise that we have attached to the response otherwise as the response proceeds              * through the handler pipeline a different promise will be used until reaching this handler. Therefore, we assert here that the              * attached promise is identical to the provided promise as a safety mechanism that we are respecting this.              */
+assert|assert
+name|current
+operator|.
+name|promise
+argument_list|()
+operator|==
+name|promise
+assert|;
 name|boolean
 name|channelShouldClose
 init|=
@@ -292,10 +310,7 @@ name|holdingQueue
 operator|.
 name|add
 argument_list|(
-operator|(
-name|HttpPipelinedResponse
-operator|)
-name|msg
+name|current
 argument_list|)
 expr_stmt|;
 while|while
@@ -307,10 +322,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|/*                          * Since the response with the lowest sequence number is the top of the priority queue, we know if its sequence                          * number does not match the current write sequence then we have not processed all preceding responses yet.                          */
+comment|/*                          * Since the response with the lowest sequence number is the top of the priority queue, we know if its sequence                          * number does not match the current write sequence number then we have not processed all preceding responses yet.                          */
 specifier|final
 name|HttpPipelinedResponse
-name|response
+name|top
 init|=
 name|holdingQueue
 operator|.
@@ -319,7 +334,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|response
+name|top
 operator|.
 name|sequence
 argument_list|()
@@ -334,16 +349,20 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+comment|/*                          * We must use the promise attached to the response; this is necessary since are going to hold a response until all                          * responses that precede it in the pipeline are written first. Note that the promise from the method invocation is                          * not ignored, it will already be attached to an existing response and consumed when that response is drained.                          */
 name|ctx
 operator|.
 name|write
 argument_list|(
-name|response
+name|top
 operator|.
 name|response
 argument_list|()
 argument_list|,
+name|top
+operator|.
 name|promise
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writeSequence
@@ -384,12 +403,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-operator|(
-operator|(
-name|HttpPipelinedResponse
-operator|)
-name|msg
-operator|)
+name|current
 operator|.
 name|release
 argument_list|()
