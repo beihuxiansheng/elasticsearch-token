@@ -180,7 +180,9 @@ name|credentialsProvider
 argument_list|,
 name|instanceOf
 argument_list|(
-name|AWSCredentialsProvider
+name|InternalAwsS3Service
+operator|.
+name|PrivilegedInstanceProfileCredentialsProvider
 operator|.
 name|class
 argument_list|)
