@@ -4548,10 +4548,25 @@ parameter_list|)
 block|{
 comment|// If its a read-only repository, listing blobs by prefix may not be supported (e.g. a URL repository),
 comment|// in this case, try reading the latest index generation from the index.latest blob
+try|try
+block|{
 return|return
 name|readSnapshotIndexLatestBlob
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchFileException
+name|nsfe
+parameter_list|)
+block|{
+return|return
+name|RepositoryData
+operator|.
+name|EMPTY_REPO_GEN
+return|;
+block|}
 block|}
 block|}
 comment|// package private for testing
