@@ -1565,6 +1565,29 @@ name|source
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection      * mechanism to reduce the memory overhead per search request if the potential number of shards in the request can be large.      */
+DECL|method|setBatchedReduceSize
+specifier|public
+name|SearchRequestBuilder
+name|setBatchedReduceSize
+parameter_list|(
+name|int
+name|batchedReduceSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|request
+operator|.
+name|setBatchedReduceSize
+argument_list|(
+name|batchedReduceSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

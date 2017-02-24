@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermsQuery
+name|TermInSetQuery
 import|;
 end_import
 
@@ -438,7 +438,7 @@ name|query
 argument_list|,
 name|instanceOf
 argument_list|(
-name|TermsQuery
+name|TermInSetQuery
 operator|.
 name|class
 argument_list|)

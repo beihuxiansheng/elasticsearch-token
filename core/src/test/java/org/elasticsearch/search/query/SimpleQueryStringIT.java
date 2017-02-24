@@ -2752,6 +2752,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|mappingRequest
@@ -3133,6 +3137,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|mappingRequest
@@ -3232,6 +3240,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -3520,6 +3532,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -3790,6 +3806,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -4076,6 +4096,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -4644,6 +4668,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -4850,6 +4878,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 comment|// .setSettings(Settings.builder().put("index.version.created", Version.V_5_0_0.id)).get();
 operator|.
@@ -5085,6 +5117,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get
@@ -5235,6 +5271,10 @@ operator|.
 name|setSource
 argument_list|(
 name|indexBody
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get

@@ -625,6 +625,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -782,6 +786,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1233,6 +1241,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1584,6 +1596,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -4345,6 +4361,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute

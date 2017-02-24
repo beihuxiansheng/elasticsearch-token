@@ -2920,6 +2920,10 @@ argument_list|(
 literal|"type1"
 argument_list|,
 name|mapping1
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addMapping
@@ -2927,6 +2931,10 @@ argument_list|(
 literal|"type2"
 argument_list|,
 name|mapping2
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setSettings

@@ -5585,6 +5585,10 @@ argument_list|(
 literal|"parent"
 argument_list|,
 literal|"{\"parent\":{}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addMapping
@@ -5592,6 +5596,10 @@ argument_list|(
 literal|"child"
 argument_list|,
 literal|"{\"child\": {\"_parent\": {\"type\": \"parent\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -5875,6 +5883,10 @@ argument_list|(
 literal|"parent"
 argument_list|,
 literal|"{\"parent\":{}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addMapping
@@ -5882,6 +5894,10 @@ argument_list|(
 literal|"child"
 argument_list|,
 literal|"{\"child\": {\"_parent\": {\"type\": \"parent\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6272,6 +6288,10 @@ argument_list|(
 literal|"parent"
 argument_list|,
 literal|"{\"parent\":{}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addMapping
@@ -6279,6 +6299,10 @@ argument_list|(
 literal|"child"
 argument_list|,
 literal|"{\"child\": {\"_parent\": {\"type\": \"parent\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

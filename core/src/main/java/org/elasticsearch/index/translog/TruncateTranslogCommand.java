@@ -1155,12 +1155,11 @@ block|{
 name|Checkpoint
 name|emptyCheckpoint
 init|=
-operator|new
 name|Checkpoint
+operator|.
+name|emptyTranslogCheckpoint
 argument_list|(
 name|translogLength
-argument_list|,
-literal|0
 argument_list|,
 name|translogGeneration
 argument_list|,

@@ -27735,7 +27735,7 @@ name|t
 init|=
 name|VersionType
 operator|.
-name|INTERNAL
+name|EXTERNAL
 decl_stmt|;
 specifier|final
 name|long

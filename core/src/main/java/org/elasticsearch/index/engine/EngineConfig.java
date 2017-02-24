@@ -895,7 +895,7 @@ name|codecName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a thread-pool mainly used to get estimated time stamps from      * {@link org.elasticsearch.threadpool.ThreadPool#estimatedTimeInMillis()} and to schedule      * async force merge calls on the {@link org.elasticsearch.threadpool.ThreadPool.Names#FORCE_MERGE} thread-pool      */
+comment|/**      * Returns a thread-pool mainly used to get estimated time stamps from      * {@link org.elasticsearch.threadpool.ThreadPool#relativeTimeInMillis()} and to schedule      * async force merge calls on the {@link org.elasticsearch.threadpool.ThreadPool.Names#FORCE_MERGE} thread-pool      */
 DECL|method|getThreadPool
 specifier|public
 name|ThreadPool

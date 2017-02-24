@@ -1255,13 +1255,11 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|"11:freezer:/"
+literal|"10:freezer:/"
 argument_list|,
-literal|"10:net_cls,net_prio:/"
+literal|"9:net_cls,net_prio:/"
 argument_list|,
-literal|"9:pids:/"
-argument_list|,
-literal|"8:cpuset:/"
+literal|"8:pids:/"
 argument_list|,
 literal|"7:blkio:/"
 argument_list|,
@@ -1273,7 +1271,7 @@ literal|"4:hugetlb:/"
 argument_list|,
 literal|"3:perf_event:/"
 argument_list|,
-literal|"2:cpu,cpuacct:/"
+literal|"2:cpu,cpuacct,cpuset:/"
 operator|+
 name|hierarchy
 argument_list|,

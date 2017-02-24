@@ -7313,6 +7313,10 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"{\"type\":{\"_routing\":{\"required\":false}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|setSettings

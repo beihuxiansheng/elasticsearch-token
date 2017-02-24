@@ -139,7 +139,9 @@ DECL|method|BulkShardResponse
 name|BulkShardResponse
 parameter_list|()
 block|{     }
+comment|// NOTE: public for testing only
 DECL|method|BulkShardResponse
+specifier|public
 name|BulkShardResponse
 parameter_list|(
 name|ShardId

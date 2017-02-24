@@ -178,6 +178,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|json
 operator|.
 name|JsonXContent
@@ -908,6 +922,10 @@ argument_list|(
 literal|"doc"
 argument_list|,
 literal|"{\"doc\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -969,6 +987,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"properties\":{\"date\":{\"type\":\"integer\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1146,6 +1168,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"properties\":{\"date\":{\"type\":\"integer\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1269,6 +1295,10 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1329,6 +1359,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"integer\"}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1391,6 +1425,10 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": false }}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1423,6 +1461,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": true }}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1508,6 +1550,10 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -1569,6 +1615,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -2798,6 +2848,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"properties\":{\"date\":{\"type\":\"integer\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2861,6 +2915,10 @@ operator|.
 name|setSource
 argument_list|(
 literal|"{\"properties\":{\"date\":{\"type\":\"integer\"}}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

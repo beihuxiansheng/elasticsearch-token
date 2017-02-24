@@ -134,29 +134,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the source of the script.      * @deprecated this method requires content type detection. Use {@link #setContent(BytesReference, XContentType)} instead      */
-annotation|@
-name|Deprecated
-DECL|method|setContent
-specifier|public
-name|PutStoredScriptRequestBuilder
-name|setContent
-parameter_list|(
-name|BytesReference
-name|content
-parameter_list|)
-block|{
-name|request
-operator|.
-name|content
-argument_list|(
-name|content
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Set the source of the script along with the content type of the source      */
 DECL|method|setContent
 specifier|public

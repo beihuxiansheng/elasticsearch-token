@@ -9771,6 +9771,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -10329,6 +10331,28 @@ literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|assertAcked
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareDelete
+argument_list|(
+literal|"cache_test_idx"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// delete this - if we use tests.iters it would fail
+block|}
 block|}
 DECL|method|testWithRescore
 specifier|public

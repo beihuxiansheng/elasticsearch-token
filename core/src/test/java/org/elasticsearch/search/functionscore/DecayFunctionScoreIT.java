@@ -6403,9 +6403,6 @@ argument_list|(
 literal|"type"
 argument_list|,
 name|xContentBuilder
-operator|.
-name|string
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -489,7 +489,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"/_cat/thread_pool/{thread_pools}"
+literal|"/_cat/thread_pool/{thread_pools}\n"
 argument_list|)
 expr_stmt|;
 block|}

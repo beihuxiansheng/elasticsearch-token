@@ -1812,6 +1812,10 @@ argument_list|(
 literal|"polygon"
 argument_list|,
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 decl_stmt|;
 name|mappingRequest
@@ -3406,9 +3410,6 @@ argument_list|(
 literal|"country"
 argument_list|,
 name|xContentBuilder
-operator|.
-name|string
-argument_list|()
 argument_list|)
 operator|.
 name|execute

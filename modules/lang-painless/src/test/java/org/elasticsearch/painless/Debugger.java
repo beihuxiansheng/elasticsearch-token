@@ -86,6 +86,10 @@ block|{
 return|return
 name|toString
 argument_list|(
+name|GenericElasticsearchScript
+operator|.
+name|class
+argument_list|,
 name|source
 argument_list|,
 operator|new
@@ -100,6 +104,12 @@ specifier|static
 name|String
 name|toString
 parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|iface
+parameter_list|,
 name|String
 name|source
 parameter_list|,
@@ -136,6 +146,8 @@ name|Compiler
 operator|.
 name|compile
 argument_list|(
+name|iface
+argument_list|,
 literal|"<debugging>"
 argument_list|,
 name|source

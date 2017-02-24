@@ -122,6 +122,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -341,6 +355,7 @@ operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
+comment|//we can assume the template is always json as we convert it before compiling it
 name|builder
 operator|.
 name|rawField
@@ -348,6 +363,10 @@ argument_list|(
 literal|"template_output"
 argument_list|,
 name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|builder

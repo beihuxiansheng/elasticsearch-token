@@ -569,18 +569,14 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+comment|//this is really for search templates, that need to be converted to json format
 name|XContentBuilder
 name|builder
 init|=
 name|XContentFactory
 operator|.
-name|contentBuilder
-argument_list|(
-name|parser
-operator|.
-name|contentType
+name|jsonBuilder
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|idOrCode
 operator|=
@@ -591,10 +587,7 @@ argument_list|(
 name|parser
 argument_list|)
 operator|.
-name|bytes
-argument_list|()
-operator|.
-name|utf8ToString
+name|string
 argument_list|()
 expr_stmt|;
 name|options
@@ -603,10 +596,9 @@ name|put
 argument_list|(
 name|CONTENT_TYPE_OPTION
 argument_list|,
-name|parser
+name|XContentType
 operator|.
-name|contentType
-argument_list|()
+name|JSON
 operator|.
 name|mediaType
 argument_list|()

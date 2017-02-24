@@ -72,44 +72,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|ReferenceCountUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|termvectors
-operator|.
-name|TermVectorsFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -142,18 +104,8 @@ name|PriorityQueue
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Queue
-import|;
-end_import
-
 begin_comment
-comment|/**  * Implements HTTP pipelining ordering, ensuring that responses are completely served in the same order as their  * corresponding requests. NOTE: A side effect of using this handler is that upstream HttpRequest objects will  * cause the original message event to be effectively transformed into an OrderedUpstreamMessageEvent. Conversely  * OrderedDownstreamChannelEvent objects are expected to be received for the correlating response objects.  */
+comment|/**  * Implements HTTP pipelining ordering, ensuring that responses are completely served in the same order as their corresponding requests.  */
 end_comment
 
 begin_class
@@ -164,14 +116,15 @@ name|HttpPipeliningHandler
 extends|extends
 name|ChannelDuplexHandler
 block|{
-DECL|field|INITIAL_EVENTS_HELD
+comment|// we use a priority queue so that responses are ordered by their sequence number
+DECL|field|holdingQueue
 specifier|private
-specifier|static
 specifier|final
-name|int
-name|INITIAL_EVENTS_HELD
-init|=
-literal|3
+name|PriorityQueue
+argument_list|<
+name|HttpPipelinedResponse
+argument_list|>
+name|holdingQueue
 decl_stmt|;
 DECL|field|maxEventsHeld
 specifier|private
@@ -179,6 +132,7 @@ specifier|final
 name|int
 name|maxEventsHeld
 decl_stmt|;
+comment|/*      * The current read and write sequence numbers. Read sequence numbers are attached to requests in the order they are read from the      * channel, and then transferred to responses. A response is not written to the channel context until its sequence number matches the      * current write sequence, implying that all preceding messages have been written.      */
 DECL|field|readSequence
 specifier|private
 name|int
@@ -189,16 +143,7 @@ specifier|private
 name|int
 name|writeSequence
 decl_stmt|;
-DECL|field|holdingQueue
-specifier|private
-specifier|final
-name|Queue
-argument_list|<
-name|HttpPipelinedResponse
-argument_list|>
-name|holdingQueue
-decl_stmt|;
-comment|/**      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel      *                      connection. This is required as events cannot queue up indefinitely; we would run out of      *                      memory if this was the case.      */
+comment|/**      * Construct a new pipelining handler; this handler should be used downstream of HTTP decoding/aggregation.      *      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel connection; this is      *                      required as events cannot queue up indefinitely      */
 DECL|method|HttpPipeliningHandler
 specifier|public
 name|HttpPipeliningHandler
@@ -222,7 +167,7 @@ operator|new
 name|PriorityQueue
 argument_list|<>
 argument_list|(
-name|INITIAL_EVENTS_HELD
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -233,9 +178,11 @@ specifier|public
 name|void
 name|channelRead
 parameter_list|(
+specifier|final
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
+specifier|final
 name|Object
 name|msg
 parameter_list|)
@@ -290,12 +237,15 @@ specifier|public
 name|void
 name|write
 parameter_list|(
+specifier|final
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
+specifier|final
 name|Object
 name|msg
 parameter_list|,
+specifier|final
 name|ChannelPromise
 name|promise
 parameter_list|)
@@ -309,6 +259,24 @@ operator|instanceof
 name|HttpPipelinedResponse
 condition|)
 block|{
+specifier|final
+name|HttpPipelinedResponse
+name|current
+init|=
+operator|(
+name|HttpPipelinedResponse
+operator|)
+name|msg
+decl_stmt|;
+comment|/*              * We attach the promise to the response. When we invoke a write on the channel with the response, we must ensure that we invoke              * the write methods that accept the same promise that we have attached to the response otherwise as the response proceeds              * through the handler pipeline a different promise will be used until reaching this handler. Therefore, we assert here that the              * attached promise is identical to the provided promise as a safety mechanism that we are respecting this.              */
+assert|assert
+name|current
+operator|.
+name|promise
+argument_list|()
+operator|==
+name|promise
+assert|;
 name|boolean
 name|channelShouldClose
 init|=
@@ -333,10 +301,7 @@ name|holdingQueue
 operator|.
 name|add
 argument_list|(
-operator|(
-name|HttpPipelinedResponse
-operator|)
-name|msg
+name|current
 argument_list|)
 expr_stmt|;
 while|while
@@ -348,9 +313,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|/*                          * Since the response with the lowest sequence number is the top of the priority queue, we know if its sequence                          * number does not match the current write sequence number then we have not processed all preceding responses yet.                          */
 specifier|final
 name|HttpPipelinedResponse
-name|response
+name|top
 init|=
 name|holdingQueue
 operator|.
@@ -359,7 +325,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|response
+name|top
 operator|.
 name|sequence
 argument_list|()
@@ -374,16 +340,17 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+comment|/*                          * We must use the promise attached to the response; this is necessary since are going to hold a response until all                          * responses that precede it in the pipeline are written first. Note that the promise from the method invocation is                          * not ignored, it will already be attached to an existing response and consumed when that response is drained.                          */
 name|ctx
 operator|.
 name|write
 argument_list|(
-name|response
+name|top
 operator|.
 name|response
 argument_list|()
 argument_list|,
-name|response
+name|top
 operator|.
 name|promise
 argument_list|()
@@ -427,12 +394,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-operator|(
-operator|(
-name|HttpPipelinedResponse
-operator|)
-name|msg
-operator|)
+name|current
 operator|.
 name|release
 argument_list|()

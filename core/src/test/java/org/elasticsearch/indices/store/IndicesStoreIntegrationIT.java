@@ -1402,10 +1402,24 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// wait for relocation to start
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for relocation to start"
+argument_list|)
+expr_stmt|;
 name|beginRelocationLatch
 operator|.
 name|await
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> starting disruption"
+argument_list|)
 expr_stmt|;
 name|disruption
 operator|.
@@ -1413,6 +1427,13 @@ name|startDisrupting
 argument_list|()
 expr_stmt|;
 comment|// wait for relocation to finish
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> waiting for relocation to finish"
+argument_list|)
+expr_stmt|;
 name|endRelocationLatch
 operator|.
 name|await
@@ -1422,6 +1443,13 @@ comment|// wait a little so that cluster state observer is registered
 name|sleep
 argument_list|(
 literal|50
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> stopping disruption"
 argument_list|)
 expr_stmt|;
 name|disruption

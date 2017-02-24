@@ -886,6 +886,7 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|IpFieldType
+specifier|public
 name|IpFieldType
 parameter_list|()
 block|{

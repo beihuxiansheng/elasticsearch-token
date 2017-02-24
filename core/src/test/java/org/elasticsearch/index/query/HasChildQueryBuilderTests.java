@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermsQuery
+name|TermInSetQuery
 import|;
 end_import
 
@@ -1849,17 +1849,17 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|TermsQuery
+name|TermInSetQuery
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TermsQuery
+name|TermInSetQuery
 name|termsQuery
 init|=
 operator|(
-name|TermsQuery
+name|TermInSetQuery
 operator|)
 name|booleanQuery
 operator|.
@@ -1874,16 +1874,10 @@ operator|.
 name|getQuery
 argument_list|()
 decl_stmt|;
-comment|// we need to rewrite once for TermsQuery -> TermInSetQuery and than againt TermInSetQuery -> ConstantScoreQuery
 name|Query
 name|rewrittenTermsQuery
 init|=
 name|termsQuery
-operator|.
-name|rewrite
-argument_list|(
-literal|null
-argument_list|)
 operator|.
 name|rewrite
 argument_list|(

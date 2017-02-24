@@ -96,6 +96,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexService
@@ -424,6 +438,10 @@ argument_list|(
 literal|"parent"
 argument_list|,
 literal|"{\"properties\":{}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|addMapping
@@ -431,6 +449,10 @@ argument_list|(
 literal|"child"
 argument_list|,
 literal|"{\"_parent\": \"parent\",\"properties\":{}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|get

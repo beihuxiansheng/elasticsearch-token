@@ -270,6 +270,8 @@ name|CountedCollector
 argument_list|<>
 argument_list|(
 name|results
+operator|::
+name|set
 argument_list|,
 name|numResultsExpected
 argument_list|,

@@ -1042,6 +1042,7 @@ extends|extends
 name|MappedFieldType
 block|{
 DECL|method|GeoPointFieldType
+specifier|public
 name|GeoPointFieldType
 parameter_list|()
 block|{         }

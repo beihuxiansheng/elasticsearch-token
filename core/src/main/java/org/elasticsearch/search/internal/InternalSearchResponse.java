@@ -239,6 +239,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|1
 argument_list|)
 return|;
 block|}
@@ -274,6 +276,13 @@ name|terminatedEarly
 init|=
 literal|null
 decl_stmt|;
+DECL|field|numReducePhases
+specifier|private
+name|int
+name|numReducePhases
+init|=
+literal|1
+decl_stmt|;
 DECL|method|InternalSearchResponse
 specifier|private
 name|InternalSearchResponse
@@ -300,6 +309,9 @@ name|timedOut
 parameter_list|,
 name|Boolean
 name|terminatedEarly
+parameter_list|,
+name|int
+name|numReducePhases
 parameter_list|)
 block|{
 name|this
@@ -337,6 +349,12 @@ operator|.
 name|terminatedEarly
 operator|=
 name|terminatedEarly
+expr_stmt|;
+name|this
+operator|.
+name|numReducePhases
+operator|=
+name|numReducePhases
 expr_stmt|;
 block|}
 DECL|method|timedOut
@@ -391,6 +409,17 @@ parameter_list|()
 block|{
 return|return
 name|suggest
+return|;
+block|}
+comment|/**      * Returns the number of reduce phases applied to obtain this search response      */
+DECL|method|getNumReducePhases
+specifier|public
+name|int
+name|getNumReducePhases
+parameter_list|()
+block|{
+return|return
+name|numReducePhases
 return|;
 block|}
 comment|/**      * Returns the profile results for this search response (including all shards).      * An empty map is returned if profiling was not enabled      *      * @return Profile results      */
@@ -619,6 +648,13 @@ operator|::
 operator|new
 argument_list|)
 expr_stmt|;
+name|numReducePhases
+operator|=
+name|in
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -723,6 +759,13 @@ operator|.
 name|writeOptionalWriteable
 argument_list|(
 name|profileResults
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+name|numReducePhases
 argument_list|)
 expr_stmt|;
 block|}

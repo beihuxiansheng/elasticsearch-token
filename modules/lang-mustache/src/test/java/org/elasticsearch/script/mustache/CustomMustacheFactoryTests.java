@@ -88,6 +88,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptEngineService
 import|;
 end_import
@@ -149,22 +161,6 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|CustomMustacheFactory
-operator|.
-name|CONTENT_TYPE_PARAM
 import|;
 end_import
 
@@ -465,7 +461,9 @@ argument_list|()
 condition|?
 name|singletonMap
 argument_list|(
-name|CONTENT_TYPE_PARAM
+name|Script
+operator|.
+name|CONTENT_TYPE_OPTION
 argument_list|,
 name|JSON_MIME_TYPE
 argument_list|)
@@ -578,7 +576,9 @@ name|params
 init|=
 name|singletonMap
 argument_list|(
-name|CONTENT_TYPE_PARAM
+name|Script
+operator|.
+name|CONTENT_TYPE_OPTION
 argument_list|,
 name|PLAIN_TEXT_MIME_TYPE
 argument_list|)
@@ -688,7 +688,9 @@ name|params
 init|=
 name|singletonMap
 argument_list|(
-name|CONTENT_TYPE_PARAM
+name|Script
+operator|.
+name|CONTENT_TYPE_OPTION
 argument_list|,
 name|X_WWW_FORM_URLENCODED_MIME_TYPE
 argument_list|)

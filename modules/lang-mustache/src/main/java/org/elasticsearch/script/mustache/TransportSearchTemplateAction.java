@@ -202,6 +202,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -542,6 +556,7 @@ operator|.
 name|getRequest
 argument_list|()
 decl_stmt|;
+comment|//we can assume the template is always json as we convert it before compiling it
 try|try
 init|(
 name|XContentParser
@@ -551,7 +566,9 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|source
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|createParser

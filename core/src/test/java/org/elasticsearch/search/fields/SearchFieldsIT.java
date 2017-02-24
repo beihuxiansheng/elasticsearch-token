@@ -1584,6 +1584,10 @@ operator|.
 name|setSource
 argument_list|(
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -2954,6 +2958,10 @@ operator|.
 name|setSource
 argument_list|(
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -6344,6 +6352,10 @@ operator|.
 name|setSource
 argument_list|(
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute
@@ -8260,6 +8272,10 @@ operator|.
 name|setSource
 argument_list|(
 name|mapping
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 operator|.
 name|execute

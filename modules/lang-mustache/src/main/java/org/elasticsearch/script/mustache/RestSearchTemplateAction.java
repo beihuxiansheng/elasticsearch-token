@@ -511,6 +511,7 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+comment|//convert the template to json which is the only supported XContentType (see CustomMustacheFactory#createEncoder)
 try|try
 init|(
 name|XContentBuilder
@@ -518,13 +519,8 @@ name|builder
 init|=
 name|XContentFactory
 operator|.
-name|contentBuilder
-argument_list|(
-name|parser
-operator|.
-name|contentType
+name|jsonBuilder
 argument_list|()
-argument_list|)
 init|)
 block|{
 name|request
@@ -538,10 +534,7 @@ argument_list|(
 name|parser
 argument_list|)
 operator|.
-name|bytes
-argument_list|()
-operator|.
-name|utf8ToString
+name|string
 argument_list|()
 argument_list|)
 expr_stmt|;

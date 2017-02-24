@@ -832,7 +832,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\\d+:([^:,]+(?:,[^:,]+)?):(/.*)"
+literal|"\\d+:([^:]+):(/.*)"
 argument_list|)
 decl_stmt|;
 comment|// this property is to support a hack to workaround an issue with Docker containers mounting the cgroups hierarchy inconsistently with

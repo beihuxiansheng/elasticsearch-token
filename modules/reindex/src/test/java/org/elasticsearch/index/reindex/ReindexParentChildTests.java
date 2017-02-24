@@ -40,6 +40,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -516,6 +530,10 @@ argument_list|(
 literal|"city"
 argument_list|,
 literal|"{\"_parent\": {\"type\": \"country\"}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|create
@@ -525,6 +543,10 @@ argument_list|(
 literal|"neighborhood"
 argument_list|,
 literal|"{\"_parent\": {\"type\": \"city\"}}"
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 expr_stmt|;
 name|assertAcked
