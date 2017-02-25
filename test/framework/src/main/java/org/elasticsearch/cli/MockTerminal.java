@@ -82,7 +82,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -128,33 +148,54 @@ name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// A deque would be a perfect data structure for the FIFO queue of input values needed here. However,
+comment|// to support the valid return value of readText being null (defined by Console), we need to be able
+comment|// to store nulls. However, java the java Deque api does not allow nulls because it uses null as
+comment|// a special return value from certain methods like peek(). So instead of deque, we use an array list here,
+comment|// and keep track of the last position which was read. It means that we will hold onto all input
+comment|// setup for the mock terminal during its lifetime, but this is normally a very small amount of data
+comment|// so in reality it will not matter.
 DECL|field|textInput
 specifier|private
 specifier|final
-name|Deque
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|textInput
 init|=
 operator|new
-name|ArrayDeque
+name|ArrayList
 argument_list|<>
 argument_list|()
+decl_stmt|;
+DECL|field|textIndex
+specifier|private
+name|int
+name|textIndex
+init|=
+literal|0
 decl_stmt|;
 DECL|field|secretInput
 specifier|private
 specifier|final
-name|Deque
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|secretInput
 init|=
 operator|new
-name|ArrayDeque
+name|ArrayList
 argument_list|<>
 argument_list|()
+decl_stmt|;
+DECL|field|secretIndex
+specifier|private
+name|int
+name|secretIndex
+init|=
+literal|0
 decl_stmt|;
 DECL|method|MockTerminal
 specifier|public
@@ -181,9 +222,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|textIndex
+operator|>=
 name|textInput
 operator|.
-name|isEmpty
+name|size
 argument_list|()
 condition|)
 block|{
@@ -202,8 +245,11 @@ block|}
 return|return
 name|textInput
 operator|.
-name|removeFirst
-argument_list|()
+name|get
+argument_list|(
+name|textIndex
+operator|++
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -220,9 +266,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|secretIndex
+operator|>=
 name|secretInput
 operator|.
-name|isEmpty
+name|size
 argument_list|()
 condition|)
 block|{
@@ -241,8 +289,11 @@ block|}
 return|return
 name|secretInput
 operator|.
-name|removeFirst
-argument_list|()
+name|get
+argument_list|(
+name|secretIndex
+operator|++
+argument_list|)
 operator|.
 name|toCharArray
 argument_list|()
@@ -272,7 +323,7 @@ parameter_list|)
 block|{
 name|textInput
 operator|.
-name|addLast
+name|add
 argument_list|(
 name|input
 argument_list|)
@@ -290,7 +341,7 @@ parameter_list|)
 block|{
 name|secretInput
 operator|.
-name|addLast
+name|add
 argument_list|(
 name|input
 argument_list|)
