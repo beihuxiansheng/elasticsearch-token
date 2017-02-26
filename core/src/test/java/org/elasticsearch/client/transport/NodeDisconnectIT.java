@@ -177,8 +177,6 @@ name|testNotifyOnDisconnect
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|InterruptedException
 block|{
 name|internalCluster
 argument_list|()
@@ -296,7 +294,7 @@ block|}
 name|internalCluster
 argument_list|()
 operator|.
-name|stopCurrentMasterNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 for|for
