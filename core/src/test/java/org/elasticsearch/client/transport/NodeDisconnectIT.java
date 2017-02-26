@@ -96,16 +96,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -140,16 +130,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -162,19 +142,23 @@ name|util
 operator|.
 name|stream
 operator|.
-name|Collector
+name|Collectors
 import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|stream
+name|client
 operator|.
-name|Collectors
+name|transport
+operator|.
+name|TransportClient
+operator|.
+name|CLIENT_TRANSPORT_NODES_SAMPLER_INTERVAL
 import|;
 end_import
 
@@ -193,6 +177,8 @@ name|testNotifyOnDisconnect
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|InterruptedException
 block|{
 name|internalCluster
 argument_list|()
@@ -242,6 +228,17 @@ operator|.
 name|getClusterName
 argument_list|()
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|CLIENT_TRANSPORT_NODES_SAMPLER_INTERVAL
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|"1h"
+argument_list|)
+comment|// disable sniffing for better control
 operator|.
 name|build
 argument_list|()
@@ -299,7 +296,7 @@ block|}
 name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomDataNode
+name|stopCurrentMasterNode
 argument_list|()
 expr_stmt|;
 for|for
