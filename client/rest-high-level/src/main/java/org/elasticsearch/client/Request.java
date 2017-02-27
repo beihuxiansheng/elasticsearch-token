@@ -168,9 +168,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|delete
+name|bulk
 operator|.
-name|DeleteRequest
+name|BulkRequest
 import|;
 end_import
 
@@ -182,9 +182,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|bulk
+name|delete
 operator|.
-name|BulkRequest
+name|DeleteRequest
 import|;
 end_import
 
@@ -731,6 +731,31 @@ argument_list|,
 name|parameters
 operator|.
 name|getParams
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+DECL|method|info
+specifier|static
+name|Request
+name|info
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Request
+argument_list|(
+name|HttpGet
+operator|.
+name|METHOD_NAME
+argument_list|,
+literal|"/"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
 argument_list|()
 argument_list|,
 literal|null
@@ -2057,7 +2082,9 @@ return|return
 operator|new
 name|Request
 argument_list|(
-literal|"HEAD"
+name|HttpHead
+operator|.
+name|METHOD_NAME
 argument_list|,
 literal|"/"
 argument_list|,
