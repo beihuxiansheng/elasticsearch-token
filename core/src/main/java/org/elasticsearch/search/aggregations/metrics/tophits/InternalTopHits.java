@@ -676,6 +676,8 @@ name|TopFieldDocs
 index|[]
 operator|)
 name|shardDocs
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -752,6 +754,8 @@ argument_list|,
 name|size
 argument_list|,
 name|shardDocs
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

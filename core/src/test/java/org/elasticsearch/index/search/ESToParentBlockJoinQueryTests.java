@@ -559,10 +559,50 @@ argument_list|,
 literal|"nested"
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|Query
+name|expected
+init|=
+operator|new
+name|ESToParentBlockJoinQuery
 argument_list|(
-name|q
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"body"
 argument_list|,
+literal|"term"
+argument_list|)
+argument_list|)
+argument_list|,
+operator|new
+name|QueryBitSetProducer
+argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"is"
+argument_list|,
+literal|"parent"
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|,
+name|ScoreMode
+operator|.
+name|Avg
+argument_list|,
+literal|"nested"
+argument_list|)
+decl_stmt|;
+name|Query
+name|rewritten
+init|=
 name|q
 operator|.
 name|rewrite
@@ -571,15 +611,14 @@ operator|new
 name|MultiReader
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|rewritten
 argument_list|)
 expr_stmt|;
-comment|// do this once LUCENE-7685 is addressed
-comment|// Query expected = new ESToParentBlockJoinQuery(
-comment|//         new TermQuery(new Term("body", "term")),
-comment|//         new QueryBitSetProducer(new TermQuery(new Term("is", "parent"))),
-comment|//         ScoreMode.Avg, "nested");
-comment|// Query rewritten = q.rewrite(new MultiReader());
-comment|// assertEquals(expected, rewritten);
 block|}
 block|}
 end_class
