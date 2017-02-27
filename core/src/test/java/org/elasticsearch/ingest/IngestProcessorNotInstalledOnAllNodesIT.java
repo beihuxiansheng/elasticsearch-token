@@ -58,9 +58,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|common
 operator|.
-name|NodeService
+name|xcontent
+operator|.
+name|XContentType
 import|;
 end_import
 
@@ -70,11 +72,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|node
 operator|.
-name|xcontent
-operator|.
-name|XContentType
+name|NodeService
 import|;
 end_import
 
@@ -418,7 +418,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ElasticsearchParseException
 name|e
 parameter_list|)
 block|{
