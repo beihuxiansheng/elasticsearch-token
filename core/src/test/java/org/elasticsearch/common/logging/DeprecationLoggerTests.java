@@ -1192,8 +1192,6 @@ argument_list|(
 literal|0x23
 argument_list|,
 literal|0x5b
-operator|+
-literal|1
 argument_list|)
 operator|+
 name|range
@@ -1201,8 +1199,6 @@ argument_list|(
 literal|0x5d
 argument_list|,
 literal|0x73
-operator|+
-literal|1
 argument_list|)
 operator|+
 name|range
@@ -1210,8 +1206,6 @@ argument_list|(
 literal|0x80
 argument_list|,
 literal|0xff
-operator|+
-literal|1
 argument_list|)
 decl_stmt|;
 specifier|final
