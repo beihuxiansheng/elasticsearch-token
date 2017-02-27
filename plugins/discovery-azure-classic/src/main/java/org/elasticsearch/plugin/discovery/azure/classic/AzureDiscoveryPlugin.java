@@ -694,7 +694,7 @@ name|deprecationLogger
 operator|.
 name|deprecated
 argument_list|(
-literal|"Using "
+literal|"using ["
 operator|+
 name|DiscoveryModule
 operator|.
@@ -703,9 +703,9 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" setting to set hosts provider is deprecated. "
+literal|"] to set hosts provider is deprecated; "
 operator|+
-literal|"Set \""
+literal|"set \""
 operator|+
 name|DiscoveryModule
 operator|.

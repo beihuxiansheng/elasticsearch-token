@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|amazonaws
@@ -197,6 +187,16 @@ operator|.
 name|hamcrest
 operator|.
 name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -535,29 +535,15 @@ name|KEY_SETTING
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertWarnings
+name|assertSettingDeprecations
 argument_list|(
-literal|"["
-operator|+
 name|Repository
 operator|.
 name|KEY_SETTING
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"] setting was deprecated"
 argument_list|,
-literal|"["
-operator|+
 name|Repositories
 operator|.
 name|KEY_SETTING
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"] setting was deprecated"
 argument_list|)
 expr_stmt|;
 block|}
