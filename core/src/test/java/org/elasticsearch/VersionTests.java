@@ -256,18 +256,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|lessThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|sameInstance
 import|;
 end_import
@@ -868,7 +856,7 @@ name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
-name|V_5_1_1_UNRELEASED
+name|V_5_1_1
 operator|.
 name|minimumIndexCompatibilityVersion
 argument_list|()
