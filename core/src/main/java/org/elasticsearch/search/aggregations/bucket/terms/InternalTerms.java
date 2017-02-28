@@ -664,6 +664,10 @@ name|docCount
 init|=
 literal|0
 decl_stmt|;
+comment|// For the per term doc count error we add up the errors from the
+comment|// shards that did not respond with the term. To do this we add up
+comment|// the errors from the shards that did respond with the terms and
+comment|// subtract that from the sum of the error from all shards
 name|long
 name|docCountError
 init|=
@@ -1411,10 +1415,17 @@ name|getBucketsInternal
 argument_list|()
 control|)
 block|{
+comment|// If there is already a doc count error for this bucket
+comment|// subtract this aggs doc count error from it to make the
+comment|// new value for the bucket. This then means that when the
+comment|// final error for the bucket is calculated below we account
+comment|// for the existing error calculated in a previous reduce.
+comment|// Note that if the error is unbounded (-1) this will be fixed
+comment|// later in this method.
 name|bucket
 operator|.
 name|docCountError
-operator|=
+operator|-=
 name|thisAggDocCountError
 expr_stmt|;
 name|List
@@ -1552,16 +1563,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|b
-operator|.
-name|docCountError
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-if|if
-condition|(
 name|sumDocCountError
 operator|==
 operator|-
@@ -1581,14 +1582,9 @@ block|{
 name|b
 operator|.
 name|docCountError
-operator|=
+operator|+=
 name|sumDocCountError
-operator|-
-name|b
-operator|.
-name|docCountError
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
