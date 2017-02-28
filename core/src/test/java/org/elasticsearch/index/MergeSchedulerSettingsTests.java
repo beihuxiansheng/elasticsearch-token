@@ -1404,8 +1404,7 @@ literal|1
 argument_list|,
 literal|3
 argument_list|,
-operator|-
-literal|1
+literal|8
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1419,7 +1418,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"should be<= maxMergeCount (= 3)"
+literal|"maxThreadCount (= 4) should be<= maxMergeCount (= 3)"
 argument_list|)
 argument_list|)
 expr_stmt|;
