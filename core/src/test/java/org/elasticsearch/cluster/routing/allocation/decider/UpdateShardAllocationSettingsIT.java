@@ -516,7 +516,8 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// flip the cluster wide setting such that we can also balance for index test_1 eventually we should have one shard of each index on each node
+comment|// flip the cluster wide setting such that we can also balance for index
+comment|// test_1 eventually we should have one shard of each index on each node
 name|client
 argument_list|()
 operator|.
