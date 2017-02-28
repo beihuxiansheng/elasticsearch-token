@@ -280,7 +280,6 @@ name|int
 name|shardSize
 decl_stmt|;
 DECL|method|GeoHashGridAggregatorFactory
-specifier|public
 name|GeoHashGridAggregatorFactory
 parameter_list|(
 name|String

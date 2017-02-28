@@ -42,28 +42,8 @@ specifier|final
 class|class
 name|GeoHashGridParams
 block|{
-comment|/* default values */
-DECL|field|DEFAULT_PRECISION
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_PRECISION
-init|=
-literal|5
-decl_stmt|;
-DECL|field|DEFAULT_MAX_NUM_CELLS
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_MAX_NUM_CELLS
-init|=
-literal|10000
-decl_stmt|;
 comment|/* recognized field names in JSON */
 DECL|field|FIELD_PRECISION
-specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -76,7 +56,6 @@ literal|"precision"
 argument_list|)
 decl_stmt|;
 DECL|field|FIELD_SIZE
-specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -89,7 +68,6 @@ literal|"size"
 argument_list|)
 decl_stmt|;
 DECL|field|FIELD_SHARD_SIZE
-specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -102,7 +80,6 @@ literal|"shard_size"
 argument_list|)
 decl_stmt|;
 DECL|method|checkPrecision
-specifier|public
 specifier|static
 name|int
 name|checkPrecision

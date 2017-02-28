@@ -114,20 +114,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregations
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|LeafBucketCollector
 import|;
 end_import
@@ -243,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregates data expressed as GeoHash longs (for efficiency's sake) but formats results as Geohash strings.  *  */
+comment|/**  * Aggregates data expressed as GeoHash longs (for efficiency's sake) but formats results as Geohash strings.  */
 end_comment
 
 begin_class
@@ -281,7 +267,6 @@ name|LongHash
 name|bucketOrds
 decl_stmt|;
 DECL|method|GeoHashGridAggregator
-specifier|public
 name|GeoHashGridAggregator
 parameter_list|(
 name|String
@@ -595,9 +580,6 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-operator|(
-name|InternalAggregations
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -839,11 +821,6 @@ name|requiredSize
 argument_list|,
 name|Collections
 operator|.
-expr|<
-name|InternalGeoHashGrid
-operator|.
-name|Bucket
-operator|>
 name|emptyList
 argument_list|()
 argument_list|,
