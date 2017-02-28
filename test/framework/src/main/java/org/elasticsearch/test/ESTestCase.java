@@ -1479,6 +1479,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -2199,18 +2211,32 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|assertSettingDeprecations
+comment|/**      * Convenience method to assert warnings for settings deprecations and general deprecation warnings.      *      * @param settings the settings that are expected to be deprecated      * @param warnings other expected general deprecation warnings      */
+DECL|method|assertSettingDeprecationsAndWarnings
 specifier|protected
 specifier|final
 name|void
-name|assertSettingDeprecations
+name|assertSettingDeprecationsAndWarnings
 parameter_list|(
+specifier|final
 name|Setting
-modifier|...
+argument_list|<
+name|?
+argument_list|>
+index|[]
 name|settings
+parameter_list|,
+specifier|final
+name|String
+modifier|...
+name|warnings
 parameter_list|)
 block|{
 name|assertWarnings
+argument_list|(
+name|Stream
+operator|.
+name|concat
 argument_list|(
 name|Arrays
 operator|.
@@ -2237,6 +2263,14 @@ operator|+
 literal|"] setting was deprecated in Elasticsearch and will be removed in a future release! "
 operator|+
 literal|"See the breaking changes documentation for the next major version."
+argument_list|)
+argument_list|,
+name|Arrays
+operator|.
+name|stream
+argument_list|(
+name|warnings
+argument_list|)
 argument_list|)
 operator|.
 name|toArray
