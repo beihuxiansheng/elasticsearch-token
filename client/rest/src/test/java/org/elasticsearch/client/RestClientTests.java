@@ -294,6 +294,9 @@ argument_list|)
 argument_list|,
 name|listener
 argument_list|,
+operator|(
+name|Header
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -316,7 +319,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"request headers must not be null"
+literal|"request header must not be null"
 argument_list|,
 name|exception
 operator|.
