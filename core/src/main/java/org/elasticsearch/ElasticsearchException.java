@@ -7894,7 +7894,7 @@ literal|146
 argument_list|,
 name|Version
 operator|.
-name|V_5_1_1
+name|V_5_1_1_UNRELEASED
 argument_list|)
 block|,
 DECL|enum constant|SHARD_LOCK_OBTAIN_FAILED_EXCEPTION
@@ -7962,7 +7962,7 @@ literal|148
 argument_list|,
 name|Version
 operator|.
-name|V_5_2_0
+name|V_5_2_0_UNRELEASED
 argument_list|)
 block|;
 DECL|field|exceptionClass

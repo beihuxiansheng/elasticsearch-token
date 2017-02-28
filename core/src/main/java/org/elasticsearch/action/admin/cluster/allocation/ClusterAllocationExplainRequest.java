@@ -1004,7 +1004,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_0
+name|V_5_2_0_UNRELEASED
 argument_list|)
 condition|)
 block|{
@@ -1016,7 +1016,7 @@ literal|"cannot explain shards in a mixed-cluster with pre-"
 operator|+
 name|Version
 operator|.
-name|V_5_2_0
+name|V_5_2_0_UNRELEASED
 operator|+
 literal|" nodes, node version ["
 operator|+

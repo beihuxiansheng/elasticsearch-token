@@ -488,7 +488,7 @@ name|VERSION_INCOMPATIBLE_INTRODUCED
 init|=
 name|Version
 operator|.
-name|V_5_2_0
+name|V_5_2_0_UNRELEASED
 decl_stmt|;
 DECL|field|snapshotId
 specifier|private
