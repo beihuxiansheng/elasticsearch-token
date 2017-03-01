@@ -4,15 +4,27 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client
+DECL|package|org.elasticsearch.client.documentation
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|client
+operator|.
+name|documentation
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchException
+import|;
+end_import
 
 begin_import
 import|import
@@ -86,6 +98,30 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|ESRestHighLevelClientTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|RestHighLevelClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|unit
@@ -108,6 +144,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -117,14 +165,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to generate the Java API documentation  */
+comment|/**  * This class is used to generate the Java Delete API documentation  * You need to wrap your code between two tags like:  * // tag::delete-request[]  * // end::delete-request[]  *  * Where delete-request is your tag name.  *  * Then in the documentation, you can extract what is between tag and end tags with  * ["source","java",subs="attributes,callouts"]  * --------------------------------------------------  * sys2::[perl -ne 'exit if /end::delete-request/; print if $tag; $tag = $tag || /tag::delete-request/' {docdir}/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/DeleteDocumentationIT.java]  * --------------------------------------------------  */
 end_comment
 
 begin_class
-DECL|class|DocumentationIT
+DECL|class|DeleteDocumentationIT
 specifier|public
 class|class
-name|DocumentationIT
+name|DeleteDocumentationIT
 extends|extends
 name|ESRestHighLevelClientTestCase
 block|{
@@ -234,6 +282,8 @@ name|request
 argument_list|)
 decl_stmt|;
 comment|// end::delete-execute[]
+try|try
+block|{
 comment|// tag::delete-notfound[]
 if|if
 condition|(
@@ -252,9 +302,23 @@ name|NOT_FOUND
 argument_list|)
 condition|)
 block|{
+throw|throw
+operator|new
+name|Exception
+argument_list|(
+literal|"Can't find document to be removed"
+argument_list|)
+throw|;
 comment|//<1>
 block|}
 comment|// end::delete-notfound[]
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ignored
+parameter_list|)
+block|{ }
 comment|// tag::delete-execute-async[]
 name|client
 operator|.
@@ -297,6 +361,41 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// end::delete-execute-async[]
+comment|// tag::delete-conflict[]
+try|try
+block|{
+name|client
+operator|.
+name|delete
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchException
+name|exception
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exception
+operator|.
+name|status
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|RestStatus
+operator|.
+name|CONFLICT
+argument_list|)
+block|{
+comment|//<1>
+block|}
+block|}
+comment|// end::delete-conflict[]
 block|}
 block|}
 end_class
