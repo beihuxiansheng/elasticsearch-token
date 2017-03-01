@@ -579,6 +579,26 @@ argument_list|()
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|doEquals
+specifier|protected
+name|boolean
+name|doEquals
+parameter_list|(
+name|Object
+name|obj
+parameter_list|)
+block|{
+return|return
+name|super
+operator|.
+name|doEquals
+argument_list|(
+name|obj
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

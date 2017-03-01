@@ -300,25 +300,6 @@ argument_list|,
 name|secondInstance
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-literal|false
-operator|==
-name|firstInstance
-operator|.
-name|equals
-argument_list|(
-name|secondInstance
-argument_list|)
-condition|)
-block|{
-name|firstInstance
-operator|.
-name|equals
-argument_list|(
-name|secondInstance
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"instance is not equal to its copy"
@@ -328,7 +309,6 @@ argument_list|,
 name|secondInstance
 argument_list|)
 expr_stmt|;
-block|}
 name|assertEquals
 argument_list|(
 literal|"equals is not symmetric"
