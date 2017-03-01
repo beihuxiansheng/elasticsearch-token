@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket.children
+DECL|package|org.elasticsearch.search.aggregations.bucket.nested
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|children
+name|nested
 package|;
 end_package
 
@@ -105,21 +105,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalChildrenTests
+DECL|class|InternalNestedTests
 specifier|public
 class|class
-name|InternalChildrenTests
+name|InternalNestedTests
 extends|extends
 name|InternalSingleBucketAggregationTestCase
 argument_list|<
-name|InternalChildren
+name|InternalNested
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestInstance
 specifier|protected
-name|InternalChildren
+name|InternalNested
 name|createTestInstance
 parameter_list|(
 name|String
@@ -148,7 +148,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|InternalChildren
+name|InternalNested
 argument_list|(
 name|name
 argument_list|,
@@ -169,12 +169,12 @@ specifier|protected
 name|void
 name|extraAssertReduced
 parameter_list|(
-name|InternalChildren
+name|InternalNested
 name|reduced
 parameter_list|,
 name|List
 argument_list|<
-name|InternalChildren
+name|InternalNested
 argument_list|>
 name|inputs
 parameter_list|)
@@ -187,13 +187,13 @@ DECL|method|instanceReader
 specifier|protected
 name|Reader
 argument_list|<
-name|InternalChildren
+name|InternalNested
 argument_list|>
 name|instanceReader
 parameter_list|()
 block|{
 return|return
-name|InternalChildren
+name|InternalNested
 operator|::
 operator|new
 return|;

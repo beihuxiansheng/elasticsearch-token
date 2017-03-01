@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket.children
+DECL|package|org.elasticsearch.search.aggregations.bucket.filter
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
-name|children
+name|filter
 package|;
 end_package
 
@@ -105,21 +105,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalChildrenTests
+DECL|class|InternalFilterTests
 specifier|public
 class|class
-name|InternalChildrenTests
+name|InternalFilterTests
 extends|extends
 name|InternalSingleBucketAggregationTestCase
 argument_list|<
-name|InternalChildren
+name|InternalFilter
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestInstance
 specifier|protected
-name|InternalChildren
+name|InternalFilter
 name|createTestInstance
 parameter_list|(
 name|String
@@ -148,7 +148,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|InternalChildren
+name|InternalFilter
 argument_list|(
 name|name
 argument_list|,
@@ -169,12 +169,12 @@ specifier|protected
 name|void
 name|extraAssertReduced
 parameter_list|(
-name|InternalChildren
+name|InternalFilter
 name|reduced
 parameter_list|,
 name|List
 argument_list|<
-name|InternalChildren
+name|InternalFilter
 argument_list|>
 name|inputs
 parameter_list|)
@@ -187,13 +187,13 @@ DECL|method|instanceReader
 specifier|protected
 name|Reader
 argument_list|<
-name|InternalChildren
+name|InternalFilter
 argument_list|>
 name|instanceReader
 parameter_list|()
 block|{
 return|return
-name|InternalChildren
+name|InternalFilter
 operator|::
 operator|new
 return|;
