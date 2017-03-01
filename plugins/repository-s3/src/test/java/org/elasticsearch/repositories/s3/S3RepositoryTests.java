@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|amazonaws
@@ -120,6 +110,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -197,6 +201,16 @@ operator|.
 name|hamcrest
 operator|.
 name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -535,32 +549,29 @@ name|KEY_SETTING
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertWarnings
+name|assertSettingDeprecationsAndWarnings
 argument_list|(
-literal|"["
-operator|+
+operator|new
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+index|[]
+block|{
 name|Repository
 operator|.
 name|KEY_SETTING
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"] setting was deprecated"
-argument_list|,
-literal|"["
-operator|+
+operator|,
 name|Repositories
 operator|.
 name|KEY_SETTING
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"] setting was deprecated"
-argument_list|)
-expr_stmt|;
 block|}
+block|)
+function|;
+block|}
+end_class
+
+begin_function
 DECL|method|testInvalidChunkBufferSizeSettings
 specifier|public
 name|void
@@ -628,6 +639,9 @@ literal|"Failed to parse value [5.7tb] for setting [chunk_size] must be<= 5tb"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertValidBuffer
 specifier|private
 name|void
@@ -720,6 +734,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertInvalidBuffer
 specifier|private
 name|void
@@ -846,6 +863,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testBasePathSetting
 specifier|public
 name|void
@@ -1004,6 +1024,9 @@ literal|" trimming the leading `/`, and leading `/` will not be supported for th
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testDefaultBufferSize
 specifier|public
 name|void
@@ -1090,8 +1113,8 @@ name|defaultNodeBufferSize
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

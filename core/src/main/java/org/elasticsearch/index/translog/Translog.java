@@ -3269,6 +3269,7 @@ name|int
 name|size
 decl_stmt|;
 DECL|method|Location
+specifier|public
 name|Location
 parameter_list|(
 name|long

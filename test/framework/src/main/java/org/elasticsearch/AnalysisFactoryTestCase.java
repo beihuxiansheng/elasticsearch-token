@@ -1488,6 +1488,25 @@ name|Void
 operator|.
 name|class
 argument_list|)
+comment|// TODO: expose these
+operator|.
+name|put
+argument_list|(
+literal|"simplepattern"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"simplepatternsplit"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
 operator|.
 name|immutableMap
 argument_list|()

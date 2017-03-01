@@ -1084,7 +1084,7 @@ name|deprecationLogger
 operator|.
 name|deprecated
 argument_list|(
-literal|"Using "
+literal|"using ["
 operator|+
 name|DiscoveryModule
 operator|.
@@ -1093,9 +1093,9 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|" setting to set hosts provider is deprecated. "
+literal|"] setting to set hosts provider is deprecated; "
 operator|+
-literal|"Set \""
+literal|"set ["
 operator|+
 name|DiscoveryModule
 operator|.
@@ -1108,7 +1108,7 @@ literal|": "
 operator|+
 name|EC2
 operator|+
-literal|"\" instead"
+literal|"] instead"
 argument_list|)
 expr_stmt|;
 if|if

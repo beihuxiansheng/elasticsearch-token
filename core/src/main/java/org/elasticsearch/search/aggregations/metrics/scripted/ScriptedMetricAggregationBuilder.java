@@ -911,7 +911,6 @@ parameter_list|)
 lambda|->
 literal|null
 expr_stmt|;
-empty_stmt|;
 block|}
 name|Function
 argument_list|<

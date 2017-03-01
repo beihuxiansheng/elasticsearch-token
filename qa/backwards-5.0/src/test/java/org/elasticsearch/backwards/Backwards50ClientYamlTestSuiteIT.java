@@ -152,6 +152,18 @@ name|createParameters
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|randomizeContentType
+specifier|protected
+name|boolean
+name|randomizeContentType
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

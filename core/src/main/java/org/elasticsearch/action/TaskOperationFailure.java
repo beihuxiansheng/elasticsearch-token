@@ -360,7 +360,7 @@ return|;
 block|}
 DECL|method|getCause
 specifier|public
-name|Throwable
+name|Exception
 name|getCause
 parameter_list|()
 block|{

@@ -1220,6 +1220,7 @@ name|SuggestDoc
 argument_list|>
 name|scoreDocMap
 decl_stmt|;
+comment|// TODO: expose dup removal
 DECL|method|TopDocumentsCollector
 name|TopDocumentsCollector
 parameter_list|(
@@ -1230,6 +1231,8 @@ block|{
 name|super
 argument_list|(
 literal|1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// TODO hack, we don't use the underlying pq, so we allocate a size of 1

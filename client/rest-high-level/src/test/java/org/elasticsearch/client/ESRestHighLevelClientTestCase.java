@@ -152,8 +152,6 @@ specifier|static
 name|void
 name|cleanupClient
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|restHighLevelClient
 operator|=

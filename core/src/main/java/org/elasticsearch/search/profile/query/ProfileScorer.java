@@ -253,6 +253,8 @@ name|ChildScorer
 argument_list|>
 name|getChildren
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|scorer
