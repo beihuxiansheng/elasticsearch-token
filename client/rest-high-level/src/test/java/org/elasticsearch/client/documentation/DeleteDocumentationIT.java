@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to generate the Java Delete API documentation  * You need to wrap your code between two tags like:  * // tag::delete-request[]  * // end::delete-request[]  *  * Where delete-request is your tag name.  *  * Then in the documentation, you can extract what is between tag and end tags with  * ["source","java",subs="attributes,callouts"]  * --------------------------------------------------  * sys2::[perl -ne 'exit if /end::delete-request/; print if $tag; $tag = $tag || /tag::delete-request/' {docdir}/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/DeleteDocumentationIT.java]  * --------------------------------------------------  */
+comment|/**  * This class is used to generate the Java Delete API documentation.  * You need to wrap your code between two tags like:  * // tag::delete-request[]  * // end::delete-request[]  *  * Where delete-request is your tag name.  *  * Then in the documentation, you can extract what is between tag and end tags with  * ["source","java",subs="attributes,callouts"]  * --------------------------------------------------  * sys2::[perl -ne 'exit if /end::delete-request/; print if $tag; $tag = $tag || /tag::delete-request/' {docdir}/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/DeleteDocumentationIT.java]  * --------------------------------------------------  */
 end_comment
 
 begin_class
@@ -391,6 +391,7 @@ name|RestStatus
 operator|.
 name|CONFLICT
 argument_list|)
+condition|)
 block|{
 comment|//<1>
 block|}
