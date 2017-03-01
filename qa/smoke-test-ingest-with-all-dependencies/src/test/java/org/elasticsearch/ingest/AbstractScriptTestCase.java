@@ -126,22 +126,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|mockito
-operator|.
-name|internal
-operator|.
-name|util
-operator|.
-name|collections
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -227,9 +211,7 @@ name|asList
 argument_list|(
 operator|new
 name|MustacheScriptEngineService
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

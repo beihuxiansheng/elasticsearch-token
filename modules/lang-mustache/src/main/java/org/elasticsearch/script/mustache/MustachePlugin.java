@@ -280,9 +280,7 @@ block|{
 return|return
 operator|new
 name|MustacheScriptEngineService
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 return|;
 block|}
 annotation|@
