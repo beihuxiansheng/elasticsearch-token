@@ -367,6 +367,8 @@ argument_list|,
 literal|"_timestamp"
 argument_list|,
 literal|"_ttl"
+argument_list|,
+literal|"_field_names"
 argument_list|)
 decl_stmt|;
 DECL|field|indices
