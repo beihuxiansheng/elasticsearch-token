@@ -227,11 +227,6 @@ literal|"] not supported within teardown section"
 argument_list|)
 throw|;
 block|}
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
 name|teardownSection
 operator|.
 name|addDoSection

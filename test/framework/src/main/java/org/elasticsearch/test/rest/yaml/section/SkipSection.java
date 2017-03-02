@@ -202,6 +202,43 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Expected ["
+operator|+
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+operator|+
+literal|", found ["
+operator|+
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|+
+literal|"], the skip section is not properly indented"
+argument_list|)
+throw|;
+block|}
 name|String
 name|currentFieldName
 init|=

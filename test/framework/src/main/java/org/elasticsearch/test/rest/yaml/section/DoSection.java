@@ -545,6 +545,45 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"expected ["
+operator|+
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+operator|+
+literal|"], "
+operator|+
+literal|"found ["
+operator|+
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|+
+literal|"], the do section is not properly indented"
+argument_list|)
+throw|;
+block|}
 while|while
 condition|(
 operator|(

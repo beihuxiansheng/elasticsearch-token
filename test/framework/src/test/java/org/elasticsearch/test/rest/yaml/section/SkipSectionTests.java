@@ -76,16 +76,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -168,9 +158,9 @@ operator|.
 name|emptyList
 argument_list|()
 else|:
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"warnings"
 argument_list|)
@@ -214,9 +204,9 @@ literal|null
 else|:
 literal|"2.0.0 - 2.1.0"
 argument_list|,
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"boom"
 argument_list|)
@@ -251,9 +241,9 @@ name|SkipSection
 argument_list|(
 literal|"2.0.0 - 2.1.0"
 argument_list|,
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"warnings"
 argument_list|)
@@ -280,9 +270,9 @@ name|SkipSection
 argument_list|(
 literal|null
 argument_list|,
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"warnings"
 argument_list|)
@@ -309,9 +299,9 @@ name|SkipSection
 argument_list|(
 literal|null
 argument_list|,
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"warnings"
 argument_list|)
@@ -823,9 +813,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|"regex"
 argument_list|)

@@ -194,23 +194,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-expr_stmt|;
-assert|assert
-name|parser
-operator|.
-name|currentToken
-argument_list|()
-operator|==
+operator|!=
 name|XContentParser
 operator|.
 name|Token
 operator|.
 name|END_OBJECT
-operator|:
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"malformed section ["
 operator|+
 name|testSection
@@ -218,7 +219,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"] expected "
+literal|"] expected ["
 operator|+
 name|XContentParser
 operator|.
@@ -226,13 +227,17 @@ name|Token
 operator|.
 name|END_OBJECT
 operator|+
-literal|" but was "
+literal|"] but was ["
 operator|+
 name|parser
 operator|.
 name|currentToken
 argument_list|()
-assert|;
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|parser
 operator|.
 name|nextToken

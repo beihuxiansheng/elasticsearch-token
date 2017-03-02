@@ -214,11 +214,6 @@ literal|"] not supported within setup section"
 argument_list|)
 throw|;
 block|}
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
 name|setupSection
 operator|.
 name|addDoSection
