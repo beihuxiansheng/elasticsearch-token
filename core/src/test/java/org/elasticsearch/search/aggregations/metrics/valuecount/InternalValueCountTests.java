@@ -165,11 +165,11 @@ operator|.
 name|stream
 argument_list|()
 operator|.
-name|mapToDouble
+name|mapToLong
 argument_list|(
 name|InternalValueCount
 operator|::
-name|value
+name|getValue
 argument_list|)
 operator|.
 name|sum
