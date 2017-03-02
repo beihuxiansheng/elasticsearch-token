@@ -26,6 +26,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionResponse
@@ -90,6 +100,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeValue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -97,6 +121,10 @@ operator|.
 name|IOException
 import|;
 end_import
+
+begin_comment
+comment|/**  * The response for getting the cluster state.  */
+end_comment
 
 begin_class
 DECL|class|ClusterStateResponse
@@ -116,6 +144,13 @@ specifier|private
 name|ClusterState
 name|clusterState
 decl_stmt|;
+comment|// the total compressed size of the full cluster state, not just
+comment|// the parts included in this response
+DECL|field|totalCompressedSize
+specifier|private
+name|ByteSizeValue
+name|totalCompressedSize
+decl_stmt|;
 DECL|method|ClusterStateResponse
 specifier|public
 name|ClusterStateResponse
@@ -130,6 +165,9 @@ name|clusterName
 parameter_list|,
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|long
+name|sizeInBytes
 parameter_list|)
 block|{
 name|this
@@ -144,7 +182,18 @@ name|clusterState
 operator|=
 name|clusterState
 expr_stmt|;
+name|this
+operator|.
+name|totalCompressedSize
+operator|=
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|sizeInBytes
+argument_list|)
+expr_stmt|;
 block|}
+comment|/**      * The requested cluster state.  Only the parts of the cluster state that were      * requested are included in the returned {@link ClusterState} instance.      */
 DECL|method|getState
 specifier|public
 name|ClusterState
@@ -157,6 +206,7 @@ operator|.
 name|clusterState
 return|;
 block|}
+comment|/**      * The name of the cluster.      */
 DECL|method|getClusterName
 specifier|public
 name|ClusterName
@@ -167,6 +217,17 @@ return|return
 name|this
 operator|.
 name|clusterName
+return|;
+block|}
+comment|/**      * The total compressed size of the full cluster state, not just the parts      * returned by {@link #getState()}.  The total compressed size is the size      * of the cluster state as it would be transmitted over the network during      * intra-node communication.      */
+DECL|method|getTotalCompressedSize
+specifier|public
+name|ByteSizeValue
+name|getTotalCompressedSize
+parameter_list|()
+block|{
+return|return
+name|totalCompressedSize
 return|;
 block|}
 annotation|@
@@ -208,6 +269,45 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+argument_list|)
+condition|)
+block|{
+name|totalCompressedSize
+operator|=
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// in a mixed cluster, if a pre 6.0 node processes the get cluster state
+comment|// request, then a compressed size won't be returned, so just return 0;
+comment|// its a temporary situation until all nodes in the cluster have been upgraded,
+comment|// at which point the correct cluster state size will always be reported
+name|totalCompressedSize
+operator|=
+operator|new
+name|ByteSizeValue
+argument_list|(
+literal|0L
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -243,6 +343,29 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+argument_list|)
+condition|)
+block|{
+name|totalCompressedSize
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
