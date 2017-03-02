@@ -5394,7 +5394,7 @@ index|]
 condition|?
 name|RestStatus
 operator|.
-name|INTERNAL_SERVER_ERROR
+name|CONFLICT
 else|:
 name|RestStatus
 operator|.
@@ -5441,7 +5441,7 @@ index|]
 condition|?
 name|RestStatus
 operator|.
-name|INTERNAL_SERVER_ERROR
+name|NOT_FOUND
 else|:
 name|RestStatus
 operator|.
