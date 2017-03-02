@@ -1380,19 +1380,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-try|try
-init|(
-name|ThreadContext
-operator|.
-name|StoredContext
-name|ignored
-init|=
-name|threadContext
-operator|.
-name|stashContext
-argument_list|()
-init|)
-block|{
 for|for
 control|(
 name|String
@@ -1537,7 +1524,6 @@ argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

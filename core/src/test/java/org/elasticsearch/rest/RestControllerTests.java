@@ -784,15 +784,6 @@ argument_list|,
 name|circuitBreakerService
 argument_list|)
 decl_stmt|;
-name|threadContext
-operator|.
-name|putHeader
-argument_list|(
-literal|"header.3"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -927,8 +918,12 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-name|assertNull
+comment|// the rest controller relies on the caller to stash the context, so we should expect these values here as we didn't stash the
+comment|// context in this test
+name|assertEquals
 argument_list|(
+literal|"true"
+argument_list|,
 name|threadContext
 operator|.
 name|getHeader
@@ -937,8 +932,10 @@ literal|"header.1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
+literal|"true"
+argument_list|,
 name|threadContext
 operator|.
 name|getHeader
@@ -947,10 +944,8 @@ literal|"header.2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|"true"
-argument_list|,
 name|threadContext
 operator|.
 name|getHeader
