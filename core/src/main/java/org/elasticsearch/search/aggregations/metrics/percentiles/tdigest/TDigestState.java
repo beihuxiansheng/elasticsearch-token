@@ -362,6 +362,8 @@ name|Centroid
 argument_list|>
 name|thatCentroids
 init|=
+name|that
+operator|.
 name|centroids
 argument_list|()
 operator|.
