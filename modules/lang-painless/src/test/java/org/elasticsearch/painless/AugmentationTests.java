@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -68,6 +82,15 @@ name|void
 name|testStatic
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -95,6 +118,15 @@ name|void
 name|testSubclass
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -122,6 +154,15 @@ name|void
 name|testDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -149,6 +190,15 @@ name|void
 name|testCapturingReference
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -198,6 +248,15 @@ name|void
 name|testIterable_Any
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|true
@@ -215,6 +274,15 @@ name|void
 name|testIterable_AsCollection
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|true
@@ -232,6 +300,15 @@ name|void
 name|testIterable_AsList
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|true
@@ -259,6 +336,15 @@ name|void
 name|testIterable_Each
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -276,6 +362,15 @@ name|void
 name|testIterable_EachWithIndex
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
@@ -293,6 +388,15 @@ name|void
 name|testIterable_Every
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|false
@@ -310,6 +414,15 @@ name|void
 name|testIterable_FindResults
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -327,6 +440,15 @@ name|void
 name|testIterable_GroupBy
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -344,6 +466,15 @@ name|void
 name|testIterable_Join
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"test,ing"
@@ -361,6 +492,15 @@ name|void
 name|testIterable_Sum
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3.0D
@@ -388,6 +528,15 @@ name|void
 name|testCollection_Collect
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -427,6 +576,15 @@ name|void
 name|testCollection_Find
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -444,6 +602,15 @@ name|void
 name|testCollection_FindAll
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -466,6 +633,15 @@ name|void
 name|testCollection_FindResult
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"found"
@@ -493,6 +669,15 @@ name|void
 name|testCollection_Split
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -527,6 +712,15 @@ name|void
 name|testMap_Collect
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -566,6 +760,15 @@ name|void
 name|testMap_Count
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -583,6 +786,15 @@ name|void
 name|testMap_Each
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -600,6 +812,15 @@ name|void
 name|testMap_Every
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|false
@@ -617,6 +838,15 @@ name|void
 name|testMap_Find
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"two"
@@ -634,6 +864,15 @@ name|void
 name|testMap_FindAll
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Collections
@@ -658,6 +897,15 @@ name|void
 name|testMap_FindResult
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"found"
@@ -687,6 +935,15 @@ name|void
 name|testMap_FindResults
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -713,6 +970,15 @@ name|void
 name|testMap_GroupBy
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String

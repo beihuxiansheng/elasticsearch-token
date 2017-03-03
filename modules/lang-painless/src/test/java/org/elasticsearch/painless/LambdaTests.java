@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -70,6 +84,15 @@ name|void
 name|testNoArgLambda
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -87,6 +110,15 @@ name|void
 name|testNoArgLambdaDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -104,6 +136,15 @@ name|void
 name|testLambdaWithArgs
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"short"
@@ -123,6 +164,15 @@ name|void
 name|testLambdaWithTypedArgs
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"short"
@@ -142,6 +192,15 @@ name|void
 name|testPrimitiveLambdas
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|4
@@ -161,6 +220,15 @@ name|void
 name|testPrimitiveLambdasWithTypedArgs
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|4
@@ -180,6 +248,15 @@ name|void
 name|testPrimitiveLambdasDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|4
@@ -199,6 +276,15 @@ name|void
 name|testPrimitiveLambdasWithTypedArgsDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|4
@@ -218,6 +304,15 @@ name|void
 name|testPrimitiveLambdasConvertible
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -237,6 +332,15 @@ name|void
 name|testPrimitiveArgs
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -254,6 +358,15 @@ name|void
 name|testPrimitiveArgsTyped
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -271,6 +384,15 @@ name|void
 name|testPrimitiveArgsTypedOddly
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2L
@@ -288,6 +410,15 @@ name|void
 name|testMultipleStatements
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -305,6 +436,15 @@ name|void
 name|testUnneededCurlyStatements
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -323,6 +463,15 @@ name|void
 name|testVoidReturn
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -349,6 +498,15 @@ name|void
 name|testVoidReturnDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -374,6 +532,15 @@ name|void
 name|testTwoLambdas
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"testingcdefg"
@@ -393,6 +560,15 @@ name|void
 name|testNestedLambdas
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -410,6 +586,15 @@ name|void
 name|testLambdaInLoop
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|100
@@ -435,6 +620,15 @@ name|void
 name|testCapture
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|5
@@ -452,6 +646,15 @@ name|void
 name|testTwoCaptures
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"1test"
@@ -469,6 +672,15 @@ name|void
 name|testCapturesAreReadOnly
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
@@ -518,6 +730,15 @@ name|void
 name|testOnlyCapturesAreReadOnly
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|4
@@ -538,6 +759,15 @@ name|void
 name|testNoParamMasking
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
@@ -580,6 +810,15 @@ name|void
 name|testCaptureDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|5
@@ -597,6 +836,15 @@ name|void
 name|testNestedCapture
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -616,6 +864,15 @@ name|void
 name|testNestedCaptureParams
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
@@ -635,6 +892,15 @@ name|void
 name|testWrongArity
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
@@ -675,6 +941,15 @@ name|void
 name|testWrongArityDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
@@ -720,6 +995,15 @@ name|void
 name|testWrongArityNotEnough
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
@@ -762,6 +1046,15 @@ name|void
 name|testWrongArityNotEnoughDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
@@ -804,6 +1097,15 @@ name|void
 name|testLambdaInFunction
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|5
@@ -821,6 +1123,15 @@ name|void
 name|testLambdaCaptureFunctionParam
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|5
@@ -838,6 +1149,15 @@ name|void
 name|testReservedCapture
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|String
 name|compare
 init|=
@@ -1057,6 +1377,15 @@ name|void
 name|testReturnVoid
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 name|Throwable
 name|expected
 init|=
@@ -1097,6 +1426,15 @@ name|void
 name|testReturnVoidDef
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"JDK is JDK 9"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
 comment|// If we can catch the error at compile time we do
 name|Exception
 name|expected
