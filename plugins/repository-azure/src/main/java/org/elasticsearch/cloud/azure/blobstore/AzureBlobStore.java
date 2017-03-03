@@ -490,6 +490,17 @@ return|return
 name|container
 return|;
 block|}
+comment|/**      * Gets the configured {@link LocationMode} for the Azure storage requests.      */
+DECL|method|getLocationMode
+specifier|public
+name|LocationMode
+name|getLocationMode
+parameter_list|()
+block|{
+return|return
+name|locMode
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|blobContainer

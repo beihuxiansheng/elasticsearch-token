@@ -28,6 +28,20 @@ name|azure
 operator|.
 name|storage
 operator|.
+name|LocationMode
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|microsoft
+operator|.
+name|azure
+operator|.
+name|storage
+operator|.
 name|StorageException
 import|;
 end_import
@@ -401,6 +415,42 @@ argument_list|,
 name|blobName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|blobStore
+operator|.
+name|getLocationMode
+argument_list|()
+operator|==
+name|LocationMode
+operator|.
+name|SECONDARY_ONLY
+operator|&&
+operator|!
+name|blobExists
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+comment|// On Azure, if the location path is a secondary location, and the blob does not
+comment|// exist, instead of returning immediately from the getInputStream call below
+comment|// with a 404 StorageException, Azure keeps trying and trying for a long timeout
+comment|// before throwing a storage exception.  This can cause long delays in retrieving
+comment|// snapshots, so we first check if the blob exists before trying to open an input
+comment|// stream to it.
+throw|throw
+operator|new
+name|NoSuchFileException
+argument_list|(
+literal|"Blob ["
+operator|+
+name|blobName
+operator|+
+literal|"] does not exist"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 return|return

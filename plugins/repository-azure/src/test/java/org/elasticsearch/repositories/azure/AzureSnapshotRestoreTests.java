@@ -507,7 +507,7 @@ name|testName
 return|;
 block|}
 DECL|method|getContainerName
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|getContainerName
