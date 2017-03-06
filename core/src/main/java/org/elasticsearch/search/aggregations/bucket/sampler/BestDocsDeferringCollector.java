@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket
+DECL|package|org.elasticsearch.search.aggregations.bucket.sampler
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|aggregations
 operator|.
 name|bucket
+operator|.
+name|sampler
 package|;
 end_package
 
@@ -226,6 +228,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|DeferringBucketCollector
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -260,22 +278,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  * A specialization of {@link DeferringBucketCollector} that collects all  * matches and then replays only the top scoring documents to child  * aggregations. The method  * {@link BestDocsDeferringCollector#createTopDocsCollector(int)} is designed to  * be overridden and allows subclasses to choose a custom collector  * implementation for determining the top N matches.  *  */
+comment|/**  * A specialization of {@link DeferringBucketCollector} that collects all  * matches and then replays only the top scoring documents to child  * aggregations. The method  * {@link BestDocsDeferringCollector#createTopDocsCollector(int)} is designed to  * be overridden and allows subclasses to choose a custom collector  * implementation for determining the top N matches.  */
 end_comment
 
 begin_class
@@ -289,6 +297,7 @@ implements|implements
 name|Releasable
 block|{
 DECL|field|entries
+specifier|private
 specifier|final
 name|List
 argument_list|<
@@ -302,10 +311,12 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|deferred
+specifier|private
 name|BucketCollector
 name|deferred
 decl_stmt|;
 DECL|field|perBucketSamples
+specifier|private
 name|ObjectArray
 argument_list|<
 name|PerParentBucketSamples
@@ -330,7 +341,6 @@ name|bigArrays
 decl_stmt|;
 comment|/**      * Sole constructor.      *      * @param shardSize      *            The number of top-scoring docs to collect for each bucket      */
 DECL|method|BestDocsDeferringCollector
-specifier|public
 name|BestDocsDeferringCollector
 parameter_list|(
 name|int
@@ -647,25 +657,12 @@ name|sort
 argument_list|(
 name|docsArr
 argument_list|,
-operator|new
-name|Comparator
-argument_list|<
-name|ScoreDoc
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|int
-name|compare
 parameter_list|(
-name|ScoreDoc
 name|o1
 parameter_list|,
-name|ScoreDoc
 name|o2
 parameter_list|)
+lambda|->
 block|{
 if|if
 condition|(
@@ -697,7 +694,6 @@ name|o2
 operator|.
 name|doc
 return|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;

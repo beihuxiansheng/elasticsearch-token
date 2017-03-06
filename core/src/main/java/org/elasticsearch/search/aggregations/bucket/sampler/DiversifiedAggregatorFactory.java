@@ -282,7 +282,6 @@ name|String
 name|executionHint
 decl_stmt|;
 DECL|method|DiversifiedAggregatorFactory
-specifier|public
 name|DiversifiedAggregatorFactory
 parameter_list|(
 name|String

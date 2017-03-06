@@ -140,7 +140,6 @@ name|int
 name|shardSize
 decl_stmt|;
 DECL|method|SamplerAggregatorFactory
-specifier|public
 name|SamplerAggregatorFactory
 parameter_list|(
 name|String

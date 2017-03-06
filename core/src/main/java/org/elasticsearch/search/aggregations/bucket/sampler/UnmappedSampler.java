@@ -142,7 +142,6 @@ init|=
 literal|"unmapped_sampler"
 decl_stmt|;
 DECL|method|UnmappedSampler
-specifier|public
 name|UnmappedSampler
 parameter_list|(
 name|String

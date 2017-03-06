@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket
+DECL|package|org.elasticsearch.search.aggregations.bucket.sampler
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|aggregations
 operator|.
 name|bucket
+operator|.
+name|sampler
 package|;
 end_package
 
@@ -58,24 +60,6 @@ name|bucket
 operator|.
 name|sampler
 operator|.
-name|DiversifiedAggregationBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|bucket
-operator|.
-name|sampler
-operator|.
 name|SamplerAggregator
 operator|.
 name|ExecutionMode
@@ -83,10 +67,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DiversifiedSamplerTests
+DECL|class|DiversifiedAggregationBuilderTests
 specifier|public
 class|class
-name|DiversifiedSamplerTests
+name|DiversifiedAggregationBuilderTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
