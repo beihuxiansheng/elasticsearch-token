@@ -1276,6 +1276,8 @@ operator|+
 name|hierarchy
 argument_list|,
 literal|"1:name=systemd:/user.slice/user-1000.slice/session-2359.scope"
+argument_list|,
+literal|"0::/cgroup2"
 argument_list|)
 return|;
 block|}
