@@ -1322,13 +1322,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that {@link Netty4HttpServerTransport} responds to a      * 100-continue expectation with too large a content-length      * with a 413 status.      * @throws InterruptedException if the client communication with the server is interrupted      */
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/23172"
-argument_list|)
 DECL|method|testExpectContinueHeaderContentLengthTooLong
 specifier|public
 name|void
@@ -1415,13 +1408,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that {@link Netty4HttpServerTransport} responds to an unsupported expectation with a 417 status.      * @throws InterruptedException if the client communication with the server is interrupted      */
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/23172"
-argument_list|)
 DECL|method|testExpectUnsupportedExpectation
 specifier|public
 name|void
