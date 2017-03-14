@@ -460,6 +460,26 @@ name|settings
 parameter_list|)
 function_decl|;
 comment|// TODO: override toXContent
+comment|/**      * Overrides the diff operation to make this a no-op for secure settings as they shouldn't be returned in a diff      */
+annotation|@
+name|Override
+DECL|method|diff
+specifier|public
+name|void
+name|diff
+parameter_list|(
+name|Settings
+operator|.
+name|Builder
+name|builder
+parameter_list|,
+name|Settings
+name|source
+parameter_list|,
+name|Settings
+name|defaultSettings
+parameter_list|)
+block|{     }
 comment|/**      * A setting which contains a sensitive string.      *      * This may be any sensitive string, e.g. a username, a password, an auth token, etc.      */
 DECL|method|secureString
 specifier|public
