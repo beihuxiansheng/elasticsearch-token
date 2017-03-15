@@ -339,7 +339,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * We enforce bootstrap checks once a node has the transport protocol bound to a non-loopback interface. In this case we assume the node is  * running in production and all bootstrap checks must pass.  */
+comment|/**  * We enforce bootstrap checks once a node has the transport protocol bound to a non-loopback interface or if the system property {@code  * es.enforce.bootstrap.checks} is set to {@true}. In this case we assume the node is running in production and all bootstrap checks must  * pass.  */
 end_comment
 
 begin_class
@@ -353,7 +353,15 @@ specifier|private
 name|BootstrapChecks
 parameter_list|()
 block|{     }
-comment|/**      * Executes the bootstrap checks if the node has the transport protocol bound to a non-loopback interface.      *      * @param settings              the current node settings      * @param boundTransportAddress the node network bindings      */
+DECL|field|ES_ENFORCE_BOOTSTRAP_CHECKS
+specifier|static
+specifier|final
+name|String
+name|ES_ENFORCE_BOOTSTRAP_CHECKS
+init|=
+literal|"es.enforce.bootstrap.checks"
+decl_stmt|;
+comment|/**      * Executes the bootstrap checks if the node has the transport protocol bound to a non-loopback interface. If the system property      * {@code es.enforce.bootstrap.checks} is set to {@code true} then the bootstrap checks will be enforced regardless of whether or not      * the transport protocol is bound to a non-loopback interface.      *      * @param settings              the current node settings      * @param boundTransportAddress the node network bindings      */
 DECL|method|check
 specifier|static
 name|void
@@ -434,7 +442,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Executes the provided checks and fails the node if {@code enforceLimits} is {@code true}, otherwise logs warnings.      *      * @param enforceLimits {@code true} if the checks should be enforced or otherwise warned      * @param checks        the checks to execute      * @param nodeName      the node name to be used as a logging prefix      */
+comment|/**      * Executes the provided checks and fails the node if {@code enforceLimits} is {@code true}, otherwise logs warnings. If the system      * property {@code es.enforce.bootstrap.checks} is set to {@code true} then the bootstrap checks will be enforced regardless of whether      * or not the transport protocol is bound to a non-loopback interface.      *      * @param enforceLimits {@code true} if the checks should be enforced or otherwise warned      * @param checks        the checks to execute      * @param nodeName      the node name to be used as a logging prefix      */
 DECL|method|check
 specifier|static
 name|void
@@ -477,7 +485,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Executes the provided checks and fails the node if {@code enforceLimits} is {@code true}, otherwise logs warnings.      *      * @param enforceLimits {@code true} if the checks should be enforced or otherwise warned      * @param checks        the checks to execute      * @param logger        the logger to      */
+comment|/**      * Executes the provided checks and fails the node if {@code enforceLimits} is {@code true}, otherwise logs warnings. If the system      * property {@code es.enforce.bootstrap.checks }is set to {@code true} then the bootstrap checks will be enforced regardless of whether      * or not the transport protocol is bound to a non-loopback interface.      *      * @param enforceLimits {@code true} if the checks should be enforced or otherwise warned      * @param checks        the checks to execute      * @param logger        the logger to      */
 DECL|method|check
 specifier|static
 name|void
@@ -525,6 +533,83 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|final
+name|String
+name|esEnforceBootstrapChecks
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|ES_ENFORCE_BOOTSTRAP_CHECKS
+argument_list|)
+decl_stmt|;
+specifier|final
+name|boolean
+name|enforceBootstrapChecks
+decl_stmt|;
+if|if
+condition|(
+name|esEnforceBootstrapChecks
+operator|==
+literal|null
+condition|)
+block|{
+name|enforceBootstrapChecks
+operator|=
+literal|false
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|esEnforceBootstrapChecks
+argument_list|)
+condition|)
+block|{
+name|enforceBootstrapChecks
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"[%s] must be [true] but was [%s]"
+argument_list|,
+name|ES_ENFORCE_BOOTSTRAP_CHECKS
+argument_list|,
+name|esEnforceBootstrapChecks
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|enforceLimits
@@ -535,6 +620,20 @@ operator|.
 name|info
 argument_list|(
 literal|"bound or publishing to a non-loopback or non-link-local address, enforcing bootstrap checks"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|enforceBootstrapChecks
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"explicitly enforcing bootstrap checks"
 argument_list|)
 expr_stmt|;
 block|}
@@ -558,7 +657,11 @@ block|{
 if|if
 condition|(
 operator|!
+operator|(
 name|enforceLimits
+operator|||
+name|enforceBootstrapChecks
+operator|)
 operator|&&
 operator|!
 name|check
@@ -728,6 +831,7 @@ specifier|static
 name|boolean
 name|enforceLimits
 parameter_list|(
+specifier|final
 name|BoundTransportAddress
 name|boundTransportAddress
 parameter_list|)

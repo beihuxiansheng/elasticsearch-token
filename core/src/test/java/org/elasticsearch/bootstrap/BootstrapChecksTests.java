@@ -345,10 +345,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|BootstrapCheckTests
+DECL|class|BootstrapChecksTests
 specifier|public
 class|class
-name|BootstrapCheckTests
+name|BootstrapChecksTests
 extends|extends
 name|ESTestCase
 block|{
