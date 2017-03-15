@@ -333,8 +333,10 @@ decl_stmt|;
 name|int
 name|numDocs
 init|=
-name|randomInt
+name|randomIntBetween
 argument_list|(
+literal|1
+argument_list|,
 literal|128
 argument_list|)
 decl_stmt|;
