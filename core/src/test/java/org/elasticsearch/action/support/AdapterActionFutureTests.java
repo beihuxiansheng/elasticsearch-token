@@ -322,11 +322,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|barrier
-operator|.
-name|await
-argument_list|()
-expr_stmt|;
 specifier|final
 name|AtomicBoolean
 name|interrupted
@@ -335,6 +330,11 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
+name|barrier
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|runnable
@@ -356,10 +356,7 @@ name|set
 argument_list|(
 name|Thread
 operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|isInterrupted
+name|interrupted
 argument_list|()
 argument_list|)
 expr_stmt|;
