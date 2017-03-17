@@ -599,13 +599,6 @@ argument_list|(
 name|DEFAULT_ENCODER
 argument_list|)
 operator|.
-name|boundaryScannerType
-argument_list|(
-name|BoundaryScannerType
-operator|.
-name|CHARS
-argument_list|)
-operator|.
 name|boundaryMaxScan
 argument_list|(
 name|SimpleBoundaryScanner

@@ -734,7 +734,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|/*                      * we use top level reader to rewrite the query against all readers, with use caching it across hits (and across                      * readers...)                      */
+comment|/*                      * we use top level reader to rewrite the query against all readers,                      * with use caching it across hits (and across readers...)                      */
 name|cache
 operator|.
 name|fieldMatchFieldQuery
@@ -781,7 +781,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|/*                      * we use top level reader to rewrite the query against all readers, with use caching it across hits (and across                      * readers...)                      */
+comment|/*                      * we use top level reader to rewrite the query against all readers,                      * with use caching it across hits (and across readers...)                      */
 name|cache
 operator|.
 name|noFieldMatchFieldQuery
@@ -1180,8 +1180,8 @@ literal|null
 condition|)
 block|{
 comment|// parameters to FVH are not requires since:
-comment|// first two booleans are not relevant since they are set on the CustomFieldQuery (phrase and fieldMatch)
-comment|// fragment builders are used explicitly
+comment|// first two booleans are not relevant since they are set on the CustomFieldQuery
+comment|// (phrase and fieldMatch) fragment builders are used explicitly
 name|cache
 operator|.
 name|fvh
@@ -1505,7 +1505,8 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// Essentially we just request that a fragment is built from 0 to noMatchSize using the normal fragmentsBuilder
+comment|// Essentially we just request that a fragment is built from 0 to noMatchSize using
+comment|// the normal fragmentsBuilder
 name|FieldFragList
 name|fieldFragList
 init|=
@@ -1707,13 +1708,45 @@ name|fieldOptions
 operator|.
 name|boundaryScannerLocale
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|fieldOptions
+operator|.
+name|boundaryScannerLocale
+argument_list|()
+else|:
+name|Locale
+operator|.
+name|ROOT
 decl_stmt|;
-switch|switch
-condition|(
+specifier|final
+name|HighlightBuilder
+operator|.
+name|BoundaryScannerType
+name|type
+init|=
 name|fieldOptions
 operator|.
 name|boundaryScannerType
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|fieldOptions
+operator|.
+name|boundaryScannerType
+argument_list|()
+else|:
+name|HighlightBuilder
+operator|.
+name|BoundaryScannerType
+operator|.
+name|CHARS
+decl_stmt|;
+switch|switch
+condition|(
+name|type
 condition|)
 block|{
 case|case
@@ -1768,7 +1801,9 @@ block|}
 return|return
 name|DEFAULT_WORD_BOUNDARY_SCANNER
 return|;
-default|default:
+case|case
+name|CHARS
+case|:
 if|if
 condition|(
 name|fieldOptions
@@ -1809,6 +1844,19 @@ block|}
 return|return
 name|DEFAULT_SIMPLE_BOUNDARY_SCANNER
 return|;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid boundary scanner type: "
+operator|+
+name|type
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|class|MapperHighlightEntry

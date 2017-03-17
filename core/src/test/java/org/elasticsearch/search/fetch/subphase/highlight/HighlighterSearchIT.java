@@ -6328,10 +6328,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFastVectorHighlighterWithSentenceBoundaryScanner
+DECL|method|testHighlighterWithSentenceBoundaryScanner
 specifier|public
 name|void
-name|testFastVectorHighlighterWithSentenceBoundaryScanner
+name|testHighlighterWithSentenceBoundaryScanner
 parameter_list|()
 throws|throws
 name|Exception
@@ -6377,6 +6377,21 @@ literal|"A sentence with few words. Another sentence with even more words."
 argument_list|)
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|String
+name|type
+range|:
+operator|new
+name|String
+index|[]
+block|{
+literal|"unified"
+block|,
+literal|"fvh"
+block|}
+control|)
+block|{
 name|logger
 operator|.
 name|info
@@ -6409,14 +6424,14 @@ name|field
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|20
+literal|21
 argument_list|,
 literal|2
 argument_list|)
 operator|.
-name|order
+name|highlighterType
 argument_list|(
-literal|"score"
+name|type
 argument_list|)
 operator|.
 name|preTags
@@ -6468,9 +6483,17 @@ literal|0
 argument_list|,
 literal|2
 argument_list|,
+name|anyOf
+argument_list|(
+name|equalTo
+argument_list|(
+literal|"A<xxx>sentence</xxx> with few words"
+argument_list|)
+argument_list|,
 name|equalTo
 argument_list|(
 literal|"A<xxx>sentence</xxx> with few words. "
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6486,17 +6509,26 @@ literal|1
 argument_list|,
 literal|2
 argument_list|,
+name|anyOf
+argument_list|(
+name|equalTo
+argument_list|(
+literal|"Another<xxx>sentence</xxx> with"
+argument_list|)
+argument_list|,
 name|equalTo
 argument_list|(
 literal|"Another<xxx>sentence</xxx> with even more words. "
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFastVectorHighlighterWithSentenceBoundaryScannerAndLocale
+block|}
+DECL|method|testHighlighterWithSentenceBoundaryScannerAndLocale
 specifier|public
 name|void
-name|testFastVectorHighlighterWithSentenceBoundaryScannerAndLocale
+name|testHighlighterWithSentenceBoundaryScannerAndLocale
 parameter_list|()
 throws|throws
 name|Exception
@@ -6542,6 +6574,21 @@ literal|"A sentence with few words. Another sentence with even more words."
 argument_list|)
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|String
+name|type
+range|:
+operator|new
+name|String
+index|[]
+block|{
+literal|"fvh"
+block|,
+literal|"unified"
+block|}
+control|)
+block|{
 name|logger
 operator|.
 name|info
@@ -6574,14 +6621,14 @@ name|field
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|20
+literal|21
 argument_list|,
 literal|2
 argument_list|)
 operator|.
-name|order
+name|highlighterType
 argument_list|(
-literal|"score"
+name|type
 argument_list|)
 operator|.
 name|preTags
@@ -6643,9 +6690,17 @@ literal|0
 argument_list|,
 literal|2
 argument_list|,
+name|anyOf
+argument_list|(
+name|equalTo
+argument_list|(
+literal|"A<xxx>sentence</xxx> with few words"
+argument_list|)
+argument_list|,
 name|equalTo
 argument_list|(
 literal|"A<xxx>sentence</xxx> with few words. "
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6661,17 +6716,26 @@ literal|1
 argument_list|,
 literal|2
 argument_list|,
+name|anyOf
+argument_list|(
+name|equalTo
+argument_list|(
+literal|"Another<xxx>sentence</xxx> with"
+argument_list|)
+argument_list|,
 name|equalTo
 argument_list|(
 literal|"Another<xxx>sentence</xxx> with even more words. "
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFastVectorHighlighterWithWordBoundaryScanner
+block|}
+DECL|method|testHighlighterWithWordBoundaryScanner
 specifier|public
 name|void
-name|testFastVectorHighlighterWithWordBoundaryScanner
+name|testHighlighterWithWordBoundaryScanner
 parameter_list|()
 throws|throws
 name|Exception
@@ -6724,6 +6788,21 @@ argument_list|(
 literal|"--> highlighting and searching on 'field' with word boundary_scanner"
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|String
+name|type
+range|:
+operator|new
+name|String
+index|[]
+block|{
+literal|"unified"
+block|,
+literal|"fvh"
+block|}
+control|)
+block|{
 name|SearchSourceBuilder
 name|source
 init|=
@@ -6754,9 +6833,9 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|order
+name|highlighterType
 argument_list|(
-literal|"score"
+name|type
 argument_list|)
 operator|.
 name|preTags
@@ -6808,17 +6887,26 @@ literal|0
 argument_list|,
 literal|1
 argument_list|,
+name|anyOf
+argument_list|(
 name|equalTo
 argument_list|(
 literal|"<xxx>some</xxx> quick and hairy brown"
 argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"<xxx>some</xxx>"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFastVectorHighlighterWithWordBoundaryScannerAndLocale
+block|}
+DECL|method|testHighlighterWithWordBoundaryScannerAndLocale
 specifier|public
 name|void
-name|testFastVectorHighlighterWithWordBoundaryScannerAndLocale
+name|testHighlighterWithWordBoundaryScannerAndLocale
 parameter_list|()
 throws|throws
 name|Exception
@@ -6864,13 +6952,21 @@ literal|"some quick and hairy brown:fox jumped over the lazy dog"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> highlighting and searching on 'field' with word boundary_scanner"
-argument_list|)
-expr_stmt|;
+for|for
+control|(
+name|String
+name|type
+range|:
+operator|new
+name|String
+index|[]
+block|{
+literal|"unified"
+block|,
+literal|"fvh"
+block|}
+control|)
+block|{
 name|SearchSourceBuilder
 name|source
 init|=
@@ -6901,9 +6997,9 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|order
+name|highlighterType
 argument_list|(
-literal|"score"
+name|type
 argument_list|)
 operator|.
 name|preTags
@@ -6965,12 +7061,21 @@ literal|0
 argument_list|,
 literal|1
 argument_list|,
+name|anyOf
+argument_list|(
 name|equalTo
 argument_list|(
 literal|"<xxx>some</xxx> quick and hairy brown"
 argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"<xxx>some</xxx>"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * The FHV can spend a long time highlighting degenerate documents if      * phraseLimit is not set. Its default is now reasonably low.      */
 DECL|method|testFVHManyMatches
@@ -15220,12 +15325,12 @@ literal|"I am pretty long so some"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Postings hl also works but the fragment is the whole first sentence (size ignored)
+comment|// Unified hl also works but the fragment is longer than the plain highlighter because of the boundary is the word
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15267,16 +15372,16 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"I am pretty long so some of me should get cut off."
+literal|"I am pretty long so some"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Unified hl also works but the fragment is the whole first sentence (size ignored)
+comment|// Postings hl also works but the fragment is the whole first sentence (size ignored)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"unified"
+literal|"postings"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15433,12 +15538,11 @@ name|text
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//no difference using postings hl as the noMatchSize is ignored (just needs to be greater than 0)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15480,16 +15584,16 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"I am pretty long so some of me should get cut off."
+name|text
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//no difference using unified hl as the noMatchSize is ignored (just needs to be greater than 0)
+comment|//no difference using postings hl as the noMatchSize is ignored (just needs to be greater than 0)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"unified"
+literal|"postings"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15644,12 +15748,12 @@ name|text
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//no difference using postings hl as the noMatchSize is ignored (just needs to be greater than 0)
+comment|// unified hl returns the first sentence as the noMatchSize does not cross sentence boundary.
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15691,16 +15795,16 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"I am pretty long so some of me should get cut off."
+name|text
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//no difference using unified hl as the noMatchSize is ignored (just needs to be greater than 0)
+comment|//no difference using postings hl as the noMatchSize is ignored (just needs to be greater than 0)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"unified"
+literal|"postings"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15866,7 +15970,7 @@ name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -15913,7 +16017,7 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"I am pretty long so some of me should get cut off."
+literal|"I am pretty long so some"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15921,7 +16025,7 @@ name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"unified"
+literal|"postings"
 argument_list|)
 expr_stmt|;
 name|response
@@ -16345,12 +16449,11 @@ literal|"I am pretty long so some"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Postings hl also works but the fragment is the whole first sentence (size ignored)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -16392,16 +16495,16 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"I am pretty long so some of me should get cut off."
+literal|"I am pretty long so some"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Unified hl also works but the fragment is the whole first sentence (size ignored)
+comment|// Postings hl also works but the fragment is the whole first sentence (size ignored)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"unified"
+literal|"postings"
 argument_list|)
 expr_stmt|;
 name|response
@@ -16624,6 +16727,7 @@ argument_list|,
 literal|"text"
 argument_list|)
 expr_stmt|;
+comment|// except for the unified highlighter which starts from the first string with actual content
 name|field
 operator|.
 name|highlighterType
@@ -16661,13 +16765,22 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertNotHighlighted
+name|assertHighlight
 argument_list|(
 name|response
 argument_list|,
 literal|0
 argument_list|,
 literal|"text"
+argument_list|,
+literal|0
+argument_list|,
+literal|1
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"I am short"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// But if the field was actually empty then you should get no highlighting field
@@ -17011,7 +17124,7 @@ name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"fvh"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -17437,12 +17550,11 @@ literal|"This is the first sentence"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Postings hl also works but the fragment is the whole first sentence (size ignored)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 expr_stmt|;
 name|response
@@ -17484,16 +17596,16 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"This is the first sentence."
+literal|"This is the first sentence"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Unified hl also works but the fragment is the whole first sentence (size ignored)
+comment|// Postings hl also works but the fragment is the whole first sentence (size ignored)
 name|field
 operator|.
 name|highlighterType
 argument_list|(
-literal|"unified"
+literal|"postings"
 argument_list|)
 expr_stmt|;
 name|response
