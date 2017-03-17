@@ -228,18 +228,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportRequest
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -274,16 +262,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 import|;
 end_import
@@ -295,16 +273,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -331,18 +299,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicLong
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Consumer
 import|;
 end_import
 
@@ -505,7 +461,7 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|TransportRequest
+name|TaskAwareRequest
 name|request
 parameter_list|)
 block|{

@@ -112,7 +112,7 @@ name|elasticsearch
 operator|.
 name|tasks
 operator|.
-name|TaskManager
+name|TaskAwareRequest
 import|;
 end_import
 
@@ -122,9 +122,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|tasks
 operator|.
-name|TransportRequest
+name|TaskManager
 import|;
 end_import
 
@@ -226,7 +226,7 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|TransportRequest
+name|TaskAwareRequest
 name|request
 parameter_list|)
 block|{
