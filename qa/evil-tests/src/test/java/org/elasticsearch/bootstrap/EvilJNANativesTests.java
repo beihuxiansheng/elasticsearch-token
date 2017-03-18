@@ -130,6 +130,13 @@ name|EvilJNANativesTests
 extends|extends
 name|ESTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/23640"
+argument_list|)
 DECL|method|testSetMaximumNumberOfThreads
 specifier|public
 name|void
@@ -275,6 +282,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/23640"
+argument_list|)
 DECL|method|testSetMaxSizeVirtualMemory
 specifier|public
 name|void
