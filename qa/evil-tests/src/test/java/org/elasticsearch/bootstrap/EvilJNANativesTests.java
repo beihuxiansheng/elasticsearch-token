@@ -175,6 +175,7 @@ condition|)
 block|{
 for|for
 control|(
+specifier|final
 name|String
 name|line
 range|:
@@ -319,6 +320,7 @@ condition|)
 block|{
 for|for
 control|(
+specifier|final
 name|String
 name|line
 range|:
@@ -360,7 +362,7 @@ index|[
 literal|3
 index|]
 decl_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
 name|JNANatives
 operator|.
@@ -371,7 +373,10 @@ operator|.
 name|MAX_SIZE_VIRTUAL_MEMORY
 argument_list|)
 argument_list|,
+name|equalTo
+argument_list|(
 name|limit
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
