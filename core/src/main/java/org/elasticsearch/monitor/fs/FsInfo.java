@@ -638,6 +638,10 @@ argument_list|)
 expr_stmt|;
 name|free
 operator|=
+name|FsProbe
+operator|.
+name|adjustForHugeFilesystems
+argument_list|(
 name|addLong
 argument_list|(
 name|free
@@ -646,9 +650,14 @@ name|path
 operator|.
 name|free
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|available
 operator|=
+name|FsProbe
+operator|.
+name|adjustForHugeFilesystems
+argument_list|(
 name|addLong
 argument_list|(
 name|available
@@ -656,6 +665,7 @@ argument_list|,
 name|path
 operator|.
 name|available
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
