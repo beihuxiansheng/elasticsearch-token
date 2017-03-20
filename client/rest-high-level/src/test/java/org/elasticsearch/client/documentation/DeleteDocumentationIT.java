@@ -191,7 +191,7 @@ init|=
 name|highLevelClient
 argument_list|()
 decl_stmt|;
-comment|// tag::delete-request[]
+comment|// tag::delete-request
 name|DeleteRequest
 name|request
 init|=
@@ -208,8 +208,8 @@ literal|"id"
 argument_list|)
 decl_stmt|;
 comment|//<3>
-comment|// end::delete-request[]
-comment|// tag::delete-request-props[]
+comment|// end::delete-request
+comment|// tag::delete-request-props
 name|request
 operator|.
 name|timeout
@@ -269,8 +269,8 @@ name|EXTERNAL
 argument_list|)
 expr_stmt|;
 comment|//<6>
-comment|// end::delete-request-props[]
-comment|// tag::delete-execute[]
+comment|// end::delete-request-props
+comment|// tag::delete-execute
 name|DeleteResponse
 name|response
 init|=
@@ -281,10 +281,10 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-comment|// end::delete-execute[]
+comment|// end::delete-execute
 try|try
 block|{
-comment|// tag::delete-notfound[]
+comment|// tag::delete-notfound
 if|if
 condition|(
 name|response
@@ -311,7 +311,7 @@ argument_list|)
 throw|;
 comment|//<1>
 block|}
-comment|// end::delete-notfound[]
+comment|// end::delete-notfound
 block|}
 catch|catch
 parameter_list|(
@@ -319,7 +319,7 @@ name|Exception
 name|ignored
 parameter_list|)
 block|{ }
-comment|// tag::delete-execute-async[]
+comment|// tag::delete-execute-async
 name|client
 operator|.
 name|deleteAsync
@@ -360,8 +360,8 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// end::delete-execute-async[]
-comment|// tag::delete-conflict[]
+comment|// end::delete-execute-async
+comment|// tag::delete-conflict
 try|try
 block|{
 name|client
@@ -396,7 +396,7 @@ block|{
 comment|//<1>
 block|}
 block|}
-comment|// end::delete-conflict[]
+comment|// end::delete-conflict
 block|}
 block|}
 end_class
