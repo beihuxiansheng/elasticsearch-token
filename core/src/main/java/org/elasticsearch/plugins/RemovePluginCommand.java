@@ -18,6 +18,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -280,7 +290,7 @@ name|env
 argument_list|)
 expr_stmt|;
 block|}
-comment|// pkg private for testing
+comment|/**      * Remove the plugin specified by {@code pluginName}.      *      * @param terminal   the terminal to use for input/output      * @param pluginName the name of the plugin to remove      * @param env        the environment for the local node      * @throws IOException   if any I/O exception occurs while performing a file operation      * @throws UserException if plugin name is null      * @throws UserException if plugin directory does not exist      * @throws UserException if the plugin bin directory is not a directory      */
 DECL|method|execute
 name|void
 name|execute
@@ -295,7 +305,9 @@ name|Environment
 name|env
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
+throws|,
+name|UserException
 block|{
 if|if
 condition|(
