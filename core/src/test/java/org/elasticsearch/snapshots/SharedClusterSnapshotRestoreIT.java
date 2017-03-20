@@ -8084,6 +8084,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"org.elasticsearch.snapshots:TRACE,org.elasticsearch.cluster:TRACE"
+argument_list|)
 DECL|method|testDataFileCorruptionDuringRestore
 specifier|public
 name|void
