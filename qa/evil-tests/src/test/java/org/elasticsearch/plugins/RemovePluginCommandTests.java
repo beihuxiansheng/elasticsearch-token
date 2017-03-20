@@ -503,7 +503,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"plugin dne not found"
+literal|"plugin [dne] not found"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1072,7 +1072,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"plugin fake not found; run 'elasticsearch-plugin list' to get list of installed plugins"
+literal|"plugin [fake] not found; run 'elasticsearch-plugin list' to get list of installed plugins"
 argument_list|,
 name|e
 operator|.
@@ -1141,7 +1141,7 @@ init|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"-> Removing fake..."
+literal|"-> removing [fake]..."
 argument_list|,
 name|reader
 operator|.
@@ -1151,7 +1151,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ERROR: plugin fake not found; run 'elasticsearch-plugin list' to get list of installed plugins"
+literal|"ERROR: plugin [fake] not found; run 'elasticsearch-plugin list' to get list of installed plugins"
 argument_list|,
 name|reader
 operator|.
@@ -1229,11 +1229,11 @@ name|configDir
 parameter_list|)
 block|{
 return|return
-literal|"-> Preserving plugin config files ["
+literal|"-> preserving plugin config files ["
 operator|+
 name|configDir
 operator|+
-literal|"] in case of upgrade, delete manually if not needed"
+literal|"] in case of upgrade; delete manually if not needed"
 return|;
 block|}
 block|}

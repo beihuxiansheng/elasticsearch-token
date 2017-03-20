@@ -94,6 +94,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
 name|joptsimple
 operator|.
 name|OptionSet
@@ -211,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command for the plugin cli to remove a plugin from elasticsearch.  */
+comment|/**  * A command for the plugin CLI to remove a plugin from Elasticsearch.  */
 end_comment
 
 begin_class
@@ -236,7 +246,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"Removes a plugin from elasticsearch"
+literal|"removes a plugin from Elasticsearch"
 argument_list|)
 expr_stmt|;
 name|this
@@ -258,20 +268,24 @@ specifier|protected
 name|void
 name|execute
 parameter_list|(
+specifier|final
 name|Terminal
 name|terminal
 parameter_list|,
+specifier|final
 name|OptionSet
 name|options
 parameter_list|,
+specifier|final
 name|Environment
 name|env
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
-name|arg
+name|pluginName
 init|=
 name|arguments
 operator|.
@@ -284,7 +298,7 @@ name|execute
 argument_list|(
 name|terminal
 argument_list|,
-name|arg
+name|pluginName
 argument_list|,
 name|env
 argument_list|)
@@ -295,12 +309,15 @@ DECL|method|execute
 name|void
 name|execute
 parameter_list|(
+specifier|final
 name|Terminal
 name|terminal
 parameter_list|,
+specifier|final
 name|String
 name|pluginName
 parameter_list|,
+specifier|final
 name|Environment
 name|env
 parameter_list|)
@@ -332,7 +349,7 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"-> Removing "
+literal|"-> removing ["
 operator|+
 name|Strings
 operator|.
@@ -341,7 +358,7 @@ argument_list|(
 name|pluginName
 argument_list|)
 operator|+
-literal|"..."
+literal|"]..."
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -370,6 +387,25 @@ operator|==
 literal|false
 condition|)
 block|{
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"plugin [%s] not found; "
+operator|+
+literal|"run 'elasticsearch-plugin list' to get list of installed plugins"
+argument_list|,
+name|pluginName
+argument_list|)
+decl_stmt|;
 throw|throw
 operator|new
 name|UserException
@@ -378,11 +414,7 @@ name|ExitCodes
 operator|.
 name|CONFIG
 argument_list|,
-literal|"plugin "
-operator|+
-name|pluginName
-operator|+
-literal|" not found; run 'elasticsearch-plugin list' to get list of installed plugins"
+name|message
 argument_list|)
 throw|;
 block|}
@@ -442,7 +474,7 @@ name|ExitCodes
 operator|.
 name|IO_ERROR
 argument_list|,
-literal|"Bin dir for "
+literal|"bin dir for "
 operator|+
 name|pluginName
 operator|+
@@ -463,9 +495,11 @@ name|println
 argument_list|(
 name|VERBOSE
 argument_list|,
-literal|"Removing: "
+literal|"removing ["
 operator|+
 name|pluginBinDir
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -475,9 +509,11 @@ name|println
 argument_list|(
 name|VERBOSE
 argument_list|,
-literal|"Removing: "
+literal|"removing ["
 operator|+
 name|pluginDir
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -519,7 +555,7 @@ name|AtomicMoveNotSupportedException
 name|e
 parameter_list|)
 block|{
-comment|// this can happen on a union filesystem when a plugin is not installed on the top layer; we fall back to a non-atomic move
+comment|/*              * On a union file system if the plugin that we are removing is not installed on the              * top layer then atomic move will not be supported. In this case, we fall back to a              * non-atomic move.              */
 name|Files
 operator|.
 name|move
@@ -556,8 +592,7 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// we preserve the config files in case the user is upgrading the plugin, but we print
-comment|// a message so the user knows in case they want to remove manually
+comment|/*          * We preserve the config files in case the user is upgrading the plugin, but we print a          * message so the user knows in case they want to remove manually.          */
 specifier|final
 name|Path
 name|pluginConfigDir
@@ -582,15 +617,30 @@ name|pluginConfigDir
 argument_list|)
 condition|)
 block|{
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"-> preserving plugin config files [%s] in case of upgrade; "
+operator|+
+literal|"delete manually if not needed"
+argument_list|,
+name|pluginConfigDir
+argument_list|)
+decl_stmt|;
 name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"-> Preserving plugin config files ["
-operator|+
-name|pluginConfigDir
-operator|+
-literal|"] in case of upgrade, delete manually if not needed"
+name|message
 argument_list|)
 expr_stmt|;
 block|}
