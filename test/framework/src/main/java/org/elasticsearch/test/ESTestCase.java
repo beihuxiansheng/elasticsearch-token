@@ -6195,6 +6195,24 @@ name|long
 name|spinForAtLeastOneMillisecond
 parameter_list|()
 block|{
+return|return
+name|spinForAtLeastNMilliseconds
+argument_list|(
+literal|1
+argument_list|)
+return|;
+block|}
+DECL|method|spinForAtLeastNMilliseconds
+specifier|protected
+specifier|static
+name|long
+name|spinForAtLeastNMilliseconds
+parameter_list|(
+specifier|final
+name|long
+name|ms
+parameter_list|)
+block|{
 name|long
 name|nanosecondsInMillisecond
 init|=
@@ -6204,15 +6222,14 @@ name|NANOSECONDS
 operator|.
 name|convert
 argument_list|(
-literal|1
+name|ms
 argument_list|,
 name|TimeUnit
 operator|.
 name|MILLISECONDS
 argument_list|)
 decl_stmt|;
-comment|// force at least one millisecond to elapse, but ensure the
-comment|// clock has enough resolution to observe the passage of time
+comment|/*          * Force at least ms milliseconds to elapse, but ensure the clock has enough resolution to          * observe the passage of time.          */
 name|long
 name|start
 init|=
