@@ -484,6 +484,7 @@ condition|(
 name|count
 operator|>
 name|capacity
+argument_list|()
 condition|)
 block|{
 name|size
@@ -623,6 +624,7 @@ parameter_list|()
 block|{
 return|return
 name|capacity
+argument_list|()
 operator|-
 name|size
 operator|.
