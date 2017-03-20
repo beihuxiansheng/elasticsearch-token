@@ -792,9 +792,7 @@ name|ObjectMapper
 argument_list|>
 name|fullPathObjectMappers
 init|=
-operator|new
-name|HashMap
-argument_list|<>
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|field|hasNested
@@ -2718,6 +2716,7 @@ operator|.
 name|fullPathObjectMappers
 condition|)
 block|{
+comment|// first time through the loops
 name|fullPathObjectMappers
 operator|=
 operator|new
@@ -2811,6 +2810,7 @@ operator|.
 name|parentTypes
 condition|)
 block|{
+comment|// first time through the loop
 name|parentTypes
 operator|=
 operator|new
@@ -3018,15 +3018,17 @@ argument_list|(
 name|results
 argument_list|)
 expr_stmt|;
-name|parentTypes
-operator|=
-name|Collections
+comment|// only need to immutably rewrap these if the previous reference was changed.
+comment|// if not then they are already implicitly immutable.
+if|if
+condition|(
+name|fullPathObjectMappers
+operator|!=
+name|this
 operator|.
-name|unmodifiableSet
-argument_list|(
-name|parentTypes
-argument_list|)
-expr_stmt|;
+name|fullPathObjectMappers
+condition|)
+block|{
 name|fullPathObjectMappers
 operator|=
 name|Collections
@@ -3036,6 +3038,26 @@ argument_list|(
 name|fullPathObjectMappers
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|parentTypes
+operator|!=
+name|this
+operator|.
+name|parentTypes
+condition|)
+block|{
+name|parentTypes
+operator|=
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+name|parentTypes
+argument_list|)
+expr_stmt|;
+block|}
 comment|// commit the change
 if|if
 condition|(
