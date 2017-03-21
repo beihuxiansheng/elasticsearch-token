@@ -5191,12 +5191,12 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|IOException
+name|UserException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|IOException
+name|UserException
 operator|.
 name|class
 argument_list|,

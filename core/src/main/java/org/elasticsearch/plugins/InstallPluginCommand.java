@@ -606,6 +606,25 @@ name|PROPERTY_STAGING_ID
 init|=
 literal|"es.plugins.staging"
 decl_stmt|;
+comment|// exit codes for install
+comment|/** A plugin with the same name is already installed. */
+DECL|field|PLUGIN_EXISTS
+specifier|static
+specifier|final
+name|int
+name|PLUGIN_EXISTS
+init|=
+literal|1
+decl_stmt|;
+comment|/** The plugin zip is not properly structured. */
+DECL|field|PLUGIN_MALFORMED
+specifier|static
+specifier|final
+name|int
+name|PLUGIN_MALFORMED
+init|=
+literal|2
+decl_stmt|;
 comment|/** The builtin modules, which are plugins, but cannot be installed or removed. */
 DECL|field|MODULES
 specifier|static
@@ -2351,10 +2370,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// Using the entry name as a path can result in an entry outside of the plugin dir, either if the
-comment|// name starts with the root of the filesystem, or it is a relative entry like ../whatever.
-comment|// This check attempts to identify both cases by first normalizing the path (which removes foo/..)
-comment|// and ensuring the normalized entry is still rooted with the target plugin directory.
+comment|// Using the entry name as a path can result in an entry outside of the plugin dir,
+comment|// either if the name starts with the root of the filesystem, or it is a relative
+comment|// entry like ../whatever. This check attempts to identify both cases by first
+comment|// normalizing the path (which removes foo/..) and ensuring the normalized entry
+comment|// is still rooted with the target plugin directory.
 if|if
 condition|(
 name|targetFile
@@ -2372,8 +2392,10 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserException
 argument_list|(
+name|PLUGIN_MALFORMED
+argument_list|,
 literal|"Zip contains entry name '"
 operator|+
 name|entry
@@ -2500,9 +2522,7 @@ throw|throw
 operator|new
 name|UserException
 argument_list|(
-name|ExitCodes
-operator|.
-name|DATA_ERROR
+name|PLUGIN_MALFORMED
 argument_list|,
 literal|"`elasticsearch` directory is missing in the plugin zip"
 argument_list|)
@@ -2720,7 +2740,9 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"plugin directory [%s] already exists; if you need to update the plugin, uninstall it first using command 'remove %s'"
+literal|"plugin directory [%s] already exists; if you need to update the plugin, "
+operator|+
+literal|"uninstall it first using command 'remove %s'"
 argument_list|,
 name|destination
 operator|.
@@ -2737,9 +2759,7 @@ throw|throw
 operator|new
 name|UserException
 argument_list|(
-name|ExitCodes
-operator|.
-name|CONFIG
+name|PLUGIN_EXISTS
 argument_list|,
 name|message
 argument_list|)
@@ -3319,9 +3339,7 @@ throw|throw
 operator|new
 name|UserException
 argument_list|(
-name|ExitCodes
-operator|.
-name|IO_ERROR
+name|PLUGIN_MALFORMED
 argument_list|,
 literal|"bin in plugin "
 operator|+
@@ -3386,11 +3404,11 @@ throw|throw
 operator|new
 name|UserException
 argument_list|(
-name|ExitCodes
-operator|.
-name|DATA_ERROR
+name|PLUGIN_MALFORMED
 argument_list|,
-literal|"Directories not allowed in bin dir for plugin "
+literal|"Directories not allowed in bin dir "
+operator|+
+literal|"for plugin "
 operator|+
 name|info
 operator|.
@@ -3482,9 +3500,7 @@ throw|throw
 operator|new
 name|UserException
 argument_list|(
-name|ExitCodes
-operator|.
-name|IO_ERROR
+name|PLUGIN_MALFORMED
 argument_list|,
 literal|"config in plugin "
 operator|+
@@ -3597,9 +3613,7 @@ throw|throw
 operator|new
 name|UserException
 argument_list|(
-name|ExitCodes
-operator|.
-name|DATA_ERROR
+name|PLUGIN_MALFORMED
 argument_list|,
 literal|"Directories not allowed in config dir for plugin "
 operator|+
