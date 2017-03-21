@@ -314,8 +314,6 @@ specifier|public
 specifier|abstract
 class|class
 name|ScrollableHitSource
-implements|implements
-name|Closeable
 block|{
 DECL|field|scrollId
 specifier|private
@@ -558,14 +556,15 @@ argument_list|>
 name|onResponse
 parameter_list|)
 function_decl|;
-annotation|@
-name|Override
 DECL|method|close
 specifier|public
 specifier|final
 name|void
 name|close
-parameter_list|()
+parameter_list|(
+name|Runnable
+name|onCompletion
+parameter_list|)
 block|{
 name|String
 name|scrollId
@@ -591,20 +590,25 @@ name|clearScroll
 argument_list|(
 name|scrollId
 argument_list|,
-name|this
-operator|::
+parameter_list|()
+lambda|->
 name|cleanup
+argument_list|(
+name|onCompletion
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
 name|cleanup
-argument_list|()
+argument_list|(
+name|onCompletion
+argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called to clear a scroll id.      * @param scrollId the id to clear      * @param onCompletion implementers must call this after completing the clear whether they are successful or not      */
+comment|/**      * Called to clear a scroll id.      *      * @param scrollId the id to clear      * @param onCompletion implementers must call this after completing the clear whether they are      *        successful or not      */
 DECL|method|clearScroll
 specifier|protected
 specifier|abstract
@@ -618,13 +622,16 @@ name|Runnable
 name|onCompletion
 parameter_list|)
 function_decl|;
-comment|/**      * Called after the process has been totally finished to clean up any resources the process needed like remote connections.      */
+comment|/**      * Called after the process has been totally finished to clean up any resources the process      * needed like remote connections.      *      * @param onCompletion implementers must call this after completing the cleanup whether they are      *        successful or not      */
 DECL|method|cleanup
 specifier|protected
 specifier|abstract
 name|void
 name|cleanup
-parameter_list|()
+parameter_list|(
+name|Runnable
+name|onCompletion
+parameter_list|)
 function_decl|;
 comment|/**      * Set the id of the last scroll. Used for debugging.      */
 DECL|method|setScroll

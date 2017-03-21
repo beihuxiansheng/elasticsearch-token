@@ -2597,8 +2597,10 @@ block|{
 name|scrollSource
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 if|if
 condition|(
 name|failure
@@ -2606,10 +2608,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|listener
-operator|.
-name|onResponse
-argument_list|(
+name|BulkByScrollResponse
+name|response
+init|=
 name|buildResponse
 argument_list|(
 name|timeValueNanos
@@ -2631,6 +2632,12 @@ name|searchFailures
 argument_list|,
 name|timedOut
 argument_list|)
+decl_stmt|;
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+name|response
 argument_list|)
 expr_stmt|;
 block|}
@@ -2644,6 +2651,9 @@ name|failure
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Get the backoff policy for use with retries.      */
 DECL|method|buildBackoffPolicy

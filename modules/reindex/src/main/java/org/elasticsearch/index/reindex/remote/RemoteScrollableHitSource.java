@@ -1180,9 +1180,12 @@ DECL|method|cleanup
 specifier|protected
 name|void
 name|cleanup
-parameter_list|()
+parameter_list|(
+name|Runnable
+name|onCompletion
+parameter_list|)
 block|{
-comment|/* This is called on the RestClient's thread pool and attempting to close the client on its own threadpool causes it to fail to          * close. So we always shutdown the RestClient asynchronously on a thread in Elasticsearch's generic thread pool. */
+comment|/* This is called on the RestClient's thread pool and attempting to close the client on its          * own threadpool causes it to fail to close. So we always shutdown the RestClient          * asynchronously on a thread in Elasticsearch's generic thread pool. */
 name|threadPool
 operator|.
 name|generic
@@ -1222,6 +1225,14 @@ literal|"Failed to shutdown the remote connection"
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|onCompletion
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 block|}
 block|}

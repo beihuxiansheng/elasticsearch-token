@@ -831,9 +831,16 @@ DECL|method|cleanup
 specifier|protected
 name|void
 name|cleanup
-parameter_list|()
+parameter_list|(
+name|Runnable
+name|onCompletion
+parameter_list|)
 block|{
-comment|// Nothing to do
+name|onCompletion
+operator|.
+name|run
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Run a search action and call onResponse when a the response comes in, retrying if the action fails with an exception caused by      * rejected execution.      *      * @param action consumes a listener and starts the action. The listener it consumes is rigged to retry on failure.      * @param onResponse consumes the response from the action      */
 DECL|method|searchWithRetry
