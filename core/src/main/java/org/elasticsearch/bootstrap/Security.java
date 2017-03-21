@@ -336,6 +336,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -347,6 +357,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -468,18 +488,19 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// collect up lists of plugins and modules
-name|List
+comment|// collect up set of plugins and modules by listing directories.
+name|Set
 argument_list|<
 name|Path
 argument_list|>
 name|pluginsAndModules
 init|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// order is already lost, but some filesystems have it
 if|if
 condition|(
 name|Files
@@ -520,13 +541,28 @@ range|:
 name|stream
 control|)
 block|{
+if|if
+condition|(
 name|pluginsAndModules
 operator|.
 name|add
 argument_list|(
 name|plugin
 argument_list|)
-expr_stmt|;
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"duplicate plugin: "
+operator|+
+name|plugin
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -565,18 +601,33 @@ block|{
 for|for
 control|(
 name|Path
-name|plugin
+name|module
 range|:
 name|stream
 control|)
 block|{
+if|if
+condition|(
 name|pluginsAndModules
 operator|.
 name|add
 argument_list|(
-name|plugin
+name|module
 argument_list|)
-expr_stmt|;
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"duplicate module: "
+operator|+
+name|module
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -613,17 +664,18 @@ condition|)
 block|{
 comment|// first get a list of URLs for the plugins' jars:
 comment|// we resolve symlinks so map is keyed on the normalize codebase name
-name|List
+name|Set
 argument_list|<
 name|URL
 argument_list|>
 name|codebases
 init|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// order is already lost, but some filesystems have it
 try|try
 init|(
 name|DirectoryStream
@@ -650,10 +702,9 @@ range|:
 name|jarStream
 control|)
 block|{
-name|codebases
-operator|.
-name|add
-argument_list|(
+name|URL
+name|url
+init|=
 name|jar
 operator|.
 name|toRealPath
@@ -664,8 +715,29 @@ argument_list|()
 operator|.
 name|toURL
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|codebases
+operator|.
+name|add
+argument_list|(
+name|url
 argument_list|)
-expr_stmt|;
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"duplicate module/plugin: "
+operator|+
+name|url
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|// parse the plugin's policy file into a set of permissions
@@ -683,18 +755,6 @@ name|toURL
 argument_list|()
 argument_list|,
 name|codebases
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|URL
-index|[
-name|codebases
-operator|.
-name|size
-argument_list|()
-index|]
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// consult this policy for each of the plugin's jars:
@@ -746,7 +806,7 @@ name|map
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads and returns the specified {@code policyFile}.      *<p>      * Resources (e.g. jar files and directories) listed in {@code codebases} location      * will be provided to the policy file via a system property of the short name:      * e.g.<code>${codebase.joda-convert-1.2.jar}</code> would map to full URL.      */
+comment|/**      * Reads and returns the specified {@code policyFile}.      *<p>      * Jar files listed in {@code codebases} location will be provided to the policy file via      * a system property of the short name: e.g.<code>${codebase.joda-convert-1.2.jar}</code>      * would map to full URL.      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -762,9 +822,11 @@ parameter_list|(
 name|URL
 name|policyFile
 parameter_list|,
+name|Set
+argument_list|<
 name|URL
+argument_list|>
 name|codebases
-index|[]
 parameter_list|)
 block|{
 try|try
@@ -799,6 +861,24 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|shortName
+operator|.
+name|endsWith
+argument_list|(
+literal|".jar"
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+continue|continue;
+comment|// tests :(
+block|}
+name|String
+name|previous
+init|=
 name|System
 operator|.
 name|setProperty
@@ -812,7 +892,28 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|previous
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"codebase property already set: "
+operator|+
+name|shortName
+operator|+
+literal|"->"
+operator|+
+name|previous
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|Policy
@@ -862,6 +963,21 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|shortName
+operator|.
+name|endsWith
+argument_list|(
+literal|".jar"
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+continue|continue;
+comment|// tests :(
+block|}
 name|System
 operator|.
 name|clearProperty

@@ -206,6 +206,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Enumeration
 import|;
 end_import
@@ -227,6 +237,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedHashSet
 import|;
 end_import
 
@@ -467,8 +487,10 @@ comment|/**      * Parses the classpath into an array of URLs      * @return arr
 DECL|method|parseClassPath
 specifier|public
 specifier|static
+name|Set
+argument_list|<
 name|URL
-index|[]
+argument_list|>
 name|parseClassPath
 parameter_list|()
 block|{
@@ -494,8 +516,10 @@ literal|"resolves against CWD because that is how classpaths work"
 argument_list|)
 DECL|method|parseClassPath
 specifier|static
+name|Set
+argument_list|<
 name|URL
-index|[]
+argument_list|>
 name|parseClassPath
 parameter_list|(
 name|String
@@ -533,43 +557,26 @@ argument_list|(
 name|pathSeparator
 argument_list|)
 decl_stmt|;
+name|Set
+argument_list|<
 name|URL
+argument_list|>
 name|urlElements
-index|[]
 init|=
 operator|new
-name|URL
-index|[
-name|elements
-operator|.
-name|length
-index|]
+name|LinkedHashSet
+argument_list|<>
+argument_list|()
 decl_stmt|;
+comment|// order is already lost, but some filesystems have it
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|elements
-operator|.
-name|length
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|String
 name|element
-init|=
+range|:
 name|elements
-index|[
-name|i
-index|]
-decl_stmt|;
+control|)
+block|{
 comment|// Technically empty classpath element behaves like CWD.
 comment|// So below is the "correct" code, however in practice with ES, this is usually just a misconfiguration,
 comment|// from old shell scripts left behind or something:
@@ -665,11 +672,9 @@ block|}
 comment|// now just parse as ordinary file
 try|try
 block|{
-name|urlElements
-index|[
-name|i
-index|]
-operator|=
+name|URL
+name|url
+init|=
 name|PathUtils
 operator|.
 name|get
@@ -682,7 +687,36 @@ argument_list|()
 operator|.
 name|toURL
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+name|urlElements
+operator|.
+name|add
+argument_list|(
+name|url
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"jar hell!"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"duplicate jar on classpath: "
+operator|+
+name|classPath
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -701,7 +735,12 @@ throw|;
 block|}
 block|}
 return|return
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
 name|urlElements
+argument_list|)
 return|;
 block|}
 comment|/**      * Checks the set of URLs for duplicate classes      * @throws IllegalStateException if jar hell was found      */
@@ -718,9 +757,11 @@ specifier|static
 name|void
 name|checkJarHell
 parameter_list|(
+name|Set
+argument_list|<
 name|URL
+argument_list|>
 name|urls
-index|[]
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -857,16 +898,22 @@ name|path
 argument_list|)
 condition|)
 block|{
-name|logger
-operator|.
-name|debug
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-literal|"excluding duplicate classpath element: {}"
-argument_list|,
+literal|"jar hell!"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"duplicate jar on classpath: "
+operator|+
 name|path
 argument_list|)
-expr_stmt|;
-continue|continue;
+throw|;
 block|}
 name|logger
 operator|.
@@ -1082,7 +1129,7 @@ literal|".class"
 argument_list|)
 condition|)
 block|{
-comment|// normalize with the os separator
+comment|// normalize with the os separator, remove '.class'
 name|entry
 operator|=
 name|entry
@@ -1103,7 +1150,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-literal|6
+literal|".class"
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|checkClass

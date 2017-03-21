@@ -2860,32 +2860,22 @@ name|Exception
 block|{
 comment|// create list of current jars in classpath
 specifier|final
-name|List
+name|Set
 argument_list|<
 name|URL
 argument_list|>
 name|jars
 init|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
-argument_list|()
-decl_stmt|;
-name|jars
-operator|.
-name|addAll
-argument_list|(
-name|Arrays
-operator|.
-name|asList
 argument_list|(
 name|JarHell
 operator|.
 name|parseClassPath
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// read existing bundles. this does some checks on the installation too.
 name|PluginsService
 operator|.
@@ -2916,6 +2906,8 @@ range|:
 name|pluginJars
 control|)
 block|{
+if|if
+condition|(
 name|jars
 operator|.
 name|add
@@ -2928,7 +2920,20 @@ operator|.
 name|toURL
 argument_list|()
 argument_list|)
-expr_stmt|;
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"jar hell! duplicate plugin jar: "
+operator|+
+name|jar
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// TODO: no jars should be an error
 comment|// TODO: verify the classname exists in one of the jars!
@@ -2938,18 +2943,6 @@ operator|.
 name|checkJarHell
 argument_list|(
 name|jars
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|URL
-index|[
-name|jars
-operator|.
-name|size
-argument_list|()
-index|]
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
