@@ -187,6 +187,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Indicates whether the query should be validated on all shards      */
+DECL|method|setAllShards
+specifier|public
+name|ValidateQueryRequestBuilder
+name|setAllShards
+parameter_list|(
+name|boolean
+name|rewrite
+parameter_list|)
+block|{
+name|request
+operator|.
+name|allShards
+argument_list|(
+name|rewrite
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 
