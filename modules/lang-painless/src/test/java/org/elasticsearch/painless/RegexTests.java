@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -172,10 +184,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSlashesEscapePattern
+DECL|method|testBackslashEscapesForwardSlash
 specifier|public
 name|void
-name|testSlashesEscapePattern
+name|testBackslashEscapesForwardSlash
 parameter_list|()
 block|{
 name|assertEquals
@@ -184,7 +196,42 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return '//' ==~ /\\/\\//"
+literal|"'//' ==~ /\\/\\//"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBackslashEscapeBackslash
+specifier|public
+name|void
+name|testBackslashEscapeBackslash
+parameter_list|()
+block|{
+comment|// Both of these are single backslashes but java escaping + Painless escaping....
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"'\\\\' ==~ /\\\\/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRegexIsNonGreedy
+specifier|public
+name|void
+name|testRegexIsNonGreedy
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def s = /\\\\/.split('.\\\\.'); return s[1] ==~ /\\./"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1258,12 +1305,12 @@ name|void
 name|testBadRegexPattern
 parameter_list|()
 block|{
-name|PatternSyntaxException
+name|ScriptException
 name|e
 init|=
-name|expectScriptThrows
+name|expectThrows
 argument_list|(
-name|PatternSyntaxException
+name|ScriptException
 operator|.
 name|class
 argument_list|,
@@ -1279,29 +1326,47 @@ comment|// Invalid unicode
 block|}
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
+literal|"Error compiling regex: Illegal Unicode escape sequence"
+argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-name|containsString
+argument_list|)
+expr_stmt|;
+comment|// And make sure the location of the error points to the offset inside the pattern
+name|assertEquals
 argument_list|(
-literal|"Illegal Unicode escape sequence near index 2"
+literal|"/\\ujjjj/"
+argument_list|,
+name|e
+operator|.
+name|getScriptStack
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertEquals
 argument_list|(
+literal|"   ^---- HERE"
+argument_list|,
 name|e
 operator|.
-name|getMessage
+name|getScriptStack
 argument_list|()
-argument_list|,
-name|containsString
+operator|.
+name|get
 argument_list|(
-literal|"\\ujjjj"
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
