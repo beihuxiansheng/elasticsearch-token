@@ -42,6 +42,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|SocketPermission
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|AccessController
@@ -79,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GCE's http client changes access levels. Specifically it needs {@link RuntimePermission} accessDeclaredMembers and  * setFactory and {@link java.lang.reflect.ReflectPermission} suppressAccessChecks. For remote calls the plugin needs  * SocketPermissions for 'connect'. This class wraps the operations requiring access in  * {@link AccessController#doPrivileged(PrivilegedAction)} blocks.  */
+comment|/**  * GCE's HTTP client changes access levels. Specifically it needs {@link RuntimePermission} {@code  * accessDeclaredMembers} and {@code setFactory}, and {@link java.lang.reflect.ReflectPermission}  * {@code suppressAccessChecks}. For remote calls, the plugin needs {@link SocketPermission} for  * {@code connect}. This class wraps the operations requiring access in  * {@link AccessController#doPrivileged(PrivilegedAction)} blocks.  */
 end_comment
 
 begin_class
@@ -103,6 +113,7 @@ parameter_list|>
 name|T
 name|doPrivileged
 parameter_list|(
+specifier|final
 name|PrivilegedAction
 argument_list|<
 name|T
@@ -130,6 +141,7 @@ specifier|static
 name|void
 name|doPrivilegedVoid
 parameter_list|(
+specifier|final
 name|Runnable
 name|action
 parameter_list|)
@@ -176,6 +188,7 @@ parameter_list|>
 name|T
 name|doPrivilegedIOException
 parameter_list|(
+specifier|final
 name|PrivilegedExceptionAction
 argument_list|<
 name|T
@@ -203,6 +216,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|PrivilegedActionException
 name|e
 parameter_list|)
