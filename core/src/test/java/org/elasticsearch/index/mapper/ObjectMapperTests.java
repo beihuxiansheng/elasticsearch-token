@@ -102,6 +102,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -346,6 +360,10 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+name|SourceToParse
+operator|.
+name|source
+argument_list|(
 literal|"test"
 argument_list|,
 literal|"type"
@@ -380,6 +398,11 @@ operator|+
 literal|"      \"value\":\"value\"\n"
 operator|+
 literal|"    }"
+argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 expr_stmt|;

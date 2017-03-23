@@ -196,6 +196,10 @@ name|documentMapper
 operator|.
 name|parse
 argument_list|(
+name|SourceToParse
+operator|.
+name|source
+argument_list|(
 literal|"test"
 argument_list|,
 literal|"type"
@@ -222,6 +226,11 @@ argument_list|()
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertNotNull

@@ -272,6 +272,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+name|SourceToParse
+operator|.
+name|source
+argument_list|(
 literal|"test"
 argument_list|,
 literal|"person"
@@ -282,6 +286,11 @@ operator|new
 name|BytesArray
 argument_list|(
 name|json
+argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 decl_stmt|;

@@ -78,6 +78,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|analysis
@@ -1687,6 +1701,10 @@ name|documentMapper
 operator|.
 name|parse
 argument_list|(
+name|SourceToParse
+operator|.
+name|source
+argument_list|(
 literal|"test"
 argument_list|,
 literal|"test"
@@ -1701,6 +1719,11 @@ operator|+
 name|fieldName
 operator|+
 literal|"\" : \"test\" }"
+argument_list|)
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1829,6 +1852,10 @@ name|documentMapper
 operator|.
 name|parse
 argument_list|(
+name|SourceToParse
+operator|.
+name|source
+argument_list|(
 literal|"test"
 argument_list|,
 literal|"test"
@@ -1836,6 +1863,11 @@ argument_list|,
 literal|"random"
 argument_list|,
 name|source
+argument_list|,
+name|XContentType
+operator|.
+name|JSON
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
