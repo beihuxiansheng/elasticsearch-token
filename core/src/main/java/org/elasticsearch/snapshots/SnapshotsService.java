@@ -7220,7 +7220,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|trace
+name|warn
 argument_list|(
 literal|"deleted snapshot failed - deleting files"
 argument_list|,
@@ -7247,6 +7247,9 @@ name|execute
 argument_list|(
 parameter_list|()
 lambda|->
+block|{
+try|try
+block|{
 name|deleteSnapshot
 argument_list|(
 name|failedSnapshot
@@ -7266,6 +7269,61 @@ name|listener
 argument_list|,
 literal|true
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SnapshotMissingException
+name|smex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+call|(
+name|Supplier
+argument_list|<
+name|?
+argument_list|>
+call|)
+argument_list|()
+operator|->
+operator|new
+name|ParameterizedMessage
+argument_list|(
+literal|"Tried deleting in-progress snapshot [{}], but it "
+operator|+
+literal|"could not be found after failing to abort."
+argument_list|,
+name|smex
+operator|.
+name|getSnapshotName
+argument_list|()
+argument_list|)
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+operator|new
+name|SnapshotException
+argument_list|(
+name|snapshot
+argument_list|,
+literal|"Tried deleting in-progress snapshot [{}], but it "
+operator|+
+literal|"could not be found after failing to abort."
+argument_list|,
+name|smex
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
