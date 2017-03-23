@@ -571,6 +571,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|cardinality
 argument_list|)

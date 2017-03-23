@@ -439,6 +439,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|hasValue
 condition|?
@@ -465,6 +468,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE_AS_STRING
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|format
 operator|.

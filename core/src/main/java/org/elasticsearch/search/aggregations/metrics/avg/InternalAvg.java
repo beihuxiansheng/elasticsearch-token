@@ -485,6 +485,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|count
 operator|!=
@@ -516,6 +519,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE_AS_STRING
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|format
 operator|.

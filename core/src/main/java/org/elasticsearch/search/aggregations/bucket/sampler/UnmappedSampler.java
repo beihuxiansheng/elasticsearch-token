@@ -283,6 +283,9 @@ operator|.
 name|CommonFields
 operator|.
 name|DOC_COUNT
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)

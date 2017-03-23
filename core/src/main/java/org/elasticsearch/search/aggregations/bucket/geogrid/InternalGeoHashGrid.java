@@ -641,6 +641,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|getKeyAsString
 argument_list|()
@@ -653,6 +656,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|DOC_COUNT
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|docCount
 argument_list|)
@@ -1320,6 +1326,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|BUCKETS
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

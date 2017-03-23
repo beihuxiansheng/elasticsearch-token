@@ -575,6 +575,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|BUCKETS
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 operator|.
 name|endArray

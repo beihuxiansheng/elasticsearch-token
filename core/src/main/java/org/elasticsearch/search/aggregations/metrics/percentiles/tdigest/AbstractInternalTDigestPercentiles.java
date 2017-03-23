@@ -566,6 +566,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUES
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -660,6 +663,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUES
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -702,6 +708,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|keys
 index|[
@@ -716,6 +725,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|value
 argument_list|)
@@ -736,6 +748,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|VALUE_AS_STRING
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|format
 operator|.

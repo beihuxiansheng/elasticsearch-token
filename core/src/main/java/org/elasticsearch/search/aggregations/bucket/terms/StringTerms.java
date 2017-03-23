@@ -440,6 +440,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|getKeyAsString
 argument_list|()

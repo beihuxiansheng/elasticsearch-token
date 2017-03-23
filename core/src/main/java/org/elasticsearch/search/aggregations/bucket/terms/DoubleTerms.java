@@ -444,6 +444,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|term
 argument_list|)
@@ -464,6 +467,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY_AS_STRING
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|format
 operator|.

@@ -779,6 +779,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY_AS_STRING
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|keyAsString
 argument_list|)
@@ -791,6 +794,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|KEY
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|key
 argument_list|)
@@ -802,6 +808,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|DOC_COUNT
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|docCount
 argument_list|)
@@ -2503,6 +2512,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|BUCKETS
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2515,6 +2527,9 @@ argument_list|(
 name|CommonFields
 operator|.
 name|BUCKETS
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
