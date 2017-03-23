@@ -811,6 +811,14 @@ decl_stmt|;
 name|Throwable
 name|cause
 init|=
+name|shardSearchFailures
+operator|.
+name|length
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
 name|ElasticsearchException
 operator|.
 name|guessRootCauses
