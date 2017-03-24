@@ -267,7 +267,7 @@ operator|.
 name|getSum
 argument_list|()
 argument_list|,
-literal|0.00000001
+literal|0.0000001
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -281,7 +281,7 @@ operator|.
 name|value
 argument_list|()
 argument_list|,
-literal|0.00000001
+literal|0.0000001
 argument_list|)
 expr_stmt|;
 block|}
