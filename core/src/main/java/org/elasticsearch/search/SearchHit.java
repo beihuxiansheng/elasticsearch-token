@@ -2468,7 +2468,11 @@ name|Fields
 operator|.
 name|_TYPE
 argument_list|,
+operator|new
+name|Text
+argument_list|(
 name|value
+argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -3061,7 +3065,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|String
+name|Text
 name|type
 init|=
 name|get
@@ -3119,11 +3123,7 @@ literal|1
 argument_list|,
 name|id
 argument_list|,
-operator|new
-name|Text
-argument_list|(
 name|type
-argument_list|)
 argument_list|,
 name|nestedIdentity
 argument_list|,
