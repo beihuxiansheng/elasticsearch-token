@@ -958,22 +958,6 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_VERSION_MINIMUM_COMPATIBLE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
 name|SETTING_VERSION_UPGRADED
 import|;
 end_import
@@ -1091,13 +1075,6 @@ operator|.
 name|add
 argument_list|(
 name|SETTING_VERSION_UPGRADED
-argument_list|)
-expr_stmt|;
-name|unremovable
-operator|.
-name|add
-argument_list|(
-name|SETTING_VERSION_MINIMUM_COMPATIBLE
 argument_list|)
 expr_stmt|;
 name|UNREMOVABLE_SETTINGS
