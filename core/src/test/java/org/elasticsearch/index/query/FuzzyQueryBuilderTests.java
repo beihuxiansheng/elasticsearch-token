@@ -1071,6 +1071,57 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testParseFailsWithValueArray
+specifier|public
+name|void
+name|testParseFailsWithValueArray
+parameter_list|()
+block|{
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"fuzzy\" : {\n"
+operator|+
+literal|"    \"message1\" : {\n"
+operator|+
+literal|"      \"value\" : [ \"one\", \"two\", \"three\"]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ParsingException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ParsingException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"[fuzzy] unexpected token [START_ARRAY] after [value]"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
