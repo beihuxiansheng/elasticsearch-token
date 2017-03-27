@@ -18,20 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Constants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -104,14 +90,6 @@ name|SmokeTestClientIT
 extends|extends
 name|ESSmokeClientTestCase
 block|{
-comment|// needed to avoid the test suite from failing for having no tests
-comment|// TODO: remove when Netty 4.1.5 is upgraded to Netty 4.1.6 including https://github.com/netty/netty/pull/5778
-DECL|method|testSoThatTestsDoNotFail
-specifier|public
-name|void
-name|testSoThatTestsDoNotFail
-parameter_list|()
-block|{      }
 comment|/**      * Check that we are connected to a cluster named "elasticsearch".      */
 DECL|method|testSimpleClient
 specifier|public
@@ -119,16 +97,6 @@ name|void
 name|testSimpleClient
 parameter_list|()
 block|{
-comment|// TODO: remove when Netty 4.1.5 is upgraded to Netty 4.1.6 including https://github.com/netty/netty/pull/5778
-name|assumeFalse
-argument_list|(
-literal|"JDK is JDK 9"
-argument_list|,
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-argument_list|)
-expr_stmt|;
 name|Client
 name|client
 init|=
@@ -197,16 +165,6 @@ name|void
 name|testPutDocument
 parameter_list|()
 block|{
-comment|// TODO: remove when Netty 4.1.5 is upgraded to Netty 4.1.6 including https://github.com/netty/netty/pull/5778
-name|assumeFalse
-argument_list|(
-literal|"JDK is JDK 9"
-argument_list|,
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-argument_list|)
-expr_stmt|;
 name|Client
 name|client
 init|=
