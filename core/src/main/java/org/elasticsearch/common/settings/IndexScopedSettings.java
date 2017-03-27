@@ -729,6 +729,10 @@ name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 argument_list|,
+name|IndexSettings
+operator|.
+name|INDEX_TRANSLOG_GENERATION_THRESHOLD_SIZE_SETTING
+argument_list|,
 name|IndexFieldDataService
 operator|.
 name|INDEX_FIELDDATA_CACHE_KEY

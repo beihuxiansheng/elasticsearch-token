@@ -68,34 +68,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|bulk
-operator|.
-name|BulkRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|bulk
-operator|.
-name|BulkShardRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|ActionFilters
@@ -127,20 +99,6 @@ operator|.
 name|support
 operator|.
 name|WriteResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|transport
-operator|.
-name|NoNodeAvailableException
 import|;
 end_import
 
@@ -185,20 +143,6 @@ operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNode
 import|;
 end_import
 
@@ -383,24 +327,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|logging
-operator|.
-name|log4j
-operator|.
-name|core
-operator|.
-name|pattern
-operator|.
-name|ConverterKeys
 import|;
 end_import
 
@@ -1555,17 +1481,16 @@ name|void
 name|run
 parameter_list|()
 block|{
-comment|// we either respond immediately ie. if we we don't fsync per request or wait for refresh
-comment|// OR we got an pass async operations on and wait for them to return to respond.
+comment|/*              * We either respond immediately (i.e., if we do not fsync per request or wait for              * refresh), or we there are past async operations and we wait for them to return to              * respond.              */
 name|indexShard
 operator|.
-name|maybeFlush
+name|afterWriteOperation
 argument_list|()
 expr_stmt|;
+comment|// decrement pending by one, if there is nothing else to do we just respond with success
 name|maybeFinish
 argument_list|()
 expr_stmt|;
-comment|// decrement the pendingOpts by one, if there is nothing else to do we just respond with success.
 if|if
 condition|(
 name|waitUntilRefresh
@@ -1597,7 +1522,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"block_until_refresh request ran out of slots and forced a refresh: [{}]"
+literal|"block until refresh ran out of slots and forced a refresh: [{}]"
 argument_list|,
 name|request
 argument_list|)

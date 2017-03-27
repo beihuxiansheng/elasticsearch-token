@@ -5193,6 +5193,7 @@ name|expectedCommitId
 argument_list|)
 return|;
 block|}
+comment|/**      * Executes the given flush request against the engine.      *      * @param request the flush request      * @return the commit ID      */
 DECL|method|flush
 specifier|public
 name|Engine
@@ -5203,9 +5204,8 @@ parameter_list|(
 name|FlushRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
+specifier|final
 name|boolean
 name|waitIfOngoing
 init|=
@@ -5214,6 +5214,7 @@ operator|.
 name|waitIfOngoing
 argument_list|()
 decl_stmt|;
+specifier|final
 name|boolean
 name|force
 init|=
@@ -5222,14 +5223,6 @@ operator|.
 name|force
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -5239,14 +5232,11 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-block|}
-comment|// we allows flush while recovering, since we allow for operations to happen
-comment|// while recovering, and we want to keep the translog at bay (up to deletes, which
-comment|// we don't gc). Yet, we don't use flush internally to clear deletes and flush the indexwriter since
-comment|// we use #writeIndexingBuffer for this now.
+comment|/*          * We allow flushes while recovery since we allow operations to happen while recovering and          * we want to keep the translog under control (up to deletes, which we do not GC). Yet, we          * do not use flush internally to clear deletes and flush the index writer since we use          * Engine#writeIndexingBuffer for this now.          */
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
+specifier|final
 name|Engine
 name|engine
 init|=
@@ -5270,12 +5260,11 @@ argument_list|()
 argument_list|,
 name|state
 argument_list|,
-literal|"flush is only allowed if the engine is not recovery"
-operator|+
-literal|" from translog"
+literal|"flush is only allowed if the engine is not recovery from translog"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|long
 name|time
 init|=
@@ -5284,6 +5273,7 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Engine
 operator|.
 name|CommitId
@@ -5313,6 +5303,31 @@ expr_stmt|;
 return|return
 name|commitId
 return|;
+block|}
+comment|/**      * Rolls the tranlog generation.      *      * @throws IOException if any file operations on the translog throw an I/O exception      */
+DECL|method|rollTranslogGeneration
+specifier|private
+name|void
+name|rollTranslogGeneration
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+specifier|final
+name|Engine
+name|engine
+init|=
+name|getEngine
+argument_list|()
+decl_stmt|;
+name|engine
+operator|.
+name|getTranslog
+argument_list|()
+operator|.
+name|rollGeneration
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|forceMerge
 specifier|public
@@ -7543,12 +7558,13 @@ name|repository
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff this shard needs to be flushed due to too many translog operation or a too large transaction log.      * Otherwise<code>false</code>.      */
+comment|/**      * Tests whether or not the translog should be flushed. This test is based on the current size      * of the translog comparted to the configured flush threshold size.      *      * @return {@code true} if the translog should be flushed      */
 DECL|method|shouldFlush
 name|boolean
 name|shouldFlush
 parameter_list|()
 block|{
+specifier|final
 name|Engine
 name|engine
 init|=
@@ -7564,6 +7580,7 @@ condition|)
 block|{
 try|try
 block|{
+specifier|final
 name|Translog
 name|translog
 init|=
@@ -7575,25 +7592,70 @@ decl_stmt|;
 return|return
 name|translog
 operator|.
-name|sizeInBytes
-argument_list|()
-operator|>
-name|indexSettings
-operator|.
-name|getFlushThresholdSize
-argument_list|()
-operator|.
-name|getBytes
+name|shouldFlush
 argument_list|()
 return|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|AlreadyClosedException
-name|ex
+name|e
 parameter_list|)
 block|{
-comment|// that's fine we are already close - no need to flush
+comment|// we are already closed, no need to flush or roll
+block|}
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Tests whether or not the translog generation should be rolled to a new generation. This test      * is based on the size of the current generation compared to the configured generation      * threshold size.      *      * @return {@code true} if the current generation should be rolled to a new generation      */
+DECL|method|shouldRollTranslogGeneration
+name|boolean
+name|shouldRollTranslogGeneration
+parameter_list|()
+block|{
+specifier|final
+name|Engine
+name|engine
+init|=
+name|getEngineOrNull
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+specifier|final
+name|Translog
+name|translog
+init|=
+name|engine
+operator|.
+name|getTranslog
+argument_list|()
+decl_stmt|;
+return|return
+name|translog
+operator|.
+name|shouldRollGeneration
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+specifier|final
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// we are already closed, no need to flush or roll
 block|}
 block|}
 return|return
@@ -10170,12 +10232,16 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|// we can not protect with a lock since we "release" on a different thread
+end_comment
+
 begin_decl_stmt
-DECL|field|asyncFlushRunning
+DECL|field|flushOrRollRunning
 specifier|private
 specifier|final
 name|AtomicBoolean
-name|asyncFlushRunning
+name|flushOrRollRunning
 init|=
 operator|new
 name|AtomicBoolean
@@ -10184,25 +10250,28 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/**      * Schedules a flush if needed but won't schedule more than one flush concurrently. The flush will be executed on the      * Flush thread-pool asynchronously.      *      * @return<code>true</code> if a new flush is scheduled otherwise<code>false</code>.      */
+comment|/**      * Schedules a flush or translog generation roll if needed but will not schedule more than one      * concurrently. The operation will be executed asynchronously on the flush thread pool.      */
 end_comment
 
 begin_function
-DECL|method|maybeFlush
+DECL|method|afterWriteOperation
 specifier|public
-name|boolean
-name|maybeFlush
+name|void
+name|afterWriteOperation
 parameter_list|()
 block|{
 if|if
 condition|(
 name|shouldFlush
 argument_list|()
+operator|||
+name|shouldRollTranslogGeneration
+argument_list|()
 condition|)
 block|{
 if|if
 condition|(
-name|asyncFlushRunning
+name|flushOrRollRunning
 operator|.
 name|compareAndSet
 argument_list|(
@@ -10212,30 +10281,12 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// we can't use a lock here since we "release" in a different thread
+comment|/*                  * We have to check again since otherwise there is a race when a thread passes the                  * first check next to another thread which performs the operation quickly enough to                  * finish before the current thread could flip the flag. In that situation, we have                  * an extra operation.                  *                  * Additionally, a flush implicitly executes a translog generation roll so if we                  * execute a flush then we do not need to check if we should roll the translog                  * generation.                  */
 if|if
 condition|(
 name|shouldFlush
 argument_list|()
-operator|==
-literal|false
 condition|)
-block|{
-comment|// we have to check again since otherwise there is a race when a thread passes
-comment|// the first shouldFlush() check next to another thread which flushes fast enough
-comment|// to finish before the current thread could flip the asyncFlushRunning flag.
-comment|// in that situation we have an extra unexpected flush.
-name|asyncFlushRunning
-operator|.
-name|compareAndSet
-argument_list|(
-literal|true
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|logger
 operator|.
@@ -10246,7 +10297,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|AbstractRunnable
-name|abstractRunnable
+name|flush
 init|=
 operator|new
 name|AbstractRunnable
@@ -10258,6 +10309,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
+specifier|final
 name|Exception
 name|e
 parameter_list|)
@@ -10306,7 +10358,7 @@ name|void
 name|onAfter
 parameter_list|()
 block|{
-name|asyncFlushRunning
+name|flushOrRollRunning
 operator|.
 name|compareAndSet
 argument_list|(
@@ -10315,10 +10367,9 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|maybeFlush
+name|afterWriteOperation
 argument_list|()
 expr_stmt|;
-comment|// fire a flush up again if we have filled up the limits such that shouldFlush() returns true
 block|}
 block|}
 decl_stmt|;
@@ -10335,18 +10386,129 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|abstractRunnable
+name|flush
 argument_list|)
 expr_stmt|;
-return|return
+block|}
+elseif|else
+if|if
+condition|(
+name|shouldRollTranslogGeneration
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"submitting async roll translog generation request"
+argument_list|)
+expr_stmt|;
+specifier|final
+name|AbstractRunnable
+name|roll
+init|=
+operator|new
+name|AbstractRunnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+specifier|final
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|state
+operator|!=
+name|IndexShardState
+operator|.
+name|CLOSED
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to roll translog generation"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doRun
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|rollTranslogGeneration
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onAfter
+parameter_list|()
+block|{
+name|flushOrRollRunning
+operator|.
+name|compareAndSet
+argument_list|(
 literal|true
-return|;
-block|}
-block|}
-block|}
-return|return
+argument_list|,
 literal|false
-return|;
+argument_list|)
+expr_stmt|;
+name|afterWriteOperation
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+decl_stmt|;
+name|threadPool
+operator|.
+name|executor
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|FLUSH
+argument_list|)
+operator|.
+name|execute
+argument_list|(
+name|roll
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|flushOrRollRunning
+operator|.
+name|compareAndSet
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 end_function
 
