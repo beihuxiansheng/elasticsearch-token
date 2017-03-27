@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DoubleRangeField
+name|DoubleRange
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FloatRangeField
+name|FloatRange
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntRangeField
+name|IntRange
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongRangeField
+name|LongRange
 import|;
 end_import
 
@@ -2979,7 +2979,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|LongRangeField
+name|LongRange
 argument_list|(
 name|name
 argument_list|,
@@ -3617,7 +3617,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FloatRangeField
+name|FloatRange
 argument_list|(
 name|name
 argument_list|,
@@ -3743,7 +3743,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|FloatRangeField
+name|FloatRange
 operator|.
 name|newWithinQuery
 argument_list|(
@@ -3818,7 +3818,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|FloatRangeField
+name|FloatRange
 operator|.
 name|newContainsQuery
 argument_list|(
@@ -3893,7 +3893,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|FloatRangeField
+name|FloatRange
 operator|.
 name|newIntersectsQuery
 argument_list|(
@@ -4042,7 +4042,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|DoubleRangeField
+name|DoubleRange
 argument_list|(
 name|name
 argument_list|,
@@ -4168,7 +4168,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|DoubleRangeField
+name|DoubleRange
 operator|.
 name|newWithinQuery
 argument_list|(
@@ -4243,7 +4243,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|DoubleRangeField
+name|DoubleRange
 operator|.
 name|newContainsQuery
 argument_list|(
@@ -4318,7 +4318,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|DoubleRangeField
+name|DoubleRange
 operator|.
 name|newIntersectsQuery
 argument_list|(
@@ -4463,7 +4463,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IntRangeField
+name|IntRange
 argument_list|(
 name|name
 argument_list|,
@@ -4579,7 +4579,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|IntRangeField
+name|IntRange
 operator|.
 name|newWithinQuery
 argument_list|(
@@ -4646,7 +4646,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|IntRangeField
+name|IntRange
 operator|.
 name|newContainsQuery
 argument_list|(
@@ -4713,7 +4713,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|IntRangeField
+name|IntRange
 operator|.
 name|newIntersectsQuery
 argument_list|(
@@ -4848,7 +4848,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|LongRangeField
+name|LongRange
 argument_list|(
 name|name
 argument_list|,
@@ -4994,7 +4994,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|LongRangeField
+name|LongRange
 operator|.
 name|newWithinQuery
 argument_list|(
@@ -5061,7 +5061,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|LongRangeField
+name|LongRange
 operator|.
 name|newContainsQuery
 argument_list|(
@@ -5128,7 +5128,7 @@ name|includeTo
 parameter_list|)
 block|{
 return|return
-name|LongRangeField
+name|LongRange
 operator|.
 name|newIntersectsQuery
 argument_list|(
