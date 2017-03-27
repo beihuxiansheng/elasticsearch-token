@@ -843,6 +843,8 @@ name|pluginClass
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if

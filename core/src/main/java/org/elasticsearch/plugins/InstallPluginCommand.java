@@ -2850,11 +2850,15 @@ name|PluginSecurity
 operator|.
 name|readPolicy
 argument_list|(
+name|info
+argument_list|,
 name|policy
 argument_list|,
 name|terminal
 argument_list|,
 name|env
+operator|::
+name|tmpFile
 argument_list|,
 name|isBatch
 argument_list|)

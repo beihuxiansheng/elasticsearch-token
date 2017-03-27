@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.bootstrap
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|bootstrap
+name|plugins
 package|;
 end_package
 
@@ -50,15 +50,11 @@ name|Locale
 import|;
 end_import
 
-begin_comment
-comment|/**  * Doesn't actually test spawning a process, as a system call filter is installed before tests run and forbids it.  */
-end_comment
-
 begin_class
-DECL|class|SpawnerTests
+DECL|class|PluginsTests
 specifier|public
 class|class
-name|SpawnerTests
+name|PluginsTests
 extends|extends
 name|ESTestCase
 block|{
@@ -68,12 +64,13 @@ name|void
 name|testMakePlatformName
 parameter_list|()
 block|{
+specifier|final
 name|String
 name|platformName
 init|=
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 name|Constants
 operator|.
@@ -169,9 +166,9 @@ name|assertEquals
 argument_list|(
 literal|"darwin-x86_64"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"Mac OS X"
 argument_list|,
@@ -183,9 +180,9 @@ name|assertEquals
 argument_list|(
 literal|"linux-x86_64"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"Linux"
 argument_list|,
@@ -197,9 +194,9 @@ name|assertEquals
 argument_list|(
 literal|"linux-x86"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"Linux"
 argument_list|,
@@ -211,9 +208,9 @@ name|assertEquals
 argument_list|(
 literal|"windows-x86_64"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"Windows Server 2008 R2"
 argument_list|,
@@ -225,9 +222,9 @@ name|assertEquals
 argument_list|(
 literal|"windows-x86"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"Windows Server 2008"
 argument_list|,
@@ -239,9 +236,9 @@ name|assertEquals
 argument_list|(
 literal|"windows-x86_64"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"Windows 8.1"
 argument_list|,
@@ -253,9 +250,9 @@ name|assertEquals
 argument_list|(
 literal|"sunos-x86_64"
 argument_list|,
-name|Spawner
+name|Platforms
 operator|.
-name|makePlatformName
+name|platformName
 argument_list|(
 literal|"SunOS"
 argument_list|,

@@ -358,7 +358,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"incompatible with Elasticsearch"
+literal|"incompatible with version"
 argument_list|)
 condition|)
 block|{

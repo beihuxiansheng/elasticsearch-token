@@ -48,6 +48,8 @@ argument_list|,
 name|version
 argument_list|,
 name|classname
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

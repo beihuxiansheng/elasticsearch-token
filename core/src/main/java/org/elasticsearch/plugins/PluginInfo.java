@@ -162,9 +162,23 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Properties
 import|;
 end_import
+
+begin_comment
+comment|/**  * An in-memory representation of the plugin descriptor.  */
+end_comment
 
 begin_class
 DECL|class|PluginInfo
@@ -194,53 +208,6 @@ name|ES_PLUGIN_POLICY
 init|=
 literal|"plugin-security.policy"
 decl_stmt|;
-DECL|class|Fields
-specifier|static
-specifier|final
-class|class
-name|Fields
-block|{
-DECL|field|NAME
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"name"
-decl_stmt|;
-DECL|field|DESCRIPTION
-specifier|static
-specifier|final
-name|String
-name|DESCRIPTION
-init|=
-literal|"description"
-decl_stmt|;
-DECL|field|URL
-specifier|static
-specifier|final
-name|String
-name|URL
-init|=
-literal|"url"
-decl_stmt|;
-DECL|field|VERSION
-specifier|static
-specifier|final
-name|String
-name|VERSION
-init|=
-literal|"version"
-decl_stmt|;
-DECL|field|CLASSNAME
-specifier|static
-specifier|final
-name|String
-name|CLASSNAME
-init|=
-literal|"classname"
-decl_stmt|;
-block|}
 DECL|field|name
 specifier|private
 specifier|final
@@ -265,22 +232,36 @@ specifier|final
 name|String
 name|classname
 decl_stmt|;
-comment|/**      * Information about plugins      *      * @param name        Its name      * @param description Its description      * @param version     Version number      */
+DECL|field|hasNativeController
+specifier|private
+specifier|final
+name|boolean
+name|hasNativeController
+decl_stmt|;
+comment|/**      * Construct plugin info.      *      * @param name                the name of the plugin      * @param description         a description of the plugin      * @param version             the version of Elasticsearch the plugin is built for      * @param classname           the entry point to the plugin      * @param hasNativeController whether or not the plugin has a native controller      */
 DECL|method|PluginInfo
 specifier|public
 name|PluginInfo
 parameter_list|(
+specifier|final
 name|String
 name|name
 parameter_list|,
+specifier|final
 name|String
 name|description
 parameter_list|,
+specifier|final
 name|String
 name|version
 parameter_list|,
+specifier|final
 name|String
 name|classname
+parameter_list|,
+specifier|final
+name|boolean
+name|hasNativeController
 parameter_list|)
 block|{
 name|this
@@ -307,11 +288,19 @@ name|classname
 operator|=
 name|classname
 expr_stmt|;
+name|this
+operator|.
+name|hasNativeController
+operator|=
+name|hasNativeController
+expr_stmt|;
 block|}
+comment|/**      * Construct plugin info from a stream.      *      * @param in the stream      * @throws IOException if an I/O exception occurred reading the plugin info from the stream      */
 DECL|method|PluginInfo
 specifier|public
 name|PluginInfo
 parameter_list|(
+specifier|final
 name|StreamInput
 name|in
 parameter_list|)
@@ -354,6 +343,36 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|after
+argument_list|(
+name|Version
+operator|.
+name|V_5_4_0_UNRELEASED
+argument_list|)
+condition|)
+block|{
+name|hasNativeController
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|hasNativeController
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -362,6 +381,7 @@ specifier|public
 name|void
 name|writeTo
 parameter_list|(
+specifier|final
 name|StreamOutput
 name|out
 parameter_list|)
@@ -396,30 +416,57 @@ argument_list|(
 name|classname
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|after
+argument_list|(
+name|Version
+operator|.
+name|V_5_4_0_UNRELEASED
+argument_list|)
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|hasNativeController
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/** reads (and validates) plugin metadata descriptor file */
+comment|/**      * Reads and validates the plugin descriptor file.      *      * @param path the path to the root directory for the plugin      * @return the plugin info      * @throws IOException if an I/O exception occurred reading the plugin descriptor      */
 DECL|method|readFromProperties
 specifier|public
 specifier|static
 name|PluginInfo
 name|readFromProperties
 parameter_list|(
+specifier|final
 name|Path
-name|dir
+name|path
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|Path
 name|descriptor
 init|=
-name|dir
+name|path
 operator|.
 name|resolve
 argument_list|(
 name|ES_PLUGIN_PROPERTIES
 argument_list|)
 decl_stmt|;
+specifier|final
 name|Properties
 name|props
 init|=
@@ -448,6 +495,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|String
 name|name
 init|=
@@ -474,7 +522,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Property [name] is missing in ["
+literal|"property [name] is missing in ["
 operator|+
 name|descriptor
 operator|+
@@ -482,6 +530,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|String
 name|description
 init|=
@@ -503,7 +552,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Property [description] is missing for plugin ["
+literal|"property [description] is missing for plugin ["
 operator|+
 name|name
 operator|+
@@ -511,6 +560,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|String
 name|version
 init|=
@@ -532,7 +582,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Property [version] is missing for plugin ["
+literal|"property [version] is missing for plugin ["
 operator|+
 name|name
 operator|+
@@ -540,6 +590,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|String
 name|esVersionString
 init|=
@@ -561,7 +612,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Property [elasticsearch.version] is missing for plugin ["
+literal|"property [elasticsearch.version] is missing for plugin ["
 operator|+
 name|name
 operator|+
@@ -569,6 +620,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|Version
 name|esVersion
 init|=
@@ -593,31 +645,41 @@ operator|==
 literal|false
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
 argument_list|(
-literal|"Plugin ["
-operator|+
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"plugin [%s] is incompatible with version [%s]; was designed for version [%s]"
+argument_list|,
 name|name
-operator|+
-literal|"] is incompatible with Elasticsearch ["
-operator|+
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"]. Was designed for version ["
-operator|+
+argument_list|,
 name|esVersionString
-operator|+
-literal|"]"
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
 argument_list|)
 throw|;
 block|}
+specifier|final
 name|String
 name|javaVersionString
 init|=
@@ -639,7 +701,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Property [java.version] is missing for plugin ["
+literal|"property [java.version] is missing for plugin ["
 operator|+
 name|name
 operator|+
@@ -663,6 +725,7 @@ argument_list|,
 name|javaVersionString
 argument_list|)
 expr_stmt|;
+specifier|final
 name|String
 name|classname
 init|=
@@ -684,13 +747,96 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Property [classname] is missing for plugin ["
+literal|"property [classname] is missing for plugin ["
 operator|+
 name|name
 operator|+
 literal|"]"
 argument_list|)
 throw|;
+block|}
+specifier|final
+name|String
+name|hasNativeControllerValue
+init|=
+name|props
+operator|.
+name|getProperty
+argument_list|(
+literal|"has.native.controller"
+argument_list|)
+decl_stmt|;
+specifier|final
+name|boolean
+name|hasNativeController
+decl_stmt|;
+if|if
+condition|(
+name|hasNativeControllerValue
+operator|==
+literal|null
+condition|)
+block|{
+name|hasNativeController
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+switch|switch
+condition|(
+name|hasNativeControllerValue
+condition|)
+block|{
+case|case
+literal|"true"
+case|:
+name|hasNativeController
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+case|case
+literal|"false"
+case|:
+name|hasNativeController
+operator|=
+literal|false
+expr_stmt|;
+break|break;
+default|default:
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"property [%s] must be [%s], [%s], or unspecified but was [%s]"
+argument_list|,
+literal|"has_native_controller"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"false"
+argument_list|,
+name|hasNativeControllerValue
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 operator|new
@@ -703,10 +849,12 @@ argument_list|,
 name|version
 argument_list|,
 name|classname
+argument_list|,
+name|hasNativeController
 argument_list|)
 return|;
 block|}
-comment|/**      * @return Plugin's name      */
+comment|/**      * The name of the plugin.      *      * @return the plugin name      */
 DECL|method|getName
 specifier|public
 name|String
@@ -717,7 +865,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * @return Plugin's description if any      */
+comment|/**      * The description of the plugin.      *      * @return the plugin description      */
 DECL|method|getDescription
 specifier|public
 name|String
@@ -728,7 +876,7 @@ return|return
 name|description
 return|;
 block|}
-comment|/**      * @return plugin's classname      */
+comment|/**      * The entry point to the plugin.      *      * @return the entry point to the plugin      */
 DECL|method|getClassname
 specifier|public
 name|String
@@ -739,7 +887,7 @@ return|return
 name|classname
 return|;
 block|}
-comment|/**      * @return Version number for the plugin      */
+comment|/**      * The version of Elasticsearch the plugin was built for.      *      * @return the version      */
 DECL|method|getVersion
 specifier|public
 name|String
@@ -748,6 +896,17 @@ parameter_list|()
 block|{
 return|return
 name|version
+return|;
+block|}
+comment|/**      * Whether or not the plugin has a native controller.      *      * @return {@code true} if the plugin has a native controller      */
+DECL|method|hasNativeController
+specifier|public
+name|boolean
+name|hasNativeController
+parameter_list|()
+block|{
+return|return
+name|hasNativeController
 return|;
 block|}
 annotation|@
@@ -771,13 +930,12 @@ operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
+block|{
 name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
-name|NAME
+literal|"name"
 argument_list|,
 name|name
 argument_list|)
@@ -786,9 +944,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
-name|VERSION
+literal|"version"
 argument_list|,
 name|version
 argument_list|)
@@ -797,9 +953,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
-name|DESCRIPTION
+literal|"description"
 argument_list|,
 name|description
 argument_list|)
@@ -808,13 +962,21 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|Fields
-operator|.
-name|CLASSNAME
+literal|"classname"
 argument_list|,
 name|classname
 argument_list|)
 expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"has_native_controller"
+argument_list|,
+name|hasNativeController
+argument_list|)
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|endObject
@@ -987,6 +1149,21 @@ operator|.
 name|append
 argument_list|(
 name|version
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"Native Controller: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|hasNativeController
 argument_list|)
 operator|.
 name|append

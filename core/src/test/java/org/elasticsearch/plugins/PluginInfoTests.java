@@ -297,7 +297,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Property [name] is missing in"
+literal|"property [name] is missing in"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -343,7 +343,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Property [name] is missing in"
+literal|"property [name] is missing in"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -840,7 +840,11 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"version string must be a sequence of nonnegative decimal integers separated by \".\"'s and may have leading zeros but was 1.7.0_80"
+literal|"version string must be a sequence of nonnegative "
+operator|+
+literal|"decimal integers separated by \".\"'s and may have leading zeros "
+operator|+
+literal|"but was 1.7.0_80"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1001,7 +1005,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Was designed for version [2.0.0]"
+literal|"was designed for version [2.0.0]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1093,7 +1097,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Property [classname] is missing"
+literal|"property [classname] is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1130,6 +1134,9 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1147,6 +1154,9 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1164,6 +1174,9 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1181,6 +1194,9 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1198,6 +1214,9 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
