@@ -97,6 +97,7 @@ name|void
 name|testSimpleClient
 parameter_list|()
 block|{
+specifier|final
 name|Client
 name|client
 init|=
@@ -104,6 +105,7 @@ name|getClient
 argument_list|()
 decl_stmt|;
 comment|// START SNIPPET: java-doc-admin-cluster-health
+specifier|final
 name|ClusterHealthResponse
 name|health
 init|=
@@ -124,6 +126,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+specifier|final
 name|String
 name|clusterName
 init|=
@@ -132,6 +135,7 @@ operator|.
 name|getClusterName
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|numberOfNodes
 init|=
@@ -165,6 +169,7 @@ name|void
 name|testPutDocument
 parameter_list|()
 block|{
+specifier|final
 name|Client
 name|client
 init|=
@@ -217,6 +222,7 @@ argument_list|()
 expr_stmt|;
 comment|// END SNIPPET: java-doc-admin-indices-refresh
 comment|// START SNIPPET: java-doc-search-simple
+specifier|final
 name|SearchResponse
 name|searchResponse
 init|=
