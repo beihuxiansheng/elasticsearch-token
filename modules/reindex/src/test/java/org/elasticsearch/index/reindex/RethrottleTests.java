@@ -140,6 +140,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|tasks
 operator|.
 name|TaskId
@@ -356,6 +370,14 @@ name|source
 argument_list|(
 literal|"test"
 argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
 argument_list|,
 name|DeleteByQueryAction
 operator|.
@@ -454,6 +476,14 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|filter
+argument_list|(
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
 name|setSlices
 argument_list|(
 name|between
@@ -506,7 +536,7 @@ name|getSlices
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/* Add ten documents per slice so most slices will have many documents to process, having to go to multiple batches.          * we can't rely on all of them doing so, but           */
+comment|/* Add ten documents per slice so most slices will have many documents to process, having to go to multiple batches.          * we can't rely on all of them doing so, but          */
 name|List
 argument_list|<
 name|IndexRequestBuilder
