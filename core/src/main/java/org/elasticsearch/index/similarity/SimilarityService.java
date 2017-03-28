@@ -329,6 +329,17 @@ operator|::
 operator|new
 argument_list|)
 expr_stmt|;
+name|defaults
+operator|.
+name|put
+argument_list|(
+literal|"boolean"
+argument_list|,
+name|BooleanSimilarityProvider
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
 name|buildIn
 operator|.
 name|put
