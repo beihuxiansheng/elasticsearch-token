@@ -350,7 +350,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
@@ -423,7 +423,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|after
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
