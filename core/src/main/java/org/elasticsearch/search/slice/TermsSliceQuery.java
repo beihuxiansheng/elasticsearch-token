@@ -251,7 +251,7 @@ name|SliceQuery
 block|{
 comment|// Fixed seed for computing term hashCode
 DECL|field|SEED
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
