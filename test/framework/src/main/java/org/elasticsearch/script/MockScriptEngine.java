@@ -148,6 +148,18 @@ name|Function
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * A mocked script engine that can be used for testing purpose.  *  * This script engine allows to define a set of predefined scripts that basically a combination of a key and a  * function:  *  * The key can be anything as long as it is a {@link String} and is used to resolve the scripts  * at compilation time. For inline scripts, the key can be a description of the script. For stored and file scripts,  * the source must match a key in the predefined set of scripts.  *  * The function is used to provide the result of the script execution and can return anything.  */
 end_comment
@@ -1110,6 +1122,34 @@ return|return
 literal|true
 return|;
 block|}
+block|}
+DECL|method|mockInlineScript
+specifier|public
+specifier|static
+name|Script
+name|mockInlineScript
+parameter_list|(
+specifier|final
+name|String
+name|script
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Script
+argument_list|(
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"mock"
+argument_list|,
+name|script
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|)
+return|;
 block|}
 block|}
 end_class
