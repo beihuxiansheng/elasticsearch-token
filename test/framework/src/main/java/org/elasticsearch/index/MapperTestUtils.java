@@ -224,6 +224,9 @@ name|tempDir
 parameter_list|,
 name|Settings
 name|indexSettings
+parameter_list|,
+name|String
+name|indexName
 parameter_list|)
 throws|throws
 name|IOException
@@ -250,6 +253,8 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|indicesModule
+argument_list|,
+name|indexName
 argument_list|)
 return|;
 block|}
@@ -270,6 +275,9 @@ name|settings
 parameter_list|,
 name|IndicesModule
 name|indicesModule
+parameter_list|,
+name|String
+name|indexName
 parameter_list|)
 throws|throws
 name|IOException
@@ -352,7 +360,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|,
 name|finalSettings
 argument_list|)

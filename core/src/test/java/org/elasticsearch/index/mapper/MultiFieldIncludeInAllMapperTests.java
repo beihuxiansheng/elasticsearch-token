@@ -147,6 +147,8 @@ argument_list|,
 name|Settings
 operator|.
 name|EMPTY
+argument_list|,
+literal|"test"
 argument_list|)
 decl_stmt|;
 name|Exception

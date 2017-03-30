@@ -297,6 +297,8 @@ name|createTempDir
 argument_list|()
 argument_list|,
 name|settings
+argument_list|,
+literal|"test"
 argument_list|)
 decl_stmt|;
 name|Exception
@@ -378,6 +380,8 @@ name|createTempDir
 argument_list|()
 argument_list|,
 name|settings
+argument_list|,
+literal|"test"
 argument_list|)
 decl_stmt|;
 comment|// Should not throw an exception now

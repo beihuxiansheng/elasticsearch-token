@@ -1728,6 +1728,8 @@ name|indexSettings
 operator|.
 name|getSettings
 argument_list|()
+argument_list|,
+literal|"index"
 argument_list|)
 decl_stmt|;
 name|mapperService

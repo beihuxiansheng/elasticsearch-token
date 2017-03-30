@@ -52,6 +52,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|Mapping
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -88,15 +102,13 @@ specifier|public
 interface|interface
 name|MappingUpdatePerformer
 block|{
-comment|/**      * Determine if any mappings need to be updated, and update them on the master node if      * necessary. Returnes a failure Exception in the event updating the mappings fails or null if      * successful.      */
-DECL|method|updateMappingsIfNeeded
+comment|/**      * Update the mappings on the master.      */
+DECL|method|updateMappings
 name|void
-name|updateMappingsIfNeeded
+name|updateMappings
 parameter_list|(
-name|Engine
-operator|.
-name|Index
-name|operation
+name|Mapping
+name|update
 parameter_list|,
 name|ShardId
 name|shardId
