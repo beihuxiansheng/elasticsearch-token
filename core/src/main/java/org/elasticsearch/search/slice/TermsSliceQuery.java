@@ -214,6 +214,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -235,6 +249,16 @@ name|TermsSliceQuery
 extends|extends
 name|SliceQuery
 block|{
+comment|// Fixed seed for computing term hashCode
+DECL|field|SEED
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|SEED
+init|=
+literal|7919
+decl_stmt|;
 DECL|method|TermsSliceQuery
 specifier|public
 name|TermsSliceQuery
@@ -404,13 +428,19 @@ name|next
 argument_list|()
 control|)
 block|{
+comment|// use a fixed seed instead of term.hashCode() otherwise this query may return inconsistent results when
+comment|// running on another replica (StringHelper sets its default seed at startup with current time)
 name|int
 name|hashCode
 init|=
-name|term
+name|StringHelper
 operator|.
-name|hashCode
-argument_list|()
+name|murmurhash3_x86_32
+argument_list|(
+name|term
+argument_list|,
+name|SEED
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
