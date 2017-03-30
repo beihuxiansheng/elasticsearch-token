@@ -1022,16 +1022,11 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicArray
-operator|.
-name|Entry
-argument_list|<
 name|Tuple
 argument_list|<
 name|TaskResponse
 argument_list|,
 name|Exception
-argument_list|>
 argument_list|>
 name|response
 range|:
@@ -1045,8 +1040,6 @@ if|if
 condition|(
 name|response
 operator|.
-name|value
-operator|.
 name|v1
 argument_list|()
 operator|==
@@ -1055,8 +1048,6 @@ condition|)
 block|{
 assert|assert
 name|response
-operator|.
-name|value
 operator|.
 name|v2
 argument_list|()
@@ -1090,8 +1081,6 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|value
-operator|.
 name|v2
 argument_list|()
 argument_list|)
@@ -1103,8 +1092,6 @@ block|{
 assert|assert
 name|response
 operator|.
-name|value
-operator|.
 name|v2
 argument_list|()
 operator|==
@@ -1115,8 +1102,6 @@ operator|.
 name|add
 argument_list|(
 name|response
-operator|.
-name|value
 operator|.
 name|v1
 argument_list|()

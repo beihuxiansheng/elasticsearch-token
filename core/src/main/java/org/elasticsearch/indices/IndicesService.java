@@ -1422,16 +1422,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|EnumSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -7043,7 +7033,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|shardTarget
+name|setSearchShardTarget
 argument_list|(
 name|context
 operator|.

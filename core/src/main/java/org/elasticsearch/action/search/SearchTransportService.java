@@ -184,6 +184,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|SearchPhaseResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|SearchService
 import|;
 end_import
@@ -325,20 +337,6 @@ operator|.
 name|query
 operator|.
 name|QuerySearchResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|query
-operator|.
-name|QuerySearchResultProvider
 import|;
 end_import
 
@@ -896,7 +894,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|DfsSearchResult
 argument_list|>
@@ -946,9 +944,9 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 argument_list|>
 name|listener
 parameter_list|)
@@ -968,7 +966,7 @@ literal|1
 decl_stmt|;
 name|Supplier
 argument_list|<
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 argument_list|>
 name|supplier
 init|=
@@ -1067,7 +1065,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|QuerySearchResult
 argument_list|>
@@ -1099,10 +1097,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sendExecuteQuery
+DECL|method|sendExecuteScrollQuery
 specifier|public
 name|void
-name|sendExecuteQuery
+name|sendExecuteScrollQuery
 parameter_list|(
 name|DiscoveryNode
 name|node
@@ -1115,7 +1113,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|ScrollQuerySearchResult
 argument_list|>
@@ -1152,10 +1150,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sendExecuteFetch
+DECL|method|sendExecuteScrollFetch
 specifier|public
 name|void
-name|sendExecuteFetch
+name|sendExecuteScrollFetch
 parameter_list|(
 name|DiscoveryNode
 name|node
@@ -1168,7 +1166,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|ScrollQueryFetchSearchResult
 argument_list|>
@@ -1223,7 +1221,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|FetchSearchResult
 argument_list|>
@@ -1260,7 +1258,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|FetchSearchResult
 argument_list|>
@@ -1307,7 +1305,7 @@ name|SearchTask
 name|task
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|FetchSearchResult
 argument_list|>
@@ -2155,7 +2153,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 name|result
 init|=
 name|searchService
@@ -2440,7 +2438,7 @@ operator|.
 name|numberOfShards
 argument_list|()
 assert|;
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 name|result
 init|=
 name|searchService

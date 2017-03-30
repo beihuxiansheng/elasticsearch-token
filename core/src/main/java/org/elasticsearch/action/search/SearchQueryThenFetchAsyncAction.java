@@ -92,9 +92,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
-operator|.
-name|AliasFilter
+name|SearchPhaseResult
 import|;
 end_import
 
@@ -106,9 +104,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|query
+name|internal
 operator|.
-name|QuerySearchResultProvider
+name|AliasFilter
 import|;
 end_import
 
@@ -166,7 +164,7 @@ name|SearchQueryThenFetchAsyncAction
 extends|extends
 name|AbstractSearchAsyncAction
 argument_list|<
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 argument_list|>
 block|{
 DECL|field|searchPhaseController
@@ -313,9 +311,9 @@ name|ShardRouting
 name|shard
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 argument_list|>
 name|listener
 parameter_list|)
@@ -357,7 +355,7 @@ parameter_list|(
 specifier|final
 name|SearchPhaseResults
 argument_list|<
-name|QuerySearchResultProvider
+name|SearchPhaseResult
 argument_list|>
 name|results
 parameter_list|,

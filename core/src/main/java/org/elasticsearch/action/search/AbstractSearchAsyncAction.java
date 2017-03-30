@@ -895,7 +895,7 @@ name|r
 lambda|->
 name|r
 operator|.
-name|shardTarget
+name|getSearchShardTarget
 argument_list|()
 operator|.
 name|toString
@@ -1047,12 +1047,7 @@ return|;
 block|}
 name|List
 argument_list|<
-name|AtomicArray
-operator|.
-name|Entry
-argument_list|<
 name|ShardSearchFailure
-argument_list|>
 argument_list|>
 name|entries
 init|=
@@ -1102,8 +1097,6 @@ name|get
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|value
 expr_stmt|;
 block|}
 return|return
@@ -1335,7 +1328,7 @@ name|apply
 argument_list|(
 name|entry
 operator|.
-name|shardTarget
+name|getSearchShardTarget
 argument_list|()
 operator|.
 name|getNodeId
@@ -1346,7 +1339,7 @@ name|sendReleaseSearchContext
 argument_list|(
 name|entry
 operator|.
-name|id
+name|getRequestId
 argument_list|()
 argument_list|,
 name|connection
@@ -1395,9 +1388,6 @@ specifier|final
 name|void
 name|onShardSuccess
 parameter_list|(
-name|int
-name|shardIndex
-parameter_list|,
 name|Result
 name|result
 parameter_list|)
@@ -1411,8 +1401,6 @@ name|results
 operator|.
 name|consumeResult
 argument_list|(
-name|shardIndex
-argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
@@ -1436,7 +1424,7 @@ literal|null
 condition|?
 name|result
 operator|.
-name|shardTarget
+name|getSearchShardTarget
 argument_list|()
 else|:
 literal|null
@@ -1470,7 +1458,10 @@ name|shardFailures
 operator|.
 name|set
 argument_list|(
-name|shardIndex
+name|result
+operator|.
+name|getShardIndex
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)

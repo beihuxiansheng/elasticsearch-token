@@ -68,8 +68,20 @@ name|SearchShardTarget
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
+import|;
+end_import
+
 begin_comment
-comment|/**  * This is a simple base class to simplify fan out to shards and collect their results. Each results passed to  * {@link #onResult(int, SearchPhaseResult, SearchShardTarget)} will be set to the provided result array  * where the given index is used to set the result on the array.  */
+comment|/**  * This is a simple base class to simplify fan out to shards and collect their results. Each results passed to  * {@link #onResult(SearchPhaseResult)} will be set to the provided result array  * where the given index is used to set the result on the array.  */
 end_comment
 
 begin_class
@@ -86,7 +98,7 @@ block|{
 DECL|field|resultConsumer
 specifier|private
 specifier|final
-name|ResultConsumer
+name|Consumer
 argument_list|<
 name|R
 argument_list|>
@@ -113,7 +125,7 @@ decl_stmt|;
 DECL|method|CountedCollector
 name|CountedCollector
 parameter_list|(
-name|ResultConsumer
+name|Consumer
 argument_list|<
 name|R
 argument_list|>
@@ -194,31 +206,16 @@ DECL|method|onResult
 name|void
 name|onResult
 parameter_list|(
-name|int
-name|index
-parameter_list|,
 name|R
 name|result
-parameter_list|,
-name|SearchShardTarget
-name|target
 parameter_list|)
 block|{
 try|try
 block|{
-name|result
-operator|.
-name|shardTarget
-argument_list|(
-name|target
-argument_list|)
-expr_stmt|;
 name|resultConsumer
 operator|.
-name|consume
+name|accept
 argument_list|(
-name|index
-argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
@@ -268,31 +265,6 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-comment|/**      * A functional interface to plug in shard result consumers to this collector      */
-annotation|@
-name|FunctionalInterface
-DECL|interface|ResultConsumer
-specifier|public
-interface|interface
-name|ResultConsumer
-parameter_list|<
-name|R
-extends|extends
-name|SearchPhaseResult
-parameter_list|>
-block|{
-DECL|method|consume
-name|void
-name|consume
-parameter_list|(
-name|int
-name|shardIndex
-parameter_list|,
-name|R
-name|result
-parameter_list|)
-function_decl|;
 block|}
 block|}
 end_class

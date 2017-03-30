@@ -315,7 +315,7 @@ name|ShardRouting
 name|shard
 parameter_list|,
 specifier|final
-name|ActionListener
+name|SearchActionListener
 argument_list|<
 name|DfsSearchResult
 argument_list|>

@@ -248,7 +248,7 @@ name|SearchTransportService
 name|getSearchTransport
 parameter_list|()
 function_decl|;
-comment|/**      * Releases a search context with the given context ID on the node the given connection is connected to.      * @see org.elasticsearch.search.query.QuerySearchResult#id()      * @see org.elasticsearch.search.fetch.FetchSearchResult#id()      *      */
+comment|/**      * Releases a search context with the given context ID on the node the given connection is connected to.      * @see org.elasticsearch.search.query.QuerySearchResult#getRequestId()      * @see org.elasticsearch.search.fetch.FetchSearchResult#getRequestId()      *      */
 DECL|method|sendReleaseSearchContext
 specifier|default
 name|void
