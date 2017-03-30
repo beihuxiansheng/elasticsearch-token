@@ -293,7 +293,6 @@ return|;
 block|}
 DECL|method|testReduceRandom
 specifier|public
-specifier|final
 name|void
 name|testReduceRandom
 parameter_list|()
