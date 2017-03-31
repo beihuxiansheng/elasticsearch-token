@@ -227,6 +227,8 @@ extends|extends
 name|ActionRequest
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|FIELDS_FIELD
 specifier|public
@@ -494,7 +496,7 @@ name|FieldCapabilitiesRequest
 name|indices
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|indices
 parameter_list|)
 block|{
