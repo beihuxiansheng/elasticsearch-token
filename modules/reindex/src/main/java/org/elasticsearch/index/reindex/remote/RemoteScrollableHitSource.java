@@ -975,6 +975,8 @@ argument_list|,
 name|scrollEntity
 argument_list|(
 name|scrollId
+argument_list|,
+name|remoteVersion
 argument_list|)
 argument_list|,
 name|RESPONSE_PARSER
@@ -1012,6 +1014,8 @@ argument_list|,
 name|clearScrollEntity
 argument_list|(
 name|scrollId
+argument_list|,
+name|remoteVersion
 argument_list|)
 argument_list|,
 operator|new
