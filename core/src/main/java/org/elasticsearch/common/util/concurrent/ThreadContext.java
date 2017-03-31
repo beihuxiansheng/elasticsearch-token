@@ -126,20 +126,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|Store
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -354,6 +340,11 @@ specifier|private
 specifier|final
 name|ContextThreadLocal
 name|threadLocal
+decl_stmt|;
+DECL|field|isSystemContext
+specifier|private
+name|boolean
+name|isSystemContext
 decl_stmt|;
 comment|/**      * Creates a new ThreadContext instance      * @param settings the settings to read the default request headers from      */
 DECL|method|ThreadContext
@@ -1308,6 +1299,43 @@ operator|==
 name|DEFAULT_CONTEXT
 return|;
 block|}
+comment|/**      * Marks this thread context as an internal system context. This signals that actions in this context are issued      * by the system itself rather than by a user action.      */
+DECL|method|markAsSystemContext
+specifier|public
+name|void
+name|markAsSystemContext
+parameter_list|()
+block|{
+name|threadLocal
+operator|.
+name|set
+argument_list|(
+name|threadLocal
+operator|.
+name|get
+argument_list|()
+operator|.
+name|setSystemContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Returns<code>true</code> iff this context is a system context      */
+DECL|method|isSystemContext
+specifier|public
+name|boolean
+name|isSystemContext
+parameter_list|()
+block|{
+return|return
+name|threadLocal
+operator|.
+name|get
+argument_list|()
+operator|.
+name|isSystemContext
+return|;
+block|}
 comment|/**      * Returns<code>true</code> if the context is closed, otherwise<code>true</code>      */
 DECL|method|isClosed
 name|boolean
@@ -1392,6 +1420,12 @@ name|String
 argument_list|>
 argument_list|>
 name|responseHeaders
+decl_stmt|;
+DECL|field|isSystemContext
+specifier|private
+specifier|final
+name|boolean
+name|isSystemContext
 decl_stmt|;
 DECL|method|ThreadContextStruct
 specifier|private
@@ -1499,6 +1533,40 @@ operator|.
 name|emptyMap
 argument_list|()
 expr_stmt|;
+name|isSystemContext
+operator|=
+literal|false
+expr_stmt|;
+comment|// we never serialize this it's a transient flag
+block|}
+DECL|method|setSystemContext
+specifier|private
+name|ThreadContextStruct
+name|setSystemContext
+parameter_list|()
+block|{
+if|if
+condition|(
+name|isSystemContext
+condition|)
+block|{
+return|return
+name|this
+return|;
+block|}
+return|return
+operator|new
+name|ThreadContextStruct
+argument_list|(
+name|requestHeaders
+argument_list|,
+name|responseHeaders
+argument_list|,
+name|transientHeaders
+argument_list|,
+literal|true
+argument_list|)
+return|;
 block|}
 DECL|method|ThreadContextStruct
 specifier|private
@@ -1530,6 +1598,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|transientHeaders
+parameter_list|,
+name|boolean
+name|isSystemContext
 parameter_list|)
 block|{
 name|this
@@ -1549,6 +1620,12 @@ operator|.
 name|transientHeaders
 operator|=
 name|transientHeaders
+expr_stmt|;
+name|this
+operator|.
+name|isSystemContext
+operator|=
+name|isSystemContext
 expr_stmt|;
 block|}
 comment|/**          * This represents the default context and it should only ever be called by {@link #DEFAULT_CONTEXT}.          */
@@ -1573,6 +1650,8 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1623,6 +1702,8 @@ argument_list|,
 name|responseHeaders
 argument_list|,
 name|transientHeaders
+argument_list|,
+name|isSystemContext
 argument_list|)
 return|;
 block|}
@@ -1767,6 +1848,8 @@ argument_list|,
 name|responseHeaders
 argument_list|,
 name|transientHeaders
+argument_list|,
+name|isSystemContext
 argument_list|)
 return|;
 block|}
@@ -1951,6 +2034,8 @@ argument_list|,
 name|newResponseHeaders
 argument_list|,
 name|transientHeaders
+argument_list|,
+name|isSystemContext
 argument_list|)
 return|;
 block|}
@@ -2141,6 +2226,8 @@ argument_list|,
 name|newResponseHeaders
 argument_list|,
 name|transientHeaders
+argument_list|,
+name|isSystemContext
 argument_list|)
 return|;
 block|}
@@ -2208,6 +2295,8 @@ argument_list|,
 name|responseHeaders
 argument_list|,
 name|newTransient
+argument_list|,
+name|isSystemContext
 argument_list|)
 return|;
 block|}
