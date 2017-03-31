@@ -1021,6 +1021,7 @@ name|String
 index|[]
 name|indices
 decl_stmt|;
+comment|/* Eclipse can't deal with o -> o.name, maybe because of              * https://bugs.eclipse.org/bugs/show_bug.cgi?id=511750 */
 name|Collections
 operator|.
 name|sort
@@ -1031,7 +1032,10 @@ name|Comparator
 operator|.
 name|comparing
 argument_list|(
+parameter_list|(
+name|IndexCaps
 name|o
+parameter_list|)
 lambda|->
 name|o
 operator|.
