@@ -1289,6 +1289,13 @@ argument_list|,
 name|reducedQueryPhase
 argument_list|,
 name|fetchResultsArr
+operator|.
+name|asList
+argument_list|()
+argument_list|,
+name|fetchResultsArr
+operator|::
+name|get
 argument_list|)
 decl_stmt|;
 name|context

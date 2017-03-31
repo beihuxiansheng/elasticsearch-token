@@ -1488,6 +1488,13 @@ argument_list|,
 name|queryPhase
 argument_list|,
 name|fetchResults
+operator|.
+name|asList
+argument_list|()
+argument_list|,
+name|fetchResults
+operator|::
+name|get
 argument_list|)
 decl_stmt|;
 name|String
