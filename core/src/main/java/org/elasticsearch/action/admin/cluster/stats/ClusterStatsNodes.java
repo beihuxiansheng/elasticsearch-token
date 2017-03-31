@@ -118,6 +118,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|network
 operator|.
 name|NetworkModule
@@ -1966,7 +1978,8 @@ operator|+=
 name|fd
 expr_stmt|;
 block|}
-comment|// we still do min max calc on -1, so we'll have an indication of it not being supported on one of the nodes.
+comment|// we still do min max calc on -1, so we'll have an indication
+comment|// of it not being supported on one of the nodes.
 name|minOpenFileDescriptors
 operator|=
 name|Math
@@ -3063,7 +3076,6 @@ argument_list|>
 name|httpTypes
 decl_stmt|;
 DECL|method|NetworkTypes
-specifier|private
 name|NetworkTypes
 parameter_list|(
 specifier|final
@@ -3164,6 +3176,16 @@ name|settings
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|hasText
+argument_list|(
+name|transportType
+argument_list|)
+condition|)
+block|{
 name|transportTypes
 operator|.
 name|computeIfAbsent
@@ -3180,6 +3202,17 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|Strings
+operator|.
+name|hasText
+argument_list|(
+name|httpType
+argument_list|)
+condition|)
+block|{
 name|httpTypes
 operator|.
 name|computeIfAbsent
@@ -3196,6 +3229,7 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|this
 operator|.
