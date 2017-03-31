@@ -1606,7 +1606,7 @@ argument_list|()
 operator|+
 literal|"] in order to load fielddata in memory by uninverting the inverted index. Note that this can however "
 operator|+
-literal|"use significant memory."
+literal|"use significant memory. Alternatively use a keyword field instead."
 argument_list|)
 throw|;
 block|}
