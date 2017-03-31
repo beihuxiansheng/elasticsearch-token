@@ -1853,7 +1853,7 @@ return|;
 block|}
 comment|/** Returns true if the field is searchable.      *      */
 DECL|method|isSearchable
-specifier|protected
+specifier|public
 name|boolean
 name|isSearchable
 parameter_list|()
@@ -1869,7 +1869,7 @@ return|;
 block|}
 comment|/** Returns true if the field is aggregatable.      *      */
 DECL|method|isAggregatable
-specifier|protected
+specifier|public
 name|boolean
 name|isAggregatable
 parameter_list|()
