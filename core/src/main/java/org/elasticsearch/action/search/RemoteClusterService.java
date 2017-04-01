@@ -967,7 +967,7 @@ parameter_list|)
 lambda|->
 name|Booleans
 operator|.
-name|isTrue
+name|parseBoolean
 argument_list|(
 name|node
 operator|.
