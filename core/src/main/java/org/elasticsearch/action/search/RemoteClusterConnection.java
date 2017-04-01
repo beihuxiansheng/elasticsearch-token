@@ -2833,6 +2833,24 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|isNodeConnected
+name|boolean
+name|isNodeConnected
+parameter_list|(
+specifier|final
+name|DiscoveryNode
+name|node
+parameter_list|)
+block|{
+return|return
+name|connectedNodes
+operator|.
+name|contains
+argument_list|(
+name|node
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
