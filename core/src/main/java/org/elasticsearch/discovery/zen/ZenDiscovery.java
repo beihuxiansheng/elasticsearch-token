@@ -4951,9 +4951,6 @@ name|node
 operator|.
 name|getVersion
 argument_list|()
-operator|.
-name|minimumIndexCompatibilityVersion
-argument_list|()
 argument_list|,
 name|state
 operator|.

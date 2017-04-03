@@ -2328,9 +2328,6 @@ operator|.
 name|ensureIndexCompatibility
 argument_list|(
 name|minNodeVersion
-operator|.
-name|minimumIndexCompatibilityVersion
-argument_list|()
 argument_list|,
 name|currentState
 operator|.

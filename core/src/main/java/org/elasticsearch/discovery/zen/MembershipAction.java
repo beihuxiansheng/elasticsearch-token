@@ -961,9 +961,6 @@ argument_list|(
 name|Version
 operator|.
 name|CURRENT
-operator|.
-name|minimumIndexCompatibilityVersion
-argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -987,7 +984,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Ensures that all indices are compatible with the supported index version.      * @throws IllegalStateException if any index is incompatible with the given version      */
+comment|/**      * Ensures that all indices are compatible with the given node version. This will ensure that all indices in the given metadata      * will not be created with a newer version of elasticsearch as well as that all indices are newer or equal to the minimum index      * compatibility version.      * @see Version#minimumIndexCompatibilityVersion()      * @throws IllegalStateException if any index is incompatible with the given version      */
 DECL|method|ensureIndexCompatibility
 specifier|static
 name|void
@@ -995,12 +992,20 @@ name|ensureIndexCompatibility
 parameter_list|(
 specifier|final
 name|Version
-name|supportedIndexVersion
+name|nodeVersion
 parameter_list|,
 name|MetaData
 name|metaData
 parameter_list|)
 block|{
+name|Version
+name|supportedIndexVersion
+init|=
+name|nodeVersion
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
+decl_stmt|;
 comment|// we ensure that all indices in the cluster we join are compatible with us no matter if they are
 comment|// closed or not we can't read mappings of these indices so we need to reject the join...
 for|for
@@ -1011,6 +1016,43 @@ range|:
 name|metaData
 control|)
 block|{
+if|if
+condition|(
+name|idxMetaData
+operator|.
+name|getCreationVersion
+argument_list|()
+operator|.
+name|after
+argument_list|(
+name|nodeVersion
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"index "
+operator|+
+name|idxMetaData
+operator|.
+name|getIndex
+argument_list|()
+operator|+
+literal|" version not supported: "
+operator|+
+name|idxMetaData
+operator|.
+name|getCreationVersion
+argument_list|()
+operator|+
+literal|" the node version is: "
+operator|+
+name|nodeVersion
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|idxMetaData
