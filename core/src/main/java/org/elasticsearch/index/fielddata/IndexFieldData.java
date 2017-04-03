@@ -475,10 +475,10 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Comparator used for sorting.      */
-DECL|method|comparatorSource
-name|XFieldComparatorSource
-name|comparatorSource
+comment|/**      * Returns the {@link SortField} to used for sorting.      */
+DECL|method|sortField
+name|SortField
+name|sortField
 parameter_list|(
 annotation|@
 name|Nullable
@@ -490,6 +490,9 @@ name|sortMode
 parameter_list|,
 name|Nested
 name|nested
+parameter_list|,
+name|boolean
+name|reverse
 parameter_list|)
 function_decl|;
 comment|/**      * Clears any resources associated with this field data.      */
@@ -642,7 +645,7 @@ block|}
 block|}
 comment|/** Whether missing values should be sorted first. */
 DECL|method|sortMissingFirst
-specifier|protected
+specifier|public
 specifier|final
 name|boolean
 name|sortMissingFirst
@@ -662,7 +665,7 @@ return|;
 block|}
 comment|/** Whether missing values should be sorted last, this is the default. */
 DECL|method|sortMissingLast
-specifier|protected
+specifier|public
 specifier|final
 name|boolean
 name|sortMissingLast
@@ -686,7 +689,7 @@ return|;
 block|}
 comment|/** Return the missing object value according to the reduced type of the comparator. */
 DECL|method|missingObject
-specifier|protected
+specifier|public
 specifier|final
 name|Object
 name|missingObject
