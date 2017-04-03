@@ -4512,7 +4512,7 @@ literal|null
 operator|:
 literal|"automatically managing min master nodes require nodes to complete a join cycle"
 operator|+
-literal|"when starting"
+literal|" when starting"
 assert|;
 name|finalSettings
 comment|// don't wait too long not to slow down tests
