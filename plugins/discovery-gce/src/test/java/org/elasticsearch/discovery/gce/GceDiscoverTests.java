@@ -688,13 +688,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.initial_state_timeout"
-argument_list|,
-literal|"1s"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"cloud.gce.host"
 argument_list|,
 literal|"http://"
