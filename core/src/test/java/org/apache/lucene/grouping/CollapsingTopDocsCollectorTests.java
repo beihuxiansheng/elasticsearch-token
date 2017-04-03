@@ -1585,6 +1585,8 @@ argument_list|,
 name|expectedNumGroups
 argument_list|,
 name|shardHits
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTopDocsEquals

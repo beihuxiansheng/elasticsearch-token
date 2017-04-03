@@ -1765,6 +1765,8 @@ argument_list|,
 name|topN
 argument_list|,
 name|shardTopDocs
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
