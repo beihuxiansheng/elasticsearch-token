@@ -508,12 +508,6 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-DECL|field|executeOnReplicas
-specifier|private
-specifier|final
-name|boolean
-name|executeOnReplicas
-decl_stmt|;
 DECL|field|primary
 specifier|private
 specifier|final
@@ -609,9 +603,6 @@ name|PrimaryResultT
 argument_list|>
 name|listener
 parameter_list|,
-name|boolean
-name|executeOnReplicas
-parameter_list|,
 name|Replicas
 argument_list|<
 name|ReplicaRequest
@@ -631,12 +622,6 @@ name|String
 name|opType
 parameter_list|)
 block|{
-name|this
-operator|.
-name|executeOnReplicas
-operator|=
-name|executeOnReplicas
-expr_stmt|;
 name|this
 operator|.
 name|replicasProxy
@@ -1069,10 +1054,6 @@ control|)
 block|{
 if|if
 condition|(
-name|executeOnReplicas
-operator|==
-literal|false
-operator|||
 name|shard
 operator|.
 name|unassigned

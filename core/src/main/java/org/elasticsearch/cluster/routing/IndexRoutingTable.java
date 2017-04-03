@@ -832,14 +832,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|indexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|()
-operator|==
-literal|false
-operator|&&
-comment|// see #20650
 name|shardRouting
 operator|.
 name|primary

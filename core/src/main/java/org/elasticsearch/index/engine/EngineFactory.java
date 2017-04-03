@@ -34,14 +34,6 @@ name|EngineConfig
 name|config
 parameter_list|)
 function_decl|;
-DECL|method|newReadOnlyEngine
-name|Engine
-name|newReadOnlyEngine
-parameter_list|(
-name|EngineConfig
-name|config
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 

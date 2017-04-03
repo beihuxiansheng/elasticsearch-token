@@ -2163,32 +2163,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|recoveryTarget
-operator|.
-name|indexShard
-argument_list|()
-operator|.
-name|indexSettings
-argument_list|()
-operator|.
-name|isOnSharedFilesystem
-argument_list|()
-condition|)
-block|{
-comment|// we are not going to copy any files, so don't bother listing files, potentially running into concurrency issues with the
-comment|// primary changing files underneath us
-return|return
-name|Store
-operator|.
-name|MetadataSnapshot
-operator|.
-name|EMPTY
-return|;
-block|}
-else|else
-block|{
 return|return
 name|recoveryTarget
 operator|.
@@ -2198,7 +2172,6 @@ operator|.
 name|snapshotStoreMetadata
 argument_list|()
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(

@@ -1044,12 +1044,6 @@ specifier|final
 name|int
 name|numberOfShards
 decl_stmt|;
-DECL|field|isShadowReplicaIndex
-specifier|private
-specifier|final
-name|boolean
-name|isShadowReplicaIndex
-decl_stmt|;
 comment|// volatile fields are updated via #updateIndexMetaData(IndexMetaData) under lock
 DECL|field|settings
 specifier|private
@@ -1403,15 +1397,6 @@ operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|null
-argument_list|)
-expr_stmt|;
-name|isShadowReplicaIndex
-operator|=
-name|indexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|(
-name|settings
 argument_list|)
 expr_stmt|;
 name|this
@@ -2024,23 +2009,6 @@ name|SETTING_DATA_PATH
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff the given settings indicate that the index      * associated with these settings allocates it's shards on a shared      * filesystem.      */
-DECL|method|isOnSharedFilesystem
-specifier|public
-name|boolean
-name|isOnSharedFilesystem
-parameter_list|()
-block|{
-return|return
-name|indexMetaData
-operator|.
-name|isOnSharedFilesystem
-argument_list|(
-name|getSettings
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns the version the index was created on.      * @see Version#indexCreated(Settings)      */
 DECL|method|getIndexVersionCreated
 specifier|public
@@ -2103,17 +2071,6 @@ name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|null
 argument_list|)
-return|;
-block|}
-comment|/**      * Returns<code>true</code> iff this index uses shadow replicas.      * @see IndexMetaData#isIndexUsingShadowReplicas(Settings)      */
-DECL|method|isShadowReplicaIndex
-specifier|public
-name|boolean
-name|isShadowReplicaIndex
-parameter_list|()
-block|{
-return|return
-name|isShadowReplicaIndex
 return|;
 block|}
 comment|/**      * Returns the node settings. The settings returned from {@link #getSettings()} are a merged version of the      * index settings and the node settings where node settings are overwritten by index settings.      */

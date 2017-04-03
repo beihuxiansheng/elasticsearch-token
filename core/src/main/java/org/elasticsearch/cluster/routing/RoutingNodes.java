@@ -3093,28 +3093,6 @@ name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
-assert|assert
-name|activeReplica
-operator|==
-literal|null
-operator|||
-name|indexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|()
-operator|:
-literal|"initializing primary ["
-operator|+
-name|failedShard
-operator|+
-literal|"] with active replicas ["
-operator|+
-name|activeReplica
-operator|+
-literal|"] only expected when "
-operator|+
-literal|"using shadow replicas"
-assert|;
 if|if
 condition|(
 name|activeReplica
@@ -3423,32 +3401,6 @@ argument_list|(
 name|activeReplica
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|indexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|()
-condition|)
-block|{
-name|ShardRouting
-name|initializedShard
-init|=
-name|reinitShadowPrimary
-argument_list|(
-name|primarySwappedCandidate
-argument_list|)
-decl_stmt|;
-name|routingChangesObserver
-operator|.
-name|startedPrimaryReinitialized
-argument_list|(
-name|primarySwappedCandidate
-argument_list|,
-name|initializedShard
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Mark a shard as started and adjusts internal statistics.      *      * @return the started shard      */
 DECL|method|started

@@ -359,7 +359,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Support class to build MockEngines like {@link org.elasticsearch.test.engine.MockInternalEngine} or {@link org.elasticsearch.test.engine.MockShadowEngine}  * since they need to subclass the actual engine  */
+comment|/**  * Support class to build MockEngines like {@link org.elasticsearch.test.engine.MockInternalEngine}  * since they need to subclass the actual engine  */
 end_comment
 
 begin_class

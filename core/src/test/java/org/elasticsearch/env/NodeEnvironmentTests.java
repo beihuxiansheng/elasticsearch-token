@@ -2905,18 +2905,6 @@ operator|.
 name|builder
 argument_list|()
 operator|.
-name|put
-argument_list|(
-name|NodeEnvironment
-operator|.
-name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|false
-argument_list|)
-operator|.
 name|build
 argument_list|()
 argument_list|)
@@ -2958,7 +2946,7 @@ name|PathUtils
 operator|.
 name|get
 argument_list|(
-literal|"/tmp/foo/"
+literal|"/tmp/foo/0/"
 operator|+
 name|index
 operator|.

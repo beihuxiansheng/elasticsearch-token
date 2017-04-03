@@ -3254,7 +3254,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"creating Index [{}], shards [{}]/[{}{}] - reason [{}]"
+literal|"creating Index [{}], shards [{}]/[{}] - reason [{}]"
 argument_list|,
 name|indexMetaData
 operator|.
@@ -3270,15 +3270,6 @@ name|idxSettings
 operator|.
 name|getNumberOfReplicas
 argument_list|()
-argument_list|,
-name|idxSettings
-operator|.
-name|isShadowReplicaIndex
-argument_list|()
-condition|?
-literal|"s"
-else|:
-literal|""
 argument_list|,
 name|reason
 argument_list|)
@@ -4994,33 +4985,8 @@ name|IndexSettings
 name|indexSettings
 parameter_list|)
 block|{
-comment|// index contents can be deleted if the index is not on a shared file system,
-comment|// or if its on a shared file system but its an already closed index (so all
-comment|// its resources have already been relinquished)
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|isOnSharedFilesystem
-argument_list|()
-operator|==
-literal|false
-operator|||
-name|indexSettings
-operator|.
-name|getIndexMetaData
-argument_list|()
-operator|.
-name|getState
-argument_list|()
-operator|==
-name|IndexMetaData
-operator|.
-name|State
-operator|.
-name|CLOSE
-condition|)
-block|{
+comment|// index contents can be deleted if its an already closed index (so all its resources have
+comment|// already been relinquished)
 specifier|final
 name|IndexService
 name|indexService
@@ -5045,19 +5011,6 @@ block|{
 return|return
 literal|true
 return|;
-block|}
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"{} skipping index directory deletion due to shadow replicas"
-argument_list|,
-name|index
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 literal|false
@@ -5263,10 +5216,6 @@ DECL|enum constant|NO_FOLDER_FOUND
 name|NO_FOLDER_FOUND
 block|,
 comment|// the shards data locations do not exist
-DECL|enum constant|SHARED_FILE_SYSTEM
-name|SHARED_FILE_SYSTEM
-block|,
-comment|// the shard is located on shared and should not be deleted
 DECL|enum constant|NO_LOCAL_STORAGE
 name|NO_LOCAL_STORAGE
 comment|// node does not have local storage (see DiscoveryNode.nodeRequiresLocalStorage)
@@ -5310,16 +5259,6 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|isOnSharedFilesystem
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
 if|if
 condition|(
 name|nodeEnv
@@ -5426,24 +5365,6 @@ return|return
 name|ShardDeletionCheckResult
 operator|.
 name|NO_LOCAL_STORAGE
-return|;
-block|}
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"{} skipping shard directory deletion due to shadow replicas"
-argument_list|,
-name|shardId
-argument_list|)
-expr_stmt|;
-return|return
-name|ShardDeletionCheckResult
-operator|.
-name|SHARED_FILE_SYSTEM
 return|;
 block|}
 block|}

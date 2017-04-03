@@ -2112,9 +2112,7 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-comment|/**      * Allows for the registration of listeners that are called when a change becomes visible for search. This is nullable because      * {@linkplain ShadowIndexShard} doesn't support this.      */
-annotation|@
-name|Nullable
+comment|/**      * Allows for the registration of listeners that are called when a change becomes visible for search.      */
 DECL|field|refreshListeners
 specifier|private
 specifier|final
@@ -10555,12 +10553,12 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Build {@linkplain RefreshListeners} for this shard. Protected so {@linkplain ShadowIndexShard} can override it to return null.      */
+comment|/**      * Build {@linkplain RefreshListeners} for this shard.      */
 end_comment
 
 begin_function
 DECL|method|buildRefreshListeners
-specifier|protected
+specifier|private
 name|RefreshListeners
 name|buildRefreshListeners
 parameter_list|()
