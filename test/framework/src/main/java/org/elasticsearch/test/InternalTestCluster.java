@@ -938,7 +938,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeValidationException
+name|NodeService
 import|;
 end_import
 
@@ -950,7 +950,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeService
+name|NodeValidationException
 import|;
 end_import
 
@@ -1437,6 +1437,20 @@ operator|.
 name|LuceneTestCase
 operator|.
 name|rarely
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|DiscoverySettings
+operator|.
+name|INITIAL_STATE_TIMEOUT_SETTING
 import|;
 end_import
 
@@ -4482,6 +4496,23 @@ operator|==
 literal|null
 operator|:
 literal|"min master nodes may not be set when auto managed"
+assert|;
+assert|assert
+name|finalSettings
+operator|.
+name|get
+argument_list|(
+name|INITIAL_STATE_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+operator|==
+literal|null
+operator|:
+literal|"automatically managing min master nodes require nodes to complete a join cycle"
+operator|+
+literal|"when starting"
 assert|;
 name|finalSettings
 comment|// don't wait too long not to slow down tests
