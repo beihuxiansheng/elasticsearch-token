@@ -2562,6 +2562,13 @@ index|]
 return|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/23728"
+argument_list|)
 DECL|method|testDifferentRolesMaintainPathOnRestart
 specifier|public
 name|void
