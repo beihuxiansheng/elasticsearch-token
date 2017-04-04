@@ -54,20 +54,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|BytesStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|BigArrays
@@ -108,8 +94,6 @@ specifier|public
 class|class
 name|BytesStreamOutput
 extends|extends
-name|StreamOutput
-implements|implements
 name|BytesStream
 block|{
 DECL|field|bigArrays
@@ -142,7 +126,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a non recycling {@link BytesStreamOutput} with enough initial pages acquired      * to satisfy the capacity given by expected size.      *       * @param expectedSize the expected maximum size of the stream in bytes.      */
+comment|/**      * Create a non recycling {@link BytesStreamOutput} with enough initial pages acquired      * to satisfy the capacity given by expected size.      *      * @param expectedSize the expected maximum size of the stream in bytes.      */
 DECL|method|BytesStreamOutput
 specifier|public
 name|BytesStreamOutput
@@ -441,7 +425,7 @@ parameter_list|()
 block|{
 comment|// empty for now.
 block|}
-comment|/**      * Returns the current size of the buffer.      *       * @return the value of the<code>count</code> field, which is the number of valid      *         bytes in this output stream.      * @see java.io.ByteArrayOutputStream#count      */
+comment|/**      * Returns the current size of the buffer.      *      * @return the value of the<code>count</code> field, which is the number of valid      *         bytes in this output stream.      * @see java.io.ByteArrayOutputStream#count      */
 DECL|method|size
 specifier|public
 name|int
@@ -487,7 +471,6 @@ argument_list|()
 return|;
 block|}
 DECL|method|ensureCapacity
-specifier|private
 name|void
 name|ensureCapacity
 parameter_list|(

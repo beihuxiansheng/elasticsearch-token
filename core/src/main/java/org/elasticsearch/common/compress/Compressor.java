@@ -42,6 +42,22 @@ name|io
 operator|.
 name|stream
 operator|.
+name|ReleasableBytesStreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
 name|StreamInput
 import|;
 end_import
@@ -96,6 +112,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a new stream output that compresses the contents and writes to the provided stream      * output. Closing the returned {@link StreamOutput} will close the provided stream output.      */
 DECL|method|streamOutput
 name|StreamOutput
 name|streamOutput

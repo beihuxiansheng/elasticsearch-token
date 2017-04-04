@@ -68,6 +68,8 @@ name|common
 operator|.
 name|io
 operator|.
+name|stream
+operator|.
 name|BytesStream
 import|;
 end_import
@@ -371,8 +373,6 @@ specifier|final
 class|class
 name|XContentBuilder
 implements|implements
-name|BytesStream
-implements|,
 name|Releasable
 implements|,
 name|Flushable
@@ -5117,8 +5117,6 @@ operator|.
 name|generator
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|bytes
 specifier|public
 name|BytesReference
