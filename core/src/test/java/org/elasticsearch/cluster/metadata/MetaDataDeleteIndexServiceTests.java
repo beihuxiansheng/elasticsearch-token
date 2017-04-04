@@ -395,7 +395,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -563,7 +563,7 @@ comment|// Create an unassigned index
 name|String
 name|index
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

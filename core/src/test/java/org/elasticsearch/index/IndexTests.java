@@ -333,7 +333,7 @@ specifier|final
 name|String
 name|name
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|4
 argument_list|,

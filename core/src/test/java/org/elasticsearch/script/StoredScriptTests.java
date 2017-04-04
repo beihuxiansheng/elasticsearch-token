@@ -3203,7 +3203,7 @@ return|return
 operator|new
 name|StoredScriptSource
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -3213,7 +3213,7 @@ literal|32
 argument_list|)
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

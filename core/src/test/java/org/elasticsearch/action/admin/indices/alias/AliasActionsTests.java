@@ -333,7 +333,7 @@ argument_list|)
 operator|.
 name|alias
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -371,7 +371,7 @@ argument_list|)
 operator|.
 name|index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -1510,7 +1510,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -1518,7 +1518,7 @@ decl_stmt|;
 name|String
 name|alias
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -1994,7 +1994,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2216,7 +2216,7 @@ name|field
 argument_list|(
 literal|"index"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2246,7 +2246,7 @@ name|field
 argument_list|(
 literal|"alias"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2386,7 +2386,7 @@ name|field
 argument_list|(
 literal|"index"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2398,7 +2398,7 @@ name|field
 argument_list|(
 literal|"alias"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2539,7 +2539,7 @@ name|action
 operator|.
 name|index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2589,7 +2589,7 @@ name|action
 operator|.
 name|alias
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2640,7 +2640,7 @@ name|action
 operator|.
 name|filter
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2663,7 +2663,7 @@ name|action
 operator|.
 name|routing
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2676,7 +2676,7 @@ name|action
 operator|.
 name|searchRouting
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2686,7 +2686,7 @@ name|action
 operator|.
 name|indexRouting
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2836,7 +2836,7 @@ else|else
 block|{
 name|value
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2848,7 +2848,7 @@ literal|1
 case|:
 name|value
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2883,7 +2883,7 @@ name|result
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2906,7 +2906,7 @@ return|return
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

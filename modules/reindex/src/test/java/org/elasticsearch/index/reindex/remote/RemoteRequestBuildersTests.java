@@ -1561,7 +1561,7 @@ block|{
 name|String
 name|scroll
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|30
 argument_list|)
@@ -1694,7 +1694,7 @@ block|{
 name|String
 name|scroll
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|30
 argument_list|)

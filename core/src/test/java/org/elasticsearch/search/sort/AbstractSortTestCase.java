@@ -673,16 +673,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -1362,7 +1352,7 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1724,7 +1714,7 @@ operator|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

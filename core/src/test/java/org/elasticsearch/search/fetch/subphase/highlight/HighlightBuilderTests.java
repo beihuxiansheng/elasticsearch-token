@@ -1593,7 +1593,7 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3191,7 +3191,7 @@ name|i
 operator|+
 literal|"_"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3351,7 +3351,7 @@ name|highlightBuilder
 operator|.
 name|highlighterType
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3370,7 +3370,7 @@ name|highlightBuilder
 operator|.
 name|fragmenter
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3425,14 +3425,14 @@ operator|=
 operator|new
 name|TermQueryBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3620,7 +3620,7 @@ name|highlightBuilder
 operator|.
 name|boundaryChars
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3755,7 +3755,7 @@ literal|0
 case|:
 name|value
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3796,7 +3796,7 @@ name|options
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3924,7 +3924,7 @@ name|highlightBuilder
 operator|.
 name|highlighterType
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|11
 argument_list|,
@@ -3940,7 +3940,7 @@ name|highlightBuilder
 operator|.
 name|fragmenter
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|11
 argument_list|,
@@ -3959,14 +3959,14 @@ argument_list|(
 operator|new
 name|TermQueryBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|11
 argument_list|,
 literal|20
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|11
 argument_list|,
@@ -4071,7 +4071,7 @@ name|highlightBuilder
 operator|.
 name|boundaryChars
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|11
 argument_list|,
@@ -4157,14 +4157,14 @@ name|options
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4290,7 +4290,7 @@ name|randomStrings
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -4388,7 +4388,7 @@ operator|.
 name|encoder
 argument_list|()
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|2
 argument_list|)
@@ -4412,7 +4412,7 @@ argument_list|(
 operator|new
 name|Field
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

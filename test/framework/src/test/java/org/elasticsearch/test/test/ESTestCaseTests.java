@@ -490,7 +490,7 @@ block|{
 name|String
 name|key
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -660,7 +660,7 @@ name|result
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -747,7 +747,7 @@ name|randomUnique
 argument_list|(
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

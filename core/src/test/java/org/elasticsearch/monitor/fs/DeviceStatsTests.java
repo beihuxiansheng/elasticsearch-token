@@ -84,7 +84,7 @@ specifier|final
 name|String
 name|deviceName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)

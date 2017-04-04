@@ -4755,7 +4755,7 @@ argument_list|()
 argument_list|,
 literal|"foo-string"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|32
 argument_list|)

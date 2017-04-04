@@ -2041,7 +2041,7 @@ specifier|final
 name|String
 name|reason
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)
@@ -2636,7 +2636,7 @@ name|seqNo
 argument_list|,
 name|primaryTerm
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)
@@ -4360,7 +4360,7 @@ block|{
 name|String
 name|ascii
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4546,7 +4546,7 @@ block|{
 name|String
 name|ascii
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -11154,7 +11154,7 @@ argument_list|,
 name|randomNonNegativeLong
 argument_list|()
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)

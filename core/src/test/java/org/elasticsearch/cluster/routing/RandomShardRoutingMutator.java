@@ -36,7 +36,7 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 import|;
 end_import
 
@@ -140,7 +140,7 @@ argument_list|(
 name|randomReason
 argument_list|()
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -171,7 +171,7 @@ argument_list|(
 name|randomReason
 argument_list|()
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

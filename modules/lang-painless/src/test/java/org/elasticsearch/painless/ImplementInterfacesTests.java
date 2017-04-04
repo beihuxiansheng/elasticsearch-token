@@ -363,7 +363,7 @@ argument_list|)
 expr_stmt|;
 name|rando
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -507,7 +507,7 @@ block|{
 name|String
 name|rando
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -693,7 +693,7 @@ argument_list|)
 expr_stmt|;
 name|rando
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

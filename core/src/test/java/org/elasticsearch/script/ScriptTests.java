@@ -431,7 +431,7 @@ name|field
 argument_list|(
 literal|"field"
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -457,7 +457,7 @@ else|else
 block|{
 name|script
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

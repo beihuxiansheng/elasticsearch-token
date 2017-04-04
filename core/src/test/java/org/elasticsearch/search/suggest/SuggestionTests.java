@@ -502,7 +502,7 @@ block|{
 name|String
 name|name
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

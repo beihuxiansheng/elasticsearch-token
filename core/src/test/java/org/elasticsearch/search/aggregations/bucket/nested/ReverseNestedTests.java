@@ -59,7 +59,7 @@ init|=
 operator|new
 name|ReverseNestedAggregationBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -77,7 +77,7 @@ name|factory
 operator|.
 name|path
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

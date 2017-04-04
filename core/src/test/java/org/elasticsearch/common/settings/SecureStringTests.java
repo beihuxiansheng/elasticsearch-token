@@ -93,7 +93,7 @@ name|char
 index|[]
 name|password
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -176,7 +176,7 @@ name|char
 index|[]
 name|password
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -299,7 +299,7 @@ name|char
 index|[]
 name|password
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -416,7 +416,7 @@ name|char
 index|[]
 name|password
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

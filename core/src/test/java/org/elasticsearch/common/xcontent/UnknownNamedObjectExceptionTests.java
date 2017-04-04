@@ -147,7 +147,7 @@ name|UnknownNamedObjectExceptionTests
 operator|.
 name|class
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -302,7 +302,7 @@ name|UnknownNamedObjectExceptionTests
 operator|.
 name|class
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

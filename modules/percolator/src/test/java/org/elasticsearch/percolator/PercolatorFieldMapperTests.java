@@ -1374,14 +1374,14 @@ name|Exception
 block|{
 name|typeName
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)
 expr_stmt|;
 name|fieldName
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)

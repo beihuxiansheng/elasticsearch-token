@@ -416,7 +416,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -431,7 +431,7 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|12
 argument_list|)
@@ -442,7 +442,7 @@ decl_stmt|;
 name|String
 name|nodeId
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

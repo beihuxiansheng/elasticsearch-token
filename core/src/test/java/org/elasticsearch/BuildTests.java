@@ -190,7 +190,7 @@ init|=
 operator|new
 name|Build
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

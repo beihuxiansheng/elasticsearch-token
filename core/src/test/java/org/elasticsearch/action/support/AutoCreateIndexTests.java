@@ -574,7 +574,7 @@ name|autoCreateIndex
 operator|.
 name|shouldAutoCreate
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -640,7 +640,7 @@ name|autoCreateIndex
 operator|.
 name|shouldAutoCreate
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -680,7 +680,7 @@ name|autoCreateIndex
 operator|.
 name|shouldAutoCreate
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -727,7 +727,7 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|7
 argument_list|,
@@ -806,7 +806,7 @@ name|randomFrom
 argument_list|(
 literal|true
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -853,7 +853,7 @@ name|autoCreateIndex
 operator|.
 name|shouldAutoCreate
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -951,7 +951,7 @@ name|shouldAutoCreate
 argument_list|(
 literal|"index"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -975,7 +975,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"does_not_match"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1054,7 +1054,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"index"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1073,7 +1073,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"does_not_match"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1157,7 +1157,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"index"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1175,7 +1175,7 @@ name|shouldAutoCreate
 argument_list|(
 literal|"test"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1199,7 +1199,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"does_not_match"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1295,7 +1295,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"index"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1311,7 +1311,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"test"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -1327,7 +1327,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"does_not_match"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1440,7 +1440,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"does_not_match"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1547,7 +1547,7 @@ name|autoCreateIndex
 argument_list|,
 literal|"does_not_match"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

@@ -132,7 +132,7 @@ decl_stmt|;
 name|String
 name|bucket
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

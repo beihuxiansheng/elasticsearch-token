@@ -22891,7 +22891,7 @@ comment|//(https://github.com/elastic/elasticsearch/issues/4103)
 name|String
 name|prefix
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

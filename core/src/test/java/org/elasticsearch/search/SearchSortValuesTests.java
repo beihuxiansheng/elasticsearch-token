@@ -361,7 +361,7 @@ operator|->
 name|frequently
 argument_list|()
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

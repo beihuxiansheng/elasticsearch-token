@@ -677,7 +677,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -700,7 +700,7 @@ block|}
 name|String
 name|fieldName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

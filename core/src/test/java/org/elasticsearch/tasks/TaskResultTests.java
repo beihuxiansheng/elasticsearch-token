@@ -539,7 +539,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -547,7 +547,7 @@ decl_stmt|;
 name|String
 name|action
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -571,7 +571,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -644,7 +644,7 @@ return|return
 operator|new
 name|TaskId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -715,12 +715,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -793,12 +793,12 @@ name|result
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

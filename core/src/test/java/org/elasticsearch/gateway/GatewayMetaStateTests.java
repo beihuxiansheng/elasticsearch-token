@@ -230,16 +230,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -2967,7 +2957,7 @@ name|IndexMetaData
 operator|.
 name|builder
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

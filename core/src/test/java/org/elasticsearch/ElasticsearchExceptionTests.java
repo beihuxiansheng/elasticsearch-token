@@ -6806,7 +6806,7 @@ argument_list|(
 name|frequently
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -6995,7 +6995,7 @@ argument_list|(
 name|frequently
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -7170,7 +7170,7 @@ operator|=
 name|frequently
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

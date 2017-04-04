@@ -638,7 +638,7 @@ argument_list|)
 operator|.
 name|apply
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

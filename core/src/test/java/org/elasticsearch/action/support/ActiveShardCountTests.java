@@ -445,7 +445,7 @@ name|ActiveShardCount
 operator|.
 name|parseString
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|4
 argument_list|,
@@ -1717,7 +1717,7 @@ name|shardRouting
 operator|.
 name|initialize
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -1911,7 +1911,7 @@ name|shardRouting
 operator|.
 name|initialize
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -2118,7 +2118,7 @@ name|shardRouting
 operator|.
 name|initialize
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -2308,7 +2308,7 @@ name|shardRouting
 operator|.
 name|initialize
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

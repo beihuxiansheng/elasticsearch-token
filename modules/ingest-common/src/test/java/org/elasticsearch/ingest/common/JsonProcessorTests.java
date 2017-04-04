@@ -166,7 +166,7 @@ block|{
 name|String
 name|processorTag
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -174,7 +174,7 @@ decl_stmt|;
 name|String
 name|randomField
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -182,7 +182,7 @@ decl_stmt|;
 name|String
 name|randomTargetField
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|2
 argument_list|)
@@ -519,7 +519,7 @@ block|{
 name|String
 name|processorTag
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -527,7 +527,7 @@ decl_stmt|;
 name|String
 name|randomTargetField
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|2
 argument_list|)

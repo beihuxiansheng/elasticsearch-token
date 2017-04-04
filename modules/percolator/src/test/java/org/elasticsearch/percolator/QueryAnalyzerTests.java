@@ -5739,7 +5739,7 @@ name|Term
 argument_list|(
 literal|"field"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|length
 argument_list|)
@@ -5813,7 +5813,7 @@ name|Term
 argument_list|(
 literal|"field"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|length
 argument_list|)

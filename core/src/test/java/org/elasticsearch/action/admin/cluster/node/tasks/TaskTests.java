@@ -125,7 +125,7 @@ block|{
 name|String
 name|nodeId
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -1357,7 +1357,7 @@ init|=
 operator|new
 name|DirectCandidateGeneratorBuilder
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1455,7 +1455,7 @@ name|generator
 operator|::
 name|preFilter
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1469,7 +1469,7 @@ name|generator
 operator|::
 name|postFilter
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

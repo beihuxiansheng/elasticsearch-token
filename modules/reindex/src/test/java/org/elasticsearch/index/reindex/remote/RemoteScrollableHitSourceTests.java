@@ -3326,7 +3326,7 @@ block|{
 name|String
 name|header
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

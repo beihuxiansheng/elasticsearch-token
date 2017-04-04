@@ -1083,7 +1083,7 @@ name|name
 init|=
 literal|"index_"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -1732,7 +1732,7 @@ name|name
 init|=
 literal|"index_"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|15
 argument_list|)

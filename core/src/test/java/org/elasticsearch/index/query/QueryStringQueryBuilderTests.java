@@ -759,7 +759,7 @@ else|:
 literal|""
 operator|)
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|4
 argument_list|,
@@ -793,7 +793,7 @@ argument_list|()
 condition|?
 name|STRING_FIELD_NAME
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -841,7 +841,7 @@ argument_list|()
 condition|?
 name|STRING_FIELD_NAME
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1136,7 +1136,7 @@ name|queryStringQueryBuilder
 operator|.
 name|quoteFieldSuffix
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

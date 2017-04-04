@@ -657,7 +657,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -665,7 +665,7 @@ decl_stmt|;
 name|String
 name|indexUUid
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -683,7 +683,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -691,7 +691,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

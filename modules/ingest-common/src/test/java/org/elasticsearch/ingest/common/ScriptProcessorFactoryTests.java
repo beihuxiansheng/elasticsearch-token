@@ -328,7 +328,7 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -443,12 +443,12 @@ name|Collections
 operator|.
 name|singletonMap
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -481,7 +481,7 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -659,7 +659,7 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -729,7 +729,7 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -881,7 +881,7 @@ name|create
 argument_list|(
 literal|null
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -192,7 +192,7 @@ name|OsStats
 operator|.
 name|Cgroup
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -200,7 +200,7 @@ argument_list|,
 name|randomNonNegativeLong
 argument_list|()
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

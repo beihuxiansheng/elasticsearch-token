@@ -256,18 +256,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|hasSize
 import|;
 end_import
@@ -362,7 +350,7 @@ operator|=
 operator|new
 name|AttachmentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -645,7 +633,7 @@ operator|=
 operator|new
 name|AttachmentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2060,7 +2048,7 @@ init|=
 operator|new
 name|AttachmentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2130,7 +2118,7 @@ init|=
 operator|new
 name|AttachmentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2204,7 +2192,7 @@ init|=
 operator|new
 name|AttachmentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2292,7 +2280,7 @@ init|=
 operator|new
 name|AttachmentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -281,7 +281,7 @@ init|=
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -304,7 +304,7 @@ init|=
 operator|new
 name|Snapshot
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

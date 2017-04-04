@@ -327,7 +327,7 @@ init|=
 operator|new
 name|TermSuggestionBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -981,7 +981,7 @@ init|=
 operator|new
 name|TermSuggestionBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -1321,7 +1321,7 @@ init|=
 operator|new
 name|TermSuggestionBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,

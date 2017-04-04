@@ -241,7 +241,7 @@ block|{
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -251,7 +251,7 @@ decl_stmt|;
 name|String
 name|description
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -325,7 +325,7 @@ name|timings
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

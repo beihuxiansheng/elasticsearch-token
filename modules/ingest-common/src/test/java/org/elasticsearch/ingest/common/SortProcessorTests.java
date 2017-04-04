@@ -235,7 +235,7 @@ block|{
 name|String
 name|value
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -319,7 +319,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -470,7 +470,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -669,7 +669,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -856,7 +856,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1049,7 +1049,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1236,7 +1236,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1423,7 +1423,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1610,7 +1610,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1742,7 +1742,7 @@ else|else
 block|{
 name|value
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1827,7 +1827,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1902,7 +1902,7 @@ name|setFieldValue
 argument_list|(
 name|fieldName
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1930,7 +1930,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2030,7 +2030,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2123,7 +2123,7 @@ init|=
 operator|new
 name|SortProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

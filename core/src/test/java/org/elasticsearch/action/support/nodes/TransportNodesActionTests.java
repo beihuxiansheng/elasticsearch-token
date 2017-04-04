@@ -922,12 +922,12 @@ lambda|->
 operator|new
 name|FailedNodeException
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -935,7 +935,7 @@ argument_list|,
 operator|new
 name|IllegalStateException
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -1524,7 +1524,7 @@ argument_list|()
 condition|?
 literal|"match"
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

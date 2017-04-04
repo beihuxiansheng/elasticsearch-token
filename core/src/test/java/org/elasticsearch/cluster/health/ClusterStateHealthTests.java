@@ -182,18 +182,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateUpdateTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|LocalClusterUpdateTask
 import|;
 end_import
@@ -2796,7 +2784,7 @@ name|nodeIds
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

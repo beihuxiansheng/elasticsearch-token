@@ -89,7 +89,7 @@ init|=
 operator|new
 name|FilterAggregationBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -100,14 +100,14 @@ name|QueryBuilders
 operator|.
 name|termQuery
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
 literal|20
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

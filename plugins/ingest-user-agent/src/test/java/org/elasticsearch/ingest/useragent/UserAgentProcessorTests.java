@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|useragent
-operator|.
-name|UserAgentProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -234,7 +220,7 @@ init|=
 operator|new
 name|UserAgentParser
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -253,7 +239,7 @@ operator|=
 operator|new
 name|UserAgentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -293,7 +279,7 @@ init|=
 operator|new
 name|UserAgentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -376,7 +362,7 @@ init|=
 operator|new
 name|UserAgentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -455,7 +441,7 @@ init|=
 operator|new
 name|UserAgentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -556,7 +542,7 @@ init|=
 operator|new
 name|UserAgentProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -559,7 +559,7 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -823,7 +823,7 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1135,7 +1135,7 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1397,7 +1397,7 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

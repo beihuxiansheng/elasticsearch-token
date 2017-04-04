@@ -776,14 +776,14 @@ init|=
 operator|new
 name|ShardId
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,

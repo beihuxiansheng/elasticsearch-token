@@ -175,7 +175,7 @@ expr_stmt|;
 name|String
 name|processorTag
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -317,7 +317,7 @@ expr_stmt|;
 name|String
 name|processorTag
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

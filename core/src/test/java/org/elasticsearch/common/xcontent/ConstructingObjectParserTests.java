@@ -550,7 +550,7 @@ init|=
 operator|new
 name|HasCtorArguments
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -584,7 +584,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -599,7 +599,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -614,7 +614,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

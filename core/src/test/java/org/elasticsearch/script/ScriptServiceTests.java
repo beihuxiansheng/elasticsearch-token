@@ -678,7 +678,7 @@ do|do
 block|{
 name|plugin
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -708,7 +708,7 @@ do|do
 block|{
 name|operation
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -2483,7 +2483,7 @@ do|do
 block|{
 name|pluginName
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -2495,7 +2495,7 @@ argument_list|)
 expr_stmt|;
 name|unknownContext
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

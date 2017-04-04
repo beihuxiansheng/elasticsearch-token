@@ -102,7 +102,7 @@ specifier|final
 name|String
 name|level
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)

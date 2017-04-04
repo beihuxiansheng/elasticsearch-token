@@ -1063,7 +1063,7 @@ init|=
 operator|new
 name|CompletionSuggestion
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1077,7 +1077,7 @@ init|=
 operator|new
 name|PhraseSuggestion
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1091,7 +1091,7 @@ init|=
 operator|new
 name|TermSuggestion
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1330,7 +1330,7 @@ argument_list|(
 operator|new
 name|CompletionSuggestion
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

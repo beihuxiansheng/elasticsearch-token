@@ -3107,7 +3107,7 @@ name|put
 argument_list|(
 name|indexBuilder
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -3162,7 +3162,7 @@ argument_list|(
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

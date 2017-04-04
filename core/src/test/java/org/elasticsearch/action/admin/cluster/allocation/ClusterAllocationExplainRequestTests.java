@@ -70,7 +70,7 @@ init|=
 operator|new
 name|ClusterAllocationExplainRequest
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)
@@ -90,7 +90,7 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

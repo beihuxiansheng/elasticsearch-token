@@ -624,7 +624,7 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -665,7 +665,7 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

@@ -336,7 +336,7 @@ specifier|final
 name|String
 name|param
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -481,7 +481,7 @@ specifier|final
 name|String
 name|param
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -503,7 +503,7 @@ specifier|final
 name|String
 name|second
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1083,7 +1083,7 @@ specifier|final
 name|String
 name|s
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)

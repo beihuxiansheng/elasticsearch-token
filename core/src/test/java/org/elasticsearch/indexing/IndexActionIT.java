@@ -1440,7 +1440,7 @@ try|try
 block|{
 name|createIndex
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 name|min
 argument_list|,
@@ -1500,7 +1500,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 name|min
 argument_list|,
@@ -1573,7 +1573,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|MetaDataCreateIndexService
 operator|.
@@ -1652,7 +1652,7 @@ block|}
 comment|// we can create an index of max length
 name|createIndex
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|MetaDataCreateIndexService
 operator|.

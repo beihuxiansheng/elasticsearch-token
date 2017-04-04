@@ -2255,7 +2255,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2573,7 +2573,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2594,7 +2594,7 @@ name|resolve
 argument_list|(
 literal|"start-"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2609,7 +2609,7 @@ name|resolve
 argument_list|(
 literal|"end-"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

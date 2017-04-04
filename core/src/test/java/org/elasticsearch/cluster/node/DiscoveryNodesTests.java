@@ -54,18 +54,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|VersionUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -1476,7 +1464,7 @@ argument_list|()
 condition|?
 literal|"match"
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

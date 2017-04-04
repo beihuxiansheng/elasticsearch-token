@@ -332,7 +332,7 @@ index|[
 name|j
 index|]
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

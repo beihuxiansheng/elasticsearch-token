@@ -987,7 +987,7 @@ block|{
 name|String
 name|value
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1045,7 +1045,7 @@ name|values
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1239,7 +1239,7 @@ return|return
 operator|new
 name|AppendProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1341,7 +1341,7 @@ name|randomValue
 parameter_list|()
 block|{
 return|return
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1404,7 +1404,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

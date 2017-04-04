@@ -3327,11 +3327,11 @@ name|collection
 argument_list|)
 return|;
 block|}
-DECL|method|randomAsciiOfLengthBetween
+DECL|method|randomAlphaOfLengthBetween
 specifier|public
 specifier|static
 name|String
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 parameter_list|(
 name|int
 name|minCodeUnits
@@ -3351,11 +3351,11 @@ name|maxCodeUnits
 argument_list|)
 return|;
 block|}
-DECL|method|randomAsciiOfLength
+DECL|method|randomAlphaOfLength
 specifier|public
 specifier|static
 name|String
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 parameter_list|(
 name|int
 name|codeUnits

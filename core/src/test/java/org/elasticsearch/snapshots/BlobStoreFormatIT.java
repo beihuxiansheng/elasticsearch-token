@@ -1180,7 +1180,7 @@ decl_stmt|;
 name|String
 name|testString
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomInt
 argument_list|(
@@ -1346,7 +1346,7 @@ decl_stmt|;
 name|String
 name|testString
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomInt
 argument_list|(

@@ -382,7 +382,7 @@ name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

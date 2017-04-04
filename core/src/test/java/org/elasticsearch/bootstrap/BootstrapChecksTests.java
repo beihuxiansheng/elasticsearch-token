@@ -2969,7 +2969,7 @@ specifier|final
 name|String
 name|command
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)
@@ -3098,7 +3098,7 @@ specifier|final
 name|String
 name|command
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)
@@ -3759,7 +3759,7 @@ name|jvmVendor
 parameter_list|()
 block|{
 return|return
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

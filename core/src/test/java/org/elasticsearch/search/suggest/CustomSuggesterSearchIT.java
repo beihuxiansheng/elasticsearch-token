@@ -581,7 +581,7 @@ expr_stmt|;
 name|String
 name|randomText
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -589,7 +589,7 @@ decl_stmt|;
 name|String
 name|randomField
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -597,7 +597,7 @@ decl_stmt|;
 name|String
 name|randomSuffix
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -1971,7 +1971,7 @@ argument_list|)
 operator|.
 name|setRouting
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -2236,7 +2236,7 @@ name|randomAsciiName
 parameter_list|()
 block|{
 return|return
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

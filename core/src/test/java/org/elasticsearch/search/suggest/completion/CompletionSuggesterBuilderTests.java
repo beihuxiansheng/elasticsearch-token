@@ -284,7 +284,7 @@ init|=
 operator|new
 name|CompletionSuggestionBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -314,7 +314,7 @@ name|testBuilder
 operator|.
 name|prefix
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -328,7 +328,7 @@ name|testBuilder
 operator|.
 name|prefix
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -347,7 +347,7 @@ name|testBuilder
 operator|.
 name|prefix
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -376,7 +376,7 @@ name|testBuilder
 operator|.
 name|regex
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -465,7 +465,7 @@ block|}
 name|String
 name|name
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -547,7 +547,7 @@ block|}
 name|String
 name|name
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -685,7 +685,7 @@ name|Collections
 operator|.
 name|singletonMap
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -755,7 +755,7 @@ name|Collections
 operator|.
 name|singletonMap
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -772,7 +772,7 @@ name|builder
 operator|.
 name|prefix
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -791,7 +791,7 @@ name|builder
 operator|.
 name|prefix
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -820,7 +820,7 @@ name|builder
 operator|.
 name|regex
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

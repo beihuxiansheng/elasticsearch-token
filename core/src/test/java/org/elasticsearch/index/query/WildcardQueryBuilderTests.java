@@ -280,7 +280,7 @@ comment|// mapped or unmapped field
 name|String
 name|text
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -309,7 +309,7 @@ return|return
 operator|new
 name|WildcardQueryBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

@@ -314,7 +314,7 @@ block|{
 name|String
 name|plugin
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -327,7 +327,7 @@ decl_stmt|;
 name|String
 name|operation
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

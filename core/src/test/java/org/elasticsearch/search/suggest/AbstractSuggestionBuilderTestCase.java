@@ -436,7 +436,7 @@ name|randomSuggestion
 operator|.
 name|text
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -451,7 +451,7 @@ name|randomSuggestion
 operator|::
 name|prefix
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -465,7 +465,7 @@ name|randomSuggestion
 operator|::
 name|regex
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -479,7 +479,7 @@ name|randomSuggestion
 operator|::
 name|analyzer
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -785,7 +785,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -811,7 +811,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -837,7 +837,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -863,7 +863,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,

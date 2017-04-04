@@ -396,7 +396,7 @@ specifier|final
 name|String
 name|clusterUUID
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|10
 argument_list|,
@@ -558,7 +558,7 @@ block|{
 name|String
 name|clusterUUID
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|10
 argument_list|,

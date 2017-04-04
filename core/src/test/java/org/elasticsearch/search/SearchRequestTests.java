@@ -646,7 +646,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -717,7 +717,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -745,7 +745,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -774,7 +774,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

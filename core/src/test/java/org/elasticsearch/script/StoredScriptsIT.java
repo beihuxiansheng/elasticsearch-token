@@ -492,7 +492,7 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|SCRIPT_MAX_SIZE_IN_BYTES
 operator|+

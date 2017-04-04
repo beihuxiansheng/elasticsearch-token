@@ -1137,7 +1137,7 @@ name|path
 init|=
 literal|"/_"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1157,7 +1157,7 @@ decl_stmt|;
 name|String
 name|deprecationMessage
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1276,7 +1276,7 @@ name|path
 init|=
 literal|"/_"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1316,7 +1316,7 @@ name|deprecatedPath
 init|=
 literal|"/_"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1681,7 +1681,7 @@ decl_stmt|;
 name|String
 name|content
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|contentLength
 argument_list|)
@@ -1771,7 +1771,7 @@ decl_stmt|;
 name|String
 name|content
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|contentLength
 argument_list|)
@@ -1861,7 +1861,7 @@ decl_stmt|;
 name|String
 name|content
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|contentLength
 argument_list|)
@@ -1950,7 +1950,7 @@ decl_stmt|;
 name|String
 name|content
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|contentLength
 argument_list|)
@@ -2032,7 +2032,7 @@ block|{
 name|String
 name|content
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2263,7 +2263,7 @@ block|{
 name|String
 name|content
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2549,7 +2549,7 @@ decl_stmt|;
 name|String
 name|content
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2747,7 +2747,7 @@ decl_stmt|;
 name|String
 name|content
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

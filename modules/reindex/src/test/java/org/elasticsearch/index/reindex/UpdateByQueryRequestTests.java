@@ -402,7 +402,7 @@ argument_list|(
 operator|new
 name|SearchRequest
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -434,7 +434,7 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -452,7 +452,7 @@ name|original
 operator|.
 name|setPipeline
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

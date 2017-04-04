@@ -228,7 +228,7 @@ block|{
 name|String
 name|value
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -282,7 +282,7 @@ init|=
 operator|new
 name|JoinProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -442,7 +442,7 @@ init|=
 operator|new
 name|JoinProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -520,7 +520,7 @@ name|setFieldValue
 argument_list|(
 name|fieldName
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -534,7 +534,7 @@ init|=
 operator|new
 name|JoinProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -620,7 +620,7 @@ init|=
 operator|new
 name|JoinProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -699,7 +699,7 @@ init|=
 operator|new
 name|JoinProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

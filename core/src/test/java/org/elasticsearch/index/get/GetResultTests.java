@@ -1480,7 +1480,7 @@ specifier|final
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1491,7 +1491,7 @@ specifier|final
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1502,7 +1502,7 @@ specifier|final
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

@@ -1182,7 +1182,7 @@ name|FieldSortBuilder
 operator|.
 name|DOC_FIELD_NAME
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

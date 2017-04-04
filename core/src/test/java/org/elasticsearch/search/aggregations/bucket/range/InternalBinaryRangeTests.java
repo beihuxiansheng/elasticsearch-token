@@ -268,7 +268,7 @@ operator|=
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|15
 argument_list|)
@@ -282,7 +282,7 @@ operator|=
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|15
 argument_list|)
@@ -438,7 +438,7 @@ name|format
 argument_list|,
 name|keyed
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

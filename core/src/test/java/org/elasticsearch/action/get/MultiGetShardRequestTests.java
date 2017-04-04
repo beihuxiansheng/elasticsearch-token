@@ -157,7 +157,7 @@ name|multiGetRequest
 operator|.
 name|preference
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -247,7 +247,7 @@ name|Item
 argument_list|(
 literal|"alias-"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -312,7 +312,7 @@ index|[
 name|j
 index|]
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomIntBetween
 argument_list|(

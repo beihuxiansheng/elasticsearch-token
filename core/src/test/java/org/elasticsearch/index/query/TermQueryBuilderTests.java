@@ -267,7 +267,7 @@ condition|)
 block|{
 name|value
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -362,7 +362,7 @@ condition|)
 block|{
 name|fieldName
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

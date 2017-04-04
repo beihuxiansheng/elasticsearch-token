@@ -429,7 +429,7 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -441,7 +441,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -458,7 +458,7 @@ operator|&&
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -509,12 +509,12 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -550,12 +550,12 @@ argument_list|(
 operator|new
 name|RemoteInfo
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -717,7 +717,7 @@ name|update
 operator|.
 name|setPipeline
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -1732,7 +1732,7 @@ argument_list|(
 operator|new
 name|TaskId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

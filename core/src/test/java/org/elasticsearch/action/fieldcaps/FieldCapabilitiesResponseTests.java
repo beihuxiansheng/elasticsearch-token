@@ -148,7 +148,7 @@ block|{
 name|String
 name|fieldName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -196,7 +196,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|10
 argument_list|,

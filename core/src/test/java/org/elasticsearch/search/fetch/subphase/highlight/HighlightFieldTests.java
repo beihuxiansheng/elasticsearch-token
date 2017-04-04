@@ -219,7 +219,7 @@ init|=
 name|frequently
 argument_list|()
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -289,7 +289,7 @@ argument_list|(
 name|frequently
 argument_list|()
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|10
 argument_list|,

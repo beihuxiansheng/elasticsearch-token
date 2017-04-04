@@ -1713,7 +1713,7 @@ init|=
 operator|new
 name|ClusterName
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1993,7 +1993,7 @@ init|=
 operator|new
 name|ClusterName
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

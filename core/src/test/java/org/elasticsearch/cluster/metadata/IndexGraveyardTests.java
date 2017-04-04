@@ -301,7 +301,7 @@ argument_list|(
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|4
 argument_list|,
@@ -1120,7 +1120,7 @@ argument_list|(
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|6
 argument_list|)

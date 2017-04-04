@@ -1412,7 +1412,7 @@ block|{
 name|String
 name|allocId1
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1420,7 +1420,7 @@ decl_stmt|;
 name|String
 name|allocId2
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

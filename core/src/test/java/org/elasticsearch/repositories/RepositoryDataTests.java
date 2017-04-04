@@ -401,7 +401,7 @@ init|=
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|7
 argument_list|)
@@ -465,7 +465,7 @@ init|=
 operator|new
 name|IndexId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|7
 argument_list|)
@@ -700,7 +700,7 @@ argument_list|(
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -993,7 +993,7 @@ expr_stmt|;
 name|String
 name|notInRepoData
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -1153,7 +1153,7 @@ argument_list|(
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -1253,7 +1253,7 @@ init|=
 operator|new
 name|IndexId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

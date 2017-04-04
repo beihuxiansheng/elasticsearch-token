@@ -184,7 +184,7 @@ name|FieldSortBuilder
 operator|.
 name|DOC_FIELD_NAME
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -247,7 +247,7 @@ name|builder
 operator|.
 name|unmappedType
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -301,7 +301,7 @@ name|builder
 operator|.
 name|setNestedPath
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -367,7 +367,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -442,7 +442,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

@@ -599,7 +599,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -609,7 +609,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -619,7 +619,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -695,7 +695,7 @@ block|{
 name|String
 name|routing
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -728,7 +728,7 @@ block|{
 name|String
 name|parent
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -845,7 +845,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -855,7 +855,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -865,7 +865,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -913,7 +913,7 @@ block|{
 name|String
 name|preference
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -946,7 +946,7 @@ block|{
 name|String
 name|routing
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1191,7 +1191,7 @@ block|{
 name|String
 name|storedField
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1333,7 +1333,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1343,7 +1343,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1367,7 +1367,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1525,7 +1525,7 @@ block|{
 name|String
 name|routing
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1558,7 +1558,7 @@ block|{
 name|String
 name|parent
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1591,7 +1591,7 @@ block|{
 name|String
 name|pipeline
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1896,7 +1896,7 @@ decl_stmt|;
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1906,7 +1906,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1916,7 +1916,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -2075,7 +2075,7 @@ block|{
 name|String
 name|routing
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -2108,7 +2108,7 @@ block|{
 name|String
 name|parent
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -2962,7 +2962,7 @@ block|{
 name|String
 name|index
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2970,7 +2970,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2978,7 +2978,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -3064,7 +3064,7 @@ name|indexRequest
 operator|.
 name|setPipeline
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -3081,7 +3081,7 @@ name|indexRequest
 operator|.
 name|parent
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -3140,7 +3140,7 @@ name|createRequest
 operator|.
 name|parent
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -3240,7 +3240,7 @@ name|updateRequest
 operator|.
 name|parent
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -3283,7 +3283,7 @@ name|docWriteRequest
 operator|.
 name|routing
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -4598,7 +4598,7 @@ decl_stmt|;
 name|String
 name|paramValue
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -5208,7 +5208,7 @@ block|{
 name|String
 name|include
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -5312,7 +5312,7 @@ block|{
 name|String
 name|exclude
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

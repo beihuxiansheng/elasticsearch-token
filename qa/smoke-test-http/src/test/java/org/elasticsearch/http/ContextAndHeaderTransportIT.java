@@ -712,7 +712,7 @@ specifier|private
 name|String
 name|randomHeaderValue
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|20
 argument_list|)
@@ -724,7 +724,7 @@ name|queryIndex
 init|=
 literal|"query-"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -743,7 +743,7 @@ name|lookupIndex
 init|=
 literal|"lookup-"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

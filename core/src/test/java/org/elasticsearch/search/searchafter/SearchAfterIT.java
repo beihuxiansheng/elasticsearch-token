@@ -184,18 +184,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|RemoteTransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -1538,7 +1526,7 @@ name|values
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

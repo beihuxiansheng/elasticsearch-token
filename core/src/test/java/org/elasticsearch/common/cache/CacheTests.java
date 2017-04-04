@@ -4679,7 +4679,7 @@ specifier|final
 name|String
 name|key
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,

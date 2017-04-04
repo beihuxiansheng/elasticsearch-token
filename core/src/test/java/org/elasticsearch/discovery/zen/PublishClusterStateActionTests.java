@@ -4575,7 +4575,7 @@ argument_list|)
 operator|.
 name|masterNodeId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -4755,7 +4755,7 @@ argument_list|(
 operator|new
 name|ClusterName
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

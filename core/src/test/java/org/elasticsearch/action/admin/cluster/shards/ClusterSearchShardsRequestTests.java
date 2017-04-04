@@ -169,7 +169,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -224,7 +224,7 @@ name|request
 operator|.
 name|preference
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -279,7 +279,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

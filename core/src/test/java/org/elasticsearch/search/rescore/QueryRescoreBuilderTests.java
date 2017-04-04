@@ -880,7 +880,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1775,7 +1775,7 @@ argument_list|)
 operator|.
 name|queryName
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|20
 argument_list|)

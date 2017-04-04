@@ -399,7 +399,7 @@ name|ParentIdQueryBuilder
 argument_list|(
 name|CHILD_TYPE
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)

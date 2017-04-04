@@ -857,7 +857,7 @@ return|return
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -870,7 +870,7 @@ return|return
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -1274,7 +1274,7 @@ name|contains
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

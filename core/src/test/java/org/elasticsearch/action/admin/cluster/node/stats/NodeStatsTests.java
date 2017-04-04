@@ -3066,7 +3066,7 @@ name|OsStats
 operator|.
 name|Cgroup
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -3074,7 +3074,7 @@ argument_list|,
 name|randomNonNegativeLong
 argument_list|()
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -3207,7 +3207,7 @@ name|JvmStats
 operator|.
 name|MemoryPool
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3303,7 +3303,7 @@ name|JvmStats
 operator|.
 name|GarbageCollector
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3378,7 +3378,7 @@ name|JvmStats
 operator|.
 name|BufferPool
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3532,7 +3532,7 @@ name|ThreadPoolStats
 operator|.
 name|Stats
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3660,7 +3660,7 @@ argument_list|,
 name|randomInt
 argument_list|()
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3698,7 +3698,7 @@ argument_list|,
 name|randomInt
 argument_list|()
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3783,7 +3783,7 @@ name|FsInfo
 operator|.
 name|Path
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3793,7 +3793,7 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -3926,7 +3926,7 @@ operator|=
 operator|new
 name|CircuitBreakerStats
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -4082,7 +4082,7 @@ name|statsPerPipeline
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

@@ -446,7 +446,7 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 import|;
 end_import
 
@@ -727,7 +727,7 @@ name|searchRequest
 operator|.
 name|preference
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -761,7 +761,7 @@ name|searchRequest
 operator|.
 name|routing
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1090,7 +1090,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1153,7 +1153,7 @@ name|builder
 operator|.
 name|scriptField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1177,7 +1177,7 @@ name|builder
 operator|.
 name|scriptField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1248,7 +1248,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1293,7 +1293,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1349,7 +1349,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1361,7 +1361,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1417,7 +1417,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1492,7 +1492,7 @@ name|statsGroups
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1544,7 +1544,7 @@ name|builder
 operator|.
 name|indexBoost
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1573,14 +1573,14 @@ name|QueryBuilders
 operator|.
 name|termQuery
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
 literal|20
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1604,14 +1604,14 @@ name|QueryBuilders
 operator|.
 name|termQuery
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
 literal|20
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1676,7 +1676,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1708,7 +1708,7 @@ name|SortBuilders
 operator|.
 name|geoDistanceSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1807,7 +1807,7 @@ name|builder
 operator|.
 name|sort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1823,7 +1823,7 @@ name|builder
 operator|.
 name|sort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1968,7 +1968,7 @@ name|jsonBuilder
 operator|.
 name|value
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -2023,7 +2023,7 @@ argument_list|(
 operator|new
 name|Text
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -2208,7 +2208,7 @@ name|AggregationBuilders
 operator|.
 name|avg
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -2249,7 +2249,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

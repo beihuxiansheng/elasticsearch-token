@@ -250,7 +250,7 @@ specifier|final
 name|String
 name|metric
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|64
 argument_list|)

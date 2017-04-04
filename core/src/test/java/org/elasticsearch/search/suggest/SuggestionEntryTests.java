@@ -408,7 +408,7 @@ init|=
 operator|new
 name|Text
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

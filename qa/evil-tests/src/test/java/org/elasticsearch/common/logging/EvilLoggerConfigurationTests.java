@@ -1499,7 +1499,7 @@ name|ctx
 operator|.
 name|getLogger
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)

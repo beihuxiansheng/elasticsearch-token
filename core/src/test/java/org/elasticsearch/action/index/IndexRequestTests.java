@@ -682,7 +682,7 @@ block|{
 name|String
 name|id
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|511
 argument_list|)
@@ -726,7 +726,7 @@ argument_list|)
 expr_stmt|;
 name|id
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|512
 argument_list|)
@@ -768,7 +768,7 @@ argument_list|)
 expr_stmt|;
 name|id
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|513
 argument_list|)
@@ -999,14 +999,14 @@ init|=
 operator|new
 name|ShardId
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1024,7 +1024,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -1034,7 +1034,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

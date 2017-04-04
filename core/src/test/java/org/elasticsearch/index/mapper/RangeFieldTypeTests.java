@@ -490,7 +490,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

@@ -179,7 +179,7 @@ block|{
 operator|new
 name|TaskId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)

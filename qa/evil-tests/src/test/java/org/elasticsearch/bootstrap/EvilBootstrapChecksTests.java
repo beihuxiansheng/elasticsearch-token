@@ -460,7 +460,7 @@ specifier|final
 name|String
 name|value
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

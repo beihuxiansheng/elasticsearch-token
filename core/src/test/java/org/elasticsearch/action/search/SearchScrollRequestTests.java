@@ -350,7 +350,7 @@ init|=
 operator|new
 name|SearchScrollRequest
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

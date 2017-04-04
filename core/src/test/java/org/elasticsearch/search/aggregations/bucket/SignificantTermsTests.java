@@ -389,7 +389,7 @@ block|{
 name|String
 name|name
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -410,7 +410,7 @@ decl_stmt|;
 name|String
 name|field
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -825,7 +825,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -908,7 +908,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -975,7 +975,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1028,7 +1028,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

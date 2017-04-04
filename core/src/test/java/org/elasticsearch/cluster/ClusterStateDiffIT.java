@@ -1922,7 +1922,7 @@ name|DiscoveryNode
 argument_list|(
 literal|"node-"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -2318,7 +2318,7 @@ argument_list|(
 name|randomReason
 argument_list|()
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -3241,12 +3241,12 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -3947,7 +3947,7 @@ name|AliasMetaData
 operator|.
 name|builder
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -4305,7 +4305,7 @@ name|builder
 operator|.
 name|routing
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -3076,7 +3076,7 @@ specifier|final
 name|String
 name|random
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

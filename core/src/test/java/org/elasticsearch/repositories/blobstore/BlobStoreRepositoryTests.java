@@ -1283,7 +1283,7 @@ argument_list|(
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -1530,7 +1530,7 @@ init|=
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -1590,7 +1590,7 @@ argument_list|(
 operator|new
 name|IndexId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

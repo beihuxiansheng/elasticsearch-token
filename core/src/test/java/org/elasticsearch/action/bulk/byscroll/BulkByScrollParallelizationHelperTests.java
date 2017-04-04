@@ -230,7 +230,7 @@ name|UidFieldMapper
 operator|.
 name|NAME
 else|:
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

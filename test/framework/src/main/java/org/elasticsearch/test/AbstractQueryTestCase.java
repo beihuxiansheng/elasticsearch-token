@@ -1769,7 +1769,7 @@ operator|=
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1813,7 +1813,7 @@ block|{
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2058,7 +2058,7 @@ block|{
 name|String
 name|queryName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3610,7 +3610,7 @@ argument_list|()
 operator|==
 literal|null
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3622,7 +3622,7 @@ operator|.
 name|queryName
 argument_list|()
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4424,7 +4424,7 @@ argument_list|()
 operator|==
 literal|null
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4436,7 +4436,7 @@ operator|.
 name|queryName
 argument_list|()
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4616,7 +4616,7 @@ else|else
 block|{
 name|value
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4685,7 +4685,7 @@ break|break;
 default|default:
 name|value
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4740,7 +4740,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -4786,7 +4786,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

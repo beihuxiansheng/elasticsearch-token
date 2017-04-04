@@ -458,7 +458,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -515,7 +515,7 @@ name|factory
 operator|.
 name|fieldDataField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -564,7 +564,7 @@ name|factory
 operator|.
 name|scriptField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -588,7 +588,7 @@ name|factory
 operator|.
 name|scriptField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -659,7 +659,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -704,7 +704,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -760,7 +760,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -772,7 +772,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -828,7 +828,7 @@ operator|new
 name|String
 index|[]
 block|{
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -910,7 +910,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -942,7 +942,7 @@ name|SortBuilders
 operator|.
 name|geoDistanceSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1039,7 +1039,7 @@ name|factory
 operator|.
 name|sort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -1055,7 +1055,7 @@ name|factory
 operator|.
 name|sort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

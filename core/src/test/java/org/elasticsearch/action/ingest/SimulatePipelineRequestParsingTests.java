@@ -536,7 +536,7 @@ decl_stmt|;
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -546,7 +546,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -556,7 +556,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -602,7 +602,7 @@ expr_stmt|;
 name|String
 name|fieldName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -612,7 +612,7 @@ decl_stmt|;
 name|String
 name|fieldValue
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1066,7 +1066,7 @@ decl_stmt|;
 name|String
 name|index
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1076,7 +1076,7 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1086,7 +1086,7 @@ decl_stmt|;
 name|String
 name|id
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1132,7 +1132,7 @@ expr_stmt|;
 name|String
 name|fieldName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1142,7 +1142,7 @@ decl_stmt|;
 name|String
 name|fieldValue
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1837,7 +1837,7 @@ block|{
 name|String
 name|pipelineId
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

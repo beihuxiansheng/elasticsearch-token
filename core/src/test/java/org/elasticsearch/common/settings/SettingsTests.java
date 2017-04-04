@@ -435,7 +435,7 @@ specifier|final
 name|String
 name|hostname
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)

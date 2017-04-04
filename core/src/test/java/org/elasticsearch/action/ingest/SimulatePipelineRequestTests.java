@@ -186,7 +186,7 @@ name|request
 operator|.
 name|setId
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

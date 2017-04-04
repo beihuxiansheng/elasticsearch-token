@@ -112,7 +112,7 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 import|;
 end_import
 
@@ -887,7 +887,7 @@ argument_list|,
 operator|new
 name|SnapshotId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

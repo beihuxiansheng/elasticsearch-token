@@ -122,7 +122,7 @@ specifier|final
 name|String
 name|value
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)
@@ -225,7 +225,7 @@ specifier|final
 name|String
 name|commandLineValue
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)

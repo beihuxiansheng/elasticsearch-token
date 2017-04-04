@@ -245,7 +245,7 @@ comment|// number of data nodes are started for the randomized active shard coun
 name|String
 name|id
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -260,7 +260,7 @@ decl_stmt|;
 name|String
 name|preference
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

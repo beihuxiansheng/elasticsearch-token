@@ -3402,7 +3402,7 @@ name|put
 argument_list|(
 literal|"random"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -3789,7 +3789,7 @@ name|put
 argument_list|(
 literal|"random"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

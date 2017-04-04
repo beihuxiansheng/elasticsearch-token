@@ -240,7 +240,7 @@ block|{
 name|String
 name|clusterUuid
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -251,7 +251,7 @@ init|=
 operator|new
 name|ClusterName
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -260,7 +260,7 @@ decl_stmt|;
 name|String
 name|nodeName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -271,7 +271,7 @@ init|=
 operator|new
 name|Build
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -751,7 +751,7 @@ name|clusterUuid
 operator|=
 name|clusterUuid
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -764,7 +764,7 @@ name|nodeName
 operator|=
 name|nodeName
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -837,7 +837,7 @@ name|ClusterName
 argument_list|(
 name|clusterName
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

@@ -311,7 +311,7 @@ argument_list|()
 condition|?
 name|STRING_FIELD_NAME
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -321,7 +321,7 @@ decl_stmt|;
 name|String
 name|value
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

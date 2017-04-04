@@ -821,7 +821,7 @@ name|Index
 argument_list|(
 literal|"blubb"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

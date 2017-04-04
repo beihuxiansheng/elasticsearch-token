@@ -451,7 +451,7 @@ decl_stmt|;
 name|String
 name|localNodeId
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

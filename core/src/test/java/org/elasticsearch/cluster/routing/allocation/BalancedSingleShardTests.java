@@ -1584,7 +1584,7 @@ name|discoveryNode
 init|=
 name|newNode
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|7
 argument_list|)
@@ -2667,7 +2667,7 @@ name|discoveryNode
 init|=
 name|newNode
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|7
 argument_list|)
@@ -2821,7 +2821,7 @@ name|add
 argument_list|(
 name|newNode
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|7
 argument_list|)

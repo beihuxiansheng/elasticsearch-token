@@ -2340,7 +2340,7 @@ name|innerHits
 operator|.
 name|setName
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2412,7 +2412,7 @@ literal|16
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2432,7 +2432,7 @@ literal|16
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2577,7 +2577,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -2667,14 +2667,14 @@ init|=
 operator|new
 name|MatchQueryBuilder
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
 literal|16
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -2694,7 +2694,7 @@ name|InnerHitBuilder
 argument_list|(
 name|innerHits
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -2716,7 +2716,7 @@ name|innerHits
 argument_list|,
 name|query
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -2995,7 +2995,7 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3039,7 +3039,7 @@ literal|16
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3058,7 +3058,7 @@ name|copy
 operator|.
 name|addDocValueField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3277,7 +3277,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -3321,7 +3321,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -3430,7 +3430,7 @@ literal|16
 argument_list|,
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3456,7 +3456,7 @@ argument_list|()
 operator|.
 name|addFieldName
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -3562,7 +3562,7 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|16
 argument_list|)
@@ -3586,14 +3586,14 @@ name|STORED
 condition|?
 literal|null
 else|:
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
 literal|4
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|128
 argument_list|)
@@ -3607,7 +3607,7 @@ name|SearchSourceBuilder
 operator|.
 name|ScriptField
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

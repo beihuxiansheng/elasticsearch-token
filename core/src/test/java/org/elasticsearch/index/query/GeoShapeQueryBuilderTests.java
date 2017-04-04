@@ -514,7 +514,7 @@ name|shape
 expr_stmt|;
 name|indexedShapeId
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -523,7 +523,7 @@ argument_list|)
 expr_stmt|;
 name|indexedShapeType
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -550,7 +550,7 @@ condition|)
 block|{
 name|indexedShapeIndex
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -573,7 +573,7 @@ condition|)
 block|{
 name|indexedShapePath
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

@@ -144,7 +144,7 @@ comment|// assert equals and hashcode
 name|String
 name|name
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -250,7 +250,7 @@ operator|=
 operator|new
 name|IndexId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -326,7 +326,7 @@ init|=
 operator|new
 name|IndexId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -383,7 +383,7 @@ init|=
 operator|new
 name|IndexId
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

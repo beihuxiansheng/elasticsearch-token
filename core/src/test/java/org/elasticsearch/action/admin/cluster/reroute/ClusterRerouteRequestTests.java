@@ -504,7 +504,7 @@ lambda|->
 operator|new
 name|AllocateReplicaAllocationCommand
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -518,7 +518,7 @@ argument_list|,
 literal|1000
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -531,7 +531,7 @@ lambda|->
 operator|new
 name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -545,7 +545,7 @@ argument_list|,
 literal|1000
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -561,7 +561,7 @@ lambda|->
 operator|new
 name|AllocateStalePrimaryAllocationCommand
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -575,7 +575,7 @@ argument_list|,
 literal|1000
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -591,7 +591,7 @@ lambda|->
 operator|new
 name|CancelAllocationCommand
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -605,7 +605,7 @@ argument_list|,
 literal|1000
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -621,7 +621,7 @@ lambda|->
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -635,14 +635,14 @@ argument_list|,
 literal|1000
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|2
 argument_list|,

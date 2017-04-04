@@ -325,7 +325,7 @@ index|[
 name|i
 index|]
 operator|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -380,7 +380,7 @@ operator|=
 operator|new
 name|Text
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -538,7 +538,7 @@ name|jsonBuilder
 operator|.
 name|value
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -593,7 +593,7 @@ argument_list|(
 operator|new
 name|Text
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

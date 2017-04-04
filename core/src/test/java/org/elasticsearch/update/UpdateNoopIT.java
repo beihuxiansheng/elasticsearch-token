@@ -268,7 +268,7 @@ name|key1
 init|=
 literal|1
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -278,7 +278,7 @@ name|key2
 init|=
 literal|2
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -288,7 +288,7 @@ name|key3
 init|=
 literal|3
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -754,7 +754,7 @@ name|key1
 init|=
 literal|1
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -764,7 +764,7 @@ name|key2
 init|=
 literal|2
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -774,7 +774,7 @@ name|key3
 init|=
 literal|3
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)

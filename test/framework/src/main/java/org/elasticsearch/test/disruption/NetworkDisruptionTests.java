@@ -311,7 +311,7 @@ name|topology
 operator|.
 name|disrupt
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -329,7 +329,7 @@ name|topology
 operator|.
 name|disrupt
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -352,7 +352,7 @@ argument_list|(
 name|partition1
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -370,7 +370,7 @@ argument_list|(
 name|partition2
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -550,7 +550,7 @@ decl_stmt|;
 name|String
 name|bridgeNode
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -823,7 +823,7 @@ name|topology
 operator|.
 name|disrupt
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -841,7 +841,7 @@ name|topology
 operator|.
 name|disrupt
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -859,7 +859,7 @@ name|topology
 operator|.
 name|disrupt
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -879,7 +879,7 @@ argument_list|(
 name|partition1
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -897,7 +897,7 @@ argument_list|(
 name|partition2
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -912,7 +912,7 @@ name|disrupt
 argument_list|(
 name|bridgeNode
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -978,7 +978,7 @@ name|result
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

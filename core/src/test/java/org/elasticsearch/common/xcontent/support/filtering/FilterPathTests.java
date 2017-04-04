@@ -1309,7 +1309,7 @@ name|filterPath
 operator|.
 name|matchProperty
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|2
 argument_list|)
@@ -1639,7 +1639,7 @@ name|filterPath
 operator|.
 name|matchProperty
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|2
 argument_list|)
@@ -1746,7 +1746,7 @@ name|filterPath
 operator|.
 name|matchProperty
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|2
 argument_list|)

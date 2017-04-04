@@ -774,7 +774,7 @@ name|index
 argument_list|,
 name|type
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -841,7 +841,7 @@ name|item
 operator|.
 name|routing
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -924,7 +924,7 @@ name|field
 argument_list|(
 name|field
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

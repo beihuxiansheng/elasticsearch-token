@@ -588,7 +588,7 @@ name|fromString
 argument_list|(
 literal|"prefix-"
 operator|+
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

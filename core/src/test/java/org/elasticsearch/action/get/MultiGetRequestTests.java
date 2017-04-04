@@ -235,7 +235,7 @@ specifier|final
 name|String
 name|defaultIndex
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -244,7 +244,7 @@ specifier|final
 name|String
 name|defaultType
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -388,7 +388,7 @@ specifier|final
 name|String
 name|defaultIndex
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -397,7 +397,7 @@ specifier|final
 name|String
 name|defaultType
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -528,12 +528,12 @@ name|multiGetRequest
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)
@@ -643,12 +643,12 @@ name|multiGetRequest
 operator|.
 name|add
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|3
 argument_list|)

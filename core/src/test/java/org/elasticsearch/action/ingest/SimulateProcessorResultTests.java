@@ -175,7 +175,7 @@ block|{
 name|String
 name|processorTag
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

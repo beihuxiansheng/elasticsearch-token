@@ -5746,12 +5746,12 @@ argument_list|(
 operator|new
 name|Index
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)
@@ -5770,7 +5770,7 @@ decl_stmt|;
 name|String
 name|msg
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)

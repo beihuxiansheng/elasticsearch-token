@@ -777,7 +777,7 @@ name|mutation
 operator|.
 name|setGlobalText
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -792,7 +792,7 @@ name|mutation
 operator|.
 name|addSuggestion
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -832,7 +832,7 @@ name|builder
 operator|.
 name|setGlobalText
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -871,7 +871,7 @@ name|builder
 operator|.
 name|addSuggestion
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

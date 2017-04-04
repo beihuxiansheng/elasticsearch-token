@@ -4906,7 +4906,7 @@ block|{
 name|String
 name|queryFieldName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)
@@ -5041,7 +5041,7 @@ block|{
 name|String
 name|queryFieldName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|8
 argument_list|)

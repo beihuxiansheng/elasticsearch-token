@@ -36,18 +36,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
 name|RandomDocumentPicks
 import|;
 end_import
@@ -228,7 +216,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -541,7 +529,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -641,7 +629,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -737,7 +725,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -855,7 +843,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -969,7 +957,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1287,7 +1275,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1463,7 +1451,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1684,7 +1672,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1860,7 +1848,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -1978,7 +1966,7 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

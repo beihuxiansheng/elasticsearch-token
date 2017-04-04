@@ -832,7 +832,7 @@ name|extraId
 init|=
 literal|"extra_"
 operator|+
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

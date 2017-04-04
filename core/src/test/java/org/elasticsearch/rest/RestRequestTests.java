@@ -1062,7 +1062,7 @@ init|=
 operator|new
 name|ContentRestRequest
 argument_list|(
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -1236,7 +1236,7 @@ name|randomUnique
 argument_list|(
 parameter_list|()
 lambda|->
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,

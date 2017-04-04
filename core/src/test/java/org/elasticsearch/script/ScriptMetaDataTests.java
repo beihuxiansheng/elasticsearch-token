@@ -66,20 +66,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -1044,7 +1030,7 @@ block|{
 name|String
 name|lang
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)
@@ -1071,7 +1057,7 @@ name|field
 argument_list|(
 literal|"script"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|4
 argument_list|)
@@ -1084,7 +1070,7 @@ name|builder
 operator|.
 name|storeScript
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|i
 operator|+

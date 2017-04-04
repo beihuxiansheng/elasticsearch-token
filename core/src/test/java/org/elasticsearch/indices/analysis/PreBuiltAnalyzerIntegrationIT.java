@@ -368,7 +368,7 @@ block|{
 name|String
 name|indexName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -642,7 +642,7 @@ name|put
 argument_list|(
 literal|"foo"
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|scaledRandomIntBetween
 argument_list|(

@@ -164,7 +164,7 @@ block|{
 name|String
 name|randomMessage
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,
@@ -193,7 +193,7 @@ decl_stmt|;
 name|String
 name|nodeId
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -203,7 +203,7 @@ decl_stmt|;
 name|String
 name|indexName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,
@@ -213,7 +213,7 @@ decl_stmt|;
 name|String
 name|indexUuid
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|5
 argument_list|,

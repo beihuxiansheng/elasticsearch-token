@@ -2024,7 +2024,7 @@ block|{
 name|String
 name|resourceType
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)
@@ -2032,7 +2032,7 @@ decl_stmt|;
 name|String
 name|resourceId
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|5
 argument_list|)

@@ -4607,7 +4607,7 @@ specifier|final
 name|String
 name|dataPath
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -11570,7 +11570,7 @@ index|]
 operator|.
 name|resolve
 argument_list|(
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)

@@ -257,30 +257,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|IntStream
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -440,7 +416,7 @@ block|}
 name|String
 name|actionName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomInt
 argument_list|(
@@ -1068,7 +1044,7 @@ expr_stmt|;
 name|String
 name|actionName
 init|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 name|randomInt
 argument_list|(

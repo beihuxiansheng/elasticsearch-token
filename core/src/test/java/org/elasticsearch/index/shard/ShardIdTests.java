@@ -59,7 +59,7 @@ block|{
 name|String
 name|indexName
 init|=
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|3
 argument_list|,

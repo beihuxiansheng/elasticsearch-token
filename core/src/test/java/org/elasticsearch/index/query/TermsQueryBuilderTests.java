@@ -334,18 +334,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|stream
 operator|.
 name|Collectors
@@ -373,18 +361,6 @@ operator|.
 name|Matchers
 operator|.
 name|either
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
 import|;
 end_import
 
@@ -496,7 +472,7 @@ name|randomTerms
 expr_stmt|;
 name|termsPath
 operator|=
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -633,7 +609,7 @@ argument_list|(
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLengthBetween
+name|randomAlphaOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -664,19 +640,19 @@ argument_list|(
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
 else|:
 literal|null
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
@@ -689,7 +665,7 @@ argument_list|(
 name|randomBoolean
 argument_list|()
 condition|?
-name|randomAsciiOfLength
+name|randomAlphaOfLength
 argument_list|(
 literal|10
 argument_list|)
