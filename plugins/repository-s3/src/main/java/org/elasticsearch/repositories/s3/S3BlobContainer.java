@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws.blobstore
+DECL|package|org.elasticsearch.repositories.s3
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|repositories
 operator|.
-name|aws
-operator|.
-name|blobstore
+name|s3
 package|;
 end_package
 
@@ -135,22 +133,6 @@ operator|.
 name|model
 operator|.
 name|S3ObjectSummary
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
-name|util
-operator|.
-name|SocketAccess
 import|;
 end_import
 
@@ -354,7 +336,6 @@ end_import
 
 begin_class
 DECL|class|S3BlobContainer
-specifier|public
 class|class
 name|S3BlobContainer
 extends|extends
@@ -373,7 +354,6 @@ name|String
 name|keyPath
 decl_stmt|;
 DECL|method|S3BlobContainer
-specifier|public
 name|S3BlobContainer
 parameter_list|(
 name|BlobPath

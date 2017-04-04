@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws
+DECL|package|org.elasticsearch.repositories.s3
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|repositories
 operator|.
-name|aws
+name|s3
 package|;
 end_package
 
@@ -212,22 +212,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
-name|util
-operator|.
-name|SocketAccess
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -332,23 +316,8 @@ name|TimeValue
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|repositories
-operator|.
-name|s3
-operator|.
-name|S3Repository
-import|;
-end_import
-
 begin_class
 DECL|class|InternalAwsS3Service
-specifier|public
 class|class
 name|InternalAwsS3Service
 extends|extends
@@ -402,7 +371,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|InternalAwsS3Service
-specifier|public
 name|InternalAwsS3Service
 parameter_list|(
 name|Settings

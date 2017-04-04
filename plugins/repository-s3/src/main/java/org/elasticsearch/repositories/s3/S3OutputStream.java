@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws.blobstore
+DECL|package|org.elasticsearch.repositories.s3
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|repositories
 operator|.
-name|aws
-operator|.
-name|blobstore
+name|s3
 package|;
 end_package
 
@@ -72,7 +70,6 @@ end_comment
 
 begin_class
 DECL|class|S3OutputStream
-specifier|public
 specifier|abstract
 class|class
 name|S3OutputStream
@@ -163,7 +160,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|S3OutputStream
-specifier|public
 name|S3OutputStream
 parameter_list|(
 name|S3BlobStore

@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws
+DECL|package|org.elasticsearch.repositories.s3
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|repositories
 operator|.
-name|aws
+name|s3
 package|;
 end_package
 
@@ -32,11 +32,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|repositories
 operator|.
-name|settings
+name|s3
 operator|.
-name|Settings
+name|AwsSigner
 import|;
 end_import
 
@@ -46,9 +46,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
-operator|.
-name|repository
+name|repositories
 operator|.
 name|s3
 operator|.
