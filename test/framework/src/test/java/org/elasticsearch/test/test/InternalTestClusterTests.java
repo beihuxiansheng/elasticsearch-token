@@ -2694,7 +2694,8 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
-comment|// timeout as no initial state timeout makes split elections more likely
+comment|// speedup join timeout as setting initial state timeout to 0 makes split
+comment|// elections more likely
 operator|.
 name|put
 argument_list|(
@@ -2707,7 +2708,6 @@ argument_list|()
 argument_list|,
 literal|"3s"
 argument_list|)
-comment|// speed up
 operator|.
 name|build
 argument_list|()
