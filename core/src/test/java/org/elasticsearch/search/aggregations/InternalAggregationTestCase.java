@@ -417,6 +417,7 @@ operator|>
 literal|1
 condition|)
 block|{
+comment|// sometimes do an incremental reduce
 name|Collections
 operator|.
 name|shuffle
@@ -427,24 +428,14 @@ name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we leave at least one element in the list
 name|int
 name|r
 init|=
-name|Math
-operator|.
-name|max
+name|randomIntBetween
 argument_list|(
 literal|1
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
 name|toReduceSize
-operator|-
-literal|2
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|List
@@ -506,6 +497,10 @@ argument_list|)
 decl_stmt|;
 name|toReduce
 operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|toReduce
 operator|.
 name|subList
@@ -513,6 +508,7 @@ argument_list|(
 name|r
 argument_list|,
 name|toReduceSize
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|toReduce
