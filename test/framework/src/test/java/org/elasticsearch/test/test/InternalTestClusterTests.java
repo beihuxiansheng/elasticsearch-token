@@ -142,6 +142,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|ZenDiscovery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|NodeEnvironment
@@ -2680,6 +2694,20 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
+comment|// timeout as no initial state timeout makes split elections more likely
+operator|.
+name|put
+argument_list|(
+name|ZenDiscovery
+operator|.
+name|JOIN_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|"3s"
+argument_list|)
+comment|// speed up
 operator|.
 name|build
 argument_list|()
