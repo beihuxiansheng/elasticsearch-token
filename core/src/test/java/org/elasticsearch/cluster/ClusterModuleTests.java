@@ -794,7 +794,7 @@ name|service
 lambda|->
 name|service
 operator|.
-name|hasDynamicSetting
+name|isDynamicSetting
 argument_list|(
 literal|"foo.bar"
 argument_list|)
@@ -895,7 +895,7 @@ name|service
 lambda|->
 name|service
 operator|.
-name|hasDynamicSetting
+name|isDynamicSetting
 argument_list|(
 literal|"index.foo.bar"
 argument_list|)

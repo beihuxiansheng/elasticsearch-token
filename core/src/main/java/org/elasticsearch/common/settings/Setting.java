@@ -464,6 +464,10 @@ comment|/**          * iff this setting can be dynamically updateable          *
 DECL|enum constant|Dynamic
 name|Dynamic
 block|,
+comment|/**          * mark this setting as final, not updateable even when the context is not dynamic          * ie. Setting this property on an index scoped setting will fail update when the index is closed          */
+DECL|enum constant|Final
+name|Final
+block|,
 comment|/**          * mark this setting as deprecated          */
 DECL|enum constant|Deprecated
 name|Deprecated
@@ -684,6 +688,27 @@ name|properties
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isDynamic
+argument_list|()
+operator|&&
+name|isFinal
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"final setting ["
+operator|+
+name|key
+operator|+
+literal|"] cannot be dynamic"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
@@ -941,6 +966,25 @@ argument_list|(
 name|Property
 operator|.
 name|Dynamic
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns<code>true</code> if this setting is final, otherwise<code>false</code>      */
+DECL|method|isFinal
+specifier|public
+specifier|final
+name|boolean
+name|isFinal
+parameter_list|()
+block|{
+return|return
+name|properties
+operator|.
+name|contains
+argument_list|(
+name|Property
+operator|.
+name|Final
 argument_list|)
 return|;
 block|}

@@ -1327,6 +1327,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|Final
 argument_list|)
 return|;
 block|}

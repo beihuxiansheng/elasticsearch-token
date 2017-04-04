@@ -206,26 +206,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|SortedMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
@@ -2231,10 +2211,10 @@ literal|true
 return|;
 block|}
 comment|/**      * Returns<code>true</code> if the setting for the given key is dynamically updateable. Otherwise<code>false</code>.      */
-DECL|method|hasDynamicSetting
+DECL|method|isDynamicSetting
 specifier|public
 name|boolean
-name|hasDynamicSetting
+name|isDynamicSetting
 parameter_list|(
 name|String
 name|key
@@ -2260,6 +2240,39 @@ operator|&&
 name|setting
 operator|.
 name|isDynamic
+argument_list|()
+return|;
+block|}
+comment|/**      * Returns<code>true</code> if the setting for the given key is final. Otherwise<code>false</code>.      */
+DECL|method|isFinalSetting
+specifier|public
+name|boolean
+name|isFinalSetting
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+specifier|final
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+name|setting
+init|=
+name|get
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+return|return
+name|setting
+operator|!=
+literal|null
+operator|&&
+name|setting
+operator|.
+name|isFinal
 argument_list|()
 return|;
 block|}
@@ -2579,6 +2592,16 @@ name|key
 parameter_list|)
 lambda|->
 operator|(
+name|isFinalSetting
+argument_list|(
+name|key
+argument_list|)
+operator|==
+literal|false
+operator|&&
+comment|// it's not a final setting
+operator|(
+operator|(
 name|onlyDynamic
 operator|==
 literal|false
@@ -2591,10 +2614,12 @@ operator|!=
 literal|null
 operator|)
 operator|||
-name|hasDynamicSetting
+name|isDynamicSetting
 argument_list|(
 name|key
 argument_list|)
+operator|)
+operator|)
 decl_stmt|;
 specifier|final
 name|Predicate
@@ -2609,9 +2634,18 @@ parameter_list|)
 lambda|->
 operator|(
 comment|// we can delete if
+name|isFinalSetting
+argument_list|(
+name|key
+argument_list|)
+operator|==
+literal|false
+operator|&&
+comment|// it's not a final setting
+operator|(
 name|onlyDynamic
 operator|&&
-name|hasDynamicSetting
+name|isDynamicSetting
 argument_list|(
 name|key
 argument_list|)
@@ -2643,6 +2677,7 @@ name|key
 argument_list|)
 operator|!=
 literal|null
+operator|)
 operator|)
 operator|)
 decl_stmt|;
@@ -2782,6 +2817,38 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|isFinalSetting
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"final "
+operator|+
+name|type
+operator|+
+literal|" setting ["
+operator|+
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"], not updateable"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -2798,6 +2865,7 @@ operator|+
 literal|"], not dynamically updateable"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 name|changed
