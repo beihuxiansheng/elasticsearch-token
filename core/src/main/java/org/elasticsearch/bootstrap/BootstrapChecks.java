@@ -846,7 +846,7 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests if the checks should be enforced.      *      * @param boundTransportAddress the node network bindings      * @return {@code true} if the checks should be enforced      */
+comment|/**      * Tests if the checks should be enforced.      *      * @param boundTransportAddress the node network bindings      * @param discoveryType the discovery type      * @return {@code true} if the checks should be enforced      */
 DECL|method|enforceLimits
 specifier|static
 name|boolean
