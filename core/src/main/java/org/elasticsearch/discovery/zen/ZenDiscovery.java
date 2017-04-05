@@ -1409,8 +1409,25 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// the purpose of this validation is to make sure that the master doesn't step down
+comment|// due to a change in master nodes, which also means that there is no way to revert
+comment|// an accidental change. Since we validate using the current cluster state (and
+comment|// not the one from which the settings come from) we have to be careful and only
+comment|// validate if the local node is already a master. Doing so all the time causes
+comment|// subtle issues. For example, a node that joins a cluster has no nodes in its
+comment|// current cluster state. When it receives a cluster state from the master with
+comment|// a dynamic minimum master nodes setting int it, we must make sure we don't reject
+comment|// it.
 if|if
 condition|(
+name|clusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|isLocalNodeElectedMaster
+argument_list|()
+operator|&&
 name|value
 operator|>
 name|masterNodes
