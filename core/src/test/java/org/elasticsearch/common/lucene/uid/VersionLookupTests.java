@@ -198,7 +198,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|Versions
+name|VersionsResolver
 operator|.
 name|DocIdAndVersion
 import|;
@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * test per-segment lookup of version-related datastructures  */
+comment|/**  * test per-segment lookup of version-related data structures  */
 end_comment
 
 begin_class
@@ -256,7 +256,7 @@ name|VersionLookupTests
 extends|extends
 name|ESTestCase
 block|{
-comment|/**       * test version lookup actually works      */
+comment|/**      * test version lookup actually works      */
 DECL|method|testSimple
 specifier|public
 name|void
@@ -379,7 +379,7 @@ name|result
 init|=
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef
@@ -420,7 +420,7 @@ name|assertNull
 argument_list|(
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef
@@ -439,7 +439,7 @@ name|assertNull
 argument_list|(
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef
@@ -475,7 +475,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * test version lookup with two documents matching the ID      */
+comment|/**      * test version lookup with two documents matching the ID      */
 DECL|method|testTwoDocuments
 specifier|public
 name|void
@@ -605,7 +605,7 @@ name|result
 init|=
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef
@@ -662,7 +662,7 @@ name|result
 operator|=
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef
@@ -717,7 +717,7 @@ name|result
 operator|=
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef
@@ -758,7 +758,7 @@ name|assertNull
 argument_list|(
 name|lookup
 operator|.
-name|lookup
+name|lookupVersion
 argument_list|(
 operator|new
 name|BytesRef

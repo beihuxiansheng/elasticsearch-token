@@ -87,10 +87,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|time
+DECL|method|getTime
 specifier|public
 name|long
-name|time
+name|getTime
 parameter_list|()
 block|{
 return|return
@@ -101,10 +101,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|delete
+DECL|method|isDelete
 specifier|public
 name|boolean
-name|delete
+name|isDelete
 parameter_list|()
 block|{
 return|return
@@ -136,12 +136,10 @@ literal|"DeleteVersionValue{"
 operator|+
 literal|"version="
 operator|+
-name|version
+name|getVersion
 argument_list|()
 operator|+
-literal|", "
-operator|+
-literal|"time="
+literal|",time="
 operator|+
 name|time
 operator|+

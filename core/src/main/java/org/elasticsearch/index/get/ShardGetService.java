@@ -92,7 +92,9 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|Versions
+name|VersionsResolver
+operator|.
+name|DocIdAndVersion
 import|;
 end_import
 
@@ -1314,8 +1316,6 @@ name|source
 init|=
 literal|null
 decl_stmt|;
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 init|=

@@ -87,6 +87,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/** the version of the document. used for versioned indexed operations and as a BWC layer, where no seq# are set yet */
 DECL|field|version
 specifier|private
 specifier|final
@@ -107,10 +108,10 @@ operator|=
 name|version
 expr_stmt|;
 block|}
-DECL|method|time
+DECL|method|getTime
 specifier|public
 name|long
-name|time
+name|getTime
 parameter_list|()
 block|{
 throw|throw
@@ -119,20 +120,20 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-DECL|method|version
+DECL|method|getVersion
 specifier|public
 name|long
-name|version
+name|getVersion
 parameter_list|()
 block|{
 return|return
 name|version
 return|;
 block|}
-DECL|method|delete
+DECL|method|isDelete
 specifier|public
 name|boolean
-name|delete
+name|isDelete
 parameter_list|()
 block|{
 return|return
@@ -184,7 +185,7 @@ literal|"version="
 operator|+
 name|version
 operator|+
-literal|'}'
+literal|"}"
 return|;
 block|}
 block|}

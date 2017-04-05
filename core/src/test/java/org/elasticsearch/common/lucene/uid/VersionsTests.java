@@ -258,6 +258,42 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|VersionsResolver
+operator|.
+name|loadDocIdAndVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|VersionsResolver
+operator|.
+name|loadVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -417,8 +453,6 @@ name|MatcherAssert
 operator|.
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -511,8 +545,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -536,8 +568,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -639,8 +669,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -664,8 +692,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -743,8 +769,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -768,8 +792,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -817,8 +839,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -844,8 +864,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -1075,8 +1093,6 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -1100,8 +1116,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -1182,8 +1196,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -1207,8 +1219,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -1256,8 +1266,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|directoryReader
@@ -1283,8 +1291,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Versions
-operator|.
 name|loadDocIdAndVersion
 argument_list|(
 name|directoryReader
@@ -1332,7 +1338,7 @@ block|{
 name|int
 name|size
 init|=
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1427,8 +1433,6 @@ name|assertEquals
 argument_list|(
 literal|87
 argument_list|,
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|reader
@@ -1451,7 +1455,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1464,8 +1468,6 @@ name|assertEquals
 argument_list|(
 literal|87
 argument_list|,
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|reader
@@ -1488,7 +1490,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1511,7 +1513,7 @@ name|assertEquals
 argument_list|(
 name|size
 argument_list|,
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1537,7 +1539,7 @@ block|{
 name|int
 name|size
 init|=
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1631,8 +1633,6 @@ name|assertEquals
 argument_list|(
 literal|87
 argument_list|,
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|reader
@@ -1655,7 +1655,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1688,8 +1688,6 @@ name|assertEquals
 argument_list|(
 literal|87
 argument_list|,
-name|Versions
-operator|.
 name|loadVersion
 argument_list|(
 name|wrapped
@@ -1713,7 +1711,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1736,7 +1734,7 @@ name|assertEquals
 argument_list|(
 name|size
 argument_list|,
-name|Versions
+name|VersionsResolver
 operator|.
 name|lookupStates
 operator|.

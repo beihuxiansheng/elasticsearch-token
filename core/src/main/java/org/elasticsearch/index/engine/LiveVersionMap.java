@@ -703,7 +703,7 @@ if|if
 condition|(
 name|prev
 operator|.
-name|delete
+name|isDelete
 argument_list|()
 operator|==
 literal|false
@@ -738,7 +738,7 @@ if|if
 condition|(
 name|version
 operator|.
-name|delete
+name|isDelete
 argument_list|()
 operator|==
 literal|false
@@ -769,7 +769,7 @@ if|if
 condition|(
 name|version
 operator|.
-name|delete
+name|isDelete
 argument_list|()
 condition|)
 block|{
@@ -814,7 +814,7 @@ literal|null
 operator|&&
 name|prev
 operator|.
-name|delete
+name|isDelete
 argument_list|()
 condition|)
 block|{
@@ -930,7 +930,7 @@ block|{
 assert|assert
 name|prev
 operator|.
-name|delete
+name|isDelete
 argument_list|()
 assert|;
 name|long
@@ -984,7 +984,7 @@ literal|null
 operator|&&
 name|curVersion
 operator|.
-name|delete
+name|isDelete
 argument_list|()
 condition|)
 block|{
@@ -1045,6 +1045,18 @@ operator|.
 name|entrySet
 argument_list|()
 return|;
+block|}
+comment|/** clears all tombstones ops */
+DECL|method|clearTombstones
+name|void
+name|clearTombstones
+parameter_list|()
+block|{
+name|tombstones
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** Called when this index is closed. */
 DECL|method|clear

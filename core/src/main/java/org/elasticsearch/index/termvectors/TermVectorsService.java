@@ -232,7 +232,9 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|Versions
+name|VersionsResolver
+operator|.
+name|DocIdAndVersion
 import|;
 end_import
 
@@ -873,8 +875,6 @@ name|reader
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 init|=

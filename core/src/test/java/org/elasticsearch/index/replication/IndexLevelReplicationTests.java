@@ -641,49 +641,15 @@ name|IndexShardTests
 operator|.
 name|getEngineFromShard
 argument_list|(
-name|replica
+name|shards
+operator|.
+name|getPrimary
+argument_list|()
 argument_list|)
 decl_stmt|;
 end_decl_stmt
 
 begin_expr_stmt
-name|assertEquals
-argument_list|(
-literal|"expected at no version lookups "
-argument_list|,
-name|InternalEngineTests
-operator|.
-name|getNumVersionLookups
-argument_list|(
-operator|(
-name|InternalEngine
-operator|)
-name|engine
-argument_list|)
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-
-begin_for
-for|for
-control|(
-name|IndexShard
-name|shard
-range|:
-name|shards
-control|)
-block|{
-name|engine
-operator|=
-name|IndexShardTests
-operator|.
-name|getEngineFromShard
-argument_list|(
-name|shard
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
@@ -699,6 +665,9 @@ name|engine
 argument_list|)
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|assertEquals
 argument_list|(
 literal|0
@@ -714,8 +683,7 @@ name|engine
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_for
+end_expr_stmt
 
 begin_function
 unit|}     }

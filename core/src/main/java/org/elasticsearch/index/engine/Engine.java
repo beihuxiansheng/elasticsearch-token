@@ -534,6 +534,40 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|VersionsResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|VersionsResolver
+operator|.
+name|DocIdAndVersion
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|metrics
 operator|.
 name|CounterMetric
@@ -2249,6 +2283,9 @@ name|version
 parameter_list|,
 name|long
 name|seqNo
+parameter_list|,
+name|boolean
+name|found
 parameter_list|)
 block|{
 name|super
@@ -2270,7 +2307,7 @@ name|this
 operator|.
 name|found
 operator|=
-literal|false
+name|found
 expr_stmt|;
 block|}
 DECL|method|isFound
@@ -2401,8 +2438,6 @@ literal|"get"
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 decl_stmt|;
@@ -2410,7 +2445,7 @@ try|try
 block|{
 name|docIdAndVersion
 operator|=
-name|Versions
+name|VersionsResolver
 operator|.
 name|loadDocIdAndVersion
 argument_list|(
@@ -5243,6 +5278,7 @@ name|long
 name|version
 parameter_list|)
 block|{
+comment|// use a primary term of 2 to allow tests to reduce it to a valid>0 term
 name|this
 argument_list|(
 name|uid
@@ -5253,7 +5289,7 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 argument_list|,
-literal|0
+literal|2
 argument_list|,
 name|version
 argument_list|,
@@ -5277,6 +5313,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TEST ONLY
 DECL|method|parsedDoc
 specifier|public
 name|ParsedDocument
@@ -6031,8 +6068,6 @@ decl_stmt|;
 DECL|field|docIdAndVersion
 specifier|private
 specifier|final
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 decl_stmt|;
@@ -6073,8 +6108,6 @@ parameter_list|,
 name|long
 name|version
 parameter_list|,
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 parameter_list|,
@@ -6115,8 +6148,6 @@ parameter_list|(
 name|Searcher
 name|searcher
 parameter_list|,
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 parameter_list|)
@@ -6171,8 +6202,6 @@ return|;
 block|}
 DECL|method|docIdAndVersion
 specifier|public
-name|Versions
-operator|.
 name|DocIdAndVersion
 name|docIdAndVersion
 parameter_list|()
