@@ -602,11 +602,6 @@ argument_list|(
 name|isScrollSearch
 argument_list|,
 name|phaseResults
-argument_list|,
-name|context
-operator|.
-name|getNumShards
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|String

@@ -1143,11 +1143,6 @@ name|queryResults
 operator|.
 name|asList
 argument_list|()
-argument_list|,
-name|queryResults
-operator|.
-name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

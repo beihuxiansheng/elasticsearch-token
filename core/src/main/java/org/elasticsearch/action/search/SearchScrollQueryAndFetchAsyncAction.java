@@ -1117,11 +1117,6 @@ name|queryFetchResults
 operator|.
 name|asList
 argument_list|()
-argument_list|,
-name|queryFetchResults
-operator|.
-name|length
-argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
