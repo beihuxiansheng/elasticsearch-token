@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.io.stream
+DECL|package|org.elasticsearch.common.io
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|common
 operator|.
 name|io
-operator|.
-name|stream
 package|;
 end_package
 
@@ -32,24 +30,19 @@ name|BytesReference
 import|;
 end_import
 
-begin_class
-DECL|class|BytesStream
+begin_interface
+DECL|interface|BytesStream
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|BytesStream
-extends|extends
-name|StreamOutput
 block|{
 DECL|method|bytes
-specifier|public
-specifier|abstract
 name|BytesReference
 name|bytes
 parameter_list|()
 function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 

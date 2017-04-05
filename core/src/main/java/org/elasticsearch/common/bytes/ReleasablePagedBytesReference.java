@@ -87,12 +87,6 @@ name|PagedBytesReference
 implements|implements
 name|Releasable
 block|{
-DECL|field|releasable
-specifier|private
-specifier|final
-name|Releasable
-name|releasable
-decl_stmt|;
 DECL|method|ReleasablePagedBytesReference
 specifier|public
 name|ReleasablePagedBytesReference
@@ -105,9 +99,6 @@ name|byteArray
 parameter_list|,
 name|int
 name|length
-parameter_list|,
-name|Releasable
-name|releasable
 parameter_list|)
 block|{
 name|super
@@ -118,12 +109,6 @@ name|byteArray
 argument_list|,
 name|length
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|releasable
-operator|=
-name|releasable
 expr_stmt|;
 block|}
 annotation|@
@@ -138,7 +123,7 @@ name|Releasables
 operator|.
 name|close
 argument_list|(
-name|releasable
+name|byteArray
 argument_list|)
 expr_stmt|;
 block|}

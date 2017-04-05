@@ -2477,6 +2477,9 @@ operator|.
 name|close
 argument_list|(
 name|out
+operator|.
+name|bytes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -6496,6 +6499,9 @@ operator|.
 name|close
 argument_list|(
 name|out
+operator|.
+name|bytes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

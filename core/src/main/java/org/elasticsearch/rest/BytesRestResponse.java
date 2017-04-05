@@ -170,7 +170,9 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -824,9 +826,6 @@ specifier|static
 name|BytesRestResponse
 name|createSimpleErrorResponse
 parameter_list|(
-name|RestChannel
-name|channel
-parameter_list|,
 name|RestStatus
 name|status
 parameter_list|,
@@ -842,9 +841,9 @@ name|BytesRestResponse
 argument_list|(
 name|status
 argument_list|,
-name|channel
+name|JsonXContent
 operator|.
-name|newErrorBuilder
+name|contentBuilder
 argument_list|()
 operator|.
 name|startObject
