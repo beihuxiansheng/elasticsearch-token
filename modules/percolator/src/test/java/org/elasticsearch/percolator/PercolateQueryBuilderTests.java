@@ -2176,6 +2176,18 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|builderGeneratesCacheableQueries
+specifier|protected
+name|boolean
+name|builderGeneratesCacheableQueries
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
