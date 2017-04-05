@@ -580,7 +580,6 @@ name|int
 name|numberOfAggregatorsCreated
 decl_stmt|;
 DECL|field|filter
-specifier|private
 specifier|final
 name|Query
 name|filter
@@ -699,7 +698,7 @@ literal|null
 else|:
 name|filterBuilder
 operator|.
-name|toQuery
+name|toFilter
 argument_list|(
 name|context
 operator|.

@@ -190,7 +190,6 @@ name|FilterAggregatorFactory
 argument_list|>
 block|{
 DECL|field|weight
-specifier|private
 specifier|final
 name|Weight
 name|weight
@@ -256,7 +255,7 @@ name|filter
 init|=
 name|filterBuilder
 operator|.
-name|toQuery
+name|toFilter
 argument_list|(
 name|context
 operator|.

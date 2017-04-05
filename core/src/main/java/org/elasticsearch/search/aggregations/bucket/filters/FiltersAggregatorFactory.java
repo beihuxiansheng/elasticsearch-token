@@ -203,7 +203,6 @@ index|[]
 name|keys
 decl_stmt|;
 DECL|field|weights
-specifier|private
 specifier|final
 name|Weight
 index|[]
