@@ -110,6 +110,20 @@ name|SearchRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
 begin_comment
 comment|/**  * Index-by-search test for ttl, timestamp, and routing.  */
 end_comment
@@ -514,6 +528,10 @@ literal|null
 argument_list|,
 name|listener
 argument_list|()
+argument_list|,
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}

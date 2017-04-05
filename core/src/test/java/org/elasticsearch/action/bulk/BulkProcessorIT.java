@@ -509,11 +509,6 @@ argument_list|()
 argument_list|,
 name|listener
 argument_list|)
-operator|.
-name|setName
-argument_list|(
-literal|"foo"
-argument_list|)
 comment|//let's make sure that the bulk action limit trips, one single execution will index all the documents
 operator|.
 name|setConcurrentRequests
@@ -692,11 +687,6 @@ name|client
 argument_list|()
 argument_list|,
 name|listener
-argument_list|)
-operator|.
-name|setName
-argument_list|(
-literal|"foo"
 argument_list|)
 comment|//let's make sure that this bulk won't be automatically flushed
 operator|.
@@ -1618,11 +1608,6 @@ name|client
 argument_list|()
 argument_list|,
 name|listener
-argument_list|)
-operator|.
-name|setName
-argument_list|(
-literal|"foo"
 argument_list|)
 comment|//let's make sure that the bulk action limit trips, one single execution will index all the documents
 operator|.

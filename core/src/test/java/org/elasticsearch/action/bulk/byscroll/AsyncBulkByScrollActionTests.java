@@ -4975,6 +4975,10 @@ argument_list|,
 literal|null
 argument_list|,
 name|listener
+argument_list|,
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
