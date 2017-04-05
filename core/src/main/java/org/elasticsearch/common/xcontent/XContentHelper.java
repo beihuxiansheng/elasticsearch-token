@@ -2437,7 +2437,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the bytes that represent the XContent output of the provided {@link ToXContent} object, using the provided      * {@link XContentType}. Wraps the output into a new anonymous object.      */
+comment|/**      * Returns the bytes that represent the XContent output of the provided {@link ToXContent} object, using the provided      * {@link XContentType}. Wraps the output into a new anonymous object according to the value returned      * by the {@link ToXContent#isFragment()} method returns.      */
 DECL|method|toXContent
 specifier|public
 specifier|static
@@ -2471,7 +2471,7 @@ name|humanReadable
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the bytes that represent the XContent output of the provided {@link ToXContent} object, using the provided      * {@link XContentType}. Wraps the output into a new anonymous object.      */
+comment|/**      * Returns the bytes that represent the XContent output of the provided {@link ToXContent} object, using the provided      * {@link XContentType}. Wraps the output into a new anonymous object according to the value returned      * by the {@link ToXContent#isFragment()} method returns.      */
 DECL|method|toXContent
 specifier|public
 specifier|static

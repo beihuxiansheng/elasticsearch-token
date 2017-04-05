@@ -307,11 +307,15 @@ decl_stmt|;
 name|BytesReference
 name|originalBytes
 init|=
-name|toXContent
+name|toShuffledXContent
 argument_list|(
 name|searchHits
 argument_list|,
 name|xcontentType
+argument_list|,
+name|ToXContent
+operator|.
+name|EMPTY_PARAMS
 argument_list|,
 name|humanReadable
 argument_list|)
