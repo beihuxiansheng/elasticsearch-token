@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws
+DECL|package|org.elasticsearch.discovery.ec2
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|discovery
 operator|.
-name|aws
+name|ec2
 package|;
 end_package
 
@@ -244,7 +244,6 @@ end_import
 
 begin_class
 DECL|class|AwsEc2ServiceImpl
-specifier|public
 class|class
 name|AwsEc2ServiceImpl
 extends|extends
@@ -269,7 +268,6 @@ name|AmazonEC2Client
 name|client
 decl_stmt|;
 DECL|method|AwsEc2ServiceImpl
-specifier|public
 name|AwsEc2ServiceImpl
 parameter_list|(
 name|Settings

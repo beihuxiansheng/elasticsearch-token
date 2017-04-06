@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws
+DECL|package|org.elasticsearch.discovery.ec2
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|discovery
 operator|.
-name|aws
+name|ec2
 package|;
 end_package
 
@@ -46,7 +46,19 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|discovery
+operator|.
+name|ec2
+operator|.
+name|AwsSigner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
 operator|.
 name|discovery
 operator|.

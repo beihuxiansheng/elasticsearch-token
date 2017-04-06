@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws.network
+DECL|package|org.elasticsearch.discovery.ec2
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|discovery
 operator|.
-name|aws
-operator|.
-name|network
+name|ec2
 package|;
 end_package
 
@@ -29,36 +27,6 @@ operator|.
 name|util
 operator|.
 name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
-name|AwsEc2ServiceImpl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
-name|util
-operator|.
-name|SocketAccess
 import|;
 end_import
 
@@ -206,7 +174,6 @@ end_comment
 
 begin_class
 DECL|class|Ec2NameResolver
-specifier|public
 class|class
 name|Ec2NameResolver
 extends|extends
@@ -319,7 +286,6 @@ block|}
 block|}
 comment|/**      * Construct a {@link CustomNameResolver}.      */
 DECL|method|Ec2NameResolver
-specifier|public
 name|Ec2NameResolver
 parameter_list|(
 name|Settings

@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.aws.util
+DECL|package|org.elasticsearch.discovery.ec2
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|discovery
 operator|.
-name|aws
-operator|.
-name|util
+name|ec2
 package|;
 end_package
 
@@ -94,7 +92,6 @@ end_comment
 
 begin_class
 DECL|class|SocketAccess
-specifier|public
 specifier|final
 class|class
 name|SocketAccess
