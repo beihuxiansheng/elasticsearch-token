@@ -171,8 +171,6 @@ operator|.
 name|MB
 argument_list|)
 argument_list|,
-literal|5
-argument_list|,
 literal|"public-read-write"
 argument_list|,
 literal|"standard"

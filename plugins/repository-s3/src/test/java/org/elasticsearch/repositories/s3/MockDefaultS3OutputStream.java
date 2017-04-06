@@ -205,8 +205,6 @@ literal|"test-blobname"
 argument_list|,
 name|bufferSizeInBytes
 argument_list|,
-literal|3
-argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
