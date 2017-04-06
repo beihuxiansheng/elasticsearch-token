@@ -1524,7 +1524,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_6_4_1
+name|LUCENE_6_4_2
 argument_list|)
 decl_stmt|;
 DECL|field|V_5_4_0_ID_UNRELEASED
