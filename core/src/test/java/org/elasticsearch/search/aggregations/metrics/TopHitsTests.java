@@ -1081,6 +1081,7 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
+comment|// parent test shuffles xContent, we need to make sure highlight fields are ordered
 name|factory
 operator|.
 name|highlighter
@@ -1089,6 +1090,11 @@ name|HighlightBuilderTests
 operator|.
 name|randomHighlighterBuilder
 argument_list|()
+operator|.
+name|useExplicitFieldOrder
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
