@@ -2276,6 +2276,10 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// this can happen if we are hitting a shard failure during the fetch phase
+comment|// in this case we referenced the shard result via teh ScoreDoc but never got a
+comment|// result from fetch.
+comment|// TODO it would be nice to assert this in the future
 continue|continue;
 block|}
 name|FetchSearchResult
@@ -2688,6 +2692,10 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// this can happen if we are hitting a shard failure during the fetch phase
+comment|// in this case we referenced the shard result via teh ScoreDoc but never got a
+comment|// result from fetch.
+comment|// TODO it would be nice to assert this in the future
 continue|continue;
 block|}
 name|FetchSearchResult
