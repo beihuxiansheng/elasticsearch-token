@@ -580,8 +580,7 @@ name|ReduceContext
 name|reduceContext
 parameter_list|)
 function_decl|;
-annotation|@
-name|Override
+comment|/**      * Get the value of specified path in the aggregation.      *      * @param path      *            the path to the property in the aggregation tree      * @return the value of the property      */
 DECL|method|getProperty
 specifier|public
 name|Object

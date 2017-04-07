@@ -42,15 +42,6 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**      * Get the value of specified path in the aggregation.      *       * @param path      *            the path to the property in the aggregation tree      * @return the value of the property      */
-DECL|method|getProperty
-name|Object
-name|getProperty
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-function_decl|;
 comment|/**      * Get the optional byte array metadata that was set on the aggregation      */
 DECL|method|getMetaData
 name|Map

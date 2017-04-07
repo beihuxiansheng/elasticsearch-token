@@ -144,11 +144,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|query
+name|aggregations
 operator|.
-name|QueryBuilders
+name|InternalAggregation
 import|;
 end_import
 
@@ -223,20 +223,6 @@ operator|.
 name|avg
 operator|.
 name|Avg
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|query
-operator|.
-name|QueryPhaseExecutionException
 import|;
 end_import
 
@@ -401,22 +387,6 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertHitCount
 import|;
 end_import
 
@@ -1806,7 +1776,12 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+operator|(
+operator|(
+name|InternalAggregation
+operator|)
 name|matrix
+operator|)
 operator|.
 name|getProperty
 argument_list|(
@@ -1827,7 +1802,12 @@ operator|(
 name|Object
 index|[]
 operator|)
+operator|(
+operator|(
+name|InternalAggregation
+operator|)
 name|matrix
+operator|)
 operator|.
 name|getProperty
 argument_list|(
@@ -1842,7 +1822,12 @@ operator|(
 name|Object
 index|[]
 operator|)
+operator|(
+operator|(
+name|InternalAggregation
+operator|)
 name|matrix
+operator|)
 operator|.
 name|getProperty
 argument_list|(
@@ -1857,7 +1842,12 @@ operator|(
 name|Object
 index|[]
 operator|)
+operator|(
+operator|(
+name|InternalAggregation
+operator|)
 name|matrix
+operator|)
 operator|.
 name|getProperty
 argument_list|(

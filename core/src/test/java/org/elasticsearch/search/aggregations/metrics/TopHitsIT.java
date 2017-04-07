@@ -312,6 +312,20 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|InternalAggregation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|bucket
 operator|.
 name|global
@@ -474,11 +488,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|sort
+name|rescore
 operator|.
-name|ScriptSortBuilder
-operator|.
-name|ScriptSortType
+name|RescoreBuilder
 import|;
 end_import
 
@@ -490,9 +502,11 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|rescore
+name|sort
 operator|.
-name|RescoreBuilder
+name|ScriptSortBuilder
+operator|.
+name|ScriptSortType
 import|;
 end_import
 
@@ -3829,10 +3843,15 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
+call|(
 name|TopHits
+call|)
+argument_list|(
+operator|(
+name|InternalAggregation
 operator|)
 name|global
+argument_list|)
 operator|.
 name|getProperty
 argument_list|(
