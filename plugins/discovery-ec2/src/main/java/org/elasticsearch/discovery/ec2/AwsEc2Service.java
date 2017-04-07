@@ -1031,8 +1031,6 @@ argument_list|,
 name|CLOUD_EC2
 operator|.
 name|KEY_SETTING
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|/** The secret key (ie password) for connecting to ec2. */
@@ -1052,8 +1050,6 @@ argument_list|,
 name|CLOUD_EC2
 operator|.
 name|SECRET_SETTING
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|/** An override for the ec2 endpoint to connect to. */
@@ -1207,8 +1203,6 @@ argument_list|,
 name|CLOUD_EC2
 operator|.
 name|PROXY_USERNAME_SETTING
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|/** The password of a proxy to connect to s3 through. */
@@ -1228,8 +1222,6 @@ argument_list|,
 name|CLOUD_EC2
 operator|.
 name|PROXY_PASSWORD_SETTING
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|/** The socket timeout for connecting to s3. */

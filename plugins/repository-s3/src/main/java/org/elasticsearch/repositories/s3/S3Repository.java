@@ -384,8 +384,6 @@ argument_list|,
 name|Repositories
 operator|.
 name|KEY_SETTING
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -419,8 +417,6 @@ argument_list|,
 name|Repositories
 operator|.
 name|SECRET_SETTING
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -627,8 +623,6 @@ argument_list|,
 name|AwsS3Service
 operator|.
 name|PROXY_USERNAME_SETTING
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -662,8 +656,6 @@ argument_list|,
 name|AwsS3Service
 operator|.
 name|PROXY_PASSWORD_SETTING
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
