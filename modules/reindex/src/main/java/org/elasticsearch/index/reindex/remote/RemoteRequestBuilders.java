@@ -424,7 +424,7 @@ operator|.
 name|keepAlive
 argument_list|()
 operator|.
-name|toString
+name|getStringRep
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1250,7 +1250,7 @@ literal|"scroll"
 argument_list|,
 name|keepAlive
 operator|.
-name|toString
+name|getStringRep
 argument_list|()
 argument_list|)
 return|;
