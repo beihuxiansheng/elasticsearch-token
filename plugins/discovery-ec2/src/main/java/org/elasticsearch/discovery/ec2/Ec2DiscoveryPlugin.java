@@ -838,10 +838,6 @@ name|PROXY_PASSWORD_SETTING
 argument_list|,
 name|AwsEc2Service
 operator|.
-name|SIGNER_SETTING
-argument_list|,
-name|AwsEc2Service
-operator|.
 name|REGION_SETTING
 argument_list|,
 name|AwsEc2Service
@@ -890,12 +886,6 @@ operator|.
 name|CLOUD_EC2
 operator|.
 name|PROXY_PASSWORD_SETTING
-argument_list|,
-name|AwsEc2Service
-operator|.
-name|CLOUD_EC2
-operator|.
-name|SIGNER_SETTING
 argument_list|,
 name|AwsEc2Service
 operator|.
