@@ -1326,6 +1326,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1367,16 +1377,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TreeMap
 import|;
 end_import
 
@@ -5185,7 +5185,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//TODO why do we need sorted map if we later sort the keys right before shuffling them? That should be enough?
+comment|//we need a sorted map for reproducibility, as we are going to shuffle its keys and write XContent back
 name|Map
 argument_list|<
 name|String
@@ -5196,6 +5196,14 @@ name|shuffledMap
 init|=
 name|shuffleMap
 argument_list|(
+operator|(
+name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
 name|parser
 operator|.
 name|mapOrdered
@@ -5248,9 +5256,9 @@ argument_list|)
 return|;
 block|}
 DECL|method|shuffleMap
-specifier|private
+specifier|public
 specifier|static
-name|Map
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -5258,7 +5266,7 @@ name|Object
 argument_list|>
 name|shuffleMap
 parameter_list|(
-name|Map
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -5289,15 +5297,7 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// even though we shuffle later, we need this to make tests reproduce on different jvms
-name|Collections
-operator|.
-name|sort
-argument_list|(
-name|keys
-argument_list|)
-expr_stmt|;
-name|Map
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -5306,7 +5306,7 @@ argument_list|>
 name|targetMap
 init|=
 operator|new
-name|TreeMap
+name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -5359,7 +5359,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-name|Map
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -5368,7 +5368,7 @@ argument_list|>
 name|valueMap
 init|=
 operator|(
-name|Map
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,

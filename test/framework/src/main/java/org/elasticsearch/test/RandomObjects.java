@@ -964,7 +964,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a random source in a given XContentType containing a random number of fields, objects and array, with maximum depth 5.      *      * @param random Random generator      */
+comment|/**      * Returns a random source in a given XContentType containing a random number of fields, objects and array, with maximum depth 5.      * The minimum number of fields per object is 1.      *      * @param random Random generator      */
 DECL|method|randomSource
 specifier|public
 specifier|static
@@ -976,6 +976,34 @@ name|random
 parameter_list|,
 name|XContentType
 name|xContentType
+parameter_list|)
+block|{
+return|return
+name|randomSource
+argument_list|(
+name|random
+argument_list|,
+name|xContentType
+argument_list|,
+literal|1
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a random source in a given XContentType containing a random number of fields, objects and array, with maximum depth 5.      * The minimum number of fields per object is provided as an argument.      *      * @param random Random generator      */
+DECL|method|randomSource
+specifier|public
+specifier|static
+name|BytesReference
+name|randomSource
+parameter_list|(
+name|Random
+name|random
+parameter_list|,
+name|XContentType
+name|xContentType
+parameter_list|,
+name|int
+name|minNumFields
 parameter_list|)
 block|{
 try|try
@@ -1001,6 +1029,8 @@ argument_list|(
 name|random
 argument_list|,
 name|builder
+argument_list|,
+name|minNumFields
 argument_list|,
 literal|0
 argument_list|)
@@ -1046,6 +1076,9 @@ name|XContentBuilder
 name|builder
 parameter_list|,
 name|int
+name|minNumFields
+parameter_list|,
+name|int
 name|currentDepth
 parameter_list|)
 throws|throws
@@ -1058,9 +1091,9 @@ name|randomIntBetween
 argument_list|(
 name|random
 argument_list|,
-literal|1
+name|minNumFields
 argument_list|,
-literal|5
+literal|10
 argument_list|)
 decl_stmt|;
 for|for
@@ -1119,6 +1152,8 @@ argument_list|(
 name|random
 argument_list|,
 name|builder
+argument_list|,
+name|minNumFields
 argument_list|,
 name|currentDepth
 operator|+
@@ -1220,6 +1255,8 @@ argument_list|(
 name|random
 argument_list|,
 name|builder
+argument_list|,
+name|minNumFields
 argument_list|,
 literal|5
 argument_list|)
