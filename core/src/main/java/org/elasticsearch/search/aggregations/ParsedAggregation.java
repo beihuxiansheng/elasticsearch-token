@@ -103,7 +103,6 @@ name|Aggregation
 implements|,
 name|ToXContent
 block|{
-comment|//TODO move CommonFields out of InternalAggregation
 DECL|method|declareCommonFields
 specifier|protected
 specifier|static
@@ -214,8 +213,6 @@ name|String
 name|getType
 parameter_list|()
 function_decl|;
-comment|//TODO the only way to avoid duplicating this method is making Aggregation extend ToXContent
-comment|//and declare toXContent as a default method in it. Doesn't sound like the right thing to do.
 DECL|method|toXContent
 specifier|public
 name|XContentBuilder
@@ -232,7 +229,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//TODO move TYPED_KEYS_DELIMITER constant out of InternalAggregation
 comment|// Concatenates the type and the name of the aggregation (ex: top_hits#foo)
 name|builder
 operator|.
