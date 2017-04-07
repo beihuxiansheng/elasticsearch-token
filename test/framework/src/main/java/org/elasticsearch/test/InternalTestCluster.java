@@ -7154,7 +7154,8 @@ expr_stmt|;
 block|}
 comment|/** ensure a cluster is formed with all published nodes. */
 DECL|method|validateClusterFormed
-specifier|private
+specifier|public
+specifier|synchronized
 name|void
 name|validateClusterFormed
 parameter_list|()
@@ -7178,7 +7179,8 @@ expr_stmt|;
 block|}
 comment|/** ensure a cluster is formed with all published nodes, but do so by using the client of the specified node */
 DECL|method|validateClusterFormed
-specifier|private
+specifier|public
+specifier|synchronized
 name|void
 name|validateClusterFormed
 parameter_list|(
