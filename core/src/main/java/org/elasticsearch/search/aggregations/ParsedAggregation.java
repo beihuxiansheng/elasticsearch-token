@@ -84,16 +84,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -144,8 +134,10 @@ lambda|->
 name|parsedAgg
 operator|.
 name|metadata
+operator|=
+name|Collections
 operator|.
-name|putAll
+name|unmodifiableMap
 argument_list|(
 name|metadata
 argument_list|)
@@ -174,7 +166,6 @@ name|String
 name|name
 decl_stmt|;
 DECL|field|metadata
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -182,11 +173,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|metadata
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -216,12 +202,7 @@ name|getMetaData
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
 name|metadata
-argument_list|)
 return|;
 block|}
 comment|/**      * Returns a string representing the type of the aggregation. This type is added to      * the aggregation name in the response, so that it can later be used by REST clients      * to determine the internal type of the aggregation.      */
@@ -274,12 +255,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|metadata
+name|this
 operator|.
-name|isEmpty
-argument_list|()
-operator|==
-literal|false
+name|metadata
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder
@@ -300,6 +280,8 @@ name|builder
 operator|.
 name|map
 argument_list|(
+name|this
+operator|.
 name|metadata
 argument_list|)
 expr_stmt|;
