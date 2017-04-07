@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|PluginInfo
+name|Platforms
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|Platforms
+name|PluginInfo
 import|;
 end_import
 
