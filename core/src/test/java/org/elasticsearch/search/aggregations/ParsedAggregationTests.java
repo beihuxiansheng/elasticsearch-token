@@ -635,7 +635,6 @@ name|NamedXContentRegistry
 name|xContentRegistry
 parameter_list|()
 block|{
-comment|//TODO we may want to un-deprecate this Entry constructor if we are going to use it extensively, which I think we are
 name|NamedXContentRegistry
 operator|.
 name|Entry
