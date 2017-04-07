@@ -94,22 +94,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|blobstore
-operator|.
-name|gcs
-operator|.
-name|GoogleCloudStorageBlobStore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Setting
@@ -181,22 +165,6 @@ operator|.
 name|env
 operator|.
 name|Environment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugin
-operator|.
-name|repository
-operator|.
-name|gcs
-operator|.
-name|GoogleCloudStoragePlugin
 import|;
 end_import
 
@@ -336,7 +304,6 @@ end_import
 
 begin_class
 DECL|class|GoogleCloudStorageRepository
-specifier|public
 class|class
 name|GoogleCloudStorageRepository
 extends|extends
@@ -629,7 +596,6 @@ name|GoogleCloudStorageBlobStore
 name|blobStore
 decl_stmt|;
 DECL|method|GoogleCloudStorageRepository
-specifier|public
 name|GoogleCloudStorageRepository
 parameter_list|(
 name|RepositoryMetaData

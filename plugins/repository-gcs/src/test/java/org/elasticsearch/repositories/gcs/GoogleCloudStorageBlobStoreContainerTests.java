@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.blobstore.gcs
+DECL|package|org.elasticsearch.repositories.gcs
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|blobstore
+name|repositories
 operator|.
 name|gcs
 package|;

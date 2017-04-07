@@ -368,7 +368,6 @@ end_import
 
 begin_interface
 DECL|interface|GoogleCloudStorageService
-specifier|public
 interface|interface
 name|GoogleCloudStorageService
 block|{
@@ -417,7 +416,6 @@ name|Environment
 name|environment
 decl_stmt|;
 DECL|method|InternalGoogleCloudStorageService
-specifier|public
 name|InternalGoogleCloudStorageService
 parameter_list|(
 name|Environment
