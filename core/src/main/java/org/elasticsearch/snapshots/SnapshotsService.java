@@ -3395,7 +3395,7 @@ name|builder
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns status of shards  currently finished snapshots      *<p>      * This method is executed on master node and it's complimentary to the {@link SnapshotShardsService#currentSnapshotShards(Snapshot)} because it      * returns similar information but for already finished snapshots.      *</p>      *      * @param repositoryName  repository name      * @param snapshotInfo    snapshot info      * @return map of shard id to snapshot status      */
+comment|/**      * Returns status of shards  currently finished snapshots      *<p>      * This method is executed on master node and it's complimentary to the      * {@link SnapshotShardsService#currentSnapshotShards(Snapshot)} because it      * returns similar information but for already finished snapshots.      *</p>      *      * @param repositoryName  repository name      * @param snapshotInfo    snapshot info      * @return map of shard id to snapshot status      */
 DECL|method|snapshotShards
 specifier|public
 name|Map
@@ -3606,9 +3606,58 @@ expr_stmt|;
 block|}
 else|else
 block|{
+specifier|final
 name|IndexShardSnapshotStatus
 name|shardSnapshotStatus
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|snapshotInfo
+operator|.
+name|state
+argument_list|()
+operator|==
+name|SnapshotState
+operator|.
+name|FAILED
+condition|)
+block|{
+comment|// If the snapshot failed, but the shard's snapshot does
+comment|// not have an exception, it means that partial snapshots
+comment|// were disabled and in this case, the shard snapshot will
+comment|// *not* have any metadata, so attempting to read the shard
+comment|// snapshot status will throw an exception.  Instead, we create
+comment|// a status for the shard to indicate that the shard snapshot
+comment|// could not be taken due to partial being set to false.
+name|shardSnapshotStatus
+operator|=
+operator|new
+name|IndexShardSnapshotStatus
+argument_list|()
+expr_stmt|;
+name|shardSnapshotStatus
+operator|.
+name|updateStage
+argument_list|(
+name|IndexShardSnapshotStatus
+operator|.
+name|Stage
+operator|.
+name|FAILURE
+argument_list|)
+expr_stmt|;
+name|shardSnapshotStatus
+operator|.
+name|failure
+argument_list|(
+literal|"skipped"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|shardSnapshotStatus
+operator|=
 name|repository
 operator|.
 name|getShardSnapshotStatus
@@ -3627,7 +3676,8 @@ name|indexId
 argument_list|,
 name|shardId
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|shardStatus
 operator|.
 name|put
