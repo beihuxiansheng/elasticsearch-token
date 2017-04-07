@@ -2369,6 +2369,8 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
+name|msg
+argument_list|,
 name|actualWarningValues
 operator|.
 name|contains
