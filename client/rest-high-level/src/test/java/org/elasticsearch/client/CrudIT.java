@@ -5554,6 +5554,13 @@ name|build
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Pull the client to a variable to work around https://bugs.eclipse.org/bugs/show_bug.cgi?id=514884
+name|RestHighLevelClient
+name|hlClient
+init|=
+name|highLevelClient
+argument_list|()
+decl_stmt|;
 try|try
 init|(
 name|BulkProcessor
@@ -5564,8 +5571,7 @@ name|BulkProcessor
 operator|.
 name|Builder
 argument_list|(
-name|highLevelClient
-argument_list|()
+name|hlClient
 operator|::
 name|bulkAsync
 argument_list|,
