@@ -838,10 +838,6 @@ name|PROXY_PASSWORD_SETTING
 argument_list|,
 name|AwsEc2Service
 operator|.
-name|REGION_SETTING
-argument_list|,
-name|AwsEc2Service
-operator|.
 name|READ_TIMEOUT
 argument_list|,
 comment|// Register EC2 specific settings: cloud.aws.ec2
@@ -886,12 +882,6 @@ operator|.
 name|CLOUD_EC2
 operator|.
 name|PROXY_PASSWORD_SETTING
-argument_list|,
-name|AwsEc2Service
-operator|.
-name|CLOUD_EC2
-operator|.
-name|REGION_SETTING
 argument_list|,
 name|AwsEc2Service
 operator|.
