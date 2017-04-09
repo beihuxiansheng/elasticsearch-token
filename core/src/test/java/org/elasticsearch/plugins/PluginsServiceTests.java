@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -143,6 +157,15 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+name|value
+operator|=
+literal|"ExtrasFS"
+argument_list|)
 DECL|class|PluginsServiceTests
 specifier|public
 class|class
@@ -603,7 +626,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Could not load plugin descriptor for existing plugin"
+literal|"Could not load plugin descriptor for existing plugin [plugin-missing-descriptor]"
 argument_list|)
 argument_list|)
 expr_stmt|;
