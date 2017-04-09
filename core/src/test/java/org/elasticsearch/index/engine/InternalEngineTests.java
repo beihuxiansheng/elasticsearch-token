@@ -14648,11 +14648,17 @@ else|:
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// even if doc is not not deleted, lastFieldValue can still be null if this is the
+comment|// first op and it failed.
 if|if
 condition|(
 name|docDeleted
 operator|==
 literal|false
+operator|&&
+name|lastFieldValue
+operator|!=
+literal|null
 condition|)
 block|{
 try|try
