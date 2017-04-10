@@ -992,7 +992,7 @@ DECL|method|getBuckets
 specifier|public
 name|List
 argument_list|<
-name|GeoHashGrid
+name|InternalGeoHashGrid
 operator|.
 name|Bucket
 argument_list|>

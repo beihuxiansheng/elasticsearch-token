@@ -1505,7 +1505,7 @@ DECL|method|getBuckets
 specifier|public
 name|List
 argument_list|<
-name|Histogram
+name|InternalDateHistogram
 operator|.
 name|Bucket
 argument_list|>

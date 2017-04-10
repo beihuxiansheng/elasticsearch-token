@@ -687,6 +687,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -856,6 +858,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -1035,6 +1039,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -1249,6 +1255,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -1511,6 +1519,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -1688,6 +1698,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -1893,6 +1905,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket
@@ -2081,6 +2095,8 @@ lambda|->
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket

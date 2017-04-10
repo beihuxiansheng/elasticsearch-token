@@ -73,6 +73,8 @@ name|Override
 DECL|method|getBuckets
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|getBuckets

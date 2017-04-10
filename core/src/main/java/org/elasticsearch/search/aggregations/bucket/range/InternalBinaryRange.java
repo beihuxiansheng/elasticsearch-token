@@ -1237,7 +1237,7 @@ DECL|method|getBuckets
 specifier|public
 name|List
 argument_list|<
-name|Range
+name|InternalBinaryRange
 operator|.
 name|Bucket
 argument_list|>
