@@ -334,9 +334,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Creates a new entry which can be stored by the registry.          * @deprecated prefer {@link Entry#Entry(Class, ParseField, CheckedFunction)}. Contexts will be removed when possible          */
-annotation|@
-name|Deprecated
+comment|/**          * Creates a new entry which can be stored by the registry.          * Prefer {@link Entry#Entry(Class, ParseField, CheckedFunction)} unless you need a context to carry around while parsing.          */
 DECL|method|Entry
 specifier|public
 parameter_list|<
