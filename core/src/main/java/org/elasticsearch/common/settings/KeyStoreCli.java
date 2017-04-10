@@ -99,6 +99,17 @@ name|subcommands
 operator|.
 name|put
 argument_list|(
+literal|"add-file"
+argument_list|,
+operator|new
+name|AddStringKeyStoreCommand
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|subcommands
+operator|.
+name|put
+argument_list|(
 literal|"remove"
 argument_list|,
 operator|new
