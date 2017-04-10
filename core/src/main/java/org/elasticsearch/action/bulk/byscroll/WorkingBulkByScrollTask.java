@@ -886,6 +886,14 @@ name|throttleWaitTime
 argument_list|(
 name|lastBatchStartTime
 argument_list|,
+name|timeValueNanos
+argument_list|(
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+argument_list|)
+argument_list|,
 name|lastBatchSize
 argument_list|)
 decl_stmt|;
@@ -920,6 +928,9 @@ parameter_list|(
 name|TimeValue
 name|lastBatchStartTime
 parameter_list|,
+name|TimeValue
+name|now
+parameter_list|,
 name|int
 name|lastBatchSize
 parameter_list|)
@@ -927,7 +938,7 @@ block|{
 name|long
 name|earliestNextBatchStartTime
 init|=
-name|lastBatchStartTime
+name|now
 operator|.
 name|nanos
 argument_list|()
