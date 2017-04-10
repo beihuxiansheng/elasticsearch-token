@@ -150,9 +150,6 @@ specifier|synchronized
 name|AmazonS3
 name|client
 parameter_list|(
-name|RepositoryMetaData
-name|metadata
-parameter_list|,
 name|Settings
 name|repositorySettings
 parameter_list|)
@@ -164,8 +161,6 @@ name|super
 operator|.
 name|client
 argument_list|(
-name|metadata
-argument_list|,
 name|repositorySettings
 argument_list|)
 argument_list|)

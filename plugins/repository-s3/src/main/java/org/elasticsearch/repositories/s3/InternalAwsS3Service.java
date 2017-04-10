@@ -421,9 +421,6 @@ specifier|synchronized
 name|AmazonS3
 name|client
 parameter_list|(
-name|RepositoryMetaData
-name|metadata
-parameter_list|,
 name|Settings
 name|repositorySettings
 parameter_list|)
@@ -517,10 +514,7 @@ name|maxRetries
 init|=
 name|getValue
 argument_list|(
-name|metadata
-operator|.
-name|settings
-argument_list|()
+name|repositorySettings
 argument_list|,
 name|settings
 argument_list|,
@@ -542,10 +536,7 @@ name|useThrottleRetries
 init|=
 name|getValue
 argument_list|(
-name|metadata
-operator|.
-name|settings
-argument_list|()
+name|repositorySettings
 argument_list|,
 name|settings
 argument_list|,
@@ -579,10 +570,7 @@ name|PATH_STYLE_ACCESS_SETTING
 operator|.
 name|exists
 argument_list|(
-name|metadata
-operator|.
-name|settings
-argument_list|()
+name|repositorySettings
 argument_list|)
 operator|||
 name|S3Repository
@@ -601,10 +589,7 @@ name|pathStyleAccess
 operator|=
 name|getValue
 argument_list|(
-name|metadata
-operator|.
-name|settings
-argument_list|()
+name|repositorySettings
 argument_list|,
 name|settings
 argument_list|,

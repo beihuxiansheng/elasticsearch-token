@@ -2026,8 +2026,6 @@ argument_list|)
 operator|.
 name|client
 argument_list|(
-name|metadata
-argument_list|,
 name|repositorySettings
 argument_list|)
 decl_stmt|;
@@ -4315,7 +4313,7 @@ comment|// We check that settings has been set in elasticsearch.yml integration 
 comment|// as described in README
 name|assertThat
 argument_list|(
-literal|"Your settings in elasticsearch.yml are incorrects. Check README file."
+literal|"Your settings in elasticsearch.yml are incorrect. Check README file."
 argument_list|,
 name|bucketName
 argument_list|,
@@ -4323,21 +4321,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|RepositoryMetaData
-name|metadata
-init|=
-operator|new
-name|RepositoryMetaData
-argument_list|(
-literal|"test-repo"
-argument_list|,
-literal|"fs"
-argument_list|,
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
-decl_stmt|;
 name|AmazonS3
 name|client
 init|=
@@ -4353,8 +4336,6 @@ argument_list|)
 operator|.
 name|client
 argument_list|(
-name|metadata
-argument_list|,
 name|Settings
 operator|.
 name|builder

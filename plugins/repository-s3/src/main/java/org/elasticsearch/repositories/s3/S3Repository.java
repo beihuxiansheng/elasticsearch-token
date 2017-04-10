@@ -1843,8 +1843,6 @@ operator|.
 name|client
 argument_list|(
 name|metadata
-argument_list|,
-name|metadata
 operator|.
 name|settings
 argument_list|()
