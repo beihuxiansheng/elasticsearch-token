@@ -1141,7 +1141,7 @@ name|randomAsciiOfLengthBetween
 argument_list|(
 name|random
 argument_list|,
-literal|4
+literal|6
 argument_list|,
 literal|10
 argument_list|)
@@ -1178,7 +1178,7 @@ name|randomAsciiOfLengthBetween
 argument_list|(
 name|random
 argument_list|,
-literal|4
+literal|6
 argument_list|,
 literal|10
 argument_list|)
@@ -1302,7 +1302,7 @@ name|randomAsciiOfLengthBetween
 argument_list|(
 name|random
 argument_list|,
-literal|4
+literal|6
 argument_list|,
 literal|10
 argument_list|)
