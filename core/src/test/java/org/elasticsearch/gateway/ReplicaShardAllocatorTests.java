@@ -592,6 +592,34 @@ name|ReplicaShardAllocatorTests
 extends|extends
 name|ESAllocationTestCase
 block|{
+DECL|field|MIN_SUPPORTED_LUCENE_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+name|MIN_SUPPORTED_LUCENE_VERSION
+init|=
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumIndexCompatibilityVersion
+argument_list|()
+operator|.
+name|luceneVersion
+decl_stmt|;
 DECL|field|shardId
 specifier|private
 specifier|final
@@ -967,6 +995,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -984,6 +1014,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1091,6 +1123,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -1108,6 +1142,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"NO_MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1215,6 +1251,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -1232,6 +1270,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1329,6 +1369,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1423,6 +1465,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1517,6 +1561,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -1534,6 +1580,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"NO_MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1634,6 +1682,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -1651,6 +1701,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1832,6 +1884,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -1849,6 +1903,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1971,6 +2027,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2115,6 +2173,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2224,6 +2284,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -2241,6 +2303,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -2258,6 +2322,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2364,6 +2430,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -2381,6 +2449,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -2403,6 +2473,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2481,6 +2553,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 operator|.
@@ -2498,6 +2572,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|"MATCH_CHECKSUM"
+argument_list|,
+name|MIN_SUPPORTED_LUCENE_VERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
