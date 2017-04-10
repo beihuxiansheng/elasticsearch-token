@@ -2403,13 +2403,13 @@ operator|::
 operator|new
 argument_list|)
 decl_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
 name|validateClusterFormed
+argument_list|()
+expr_stmt|;
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|state

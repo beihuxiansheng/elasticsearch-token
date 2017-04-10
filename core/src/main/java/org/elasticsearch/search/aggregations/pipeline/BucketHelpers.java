@@ -553,7 +553,7 @@ name|agg
 parameter_list|,
 name|InternalMultiBucketAggregation
 operator|.
-name|Bucket
+name|InternalBucket
 name|bucket
 parameter_list|,
 name|String
@@ -603,7 +603,7 @@ name|agg
 parameter_list|,
 name|InternalMultiBucketAggregation
 operator|.
-name|Bucket
+name|InternalBucket
 name|bucket
 parameter_list|,
 name|List

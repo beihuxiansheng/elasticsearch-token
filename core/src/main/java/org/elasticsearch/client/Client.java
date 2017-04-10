@@ -1410,11 +1410,17 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * @deprecated Use _field_caps instead or run a min/max aggregations on the desired fields      */
+annotation|@
+name|Deprecated
 DECL|method|prepareFieldStats
 name|FieldStatsRequestBuilder
 name|prepareFieldStats
 parameter_list|()
 function_decl|;
+comment|/**      * @deprecated Use _field_caps instead or run a min/max aggregations on the desired fields      */
+annotation|@
+name|Deprecated
 DECL|method|fieldStats
 name|ActionFuture
 argument_list|<
@@ -1426,6 +1432,9 @@ name|FieldStatsRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * @deprecated Use _field_caps instead or run a min/max aggregations on the desired fields      */
+annotation|@
+name|Deprecated
 DECL|method|fieldStats
 name|void
 name|fieldStats

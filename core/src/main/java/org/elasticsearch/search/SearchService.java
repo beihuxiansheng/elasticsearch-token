@@ -1880,7 +1880,7 @@ operator|.
 name|queryResult
 argument_list|()
 operator|.
-name|hasHits
+name|hasSearchContext
 argument_list|()
 operator|==
 literal|false
@@ -2429,7 +2429,7 @@ operator|.
 name|queryResult
 argument_list|()
 operator|.
-name|hasHits
+name|hasSearchContext
 argument_list|()
 operator|==
 literal|false

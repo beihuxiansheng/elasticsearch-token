@@ -586,6 +586,8 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Histogram
 operator|.
 name|Bucket

@@ -4,19 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.blobstore.gcs.util
+DECL|package|org.elasticsearch.repositories.gcs
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|blobstore
+name|repositories
 operator|.
 name|gcs
-operator|.
-name|util
 package|;
 end_package
 
@@ -108,7 +104,6 @@ end_comment
 
 begin_class
 DECL|class|SocketAccess
-specifier|public
 specifier|final
 class|class
 name|SocketAccess

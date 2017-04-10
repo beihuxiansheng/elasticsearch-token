@@ -478,10 +478,6 @@ name|PROXY_PASSWORD_SETTING
 argument_list|,
 name|AwsS3Service
 operator|.
-name|SIGNER_SETTING
-argument_list|,
-name|AwsS3Service
-operator|.
 name|READ_TIMEOUT
 argument_list|,
 comment|// Register S3 specific settings: cloud.aws.s3
@@ -526,12 +522,6 @@ operator|.
 name|CLOUD_S3
 operator|.
 name|PROXY_PASSWORD_SETTING
-argument_list|,
-name|AwsS3Service
-operator|.
-name|CLOUD_S3
-operator|.
-name|SIGNER_SETTING
 argument_list|,
 name|AwsS3Service
 operator|.
