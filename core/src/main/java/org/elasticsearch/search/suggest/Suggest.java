@@ -252,7 +252,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
+name|Aggregation
 import|;
 end_import
 
@@ -2231,7 +2231,7 @@ name|String
 operator|.
 name|join
 argument_list|(
-name|InternalAggregation
+name|Aggregation
 operator|.
 name|TYPED_KEYS_DELIMITER
 argument_list|,
@@ -2346,7 +2346,7 @@ name|typeAndName
 operator|.
 name|indexOf
 argument_list|(
-name|InternalAggregation
+name|Aggregation
 operator|.
 name|TYPED_KEYS_DELIMITER
 argument_list|)
