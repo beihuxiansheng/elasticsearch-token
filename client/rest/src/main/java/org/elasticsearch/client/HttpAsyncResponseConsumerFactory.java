@@ -64,6 +64,7 @@ end_comment
 
 begin_interface
 DECL|interface|HttpAsyncResponseConsumerFactory
+specifier|public
 interface|interface
 name|HttpAsyncResponseConsumerFactory
 block|{
@@ -114,6 +115,7 @@ name|int
 name|bufferLimit
 decl_stmt|;
 DECL|method|HeapBufferedResponseConsumerFactory
+specifier|public
 name|HeapBufferedResponseConsumerFactory
 parameter_list|(
 name|int
