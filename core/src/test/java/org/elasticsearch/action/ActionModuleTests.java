@@ -821,6 +821,8 @@ operator|.
 name|initRestHandlers
 argument_list|(
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// At this point the easiest way to confirm that a handler is loaded is to try to register another one on top of it and to fail
@@ -1023,6 +1025,8 @@ name|actionModule
 operator|.
 name|initRestHandlers
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -1236,6 +1240,8 @@ name|actionModule
 operator|.
 name|initRestHandlers
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
