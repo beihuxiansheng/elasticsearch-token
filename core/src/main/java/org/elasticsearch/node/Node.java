@@ -4696,11 +4696,6 @@ argument_list|()
 operator|.
 name|nodes
 argument_list|()
-argument_list|,
-name|searchTransportService
-operator|.
-name|getRemoteClusterService
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

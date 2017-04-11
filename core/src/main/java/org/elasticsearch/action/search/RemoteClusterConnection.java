@@ -3283,11 +3283,16 @@ name|collect
 argument_list|(
 name|Collectors
 operator|.
-name|toSet
+name|toList
 argument_list|()
 argument_list|)
 argument_list|,
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|httpAddresses
+argument_list|)
 argument_list|,
 name|maxNumRemoteConnections
 argument_list|,
