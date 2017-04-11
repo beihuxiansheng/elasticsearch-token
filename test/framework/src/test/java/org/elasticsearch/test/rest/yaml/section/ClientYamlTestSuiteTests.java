@@ -244,13 +244,13 @@ literal|"\n"
 operator|+
 literal|"---\n"
 operator|+
-literal|"\"Get type mapping - pre 1.0\":\n"
+literal|"\"Get type mapping - pre 5.0\":\n"
 operator|+
 literal|"\n"
 operator|+
 literal|"  - skip:\n"
 operator|+
-literal|"      version:     \"2.0.0 - \"\n"
+literal|"      version:     \"5.0.0 - \"\n"
 operator|+
 literal|"      reason:      \"for newer versions the index name is always returned\"\n"
 operator|+
@@ -1041,7 +1041,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Get type mapping - pre 1.0"
+literal|"Get type mapping - pre 5.0"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1115,7 +1115,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_5_0_0
 argument_list|)
 argument_list|)
 expr_stmt|;

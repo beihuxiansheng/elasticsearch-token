@@ -240,7 +240,7 @@ name|yamlXContent
 argument_list|,
 literal|"  - skip:\n"
 operator|+
-literal|"      version:  \"2.0.0 - 2.3.0\"\n"
+literal|"      version:  \"5.0.0 - 5.3.0\"\n"
 operator|+
 literal|"      reason:   \"there is a reason\"\n"
 operator|+
@@ -317,7 +317,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_5_0_0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -335,7 +335,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_3_0
+name|V_5_3_0_UNRELEASED
 argument_list|)
 argument_list|)
 expr_stmt|;

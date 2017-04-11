@@ -47,24 +47,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|section
-operator|.
-name|SetupSection
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -254,7 +236,7 @@ name|yamlXContent
 argument_list|,
 literal|"  - skip:\n"
 operator|+
-literal|"      version:  \"2.0.0 - 2.3.0\"\n"
+literal|"      version:  \"5.0.0 - 5.3.0\"\n"
 operator|+
 literal|"      reason:   \"Update doesn't return metadata fields, waiting for #3259\"\n"
 operator|+
@@ -342,7 +324,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_5_0_0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -360,7 +342,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_3_0
+name|V_5_3_0_UNRELEASED
 argument_list|)
 argument_list|)
 expr_stmt|;
