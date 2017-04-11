@@ -14,6 +14,20 @@ begin_comment
 comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
 begin_comment
 comment|// TODO: Figure out a way to test autobox caching properly from methods such as Integer.valueOf(int);
 end_comment
@@ -977,6 +991,15 @@ name|void
 name|testBranchEqualsDefAndPrimitive
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"test fails on Windows"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|true
@@ -987,9 +1010,14 @@ literal|"def x = 1000; int y = 1000; return x == y;"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
 name|exec
 argument_list|(
 literal|"def x = 1000; int y = 1000; return x === y;"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1002,9 +1030,14 @@ literal|"def x = 1000; int y = 1000; return y == x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
 name|exec
 argument_list|(
 literal|"def x = 1000; int y = 1000; return y === x;"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1091,6 +1124,15 @@ name|void
 name|testBranchNotEqualsDefAndPrimitive
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"test fails on Windows"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|false
@@ -1101,9 +1143,14 @@ literal|"def x = 1000; int y = 1000; return x != y;"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
 name|exec
 argument_list|(
 literal|"def x = 1000; int y = 1000; return x !== y;"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1116,9 +1163,14 @@ literal|"def x = 1000; int y = 1000; return y != x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
 name|exec
 argument_list|(
 literal|"def x = 1000; int y = 1000; return y !== x;"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
