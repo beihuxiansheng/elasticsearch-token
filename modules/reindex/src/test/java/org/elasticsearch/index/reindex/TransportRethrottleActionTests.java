@@ -495,6 +495,8 @@ name|TransportRethrottleAction
 operator|.
 name|rethrottle
 argument_list|(
+name|logger
+argument_list|,
 name|localNodeId
 argument_list|,
 name|client

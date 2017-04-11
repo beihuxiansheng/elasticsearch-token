@@ -1046,19 +1046,11 @@ init|(
 name|delayedPrepareBulkRequestReference
 init|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}]: Rethrottling to [{}] requests per second"
+literal|"[{}]: rethrottling to [{}] requests per second"
 argument_list|,
 name|getId
 argument_list|()
@@ -1066,7 +1058,6 @@ argument_list|,
 name|newRequestsPerSecond
 argument_list|)
 expr_stmt|;
-block|}
 name|setRequestsPerSecond
 argument_list|(
 name|newRequestsPerSecond
@@ -1089,25 +1080,16 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}]: Skipping rescheduling because there is no scheduled task"
+literal|"[{}]: skipping rescheduling because there is no scheduled task"
 argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// No request has been queued yet so nothing to reschedule.
 return|return;
 block|}
@@ -1279,19 +1261,11 @@ name|requestsPerSecond
 condition|)
 block|{
 comment|/*                  * The user is attempting to slow the request down. We'll let the change in throttle take effect the next time we delay                  * prepareBulkRequest. We can't just reschedule the request further out in the future the bulk context might time out.                  */
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}]: Skipping rescheduling because the new throttle [{}] is slower than the old one [{}]."
+literal|"[{}]: skipping rescheduling because the new throttle [{}] is slower than the old one [{}]"
 argument_list|,
 name|getId
 argument_list|()
@@ -1301,7 +1275,6 @@ argument_list|,
 name|requestsPerSecond
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -1332,25 +1305,16 @@ argument_list|)
 condition|)
 block|{
 comment|// Couldn't cancel, probably because the task has finished or been scheduled. Either way we have nothing to do here.
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}]: Skipping rescheduling we couldn't cancel the task."
+literal|"[{}]: skipping rescheduling because we couldn't cancel the task"
 argument_list|,
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -1366,19 +1330,11 @@ argument_list|,
 name|newRequestsPerSecond
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}]: Rescheduling for [{}] in the future."
+literal|"[{}]: rescheduling for [{}] in the future"
 argument_list|,
 name|getId
 argument_list|()
@@ -1386,7 +1342,6 @@ argument_list|,
 name|newDelay
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|new
 name|DelayedPrepareBulkRequest
