@@ -1227,6 +1227,12 @@ block|,
 literal|"cluster_2:foo*"
 block|,
 literal|"foo"
+block|,
+literal|"cluster*:baz"
+block|,
+literal|"*:boo"
+block|,
+literal|"no*match:boo"
 block|}
 argument_list|,
 name|i
@@ -1284,6 +1290,8 @@ block|{
 literal|"foo:bar"
 block|,
 literal|"foo"
+block|,
+literal|"no*match:boo"
 block|}
 argument_list|,
 name|localIndices
@@ -1308,6 +1316,10 @@ argument_list|(
 literal|"bar"
 argument_list|,
 literal|"test"
+argument_list|,
+literal|"baz"
+argument_list|,
+literal|"boo"
 argument_list|)
 argument_list|,
 name|perClusterIndices
@@ -1327,6 +1339,10 @@ argument_list|(
 literal|"foo:bar"
 argument_list|,
 literal|"foo*"
+argument_list|,
+literal|"baz"
+argument_list|,
+literal|"boo"
 argument_list|)
 argument_list|,
 name|perClusterIndices
