@@ -352,7 +352,6 @@ end_import
 
 begin_class
 DECL|class|NestedAggregator
-specifier|public
 class|class
 name|NestedAggregator
 extends|extends
@@ -383,7 +382,6 @@ name|Query
 name|childFilter
 decl_stmt|;
 DECL|method|NestedAggregator
-specifier|public
 name|NestedAggregator
 parameter_list|(
 name|String
