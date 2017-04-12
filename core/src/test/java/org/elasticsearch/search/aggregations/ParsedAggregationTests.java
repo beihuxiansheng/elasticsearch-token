@@ -788,9 +788,10 @@ argument_list|)
 decl_stmt|;
 name|parsedAgg
 operator|.
+name|setName
+argument_list|(
 name|name
-operator|=
-name|name
+argument_list|)
 expr_stmt|;
 return|return
 name|parsedAgg
