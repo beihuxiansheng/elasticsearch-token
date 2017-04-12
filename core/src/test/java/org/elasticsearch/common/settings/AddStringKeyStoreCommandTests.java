@@ -686,10 +686,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNpe
+DECL|method|testMissingSettingName
 specifier|public
 name|void
-name|testNpe
+name|testMissingSettingName
 parameter_list|()
 throws|throws
 name|Exception

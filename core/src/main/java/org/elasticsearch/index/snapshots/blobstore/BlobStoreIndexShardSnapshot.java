@@ -1410,36 +1410,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|physicalName
-operator|.
-name|startsWith
-argument_list|(
-literal|"segments_"
-argument_list|)
-operator|&&
-name|writtenBy
-operator|.
-name|onOrAfter
-argument_list|(
-name|StoreFileMetaData
-operator|.
-name|FIRST_LUCENE_CHECKSUM_VERSION
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-comment|// its possible the checksum is null for segments_N files that belong to a shard with no data,
-comment|// so we will assign it _na_ for now and try to get the checksum from the file itself later
-name|checksum
-operator|=
-name|UNKNOWN_CHECKSUM
-expr_stmt|;
-block|}
-else|else
-block|{
 throw|throw
 operator|new
 name|ElasticsearchParseException
@@ -1451,7 +1421,6 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
-block|}
 block|}
 return|return
 operator|new

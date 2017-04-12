@@ -511,14 +511,6 @@ name|INDEX_ROUTING_PARTITION_SIZE_SETTING
 argument_list|,
 name|IndexMetaData
 operator|.
-name|INDEX_SHADOW_REPLICAS_SETTING
-argument_list|,
-name|IndexMetaData
-operator|.
-name|INDEX_SHARED_FILESYSTEM_SETTING
-argument_list|,
-name|IndexMetaData
-operator|.
 name|INDEX_READ_ONLY_SETTING
 argument_list|,
 name|IndexMetaData
@@ -532,10 +524,6 @@ argument_list|,
 name|IndexMetaData
 operator|.
 name|INDEX_BLOCKS_METADATA_SETTING
-argument_list|,
-name|IndexMetaData
-operator|.
-name|INDEX_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE_SETTING
 argument_list|,
 name|IndexMetaData
 operator|.

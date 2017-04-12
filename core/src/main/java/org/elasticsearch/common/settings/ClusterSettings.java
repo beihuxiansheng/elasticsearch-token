@@ -2402,10 +2402,6 @@ name|NodeEnvironment
 operator|.
 name|ENABLE_LUCENE_SEGMENT_INFOS_TRACE_SETTING
 argument_list|,
-name|NodeEnvironment
-operator|.
-name|ADD_NODE_LOCK_ID_TO_CUSTOM_PATH
-argument_list|,
 name|OsService
 operator|.
 name|REFRESH_INTERVAL_SETTING

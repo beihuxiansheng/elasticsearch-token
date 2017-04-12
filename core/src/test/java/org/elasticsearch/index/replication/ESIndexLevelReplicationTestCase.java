@@ -2923,8 +2923,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|,
-literal|true
-argument_list|,
 operator|new
 name|ReplicasRef
 argument_list|()
@@ -2937,7 +2935,7 @@ name|logger
 argument_list|,
 name|opType
 argument_list|)
-block|{                 @
+block|{                  @
 name|Override
 specifier|protected
 name|List

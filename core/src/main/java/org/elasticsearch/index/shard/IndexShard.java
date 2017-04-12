@@ -2112,9 +2112,7 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-comment|/**      * Allows for the registration of listeners that are called when a change becomes visible for search. This is nullable because      * {@linkplain ShadowIndexShard} doesn't support this.      */
-annotation|@
-name|Nullable
+comment|/**      * Allows for the registration of listeners that are called when a change becomes visible for search.      */
 DECL|field|refreshListeners
 specifier|private
 specifier|final
@@ -3092,6 +3090,40 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+assert|assert
+name|newRouting
+operator|.
+name|active
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|state
+operator|==
+name|IndexShardState
+operator|.
+name|STARTED
+operator|||
+name|state
+operator|==
+name|IndexShardState
+operator|.
+name|RELOCATED
+operator|||
+name|state
+operator|==
+name|IndexShardState
+operator|.
+name|CLOSED
+operator|:
+literal|"routing is active, but local shard state isn't. routing: "
+operator|+
+name|newRouting
+operator|+
+literal|", local state: "
+operator|+
+name|state
+assert|;
 name|this
 operator|.
 name|shardRouting
@@ -3462,6 +3494,14 @@ name|String
 name|reason
 parameter_list|)
 block|{
+assert|assert
+name|Thread
+operator|.
+name|holdsLock
+argument_list|(
+name|mutex
+argument_list|)
+assert|;
 name|logger
 operator|.
 name|debug
@@ -10513,12 +10553,12 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Build {@linkplain RefreshListeners} for this shard. Protected so {@linkplain ShadowIndexShard} can override it to return null.      */
+comment|/**      * Build {@linkplain RefreshListeners} for this shard.      */
 end_comment
 
 begin_function
 DECL|method|buildRefreshListeners
-specifier|protected
+specifier|private
 name|RefreshListeners
 name|buildRefreshListeners
 parameter_list|()

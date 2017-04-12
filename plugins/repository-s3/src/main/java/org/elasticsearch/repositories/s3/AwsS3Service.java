@@ -781,9 +781,6 @@ DECL|method|client
 name|AmazonS3
 name|client
 parameter_list|(
-name|RepositoryMetaData
-name|metadata
-parameter_list|,
 name|Settings
 name|repositorySettings
 parameter_list|)

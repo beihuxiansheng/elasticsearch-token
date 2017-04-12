@@ -345,9 +345,6 @@ specifier|public
 name|AmazonS3
 name|client
 parameter_list|(
-name|RepositoryMetaData
-name|metadata
-parameter_list|,
 name|Settings
 name|settings
 parameter_list|)

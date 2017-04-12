@@ -1651,22 +1651,6 @@ name|config
 init|)
 empty_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|Engine
-name|newReadOnlyEngine
-parameter_list|(
-name|EngineConfig
-name|config
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
 block|}
 end_class
 

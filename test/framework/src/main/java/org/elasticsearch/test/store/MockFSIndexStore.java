@@ -701,16 +701,6 @@ name|contains
 argument_list|(
 name|previousState
 argument_list|)
-operator|&&
-name|indexShard
-operator|.
-name|indexSettings
-argument_list|()
-operator|.
-name|isOnSharedFilesystem
-argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|shardSet

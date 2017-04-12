@@ -450,56 +450,6 @@ name|concreteIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|request
-operator|.
-name|request
-argument_list|()
-operator|.
-name|realtime
-operator|&&
-comment|// if the realtime flag is set
-name|request
-operator|.
-name|request
-argument_list|()
-operator|.
-name|preference
-argument_list|()
-operator|==
-literal|null
-operator|&&
-comment|// the preference flag is not already set
-name|indexMeta
-operator|!=
-literal|null
-operator|&&
-comment|// and we have the index
-name|indexMeta
-operator|.
-name|isIndexUsingShadowReplicas
-argument_list|()
-condition|)
-block|{
-comment|// and the index uses shadow replicas
-comment|// set the preference for the request to use "_primary" automatically
-name|request
-operator|.
-name|request
-argument_list|()
-operator|.
-name|preference
-argument_list|(
-name|Preference
-operator|.
-name|PRIMARY
-operator|.
-name|type
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|// update the routing (request#index here is possibly an alias)
 name|request
 operator|.

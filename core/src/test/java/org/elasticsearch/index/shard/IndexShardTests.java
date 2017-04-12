@@ -2669,10 +2669,8 @@ block|{
 comment|// simulate promotion
 name|indexShard
 operator|=
-name|newShard
+name|newStartedShard
 argument_list|(
-name|shardId
-argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;

@@ -411,21 +411,6 @@ name|ReplicaResult
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|shouldExecuteReplication
-specifier|protected
-name|boolean
-name|shouldExecuteReplication
-parameter_list|(
-name|IndexMetaData
-name|indexMetaData
-parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 end_class
 

@@ -30,6 +30,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|GeneralSecurityException
@@ -77,6 +87,17 @@ comment|/** Return a string setting. The {@link SecureString} should be closed o
 DECL|method|getString
 name|SecureString
 name|getString
+parameter_list|(
+name|String
+name|setting
+parameter_list|)
+throws|throws
+name|GeneralSecurityException
+function_decl|;
+comment|/** Return a file setting. The {@link InputStream} should be closed once it is used. */
+DECL|method|getFile
+name|InputStream
+name|getFile
 parameter_list|(
 name|String
 name|setting

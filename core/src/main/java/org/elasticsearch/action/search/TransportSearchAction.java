@@ -478,7 +478,9 @@ name|longSetting
 argument_list|(
 literal|"action.search.shard_count.limit"
 argument_list|,
-literal|1000L
+name|Long
+operator|.
+name|MAX_VALUE
 argument_list|,
 literal|1L
 argument_list|,

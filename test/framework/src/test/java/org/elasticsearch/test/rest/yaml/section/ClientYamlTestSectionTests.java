@@ -826,7 +826,7 @@ literal|"\"First test section\": \n"
 operator|+
 literal|"  - skip:\n"
 operator|+
-literal|"      version:  \"2.0.0 - 2.2.0\"\n"
+literal|"      version:  \"5.0.0 - 5.2.0\"\n"
 operator|+
 literal|"      reason:   \"Update doesn't return metadata fields, waiting for #3259\"\n"
 operator|+
@@ -899,7 +899,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_5_0_0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -917,7 +917,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_2_2_0
+name|V_5_2_0_UNRELEASED
 argument_list|)
 argument_list|)
 expr_stmt|;

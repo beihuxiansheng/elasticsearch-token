@@ -531,7 +531,7 @@ name|version
 init|=
 name|Version
 operator|.
-name|V_2_4_5
+name|CURRENT
 decl_stmt|;
 name|MainResponse
 name|response
@@ -587,7 +587,14 @@ literal|"\"cluster_uuid\":\"clusterUuid\","
 operator|+
 literal|"\"version\":{"
 operator|+
-literal|"\"number\":\"2.4.5\","
+literal|"\"number\":\""
+operator|+
+name|version
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\","
 operator|+
 literal|"\"build_hash\":\"buildHash\","
 operator|+
@@ -595,7 +602,16 @@ literal|"\"build_date\":\"2016-11-15\","
 operator|+
 literal|"\"build_snapshot\":true,"
 operator|+
-literal|"\"lucene_version\":\"5.5.2\"},"
+literal|"\"lucene_version\":\""
+operator|+
+name|version
+operator|.
+name|luceneVersion
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"\"},"
 operator|+
 literal|"\"tagline\":\"You Know, for Search\""
 operator|+

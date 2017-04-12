@@ -43,25 +43,6 @@ name|config
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|newReadOnlyEngine
-specifier|public
-name|Engine
-name|newReadOnlyEngine
-parameter_list|(
-name|EngineConfig
-name|config
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ShadowEngine
-argument_list|(
-name|config
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 

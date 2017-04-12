@@ -1241,11 +1241,6 @@ name|STILL_ALLOCATED
 case|:
 comment|// nothing to do
 break|break;
-case|case
-name|SHARED_FILE_SYSTEM
-case|:
-comment|// nothing to do
-break|break;
 default|default:
 assert|assert
 literal|false

@@ -1727,7 +1727,31 @@ argument_list|,
 name|environment
 argument_list|)
 expr_stmt|;
-comment|/* TODO: close this once s3 repository doesn't try to read during repository construction             try {                 // any secure settings must be read during node construction                 IOUtils.close(keystore);             } catch (IOException e) {                 throw new BootstrapException(e);             }*/
+try|try
+block|{
+comment|// any secure settings must be read during node construction
+name|IOUtils
+operator|.
+name|close
+argument_list|(
+name|keystore
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|BootstrapException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 name|INSTANCE
 operator|.
 name|start
