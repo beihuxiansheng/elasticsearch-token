@@ -5309,6 +5309,7 @@ specifier|public
 name|Builder
 name|putProperties
 parameter_list|(
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -5317,12 +5318,7 @@ name|String
 argument_list|>
 name|esSettings
 parameter_list|,
-name|Predicate
-argument_list|<
-name|String
-argument_list|>
-name|keyPredicate
-parameter_list|,
+specifier|final
 name|Function
 argument_list|<
 name|String
@@ -5360,16 +5356,6 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|keyPredicate
-operator|.
-name|test
-argument_list|(
-name|key
-argument_list|)
-condition|)
-block|{
 name|map
 operator|.
 name|put
@@ -5387,7 +5373,6 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|this

@@ -2176,7 +2176,15 @@ name|INDICES_STORE_DELETE_SHARD_TIMEOUT
 argument_list|,
 name|Environment
 operator|.
+name|DEFAULT_PATH_CONF_SETTING
+argument_list|,
+name|Environment
+operator|.
 name|PATH_CONF_SETTING
+argument_list|,
+name|Environment
+operator|.
+name|DEFAULT_PATH_DATA_SETTING
 argument_list|,
 name|Environment
 operator|.
@@ -2185,6 +2193,10 @@ argument_list|,
 name|Environment
 operator|.
 name|PATH_HOME_SETTING
+argument_list|,
+name|Environment
+operator|.
+name|DEFAULT_PATH_LOGS_SETTING
 argument_list|,
 name|Environment
 operator|.
