@@ -810,6 +810,8 @@ argument_list|<>
 argument_list|(
 literal|"task_info"
 argument_list|,
+literal|true
+argument_list|,
 name|a
 lambda|->
 block|{
@@ -968,9 +970,6 @@ else|:
 operator|new
 name|TaskId
 argument_list|(
-operator|(
-name|String
-operator|)
 name|parentTaskIdString
 argument_list|)
 decl_stmt|;
@@ -1002,7 +1001,7 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-comment|// Note for the future: this has to be backwards compatible with all changes to the task storage format
+comment|// Note for the future: this has to be backwards and forwards compatible with all changes to the task storage format
 name|PARSER
 operator|.
 name|declareString
