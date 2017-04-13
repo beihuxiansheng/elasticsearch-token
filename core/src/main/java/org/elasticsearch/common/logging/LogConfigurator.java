@@ -610,6 +610,13 @@ name|void
 name|registerErrorListener
 parameter_list|()
 block|{
+name|error
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|StatusLogger
 operator|.
 name|getLogger
