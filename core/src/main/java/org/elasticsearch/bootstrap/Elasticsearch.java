@@ -66,7 +66,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|ExitCodes
+name|EnvironmentAwareCommand
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|EnvironmentAwareCommand
+name|ExitCodes
 import|;
 end_import
 
@@ -114,9 +114,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|logging
 operator|.
-name|Settings
+name|LogConfigurator
 import|;
 end_import
 
@@ -197,16 +197,6 @@ operator|.
 name|util
 operator|.
 name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -400,6 +390,11 @@ comment|// grant all permissions so that we can later set the security manager t
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|LogConfigurator
+operator|.
+name|registerErrorListener
+argument_list|()
 expr_stmt|;
 specifier|final
 name|Elasticsearch
