@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -385,6 +399,8 @@ parameter_list|)
 block|{
 name|rethrottle
 argument_list|(
+name|logger
+argument_list|,
 name|clusterService
 operator|.
 name|localNode
@@ -411,6 +427,9 @@ specifier|static
 name|void
 name|rethrottle
 parameter_list|(
+name|Logger
+name|logger
+parameter_list|,
 name|String
 name|localNodeId
 parameter_list|,
@@ -445,7 +464,20 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// Nothing to do, all sub tasks are done
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"rethrottling local task [{}] to [{}] requests per second"
+argument_list|,
+name|task
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|newRequestsPerSecond
+argument_list|)
+expr_stmt|;
 name|task
 operator|.
 name|rethrottle
@@ -499,6 +531,23 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"rethrottling children of task [{}] to [{}] requests per second"
+argument_list|,
+name|task
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|subRequest
+operator|.
+name|getRequestsPerSecond
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|client

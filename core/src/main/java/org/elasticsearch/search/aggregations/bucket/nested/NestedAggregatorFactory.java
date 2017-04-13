@@ -166,7 +166,6 @@ end_import
 
 begin_class
 DECL|class|NestedAggregatorFactory
-specifier|public
 class|class
 name|NestedAggregatorFactory
 extends|extends
@@ -188,7 +187,6 @@ name|ObjectMapper
 name|childObjectMapper
 decl_stmt|;
 DECL|method|NestedAggregatorFactory
-specifier|public
 name|NestedAggregatorFactory
 parameter_list|(
 name|String

@@ -127,7 +127,6 @@ implements|implements
 name|Nested
 block|{
 DECL|method|InternalNested
-specifier|public
 name|InternalNested
 parameter_list|(
 name|String

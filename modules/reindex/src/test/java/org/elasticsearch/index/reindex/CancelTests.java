@@ -302,6 +302,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matcher
@@ -475,6 +491,11 @@ comment|/**  * Test that you can actually cancel a reindex/update-by-query/delet
 end_comment
 
 begin_class
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"org.elasticsearch.action.bulk.byscroll:DEBUG,org.elasticsearch.index.reindex:DEBUG"
+argument_list|)
 DECL|class|CancelTests
 specifier|public
 class|class

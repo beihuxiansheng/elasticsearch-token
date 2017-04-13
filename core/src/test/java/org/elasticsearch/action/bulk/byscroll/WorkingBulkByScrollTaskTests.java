@@ -1091,7 +1091,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// Rethrottle on a random number of threads, on of which is this thread.
+comment|// Rethrottle on a random number of threads, one of which is this thread.
 name|Runnable
 name|test
 init|=

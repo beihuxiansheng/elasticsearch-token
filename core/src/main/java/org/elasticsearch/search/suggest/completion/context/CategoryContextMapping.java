@@ -489,6 +489,18 @@ operator|==
 name|Token
 operator|.
 name|VALUE_STRING
+operator|||
+name|token
+operator|==
+name|Token
+operator|.
+name|VALUE_NUMBER
+operator|||
+name|token
+operator|==
+name|Token
+operator|.
+name|VALUE_BOOLEAN
 condition|)
 block|{
 name|contexts
@@ -535,6 +547,18 @@ operator|==
 name|Token
 operator|.
 name|VALUE_STRING
+operator|||
+name|token
+operator|==
+name|Token
+operator|.
+name|VALUE_NUMBER
+operator|||
+name|token
+operator|==
+name|Token
+operator|.
+name|VALUE_BOOLEAN
 condition|)
 block|{
 name|contexts
@@ -554,7 +578,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"context array must have string values"
+literal|"context array must have string, number or boolean values, but was ["
+operator|+
+name|token
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -566,7 +594,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"contexts must be a string or a list of strings"
+literal|"contexts must be a string, number or boolean or a list of string, number or boolean, but was ["
+operator|+
+name|token
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
