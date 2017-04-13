@@ -1175,6 +1175,7 @@ name|v2
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Lucene's TopDocs initializes the maxScore to Float.NaN, if there is no maxScore
 name|SearchHits
 name|expectedHits
 init|=
@@ -1185,6 +1186,16 @@ name|expectedHitsHits
 argument_list|,
 name|totalHits
 argument_list|,
+name|maxScore
+operator|==
+name|Float
+operator|.
+name|MIN_VALUE
+condition|?
+name|Float
+operator|.
+name|NaN
+else|:
 name|maxScore
 argument_list|)
 decl_stmt|;
