@@ -1915,19 +1915,6 @@ range|:
 name|stream
 control|)
 block|{
-if|if
-condition|(
-name|FileSystemUtils
-operator|.
-name|isHidden
-argument_list|(
-name|module
-argument_list|)
-condition|)
-block|{
-continue|continue;
-comment|// skip over .DS_Store etc
-block|}
 name|PluginInfo
 name|info
 init|=
