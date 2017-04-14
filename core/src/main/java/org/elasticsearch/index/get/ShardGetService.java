@@ -92,7 +92,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|DocIdAndVersion
 import|;

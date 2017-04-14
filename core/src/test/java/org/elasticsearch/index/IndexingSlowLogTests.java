@@ -280,7 +280,7 @@ argument_list|)
 argument_list|,
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 operator|.
 name|emptySeqID
 argument_list|()

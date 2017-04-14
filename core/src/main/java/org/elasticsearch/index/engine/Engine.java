@@ -538,7 +538,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 import|;
 end_import
 
@@ -554,7 +554,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|DocIdAndVersion
 import|;
@@ -2445,7 +2445,7 @@ try|try
 block|{
 name|docIdAndVersion
 operator|=
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|loadDocIdAndVersion
 argument_list|(
