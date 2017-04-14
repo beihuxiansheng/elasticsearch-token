@@ -48,6 +48,20 @@ name|common
 operator|.
 name|io
 operator|.
+name|Streams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
 name|stream
 operator|.
 name|BytesStreamOutput
@@ -103,6 +117,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
 import|;
 end_import
 
@@ -516,6 +540,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|OutputStream
+name|unclosableOutputStream
+init|=
+name|Streams
+operator|.
+name|flushOnCloseStream
+argument_list|(
+name|bytesOutput
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|XContentBuilder
 name|builder
 init|=
@@ -529,8 +564,7 @@ argument_list|(
 name|responseContentType
 argument_list|)
 argument_list|,
-name|bytesOutput
-argument_list|()
+name|unclosableOutputStream
 argument_list|,
 name|includes
 argument_list|,
@@ -562,7 +596,7 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * A channel level bytes output that can be reused. It gets reset on each call to this      * method.      */
+comment|/**      * A channel level bytes output that can be reused. The bytes output is lazily instantiated      * by a call to {@link #newBytesOutput()}. Once the stream is created, it gets reset on each      * call to this method.      */
 annotation|@
 name|Override
 DECL|method|bytesOutput
@@ -593,6 +627,18 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|bytesOut
+return|;
+block|}
+comment|/**      * An accessor to the raw value of the channel bytes output. This method will not instantiate      * a new stream if one does not exist and this method will not reset the stream.      */
+DECL|method|bytesOutputOrNull
+specifier|protected
+specifier|final
+name|BytesStreamOutput
+name|bytesOutputOrNull
+parameter_list|()
+block|{
 return|return
 name|bytesOut
 return|;
