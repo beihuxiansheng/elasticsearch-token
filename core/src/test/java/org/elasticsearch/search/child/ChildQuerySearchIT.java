@@ -13140,7 +13140,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Can't specify parent if no parent field has been configured"
+literal|"can't specify parent if no parent field has been configured"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13193,7 +13193,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Can't specify parent if no parent field has been configured"
+literal|"can't specify parent if no parent field has been configured"
 argument_list|)
 argument_list|)
 expr_stmt|;
