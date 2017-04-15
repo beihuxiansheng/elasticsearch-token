@@ -2973,6 +2973,10 @@ operator|.
 name|randomSimpleString
 argument_list|(
 name|random
+argument_list|,
+literal|1
+argument_list|,
+literal|10
 argument_list|)
 return|;
 block|}
@@ -3009,6 +3013,10 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|,
+literal|1
+argument_list|,
+literal|20
 argument_list|)
 return|;
 block|}
