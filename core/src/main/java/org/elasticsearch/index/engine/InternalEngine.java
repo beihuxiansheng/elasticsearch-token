@@ -2094,7 +2094,7 @@ throw|throw
 operator|new
 name|IndexFormatTooOldException
 argument_list|(
-literal|"trasnlog"
+literal|"translog"
 argument_list|,
 literal|"translog has no generation nor a UUID - this might be an index from a previous version consider upgrading to N-1 first"
 argument_list|)
@@ -7362,6 +7362,10 @@ argument_list|(
 literal|"starting commit for flush; commitTranslog=true"
 argument_list|)
 expr_stmt|;
+specifier|final
+name|long
+name|committedGeneration
+init|=
 name|commitIndexWriter
 argument_list|(
 name|indexWriter
@@ -7370,7 +7374,7 @@ name|translog
 argument_list|,
 literal|null
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|logger
 operator|.
 name|trace
@@ -7388,7 +7392,9 @@ comment|// after refresh documents can be retrieved from the index so we can now
 name|translog
 operator|.
 name|commit
-argument_list|()
+argument_list|(
+name|committedGeneration
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -9735,17 +9741,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Commits the specified index writer.      *      * @param writer   the index writer to commit      * @param translog the translog      * @param syncId   the sync flush ID ({@code null} if not committing a synced flush)      * @return the minimum translog generation for the local checkpoint committed with the specified index writer      * @throws IOException if an I/O exception occurs committing the specfied writer      */
 DECL|method|commitIndexWriter
 specifier|private
-name|void
+name|long
 name|commitIndexWriter
 parameter_list|(
+specifier|final
 name|IndexWriter
 name|writer
 parameter_list|,
+specifier|final
 name|Translog
 name|translog
 parameter_list|,
+annotation|@
+name|Nullable
+specifier|final
 name|String
 name|syncId
 parameter_list|)
@@ -9757,6 +9769,17 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+specifier|final
+name|long
+name|localCheckpoint
+init|=
+name|seqNoService
+argument_list|()
+operator|.
+name|getLocalCheckpoint
+argument_list|()
+decl_stmt|;
+specifier|final
 name|Translog
 operator|.
 name|TranslogGeneration
@@ -9764,12 +9787,16 @@ name|translogGeneration
 init|=
 name|translog
 operator|.
-name|getGeneration
-argument_list|()
+name|getMinGenerationForSeqNo
+argument_list|(
+name|localCheckpoint
+operator|+
+literal|1
+argument_list|)
 decl_stmt|;
 specifier|final
 name|String
-name|translogFileGen
+name|translogFileGeneration
 init|=
 name|Long
 operator|.
@@ -9790,17 +9817,13 @@ name|translogUUID
 decl_stmt|;
 specifier|final
 name|String
-name|localCheckpoint
+name|localCheckpointValue
 init|=
 name|Long
 operator|.
 name|toString
 argument_list|(
-name|seqNoService
-argument_list|()
-operator|.
-name|getLocalCheckpoint
-argument_list|()
+name|localCheckpoint
 argument_list|)
 decl_stmt|;
 name|writer
@@ -9810,7 +9833,7 @@ argument_list|(
 parameter_list|()
 lambda|->
 block|{
-comment|/*                  * The user data captured above (e.g. local checkpoint) contains data that must be evaluated *before* Lucene flushes                  * segments, including the local checkpoint amongst other values. The maximum sequence number is different - we never want                  * the maximum sequence number to be less than the last sequence number to go into a Lucene commit, otherwise we run the                  * risk of re-using a sequence number for two different documents when restoring from this commit point and subsequently                  * writing new documents to the index.  Since we only know which Lucene documents made it into the final commit after the                  * {@link IndexWriter#commit()} call flushes all documents, we defer computation of the max_seq_no to the time of invocation                  * of the commit data iterator (which occurs after all documents have been flushed to Lucene).                  */
+comment|/*                  * The user data captured above (e.g. local checkpoint) contains data that must be evaluated *before* Lucene flushes                  * segments, including the local checkpoint amongst other values. The maximum sequence number is different, we never want                  * the maximum sequence number to be less than the last sequence number to go into a Lucene commit, otherwise we run the                  * risk of re-using a sequence number for two different documents when restoring from this commit point and subsequently                  * writing new documents to the index. Since we only know which Lucene documents made it into the final commit after the                  * {@link IndexWriter#commit()} call flushes all documents, we defer computation of the maximum sequence number to the time                  * of invocation of the commit data iterator (which occurs after all documents have been flushed to Lucene).                  */
 specifier|final
 name|Map
 argument_list|<
@@ -9824,7 +9847,7 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|(
-literal|6
+literal|5
 argument_list|)
 decl_stmt|;
 name|commitData
@@ -9835,7 +9858,7 @@ name|Translog
 operator|.
 name|TRANSLOG_GENERATION_KEY
 argument_list|,
-name|translogFileGen
+name|translogFileGeneration
 argument_list|)
 expr_stmt|;
 name|commitData
@@ -9857,7 +9880,7 @@ name|SequenceNumbers
 operator|.
 name|LOCAL_CHECKPOINT_KEY
 argument_list|,
-name|localCheckpoint
+name|localCheckpointValue
 argument_list|)
 expr_stmt|;
 if|if
@@ -9899,14 +9922,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -9916,7 +9931,6 @@ argument_list|,
 name|commitData
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|commitData
 operator|.
@@ -9934,9 +9948,15 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+return|return
+name|translogGeneration
+operator|.
+name|translogFileGeneration
+return|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|ex
 parameter_list|)
@@ -9953,6 +9973,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|inner
 parameter_list|)
@@ -9971,12 +9992,12 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|AssertionError
 name|e
 parameter_list|)
 block|{
-comment|// IndexWriter throws AssertionError on commit, if asserts are enabled, if any files don't exist, but tests that
-comment|// randomly throw FNFE/NSFE can also hit this:
+comment|/*              * If assertions are enabled, IndexWriter throws AssertionError on commit if any files don't exist, but tests that randomly              * throw FileNotFoundException or NoSuchFileException can also hit this.              */
 if|if
 condition|(
 name|ExceptionsHelper
@@ -9992,6 +10013,7 @@ literal|"org.apache.lucene.index.IndexWriter.filesExist"
 argument_list|)
 condition|)
 block|{
+specifier|final
 name|EngineException
 name|engineException
 init|=
@@ -10017,6 +10039,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|inner
 parameter_list|)
@@ -10257,7 +10280,7 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|(
-literal|6
+literal|5
 argument_list|)
 decl_stmt|;
 for|for
