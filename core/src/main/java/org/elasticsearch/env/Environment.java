@@ -1266,6 +1266,16 @@ argument_list|,
 name|homeFile
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|PATH_DATA_SETTING
+operator|.
+name|exists
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
 name|finalSettings
 operator|.
 name|putArray
@@ -1278,6 +1288,7 @@ argument_list|,
 name|dataPaths
 argument_list|)
 expr_stmt|;
+block|}
 name|finalSettings
 operator|.
 name|put
