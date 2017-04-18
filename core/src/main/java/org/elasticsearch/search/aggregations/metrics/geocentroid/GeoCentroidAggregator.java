@@ -276,7 +276,6 @@ end_comment
 
 begin_class
 DECL|class|GeoCentroidAggregator
-specifier|public
 specifier|final
 class|class
 name|GeoCentroidAggregator
@@ -292,15 +291,16 @@ name|GeoPoint
 name|valuesSource
 decl_stmt|;
 DECL|field|centroids
+specifier|private
 name|LongArray
 name|centroids
 decl_stmt|;
 DECL|field|counts
+specifier|private
 name|LongArray
 name|counts
 decl_stmt|;
 DECL|method|GeoCentroidAggregator
-specifier|protected
 name|GeoCentroidAggregator
 parameter_list|(
 name|String

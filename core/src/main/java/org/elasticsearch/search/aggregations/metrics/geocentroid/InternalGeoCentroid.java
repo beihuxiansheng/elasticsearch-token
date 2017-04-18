@@ -185,7 +185,6 @@ name|long
 name|count
 decl_stmt|;
 DECL|method|InternalGeoCentroid
-specifier|public
 name|InternalGeoCentroid
 parameter_list|(
 name|String
@@ -729,7 +728,6 @@ class|class
 name|Fields
 block|{
 DECL|field|CENTROID
-specifier|public
 specifier|static
 specifier|final
 name|String

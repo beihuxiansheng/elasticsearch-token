@@ -172,7 +172,6 @@ end_import
 
 begin_class
 DECL|class|GeoCentroidAggregatorFactory
-specifier|public
 class|class
 name|GeoCentroidAggregatorFactory
 extends|extends
@@ -186,7 +185,6 @@ name|GeoCentroidAggregatorFactory
 argument_list|>
 block|{
 DECL|method|GeoCentroidAggregatorFactory
-specifier|public
 name|GeoCentroidAggregatorFactory
 parameter_list|(
 name|String
