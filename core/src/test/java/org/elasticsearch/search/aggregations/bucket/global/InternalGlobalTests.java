@@ -105,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalGlogbalTests
+DECL|class|InternalGlobalTests
 specifier|public
 class|class
-name|InternalGlogbalTests
+name|InternalGlobalTests
 extends|extends
 name|InternalSingleBucketAggregationTestCase
 argument_list|<
