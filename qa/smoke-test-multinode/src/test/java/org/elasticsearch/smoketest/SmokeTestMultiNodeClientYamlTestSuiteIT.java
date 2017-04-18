@@ -102,16 +102,6 @@ name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_class
 annotation|@
 name|TimeoutSuite
@@ -164,7 +154,7 @@ argument_list|>
 name|parameters
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|ESClientYamlSuiteTestCase

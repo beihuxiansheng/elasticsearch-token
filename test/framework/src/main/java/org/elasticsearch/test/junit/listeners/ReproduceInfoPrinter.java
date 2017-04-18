@@ -256,24 +256,6 @@ name|yaml
 operator|.
 name|ESClientYamlSuiteTestCase
 operator|.
-name|REST_TESTS_SPEC
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|yaml
-operator|.
-name|ESClientYamlSuiteTestCase
-operator|.
 name|REST_TESTS_SUITE
 import|;
 end_import
@@ -790,8 +772,6 @@ return|return
 name|appendProperties
 argument_list|(
 name|REST_TESTS_SUITE
-argument_list|,
-name|REST_TESTS_SPEC
 argument_list|,
 name|REST_TESTS_BLACKLIST
 argument_list|)

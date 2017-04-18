@@ -104,16 +104,6 @@ name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|//TODO: This is a *temporary* workaround to ensure a timeout does not mask other problems
 end_comment
@@ -169,7 +159,7 @@ argument_list|>
 name|parameters
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|ESClientYamlSuiteTestCase

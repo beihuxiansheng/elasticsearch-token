@@ -62,16 +62,6 @@ name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/** Rest integration test. Runs against a cluster started by {@code gradle integTest} */
 end_comment
@@ -111,7 +101,7 @@ argument_list|>
 name|parameters
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|createParameters
