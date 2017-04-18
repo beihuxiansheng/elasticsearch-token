@@ -721,7 +721,7 @@ static|static
 block|{
 name|ParsedAggregation
 operator|.
-name|declareCommonFields
+name|declareAggregationFields
 argument_list|(
 name|PARSER
 argument_list|)

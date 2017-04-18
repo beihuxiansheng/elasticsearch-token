@@ -684,7 +684,7 @@ parameter_list|)
 block|{
 name|ParsedAggregation
 operator|.
-name|declareCommonFields
+name|declareAggregationFields
 argument_list|(
 name|objectParser
 argument_list|)

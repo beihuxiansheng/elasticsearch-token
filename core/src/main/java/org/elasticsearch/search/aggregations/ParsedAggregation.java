@@ -103,11 +103,11 @@ name|Aggregation
 implements|,
 name|ToXContent
 block|{
-DECL|method|declareCommonFields
+DECL|method|declareAggregationFields
 specifier|protected
 specifier|static
 name|void
-name|declareCommonFields
+name|declareAggregationFields
 parameter_list|(
 name|ObjectParser
 argument_list|<
