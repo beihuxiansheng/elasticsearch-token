@@ -404,6 +404,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|LoggerMessageFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Setting
@@ -3386,7 +3400,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|electMasterService
 operator|.
 name|hasEnoughMasterNodes
@@ -3396,13 +3409,41 @@ operator|.
 name|nodes
 argument_list|()
 argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
+specifier|final
+name|int
+name|masterNodes
+init|=
+name|electMasterService
+operator|.
+name|countMasterNodes
+argument_list|(
+name|remainingNodesClusterState
+operator|.
+name|nodes
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|rejoin
 operator|.
 name|accept
 argument_list|(
-literal|"not enough master nodes"
+name|LoggerMessageFormat
+operator|.
+name|format
+argument_list|(
+literal|"not enough master nodes (has [{}], but needed [{}])"
+argument_list|,
+name|masterNodes
+argument_list|,
+name|electMasterService
+operator|.
+name|minimumMasterNodes
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -5420,11 +5461,16 @@ block|{
 comment|// if we don't have enough master nodes, we bail, because there are not enough master to elect from
 name|logger
 operator|.
-name|trace
+name|warn
 argument_list|(
-literal|"not enough master nodes [{}]"
+literal|"not enough master nodes discovered during pinging (found [{}], but needed [{}]), pinging again"
 argument_list|,
 name|masterCandidates
+argument_list|,
+name|electMaster
+operator|.
+name|minimumMasterNodes
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
