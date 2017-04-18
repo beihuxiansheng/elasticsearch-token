@@ -198,7 +198,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|DocIdAndVersion
 import|;
@@ -361,11 +361,11 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|PerThreadIDAndVersionLookup
+name|PerThreadIDVersionAndSeqNoLookup
 name|lookup
 init|=
 operator|new
-name|PerThreadIDAndVersionLookup
+name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
 operator|.
@@ -587,11 +587,11 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|PerThreadIDAndVersionLookup
+name|PerThreadIDVersionAndSeqNoLookup
 name|lookup
 init|=
 operator|new
-name|PerThreadIDAndVersionLookup
+name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
 operator|.

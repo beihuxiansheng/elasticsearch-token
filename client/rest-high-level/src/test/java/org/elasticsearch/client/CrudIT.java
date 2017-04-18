@@ -2900,7 +2900,7 @@ name|assertEquals
 argument_list|(
 literal|"Elasticsearch exception [type=illegal_argument_exception, "
 operator|+
-literal|"reason=Can't specify parent if no parent field has been configured]"
+literal|"reason=can't specify parent if no parent field has been configured]"
 argument_list|,
 name|exception
 operator|.

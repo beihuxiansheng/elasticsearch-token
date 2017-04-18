@@ -64,6 +64,12 @@ name|VersionValue
 argument_list|(
 name|randomLong
 argument_list|()
+argument_list|,
+name|randomLong
+argument_list|()
+argument_list|,
+name|randomLong
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -94,6 +100,12 @@ init|=
 operator|new
 name|DeleteVersionValue
 argument_list|(
+name|randomLong
+argument_list|()
+argument_list|,
+name|randomLong
+argument_list|()
+argument_list|,
 name|randomLong
 argument_list|()
 argument_list|,

@@ -1909,7 +1909,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't specify parent if no parent field has been configured"
+literal|"can't specify parent if no parent field has been configured"
 argument_list|)
 throw|;
 block|}
@@ -1927,10 +1927,28 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't specify parent if no parent field has been configured"
+literal|"can't specify parent if no parent field has been configured"
 argument_list|)
 throw|;
 block|}
+block|}
+if|if
+condition|(
+literal|""
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"if _id is specified it must not be empty"
+argument_list|)
+throw|;
 block|}
 comment|// generate id if not already provided
 if|if

@@ -647,19 +647,37 @@ operator|==
 literal|false
 condition|)
 block|{
-name|assertThat
-argument_list|(
-literal|"failed shard cache should be empty"
-argument_list|,
+comment|// initializing a shard should succeed when enableRandomFailures is disabled
+comment|// active shards can be failed if state persistence was disabled in an earlier CS update
+if|if
+condition|(
 name|failedShardsCache
 operator|.
 name|values
 argument_list|()
-argument_list|,
-name|empty
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|anyMatch
+argument_list|(
+name|ShardRouting
+operator|::
+name|initializing
+argument_list|)
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"failed shard cache should not contain initializing shard routing: "
+operator|+
+name|failedShardsCache
+operator|.
+name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// check that all shards in local routing nodes have been allocated
 for|for
@@ -719,17 +737,19 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|enableRandomFailures
+name|state
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|disableStatePersistence
+argument_list|()
 condition|)
 block|{
 if|if
 condition|(
 name|shard
-operator|==
-literal|null
-operator|&&
-name|failedShard
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
@@ -739,10 +759,13 @@ literal|"Shard with id "
 operator|+
 name|shardRouting
 operator|+
-literal|" expected but missing in indicesService and failedShardsCache"
+literal|" should be removed from indicesService due to disabled state persistence"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|failedShard
@@ -767,23 +790,61 @@ name|failedShard
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
 if|if
 condition|(
 name|shard
 operator|==
 literal|null
+operator|&&
+name|failedShard
+operator|==
+literal|null
 condition|)
 block|{
+comment|// shard must either be there or there must be a failure
 name|fail
 argument_list|(
 literal|"Shard with id "
 operator|+
 name|shardRouting
 operator|+
-literal|" expected but missing in indicesService"
+literal|" expected but missing in indicesService and failedShardsCache"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|enableRandomFailures
+operator|==
+literal|false
+condition|)
+block|{
+if|if
+condition|(
+name|shard
+operator|==
+literal|null
+operator|&&
+name|shardRouting
+operator|.
+name|initializing
+argument_list|()
+operator|&&
+name|failedShard
+operator|==
+name|shardRouting
+condition|)
+block|{
+comment|// initializing a shard should succeed when enableRandomFailures is disabled
+name|fail
+argument_list|(
+literal|"Shard with id "
+operator|+
+name|shardRouting
+operator|+
+literal|" expected but missing in indicesService "
+operator|+
+name|failedShard
 argument_list|)
 expr_stmt|;
 block|}
@@ -1027,6 +1088,7 @@ block|}
 block|}
 block|}
 block|}
+block|}
 comment|// all other shards / indices have been cleaned up
 for|for
 control|(
@@ -1041,6 +1103,30 @@ range|:
 name|indicesService
 control|)
 block|{
+if|if
+condition|(
+name|state
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|disableStatePersistence
+argument_list|()
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"Index service "
+operator|+
+name|indexService
+operator|.
+name|index
+argument_list|()
+operator|+
+literal|" should be removed from indicesService due to disabled state persistence"
+argument_list|)
+expr_stmt|;
+block|}
 name|assertTrue
 argument_list|(
 name|state
@@ -1146,11 +1232,6 @@ operator|==
 literal|false
 condition|)
 block|{
-if|if
-condition|(
-name|enableRandomFailures
-condition|)
-block|{
 comment|// check if we have shards of that index in failedShardsCache
 comment|// if yes, we might not have cleaned the index as failedShardsCache can be populated by another thread
 name|assertFalse
@@ -1182,22 +1263,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|fail
-argument_list|(
-literal|"index service for index "
-operator|+
-name|indexService
-operator|.
-name|index
-argument_list|()
-operator|+
-literal|" has no shards"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}

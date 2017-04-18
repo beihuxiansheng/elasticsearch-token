@@ -174,6 +174,12 @@ name|VersionValue
 argument_list|(
 name|randomLong
 argument_list|()
+argument_list|,
+name|randomLong
+argument_list|()
+argument_list|,
+name|randomLong
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|map
@@ -277,6 +283,12 @@ init|=
 operator|new
 name|VersionValue
 argument_list|(
+name|randomLong
+argument_list|()
+argument_list|,
+name|randomLong
+argument_list|()
+argument_list|,
 name|randomLong
 argument_list|()
 argument_list|)

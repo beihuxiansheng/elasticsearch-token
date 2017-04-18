@@ -269,7 +269,7 @@ name|Map
 argument_list|<
 name|BytesRef
 argument_list|,
-name|VersionValue
+name|DeleteVersionValue
 argument_list|>
 name|tombstones
 init|=
@@ -782,6 +782,9 @@ name|put
 argument_list|(
 name|uid
 argument_list|,
+operator|(
+name|DeleteVersionValue
+operator|)
 name|version
 argument_list|)
 expr_stmt|;
@@ -1007,7 +1010,7 @@ block|}
 block|}
 comment|/** Caller has a lock, so that this uid will not be concurrently added/deleted by another thread. */
 DECL|method|getTombstoneUnderLock
-name|VersionValue
+name|DeleteVersionValue
 name|getTombstoneUnderLock
 parameter_list|(
 name|BytesRef
@@ -1033,7 +1036,7 @@ name|Entry
 argument_list|<
 name|BytesRef
 argument_list|,
-name|VersionValue
+name|DeleteVersionValue
 argument_list|>
 argument_list|>
 name|getAllTombstones

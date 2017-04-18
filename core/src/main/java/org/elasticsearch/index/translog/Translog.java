@@ -637,7 +637,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Translog is a per index shard component that records all non-committed index operations in a durable manner.  * In Elasticsearch there is one Translog instance per {@link org.elasticsearch.index.engine.InternalEngine}. The engine  * records the current translog generation {@link Translog#getGeneration()} in it's commit metadata using {@link #TRANSLOG_GENERATION_KEY}  * to reference the generation that contains all operations that have not yet successfully been committed to the engines lucene index.  * Additionally, since Elasticsearch 2.0 the engine also records a {@link #TRANSLOG_UUID_KEY} with each commit to ensure a strong association  * between the lucene index an the transaction log file. This UUID is used to prevent accidental recovery from a transaction log that belongs to a  * different engine.  *<p>  * Each Translog has only one translog file open at any time referenced by a translog generation ID. This ID is written to a<tt>translog.ckp</tt> file that is designed  * to fit in a single disk block such that a write of the file is atomic. The checkpoint file is written on each fsync operation of the translog and records the number of operations  * written, the current translogs file generation and it's fsynced offset in bytes.  *</p>  *<p>  * When a translog is opened the checkpoint is use to retrieve the latest translog file generation and subsequently to open the last written file to recovery operations.  * The {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}, given when the translog is opened / constructed is compared against  * the latest generation and all consecutive translog files singe the given generation and the last generation in the checkpoint will be recovered and preserved until the next  * generation is committed using {@link Translog#commit()}. In the common case the translog file generation in the checkpoint and the generation passed to the translog on creation are  * the same. The only situation when they can be different is when an actual translog commit fails in between {@link Translog#prepareCommit()} and {@link Translog#commit()}. In such a case  * the currently being committed translog file will not be deleted since it's commit was not successful. Yet, a new/current translog file is already opened at that point such that there is more than  * one translog file present. Such an uncommitted translog file always has a<tt>translog-${gen}.ckp</tt> associated with it which is an fsynced copy of the it's last<tt>translog.ckp</tt> such that in  * disaster recovery last fsynced offsets, number of operation etc. are still preserved.  *</p>  */
+comment|/**  * A Translog is a per index shard component that records all non-committed index operations in a durable manner.  * In Elasticsearch there is one Translog instance per {@link org.elasticsearch.index.engine.InternalEngine}. The engine  * records the current translog generation {@link Translog#getGeneration()} in it's commit metadata using {@link #TRANSLOG_GENERATION_KEY}  * to reference the generation that contains all operations that have not yet successfully been committed to the engines lucene index.  * Additionally, since Elasticsearch 2.0 the engine also records a {@link #TRANSLOG_UUID_KEY} with each commit to ensure a strong association  * between the lucene index an the transaction log file. This UUID is used to prevent accidental recovery from a transaction log that belongs to a  * different engine.  *<p>  * Each Translog has only one translog file open at any time referenced by a translog generation ID. This ID is written to a<tt>translog.ckp</tt> file that is designed  * to fit in a single disk block such that a write of the file is atomic. The checkpoint file is written on each fsync operation of the translog and records the number of operations  * written, the current translogs file generation and it's fsynced offset in bytes.  *</p>  *<p>  * When a translog is opened the checkpoint is use to retrieve the latest translog file generation and subsequently to open the last written file to recovery operations.  * The {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}, given when the translog is opened / constructed is compared against  * the latest generation and all consecutive translog files singe the given generation and the last generation in the checkpoint will be recovered and preserved until the next  * generation is committed using {@link Translog#commit(long)}. In the common case the translog file generation in the checkpoint and the generation passed to the translog on creation are  * the same. The only situation when they can be different is when an actual translog commit fails in between {@link Translog#prepareCommit()} and {@link Translog#commit(long)}. In such a case  * the currently being committed translog file will not be deleted since it's commit was not successful. Yet, a new/current translog file is already opened at that point such that there is more than  * one translog file present. Such an uncommitted translog file always has a<tt>translog-${gen}.ckp</tt> associated with it which is an fsynced copy of the it's last<tt>translog.ckp</tt> such that in  * disaster recovery last fsynced offsets, number of operation etc. are still preserved.  *</p>  */
 end_comment
 
 begin_class
@@ -651,8 +651,6 @@ implements|implements
 name|IndexShardComponent
 implements|,
 name|Closeable
-implements|,
-name|TwoPhaseCommit
 block|{
 comment|/*      * TODO      *  - we might need something like a deletion policy to hold on to more than one translog eventually (I think sequence IDs needs this) but we can refactor as we go      *  - use a simple BufferedOutputStream to write stuff and fold BufferedTranslogWriter into it's super class... the tricky bit is we need to be able to do random access reads even from the buffer      *  - we need random exception on the FileSystem API tests for all this.      *  - we need to page align the last write before we sync, we can take advantage of ensureSynced for this since we might have already fsynced far enough      */
 DECL|field|TRANSLOG_GENERATION_KEY
@@ -2477,9 +2475,6 @@ operator|.
 name|close
 argument_list|(
 name|out
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3762,6 +3757,11 @@ name|long
 name|seqNo
 parameter_list|()
 function_decl|;
+DECL|method|primaryTerm
+name|long
+name|primaryTerm
+parameter_list|()
+function_decl|;
 comment|/**          * Reads the type and the operation from the given stream. The operation must be written with          * {@link Operation#writeType(Operation, StreamOutput)}          */
 DECL|method|readType
 specifier|static
@@ -4535,6 +4535,8 @@ return|return
 name|seqNo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|primaryTerm
 specifier|public
 name|long
@@ -5403,6 +5405,8 @@ return|return
 name|seqNo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|primaryTerm
 specifier|public
 name|long
@@ -5736,6 +5740,8 @@ return|return
 name|seqNo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|primaryTerm
 specifier|public
 name|long
@@ -6499,9 +6505,6 @@ operator|.
 name|close
 argument_list|(
 name|out
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -6560,6 +6563,85 @@ operator|)
 name|checksum
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Gets the minimum generation that could contain any sequence number after the specified sequence number, or the current generation if      * there is no generation that could any such sequence number.      *      * @param seqNo the sequence number      * @return the minimum generation for the sequence number      */
+DECL|method|getMinGenerationForSeqNo
+specifier|public
+name|TranslogGeneration
+name|getMinGenerationForSeqNo
+parameter_list|(
+specifier|final
+name|long
+name|seqNo
+parameter_list|)
+block|{
+try|try
+init|(
+name|ReleasableLock
+name|ignored
+init|=
+name|writeLock
+operator|.
+name|acquire
+argument_list|()
+init|)
+block|{
+comment|/*              * When flushing, the engine will ask the translog for the minimum generation that could contain any sequence number after the              * local checkpoint. Immediately after flushing, there will be no such generation, so this minimum generation in this case will              * be the current translog generation as we do not need any prior generations to have a complete history up to the current local              * checkpoint.              */
+name|long
+name|minTranslogFileGeneration
+init|=
+name|this
+operator|.
+name|currentFileGeneration
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+specifier|final
+name|TranslogReader
+name|reader
+range|:
+name|readers
+control|)
+block|{
+if|if
+condition|(
+name|seqNo
+operator|<=
+name|reader
+operator|.
+name|getCheckpoint
+argument_list|()
+operator|.
+name|maxSeqNo
+condition|)
+block|{
+name|minTranslogFileGeneration
+operator|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|minTranslogFileGeneration
+argument_list|,
+name|reader
+operator|.
+name|getGeneration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+operator|new
+name|TranslogGeneration
+argument_list|(
+name|translogUUID
+argument_list|,
+name|minTranslogFileGeneration
+argument_list|)
+return|;
+block|}
 block|}
 comment|/**      * Roll the current translog generation into a new generation. This does not commit the      * translog.      *      * @throws IOException if an I/O exception occurred during any file operations      */
 DECL|method|rollGeneration
@@ -6719,11 +6801,10 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
+comment|/**      * Prepares a translog commit by setting the current committing generation and rolling the translog generation.      *      * @throws IOException if an I/O exception occurred while rolling the translog generation      */
 DECL|method|prepareCommit
 specifier|public
-name|long
+name|void
 name|prepareCommit
 parameter_list|()
 throws|throws
@@ -6786,17 +6867,17 @@ name|rollGeneration
 argument_list|()
 expr_stmt|;
 block|}
-return|return
-literal|0
-return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Commits the translog and sets the last committed translog generation to the specified generation. The specified committed generation      * will be used when trimming unreferenced translog generations such that generations from the committed generation will be preserved.      *      * If {@link Translog#prepareCommit()} was not called before calling commit, this method will be invoked too causing the translog      * generation to be rolled.      *      * @param committedGeneration the minimum translog generation to preserve after trimming unreferenced generations      * @throws IOException if an I/O exception occurred preparing the translog commit      */
 DECL|method|commit
 specifier|public
-name|long
+name|void
 name|commit
-parameter_list|()
+parameter_list|(
+specifier|final
+name|long
+name|committedGeneration
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -6814,6 +6895,12 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+assert|assert
+name|assertCommittedGenerationIsInValidRange
+argument_list|(
+name|committedGeneration
+argument_list|)
+assert|;
 if|if
 condition|(
 name|currentCommittingGeneration
@@ -6857,9 +6944,7 @@ assert|;
 comment|// set the last committed generation otherwise old files will not be cleaned up
 name|lastCommittedTranslogFileGeneration
 operator|=
-name|currentCommittingGeneration
-operator|+
-literal|1
+name|committedGeneration
 expr_stmt|;
 name|currentCommittingGeneration
 operator|=
@@ -6869,10 +6954,86 @@ name|trimUnreferencedReaders
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|assertCommittedGenerationIsInValidRange
+specifier|private
+name|boolean
+name|assertCommittedGenerationIsInValidRange
+parameter_list|(
+specifier|final
+name|long
+name|committedGeneration
+parameter_list|)
+block|{
+assert|assert
+name|committedGeneration
+operator|<=
+name|current
+operator|.
+name|generation
+operator|:
+literal|"tried to commit generation ["
+operator|+
+name|committedGeneration
+operator|+
+literal|"] after current generation ["
+operator|+
+name|current
+operator|.
+name|generation
+operator|+
+literal|"]"
+assert|;
+specifier|final
+name|long
+name|min
+init|=
+name|readers
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|TranslogReader
+operator|::
+name|getGeneration
+argument_list|)
+operator|.
+name|min
+argument_list|(
+name|Long
+operator|::
+name|compareTo
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+name|Long
+operator|.
+name|MIN_VALUE
+argument_list|)
+decl_stmt|;
+assert|assert
+name|committedGeneration
+operator|>=
+name|min
+operator|:
+literal|"tried to commit generation ["
+operator|+
+name|committedGeneration
+operator|+
+literal|"] before minimum generation ["
+operator|+
+name|min
+operator|+
+literal|"]"
+assert|;
 return|return
-literal|0
+literal|true
 return|;
 block|}
+comment|/**      * Trims unreferenced translog generations. The guarantee here is that translog generations will be preserved for all outstanding views      * and from the last committed translog generation defined by {@link Translog#lastCommittedTranslogFileGeneration}.      */
 DECL|method|trimUnreferencedReaders
 name|void
 name|trimUnreferencedReaders
@@ -6897,12 +7058,18 @@ name|get
 argument_list|()
 condition|)
 block|{
-comment|// we're shutdown potentially on some tragic event - don't delete anything
+comment|// we're shutdown potentially on some tragic event, don't delete anything
 return|return;
 block|}
 name|long
 name|minReferencedGen
 init|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|lastCommittedTranslogFileGeneration
+argument_list|,
 name|outstandingViews
 operator|.
 name|stream
@@ -6924,24 +7091,9 @@ name|Long
 operator|.
 name|MAX_VALUE
 argument_list|)
-decl_stmt|;
-name|minReferencedGen
-operator|=
-name|Math
-operator|.
-name|min
-argument_list|(
-name|lastCommittedTranslogFileGeneration
-argument_list|,
-name|minReferencedGen
 argument_list|)
-expr_stmt|;
-specifier|final
-name|long
-name|finalMinReferencedGen
-init|=
-name|minReferencedGen
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|TranslogReader
@@ -6962,7 +7114,7 @@ operator|.
 name|getGeneration
 argument_list|()
 operator|<
-name|finalMinReferencedGen
+name|minReferencedGen
 argument_list|)
 operator|.
 name|collect
@@ -6982,6 +7134,7 @@ range|:
 name|unreferenced
 control|)
 block|{
+specifier|final
 name|Path
 name|translogPath
 init|=
@@ -6994,7 +7147,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"delete translog file - not referenced and not current anymore {}"
+literal|"delete translog file [{}], not referenced and not current anymore"
 argument_list|,
 name|translogPath
 argument_list|)
@@ -7103,23 +7256,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|rollback
-specifier|public
-name|void
-name|rollback
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * References a transaction log generation      */
 DECL|class|TranslogGeneration

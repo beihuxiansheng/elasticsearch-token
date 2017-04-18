@@ -1066,7 +1066,7 @@ DECL|method|seqID
 specifier|public
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|()
 block|{
@@ -1086,7 +1086,7 @@ name|seqID
 parameter_list|(
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|)
 block|{
@@ -1250,7 +1250,7 @@ DECL|field|seqID
 specifier|private
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 decl_stmt|;
 DECL|field|allEntries
@@ -1602,7 +1602,7 @@ DECL|method|seqID
 specifier|public
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|()
 block|{
@@ -1621,7 +1621,7 @@ name|seqID
 parameter_list|(
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|)
 block|{
@@ -2018,7 +2018,7 @@ specifier|public
 specifier|abstract
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|()
 function_decl|;
@@ -2030,7 +2030,7 @@ name|seqID
 parameter_list|(
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|)
 function_decl|;

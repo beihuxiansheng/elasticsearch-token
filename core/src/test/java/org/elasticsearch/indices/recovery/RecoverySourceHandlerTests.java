@@ -2039,12 +2039,12 @@ decl_stmt|;
 specifier|final
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 init|=
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 operator|.
 name|emptySeqID
 argument_list|()

@@ -134,7 +134,7 @@ specifier|private
 specifier|final
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 decl_stmt|;
 DECL|field|routing
@@ -181,7 +181,7 @@ name|version
 parameter_list|,
 name|SeqNoFieldMapper
 operator|.
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 parameter_list|,
 name|String

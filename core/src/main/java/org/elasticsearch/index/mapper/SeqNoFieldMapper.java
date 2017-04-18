@@ -66,20 +66,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|SortedNumericDocValuesField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|DocValuesType
@@ -367,11 +353,11 @@ extends|extends
 name|MetadataFieldMapper
 block|{
 comment|/**      * A sequence ID, which is made up of a sequence number (both the searchable      * and doc_value version of the field) and the primary term.      */
-DECL|class|SequenceID
+DECL|class|SequenceIDFields
 specifier|public
 specifier|static
 class|class
-name|SequenceID
+name|SequenceIDFields
 block|{
 DECL|field|seqNo
 specifier|public
@@ -391,9 +377,9 @@ specifier|final
 name|Field
 name|primaryTerm
 decl_stmt|;
-DECL|method|SequenceID
+DECL|method|SequenceIDFields
 specifier|public
-name|SequenceID
+name|SequenceIDFields
 parameter_list|(
 name|Field
 name|seqNo
@@ -454,13 +440,13 @@ block|}
 DECL|method|emptySeqID
 specifier|public
 specifier|static
-name|SequenceID
+name|SequenceIDFields
 name|emptySeqID
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SequenceID
+name|SequenceIDFields
 argument_list|(
 operator|new
 name|LongPoint
@@ -473,7 +459,7 @@ name|UNASSIGNED_SEQ_NO
 argument_list|)
 argument_list|,
 operator|new
-name|SortedNumericDocValuesField
+name|NumericDocValuesField
 argument_list|(
 name|NAME
 argument_list|,
@@ -1367,10 +1353,10 @@ name|IOException
 block|{
 comment|// see InternalEngine.innerIndex to see where the real version value is set
 comment|// also see ParsedDocument.updateSeqID (called by innerIndex)
-name|SequenceID
+name|SequenceIDFields
 name|seqID
 init|=
-name|SequenceID
+name|SequenceIDFields
 operator|.
 name|emptySeqID
 argument_list|()
@@ -1498,7 +1484,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|SortedNumericDocValuesField
+name|NumericDocValuesField
 argument_list|(
 name|NAME
 argument_list|,

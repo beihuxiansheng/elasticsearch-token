@@ -1040,6 +1040,8 @@ name|BytesRestResponse
 operator|.
 name|createSimpleErrorResponse
 argument_list|(
+name|responseChannel
+argument_list|,
 name|RestStatus
 operator|.
 name|NOT_ACCEPTABLE
@@ -1371,6 +1373,8 @@ name|BytesRestResponse
 operator|.
 name|createSimpleErrorResponse
 argument_list|(
+name|channel
+argument_list|,
 name|BAD_REQUEST
 argument_list|,
 literal|"error traces in responses are disabled."
@@ -1697,6 +1701,8 @@ name|BytesRestResponse
 operator|.
 name|createSimpleErrorResponse
 argument_list|(
+name|channel
+argument_list|,
 name|NOT_ACCEPTABLE
 argument_list|,
 name|errorMessage

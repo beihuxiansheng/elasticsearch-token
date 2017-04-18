@@ -2046,6 +2046,8 @@ catch|catch
 parameter_list|(
 name|ElasticsearchParseException
 decl||
+name|IllegalArgumentException
+decl||
 name|RoutingMissingException
 name|e
 parameter_list|)

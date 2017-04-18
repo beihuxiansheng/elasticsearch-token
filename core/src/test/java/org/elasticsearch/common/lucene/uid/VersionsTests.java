@@ -266,7 +266,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|loadDocIdAndVersion
 import|;
@@ -284,7 +284,7 @@ name|lucene
 operator|.
 name|uid
 operator|.
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|loadVersion
 import|;
@@ -1338,7 +1338,7 @@ block|{
 name|int
 name|size
 init|=
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1455,7 +1455,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1490,7 +1490,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1513,7 +1513,7 @@ name|assertEquals
 argument_list|(
 name|size
 argument_list|,
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1539,7 +1539,7 @@ block|{
 name|int
 name|size
 init|=
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1655,7 +1655,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1711,7 +1711,7 @@ name|size
 operator|+
 literal|1
 argument_list|,
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.
@@ -1734,7 +1734,7 @@ name|assertEquals
 argument_list|(
 name|size
 argument_list|,
-name|VersionsResolver
+name|VersionsAndSeqNoResolver
 operator|.
 name|lookupStates
 operator|.

@@ -3385,8 +3385,10 @@ block|{
 name|int
 name|length
 init|=
-name|randomInt
+name|randomIntBetween
 argument_list|(
+literal|1
+argument_list|,
 name|PAGE_SIZE
 operator|*
 name|randomIntBetween

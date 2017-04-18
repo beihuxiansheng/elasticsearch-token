@@ -1460,6 +1460,9 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|upgradeIndexFolder
 name|void
