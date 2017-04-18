@@ -264,6 +264,10 @@ name|Locals
 argument_list|(
 name|programScope
 argument_list|,
+name|programScope
+operator|.
+name|definition
+argument_list|,
 name|returnType
 argument_list|,
 name|KEYWORDS
@@ -385,6 +389,10 @@ name|Locals
 argument_list|(
 name|programScope
 argument_list|,
+name|programScope
+operator|.
+name|definition
+argument_list|,
 name|returnType
 argument_list|,
 name|KEYWORDS
@@ -471,6 +479,10 @@ name|Locals
 argument_list|(
 name|programScope
 argument_list|,
+name|programScope
+operator|.
+name|definition
+argument_list|,
 name|scriptInterface
 operator|.
 name|getExecuteMethodReturnType
@@ -486,7 +498,9 @@ name|defineVariable
 argument_list|(
 literal|null
 argument_list|,
-name|Definition
+name|programScope
+operator|.
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -565,6 +579,9 @@ specifier|static
 name|Locals
 name|newProgramScope
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Collection
 argument_list|<
 name|Method
@@ -579,6 +596,8 @@ operator|new
 name|Locals
 argument_list|(
 literal|null
+argument_list|,
+name|definition
 argument_list|,
 literal|null
 argument_list|,
@@ -903,7 +922,25 @@ return|return
 name|locals
 return|;
 block|}
+comment|/** Whitelist against which this script is being compiled. */
+DECL|method|getDefinition
+specifier|public
+name|Definition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+name|definition
+return|;
+block|}
 comment|///// private impl
+comment|/** Whitelist against which thhis script is being compiled. */
+DECL|field|definition
+specifier|private
+specifier|final
+name|Definition
+name|definition
+decl_stmt|;
 comment|// parent scope
 DECL|field|parent
 specifier|private
@@ -971,6 +1008,10 @@ name|parent
 argument_list|,
 name|parent
 operator|.
+name|definition
+argument_list|,
+name|parent
+operator|.
 name|returnType
 argument_list|,
 name|parent
@@ -987,6 +1028,9 @@ parameter_list|(
 name|Locals
 name|parent
 parameter_list|,
+name|Definition
+name|definition
+parameter_list|,
 name|Type
 name|returnType
 parameter_list|,
@@ -1002,6 +1046,12 @@ operator|.
 name|parent
 operator|=
 name|parent
+expr_stmt|;
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
 expr_stmt|;
 name|this
 operator|.

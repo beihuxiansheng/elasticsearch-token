@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Definition
+name|Globals
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Globals
+name|Locals
 import|;
 end_import
 
@@ -81,18 +81,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|Locals
 import|;
 end_import
 
@@ -172,7 +160,10 @@ try|try
 block|{
 name|actual
 operator|=
-name|Definition
+name|locals
+operator|.
+name|getDefinition
+argument_list|()
 operator|.
 name|getType
 argument_list|(

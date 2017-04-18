@@ -137,7 +137,10 @@ name|String
 argument_list|>
 argument_list|>
 name|getHeaders
-parameter_list|()
+parameter_list|(
+name|Definition
+name|definition
+parameter_list|)
 block|{
 name|Map
 argument_list|<
@@ -199,7 +202,7 @@ operator|.
 name|RuntimeClass
 name|runtimeClass
 init|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(

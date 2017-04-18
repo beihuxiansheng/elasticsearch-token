@@ -639,13 +639,16 @@ block|}
 DECL|method|generateSignature
 name|void
 name|generateSignature
-parameter_list|()
+parameter_list|(
+name|Definition
+name|definition
+parameter_list|)
 block|{
 try|try
 block|{
 name|rtnType
 operator|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -759,7 +762,7 @@ block|{
 name|Type
 name|paramType
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(

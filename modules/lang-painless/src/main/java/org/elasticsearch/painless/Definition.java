@@ -315,12 +315,13 @@ literal|"joda.time.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|INSTANCE
-specifier|private
+comment|/**      * Whitelist that is "built in" to Painless and required by all scripts.      */
+DECL|field|BUILTINS
+specifier|public
 specifier|static
 specifier|final
 name|Definition
-name|INSTANCE
+name|BUILTINS
 init|=
 operator|new
 name|Definition
@@ -334,6 +335,8 @@ specifier|final
 name|Type
 name|VOID_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"void"
@@ -346,6 +349,8 @@ specifier|final
 name|Type
 name|BOOLEAN_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"boolean"
@@ -358,6 +363,8 @@ specifier|final
 name|Type
 name|BOOLEAN_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Boolean"
@@ -370,6 +377,8 @@ specifier|final
 name|Type
 name|BYTE_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"byte"
@@ -382,6 +391,8 @@ specifier|final
 name|Type
 name|BYTE_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Byte"
@@ -394,6 +405,8 @@ specifier|final
 name|Type
 name|SHORT_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"short"
@@ -406,6 +419,8 @@ specifier|final
 name|Type
 name|SHORT_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Short"
@@ -418,6 +433,8 @@ specifier|final
 name|Type
 name|INT_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"int"
@@ -430,6 +447,8 @@ specifier|final
 name|Type
 name|INT_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Integer"
@@ -442,6 +461,8 @@ specifier|final
 name|Type
 name|LONG_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"long"
@@ -454,6 +475,8 @@ specifier|final
 name|Type
 name|LONG_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Long"
@@ -466,6 +489,8 @@ specifier|final
 name|Type
 name|FLOAT_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"float"
@@ -478,6 +503,8 @@ specifier|final
 name|Type
 name|FLOAT_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Float"
@@ -490,6 +517,8 @@ specifier|final
 name|Type
 name|DOUBLE_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"double"
@@ -502,6 +531,8 @@ specifier|final
 name|Type
 name|DOUBLE_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Double"
@@ -514,6 +545,8 @@ specifier|final
 name|Type
 name|CHAR_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"char"
@@ -526,6 +559,8 @@ specifier|final
 name|Type
 name|CHAR_OBJ_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Character"
@@ -538,6 +573,8 @@ specifier|final
 name|Type
 name|OBJECT_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Object"
@@ -550,6 +587,8 @@ specifier|final
 name|Type
 name|DEF_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"def"
@@ -562,6 +601,8 @@ specifier|final
 name|Type
 name|NUMBER_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Number"
@@ -574,6 +615,8 @@ specifier|final
 name|Type
 name|STRING_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"String"
@@ -586,6 +629,8 @@ specifier|final
 name|Type
 name|EXCEPTION_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Exception"
@@ -598,6 +643,8 @@ specifier|final
 name|Type
 name|PATTERN_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Pattern"
@@ -610,9 +657,53 @@ specifier|final
 name|Type
 name|MATCHER_TYPE
 init|=
+name|BUILTINS
+operator|.
 name|getType
 argument_list|(
 literal|"Matcher"
+argument_list|)
+decl_stmt|;
+DECL|field|ITERATOR_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
+name|ITERATOR_TYPE
+init|=
+name|BUILTINS
+operator|.
+name|getType
+argument_list|(
+literal|"Iterator"
+argument_list|)
+decl_stmt|;
+DECL|field|ARRAY_LIST_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
+name|ARRAY_LIST_TYPE
+init|=
+name|BUILTINS
+operator|.
+name|getType
+argument_list|(
+literal|"ArrayList"
+argument_list|)
+decl_stmt|;
+DECL|field|HASH_MAP_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|Type
+name|HASH_MAP_TYPE
+init|=
+name|BUILTINS
+operator|.
+name|getType
+argument_list|(
+literal|"HashMap"
 argument_list|)
 decl_stmt|;
 DECL|enum|Sort
@@ -3198,7 +3289,6 @@ block|}
 comment|/** Returns whether or not a non-array type exists. */
 DECL|method|isSimpleType
 specifier|public
-specifier|static
 name|boolean
 name|isSimpleType
 parameter_list|(
@@ -3208,7 +3298,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|INSTANCE
+name|BUILTINS
 operator|.
 name|structsMap
 operator|.
@@ -3218,46 +3308,9 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/** Returns whether or not a type exists without an exception. */
-DECL|method|isType
-specifier|public
-specifier|static
-name|boolean
-name|isType
-parameter_list|(
-specifier|final
-name|String
-name|name
-parameter_list|)
-block|{
-try|try
-block|{
-name|INSTANCE
-operator|.
-name|getTypeInternal
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|exception
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-block|}
 comment|/** Gets the type given by its name */
 DECL|method|getType
 specifier|public
-specifier|static
 name|Type
 name|getType
 parameter_list|(
@@ -3267,7 +3320,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|INSTANCE
+name|BUILTINS
 operator|.
 name|getTypeInternal
 argument_list|(
@@ -3278,7 +3331,6 @@ block|}
 comment|/** Creates an array type from the given Struct. */
 DECL|method|getType
 specifier|public
-specifier|static
 name|Type
 name|getType
 parameter_list|(
@@ -3292,7 +3344,7 @@ name|dimensions
 parameter_list|)
 block|{
 return|return
-name|INSTANCE
+name|BUILTINS
 operator|.
 name|getTypeInternal
 argument_list|(
@@ -3304,7 +3356,6 @@ return|;
 block|}
 DECL|method|getRuntimeClass
 specifier|public
-specifier|static
 name|RuntimeClass
 name|getRuntimeClass
 parameter_list|(
@@ -3316,7 +3367,7 @@ name|clazz
 parameter_list|)
 block|{
 return|return
-name|INSTANCE
+name|BUILTINS
 operator|.
 name|runtimeMap
 operator|.
@@ -3337,7 +3388,7 @@ name|allSimpleTypes
 parameter_list|()
 block|{
 return|return
-name|INSTANCE
+name|BUILTINS
 operator|.
 name|simpleTypesMap
 operator|.

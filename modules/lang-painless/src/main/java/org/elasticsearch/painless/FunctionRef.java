@@ -140,11 +140,14 @@ specifier|final
 name|Handle
 name|implMethodASM
 decl_stmt|;
-comment|/**      * Creates a new FunctionRef, which will resolve {@code type::call} from the whitelist.      * @param expected interface type to implement.      * @param type the left hand side of a method reference expression      * @param call the right hand side of a method reference expression      * @param numCaptures number of captured arguments      */
+comment|/**      * Creates a new FunctionRef, which will resolve {@code type::call} from the whitelist.      * @param definition the whitelist against which this script is being compiled      * @param expected interface type to implement.      * @param type the left hand side of a method reference expression      * @param call the right hand side of a method reference expression      * @param numCaptures number of captured arguments      */
 DECL|method|FunctionRef
 specifier|public
 name|FunctionRef
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Definition
 operator|.
 name|Type
@@ -173,6 +176,8 @@ argument_list|()
 argument_list|,
 name|lookup
 argument_list|(
+name|definition
+argument_list|,
 name|expected
 argument_list|,
 name|type
@@ -584,6 +589,9 @@ name|Method
 name|lookup
 parameter_list|(
 name|Definition
+name|definition
+parameter_list|,
+name|Definition
 operator|.
 name|Type
 name|expected
@@ -647,7 +655,7 @@ operator|.
 name|Struct
 name|struct
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(

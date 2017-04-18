@@ -303,6 +303,12 @@ name|MAX_DEPTH
 init|=
 literal|5
 decl_stmt|;
+DECL|field|definition
+specifier|private
+specifier|final
+name|Definition
+name|definition
+decl_stmt|;
 DECL|field|lookup
 specifier|private
 specifier|final
@@ -336,6 +342,9 @@ comment|// pkg-protected for testing
 DECL|method|PIC
 name|PIC
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Lookup
 name|lookup
 parameter_list|,
@@ -383,6 +392,12 @@ literal|"The receiver type (1st arg) of invokedynamic descriptor must be Object.
 argument_list|)
 throw|;
 block|}
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
 name|this
 operator|.
 name|lookup
@@ -506,6 +521,8 @@ name|Def
 operator|.
 name|lookupMethod
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|type
@@ -526,6 +543,8 @@ name|Def
 operator|.
 name|lookupGetter
 argument_list|(
+name|definition
+argument_list|,
 name|receiver
 argument_list|,
 name|name
@@ -539,6 +558,8 @@ name|Def
 operator|.
 name|lookupSetter
 argument_list|(
+name|definition
+argument_list|,
 name|receiver
 argument_list|,
 name|name
@@ -585,6 +606,8 @@ name|Def
 operator|.
 name|lookupReference
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 operator|(
@@ -2249,13 +2272,16 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * invokeDynamic bootstrap method      *<p>      * In addition to ordinary parameters, we also take some static parameters:      *<ul>      *<li>{@code initialDepth}: initial call site depth. this is used to exercise megamorphic fallback.      *<li>{@code flavor}: type of dynamic call it is (and which part of whitelist to look at).      *<li>{@code args}: flavor-specific args.      *</ul>      *<p>      * see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic      */
+comment|/**      * invokeDynamic bootstrap method      *<p>      * In addition to ordinary parameters, we also take some parameters defined at the call site:      *<ul>      *<li>{@code initialDepth}: initial call site depth. this is used to exercise megamorphic fallback.      *<li>{@code flavor}: type of dynamic call it is (and which part of whitelist to look at).      *<li>{@code args}: flavor-specific args.      *</ul>      * And we take the {@link Definition} used to compile the script for whitelist checking.      *<p>      * see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic      */
 DECL|method|bootstrap
 specifier|public
 specifier|static
 name|CallSite
 name|bootstrap
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Lookup
 name|lookup
 parameter_list|,
@@ -2392,6 +2418,8 @@ return|return
 operator|new
 name|PIC
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|name
@@ -2446,6 +2474,8 @@ return|return
 operator|new
 name|PIC
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|name
@@ -2508,6 +2538,8 @@ return|return
 operator|new
 name|PIC
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|name

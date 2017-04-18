@@ -1042,12 +1042,15 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Looks up method entry for a dynamic method call.      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param arity arity of method      * @return matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
+comment|/**      * Looks up method entry for a dynamic method call.      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns the matching method.      *<p>      * @params definition the whitelist      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param arity arity of method      * @return matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
 DECL|method|lookupMethodInternal
 specifier|static
 name|Method
 name|lookupMethodInternal
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -1102,7 +1105,7 @@ block|{
 name|RuntimeClass
 name|struct
 init|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -1156,7 +1159,7 @@ control|)
 block|{
 name|struct
 operator|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -1221,12 +1224,15 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param lookup caller's lookup      * @param callSiteType callsite's type      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args bootstrap args passed to callsite      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      * @throws Throwable if a method reference cannot be converted to an functional interface      */
+comment|/**      * Looks up handle for a dynamic method call, with lambda replacement      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param definition the whitelist      * @param lookup caller's lookup      * @param callSiteType callsite's type      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param args bootstrap args passed to callsite      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      * @throws Throwable if a method reference cannot be converted to an functional interface      */
 DECL|method|lookupMethod
 specifier|static
 name|MethodHandle
 name|lookupMethod
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Lookup
 name|lookup
 parameter_list|,
@@ -1280,6 +1286,8 @@ block|{
 return|return
 name|lookupMethodInternal
 argument_list|(
+name|definition
+argument_list|,
 name|receiverClass
 argument_list|,
 name|name
@@ -1422,6 +1430,8 @@ name|method
 init|=
 name|lookupMethodInternal
 argument_list|(
+name|definition
+argument_list|,
 name|receiverClass
 argument_list|,
 name|name
@@ -1638,6 +1648,8 @@ name|filter
 operator|=
 name|lookupReferenceInternal
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|interfaceType
@@ -1687,6 +1699,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|call
@@ -1769,6 +1783,9 @@ specifier|static
 name|MethodHandle
 name|lookupReference
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Lookup
 name|lookup
 parameter_list|,
@@ -1792,7 +1809,7 @@ operator|.
 name|Type
 name|interfaceType
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -1843,6 +1860,8 @@ name|implMethod
 init|=
 name|lookupMethodInternal
 argument_list|(
+name|definition
+argument_list|,
 name|receiverClass
 argument_list|,
 name|name
@@ -1853,6 +1872,8 @@ decl_stmt|;
 return|return
 name|lookupReferenceInternal
 argument_list|(
+name|definition
+argument_list|,
 name|lookup
 argument_list|,
 name|interfaceType
@@ -1878,6 +1899,9 @@ specifier|static
 name|MethodHandle
 name|lookupReferenceInternal
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Lookup
 name|lookup
 parameter_list|,
@@ -2094,6 +2118,8 @@ operator|=
 operator|new
 name|FunctionRef
 argument_list|(
+name|definition
+argument_list|,
 name|clazz
 argument_list|,
 name|type
@@ -2237,12 +2263,15 @@ operator|+
 name|arity
 return|;
 block|}
-comment|/**      * Looks up handle for a dynamic field getter (field load)      *<p>      * A dynamic field load for variable {@code x} of type {@code def} looks like:      * {@code y = x.field}      *<p>      * The following field loads are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code getField()} from receiver's class/superclasses/interfaces.      *<li>Whitelisted method named {@code isField()} from receiver's class/superclasses/interfaces.      *<li>The {@code length} field of an array.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted getter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching getter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
+comment|/**      * Looks up handle for a dynamic field getter (field load)      *<p>      * A dynamic field load for variable {@code x} of type {@code def} looks like:      * {@code y = x.field}      *<p>      * The following field loads are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code getField()} from receiver's class/superclasses/interfaces.      *<li>Whitelisted method named {@code isField()} from receiver's class/superclasses/interfaces.      *<li>The {@code length} field of an array.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted getter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching getter.      *<p>      * @param definition the whitelist      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
 DECL|method|lookupGetter
 specifier|static
 name|MethodHandle
 name|lookupGetter
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -2279,7 +2308,7 @@ block|{
 name|RuntimeClass
 name|struct
 init|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -2334,7 +2363,7 @@ control|)
 block|{
 name|struct
 operator|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -2507,12 +2536,15 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic field setter (field store)      *<p>      * A dynamic field store for variable {@code x} of type {@code def} looks like:      * {@code x.field = y}      *<p>      * The following field stores are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code setField()} from receiver's class/superclasses/interfaces.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted setter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching setter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
+comment|/**      * Looks up handle for a dynamic field setter (field store)      *<p>      * A dynamic field store for variable {@code x} of type {@code def} looks like:      * {@code x.field = y}      *<p>      * The following field stores are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code setField()} from receiver's class/superclasses/interfaces.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted setter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching setter.      *<p>      * @param definition the whitelist      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
 DECL|method|lookupSetter
 specifier|static
 name|MethodHandle
 name|lookupSetter
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -2549,7 +2581,7 @@ block|{
 name|RuntimeClass
 name|struct
 init|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -2604,7 +2636,7 @@ control|)
 block|{
 name|struct
 operator|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
