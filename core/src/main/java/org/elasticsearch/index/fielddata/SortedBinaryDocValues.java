@@ -30,8 +30,22 @@ name|BytesRef
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A list of per-document binary values, sorted  * according to {@link BytesRef#compareTo(BytesRef)}.  * There might be dups however.  */
+end_comment
+
+begin_comment
+comment|// TODO: Should it expose a count (current approach) or return null when there are no more values?
 end_comment
 
 begin_class
@@ -41,35 +55,36 @@ specifier|abstract
 class|class
 name|SortedBinaryDocValues
 block|{
-comment|/**      * Positions to the specified document      */
-DECL|method|setDocument
+comment|/**      * Advance this instance to the given document id      * @return true if there is a value for this document      */
+DECL|method|advanceExact
 specifier|public
 specifier|abstract
-name|void
-name|setDocument
+name|boolean
+name|advanceExact
 parameter_list|(
 name|int
-name|docId
+name|doc
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
-comment|/**      * Return the number of values of the current document.      */
-DECL|method|count
+comment|/**       * Retrieves the number of values for the current document.  This must always      * be greater than zero.      * It is illegal to call this method after {@link #advanceExact(int)}      * returned {@code false}.      */
+DECL|method|docValueCount
 specifier|public
 specifier|abstract
 name|int
-name|count
+name|docValueCount
 parameter_list|()
 function_decl|;
-comment|/**      * Retrieve the value for the current document at the specified index.      * An index ranges from {@code 0} to {@code count()-1}.      * Note that the returned {@link BytesRef} might be reused across invocations.      */
-DECL|method|valueAt
+comment|/**       * Iterates to the next value in the current document. Do not call this more than      * {@link #docValueCount} times for the document.      * Note that the returned {@link BytesRef} might be reused across invocations.      */
+DECL|method|nextValue
 specifier|public
 specifier|abstract
 name|BytesRef
-name|valueAt
-parameter_list|(
-name|int
-name|index
-parameter_list|)
+name|nextValue
+parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_class

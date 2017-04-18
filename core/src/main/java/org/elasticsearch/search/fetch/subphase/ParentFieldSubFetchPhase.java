@@ -373,6 +373,15 @@ condition|(
 name|docValues
 operator|==
 literal|null
+operator|||
+name|docValues
+operator|.
+name|advanceExact
+argument_list|(
+name|docId
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 comment|// hit has no _parent field.
@@ -385,10 +394,8 @@ name|parentId
 init|=
 name|docValues
 operator|.
-name|get
-argument_list|(
-name|docId
-argument_list|)
+name|binaryValue
+argument_list|()
 decl_stmt|;
 return|return
 name|parentId

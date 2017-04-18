@@ -30,6 +30,16 @@ name|SortedNumericDocValues
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Clone of {@link SortedNumericDocValues} for double values.  */
 end_comment
@@ -47,34 +57,35 @@ specifier|protected
 name|SortedNumericDoubleValues
 parameter_list|()
 block|{}
-comment|/**      * Positions to the specified document      */
-DECL|method|setDocument
+comment|/** Advance the iterator to exactly {@code target} and return whether      *  {@code target} has a value.      *  {@code target} must be greater than or equal to the current      *  doc ID and must be a valid doc ID, ie.&ge; 0 and      *&lt; {@code maxDoc}.*/
+DECL|method|advanceExact
 specifier|public
 specifier|abstract
-name|void
-name|setDocument
+name|boolean
+name|advanceExact
 parameter_list|(
 name|int
-name|doc
+name|target
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
-comment|/**      * Retrieve the value for the current document at the specified index.      * An index ranges from {@code 0} to {@code count()-1}.      */
-DECL|method|valueAt
+comment|/**       * Iterates to the next value in the current document. Do not call this more than      * {@link #docValueCount} times for the document.      */
+DECL|method|nextValue
 specifier|public
 specifier|abstract
 name|double
-name|valueAt
-parameter_list|(
-name|int
-name|index
-parameter_list|)
+name|nextValue
+parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
-comment|/**      * Retrieves the count of values for the current document.      * This may be zero if a document has no values.      */
-DECL|method|count
+comment|/**       * Retrieves the number of values for the current document.  This must always      * be greater than zero.      * It is illegal to call this method after {@link #advanceExact(int)}      * returned {@code false}.      */
+DECL|method|docValueCount
 specifier|public
 specifier|abstract
 name|int
-name|count
+name|docValueCount
 parameter_list|()
 function_decl|;
 block|}

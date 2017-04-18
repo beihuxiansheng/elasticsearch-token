@@ -2048,8 +2048,6 @@ name|terms
 argument_list|,
 name|blendedBoost
 argument_list|,
-literal|false
-argument_list|,
 name|commonTermsCutoff
 argument_list|)
 argument_list|)
@@ -2074,8 +2072,6 @@ argument_list|(
 name|terms
 argument_list|,
 name|blendedBoost
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2135,13 +2131,6 @@ operator|.
 name|Builder
 argument_list|()
 decl_stmt|;
-name|bq
-operator|.
-name|setDisableCoord
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|Query

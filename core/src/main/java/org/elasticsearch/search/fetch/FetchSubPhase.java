@@ -102,6 +102,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -304,6 +314,8 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
+throws|throws
+name|IOException
 block|{}
 DECL|method|hitsExecute
 specifier|default
@@ -317,6 +329,8 @@ name|SearchHit
 index|[]
 name|hits
 parameter_list|)
+throws|throws
+name|IOException
 block|{}
 block|}
 end_interface

@@ -3122,8 +3122,6 @@ operator|.
 name|booleanBlendedQuery
 argument_list|(
 name|termsArr
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Result

@@ -412,21 +412,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|query
-operator|.
-name|disableCoord
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|query
 return|;
@@ -703,8 +688,6 @@ operator|+
 literal|"    \"body\" : {\n"
 operator|+
 literal|"      \"query\" : \"nelly the elephant not as a cartoon\",\n"
-operator|+
-literal|"      \"disable_coord\" : true,\n"
 operator|+
 literal|"      \"high_freq_operator\" : \"AND\",\n"
 operator|+
@@ -1050,12 +1033,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|disableCoord
-init|=
-name|randomBoolean
-argument_list|()
-decl_stmt|;
 name|Query
 name|parsedQuery
 init|=
@@ -1066,11 +1043,6 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"text"
-argument_list|)
-operator|.
-name|disableCoord
-argument_list|(
-name|disableCoord
 argument_list|)
 argument_list|)
 operator|.
@@ -1100,19 +1072,6 @@ name|ExtendedCommonTermsQuery
 operator|)
 name|parsedQuery
 decl_stmt|;
-name|assertThat
-argument_list|(
-name|ectQuery
-operator|.
-name|isCoordDisabled
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|disableCoord
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testParseFailsWithMultipleFields
 specifier|public

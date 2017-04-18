@@ -67,6 +67,8 @@ parameter_list|,
 name|float
 name|subQueryScore
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|explainScore
 specifier|public

@@ -30,6 +30,16 @@ name|GeoPoint
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A stateful lightweight per document set of {@link GeoPoint} values.  * To iterate over values in a document use the following pattern:  *<pre>  *   GeoPointValues values = ..;  *   values.setDocId(docId);  *   final int numValues = values.count();  *   for (int i = 0; i&lt; numValues; i++) {  *       GeoPoint value = values.valueAt(i);  *       // process value  *   }  *</pre>  * The set of values associated with a document might contain duplicates and  * comes in a non-specified order.  */
 end_comment
@@ -47,35 +57,36 @@ specifier|protected
 name|MultiGeoPointValues
 parameter_list|()
 block|{     }
-comment|/**      * Sets iteration to the specified docID.      * @param docId document ID      *      * @see #valueAt(int)      * @see #count()      */
-DECL|method|setDocument
+comment|/**      * Advance this instance to the given document id      * @return true if there is a value for this document      */
+DECL|method|advanceExact
 specifier|public
 specifier|abstract
-name|void
-name|setDocument
+name|boolean
+name|advanceExact
 parameter_list|(
 name|int
-name|docId
+name|doc
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Return the number of geo points the current document has.      */
-DECL|method|count
+DECL|method|docValueCount
 specifier|public
 specifier|abstract
 name|int
-name|count
+name|docValueCount
 parameter_list|()
 function_decl|;
-comment|/**      * Return the<code>i-th</code> value associated with the current document.      * Behavior is undefined when<code>i</code> is undefined or greater than      * or equal to {@link #count()}.      *      * Note: the returned {@link GeoPoint} might be shared across invocations.      *      * @return the next value for the current docID set to {@link #setDocument(int)}.      */
-DECL|method|valueAt
+comment|/**      * Return the next value associated with the current document. This must not be      * called more than {@link #docValueCount()} times.      *      * Note: the returned {@link GeoPoint} might be shared across invocations.      *      * @return the next value for the current docID set to {@link #advanceExact(int)}.      */
+DECL|method|nextValue
 specifier|public
 specifier|abstract
 name|GeoPoint
-name|valueAt
-parameter_list|(
-name|int
-name|i
-parameter_list|)
+name|nextValue
+parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_class

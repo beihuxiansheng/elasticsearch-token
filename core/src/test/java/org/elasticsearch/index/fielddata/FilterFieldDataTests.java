@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -124,7 +124,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|TextFieldMapper
+name|Mapper
+operator|.
+name|BuilderContext
 import|;
 end_import
 
@@ -138,9 +140,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|Mapper
-operator|.
-name|BuilderContext
+name|TextFieldMapper
 import|;
 end_import
 
@@ -519,7 +519,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|bytesValues
 init|=
 name|loadDirect
@@ -654,7 +654,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|bytesValues
 init|=
 name|loadDirect
@@ -774,7 +774,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|bytesValues
 init|=
 name|loadDirect
@@ -911,7 +911,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|bytesValues
 init|=
 name|loadDirect

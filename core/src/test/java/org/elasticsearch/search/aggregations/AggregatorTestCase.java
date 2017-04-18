@@ -1841,6 +1841,8 @@ argument_list|(
 name|rewritten
 argument_list|,
 literal|true
+argument_list|,
+literal|1f
 argument_list|)
 decl_stmt|;
 name|C

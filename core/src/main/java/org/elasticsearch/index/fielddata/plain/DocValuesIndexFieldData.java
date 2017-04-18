@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -432,7 +432,7 @@ DECL|field|scriptFunction
 specifier|private
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -471,7 +471,7 @@ name|scriptFunction
 parameter_list|(
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<

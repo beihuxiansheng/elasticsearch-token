@@ -430,8 +430,10 @@ operator|.
 name|ParentChild
 name|valuesSource
 decl_stmt|;
-comment|// Maybe use PagedGrowableWriter? This will be less wasteful than LongArray, but then we don't have the reuse feature of BigArrays.
-comment|// Also if we know the highest possible value that a parent agg will create then we store multiple values into one slot
+comment|// Maybe use PagedGrowableWriter? This will be less wasteful than LongArray,
+comment|// but then we don't have the reuse feature of BigArrays.
+comment|// Also if we know the highest possible value that a parent agg will create
+comment|// then we store multiple values into one slot
 DECL|field|parentOrdToBuckets
 specifier|private
 specifier|final
@@ -439,8 +441,10 @@ name|LongArray
 name|parentOrdToBuckets
 decl_stmt|;
 comment|// Only pay the extra storage price if the a parentOrd has multiple buckets
-comment|// Most of the times a parent doesn't have multiple buckets, since there is only one document per parent ord,
-comment|// only in the case of terms agg if a parent doc has multiple terms per field this is needed:
+comment|// Most of the times a parent doesn't have multiple buckets, since there is
+comment|// only one document per parent ord,
+comment|// only in the case of terms agg if a parent doc has multiple terms per
+comment|// field this is needed:
 DECL|field|parentOrdToOtherBuckets
 specifier|private
 specifier|final
@@ -786,6 +790,13 @@ name|get
 argument_list|(
 name|docId
 argument_list|)
+operator|&&
+name|globalOrdinals
+operator|.
+name|advanceExact
+argument_list|(
+name|docId
+argument_list|)
 condition|)
 block|{
 name|long
@@ -793,10 +804,8 @@ name|globalOrdinal
 init|=
 name|globalOrdinals
 operator|.
-name|getOrd
-argument_list|(
-name|docId
-argument_list|)
+name|ordValue
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1067,24 +1076,24 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|if
+condition|(
+name|globalOrdinals
+operator|.
+name|advanceExact
+argument_list|(
+name|docId
+argument_list|)
+condition|)
+block|{
 name|long
 name|globalOrdinal
 init|=
 name|globalOrdinals
 operator|.
-name|getOrd
-argument_list|(
-name|docId
-argument_list|)
+name|ordValue
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|globalOrdinal
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
 name|long
 name|bucketOrd
 init|=

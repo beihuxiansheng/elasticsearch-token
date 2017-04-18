@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedDocValues
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SortedDocValues
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -265,7 +265,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|docs
 init|=
 name|ords
@@ -307,21 +307,11 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|assertThat
+name|assertTrue
 argument_list|(
-name|entry
-operator|.
-name|getValue
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-operator|(
-name|long
-operator|)
 name|singleOrds
 operator|.
-name|getOrd
+name|advanceExact
 argument_list|(
 name|entry
 operator|.
@@ -329,6 +319,21 @@ name|getKey
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|singleOrds
+operator|.
+name|ordValue
+argument_list|()
+argument_list|,
+operator|(
+name|long
+operator|)
+name|entry
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

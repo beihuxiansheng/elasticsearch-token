@@ -639,6 +639,8 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// loop over fields
 for|for
@@ -667,18 +669,25 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|doubleValues
+operator|.
+name|advanceExact
+argument_list|(
+name|doc
+argument_list|)
+condition|)
+block|{
 specifier|final
 name|double
 name|value
 init|=
 name|doubleValues
 operator|.
-name|get
-argument_list|(
-name|doc
-argument_list|)
+name|doubleValue
+argument_list|()
 decl_stmt|;
-comment|// skip if value is missing
 if|if
 condition|(
 name|value
@@ -688,6 +697,7 @@ operator|.
 name|NEGATIVE_INFINITY
 condition|)
 block|{
+comment|// TODO: Fix matrix stats to treat neg inf as any other value
 return|return
 literal|false
 return|;
@@ -699,6 +709,13 @@ index|]
 operator|=
 name|value
 expr_stmt|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 return|return
 literal|true

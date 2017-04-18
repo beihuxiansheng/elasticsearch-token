@@ -135,9 +135,6 @@ parameter_list|,
 name|float
 name|maxTermFrequency
 parameter_list|,
-name|boolean
-name|disableCoord
-parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|)
@@ -149,8 +146,6 @@ argument_list|,
 name|lowFreqOccur
 argument_list|,
 name|maxTermFrequency
-argument_list|,
-name|disableCoord
 argument_list|)
 expr_stmt|;
 name|this

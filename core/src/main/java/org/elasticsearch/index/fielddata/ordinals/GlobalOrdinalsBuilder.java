@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -321,7 +321,7 @@ name|logger
 parameter_list|,
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -370,12 +370,12 @@ argument_list|()
 index|]
 decl_stmt|;
 specifier|final
-name|RandomAccessOrds
+name|SortedSetDocValues
 index|[]
 name|subs
 init|=
 operator|new
-name|RandomAccessOrds
+name|SortedSetDocValues
 index|[
 name|indexReader
 operator|.
@@ -591,12 +591,12 @@ argument_list|()
 index|]
 decl_stmt|;
 specifier|final
-name|RandomAccessOrds
+name|SortedSetDocValues
 index|[]
 name|subs
 init|=
 operator|new
-name|RandomAccessOrds
+name|SortedSetDocValues
 index|[
 name|indexReader
 operator|.
@@ -644,7 +644,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|getOrdinalsValues
 parameter_list|()
 block|{

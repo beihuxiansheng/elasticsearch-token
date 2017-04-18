@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -178,7 +178,7 @@ specifier|private
 specifier|final
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -208,7 +208,7 @@ name|memorySizeInBytes
 parameter_list|,
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -370,12 +370,12 @@ annotation|@
 name|Override
 DECL|method|getOrdinalsValues
 specifier|public
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|getOrdinalsValues
 parameter_list|()
 block|{
 specifier|final
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|values
 init|=
 name|afd
@@ -402,12 +402,12 @@ name|values
 return|;
 block|}
 specifier|final
-name|RandomAccessOrds
+name|SortedSetDocValues
 index|[]
 name|bytesValues
 init|=
 operator|new
-name|RandomAccessOrds
+name|SortedSetDocValues
 index|[
 name|atomicReaders
 operator|.

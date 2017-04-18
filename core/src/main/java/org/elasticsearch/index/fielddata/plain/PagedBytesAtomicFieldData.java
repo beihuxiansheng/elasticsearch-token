@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -349,7 +349,7 @@ annotation|@
 name|Override
 DECL|method|getOrdinalsValues
 specifier|public
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|getOrdinalsValues
 parameter_list|()
 block|{

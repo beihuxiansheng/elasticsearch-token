@@ -872,8 +872,6 @@ argument_list|(
 name|terms
 argument_list|,
 name|boosts
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1036,8 +1034,6 @@ argument_list|(
 name|terms
 argument_list|,
 name|boosts
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1197,8 +1193,6 @@ argument_list|(
 name|terms
 argument_list|,
 name|boosts
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1358,8 +1352,6 @@ argument_list|(
 name|terms
 argument_list|,
 name|boosts
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1383,11 +1375,6 @@ name|BooleanQuery
 operator|.
 name|Builder
 argument_list|()
-operator|.
-name|setDisableCoord
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|add
 argument_list|(

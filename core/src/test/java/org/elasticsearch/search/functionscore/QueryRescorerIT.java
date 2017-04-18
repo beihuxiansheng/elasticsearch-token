@@ -6032,11 +6032,6 @@ init|=
 name|boolQuery
 argument_list|()
 operator|.
-name|disableCoord
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|should
 argument_list|(
 name|functionScoreQuery
@@ -6148,11 +6143,6 @@ name|queryRescorer
 argument_list|(
 name|boolQuery
 argument_list|()
-operator|.
-name|disableCoord
-argument_list|(
-literal|true
-argument_list|)
 operator|.
 name|should
 argument_list|(

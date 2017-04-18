@@ -2517,6 +2517,16 @@ name|Void
 operator|.
 name|class
 argument_list|)
+comment|// for token filters that generate bad offsets, which are now rejected since Lucene 7
+operator|.
+name|put
+argument_list|(
+literal|"fixbrokenoffsets"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
 operator|.
 name|immutableMap
 argument_list|()

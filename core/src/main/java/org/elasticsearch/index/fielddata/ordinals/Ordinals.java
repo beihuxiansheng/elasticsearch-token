@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -115,7 +115,7 @@ function_decl|;
 DECL|method|ordinals
 specifier|public
 specifier|abstract
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|ordinals
 parameter_list|(
 name|ValuesHolder
@@ -125,7 +125,7 @@ function_decl|;
 DECL|method|ordinals
 specifier|public
 specifier|final
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|ordinals
 parameter_list|()
 block|{
