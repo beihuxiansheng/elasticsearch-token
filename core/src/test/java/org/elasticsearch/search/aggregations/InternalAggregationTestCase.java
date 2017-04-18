@@ -482,18 +482,6 @@ name|assertToXContentEquivalent
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
-import|;
-end_import
-
 begin_class
 DECL|class|InternalAggregationTestCase
 specifier|public
@@ -1320,6 +1308,40 @@ init|=
 name|createTestInstance
 argument_list|()
 decl_stmt|;
+comment|//norelease Remove this assumption when all aggregations can be parsed back.
+name|assumeTrue
+argument_list|(
+literal|"This test does not support the aggregation type yet"
+argument_list|,
+name|getNamedXContents
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|entry
+lambda|->
+name|entry
+operator|.
+name|name
+operator|.
+name|match
+argument_list|(
+name|aggregation
+operator|.
+name|getType
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|count
+argument_list|()
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
 specifier|final
 name|ToXContent
 operator|.
@@ -1605,29 +1627,6 @@ operator|(
 name|ParsedAggregation
 operator|)
 name|parsedAggregation
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NamedXContentRegistry
-operator|.
-name|UnknownNamedObjectException
-name|e
-parameter_list|)
-block|{
-comment|//norelease Remove this catch block when all aggregations can be parsed back.
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"Unknown Aggregation"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

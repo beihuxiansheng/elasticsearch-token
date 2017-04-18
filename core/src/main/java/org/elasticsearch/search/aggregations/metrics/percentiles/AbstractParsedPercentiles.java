@@ -415,7 +415,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|InternalPercentile
+name|Percentile
 argument_list|(
 name|next
 operator|.
