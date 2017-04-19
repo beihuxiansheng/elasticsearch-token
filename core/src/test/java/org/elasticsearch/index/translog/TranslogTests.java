@@ -17877,7 +17877,7 @@ init|=
 name|committedGeneration
 init|;
 name|g
-operator|<
+operator|<=
 name|translog
 operator|.
 name|currentFileGeneration
