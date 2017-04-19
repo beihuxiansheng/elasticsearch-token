@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|AssertionFailedError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -25,6 +35,18 @@ operator|.
 name|util
 operator|.
 name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptException
 import|;
 end_import
 
@@ -84,6 +106,18 @@ name|singletonMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
 begin_class
 DECL|class|WhenThingsGoWrongTests
 specifier|public
@@ -115,18 +149,6 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-comment|/** test "line numbers" in the bytecode, which are really 1-based offsets */
-DECL|method|testLineNumbers
-specifier|public
-name|void
-name|testLineNumbers
-parameter_list|()
-block|{
-comment|// trigger NPE at line 1 of the script
-name|NullPointerException
-name|exception
-init|=
 name|expectScriptThrows
 argument_list|(
 name|NullPointerException
@@ -138,7 +160,53 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"String x = null; boolean y = x.isEmpty();\n"
+literal|"Double.parseDouble(params['missing'])"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Test that the scriptStack looks good. By implication this tests that we build proper "line numbers" in stack trace. These line      * numbers are really 1 based character numbers.      */
+DECL|method|testScriptStack
+specifier|public
+name|void
+name|testScriptStack
+parameter_list|()
+block|{
+for|for
+control|(
+name|String
+name|type
+range|:
+operator|new
+name|String
+index|[]
+block|{
+literal|"String"
+block|,
+literal|"def   "
+block|}
+control|)
+block|{
+comment|// trigger NPE at line 1 of the script
+name|ScriptException
+name|exception
+init|=
+name|expectThrows
+argument_list|(
+name|ScriptException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+name|type
+operator|+
+literal|" x = null; boolean y = x.isEmpty();\n"
 operator|+
 literal|"return y;"
 argument_list|)
@@ -146,31 +214,44 @@ expr_stmt|;
 block|}
 argument_list|)
 decl_stmt|;
-comment|// null deref at x.isEmpty(), the '.' is offset 30 (+1)
-name|assertEquals
+comment|// null deref at x.isEmpty(), the '.' is offset 30
+name|assertScriptElementColumn
 argument_list|(
 literal|30
-operator|+
-literal|1
 argument_list|,
 name|exception
+argument_list|)
+expr_stmt|;
+name|assertScriptStack
+argument_list|(
+name|exception
+argument_list|,
+literal|"y = x.isEmpty();\n"
+argument_list|,
+literal|"     ^---- HERE"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|exception
 operator|.
-name|getStackTrace
+name|getCause
 argument_list|()
-index|[
-literal|0
-index|]
+argument_list|,
+name|instanceOf
+argument_list|(
+name|NullPointerException
 operator|.
-name|getLineNumber
-argument_list|()
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// trigger NPE at line 2 of the script
 name|exception
 operator|=
-name|expectScriptThrows
+name|expectThrows
 argument_list|(
-name|NullPointerException
+name|ScriptException
 operator|.
 name|class
 argument_list|,
@@ -179,7 +260,9 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"String x = null;\n"
+name|type
+operator|+
+literal|" x = null;\n"
 operator|+
 literal|"return x.isEmpty();"
 argument_list|)
@@ -187,31 +270,44 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-comment|// null deref at x.isEmpty(), the '.' is offset 25 (+1)
-name|assertEquals
+comment|// null deref at x.isEmpty(), the '.' is offset 25
+name|assertScriptElementColumn
 argument_list|(
 literal|25
-operator|+
-literal|1
 argument_list|,
 name|exception
+argument_list|)
+expr_stmt|;
+name|assertScriptStack
+argument_list|(
+name|exception
+argument_list|,
+literal|"return x.isEmpty();"
+argument_list|,
+literal|"        ^---- HERE"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|exception
 operator|.
-name|getStackTrace
+name|getCause
 argument_list|()
-index|[
-literal|0
-index|]
+argument_list|,
+name|instanceOf
+argument_list|(
+name|NullPointerException
 operator|.
-name|getLineNumber
-argument_list|()
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// trigger NPE at line 3 of the script
 name|exception
 operator|=
-name|expectScriptThrows
+name|expectThrows
 argument_list|(
-name|NullPointerException
+name|ScriptException
 operator|.
 name|class
 argument_list|,
@@ -220,9 +316,13 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"String x = null;\n"
+name|type
 operator|+
-literal|"String y = x;\n"
+literal|" x = null;\n"
+operator|+
+name|type
+operator|+
+literal|" y = x;\n"
 operator|+
 literal|"return y.isEmpty();"
 argument_list|)
@@ -230,31 +330,44 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-comment|// null deref at y.isEmpty(), the '.' is offset 39 (+1)
-name|assertEquals
+comment|// null deref at y.isEmpty(), the '.' is offset 39
+name|assertScriptElementColumn
 argument_list|(
 literal|39
-operator|+
-literal|1
 argument_list|,
 name|exception
+argument_list|)
+expr_stmt|;
+name|assertScriptStack
+argument_list|(
+name|exception
+argument_list|,
+literal|"return y.isEmpty();"
+argument_list|,
+literal|"        ^---- HERE"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|exception
 operator|.
-name|getStackTrace
+name|getCause
 argument_list|()
-index|[
-literal|0
-index|]
+argument_list|,
+name|instanceOf
+argument_list|(
+name|NullPointerException
 operator|.
-name|getLineNumber
-argument_list|()
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// trigger NPE at line 4 in script (inside conditional)
 name|exception
 operator|=
-name|expectScriptThrows
+name|expectThrows
 argument_list|(
-name|NullPointerException
+name|ScriptException
 operator|.
 name|class
 argument_list|,
@@ -263,7 +376,9 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"String x = null;\n"
+name|type
+operator|+
+literal|" x = null;\n"
 operator|+
 literal|"boolean y = false;\n"
 operator|+
@@ -279,23 +394,154 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
-comment|// null deref at x.isEmpty(), the '.' is offset 53 (+1)
-name|assertEquals
+comment|// null deref at x.isEmpty(), the '.' is offset 53
+name|assertScriptElementColumn
 argument_list|(
 literal|53
-operator|+
-literal|1
 argument_list|,
 name|exception
+argument_list|)
+expr_stmt|;
+name|assertScriptStack
+argument_list|(
+name|exception
+argument_list|,
+literal|"y = x.isEmpty();\n}\n"
+argument_list|,
+literal|"     ^---- HERE"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|exception
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|assertScriptElementColumn
+specifier|private
+name|void
+name|assertScriptElementColumn
+parameter_list|(
+name|int
+name|expectedColumn
+parameter_list|,
+name|ScriptException
+name|exception
+parameter_list|)
+block|{
+name|StackTraceElement
+index|[]
+name|stackTrace
+init|=
+name|exception
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getStackTrace
 argument_list|()
-index|[
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
 literal|0
+init|;
+name|i
+operator|<
+name|stackTrace
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|WriterConstants
+operator|.
+name|CLASS_NAME
+operator|.
+name|equals
+argument_list|(
+name|stackTrace
+index|[
+name|i
+index|]
+operator|.
+name|getClassName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|expectedColumn
+operator|+
+literal|1
+operator|!=
+name|stackTrace
+index|[
+name|i
 index|]
 operator|.
 name|getLineNumber
 argument_list|()
+condition|)
+block|{
+name|AssertionFailedError
+name|assertion
+init|=
+operator|new
+name|AssertionFailedError
+argument_list|(
+literal|"Expected column to be ["
+operator|+
+name|expectedColumn
+operator|+
+literal|"] but was ["
+operator|+
+name|stackTrace
+index|[
+name|i
+index|]
+operator|.
+name|getLineNumber
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+decl_stmt|;
+name|assertion
+operator|.
+name|initCause
+argument_list|(
+name|exception
+argument_list|)
+expr_stmt|;
+throw|throw
+name|assertion
+throw|;
+block|}
+return|return;
+block|}
+block|}
+name|fail
+argument_list|(
+literal|"didn't find script stack element"
 argument_list|)
 expr_stmt|;
 block|}
@@ -771,6 +1017,8 @@ argument_list|(
 name|IllegalArgumentException
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|,
 parameter_list|()
 lambda|->

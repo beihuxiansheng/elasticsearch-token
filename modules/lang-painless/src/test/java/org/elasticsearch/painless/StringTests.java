@@ -1228,6 +1228,8 @@ name|ClassCastException
 operator|.
 name|class
 argument_list|,
+literal|false
+argument_list|,
 parameter_list|()
 lambda|->
 block|{
@@ -1264,6 +1266,8 @@ argument_list|(
 name|ClassCastException
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|,
 parameter_list|()
 lambda|->

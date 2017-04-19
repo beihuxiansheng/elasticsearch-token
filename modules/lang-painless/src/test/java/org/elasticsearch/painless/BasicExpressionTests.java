@@ -1073,7 +1073,7 @@ expr_stmt|;
 comment|//   Call with primitive result
 name|assertMustBeNullable
 argument_list|(
-literal|"String a = null; return a?.length()"
+literal|"String a = null;  return a?.length()"
 argument_list|)
 expr_stmt|;
 name|assertMustBeNullable
@@ -1623,6 +1623,8 @@ argument_list|(
 name|IllegalArgumentException
 operator|.
 name|class
+argument_list|,
+literal|false
 argument_list|,
 parameter_list|()
 lambda|->

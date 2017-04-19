@@ -99,7 +99,7 @@ name|PICKY
 init|=
 literal|"picky"
 decl_stmt|;
-comment|/**      * For testing: do not use.      */
+comment|/**      * Hack to set the initial "depth" for the {@link DefBootstrap.PIC} and {@link DefBootstrap.MIC}. Only used for testing: do not      * overwrite.      */
 DECL|field|INITIAL_CALL_SITE_DEPTH
 specifier|public
 specifier|static
