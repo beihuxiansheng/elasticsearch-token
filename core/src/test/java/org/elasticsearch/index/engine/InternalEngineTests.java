@@ -25132,6 +25132,15 @@ name|getFailure
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// document failures should be recorded in translog
+name|assertNotNull
+argument_list|(
+name|indexResult
+operator|.
+name|getTranslogLocation
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|throwingIndexWriter
 operator|.
 name|get
@@ -25157,6 +25166,15 @@ argument_list|(
 name|indexResult
 operator|.
 name|getFailure
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// document failures should be recorded in translog
+name|assertNotNull
+argument_list|(
+name|indexResult
+operator|.
+name|getTranslogLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -31766,19 +31784,11 @@ name|Engine
 operator|.
 name|NoOp
 argument_list|(
-literal|null
-argument_list|,
 name|maxSeqNo
 operator|+
 literal|1
 argument_list|,
 name|primaryTerm
-argument_list|,
-literal|0
-argument_list|,
-name|VersionType
-operator|.
-name|INTERNAL
 argument_list|,
 name|randomFrom
 argument_list|(

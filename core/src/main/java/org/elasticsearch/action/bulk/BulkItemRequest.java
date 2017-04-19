@@ -136,8 +136,9 @@ DECL|method|BulkItemRequest
 name|BulkItemRequest
 parameter_list|()
 block|{      }
+comment|// NOTE: public for testing only
 DECL|method|BulkItemRequest
-specifier|protected
+specifier|public
 name|BulkItemRequest
 parameter_list|(
 name|int
@@ -206,9 +207,7 @@ literal|0
 index|]
 return|;
 block|}
-comment|// NOTE: protected for testing only
 DECL|method|getPrimaryResponse
-specifier|protected
 name|BulkItemResponse
 name|getPrimaryResponse
 parameter_list|()
@@ -217,9 +216,7 @@ return|return
 name|primaryResponse
 return|;
 block|}
-comment|// NOTE: protected for testing only
 DECL|method|setPrimaryResponse
-specifier|protected
 name|void
 name|setPrimaryResponse
 parameter_list|(

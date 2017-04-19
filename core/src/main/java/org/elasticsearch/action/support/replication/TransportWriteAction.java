@@ -572,9 +572,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Result of taking the action on the primary.      */
+comment|/**      * Result of taking the action on the primary.      *      * NOTE: public for testing      */
 DECL|class|WritePrimaryResult
-specifier|protected
+specifier|public
 specifier|static
 class|class
 name|WritePrimaryResult
