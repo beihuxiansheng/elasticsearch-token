@@ -124,6 +124,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|Sort
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|similarities
 operator|.
 name|Similarity
@@ -475,6 +489,14 @@ operator|.
 name|RefreshListener
 name|refreshListeners
 decl_stmt|;
+annotation|@
+name|Nullable
+DECL|field|indexSort
+specifier|private
+specifier|final
+name|Sort
+name|indexSort
+decl_stmt|;
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      * This setting is also settable on the node and the index level, it's commonly used in hot/cold node archs where index is likely      * allocated on both `kind` of nodes.      */
 DECL|field|INDEX_CODEC_SETTING
 specifier|public
@@ -663,6 +685,9 @@ name|refreshListeners
 parameter_list|,
 name|long
 name|maxUnsafeAutoIdTimestamp
+parameter_list|,
+name|Sort
+name|indexSort
 parameter_list|)
 block|{
 if|if
@@ -838,6 +863,12 @@ operator|.
 name|maxUnsafeAutoIdTimestamp
 operator|=
 name|maxUnsafeAutoIdTimestamp
+expr_stmt|;
+name|this
+operator|.
+name|indexSort
+operator|=
+name|indexSort
 expr_stmt|;
 block|}
 comment|/**      * Enables / disables gc deletes      *      * @see #isEnableGcDeletes()      */
@@ -1123,6 +1154,17 @@ else|:
 name|Long
 operator|.
 name|MAX_VALUE
+return|;
+block|}
+comment|/**      * Return the sort order of this index, or null if the index has no sort.      */
+DECL|method|getIndexSort
+specifier|public
+name|Sort
+name|getIndexSort
+parameter_list|()
+block|{
+return|return
+name|indexSort
 return|;
 block|}
 block|}
