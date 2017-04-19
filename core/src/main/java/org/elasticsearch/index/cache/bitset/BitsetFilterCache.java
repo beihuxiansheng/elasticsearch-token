@@ -936,11 +936,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|shardId
-operator|!=
-literal|null
-comment|// can't require it because of the percolator
-operator|&&
 name|indexSettings
 operator|.
 name|getIndex
