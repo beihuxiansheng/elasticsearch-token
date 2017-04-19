@@ -256,11 +256,11 @@ name|defaultNullValue
 return|;
 block|}
 block|}
-DECL|method|declareSingeValueFields
+DECL|method|declareSingleValueFields
 specifier|protected
 specifier|static
 name|void
-name|declareSingeValueFields
+name|declareSingleValueFields
 parameter_list|(
 name|ObjectParser
 argument_list|<

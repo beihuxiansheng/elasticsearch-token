@@ -230,7 +230,7 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-name|declareSingeValueFields
+name|declareSingleValueFields
 argument_list|(
 name|PARSER
 argument_list|,
