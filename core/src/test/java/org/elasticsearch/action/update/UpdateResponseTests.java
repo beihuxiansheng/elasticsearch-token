@@ -433,6 +433,8 @@ literal|"id"
 argument_list|,
 literal|3
 argument_list|,
+literal|17
+argument_list|,
 literal|1
 argument_list|,
 name|DELETED
@@ -452,7 +454,7 @@ name|assertEquals
 argument_list|(
 literal|"{\"_index\":\"index\",\"_type\":\"type\",\"_id\":\"id\",\"_version\":1,\"result\":\"deleted\","
 operator|+
-literal|"\"_shards\":{\"total\":10,\"successful\":6,\"failed\":0},\"_seq_no\":3}"
+literal|"\"_shards\":{\"total\":10,\"successful\":6,\"failed\":0},\"_seq_no\":3,\"_primary_term\":17}"
 argument_list|,
 name|output
 argument_list|)
@@ -553,6 +555,8 @@ literal|"1"
 argument_list|,
 literal|7
 argument_list|,
+literal|17
+argument_list|,
 literal|2
 argument_list|,
 name|UPDATED
@@ -595,7 +599,7 @@ name|assertEquals
 argument_list|(
 literal|"{\"_index\":\"books\",\"_type\":\"book\",\"_id\":\"1\",\"_version\":2,\"result\":\"updated\","
 operator|+
-literal|"\"_shards\":{\"total\":3,\"successful\":2,\"failed\":0},\"_seq_no\":7,\"get\":{\"found\":true,"
+literal|"\"_shards\":{\"total\":3,\"successful\":2,\"failed\":0},\"_seq_no\":7,\"_primary_term\":17,\"get\":{\"found\":true,"
 operator|+
 literal|"\"_source\":{\"title\":\"Book title\",\"isbn\":\"ABC-123\"},\"fields\":{\"isbn\":[\"ABC-123\"],\"title\":[\"Book "
 operator|+
@@ -904,6 +908,22 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+name|long
+name|primaryTerm
+init|=
+name|seqNo
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|randomIntBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|16
+argument_list|)
+decl_stmt|;
 name|ShardId
 name|actualShardId
 init|=
@@ -981,6 +1001,8 @@ name|id
 argument_list|,
 name|seqNo
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|version
 argument_list|,
 name|result
@@ -1003,6 +1025,8 @@ argument_list|,
 name|id
 argument_list|,
 name|seqNo
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|version
 argument_list|,

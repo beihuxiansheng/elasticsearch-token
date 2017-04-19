@@ -1426,6 +1426,11 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
+name|getPrimaryTerm
+argument_list|()
+argument_list|,
+name|response
+operator|.
 name|getVersion
 argument_list|()
 argument_list|,
@@ -1656,6 +1661,11 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
+name|getPrimaryTerm
+argument_list|()
+argument_list|,
+name|response
+operator|.
 name|getVersion
 argument_list|()
 argument_list|,
@@ -1796,6 +1806,11 @@ argument_list|,
 name|response
 operator|.
 name|getSeqNo
+argument_list|()
+argument_list|,
+name|response
+operator|.
+name|getPrimaryTerm
 argument_list|()
 argument_list|,
 name|response
