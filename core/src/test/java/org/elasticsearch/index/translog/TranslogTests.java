@@ -18096,7 +18096,7 @@ init|=
 name|max
 init|;
 name|g
-operator|<
+operator|<=
 name|translog
 operator|.
 name|currentFileGeneration
