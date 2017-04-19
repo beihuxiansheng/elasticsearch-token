@@ -200,22 +200,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|ec2
-operator|.
-name|AwsEc2Service
-operator|.
-name|DISCOVERY_EC2
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|node
@@ -418,8 +402,6 @@ name|ec2
 operator|.
 name|AwsEc2Service
 operator|.
-name|DISCOVERY_EC2
-operator|.
 name|HostType
 operator|.
 name|TAG_PREFIX
@@ -437,8 +419,6 @@ operator|.
 name|ec2
 operator|.
 name|AwsEc2Service
-operator|.
-name|DISCOVERY_EC2
 operator|.
 name|HostType
 operator|.
@@ -458,8 +438,6 @@ name|ec2
 operator|.
 name|AwsEc2Service
 operator|.
-name|DISCOVERY_EC2
-operator|.
 name|HostType
 operator|.
 name|PRIVATE_IP
@@ -478,8 +456,6 @@ name|ec2
 operator|.
 name|AwsEc2Service
 operator|.
-name|DISCOVERY_EC2
-operator|.
 name|HostType
 operator|.
 name|PUBLIC_DNS
@@ -497,8 +473,6 @@ operator|.
 name|ec2
 operator|.
 name|AwsEc2Service
-operator|.
-name|DISCOVERY_EC2
 operator|.
 name|HostType
 operator|.
@@ -611,7 +585,7 @@ name|this
 operator|.
 name|hostType
 operator|=
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -627,7 +601,7 @@ operator|=
 operator|new
 name|DiscoNodesCache
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|NODE_CACHE_TIME_SETTING
 operator|.
@@ -641,7 +615,7 @@ name|this
 operator|.
 name|bindAnyGroup
 operator|=
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|ANY_GROUP_SETTING
 operator|.
@@ -665,7 +639,7 @@ name|groups
 operator|.
 name|addAll
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|GROUPS_SETTING
 operator|.
@@ -679,7 +653,7 @@ name|this
 operator|.
 name|tags
 operator|=
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|TAG_SETTING
 operator|.
@@ -704,7 +678,7 @@ name|availabilityZones
 operator|.
 name|addAll
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|AVAILABILITY_ZONES_SETTING
 operator|.
