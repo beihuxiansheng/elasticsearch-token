@@ -1826,6 +1826,10 @@ name|shardPath
 argument_list|,
 name|store
 argument_list|,
+parameter_list|()
+lambda|->
+literal|null
+argument_list|,
 name|indexCache
 argument_list|,
 name|mapperService

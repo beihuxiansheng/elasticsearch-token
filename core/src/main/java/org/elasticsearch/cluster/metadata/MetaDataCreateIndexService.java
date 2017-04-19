@@ -2879,6 +2879,29 @@ throw|throw
 name|e
 throw|;
 block|}
+if|if
+condition|(
+name|request
+operator|.
+name|shrinkFrom
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// now that the mapping is merged we can validate the index sort.
+comment|// we cannot validate for index shrinking since the mapping is empty
+comment|// at this point. The validation will take place later in the process
+comment|// (when all shards are copied in a single place).
+name|indexService
+operator|.
+name|getIndexSortSupplier
+argument_list|()
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
 comment|// the context is only used for validation so it's fine to pass fake values for the shard id and the current
 comment|// timestamp
 specifier|final
@@ -4389,7 +4412,7 @@ name|Predicate
 argument_list|<
 name|String
 argument_list|>
-name|analysisSimilarityPredicate
+name|sourceSettingsPredicate
 init|=
 parameter_list|(
 name|s
@@ -4407,6 +4430,13 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"index.analysis."
+argument_list|)
+operator|||
+name|s
+operator|.
+name|startsWith
+argument_list|(
+literal|"index.sort."
 argument_list|)
 decl_stmt|;
 name|indexSettingsBuilder
@@ -4435,7 +4465,7 @@ literal|"index.allocation.max_retries"
 argument_list|,
 literal|1
 argument_list|)
-comment|// now copy all similarity / analysis settings - this overrides all settings from the user unless they
+comment|// now copy all similarity / analysis / sort settings - this overrides all settings from the user unless they
 comment|// wanna add extra settings
 operator|.
 name|put
@@ -4471,7 +4501,7 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-name|analysisSimilarityPredicate
+name|sourceSettingsPredicate
 argument_list|)
 argument_list|)
 operator|.

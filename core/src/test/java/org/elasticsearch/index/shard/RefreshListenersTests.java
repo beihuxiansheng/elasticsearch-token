@@ -1047,6 +1047,8 @@ argument_list|,
 name|IndexRequest
 operator|.
 name|UNSET_AUTO_GENERATED_TIMESTAMP
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|engine

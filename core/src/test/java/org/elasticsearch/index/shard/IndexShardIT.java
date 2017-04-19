@@ -5009,6 +5009,11 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
+name|getIndexSortSupplier
+argument_list|()
+argument_list|,
+name|indexService
+operator|.
 name|cache
 argument_list|()
 argument_list|,

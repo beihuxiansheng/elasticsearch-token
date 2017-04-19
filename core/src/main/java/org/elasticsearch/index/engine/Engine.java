@@ -3849,6 +3849,17 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 expr_stmt|;
+name|segment
+operator|.
+name|segmentSort
+operator|=
+name|info
+operator|.
+name|info
+operator|.
+name|getIndexSort
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|verbose

@@ -665,7 +665,7 @@ operator|.
 name|IndexScope
 argument_list|)
 decl_stmt|;
-comment|/**      * Index setting describing the maximum number of filters clauses that can be used      * in an adjacency_matrix aggregation. The max number of buckets produced by        * N filters is (N*N)/2 so a limit of 100 filters is imposed by default.      */
+comment|/**      * Index setting describing the maximum number of filters clauses that can be used      * in an adjacency_matrix aggregation. The max number of buckets produced by      * N filters is (N*N)/2 so a limit of 100 filters is imposed by default.      */
 DECL|field|MAX_ADJACENCY_MATRIX_FILTERS_SETTING
 specifier|public
 specifier|static
@@ -1137,6 +1137,12 @@ specifier|final
 name|MergePolicyConfig
 name|mergePolicyConfig
 decl_stmt|;
+DECL|field|indexSortConfig
+specifier|private
+specifier|final
+name|IndexSortConfig
+name|indexSortConfig
+decl_stmt|;
 DECL|field|scopedSettings
 specifier|private
 specifier|final
@@ -1602,6 +1608,16 @@ name|MergePolicyConfig
 argument_list|(
 name|logger
 argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|indexSortConfig
+operator|=
+operator|new
+name|IndexSortConfig
+argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
@@ -2605,6 +2621,17 @@ name|maxSlicesPerScroll
 operator|=
 name|value
 expr_stmt|;
+block|}
+comment|/**      * Returns the index sort config that should be used for this index.      */
+DECL|method|getIndexSortConfig
+specifier|public
+name|IndexSortConfig
+name|getIndexSortConfig
+parameter_list|()
+block|{
+return|return
+name|indexSortConfig
+return|;
 block|}
 DECL|method|getScopedSettings
 specifier|public
