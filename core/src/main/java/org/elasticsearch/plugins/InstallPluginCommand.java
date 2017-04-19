@@ -1186,47 +1186,6 @@ literal|"plugin id is required"
 argument_list|)
 throw|;
 block|}
-comment|// TODO: remove this leniency!! is it needed anymore?
-if|if
-condition|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|env
-operator|.
-name|pluginsFile
-argument_list|()
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-name|terminal
-operator|.
-name|println
-argument_list|(
-literal|"Plugins directory ["
-operator|+
-name|env
-operator|.
-name|pluginsFile
-argument_list|()
-operator|+
-literal|"] does not exist. Creating..."
-argument_list|)
-expr_stmt|;
-name|Files
-operator|.
-name|createDirectory
-argument_list|(
-name|env
-operator|.
-name|pluginsFile
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|Path
 name|pluginZip
 init|=
