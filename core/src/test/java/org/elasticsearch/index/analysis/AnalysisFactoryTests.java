@@ -34,7 +34,7 @@ name|AnalysisFactoryTests
 extends|extends
 name|AnalysisFactoryTestCase
 block|{
-comment|// tests are inherited
+comment|// tests are inherited and nothing needs to be defined here
 block|}
 end_class
 

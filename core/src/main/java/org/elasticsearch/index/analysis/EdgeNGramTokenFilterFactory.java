@@ -337,6 +337,18 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|breaksFastVectorHighlighter
+specifier|public
+name|boolean
+name|breaksFastVectorHighlighter
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

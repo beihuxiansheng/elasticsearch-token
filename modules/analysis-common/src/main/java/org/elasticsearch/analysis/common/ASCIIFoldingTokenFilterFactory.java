@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.analysis
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 package|;
 end_package
 
@@ -96,6 +96,48 @@ name|IndexSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|AbstractTokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|MultiTermAwareComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|TokenFilterFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory for ASCIIFoldingFilter.  */
 end_comment
@@ -113,6 +155,7 @@ block|{
 DECL|field|PRESERVE_ORIGINAL
 specifier|public
 specifier|static
+specifier|final
 name|ParseField
 name|PRESERVE_ORIGINAL
 init|=
@@ -125,6 +168,7 @@ decl_stmt|;
 DECL|field|DEFAULT_PRESERVE_ORIGINAL
 specifier|public
 specifier|static
+specifier|final
 name|boolean
 name|DEFAULT_PRESERVE_ORIGINAL
 init|=

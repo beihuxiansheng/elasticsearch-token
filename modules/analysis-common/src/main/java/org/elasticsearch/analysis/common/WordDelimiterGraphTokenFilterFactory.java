@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.analysis
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 package|;
 end_package
 
@@ -116,6 +116,34 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|AbstractTokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|Analysis
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -146,7 +174,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|CATENATE_ALL
 import|;
@@ -164,7 +192,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|CATENATE_NUMBERS
 import|;
@@ -182,7 +210,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|CATENATE_WORDS
 import|;
@@ -200,7 +228,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|GENERATE_NUMBER_PARTS
 import|;
@@ -218,7 +246,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|GENERATE_WORD_PARTS
 import|;
@@ -236,7 +264,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|PRESERVE_ORIGINAL
 import|;
@@ -254,7 +282,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|SPLIT_ON_CASE_CHANGE
 import|;
@@ -272,7 +300,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|SPLIT_ON_NUMERICS
 import|;
@@ -290,7 +318,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|WordDelimiterFilter
+name|WordDelimiterGraphFilter
 operator|.
 name|STEM_ENGLISH_POSSESSIVE
 import|;
@@ -302,9 +330,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 operator|.
 name|WordDelimiterTokenFilterFactory
 operator|.

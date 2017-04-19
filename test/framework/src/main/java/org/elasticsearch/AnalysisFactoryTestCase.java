@@ -38,22 +38,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
-operator|.
-name|WordDelimiterGraphFilterFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|reverse
 operator|.
 name|ReverseStringFilterFactory
@@ -135,20 +119,6 @@ operator|.
 name|collect
 operator|.
 name|MapBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
-name|ASCIIFoldingTokenFilterFactory
 import|;
 end_import
 
@@ -1058,20 +1028,6 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|WordDelimiterTokenFilterFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
 name|compound
 operator|.
 name|DictionaryCompoundWordTokenFilterFactory
@@ -1233,7 +1189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Alerts us if new analyzers are added to lucene, so we don't miss them.  *<p>  * If we don't want to expose one for a specific reason, just map it to Void.  * The deprecated ones can be mapped to Deprecated.class.  */
+comment|/**  * Alerts us if new analysis components are added to Lucene, so we don't miss them.  *<p>  * If we don't want to expose one for a specific reason, just map it to Void.  * The deprecated ones can be mapped to Deprecated.class.  */
 end_comment
 
 begin_class
@@ -1689,7 +1645,7 @@ name|put
 argument_list|(
 literal|"asciifolding"
 argument_list|,
-name|ASCIIFoldingTokenFilterFactory
+name|MovedToAnalysisCommon
 operator|.
 name|class
 argument_list|)
@@ -2364,7 +2320,7 @@ name|put
 argument_list|(
 literal|"worddelimiter"
 argument_list|,
-name|WordDelimiterTokenFilterFactory
+name|MovedToAnalysisCommon
 operator|.
 name|class
 argument_list|)
@@ -2373,7 +2329,7 @@ name|put
 argument_list|(
 literal|"worddelimitergraph"
 argument_list|,
-name|WordDelimiterGraphFilterFactory
+name|MovedToAnalysisCommon
 operator|.
 name|class
 argument_list|)
@@ -3360,6 +3316,15 @@ name|expected
 operator|.
 name|remove
 argument_list|(
+name|MovedToAnalysisCommon
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|expected
+operator|.
+name|remove
+argument_list|(
 name|Deprecated
 operator|.
 name|class
@@ -3998,6 +3963,20 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Marker class for components that have moved to the analysis-common modules. This will be      * removed when the module is complete and these analysis components aren't available to core.      */
+DECL|class|MovedToAnalysisCommon
+specifier|protected
+specifier|static
+specifier|final
+class|class
+name|MovedToAnalysisCommon
+block|{
+DECL|method|MovedToAnalysisCommon
+specifier|private
+name|MovedToAnalysisCommon
+parameter_list|()
+block|{}
 block|}
 block|}
 end_class

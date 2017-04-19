@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.analysis
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 package|;
 end_package
 
@@ -78,6 +78,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|AnalysisTestsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|TokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -117,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class to test {@link WordDelimiterTokenFilterFactory}  and {@link WordDelimiterGraphTokenFilterFactory}  */
+comment|/**  * Base class to test {@link WordDelimiterTokenFilterFactory} and  * {@link WordDelimiterGraphTokenFilterFactory}.  */
 end_comment
 
 begin_class
@@ -195,6 +223,10 @@ name|type
 argument_list|)
 operator|.
 name|build
+argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -344,6 +376,10 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|TokenFilterFactory
@@ -483,6 +519,10 @@ literal|"true"
 argument_list|)
 operator|.
 name|build
+argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -637,6 +677,10 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|TokenFilterFactory
@@ -762,6 +806,10 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|TokenFilterFactory
@@ -876,6 +924,10 @@ literal|"true"
 argument_list|)
 operator|.
 name|build
+argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1029,6 +1081,10 @@ literal|"false"
 argument_list|)
 operator|.
 name|build
+argument_list|()
+argument_list|,
+operator|new
+name|CommonAnalysisPlugin
 argument_list|()
 argument_list|)
 decl_stmt|;
