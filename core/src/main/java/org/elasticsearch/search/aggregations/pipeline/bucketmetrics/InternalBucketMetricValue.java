@@ -163,6 +163,8 @@ extends|extends
 name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
+implements|implements
+name|BucketMetricValue
 block|{
 DECL|field|NAME
 specifier|public
@@ -345,6 +347,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|keys
 specifier|public
 name|String
