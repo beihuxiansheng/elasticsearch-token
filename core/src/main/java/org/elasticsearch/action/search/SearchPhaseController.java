@@ -2427,17 +2427,17 @@ operator|.
 name|fetchResult
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
-name|fetchResultIndex
+name|index
 init|=
 name|fetchResult
 operator|.
 name|counterGetAndIncrement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|fetchResultIndex
+assert|assert
+name|index
 operator|<
 name|fetchResult
 operator|.
@@ -2448,8 +2448,23 @@ name|internalHits
 argument_list|()
 operator|.
 name|length
-condition|)
-block|{
+operator|:
+literal|"not enough hits fetched. index ["
+operator|+
+name|index
+operator|+
+literal|"] length: "
+operator|+
+name|fetchResult
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|internalHits
+argument_list|()
+operator|.
+name|length
+assert|;
 name|SearchHit
 name|hit
 init|=
@@ -2461,7 +2476,7 @@ operator|.
 name|internalHits
 argument_list|()
 index|[
-name|fetchResultIndex
+name|index
 index|]
 decl_stmt|;
 name|CompletionSuggestion
@@ -2506,7 +2521,6 @@ argument_list|(
 name|hit
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|currentOffset
 operator|+=
@@ -2775,6 +2789,7 @@ operator|.
 name|fetchResult
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|index
 init|=
@@ -2783,8 +2798,7 @@ operator|.
 name|counterGetAndIncrement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|index
 operator|<
 name|fetchResult
@@ -2796,8 +2810,23 @@ name|internalHits
 argument_list|()
 operator|.
 name|length
-condition|)
-block|{
+operator|:
+literal|"not enough hits fetched. index ["
+operator|+
+name|index
+operator|+
+literal|"] length: "
+operator|+
+name|fetchResult
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|internalHits
+argument_list|()
+operator|.
+name|length
+assert|;
 name|SearchHit
 name|searchHit
 init|=
@@ -2894,7 +2923,6 @@ argument_list|(
 name|searchHit
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return

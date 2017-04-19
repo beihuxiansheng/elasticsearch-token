@@ -221,6 +221,8 @@ parameter_list|,
 name|float
 name|subQueryScore
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|leafFunction

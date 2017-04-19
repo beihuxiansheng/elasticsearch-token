@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SortedSetSortField
+name|SortedSetSelector
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SortedSetSelector
+name|SortedSetSortField
 import|;
 end_import
 
@@ -323,7 +323,7 @@ specifier|private
 specifier|final
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -350,7 +350,7 @@ name|breakerService
 parameter_list|,
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<

@@ -76,16 +76,6 @@ name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Integration tests to make sure the file-based discovery plugin works in a cluster.  */
 end_comment
@@ -130,7 +120,7 @@ argument_list|>
 name|parameters
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|ESClientYamlSuiteTestCase

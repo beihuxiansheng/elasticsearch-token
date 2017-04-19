@@ -363,7 +363,10 @@ argument_list|)
 expr_stmt|;
 name|indexed
 operator|=
-name|Definition
+name|locals
+operator|.
+name|getDefinition
+argument_list|()
 operator|.
 name|getType
 argument_list|(

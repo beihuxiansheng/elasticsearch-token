@@ -187,6 +187,9 @@ DECL|method|ScriptInterface
 specifier|public
 name|ScriptInterface
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -497,6 +500,8 @@ name|executeMethodReturnType
 operator|=
 name|definitionTypeForClass
 argument_list|(
+name|definition
+argument_list|,
 name|executeMethod
 operator|.
 name|getReturnType
@@ -621,6 +626,8 @@ name|add
 argument_list|(
 name|methodArgument
 argument_list|(
+name|definition
+argument_list|,
 name|types
 index|[
 name|arg
@@ -884,10 +891,12 @@ block|}
 block|}
 DECL|method|methodArgument
 specifier|private
-specifier|static
 name|MethodArgument
 name|methodArgument
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -905,6 +914,8 @@ name|defType
 init|=
 name|definitionTypeForClass
 argument_list|(
+name|definition
+argument_list|,
 name|type
 argument_list|,
 name|componentType
@@ -941,6 +952,9 @@ operator|.
 name|Type
 name|definitionTypeForClass
 parameter_list|(
+name|Definition
+name|definition
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -1024,7 +1038,7 @@ operator|.
 name|RuntimeClass
 name|runtimeClass
 init|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -1060,7 +1074,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(

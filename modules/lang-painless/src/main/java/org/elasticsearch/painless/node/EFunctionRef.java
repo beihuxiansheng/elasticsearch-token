@@ -289,7 +289,10 @@ literal|null
 expr_stmt|;
 name|actual
 operator|=
-name|Definition
+name|locals
+operator|.
+name|getDefinition
+argument_list|()
 operator|.
 name|getType
 argument_list|(
@@ -444,6 +447,11 @@ operator|=
 operator|new
 name|FunctionRef
 argument_list|(
+name|locals
+operator|.
+name|getDefinition
+argument_list|()
+argument_list|,
 name|expected
 argument_list|,
 name|type

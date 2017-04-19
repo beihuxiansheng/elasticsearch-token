@@ -146,7 +146,7 @@ specifier|public
 class|class
 name|IndexSearcherWrapper
 block|{
-comment|/**      * Wraps the given {@link DirectoryReader}. The wrapped reader can filter out document just like delete documents etc. but      * must not change any term or document content.      *<p>      * NOTE: The wrapper has a per-request lifecycle, must delegate {@link IndexReader#getCoreCacheKey()} and must be an instance      * of {@link FilterDirectoryReader} that eventually exposes the original reader via  {@link FilterDirectoryReader#getDelegate()}.      * The returned reader is closed once it goes out of scope.      *</p>      * @param reader The provided directory reader to be wrapped to add custom functionality      * @return a new directory reader wrapping the provided directory reader or if no wrapping was performed      *         the provided directory reader      */
+comment|/**      * Wraps the given {@link DirectoryReader}. The wrapped reader can filter out document just like delete documents etc. but      * must not change any term or document content.      *<p>      * NOTE: The wrapper has a per-request lifecycle, must delegate {@link IndexReader#getReaderCacheHelper()},      * {@link LeafReader#getCoreCacheHelper()} and must be an instance of {@link FilterDirectoryReader} that      * eventually exposes the original reader via  {@link FilterDirectoryReader#getDelegate()}.      * The returned reader is closed once it goes out of scope.      *</p>      * @param reader The provided directory reader to be wrapped to add custom functionality      * @return a new directory reader wrapping the provided directory reader or if no wrapping was performed      *         the provided directory reader      */
 DECL|method|wrap
 specifier|protected
 name|DirectoryReader
@@ -255,12 +255,12 @@ if|if
 condition|(
 name|reader
 operator|.
-name|getCoreCacheKey
+name|getReaderCacheHelper
 argument_list|()
 operator|!=
 name|elasticsearchDirectoryReader
 operator|.
-name|getCoreCacheKey
+name|getReaderCacheHelper
 argument_list|()
 condition|)
 block|{
@@ -519,16 +519,16 @@ comment|// don't close here - mimic the MultiReader#doClose = false behavior tha
 block|}
 annotation|@
 name|Override
-DECL|method|getCoreCacheKey
+DECL|method|getReaderCacheHelper
 specifier|public
-name|Object
-name|getCoreCacheKey
+name|CacheHelper
+name|getReaderCacheHelper
 parameter_list|()
 block|{
 return|return
 name|in
 operator|.
-name|getCoreCacheKey
+name|getReaderCacheHelper
 argument_list|()
 return|;
 block|}

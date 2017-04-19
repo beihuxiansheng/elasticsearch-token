@@ -371,21 +371,6 @@ condition|)
 block|{
 name|query
 operator|.
-name|disableCoord
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|query
-operator|.
 name|minimumShouldMatch
 argument_list|(
 name|randomMinimumShouldMatch
@@ -742,22 +727,6 @@ name|BooleanQuery
 operator|)
 name|query
 decl_stmt|;
-name|assertThat
-argument_list|(
-name|booleanQuery
-operator|.
-name|isCoordDisabled
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|queryBuilder
-operator|.
-name|disableCoord
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|queryBuilder
@@ -2225,11 +2194,6 @@ name|minimumShouldMatch
 argument_list|(
 literal|"3"
 argument_list|)
-operator|.
-name|disableCoord
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 operator|.
 name|toQuery
@@ -2347,8 +2311,6 @@ operator|+
 literal|"    }"
 operator|+
 literal|"  } ],"
-operator|+
-literal|"  \"disable_coord\" : false,"
 operator|+
 literal|"  \"adjust_pure_negative\" : true,"
 operator|+

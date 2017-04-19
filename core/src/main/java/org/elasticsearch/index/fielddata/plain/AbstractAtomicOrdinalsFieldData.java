@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -163,7 +163,7 @@ specifier|static
 specifier|final
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -176,7 +176,7 @@ operator|(
 operator|(
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|SortedBinaryDocValues
 argument_list|>
@@ -200,7 +200,7 @@ specifier|private
 specifier|final
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -215,7 +215,7 @@ name|AbstractAtomicOrdinalsFieldData
 parameter_list|(
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -325,7 +325,7 @@ block|{             }
 annotation|@
 name|Override
 specifier|public
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|getOrdinalsValues
 parameter_list|()
 block|{

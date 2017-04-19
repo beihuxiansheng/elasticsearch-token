@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReader
+name|IndexReader
 import|;
 end_import
 
@@ -41,8 +41,6 @@ operator|.
 name|index
 operator|.
 name|LeafReader
-operator|.
-name|CoreClosedListener
 import|;
 end_import
 
@@ -172,7 +170,9 @@ specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|,
 name|ShardId
 argument_list|>
@@ -187,7 +187,9 @@ name|String
 argument_list|,
 name|Set
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|>
 argument_list|>
 name|indexToCoreKey
@@ -251,12 +253,44 @@ argument_list|)
 throw|;
 block|}
 specifier|final
-name|Object
-name|coreKey
+name|IndexReader
+operator|.
+name|CacheHelper
+name|cacheHelper
 init|=
 name|reader
 operator|.
-name|getCoreCacheKey
+name|getCoreCacheHelper
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cacheHelper
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Reader "
+operator|+
+name|reader
+operator|+
+literal|" does not support caching"
+argument_list|)
+throw|;
+block|}
+specifier|final
+name|IndexReader
+operator|.
+name|CacheKey
+name|coreKey
+init|=
+name|cacheHelper
+operator|.
+name|getKey
 argument_list|()
 decl_stmt|;
 if|if
@@ -302,7 +336,9 @@ condition|)
 block|{
 name|Set
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|>
 name|objects
 init|=
@@ -351,7 +387,9 @@ decl_stmt|;
 assert|assert
 name|added
 assert|;
-name|CoreClosedListener
+name|IndexReader
+operator|.
+name|ClosedListener
 name|listener
 init|=
 name|ownerCoreCacheKey
@@ -379,7 +417,9 @@ expr_stmt|;
 specifier|final
 name|Set
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|>
 name|coreKeys
 init|=
@@ -430,9 +470,9 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-name|reader
+name|cacheHelper
 operator|.
-name|addCoreClosedListener
+name|addClosedListener
 argument_list|(
 name|listener
 argument_list|)
@@ -541,7 +581,9 @@ block|{
 specifier|final
 name|Set
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|>
 name|objects
 init|=
@@ -637,7 +679,9 @@ name|Collection
 argument_list|<
 name|Set
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|>
 argument_list|>
 name|values
@@ -656,7 +700,9 @@ for|for
 control|(
 name|Set
 argument_list|<
-name|Object
+name|IndexReader
+operator|.
+name|CacheKey
 argument_list|>
 name|value
 range|:

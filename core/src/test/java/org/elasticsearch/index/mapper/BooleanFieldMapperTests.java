@@ -765,11 +765,14 @@ argument_list|(
 name|values
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
 name|values
 operator|.
-name|setDocument
+name|advanceExact
 argument_list|(
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -778,7 +781,7 @@ literal|1
 argument_list|,
 name|values
 operator|.
-name|count
+name|docValueCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -788,10 +791,8 @@ literal|1
 argument_list|,
 name|values
 operator|.
-name|valueAt
-argument_list|(
-literal|0
-argument_list|)
+name|nextValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

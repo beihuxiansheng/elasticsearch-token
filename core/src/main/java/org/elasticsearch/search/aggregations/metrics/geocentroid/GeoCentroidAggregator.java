@@ -38,24 +38,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|geopoint
-operator|.
-name|document
-operator|.
-name|GeoPointField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -492,29 +474,25 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|values
 operator|.
-name|setDocument
+name|advanceExact
 argument_list|(
 name|doc
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
 specifier|final
 name|int
 name|valueCount
 init|=
 name|values
 operator|.
-name|count
+name|docValueCount
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|valueCount
-operator|>
-literal|0
-condition|)
-block|{
 name|double
 index|[]
 name|pt
@@ -546,7 +524,8 @@ argument_list|,
 name|valueCount
 argument_list|)
 expr_stmt|;
-comment|// get the previous GeoPoint if a moving avg was computed
+comment|// get the previous GeoPoint if a moving avg was
+comment|// computed
 if|if
 condition|(
 name|prevCounts
@@ -570,7 +549,7 @@ index|[
 literal|0
 index|]
 operator|=
-name|GeoPointField
+name|InternalGeoCentroid
 operator|.
 name|decodeLongitude
 argument_list|(
@@ -582,7 +561,7 @@ index|[
 literal|1
 index|]
 operator|=
-name|GeoPointField
+name|InternalGeoCentroid
 operator|.
 name|decodeLatitude
 argument_list|(
@@ -611,10 +590,8 @@ name|value
 init|=
 name|values
 operator|.
-name|valueAt
-argument_list|(
-name|i
-argument_list|)
+name|nextValue
+argument_list|()
 decl_stmt|;
 name|pt
 index|[
@@ -666,7 +643,8 @@ operator|/
 name|prevCounts
 expr_stmt|;
 block|}
-comment|// TODO: we do not need to interleave the lat and lon bits here
+comment|// TODO: we do not need to interleave the lat and lon
+comment|// bits here
 comment|// should we just store them contiguously?
 name|centroids
 operator|.
@@ -674,7 +652,7 @@ name|set
 argument_list|(
 name|bucket
 argument_list|,
-name|GeoPointField
+name|InternalGeoCentroid
 operator|.
 name|encodeLatLon
 argument_list|(
@@ -760,14 +738,14 @@ condition|?
 operator|new
 name|GeoPoint
 argument_list|(
-name|GeoPointField
+name|InternalGeoCentroid
 operator|.
 name|decodeLatitude
 argument_list|(
 name|mortonCode
 argument_list|)
 argument_list|,
-name|GeoPointField
+name|InternalGeoCentroid
 operator|.
 name|decodeLongitude
 argument_list|(

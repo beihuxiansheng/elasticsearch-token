@@ -2567,11 +2567,6 @@ name|lowFreqOccur
 argument_list|,
 name|maxTermFrequency
 argument_list|,
-name|bq
-operator|.
-name|isCoordDisabled
-argument_list|()
-argument_list|,
 name|fieldType
 argument_list|)
 decl_stmt|;

@@ -112,6 +112,16 @@ name|DefBootstrapTests
 extends|extends
 name|ESTestCase
 block|{
+DECL|field|definition
+specifier|private
+specifier|final
+name|Definition
+name|definition
+init|=
+name|Definition
+operator|.
+name|BUILTINS
+decl_stmt|;
 comment|/** calls toString() on integers, twice */
 DECL|method|testOneType
 specifier|public
@@ -128,6 +138,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -240,6 +252,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -413,6 +427,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -631,6 +647,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -946,6 +964,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -1035,6 +1055,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -1147,6 +1169,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -1255,6 +1279,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -1387,6 +1413,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup
@@ -1481,6 +1509,8 @@ name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
+name|definition
+argument_list|,
 name|MethodHandles
 operator|.
 name|publicLookup

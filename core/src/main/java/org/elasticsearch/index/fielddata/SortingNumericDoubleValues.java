@@ -76,6 +76,11 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+DECL|field|valuesCursor
+specifier|private
+name|int
+name|valuesCursor
+decl_stmt|;
 DECL|field|values
 specifier|protected
 name|double
@@ -100,6 +105,10 @@ name|double
 index|[
 literal|1
 index|]
+expr_stmt|;
+name|valuesCursor
+operator|=
+literal|0
 expr_stmt|;
 name|sorter
 operator|=
@@ -180,7 +189,7 @@ block|}
 block|}
 expr_stmt|;
 block|}
-comment|/**      * Set the {@link #count()} and ensure that the {@link #values} array can      * store at least that many entries.      */
+comment|/**      * Set the {@link #docValueCount()} and ensure that the {@link #values} array can      * store at least that many entries.      */
 DECL|method|resize
 specifier|protected
 specifier|final
@@ -206,8 +215,12 @@ argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
+name|valuesCursor
+operator|=
+literal|0
+expr_stmt|;
 block|}
-comment|/**      * Sort values that are stored between offsets<code>0</code> and      * {@link #count} of {@link #values}.      */
+comment|/**      * Sort values that are stored between offsets<code>0</code> and      * {@link #docValueCount} of {@link #values}.      */
 DECL|method|sort
 specifier|protected
 specifier|final
@@ -227,11 +240,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|count
+DECL|method|docValueCount
 specifier|public
 specifier|final
 name|int
-name|count
+name|docValueCount
 parameter_list|()
 block|{
 return|return
@@ -240,20 +253,18 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|valueAt
+DECL|method|nextValue
 specifier|public
 specifier|final
 name|double
-name|valueAt
-parameter_list|(
-name|int
-name|index
-parameter_list|)
+name|nextValue
+parameter_list|()
 block|{
 return|return
 name|values
 index|[
-name|index
+name|valuesCursor
+operator|++
 index|]
 return|;
 block|}

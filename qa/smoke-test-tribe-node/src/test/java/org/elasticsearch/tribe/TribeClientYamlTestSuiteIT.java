@@ -74,16 +74,6 @@ name|ESClientYamlSuiteTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_class
 DECL|class|TribeClientYamlTestSuiteIT
 specifier|public
@@ -127,7 +117,6 @@ name|Name
 argument_list|(
 literal|"yaml"
 argument_list|)
-specifier|final
 name|ClientYamlTestCandidate
 name|testCandidate
 parameter_list|)
@@ -151,7 +140,7 @@ argument_list|>
 name|parameters
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|createParameters

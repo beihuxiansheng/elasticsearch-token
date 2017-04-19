@@ -267,9 +267,7 @@ return|return
 name|FieldData
 operator|.
 name|emptySortedNumericDoubles
-argument_list|(
-name|maxDoc
-argument_list|)
+argument_list|()
 return|;
 block|}
 annotation|@

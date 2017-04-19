@@ -166,6 +166,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Definition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Globals
 import|;
 end_import
@@ -190,7 +202,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|ScriptInterface
+name|Operation
 import|;
 end_import
 
@@ -202,7 +214,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Operation
+name|ScriptInterface
 import|;
 end_import
 
@@ -2232,6 +2244,9 @@ parameter_list|,
 name|CompilerSettings
 name|settings
 parameter_list|,
+name|Definition
+name|definition
+parameter_list|,
 name|Printer
 name|debugStream
 parameter_list|)
@@ -2247,6 +2262,8 @@ argument_list|,
 name|sourceText
 argument_list|,
 name|settings
+argument_list|,
+name|definition
 argument_list|,
 name|debugStream
 argument_list|)
@@ -2290,6 +2307,12 @@ specifier|final
 name|String
 name|sourceText
 decl_stmt|;
+DECL|field|definition
+specifier|private
+specifier|final
+name|Definition
+name|definition
+decl_stmt|;
 DECL|field|reserved
 specifier|private
 specifier|final
@@ -2332,6 +2355,9 @@ name|sourceText
 parameter_list|,
 name|CompilerSettings
 name|settings
+parameter_list|,
+name|Definition
+name|definition
 parameter_list|,
 name|Printer
 name|debugStream
@@ -2393,6 +2419,12 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+name|this
+operator|.
 name|source
 operator|=
 operator|(
@@ -2434,6 +2466,8 @@ argument_list|(
 name|stream
 argument_list|,
 name|sourceName
+argument_list|,
+name|definition
 argument_list|)
 decl_stmt|;
 name|PainlessParser

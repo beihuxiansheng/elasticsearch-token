@@ -300,20 +300,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|uninverting
-operator|.
-name|UninvertingReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -2613,34 +2599,6 @@ name|MockBigArrays
 operator|.
 name|ensureAllArraysAreReleased
 argument_list|()
-expr_stmt|;
-comment|// field cache should NEVER get loaded.
-name|String
-index|[]
-name|entries
-init|=
-name|UninvertingReader
-operator|.
-name|getUninvertedStats
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"fieldcache must never be used, got="
-operator|+
-name|Arrays
-operator|.
-name|toString
-argument_list|(
-name|entries
-argument_list|)
-argument_list|,
-literal|0
-argument_list|,
-name|entries
-operator|.
-name|length
-argument_list|)
 expr_stmt|;
 comment|// ensure no one changed the status logger level on us
 name|assertThat

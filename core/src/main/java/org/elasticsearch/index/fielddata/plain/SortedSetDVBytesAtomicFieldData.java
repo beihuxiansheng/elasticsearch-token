@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -85,20 +85,6 @@ operator|.
 name|fielddata
 operator|.
 name|AtomicFieldData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|FieldData
 import|;
 end_import
 
@@ -194,7 +180,7 @@ name|field
 parameter_list|,
 name|Function
 argument_list|<
-name|RandomAccessOrds
+name|SortedSetDocValues
 argument_list|,
 name|ScriptDocValues
 argument_list|<
@@ -226,17 +212,13 @@ annotation|@
 name|Override
 DECL|method|getOrdinalsValues
 specifier|public
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|getOrdinalsValues
 parameter_list|()
 block|{
 try|try
 block|{
 return|return
-name|FieldData
-operator|.
-name|maybeSlowRandomAccessOrds
-argument_list|(
 name|DocValues
 operator|.
 name|getSortedSet
@@ -244,7 +226,6 @@ argument_list|(
 name|reader
 argument_list|,
 name|field
-argument_list|)
 argument_list|)
 return|;
 block|}

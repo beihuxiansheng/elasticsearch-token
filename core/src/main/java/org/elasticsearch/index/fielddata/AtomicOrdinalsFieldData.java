@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|AtomicFieldData
 block|{
 comment|/**      * Return the ordinals values for the current atomic reader.      */
 DECL|method|getOrdinalsValues
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|getOrdinalsValues
 parameter_list|()
 function_decl|;

@@ -958,8 +958,6 @@ literal|"          }\n"
 operator|+
 literal|"        } ],\n"
 operator|+
-literal|"        \"disable_coord\" : false,\n"
-operator|+
 literal|"        \"adjust_pure_negative\" : true,\n"
 operator|+
 literal|"        \"boost\" : 1.0\n"

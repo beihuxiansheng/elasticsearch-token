@@ -290,6 +290,16 @@ name|NodeToStringTests
 extends|extends
 name|ESTestCase
 block|{
+DECL|field|definition
+specifier|private
+specifier|final
+name|Definition
+name|definition
+init|=
+name|Definition
+operator|.
+name|BUILTINS
+decl_stmt|;
 DECL|method|testEAssignment
 specifier|public
 name|void
@@ -1782,7 +1792,7 @@ decl_stmt|;
 name|RuntimeClass
 name|c
 init|=
-name|Definition
+name|definition
 operator|.
 name|getRuntimeClass
 argument_list|(
@@ -2329,7 +2339,7 @@ decl_stmt|;
 name|Struct
 name|s
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -2426,7 +2436,7 @@ decl_stmt|;
 name|Struct
 name|s
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -2510,7 +2520,7 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -2604,7 +2614,7 @@ decl_stmt|;
 name|Struct
 name|s
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -2688,7 +2698,7 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -2782,7 +2792,7 @@ decl_stmt|;
 name|Struct
 name|s
 init|=
-name|Definition
+name|definition
 operator|.
 name|getType
 argument_list|(
@@ -3961,6 +3971,8 @@ init|=
 operator|new
 name|ScriptInterface
 argument_list|(
+name|definition
+argument_list|,
 name|GenericElasticsearchScript
 operator|.
 name|class
@@ -3995,6 +4007,8 @@ argument_list|,
 name|code
 argument_list|,
 name|compilerSettings
+argument_list|,
+name|definition
 argument_list|,
 literal|null
 argument_list|)

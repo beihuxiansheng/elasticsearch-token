@@ -686,6 +686,8 @@ name|collector
 operator|.
 name|needsScores
 argument_list|()
+argument_list|,
+literal|1f
 argument_list|)
 decl_stmt|;
 for|for

@@ -83,18 +83,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|PatternSyntaxException
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -103,18 +91,6 @@ operator|.
 name|Collections
 operator|.
 name|singletonMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
 import|;
 end_import
 
@@ -1340,34 +1316,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// And make sure the location of the error points to the offset inside the pattern
-name|assertEquals
+name|assertScriptStack
 argument_list|(
+name|e
+argument_list|,
 literal|"/\\ujjjj/"
 argument_list|,
-name|e
-operator|.
-name|getScriptStack
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"   ^---- HERE"
-argument_list|,
-name|e
-operator|.
-name|getScriptStack
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

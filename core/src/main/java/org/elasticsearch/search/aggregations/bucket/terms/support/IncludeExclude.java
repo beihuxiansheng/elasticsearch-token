@@ -68,20 +68,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|SortedSetDocValues
 import|;
 end_import
@@ -1498,7 +1484,7 @@ specifier|abstract
 name|LongBitSet
 name|acceptedGlobalOrdinals
 parameter_list|(
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|globalOrdinals
 parameter_list|)
 throws|throws
@@ -1518,7 +1504,7 @@ specifier|public
 name|LongBitSet
 name|acceptedGlobalOrdinals
 parameter_list|(
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|globalOrdinals
 parameter_list|)
 throws|throws
@@ -1652,7 +1638,7 @@ specifier|public
 name|LongBitSet
 name|acceptedGlobalOrdinals
 parameter_list|(
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|globalOrdinals
 parameter_list|)
 throws|throws
@@ -1791,7 +1777,7 @@ specifier|public
 name|LongBitSet
 name|acceptedGlobalOrdinals
 parameter_list|(
-name|RandomAccessOrds
+name|SortedSetDocValues
 name|globalOrdinals
 parameter_list|)
 throws|throws

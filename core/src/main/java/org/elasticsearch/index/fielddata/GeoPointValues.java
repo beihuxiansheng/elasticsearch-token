@@ -30,6 +30,16 @@ name|GeoPoint
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Per-document geo-point values.  */
 end_comment
@@ -41,16 +51,26 @@ specifier|abstract
 class|class
 name|GeoPointValues
 block|{
-comment|/**      * Get the {@link GeoPoint} associated with<code>docID</code>.      * The returned {@link GeoPoint} might be reused across calls.      * If the given<code>docID</code> does not have a value then the returned      * geo point mught have both latitude and longitude set to 0.      */
-DECL|method|get
+comment|/**      * Advance this instance to the given document id      * @return true if there is a value for this document      */
+DECL|method|advanceExact
+specifier|public
+specifier|abstract
+name|boolean
+name|advanceExact
+parameter_list|(
+name|int
+name|doc
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Get the {@link GeoPoint} associated with the current document.      * The returned {@link GeoPoint} might be reused across calls.      */
+DECL|method|geoPointValue
 specifier|public
 specifier|abstract
 name|GeoPoint
-name|get
-parameter_list|(
-name|int
-name|docID
-parameter_list|)
+name|geoPointValue
+parameter_list|()
 function_decl|;
 block|}
 end_class

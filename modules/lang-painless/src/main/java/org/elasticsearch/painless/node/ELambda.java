@@ -840,7 +840,12 @@ expr_stmt|;
 name|desugared
 operator|.
 name|generateSignature
+argument_list|(
+name|locals
+operator|.
+name|getDefinition
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|desugared
 operator|.
@@ -887,7 +892,10 @@ literal|null
 expr_stmt|;
 name|actual
 operator|=
-name|Definition
+name|locals
+operator|.
+name|getDefinition
+argument_list|()
 operator|.
 name|getType
 argument_list|(
