@@ -98,6 +98,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|AnalysisPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -139,14 +151,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|java
 operator|.
 name|util
 operator|.
-name|Collections
-operator|.
-name|emptyList
+name|Arrays
 import|;
 end_import
 
@@ -230,6 +240,10 @@ name|createTestAnalysisFromSettings
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|AnalysisPlugin
+modifier|...
+name|plugins
 parameter_list|)
 throws|throws
 name|IOException
@@ -299,8 +313,12 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|,
-name|emptyList
-argument_list|()
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|plugins
+argument_list|)
 argument_list|)
 operator|.
 name|getAnalysisRegistry

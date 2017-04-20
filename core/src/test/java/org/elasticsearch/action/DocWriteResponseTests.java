@@ -229,6 +229,8 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 argument_list|,
+literal|17
+argument_list|,
 literal|0
 argument_list|,
 name|Result
@@ -293,6 +295,8 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 argument_list|,
+literal|17
+argument_list|,
 literal|0
 argument_list|,
 name|Result
@@ -356,6 +360,8 @@ argument_list|,
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
+argument_list|,
+literal|17
 argument_list|,
 literal|0
 argument_list|,
@@ -422,6 +428,8 @@ argument_list|,
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
+argument_list|,
+literal|17
 argument_list|,
 literal|0
 argument_list|,

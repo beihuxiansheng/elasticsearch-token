@@ -1069,6 +1069,8 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 argument_list|,
+literal|0
+argument_list|,
 name|version
 argument_list|,
 name|created
@@ -1270,6 +1272,10 @@ operator|+
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
+operator|+
+literal|",primaryTerm="
+operator|+
+literal|0
 operator|+
 literal|",shards={\"total\":"
 operator|+

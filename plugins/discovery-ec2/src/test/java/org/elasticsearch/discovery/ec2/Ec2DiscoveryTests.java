@@ -48,22 +48,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|ec2
-operator|.
-name|AwsEc2Service
-operator|.
-name|DISCOVERY_EC2
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|node
@@ -797,7 +781,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -939,7 +923,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -1092,7 +1076,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -1256,7 +1240,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -1367,7 +1351,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -1444,7 +1428,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|TAG_SETTING
 operator|.
@@ -1616,7 +1600,7 @@ argument_list|()
 operator|.
 name|putArray
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|TAG_SETTING
 operator|.
@@ -1900,7 +1884,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|HOST_TYPE_SETTING
 operator|.
@@ -2204,7 +2188,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DISCOVERY_EC2
+name|AwsEc2Service
 operator|.
 name|NODE_CACHE_TIME_SETTING
 operator|.

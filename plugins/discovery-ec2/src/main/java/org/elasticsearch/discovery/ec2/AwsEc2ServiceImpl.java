@@ -388,8 +388,6 @@ init|(
 name|SecureString
 name|key
 init|=
-name|DISCOVERY_EC2
-operator|.
 name|ACCESS_KEY_SETTING
 operator|.
 name|get
@@ -400,8 +398,6 @@ init|;
 name|SecureString
 name|secret
 operator|=
-name|DISCOVERY_EC2
-operator|.
 name|SECRET_KEY_SETTING
 operator|.
 name|get
@@ -509,8 +505,6 @@ name|clientConfiguration
 operator|.
 name|setProtocol
 argument_list|(
-name|DISCOVERY_EC2
-operator|.
 name|PROTOCOL_SETTING
 operator|.
 name|get
@@ -527,22 +521,11 @@ name|exists
 argument_list|(
 name|settings
 argument_list|)
-operator|||
-name|DISCOVERY_EC2
-operator|.
-name|PROXY_HOST_SETTING
-operator|.
-name|exists
-argument_list|(
-name|settings
-argument_list|)
 condition|)
 block|{
 name|String
 name|proxyHost
 init|=
-name|DISCOVERY_EC2
-operator|.
 name|PROXY_HOST_SETTING
 operator|.
 name|get
@@ -553,8 +536,6 @@ decl_stmt|;
 name|Integer
 name|proxyPort
 init|=
-name|DISCOVERY_EC2
-operator|.
 name|PROXY_PORT_SETTING
 operator|.
 name|get
@@ -567,15 +548,13 @@ init|(
 name|SecureString
 name|proxyUsername
 init|=
-name|DISCOVERY_EC2
-operator|.
 name|PROXY_USERNAME_SETTING
 operator|.
 name|get
 argument_list|(
 name|settings
 argument_list|)
-init|;                  SecureString proxyPassword = DISCOVERY_EC2.PROXY_PASSWORD_SETTING.get(settings)
+init|;                  SecureString proxyPassword = PROXY_PASSWORD_SETTING.get(settings)
 block|)
 block|{
 name|clientConfiguration
@@ -714,8 +693,6 @@ argument_list|(
 operator|(
 name|int
 operator|)
-name|DISCOVERY_EC2
-operator|.
 name|READ_TIMEOUT_SETTING
 operator|.
 name|get
@@ -754,17 +731,6 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|DISCOVERY_EC2
-operator|.
-name|ENDPOINT_SETTING
-operator|.
-name|exists
-argument_list|(
-name|settings
-argument_list|)
-operator|||
-name|CLOUD_EC2
-operator|.
 name|ENDPOINT_SETTING
 operator|.
 name|exists
@@ -775,8 +741,6 @@ condition|)
 block|{
 name|endpoint
 operator|=
-name|DISCOVERY_EC2
-operator|.
 name|ENDPOINT_SETTING
 operator|.
 name|get

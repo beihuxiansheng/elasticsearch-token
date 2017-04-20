@@ -151,6 +151,9 @@ name|long
 name|seqNo
 parameter_list|,
 name|long
+name|primaryTerm
+parameter_list|,
+name|long
 name|version
 parameter_list|,
 name|boolean
@@ -166,6 +169,8 @@ argument_list|,
 name|id
 argument_list|,
 name|seqNo
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|version
 argument_list|,
@@ -561,6 +566,8 @@ argument_list|,
 name|id
 argument_list|,
 name|seqNo
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|version
 argument_list|,
