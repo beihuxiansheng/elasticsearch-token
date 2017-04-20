@@ -212,6 +212,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|insertionOrder
 specifier|private
+specifier|final
 name|AtomicLong
 name|insertionOrder
 init|=
@@ -221,6 +222,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|current
 specifier|private
+specifier|final
 name|Queue
 argument_list|<
 name|Runnable
@@ -231,6 +233,12 @@ name|ConcurrentCollections
 operator|.
 name|newQueue
 argument_list|()
+decl_stmt|;
+DECL|field|timer
+specifier|private
+specifier|final
+name|ScheduledExecutorService
+name|timer
 decl_stmt|;
 DECL|method|PrioritizedEsThreadPoolExecutor
 name|PrioritizedEsThreadPoolExecutor
@@ -255,6 +263,9 @@ name|threadFactory
 parameter_list|,
 name|ThreadContext
 name|contextHolder
+parameter_list|,
+name|ScheduledExecutorService
+name|timer
 parameter_list|)
 block|{
 name|super
@@ -278,6 +289,12 @@ name|threadFactory
 argument_list|,
 name|contextHolder
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|timer
+operator|=
+name|timer
 expr_stmt|;
 block|}
 DECL|method|getPending
@@ -653,10 +670,6 @@ name|execute
 parameter_list|(
 name|Runnable
 name|command
-parameter_list|,
-specifier|final
-name|ScheduledExecutorService
-name|timer
 parameter_list|,
 specifier|final
 name|TimeValue
