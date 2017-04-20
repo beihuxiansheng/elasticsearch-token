@@ -27,7 +27,7 @@ specifier|abstract
 class|class
 name|ParsedPercentileRanks
 extends|extends
-name|AbstractParsedPercentiles
+name|ParsedPercentiles
 implements|implements
 name|PercentileRanks
 block|{

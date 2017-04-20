@@ -64,7 +64,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|AbstractParsedPercentiles
+name|ParsedPercentiles
 import|;
 end_import
 
@@ -256,7 +256,7 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-name|AbstractParsedPercentiles
+name|ParsedPercentiles
 operator|.
 name|declarePercentilesFields
 argument_list|(

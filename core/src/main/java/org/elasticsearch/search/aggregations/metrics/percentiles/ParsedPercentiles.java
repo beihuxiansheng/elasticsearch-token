@@ -139,11 +139,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractParsedPercentiles
+DECL|class|ParsedPercentiles
 specifier|public
 specifier|abstract
 class|class
-name|AbstractParsedPercentiles
+name|ParsedPercentiles
 extends|extends
 name|ParsedAggregation
 implements|implements
@@ -232,6 +232,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getPercentile
+specifier|protected
 name|Double
 name|getPercentile
 parameter_list|(
@@ -263,6 +264,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getPercentileAsString
+specifier|protected
 name|String
 name|getPercentileAsString
 parameter_list|(
@@ -675,7 +677,7 @@ name|ObjectParser
 argument_list|<
 name|?
 extends|extends
-name|AbstractParsedPercentiles
+name|ParsedPercentiles
 argument_list|,
 name|Void
 argument_list|>
