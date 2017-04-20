@@ -150,6 +150,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ThreadFactory
 import|;
 end_import
@@ -277,6 +289,9 @@ name|threadFactory
 parameter_list|,
 name|ThreadContext
 name|contextHolder
+parameter_list|,
+name|ScheduledExecutorService
+name|timer
 parameter_list|)
 block|{
 return|return
@@ -298,6 +313,8 @@ argument_list|,
 name|threadFactory
 argument_list|,
 name|contextHolder
+argument_list|,
+name|timer
 argument_list|)
 return|;
 block|}
