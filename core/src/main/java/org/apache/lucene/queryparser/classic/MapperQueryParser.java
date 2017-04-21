@@ -5222,10 +5222,7 @@ operator|.
 name|emptyList
 argument_list|()
 else|:
-name|settings
-operator|.
 name|fieldsAndWeights
-argument_list|()
 operator|.
 name|keySet
 argument_list|()
