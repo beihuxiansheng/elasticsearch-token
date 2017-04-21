@@ -1358,6 +1358,30 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|searchAnalyzer
+argument_list|()
+operator|==
+name|Lucene
+operator|.
+name|KEYWORD_ANALYZER
+condition|)
+block|{
+comment|// keyword analyzer with the default attribute source which encodes terms using UTF8
+comment|// in that case we skip normalization, which may be slow if there many terms need to
+comment|// parse (eg. large terms query) since Analyzer.normalize involves things like creating
+comment|// attributes through reflection
+comment|// This if statement will be used whenever a normalizer is NOT configured
+return|return
+name|super
+operator|.
+name|indexedValueForSearch
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
 name|value
 operator|==
 literal|null

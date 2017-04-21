@@ -5666,6 +5666,25 @@ name|lenient
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|fieldsAndWeights
+operator|.
+name|isEmpty
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|resolvedFields
+operator|.
+name|isEmpty
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// We set the fields and weight only if we have explicit fields to query
+comment|// Otherwise we set it to null and fallback to the default field.
 name|qpSettings
 operator|.
 name|fieldsAndWeights
@@ -5673,6 +5692,7 @@ argument_list|(
 name|resolvedFields
 argument_list|)
 expr_stmt|;
+block|}
 name|qpSettings
 operator|.
 name|defaultOperator

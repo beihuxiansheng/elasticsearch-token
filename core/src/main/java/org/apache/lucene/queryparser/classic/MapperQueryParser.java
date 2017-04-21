@@ -531,6 +531,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -679,11 +689,11 @@ name|settings
 operator|.
 name|fieldsAndWeights
 argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
+comment|// this query has no explicit fields to query so we fallback to the default field
 name|this
 operator|.
 name|field
@@ -1043,6 +1053,26 @@ argument_list|,
 name|queryText
 argument_list|,
 name|quoted
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|fields
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// the requested fields do not match any field in the mapping
+comment|// happens for wildcard fields only since we cannot expand to a valid field name
+comment|// if there is no match in the mappings.
+return|return
+operator|new
+name|MatchNoDocsQuery
+argument_list|(
+literal|"empty fields"
 argument_list|)
 return|;
 block|}
@@ -4768,6 +4798,15 @@ name|settings
 operator|.
 name|fieldsAndWeights
 argument_list|()
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|settings
+operator|.
+name|fieldsAndWeights
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -5159,12 +5198,31 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|fields
-operator|=
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Float
+argument_list|>
+name|fieldsAndWeights
+init|=
 name|settings
 operator|.
 name|fieldsAndWeights
 argument_list|()
+decl_stmt|;
+name|fields
+operator|=
+name|fieldsAndWeights
+operator|==
+literal|null
+condition|?
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+else|:
+name|fieldsAndWeights
 operator|.
 name|keySet
 argument_list|()
