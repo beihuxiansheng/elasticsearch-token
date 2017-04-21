@@ -513,6 +513,21 @@ name|TieBreakingPrioritizedRunnable
 operator|)
 name|runnable
 decl_stmt|;
+name|Runnable
+name|innerRunnable
+init|=
+name|t
+operator|.
+name|runnable
+decl_stmt|;
+if|if
+condition|(
+name|innerRunnable
+operator|!=
+literal|null
+condition|)
+block|{
+comment|/** innerRunnable can be null if task is finished but not removed from executor yet,                      * see {@link TieBreakingPrioritizedRunnable#run} and {@link TieBreakingPrioritizedRunnable#runAndClean}                      */
 name|pending
 operator|.
 name|add
@@ -522,9 +537,7 @@ name|Pending
 argument_list|(
 name|unwrap
 argument_list|(
-name|t
-operator|.
-name|runnable
+name|innerRunnable
 argument_list|)
 argument_list|,
 name|t
@@ -540,6 +553,7 @@ name|executing
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
