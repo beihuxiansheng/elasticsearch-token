@@ -3515,12 +3515,6 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
-name|SourceToParse
-operator|.
-name|Origin
-operator|.
-name|REPLICA
-argument_list|,
 name|shardId
 operator|.
 name|getIndexName
@@ -3632,12 +3626,6 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
-name|SourceToParse
-operator|.
-name|Origin
-operator|.
-name|PRIMARY
-argument_list|,
 name|request
 operator|.
 name|index

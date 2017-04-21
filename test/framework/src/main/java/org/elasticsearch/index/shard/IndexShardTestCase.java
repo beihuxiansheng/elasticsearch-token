@@ -3044,12 +3044,6 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
-name|SourceToParse
-operator|.
-name|Origin
-operator|.
-name|PRIMARY
-argument_list|,
 name|shard
 operator|.
 name|shardId
@@ -3099,12 +3093,6 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
-name|SourceToParse
-operator|.
-name|Origin
-operator|.
-name|PRIMARY
-argument_list|,
 name|shard
 operator|.
 name|shardId
