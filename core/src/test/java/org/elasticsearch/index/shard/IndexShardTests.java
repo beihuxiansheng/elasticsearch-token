@@ -9810,9 +9810,6 @@ block|{             }
 argument_list|)
 block|{
 block|@Override                 public void prepareForTranslogOperations(int totalTranslogOps
-argument_list|,
-name|long
-name|maxUnsafeAutoIdTimestamp
 argument_list|)
 throws|throws
 name|IOException
@@ -9822,8 +9819,6 @@ operator|.
 name|prepareForTranslogOperations
 argument_list|(
 name|totalTranslogOps
-argument_list|,
-name|maxUnsafeAutoIdTimestamp
 argument_list|)
 expr_stmt|;
 comment|// Shard is still inactive since we haven't started recovering yet

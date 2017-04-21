@@ -3530,10 +3530,6 @@ argument_list|(
 name|final
 name|int
 name|totalTranslogOps
-argument_list|,
-name|final
-name|long
-name|maxUnsafeAutoIdTimestamp
 argument_list|)
 throws|throws
 name|IOException
@@ -4117,10 +4113,6 @@ parameter_list|(
 specifier|final
 name|int
 name|totalTranslogOps
-parameter_list|,
-specifier|final
-name|long
-name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException

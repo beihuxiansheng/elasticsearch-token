@@ -2615,11 +2615,6 @@ name|request
 operator|.
 name|totalTranslogOps
 argument_list|()
-argument_list|,
-name|request
-operator|.
-name|getMaxUnsafeAutoIdTimestamp
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
