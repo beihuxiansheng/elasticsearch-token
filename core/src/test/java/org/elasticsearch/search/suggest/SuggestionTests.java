@@ -1092,7 +1092,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Cannot parse suggestion response without type information. "
+literal|"Cannot parse object of class [Suggestion] without type information. "
 operator|+
 literal|"Set [typed_keys] parameter on the request to ensure the type information "
 operator|+
