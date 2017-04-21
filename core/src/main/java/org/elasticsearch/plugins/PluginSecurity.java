@@ -56,18 +56,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|env
-operator|.
-name|Environment
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io

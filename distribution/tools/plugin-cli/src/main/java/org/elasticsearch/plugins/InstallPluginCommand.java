@@ -104,7 +104,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|ExitCodes
+name|EnvironmentAwareCommand
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|EnvironmentAwareCommand
+name|ExitCodes
 import|;
 end_import
 
