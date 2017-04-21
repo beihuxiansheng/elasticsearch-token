@@ -26,22 +26,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Writeable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|Comparators
@@ -150,8 +134,6 @@ extends|extends
 name|HasAggregations
 extends|,
 name|ToXContent
-extends|,
-name|Writeable
 block|{
 comment|/**          * @return The key associated with the bucket          */
 DECL|method|getKey
