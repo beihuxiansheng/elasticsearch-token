@@ -193,6 +193,30 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -519,20 +543,38 @@ name|pluginName
 argument_list|)
 decl_stmt|;
 comment|/*          * Add the contents of the plugin directory before creating the marker file and adding it to the list of paths to be deleted so          * that the marker file is the last file to be deleted.          */
+try|try
+init|(
+name|Stream
+argument_list|<
+name|Path
+argument_list|>
+name|paths
+init|=
 name|Files
 operator|.
 name|list
 argument_list|(
 name|pluginDir
 argument_list|)
-operator|.
-name|forEach
-argument_list|(
+init|)
+block|{
 name|pluginPaths
-operator|::
-name|add
+operator|.
+name|addAll
+argument_list|(
+name|paths
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|Files
@@ -573,6 +615,14 @@ argument_list|(
 name|removing
 argument_list|)
 expr_stmt|;
+comment|// finally, add the plugin directory
+name|pluginPaths
+operator|.
+name|add
+argument_list|(
+name|pluginDir
+argument_list|)
+expr_stmt|;
 name|IOUtils
 operator|.
 name|rm
@@ -590,14 +640,6 @@ name|size
 argument_list|()
 index|]
 argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// at this point, the plugin directory is empty and we can execute a simple directory removal
-name|Files
-operator|.
-name|delete
-argument_list|(
-name|pluginDir
 argument_list|)
 expr_stmt|;
 comment|/*          * We preserve the config files in case the user is upgrading the plugin, but we print a          * message so the user knows in case they want to remove manually.          */
