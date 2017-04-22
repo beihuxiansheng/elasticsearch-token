@@ -1901,24 +1901,6 @@ operator|.
 name|run
 argument_list|()
 expr_stmt|;
-comment|// we need to unwrap the ctx...
-name|ctx
-operator|=
-operator|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-operator|)
-name|executableScript
-operator|.
-name|unwrap
-argument_list|(
-name|ctx
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 catch|catch

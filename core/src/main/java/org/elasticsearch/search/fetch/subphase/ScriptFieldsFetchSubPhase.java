@@ -239,13 +239,8 @@ name|value
 operator|=
 name|leafScript
 operator|.
-name|unwrap
-argument_list|(
-name|leafScript
-operator|.
 name|run
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 catch|catch
