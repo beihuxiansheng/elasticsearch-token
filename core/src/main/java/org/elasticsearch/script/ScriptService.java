@@ -3003,36 +3003,6 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Compiles (or retrieves from cache) and executes the provided script      */
-DECL|method|executable
-specifier|public
-name|ExecutableScript
-name|executable
-parameter_list|(
-name|Script
-name|script
-parameter_list|,
-name|ScriptContext
-name|scriptContext
-parameter_list|)
-block|{
-return|return
-name|executable
-argument_list|(
-name|compile
-argument_list|(
-name|script
-argument_list|,
-name|scriptContext
-argument_list|)
-argument_list|,
-name|script
-operator|.
-name|getParams
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/**      * Executes a previously compiled script provided as an argument      */
 DECL|method|executable
 specifier|public
