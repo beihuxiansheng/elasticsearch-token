@@ -477,19 +477,42 @@ operator|==
 literal|null
 condition|)
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|keys
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|contextNameMap
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|keys
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown context name["
+literal|"Unknown context name ["
 operator|+
 name|name
 operator|+
 literal|"], must be one of "
 operator|+
-name|contextNameMap
+name|keys
 operator|.
-name|size
+name|toString
 argument_list|()
 argument_list|)
 throw|;
