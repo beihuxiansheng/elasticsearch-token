@@ -68,6 +68,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|CompiledScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -254,7 +266,7 @@ name|executable
 argument_list|(
 name|any
 argument_list|(
-name|Script
+name|CompiledScript
 operator|.
 name|class
 argument_list|)

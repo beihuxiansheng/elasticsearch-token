@@ -271,12 +271,6 @@ name|SourceToParse
 operator|.
 name|source
 argument_list|(
-name|SourceToParse
-operator|.
-name|Origin
-operator|.
-name|REPLICA
-argument_list|,
 name|index
 argument_list|,
 literal|"type"

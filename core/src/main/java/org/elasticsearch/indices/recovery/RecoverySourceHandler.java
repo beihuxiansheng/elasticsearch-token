@@ -1068,16 +1068,6 @@ name|translogView
 operator|.
 name|totalOperations
 argument_list|()
-argument_list|,
-name|shard
-operator|.
-name|segmentStats
-argument_list|(
-literal|false
-argument_list|)
-operator|.
-name|getMaxUnsafeAutoIdTimestamp
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2407,10 +2397,6 @@ parameter_list|(
 specifier|final
 name|int
 name|totalTranslogOps
-parameter_list|,
-specifier|final
-name|long
-name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException
@@ -2457,8 +2443,6 @@ operator|.
 name|prepareForTranslogOperations
 argument_list|(
 name|totalTranslogOps
-argument_list|,
-name|maxUnsafeAutoIdTimestamp
 argument_list|)
 argument_list|)
 expr_stmt|;

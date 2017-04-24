@@ -6709,6 +6709,19 @@ name|void
 name|deactivateThrottling
 parameter_list|()
 function_decl|;
+comment|/**      * Fills up the local checkpoints history with no-ops until the local checkpoint      * and the max seen sequence ID are identical.      * @param primaryTerm the shards primary term this engine was created for      * @return the number of no-ops added      */
+DECL|method|fillSequenceNumberHistory
+specifier|public
+specifier|abstract
+name|int
+name|fillSequenceNumberHistory
+parameter_list|(
+name|long
+name|primaryTerm
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Performs recovery from the transaction log.      * This operation will close the engine if the recovery fails.      */
 DECL|method|recoverFromTranslog
 specifier|public

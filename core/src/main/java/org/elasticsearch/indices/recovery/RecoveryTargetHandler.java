@@ -98,16 +98,13 @@ specifier|public
 interface|interface
 name|RecoveryTargetHandler
 block|{
-comment|/**      * Prepares the target to receive translog operations, after all file have been copied      *      * @param totalTranslogOps total translog operations expected to be sent      * @param maxUnsafeAutoIdTimestamp the max timestamp that is used to de-optimize documents with auto-generated IDs in the engine.      * This is used to ensure we don't add duplicate documents when we assume an append only case based on auto-generated IDs      */
+comment|/**      * Prepares the target to receive translog operations, after all file have been copied      *      * @param totalTranslogOps total translog operations expected to be sent      */
 DECL|method|prepareForTranslogOperations
 name|void
 name|prepareForTranslogOperations
 parameter_list|(
 name|int
 name|totalTranslogOps
-parameter_list|,
-name|long
-name|maxUnsafeAutoIdTimestamp
 parameter_list|)
 throws|throws
 name|IOException
