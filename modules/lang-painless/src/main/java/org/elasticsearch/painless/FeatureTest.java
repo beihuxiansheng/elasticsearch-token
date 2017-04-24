@@ -16,6 +16,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|function
 operator|.
 name|Function
@@ -197,6 +207,18 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|listInput
+specifier|public
+name|void
+name|listInput
+parameter_list|(
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|list
+parameter_list|)
+block|{      }
 block|}
 end_class
 

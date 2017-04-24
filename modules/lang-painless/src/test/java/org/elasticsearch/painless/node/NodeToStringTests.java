@@ -1122,7 +1122,7 @@ name|assertToString
 argument_list|(
 literal|"(SSource (SReturn (PCallInvoke (PCallInvoke (PCallInvoke (EListInit (ENumeric 1) (ENumeric 2) (ENumeric 3)) stream) "
 operator|+
-literal|"mapToInt (Args (ELambda (Pair def x)\n"
+literal|"mapToInt (Args (ELambda (Pair null x)\n"
 operator|+
 literal|"  (SReturn (EBinary (EVariable x) + (ENumeric 1)))))) sum)))"
 argument_list|,
@@ -1144,7 +1144,7 @@ argument_list|)
 expr_stmt|;
 name|assertToString
 argument_list|(
-literal|"(SSource (SReturn (PCallInvoke (EListInit (EString 'a') (EString 'b')) sort (Args (ELambda (Pair def a) (Pair def b)\n"
+literal|"(SSource (SReturn (PCallInvoke (EListInit (EString 'a') (EString 'b')) sort (Args (ELambda (Pair null a) (Pair null b)\n"
 operator|+
 literal|"  (SReturn (EBinary (PCallInvoke (EVariable a) length) - (PCallInvoke (EVariable b) length))))))))"
 argument_list|,
