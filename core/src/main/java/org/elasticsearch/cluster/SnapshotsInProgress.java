@@ -1164,8 +1164,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|// package private for testing
 DECL|method|findWaitingIndices
-specifier|private
 name|ImmutableOpenMap
 argument_list|<
 name|String
@@ -1229,6 +1229,17 @@ operator|.
 name|WAITING
 condition|)
 block|{
+specifier|final
+name|String
+name|indexName
+init|=
+name|entry
+operator|.
+name|key
+operator|.
+name|getIndexName
+argument_list|()
+decl_stmt|;
 name|List
 argument_list|<
 name|ShardId
@@ -1239,12 +1250,7 @@ name|waitingIndicesMap
 operator|.
 name|get
 argument_list|(
-name|entry
-operator|.
-name|key
-operator|.
-name|getIndex
-argument_list|()
+name|indexName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1265,12 +1271,7 @@ name|waitingIndicesMap
 operator|.
 name|put
 argument_list|(
-name|entry
-operator|.
-name|key
-operator|.
-name|getIndexName
-argument_list|()
+name|indexName
 argument_list|,
 name|waitingShards
 argument_list|)
