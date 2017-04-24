@@ -232,7 +232,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|ToXContentObject
 import|;
 end_import
 
@@ -385,7 +385,7 @@ argument_list|>
 implements|implements
 name|Writeable
 implements|,
-name|ToXContent
+name|ToXContentObject
 block|{
 comment|/**      * Standard {@link ParseField} for outer level of stored script source.      */
 DECL|field|SCRIPT_PARSE_FIELD
@@ -1692,18 +1692,6 @@ argument_list|()
 expr_stmt|;
 return|return
 name|builder
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isFragment
-specifier|public
-name|boolean
-name|isFragment
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 comment|/**      * @return The language used for compiling this script.      */
