@@ -80,12 +80,6 @@ name|double
 name|getSum
 parameter_list|()
 function_decl|;
-comment|/**      * @return The number of values that were aggregated as a String.      */
-DECL|method|getCountAsString
-name|String
-name|getCountAsString
-parameter_list|()
-function_decl|;
 comment|/**      * @return The minimum value of all aggregated values as a String.      */
 DECL|method|getMinAsString
 name|String
