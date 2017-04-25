@@ -267,7 +267,7 @@ parameter_list|,
 name|context
 parameter_list|)
 lambda|->
-name|parseValue
+name|parseDouble
 argument_list|(
 name|parser
 argument_list|,

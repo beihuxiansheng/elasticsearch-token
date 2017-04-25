@@ -925,10 +925,10 @@ decl_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|otherStatsToXCotent
+DECL|method|otherStatsToXContent
 specifier|protected
 name|XContentBuilder
-name|otherStatsToXCotent
+name|otherStatsToXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
