@@ -352,7 +352,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|EnumSet
 import|;
 end_import
 
@@ -738,13 +738,9 @@ name|Collections
 operator|.
 name|unmodifiableSet
 argument_list|(
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|(
-name|Arrays
+name|EnumSet
 operator|.
-name|asList
+name|of
 argument_list|(
 name|DiscoveryNode
 operator|.
@@ -757,7 +753,6 @@ operator|.
 name|Role
 operator|.
 name|DATA
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
