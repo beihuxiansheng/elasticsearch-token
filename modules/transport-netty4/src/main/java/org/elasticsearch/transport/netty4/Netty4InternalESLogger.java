@@ -689,7 +689,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|equals
+name|error
 argument_list|(
 name|msg
 argument_list|)
