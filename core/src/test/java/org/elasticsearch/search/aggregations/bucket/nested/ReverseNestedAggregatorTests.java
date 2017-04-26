@@ -464,7 +464,7 @@ name|newSearcher
 argument_list|(
 name|indexReader
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 literal|true
 argument_list|)
@@ -947,7 +947,7 @@ name|newSearcher
 argument_list|(
 name|indexReader
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 literal|true
 argument_list|)
