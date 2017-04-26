@@ -1053,15 +1053,41 @@ operator|=
 name|readByte
 argument_list|()
 expr_stmt|;
-assert|assert
+if|if
+condition|(
 operator|(
 name|b
 operator|&
 literal|0x80
 operator|)
-operator|==
+operator|!=
 literal|0
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Invalid vInt (("
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|b
+argument_list|)
+operator|+
+literal|"& 0x7f)<< 28) | "
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+throw|;
+block|}
 return|return
 name|i
 operator||
@@ -1904,10 +1930,11 @@ operator|)
 expr_stmt|;
 break|break;
 default|default:
+throw|throw
 operator|new
-name|AssertionError
+name|IOException
 argument_list|(
-literal|"unexpected character: "
+literal|"Invalid string; unexpected character: "
 operator|+
 name|c
 operator|+
@@ -1920,7 +1947,7 @@ argument_list|(
 name|c
 argument_list|)
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 return|return
@@ -4290,13 +4317,15 @@ name|this
 argument_list|)
 return|;
 default|default:
-assert|assert
-literal|false
-operator|:
+throw|throw
+operator|new
+name|IOException
+argument_list|(
 literal|"no such exception for id: "
 operator|+
 name|key
-assert|;
+argument_list|)
+throw|;
 block|}
 block|}
 return|return
