@@ -181,10 +181,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|LongGCDisruptionTest
+DECL|class|LongGCDisruptionTests
 specifier|public
 class|class
-name|LongGCDisruptionTest
+name|LongGCDisruptionTests
 extends|extends
 name|ESTestCase
 block|{

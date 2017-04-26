@@ -1205,6 +1205,7 @@ end_comment
 begin_class
 DECL|class|AnalysisFactoryTestCase
 specifier|public
+specifier|abstract
 class|class
 name|AnalysisFactoryTestCase
 extends|extends
