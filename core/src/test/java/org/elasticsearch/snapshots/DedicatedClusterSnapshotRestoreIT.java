@@ -7769,9 +7769,9 @@ literal|"number_of_shards"
 argument_list|,
 name|between
 argument_list|(
-literal|1
+literal|2
 argument_list|,
-literal|20
+literal|10
 argument_list|)
 argument_list|)
 operator|.
