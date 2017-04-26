@@ -258,8 +258,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 name|script
 argument_list|)

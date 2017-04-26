@@ -242,8 +242,7 @@ decl_stmt|;
 name|Script
 name|script
 init|=
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"_script"
 argument_list|)

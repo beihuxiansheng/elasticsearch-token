@@ -298,18 +298,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|fetch
@@ -2014,8 +2002,7 @@ name|updateRequest
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"_value + 1"
 argument_list|)
@@ -3813,8 +3800,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"test"
 argument_list|)
