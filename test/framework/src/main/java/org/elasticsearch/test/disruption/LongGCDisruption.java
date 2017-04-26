@@ -538,6 +538,29 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 comment|// best effort;
+try|try
+block|{
+comment|/*                          * We need to join on the stopping thread in case it has stopped a thread that is in a critical section and needs to                          * be resumed.                          */
+name|stoppingThread
+operator|.
+name|join
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 throw|throw
 operator|new
 name|RuntimeException
@@ -1090,17 +1113,26 @@ argument_list|,
 name|threadName
 argument_list|)
 expr_stmt|;
+comment|// we assume it is not safe to suspend the thread
+name|boolean
+name|safe
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+comment|/*                          * At the bottom of this try-block we will know whether or not it is safe to suspend this thread; we start by                          * assuming that it is safe.                          */
+name|boolean
+name|definitelySafe
+init|=
+literal|true
+decl_stmt|;
 name|thread
 operator|.
 name|suspend
 argument_list|()
 expr_stmt|;
-comment|// double check the thread is not in a shared resource like logging. If so, let it go and come back..
-name|boolean
-name|safe
-init|=
-literal|true
-decl_stmt|;
+comment|// double check the thread is not in a shared resource like logging; if so, let it go and come back
 name|safe
 label|:
 for|for
@@ -1144,7 +1176,8 @@ name|find
 argument_list|()
 condition|)
 block|{
-name|safe
+comment|// it is definitely not safe to suspend the thread
+name|definitelySafe
 operator|=
 literal|false
 expr_stmt|;
@@ -1154,25 +1187,33 @@ break|;
 block|}
 block|}
 block|}
+name|safe
+operator|=
+name|definitelySafe
+expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 operator|!
 name|safe
 condition|)
 block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"resuming thread [{}] as it is in a critical section"
-argument_list|,
-name|threadName
-argument_list|)
-expr_stmt|;
+comment|/*                              * Do not log before resuming as we might be interrupted while logging in which case we will throw an                              * interrupted exception and never resume the stopped thread that is in a critical section. Also, logging before                              * resuming makes for confusing log messages if we never hit the resume.                              */
 name|thread
 operator|.
 name|resume
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"resumed thread [{}] as it is in a critical section"
+argument_list|,
+name|threadName
+argument_list|)
 expr_stmt|;
 name|nodeThreads
 operator|.
@@ -1181,6 +1222,7 @@ argument_list|(
 name|thread
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
