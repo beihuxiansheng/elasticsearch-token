@@ -273,6 +273,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.server_side_encryption: When set to true files are encrypted on server side using AES256 algorithm.          * Defaults to false.          */
@@ -294,6 +298,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * Default is to use 100MB (S3 defaults) for heaps above 2GB and 5% of          * the available memory for smaller heaps.          */
@@ -393,6 +401,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.max_retries: Number of retries in case of S3 errors. Defaults to 3.          */
@@ -414,6 +426,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.use_throttle_retries: Set to `true` if you want to throttle retries. Defaults to AWS SDK default value (`false`).          */
@@ -437,6 +453,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.chunk_size: Big files can be broken down into chunks during snapshotting if needed. Defaults to 1g.          */
@@ -486,6 +506,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.compress: When set to true metadata files are stored in compressed format. This setting doesnât affect index          * files that are already compressed by default. Defaults to false.          */
@@ -507,6 +531,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.storage_class: Sets the S3 storage class type for the backup files. Values may be standard, reduced_redundancy,          * standard_ia. Defaults to standard.          */
@@ -526,6 +554,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.canned_acl: The S3 repository supports all S3 canned ACLs : private, public-read, public-read-write,          * authenticated-read, log-delivery-write, bucket-owner-read, bucket-owner-full-control. Defaults to private.          */
@@ -545,6 +577,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.base_path: Specifies the path within bucket to repository data. Defaults to root directory.          */
@@ -564,6 +600,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.path_style_access: When set to true configures the client to use path-style access for all requests.          Amazon S3 supports virtual-hosted-style and path-style access in all Regions. The path-style syntax, however,          requires that you use the region-specific endpoint when attempting to access a bucket.          The default behaviour is to detect which access style to use based on the configured endpoint (an IP will result          in path-style access) and the bucket being accessed (some buckets are not valid DNS names). Setting this flag          will result in path-style access being used for all requests.          */
@@ -585,6 +625,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 block|}
@@ -679,6 +723,10 @@ argument_list|(
 literal|"max_retries"
 argument_list|,
 literal|3
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * use_throttle_retries          * @see  Repositories#USE_THROTTLE_RETRIES_SETTING          */
@@ -698,6 +746,10 @@ argument_list|,
 name|ClientConfiguration
 operator|.
 name|DEFAULT_THROTTLE_RETRIES
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|/**          * chunk_size          * @see  Repositories#CHUNK_SIZE_SETTING          */
@@ -822,6 +874,10 @@ argument_list|(
 literal|"path_style_access"
 argument_list|,
 literal|false
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 block|}

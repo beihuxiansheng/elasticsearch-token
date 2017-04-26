@@ -2318,6 +2318,11 @@ argument_list|(
 literal|"Warning"
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|actualWarnings
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Set
 argument_list|<
