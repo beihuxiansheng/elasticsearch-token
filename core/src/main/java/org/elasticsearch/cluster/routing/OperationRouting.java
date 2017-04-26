@@ -479,6 +479,9 @@ block|}
 DECL|method|searchShards
 specifier|public
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|searchShards
 parameter_list|(
 name|ClusterState
@@ -590,6 +593,7 @@ block|}
 return|return
 operator|new
 name|GroupShardsIterator
+argument_list|<>
 argument_list|(
 operator|new
 name|ArrayList

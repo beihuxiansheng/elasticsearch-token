@@ -666,6 +666,9 @@ DECL|method|shards
 specifier|protected
 specifier|abstract
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|shards
 parameter_list|(
 name|ClusterState
@@ -751,6 +754,9 @@ DECL|field|shardsIts
 specifier|private
 specifier|final
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|shardsIts
 decl_stmt|;
 DECL|field|expectedOps

@@ -2239,9 +2239,6 @@ name|ShardRouting
 name|shard
 range|:
 name|shardIt
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 name|set
@@ -2488,9 +2485,6 @@ name|ShardRouting
 name|shard
 range|:
 name|shardIt
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 if|if
@@ -2631,9 +2625,6 @@ name|nodeId
 init|=
 name|shardIt
 operator|.
-name|asUnordered
-argument_list|()
-operator|.
 name|iterator
 argument_list|()
 operator|.
@@ -2649,9 +2640,6 @@ name|ShardRouting
 name|shard
 range|:
 name|shardIt
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 if|if
@@ -3113,9 +3101,6 @@ name|ShardRouting
 name|shard
 range|:
 name|shardIt
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 if|if

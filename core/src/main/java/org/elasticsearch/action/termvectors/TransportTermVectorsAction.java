@@ -372,6 +372,9 @@ condition|)
 block|{
 comment|// artificial document without routing specified, ignore its "id" and use either random shard or according to preference
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|groupShardsIter
 init|=
 name|clusterService

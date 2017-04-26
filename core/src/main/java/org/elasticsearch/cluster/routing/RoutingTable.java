@@ -1188,6 +1188,9 @@ block|}
 DECL|method|allAssignedShardsGrouped
 specifier|public
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|allAssignedShardsGrouped
 parameter_list|(
 name|String
@@ -1213,6 +1216,9 @@ comment|/**      * Return GroupShardsIterator where each assigned shard routing 
 DECL|method|allAssignedShardsGrouped
 specifier|public
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|allAssignedShardsGrouped
 parameter_list|(
 name|String
@@ -1248,12 +1254,9 @@ name|ShardRouting
 argument_list|>
 name|ACTIVE_PREDICATE
 init|=
-name|shardRouting
-lambda|->
-name|shardRouting
-operator|.
+name|ShardRouting
+operator|::
 name|active
-argument_list|()
 decl_stmt|;
 DECL|field|ASSIGNED_PREDICATE
 specifier|private
@@ -1264,16 +1267,16 @@ name|ShardRouting
 argument_list|>
 name|ASSIGNED_PREDICATE
 init|=
-name|shardRouting
-lambda|->
-name|shardRouting
-operator|.
+name|ShardRouting
+operator|::
 name|assignedToNode
-argument_list|()
 decl_stmt|;
 DECL|method|allSatisfyingPredicateShardsGrouped
 specifier|private
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|allSatisfyingPredicateShardsGrouped
 parameter_list|(
 name|String
@@ -1439,6 +1442,7 @@ block|}
 return|return
 operator|new
 name|GroupShardsIterator
+argument_list|<>
 argument_list|(
 name|set
 argument_list|)
@@ -1613,10 +1617,13 @@ name|shards
 argument_list|)
 return|;
 block|}
-comment|/**      * All the *active* primary shards for the provided indices grouped (each group is a single element, consisting      * of the primary shard). This is handy for components that expect to get group iterators, but still want in some      * cases to iterate over all primary shards (and not just one shard in replication group).      *      * @param indices The indices to return all the shards (replicas)      * @return All the primary shards grouped into a single shard element group each      * @throws IndexNotFoundException If an index passed does not exists      * @see IndexRoutingTable#groupByAllIt()      */
+comment|/**      * All the *active* primary shards for the provided indices grouped (each group is a single element, consisting      * of the primary shard). This is handy for components that expect to get group iterators, but still want in some      * cases to iterate over all primary shards (and not just one shard in replication group).      *      * @param indices The indices to return all the shards (replicas)      * @return All the primary shards grouped into a single shard element group each      * @throws IndexNotFoundException If an index passed does not exists      */
 DECL|method|activePrimaryShardsGrouped
 specifier|public
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|activePrimaryShardsGrouped
 parameter_list|(
 name|String
@@ -1740,6 +1747,7 @@ block|}
 return|return
 operator|new
 name|GroupShardsIterator
+argument_list|<>
 argument_list|(
 name|set
 argument_list|)

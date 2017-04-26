@@ -20,6 +20,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|OriginalIndices
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -153,6 +165,15 @@ specifier|final
 name|ShardId
 name|shardId
 decl_stmt|;
+comment|//original indices are only needed in the coordinating node throughout the search request execution.
+comment|//no need to serialize them as part of SearchShardTarget.
+DECL|field|originalIndices
+specifier|private
+specifier|final
+specifier|transient
+name|OriginalIndices
+name|originalIndices
+decl_stmt|;
 DECL|method|SearchShardTarget
 specifier|public
 name|SearchShardTarget
@@ -195,6 +216,12 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|originalIndices
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|SearchShardTarget
 specifier|public
@@ -205,6 +232,9 @@ name|nodeId
 parameter_list|,
 name|ShardId
 name|shardId
+parameter_list|,
+name|OriginalIndices
+name|originalIndices
 parameter_list|)
 block|{
 name|this
@@ -229,7 +259,14 @@ name|shardId
 operator|=
 name|shardId
 expr_stmt|;
+name|this
+operator|.
+name|originalIndices
+operator|=
+name|originalIndices
+expr_stmt|;
 block|}
+comment|//this constructor is only used in tests
 DECL|method|SearchShardTarget
 specifier|public
 name|SearchShardTarget
@@ -255,6 +292,10 @@ name|index
 argument_list|,
 name|shardId
 argument_list|)
+argument_list|,
+name|OriginalIndices
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
 block|}
@@ -306,6 +347,16 @@ parameter_list|()
 block|{
 return|return
 name|shardId
+return|;
+block|}
+DECL|method|getOriginalIndices
+specifier|public
+name|OriginalIndices
+name|getOriginalIndices
+parameter_list|()
+block|{
+return|return
+name|originalIndices
 return|;
 block|}
 annotation|@

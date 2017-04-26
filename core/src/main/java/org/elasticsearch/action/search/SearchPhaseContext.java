@@ -48,11 +48,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|action
 operator|.
-name|routing
-operator|.
-name|ShardIterator
+name|OriginalIndices
 import|;
 end_import
 
@@ -261,6 +259,9 @@ name|Transport
 operator|.
 name|Connection
 name|connection
+parameter_list|,
+name|OriginalIndices
+name|originalIndices
 parameter_list|)
 block|{
 if|if
@@ -279,8 +280,7 @@ name|connection
 argument_list|,
 name|contextId
 argument_list|,
-name|getRequest
-argument_list|()
+name|originalIndices
 argument_list|)
 expr_stmt|;
 block|}
@@ -290,7 +290,7 @@ DECL|method|buildShardSearchRequest
 name|ShardSearchTransportRequest
 name|buildShardSearchRequest
 parameter_list|(
-name|ShardIterator
+name|SearchShardIterator
 name|shardIt
 parameter_list|,
 name|ShardRouting

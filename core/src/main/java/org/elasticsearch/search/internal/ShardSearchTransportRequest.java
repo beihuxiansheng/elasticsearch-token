@@ -291,6 +291,9 @@ DECL|method|ShardSearchTransportRequest
 specifier|public
 name|ShardSearchTransportRequest
 parameter_list|(
+name|OriginalIndices
+name|originalIndices
+parameter_list|,
 name|SearchRequest
 name|searchRequest
 parameter_list|,
@@ -334,11 +337,7 @@ name|this
 operator|.
 name|originalIndices
 operator|=
-operator|new
-name|OriginalIndices
-argument_list|(
-name|searchRequest
-argument_list|)
+name|originalIndices
 expr_stmt|;
 block|}
 annotation|@

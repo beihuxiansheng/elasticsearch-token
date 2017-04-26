@@ -3192,12 +3192,12 @@ name|fetchSearchShards
 argument_list|(
 name|request
 argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
+operator|new
+name|String
+index|[]
+block|{
 literal|"test-index"
-argument_list|)
+block|}
 argument_list|,
 name|shardsListener
 argument_list|)
