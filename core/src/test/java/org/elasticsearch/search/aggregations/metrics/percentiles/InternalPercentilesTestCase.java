@@ -271,7 +271,7 @@ name|values
 parameter_list|)
 function_decl|;
 DECL|method|randomPercents
-specifier|protected
+specifier|public
 specifier|static
 name|double
 index|[]
