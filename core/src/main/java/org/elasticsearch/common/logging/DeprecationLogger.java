@@ -1339,7 +1339,7 @@ name|s
 operator|.
 name|replaceAll
 argument_list|(
-literal|"(\\\\|\")"
+literal|"([\"\\\\])"
 argument_list|,
 literal|"\\\\$1"
 argument_list|)
