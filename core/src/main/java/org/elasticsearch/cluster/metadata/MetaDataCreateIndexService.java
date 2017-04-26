@@ -4445,7 +4445,14 @@ comment|// once we are allocated.
 operator|.
 name|put
 argument_list|(
-literal|"index.routing.allocation.initial_recovery._id"
+name|IndexMetaData
+operator|.
+name|INDEX_ROUTING_INITIAL_RECOVERY_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"_id"
 argument_list|,
 name|Strings
 operator|.
