@@ -454,9 +454,9 @@ init|=
 operator|new
 name|QuerySearchRequest
 argument_list|(
-name|context
+name|searchShardTarget
 operator|.
-name|getRequest
+name|getOriginalIndices
 argument_list|()
 argument_list|,
 name|dfsResult
@@ -598,6 +598,11 @@ name|id
 argument_list|()
 argument_list|,
 name|connection
+argument_list|,
+name|searchShardTarget
+operator|.
+name|getOriginalIndices
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

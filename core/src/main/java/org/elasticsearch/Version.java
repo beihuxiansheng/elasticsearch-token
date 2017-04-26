@@ -1420,7 +1420,7 @@ name|version
 operator|.
 name|split
 argument_list|(
-literal|"\\.|\\-"
+literal|"[.-]"
 argument_list|)
 decl_stmt|;
 if|if

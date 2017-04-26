@@ -374,11 +374,14 @@ init|(
 name|IndexReader
 name|indexReader
 init|=
+name|wrap
+argument_list|(
 name|DirectoryReader
 operator|.
 name|open
 argument_list|(
 name|directory
+argument_list|)
 argument_list|)
 init|)
 block|{
@@ -461,7 +464,7 @@ name|newSearcher
 argument_list|(
 name|indexReader
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 literal|true
 argument_list|)
@@ -854,11 +857,14 @@ init|(
 name|IndexReader
 name|indexReader
 init|=
+name|wrap
+argument_list|(
 name|DirectoryReader
 operator|.
 name|open
 argument_list|(
 name|directory
+argument_list|)
 argument_list|)
 init|)
 block|{
@@ -941,7 +947,7 @@ name|newSearcher
 argument_list|(
 name|indexReader
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 literal|true
 argument_list|)

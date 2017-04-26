@@ -455,6 +455,14 @@ name|S3ClientSettings
 operator|.
 name|READ_TIMEOUT_SETTING
 argument_list|,
+name|S3ClientSettings
+operator|.
+name|MAX_RETRIES_SETTING
+argument_list|,
+name|S3ClientSettings
+operator|.
+name|USE_THROTTLE_RETRIES_SETTING
+argument_list|,
 comment|// Register S3 repositories settings: repositories.s3
 name|S3Repository
 operator|.

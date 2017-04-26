@@ -2527,6 +2527,27 @@ name|TESTS_ENABLE_MOCK_MODULES
 init|=
 literal|"tests.enable_mock_modules"
 decl_stmt|;
+DECL|field|MOCK_MODULES_ENABLED
+specifier|private
+specifier|static
+specifier|final
+name|boolean
+name|MOCK_MODULES_ENABLED
+init|=
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|TESTS_ENABLE_MOCK_MODULES
+argument_list|,
+literal|"true"
+argument_list|)
+argument_list|)
+decl_stmt|;
 comment|/**      * Threshold at which indexing switches from frequently async to frequently bulk.      */
 DECL|field|FREQUENT_BULK_THRESHOLD
 specifier|private
@@ -11320,6 +11341,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|MOCK_MODULES_ENABLED
+operator|&&
 name|randomBoolean
 argument_list|()
 condition|)

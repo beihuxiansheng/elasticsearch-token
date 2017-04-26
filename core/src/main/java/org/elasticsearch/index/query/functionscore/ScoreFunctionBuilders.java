@@ -30,6 +30,30 @@ name|Script
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Static method aliases for constructors of known {@link ScoreFunctionBuilder}s.  */
 end_comment
@@ -381,7 +405,18 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
+argument_list|,
 name|script
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 operator|)

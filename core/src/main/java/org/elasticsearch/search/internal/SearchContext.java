@@ -634,7 +634,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|EnumMap
 import|;
 end_import
 
@@ -1625,9 +1625,13 @@ block|{
 name|clearables
 operator|=
 operator|new
-name|HashMap
+name|EnumMap
 argument_list|<>
-argument_list|()
+argument_list|(
+name|Lifetime
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 name|List

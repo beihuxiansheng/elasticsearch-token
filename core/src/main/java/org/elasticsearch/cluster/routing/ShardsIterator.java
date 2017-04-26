@@ -16,6 +16,16 @@ name|routing
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Allows to iterate over unrelated shards.  */
 end_comment
@@ -25,6 +35,11 @@ DECL|interface|ShardsIterator
 specifier|public
 interface|interface
 name|ShardsIterator
+extends|extends
+name|Iterable
+argument_list|<
+name|ShardRouting
+argument_list|>
 block|{
 comment|/**      * Resets the iterator to its initial state.      */
 DECL|method|reset
@@ -73,12 +88,13 @@ name|Object
 name|other
 parameter_list|)
 function_decl|;
-DECL|method|asUnordered
-name|Iterable
+comment|/**      * Returns the {@link ShardRouting}s that this shards iterator holds.      */
+DECL|method|getShardRoutings
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
-name|asUnordered
+name|getShardRoutings
 parameter_list|()
 function_decl|;
 block|}

@@ -791,14 +791,29 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// make sure leading `/` is removed and trailing is added
-name|assertWarnings
+name|assertSettingDeprecationsAndWarnings
 argument_list|(
+operator|new
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+index|[]
+block|{
+name|Repositories
+operator|.
+name|BASE_PATH_SETTING
+block|}
+operator|,
 literal|"S3 repository base_path"
 operator|+
 literal|" trimming the leading `/`, and leading `/` will not be supported for the S3 repository in future releases"
-argument_list|)
-expr_stmt|;
+block|)
+function|;
 block|}
+end_class
+
+begin_function
 DECL|method|testDefaultBufferSize
 specifier|public
 name|void
@@ -885,8 +900,8 @@ name|defaultNodeBufferSize
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

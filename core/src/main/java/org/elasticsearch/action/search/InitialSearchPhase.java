@@ -257,6 +257,9 @@ DECL|field|shardsIts
 specifier|private
 specifier|final
 name|GroupShardsIterator
+argument_list|<
+name|SearchShardIterator
+argument_list|>
 name|shardsIts
 decl_stmt|;
 DECL|field|logger
@@ -291,6 +294,9 @@ name|SearchRequest
 name|request
 parameter_list|,
 name|GroupShardsIterator
+argument_list|<
+name|SearchShardIterator
+argument_list|>
 name|shardsIts
 parameter_list|,
 name|Logger
@@ -354,7 +360,7 @@ name|String
 name|nodeId
 parameter_list|,
 specifier|final
-name|ShardIterator
+name|SearchShardIterator
 name|shardIt
 parameter_list|,
 name|Exception
@@ -374,6 +380,11 @@ argument_list|,
 name|shardIt
 operator|.
 name|shardId
+argument_list|()
+argument_list|,
+name|shardIt
+operator|.
+name|getOriginalIndices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -702,7 +713,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|ShardIterator
+name|SearchShardIterator
 name|shardIt
 range|:
 name|shardsIts
@@ -773,7 +784,7 @@ name|int
 name|shardIndex
 parameter_list|,
 specifier|final
-name|ShardIterator
+name|SearchShardIterator
 name|shardIt
 parameter_list|,
 specifier|final
@@ -838,6 +849,11 @@ argument_list|,
 name|shardIt
 operator|.
 name|shardId
+argument_list|()
+argument_list|,
+name|shardIt
+operator|.
+name|getOriginalIndices
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1059,7 +1075,7 @@ specifier|abstract
 name|void
 name|executePhaseOnShard
 parameter_list|(
-name|ShardIterator
+name|SearchShardIterator
 name|shardIt
 parameter_list|,
 name|ShardRouting

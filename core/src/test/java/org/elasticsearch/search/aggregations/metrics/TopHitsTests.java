@@ -571,8 +571,7 @@ argument_list|,
 literal|50
 argument_list|)
 argument_list|,
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -595,8 +594,7 @@ argument_list|,
 literal|50
 argument_list|)
 argument_list|,
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -1008,8 +1006,7 @@ name|SortBuilders
 operator|.
 name|scriptSort
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"foo"
 argument_list|)

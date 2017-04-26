@@ -217,8 +217,7 @@ init|=
 operator|new
 name|ScriptSortBuilder
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 name|randomAlphaOfLengthBetween
 argument_list|(
@@ -442,8 +441,7 @@ operator|=
 operator|new
 name|ScriptSortBuilder
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 name|script
 operator|.
@@ -1641,8 +1639,7 @@ init|=
 operator|new
 name|ScriptSortBuilder
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"something"
 argument_list|)

@@ -717,8 +717,8 @@ specifier|final
 name|long
 name|contextId
 parameter_list|,
-name|SearchRequest
-name|request
+name|OriginalIndices
+name|originalIndices
 parameter_list|)
 block|{
 name|transportService
@@ -732,7 +732,7 @@ argument_list|,
 operator|new
 name|SearchFreeContextRequest
 argument_list|(
-name|request
+name|originalIndices
 argument_list|,
 name|contextId
 argument_list|)
@@ -1522,8 +1522,8 @@ block|{         }
 DECL|method|SearchFreeContextRequest
 name|SearchFreeContextRequest
 parameter_list|(
-name|SearchRequest
-name|request
+name|OriginalIndices
+name|originalIndices
 parameter_list|,
 name|long
 name|id
@@ -1538,11 +1538,7 @@ name|this
 operator|.
 name|originalIndices
 operator|=
-operator|new
-name|OriginalIndices
-argument_list|(
-name|request
-argument_list|)
+name|originalIndices
 expr_stmt|;
 block|}
 annotation|@

@@ -3618,6 +3618,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|shardIterators
 init|=
 name|operationRouting
@@ -4331,6 +4334,9 @@ argument_list|)
 expr_stmt|;
 comment|// When replicas haven't initialized, it comes back with the primary first, then initializing replicas
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|shardIterators
 init|=
 name|operationRouting

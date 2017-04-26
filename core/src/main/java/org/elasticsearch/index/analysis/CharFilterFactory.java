@@ -42,7 +42,7 @@ name|Reader
 name|create
 parameter_list|(
 name|Reader
-name|tokenStream
+name|reader
 parameter_list|)
 function_decl|;
 block|}

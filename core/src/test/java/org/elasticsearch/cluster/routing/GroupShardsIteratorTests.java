@@ -323,6 +323,7 @@ name|iter
 init|=
 operator|new
 name|GroupShardsIterator
+argument_list|<>
 argument_list|(
 name|list
 argument_list|)
@@ -644,10 +645,14 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|iter
 init|=
 operator|new
 name|GroupShardsIterator
+argument_list|<>
 argument_list|(
 name|list
 argument_list|)

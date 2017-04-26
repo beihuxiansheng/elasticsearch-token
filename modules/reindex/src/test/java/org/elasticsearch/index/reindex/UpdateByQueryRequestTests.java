@@ -61,18 +61,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Script
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -431,8 +419,7 @@ name|original
 operator|.
 name|setScript
 argument_list|(
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 name|randomAlphaOfLength
 argument_list|(

@@ -1105,7 +1105,7 @@ name|access
 init|=
 name|Opcodes
 operator|.
-name|ACC_PRIVATE
+name|ACC_PUBLIC
 operator||
 name|Opcodes
 operator|.

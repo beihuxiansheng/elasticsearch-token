@@ -1514,9 +1514,6 @@ name|ShardRouting
 name|shard
 range|:
 name|shardIt
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 comment|// send a request to the shard only if it is assigned to a node that is in the local node's cluster state

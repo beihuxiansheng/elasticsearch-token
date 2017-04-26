@@ -184,7 +184,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|EnumMap
 import|;
 end_import
 
@@ -282,9 +282,13 @@ argument_list|>
 name|cachedDecisions
 init|=
 operator|new
-name|HashMap
+name|EnumMap
 argument_list|<>
-argument_list|()
+argument_list|(
+name|AllocationStatus
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|cachedDecisions
 operator|.

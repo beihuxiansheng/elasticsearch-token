@@ -165,6 +165,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EnumSet
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -351,6 +361,34 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
+comment|/**      * The set of {@link RecoverySource.Type} values for which the      * {@link IndexMetaData#INDEX_ROUTING_INITIAL_RECOVERY_GROUP_SETTING} should apply.      * Note that we do not include the {@link RecoverySource.Type#SNAPSHOT} type here      * because if the snapshot is restored to a different cluster that does not contain      * the initial recovery node id, or to the same cluster where the initial recovery node      * id has been decommissioned, then the primary shards will never be allocated.      */
+DECL|field|INITIAL_RECOVERY_TYPES
+specifier|static
+name|EnumSet
+argument_list|<
+name|RecoverySource
+operator|.
+name|Type
+argument_list|>
+name|INITIAL_RECOVERY_TYPES
+init|=
+name|EnumSet
+operator|.
+name|of
+argument_list|(
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|EMPTY_STORE
+argument_list|,
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|LOCAL_SHARDS
+argument_list|)
+decl_stmt|;
 DECL|field|clusterRequireFilters
 specifier|private
 specifier|volatile
@@ -507,9 +545,9 @@ name|initialRecoveryFilters
 operator|!=
 literal|null
 operator|&&
-name|RecoverySource
+name|INITIAL_RECOVERY_TYPES
 operator|.
-name|isInitialRecovery
+name|contains
 argument_list|(
 name|shardRouting
 operator|.

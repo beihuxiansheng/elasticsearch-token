@@ -1517,6 +1517,9 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|shardGroups
 init|=
 name|currentState
@@ -1550,9 +1553,6 @@ name|ShardRouting
 name|shard
 range|:
 name|shardIt
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 name|shards

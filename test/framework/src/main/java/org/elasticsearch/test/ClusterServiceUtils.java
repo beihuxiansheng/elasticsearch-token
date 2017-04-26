@@ -190,7 +190,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|EnumSet
 import|;
 end_import
 
@@ -252,21 +252,15 @@ operator|.
 name|emptyMap
 argument_list|()
 argument_list|,
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|(
-name|Arrays
+name|EnumSet
 operator|.
-name|asList
+name|allOf
 argument_list|(
 name|DiscoveryNode
 operator|.
 name|Role
 operator|.
-name|values
-argument_list|()
-argument_list|)
+name|class
 argument_list|)
 argument_list|,
 name|Version

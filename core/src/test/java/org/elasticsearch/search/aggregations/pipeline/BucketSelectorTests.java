@@ -210,8 +210,7 @@ condition|)
 block|{
 name|script
 operator|=
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"script"
 argument_list|)

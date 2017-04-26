@@ -595,6 +595,9 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|groupShardsIterator
 init|=
 name|clusterService

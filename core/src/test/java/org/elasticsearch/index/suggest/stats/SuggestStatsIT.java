@@ -1373,6 +1373,9 @@ name|getState
 argument_list|()
 decl_stmt|;
 name|GroupShardsIterator
+argument_list|<
+name|ShardIterator
+argument_list|>
 name|allAssignedShardsGrouped
 init|=
 name|state
@@ -1412,9 +1415,6 @@ name|ShardRouting
 name|routing
 range|:
 name|shardIterator
-operator|.
-name|asUnordered
-argument_list|()
 control|)
 block|{
 if|if

@@ -186,6 +186,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -410,6 +422,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -433,6 +457,20 @@ operator|.
 name|ESTestCase
 operator|.
 name|generateRandomStringArray
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+operator|.
+name|mockScript
 import|;
 end_import
 
@@ -1160,8 +1198,7 @@ argument_list|,
 literal|50
 argument_list|)
 argument_list|,
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -1184,8 +1221,7 @@ argument_list|,
 literal|50
 argument_list|)
 argument_list|,
-operator|new
-name|Script
+name|mockScript
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -1777,7 +1813,18 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|Script
+operator|.
+name|DEFAULT_SCRIPT_LANG
+argument_list|,
 literal|"foo"
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 name|ScriptSortBuilder
