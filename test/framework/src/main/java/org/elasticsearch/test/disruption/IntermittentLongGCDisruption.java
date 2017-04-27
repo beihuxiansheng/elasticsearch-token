@@ -332,7 +332,7 @@ try|try
 block|{
 while|while
 condition|(
-name|stopNodeThreads
+name|suspendThreads
 argument_list|(
 name|nodeThreads
 argument_list|)

@@ -222,7 +222,7 @@ operator|new
 name|Pattern
 index|[]
 block|{
-comment|// logging has shared JVM locks - we may suspend a thread and block other nodes from doing their thing
+comment|// logging has shared JVM locks; we may suspend a thread and block other nodes from doing their thing
 name|Pattern
 operator|.
 name|compile
@@ -230,7 +230,7 @@ argument_list|(
 literal|"logging\\.log4j"
 argument_list|)
 block|,
-comment|// security manager is shared across all nodes AND it uses synced hashmaps interanlly
+comment|// security manager is shared across all nodes and it uses synchronized maps internally
 name|Pattern
 operator|.
 name|compile
@@ -367,7 +367,7 @@ name|AtomicReference
 argument_list|<
 name|Exception
 argument_list|>
-name|stoppingError
+name|suspendingError
 init|=
 operator|new
 name|AtomicReference
@@ -376,7 +376,7 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Thread
-name|stoppingThread
+name|suspendingThread
 init|=
 operator|new
 name|Thread
@@ -395,7 +395,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|stoppingError
+name|suspendingError
 operator|.
 name|set
 argument_list|(
@@ -412,10 +412,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// keep trying to stop threads, until no new threads are discovered.
+comment|// keep trying to suspend threads, until no new threads are discovered.
 while|while
 condition|(
-name|stopNodeThreads
+name|suspendThreads
 argument_list|(
 name|suspendedThreads
 argument_list|)
@@ -436,27 +436,27 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|setName
 argument_list|(
 name|currentThreadName
 operator|+
-literal|"[LongGCDisruption][threadStopper]"
+literal|"[LongGCDisruption][threadSuspender]"
 argument_list|)
 expr_stmt|;
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|join
 argument_list|(
-name|getStoppingTimeoutInMillis
+name|getSuspendingTimeoutInMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -467,12 +467,12 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-comment|// best effort to signal stopping
+comment|// best effort to signal suspending
 throw|throw
 operator|new
 name|RuntimeException
@@ -483,7 +483,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|stoppingError
+name|suspendingError
 operator|.
 name|get
 argument_list|()
@@ -495,9 +495,9 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"unknown error while stopping threads"
+literal|"unknown error while suspending threads"
 argument_list|,
-name|stoppingError
+name|suspendingError
 operator|.
 name|get
 argument_list|()
@@ -506,7 +506,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|isAlive
 argument_list|()
@@ -516,23 +516,23 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to stop node [{}]'s threads within [{}] millis. Stopping thread stack trace:\n {}"
+literal|"failed to suspend node [{}]'s threads within [{}] millis. Suspending thread stack trace:\n {}"
 argument_list|,
 name|disruptedNode
 argument_list|,
-name|getStoppingTimeoutInMillis
+name|getSuspendingTimeoutInMillis
 argument_list|()
 argument_list|,
 name|stackTrace
 argument_list|(
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|getStackTrace
 argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|stoppingThread
+name|suspendingThread
 operator|.
 name|interrupt
 argument_list|()
@@ -540,8 +540,8 @@ expr_stmt|;
 comment|// best effort;
 try|try
 block|{
-comment|/*                          * We need to join on the stopping thread in case it has stopped a thread that is in a critical section and needs to                          * be resumed.                          */
-name|stoppingThread
+comment|/*                          * We need to join on the suspending thread in case it has suspended a thread that is in a critical section and                          * needs to be resumed.                          */
+name|suspendingThread
 operator|.
 name|join
 argument_list|()
@@ -565,7 +565,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"stopping node threads took too long"
+literal|"suspending node threads took too long"
 argument_list|)
 throw|;
 block|}
@@ -912,7 +912,7 @@ name|blockDetectionThread
 operator|.
 name|join
 argument_list|(
-name|getStoppingTimeoutInMillis
+name|getSuspendingTimeoutInMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -982,18 +982,18 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
-comment|// stops/resumes threads intentionally
+comment|// suspends/resumes threads intentionally
 annotation|@
 name|SuppressForbidden
 argument_list|(
 name|reason
 operator|=
-literal|"stops/resumes threads intentionally"
+literal|"suspends/resumes threads intentionally"
 argument_list|)
-DECL|method|stopNodeThreads
+DECL|method|suspendThreads
 specifier|protected
 name|boolean
-name|stopNodeThreads
+name|suspendThreads
 parameter_list|(
 name|Set
 argument_list|<
@@ -1108,7 +1108,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"stopping thread [{}]"
+literal|"suspending thread [{}]"
 argument_list|,
 name|threadName
 argument_list|)
@@ -1121,7 +1121,7 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-comment|/*                          * At the bottom of this try-block we will know whether or not it is safe to suspend this thread; we start by                          * assuming that it is safe.                          */
+comment|/*                          * At the bottom of this try-block we will know whether or not it is safe to suspend the thread; we start by                          * assuming that it is safe.                          */
 name|boolean
 name|definitelySafe
 init|=
@@ -1200,7 +1200,7 @@ operator|!
 name|safe
 condition|)
 block|{
-comment|/*                              * Do not log before resuming as we might be interrupted while logging in which case we will throw an                              * interrupted exception and never resume the stopped thread that is in a critical section. Also, logging before                              * resuming makes for confusing log messages if we never hit the resume.                              */
+comment|/*                              * Do not log before resuming as we might be interrupted while logging in which case we will throw an                              * interrupted exception and never resume the suspended thread that is in a critical section. Also, logging                              * before resuming makes for confusing log messages if we never hit the resume.                              */
 name|thread
 operator|.
 name|resume
@@ -1244,10 +1244,10 @@ name|unsafeClasses
 return|;
 block|}
 comment|// for testing
-DECL|method|getStoppingTimeoutInMillis
+DECL|method|getSuspendingTimeoutInMillis
 specifier|protected
 name|long
-name|getStoppingTimeoutInMillis
+name|getSuspendingTimeoutInMillis
 parameter_list|()
 block|{
 return|return
@@ -1393,13 +1393,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
-comment|// stops/resumes threads intentionally
+comment|// suspends/resumes threads intentionally
 annotation|@
 name|SuppressForbidden
 argument_list|(
 name|reason
 operator|=
-literal|"stops/resumes threads intentionally"
+literal|"suspends/resumes threads intentionally"
 argument_list|)
 DECL|method|resumeThreads
 specifier|protected
