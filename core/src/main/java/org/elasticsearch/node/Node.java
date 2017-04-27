@@ -1778,7 +1778,7 @@ name|Node
 implements|implements
 name|Closeable
 block|{
-DECL|field|WRITE_PORTS_FIELD_SETTING
+DECL|field|WRITE_PORTS_FILE_SETTING
 specifier|public
 specifier|static
 specifier|final
@@ -1786,7 +1786,7 @@ name|Setting
 argument_list|<
 name|Boolean
 argument_list|>
-name|WRITE_PORTS_FIELD_SETTING
+name|WRITE_PORTS_FILE_SETTING
 init|=
 name|Setting
 operator|.
@@ -6029,33 +6029,9 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-comment|// start nodes now, after the http server, because it may take some time
-name|tribeService
-operator|.
-name|startNodes
-argument_list|()
-expr_stmt|;
-comment|// starts connecting to remote clusters if any cluster is configured
-name|SearchTransportService
-name|searchTransportService
-init|=
-name|injector
-operator|.
-name|getInstance
-argument_list|(
-name|SearchTransportService
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|searchTransportService
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|WRITE_PORTS_FIELD_SETTING
+name|WRITE_PORTS_FILE_SETTING
 operator|.
 name|get
 argument_list|(
@@ -6121,6 +6097,30 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// start nodes now, after the http server, because it may take some time
+name|tribeService
+operator|.
+name|startNodes
+argument_list|()
+expr_stmt|;
+comment|// starts connecting to remote clusters if any cluster is configured
+name|SearchTransportService
+name|searchTransportService
+init|=
+name|injector
+operator|.
+name|getInstance
+argument_list|(
+name|SearchTransportService
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|searchTransportService
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|info
