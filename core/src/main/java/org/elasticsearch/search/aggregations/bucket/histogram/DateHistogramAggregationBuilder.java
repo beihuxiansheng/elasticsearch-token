@@ -1209,7 +1209,7 @@ block|}
 comment|/** Get the current interval in milliseconds that is set on this builder. */
 DECL|method|interval
 specifier|public
-name|double
+name|long
 name|interval
 parameter_list|()
 block|{
@@ -1309,7 +1309,7 @@ block|}
 comment|/** Get the offset to use when rounding, which is a number of milliseconds. */
 DECL|method|offset
 specifier|public
-name|double
+name|long
 name|offset
 parameter_list|()
 block|{

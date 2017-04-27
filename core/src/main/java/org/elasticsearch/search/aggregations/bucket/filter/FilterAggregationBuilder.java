@@ -481,6 +481,16 @@ return|return
 name|NAME
 return|;
 block|}
+DECL|method|getFilter
+specifier|public
+name|QueryBuilder
+name|getFilter
+parameter_list|()
+block|{
+return|return
+name|filter
+return|;
+block|}
 block|}
 end_class
 
