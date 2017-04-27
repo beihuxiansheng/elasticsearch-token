@@ -92,7 +92,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|Percentile
+name|ParsedPercentiles
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|ParsedPercentiles
+name|Percentile
 import|;
 end_import
 
@@ -392,7 +392,9 @@ index|[]
 name|percents
 init|=
 name|randomPercents
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 specifier|final
 name|double
