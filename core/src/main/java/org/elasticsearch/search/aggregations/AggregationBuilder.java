@@ -116,6 +116,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -265,6 +275,40 @@ name|PipelineAggregationBuilder
 name|aggregation
 parameter_list|)
 function_decl|;
+comment|/** Return the configured set of subaggregations **/
+DECL|method|getSubAggregations
+specifier|public
+name|List
+argument_list|<
+name|AggregationBuilder
+argument_list|>
+name|getSubAggregations
+parameter_list|()
+block|{
+return|return
+name|factoriesBuilder
+operator|.
+name|getAggregatorFactories
+argument_list|()
+return|;
+block|}
+comment|/** Return the configured set of pipeline aggregations **/
+DECL|method|getPipelineAggregations
+specifier|public
+name|List
+argument_list|<
+name|PipelineAggregationBuilder
+argument_list|>
+name|getPipelineAggregations
+parameter_list|()
+block|{
+return|return
+name|factoriesBuilder
+operator|.
+name|getPipelineAggregatorFactories
+argument_list|()
+return|;
+block|}
 comment|/**      * Internal: Registers sub-factories with this factory. The sub-factory will be      * responsible for the creation of sub-aggregators under the aggregator      * created by this factory. This is only for use by {@link AggregatorFactories#parseAggregators(QueryParseContext)}.      *      * @param subFactories      *            The sub-factories      * @return this factory (fluent interface)      */
 annotation|@
 name|Override

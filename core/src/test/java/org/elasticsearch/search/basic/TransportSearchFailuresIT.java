@@ -989,7 +989,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-literal|"type1"
+literal|"type"
 argument_list|)
 operator|.
 name|id

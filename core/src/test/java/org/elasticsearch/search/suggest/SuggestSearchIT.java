@@ -6786,9 +6786,9 @@ name|index
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"type2"
+literal|"type1"
 argument_list|,
-literal|"1"
+literal|"11"
 argument_list|,
 literal|"foo"
 argument_list|,
@@ -6799,9 +6799,9 @@ name|index
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"type2"
+literal|"type1"
 argument_list|,
-literal|"2"
+literal|"12"
 argument_list|,
 literal|"foo"
 argument_list|,

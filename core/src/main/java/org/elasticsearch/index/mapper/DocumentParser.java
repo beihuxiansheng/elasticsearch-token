@@ -2806,7 +2806,7 @@ block|}
 DECL|method|parseObject
 specifier|private
 specifier|static
-name|ObjectMapper
+name|void
 name|parseObject
 parameter_list|(
 specifier|final
@@ -2827,11 +2827,6 @@ name|currentFieldName
 operator|!=
 literal|null
 assert|;
-name|ObjectMapper
-name|update
-init|=
-literal|null
-decl_stmt|;
 name|Mapper
 name|objectMapper
 init|=
@@ -3118,9 +3113,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-return|return
-name|update
-return|;
 block|}
 DECL|method|parseArray
 specifier|private

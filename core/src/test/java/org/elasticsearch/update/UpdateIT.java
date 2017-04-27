@@ -5875,6 +5875,13 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|addAlias
 argument_list|(
 operator|new

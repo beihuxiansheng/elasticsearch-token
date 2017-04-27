@@ -5780,11 +5780,18 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IndexShardRestoreFailedException
+name|SnapshotException
 argument_list|(
-name|shardId
+name|metadata
+operator|.
+name|name
+argument_list|()
 argument_list|,
-literal|"failed to read shard snapshot file"
+name|snapshotId
+argument_list|,
+literal|"failed to read shard snapshot file for "
+operator|+
+name|shardId
 argument_list|,
 name|ex
 argument_list|)

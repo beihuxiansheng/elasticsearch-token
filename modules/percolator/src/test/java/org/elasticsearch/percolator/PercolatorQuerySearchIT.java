@@ -1121,11 +1121,6 @@ argument_list|,
 literal|"field2"
 argument_list|,
 literal|"type=keyword"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -1140,7 +1135,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -1175,7 +1170,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -1214,7 +1209,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"3"
 argument_list|)
@@ -1654,11 +1649,6 @@ argument_list|,
 literal|"field3"
 argument_list|,
 literal|"type=ip"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -1673,7 +1663,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -1720,7 +1710,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -1767,7 +1757,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"3"
 argument_list|)
@@ -1853,7 +1843,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"4"
 argument_list|)
@@ -1900,7 +1890,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"5"
 argument_list|)
@@ -1947,7 +1937,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"6"
 argument_list|)
@@ -2033,7 +2023,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"7"
 argument_list|)
@@ -2080,7 +2070,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"8"
 argument_list|)
@@ -2127,7 +2117,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"9"
 argument_list|)
@@ -2774,11 +2764,6 @@ argument_list|,
 literal|"field2"
 argument_list|,
 literal|"type=keyword"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -2793,7 +2778,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -2828,7 +2813,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -2867,7 +2852,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"3"
 argument_list|)
@@ -2924,7 +2909,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"1"
+literal|"4"
 argument_list|)
 operator|.
 name|setSource
@@ -2948,7 +2933,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"2"
+literal|"5"
 argument_list|)
 operator|.
 name|setSource
@@ -2970,7 +2955,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"3"
+literal|"6"
 argument_list|)
 operator|.
 name|setSource
@@ -3100,7 +3085,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"2"
+literal|"5"
 argument_list|,
 literal|null
 argument_list|,
@@ -3199,7 +3184,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"3"
+literal|"6"
 argument_list|,
 literal|null
 argument_list|,
@@ -3329,11 +3314,6 @@ argument_list|,
 literal|"field1"
 argument_list|,
 literal|"type=keyword"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -3348,7 +3328,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -3385,7 +3365,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"1"
+literal|"2"
 argument_list|)
 operator|.
 name|setSource
@@ -3535,11 +3515,6 @@ argument_list|,
 literal|"field2"
 argument_list|,
 literal|"type=text"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -3554,7 +3529,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -3593,7 +3568,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -3643,7 +3618,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"3"
 argument_list|)
@@ -3727,7 +3702,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"4"
 argument_list|)
@@ -3842,7 +3817,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"5"
 argument_list|)
@@ -4297,11 +4272,6 @@ argument_list|,
 literal|"field1"
 argument_list|,
 name|fieldMapping
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -4316,7 +4286,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -4358,7 +4328,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -4400,7 +4370,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"3"
 argument_list|)
@@ -4442,7 +4412,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"4"
 argument_list|)
@@ -4484,7 +4454,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"5"
 argument_list|)
@@ -4822,11 +4792,6 @@ argument_list|,
 literal|"field"
 argument_list|,
 literal|"type=text,position_increment_gap=5"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -4841,7 +4806,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -4886,7 +4851,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -5035,6 +5000,13 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"doc_type"
@@ -5170,6 +5142,13 @@ argument_list|(
 literal|"test1"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"doc_type"
@@ -5205,6 +5184,13 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test2"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
 argument_list|)
 operator|.
 name|addMapping
@@ -5765,6 +5751,21 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
+literal|"query"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"percolator"
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|startObject
+argument_list|(
 literal|"companyname"
 argument_list|)
 operator|.
@@ -5846,15 +5847,6 @@ literal|"employee"
 argument_list|,
 name|mapping
 argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
-argument_list|,
-literal|"query"
-argument_list|,
-literal|"type=percolator"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|client
@@ -5864,7 +5856,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"employee"
 argument_list|,
 literal|"q1"
 argument_list|)
@@ -5924,7 +5916,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"employee"
 argument_list|,
 literal|"q2"
 argument_list|)
@@ -7097,11 +7089,6 @@ argument_list|,
 literal|"field1"
 argument_list|,
 literal|"type=text"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"queries"
 argument_list|,
 literal|"query"
 argument_list|,
@@ -7116,7 +7103,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -7165,7 +7152,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)
@@ -7207,7 +7194,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"3"
 argument_list|)
@@ -7265,7 +7252,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"queries"
+literal|"type"
 argument_list|,
 literal|"4"
 argument_list|)
@@ -7305,7 +7292,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"1"
+literal|"5"
 argument_list|)
 operator|.
 name|setSource
@@ -7560,7 +7547,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"1"
+literal|"5"
 argument_list|,
 literal|null
 argument_list|,
@@ -7595,7 +7582,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"2"
+literal|"6"
 argument_list|,
 literal|null
 argument_list|,
@@ -7894,7 +7881,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[test/type/2] couldn't be found"
+literal|"[test/type/6] couldn't be found"
 argument_list|)
 argument_list|)
 expr_stmt|;

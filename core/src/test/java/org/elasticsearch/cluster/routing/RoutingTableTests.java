@@ -3491,7 +3491,7 @@ operator|.
 name|initializing
 argument_list|()
 operator|&&
-name|shardRouting
+name|primaryShard
 operator|.
 name|recoverySource
 argument_list|()

@@ -654,18 +654,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|gateway
-operator|.
-name|PrimaryShardAllocator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|http
 operator|.
 name|HttpTransportSettings
@@ -2312,7 +2300,7 @@ name|LOW_LEVEL_CANCELLATION_SETTING
 argument_list|,
 name|Node
 operator|.
-name|WRITE_PORTS_FIELD_SETTING
+name|WRITE_PORTS_FILE_SETTING
 argument_list|,
 name|Node
 operator|.

@@ -835,7 +835,7 @@ name|put
 argument_list|(
 name|Node
 operator|.
-name|WRITE_PORTS_FIELD_SETTING
+name|WRITE_PORTS_FILE_SETTING
 operator|.
 name|getKey
 argument_list|()

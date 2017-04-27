@@ -3069,7 +3069,7 @@ name|prepareIndex
 argument_list|(
 literal|"test1"
 argument_list|,
-literal|"test"
+literal|"type"
 argument_list|)
 operator|.
 name|setSource
@@ -3104,7 +3104,7 @@ name|prepareIndex
 argument_list|(
 literal|"test2"
 argument_list|,
-literal|"test"
+literal|"type"
 argument_list|)
 operator|.
 name|setSource
@@ -4074,7 +4074,7 @@ name|prepareIndex
 argument_list|(
 literal|"test1"
 argument_list|,
-literal|"test"
+literal|"type"
 argument_list|)
 operator|.
 name|setSource
@@ -4113,7 +4113,7 @@ name|prepareIndex
 argument_list|(
 literal|"test2"
 argument_list|,
-literal|"test"
+literal|"type"
 argument_list|)
 operator|.
 name|setSource

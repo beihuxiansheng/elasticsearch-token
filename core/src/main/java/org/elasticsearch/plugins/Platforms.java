@@ -76,7 +76,7 @@ else|:
 literal|"controller"
 decl_stmt|;
 DECL|field|PLATFORM_NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String

@@ -310,7 +310,7 @@ annotation|@
 name|Override
 specifier|protected
 name|long
-name|getStoppingTimeoutInMillis
+name|getSuspendingTimeoutInMillis
 parameter_list|()
 block|{
 return|return
@@ -538,7 +538,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"stopping node threads took too long"
+literal|"suspending node threads took too long"
 argument_list|)
 argument_list|)
 expr_stmt|;

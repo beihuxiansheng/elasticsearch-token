@@ -542,9 +542,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"index"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// works when the type has been dynamically created

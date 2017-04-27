@@ -4972,6 +4972,13 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+literal|"mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING

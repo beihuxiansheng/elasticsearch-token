@@ -1761,6 +1761,13 @@ argument_list|,
 name|indexVersionCreated
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|build
 argument_list|()
 expr_stmt|;
