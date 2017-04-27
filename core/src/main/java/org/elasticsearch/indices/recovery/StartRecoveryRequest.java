@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RecoverySource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -83,20 +69,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|seqno
-operator|.
-name|SequenceNumbers
 import|;
 end_import
 
@@ -186,6 +158,11 @@ specifier|private
 name|ShardId
 name|shardId
 decl_stmt|;
+DECL|field|targetAllocationId
+specifier|private
+name|String
+name|targetAllocationId
+decl_stmt|;
 DECL|field|sourceNode
 specifier|private
 name|DiscoveryNode
@@ -218,7 +195,7 @@ specifier|public
 name|StartRecoveryRequest
 parameter_list|()
 block|{     }
-comment|/**      * Construct a request for starting a peer recovery.      *      * @param shardId           the shard ID to recover      * @param sourceNode        the source node to remover from      * @param targetNode        the target node to recover to      * @param metadataSnapshot  the Lucene metadata      * @param primaryRelocation whether or not the recovery is a primary relocation      * @param recoveryId        the recovery ID      * @param startingSeqNo     the starting sequence number      */
+comment|/**      * Construct a request for starting a peer recovery.      *      * @param shardId            the shard ID to recover      * @param targetAllocationId the allocation id of the target shard      * @param sourceNode         the source node to remover from      * @param targetNode         the target node to recover to      * @param metadataSnapshot   the Lucene metadata      * @param primaryRelocation  whether or not the recovery is a primary relocation      * @param recoveryId         the recovery ID      * @param startingSeqNo      the starting sequence number      */
 DECL|method|StartRecoveryRequest
 specifier|public
 name|StartRecoveryRequest
@@ -226,6 +203,10 @@ parameter_list|(
 specifier|final
 name|ShardId
 name|shardId
+parameter_list|,
+specifier|final
+name|String
+name|targetAllocationId
 parameter_list|,
 specifier|final
 name|DiscoveryNode
@@ -265,6 +246,12 @@ operator|.
 name|shardId
 operator|=
 name|shardId
+expr_stmt|;
+name|this
+operator|.
+name|targetAllocationId
+operator|=
+name|targetAllocationId
 expr_stmt|;
 name|this
 operator|.
@@ -317,6 +304,16 @@ parameter_list|()
 block|{
 return|return
 name|shardId
+return|;
+block|}
+DECL|method|targetAllocationId
+specifier|public
+name|String
+name|targetAllocationId
+parameter_list|()
+block|{
+return|return
+name|targetAllocationId
 return|;
 block|}
 DECL|method|sourceNode
@@ -406,6 +403,13 @@ name|readShardId
 argument_list|(
 name|in
 argument_list|)
+expr_stmt|;
+name|targetAllocationId
+operator|=
+name|in
+operator|.
+name|readString
+argument_list|()
 expr_stmt|;
 name|sourceNode
 operator|=
@@ -505,6 +509,13 @@ operator|.
 name|writeTo
 argument_list|(
 name|out
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeString
+argument_list|(
+name|targetAllocationId
 argument_list|)
 expr_stmt|;
 name|sourceNode

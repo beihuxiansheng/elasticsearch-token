@@ -1032,6 +1032,8 @@ name|StartRecoveryRequest
 argument_list|(
 name|shardId
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|DiscoveryNode
 argument_list|(
@@ -1556,6 +1558,8 @@ operator|new
 name|StartRecoveryRequest
 argument_list|(
 name|shardId
+argument_list|,
+literal|null
 argument_list|,
 operator|new
 name|DiscoveryNode
@@ -2213,6 +2217,8 @@ name|StartRecoveryRequest
 argument_list|(
 name|shardId
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|DiscoveryNode
 argument_list|(
@@ -2768,6 +2774,8 @@ name|StartRecoveryRequest
 argument_list|(
 name|shardId
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|DiscoveryNode
 argument_list|(
@@ -3270,6 +3278,8 @@ name|StartRecoveryRequest
 argument_list|(
 name|shardId
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|DiscoveryNode
 argument_list|(
@@ -3661,6 +3671,8 @@ operator|new
 name|StartRecoveryRequest
 argument_list|(
 name|shardId
+argument_list|,
+literal|null
 argument_list|,
 operator|new
 name|DiscoveryNode

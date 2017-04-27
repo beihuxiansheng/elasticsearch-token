@@ -216,12 +216,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/***      * @return the allocation id of the target shard.      */
-DECL|method|getTargetAllocationId
-name|String
-name|getTargetAllocationId
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
