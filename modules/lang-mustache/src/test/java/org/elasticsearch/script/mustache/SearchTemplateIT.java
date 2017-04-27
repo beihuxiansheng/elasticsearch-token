@@ -361,7 +361,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"testtype"
+literal|"type"
 argument_list|,
 literal|"1"
 argument_list|)
@@ -395,7 +395,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"testtype"
+literal|"type"
 argument_list|,
 literal|"2"
 argument_list|)

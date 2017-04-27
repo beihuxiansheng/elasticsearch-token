@@ -3122,6 +3122,13 @@ name|prepareCreate
 argument_list|(
 literal|"test1"
 argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -3148,6 +3155,13 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test2"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

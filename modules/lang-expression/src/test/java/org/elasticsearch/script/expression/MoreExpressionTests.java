@@ -6554,7 +6554,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type1"
+literal|"doc"
 argument_list|)
 operator|.
 name|startObject
@@ -6597,7 +6597,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"type1"
+literal|"doc"
 argument_list|,
 name|xContentBuilder
 argument_list|)

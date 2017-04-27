@@ -806,6 +806,13 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"type1"
@@ -4094,6 +4101,13 @@ init|=
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 for|for

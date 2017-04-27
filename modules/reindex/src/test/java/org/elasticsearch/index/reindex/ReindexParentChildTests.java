@@ -611,6 +611,15 @@ argument_list|)
 decl_stmt|;
 name|create
 operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|create
+operator|.
 name|addMapping
 argument_list|(
 literal|"city"

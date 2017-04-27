@@ -1173,11 +1173,6 @@ init|=
 literal|"query_field"
 decl_stmt|;
 name|String
-name|mappingType
-init|=
-literal|"query"
-decl_stmt|;
-name|String
 name|percolatorMapper
 init|=
 name|XContentFactory
@@ -1190,7 +1185,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-name|mappingType
+literal|"type"
 argument_list|)
 operator|.
 name|startObject
@@ -1229,7 +1224,7 @@ name|mapperService
 operator|.
 name|merge
 argument_list|(
-name|mappingType
+literal|"type"
 argument_list|,
 operator|new
 name|CompressedXContent
@@ -1255,7 +1250,7 @@ name|mapperService
 operator|.
 name|documentMapper
 argument_list|(
-name|mappingType
+literal|"type"
 argument_list|)
 operator|.
 name|mappers

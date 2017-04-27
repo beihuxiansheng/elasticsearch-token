@@ -5230,7 +5230,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"test-mapping"
+literal|"doc"
 argument_list|,
 name|XContentFactory
 operator|.
@@ -5242,7 +5242,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"test-mapping"
+literal|"doc"
 argument_list|)
 operator|.
 name|startObject

@@ -604,7 +604,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"test"
+literal|"type"
 argument_list|)
 operator|.
 name|setSource

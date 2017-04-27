@@ -1698,7 +1698,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"type"
+literal|"type1"
 argument_list|,
 literal|"svalue"
 argument_list|,
@@ -4631,7 +4631,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"type"
+literal|"post"
 argument_list|,
 literal|"field1"
 argument_list|,

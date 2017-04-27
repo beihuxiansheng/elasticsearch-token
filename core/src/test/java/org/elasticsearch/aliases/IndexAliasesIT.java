@@ -10126,6 +10126,13 @@ argument_list|(
 literal|"my-index"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"parent"

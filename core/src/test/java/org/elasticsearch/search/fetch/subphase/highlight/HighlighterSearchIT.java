@@ -11882,6 +11882,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"index.mapping.single_type"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"index.analysis.analyzer.synonym.tokenizer"
 argument_list|,
 literal|"whitespace"
