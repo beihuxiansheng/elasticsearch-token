@@ -3896,10 +3896,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|assertClusterStateThread
+DECL|method|assertClusterOrMasterStateThread
 specifier|protected
 name|void
-name|assertClusterStateThread
+name|assertClusterOrMasterStateThread
 parameter_list|()
 block|{
 comment|// do not check this in the unit tests

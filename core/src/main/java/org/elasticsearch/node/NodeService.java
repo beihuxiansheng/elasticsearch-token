@@ -562,9 +562,9 @@ name|Build
 operator|.
 name|CURRENT
 argument_list|,
-name|discovery
+name|transportService
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|settings
@@ -746,9 +746,9 @@ return|return
 operator|new
 name|NodeStats
 argument_list|(
-name|discovery
+name|transportService
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|System

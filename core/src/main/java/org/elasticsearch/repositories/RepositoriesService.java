@@ -979,10 +979,16 @@ name|DiscoveryNode
 name|discoveryNode
 parameter_list|)
 block|{
+comment|// repository is created on both master and data nodes
 return|return
 name|discoveryNode
 operator|.
 name|isMasterNode
+argument_list|()
+operator|||
+name|discoveryNode
+operator|.
+name|isDataNode
 argument_list|()
 return|;
 block|}
@@ -1287,11 +1293,16 @@ name|DiscoveryNode
 name|discoveryNode
 parameter_list|)
 block|{
-comment|// Since operation occurs only on masters, it's enough that only master-eligible nodes acked
+comment|// repository was created on both master and data nodes
 return|return
 name|discoveryNode
 operator|.
 name|isMasterNode
+argument_list|()
+operator|||
+name|discoveryNode
+operator|.
+name|isDataNode
 argument_list|()
 return|;
 block|}

@@ -193,12 +193,6 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|field|noMaster
-specifier|public
-specifier|final
-name|boolean
-name|noMaster
-decl_stmt|;
 annotation|@
 name|Nullable
 DECL|field|resultingState
@@ -218,13 +212,10 @@ name|TaskResult
 argument_list|>
 name|executionResults
 decl_stmt|;
-comment|/**          * Construct an execution result instance with a correspondence between the tasks and their execution result          * @param noMaster whether this node steps down as master or has lost connection to the master          * @param resultingState the resulting cluster state          * @param executionResults the correspondence between tasks and their outcome          */
+comment|/**          * Construct an execution result instance with a correspondence between the tasks and their execution result          * @param resultingState the resulting cluster state          * @param executionResults the correspondence between tasks and their outcome          */
 DECL|method|ClusterTasksResult
 name|ClusterTasksResult
 parameter_list|(
-name|boolean
-name|noMaster
-parameter_list|,
 name|ClusterState
 name|resultingState
 parameter_list|,
@@ -248,12 +239,6 @@ operator|.
 name|executionResults
 operator|=
 name|executionResults
-expr_stmt|;
-name|this
-operator|.
-name|noMaster
-operator|=
-name|noMaster
 expr_stmt|;
 block|}
 DECL|method|builder
@@ -484,8 +469,6 @@ operator|new
 name|ClusterTasksResult
 argument_list|<>
 argument_list|(
-literal|false
-argument_list|,
 name|resultingState
 argument_list|,
 name|executionResults
@@ -514,10 +497,6 @@ operator|new
 name|ClusterTasksResult
 argument_list|<>
 argument_list|(
-name|result
-operator|.
-name|noMaster
-argument_list|,
 name|result
 operator|.
 name|resultingState

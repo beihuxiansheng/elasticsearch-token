@@ -56,7 +56,21 @@ name|cluster
 operator|.
 name|service
 operator|.
-name|ClusterService
+name|ClusterApplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|MasterService
 import|;
 end_import
 
@@ -87,6 +101,20 @@ operator|.
 name|network
 operator|.
 name|NetworkService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ClusterSettings
 import|;
 end_import
 
@@ -136,20 +164,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|ZenPing
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -178,7 +192,7 @@ specifier|public
 interface|interface
 name|DiscoveryPlugin
 block|{
-comment|/**      * Returns custom discovery implementations added by this plugin.      *      * The key of the returned map is the name of the discovery implementation      * (see {@link org.elasticsearch.discovery.DiscoveryModule#DISCOVERY_TYPE_SETTING}, and      * the value is a supplier to construct the {@link Discovery}.      *      * @param threadPool Use to schedule ping actions      * @param transportService Use to communicate with other nodes      * @param clusterService Use to find current nodes in the cluster      * @param hostsProvider Use to find configured hosts which should be pinged for initial discovery      */
+comment|/**      * Returns custom discovery implementations added by this plugin.      *      * The key of the returned map is the name of the discovery implementation      * (see {@link org.elasticsearch.discovery.DiscoveryModule#DISCOVERY_TYPE_SETTING}, and      * the value is a supplier to construct the {@link Discovery}.      *      * @param threadPool Use to schedule ping actions      * @param transportService Use to communicate with other nodes      * @param masterService Use to submit cluster state update tasks      * @param clusterApplier Use to locally apply cluster state updates      * @param clusterSettings Use to get cluster settings      * @param hostsProvider Use to find configured hosts which should be pinged for initial discovery      */
 DECL|method|getDiscoveryTypes
 specifier|default
 name|Map
@@ -201,8 +215,14 @@ parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 parameter_list|,
-name|ClusterService
-name|clusterService
+name|MasterService
+name|masterService
+parameter_list|,
+name|ClusterApplier
+name|clusterApplier
+parameter_list|,
+name|ClusterSettings
+name|clusterSettings
 parameter_list|,
 name|UnicastHostsProvider
 name|hostsProvider

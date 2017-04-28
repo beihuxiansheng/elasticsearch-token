@@ -1313,6 +1313,9 @@ name|clusterState
 argument_list|,
 name|clusterService
 operator|.
+name|getMasterService
+argument_list|()
+operator|.
 name|numberOfPendingTasks
 argument_list|()
 argument_list|,
@@ -1322,6 +1325,9 @@ name|getNumberOfInFlightFetch
 argument_list|()
 argument_list|,
 name|clusterService
+operator|.
+name|getMasterService
+argument_list|()
 operator|.
 name|getMaxTaskWaitTime
 argument_list|()
@@ -1371,6 +1377,9 @@ name|clusterState
 argument_list|,
 name|clusterService
 operator|.
+name|getMasterService
+argument_list|()
+operator|.
 name|numberOfPendingTasks
 argument_list|()
 argument_list|,
@@ -1380,6 +1389,9 @@ name|getNumberOfInFlightFetch
 argument_list|()
 argument_list|,
 name|clusterService
+operator|.
+name|getMasterService
+argument_list|()
 operator|.
 name|getMaxTaskWaitTime
 argument_list|()

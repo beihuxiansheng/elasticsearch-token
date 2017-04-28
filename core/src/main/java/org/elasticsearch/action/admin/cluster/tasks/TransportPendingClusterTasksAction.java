@@ -375,6 +375,9 @@ name|pendingTasks
 init|=
 name|clusterService
 operator|.
+name|getMasterService
+argument_list|()
+operator|.
 name|pendingTasks
 argument_list|()
 decl_stmt|;

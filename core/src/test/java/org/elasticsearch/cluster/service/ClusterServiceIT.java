@@ -2210,6 +2210,9 @@ name|pendingClusterTasks
 init|=
 name|clusterService
 operator|.
+name|getMasterService
+argument_list|()
+operator|.
 name|pendingTasks
 argument_list|()
 decl_stmt|;
@@ -2458,6 +2461,9 @@ parameter_list|()
 lambda|->
 name|clusterService
 operator|.
+name|getMasterService
+argument_list|()
+operator|.
 name|pendingTasks
 argument_list|()
 operator|.
@@ -2641,6 +2647,9 @@ expr_stmt|;
 name|pendingClusterTasks
 operator|=
 name|clusterService
+operator|.
+name|getMasterService
+argument_list|()
 operator|.
 name|pendingTasks
 argument_list|()

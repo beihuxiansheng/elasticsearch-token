@@ -1916,6 +1916,10 @@ operator|.
 name|startNode
 argument_list|()
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
+comment|// ensures that all events are processed (in particular state recovery fully completed)
 name|logger
 operator|.
 name|info
