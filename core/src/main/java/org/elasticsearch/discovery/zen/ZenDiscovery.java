@@ -2298,6 +2298,14 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+specifier|final
+name|AtomicBoolean
+name|processedOrFailed
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 name|publishClusterState
 operator|.
 name|pendingStatesQueue
@@ -2323,6 +2331,13 @@ name|void
 name|onNewClusterStateProcessed
 parameter_list|()
 block|{
+name|processedOrFailed
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown
@@ -2348,6 +2363,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|processedOrFailed
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown
@@ -2431,7 +2453,7 @@ argument_list|)
 throw|;
 block|}
 name|boolean
-name|processed
+name|sentToApplier
 init|=
 name|processNextCommittedClusterState
 argument_list|(
@@ -2464,7 +2486,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|processed
+name|sentToApplier
+operator|==
+literal|false
+operator|&&
+name|processedOrFailed
+operator|.
+name|get
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -2472,8 +2501,22 @@ block|{
 assert|assert
 literal|false
 operator|:
-literal|"CS published to itself not processed"
+literal|"cluster state published locally neither processed nor failed: "
+operator|+
+name|newState
 assert|;
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"cluster state with version [{}] that is published locally has neither been processed nor failed"
+argument_list|,
+name|newState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 block|}
