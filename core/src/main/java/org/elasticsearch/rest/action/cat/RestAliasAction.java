@@ -291,11 +291,16 @@ condition|?
 operator|new
 name|GetAliasesRequest
 argument_list|(
+name|Strings
+operator|.
+name|commaDelimitedListToStringArray
+argument_list|(
 name|request
 operator|.
 name|param
 argument_list|(
 literal|"alias"
+argument_list|)
 argument_list|)
 argument_list|)
 else|:
