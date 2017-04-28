@@ -44,6 +44,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -130,16 +142,6 @@ name|Discovery
 extends|extends
 name|LifecycleComponent
 block|{
-DECL|method|localNode
-name|DiscoveryNode
-name|localNode
-parameter_list|()
-function_decl|;
-DECL|method|nodeDescription
-name|String
-name|nodeDescription
-parameter_list|()
-function_decl|;
 comment|/**      * Another hack to solve dep injection problem..., note, this will be called before      * any start is called.      */
 DECL|method|setAllocationService
 name|void
@@ -149,7 +151,7 @@ name|AllocationService
 name|allocationService
 parameter_list|)
 function_decl|;
-comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should not publish this state to the master as well! (the master is sending it...).      *      * The {@link AckListener} allows to keep track of the ack received from nodes, and verify whether      * they updated their own cluster state or not.      *      * The method is guaranteed to throw a {@link FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
+comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should apply this state to the master as well!      *      * The {@link AckListener} allows to keep track of the ack received from nodes, and verify whether      * they updated their own cluster state or not.      *      * The method is guaranteed to throw a {@link FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
 DECL|method|publish
 name|void
 name|publish
@@ -160,6 +162,18 @@ parameter_list|,
 name|AckListener
 name|ackListener
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the initial cluster state provided by the discovery module. Used by      * {@link org.elasticsearch.cluster.service.ClusterApplierService} as initial applied state.      */
+DECL|method|getInitialClusterState
+name|ClusterState
+name|getInitialClusterState
+parameter_list|()
+function_decl|;
+comment|/**      * Returns latest cluster state used by the discovery module. Used by {@link org.elasticsearch.cluster.service.MasterService} to      * calculate the next prospective state to publish.      */
+DECL|method|clusterState
+name|ClusterState
+name|clusterState
+parameter_list|()
 function_decl|;
 DECL|interface|AckListener
 interface|interface
@@ -256,11 +270,6 @@ comment|/**      * @return stats about the discovery      */
 DECL|method|stats
 name|DiscoveryStats
 name|stats
-parameter_list|()
-function_decl|;
-DECL|method|getDiscoverySettings
-name|DiscoverySettings
-name|getDiscoverySettings
 parameter_list|()
 function_decl|;
 comment|/**      * Triggers the first join cycle      */

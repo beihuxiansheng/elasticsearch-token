@@ -958,16 +958,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Add the not recovered as initial state block, we don't allow anything until
-name|this
-operator|.
-name|clusterService
-operator|.
-name|addInitialStateBlock
-argument_list|(
-name|STATE_NOT_RECOVERED_BLOCK
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

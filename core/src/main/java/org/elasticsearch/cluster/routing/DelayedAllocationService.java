@@ -782,6 +782,7 @@ block|}
 comment|/**      * Figure out if an existing scheduled reroute is good enough or whether we need to cancel and reschedule.      */
 DECL|method|scheduleIfNeeded
 specifier|private
+specifier|synchronized
 name|void
 name|scheduleIfNeeded
 parameter_list|(
@@ -792,7 +793,7 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
-name|assertClusterStateThread
+name|assertClusterOrMasterStateThread
 argument_list|()
 expr_stmt|;
 name|long
@@ -987,17 +988,18 @@ block|}
 block|}
 block|}
 comment|// protected so that it can be overridden (and disabled) by unit tests
-DECL|method|assertClusterStateThread
+DECL|method|assertClusterOrMasterStateThread
 specifier|protected
 name|void
-name|assertClusterStateThread
+name|assertClusterOrMasterStateThread
 parameter_list|()
 block|{
+assert|assert
 name|ClusterService
 operator|.
-name|assertClusterStateThread
+name|assertClusterOrMasterStateThread
 argument_list|()
-expr_stmt|;
+assert|;
 block|}
 block|}
 end_class

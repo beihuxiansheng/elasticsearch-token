@@ -4133,7 +4133,13 @@ name|assertThat
 argument_list|(
 name|zenDiscovery
 operator|.
-name|localNode
+name|clusterState
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|getLocalNode
 argument_list|()
 operator|.
 name|getName

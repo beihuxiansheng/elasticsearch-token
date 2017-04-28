@@ -2857,6 +2857,12 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 comment|// verify all cluster states are the same
+comment|// use assert busy to wait for cluster states to be applied (as publish_timeout has low value)
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
 name|ClusterState
 name|state
 init|=
@@ -2972,9 +2978,10 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
+name|assertEquals
+argument_list|(
+literal|"different routing"
+argument_list|,
 name|state
 operator|.
 name|routingTable
@@ -2982,9 +2989,7 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|equals
-argument_list|(
+argument_list|,
 name|nodeState
 operator|.
 name|routingTable
@@ -2993,14 +2998,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-condition|)
-block|{
-name|fail
-argument_list|(
-literal|"different routing"
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -3043,6 +3041,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Test that we do not loose document whose indexing request was successful, under a randomly selected disruption scheme      * We also collect&amp; report the type of indexing failures that occur.      *<p>      * This test is a superset of tests run in the Jepsen test suite, with the exception of versioned updates      */
 annotation|@
