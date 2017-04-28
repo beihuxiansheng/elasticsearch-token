@@ -173,8 +173,8 @@ implements|implements
 name|GeoBounds
 block|{
 DECL|field|BOUNDS_FIELD
-specifier|final
 specifier|static
+specifier|final
 name|ParseField
 name|BOUNDS_FIELD
 init|=
@@ -185,8 +185,8 @@ literal|"bounds"
 argument_list|)
 decl_stmt|;
 DECL|field|TOP_LEFT_FIELD
-specifier|final
 specifier|static
+specifier|final
 name|ParseField
 name|TOP_LEFT_FIELD
 init|=
@@ -197,8 +197,8 @@ literal|"top_left"
 argument_list|)
 decl_stmt|;
 DECL|field|BOTTOM_RIGHT_FIELD
-specifier|final
 specifier|static
+specifier|final
 name|ParseField
 name|BOTTOM_RIGHT_FIELD
 init|=
@@ -209,8 +209,8 @@ literal|"bottom_right"
 argument_list|)
 decl_stmt|;
 DECL|field|LAT_FIELD
-specifier|final
 specifier|static
+specifier|final
 name|ParseField
 name|LAT_FIELD
 init|=
@@ -221,8 +221,8 @@ literal|"lat"
 argument_list|)
 decl_stmt|;
 DECL|field|LON_FIELD
-specifier|final
 specifier|static
+specifier|final
 name|ParseField
 name|LON_FIELD
 init|=
