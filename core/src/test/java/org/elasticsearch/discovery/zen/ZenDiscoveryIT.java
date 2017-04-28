@@ -1887,7 +1887,7 @@ name|void
 name|testDiscoveryStats
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|String
 name|expectedStatsJsonResponse
@@ -1920,6 +1920,38 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 comment|// ensures that all events are processed (in particular state recovery fully completed)
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+name|assertThat
+argument_list|(
+name|internalCluster
+argument_list|()
+operator|.
+name|clusterService
+argument_list|(
+name|internalCluster
+argument_list|()
+operator|.
+name|getMasterName
+argument_list|()
+argument_list|)
+operator|.
+name|getMasterService
+argument_list|()
+operator|.
+name|numberOfPendingTasks
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// see https://github.com/elastic/elasticsearch/issues/24388
 name|logger
 operator|.
 name|info
