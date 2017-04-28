@@ -2409,7 +2409,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Failed to created node environment"
+literal|"Failed to create node environment"
 argument_list|,
 name|ex
 argument_list|)
