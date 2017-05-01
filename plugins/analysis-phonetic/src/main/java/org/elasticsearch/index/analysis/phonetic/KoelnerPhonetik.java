@@ -791,13 +791,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
-decl_stmt|;
-name|tmpParts
-operator|.
-name|addAll
 argument_list|(
-operator|(
 name|Arrays
 operator|.
 name|asList
@@ -809,9 +803,8 @@ argument_list|(
 literal|"[\\p{Z}\\p{C}\\p{P}]"
 argument_list|)
 argument_list|)
-operator|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|int
 name|numberOfParts
 init|=
