@@ -342,6 +342,38 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testCtorWithParams
+specifier|public
+name|void
+name|testCtorWithParams
+parameter_list|()
+block|{
+name|assertArrayEquals
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|"foo"
+block|,
+literal|"bar"
+block|}
+argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
+name|exec
+argument_list|(
+literal|"List l = new ArrayList(); l.add('foo'); l.add('bar'); "
+operator|+
+literal|"Stream stream = l.stream().map(StringBuilder::new);"
+operator|+
+literal|"return stream.map(Object::toString).toArray()"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testArrayCtorMethodRef
 specifier|public
 name|void
