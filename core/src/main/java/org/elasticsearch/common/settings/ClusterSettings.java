@@ -40,11 +40,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|transport
 operator|.
-name|search
-operator|.
-name|RemoteClusterAware
+name|RemoteClusterService
 import|;
 end_import
 
@@ -54,11 +52,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|transport
 operator|.
-name|search
-operator|.
-name|RemoteClusterService
+name|RemoteClusterAware
 import|;
 end_import
 

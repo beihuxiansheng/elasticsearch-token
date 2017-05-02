@@ -38,9 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
+name|transport
 operator|.
 name|RemoteConnectionInfo
 import|;

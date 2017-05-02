@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.search
+DECL|package|org.elasticsearch.transport
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
+name|transport
 package|;
 end_package
 
@@ -321,7 +319,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|REMOTE_CLUSTER_INDEX_SEPARATOR
-specifier|protected
+specifier|public
 specifier|static
 specifier|final
 name|char
@@ -330,7 +328,7 @@ init|=
 literal|':'
 decl_stmt|;
 DECL|field|LOCAL_CLUSTER_GROUP_KEY
-specifier|protected
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -508,7 +506,7 @@ return|;
 block|}
 comment|/**      * Groups indices per cluster by splitting remote cluster-alias, index-name pairs on {@link #REMOTE_CLUSTER_INDEX_SEPARATOR}. All      * indices per cluster are collected as a list in the returned map keyed by the cluster alias. Local indices are grouped under      * {@link #LOCAL_CLUSTER_GROUP_KEY}. The returned map is mutable.      *      * @param requestIndices the indices in the search request to filter      * @param indexExists a predicate that can test if a certain index or alias exists in the local cluster      *      * @return a map of grouped remote and local indices      */
 DECL|method|groupClusterIndices
-specifier|protected
+specifier|public
 name|Map
 argument_list|<
 name|String
