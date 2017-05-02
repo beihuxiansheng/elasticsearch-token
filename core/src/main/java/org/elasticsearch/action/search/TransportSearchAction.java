@@ -1109,7 +1109,7 @@ name|groupedIndices
 operator|.
 name|remove
 argument_list|(
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|LOCAL_CLUSTER_GROUP_KEY
 argument_list|)

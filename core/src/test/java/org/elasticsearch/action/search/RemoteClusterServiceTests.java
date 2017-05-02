@@ -584,7 +584,7 @@ name|BUILT_IN_CLUSTER_SETTINGS
 operator|.
 name|contains
 argument_list|(
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 argument_list|)
@@ -665,7 +665,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 operator|.
@@ -712,7 +712,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 operator|.
@@ -1260,7 +1260,7 @@ name|perClusterIndices
 operator|.
 name|computeIfAbsent
 argument_list|(
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|LOCAL_CLUSTER_GROUP_KEY
 argument_list|,
@@ -1287,7 +1287,7 @@ name|perClusterIndices
 operator|.
 name|remove
 argument_list|(
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|LOCAL_CLUSTER_GROUP_KEY
 argument_list|)
@@ -1753,7 +1753,7 @@ name|service
 operator|.
 name|updateRemoteCluster
 argument_list|(
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|LOCAL_CLUSTER_GROUP_KEY
 argument_list|,

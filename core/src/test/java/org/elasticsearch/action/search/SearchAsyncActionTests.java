@@ -661,7 +661,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 argument_list|)
