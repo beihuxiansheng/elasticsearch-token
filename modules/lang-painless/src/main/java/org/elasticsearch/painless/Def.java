@@ -653,9 +653,8 @@ specifier|final
 name|MethodHandle
 name|LIST_INDEX_NORMALIZE
 decl_stmt|;
-comment|/** factory for arraylength MethodHandle (intrinsic) from Java 9 */
+comment|/** factory for arraylength MethodHandle (intrinsic) from Java 9 (pkg-private for tests) */
 DECL|field|JAVA9_ARRAY_LENGTH_MH_FACTORY
-specifier|private
 specifier|static
 specifier|final
 name|MethodHandle
