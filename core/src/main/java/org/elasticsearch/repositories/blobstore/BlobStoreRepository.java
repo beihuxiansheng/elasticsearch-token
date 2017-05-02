@@ -4526,6 +4526,24 @@ name|bytes
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|snapshotsBlobContainer
+operator|.
+name|blobExists
+argument_list|(
+name|INCOMPATIBLE_SNAPSHOTS_BLOB
+argument_list|)
+condition|)
+block|{
+name|snapshotsBlobContainer
+operator|.
+name|deleteBlob
+argument_list|(
+name|INCOMPATIBLE_SNAPSHOTS_BLOB
+argument_list|)
+expr_stmt|;
+block|}
 comment|// write the incompatible snapshots blob
 name|writeAtomic
 argument_list|(
