@@ -382,7 +382,7 @@ name|LeafBucketCollectorBase
 argument_list|(
 name|sub
 argument_list|,
-name|mapScript
+name|leafMapScript
 argument_list|)
 block|{
 annotation|@
