@@ -1455,15 +1455,10 @@ init|=
 operator|new
 name|HashMap
 argument_list|<>
-argument_list|()
-decl_stmt|;
-name|builder
-operator|.
-name|putAll
 argument_list|(
 name|map
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|K

@@ -131,6 +131,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -224,6 +238,18 @@ name|Loader
 extends|extends
 name|SecureClassLoader
 block|{
+DECL|field|lambdaCounter
+specifier|private
+specifier|final
+name|AtomicInteger
+name|lambdaCounter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 comment|/**          * @param parent The parent ClassLoader.          */
 DECL|method|Loader
 name|Loader
@@ -308,7 +334,22 @@ argument_list|,
 name|bytes
 operator|.
 name|length
+argument_list|,
+name|CODESOURCE
 argument_list|)
+return|;
+block|}
+comment|/**          * A counter used to generate a unique name for each lambda          * function/reference class in this classloader.          */
+DECL|method|newLambdaIdentifier
+name|int
+name|newLambdaIdentifier
+parameter_list|()
+block|{
+return|return
+name|lambdaCounter
+operator|.
+name|getAndIncrement
+argument_list|()
 return|;
 block|}
 block|}

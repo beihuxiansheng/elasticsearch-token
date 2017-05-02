@@ -534,6 +534,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|TestThreadPool
@@ -1932,6 +1948,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Uses a bunch of threads to index, wait for refresh, and non-realtime get documents to validate that they are visible after waiting      * regardless of what crazy sequence of events causes the refresh listener to fire.      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:debug,org.elasticsearch.index.engine.Engine.DW:trace"
+argument_list|)
 DECL|method|testLotsOfThreads
 specifier|public
 name|void

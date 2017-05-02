@@ -1279,16 +1279,10 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
-decl_stmt|;
-name|builder
-operator|.
-name|addAll
 argument_list|(
 name|listedNodes
-argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|TransportAddress

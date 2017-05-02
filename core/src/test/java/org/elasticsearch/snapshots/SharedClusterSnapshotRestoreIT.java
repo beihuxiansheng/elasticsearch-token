@@ -9835,7 +9835,7 @@ name|info
 argument_list|(
 literal|"--> make sure that number of files is back to what it was when the first snapshot was made, "
 operator|+
-literal|"plus one because one backup index-N file should remain"
+literal|"plus two because one backup index-N file should remain and incompatible-snapshots"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -9852,7 +9852,7 @@ index|[
 literal|0
 index|]
 operator|+
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -409,11 +409,6 @@ operator|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
-expr_stmt|;
-name|result
-operator|.
-name|addAll
 argument_list|(
 name|availableIndices
 operator|.
@@ -477,11 +472,6 @@ operator|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|()
-expr_stmt|;
-name|result
-operator|.
-name|addAll
 argument_list|(
 name|availableIndices
 operator|.

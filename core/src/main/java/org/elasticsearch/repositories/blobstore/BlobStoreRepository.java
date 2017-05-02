@@ -4069,13 +4069,19 @@ name|NoSuchFileException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isReadOnly
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] Incompatible snapshots blob [{}] does not exist, the likely reason is that "
+literal|"[{}] Incompatible snapshots blob [{}] does not exist, the likely "
 operator|+
-literal|"there are no incompatible snapshots in the repository"
+literal|"reason is that there are no incompatible snapshots in the repository"
 argument_list|,
 name|metadata
 operator|.
@@ -4085,6 +4091,21 @@ argument_list|,
 name|INCOMPATIBLE_SNAPSHOTS_BLOB
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// write an empty incompatible-snapshots blob - we do this so that there
+comment|// is a blob present, which helps speed up some cloud-based repositories
+comment|// (e.g. S3), which retry if a blob is missing with exponential backoff,
+comment|// delaying the read of repository data and sometimes causing a timeout
+name|writeIncompatibleSnapshots
+argument_list|(
+name|RepositoryData
+operator|.
+name|EMPTY
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|repositoryData

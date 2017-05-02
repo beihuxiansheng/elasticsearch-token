@@ -4047,10 +4047,11 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// Subtract three files that will remain in the repository:
+comment|// Subtract four files that will remain in the repository:
 comment|//   (1) index-1
 comment|//   (2) index-0 (because we keep the previous version) and
 comment|//   (3) index-latest
+comment|//   (4) incompatible-snapshots
 name|assertThat
 argument_list|(
 literal|"not all files were deleted during snapshot cancellation"
@@ -4064,7 +4065,7 @@ argument_list|(
 name|repo
 argument_list|)
 operator|-
-literal|3
+literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
