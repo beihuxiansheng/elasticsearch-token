@@ -1881,6 +1881,9 @@ comment|// stop any ongoing pinging
 name|DiscoveryNodes
 name|nodes
 init|=
+name|clusterState
+argument_list|()
+operator|.
 name|nodes
 argument_list|()
 decl_stmt|;
@@ -2089,23 +2092,6 @@ name|nodesFD
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** start of {@link PingContextProvider } implementation */
-annotation|@
-name|Override
-DECL|method|nodes
-specifier|public
-name|DiscoveryNodes
-name|nodes
-parameter_list|()
-block|{
-return|return
-name|clusterState
-argument_list|()
-operator|.
-name|nodes
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|clusterState
@@ -2133,7 +2119,6 @@ return|return
 name|clusterState
 return|;
 block|}
-comment|/** end of {@link PingContextProvider } implementation */
 annotation|@
 name|Override
 DECL|method|publish
@@ -4002,6 +3987,9 @@ name|node
 operator|.
 name|equals
 argument_list|(
+name|clusterState
+argument_list|()
+operator|.
 name|nodes
 argument_list|()
 operator|.
@@ -6164,6 +6152,9 @@ name|localNodeMaster
 parameter_list|()
 block|{
 return|return
+name|clusterState
+argument_list|()
+operator|.
 name|nodes
 argument_list|()
 operator|.

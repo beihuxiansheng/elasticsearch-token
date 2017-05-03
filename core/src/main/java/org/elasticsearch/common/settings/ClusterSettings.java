@@ -40,11 +40,21 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
+name|transport
 operator|.
 name|RemoteClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|RemoteClusterAware
 import|;
 end_import
 
@@ -1926,7 +1936,7 @@ name|TransportSearchAction
 operator|.
 name|SHARD_COUNT_LIMIT_SETTING
 argument_list|,
-name|RemoteClusterService
+name|RemoteClusterAware
 operator|.
 name|REMOTE_CLUSTERS_SEEDS
 argument_list|,

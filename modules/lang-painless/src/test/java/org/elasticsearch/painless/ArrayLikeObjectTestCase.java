@@ -566,6 +566,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+comment|/* If this fails you *might* be missing -XX:-OmitStackTraceInFastThrow in the test jvm              * In Eclipse you can add this by default by going to Preference->Java->Installed JREs,              * clicking on the default JRE, clicking edit, and adding the flag to the              * "Default VM Arguments".              */
 name|assertThat
 argument_list|(
 name|e
@@ -595,7 +596,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-comment|// Mark the exception we are testing as suppressed so we get its stack trace. If it has one :(
+comment|// Mark the exception we are testing as suppressed so we get its stack trace.
 throw|throw
 name|ae
 throw|;

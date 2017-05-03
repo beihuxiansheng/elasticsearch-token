@@ -28,27 +28,11 @@ name|ClusterState
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|DiscoveryNodesProvider
-import|;
-end_import
-
 begin_interface
 DECL|interface|PingContextProvider
 specifier|public
 interface|interface
 name|PingContextProvider
-extends|extends
-name|DiscoveryNodesProvider
 block|{
 comment|/** return the current cluster state of the node */
 DECL|method|clusterState

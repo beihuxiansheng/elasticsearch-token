@@ -5788,6 +5788,8 @@ argument_list|,
 literal|61
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
 name|OriginalIndices
 operator|.
 name|NONE
@@ -5823,6 +5825,8 @@ argument_list|)
 argument_list|,
 literal|62
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 name|OriginalIndices
 operator|.

@@ -702,22 +702,7 @@ operator|&&
 name|hasEmptyScriptStack
 condition|)
 block|{
-if|if
-condition|(
-literal|0
-operator|!=
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getStackTrace
-argument_list|()
-operator|.
-name|length
-condition|)
-block|{
-comment|// Without -XX:-OmitStackTraceInFastThrow the jvm can eat the stack trace which causes us to ignore script_stack
+comment|/* If this fails you *might* be missing -XX:-OmitStackTraceInFastThrow in the test jvm                      * In Eclipse you can add this by default by going to Preference->Java->Installed JREs,                      * clicking on the default JRE, clicking edit, and adding the flag to the                      * "Default VM Arguments". */
 name|AssertionFailedError
 name|assertion
 init|=
@@ -737,7 +722,6 @@ expr_stmt|;
 throw|throw
 name|assertion
 throw|;
-block|}
 block|}
 elseif|else
 if|if

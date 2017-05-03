@@ -315,7 +315,6 @@ parameter_list|()
 block|{         }
 comment|/**          * @param node                the node which this ping describes          * @param master              the current master of the node          * @param clusterName         the cluster name of the node          * @param clusterStateVersion the current cluster state version of that node          *                            ({@link ElectMasterService.MasterCandidate#UNRECOVERED_CLUSTER_VERSION} for not recovered)          */
 DECL|method|PingResponse
-specifier|public
 name|PingResponse
 parameter_list|(
 name|DiscoveryNode

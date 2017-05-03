@@ -46,7 +46,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -3913,7 +3913,7 @@ argument_list|,
 name|blockedNode
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|DeleteSnapshotResponse
 argument_list|>

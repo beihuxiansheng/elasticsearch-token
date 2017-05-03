@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -806,7 +806,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Now execute the reindex action...
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|?
 extends|extends

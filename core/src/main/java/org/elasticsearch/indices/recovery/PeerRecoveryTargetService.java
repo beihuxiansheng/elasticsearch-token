@@ -2463,13 +2463,7 @@ name|readGlobalCheckpoint
 argument_list|(
 name|recoveryTarget
 operator|.
-name|indexShard
-argument_list|()
-operator|.
-name|shardPath
-argument_list|()
-operator|.
-name|resolveTranslog
+name|translogLocation
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2500,9 +2494,7 @@ name|getGlobalCheckpoint
 argument_list|()
 condition|)
 block|{
-comment|// commit point is good for seq no based recovery as the maximum seq# including in it
-comment|// is below the global checkpoint (i.e., it excludes any ops thay may not be on the primary)
-comment|// Recovery will start at the first op after the local check point stored in the commit.
+comment|/*                  * Commit point is good for sequence-number based recovery as the maximum sequence number included in it is below the global                  * checkpoint (i.e., it excludes any operations that may not be on the primary). Recovery will start at the first operation                  * after the local checkpoint stored in the commit.                  */
 return|return
 name|seqNoStats
 operator|.
@@ -2528,9 +2520,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// this can happen, for example, if a phase one of the recovery completed successfully, a network partition happens before the
-comment|// translog on the recovery target is opened, the recovery enters a retry loop seeing now that the index files are on disk and
-comment|// proceeds to attempt a sequence-number-based recovery
+comment|/*              * This can happen, for example, if a phase one of the recovery completed successfully, a network partition happens before the              * translog on the recovery target is opened, the recovery enters a retry loop seeing now that the index files are on disk and              * proceeds to attempt a sequence-number-based recovery.              */
 return|return
 name|SequenceNumbersService
 operator|.
@@ -2897,11 +2887,17 @@ name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|TransportResponse
+operator|new
+name|RecoveryTranslogOperationsResponse
+argument_list|(
+name|recoveryTarget
 operator|.
-name|Empty
+name|indexShard
+argument_list|()
 operator|.
-name|INSTANCE
+name|getLocalCheckpoint
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

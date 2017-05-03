@@ -62,31 +62,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|anyOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
 import|;
 end_import
 
@@ -280,12 +256,7 @@ name|size
 argument_list|)
 return|;
 block|}
-name|Matcher
-argument_list|<
-name|String
-argument_list|>
-name|matcher
-init|=
+return|return
 name|equalTo
 argument_list|(
 name|Integer
@@ -295,20 +266,6 @@ argument_list|(
 name|index
 argument_list|)
 argument_list|)
-decl_stmt|;
-comment|// If we set -XX:-OmitStackTraceInFastThrow we wouldn't need this
-name|matcher
-operator|=
-name|anyOf
-argument_list|(
-name|matcher
-argument_list|,
-name|nullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|matcher
 return|;
 block|}
 else|else

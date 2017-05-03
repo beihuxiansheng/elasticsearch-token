@@ -2272,9 +2272,11 @@ name|Void
 argument_list|>
 name|asyncRecoverReplica
 parameter_list|(
+specifier|final
 name|IndexShard
 name|replica
 parameter_list|,
+specifier|final
 name|BiFunction
 argument_list|<
 name|IndexShard
@@ -2288,6 +2290,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|FutureTask
 argument_list|<
 name|Void

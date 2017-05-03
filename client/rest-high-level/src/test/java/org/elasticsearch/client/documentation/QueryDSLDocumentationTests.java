@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query
+DECL|package|org.elasticsearch.client.documentation
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|client
 operator|.
-name|query
+name|documentation
 package|;
 end_package
 
@@ -29,20 +29,6 @@ operator|.
 name|join
 operator|.
 name|ScoreMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|geo
-operator|.
-name|GeoDistance
 import|;
 end_import
 
@@ -130,9 +116,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|MoreLikeThisQueryBuilder
-operator|.
-name|Item
+name|GeoShapeQueryBuilder
 import|;
 end_import
 
@@ -253,6 +237,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
 import|;
 end_import
 
@@ -901,7 +897,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * If one of the following tests doesn't compile make sure to not only fix the compilation error here  * but also the documentation under ./docs/java-api/query-dsl/bool-query.asciidoc  *  * There are no assertions here on purpose - all of these tests ((ideally) should) equal to what is  * documented in the java api query dsl part of our reference guide.  * */
+comment|/**  * Examples of using the transport client that are imported into the transport client documentation.  * There are no assertions here because we're mostly concerned with making sure that the examples  * compile and don't throw weird runtime exceptions. Assertions and example data would be nice, but  * that is secondary.  */
 end_comment
 
 begin_class
@@ -918,6 +914,7 @@ name|void
 name|testBool
 parameter_list|()
 block|{
+comment|// tag::bool
 name|boolQuery
 argument_list|()
 operator|.
@@ -930,6 +927,7 @@ argument_list|,
 literal|"test1"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|must
 argument_list|(
@@ -940,6 +938,7 @@ argument_list|,
 literal|"test4"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|mustNot
 argument_list|(
@@ -950,6 +949,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 argument_list|)
+comment|//<2>
 operator|.
 name|should
 argument_list|(
@@ -960,6 +960,7 @@ argument_list|,
 literal|"test3"
 argument_list|)
 argument_list|)
+comment|//<3>
 operator|.
 name|filter
 argument_list|(
@@ -971,6 +972,8 @@ literal|"test5"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<4>
+comment|// end::bool
 block|}
 DECL|method|testBoosting
 specifier|public
@@ -978,6 +981,7 @@ name|void
 name|testBoosting
 parameter_list|()
 block|{
+comment|// tag::boosting
 name|boostingQuery
 argument_list|(
 name|termQuery
@@ -987,6 +991,7 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 argument_list|,
+comment|//<1>
 name|termQuery
 argument_list|(
 literal|"name"
@@ -994,12 +999,15 @@ argument_list|,
 literal|"dadoonet"
 argument_list|)
 argument_list|)
+comment|//<2>
 operator|.
 name|negativeBoost
 argument_list|(
 literal|0.2f
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::boosting
 block|}
 DECL|method|testCommonTerms
 specifier|public
@@ -1007,13 +1015,17 @@ name|void
 name|testCommonTerms
 parameter_list|()
 block|{
+comment|// tag::common_terms
 name|commonTermsQuery
 argument_list|(
 literal|"name"
 argument_list|,
+comment|//<1>
 literal|"kimchy"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::common_terms
 block|}
 DECL|method|testConstantScore
 specifier|public
@@ -1021,6 +1033,7 @@ name|void
 name|testConstantScore
 parameter_list|()
 block|{
+comment|// tag::constant_score
 name|constantScoreQuery
 argument_list|(
 name|termQuery
@@ -1030,12 +1043,15 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|boost
 argument_list|(
 literal|2.0f
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::constant_score
 block|}
 DECL|method|testDisMax
 specifier|public
@@ -1043,6 +1059,7 @@ name|void
 name|testDisMax
 parameter_list|()
 block|{
+comment|// tag::dis_max
 name|disMaxQuery
 argument_list|()
 operator|.
@@ -1055,6 +1072,7 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|add
 argument_list|(
@@ -1065,17 +1083,21 @@ argument_list|,
 literal|"elasticsearch"
 argument_list|)
 argument_list|)
+comment|//<2>
 operator|.
 name|boost
 argument_list|(
 literal|1.2f
 argument_list|)
+comment|//<3>
 operator|.
 name|tieBreaker
 argument_list|(
 literal|0.7f
 argument_list|)
 expr_stmt|;
+comment|//<4>
+comment|// end::dis_max
 block|}
 DECL|method|testExists
 specifier|public
@@ -1083,11 +1105,14 @@ name|void
 name|testExists
 parameter_list|()
 block|{
+comment|// tag::exists
 name|existsQuery
 argument_list|(
 literal|"name"
 argument_list|)
 expr_stmt|;
+comment|//<1>
+comment|// end::exists
 block|}
 DECL|method|testFunctionScore
 specifier|public
@@ -1095,6 +1120,7 @@ name|void
 name|testFunctionScore
 parameter_list|()
 block|{
+comment|// tag::function_score
 name|FilterFunctionBuilder
 index|[]
 name|functions
@@ -1112,12 +1138,14 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 argument_list|,
+comment|//<1>
 name|randomFunction
 argument_list|(
 literal|"ABCDEF"
 argument_list|)
 argument_list|)
 block|,
+comment|//<2>
 operator|new
 name|FunctionScoreQueryBuilder
 operator|.
@@ -1132,6 +1160,7 @@ argument_list|,
 literal|1L
 argument_list|)
 argument_list|)
+comment|//<3>
 block|}
 decl_stmt|;
 name|functionScoreQuery
@@ -1139,6 +1168,7 @@ argument_list|(
 name|functions
 argument_list|)
 expr_stmt|;
+comment|// end::function_score
 block|}
 DECL|method|testFuzzy
 specifier|public
@@ -1146,13 +1176,17 @@ name|void
 name|testFuzzy
 parameter_list|()
 block|{
+comment|// tag::fuzzy
 name|fuzzyQuery
 argument_list|(
 literal|"name"
 argument_list|,
+comment|//<1>
 literal|"kimchy"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::fuzzy
 block|}
 DECL|method|testGeoBoundingBox
 specifier|public
@@ -1160,10 +1194,12 @@ name|void
 name|testGeoBoundingBox
 parameter_list|()
 block|{
+comment|// tag::geo_bounding_box
 name|geoBoundingBoxQuery
 argument_list|(
 literal|"pin.location"
 argument_list|)
+comment|//<1>
 operator|.
 name|setCorners
 argument_list|(
@@ -1172,12 +1208,15 @@ argument_list|,
 operator|-
 literal|74.1
 argument_list|,
+comment|//<2>
 literal|40.717
 argument_list|,
 operator|-
 literal|73.99
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::geo_bounding_box
 block|}
 DECL|method|testGeoDistance
 specifier|public
@@ -1185,10 +1224,12 @@ name|void
 name|testGeoDistance
 parameter_list|()
 block|{
+comment|// tag::geo_distance
 name|geoDistanceQuery
 argument_list|(
 literal|"pin.location"
 argument_list|)
+comment|//<1>
 operator|.
 name|point
 argument_list|(
@@ -1197,6 +1238,7 @@ argument_list|,
 operator|-
 literal|70
 argument_list|)
+comment|//<2>
 operator|.
 name|distance
 argument_list|(
@@ -1206,14 +1248,9 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|geoDistance
-argument_list|(
-name|GeoDistance
-operator|.
-name|ARC
-argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::geo_distance
 block|}
 DECL|method|testGeoPolygon
 specifier|public
@@ -1221,6 +1258,7 @@ name|void
 name|testGeoPolygon
 parameter_list|()
 block|{
+comment|// tag::geo_polygon
 name|List
 argument_list|<
 name|GeoPoint
@@ -1234,6 +1272,7 @@ name|GeoPoint
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|//<1>
 name|points
 operator|.
 name|add
@@ -1283,6 +1322,8 @@ argument_list|,
 name|points
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::geo_polygon
 block|}
 DECL|method|testGeoShape
 specifier|public
@@ -1292,6 +1333,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+block|{
+comment|// tag::geo_shape
 name|GeoShapeQueryBuilder
 name|qb
 init|=
@@ -1299,10 +1342,12 @@ name|geoShapeQuery
 argument_list|(
 literal|"pin.location"
 argument_list|,
+comment|//<1>
 name|ShapeBuilders
 operator|.
 name|newMultiPoint
 argument_list|(
+comment|//<2>
 operator|new
 name|CoordinatesBuilder
 argument_list|()
@@ -1356,17 +1401,27 @@ operator|.
 name|WITHIN
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::geo_shape
+block|}
+block|{
+comment|// tag::indexed_geo_shape
+comment|// Using pre-indexed shapes
+name|GeoShapeQueryBuilder
 name|qb
-operator|=
+init|=
 name|geoShapeQuery
 argument_list|(
 literal|"pin.location"
 argument_list|,
+comment|//<1>
 literal|"DEU"
 argument_list|,
+comment|//<2>
 literal|"countries"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|//<3>
 name|qb
 operator|.
 name|relation
@@ -1375,17 +1430,22 @@ name|ShapeRelation
 operator|.
 name|WITHIN
 argument_list|)
+comment|//<4>
 operator|.
 name|indexedShapeIndex
 argument_list|(
 literal|"shapes"
 argument_list|)
+comment|//<5>
 operator|.
 name|indexedShapePath
 argument_list|(
 literal|"location"
 argument_list|)
 expr_stmt|;
+comment|//<6>
+comment|// end::indexed_geo_shape
+block|}
 block|}
 DECL|method|testHasChild
 specifier|public
@@ -1393,10 +1453,12 @@ name|void
 name|testHasChild
 parameter_list|()
 block|{
+comment|// tag::has_child
 name|hasChildQuery
 argument_list|(
 literal|"blog_tag"
 argument_list|,
+comment|//<1>
 name|termQuery
 argument_list|(
 literal|"tag"
@@ -1404,11 +1466,14 @@ argument_list|,
 literal|"something"
 argument_list|)
 argument_list|,
+comment|//<2>
 name|ScoreMode
 operator|.
 name|None
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::has_child
 block|}
 DECL|method|testHasParent
 specifier|public
@@ -1416,10 +1481,12 @@ name|void
 name|testHasParent
 parameter_list|()
 block|{
+comment|// tag::has_parent
 name|hasParentQuery
 argument_list|(
 literal|"blog"
 argument_list|,
+comment|//<1>
 name|termQuery
 argument_list|(
 literal|"tag"
@@ -1427,9 +1494,12 @@ argument_list|,
 literal|"something"
 argument_list|)
 argument_list|,
+comment|//<2>
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::has_parent
 block|}
 DECL|method|testIds
 specifier|public
@@ -1437,6 +1507,7 @@ name|void
 name|testIds
 parameter_list|()
 block|{
+comment|// tag::ids
 name|idsQuery
 argument_list|(
 literal|"my_type"
@@ -1455,6 +1526,7 @@ argument_list|)
 expr_stmt|;
 name|idsQuery
 argument_list|()
+comment|//<1>
 operator|.
 name|addIds
 argument_list|(
@@ -1465,6 +1537,7 @@ argument_list|,
 literal|"100"
 argument_list|)
 expr_stmt|;
+comment|// end::ids
 block|}
 DECL|method|testMatchAll
 specifier|public
@@ -1472,9 +1545,11 @@ name|void
 name|testMatchAll
 parameter_list|()
 block|{
+comment|// tag::match_all
 name|matchAllQuery
 argument_list|()
 expr_stmt|;
+comment|// end::match_all
 block|}
 DECL|method|testMatch
 specifier|public
@@ -1482,20 +1557,25 @@ name|void
 name|testMatch
 parameter_list|()
 block|{
+comment|// tag::match
 name|matchQuery
 argument_list|(
 literal|"name"
 argument_list|,
+comment|//<1>
 literal|"kimchy elasticsearch"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::match
 block|}
-DECL|method|testMLT
+DECL|method|testMoreLikeThis
 specifier|public
 name|void
-name|testMLT
+name|testMoreLikeThis
 parameter_list|()
 block|{
+comment|// tag::more_like_this
 name|String
 index|[]
 name|fields
@@ -1506,6 +1586,7 @@ block|,
 literal|"name.last"
 block|}
 decl_stmt|;
+comment|//<1>
 name|String
 index|[]
 name|texts
@@ -1514,31 +1595,29 @@ block|{
 literal|"text like this one"
 block|}
 decl_stmt|;
-name|Item
-index|[]
-name|items
-init|=
-literal|null
-decl_stmt|;
+comment|//<2>
 name|moreLikeThisQuery
 argument_list|(
 name|fields
 argument_list|,
 name|texts
 argument_list|,
-name|items
+literal|null
 argument_list|)
 operator|.
 name|minTermFreq
 argument_list|(
 literal|1
 argument_list|)
+comment|//<3>
 operator|.
 name|maxQueryTerms
 argument_list|(
 literal|12
 argument_list|)
 expr_stmt|;
+comment|//<4>
+comment|// end::more_like_this
 block|}
 DECL|method|testMultiMatch
 specifier|public
@@ -1546,15 +1625,19 @@ name|void
 name|testMultiMatch
 parameter_list|()
 block|{
+comment|// tag::multi_match
 name|multiMatchQuery
 argument_list|(
 literal|"kimchy elasticsearch"
 argument_list|,
+comment|//<1>
 literal|"user"
 argument_list|,
 literal|"message"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::multi_match
 block|}
 DECL|method|testNested
 specifier|public
@@ -1562,12 +1645,15 @@ name|void
 name|testNested
 parameter_list|()
 block|{
+comment|// tag::nested
 name|nestedQuery
 argument_list|(
 literal|"obj1"
 argument_list|,
+comment|//<1>
 name|boolQuery
 argument_list|()
+comment|//<2>
 operator|.
 name|must
 argument_list|(
@@ -1597,6 +1683,8 @@ operator|.
 name|Avg
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::nested
 block|}
 DECL|method|testPrefix
 specifier|public
@@ -1604,13 +1692,17 @@ name|void
 name|testPrefix
 parameter_list|()
 block|{
+comment|// tag::prefix
 name|prefixQuery
 argument_list|(
 literal|"brand"
 argument_list|,
+comment|//<1>
 literal|"heine"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::prefix
 block|}
 DECL|method|testQueryString
 specifier|public
@@ -1618,11 +1710,13 @@ name|void
 name|testQueryString
 parameter_list|()
 block|{
+comment|// tag::query_string
 name|queryStringQuery
 argument_list|(
 literal|"+kimchy -elasticsearch"
 argument_list|)
 expr_stmt|;
+comment|// end::query_string
 block|}
 DECL|method|testRange
 specifier|public
@@ -1630,46 +1724,59 @@ name|void
 name|testRange
 parameter_list|()
 block|{
+comment|// tag::range
 name|rangeQuery
 argument_list|(
 literal|"price"
 argument_list|)
+comment|//<1>
 operator|.
 name|from
 argument_list|(
 literal|5
 argument_list|)
+comment|//<2>
 operator|.
 name|to
 argument_list|(
 literal|10
 argument_list|)
+comment|//<3>
 operator|.
 name|includeLower
 argument_list|(
 literal|true
 argument_list|)
+comment|//<4>
 operator|.
 name|includeUpper
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//<5>
+comment|// end::range
+comment|// tag::range_simplified
+comment|// A simplified form using gte, gt, lt or lte
 name|rangeQuery
 argument_list|(
 literal|"age"
 argument_list|)
+comment|//<1>
 operator|.
 name|gte
 argument_list|(
 literal|"10"
 argument_list|)
+comment|//<2>
 operator|.
 name|lt
 argument_list|(
 literal|"20"
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::range_simplified
 block|}
 DECL|method|testRegExp
 specifier|public
@@ -1677,13 +1784,17 @@ name|void
 name|testRegExp
 parameter_list|()
 block|{
+comment|// tag::regexp
 name|regexpQuery
 argument_list|(
 literal|"name.first"
 argument_list|,
+comment|//<1>
 literal|"s.*y"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::regexp
 block|}
 DECL|method|testScript
 specifier|public
@@ -1691,6 +1802,7 @@ name|void
 name|testScript
 parameter_list|()
 block|{
+comment|// tag::script_inline
 name|scriptQuery
 argument_list|(
 operator|new
@@ -1698,8 +1810,11 @@ name|Script
 argument_list|(
 literal|"doc['num1'].value> 1"
 argument_list|)
+comment|//<1>
 argument_list|)
 expr_stmt|;
+comment|// end::script_inline
+comment|// tag::script_file
 name|Map
 argument_list|<
 name|String
@@ -1731,14 +1846,24 @@ name|ScriptType
 operator|.
 name|FILE
 argument_list|,
-literal|"coollang"
+comment|//<1>
+literal|"painless"
 argument_list|,
+comment|//<2>
 literal|"myscript"
 argument_list|,
-name|parameters
+comment|//<3>
+name|singletonMap
+argument_list|(
+literal|"param1"
+argument_list|,
+literal|5
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<4>
+comment|// end::script_file
 block|}
 DECL|method|testSimpleQueryString
 specifier|public
@@ -1746,11 +1871,13 @@ name|void
 name|testSimpleQueryString
 parameter_list|()
 block|{
+comment|// tag::simple_query_string
 name|simpleQueryStringQuery
 argument_list|(
 literal|"+kimchy -elasticsearch"
 argument_list|)
 expr_stmt|;
+comment|// end::simple_query_string
 block|}
 DECL|method|testSpanContaining
 specifier|public
@@ -1758,6 +1885,7 @@ name|void
 name|testSpanContaining
 parameter_list|()
 block|{
+comment|// tag::span_containing
 name|spanContainingQuery
 argument_list|(
 name|spanNearQuery
@@ -1771,6 +1899,7 @@ argument_list|)
 argument_list|,
 literal|5
 argument_list|)
+comment|//<1>
 operator|.
 name|addClause
 argument_list|(
@@ -1795,6 +1924,8 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::span_containing
 block|}
 DECL|method|testSpanFirst
 specifier|public
@@ -1802,6 +1933,7 @@ name|void
 name|testSpanFirst
 parameter_list|()
 block|{
+comment|// tag::span_first
 name|spanFirstQuery
 argument_list|(
 name|spanTermQuery
@@ -1811,9 +1943,12 @@ argument_list|,
 literal|"kimchy"
 argument_list|)
 argument_list|,
+comment|//<1>
 literal|3
+comment|//<2>
 argument_list|)
 expr_stmt|;
+comment|// end::span_first
 block|}
 DECL|method|testSpanMultiTerm
 specifier|public
@@ -1821,6 +1956,7 @@ name|void
 name|testSpanMultiTerm
 parameter_list|()
 block|{
+comment|// tag::span_multi
 name|spanMultiTermQueryBuilder
 argument_list|(
 name|prefixQuery
@@ -1831,6 +1967,8 @@ literal|"ki"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<1>
+comment|// end::span_multi
 block|}
 DECL|method|testSpanNear
 specifier|public
@@ -1838,6 +1976,7 @@ name|void
 name|testSpanNear
 parameter_list|()
 block|{
+comment|// tag::span_near
 name|spanNearQuery
 argument_list|(
 name|spanTermQuery
@@ -1847,8 +1986,10 @@ argument_list|,
 literal|"value1"
 argument_list|)
 argument_list|,
+comment|//<1>
 literal|12
 argument_list|)
+comment|//<2>
 operator|.
 name|addClause
 argument_list|(
@@ -1859,6 +2000,7 @@ argument_list|,
 literal|"value2"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|addClause
 argument_list|(
@@ -1869,12 +2011,15 @@ argument_list|,
 literal|"value3"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|inOrder
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//<3>
+comment|// end::span_near
 block|}
 DECL|method|testSpanNot
 specifier|public
@@ -1882,6 +2027,7 @@ name|void
 name|testSpanNot
 parameter_list|()
 block|{
+comment|// tag::span_not
 name|spanNotQuery
 argument_list|(
 name|spanTermQuery
@@ -1891,6 +2037,7 @@ argument_list|,
 literal|"value1"
 argument_list|)
 argument_list|,
+comment|//<1>
 name|spanTermQuery
 argument_list|(
 literal|"field"
@@ -1899,6 +2046,8 @@ literal|"value2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::span_not
 block|}
 DECL|method|testSpanOr
 specifier|public
@@ -1906,6 +2055,7 @@ name|void
 name|testSpanOr
 parameter_list|()
 block|{
+comment|// tag::span_or
 name|spanOrQuery
 argument_list|(
 name|spanTermQuery
@@ -1915,6 +2065,7 @@ argument_list|,
 literal|"value1"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|addClause
 argument_list|(
@@ -1925,6 +2076,7 @@ argument_list|,
 literal|"value2"
 argument_list|)
 argument_list|)
+comment|//<1>
 operator|.
 name|addClause
 argument_list|(
@@ -1936,6 +2088,8 @@ literal|"value3"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<1>
+comment|// end::span_or
 block|}
 DECL|method|testSpanTerm
 specifier|public
@@ -1943,13 +2097,17 @@ name|void
 name|testSpanTerm
 parameter_list|()
 block|{
+comment|// tag::span_term
 name|spanTermQuery
 argument_list|(
 literal|"user"
 argument_list|,
+comment|//<1>
 literal|"kimchy"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::span_term
 block|}
 DECL|method|testSpanWithin
 specifier|public
@@ -1957,6 +2115,7 @@ name|void
 name|testSpanWithin
 parameter_list|()
 block|{
+comment|// tag::span_within
 name|spanWithinQuery
 argument_list|(
 name|spanNearQuery
@@ -1970,6 +2129,7 @@ argument_list|)
 argument_list|,
 literal|5
 argument_list|)
+comment|//<1>
 operator|.
 name|addClause
 argument_list|(
@@ -1994,6 +2154,8 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::span_within
 block|}
 DECL|method|testTerm
 specifier|public
@@ -2001,13 +2163,17 @@ name|void
 name|testTerm
 parameter_list|()
 block|{
+comment|// tag::term
 name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
+comment|//<1>
 literal|"kimchy"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::term
 block|}
 DECL|method|testTerms
 specifier|public
@@ -2015,15 +2181,19 @@ name|void
 name|testTerms
 parameter_list|()
 block|{
+comment|// tag::terms
 name|termsQuery
 argument_list|(
 literal|"tags"
 argument_list|,
+comment|//<1>
 literal|"blue"
 argument_list|,
 literal|"pill"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::terms
 block|}
 DECL|method|testType
 specifier|public
@@ -2031,11 +2201,14 @@ name|void
 name|testType
 parameter_list|()
 block|{
+comment|// tag::type
 name|typeQuery
 argument_list|(
 literal|"my_type"
 argument_list|)
 expr_stmt|;
+comment|//<1>
+comment|// end::type
 block|}
 DECL|method|testWildcard
 specifier|public
@@ -2043,13 +2216,17 @@ name|void
 name|testWildcard
 parameter_list|()
 block|{
+comment|// tag::wildcard
 name|wildcardQuery
 argument_list|(
 literal|"user"
 argument_list|,
+comment|//<1>
 literal|"k?mch*"
 argument_list|)
 expr_stmt|;
+comment|//<2>
+comment|// end::wildcard
 block|}
 block|}
 end_class

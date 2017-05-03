@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.search
+DECL|package|org.elasticsearch.transport
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
+name|transport
 package|;
 end_package
 
@@ -265,6 +263,20 @@ operator|.
 name|state
 operator|.
 name|ClusterStateResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchRequest
 import|;
 end_import
 
@@ -533,6 +545,30 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|RemoteClusterConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|RemoteConnectionInfo
 import|;
 end_import
 

@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ActionListener
 import|;
 end_import
@@ -73,18 +85,6 @@ operator|.
 name|action
 operator|.
 name|FailedNodeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ListenableActionFuture
 import|;
 end_import
 
@@ -977,18 +977,6 @@ operator|.
 name|Matchers
 operator|.
 name|allOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|contains
 import|;
 end_import
 
@@ -3946,7 +3934,7 @@ name|Exception
 block|{
 comment|// Start blocking test task
 comment|// Get real client (the plugin is not registered on transport nodes)
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|TestTaskPlugin
 operator|.
@@ -4129,7 +4117,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Start blocking test task
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|TestTaskPlugin
 operator|.
@@ -4272,8 +4260,6 @@ argument_list|()
 argument_list|,
 name|id
 lambda|->
-block|{
-return|return
 name|client
 argument_list|()
 operator|.
@@ -4302,8 +4288,6 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
-return|;
-block|}
 argument_list|,
 name|response
 lambda|->
@@ -4318,7 +4302,7 @@ argument_list|,
 name|empty
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|assertThat
 argument_list|(
 name|response
@@ -4329,7 +4313,7 @@ argument_list|,
 name|empty
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|assertThat
 argument_list|(
 name|response
@@ -4342,10 +4326,10 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|TaskInfo
 name|task
-init|=
+operator|=
 name|response
 operator|.
 name|getTasks
@@ -4355,7 +4339,7 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
-decl_stmt|;
+argument_list|;
 name|assertEquals
 argument_list|(
 name|TestTaskPlugin
@@ -4369,13 +4353,15 @@ operator|.
 name|getAction
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 block|}
-argument_list|)
-expr_stmt|;
-block|}
+block|)
+class|;
+end_class
+
+begin_function
+unit|}      public
 DECL|method|testGetTaskWaitForCompletionWithoutStoringResult
-specifier|public
 name|void
 name|testGetTaskWaitForCompletionWithoutStoringResult
 parameter_list|()
@@ -4388,8 +4374,6 @@ literal|false
 argument_list|,
 name|id
 lambda|->
-block|{
-return|return
 name|client
 argument_list|()
 operator|.
@@ -4411,8 +4395,6 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
-return|;
-block|}
 argument_list|,
 name|response
 lambda|->
@@ -4427,8 +4409,8 @@ operator|.
 name|isCompleted
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// We didn't store the result so it won't come back when we wait
+argument_list|;
+comment|//We didn't store the result so it won't come back when we wait
 name|assertNull
 argument_list|(
 name|response
@@ -4439,8 +4421,8 @@ operator|.
 name|getResponse
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|// But the task's details should still be there because we grabbed a reference to the task before waiting for it to complete.
+argument_list|;
+comment|//But the task's details should still be there because we grabbed a reference to the task before waiting for it to complete
 name|assertNotNull
 argument_list|(
 name|response
@@ -4451,7 +4433,7 @@ operator|.
 name|getTask
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|assertEquals
 argument_list|(
 name|TestTaskPlugin
@@ -4471,13 +4453,18 @@ operator|.
 name|getAction
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 block|}
-argument_list|)
-expr_stmt|;
-block|}
+end_function
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}      public
 DECL|method|testGetTaskWaitForCompletionWithStoringResult
-specifier|public
 name|void
 name|testGetTaskWaitForCompletionWithStoringResult
 parameter_list|()
@@ -4490,8 +4477,6 @@ literal|true
 argument_list|,
 name|id
 lambda|->
-block|{
-return|return
 name|client
 argument_list|()
 operator|.
@@ -4513,8 +4498,6 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
-return|;
-block|}
 argument_list|,
 name|response
 lambda|->
@@ -4529,7 +4512,7 @@ operator|.
 name|isCompleted
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 comment|// We stored the task so we should get its results
 name|assertEquals
 argument_list|(
@@ -4548,7 +4531,7 @@ argument_list|(
 literal|"failure_count"
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|;
 comment|// The task's details should also be there
 name|assertNotNull
 argument_list|(
@@ -4560,7 +4543,7 @@ operator|.
 name|getTask
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|assertEquals
 argument_list|(
 name|TestTaskPlugin
@@ -4580,14 +4563,23 @@ operator|.
 name|getAction
 argument_list|()
 argument_list|)
-expr_stmt|;
+argument_list|;
 block|}
-argument_list|)
-expr_stmt|;
-block|}
+end_function
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_comment
+unit|}
 comment|/**      * Test wait for completion.      * @param storeResult should the task store its results      * @param wait start waiting for a task. Accepts that id of the task to wait for and returns a future waiting for it.      * @param validator validate the response and return the task ids that were found      */
+end_comment
+
+begin_function
 DECL|method|waitForCompletionTestCase
-specifier|private
+unit|private
 parameter_list|<
 name|T
 parameter_list|>
@@ -4601,7 +4593,7 @@ name|Function
 argument_list|<
 name|TaskId
 argument_list|,
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|T
 argument_list|>
@@ -4618,7 +4610,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Start blocking test task
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|TestTaskPlugin
 operator|.
@@ -4646,7 +4638,7 @@ operator|.
 name|execute
 argument_list|()
 decl_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|T
 argument_list|>
@@ -4841,6 +4833,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testListTasksWaitForTimeout
 specifier|public
 name|void
@@ -4918,6 +4913,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testGetTaskWaitForTimeout
 specifier|public
 name|void
@@ -4983,7 +4981,13 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Test waiting for a task that times out.      * @param wait wait for the running task and return all the failures you accumulated waiting for it      */
+end_comment
+
+begin_function
 DECL|method|waitForTimeoutTestCase
 specifier|private
 name|void
@@ -5008,7 +5012,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Start blocking test task
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|TestTaskPlugin
 operator|.
@@ -5132,7 +5136,13 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Wait for the test task to be running on all nodes and return the TaskId of the primary task.      */
+end_comment
+
+begin_function
 DECL|method|waitForTestTaskStartOnAllNodes
 specifier|private
 name|TaskId
@@ -5253,6 +5263,9 @@ name|getTaskId
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|testTasksListWaitForNoTask
 specifier|public
 name|void
@@ -5262,7 +5275,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Spin up a request to wait for no matching tasks
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|ListTasksResponse
 argument_list|>
@@ -5323,6 +5336,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testTasksGetWaitForNoTask
 specifier|public
 name|void
@@ -5332,7 +5348,7 @@ throws|throws
 name|Exception
 block|{
 comment|// Spin up a request to wait for no matching tasks
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|GetTaskResponse
 argument_list|>
@@ -5371,15 +5387,15 @@ decl_stmt|;
 comment|// It should finish quickly and without complaint
 name|expectNotFound
 argument_list|(
-parameter_list|()
-lambda|->
 name|waitResponseFuture
-operator|.
+operator|::
 name|get
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testTasksWaitForAllTask
 specifier|public
 name|void
@@ -5468,6 +5484,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testTaskStoringSuccesfulResult
 specifier|public
 name|void
@@ -5951,6 +5970,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testTaskStoringFailureResult
 specifier|public
 name|void
@@ -6276,6 +6298,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testGetTaskNotFound
 specifier|public
 name|void
@@ -6344,6 +6369,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testNodeNotFoundButTaskFound
 specifier|public
 name|void
@@ -6537,6 +6565,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|tearDown
@@ -6616,7 +6647,13 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Registers recording task event listeners with the given action mask on all nodes      */
+end_comment
+
+begin_function
 DECL|method|registerTaskManageListeners
 specifier|private
 name|void
@@ -6729,7 +6766,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Resets all recording task event listeners with the given action mask on all nodes      */
+end_comment
+
+begin_function
 DECL|method|resetTaskManageListeners
 specifier|private
 name|void
@@ -6793,7 +6836,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns the number of events that satisfy the criteria across all nodes      *      * @param actionMasks action masks to match      * @return number of events that satisfy the criteria      */
+end_comment
+
+begin_function
 DECL|method|numberOfEvents
 specifier|private
 name|int
@@ -6828,7 +6877,13 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Returns all events that satisfy the criteria across all nodes      *      * @param actionMasks action masks to match      * @return number of events that satisfy the criteria      */
+end_comment
+
+begin_function
 DECL|method|findEvents
 specifier|private
 name|List
@@ -6955,7 +7010,13 @@ return|return
 name|events
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Asserts that all tasks in the tasks list have the same parentTask      */
+end_comment
+
+begin_function
 DECL|method|assertParentTask
 specifier|private
 name|void
@@ -6988,6 +7049,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|assertParentTask
 specifier|private
 name|void
@@ -7063,6 +7127,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|expectNotFound
 specifier|private
 name|ResourceNotFoundException
@@ -7120,7 +7187,13 @@ return|return
 name|notFound
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Fetch the task status from the list tasks API using it's "fallback to get from the task index" behavior. Asserts some obvious stuff      * about the fetched task and returns a map of it's status.      */
+end_comment
+
+begin_function
 DECL|method|expectFinishedTask
 specifier|private
 name|GetTaskResponse
@@ -7199,8 +7272,8 @@ return|return
 name|response
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -196,20 +196,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|PlainActionFuture
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -273,20 +259,6 @@ operator|.
 name|concurrent
 operator|.
 name|EsRejectedExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilder
 import|;
 end_import
 
@@ -1162,7 +1134,7 @@ argument_list|(
 literal|"Starting request"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|BulkByScrollResponse
 argument_list|>

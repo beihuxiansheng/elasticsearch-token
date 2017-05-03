@@ -264,6 +264,8 @@ name|shardId
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;
@@ -530,6 +532,8 @@ argument_list|)
 argument_list|,
 literal|123
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 name|OriginalIndices
 operator|.

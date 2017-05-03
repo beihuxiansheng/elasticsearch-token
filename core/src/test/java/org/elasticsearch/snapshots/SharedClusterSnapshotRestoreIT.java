@@ -56,7 +56,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -593,18 +593,6 @@ operator|.
 name|service
 operator|.
 name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Priority
 import|;
 end_import
 
@@ -1709,7 +1697,7 @@ argument_list|,
 literal|100L
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|FlushResponse
 argument_list|>
@@ -8819,7 +8807,7 @@ argument_list|(
 literal|"--> restore index after deletion"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|RestoreSnapshotResponse
 argument_list|>
@@ -19516,7 +19504,7 @@ argument_list|,
 name|allowPartial
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|CreateSnapshotResponse
 argument_list|>
@@ -20264,7 +20252,7 @@ literal|"--> execution will be blocked on all data nodes"
 argument_list|)
 expr_stmt|;
 specifier|final
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|RestoreSnapshotResponse
 argument_list|>
@@ -20775,7 +20763,7 @@ name|repoName
 argument_list|)
 expr_stmt|;
 specifier|final
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|RestoreSnapshotResponse
 argument_list|>
@@ -23101,7 +23089,7 @@ argument_list|,
 name|indexName
 argument_list|)
 decl_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|CreateSnapshotResponse
 argument_list|>

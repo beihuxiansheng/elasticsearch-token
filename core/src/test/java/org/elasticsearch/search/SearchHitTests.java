@@ -1069,6 +1069,8 @@ name|randomInt
 argument_list|()
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
 name|OriginalIndices
 operator|.
 name|NONE

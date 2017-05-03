@@ -810,8 +810,6 @@ implements|implements
 name|PublishClusterStateAction
 operator|.
 name|NewPendingClusterStateListener
-implements|,
-name|DiscoveryNodesProvider
 block|{
 DECL|field|discoveryNode
 specifier|public
@@ -1142,8 +1140,6 @@ name|newClusterState
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|nodes
 specifier|public
 name|DiscoveryNodes

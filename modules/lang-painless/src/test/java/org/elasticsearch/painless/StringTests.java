@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1938,6 +1952,36 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testJava9StringConcatBytecode
+specifier|public
+name|void
+name|testJava9StringConcatBytecode
+parameter_list|()
+block|{
+name|assumeTrue
+argument_list|(
+literal|"Needs Java 9 to test indified String concat"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|WriterConstants
+operator|.
+name|INDY_STRING_CONCAT_BOOTSTRAP_HANDLE
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"String s = \"cat\"; return s + true + 'abc' + null;"
+argument_list|,
+literal|"INVOKEDYNAMIC concat(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/Object;)Ljava/lang/String;"
 argument_list|)
 expr_stmt|;
 block|}

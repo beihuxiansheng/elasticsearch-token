@@ -3996,6 +3996,8 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|super
 operator|.

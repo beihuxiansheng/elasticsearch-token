@@ -9831,12 +9831,16 @@ lambda|->
 block|{             }
 argument_list|)
 block|{
-block|@Override                 public void indexTranslogOperations(List<Translog.Operation> operations
+block|@Override                 public long indexTranslogOperations(List<Translog.Operation> operations
 argument_list|,
 name|int
 name|totalTranslogOps
 argument_list|)
 block|{
+name|final
+name|long
+name|localCheckpoint
+operator|=
 name|super
 operator|.
 name|indexTranslogOperations
@@ -9856,7 +9860,11 @@ operator|.
 name|syncNeeded
 argument_list|()
 argument_list|)
-block|;                 }
+block|;
+return|return
+name|localCheckpoint
+return|;
+block|}
 block|}
 operator|,
 literal|true
@@ -10242,7 +10250,7 @@ begin_function
 annotation|@
 name|Override
 specifier|public
-name|void
+name|long
 name|indexTranslogOperations
 parameter_list|(
 name|List
@@ -10257,6 +10265,10 @@ name|int
 name|totalTranslogOps
 parameter_list|)
 block|{
+specifier|final
+name|long
+name|localCheckpoint
+init|=
 name|super
 operator|.
 name|indexTranslogOperations
@@ -10265,7 +10277,7 @@ name|operations
 argument_list|,
 name|totalTranslogOps
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Shard should now be active since we did recover:
 name|assertTrue
 argument_list|(
@@ -10275,6 +10287,9 @@ name|isActive
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|localCheckpoint
+return|;
 block|}
 end_function
 

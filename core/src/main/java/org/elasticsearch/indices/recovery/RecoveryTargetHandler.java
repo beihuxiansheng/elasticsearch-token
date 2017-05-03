@@ -127,9 +127,9 @@ name|long
 name|clusterStateVersion
 parameter_list|)
 function_decl|;
-comment|/**      * Index a set of translog operations on the target      * @param operations operations to index      * @param totalTranslogOps current number of total operations expected to be indexed      */
+comment|/**      * Index a set of translog operations on the target      * @param operations operations to index      * @param totalTranslogOps current number of total operations expected to be indexed      *      * @return the local checkpoint on the target shard      */
 DECL|method|indexTranslogOperations
-name|void
+name|long
 name|indexTranslogOperations
 parameter_list|(
 name|List

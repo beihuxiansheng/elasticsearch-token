@@ -92,18 +92,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -512,8 +500,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)
@@ -1222,8 +1208,6 @@ name|build
 argument_list|()
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 block|{
 annotation|@
@@ -1857,8 +1841,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)

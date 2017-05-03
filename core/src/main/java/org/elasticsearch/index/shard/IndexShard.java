@@ -8422,7 +8422,7 @@ name|seqNo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointTracker#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
+comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointTracker#markAllocationIdAsInSync(String, long)} for additional details.      *      * @param allocationId    the allocation ID of the shard to mark as in-sync      * @param localCheckpoint the current local checkpoint on the shard      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 name|void
@@ -8431,7 +8431,13 @@ parameter_list|(
 specifier|final
 name|String
 name|allocationId
+parameter_list|,
+specifier|final
+name|long
+name|localCheckpoint
 parameter_list|)
+throws|throws
+name|InterruptedException
 block|{
 name|verifyPrimary
 argument_list|()
@@ -8445,6 +8451,8 @@ operator|.
 name|markAllocationIdAsInSync
 argument_list|(
 name|allocationId
+argument_list|,
+name|localCheckpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -8513,7 +8521,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param checkpoint the global checkpoint      */
+comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param globalCheckpoint the global checkpoint      */
 DECL|method|updateGlobalCheckpointOnReplica
 specifier|public
 name|void
@@ -8521,23 +8529,81 @@ name|updateGlobalCheckpointOnReplica
 parameter_list|(
 specifier|final
 name|long
-name|checkpoint
+name|globalCheckpoint
 parameter_list|)
 block|{
 name|verifyReplicationTarget
 argument_list|()
 expr_stmt|;
+specifier|final
+name|SequenceNumbersService
+name|seqNoService
+init|=
 name|getEngine
 argument_list|()
 operator|.
 name|seqNoService
 argument_list|()
+decl_stmt|;
+specifier|final
+name|long
+name|localCheckpoint
+init|=
+name|seqNoService
+operator|.
+name|getLocalCheckpoint
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|globalCheckpoint
+operator|<=
+name|localCheckpoint
+condition|)
+block|{
+name|seqNoService
 operator|.
 name|updateGlobalCheckpointOnReplica
 argument_list|(
-name|checkpoint
+name|globalCheckpoint
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|/*              * This can happen during recovery when the shard has started its engine but recovery is not finalized and is receiving global              * checkpoint updates from in-flight operations. However, since this shard is not yet contributing to calculating the global              * checkpoint, it can be the case that the global checkpoint update from the primary is ahead of the local checkpoint on this              * shard. In this case, we ignore the global checkpoint update. This should only happen if we are in the translog stage of              * recovery. Prior to this, the engine is not opened and this shard will not receive global checkpoint updates, and after this              * the shard will be contributing to calculations of the the global checkpoint.              */
+assert|assert
+name|recoveryState
+argument_list|()
+operator|.
+name|getStage
+argument_list|()
+operator|==
+name|RecoveryState
+operator|.
+name|Stage
+operator|.
+name|TRANSLOG
+operator|:
+literal|"expected recovery stage ["
+operator|+
+name|RecoveryState
+operator|.
+name|Stage
+operator|.
+name|TRANSLOG
+operator|+
+literal|"] but was ["
+operator|+
+name|recoveryState
+argument_list|()
+operator|.
+name|getStage
+argument_list|()
+operator|+
+literal|"]"
+assert|;
+block|}
 block|}
 comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointTracker#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster

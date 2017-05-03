@@ -143,6 +143,7 @@ end_comment
 begin_class
 DECL|class|SearchShardTarget
 specifier|public
+specifier|final
 class|class
 name|SearchShardTarget
 implements|implements
@@ -165,7 +166,7 @@ specifier|final
 name|ShardId
 name|shardId
 decl_stmt|;
-comment|//original indices are only needed in the coordinating node throughout the search request execution.
+comment|//original indices and cluster alias are only needed in the coordinating node throughout the search request execution.
 comment|//no need to serialize them as part of SearchShardTarget.
 DECL|field|originalIndices
 specifier|private
@@ -173,6 +174,13 @@ specifier|final
 specifier|transient
 name|OriginalIndices
 name|originalIndices
+decl_stmt|;
+DECL|field|clusterAlias
+specifier|private
+specifier|final
+specifier|transient
+name|String
+name|clusterAlias
 decl_stmt|;
 DECL|method|SearchShardTarget
 specifier|public
@@ -222,6 +230,12 @@ name|originalIndices
 operator|=
 literal|null
 expr_stmt|;
+name|this
+operator|.
+name|clusterAlias
+operator|=
+literal|null
+expr_stmt|;
 block|}
 DECL|method|SearchShardTarget
 specifier|public
@@ -232,6 +246,9 @@ name|nodeId
 parameter_list|,
 name|ShardId
 name|shardId
+parameter_list|,
+name|String
+name|clusterAlias
 parameter_list|,
 name|OriginalIndices
 name|originalIndices
@@ -265,6 +282,12 @@ name|originalIndices
 operator|=
 name|originalIndices
 expr_stmt|;
+name|this
+operator|.
+name|clusterAlias
+operator|=
+name|clusterAlias
+expr_stmt|;
 block|}
 comment|//this constructor is only used in tests
 DECL|method|SearchShardTarget
@@ -292,6 +315,8 @@ name|index
 argument_list|,
 name|shardId
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 name|OriginalIndices
 operator|.
@@ -357,6 +382,16 @@ parameter_list|()
 block|{
 return|return
 name|originalIndices
+return|;
+block|}
+DECL|method|getClusterAlias
+specifier|public
+name|String
+name|getClusterAlias
+parameter_list|()
+block|{
+return|return
+name|clusterAlias
 return|;
 block|}
 annotation|@
