@@ -712,6 +712,8 @@ init|=
 operator|new
 name|SearchShardIterator
 argument_list|(
+literal|"remote"
+argument_list|,
 name|remoteShardId
 argument_list|,
 name|Collections
@@ -768,6 +770,8 @@ init|=
 operator|new
 name|SearchShardIterator
 argument_list|(
+literal|"remote"
+argument_list|,
 name|remoteShardId2
 argument_list|,
 name|Collections
@@ -843,6 +847,8 @@ init|=
 operator|new
 name|SearchShardIterator
 argument_list|(
+literal|"remote"
+argument_list|,
 name|remoteShardId3
 argument_list|,
 name|Collections
@@ -1620,8 +1626,6 @@ name|TransportSearchAction
 operator|.
 name|processRemoteShards
 argument_list|(
-name|service
-argument_list|,
 name|searchShardsResponseMap
 argument_list|,
 name|remoteIndicesByCluster

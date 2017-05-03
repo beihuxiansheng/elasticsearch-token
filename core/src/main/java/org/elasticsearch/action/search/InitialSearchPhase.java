@@ -384,6 +384,11 @@ argument_list|()
 argument_list|,
 name|shardIt
 operator|.
+name|getClusterAlias
+argument_list|()
+argument_list|,
+name|shardIt
+operator|.
 name|getOriginalIndices
 argument_list|()
 argument_list|)
@@ -849,6 +854,11 @@ argument_list|,
 name|shardIt
 operator|.
 name|shardId
+argument_list|()
+argument_list|,
+name|shardIt
+operator|.
+name|getClusterAlias
 argument_list|()
 argument_list|,
 name|shardIt

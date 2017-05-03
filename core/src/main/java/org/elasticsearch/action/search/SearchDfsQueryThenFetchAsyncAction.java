@@ -140,7 +140,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|Function
+name|BiFunction
 import|;
 end_import
 
@@ -173,8 +173,10 @@ name|SearchTransportService
 name|searchTransportService
 parameter_list|,
 specifier|final
-name|Function
+name|BiFunction
 argument_list|<
+name|String
+argument_list|,
 name|String
 argument_list|,
 name|Transport
@@ -318,6 +320,11 @@ name|sendExecuteDfs
 argument_list|(
 name|getConnection
 argument_list|(
+name|shardIt
+operator|.
+name|getClusterAlias
+argument_list|()
+argument_list|,
 name|shard
 operator|.
 name|currentNodeId
@@ -327,8 +334,6 @@ argument_list|,
 name|buildShardSearchRequest
 argument_list|(
 name|shardIt
-argument_list|,
-name|shard
 argument_list|)
 argument_list|,
 name|getTask

@@ -99,11 +99,19 @@ specifier|final
 name|OriginalIndices
 name|originalIndices
 decl_stmt|;
+DECL|field|clusterAlias
+specifier|private
+name|String
+name|clusterAlias
+decl_stmt|;
 comment|/**      * Creates a {@link PlainShardIterator} instance that iterates over a subset of the given shards      * this the a given<code>shardId</code>.      *      * @param shardId shard id of the group      * @param shards  shards to iterate      */
 DECL|method|SearchShardIterator
 specifier|public
 name|SearchShardIterator
 parameter_list|(
+name|String
+name|clusterAlias
+parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
@@ -130,6 +138,12 @@ name|originalIndices
 operator|=
 name|originalIndices
 expr_stmt|;
+name|this
+operator|.
+name|clusterAlias
+operator|=
+name|clusterAlias
+expr_stmt|;
 block|}
 comment|/**      * Returns the original indices associated with this shard iterator, specifically with the cluster that this shard belongs to.      */
 DECL|method|getOriginalIndices
@@ -140,6 +154,16 @@ parameter_list|()
 block|{
 return|return
 name|originalIndices
+return|;
+block|}
+DECL|method|getClusterAlias
+specifier|public
+name|String
+name|getClusterAlias
+parameter_list|()
+block|{
+return|return
+name|clusterAlias
 return|;
 block|}
 block|}

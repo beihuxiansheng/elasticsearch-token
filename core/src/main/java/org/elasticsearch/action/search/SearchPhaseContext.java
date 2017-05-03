@@ -60,20 +60,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -237,6 +223,9 @@ name|Connection
 name|getConnection
 parameter_list|(
 name|String
+name|clusterAlias
+parameter_list|,
+name|String
 name|nodeId
 parameter_list|)
 function_decl|;
@@ -292,9 +281,6 @@ name|buildShardSearchRequest
 parameter_list|(
 name|SearchShardIterator
 name|shardIt
-parameter_list|,
-name|ShardRouting
-name|shard
 parameter_list|)
 function_decl|;
 comment|/**      * Processes the phase transition from on phase to another. This method handles all errors that happen during the initial run execution      * of the next phase. If there are no successful operations in the context when this method is executed the search is aborted and      * a response is returned to the user indicating that all shards have failed.      */

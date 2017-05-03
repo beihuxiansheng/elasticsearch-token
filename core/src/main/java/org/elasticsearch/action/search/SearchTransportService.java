@@ -158,20 +158,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ClusterSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -631,9 +617,6 @@ name|SearchTransportService
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|ClusterSettings
-name|clusterSettings
 parameter_list|,
 name|TransportService
 name|transportService
@@ -2687,16 +2670,31 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 
+begin_comment
+unit|}
+comment|/**      * Returns a connection to the given node on the provided cluster. If the cluster alias is<code>null</code> the node will be resolved      * against the local cluster.      * @param clusterAlias the cluster alias the node should be resolve against      * @param node the node to resolve      * @return a connection to the given node belonging to the cluster with the provided alias.      */
+end_comment
+
 begin_expr_stmt
-unit|}      Transport
 DECL|method|getConnection
+unit|Transport
 operator|.
 name|Connection
 name|getConnection
 argument_list|(
+name|String
+name|clusterAlias
+argument_list|,
 name|DiscoveryNode
 name|node
 argument_list|)
+block|{
+if|if
+condition|(
+name|clusterAlias
+operator|==
+literal|null
+condition|)
 block|{
 return|return
 name|transportService
@@ -2709,6 +2707,25 @@ return|;
 block|}
 end_expr_stmt
 
-unit|}
+begin_else
+else|else
+block|{
+return|return
+name|transportService
+operator|.
+name|getRemoteClusterService
+argument_list|()
+operator|.
+name|getConnection
+argument_list|(
+name|node
+argument_list|,
+name|clusterAlias
+argument_list|)
+return|;
+block|}
+end_else
+
+unit|} }
 end_unit
 

@@ -444,6 +444,11 @@ name|getConnection
 argument_list|(
 name|searchShardTarget
 operator|.
+name|getClusterAlias
+argument_list|()
+argument_list|,
+name|searchShardTarget
+operator|.
 name|getNodeId
 argument_list|()
 argument_list|)
