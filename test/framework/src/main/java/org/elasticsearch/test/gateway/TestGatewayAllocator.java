@@ -488,11 +488,6 @@ name|shardId
 argument_list|,
 name|foundShards
 argument_list|,
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
-argument_list|,
 name|ignoreNodes
 argument_list|)
 return|;
@@ -551,11 +546,6 @@ argument_list|,
 name|Collections
 operator|.
 name|emptyMap
-argument_list|()
-argument_list|,
-name|Collections
-operator|.
-name|emptySet
 argument_list|()
 argument_list|,
 name|allocation
