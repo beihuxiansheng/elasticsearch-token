@@ -1848,8 +1848,10 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|int
-name|totalOperations
+name|RecoverySourceHandler
+operator|.
+name|SendSnapshotResult
+name|result
 init|=
 name|handler
 operator|.
@@ -1920,6 +1922,8 @@ condition|)
 block|{
 name|assertThat
 argument_list|(
+name|result
+operator|.
 name|totalOperations
 argument_list|,
 name|equalTo
@@ -1935,6 +1939,8 @@ else|else
 block|{
 name|assertThat
 argument_list|(
+name|result
+operator|.
 name|totalOperations
 argument_list|,
 name|equalTo
@@ -3553,7 +3559,7 @@ argument_list|)
 block|;             }
 annotation|@
 name|Override
-name|void
+name|long
 name|phase2
 parameter_list|(
 name|long
@@ -3574,6 +3580,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+return|;
 block|}
 block|}
 empty_stmt|;
@@ -4139,7 +4150,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-name|void
+name|long
 name|phase2
 parameter_list|(
 name|long
@@ -4160,6 +4171,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+return|;
 block|}
 block|}
 decl_stmt|;

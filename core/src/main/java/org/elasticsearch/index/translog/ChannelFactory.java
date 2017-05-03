@@ -82,6 +82,7 @@ begin_interface
 annotation|@
 name|FunctionalInterface
 DECL|interface|ChannelFactory
+specifier|public
 interface|interface
 name|ChannelFactory
 block|{

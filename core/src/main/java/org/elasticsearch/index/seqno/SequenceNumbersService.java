@@ -280,7 +280,7 @@ name|checkpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointTracker#markAllocationIdAsInSync(String)} for additional details.      *      * @param allocationId the allocation ID of the shard to mark as in-sync      */
+comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. See      * {@link GlobalCheckpointTracker#markAllocationIdAsInSync(String, long)} for additional details.      *      * @param allocationId    the allocation ID of the shard to mark as in-sync      * @param localCheckpoint the current local checkpoint on the shard      */
 DECL|method|markAllocationIdAsInSync
 specifier|public
 name|void
@@ -289,13 +289,21 @@ parameter_list|(
 specifier|final
 name|String
 name|allocationId
+parameter_list|,
+specifier|final
+name|long
+name|localCheckpoint
 parameter_list|)
+throws|throws
+name|InterruptedException
 block|{
 name|globalCheckpointTracker
 operator|.
 name|markAllocationIdAsInSync
 argument_list|(
 name|allocationId
+argument_list|,
+name|localCheckpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -341,7 +349,7 @@ name|updateCheckpointOnPrimary
 argument_list|()
 return|;
 block|}
-comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param checkpoint the global checkpoint      */
+comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param globalCheckpoint the global checkpoint      */
 DECL|method|updateGlobalCheckpointOnReplica
 specifier|public
 name|void
@@ -349,14 +357,14 @@ name|updateGlobalCheckpointOnReplica
 parameter_list|(
 specifier|final
 name|long
-name|checkpoint
+name|globalCheckpoint
 parameter_list|)
 block|{
 name|globalCheckpointTracker
 operator|.
-name|updateCheckpointOnReplica
+name|updateGlobalCheckpointOnReplica
 argument_list|(
-name|checkpoint
+name|globalCheckpoint
 argument_list|)
 expr_stmt|;
 block|}
