@@ -2605,6 +2605,23 @@ operator|.
 name|JVM_VERSION
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"JVM arguments {}"
+argument_list|,
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|jvmInfo
+operator|.
+name|getInputArguments
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|warnIfPreRelease
 argument_list|(
 name|Version
