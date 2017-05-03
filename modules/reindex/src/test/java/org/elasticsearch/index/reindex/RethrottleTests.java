@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -177,6 +177,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -628,7 +638,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// Make sure we use multiple batches
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|?
 extends|extends
@@ -781,11 +791,9 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-name|s
-lambda|->
-name|s
-operator|!=
-literal|null
+name|Objects
+operator|::
+name|nonNull
 argument_list|)
 operator|.
 name|count
@@ -997,11 +1005,9 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-name|slice
-lambda|->
-name|slice
-operator|!=
-literal|null
+name|Objects
+operator|::
+name|nonNull
 argument_list|)
 operator|.
 name|filter

@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -583,7 +583,7 @@ argument_list|(
 literal|"--> start deletion of first snapshot"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|DeleteSnapshotResponse
 argument_list|>
@@ -1007,7 +1007,7 @@ argument_list|(
 literal|"--> start deletion of snapshot"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|DeleteSnapshotResponse
 argument_list|>
@@ -1572,7 +1572,7 @@ argument_list|(
 literal|"--> start deletion of snapshot"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|DeleteSnapshotResponse
 argument_list|>

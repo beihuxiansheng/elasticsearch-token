@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|DocWriteResponse
+name|ActionFuture
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|DocWriteResponse
 import|;
 end_import
 
@@ -1329,7 +1329,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|IndexResponse
 argument_list|>

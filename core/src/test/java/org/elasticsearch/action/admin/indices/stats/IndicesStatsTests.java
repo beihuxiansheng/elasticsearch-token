@@ -28,7 +28,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -1017,7 +1017,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Index a document asynchronously so the request will only return when document is refreshed
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|IndexResponse
 argument_list|>

@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ListenableActionFuture
+name|ActionFuture
 import|;
 end_import
 
@@ -1031,7 +1031,7 @@ specifier|private
 name|SearchResponse
 name|ensureSearchWasCancelled
 parameter_list|(
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|SearchResponse
 argument_list|>
@@ -1120,7 +1120,7 @@ argument_list|(
 literal|"Executing search"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|SearchResponse
 argument_list|>
@@ -1243,7 +1243,7 @@ argument_list|(
 literal|"Executing search"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|SearchResponse
 argument_list|>
@@ -1365,7 +1365,7 @@ argument_list|(
 literal|"Executing search"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|SearchResponse
 argument_list|>
@@ -1627,7 +1627,7 @@ argument_list|,
 name|scrollId
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
+name|ActionFuture
 argument_list|<
 name|SearchResponse
 argument_list|>
