@@ -62,7 +62,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|PlainListenableActionFuture
+name|PlainActionFuture
 import|;
 end_import
 
@@ -509,21 +509,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|PlainListenableActionFuture
+name|PlainActionFuture
 argument_list|<
 name|ClusterStateResponse
 argument_list|>
 name|future
 init|=
 operator|new
-name|PlainListenableActionFuture
+name|PlainActionFuture
 argument_list|<>
-argument_list|(
-name|client
-operator|.
-name|threadPool
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|client
 operator|.
