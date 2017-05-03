@@ -515,9 +515,9 @@ name|ClusterStateResponse
 argument_list|>
 name|future
 init|=
-operator|new
 name|PlainActionFuture
-argument_list|<>
+operator|.
+name|newFuture
 argument_list|()
 decl_stmt|;
 name|client
