@@ -256,22 +256,6 @@ name|readShardSearchFailure
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|InternalSearchResponse
-operator|.
-name|readInternalSearchResponse
-import|;
-end_import
-
 begin_comment
 comment|/**  * A response of a search request.  */
 end_comment
@@ -288,7 +272,7 @@ name|StatusToXContentObject
 block|{
 DECL|field|internalResponse
 specifier|private
-name|InternalSearchResponse
+name|SearchResponseSections
 name|internalResponse
 decl_stmt|;
 DECL|field|scrollId
@@ -326,7 +310,7 @@ DECL|method|SearchResponse
 specifier|public
 name|SearchResponse
 parameter_list|(
-name|InternalSearchResponse
+name|SearchResponseSections
 name|internalResponse
 parameter_list|,
 name|String
@@ -792,7 +776,8 @@ argument_list|)
 expr_stmt|;
 name|internalResponse
 operator|=
-name|readInternalSearchResponse
+operator|new
+name|InternalSearchResponse
 argument_list|(
 name|in
 argument_list|)
