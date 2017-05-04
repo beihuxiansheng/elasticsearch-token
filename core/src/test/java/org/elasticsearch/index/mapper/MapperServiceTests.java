@@ -2414,13 +2414,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/pull/24317#issuecomment-297624290"
-argument_list|)
 DECL|method|testForbidMultipleTypes
 specifier|public
 name|void
