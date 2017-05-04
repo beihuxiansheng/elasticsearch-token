@@ -1472,6 +1472,7 @@ name|remoteNode
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -1520,16 +1521,17 @@ init|=
 operator|new
 name|Index
 argument_list|(
-name|clusterAlias
-operator|+
 name|RemoteClusterAware
 operator|.
-name|REMOTE_CLUSTER_INDEX_SEPARATOR
-operator|+
+name|buildRemoteIndexName
+argument_list|(
+name|clusterAlias
+argument_list|,
 name|remoteIndex
 operator|.
 name|getName
 argument_list|()
+argument_list|)
 argument_list|,
 name|remoteIndex
 operator|.
@@ -1591,6 +1593,7 @@ argument_list|(
 name|shardIterator
 argument_list|)
 expr_stmt|;
+specifier|final
 name|AliasFilter
 name|aliasFilter
 decl_stmt|;
@@ -1603,15 +1606,9 @@ condition|)
 block|{
 name|aliasFilter
 operator|=
-operator|new
 name|AliasFilter
-argument_list|(
-literal|null
-argument_list|,
-name|Strings
 operator|.
-name|EMPTY_ARRAY
-argument_list|)
+name|EMPTY
 expr_stmt|;
 block|}
 else|else
@@ -1632,6 +1629,13 @@ assert|assert
 name|aliasFilter
 operator|!=
 literal|null
+operator|:
+literal|"alias filter must not be null for index: "
+operator|+
+name|shardId
+operator|.
+name|getIndex
+argument_list|()
 assert|;
 block|}
 comment|// here we have to map the filters to the UUID since from now on we use the uuid for the lookup
