@@ -8557,10 +8557,13 @@ decl_stmt|;
 if|if
 condition|(
 name|globalCheckpoint
-operator|<=
+operator|>
 name|localCheckpoint
 condition|)
 block|{
+comment|/*              * This can happen during recovery when the shard has started its engine but recovery is not finalized and is receiving global              * checkpoint updates. However, since this shard is not yet contributing to calculating the global checkpoint, it can be the              * case that the global checkpoint update from the primary is ahead of the local checkpoint on this shard. In this case, we              * ignore the global checkpoint update. This can happen if we are in the translog stage of recovery. Prior to this, the engine              * is not opened and this shard will not receive global checkpoint updates, and after this the shard will be contributing to              * calculations of the the global checkpoint. However, we can not assert that we are in the translog stage of recovery here as              * while the global checkpoint update may have emanated from the primary when we were in that state, we could subsequently move              * to recovery finalization, or even finished recovery before the update arrives here.              */
+return|return;
+block|}
 name|seqNoService
 operator|.
 name|updateGlobalCheckpointOnReplica
@@ -8568,42 +8571,6 @@ argument_list|(
 name|globalCheckpoint
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|/*              * This can happen during recovery when the shard has started its engine but recovery is not finalized and is receiving global              * checkpoint updates from in-flight operations. However, since this shard is not yet contributing to calculating the global              * checkpoint, it can be the case that the global checkpoint update from the primary is ahead of the local checkpoint on this              * shard. In this case, we ignore the global checkpoint update. This should only happen if we are in the translog stage of              * recovery. Prior to this, the engine is not opened and this shard will not receive global checkpoint updates, and after this              * the shard will be contributing to calculations of the the global checkpoint.              */
-assert|assert
-name|recoveryState
-argument_list|()
-operator|.
-name|getStage
-argument_list|()
-operator|==
-name|RecoveryState
-operator|.
-name|Stage
-operator|.
-name|TRANSLOG
-operator|:
-literal|"expected recovery stage ["
-operator|+
-name|RecoveryState
-operator|.
-name|Stage
-operator|.
-name|TRANSLOG
-operator|+
-literal|"] but was ["
-operator|+
-name|recoveryState
-argument_list|()
-operator|.
-name|getStage
-argument_list|()
-operator|+
-literal|"]"
-assert|;
-block|}
 block|}
 comment|/**      * Notifies the service of the current allocation IDs in the cluster state. See      * {@link GlobalCheckpointTracker#updateAllocationIdsFromMaster(Set, Set)} for details.      *      * @param activeAllocationIds       the allocation IDs of the currently active shard copies      * @param initializingAllocationIds the allocation IDs of the currently initializing shard copies      */
 DECL|method|updateAllocationIdsFromMaster
