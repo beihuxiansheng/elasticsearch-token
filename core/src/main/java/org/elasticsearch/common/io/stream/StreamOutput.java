@@ -5130,6 +5130,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Writes an enum with type E that by serialized it based on it's ordinal value      */
+DECL|method|writeEnum
+specifier|public
+parameter_list|<
+name|E
+extends|extends
+name|Enum
+argument_list|<
+name|E
+argument_list|>
+parameter_list|>
+name|void
+name|writeEnum
+parameter_list|(
+name|E
+name|enumValue
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeVInt
+argument_list|(
+name|enumValue
+operator|.
+name|ordinal
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
