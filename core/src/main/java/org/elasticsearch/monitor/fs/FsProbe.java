@@ -1149,14 +1149,6 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
-name|fsPath
-operator|.
-name|spins
-operator|=
-name|nodePath
-operator|.
-name|spins
-expr_stmt|;
 return|return
 name|fsPath
 return|;
