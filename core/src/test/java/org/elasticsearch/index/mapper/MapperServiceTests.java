@@ -2271,7 +2271,7 @@ name|put
 argument_list|(
 literal|"index.sort.field"
 argument_list|,
-literal|"_type"
+literal|"foo"
 argument_list|)
 operator|.
 name|build
@@ -2299,6 +2299,10 @@ argument_list|,
 literal|"nested_field"
 argument_list|,
 literal|"type=nested"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2325,6 +2329,10 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"t"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 decl_stmt|;
 name|CompressedXContent

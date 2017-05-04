@@ -1960,7 +1960,9 @@ argument_list|,
 name|childDocMapper
 operator|.
 name|typeFilter
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1984,7 +1986,9 @@ argument_list|(
 name|parentDocMapper
 operator|.
 name|typeFilter
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|,
 name|innerQuery
 argument_list|,

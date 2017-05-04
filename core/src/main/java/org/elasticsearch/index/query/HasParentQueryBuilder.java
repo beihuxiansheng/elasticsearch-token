@@ -983,7 +983,9 @@ operator|=
 name|documentMapper
 operator|.
 name|typeFilter
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1027,7 +1029,9 @@ argument_list|(
 name|documentMapper
 operator|.
 name|typeFilter
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|,
 name|BooleanClause
 operator|.
@@ -1057,7 +1061,9 @@ argument_list|,
 name|parentDocMapper
 operator|.
 name|typeFilter
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

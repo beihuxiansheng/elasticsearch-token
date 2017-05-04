@@ -770,8 +770,6 @@ literal|"b.c"
 argument_list|,
 literal|"_uid"
 argument_list|,
-literal|"_type"
-argument_list|,
 literal|"_version"
 argument_list|,
 literal|"_seq_no"
@@ -934,8 +932,6 @@ argument_list|,
 literal|"field.keyword"
 argument_list|,
 literal|"_uid"
-argument_list|,
-literal|"_type"
 argument_list|,
 literal|"_version"
 argument_list|,
