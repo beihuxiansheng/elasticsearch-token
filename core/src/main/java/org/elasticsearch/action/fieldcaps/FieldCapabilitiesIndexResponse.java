@@ -62,6 +62,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Writeable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -91,6 +107,8 @@ class|class
 name|FieldCapabilitiesIndexResponse
 extends|extends
 name|ActionResponse
+implements|implements
+name|Writeable
 block|{
 DECL|field|indexName
 specifier|private
@@ -139,6 +157,23 @@ DECL|method|FieldCapabilitiesIndexResponse
 name|FieldCapabilitiesIndexResponse
 parameter_list|()
 block|{     }
+DECL|method|FieldCapabilitiesIndexResponse
+name|FieldCapabilitiesIndexResponse
+parameter_list|(
+name|StreamInput
+name|input
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+operator|.
+name|readFrom
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Get the index name      */
 DECL|method|getIndexName
 specifier|public
