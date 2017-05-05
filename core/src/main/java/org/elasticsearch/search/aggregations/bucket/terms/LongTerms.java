@@ -359,6 +359,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|compareTerm
+specifier|public
 name|int
 name|compareTerm
 parameter_list|(
@@ -891,7 +892,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|Terms
+name|LongTerms
 operator|.
 name|Bucket
 argument_list|>

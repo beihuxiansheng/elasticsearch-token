@@ -1103,6 +1103,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1481,6 +1483,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1819,6 +1823,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2271,6 +2277,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2681,6 +2689,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2889,6 +2899,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket

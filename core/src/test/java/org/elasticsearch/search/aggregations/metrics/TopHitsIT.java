@@ -4543,9 +4543,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Long
-operator|)
 name|hits
 operator|.
 name|getAt
@@ -4567,9 +4564,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Long
-operator|)
 name|hits
 operator|.
 name|getAt
@@ -4593,9 +4587,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Long
-operator|)
 name|hits
 operator|.
 name|getAt
@@ -4812,6 +4803,8 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
