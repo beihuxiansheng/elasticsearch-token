@@ -1237,7 +1237,7 @@ name|period
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a {@link String} representation of the current {@link TimeValue}.      *      * Note that this method might produce fractional time values (ex 1.6m) which cannot be      * parsed by method like {@link TimeValue#parse(String, String, int)}.      */
+comment|/**      * Returns a {@link String} representation of the current {@link TimeValue}.      *      * Note that this method might produce fractional time values (ex 1.6m) which cannot be      * parsed by method like {@link TimeValue#parse(String, String, String)}.      */
 annotation|@
 name|Override
 DECL|method|toString
@@ -1615,7 +1615,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|5
+literal|"nanos"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1645,7 +1645,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|6
+literal|"micros"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1675,7 +1675,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|2
+literal|"ms"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1705,7 +1705,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|1
+literal|"s"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1725,9 +1725,7 @@ literal|"m"
 argument_list|)
 condition|)
 block|{
-comment|// parsing minutes should be case sensitive as `M` is generally
-comment|// accepted to mean months not minutes. This is the only case where
-comment|// the upper and lower case forms indicate different time units
+comment|// parsing minutes should be case-sensitive as 'M' means "months", not "minutes"; this is the only special case.
 return|return
 operator|new
 name|TimeValue
@@ -1738,7 +1736,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|1
+literal|"m"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1768,7 +1766,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|1
+literal|"h"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1798,7 +1796,7 @@ name|sValue
 argument_list|,
 name|normalized
 argument_list|,
-literal|1
+literal|"d"
 argument_list|)
 argument_list|,
 name|TimeUnit
@@ -1872,8 +1870,8 @@ name|String
 name|normalized
 parameter_list|,
 specifier|final
-name|int
-name|suffixLength
+name|String
+name|suffix
 parameter_list|)
 block|{
 specifier|final
@@ -1891,7 +1889,10 @@ operator|.
 name|length
 argument_list|()
 operator|-
-name|suffixLength
+name|suffix
+operator|.
+name|length
+argument_list|()
 argument_list|)
 operator|.
 name|trim
