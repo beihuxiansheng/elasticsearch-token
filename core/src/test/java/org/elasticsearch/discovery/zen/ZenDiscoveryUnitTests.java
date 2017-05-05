@@ -2577,6 +2577,8 @@ argument_list|,
 name|Collections
 operator|::
 name|emptyList
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|zenDiscovery

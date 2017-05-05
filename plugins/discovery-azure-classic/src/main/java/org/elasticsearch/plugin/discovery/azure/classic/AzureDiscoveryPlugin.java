@@ -78,6 +78,22 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|AllocationService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|service
 operator|.
 name|ClusterApplier
@@ -545,6 +561,9 @@ name|clusterSettings
 parameter_list|,
 name|UnicastHostsProvider
 name|hostsProvider
+parameter_list|,
+name|AllocationService
+name|allocationService
 parameter_list|)
 block|{
 comment|// this is for backcompat with pre 5.1, where users would set discovery.type to use ec2 hosts provider
@@ -575,6 +594,8 @@ argument_list|,
 name|clusterSettings
 argument_list|,
 name|hostsProvider
+argument_list|,
+name|allocationService
 argument_list|)
 argument_list|)
 return|;

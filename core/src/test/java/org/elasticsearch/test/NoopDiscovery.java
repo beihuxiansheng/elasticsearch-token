@@ -116,17 +116,6 @@ name|Discovery
 block|{
 annotation|@
 name|Override
-DECL|method|setAllocationService
-specifier|public
-name|void
-name|setAllocationService
-parameter_list|(
-name|AllocationService
-name|allocationService
-parameter_list|)
-block|{      }
-annotation|@
-name|Override
 DECL|method|publish
 specifier|public
 name|void
