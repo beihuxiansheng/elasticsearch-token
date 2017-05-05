@@ -68,22 +68,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|AllocationService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -142,15 +126,6 @@ name|Discovery
 extends|extends
 name|LifecycleComponent
 block|{
-comment|/**      * Another hack to solve dep injection problem..., note, this will be called before      * any start is called.      */
-DECL|method|setAllocationService
-name|void
-name|setAllocationService
-parameter_list|(
-name|AllocationService
-name|allocationService
-parameter_list|)
-function_decl|;
 comment|/**      * Publish all the changes to the cluster from the master (can be called just by the master). The publish      * process should apply this state to the master as well!      *      * The {@link AckListener} allows to keep track of the ack received from nodes, and verify whether      * they updated their own cluster state or not.      *      * The method is guaranteed to throw a {@link FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
 DECL|method|publish
 name|void

@@ -488,6 +488,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1501,7 +1511,12 @@ argument_list|(
 name|parentDocMapper
 operator|.
 name|typeFilter
+argument_list|(
+name|Mockito
+operator|.
+name|any
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|thenReturn
@@ -1524,7 +1539,12 @@ argument_list|(
 name|childDocMapper
 operator|.
 name|typeFilter
+argument_list|(
+name|Mockito
+operator|.
+name|any
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|thenReturn

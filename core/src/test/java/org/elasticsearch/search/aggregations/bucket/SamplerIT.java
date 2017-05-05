@@ -211,6 +211,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -812,8 +822,10 @@ argument_list|(
 literal|"genres"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|genreBuckets
@@ -1049,8 +1061,10 @@ argument_list|(
 literal|"authors"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|testBuckets

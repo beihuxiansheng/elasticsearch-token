@@ -4017,6 +4017,8 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -4030,6 +4032,8 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -4058,6 +4062,8 @@ for|for
 control|(
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket

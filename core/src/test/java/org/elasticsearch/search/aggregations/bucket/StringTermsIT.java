@@ -8568,6 +8568,8 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -8935,6 +8937,8 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -9562,6 +9566,8 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -10189,6 +10195,8 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket

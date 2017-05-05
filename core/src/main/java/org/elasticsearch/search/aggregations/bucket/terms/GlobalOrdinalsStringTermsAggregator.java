@@ -1519,6 +1519,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|compareTerm
+specifier|public
 name|int
 name|compareTerm
 parameter_list|(

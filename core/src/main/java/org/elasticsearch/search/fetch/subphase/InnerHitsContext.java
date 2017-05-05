@@ -1244,7 +1244,12 @@ argument_list|(
 name|documentMapper
 operator|.
 name|typeFilter
+argument_list|(
+name|context
+operator|.
+name|getQueryShardContext
 argument_list|()
+argument_list|)
 argument_list|,
 name|Occur
 operator|.

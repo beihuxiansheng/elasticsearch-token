@@ -1631,8 +1631,10 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|testBuckets
@@ -1958,8 +1960,10 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|testBuckets
@@ -2129,8 +2133,10 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|testBuckets
@@ -2304,8 +2310,10 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|testBuckets
@@ -7265,6 +7273,8 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
+name|?
+extends|extends
 name|Bucket
 argument_list|>
 name|buckets

@@ -302,12 +302,6 @@ name|NAME
 operator|+
 literal|"[index]"
 decl_stmt|;
-DECL|field|clusterService
-specifier|protected
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|field|indicesService
 specifier|private
 specifier|final
@@ -368,12 +362,6 @@ name|Names
 operator|.
 name|MANAGEMENT
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -529,6 +517,13 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ft
+operator|!=
+literal|null
+condition|)
+block|{
 name|FieldCapabilities
 name|fieldCap
 init|=
@@ -562,6 +557,7 @@ argument_list|,
 name|fieldCap
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 operator|new

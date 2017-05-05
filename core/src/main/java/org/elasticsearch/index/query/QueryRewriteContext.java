@@ -329,7 +329,6 @@ block|}
 comment|/**      * Returns the index settings for this context. This might return null if the      * context has not index scope.      */
 DECL|method|getIndexSettings
 specifier|public
-specifier|final
 name|IndexSettings
 name|getIndexSettings
 parameter_list|()
@@ -341,7 +340,6 @@ block|}
 comment|/**      * Return the MapperService.      */
 DECL|method|getMapperService
 specifier|public
-specifier|final
 name|MapperService
 name|getMapperService
 parameter_list|()

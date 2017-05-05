@@ -1300,6 +1300,8 @@ empty_stmt|;
 specifier|final
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1317,6 +1319,8 @@ decl_stmt|;
 specifier|final
 name|Iterator
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket

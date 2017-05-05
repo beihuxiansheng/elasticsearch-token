@@ -178,7 +178,7 @@ name|fielddata
 operator|.
 name|plain
 operator|.
-name|IndexIndexFieldData
+name|ConstantIndexFieldData
 import|;
 end_import
 
@@ -829,10 +829,20 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|IndexIndexFieldData
+name|ConstantIndexFieldData
 operator|.
 name|Builder
+argument_list|(
+name|mapperService
+lambda|->
+name|mapperService
+operator|.
+name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

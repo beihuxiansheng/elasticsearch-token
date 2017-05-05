@@ -72,7 +72,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|HashMap
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|List
 import|;
 end_import
 
@@ -246,8 +246,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -448,8 +450,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -650,8 +654,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -859,8 +865,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1058,8 +1066,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1255,8 +1265,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1460,8 +1472,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1665,8 +1679,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -1877,8 +1893,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2078,8 +2096,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2278,8 +2298,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2483,8 +2505,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2688,8 +2712,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -2899,8 +2925,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket
@@ -3099,8 +3127,10 @@ argument_list|(
 literal|"keys"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|Terms
 operator|.
 name|Bucket

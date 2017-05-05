@@ -715,7 +715,9 @@ return|return
 name|documentMapper
 operator|.
 name|typeFilter
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 return|;
 block|}
 block|}

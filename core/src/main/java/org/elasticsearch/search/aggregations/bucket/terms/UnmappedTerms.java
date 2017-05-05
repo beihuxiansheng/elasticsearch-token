@@ -580,13 +580,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getBucketsInternal
-specifier|protected
+DECL|method|getBuckets
+specifier|public
 name|List
 argument_list|<
 name|Bucket
 argument_list|>
-name|getBucketsInternal
+name|getBuckets
 parameter_list|()
 block|{
 return|return
