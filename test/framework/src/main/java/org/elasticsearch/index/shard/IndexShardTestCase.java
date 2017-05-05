@@ -1534,7 +1534,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// add node id as name to settings for popper logging
+comment|// add node id as name to settings for proper logging
 specifier|final
 name|ShardId
 name|shardId
