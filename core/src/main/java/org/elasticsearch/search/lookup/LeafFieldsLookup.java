@@ -572,8 +572,6 @@ name|toString
 argument_list|(
 name|types
 argument_list|)
-operator|+
-literal|""
 argument_list|)
 throw|;
 block|}

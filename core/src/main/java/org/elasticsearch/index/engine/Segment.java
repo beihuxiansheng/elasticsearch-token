@@ -1573,8 +1573,6 @@ argument_list|(
 literal|"invalid index sort field:"
 operator|+
 name|field
-operator|+
-literal|""
 argument_list|)
 throw|;
 block|}

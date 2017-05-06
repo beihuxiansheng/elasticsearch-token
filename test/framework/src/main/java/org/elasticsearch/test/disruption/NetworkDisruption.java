@@ -517,12 +517,15 @@ argument_list|()
 operator|.
 name|setWaitForNodes
 argument_list|(
-literal|""
-operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
 name|cluster
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|setWaitForNoRelocatingShards

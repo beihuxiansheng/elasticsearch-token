@@ -2987,8 +2987,6 @@ literal|" on a shard with shardId "
 operator|+
 name|shardId
 argument_list|()
-operator|+
-literal|""
 argument_list|)
 throw|;
 block|}
