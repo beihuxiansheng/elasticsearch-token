@@ -1765,7 +1765,6 @@ range|:
 name|replicas
 control|)
 block|{
-comment|//replica.markAsRecovering("peer recovery", new RecoveryState(replica.routingEntry(), getDiscoveryNode(replica.routingEntry().currentNodeId()), pNode));
 name|recoverReplica
 argument_list|(
 name|replica
