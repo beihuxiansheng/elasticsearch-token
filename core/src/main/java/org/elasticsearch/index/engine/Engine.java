@@ -6710,11 +6710,11 @@ name|deactivateThrottling
 parameter_list|()
 function_decl|;
 comment|/**      * Fills up the local checkpoints history with no-ops until the local checkpoint      * and the max seen sequence ID are identical.      * @param primaryTerm the shards primary term this engine was created for      * @return the number of no-ops added      */
-DECL|method|fillSequenceNumberHistory
+DECL|method|fillSeqNoGaps
 specifier|public
 specifier|abstract
 name|int
-name|fillSequenceNumberHistory
+name|fillSeqNoGaps
 parameter_list|(
 name|long
 name|primaryTerm

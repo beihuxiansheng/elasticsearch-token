@@ -2408,7 +2408,7 @@ operator|.
 name|getEngine
 argument_list|()
 operator|.
-name|fillSequenceNumberHistory
+name|fillSeqNoGaps
 argument_list|(
 name|indexShard
 operator|.

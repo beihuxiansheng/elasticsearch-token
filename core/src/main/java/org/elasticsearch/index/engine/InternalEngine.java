@@ -1411,38 +1411,6 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
-comment|// norelease
-comment|/*                  * We have no guarantees that all operations above the local checkpoint are in the Lucene commit or the translog. This means                  * that we there might be operations greater than the local checkpoint that will not be replayed. Here we force the local                  * checkpoint to the maximum sequence number in the commit (at the potential expense of correctness).                  */
-while|while
-condition|(
-name|seqNoService
-argument_list|()
-operator|.
-name|getLocalCheckpoint
-argument_list|()
-operator|<
-name|seqNoService
-argument_list|()
-operator|.
-name|getMaxSeqNo
-argument_list|()
-condition|)
-block|{
-name|seqNoService
-argument_list|()
-operator|.
-name|markSeqNoAsCompleted
-argument_list|(
-name|seqNoService
-argument_list|()
-operator|.
-name|getLocalCheckpoint
-argument_list|()
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
 name|indexWriter
 operator|=
 name|writer
@@ -1667,10 +1635,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|fillSequenceNumberHistory
+DECL|method|fillSeqNoGaps
 specifier|public
 name|int
-name|fillSequenceNumberHistory
+name|fillSeqNoGaps
 parameter_list|(
 name|long
 name|primaryTerm
@@ -1681,7 +1649,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|lock
+name|ignored
 init|=
 name|writeLock
 operator|.
@@ -1697,15 +1665,17 @@ name|long
 name|localCheckpoint
 init|=
 name|seqNoService
+argument_list|()
 operator|.
 name|getLocalCheckpoint
 argument_list|()
 decl_stmt|;
 specifier|final
 name|long
-name|maxSeqId
+name|maxSeqNo
 init|=
 name|seqNoService
+argument_list|()
 operator|.
 name|getMaxSeqNo
 argument_list|()
@@ -1726,24 +1696,22 @@ literal|1
 init|;
 name|seqNo
 operator|<=
-name|maxSeqId
+name|maxSeqNo
 condition|;
-comment|// the local checkpoint might have been advanced so we are leap-frogging
-comment|// to the next seq ID we need to process and create a noop for
 name|seqNo
 operator|=
 name|seqNoService
+argument_list|()
 operator|.
 name|getLocalCheckpoint
 argument_list|()
 operator|+
 literal|1
+comment|/* the local checkpoint might have advanced so we leap-frog */
 control|)
 block|{
-specifier|final
-name|NoOp
-name|noOp
-init|=
+name|innerNoOp
+argument_list|(
 operator|new
 name|NoOp
 argument_list|(
@@ -1762,12 +1730,8 @@ operator|.
 name|nanoTime
 argument_list|()
 argument_list|,
-literal|"filling up seqNo history"
+literal|"filling gaps"
 argument_list|)
-decl_stmt|;
-name|innerNoOp
-argument_list|(
-name|noOp
 argument_list|)
 expr_stmt|;
 name|numNoOpsAdded
@@ -1777,20 +1741,24 @@ assert|assert
 name|seqNo
 operator|<=
 name|seqNoService
+argument_list|()
 operator|.
 name|getLocalCheckpoint
 argument_list|()
 operator|:
-literal|"localCheckpoint didn't advanced used to be "
+literal|"local checkpoint did not advance; was ["
 operator|+
 name|seqNo
 operator|+
-literal|" now it's on:"
+literal|"], now ["
 operator|+
 name|seqNoService
+argument_list|()
 operator|.
 name|getLocalCheckpoint
 argument_list|()
+operator|+
+literal|"]"
 assert|;
 block|}
 return|return
