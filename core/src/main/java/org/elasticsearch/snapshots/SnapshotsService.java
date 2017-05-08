@@ -1073,7 +1073,7 @@ name|snapshotId
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a list of snapshots from repository sorted by snapshot creation date      *      * @param repositoryName repository name      * @param snapshotIds       snapshots for which to fetch snapshot information      * @param ignoreUnavailable if true, snapshots that could not be read will only be logged with a warning,      *                          if false, they will throw an error      * @return list of snapshots      */
+comment|/**      * Returns a list of snapshots from repository sorted by snapshot creation date      *      * @param repositoryName repository name      * @param snapshotIds       snapshots for which to fetch snapshot information      * @param incompatibleSnapshotIds   snapshots for which not to fetch snapshot information      * @param ignoreUnavailable if true, snapshots that could not be read will only be logged with a warning,      *                          if false, they will throw an error      * @return list of snapshots      */
 DECL|method|snapshots
 specifier|public
 name|List
@@ -1086,11 +1086,19 @@ specifier|final
 name|String
 name|repositoryName
 parameter_list|,
+specifier|final
 name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
 name|snapshotIds
+parameter_list|,
+specifier|final
+name|List
+argument_list|<
+name|SnapshotId
+argument_list|>
+name|incompatibleSnapshotIds
 parameter_list|,
 specifier|final
 name|boolean
@@ -1214,6 +1222,33 @@ control|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|incompatibleSnapshotIds
+operator|.
+name|contains
+argument_list|(
+name|snapshotId
+argument_list|)
+condition|)
+block|{
+comment|// an incompatible snapshot - cannot read its snapshot metadata file, just return
+comment|// a SnapshotInfo indicating its incompatible
+name|snapshotSet
+operator|.
+name|add
+argument_list|(
+name|SnapshotInfo
+operator|.
+name|incompatible
+argument_list|(
+name|snapshotId
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|snapshotSet
 operator|.
 name|add
@@ -1226,6 +1261,7 @@ name|snapshotId
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
