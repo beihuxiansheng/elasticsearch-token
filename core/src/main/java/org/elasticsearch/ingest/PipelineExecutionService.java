@@ -965,6 +965,11 @@ argument_list|,
 name|parent
 argument_list|,
 name|sourceAsMap
+argument_list|,
+name|store
+operator|.
+name|isNewIngestDateFormat
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|pipeline

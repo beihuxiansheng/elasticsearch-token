@@ -3085,6 +3085,11 @@ init|=
 operator|new
 name|IngestService
 argument_list|(
+name|clusterService
+operator|.
+name|getClusterSettings
+argument_list|()
+argument_list|,
 name|settings
 argument_list|,
 name|threadPool
