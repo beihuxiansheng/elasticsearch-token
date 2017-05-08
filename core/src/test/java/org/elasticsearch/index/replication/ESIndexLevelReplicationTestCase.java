@@ -1756,6 +1756,22 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+specifier|final
+name|IndexShard
+name|replica
+range|:
+name|replicas
+control|)
+block|{
+comment|//replica.markAsRecovering("peer recovery", new RecoveryState(replica.routingEntry(), getDiscoveryNode(replica.routingEntry().currentNodeId()), pNode));
+name|recoverReplica
+argument_list|(
+name|replica
+argument_list|)
+expr_stmt|;
+block|}
 name|updateAllocationIDsOnPrimary
 argument_list|()
 expr_stmt|;
