@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations
+DECL|package|org.elasticsearch.test
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|aggregations
+name|test
 package|;
 end_package
 
@@ -120,9 +118,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
-name|PipelineAggregator
+name|InternalAggregation
 import|;
 end_import
 
@@ -132,9 +128,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|search
 operator|.
-name|AbstractWireSerializingTestCase
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregator
 import|;
 end_import
 

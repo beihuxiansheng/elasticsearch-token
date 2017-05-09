@@ -54,9 +54,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|aggregations
+name|test
 operator|.
 name|InternalAggregationTestCase
 import|;

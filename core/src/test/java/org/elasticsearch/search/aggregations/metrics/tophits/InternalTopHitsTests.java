@@ -186,6 +186,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|SearchHit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|SearchHitField
 import|;
 end_import
@@ -198,9 +210,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
-operator|.
-name|InternalAggregationTestCase
+name|SearchHits
 import|;
 end_import
 
@@ -226,21 +236,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|test
 operator|.
-name|SearchHit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchHits
+name|InternalAggregationTestCase
 import|;
 end_import
 
