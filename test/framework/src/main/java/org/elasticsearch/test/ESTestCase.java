@@ -6643,19 +6643,6 @@ argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|)
-comment|// no file watching, so we don't need a ResourceWatcherService
-operator|.
-name|put
-argument_list|(
-name|ScriptService
-operator|.
-name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|false
-argument_list|)
 operator|.
 name|build
 argument_list|()

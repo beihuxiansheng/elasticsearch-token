@@ -376,6 +376,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_PATH_DATA_SETTING

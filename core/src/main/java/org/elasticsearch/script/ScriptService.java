@@ -836,6 +836,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_MAX_SIZE_IN_BYTES
@@ -1341,6 +1345,10 @@ name|get
 argument_list|(
 name|settings
 argument_list|)
+operator|&&
+name|resourceWatcherService
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// automatic reload is enabled - register scripts
