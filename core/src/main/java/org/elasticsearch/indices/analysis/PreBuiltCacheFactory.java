@@ -112,6 +112,7 @@ name|PreBuiltCacheFactory
 parameter_list|()
 block|{}
 DECL|method|getCache
+specifier|public
 specifier|static
 parameter_list|<
 name|T

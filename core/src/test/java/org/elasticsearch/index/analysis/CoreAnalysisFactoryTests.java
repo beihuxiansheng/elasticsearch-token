@@ -22,19 +22,53 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|analysis
+operator|.
 name|AnalysisFactoryTestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugins
+operator|.
+name|AnalysisPlugin
+import|;
+end_import
+
+begin_comment
+comment|/**  * Checks on the analysis components that are part of core to make sure that any that are added  * to lucene are either enabled or explicitly not enabled. During the migration of analysis  * components to the {@code analysis-common} module this test ignores many components that are  * available to es-core but mapping in {@code analysis-common}. When the migration is complete  * no such ignoring will be needed because the analysis components won't be available to core.  */
+end_comment
+
 begin_class
-DECL|class|AnalysisFactoryTests
+DECL|class|CoreAnalysisFactoryTests
 specifier|public
 class|class
-name|AnalysisFactoryTests
+name|CoreAnalysisFactoryTests
 extends|extends
 name|AnalysisFactoryTestCase
 block|{
-comment|// tests are inherited and nothing needs to be defined here
+DECL|method|CoreAnalysisFactoryTests
+specifier|public
+name|CoreAnalysisFactoryTests
+parameter_list|()
+block|{
+comment|// Use an empty plugin that doesn't define anything so the test doesn't need a ton of null checks.
+name|super
+argument_list|(
+operator|new
+name|AnalysisPlugin
+argument_list|()
+block|{}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
