@@ -938,12 +938,8 @@ operator|.
 name|getIndexSettings
 argument_list|()
 operator|.
-name|getValue
-argument_list|(
-name|MapperService
-operator|.
-name|INDEX_MAPPING_SINGLE_TYPE_SETTING
-argument_list|)
+name|isSingleType
+argument_list|()
 condition|)
 block|{
 name|Collection

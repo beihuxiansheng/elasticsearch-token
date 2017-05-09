@@ -796,6 +796,11 @@ init|=
 name|parseDocs
 argument_list|(
 name|config
+argument_list|,
+name|pipelineStore
+operator|.
+name|isNewIngestDateFormat
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -881,6 +886,11 @@ init|=
 name|parseDocs
 argument_list|(
 name|config
+argument_list|,
+name|pipelineStore
+operator|.
+name|isNewIngestDateFormat
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -911,6 +921,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|config
+parameter_list|,
+name|boolean
+name|newDateFormat
 parameter_list|)
 block|{
 name|List
@@ -1089,6 +1102,8 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|document
+argument_list|,
+name|newDateFormat
 argument_list|)
 decl_stmt|;
 name|ingestDocumentList

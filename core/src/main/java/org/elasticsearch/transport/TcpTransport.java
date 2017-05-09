@@ -4640,8 +4640,6 @@ name|toString
 argument_list|(
 name|bindHosts
 argument_list|)
-operator|+
-literal|""
 argument_list|,
 name|e
 argument_list|)

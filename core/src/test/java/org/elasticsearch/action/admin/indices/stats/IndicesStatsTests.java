@@ -981,11 +981,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:debug"
-argument_list|)
 DECL|method|testRefreshListeners
 specifier|public
 name|void
@@ -1052,7 +1047,14 @@ operator|.
 name|execute
 argument_list|()
 decl_stmt|;
-comment|// Wait for the refresh listener to appear in the stats
+comment|// Wait for the refresh listener to appear in the stats. Wait a long time because NFS tests can be quite slow!
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"starting to wait"
+argument_list|)
+expr_stmt|;
 name|long
 name|end
 init|=
@@ -1063,11 +1065,11 @@ argument_list|()
 operator|+
 name|TimeUnit
 operator|.
-name|SECONDS
+name|MINUTES
 operator|.
 name|toNanos
 argument_list|(
-literal|10
+literal|1
 argument_list|)
 decl_stmt|;
 while|while
@@ -1163,6 +1165,13 @@ operator|<
 literal|0
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"timed out"
+argument_list|)
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"didn't get a refresh listener in time: "

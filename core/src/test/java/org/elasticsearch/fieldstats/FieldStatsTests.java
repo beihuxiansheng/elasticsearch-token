@@ -5659,7 +5659,7 @@ argument_list|()
 operator|.
 name|setFields
 argument_list|(
-literal|"_id"
+literal|"_uid"
 argument_list|,
 literal|"_type"
 argument_list|)

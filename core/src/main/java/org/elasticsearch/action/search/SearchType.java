@@ -45,9 +45,21 @@ name|byte
 operator|)
 literal|1
 argument_list|)
-block|;
+block|,
 comment|// 2 used to be DFS_QUERY_AND_FETCH
-comment|// 3 used to be QUERY_AND_FETCH
+comment|/**      * Only used for pre 5.3 request where this type is still needed      */
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
+DECL|enum constant|QUERY_AND_FETCH
+name|QUERY_AND_FETCH
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|3
+argument_list|)
+decl_stmt|;
 comment|/**      * The default search type ({@link #QUERY_THEN_FETCH}.      */
 DECL|field|DEFAULT
 specifier|public

@@ -918,7 +918,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
@@ -928,6 +928,28 @@ operator|&&
 name|fetchDocuments
 condition|)
 block|{
+comment|// this is a BWC layer for pre 5.3 indices
+if|if
+condition|(
+name|request
+operator|.
+name|scroll
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|/**                  * This is needed for nodes pre 5.3 when the single shard optimization is used.                  * These nodes will set the last emitted doc only if the removed `query_and_fetch` search type is set                  * in the request. See {@link SearchType}.                  */
+name|request
+operator|.
+name|searchType
+argument_list|(
+name|SearchType
+operator|.
+name|QUERY_AND_FETCH
+argument_list|)
+expr_stmt|;
+block|}
 comment|// TODO this BWC layer can be removed once this is back-ported to 5.3
 name|transportService
 operator|.

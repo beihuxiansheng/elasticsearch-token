@@ -1020,8 +1020,6 @@ argument_list|(
 literal|"unknown snapshot index "
 operator|+
 name|indexId
-operator|+
-literal|""
 argument_list|)
 throw|;
 block|}

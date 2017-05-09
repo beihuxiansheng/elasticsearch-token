@@ -2439,6 +2439,9 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|QUERY_AND_FETCH
+case|:
+case|case
 name|QUERY_THEN_FETCH
 case|:
 name|searchAsyncAction

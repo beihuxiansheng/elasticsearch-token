@@ -3289,8 +3289,6 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|""
-operator|+
 name|snapshot
 operator|+
 literal|", shardId ["

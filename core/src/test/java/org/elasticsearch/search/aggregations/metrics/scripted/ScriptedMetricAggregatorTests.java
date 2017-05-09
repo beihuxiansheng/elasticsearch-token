@@ -148,7 +148,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexSettings
+name|mapper
+operator|.
+name|MappedFieldType
 import|;
 end_import
 
@@ -162,7 +164,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
+name|MapperService
 import|;
 end_import
 
@@ -1650,13 +1652,13 @@ specifier|protected
 name|QueryShardContext
 name|queryShardContextMock
 parameter_list|(
+name|MapperService
+name|mapperService
+parameter_list|,
 specifier|final
 name|MappedFieldType
 index|[]
 name|fieldTypes
-parameter_list|,
-name|IndexSettings
-name|idxSettings
 parameter_list|,
 name|CircuitBreakerService
 name|circuitBreakerService
@@ -1797,13 +1799,16 @@ name|QueryShardContext
 argument_list|(
 literal|0
 argument_list|,
-name|idxSettings
+name|mapperService
+operator|.
+name|getIndexSettings
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|mapperService
 argument_list|,
 literal|null
 argument_list|,

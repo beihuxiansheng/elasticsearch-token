@@ -404,6 +404,11 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testAllOpsDisabled
 specifier|public
@@ -593,6 +598,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

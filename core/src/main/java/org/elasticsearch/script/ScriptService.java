@@ -3389,6 +3389,13 @@ name|ScriptChangesListener
 implements|implements
 name|FileChangesListener
 block|{
+DECL|field|deprecationEmitted
+specifier|private
+name|boolean
+name|deprecationEmitted
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getScriptNameExt
 specifier|private
 name|Tuple
@@ -3596,6 +3603,25 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|deprecationEmitted
+operator|==
+literal|false
+condition|)
+block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
+name|deprecationEmitted
+operator|=
+literal|true
+expr_stmt|;
+block|}
 try|try
 block|{
 comment|//we don't know yet what the script will be used for, but if all of the operations for this lang

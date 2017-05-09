@@ -768,7 +768,7 @@ literal|"b"
 argument_list|,
 literal|"b.c"
 argument_list|,
-literal|"_uid"
+literal|"_id"
 argument_list|,
 literal|"_version"
 argument_list|,
@@ -931,7 +931,7 @@ literal|"field"
 argument_list|,
 literal|"field.keyword"
 argument_list|,
-literal|"_uid"
+literal|"_id"
 argument_list|,
 literal|"_version"
 argument_list|,

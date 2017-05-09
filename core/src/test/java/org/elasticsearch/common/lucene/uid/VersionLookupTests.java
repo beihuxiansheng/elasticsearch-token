@@ -214,7 +214,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|UidFieldMapper
+name|IdFieldMapper
 import|;
 end_import
 
@@ -302,13 +302,13 @@ argument_list|(
 operator|new
 name|Field
 argument_list|(
-name|UidFieldMapper
+name|IdFieldMapper
 operator|.
 name|NAME
 argument_list|,
 literal|"6"
 argument_list|,
-name|UidFieldMapper
+name|IdFieldMapper
 operator|.
 name|Defaults
 operator|.
@@ -371,6 +371,10 @@ name|segment
 operator|.
 name|reader
 argument_list|()
+argument_list|,
+name|IdFieldMapper
+operator|.
+name|NAME
 argument_list|)
 decl_stmt|;
 comment|// found doc
@@ -521,13 +525,13 @@ argument_list|(
 operator|new
 name|Field
 argument_list|(
-name|UidFieldMapper
+name|IdFieldMapper
 operator|.
 name|NAME
 argument_list|,
 literal|"6"
 argument_list|,
-name|UidFieldMapper
+name|IdFieldMapper
 operator|.
 name|Defaults
 operator|.
@@ -597,6 +601,10 @@ name|segment
 operator|.
 name|reader
 argument_list|()
+argument_list|,
+name|IdFieldMapper
+operator|.
+name|NAME
 argument_list|)
 decl_stmt|;
 comment|// return the last doc when there are duplicates

@@ -1392,6 +1392,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testScriptCompiledOnceHiddenFileDetected
 specifier|public
@@ -1536,6 +1541,11 @@ name|resourceWatcherService
 operator|.
 name|notifyNow
 argument_list|()
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testInlineScriptCompiledOnceCache
@@ -1729,6 +1739,11 @@ name|scriptContext
 argument_list|)
 expr_stmt|;
 block|}
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFineGrainedSettings
 specifier|public
@@ -2457,6 +2472,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testCompileNonRegisteredContext
 specifier|public
@@ -3046,6 +3066,11 @@ argument_list|()
 operator|.
 name|getCompilations
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
 argument_list|)
 expr_stmt|;
 block|}

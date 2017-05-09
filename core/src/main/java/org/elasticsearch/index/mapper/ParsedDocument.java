@@ -277,16 +277,6 @@ operator|=
 name|xContentType
 expr_stmt|;
 block|}
-DECL|method|uid
-specifier|public
-name|BytesRef
-name|uid
-parameter_list|()
-block|{
-return|return
-name|uid
-return|;
-block|}
 DECL|method|id
 specifier|public
 name|String
