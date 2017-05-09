@@ -869,8 +869,11 @@ name|randomFrom
 argument_list|(
 name|SearchType
 operator|.
-name|values
-argument_list|()
+name|DFS_QUERY_THEN_FETCH
+argument_list|,
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 argument_list|)
