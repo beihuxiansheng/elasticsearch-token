@@ -2341,7 +2341,7 @@ name|prepareSearch
 argument_list|(
 literal|"test"
 argument_list|)
-comment|// _uid sort field is a tie, in case hits have the same score,
+comment|// _id sort field is a tie, in case hits have the same score,
 comment|// the hits will be sorted the same consistently
 operator|.
 name|addSort
@@ -2355,7 +2355,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|,
 name|SortOrder
 operator|.
@@ -2429,7 +2429,7 @@ name|prepareSearch
 argument_list|(
 literal|"test"
 argument_list|)
-comment|// _uid tie sort
+comment|// _id tie sort
 operator|.
 name|addSort
 argument_list|(
@@ -2442,7 +2442,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|,
 name|SortOrder
 operator|.
@@ -3524,7 +3524,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -3581,7 +3581,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -3757,7 +3757,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -3822,7 +3822,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -3968,7 +3968,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -4043,7 +4043,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -4167,7 +4167,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -4244,7 +4244,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.
@@ -4320,7 +4320,7 @@ name|SortBuilders
 operator|.
 name|fieldSort
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|)
 argument_list|)
 operator|.

@@ -42,7 +42,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|UidFieldMapper
+name|IdFieldMapper
 import|;
 end_import
 
@@ -226,7 +226,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-name|UidFieldMapper
+name|IdFieldMapper
 operator|.
 name|NAME
 else|:

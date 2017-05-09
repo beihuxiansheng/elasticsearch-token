@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermInSetQuery
+name|Query
 import|;
 end_import
 
@@ -167,6 +167,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MappedFieldType
 import|;
 end_import
 
@@ -810,6 +824,33 @@ block|{
 name|Query
 name|query
 decl_stmt|;
+name|MappedFieldType
+name|uidField
+init|=
+name|context
+operator|.
+name|fieldMapper
+argument_list|(
+name|UidFieldMapper
+operator|.
+name|NAME
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|uidField
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|MatchNoDocsQuery
+argument_list|(
+literal|"No mappings"
+argument_list|)
+return|;
+block|}
 if|if
 condition|(
 name|this
@@ -916,13 +957,14 @@ expr_stmt|;
 block|}
 name|query
 operator|=
-operator|new
-name|TermInSetQuery
-argument_list|(
-name|UidFieldMapper
+name|uidField
 operator|.
-name|NAME
-argument_list|,
+name|termsQuery
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|Uid
 operator|.
 name|createUidsForTypesAndIds
@@ -931,6 +973,9 @@ name|typesForQuery
 argument_list|,
 name|ids
 argument_list|)
+argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}

@@ -5816,7 +5816,7 @@ argument_list|)
 operator|.
 name|sort
 argument_list|(
-literal|"_uid"
+literal|"_index"
 argument_list|,
 name|SortOrder
 operator|.

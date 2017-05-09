@@ -1924,7 +1924,7 @@ name|info
 argument_list|(
 literal|"Blocking on the document {}"
 argument_list|,
-name|doc
+name|fields
 argument_list|()
 operator|.
 name|get

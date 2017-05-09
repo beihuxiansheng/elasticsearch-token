@@ -202,6 +202,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|MapperService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|translog
 operator|.
 name|Translog
@@ -239,18 +253,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Consumer
 import|;
 end_import
 
@@ -1203,6 +1205,13 @@ specifier|volatile
 name|int
 name|maxSlicesPerScroll
 decl_stmt|;
+comment|/**      * Whether the index is required to have at most one type.      */
+DECL|field|singleType
+specifier|private
+specifier|final
+name|boolean
+name|singleType
+decl_stmt|;
 comment|/**      * Returns the default search field for this index.      */
 DECL|method|getDefaultField
 specifier|public
@@ -1619,6 +1628,17 @@ operator|new
 name|IndexSortConfig
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|singleType
+operator|=
+name|scopedSettings
+operator|.
+name|get
+argument_list|(
+name|MapperService
+operator|.
+name|INDEX_MAPPING_SINGLE_TYPE_SETTING
 argument_list|)
 expr_stmt|;
 name|scopedSettings
@@ -2087,6 +2107,17 @@ name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|null
 argument_list|)
+return|;
+block|}
+comment|/**      * Returns whether the index enforces at most one type.      */
+DECL|method|isSingleType
+specifier|public
+name|boolean
+name|isSingleType
+parameter_list|()
+block|{
+return|return
+name|singleType
 return|;
 block|}
 comment|/**      * Returns the node settings. The settings returned from {@link #getSettings()} are a merged version of the      * index settings and the node settings where node settings are overwritten by index settings.      */

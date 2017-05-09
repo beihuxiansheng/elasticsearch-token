@@ -218,20 +218,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|UidFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|VersionFieldMapper
 import|;
 end_import
@@ -273,6 +259,11 @@ block|{
 comment|// TODO: do we really need to store all this stuff? some if it might not speed up anything.
 comment|// we keep it around for now, to reduce the amount of e.g. hash lookups by field and stuff
 comment|/** terms enum for uid field */
+DECL|field|uidField
+specifier|final
+name|String
+name|uidField
+decl_stmt|;
 DECL|field|termsEnum
 specifier|private
 specifier|final
@@ -298,10 +289,19 @@ name|PerThreadIDVersionAndSeqNoLookup
 parameter_list|(
 name|LeafReader
 name|reader
+parameter_list|,
+name|String
+name|uidField
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+operator|.
+name|uidField
+operator|=
+name|uidField
+expr_stmt|;
 name|Fields
 name|fields
 init|=
@@ -317,21 +317,12 @@ name|fields
 operator|.
 name|terms
 argument_list|(
-name|UidFieldMapper
-operator|.
-name|NAME
+name|uidField
 argument_list|)
 decl_stmt|;
-name|termsEnum
-operator|=
-name|terms
-operator|.
-name|iterator
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
-name|termsEnum
+name|terms
 operator|==
 literal|null
 condition|)
@@ -342,14 +333,19 @@ name|IllegalArgumentException
 argument_list|(
 literal|"reader misses the ["
 operator|+
-name|UidFieldMapper
-operator|.
-name|NAME
+name|uidField
 operator|+
 literal|"] field"
 argument_list|)
 throw|;
 block|}
+name|termsEnum
+operator|=
+name|terms
+operator|.
+name|iterator
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|reader

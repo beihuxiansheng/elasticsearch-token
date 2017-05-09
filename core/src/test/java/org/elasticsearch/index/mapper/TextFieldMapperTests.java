@@ -1783,11 +1783,11 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|,
 name|doc
 operator|.
-name|uid
+name|id
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2139,11 +2139,11 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"_uid"
+literal|"_id"
 argument_list|,
 name|doc
 operator|.
-name|uid
+name|id
 argument_list|()
 argument_list|)
 argument_list|,

@@ -1898,7 +1898,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_uid"
+literal|"_index"
 argument_list|,
 name|SortOrder
 operator|.
@@ -2082,7 +2082,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_uid"
+literal|"_index"
 argument_list|,
 name|SortOrder
 operator|.
@@ -2183,7 +2183,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_uid"
+literal|"_index"
 argument_list|,
 name|SortOrder
 operator|.

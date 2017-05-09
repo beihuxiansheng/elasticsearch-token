@@ -478,20 +478,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|Uid
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|seqno
 operator|.
 name|GlobalCheckpointSyncAction
@@ -2360,7 +2346,7 @@ name|IOException
 block|{
 name|Set
 argument_list|<
-name|Uid
+name|String
 argument_list|>
 name|primaryIds
 init|=
@@ -2392,7 +2378,7 @@ control|)
 block|{
 name|Set
 argument_list|<
-name|Uid
+name|String
 argument_list|>
 name|replicaIds
 init|=
@@ -2403,7 +2389,7 @@ argument_list|)
 decl_stmt|;
 name|Set
 argument_list|<
-name|Uid
+name|String
 argument_list|>
 name|temp
 init|=
