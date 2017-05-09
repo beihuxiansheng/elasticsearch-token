@@ -277,7 +277,7 @@ return|return
 operator|new
 name|InternalGeoCentroid
 argument_list|(
-literal|"_name"
+name|name
 argument_list|,
 name|centroid
 argument_list|,

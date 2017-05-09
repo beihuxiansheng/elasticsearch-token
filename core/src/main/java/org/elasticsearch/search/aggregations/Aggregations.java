@@ -574,7 +574,6 @@ return|return
 name|builder
 return|;
 block|}
-comment|//TODO add tests for this method
 DECL|method|fromXContent
 specifier|public
 specifier|static
