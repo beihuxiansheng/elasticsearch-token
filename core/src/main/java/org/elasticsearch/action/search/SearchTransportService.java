@@ -918,7 +918,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
@@ -928,20 +928,9 @@ operator|&&
 name|fetchDocuments
 condition|)
 block|{
+comment|// this is a BWC layer for pre 5.3 indices
 if|if
 condition|(
-name|connection
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_5_3_0_UNRELEASED
-argument_list|)
-operator|&&
 name|request
 operator|.
 name|scroll
@@ -957,13 +946,7 @@ name|searchType
 argument_list|(
 name|SearchType
 operator|.
-name|fromId
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|3
-argument_list|)
+name|QUERY_AND_FETCH
 argument_list|)
 expr_stmt|;
 block|}
