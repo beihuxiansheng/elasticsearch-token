@@ -614,10 +614,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|minLocalCheckpoint
-operator|>=
-literal|0
-operator|&&
 name|globalCheckpoint
 operator|!=
 name|minLocalCheckpoint
