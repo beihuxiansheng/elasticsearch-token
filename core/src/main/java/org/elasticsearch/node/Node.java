@@ -3626,11 +3626,6 @@ name|nodeEnvironment
 argument_list|,
 name|xContentRegistry
 argument_list|,
-name|settingsModule
-operator|.
-name|getClusterSettings
-argument_list|()
-argument_list|,
 name|analysisModule
 operator|.
 name|getAnalysisRegistry

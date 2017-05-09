@@ -331,21 +331,7 @@ block|{
 return|return
 name|globalCheckpointTracker
 operator|.
-name|getCheckpoint
-argument_list|()
-return|;
-block|}
-comment|/**      * Scans through the currently known local checkpoint and updates the global checkpoint accordingly.      *      * @return {@code true} if the checkpoint has been updated or if it can not be updated since one of the local checkpoints of one of the      * active allocations is not known.      */
-DECL|method|updateGlobalCheckpointOnPrimary
-specifier|public
-name|boolean
-name|updateGlobalCheckpointOnPrimary
-parameter_list|()
-block|{
-return|return
-name|globalCheckpointTracker
-operator|.
-name|updateCheckpointOnPrimary
+name|getGlobalCheckpoint
 argument_list|()
 return|;
 block|}
@@ -398,6 +384,20 @@ argument_list|,
 name|initializingAllocationIds
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Check if there are any recoveries pending in-sync.      *      * @return {@code true} if there is at least one shard pending in-sync, otherwise false      */
+DECL|method|pendingInSync
+specifier|public
+name|boolean
+name|pendingInSync
+parameter_list|()
+block|{
+return|return
+name|globalCheckpointTracker
+operator|.
+name|pendingInSync
+argument_list|()
+return|;
 block|}
 block|}
 end_class

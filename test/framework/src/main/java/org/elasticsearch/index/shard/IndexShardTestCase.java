@@ -1366,10 +1366,6 @@ name|indexMetaData
 argument_list|,
 name|searcherWrapper
 argument_list|,
-parameter_list|()
-lambda|->
-block|{}
-argument_list|,
 literal|null
 argument_list|)
 return|;
@@ -1444,8 +1440,6 @@ name|indexMetaData
 argument_list|,
 name|searcherWrapper
 argument_list|,
-name|globalCheckpointSyncer
-argument_list|,
 literal|null
 argument_list|)
 return|;
@@ -1478,17 +1472,13 @@ name|indexMetaData
 argument_list|,
 literal|null
 argument_list|,
-parameter_list|()
-lambda|->
-block|{}
-argument_list|,
 literal|null
 argument_list|,
 name|listeners
 argument_list|)
 return|;
 block|}
-comment|/**      * creates a new initializing shard. The shard will will be put in its proper path under the      * current node id the shard is assigned to.      *      * @param routing                shard routing to use      * @param indexMetaData          indexMetaData for the shard, including any mapping      * @param indexSearcherWrapper   an optional wrapper to be used during searchers      * @param globalCheckpointSyncer an runnable to run when the global check point needs syncing      * @param listeners              an optional set of listeners to add to the shard      */
+comment|/**      * creates a new initializing shard. The shard will will be put in its proper path under the      * current node id the shard is assigned to.      *  @param routing                shard routing to use      * @param indexMetaData          indexMetaData for the shard, including any mapping      * @param indexSearcherWrapper   an optional wrapper to be used during searchers      * @param listeners              an optional set of listeners to add to the shard      */
 DECL|method|newShard
 specifier|protected
 name|IndexShard
@@ -1504,9 +1494,6 @@ annotation|@
 name|Nullable
 name|IndexSearcherWrapper
 name|indexSearcherWrapper
-parameter_list|,
-name|Runnable
-name|globalCheckpointSyncer
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1581,15 +1568,13 @@ name|indexMetaData
 argument_list|,
 name|indexSearcherWrapper
 argument_list|,
-name|globalCheckpointSyncer
-argument_list|,
 name|engineFactory
 argument_list|,
 name|listeners
 argument_list|)
 return|;
 block|}
-comment|/**      * creates a new initializing shard.      *      * @param routing              shard routing to use      * @param shardPath            path to use for shard data      * @param indexMetaData        indexMetaData for the shard, including any mapping      * @param indexSearcherWrapper an optional wrapper to be used during searchers      * @param listeners            an optional set of listeners to add to the shard      */
+comment|/**      * creates a new initializing shard.      * @param routing              shard routing to use      * @param shardPath            path to use for shard data      * @param indexMetaData        indexMetaData for the shard, including any mapping      * @param indexSearcherWrapper an optional wrapper to be used during searchers      * @param listeners            an optional set of listeners to add to the shard      */
 DECL|method|newShard
 specifier|protected
 name|IndexShard
@@ -1608,9 +1593,6 @@ annotation|@
 name|Nullable
 name|IndexSearcherWrapper
 name|indexSearcherWrapper
-parameter_list|,
-name|Runnable
-name|globalCheckpointSyncer
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1838,8 +1820,6 @@ name|NON_RECYCLING_INSTANCE
 argument_list|,
 name|warmer
 argument_list|,
-name|globalCheckpointSyncer
-argument_list|,
 name|Collections
 operator|.
 name|emptyList
@@ -1981,11 +1961,6 @@ name|getIndexMetaData
 argument_list|()
 argument_list|,
 literal|null
-argument_list|,
-name|current
-operator|.
-name|getGlobalCheckpointSyncer
-argument_list|()
 argument_list|,
 name|current
 operator|.

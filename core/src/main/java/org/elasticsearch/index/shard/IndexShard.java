@@ -2076,12 +2076,6 @@ specifier|final
 name|IndexSearcherWrapper
 name|searcherWrapper
 decl_stmt|;
-DECL|field|globalCheckpointSyncer
-specifier|private
-specifier|final
-name|Runnable
-name|globalCheckpointSyncer
-decl_stmt|;
 comment|/**      * True if this shard is still indexing (recently) and false if we've been idle for long enough (as periodically checked by {@link      * IndexingMemoryController}).      */
 DECL|field|active
 specifier|private
@@ -2155,9 +2149,6 @@ name|Engine
 operator|.
 name|Warmer
 name|warmer
-parameter_list|,
-name|Runnable
-name|globalCheckpointSyncer
 parameter_list|,
 name|List
 argument_list|<
@@ -2377,12 +2368,6 @@ name|searchListenersList
 argument_list|,
 name|logger
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|globalCheckpointSyncer
-operator|=
-name|globalCheckpointSyncer
 expr_stmt|;
 name|this
 operator|.
@@ -8395,6 +8380,16 @@ argument_list|,
 name|localCheckpoint
 argument_list|)
 expr_stmt|;
+comment|/*          * We could have blocked waiting for the replica to catch up that we fell idle and there will not be a background sync to the          * replica; mark our self as active to force a future background sync.          */
+name|active
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the local checkpoint for the shard.      *      * @return the local checkpoint      */
 DECL|method|getLocalCheckpoint
@@ -8431,35 +8426,6 @@ operator|.
 name|getGlobalCheckpoint
 argument_list|()
 return|;
-block|}
-comment|/**      * Checks whether the global checkpoint can be updated based on current knowledge of local checkpoints on the different shard copies.      * The checkpoint is updated or if more information is required from the replica, a global checkpoint sync is initiated.      */
-DECL|method|updateGlobalCheckpointOnPrimary
-specifier|public
-name|void
-name|updateGlobalCheckpointOnPrimary
-parameter_list|()
-block|{
-name|verifyPrimary
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|getEngine
-argument_list|()
-operator|.
-name|seqNoService
-argument_list|()
-operator|.
-name|updateGlobalCheckpointOnPrimary
-argument_list|()
-condition|)
-block|{
-name|globalCheckpointSyncer
-operator|.
-name|run
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Updates the global checkpoint on a replica shard after it has been updated by the primary.      *      * @param globalCheckpoint the global checkpoint      */
 DECL|method|updateGlobalCheckpointOnReplica
@@ -8600,6 +8566,27 @@ name|initializingAllocationIds
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Check if there are any recoveries pending in-sync.      *      * @return {@code true} if there is at least one shard pending in-sync, otherwise false      */
+DECL|method|pendingInSync
+specifier|public
+name|boolean
+name|pendingInSync
+parameter_list|()
+block|{
+name|verifyPrimary
+argument_list|()
+expr_stmt|;
+return|return
+name|getEngine
+argument_list|()
+operator|.
+name|seqNoService
+argument_list|()
+operator|.
+name|pendingInSync
+argument_list|()
+return|;
 block|}
 comment|/**      * Should be called for each no-op update operation to increment relevant statistics.      *      * @param type the doc type of the update      */
 DECL|method|noopUpdate
@@ -11203,22 +11190,6 @@ expr_stmt|;
 block|}
 block|}
 end_class
-
-begin_comment
-comment|// for tests
-end_comment
-
-begin_function
-DECL|method|getGlobalCheckpointSyncer
-name|Runnable
-name|getGlobalCheckpointSyncer
-parameter_list|()
-block|{
-return|return
-name|globalCheckpointSyncer
-return|;
-block|}
-end_function
 
 unit|}
 end_unit

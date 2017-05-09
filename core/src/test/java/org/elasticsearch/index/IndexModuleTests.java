@@ -1368,17 +1368,11 @@ name|threadPool
 argument_list|,
 name|scriptService
 argument_list|,
-name|clusterService
-argument_list|,
 literal|null
 argument_list|,
 name|indicesQueryCache
 argument_list|,
 name|mapperRegistry
-argument_list|,
-name|shardId
-lambda|->
-block|{}
 argument_list|,
 operator|new
 name|IndicesFieldDataCache

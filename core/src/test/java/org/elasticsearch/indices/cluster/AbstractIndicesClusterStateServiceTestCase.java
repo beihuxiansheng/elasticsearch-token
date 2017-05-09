@@ -430,18 +430,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|function
-operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|stream
 operator|.
 name|Collectors
@@ -485,18 +473,6 @@ operator|.
 name|MapBuilder
 operator|.
 name|newMapBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|empty
 import|;
 end_import
 
@@ -1309,12 +1285,6 @@ argument_list|<
 name|IndexEventListener
 argument_list|>
 name|buildInIndexListener
-parameter_list|,
-name|Consumer
-argument_list|<
-name|ShardId
-argument_list|>
-name|globalCheckPointSyncer
 parameter_list|)
 throws|throws
 name|IOException

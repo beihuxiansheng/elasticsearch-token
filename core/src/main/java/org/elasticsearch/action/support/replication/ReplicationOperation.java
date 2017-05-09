@@ -254,20 +254,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|VersionConflictEngineException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|ShardId
@@ -864,6 +850,11 @@ name|performOnReplicas
 argument_list|(
 name|replicaRequest
 argument_list|,
+name|primary
+operator|.
+name|globalCheckpoint
+argument_list|()
+argument_list|,
 name|shards
 argument_list|)
 expr_stmt|;
@@ -1020,9 +1011,15 @@ specifier|private
 name|void
 name|performOnReplicas
 parameter_list|(
+specifier|final
 name|ReplicaRequest
 name|replicaRequest
 parameter_list|,
+specifier|final
+name|long
+name|globalCheckpoint
+parameter_list|,
+specifier|final
 name|List
 argument_list|<
 name|ShardRouting
@@ -1098,6 +1095,8 @@ argument_list|(
 name|shard
 argument_list|,
 name|replicaRequest
+argument_list|,
+name|globalCheckpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -1129,6 +1128,8 @@ name|getTargetRelocatingShard
 argument_list|()
 argument_list|,
 name|replicaRequest
+argument_list|,
+name|globalCheckpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -1146,6 +1147,10 @@ parameter_list|,
 specifier|final
 name|ReplicaRequest
 name|replicaRequest
+parameter_list|,
+specifier|final
+name|long
+name|globalCheckpoint
 parameter_list|)
 block|{
 if|if
@@ -1192,6 +1197,8 @@ argument_list|(
 name|shard
 argument_list|,
 name|replicaRequest
+argument_list|,
+name|globalCheckpoint
 argument_list|,
 operator|new
 name|ActionListener
@@ -2035,10 +2042,16 @@ name|long
 name|checkpoint
 parameter_list|)
 function_decl|;
-comment|/** returns the local checkpoint of the primary shard */
+comment|/**          * Returns the local checkpoint on the primary shard.          *          * @return the local checkpoint          */
 DECL|method|localCheckpoint
 name|long
 name|localCheckpoint
+parameter_list|()
+function_decl|;
+comment|/**          * Returns the global checkpoint on the primary shard.          *          * @return the global checkpoint          */
+DECL|method|globalCheckpoint
+name|long
+name|globalCheckpoint
 parameter_list|()
 function_decl|;
 block|}
@@ -2056,7 +2069,7 @@ name|RequestT
 parameter_list|>
 parameter_list|>
 block|{
-comment|/**          * performs the the given request on the specified replica          *          * @param replica        {@link ShardRouting} of the shard this request should be executed on          * @param replicaRequest operation to perform          * @param listener       a callback to call once the operation has been complicated, either successfully or with an error.          */
+comment|/**          * Performs the the specified request on the specified replica.          *          * @param replica          the shard this request should be executed on          * @param replicaRequest   the operation to perform          * @param globalCheckpoint the global checkpoint on the primary          * @param listener         callback for handling the response or failure          */
 DECL|method|performOn
 name|void
 name|performOn
@@ -2066,6 +2079,9 @@ name|replica
 parameter_list|,
 name|RequestT
 name|replicaRequest
+parameter_list|,
+name|long
+name|globalCheckpoint
 parameter_list|,
 name|ActionListener
 argument_list|<

@@ -997,15 +997,6 @@ specifier|final
 name|NodeMappingRefreshAction
 name|nodeMappingRefreshAction
 decl_stmt|;
-DECL|field|globalCheckpointSyncer
-specifier|private
-specifier|final
-name|Consumer
-argument_list|<
-name|ShardId
-argument_list|>
-name|globalCheckpointSyncer
-decl_stmt|;
 DECL|field|SHARD_STATE_ACTION_LISTENER
 specifier|private
 specifier|static
@@ -1120,6 +1111,23 @@ name|this
 argument_list|(
 name|settings
 argument_list|,
+operator|(
+name|AllocatedIndices
+argument_list|<
+name|?
+extends|extends
+name|Shard
+argument_list|,
+name|?
+extends|extends
+name|AllocatedIndex
+argument_list|<
+name|?
+extends|extends
+name|Shard
+argument_list|>
+argument_list|>
+operator|)
 name|indicesService
 argument_list|,
 name|clusterService
@@ -1143,8 +1151,6 @@ argument_list|,
 name|snapshotShardsService
 argument_list|,
 name|globalCheckpointSyncAction
-operator|::
-name|updateCheckpointForShard
 argument_list|)
 expr_stmt|;
 block|}
@@ -1202,11 +1208,8 @@ parameter_list|,
 name|SnapshotShardsService
 name|snapshotShardsService
 parameter_list|,
-name|Consumer
-argument_list|<
-name|ShardId
-argument_list|>
-name|globalCheckpointSyncer
+name|GlobalCheckpointSyncAction
+name|globalCheckpointSyncAction
 parameter_list|)
 block|{
 name|super
@@ -1231,6 +1234,8 @@ argument_list|,
 name|syncedFlushService
 argument_list|,
 name|snapshotShardsService
+argument_list|,
+name|globalCheckpointSyncAction
 argument_list|)
 expr_stmt|;
 name|this
@@ -1289,12 +1294,6 @@ literal|"indices.cluster.send_refresh_mapping"
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|globalCheckpointSyncer
-operator|=
-name|globalCheckpointSyncer
 expr_stmt|;
 block|}
 annotation|@
@@ -2779,8 +2778,6 @@ argument_list|(
 name|indexMetaData
 argument_list|,
 name|buildInIndexListener
-argument_list|,
-name|globalCheckpointSyncer
 argument_list|)
 expr_stmt|;
 if|if
@@ -4618,7 +4615,7 @@ argument_list|<
 name|U
 argument_list|>
 block|{
-comment|/**          * Creates a new {@link IndexService} for the given metadata.          *          * @param indexMetaData          the index metadata to create the index for          * @param builtInIndexListener   a list of built-in lifecycle {@link IndexEventListener} that should should be used along side with          *                               the per-index listeners          * @param globalCheckpointSyncer the global checkpoint syncer          * @throws ResourceAlreadyExistsException if the index already exists.          */
+comment|/**          * Creates a new {@link IndexService} for the given metadata.          *          * @param indexMetaData          the index metadata to create the index for          * @param builtInIndexListener   a list of built-in lifecycle {@link IndexEventListener} that should should be used along side with          *                               the per-index listeners          * @throws ResourceAlreadyExistsException if the index already exists.          */
 DECL|method|createIndex
 name|U
 name|createIndex
@@ -4631,12 +4628,6 @@ argument_list|<
 name|IndexEventListener
 argument_list|>
 name|builtInIndexListener
-parameter_list|,
-name|Consumer
-argument_list|<
-name|ShardId
-argument_list|>
-name|globalCheckpointSyncer
 parameter_list|)
 throws|throws
 name|IOException
