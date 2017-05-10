@@ -3311,6 +3311,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|// refresh is a replication action so this forces a global checkpoint sync which is needed as these are asserted on in tear down
 name|client
 argument_list|()
@@ -3329,7 +3330,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|method|testCancellationCleansTempFiles
 specifier|public
@@ -4575,6 +4575,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// refresh is a replication action so this forces a global checkpoint sync which is needed as these are asserted on in tear down
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareRefresh
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
 block|}
 DECL|class|RecoveryCorruption
 class|class
