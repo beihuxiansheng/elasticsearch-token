@@ -1679,6 +1679,11 @@ name|builder
 argument_list|()
 decl_stmt|;
 comment|//rarely inject the default settings, which have no effect
+name|boolean
+name|deprecate
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|rarely
@@ -1694,6 +1699,10 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+name|deprecate
+operator|=
+literal|true
+expr_stmt|;
 block|}
 name|buildScriptService
 argument_list|(
@@ -1705,8 +1714,6 @@ argument_list|)
 expr_stmt|;
 name|createFileScripts
 argument_list|(
-literal|"mustache"
-argument_list|,
 literal|"dtest"
 argument_list|)
 expr_stmt|;
@@ -1759,11 +1766,34 @@ name|scriptContext
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|deprecate
+condition|)
+block|{
+name|assertSettingDeprecationsAndWarnings
+argument_list|(
+name|ScriptSettingsTests
+operator|.
+name|buildDeprecatedSettingsArray
+argument_list|(
+name|scriptSettings
+argument_list|,
+literal|"script.file"
+argument_list|)
+argument_list|,
+literal|"File scripts are deprecated. Use stored or inline scripts instead."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|assertWarnings
 argument_list|(
 literal|"File scripts are deprecated. Use stored or inline scripts instead."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testFineGrainedSettings
 specifier|public
