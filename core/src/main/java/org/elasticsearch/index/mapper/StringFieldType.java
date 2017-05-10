@@ -307,7 +307,6 @@ annotation|@
 name|Override
 DECL|method|fuzzyQuery
 specifier|public
-specifier|final
 name|Query
 name|fuzzyQuery
 parameter_list|(
@@ -370,7 +369,6 @@ annotation|@
 name|Override
 DECL|method|prefixQuery
 specifier|public
-specifier|final
 name|Query
 name|prefixQuery
 parameter_list|(
@@ -431,7 +429,6 @@ annotation|@
 name|Override
 DECL|method|regexpQuery
 specifier|public
-specifier|final
 name|Query
 name|regexpQuery
 parameter_list|(
