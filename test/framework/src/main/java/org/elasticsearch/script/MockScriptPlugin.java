@@ -102,10 +102,10 @@ name|NAME
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|getScriptEngineService
+DECL|method|getScriptEngine
 specifier|public
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings

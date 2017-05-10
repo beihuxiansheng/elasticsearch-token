@@ -204,7 +204,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -268,10 +268,10 @@ name|SearchPlugin
 block|{
 annotation|@
 name|Override
-DECL|method|getScriptEngineService
+DECL|method|getScriptEngine
 specifier|public
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
@@ -279,7 +279,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 argument_list|()
 return|;
 block|}

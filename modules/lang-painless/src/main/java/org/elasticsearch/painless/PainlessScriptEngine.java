@@ -124,7 +124,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -271,15 +271,15 @@ comment|/**  * Implementation of a ScriptEngine for the Painless language.  */
 end_comment
 
 begin_class
-DECL|class|PainlessScriptEngineService
+DECL|class|PainlessScriptEngine
 specifier|public
 specifier|final
 class|class
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 comment|/**      * Standard name of the Painless language.      */
 DECL|field|NAME
@@ -335,7 +335,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Default compiler settings to be used. Note that {@link CompilerSettings} is mutable but this instance shouldn't be mutated outside      * of {@link PainlessScriptEngineService#PainlessScriptEngineService(Settings)}.      */
+comment|/**      * Default compiler settings to be used. Note that {@link CompilerSettings} is mutable but this instance shouldn't be mutated outside      * of {@link PainlessScriptEngine#PainlessScriptEngine(Settings)}.      */
 DECL|field|defaultCompilerSettings
 specifier|private
 specifier|final
@@ -347,9 +347,9 @@ name|CompilerSettings
 argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      * @param settings The settings to initialize the engine with.      */
-DECL|method|PainlessScriptEngineService
+DECL|method|PainlessScriptEngine
 specifier|public
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 parameter_list|(
 specifier|final
 name|Settings
@@ -1198,7 +1198,7 @@ name|scriptStack
 argument_list|,
 name|scriptSource
 argument_list|,
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 operator|.
 name|NAME
 argument_list|)

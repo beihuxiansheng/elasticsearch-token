@@ -154,7 +154,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -3808,10 +3808,10 @@ name|ScriptPlugin
 block|{
 annotation|@
 name|Override
-DECL|method|getScriptEngineService
+DECL|method|getScriptEngine
 specifier|public
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
@@ -3831,7 +3831,7 @@ specifier|static
 class|class
 name|ExtractFieldScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public
@@ -4221,10 +4221,10 @@ name|ScriptPlugin
 block|{
 annotation|@
 name|Override
-DECL|method|getScriptEngineService
+DECL|method|getScriptEngine
 specifier|public
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
@@ -4244,7 +4244,7 @@ specifier|static
 class|class
 name|FieldValueScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public

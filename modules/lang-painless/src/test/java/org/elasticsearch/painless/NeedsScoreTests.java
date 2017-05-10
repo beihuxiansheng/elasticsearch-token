@@ -152,11 +152,11 @@ argument_list|,
 literal|"type=double"
 argument_list|)
 decl_stmt|;
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 name|service
 init|=
 operator|new
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 argument_list|(
 name|Settings
 operator|.

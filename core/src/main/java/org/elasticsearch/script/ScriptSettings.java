@@ -457,7 +457,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEngineService
 range|:
@@ -471,7 +471,7 @@ if|if
 condition|(
 name|scriptEngineService
 operator|==
-name|NativeScriptEngineService
+name|NativeScriptEngine
 operator|.
 name|class
 condition|)

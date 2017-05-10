@@ -170,7 +170,7 @@ specifier|public
 class|class
 name|MockScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public

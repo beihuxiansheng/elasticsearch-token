@@ -119,14 +119,14 @@ comment|/**  * A native script engine service.  */
 end_comment
 
 begin_class
-DECL|class|NativeScriptEngineService
+DECL|class|NativeScriptEngine
 specifier|public
 class|class
-name|NativeScriptEngineService
+name|NativeScriptEngine
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public
@@ -148,9 +148,9 @@ name|NativeScriptFactory
 argument_list|>
 name|scripts
 decl_stmt|;
-DECL|method|NativeScriptEngineService
+DECL|method|NativeScriptEngine
 specifier|public
-name|NativeScriptEngineService
+name|NativeScriptEngine
 parameter_list|(
 name|Settings
 name|settings

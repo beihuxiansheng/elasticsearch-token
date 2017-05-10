@@ -288,7 +288,7 @@ argument_list|,
 name|singletonList
 argument_list|(
 operator|new
-name|NativeScriptEngineService
+name|NativeScriptEngine
 argument_list|(
 name|settings
 argument_list|,
@@ -340,7 +340,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-name|NativeScriptEngineService
+name|NativeScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -568,7 +568,7 @@ operator|.
 name|singleton
 argument_list|(
 operator|new
-name|NativeScriptEngineService
+name|NativeScriptEngine
 argument_list|(
 name|settings
 argument_list|,
@@ -643,7 +643,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-name|NativeScriptEngineService
+name|NativeScriptEngine
 operator|.
 name|NAME
 argument_list|,

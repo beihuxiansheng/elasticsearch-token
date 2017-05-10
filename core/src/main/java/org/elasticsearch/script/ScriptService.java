@@ -899,7 +899,7 @@ specifier|private
 specifier|final
 name|Collection
 argument_list|<
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEngines
 decl_stmt|;
@@ -910,7 +910,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEnginesByLang
 decl_stmt|;
@@ -921,7 +921,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEnginesByExt
 decl_stmt|;
@@ -1198,7 +1198,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|enginesByLangBuilder
 init|=
@@ -1211,7 +1211,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|enginesByExtBuilder
 init|=
@@ -1222,7 +1222,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ScriptEngineService
+name|ScriptEngine
 name|scriptEngine
 range|:
 name|scriptEngines
@@ -1431,15 +1431,15 @@ expr_stmt|;
 block|}
 DECL|method|getScriptEngineServiceForLang
 specifier|private
-name|ScriptEngineService
+name|ScriptEngine
 name|getScriptEngineServiceForLang
 parameter_list|(
 name|String
 name|lang
 parameter_list|)
 block|{
-name|ScriptEngineService
-name|scriptEngineService
+name|ScriptEngine
+name|scriptEngine
 init|=
 name|scriptEnginesByLang
 operator|.
@@ -1450,7 +1450,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|scriptEngineService
+name|scriptEngine
 operator|==
 literal|null
 condition|)
@@ -1468,20 +1468,20 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|scriptEngineService
+name|scriptEngine
 return|;
 block|}
 DECL|method|getScriptEngineServiceForFileExt
 specifier|private
-name|ScriptEngineService
+name|ScriptEngine
 name|getScriptEngineServiceForFileExt
 parameter_list|(
 name|String
 name|fileExtension
 parameter_list|)
 block|{
-name|ScriptEngineService
-name|scriptEngineService
+name|ScriptEngine
+name|scriptEngine
 init|=
 name|scriptEnginesByExt
 operator|.
@@ -1492,7 +1492,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|scriptEngineService
+name|scriptEngine
 operator|==
 literal|null
 condition|)
@@ -1510,7 +1510,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|scriptEngineService
+name|scriptEngine
 return|;
 block|}
 DECL|method|setMaxCompilationsPerMinute
@@ -1848,8 +1848,8 @@ literal|"] are not supported"
 argument_list|)
 throw|;
 block|}
-name|ScriptEngineService
-name|scriptEngineService
+name|ScriptEngine
+name|scriptEngine
 init|=
 name|getScriptEngineServiceForLang
 argument_list|(
@@ -2079,7 +2079,7 @@ name|id
 argument_list|,
 name|lang
 argument_list|,
-name|scriptEngineService
+name|scriptEngine
 operator|.
 name|compile
 argument_list|(
@@ -2564,8 +2564,8 @@ throw|;
 block|}
 try|try
 block|{
-name|ScriptEngineService
-name|scriptEngineService
+name|ScriptEngine
+name|scriptEngine
 init|=
 name|getScriptEngineServiceForLang
 argument_list|(
@@ -2593,7 +2593,7 @@ block|{
 name|Object
 name|compiled
 init|=
-name|scriptEngineService
+name|scriptEngine
 operator|.
 name|compile
 argument_list|(
@@ -3328,7 +3328,7 @@ name|state
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * A small listener for the script cache that calls each      * {@code ScriptEngineService}'s {@code scriptRemoved} method when the      * script has been removed from the cache      */
+comment|/**      * A small listener for the script cache that calls each      * {@code ScriptEngine}'s {@code scriptRemoved} method when the      * script has been removed from the cache      */
 DECL|class|ScriptCacheRemovalListener
 specifier|private
 class|class
@@ -3578,7 +3578,7 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-name|ScriptEngineService
+name|ScriptEngine
 name|engineService
 init|=
 name|getScriptEngineServiceForFileExt
@@ -4006,7 +4006,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ScriptEngineService
+name|ScriptEngine
 name|engineService
 init|=
 name|getScriptEngineServiceForFileExt

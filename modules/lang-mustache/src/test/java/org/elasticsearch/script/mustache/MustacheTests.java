@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -390,11 +390,11 @@ name|ESTestCase
 block|{
 DECL|field|engine
 specifier|private
-name|ScriptEngineService
+name|ScriptEngine
 name|engine
 init|=
 operator|new
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 argument_list|()
 decl_stmt|;
 DECL|method|testBasics

@@ -293,7 +293,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|ExpressionScriptEngineService
+name|ExpressionScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -366,7 +366,7 @@ name|ScriptType
 operator|.
 name|STORED
 argument_list|,
-name|ExpressionScriptEngineService
+name|ExpressionScriptEngine
 operator|.
 name|NAME
 argument_list|,

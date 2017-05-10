@@ -74,7 +74,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -126,10 +126,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getScriptEngineService
+DECL|method|getScriptEngine
 specifier|public
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
@@ -137,7 +137,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 argument_list|(
 name|settings
 argument_list|)

@@ -108,26 +108,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -264,11 +244,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|NativeScriptEngineService
+name|NativeScriptEngine
 name|nativeScriptEngineService
 init|=
 operator|new
-name|NativeScriptEngineService
+name|NativeScriptEngine
 argument_list|(
 name|settings
 argument_list|,
@@ -277,9 +257,9 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
-name|scriptEngineServices
+name|scriptEngines
 init|=
 name|scriptPlugins
 operator|.
@@ -292,7 +272,7 @@ name|x
 lambda|->
 name|x
 operator|.
-name|getScriptEngineService
+name|getScriptEngine
 argument_list|(
 name|settings
 argument_list|)
@@ -313,7 +293,7 @@ name|toList
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|scriptEngineServices
+name|scriptEngines
 operator|.
 name|add
 argument_list|(
@@ -368,13 +348,13 @@ name|environment
 argument_list|,
 name|resourceWatcherService
 argument_list|,
-name|scriptEngineServices
+name|scriptEngines
 argument_list|,
 name|plugins
 argument_list|)
 return|;
 block|}
-comment|/**      * Build {@linkplain ScriptEngineService} and {@linkplain ScriptContext.Plugin}.      */
+comment|/**      * Build {@linkplain ScriptEngine} and {@linkplain ScriptContext.Plugin}.      */
 DECL|method|ScriptModule
 specifier|public
 name|ScriptModule
@@ -390,9 +370,9 @@ name|resourceWatcherService
 parameter_list|,
 name|List
 argument_list|<
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
-name|scriptEngineServices
+name|scriptEngines
 parameter_list|,
 name|List
 argument_list|<
@@ -418,7 +398,7 @@ init|=
 operator|new
 name|ScriptEngineRegistry
 argument_list|(
-name|scriptEngineServices
+name|scriptEngines
 argument_list|)
 decl_stmt|;
 name|scriptSettings

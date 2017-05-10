@@ -145,7 +145,7 @@ extends|extends
 name|ESSingleNodeTestCase
 block|{
 DECL|field|service
-name|ExpressionScriptEngineService
+name|ExpressionScriptEngine
 name|service
 decl_stmt|;
 DECL|field|lookup
@@ -188,7 +188,7 @@ decl_stmt|;
 name|service
 operator|=
 operator|new
-name|ExpressionScriptEngineService
+name|ExpressionScriptEngine
 argument_list|(
 name|Settings
 operator|.

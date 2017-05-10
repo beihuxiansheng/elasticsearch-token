@@ -242,7 +242,7 @@ name|scriptName
 operator|.
 name|equals
 argument_list|(
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 operator|.
 name|INLINE_NAME
 argument_list|)

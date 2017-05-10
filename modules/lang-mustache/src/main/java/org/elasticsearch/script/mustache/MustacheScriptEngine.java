@@ -222,7 +222,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -319,13 +319,13 @@ comment|/**  * Main entry point handling template registration, compilation and 
 end_comment
 
 begin_class
-DECL|class|MustacheScriptEngineService
+DECL|class|MustacheScriptEngine
 specifier|public
 specifier|final
 class|class
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|logger
 specifier|private
@@ -338,7 +338,7 @@ name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|class
 argument_list|)

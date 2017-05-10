@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|NativeScriptEngineService
+name|NativeScriptEngine
 import|;
 end_import
 
@@ -365,7 +365,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-name|NativeScriptEngineService
+name|NativeScriptEngine
 operator|.
 name|NAME
 argument_list|,

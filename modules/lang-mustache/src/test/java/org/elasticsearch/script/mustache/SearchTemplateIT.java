@@ -913,7 +913,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -967,7 +967,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -1019,7 +1019,7 @@ argument_list|()
 operator|.
 name|prepareGetStoredScript
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -1285,7 +1285,7 @@ argument_list|()
 operator|.
 name|prepareDeleteStoredScript
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -1306,7 +1306,7 @@ argument_list|()
 operator|.
 name|prepareGetStoredScript
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -1415,7 +1415,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -1469,7 +1469,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -1523,7 +1523,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -2149,7 +2149,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -2189,7 +2189,7 @@ argument_list|()
 operator|.
 name|prepareGetStoredScript
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -2316,7 +2316,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)
@@ -2432,7 +2432,7 @@ argument_list|()
 operator|.
 name|setLang
 argument_list|(
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 operator|.
 name|NAME
 argument_list|)

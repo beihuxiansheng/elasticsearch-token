@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -94,11 +94,11 @@ specifier|public
 interface|interface
 name|ScriptPlugin
 block|{
-comment|/**      * Returns a {@link ScriptEngineService} instance or<code>null</code> if this plugin doesn't add a new script engine      */
-DECL|method|getScriptEngineService
+comment|/**      * Returns a {@link ScriptEngine} instance or<code>null</code> if this plugin doesn't add a new script engine      */
+DECL|method|getScriptEngine
 specifier|default
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings

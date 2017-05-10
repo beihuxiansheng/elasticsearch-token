@@ -98,7 +98,7 @@ name|script
 operator|.
 name|mustache
 operator|.
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 import|;
 end_import
 
@@ -198,7 +198,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 argument_list|()
 argument_list|)
 argument_list|)

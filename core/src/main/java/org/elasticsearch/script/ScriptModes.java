@@ -206,7 +206,7 @@ block|{
 comment|//native scripts are always enabled as they are static by definition
 if|if
 condition|(
-name|NativeScriptEngineService
+name|NativeScriptEngine
 operator|.
 name|NAME
 operator|.
