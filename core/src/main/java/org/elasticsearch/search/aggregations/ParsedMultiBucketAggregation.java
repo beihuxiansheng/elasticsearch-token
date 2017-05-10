@@ -478,8 +478,8 @@ expr_stmt|;
 block|}
 DECL|class|ParsedBucket
 specifier|public
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|ParsedBucket
 implements|implements
