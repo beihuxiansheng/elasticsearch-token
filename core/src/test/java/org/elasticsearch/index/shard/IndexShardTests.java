@@ -11535,7 +11535,12 @@ name|EMPTY_REPO_GEN
 argument_list|,
 name|Collections
 operator|.
-name|emptyList
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
 argument_list|()
 argument_list|,
 name|map

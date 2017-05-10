@@ -224,6 +224,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -490,18 +500,59 @@ name|Version
 operator|.
 name|V_5_2_0_UNRELEASED
 decl_stmt|;
+DECL|field|VERBOSE_INTRODUCED
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|VERBOSE_INTRODUCED
+init|=
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+decl_stmt|;
+DECL|field|COMPARATOR
+specifier|private
+specifier|static
+specifier|final
+name|Comparator
+argument_list|<
+name|SnapshotInfo
+argument_list|>
+name|COMPARATOR
+init|=
+name|Comparator
+operator|.
+name|comparing
+argument_list|(
+name|SnapshotInfo
+operator|::
+name|startTime
+argument_list|)
+operator|.
+name|thenComparing
+argument_list|(
+name|SnapshotInfo
+operator|::
+name|snapshotId
+argument_list|)
+decl_stmt|;
 DECL|field|snapshotId
 specifier|private
 specifier|final
 name|SnapshotId
 name|snapshotId
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|state
 specifier|private
 specifier|final
 name|SnapshotState
 name|state
 decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|reason
 specifier|private
 specifier|final
@@ -558,6 +609,50 @@ name|SnapshotShardFailure
 argument_list|>
 name|shardFailures
 decl_stmt|;
+DECL|method|SnapshotInfo
+specifier|public
+name|SnapshotInfo
+parameter_list|(
+name|SnapshotId
+name|snapshotId
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|indices
+parameter_list|,
+name|SnapshotState
+name|state
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|snapshotId
+argument_list|,
+name|indices
+argument_list|,
+name|state
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|0L
+argument_list|,
+literal|0L
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SnapshotInfo
 specifier|public
 name|SnapshotInfo
@@ -730,23 +825,23 @@ name|this
 operator|.
 name|indices
 operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
 name|indices
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|state
 operator|=
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|state
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -870,6 +965,41 @@ argument_list|(
 name|indicesListBuilder
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|VERBOSE_INTRODUCED
+argument_list|)
+condition|)
+block|{
+name|state
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|?
+name|SnapshotState
+operator|.
+name|fromValue
+argument_list|(
+name|in
+operator|.
+name|readByte
+argument_list|()
+argument_list|)
+else|:
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
 name|state
 operator|=
 name|SnapshotState
@@ -882,6 +1012,7 @@ name|readByte
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|reason
 operator|=
 name|in
@@ -1078,6 +1209,25 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Gets a new {@link SnapshotInfo} instance from the given {@link SnapshotInfo} with      * all information stripped out except the snapshot id, state, and indices.      */
+DECL|method|basic
+specifier|public
+name|SnapshotInfo
+name|basic
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SnapshotInfo
+argument_list|(
+name|snapshotId
+argument_list|,
+name|indices
+argument_list|,
+name|state
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns snapshot id      *      * @return snapshot id      */
 DECL|method|snapshotId
 specifier|public
@@ -1089,7 +1239,9 @@ return|return
 name|snapshotId
 return|;
 block|}
-comment|/**      * Returns snapshot state      *      * @return snapshot state      */
+comment|/**      * Returns snapshot state; {@code null} if the state is unknown.      *      * @return snapshot state      */
+annotation|@
+name|Nullable
 DECL|method|state
 specifier|public
 name|SnapshotState
@@ -1100,7 +1252,9 @@ return|return
 name|state
 return|;
 block|}
-comment|/**      * Returns snapshot failure reason      *      * @return snapshot failure reason      */
+comment|/**      * Returns snapshot failure reason; {@code null} if the snapshot succeeded.      *      * @return snapshot failure reason      */
+annotation|@
+name|Nullable
 DECL|method|reason
 specifier|public
 name|String
@@ -1111,7 +1265,7 @@ return|return
 name|reason
 return|;
 block|}
-comment|/**      * Returns indices that were included into this snapshot      *      * @return list of indices      */
+comment|/**      * Returns indices that were included in this snapshot.      *      * @return list of indices      */
 DECL|method|indices
 specifier|public
 name|List
@@ -1125,7 +1279,7 @@ return|return
 name|indices
 return|;
 block|}
-comment|/**      * Returns time when snapshot started      *      * @return snapshot start time      */
+comment|/**      * Returns time when snapshot started; a value of {@code 0L} will be returned if      * {@link #state()} returns {@code null}.      *      * @return snapshot start time      */
 DECL|method|startTime
 specifier|public
 name|long
@@ -1136,7 +1290,7 @@ return|return
 name|startTime
 return|;
 block|}
-comment|/**      * Returns time when snapshot ended      *<p>      * Can be 0L if snapshot is still running      *      * @return snapshot end time      */
+comment|/**      * Returns time when snapshot ended; a value of {@code 0L} will be returned if the      * snapshot is still running or if {@link #state()} returns {@code null}.      *      * @return snapshot end time      */
 DECL|method|endTime
 specifier|public
 name|long
@@ -1147,7 +1301,7 @@ return|return
 name|endTime
 return|;
 block|}
-comment|/**      * Returns total number of shards that were snapshotted      *      * @return number of shards      */
+comment|/**      * Returns total number of shards that were snapshotted; a value of {@code 0} will      * be returned if {@link #state()} returns {@code null}.      *      * @return number of shards      */
 DECL|method|totalShards
 specifier|public
 name|int
@@ -1158,7 +1312,7 @@ return|return
 name|totalShards
 return|;
 block|}
-comment|/**      * Number of failed shards      *      * @return number of failed shards      */
+comment|/**      * Number of failed shards; a value of {@code 0} will be returned if there were no      * failed shards, or if {@link #state()} returns {@code null}.      *      * @return number of failed shards      */
 DECL|method|failedShards
 specifier|public
 name|int
@@ -1171,7 +1325,7 @@ operator|-
 name|successfulShards
 return|;
 block|}
-comment|/**      * Returns total number of shards that were successfully snapshotted      *      * @return number of successful shards      */
+comment|/**      * Returns total number of shards that were successfully snapshotted; a value of      * {@code 0} will be returned if {@link #state()} returns {@code null}.      *      * @return number of successful shards      */
 DECL|method|successfulShards
 specifier|public
 name|int
@@ -1182,7 +1336,7 @@ return|return
 name|successfulShards
 return|;
 block|}
-comment|/**      * Returns shard failures      *      * @return shard failures      */
+comment|/**      * Returns shard failures; an empty list will be returned if there were no shard      * failures, or if {@link #state()} returns {@code null}.      *      * @return shard failures      */
 DECL|method|shardFailures
 specifier|public
 name|List
@@ -1196,7 +1350,7 @@ return|return
 name|shardFailures
 return|;
 block|}
-comment|/**      * Returns the version of elasticsearch that the snapshot was created with.  Will only      * return {@code null} if {@link #state()} returns {@link SnapshotState#INCOMPATIBLE}.      *      * @return version of elasticsearch that the snapshot was created with      */
+comment|/**      * Returns the version of elasticsearch that the snapshot was created with.  Will only      * return {@code null} if {@link #state()} returns {@code null} or {@link SnapshotState#INCOMPATIBLE}.      *      * @return version of elasticsearch that the snapshot was created with      */
 annotation|@
 name|Nullable
 DECL|method|version
@@ -1209,7 +1363,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/**      * Compares two snapshots by their start time      *      * @param o other snapshot      * @return the value {@code 0} if snapshots were created at the same time;      * a value less than {@code 0} if this snapshot was created before snapshot {@code o}; and      * a value greater than {@code 0} if this snapshot was created after snapshot {@code o};      */
+comment|/**      * Compares two snapshots by their start time; if the start times are the same, then      * compares the two snapshots by their snapshot ids.      */
 annotation|@
 name|Override
 DECL|method|compareTo
@@ -1223,15 +1377,13 @@ name|o
 parameter_list|)
 block|{
 return|return
-name|Long
+name|COMPARATOR
 operator|.
 name|compare
 argument_list|(
-name|startTime
+name|this
 argument_list|,
 name|o
-operator|.
-name|startTime
 argument_list|)
 return|;
 block|}
@@ -1527,18 +1679,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-name|VERSION
-argument_list|,
-literal|"unknown"
-argument_list|)
-expr_stmt|;
-block|}
 name|builder
 operator|.
 name|startArray
@@ -1567,6 +1707,13 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|state
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1576,6 +1723,7 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|reason
@@ -1674,6 +1822,15 @@ name|startTime
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|shardFailures
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|builder
 operator|.
 name|startArray
@@ -1714,6 +1871,14 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|totalShards
+operator|!=
+literal|0
+condition|)
+block|{
 name|builder
 operator|.
 name|startObject
@@ -1754,6 +1919,7 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|endObject
@@ -2638,6 +2804,57 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
+name|onOrAfter
+argument_list|(
+name|VERBOSE_INTRODUCED
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|state
+operator|!=
+literal|null
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeByte
+argument_list|(
+name|state
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
 name|before
 argument_list|(
 name|VERSION_INCOMPATIBLE_INTRODUCED
@@ -2675,6 +2892,7 @@ name|value
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|out
 operator|.
