@@ -118,18 +118,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|equalTo
 import|;
 end_import
@@ -159,7 +147,7 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|CustomScriptEngineService
+name|CustomScriptEngine
 argument_list|()
 argument_list|)
 argument_list|)
@@ -301,13 +289,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|class|CustomScriptEngineService
+DECL|class|CustomScriptEngine
 specifier|private
 specifier|static
 class|class
-name|CustomScriptEngineService
+name|CustomScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public

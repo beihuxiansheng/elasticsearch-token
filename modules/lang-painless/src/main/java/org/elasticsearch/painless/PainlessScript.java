@@ -371,7 +371,7 @@ name|name
 decl_stmt|;
 if|if
 condition|(
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 operator|.
 name|INLINE_NAME
 operator|.
@@ -411,7 +411,7 @@ name|scriptStack
 argument_list|,
 name|name
 argument_list|,
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 operator|.
 name|NAME
 argument_list|)

@@ -68,20 +68,6 @@ name|action
 operator|.
 name|search
 operator|.
-name|ReduceSearchPhaseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
 name|SearchPhaseExecutionException
 import|;
 end_import
@@ -226,7 +212,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -8195,10 +8181,10 @@ name|ScriptPlugin
 block|{
 annotation|@
 name|Override
-DECL|method|getScriptEngineService
+DECL|method|getScriptEngine
 specifier|public
-name|ScriptEngineService
-name|getScriptEngineService
+name|ScriptEngine
+name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
@@ -8217,7 +8203,7 @@ specifier|static
 class|class
 name|DummyTemplateScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 comment|// The collate query setter is hard coded to use mustache, so lets lie in this test about the script plugin,
 comment|// which makes the collate code thinks mustache is evaluating the query.

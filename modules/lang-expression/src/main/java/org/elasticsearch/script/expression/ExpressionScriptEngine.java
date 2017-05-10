@@ -304,7 +304,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineService
+name|ScriptEngine
 import|;
 end_import
 
@@ -421,14 +421,14 @@ comment|/**  * Provides the infrastructure for Lucene expressions as a scripting
 end_comment
 
 begin_class
-DECL|class|ExpressionScriptEngineService
+DECL|class|ExpressionScriptEngine
 specifier|public
 class|class
-name|ExpressionScriptEngineService
+name|ExpressionScriptEngine
 extends|extends
 name|AbstractComponent
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public
@@ -439,9 +439,9 @@ name|NAME
 init|=
 literal|"expression"
 decl_stmt|;
-DECL|method|ExpressionScriptEngineService
+DECL|method|ExpressionScriptEngine
 specifier|public
-name|ExpressionScriptEngineService
+name|ExpressionScriptEngine
 parameter_list|(
 name|Settings
 name|settings

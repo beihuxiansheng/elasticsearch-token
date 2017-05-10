@@ -100,9 +100,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|aggregations
+name|test
 operator|.
 name|InternalAggregationTestCase
 import|;
@@ -135,6 +133,18 @@ operator|.
 name|pipeline
 operator|.
 name|PipelineAggregator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalAggregationTestCase
 import|;
 end_import
 

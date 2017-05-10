@@ -218,7 +218,7 @@ name|ESTestCase
 block|{
 DECL|field|qe
 specifier|private
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 name|qe
 decl_stmt|;
 DECL|field|factory
@@ -237,7 +237,7 @@ block|{
 name|qe
 operator|=
 operator|new
-name|MustacheScriptEngineService
+name|MustacheScriptEngine
 argument_list|()
 expr_stmt|;
 name|factory

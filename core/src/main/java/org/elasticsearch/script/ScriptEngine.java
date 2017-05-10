@@ -60,19 +60,25 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * A script language implementation.  */
+end_comment
+
 begin_interface
-DECL|interface|ScriptEngineService
+DECL|interface|ScriptEngine
 specifier|public
 interface|interface
-name|ScriptEngineService
+name|ScriptEngine
 extends|extends
 name|Closeable
 block|{
+comment|/**      * The language name used in the script APIs to refer to this scripting backend.      */
 DECL|method|getType
 name|String
 name|getType
 parameter_list|()
 function_decl|;
+comment|/**      * The extension for file scripts in this language.      */
 DECL|method|getExtension
 name|String
 name|getExtension

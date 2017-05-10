@@ -234,7 +234,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEngines
 decl_stmt|;
@@ -405,7 +405,7 @@ name|newHashSet
 argument_list|(
 comment|//add the native engine just to make sure it gets filtered out
 operator|new
-name|NativeScriptEngineService
+name|NativeScriptEngine
 argument_list|(
 name|Settings
 operator|.
@@ -423,7 +423,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|CustomScriptEngineService
+name|CustomScriptEngine
 argument_list|()
 argument_list|)
 argument_list|)
@@ -485,7 +485,7 @@ name|scriptModes
 operator|.
 name|getScriptEnabled
 argument_list|(
-name|NativeScriptEngineService
+name|NativeScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -1596,13 +1596,13 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|buildScriptEnginesByLangMap
 parameter_list|(
 name|Set
 argument_list|<
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEngines
 parameter_list|)
@@ -1611,7 +1611,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|builder
 init|=
@@ -1622,7 +1622,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ScriptEngineService
+name|ScriptEngine
 name|scriptEngine
 range|:
 name|scriptEngines
@@ -1653,13 +1653,13 @@ name|builder
 argument_list|)
 return|;
 block|}
-DECL|class|CustomScriptEngineService
+DECL|class|CustomScriptEngine
 specifier|private
 specifier|static
 class|class
-name|CustomScriptEngineService
+name|CustomScriptEngine
 implements|implements
-name|ScriptEngineService
+name|ScriptEngine
 block|{
 DECL|field|NAME
 specifier|public

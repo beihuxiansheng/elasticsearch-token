@@ -532,7 +532,7 @@ name|script
 operator|.
 name|ScriptServiceTests
 operator|.
-name|TestEngineService
+name|TestEngine
 import|;
 end_import
 
@@ -830,7 +830,7 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|TestEngineService
+name|TestEngine
 argument_list|()
 argument_list|)
 argument_list|)

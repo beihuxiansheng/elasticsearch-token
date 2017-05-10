@@ -40,16 +40,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -61,18 +51,6 @@ operator|.
 name|util
 operator|.
 name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -91,7 +69,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 argument_list|,
 name|String
@@ -105,7 +83,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|registeredLanguages
 decl_stmt|;
@@ -126,7 +104,7 @@ name|ScriptEngineRegistry
 parameter_list|(
 name|Iterable
 argument_list|<
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|registrations
 parameter_list|)
@@ -144,7 +122,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 argument_list|,
 name|String
@@ -160,7 +138,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|registeredLanguages
 init|=
@@ -184,7 +162,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ScriptEngineService
+name|ScriptEngine
 name|service
 range|:
 name|registrations
@@ -242,8 +220,8 @@ operator|.
 name|getType
 argument_list|()
 decl_stmt|;
-name|ScriptEngineService
-name|scriptEngineService
+name|ScriptEngine
+name|scriptEngine
 init|=
 name|registeredLanguages
 operator|.
@@ -256,7 +234,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|scriptEngineService
+name|scriptEngine
 operator|!=
 literal|null
 condition|)
@@ -271,7 +249,7 @@ name|language
 operator|+
 literal|"] already registered for script engine service ["
 operator|+
-name|scriptEngineService
+name|scriptEngine
 operator|.
 name|getClass
 argument_list|()
@@ -337,7 +315,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 argument_list|>
 name|getRegisteredScriptEngineServices
@@ -358,7 +336,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|scriptEngineService
 parameter_list|)
@@ -385,7 +363,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptEngineService
+name|ScriptEngine
 argument_list|>
 name|getRegisteredLanguages
 parameter_list|()

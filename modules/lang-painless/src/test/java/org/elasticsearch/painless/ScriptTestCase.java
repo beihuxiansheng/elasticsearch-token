@@ -197,7 +197,7 @@ name|ESTestCase
 block|{
 DECL|field|scriptEngine
 specifier|protected
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 name|scriptEngine
 decl_stmt|;
 annotation|@
@@ -211,7 +211,7 @@ block|{
 name|scriptEngine
 operator|=
 operator|new
-name|PainlessScriptEngineService
+name|PainlessScriptEngine
 argument_list|(
 name|scriptEngineSettings
 argument_list|()
