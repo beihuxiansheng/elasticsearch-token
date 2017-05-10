@@ -221,7 +221,7 @@ name|Aggregations
 parameter_list|()
 block|{     }
 DECL|method|Aggregations
-specifier|protected
+specifier|public
 name|Aggregations
 parameter_list|(
 name|List
