@@ -705,7 +705,7 @@ return|;
 block|}
 comment|/**      * Returns a string representing the type of the aggregation. This type is added to      * the aggregation name in the response, so that it can later be used by REST clients      * to determine the internal type of the aggregation.      */
 DECL|method|getType
-specifier|protected
+specifier|public
 name|String
 name|getType
 parameter_list|()

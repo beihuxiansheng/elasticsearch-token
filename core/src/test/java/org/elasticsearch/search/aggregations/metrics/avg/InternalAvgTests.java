@@ -60,7 +60,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregationTestCase
+name|ParsedAggregation
 import|;
 end_import
 

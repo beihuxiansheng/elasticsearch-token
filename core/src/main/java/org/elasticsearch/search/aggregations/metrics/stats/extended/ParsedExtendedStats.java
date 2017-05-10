@@ -234,7 +234,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getType
-specifier|protected
+specifier|public
 name|String
 name|getType
 parameter_list|()
