@@ -1607,9 +1607,6 @@ parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
 name|Client
 name|client
 parameter_list|,
@@ -1618,12 +1615,6 @@ name|indicesQueryCache
 parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
-parameter_list|,
-name|Consumer
-argument_list|<
-name|ShardId
-argument_list|>
-name|globalCheckpointSyncer
 parameter_list|,
 name|IndicesFieldDataCache
 name|indicesFieldDataCache
@@ -1882,8 +1873,6 @@ name|threadPool
 argument_list|,
 name|scriptService
 argument_list|,
-name|clusterService
-argument_list|,
 name|client
 argument_list|,
 name|queryCache
@@ -1897,8 +1886,6 @@ argument_list|,
 name|mapperRegistry
 argument_list|,
 name|indicesFieldDataCache
-argument_list|,
-name|globalCheckpointSyncer
 argument_list|,
 name|searchOperationListeners
 argument_list|,

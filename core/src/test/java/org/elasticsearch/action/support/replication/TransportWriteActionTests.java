@@ -2210,6 +2210,9 @@ operator|new
 name|TestRequest
 argument_list|()
 argument_list|,
+name|randomNonNegativeLong
+argument_list|()
+argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
@@ -2291,6 +2294,9 @@ name|replica
 argument_list|,
 operator|new
 name|TestRequest
+argument_list|()
+argument_list|,
+name|randomNonNegativeLong
 argument_list|()
 argument_list|,
 name|listener

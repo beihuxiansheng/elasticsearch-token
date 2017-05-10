@@ -64,6 +64,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -784,6 +798,21 @@ argument_list|,
 name|permissions
 argument_list|)
 expr_stmt|;
+name|assertSettingDeprecationsAndWarnings
+argument_list|(
+operator|new
+name|Setting
+argument_list|<
+name|?
+argument_list|>
+index|[]
+block|{
+name|Environment
+operator|.
+name|PATH_SCRIPTS_SETTING
+block|}
+block|)
+function|;
 comment|// plugins: ro
 name|assertExactPermissions
 argument_list|(
@@ -938,6 +967,9 @@ name|permissions
 argument_list|)
 expr_stmt|;
 block|}
+end_class
+
+begin_function
 DECL|method|testEnsureSymlink
 specifier|public
 name|void
@@ -1041,6 +1073,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testEnsureBrokenSymlink
 specifier|public
 name|void
@@ -1135,7 +1170,13 @@ name|expected
 parameter_list|)
 block|{}
 block|}
+end_function
+
+begin_comment
 comment|/** When a configured dir is a symlink, test that permissions work on link target */
+end_comment
+
+begin_function
 DECL|method|testSymlinkPermissions
 specifier|public
 name|void
@@ -1325,7 +1366,13 @@ name|permissions
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * checks exact file permissions, meaning those and only those for that path.      */
+end_comment
+
+begin_function
 DECL|method|assertExactPermissions
 specifier|static
 name|void
@@ -1519,7 +1566,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * checks that this path has no permissions      */
+end_comment
+
+begin_function
 DECL|method|assertNoPermissions
 specifier|static
 name|void
@@ -1621,8 +1674,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

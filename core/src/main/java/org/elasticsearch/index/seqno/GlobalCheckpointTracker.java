@@ -262,7 +262,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. If the checkpoint is lower than      * the currently known one, this is a no-op. If the allocation ID is not in sync, it is ignored. This is to prevent late arrivals from      * shards that are removed to be re-added.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param localCheckpoint   the local checkpoint for the shard      */
+comment|/**      * Notifies the service to update the local checkpoint for the shard with the provided allocation ID. If the checkpoint is lower than      * the currently known one, this is a no-op. If the allocation ID is not tracked, it is ignored. This is to prevent late arrivals from      * shards that are removed to be re-added.      *      * @param allocationId    the allocation ID of the shard to update the local checkpoint for      * @param localCheckpoint the local checkpoint for the shard      */
 DECL|method|updateLocalCheckpoint
 specifier|public
 specifier|synchronized
@@ -299,6 +299,9 @@ block|{
 name|updated
 operator|=
 literal|true
+expr_stmt|;
+name|updateGlobalCheckpointOnPrimary
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -349,6 +352,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Notify all threads waiting on the monitor on this tracker. These threads should be waiting for the local checkpoint on a specific      * allocation ID to catch up to the global checkpoint.      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -369,6 +373,7 @@ name|notifyAll
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Update the local checkpoint for the specified allocation ID in the specified tracking map. If the checkpoint is lower than the      * currently known one, this is a no-op. If the allocation ID is not tracked, it is ignored.      *      * @param allocationId the allocation ID of the shard to update the local checkpoint for      * @param localCheckpoint the local checkpoint for the shard      * @param map the tracking map      * @param reason the reason for the update (used for logging)      * @return {@code true} if the local checkpoint was updated, otherwise {@code false} if this was a no-op      */
 DECL|method|updateLocalCheckpoint
 specifier|private
 name|boolean
@@ -483,11 +488,12 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Scans through the currently known local checkpoint and updates the global checkpoint accordingly.      *      * @return {@code true} if the checkpoint has been updated or if it can not be updated since the local checkpoints of one of the active      * allocations is not known.      */
-DECL|method|updateCheckpointOnPrimary
+comment|/**      * Scans through the currently known local checkpoint and updates the global checkpoint accordingly.      */
+DECL|method|updateGlobalCheckpointOnPrimary
+specifier|private
 specifier|synchronized
-name|boolean
-name|updateCheckpointOnPrimary
+name|void
+name|updateGlobalCheckpointOnPrimary
 parameter_list|()
 block|{
 name|long
@@ -511,9 +517,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return
-literal|false
-return|;
+return|return;
 block|}
 for|for
 control|(
@@ -549,9 +553,7 @@ operator|.
 name|key
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+return|return;
 block|}
 name|minLocalCheckpoint
 operator|=
@@ -630,23 +632,14 @@ name|globalCheckpoint
 operator|=
 name|minLocalCheckpoint
 expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|false
-return|;
 block|}
 block|}
 comment|/**      * Returns the global checkpoint for the shard.      *      * @return the global checkpoint      */
-DECL|method|getCheckpoint
+DECL|method|getGlobalCheckpoint
 specifier|public
 specifier|synchronized
 name|long
-name|getCheckpoint
+name|getGlobalCheckpoint
 parameter_list|()
 block|{
 return|return
@@ -867,6 +860,9 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
+name|updateGlobalCheckpointOnPrimary
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Marks the shard with the provided allocation ID as in-sync with the primary shard. This method will block until the local checkpoint      * on the specified shard advances above the current global checkpoint.      *      * @param allocationId    the allocation ID of the shard to mark as in-sync      * @param localCheckpoint the current local checkpoint on the shard      *      * @throws InterruptedException if the thread is interrupted waiting for the local checkpoint on the shard to advance      */
 DECL|method|markAllocationIdAsInSync
@@ -911,25 +907,6 @@ argument_list|,
 literal|"tracking"
 argument_list|)
 expr_stmt|;
-name|waitForAllocationIdToBeInSync
-argument_list|(
-name|allocationId
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|waitForAllocationIdToBeInSync
-specifier|private
-specifier|synchronized
-name|void
-name|waitForAllocationIdToBeInSync
-parameter_list|(
-specifier|final
-name|String
-name|allocationId
-parameter_list|)
-throws|throws
-name|InterruptedException
-block|{
 if|if
 condition|(
 operator|!
@@ -955,12 +932,46 @@ throw|;
 block|}
 try|try
 block|{
+name|waitForAllocationIdToBeInSync
+argument_list|(
+name|allocationId
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|pendingInSync
+operator|.
+name|remove
+argument_list|(
+name|allocationId
+argument_list|)
+expr_stmt|;
+name|updateGlobalCheckpointOnPrimary
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Wait for knowledge of the local checkpoint for the specified allocation ID to advance to the global checkpoint. Global checkpoint      * advancement is blocked while there are any allocation IDs waiting to catch up to the global checkpoint.      *      * @param allocationId the allocation ID      * @throws InterruptedException if this thread was interrupted before of during waiting      */
+DECL|method|waitForAllocationIdToBeInSync
+specifier|private
+specifier|synchronized
+name|void
+name|waitForAllocationIdToBeInSync
+parameter_list|(
+specifier|final
+name|String
+name|allocationId
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
 while|while
 condition|(
 literal|true
 condition|)
 block|{
-comment|/*                  * If the allocation has been cancelled and so removed from the tracking map from a cluster state update from the master it                  * means that this recovery will be cancelled; we are here on a cancellable recovery thread and so this thread will throw                  * an interrupted exception as soon as it tries to wait on the monitor.                  */
+comment|/*              * If the allocation has been cancelled and so removed from the tracking map from a cluster state update from the master it              * means that this recovery will be cancelled; we are here on a cancellable recovery thread and so this thread will throw an              * interrupted exception as soon as it tries to wait on the monitor.              */
 specifier|final
 name|long
 name|current
@@ -1001,7 +1012,7 @@ argument_list|(
 name|allocationId
 argument_list|)
 expr_stmt|;
-comment|/*                      * This is prematurely adding the allocation ID to the in-sync map as at this point recovery is not yet finished and                      * could still abort. At this point we will end up with a shard in the in-sync map holding back the global checkpoint                      * because the shard never recovered and we would have to wait until either the recovery retries and completes                      * successfully, or the master fails the shard and issues a cluster state update that removes the shard from the set of                      * active allocation IDs.                      */
+comment|/*                  * This is prematurely adding the allocation ID to the in-sync map as at this point recovery is not yet finished and could                  * still abort. At this point we will end up with a shard in the in-sync map holding back the global checkpoint because the                  * shard never recovered and we would have to wait until either the recovery retries and completes successfully, or the                  * master fails the shard and issues a cluster state update that removes the shard from the set of active allocation IDs.                  */
 name|inSyncLocalCheckpoints
 operator|.
 name|put
@@ -1021,17 +1032,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-finally|finally
-block|{
-name|pendingInSync
-operator|.
-name|remove
-argument_list|(
-name|allocationId
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|/**      * Wait for the local checkpoint to advance to the global checkpoint.      *      * @throws InterruptedException if this thread was interrupted before of during waiting      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -1053,6 +1054,21 @@ operator|.
 name|wait
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Check if there are any recoveries pending in-sync.      *      * @return {@code true} if there is at least one shard pending in-sync, otherwise false      */
+DECL|method|pendingInSync
+specifier|public
+name|boolean
+name|pendingInSync
+parameter_list|()
+block|{
+return|return
+operator|!
+name|pendingInSync
+operator|.
+name|isEmpty
+argument_list|()
+return|;
 block|}
 comment|/**      * Returns the local checkpoint for the shard with the specified allocation ID, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO} if      * the shard is not in-sync.      *      * @param allocationId the allocation ID of the shard to obtain the local checkpoint for      * @return the local checkpoint, or {@link SequenceNumbersService#UNASSIGNED_SEQ_NO}      */
 DECL|method|getLocalCheckpointForAllocationId

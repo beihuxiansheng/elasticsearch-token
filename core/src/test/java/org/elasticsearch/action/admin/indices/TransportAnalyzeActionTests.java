@@ -365,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link TransportAnalyzeAction}. See the more "intense" version of this test in the  * {@code common-analysis} module.  */
+comment|/**  * Tests for {@link TransportAnalyzeAction}. See the rest tests in the {@code analysis-common} module for places where this code gets a ton  * more exercise.  */
 end_comment
 
 begin_class
@@ -615,6 +615,7 @@ name|idxSettings
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Test behavior when the named analysis component isn't defined on the index. In that case we should build with defaults.      */
 DECL|method|testNoIndexAnalyzers
 specifier|public
 name|void
@@ -623,6 +624,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// Refer to an analyzer by its type so we get its default configuration
 name|AnalyzeRequest
 name|request
 init|=
@@ -689,6 +691,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Refer to a token filter by its type so we get its default configuration
 name|request
 operator|.
 name|analyzer
@@ -707,14 +710,7 @@ name|request
 operator|.
 name|addTokenFilter
 argument_list|(
-literal|"lowercase"
-argument_list|)
-expr_stmt|;
-name|request
-operator|.
-name|addTokenFilter
-argument_list|(
-literal|"word_delimiter"
+literal|"mock"
 argument_list|)
 expr_stmt|;
 name|request
@@ -759,7 +755,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|6
+literal|3
 argument_list|,
 name|tokens
 operator|.
@@ -769,7 +765,22 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"qu"
+literal|"qu1ck"
+argument_list|,
+name|tokens
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getTerm
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"brown"
 argument_list|,
 name|tokens
 operator|.
@@ -784,7 +795,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1"
+literal|"fox"
 argument_list|,
 name|tokens
 operator|.
@@ -797,21 +808,7 @@ name|getTerm
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"ck"
-argument_list|,
-name|tokens
-operator|.
-name|get
-argument_list|(
-literal|3
-argument_list|)
-operator|.
-name|getTerm
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// Refer to a char filter by its type so we get its default configuration
 name|request
 operator|.
 name|analyzer
@@ -837,14 +834,7 @@ name|request
 operator|.
 name|addTokenFilter
 argument_list|(
-literal|"lowercase"
-argument_list|)
-expr_stmt|;
-name|request
-operator|.
-name|addTokenFilter
-argument_list|(
-literal|"word_delimiter"
+literal|"mock"
 argument_list|)
 expr_stmt|;
 name|request
@@ -889,7 +879,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|6
+literal|3
 argument_list|,
 name|tokens
 operator|.
@@ -899,7 +889,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"the"
+literal|"qu1ck"
 argument_list|,
 name|tokens
 operator|.
@@ -914,7 +904,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"qu"
+literal|"brown"
 argument_list|,
 name|tokens
 operator|.
@@ -929,58 +919,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1"
-argument_list|,
-name|tokens
-operator|.
-name|get
-argument_list|(
-literal|2
-argument_list|)
-operator|.
-name|getTerm
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"ck"
-argument_list|,
-name|tokens
-operator|.
-name|get
-argument_list|(
-literal|3
-argument_list|)
-operator|.
-name|getTerm
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"brown"
-argument_list|,
-name|tokens
-operator|.
-name|get
-argument_list|(
-literal|4
-argument_list|)
-operator|.
-name|getTerm
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"fox"
 argument_list|,
 name|tokens
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|2
 argument_list|)
 operator|.
 name|getTerm

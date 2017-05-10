@@ -24,6 +24,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|MockLowerCaseFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -69,6 +83,22 @@ operator|.
 name|AnalysisModule
 operator|.
 name|AnalysisProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|analysis
+operator|.
+name|PreBuiltCacheFactory
+operator|.
+name|CachingStrategy
 import|;
 end_import
 
@@ -134,7 +164,29 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonList
 import|;
 end_import
 
@@ -158,6 +210,17 @@ name|CustomNormalizerTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
+DECL|field|MOCK_ANALYSIS_PLUGIN
+specifier|private
+specifier|static
+specifier|final
+name|AnalysisPlugin
+name|MOCK_ANALYSIS_PLUGIN
+init|=
+operator|new
+name|MockAnalysisPlugin
+argument_list|()
+decl_stmt|;
 DECL|method|testBasics
 specifier|public
 name|void
@@ -179,8 +242,6 @@ argument_list|(
 literal|"index.analysis.normalizer.my_normalizer.filter"
 argument_list|,
 literal|"lowercase"
-argument_list|,
-literal|"asciifolding"
 argument_list|)
 operator|.
 name|put
@@ -212,6 +273,8 @@ operator|.
 name|createTestAnalysisFromSettings
 argument_list|(
 name|settings
+argument_list|,
+name|MOCK_ANALYSIS_PLUGIN
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -268,7 +331,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"cet ete-la"
+literal|"cet Ã©tÃ©-lÃ "
 block|}
 argument_list|)
 expr_stmt|;
@@ -277,7 +340,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-literal|"cet ete-la"
+literal|"cet Ã©tÃ©-lÃ "
 argument_list|)
 argument_list|,
 name|normalizer
@@ -502,9 +565,7 @@ name|createTestAnalysisFromSettings
 argument_list|(
 name|settings
 argument_list|,
-operator|new
-name|MockCharFilterPlugin
-argument_list|()
+name|MOCK_ANALYSIS_PLUGIN
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -604,7 +665,7 @@ name|putArray
 argument_list|(
 literal|"index.analysis.normalizer.my_normalizer.filter"
 argument_list|,
-literal|"porter_stem"
+literal|"mock_forbidden"
 argument_list|)
 operator|.
 name|put
@@ -642,12 +703,14 @@ operator|.
 name|createTestAnalysisFromSettings
 argument_list|(
 name|settings
+argument_list|,
+name|MOCK_ANALYSIS_PLUGIN
 argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Custom normalizer [my_normalizer] may not use filter [porter_stem]"
+literal|"Custom normalizer [my_normalizer] may not use filter [mock_forbidden]"
 argument_list|,
 name|e
 operator|.
@@ -728,13 +791,46 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|MockCharFilterPlugin
+DECL|class|MockAnalysisPlugin
 specifier|private
+specifier|static
 class|class
-name|MockCharFilterPlugin
+name|MockAnalysisPlugin
 implements|implements
 name|AnalysisPlugin
 block|{
+annotation|@
+name|Override
+DECL|method|getPreConfiguredTokenFilters
+specifier|public
+name|List
+argument_list|<
+name|PreConfiguredTokenFilter
+argument_list|>
+name|getPreConfiguredTokenFilters
+parameter_list|()
+block|{
+return|return
+name|singletonList
+argument_list|(
+operator|new
+name|PreConfiguredTokenFilter
+argument_list|(
+literal|"mock_forbidden"
+argument_list|,
+literal|false
+argument_list|,
+name|CachingStrategy
+operator|.
+name|ONE
+argument_list|,
+name|MockLowerCaseFilter
+operator|::
+operator|new
+argument_list|)
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|getCharFilters

@@ -8516,10 +8516,6 @@ argument_list|()
 argument_list|,
 name|wrapper
 argument_list|,
-parameter_list|()
-lambda|->
-block|{}
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -9584,10 +9580,6 @@ name|getIndexMetaData
 argument_list|()
 argument_list|,
 name|wrapper
-argument_list|,
-parameter_list|()
-lambda|->
-block|{}
 argument_list|,
 literal|null
 argument_list|)

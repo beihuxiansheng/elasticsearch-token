@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|cursors
-operator|.
-name|ObjectCursor
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -899,10 +885,6 @@ name|index
 argument_list|,
 name|emptyList
 argument_list|()
-argument_list|,
-name|shardId
-lambda|->
-block|{}
 argument_list|)
 expr_stmt|;
 name|indicesToClose

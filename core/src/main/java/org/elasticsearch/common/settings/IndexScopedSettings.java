@@ -689,10 +689,6 @@ name|IndexSettings
 operator|.
 name|INDEX_CHECK_ON_STARTUP
 argument_list|,
-name|IndexSettings
-operator|.
-name|INDEX_SEQ_NO_CHECKPOINT_SYNC_INTERVAL
-argument_list|,
 name|LocalCheckpointTracker
 operator|.
 name|SETTINGS_BIT_ARRAYS_SIZE

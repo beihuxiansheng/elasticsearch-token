@@ -2824,10 +2824,6 @@ name|Collections
 operator|.
 name|emptyList
 argument_list|()
-argument_list|,
-name|shardId
-lambda|->
-block|{}
 argument_list|)
 decl_stmt|;
 name|createdIndex
