@@ -8441,19 +8441,6 @@ block|{
 name|verifyReplicationTarget
 argument_list|()
 expr_stmt|;
-comment|// we sample the recovery stage before sampling the local checkpoint or we are subject to a race condition in the below assertion
-specifier|final
-name|RecoveryState
-operator|.
-name|Stage
-name|stage
-init|=
-name|recoveryState
-argument_list|()
-operator|.
-name|getStage
-argument_list|()
-decl_stmt|;
 specifier|final
 name|SequenceNumbersService
 name|seqNoService
@@ -8480,30 +8467,7 @@ operator|>
 name|localCheckpoint
 condition|)
 block|{
-comment|/*              * This can happen during recovery when the shard has started its engine but recovery is not finalized and is receiving global              * checkpoint updates. However, since this shard is not yet contributing to calculating the global checkpoint, it can be the              * case that the global checkpoint update from the primary is ahead of the local checkpoint on this shard. In this case, we              * ignore the global checkpoint update. This can happen if we are in the translog stage of recovery. Prior to this, the engine              * is not opened and this shard will not receive global checkpoint updates, and after this the shard will be contributing to              * calculations of the the global checkpoint.              */
-assert|assert
-name|stage
-operator|==
-name|RecoveryState
-operator|.
-name|Stage
-operator|.
-name|TRANSLOG
-operator|:
-literal|"expected recovery stage ["
-operator|+
-name|RecoveryState
-operator|.
-name|Stage
-operator|.
-name|TRANSLOG
-operator|+
-literal|"] but was ["
-operator|+
-name|stage
-operator|+
-literal|"]"
-assert|;
+comment|/*              * This can happen during recovery when the shard has started its engine but recovery is not finalized and is receiving global              * checkpoint updates. However, since this shard is not yet contributing to calculating the global checkpoint, it can be the              * case that the global checkpoint update from the primary is ahead of the local checkpoint on this shard. In this case, we              * ignore the global checkpoint update. This can happen if we are in the translog stage of recovery. Prior to this, the engine              * is not opened and this shard will not receive global checkpoint updates, and after this the shard will be contributing to              * calculations of the the global checkpoint. However, we can not assert that we are in the translog stage of recovery here as              * while the global checkpoint update may have emanated from the primary when we were in that state, we could subsequently move              * to recovery finalization, or even finished recovery before the update arrives here.              */
 return|return;
 block|}
 name|seqNoService
