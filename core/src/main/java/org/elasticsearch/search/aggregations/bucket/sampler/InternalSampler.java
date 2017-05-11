@@ -210,7 +210,7 @@ name|getType
 parameter_list|()
 block|{
 return|return
-literal|"sampler"
+name|NAME
 return|;
 block|}
 annotation|@
