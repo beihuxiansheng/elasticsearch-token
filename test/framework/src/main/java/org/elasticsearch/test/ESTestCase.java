@@ -3670,6 +3670,7 @@ block|}
 DECL|field|TIME_SUFFIXES
 specifier|private
 specifier|static
+specifier|final
 name|String
 index|[]
 name|TIME_SUFFIXES
@@ -3687,6 +3688,10 @@ block|,
 literal|"s"
 block|,
 literal|"m"
+block|,
+literal|"micros"
+block|,
+literal|"nanos"
 block|}
 decl_stmt|;
 DECL|method|randomTimeValue
