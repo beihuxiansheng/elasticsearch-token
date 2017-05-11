@@ -209,6 +209,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -386,6 +390,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -598,6 +606,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 if|if
@@ -686,6 +698,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 name|scriptModeSettings
@@ -780,6 +796,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 comment|// fallback logic for script mode settings
@@ -910,6 +930,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Deprecated
 argument_list|)
 decl_stmt|;
 name|scriptModeSettings

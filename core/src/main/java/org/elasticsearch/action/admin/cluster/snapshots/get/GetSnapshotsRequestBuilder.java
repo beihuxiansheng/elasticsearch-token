@@ -257,6 +257,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set to {@code false} to only show the snapshot names and the indices they contain.      * This is useful when the snapshots belong to a cloud-based repository where each      * blob read is a concern (cost wise and performance wise), as the snapshot names and      * indices they contain can be retrieved from a single index blob in the repository,      * whereas the rest of the information requires reading a snapshot metadata file for      * each snapshot requested.  Defaults to {@code true}, which returns all information      * about each requested snapshot.      */
+DECL|method|setVerbose
+specifier|public
+name|GetSnapshotsRequestBuilder
+name|setVerbose
+parameter_list|(
+name|boolean
+name|verbose
+parameter_list|)
+block|{
+name|request
+operator|.
+name|verbose
+argument_list|(
+name|verbose
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 
