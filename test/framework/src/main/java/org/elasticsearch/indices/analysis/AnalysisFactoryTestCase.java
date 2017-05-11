@@ -2779,9 +2779,6 @@ case|:
 comment|// This has been migrated but has to stick around until PreBuiltTokenizers is removed.
 continue|continue;
 case|case
-name|SNOWBALL
-case|:
-case|case
 name|DUTCH_STEM
 case|:
 case|case
@@ -2793,16 +2790,6 @@ case|:
 name|luceneFactoryClass
 operator|=
 name|SnowballPorterFilterFactory
-operator|.
-name|class
-expr_stmt|;
-break|break;
-case|case
-name|STEMMER
-case|:
-name|luceneFactoryClass
-operator|=
-name|PorterStemFilterFactory
 operator|.
 name|class
 expr_stmt|;
