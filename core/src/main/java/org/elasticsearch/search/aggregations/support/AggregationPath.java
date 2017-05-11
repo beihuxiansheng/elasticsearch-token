@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A path that can be used to sort/order buckets (in some multi-bucket aggregations, eg terms&amp; histogram) based on  * sub-aggregations. The path may point to either a single-bucket aggregation or a metrics aggregation. If the path  * points to a single-bucket aggregation, the sort will be applied based on the {@code doc_count} of the bucket. If this  * path points to a metrics aggregation, if it's a single-value metrics (eg. avg, max, min, etc..) the sort will be  * applied on that single value. If it points to a multi-value metrics, the path should point out what metric should be  * the sort-by value.  *<p>  * The path has the following form:  *<center>{@code<aggregation_name>['>'<aggregation_name>*]['.'<metric_name>]}</center>  *<p>  * Examples:  *  *<ul>  *<li>  *         {@code agg1>agg2>agg3} - where agg1, agg2 and agg3 are all single-bucket aggs (eg filter, nested, missing, etc..). In  *                                  this case, the order will be based on the number of documents under {@code agg3}.  *</li>  *<li>  *         {@code agg1>agg2>agg3} - where agg1 and agg2 are both single-bucket aggs and agg3 is a single-value metrics agg (eg avg, max, min, etc..).  *                                  In this case, the order will be based on the value of {@code agg3}.  *</li>  *<li>  *         {@code agg1>agg2>agg3.avg} - where agg1 and agg2 are both single-bucket aggs and agg3 is a multi-value metrics agg (eg stats, extended_stats, etc...).  *                                  In this case, the order will be based on the avg value of {@code agg3}.  *</li>  *</ul>  *  */
+comment|/**  * A path that can be used to sort/order buckets (in some multi-bucket aggregations, e.g. terms&amp; histogram) based on  * sub-aggregations. The path may point to either a single-bucket aggregation or a metrics aggregation. If the path  * points to a single-bucket aggregation, the sort will be applied based on the {@code doc_count} of the bucket. If this  * path points to a metrics aggregation, if it's a single-value metrics (eg. avg, max, min, etc..) the sort will be  * applied on that single value. If it points to a multi-value metrics, the path should point out what metric should be  * the sort-by value.  *<p>  * The path has the following form:  *<center>{@code<aggregation_name>['>'<aggregation_name>*]['.'<metric_name>]}</center>  *<p>  * Examples:  *  *<ul>  *<li>  *         {@code agg1>agg2>agg3} - where agg1, agg2 and agg3 are all single-bucket aggs (eg filter, nested, missing, etc..). In  *                                  this case, the order will be based on the number of documents under {@code agg3}.  *</li>  *<li>  *         {@code agg1>agg2>agg3} - where agg1 and agg2 are both single-bucket aggs and agg3 is a single-value metrics agg (eg avg, max, min, etc..).  *                                  In this case, the order will be based on the value of {@code agg3}.  *</li>  *<li>  *         {@code agg1>agg2>agg3.avg} - where agg1 and agg2 are both single-bucket aggs and agg3 is a multi-value metrics agg (eg stats, extended_stats, etc...).  *                                  In this case, the order will be based on the avg value of {@code agg3}.  *</li>  *</ul>  *  */
 end_comment
 
 begin_class
@@ -1526,7 +1526,7 @@ return|return
 name|aggregator
 return|;
 block|}
-comment|/**      * Validates this path over the given aggregator as a point of reference.      *      * @param root  The point of reference of this path      */
+comment|/**      * Validates this path over the given aggregator as a point of reference.      *      * @param root The point of reference of this path      * @throws AggregationExecutionException on validation error      */
 DECL|method|validate
 specifier|public
 name|void
@@ -1535,6 +1535,8 @@ parameter_list|(
 name|Aggregator
 name|root
 parameter_list|)
+throws|throws
+name|AggregationExecutionException
 block|{
 name|Aggregator
 name|aggregator
@@ -1586,7 +1588,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid term-aggregator order path ["
+literal|"Invalid aggregator order path ["
 operator|+
 name|this
 operator|+
@@ -1632,11 +1634,11 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+
-literal|"]. Terms buckets can only be sorted on a sub-aggregator path "
+literal|"]. Buckets can only be sorted on a sub-aggregator path "
 operator|+
 literal|"that is built out of zero or more single-bucket aggregations within the path and a final "
 operator|+
@@ -1673,11 +1675,11 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+
-literal|"]. Terms buckets can only be sorted on a sub-aggregator path "
+literal|"]. Buckets can only be sorted on a sub-aggregator path "
 operator|+
 literal|"that is built out of zero or more single-bucket aggregations within the path and a "
 operator|+
@@ -1722,11 +1724,11 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+
-literal|"]. Terms buckets can only be sorted on a sub-aggregator path "
+literal|"]. Buckets can only be sorted on a sub-aggregator path "
 operator|+
 literal|"that is built out of zero or more single-bucket aggregations within the path and a final "
 operator|+
@@ -1770,7 +1772,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+
@@ -1827,7 +1829,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+
@@ -1866,7 +1868,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+
@@ -1898,7 +1900,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid terms aggregation order path ["
+literal|"Invalid aggregation order path ["
 operator|+
 name|this
 operator|+

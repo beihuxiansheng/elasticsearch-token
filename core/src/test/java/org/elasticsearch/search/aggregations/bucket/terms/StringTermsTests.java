@@ -96,6 +96,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|BucketOrder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -182,14 +196,10 @@ argument_list|>
 name|metaData
 parameter_list|)
 block|{
-name|Terms
-operator|.
-name|Order
+name|BucketOrder
 name|order
 init|=
-name|Terms
-operator|.
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(

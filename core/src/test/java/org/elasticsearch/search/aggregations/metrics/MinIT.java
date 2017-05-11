@@ -192,13 +192,11 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|metrics
 operator|.
-name|terms
+name|min
 operator|.
-name|Terms
-operator|.
-name|Order
+name|Min
 import|;
 end_import
 
@@ -212,11 +210,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|metrics
-operator|.
-name|min
-operator|.
-name|Min
+name|BucketOrder
 import|;
 end_import
 
@@ -2655,11 +2649,11 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|compound
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
