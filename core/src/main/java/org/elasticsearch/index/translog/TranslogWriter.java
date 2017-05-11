@@ -1071,7 +1071,7 @@ name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * returns true if there are buffered ops      */
+comment|/**      * Returns<code>true</code> if there are buffered operations that have not been flushed and fsynced to disk or if the latest global      * checkpoint has not yet been fsynced      */
 DECL|method|syncNeeded
 specifier|public
 name|boolean
