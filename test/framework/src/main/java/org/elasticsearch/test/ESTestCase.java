@@ -1576,6 +1576,30 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|empty
 import|;
 end_import
@@ -1589,6 +1613,18 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
 import|;
 end_import
 
@@ -2410,13 +2446,11 @@ range|:
 name|expectedWarnings
 control|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
-name|msg
-argument_list|,
 name|actualWarningValues
-operator|.
-name|contains
+argument_list|,
+name|hasItem
 argument_list|(
 name|DeprecationLogger
 operator|.
