@@ -32,16 +32,6 @@ name|com
 operator|.
 name|amazonaws
 operator|.
-name|ClientConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
 name|services
 operator|.
 name|s3
@@ -114,7 +104,21 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Setting
+name|SecureSetting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|SecureString
 import|;
 end_import
 
@@ -129,8 +133,6 @@ operator|.
 name|settings
 operator|.
 name|Setting
-operator|.
-name|Property
 import|;
 end_import
 
@@ -248,6 +250,40 @@ name|String
 name|TYPE
 init|=
 literal|"s3"
+decl_stmt|;
+comment|/** The access key to authenticate with s3. This setting is insecure because cluster settings are stored in cluster state */
+DECL|field|ACCESS_KEY_SETTING
+specifier|static
+specifier|final
+name|Setting
+argument_list|<
+name|SecureString
+argument_list|>
+name|ACCESS_KEY_SETTING
+init|=
+name|SecureSetting
+operator|.
+name|insecureString
+argument_list|(
+literal|"access_key"
+argument_list|)
+decl_stmt|;
+comment|/** The secret key to authenticate with s3. This setting is insecure because cluster settings are stored in cluster state */
+DECL|field|SECRET_KEY_SETTING
+specifier|static
+specifier|final
+name|Setting
+argument_list|<
+name|SecureString
+argument_list|>
+name|SECRET_KEY_SETTING
+init|=
+name|SecureSetting
+operator|.
+name|insecureString
+argument_list|(
+literal|"secret_key"
+argument_list|)
 decl_stmt|;
 comment|/**      * Default is to use 100MB (S3 defaults) for heaps above 2GB and 5% of      * the available memory for smaller heaps.      */
 DECL|field|DEFAULT_BUFFER_SIZE
