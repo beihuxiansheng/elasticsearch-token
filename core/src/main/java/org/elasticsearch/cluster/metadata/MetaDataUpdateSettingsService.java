@@ -1952,11 +1952,23 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+comment|// Verifies that the current index settings can be updated with the updated dynamic settings.
 name|indicesService
 operator|.
 name|verifyIndexMetadata
 argument_list|(
 name|currentMetaData
+argument_list|,
+name|updatedMetaData
+argument_list|)
+expr_stmt|;
+comment|// Now check that we can create the index with the updated settings (dynamic and non-dynamic).
+comment|// This step is mandatory since we allow to update non-dynamic settings on closed indices.
+name|indicesService
+operator|.
+name|verifyIndexMetadata
+argument_list|(
+name|updatedMetaData
 argument_list|,
 name|updatedMetaData
 argument_list|)
