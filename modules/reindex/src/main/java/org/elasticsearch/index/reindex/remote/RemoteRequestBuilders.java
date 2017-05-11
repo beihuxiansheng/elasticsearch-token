@@ -318,6 +318,10 @@ name|timeValueMillis
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builds requests for remote version of Elasticsearch. Note that unlike most of the  * rest of Elasticsearch this file needs to be compatible with very old versions of  * Elasticsearch. Thus is often uses identifiers for versions like {@code 2000099}  * for {@code 2.0.0-alpha1}. Do not drop support for features from this file just  * because the version constants have been removed.  */
+end_comment
+
 begin_class
 DECL|class|RemoteRequestBuilders
 specifier|final
@@ -783,6 +787,27 @@ argument_list|)
 condition|)
 block|{
 comment|// Versions before 1.0.0 don't support `"_source": true` so we have to ask for the _source in a funny way.
+if|if
+condition|(
+literal|false
+operator|==
+name|searchRequest
+operator|.
+name|source
+argument_list|()
+operator|.
+name|storedFields
+argument_list|()
+operator|.
+name|fieldNames
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"_source"
+argument_list|)
+condition|)
+block|{
 name|searchRequest
 operator|.
 name|source
@@ -793,6 +818,7 @@ argument_list|(
 literal|"_source"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
