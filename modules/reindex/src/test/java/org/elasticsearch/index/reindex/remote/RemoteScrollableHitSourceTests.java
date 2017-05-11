@@ -310,11 +310,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|index
 operator|.
-name|bulk
-operator|.
-name|byscroll
+name|reindex
 operator|.
 name|ScrollableHitSource
 operator|.
