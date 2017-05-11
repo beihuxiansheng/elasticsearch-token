@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -39,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A per-segment {@link SearchScript}.  */
+comment|/**  * A per-segment {@link SearchScript}.  *  * This is effectively a functional interface, requiring at least implementing {@link #runAsDouble()}.  */
 end_comment
 
 begin_interface
@@ -52,15 +66,30 @@ name|ScorerAware
 extends|,
 name|ExecutableScript
 block|{
+comment|/**      * Set the document this script will process next.      */
 DECL|method|setDocument
+specifier|default
 name|void
 name|setDocument
 parameter_list|(
 name|int
 name|doc
 parameter_list|)
-function_decl|;
+block|{}
+annotation|@
+name|Override
+DECL|method|setScorer
+specifier|default
+name|void
+name|setScorer
+parameter_list|(
+name|Scorer
+name|scorer
+parameter_list|)
+block|{}
+comment|/**      * Set the source for the current document.      */
 DECL|method|setSource
+specifier|default
 name|void
 name|setSource
 parameter_list|(
@@ -72,7 +101,7 @@ name|Object
 argument_list|>
 name|source
 parameter_list|)
-function_decl|;
+block|{}
 comment|/**      * Sets per-document aggregation {@code _value}.      *<p>      * The default implementation just calls {@code setNextVar("_value", value)} but      * some engines might want to handle this differently for better performance.      *<p>      * @param value per-document value, typically a String, Long, or Double      */
 DECL|method|setNextAggregationValue
 specifier|default
@@ -91,11 +120,49 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setNextVar
+specifier|default
+name|void
+name|setNextVar
+parameter_list|(
+name|String
+name|field
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{}
+comment|/**      * Return the result as a long. This is used by aggregation scripts over long fields.      */
 DECL|method|runAsLong
+specifier|default
 name|long
 name|runAsLong
 parameter_list|()
-function_decl|;
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"runAsLong is not implemented"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|run
+specifier|default
+name|Object
+name|run
+parameter_list|()
+block|{
+return|return
+name|runAsDouble
+argument_list|()
+return|;
+block|}
+comment|/**      * Return the result as a double. This is the main use case of search script, used for document scoring.      */
 DECL|method|runAsDouble
 name|double
 name|runAsDouble

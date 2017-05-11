@@ -80,10 +80,16 @@ parameter_list|()
 function_decl|;
 comment|/**      * The extension for file scripts in this language.      */
 DECL|method|getExtension
+specifier|default
 name|String
 name|getExtension
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|getType
+argument_list|()
+return|;
+block|}
 comment|/**      * Compiles a script.      * @param scriptName name of the script. {@code null} if it is anonymous (inline).      *                                        For a file script, its the file name (with extension).      *                                        For a stored script, its the identifier.      * @param scriptSource actual source of the script      * @param params compile-time parameters (such as flags to the compiler)      */
 DECL|method|compile
 name|Object
