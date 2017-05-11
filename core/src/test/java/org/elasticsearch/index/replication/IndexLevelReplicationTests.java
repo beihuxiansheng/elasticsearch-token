@@ -1198,7 +1198,7 @@ literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*                  * After the last indexing operation completes, the primary will advance its global checkpoint. Without an other indexing                  * operation, or a background sync, the primary will not have broadcast this global checkpoint to its replicas. However, a                  * shard could have recovered from the primary in which case its global checkpoint will be in-sync with the primary.                  * Therefore, we can only assert that the global checkpoint is number of docs minus one (matching the primary, in case of a                  * recovery), or number of docs minus two (received indexing operations but has not received a global checkpoint sync after                  * the last operation completed).                  */
+comment|/*                  * After the last indexing operation completes, the primary will advance its global checkpoint. Without another indexing                  * operation, or a background sync, the primary will not have broadcast this global checkpoint to its replicas. However, a                  * shard could have recovered from the primary in which case its global checkpoint will be in-sync with the primary.                  * Therefore, we can only assert that the global checkpoint is number of docs minus one (matching the primary, in case of a                  * recovery), or number of docs minus two (received indexing operations but has not received a global checkpoint sync after                  * the last operation completed).                  */
 specifier|final
 name|Matcher
 argument_list|<
@@ -1304,6 +1304,14 @@ operator|.
 name|syncGlobalCheckpoint
 argument_list|()
 expr_stmt|;
+specifier|final
+name|long
+name|noOpsPerformed
+init|=
+name|SequenceNumbersService
+operator|.
+name|NO_OPS_PERFORMED
+decl_stmt|;
 for|for
 control|(
 name|IndexShard
@@ -1366,7 +1374,7 @@ literal|0
 condition|?
 name|equalTo
 argument_list|(
-name|unassignedSeqNo
+name|noOpsPerformed
 argument_list|)
 else|:
 name|equalTo
