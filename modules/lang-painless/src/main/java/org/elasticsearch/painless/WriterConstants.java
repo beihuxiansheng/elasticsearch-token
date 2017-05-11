@@ -341,6 +341,15 @@ literal|'/'
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|field|CTOR_METHOD_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CTOR_METHOD_NAME
+init|=
+literal|"<init>"
+decl_stmt|;
 DECL|field|CONSTRUCTOR
 specifier|public
 specifier|static
@@ -354,7 +363,7 @@ name|void
 operator|.
 name|class
 argument_list|,
-literal|"<init>"
+name|CTOR_METHOD_NAME
 argument_list|,
 name|String
 operator|.
@@ -1613,7 +1622,7 @@ name|void
 operator|.
 name|class
 argument_list|,
-literal|"<init>"
+name|CTOR_METHOD_NAME
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_BOOLEAN
