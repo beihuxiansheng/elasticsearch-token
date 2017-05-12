@@ -2471,6 +2471,10 @@ argument_list|,
 name|channels
 argument_list|,
 name|profile
+argument_list|,
+name|transportServiceAdapter
+operator|::
+name|onConnectionClosed
 argument_list|)
 decl_stmt|;
 name|boolean

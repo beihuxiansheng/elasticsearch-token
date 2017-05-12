@@ -4928,15 +4928,20 @@ specifier|public
 name|void
 name|onConnectionOpened
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Transport
+operator|.
+name|Connection
+name|connection
 parameter_list|)
 block|{
 name|fail
 argument_list|(
 literal|"should not open any connections. got ["
 operator|+
-name|node
+name|connection
+operator|.
+name|getNode
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)
