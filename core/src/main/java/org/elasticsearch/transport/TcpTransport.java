@@ -3143,6 +3143,8 @@ literal|true
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|closeChannels
 argument_list|(
 name|Arrays
@@ -3168,6 +3170,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|onClose
 operator|.
 name|accept
@@ -3175,6 +3180,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
