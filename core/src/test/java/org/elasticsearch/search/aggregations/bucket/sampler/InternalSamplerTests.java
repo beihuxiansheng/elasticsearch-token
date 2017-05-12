@@ -60,8 +60,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
-operator|.
 name|InternalSingleBucketAggregationTestCase
 import|;
 end_import
