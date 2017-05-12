@@ -44,18 +44,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -137,18 +125,6 @@ parameter_list|,
 name|AckListener
 name|ackListener
 parameter_list|)
-function_decl|;
-comment|/**      * Returns the initial cluster state provided by the discovery module. Used by      * {@link org.elasticsearch.cluster.service.ClusterApplierService} as initial applied state.      */
-DECL|method|getInitialClusterState
-name|ClusterState
-name|getInitialClusterState
-parameter_list|()
-function_decl|;
-comment|/**      * Returns latest cluster state used by the discovery module. Used by {@link org.elasticsearch.cluster.service.MasterService} to      * calculate the next prospective state to publish.      */
-DECL|method|clusterState
-name|ClusterState
-name|clusterState
-parameter_list|()
 function_decl|;
 DECL|interface|AckListener
 interface|interface
@@ -251,12 +227,6 @@ comment|/**      * Triggers the first join cycle      */
 DECL|method|startInitialJoin
 name|void
 name|startInitialJoin
-parameter_list|()
-function_decl|;
-comment|/***      * @return the current value of minimum master nodes, or -1 for not set      */
-DECL|method|getMinimumMasterNodes
-name|int
-name|getMinimumMasterNodes
 parameter_list|()
 function_decl|;
 block|}

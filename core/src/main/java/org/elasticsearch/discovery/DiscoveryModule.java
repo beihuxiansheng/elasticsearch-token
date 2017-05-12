@@ -664,6 +664,8 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
+name|masterService
+argument_list|,
 name|clusterApplier
 argument_list|)
 argument_list|)
@@ -682,6 +684,8 @@ argument_list|(
 name|settings
 argument_list|,
 name|transportService
+argument_list|,
+name|masterService
 argument_list|,
 name|clusterApplier
 argument_list|)

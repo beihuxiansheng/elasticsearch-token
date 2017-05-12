@@ -558,6 +558,8 @@ operator|new
 name|MockZenPing
 argument_list|(
 name|settings
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}
