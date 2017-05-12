@@ -278,13 +278,11 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|metrics
 operator|.
-name|terms
+name|sum
 operator|.
-name|Terms
-operator|.
-name|Order
+name|Sum
 import|;
 end_import
 
@@ -298,11 +296,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|metrics
-operator|.
-name|sum
-operator|.
-name|Sum
+name|BucketOrder
 import|;
 end_import
 
@@ -3060,11 +3054,11 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|compound
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(

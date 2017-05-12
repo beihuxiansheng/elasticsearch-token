@@ -948,7 +948,7 @@ name|ObjectParser
 operator|.
 name|ValueType
 operator|.
-name|OBJECT_OR_BOOLEAN
+name|OBJECT_ARRAY_BOOLEAN_OR_STRING
 argument_list|)
 expr_stmt|;
 name|PARSER

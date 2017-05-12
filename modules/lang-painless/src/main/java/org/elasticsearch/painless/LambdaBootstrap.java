@@ -234,6 +234,20 @@ name|painless
 operator|.
 name|WriterConstants
 operator|.
+name|CTOR_METHOD_NAME
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|WriterConstants
+operator|.
 name|DELEGATE_BOOTSTRAP_HANDLE
 import|;
 end_import
@@ -379,7 +393,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LambdaBootstrap is used to generate all the code necessary to execute  * lambda functions and method references within Painless.  The code generation  * used here is based upon the following article:  * http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html  * However, it is a simplified version as Painless has no concept of generics  * or serialization.  LambdaBootstrap is being used as a replacement for  * {@link java.lang.invoke.LambdaMetafactory} since the Painless casting model  * cannot be fully supported through this class.  *  * For each lambda function/method reference used within a Painless script  * a class will be generated at link-time using the  * {@link LambdaBootstrap#lambdaBootstrap} method that contains the following:  * 1. member fields for any captured variables  * 2. a constructor that will take in captured variables and assign them to  * their respective member fields  * 3. a static ctor delegation method, if the lambda function is a ctor.  * 4. a method that will load the member fields representing captured variables  * and take in any other necessary values based on the arguments passed into the  * lambda function/reference method; it will then make a delegated call to the  * actual lambda function/reference method  *  * Take for example the following Painless script:  *  * {@code  * List list1 = new ArrayList(); "  * list1.add(2); "  * List list2 = new ArrayList(); "  * list1.forEach(x -> list2.add(x));"  * return list[0]"  * }  *  * The script contains a lambda function with a captured variable.  * The following Lambda class would be generated:  *  * {@code  *     public static final class $$Lambda0 implements Consumer {  *         private List arg$0;  *  *         public $$Lambda0(List arg$0) {  *             this.arg$0 = arg$0;  *         }  *  *         public void accept(Object val$0) {  *             Painless$Script.lambda$0(this.arg$0, val$0);  *         }  *     }  *  *     public class Painless$Script implements ... {  *         ...  *         public static lambda$0(List list2, Object x) {  *             list2.add(x);  *         }  *         ...  *     }  * }  *  * Also the accept method actually uses an invokedynamic  * instruction to call the lambda$0 method so that  * {@link MethodHandle#asType} can be used to do the necessary  * conversions between argument types without having to hard  * code them. For method references to a constructor, a static  * wrapper method is created, that creates a class instance and  * calls the constructor. This method is used by the  * invokedynamic call to initialize the instance.  *  * When the {@link CallSite} is linked the linked method depends  * on whether or not there are captures.  If there are no captures  * the same instance of the generated lambda class will be  * returned each time by the factory method as there are no  * changing values other than the arguments.  If there are  * captures a new instance of the generated lambda class will  * be returned each time with the captures passed into the  * factory method to be stored in the member fields.  */
+comment|/**  * LambdaBootstrap is used to generate all the code necessary to execute  * lambda functions and method references within Painless.  The code generation  * used here is based upon the following article:  * http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html  * However, it is a simplified version as Painless has no concept of generics  * or serialization.  LambdaBootstrap is being used as a replacement for  * {@link java.lang.invoke.LambdaMetafactory} since the Painless casting model  * cannot be fully supported through this class.  *  * For each lambda function/method reference used within a Painless script  * a class will be generated at link-time using the  * {@link LambdaBootstrap#lambdaBootstrap} method that contains the following:  * 1. member fields for any captured variables  * 2. a constructor that will take in captured variables and assign them to  * their respective member fields  * 3. a static ctor delegation method, if the lambda function is a ctor.  * 4. a method that will load the member fields representing captured variables  * and take in any other necessary values based on the arguments passed into the  * lambda function/reference method; it will then make a delegated call to the  * actual lambda function/reference method  *  * Take for example the following Painless script:  *  * {@code  * List list1 = new ArrayList(); "  * list1.add(2); "  * List list2 = new ArrayList(); "  * list1.forEach(x -> list2.add(x));"  * return list[0]"  * }  *  * The script contains a lambda function with a captured variable.  * The following Lambda class would be generated:  *  * {@code  *     public static final class $$Lambda0 implements Consumer {  *         private List arg$0;  *  *         private $$Lambda0(List arg$0) {  *             this.arg$0 = arg$0;  *         }  *           *         public static Consumer create$lambda(List arg$0) {  *             return new $$Lambda0(arg$0);  *         }  *  *         public void accept(Object val$0) {  *             Painless$Script.lambda$0(this.arg$0, val$0);  *         }  *     }  *  *     public class Painless$Script implements ... {  *         ...  *         public static lambda$0(List list2, Object x) {  *             list2.add(x);  *         }  *         ...  *     }  * }  *  * Also the accept method actually uses an invokedynamic  * instruction to call the lambda$0 method so that  * {@link MethodHandle#asType} can be used to do the necessary  * conversions between argument types without having to hard  * code them. For method references to a constructor, a static  * wrapper method is created, that creates a class instance and  * calls the constructor. This method is used by the  * invokedynamic call to initialize the instance.  *  * When the {@link CallSite} is linked the linked method depends  * on whether or not there are captures.  If there are no captures  * the same instance of the generated lambda class will be  * returned each time by the factory method as there are no  * changing values other than the arguments, the lambda is a singleton.  * If there are captures, a new instance of the generated lambda class  * will be returned each time with the captures passed into the  * factory method to be stored in the member fields.  * Instead of calling the ctor, a static factory method is created  * in the lambda class, because a method handle to the ctor directly  * is (currently) preventing Hotspot optimizer from correctly doing  * escape analysis. Escape analysis is important to optimize the  * code in a way, that a new instance is not created on each lambda  * invocation with captures, stressing garbage collector (thanks  * to RÃ©mi Forax for the explanation about this on Jaxcon 2017!).  */
 end_comment
 
 begin_class
@@ -471,6 +485,16 @@ name|String
 name|DELEGATED_CTOR_WRAPPER_NAME
 init|=
 literal|"delegate$ctor"
+decl_stmt|;
+comment|/**      * This method name is used to generate the static factory for capturing lambdas.      */
+DECL|field|LAMBDA_FACTORY_METHOD_NAME
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|LAMBDA_FACTORY_METHOD_NAME
+init|=
+literal|"create$lambda"
 decl_stmt|;
 comment|/**      * Generates a lambda class for a lambda function/method reference      * within a Painless script.  Variables with the prefix interface are considered      * to represent values for code generated for the lambda class. Variables with      * the prefix delegate are considered to represent values for code generated      * within the Painless script.  The interface method delegates (calls) to the      * delegate method.      * @param lookup Standard {@link MethodHandles#lookup}      * @param interfaceMethodName Name of functional interface method that is called      * @param factoryMethodType The type of method to be linked to this CallSite; note that      *                          captured types are based on the parameters for this method      * @param interfaceMethodType The type of method representing the functional interface method      * @param delegateClassName The name of the class to delegate method call to      * @param delegateInvokeType The type of method call to be made      *                           (static, virtual, interface, or constructor)      * @param delegateMethodName The name of the method to be called in the Painless script class      * @param delegateMethodType The type of method call in the Painless script class without      *                           the captured types      * @return A {@link CallSite} linked to a factory method for creating a lambda class      * that implements the expected functional interface      * @throws LambdaConversionException Thrown when an illegal type conversion occurs at link time      */
 DECL|method|lambdaBootstrap
@@ -617,13 +641,23 @@ operator|==
 name|H_NEWINVOKESPECIAL
 condition|)
 block|{
+assert|assert
+name|CTOR_METHOD_NAME
+operator|.
+name|equals
+argument_list|(
+name|delegateMethodName
+argument_list|)
+assert|;
 name|generateStaticCtorDelegator
 argument_list|(
 name|cw
 argument_list|,
-name|delegateClassType
+name|ACC_PRIVATE
 argument_list|,
-name|delegateMethodName
+name|DELEGATED_CTOR_WRAPPER_NAME
+argument_list|,
+name|delegateClassType
 argument_list|,
 name|delegateMethodType
 argument_list|)
@@ -985,11 +1019,6 @@ name|captures
 parameter_list|)
 block|{
 name|String
-name|conName
-init|=
-literal|"<init>"
-decl_stmt|;
-name|String
 name|conDesc
 init|=
 name|factoryMethodType
@@ -1010,7 +1039,7 @@ init|=
 operator|new
 name|Method
 argument_list|(
-name|conName
+name|CTOR_METHOD_NAME
 argument_list|,
 name|conDesc
 argument_list|)
@@ -1033,7 +1062,7 @@ init|=
 operator|new
 name|Method
 argument_list|(
-name|conName
+name|CTOR_METHOD_NAME
 argument_list|,
 name|MethodType
 operator|.
@@ -1051,6 +1080,16 @@ decl_stmt|;
 name|int
 name|modifiers
 init|=
+operator|(
+name|captures
+operator|.
+name|length
+operator|>
+literal|0
+operator|)
+condition|?
+name|ACC_PRIVATE
+else|:
 name|ACC_PUBLIC
 decl_stmt|;
 name|GeneratorAdapter
@@ -1069,7 +1108,7 @@ name|visitMethod
 argument_list|(
 name|modifiers
 argument_list|,
-name|conName
+name|CTOR_METHOD_NAME
 argument_list|,
 name|conDesc
 argument_list|,
@@ -1159,8 +1198,38 @@ operator|.
 name|endMethod
 argument_list|()
 expr_stmt|;
+comment|// Add a factory method, if lambda takes captures.
+comment|// @uschindler says: I talked with RÃ©mi Forax about this. Technically, a plain ctor
+comment|// and a MethodHandle to the ctor would be enough - BUT: Hotspot is unable to
+comment|// do escape analysis through a MethodHandles.findConstructor generated handle.
+comment|// Because of this we create a factory method. With this factory method, the
+comment|// escape analysis can figure out that everything is final and we don't need
+comment|// an instance, so it can omit object creation on heap!
+if|if
+condition|(
+name|captures
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
+name|generateStaticCtorDelegator
+argument_list|(
+name|cw
+argument_list|,
+name|ACC_PUBLIC
+argument_list|,
+name|LAMBDA_FACTORY_METHOD_NAME
+argument_list|,
+name|lambdaClassType
+argument_list|,
+name|factoryMethodType
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Generates a factory method to delegate to constructors using      * {@code INVOKEDYNAMIC} using the {@link #delegateBootstrap} type converter.      */
+block|}
+comment|/**      * Generates a factory method to delegate to constructors.      */
 DECL|method|generateStaticCtorDelegator
 specifier|private
 specifier|static
@@ -1170,11 +1239,14 @@ parameter_list|(
 name|ClassWriter
 name|cw
 parameter_list|,
-name|Type
-name|delegateClassType
+name|int
+name|access
 parameter_list|,
 name|String
-name|delegateMethodName
+name|delegatorMethodName
+parameter_list|,
+name|Type
+name|delegateClassType
 parameter_list|,
 name|MethodType
 name|delegateMethodType
@@ -1186,7 +1258,7 @@ init|=
 operator|new
 name|Method
 argument_list|(
-name|DELEGATED_CTOR_WRAPPER_NAME
+name|delegatorMethodName
 argument_list|,
 name|delegateMethodType
 operator|.
@@ -1200,7 +1272,7 @@ init|=
 operator|new
 name|Method
 argument_list|(
-name|delegateMethodName
+name|CTOR_METHOD_NAME
 argument_list|,
 name|delegateMethodType
 operator|.
@@ -1218,7 +1290,7 @@ decl_stmt|;
 name|int
 name|modifiers
 init|=
-name|ACC_PRIVATE
+name|access
 operator||
 name|ACC_STATIC
 decl_stmt|;
@@ -1238,7 +1310,7 @@ name|visitMethod
 argument_list|(
 name|modifiers
 argument_list|,
-name|DELEGATED_CTOR_WRAPPER_NAME
+name|delegatorMethodName
 argument_list|,
 name|delegateMethodType
 operator|.
@@ -1293,7 +1365,7 @@ name|endMethod
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Generates the interface method that will delegate (call) to the delegate method.      */
+comment|/**      * Generates the interface method that will delegate (call) to the delegate method      * with {@code INVOKEDYNAMIC} using the {@link #delegateBootstrap} type converter.      */
 DECL|method|generateInterfaceMethod
 specifier|private
 specifier|static
@@ -1852,22 +1924,12 @@ name|ConstantCallSite
 argument_list|(
 name|lookup
 operator|.
-name|findConstructor
+name|findStatic
 argument_list|(
 name|lambdaClass
 argument_list|,
-name|factoryMethodType
-operator|.
-name|changeReturnType
-argument_list|(
-name|void
-operator|.
-name|class
-argument_list|)
-argument_list|)
-operator|.
-name|asType
-argument_list|(
+name|LAMBDA_FACTORY_METHOD_NAME
+argument_list|,
 name|factoryMethodType
 argument_list|)
 argument_list|)

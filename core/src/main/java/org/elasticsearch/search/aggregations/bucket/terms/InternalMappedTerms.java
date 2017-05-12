@@ -96,6 +96,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|BucketOrder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -260,9 +274,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|BucketOrder
 name|order
 parameter_list|,
 name|int

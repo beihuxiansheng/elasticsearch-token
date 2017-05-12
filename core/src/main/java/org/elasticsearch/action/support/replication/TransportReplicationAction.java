@@ -3022,12 +3022,14 @@ argument_list|,
 name|transportReplicaAction
 argument_list|,
 operator|new
-name|ConcreteShardRequest
+name|ConcreteReplicaRequest
 argument_list|<>
 argument_list|(
 name|request
 argument_list|,
 name|targetAllocationID
+argument_list|,
+name|globalCheckpoint
 argument_list|)
 argument_list|,
 name|handler

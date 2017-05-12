@@ -297,7 +297,7 @@ block|}
 block|}
 block|}
 DECL|method|assertParsedInstance
-specifier|private
+specifier|protected
 name|void
 name|assertParsedInstance
 parameter_list|(
@@ -365,7 +365,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|parseInstance
-specifier|private
+specifier|protected
 name|T
 name|parseInstance
 parameter_list|(

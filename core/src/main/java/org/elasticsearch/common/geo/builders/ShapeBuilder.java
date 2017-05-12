@@ -488,29 +488,32 @@ name|isGeo
 argument_list|()
 decl_stmt|;
 comment|/** It's possible that some geometries in a MULTI* shape might overlap. With the possible exception of GeometryCollection,      * this normally isn't allowed.      */
-DECL|field|multiPolygonMayOverlap
+DECL|field|MULTI_POLYGON_MAY_OVERLAP
 specifier|protected
+specifier|static
 specifier|final
 name|boolean
-name|multiPolygonMayOverlap
+name|MULTI_POLYGON_MAY_OVERLAP
 init|=
 literal|false
 decl_stmt|;
 comment|/** @see org.locationtech.spatial4j.shape.jts.JtsGeometry#validate() */
-DECL|field|autoValidateJtsGeometry
+DECL|field|AUTO_VALIDATE_JTS_GEOMETRY
 specifier|protected
+specifier|static
 specifier|final
 name|boolean
-name|autoValidateJtsGeometry
+name|AUTO_VALIDATE_JTS_GEOMETRY
 init|=
 literal|true
 decl_stmt|;
 comment|/** @see org.locationtech.spatial4j.shape.jts.JtsGeometry#index() */
-DECL|field|autoIndexJtsGeometry
+DECL|field|AUTO_INDEX_JTS_GEOMETRY
 specifier|protected
+specifier|static
 specifier|final
 name|boolean
-name|autoIndexJtsGeometry
+name|AUTO_INDEX_JTS_GEOMETRY
 init|=
 literal|true
 decl_stmt|;
@@ -542,12 +545,12 @@ name|SPATIAL_CONTEXT
 argument_list|,
 literal|false
 argument_list|,
-name|multiPolygonMayOverlap
+name|MULTI_POLYGON_MAY_OVERLAP
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|autoValidateJtsGeometry
+name|AUTO_VALIDATE_JTS_GEOMETRY
 condition|)
 name|jtsGeometry
 operator|.
@@ -556,7 +559,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|autoIndexJtsGeometry
+name|AUTO_INDEX_JTS_GEOMETRY
 condition|)
 name|jtsGeometry
 operator|.

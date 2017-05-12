@@ -516,7 +516,7 @@ name|deserializedInstance
 return|;
 block|}
 DECL|method|copyInstance
-specifier|private
+specifier|protected
 name|T
 name|copyInstance
 parameter_list|(
@@ -576,7 +576,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Get the {@link NamedWriteableRegistry} to use when de-serializing the object.      *       * Override this method if you need to register {@link NamedWriteable}s for the test object to de-serialize.      *       * By default this will return a {@link NamedWriteableRegistry} with no registered {@link NamedWriteable}s      */
+comment|/**      * Get the {@link NamedWriteableRegistry} to use when de-serializing the object.      *      * Override this method if you need to register {@link NamedWriteable}s for the test object to de-serialize.      *      * By default this will return a {@link NamedWriteableRegistry} with no registered {@link NamedWriteable}s      */
 DECL|method|getNamedWriteableRegistry
 specifier|protected
 name|NamedWriteableRegistry

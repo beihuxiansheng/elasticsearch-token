@@ -2812,6 +2812,7 @@ name|ex
 throw|;
 block|}
 block|}
+comment|/**      *  Returns<code>true</code> if an fsync is required to ensure durability of the translogs operations or it's metadata.      */
 DECL|method|syncNeeded
 specifier|public
 name|boolean

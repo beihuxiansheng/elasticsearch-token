@@ -40,11 +40,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|bulk
+name|index
 operator|.
-name|byscroll
-operator|.
-name|BulkByScrollResponse
+name|IndexRequestBuilder
 import|;
 end_import
 
@@ -54,11 +52,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|test
 operator|.
-name|index
+name|junit
 operator|.
-name|IndexRequestBuilder
+name|annotations
+operator|.
+name|TestLogging
 import|;
 end_import
 
@@ -187,6 +187,11 @@ comment|/**  * Tests failure capturing and abort-on-failure behavior of reindex.
 end_comment
 
 begin_class
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|class|ReindexFailureTests
 specifier|public
 class|class
@@ -570,9 +575,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Triggered a reindex failure on the {} attempt"
+literal|"Triggered a reindex failure on the {} attempt: {}"
 argument_list|,
 name|attempt
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat

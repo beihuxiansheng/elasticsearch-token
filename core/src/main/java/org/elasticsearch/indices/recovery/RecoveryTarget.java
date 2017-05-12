@@ -561,6 +561,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|RECOVERY_PREFIX
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|RECOVERY_PREFIX

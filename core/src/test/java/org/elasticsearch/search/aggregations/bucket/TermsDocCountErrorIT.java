@@ -156,9 +156,9 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|Terms
+name|TermsAggregatorFactory
 operator|.
-name|Order
+name|ExecutionMode
 import|;
 end_import
 
@@ -172,13 +172,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
-operator|.
-name|terms
-operator|.
-name|TermsAggregatorFactory
-operator|.
-name|ExecutionMode
+name|BucketOrder
 import|;
 end_import
 
@@ -3007,7 +3001,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(
@@ -3089,7 +3083,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(
@@ -3211,9 +3205,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|true
 argument_list|)
@@ -3293,9 +3287,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|true
 argument_list|)
@@ -3415,9 +3409,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|false
 argument_list|)
@@ -3497,9 +3491,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|false
 argument_list|)
@@ -3619,7 +3613,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -3716,7 +3710,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -3853,7 +3847,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -3950,7 +3944,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -4580,7 +4574,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(
@@ -4662,7 +4656,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(
@@ -4784,9 +4778,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|true
 argument_list|)
@@ -4866,9 +4860,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|true
 argument_list|)
@@ -4988,9 +4982,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|false
 argument_list|)
@@ -5070,9 +5064,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|false
 argument_list|)
@@ -5192,7 +5186,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -5289,7 +5283,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -5426,7 +5420,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -5523,7 +5517,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -6153,7 +6147,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(
@@ -6235,7 +6229,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|count
 argument_list|(
@@ -6357,9 +6351,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|true
 argument_list|)
@@ -6439,9 +6433,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|true
 argument_list|)
@@ -6561,9 +6555,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|false
 argument_list|)
@@ -6643,9 +6637,9 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
-name|term
+name|key
 argument_list|(
 literal|false
 argument_list|)
@@ -6765,7 +6759,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -6862,7 +6856,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -6999,7 +6993,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
@@ -7096,7 +7090,7 @@ argument_list|)
 operator|.
 name|order
 argument_list|(
-name|Order
+name|BucketOrder
 operator|.
 name|aggregation
 argument_list|(
