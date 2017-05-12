@@ -1523,11 +1523,12 @@ implements|implements
 name|BootstrapCheck
 block|{
 comment|// this should be plenty for machines up to 256 cores
-DECL|field|maxNumberOfThreadsThreshold
+DECL|field|MAX_NUMBER_OF_THREADS_THRESHOLD
 specifier|private
+specifier|static
 specifier|final
 name|long
-name|maxNumberOfThreadsThreshold
+name|MAX_NUMBER_OF_THREADS_THRESHOLD
 init|=
 literal|1
 operator|<<
@@ -1551,7 +1552,7 @@ operator|&&
 name|getMaxNumberOfThreads
 argument_list|()
 operator|<
-name|maxNumberOfThreadsThreshold
+name|MAX_NUMBER_OF_THREADS_THRESHOLD
 return|;
 block|}
 annotation|@
@@ -1586,7 +1587,7 @@ argument_list|(
 literal|"user.name"
 argument_list|)
 argument_list|,
-name|maxNumberOfThreadsThreshold
+name|MAX_NUMBER_OF_THREADS_THRESHOLD
 argument_list|)
 return|;
 block|}
@@ -1699,11 +1700,12 @@ name|MaxMapCountCheck
 implements|implements
 name|BootstrapCheck
 block|{
-DECL|field|limit
+DECL|field|LIMIT
 specifier|private
+specifier|static
 specifier|final
 name|long
-name|limit
+name|LIMIT
 init|=
 literal|1
 operator|<<
@@ -1727,7 +1729,7 @@ operator|&&
 name|getMaxMapCount
 argument_list|()
 operator|<
-name|limit
+name|LIMIT
 return|;
 block|}
 annotation|@
@@ -1752,7 +1754,7 @@ argument_list|,
 name|getMaxMapCount
 argument_list|()
 argument_list|,
-name|limit
+name|LIMIT
 argument_list|)
 return|;
 block|}

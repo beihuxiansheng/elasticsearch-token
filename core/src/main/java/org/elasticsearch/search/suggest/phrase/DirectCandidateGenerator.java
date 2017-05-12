@@ -447,11 +447,12 @@ specifier|final
 name|long
 name|dictSize
 decl_stmt|;
-DECL|field|logBase
+DECL|field|LOG_BASE
 specifier|private
+specifier|static
 specifier|final
 name|double
-name|logBase
+name|LOG_BASE
 init|=
 literal|5
 decl_stmt|;
@@ -1392,7 +1393,7 @@ literal|1.0
 operator|/
 name|log10
 argument_list|(
-name|logBase
+name|LOG_BASE
 argument_list|)
 operator|)
 operator|)
