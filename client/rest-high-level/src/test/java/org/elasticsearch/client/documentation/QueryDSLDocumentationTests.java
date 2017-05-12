@@ -864,6 +864,38 @@ name|randomFunction
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|join
+operator|.
+name|query
+operator|.
+name|JoinQueryBuilders
+operator|.
+name|hasChildQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|join
+operator|.
+name|query
+operator|.
+name|JoinQueryBuilders
+operator|.
+name|hasParentQuery
+import|;
+end_import
+
 begin_comment
 comment|/**  * Examples of using the transport client that are imported into the transport client documentation.  * There are no assertions here because we're mostly concerned with making sure that the examples  * compile and don't throw weird runtime exceptions. Assertions and example data would be nice, but  * that is secondary.  */
 end_comment
@@ -1414,6 +1446,60 @@ expr_stmt|;
 comment|//<6>
 comment|// end::indexed_geo_shape
 block|}
+block|}
+DECL|method|testHasChild
+specifier|public
+name|void
+name|testHasChild
+parameter_list|()
+block|{
+comment|// tag::has_child
+name|hasChildQuery
+argument_list|(
+literal|"blog_tag"
+argument_list|,
+comment|//<1>
+name|termQuery
+argument_list|(
+literal|"tag"
+argument_list|,
+literal|"something"
+argument_list|)
+argument_list|,
+comment|//<2>
+name|ScoreMode
+operator|.
+name|None
+argument_list|)
+expr_stmt|;
+comment|//<3>
+comment|// end::has_child
+block|}
+DECL|method|testHasParent
+specifier|public
+name|void
+name|testHasParent
+parameter_list|()
+block|{
+comment|// tag::has_parent
+name|hasParentQuery
+argument_list|(
+literal|"blog"
+argument_list|,
+comment|//<1>
+name|termQuery
+argument_list|(
+literal|"tag"
+argument_list|,
+literal|"something"
+argument_list|)
+argument_list|,
+comment|//<2>
+literal|false
+argument_list|)
+expr_stmt|;
+comment|//<3>
+comment|// end::has_parent
 block|}
 DECL|method|testIds
 specifier|public
