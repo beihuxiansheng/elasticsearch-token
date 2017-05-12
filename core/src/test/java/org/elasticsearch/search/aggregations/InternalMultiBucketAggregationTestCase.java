@@ -741,7 +741,7 @@ block|}
 block|}
 block|}
 DECL|method|assertBucket
-specifier|private
+specifier|protected
 name|void
 name|assertBucket
 parameter_list|(
