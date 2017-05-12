@@ -1240,7 +1240,14 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|(
+name|this
+operator|.
+name|breakers
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// Gather the "estimated" count for the parent breaker by adding the
 comment|// estimations for each individual breaker

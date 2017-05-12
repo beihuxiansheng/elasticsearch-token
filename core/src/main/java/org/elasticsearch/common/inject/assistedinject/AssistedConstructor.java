@@ -236,7 +236,12 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|(
+name|parameterTypes
+operator|.
+name|size
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// categorize params as @Assisted or @Injected
 for|for

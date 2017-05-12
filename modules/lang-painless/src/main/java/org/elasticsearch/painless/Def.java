@@ -1293,7 +1293,12 @@ name|lambdaArgs
 init|=
 operator|new
 name|BitSet
+argument_list|(
+name|recipeString
+operator|.
+name|length
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(
