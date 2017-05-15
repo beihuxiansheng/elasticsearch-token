@@ -1776,16 +1776,6 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"log4j.skipJansi"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
-comment|// jython has this crazy shaded Jansi version that log4j2 tries to load
 comment|// shutdown hook so that when the test JVM exits, logging is shutdown too
 name|Runtime
 operator|.
