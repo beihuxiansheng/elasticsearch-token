@@ -2179,7 +2179,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-literal|".yml"
+literal|".yaml"
 operator|.
 name|equals
 argument_list|(
@@ -2215,7 +2215,7 @@ name|deprecationLogger
 operator|.
 name|deprecated
 argument_list|(
-literal|"elasticsearch{} is deprecated; rename your configuration file to elasticsearch.yaml"
+literal|"elasticsearch{} is deprecated; rename your configuration file to elasticsearch.yml"
 argument_list|,
 name|extension
 argument_list|)

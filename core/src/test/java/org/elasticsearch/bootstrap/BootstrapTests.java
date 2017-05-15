@@ -49,19 +49,7 @@ argument_list|)
 expr_stmt|;
 name|assertWarnings
 argument_list|(
-literal|"elasticsearch.json is deprecated; rename your configuration file to elasticsearch.yaml"
-argument_list|)
-expr_stmt|;
-name|Bootstrap
-operator|.
-name|checkConfigExtension
-argument_list|(
-literal|".yml"
-argument_list|)
-expr_stmt|;
-name|assertWarnings
-argument_list|(
-literal|"elasticsearch.yml is deprecated; rename your configuration file to elasticsearch.yaml"
+literal|"elasticsearch.json is deprecated; rename your configuration file to elasticsearch.yml"
 argument_list|)
 expr_stmt|;
 name|Bootstrap
@@ -69,6 +57,18 @@ operator|.
 name|checkConfigExtension
 argument_list|(
 literal|".yaml"
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"elasticsearch.yaml is deprecated; rename your configuration file to elasticsearch.yml"
+argument_list|)
+expr_stmt|;
+name|Bootstrap
+operator|.
+name|checkConfigExtension
+argument_list|(
+literal|".yml"
 argument_list|)
 expr_stmt|;
 comment|// no warnings, will be checked in @After
