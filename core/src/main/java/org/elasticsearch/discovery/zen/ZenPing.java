@@ -231,10 +231,7 @@ block|{
 DECL|method|start
 name|void
 name|start
-parameter_list|(
-name|PingContextProvider
-name|contextProvider
-parameter_list|)
+parameter_list|()
 function_decl|;
 DECL|method|ping
 name|void

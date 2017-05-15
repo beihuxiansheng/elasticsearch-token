@@ -2461,10 +2461,6 @@ literal|"geo_polygon"
 block|,
 literal|"geo_shape"
 block|,
-literal|"has_child"
-block|,
-literal|"has_parent"
-block|,
 literal|"ids"
 block|,
 literal|"match"

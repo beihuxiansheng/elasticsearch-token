@@ -116,6 +116,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|join
+operator|.
+name|ParentJoinPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|percolator
 operator|.
 name|PercolatorPlugin
@@ -203,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create an instance of {@link TransportClient}. This class pre-installs the  * {@link Netty4Plugin},  * {@link ReindexPlugin},  * {@link PercolatorPlugin},  * and {@link MustachePlugin}  * plugins for the client. These plugins are all the required modules for Elasticsearch.  */
+comment|/**  * A builder to create an instance of {@link TransportClient}. This class pre-installs the  * {@link Netty4Plugin},  * {@link ReindexPlugin},  * {@link PercolatorPlugin},  * {@link MustachePlugin},  * {@link ParentJoinPlugin}  * plugins for the client. These plugins are all the required modules for Elasticsearch.  */
 end_comment
 
 begin_class
@@ -366,6 +378,10 @@ operator|.
 name|class
 argument_list|,
 name|MustachePlugin
+operator|.
+name|class
+argument_list|,
+name|ParentJoinPlugin
 operator|.
 name|class
 argument_list|)

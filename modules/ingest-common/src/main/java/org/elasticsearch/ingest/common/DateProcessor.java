@@ -314,7 +314,14 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|(
+name|this
+operator|.
+name|formats
+operator|.
+name|size
 argument_list|()
+argument_list|)
 expr_stmt|;
 for|for
 control|(

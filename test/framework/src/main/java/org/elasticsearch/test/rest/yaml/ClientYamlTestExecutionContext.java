@@ -711,7 +711,12 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|(
+name|bodies
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|int
 name|totalBytesLength

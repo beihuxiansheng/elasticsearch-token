@@ -53,13 +53,20 @@ import|;
 end_import
 
 begin_interface
-annotation|@
-name|FunctionalInterface
 DECL|interface|ClusterApplier
 specifier|public
 interface|interface
 name|ClusterApplier
 block|{
+comment|/**      * Sets the initial state for this applier. Should only be called once.      * @param initialState the initial state to set      */
+DECL|method|setInitialState
+name|void
+name|setInitialState
+parameter_list|(
+name|ClusterState
+name|initialState
+parameter_list|)
+function_decl|;
 comment|/**      * Method to invoke when a new cluster state is available to be applied      *      * @param source information where the cluster state came from      * @param clusterStateSupplier the cluster state supplier which provides the latest cluster state to apply      * @param listener callback that is invoked after cluster state is applied      */
 DECL|method|onNewClusterState
 name|void

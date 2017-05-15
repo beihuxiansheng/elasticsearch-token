@@ -872,6 +872,8 @@ operator|=
 name|nodeConnectionsService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInitialState
 specifier|public
 name|void

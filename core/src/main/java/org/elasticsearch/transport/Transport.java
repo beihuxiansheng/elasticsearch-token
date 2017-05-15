@@ -417,6 +417,17 @@ name|getVersion
 argument_list|()
 return|;
 block|}
+comment|/**          * Returns a key that this connection can be cached on. Delegating subclasses must delegate method call to          * the original connection.          */
+DECL|method|getCacheKey
+specifier|default
+name|Object
+name|getCacheKey
+parameter_list|()
+block|{
+return|return
+name|this
+return|;
+block|}
 block|}
 block|}
 end_interface

@@ -1084,7 +1084,7 @@ name|limitPortCounts
 decl_stmt|;
 DECL|field|contextProvider
 specifier|private
-specifier|volatile
+specifier|final
 name|PingContextProvider
 name|contextProvider
 decl_stmt|;
@@ -1178,6 +1178,9 @@ name|transportService
 parameter_list|,
 name|UnicastHostsProvider
 name|unicastHostsProvider
+parameter_list|,
+name|PingContextProvider
+name|contextProvider
 parameter_list|)
 block|{
 name|super
@@ -1215,6 +1218,12 @@ operator|.
 name|hostsProvider
 operator|=
 name|unicastHostsProvider
+expr_stmt|;
+name|this
+operator|.
+name|contextProvider
+operator|=
+name|contextProvider
 expr_stmt|;
 specifier|final
 name|int
@@ -1838,18 +1847,8 @@ DECL|method|start
 specifier|public
 name|void
 name|start
-parameter_list|(
-name|PingContextProvider
-name|contextProvider
-parameter_list|)
-block|{
-name|this
-operator|.
-name|contextProvider
-operator|=
-name|contextProvider
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 comment|/**      * Clears the list of cached ping responses.      */
 DECL|method|clearTemporalResponses
 specifier|public

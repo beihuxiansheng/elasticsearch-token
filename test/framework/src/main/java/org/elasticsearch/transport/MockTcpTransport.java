@@ -1236,6 +1236,10 @@ argument_list|,
 name|mockChannels
 argument_list|,
 name|LIGHT_PROFILE
+argument_list|,
+name|transportServiceAdapter
+operator|::
+name|onConnectionClosed
 argument_list|)
 decl_stmt|;
 comment|// we always use light here

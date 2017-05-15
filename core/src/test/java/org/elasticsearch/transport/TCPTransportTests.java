@@ -1428,6 +1428,10 @@ argument_list|()
 index|]
 argument_list|,
 name|profile
+argument_list|,
+name|c
+lambda|->
+block|{}
 argument_list|)
 return|;
 block|}
@@ -1486,6 +1490,10 @@ argument_list|,
 name|MockTcpTransport
 operator|.
 name|LIGHT_PROFILE
+argument_list|,
+name|c
+lambda|->
+block|{}
 argument_list|)
 return|;
 block|}

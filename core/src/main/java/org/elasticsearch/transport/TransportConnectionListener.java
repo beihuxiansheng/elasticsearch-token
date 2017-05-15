@@ -54,14 +54,28 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{}
+comment|/**      * Called once a node connection is closed. The connection might not have been registered in the      * transport as a shared connection to a specific node      */
+DECL|method|onConnectionClosed
+specifier|default
+name|void
+name|onConnectionClosed
+parameter_list|(
+name|Transport
+operator|.
+name|Connection
+name|connection
+parameter_list|)
+block|{}
 comment|/**      * Called once a node connection is opened.      */
 DECL|method|onConnectionOpened
 specifier|default
 name|void
 name|onConnectionOpened
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Transport
+operator|.
+name|Connection
+name|connection
 parameter_list|)
 block|{}
 block|}

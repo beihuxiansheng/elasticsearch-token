@@ -1521,7 +1521,9 @@ name|nestedPath
 expr_stmt|;
 block|}
 block|}
+comment|// NORELEASE Do not use this ctr, it is public for hasChild and hasParent query but this is temporary
 DECL|method|InnerHitBuilder
+specifier|public
 name|InnerHitBuilder
 parameter_list|(
 name|InnerHitBuilder
@@ -4548,7 +4550,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// TODO public for hasParent and hasChild query
 DECL|method|rewrite
+specifier|public
 specifier|static
 name|InnerHitBuilder
 name|rewrite

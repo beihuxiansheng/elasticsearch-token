@@ -456,38 +456,6 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|hasChildQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|hasParentQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
 name|idsQuery
 import|;
 end_import
@@ -893,6 +861,38 @@ operator|.
 name|ScoreFunctionBuilders
 operator|.
 name|randomFunction
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|join
+operator|.
+name|query
+operator|.
+name|JoinQueryBuilders
+operator|.
+name|hasChildQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|join
+operator|.
+name|query
+operator|.
+name|JoinQueryBuilders
+operator|.
+name|hasParentQuery
 import|;
 end_import
 

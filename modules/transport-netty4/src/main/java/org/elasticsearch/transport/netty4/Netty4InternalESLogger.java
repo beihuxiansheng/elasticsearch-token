@@ -415,23 +415,6 @@ name|String
 name|msg
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
-literal|"Your platform does not provide complete low-level API for accessing direct buffers reliably. "
-operator|+
-literal|"Unless explicitly requested, heap buffer will always be preferred to avoid potential system "
-operator|+
-literal|"instability."
-operator|)
-operator|.
-name|equals
-argument_list|(
-name|msg
-argument_list|)
-condition|)
-block|{
 name|logger
 operator|.
 name|info
@@ -439,7 +422,6 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
