@@ -158,6 +158,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -471,6 +481,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|compareTerm
+specifier|public
 name|int
 name|compareTerm
 parameter_list|(
