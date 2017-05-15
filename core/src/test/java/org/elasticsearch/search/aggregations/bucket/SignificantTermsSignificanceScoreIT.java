@@ -3277,8 +3277,10 @@ argument_list|(
 literal|"mySignificantTerms"
 argument_list|)
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
+name|?
+extends|extends
 name|SignificantTerms
 operator|.
 name|Bucket
@@ -3299,9 +3301,6 @@ argument_list|>
 name|classBBucketIterator
 init|=
 name|sigTerms
-operator|.
-name|getBuckets
-argument_list|()
 operator|.
 name|iterator
 argument_list|()
