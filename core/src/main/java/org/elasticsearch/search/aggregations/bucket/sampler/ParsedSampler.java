@@ -81,7 +81,7 @@ block|{
 return|return
 name|InternalSampler
 operator|.
-name|NAME
+name|PARSER_NAME
 return|;
 block|}
 DECL|method|fromXContent
