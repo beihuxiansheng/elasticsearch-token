@@ -260,7 +260,7 @@ DECL|method|isSupportedContext
 name|boolean
 name|isSupportedContext
 parameter_list|(
-name|ScriptContext
+name|String
 name|scriptContext
 parameter_list|)
 block|{
@@ -270,9 +270,6 @@ operator|.
 name|containsKey
 argument_list|(
 name|scriptContext
-operator|.
-name|getKey
-argument_list|()
 argument_list|)
 return|;
 block|}

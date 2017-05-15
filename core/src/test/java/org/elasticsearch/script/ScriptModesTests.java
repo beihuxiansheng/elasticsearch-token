@@ -624,6 +624,8 @@ operator|=
 operator|new
 name|ScriptModes
 argument_list|(
+name|scriptContextRegistry
+argument_list|,
 name|scriptSettings
 argument_list|,
 name|Settings
@@ -671,6 +673,8 @@ operator|=
 operator|new
 name|ScriptModes
 argument_list|(
+name|scriptContextRegistry
+argument_list|,
 name|scriptSettings
 argument_list|,
 name|Settings
@@ -924,6 +928,8 @@ operator|=
 operator|new
 name|ScriptModes
 argument_list|(
+name|scriptContextRegistry
+argument_list|,
 name|scriptSettings
 argument_list|,
 name|builder
@@ -1245,6 +1251,8 @@ operator|=
 operator|new
 name|ScriptModes
 argument_list|(
+name|scriptContextRegistry
+argument_list|,
 name|scriptSettings
 argument_list|,
 name|builder
@@ -1406,6 +1414,8 @@ operator|=
 operator|new
 name|ScriptModes
 argument_list|(
+name|scriptContextRegistry
+argument_list|,
 name|scriptSettings
 argument_list|,
 name|builder
