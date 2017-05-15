@@ -1184,8 +1184,6 @@ name|InternalReverseNestedTests
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO can we find a way to include the children aggregation in this test?
-comment|//aggsTests.add(new InternalChildrenTests());
 name|aggsTests
 operator|.
 name|add
@@ -1272,7 +1270,7 @@ name|NamedXContentRegistry
 argument_list|(
 name|InternalAggregationTestCase
 operator|.
-name|getNamedXContents
+name|getDefaultNamedXContents
 argument_list|()
 argument_list|)
 return|;
@@ -1337,7 +1335,7 @@ name|assertEquals
 argument_list|(
 name|InternalAggregationTestCase
 operator|.
-name|getNamedXContents
+name|getDefaultNamedXContents
 argument_list|()
 operator|.
 name|size
@@ -1392,7 +1390,7 @@ name|entry
 range|:
 name|InternalAggregationTestCase
 operator|.
-name|getNamedXContents
+name|getDefaultNamedXContents
 argument_list|()
 control|)
 block|{
