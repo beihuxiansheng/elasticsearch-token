@@ -578,12 +578,6 @@ specifier|final
 name|Settings
 name|settings
 decl_stmt|;
-DECL|field|configExtension
-specifier|private
-specifier|final
-name|String
-name|configExtension
-decl_stmt|;
 DECL|field|dataFiles
 specifier|private
 specifier|final
@@ -689,32 +683,6 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-name|this
-argument_list|(
-name|settings
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-comment|// Note: Do not use this ctor, it is for correct deprecation logging in 5.5 and will be removed
-DECL|method|Environment
-specifier|public
-name|Environment
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|,
-name|String
-name|configExtension
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configExtension
-operator|=
-name|configExtension
-expr_stmt|;
 specifier|final
 name|Path
 name|homeFile
@@ -1620,17 +1588,6 @@ return|return
 literal|null
 return|;
 block|}
-block|}
-comment|/** Return then extension of the config file that was loaded, or*/
-DECL|method|configExtension
-specifier|public
-name|String
-name|configExtension
-parameter_list|()
-block|{
-return|return
-name|configExtension
-return|;
 block|}
 comment|// TODO: rename all these "file" methods to "dir"
 comment|/**      * The config directory.      */
