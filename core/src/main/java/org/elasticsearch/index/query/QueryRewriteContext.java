@@ -403,7 +403,7 @@ return|;
 block|}
 DECL|method|getTemplateBytes
 specifier|public
-name|BytesReference
+name|String
 name|getTemplateBytes
 parameter_list|(
 name|Script

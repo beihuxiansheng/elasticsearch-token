@@ -2183,7 +2183,7 @@ return|return
 name|params
 lambda|->
 operator|(
-name|BytesReference
+name|String
 operator|)
 name|executable
 argument_list|(

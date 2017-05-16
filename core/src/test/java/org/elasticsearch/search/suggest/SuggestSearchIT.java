@@ -8388,11 +8388,7 @@ name|run
 parameter_list|()
 block|{
 return|return
-operator|new
-name|BytesArray
-argument_list|(
 name|result
-argument_list|)
 return|;
 block|}
 block|}

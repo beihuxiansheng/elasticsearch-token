@@ -1022,11 +1022,11 @@ name|vars
 argument_list|)
 decl_stmt|;
 specifier|final
-name|BytesReference
+name|String
 name|querySource
 init|=
 operator|(
-name|BytesReference
+name|String
 operator|)
 name|executable
 operator|.

@@ -2089,7 +2089,7 @@ name|Override
 DECL|method|getTemplateBytes
 specifier|public
 specifier|final
-name|BytesReference
+name|String
 name|getTemplateBytes
 parameter_list|(
 name|Script

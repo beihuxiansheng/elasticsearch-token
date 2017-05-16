@@ -74,7 +74,7 @@ name|CompiledTemplate
 block|{
 comment|/** Run a template and return the resulting string, encoded in utf8 bytes. */
 DECL|method|run
-name|BytesReference
+name|String
 name|run
 parameter_list|(
 name|Map

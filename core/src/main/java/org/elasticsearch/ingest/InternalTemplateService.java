@@ -263,9 +263,6 @@ name|run
 argument_list|(
 name|model
 argument_list|)
-operator|.
-name|utf8ToString
-argument_list|()
 return|;
 block|}
 annotation|@
