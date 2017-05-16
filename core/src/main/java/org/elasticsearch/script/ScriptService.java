@@ -1288,6 +1288,8 @@ operator|=
 operator|new
 name|ScriptModes
 argument_list|(
+name|scriptContextRegistry
+argument_list|,
 name|scriptSettings
 argument_list|,
 name|settings
@@ -2181,7 +2183,7 @@ return|return
 name|params
 lambda|->
 operator|(
-name|BytesReference
+name|String
 operator|)
 name|executable
 argument_list|(
@@ -3263,6 +3265,9 @@ operator|.
 name|isSupportedContext
 argument_list|(
 name|scriptContext
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 operator|==
 literal|false

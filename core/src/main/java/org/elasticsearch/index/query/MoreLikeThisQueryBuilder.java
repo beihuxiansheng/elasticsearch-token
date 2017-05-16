@@ -1396,6 +1396,14 @@ name|id
 expr_stmt|;
 name|this
 operator|.
+name|routing
+operator|=
+name|copy
+operator|.
+name|routing
+expr_stmt|;
+name|this
+operator|.
 name|doc
 operator|=
 name|copy
@@ -2064,7 +2072,6 @@ return|;
 block|}
 comment|/**          * Convert this to a {@link TermVectorsRequest} for fetching the terms of the document.          */
 DECL|method|toTermVectorsRequest
-specifier|public
 name|TermVectorsRequest
 name|toTermVectorsRequest
 parameter_list|()
@@ -6567,7 +6574,7 @@ decl_stmt|;
 comment|// getting the Fields for liked items
 name|mltQuery
 operator|.
-name|setLikeText
+name|setLikeFields
 argument_list|(
 name|getFieldsFor
 argument_list|(
@@ -6626,7 +6633,7 @@ condition|)
 block|{
 name|mltQuery
 operator|.
-name|setUnlikeText
+name|setUnlikeFields
 argument_list|(
 name|unlikeFields
 argument_list|)

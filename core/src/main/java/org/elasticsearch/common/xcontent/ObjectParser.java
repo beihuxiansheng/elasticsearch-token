@@ -2350,6 +2350,8 @@ DECL|enum constant|BOOLEAN
 name|BOOLEAN
 argument_list|(
 name|VALUE_BOOLEAN
+argument_list|,
+name|VALUE_STRING
 argument_list|)
 operator|,
 DECL|enum constant|STRING_ARRAY

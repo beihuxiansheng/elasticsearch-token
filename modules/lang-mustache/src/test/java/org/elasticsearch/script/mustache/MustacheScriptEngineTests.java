@@ -306,11 +306,11 @@ argument_list|,
 literal|"0.3"
 argument_list|)
 expr_stmt|;
-name|BytesReference
+name|String
 name|o
 init|=
 operator|(
-name|BytesReference
+name|String
 operator|)
 name|qe
 operator|.
@@ -352,9 +352,6 @@ operator|+
 literal|"\"negative\": {\"term\": {\"body\": {\"value\": \"solr\"}}}, \"negative_boost\": 0.3 } }}"
 argument_list|,
 name|o
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -403,11 +400,11 @@ argument_list|,
 literal|"\"quick brown\""
 argument_list|)
 expr_stmt|;
-name|BytesReference
+name|String
 name|o
 init|=
 operator|(
-name|BytesReference
+name|String
 operator|)
 name|qe
 operator|.
@@ -449,9 +446,6 @@ operator|+
 literal|"\"negative\": {\"term\": {\"body\": {\"value\": \"\\\"quick brown\\\"\"}}}, \"negative_boost\": 0.3 } }}"
 argument_list|,
 name|o
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -546,17 +540,9 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|BytesReference
-operator|)
 name|executableScript
 operator|.
 name|run
-argument_list|()
-operator|)
-operator|.
-name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -662,17 +648,9 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-operator|(
-name|BytesReference
-operator|)
 name|executableScript
 operator|.
 name|run
-argument_list|()
-operator|)
-operator|.
-name|utf8ToString
 argument_list|()
 argument_list|,
 name|equalTo
