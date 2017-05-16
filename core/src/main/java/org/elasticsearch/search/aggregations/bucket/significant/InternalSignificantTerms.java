@@ -296,7 +296,7 @@ implements|,
 name|ToXContent
 block|{
 DECL|field|SCORE
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -305,7 +305,7 @@ init|=
 literal|"score"
 decl_stmt|;
 DECL|field|BG_COUNT
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
