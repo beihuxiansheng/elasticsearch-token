@@ -167,17 +167,6 @@ name|getLeafFieldsLookup
 argument_list|(
 name|context
 argument_list|)
-argument_list|,
-name|IndexLookup
-operator|.
-name|getLeafIndexLookup
-argument_list|(
-name|context
-argument_list|)
-argument_list|,
-name|IndexLookup
-operator|.
-name|NAMES
 argument_list|)
 return|;
 block|}
