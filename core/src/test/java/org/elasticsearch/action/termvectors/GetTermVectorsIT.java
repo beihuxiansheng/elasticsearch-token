@@ -1585,8 +1585,6 @@ name|putArray
 argument_list|(
 literal|"index.analysis.analyzer.tv_test.filter"
 argument_list|,
-literal|"type_as_payload"
-argument_list|,
 literal|"lowercase"
 argument_list|)
 argument_list|)
@@ -2062,8 +2060,6 @@ operator|.
 name|putArray
 argument_list|(
 literal|"index.analysis.analyzer.tv_test.filter"
-argument_list|,
-literal|"type_as_payload"
 argument_list|,
 literal|"lowercase"
 argument_list|)
@@ -4568,8 +4564,6 @@ name|putArray
 argument_list|(
 literal|"index.analysis.analyzer.tv_test.filter"
 argument_list|,
-literal|"type_as_payload"
-argument_list|,
 literal|"lowercase"
 argument_list|)
 argument_list|)
@@ -5230,12 +5224,8 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|withPayloads
-condition|)
-block|{
-name|assertThat
+comment|// We never configure an analyzer with payloads for this test so this is never returned
+name|assertNull
 argument_list|(
 literal|"term: "
 operator|+
@@ -5245,18 +5235,8 @@ name|docsAndPositions
 operator|.
 name|getPayload
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
-literal|"word"
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|assertThat
