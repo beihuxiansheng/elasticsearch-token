@@ -443,8 +443,6 @@ argument_list|(
 literal|"number"
 argument_list|)
 expr_stmt|;
-try|try
-init|(
 name|MinAggregator
 name|aggregator
 init|=
@@ -456,8 +454,7 @@ name|indexSearcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -505,7 +502,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
 name|indexReader
 operator|.
 name|close
@@ -725,8 +721,6 @@ argument_list|(
 literal|"number"
 argument_list|)
 expr_stmt|;
-try|try
-init|(
 name|MinAggregator
 name|aggregator
 init|=
@@ -738,8 +732,7 @@ name|indexSearcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -787,7 +780,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
 name|indexReader
 operator|.
 name|close
@@ -967,8 +959,6 @@ argument_list|(
 literal|"number2"
 argument_list|)
 expr_stmt|;
-try|try
-init|(
 name|MinAggregator
 name|aggregator
 init|=
@@ -980,8 +970,7 @@ name|indexSearcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -1030,7 +1019,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
 name|indexReader
 operator|.
 name|close
@@ -1131,8 +1119,6 @@ argument_list|(
 literal|"number"
 argument_list|)
 expr_stmt|;
-try|try
-init|(
 name|MinAggregator
 name|aggregator
 init|=
@@ -1144,8 +1130,7 @@ name|indexSearcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -1194,7 +1179,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-block|}
 name|indexReader
 operator|.
 name|close

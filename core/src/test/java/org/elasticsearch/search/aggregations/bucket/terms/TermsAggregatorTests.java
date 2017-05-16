@@ -621,8 +621,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-try|try
-init|(
 name|TermsAggregator
 name|aggregator
 init|=
@@ -634,8 +632,7 @@ name|indexSearcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -827,7 +824,6 @@ name|getDocCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|indexReader
 operator|.
@@ -1709,8 +1705,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-init|(
 name|TermsAggregator
 name|aggregator
 init|=
@@ -1722,8 +1716,7 @@ name|searcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -1753,7 +1746,6 @@ argument_list|(
 literal|0L
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 end_class

@@ -1102,8 +1102,6 @@ argument_list|(
 name|FIELD_NAME
 argument_list|)
 expr_stmt|;
-try|try
-init|(
 name|ValueCountAggregator
 name|aggregator
 init|=
@@ -1115,8 +1113,7 @@ name|indexSearcher
 argument_list|,
 name|fieldType
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 name|aggregator
 operator|.
 name|preCollection
@@ -1151,7 +1148,6 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
