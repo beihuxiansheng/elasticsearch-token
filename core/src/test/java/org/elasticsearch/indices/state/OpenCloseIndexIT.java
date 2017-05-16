@@ -354,6 +354,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_READ_ONLY_ALLOW_DELETE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|hamcrest
@@ -3324,6 +3340,8 @@ operator|.
 name|asList
 argument_list|(
 name|SETTING_READ_ONLY
+argument_list|,
+name|SETTING_READ_ONLY_ALLOW_DELETE
 argument_list|,
 name|SETTING_BLOCKS_METADATA
 argument_list|)

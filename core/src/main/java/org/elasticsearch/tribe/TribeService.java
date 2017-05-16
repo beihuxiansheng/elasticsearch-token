@@ -600,18 +600,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|gateway
-operator|.
-name|GatewayService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|node
 operator|.
 name|Node
@@ -728,16 +716,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -820,6 +798,8 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 name|RestStatus
 operator|.
 name|BAD_REQUEST
@@ -851,6 +831,8 @@ argument_list|(
 literal|11
 argument_list|,
 literal|"tribe node, write not allowed"
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,

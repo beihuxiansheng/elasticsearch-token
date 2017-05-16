@@ -498,12 +498,8 @@ operator|.
 name|blocks
 argument_list|()
 operator|.
-name|indicesBlockedException
+name|indicesAllowReleaseResources
 argument_list|(
-name|ClusterBlockLevel
-operator|.
-name|METADATA_WRITE
-argument_list|,
 name|indexNameExpressionResolver
 operator|.
 name|concreteIndexNames
