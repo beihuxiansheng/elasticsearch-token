@@ -95,6 +95,8 @@ literal|"embedded_stash_key"
 argument_list|,
 literal|"headers"
 argument_list|,
+literal|"stash_in_key"
+argument_list|,
 literal|"stash_in_path"
 argument_list|,
 literal|"warnings"
