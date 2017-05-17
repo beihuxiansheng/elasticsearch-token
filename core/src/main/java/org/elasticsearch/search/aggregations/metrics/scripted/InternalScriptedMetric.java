@@ -786,7 +786,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|CommonFields
+operator|.
+name|VALUE
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|aggregation
 argument_list|()

@@ -2475,6 +2475,24 @@ name|VALUE_NUMBER
 argument_list|,
 name|VALUE_STRING
 argument_list|)
+operator|,
+DECL|enum constant|VALUE_OBJECT_ARRAY
+name|VALUE_OBJECT_ARRAY
+argument_list|(
+name|VALUE_BOOLEAN
+argument_list|,
+name|VALUE_NULL
+argument_list|,
+name|VALUE_EMBEDDED_OBJECT
+argument_list|,
+name|VALUE_NUMBER
+argument_list|,
+name|VALUE_STRING
+argument_list|,
+name|START_OBJECT
+argument_list|,
+name|START_ARRAY
+argument_list|)
 expr_stmt|;
 end_class
 
