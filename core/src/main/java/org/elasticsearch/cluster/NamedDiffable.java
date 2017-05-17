@@ -72,7 +72,7 @@ name|Version
 operator|.
 name|CURRENT
 operator|.
-name|minimumCompatibilityVersion
+name|minimumIndexCompatibilityVersion
 argument_list|()
 return|;
 block|}

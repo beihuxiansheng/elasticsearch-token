@@ -3144,7 +3144,7 @@ name|Version
 operator|.
 name|CURRENT
 operator|.
-name|minimumCompatibilityVersion
+name|minimumIndexCompatibilityVersion
 argument_list|()
 argument_list|)
 operator|+
@@ -3154,7 +3154,7 @@ name|Version
 operator|.
 name|CURRENT
 operator|.
-name|minimumCompatibilityVersion
+name|minimumIndexCompatibilityVersion
 argument_list|()
 argument_list|,
 name|ex

@@ -498,7 +498,7 @@ name|VERSION_INCOMPATIBLE_INTRODUCED
 init|=
 name|Version
 operator|.
-name|V_5_2_0_UNRELEASED
+name|V_5_2_0
 decl_stmt|;
 DECL|field|VERBOSE_INTRODUCED
 specifier|public

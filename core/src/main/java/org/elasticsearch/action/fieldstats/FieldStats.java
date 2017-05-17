@@ -1225,7 +1225,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_0_UNRELEASED
+name|V_5_2_0
 argument_list|)
 condition|)
 block|{
@@ -1259,7 +1259,7 @@ literal|"with pre-"
 operator|+
 name|Version
 operator|.
-name|V_5_2_0_UNRELEASED
+name|V_5_2_0
 operator|+
 literal|" nodes, remote version ["
 operator|+
@@ -3613,7 +3613,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_0_UNRELEASED
+name|V_5_2_0
 argument_list|)
 condition|)
 block|{

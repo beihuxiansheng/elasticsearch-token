@@ -8428,14 +8428,37 @@ name|streamIn
 argument_list|)
 expr_stmt|;
 block|}
+comment|// for handshakes we are compatible with N-2 since otherwise we can't figure out our initial version
+comment|// since we are compatible with N-1 and N+1 so we always send our minCompatVersion as the initial version in the
+comment|// handshake. This looks odd but it's required to establish the connection correctly we check for real compatibility
+comment|// once the connection is established
+specifier|final
+name|Version
+name|compatibilityVersion
+init|=
+name|TransportStatus
+operator|.
+name|isHandshake
+argument_list|(
+name|status
+argument_list|)
+condition|?
+name|getCurrentVersion
+argument_list|()
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+else|:
+name|getCurrentVersion
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|version
 operator|.
 name|isCompatible
 argument_list|(
-name|getCurrentVersion
-argument_list|()
+name|compatibilityVersion
 argument_list|)
 operator|==
 literal|false
@@ -8451,8 +8474,7 @@ name|version
 operator|+
 literal|"] minimal compatible version is: ["
 operator|+
-name|getCurrentVersion
-argument_list|()
+name|compatibilityVersion
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
