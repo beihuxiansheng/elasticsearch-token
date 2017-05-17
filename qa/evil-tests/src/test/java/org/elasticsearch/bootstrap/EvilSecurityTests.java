@@ -457,28 +457,6 @@ argument_list|)
 expr_stmt|;
 name|settingsBuilder
 operator|.
-name|put
-argument_list|(
-name|Environment
-operator|.
-name|PATH_SCRIPTS_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|esHome
-operator|.
-name|resolve
-argument_list|(
-literal|"scripts"
-argument_list|)
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|settingsBuilder
-operator|.
 name|putArray
 argument_list|(
 name|Environment
@@ -778,41 +756,6 @@ argument_list|,
 name|permissions
 argument_list|)
 expr_stmt|;
-comment|// scripts file: ro
-name|assertExactPermissions
-argument_list|(
-operator|new
-name|FilePermission
-argument_list|(
-name|environment
-operator|.
-name|scriptsFile
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-literal|"read,readlink"
-argument_list|)
-argument_list|,
-name|permissions
-argument_list|)
-expr_stmt|;
-name|assertSettingDeprecationsAndWarnings
-argument_list|(
-operator|new
-name|Setting
-argument_list|<
-name|?
-argument_list|>
-index|[]
-block|{
-name|Environment
-operator|.
-name|PATH_SCRIPTS_SETTING
-block|}
-block|)
-function|;
 comment|// plugins: ro
 name|assertExactPermissions
 argument_list|(
@@ -967,9 +910,6 @@ name|permissions
 argument_list|)
 expr_stmt|;
 block|}
-end_class
-
-begin_function
 DECL|method|testEnsureSymlink
 specifier|public
 name|void
@@ -1073,9 +1013,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|testEnsureBrokenSymlink
 specifier|public
 name|void
@@ -1170,13 +1107,7 @@ name|expected
 parameter_list|)
 block|{}
 block|}
-end_function
-
-begin_comment
 comment|/** When a configured dir is a symlink, test that permissions work on link target */
-end_comment
-
-begin_function
 DECL|method|testSymlinkPermissions
 specifier|public
 name|void
@@ -1366,13 +1297,7 @@ name|permissions
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * checks exact file permissions, meaning those and only those for that path.      */
-end_comment
-
-begin_function
 DECL|method|assertExactPermissions
 specifier|static
 name|void
@@ -1566,13 +1491,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * checks that this path has no permissions      */
-end_comment
-
-begin_function
 DECL|method|assertNoPermissions
 specifier|static
 name|void
@@ -1674,8 +1593,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 

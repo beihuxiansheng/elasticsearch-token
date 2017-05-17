@@ -274,19 +274,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getExtension
-specifier|public
-name|String
-name|getExtension
-parameter_list|()
-block|{
-return|return
-literal|""
-return|;
-comment|// Native scripts have no extensions
-block|}
-annotation|@
-name|Override
 DECL|method|compile
 specifier|public
 name|Object

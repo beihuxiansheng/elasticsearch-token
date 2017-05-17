@@ -178,7 +178,7 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-comment|/**      * Build from {@linkplain ScriptPlugin}s. Convenient for normal use but not great for tests. See      * {@link ScriptModule#ScriptModule(Settings, Environment, ResourceWatcherService, List, List)} for easier use in tests.      */
+comment|/**      * Build from {@linkplain ScriptPlugin}s. Convenient for normal use but not great for tests. See      * {@link ScriptModule#ScriptModule(Settings, List, List)} for easier use in tests.      */
 DECL|method|create
 specifier|public
 specifier|static
@@ -187,12 +187,6 @@ name|create
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Environment
-name|environment
-parameter_list|,
-name|ResourceWatcherService
-name|resourceWatcherService
 parameter_list|,
 name|List
 argument_list|<
@@ -344,10 +338,6 @@ name|ScriptModule
 argument_list|(
 name|settings
 argument_list|,
-name|environment
-argument_list|,
-name|resourceWatcherService
-argument_list|,
 name|scriptEngines
 argument_list|,
 name|plugins
@@ -361,12 +351,6 @@ name|ScriptModule
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|Environment
-name|environment
-parameter_list|,
-name|ResourceWatcherService
-name|resourceWatcherService
 parameter_list|,
 name|List
 argument_list|<
@@ -419,10 +403,6 @@ operator|new
 name|ScriptService
 argument_list|(
 name|settings
-argument_list|,
-name|environment
-argument_list|,
-name|resourceWatcherService
 argument_list|,
 name|scriptEngineRegistry
 argument_list|,

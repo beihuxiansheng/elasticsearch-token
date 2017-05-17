@@ -1844,7 +1844,7 @@ name|Script
 argument_list|(
 name|ScriptType
 operator|.
-name|FILE
+name|STORED
 argument_list|,
 comment|//<1>
 literal|"painless"

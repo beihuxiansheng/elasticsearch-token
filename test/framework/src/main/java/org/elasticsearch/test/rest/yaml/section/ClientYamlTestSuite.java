@@ -292,6 +292,31 @@ literal|1
 index|]
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|channel
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"test suite file "
+operator|+
+name|file
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" is empty"
+argument_list|)
+throw|;
+block|}
 name|channel
 operator|.
 name|read

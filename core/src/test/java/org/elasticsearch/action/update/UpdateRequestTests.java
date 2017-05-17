@@ -1248,10 +1248,6 @@ name|ScriptService
 argument_list|(
 name|baseSettings
 argument_list|,
-name|environment
-argument_list|,
-name|watcherService
-argument_list|,
 name|scriptEngineRegistry
 argument_list|,
 name|scriptContextRegistry

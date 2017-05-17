@@ -317,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link Script} represents used-defined input that can be used to  * compile and execute a script from the {@link ScriptService}  * based on the {@link ScriptType}.  *  * There are three types of scripts specified by {@link ScriptType}.  *  * The following describes the expected parameters for each type of script:  *  *<ul>  *<li> {@link ScriptType#INLINE}  *<ul>  *<li> {@link Script#lang}     - specifies the language, defaults to {@link Script#DEFAULT_SCRIPT_LANG}  *<li> {@link Script#idOrCode} - specifies the code to be compiled, must not be {@code null}  *<li> {@link Script#options}  - specifies the compiler options for this script; must not be {@code null},  *                                use an empty {@link Map} to specify no options  *<li> {@link Script#params}   - {@link Map} of user-defined parameters; must not be {@code null},  *                                use an empty {@link Map} to specify no params  *</ul>  *<li> {@link ScriptType#STORED}  *<ul>  *<li> {@link Script#lang}     - the language will be specified when storing the script, so this should  *                                be {@code null}; however, this can be specified to look up a stored  *                                script as part of the deprecated API  *<li> {@link Script#idOrCode} - specifies the id of the stored script to be looked up, must not be {@code null}  *<li> {@link Script#options}  - compiler options will be specified when a stored script is stored,  *                                so they have no meaning here and must be {@code null}  *<li> {@link Script#params}   - {@link Map} of user-defined parameters; must not be {@code null},  *                                use an empty {@link Map} to specify no params  *</ul>  *<li> {@link ScriptType#FILE}  *<ul>  *<li> {@link Script#lang}     - specifies the language for look up, defaults to {@link Script#DEFAULT_SCRIPT_LANG}  *<li> {@link Script#idOrCode} - specifies the id of the file script to be looked up, must not be {@code null}  *<li> {@link Script#options}  - compiler options will be specified when a file script is loaded,  *                                so they have no meaning here and must be {@code null}  *<li> {@link Script#params}   - {@link Map} of user-defined parameters; must not be {@code null},  *                                use an empty {@link Map} to specify no params  *</ul>  *</ul>  */
+comment|/**  * {@link Script} represents used-defined input that can be used to  * compile and execute a script from the {@link ScriptService}  * based on the {@link ScriptType}.  *  * There are three types of scripts specified by {@link ScriptType}.  *  * The following describes the expected parameters for each type of script:  *  *<ul>  *<li> {@link ScriptType#INLINE}  *<ul>  *<li> {@link Script#lang}     - specifies the language, defaults to {@link Script#DEFAULT_SCRIPT_LANG}  *<li> {@link Script#idOrCode} - specifies the code to be compiled, must not be {@code null}  *<li> {@link Script#options}  - specifies the compiler options for this script; must not be {@code null},  *                                use an empty {@link Map} to specify no options  *<li> {@link Script#params}   - {@link Map} of user-defined parameters; must not be {@code null},  *                                use an empty {@link Map} to specify no params  *</ul>  *<li> {@link ScriptType#STORED}  *<ul>  *<li> {@link Script#lang}     - the language will be specified when storing the script, so this should  *                                be {@code null}; however, this can be specified to look up a stored  *                                script as part of the deprecated API  *<li> {@link Script#idOrCode} - specifies the id of the stored script to be looked up, must not be {@code null}  *<li> {@link Script#options}  - compiler options will be specified when a stored script is stored,  *                                so they have no meaning here and must be {@code null}  *<li> {@link Script#params}   - {@link Map} of user-defined parameters; must not be {@code null},  *                                use an empty {@link Map} to specify no params  *</ul>  *</ul>  */
 end_comment
 
 begin_class
@@ -665,40 +665,6 @@ operator|=
 name|idOrCode
 expr_stmt|;
 block|}
-comment|/**          * Set both the id and the type of the file script.          */
-DECL|method|setFile
-specifier|private
-name|void
-name|setFile
-parameter_list|(
-name|String
-name|idOrCode
-parameter_list|)
-block|{
-if|if
-condition|(
-name|type
-operator|!=
-literal|null
-condition|)
-block|{
-name|throwOnlyOneOfType
-argument_list|()
-expr_stmt|;
-block|}
-name|type
-operator|=
-name|ScriptType
-operator|.
-name|FILE
-expr_stmt|;
-name|this
-operator|.
-name|idOrCode
-operator|=
-name|idOrCode
-expr_stmt|;
-block|}
 comment|/**          * Helper method to throw an exception if more than one type of {@link Script} is specified.          */
 DECL|method|throwOnlyOneOfType
 specifier|private
@@ -722,23 +688,11 @@ operator|.
 name|getPreferredName
 argument_list|()
 operator|+
-literal|" + , "
+literal|", "
 operator|+
 name|ScriptType
 operator|.
 name|STORED
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|" + , "
-operator|+
-name|ScriptType
-operator|.
-name|FILE
 operator|.
 name|getParseField
 argument_list|()
@@ -854,20 +808,6 @@ operator|+
 name|ScriptType
 operator|.
 name|STORED
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] script "
-operator|+
-literal|"or ["
-operator|+
-name|ScriptType
-operator|.
-name|FILE
 operator|.
 name|getParseField
 argument_list|()
@@ -1112,100 +1052,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-elseif|else
-if|if
-condition|(
-name|type
-operator|==
-name|ScriptType
-operator|.
-name|FILE
-condition|)
-block|{
-if|if
-condition|(
-name|lang
-operator|==
-literal|null
-condition|)
-block|{
-name|lang
-operator|=
-name|defaultLang
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|idOrCode
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"must specify<code> for an ["
-operator|+
-name|ScriptType
-operator|.
-name|FILE
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] script"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|options
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|options
-operator|=
-literal|null
-expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"field ["
-operator|+
-name|OPTIONS_PARSE_FIELD
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] "
-operator|+
-literal|"cannot be specified using a ["
-operator|+
-name|ScriptType
-operator|.
-name|FILE
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] script"
-argument_list|)
-throw|;
-block|}
-block|}
 return|return
 operator|new
 name|Script
@@ -1284,22 +1130,6 @@ argument_list|,
 name|ScriptType
 operator|.
 name|STORED
-operator|.
-name|getParseField
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|PARSER
-operator|.
-name|declareString
-argument_list|(
-name|Builder
-operator|::
-name|setFile
-argument_list|,
-name|ScriptType
-operator|.
-name|FILE
 operator|.
 name|getParseField
 argument_list|()
@@ -1539,7 +1369,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for a script that does not need to use compiler options.      * @param type     The {@link ScriptType}.      * @param lang     The language for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE} or      *                 {@link ScriptType#FILE}.  For {@link ScriptType#STORED} scripts this should be null, but can      *                 be specified to access scripts stored as part of the stored scripts deprecated API.      * @param idOrCode The id for this {@link Script} if the {@link ScriptType} is {@link ScriptType#FILE} or {@link ScriptType#STORED}.      *                 The code for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      * @param params   The user-defined params to be bound for script execution.      */
+comment|/**      * Constructor for a script that does not need to use compiler options.      * @param type     The {@link ScriptType}.      * @param lang     The language for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      *                 For {@link ScriptType#STORED} scripts this should be null, but can      *                 be specified to access scripts stored as part of the stored scripts deprecated API.      * @param idOrCode The id for this {@link Script} if the {@link ScriptType} is {@link ScriptType#STORED}.      *                 The code for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      * @param params   The user-defined params to be bound for script execution.      */
 DECL|method|Script
 specifier|public
 name|Script
@@ -1587,7 +1417,7 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for a script that requires the use of compiler options.      * @param type     The {@link ScriptType}.      * @param lang     The language for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE} or      *                 {@link ScriptType#FILE}.  For {@link ScriptType#STORED} scripts this should be null, but can      *                 be specified to access scripts stored as part of the stored scripts deprecated API.      * @param idOrCode The id for this {@link Script} if the {@link ScriptType} is {@link ScriptType#FILE} or {@link ScriptType#STORED}.      *                 The code for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      * @param options  The map of compiler options for this {@link Script} if the {@link ScriptType}      *                 is {@link ScriptType#INLINE}, {@code null} otherwise.      * @param params   The user-defined params to be bound for script execution.      */
+comment|/**      * Constructor for a script that requires the use of compiler options.      * @param type     The {@link ScriptType}.      * @param lang     The language for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      *                 For {@link ScriptType#STORED} scripts this should be null, but can      *                 be specified to access scripts stored as part of the stored scripts deprecated API.      * @param idOrCode The id for this {@link Script} if the {@link ScriptType} is {@link ScriptType#STORED}.      *                 The code for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      * @param options  The map of compiler options for this {@link Script} if the {@link ScriptType}      *                 is {@link ScriptType#INLINE}, {@code null} otherwise.      * @param params   The user-defined params to be bound for script execution.      */
 DECL|method|Script
 specifier|public
 name|Script
@@ -1725,61 +1555,6 @@ operator|+
 name|ScriptType
 operator|.
 name|STORED
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] scripts"
-argument_list|)
-throw|;
-block|}
-name|this
-operator|.
-name|options
-operator|=
-literal|null
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|type
-operator|==
-name|ScriptType
-operator|.
-name|FILE
-condition|)
-block|{
-name|this
-operator|.
-name|lang
-operator|=
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|lang
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|options
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"options must be null for ["
-operator|+
-name|ScriptType
-operator|.
-name|FILE
 operator|.
 name|getParseField
 argument_list|()
@@ -2742,7 +2517,7 @@ return|return
 name|type
 return|;
 block|}
-comment|/**      * @return The language for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE} or      *         {@link ScriptType#FILE}.  For {@link ScriptType#STORED} scripts this should be null, but can      *         be specified to access scripts stored as part of the stored scripts deprecated API.      */
+comment|/**      * @return The language for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      *         For {@link ScriptType#STORED} scripts this should be null, but can      *         be specified to access scripts stored as part of the stored scripts deprecated API.      */
 DECL|method|getLang
 specifier|public
 name|String
@@ -2753,7 +2528,7 @@ return|return
 name|lang
 return|;
 block|}
-comment|/**      * @return The id for this {@link Script} if the {@link ScriptType} is {@link ScriptType#FILE} or {@link ScriptType#STORED}.      *         The code for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      */
+comment|/**      * @return The id for this {@link Script} if the {@link ScriptType} is {@link ScriptType#STORED}.      *         The code for this {@link Script} if the {@link ScriptType} is {@link ScriptType#INLINE}.      */
 DECL|method|getIdOrCode
 specifier|public
 name|String

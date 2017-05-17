@@ -2146,10 +2146,6 @@ name|SCRIPT_CACHE_EXPIRE_SETTING
 argument_list|,
 name|ScriptService
 operator|.
-name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
-argument_list|,
-name|ScriptService
-operator|.
 name|SCRIPT_MAX_SIZE_IN_BYTES
 argument_list|,
 name|ScriptService
@@ -2219,10 +2215,6 @@ argument_list|,
 name|Environment
 operator|.
 name|PATH_REPO_SETTING
-argument_list|,
-name|Environment
-operator|.
-name|PATH_SCRIPTS_SETTING
 argument_list|,
 name|Environment
 operator|.

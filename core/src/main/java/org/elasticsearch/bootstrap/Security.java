@@ -1256,25 +1256,6 @@ argument_list|,
 literal|"read,readlink"
 argument_list|)
 expr_stmt|;
-name|addPath
-argument_list|(
-name|policy
-argument_list|,
-name|Environment
-operator|.
-name|PATH_SCRIPTS_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|environment
-operator|.
-name|scriptsFile
-argument_list|()
-argument_list|,
-literal|"read,readlink"
-argument_list|)
-expr_stmt|;
 comment|// read-write dirs
 name|addPath
 argument_list|(
