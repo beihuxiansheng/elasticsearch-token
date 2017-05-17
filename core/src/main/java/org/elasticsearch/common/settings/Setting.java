@@ -456,10 +456,6 @@ comment|/**          * should be filtered in some api (mask password/credentials
 DECL|enum constant|Filtered
 name|Filtered
 block|,
-comment|/**          * iff this setting is shared with more than one module ie. can be defined multiple times.          */
-DECL|enum constant|Shared
-name|Shared
-block|,
 comment|/**          * iff this setting can be dynamically updateable          */
 DECL|enum constant|Dynamic
 name|Dynamic
@@ -1071,24 +1067,6 @@ argument_list|(
 name|Property
 operator|.
 name|Deprecated
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns<code>true</code> if this setting is shared with more than one other module or plugin, otherwise<code>false</code>      */
-DECL|method|isShared
-specifier|public
-name|boolean
-name|isShared
-parameter_list|()
-block|{
-return|return
-name|properties
-operator|.
-name|contains
-argument_list|(
-name|Property
-operator|.
-name|Shared
 argument_list|)
 return|;
 block|}
