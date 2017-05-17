@@ -475,18 +475,6 @@ name|getRegisteredScriptEngineServices
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|scriptEngineService
-operator|==
-name|NativeScriptEngine
-operator|.
-name|class
-condition|)
-block|{
-comment|// native scripts are always enabled, and their settings can not be changed
-continue|continue;
-block|}
 specifier|final
 name|String
 name|language

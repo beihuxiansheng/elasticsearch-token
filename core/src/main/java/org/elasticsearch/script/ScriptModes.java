@@ -545,23 +545,6 @@ name|ScriptContext
 name|scriptContext
 parameter_list|)
 block|{
-comment|//native scripts are always enabled as they are static by definition
-if|if
-condition|(
-name|NativeScriptEngine
-operator|.
-name|NAME
-operator|.
-name|equals
-argument_list|(
-name|lang
-argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 if|if
 condition|(
 name|typesAllowed
