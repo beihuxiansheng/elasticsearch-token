@@ -2165,6 +2165,33 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|ranges
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No [ranges] specified for the ["
+operator|+
+name|this
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] aggregation"
+argument_list|)
+throw|;
+block|}
 for|for
 control|(
 name|Range
