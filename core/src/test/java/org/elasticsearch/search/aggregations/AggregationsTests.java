@@ -1716,8 +1716,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|createTestInstance
-specifier|private
-specifier|static
+specifier|public
+specifier|final
 name|InternalAggregations
 name|createTestInstance
 parameter_list|()

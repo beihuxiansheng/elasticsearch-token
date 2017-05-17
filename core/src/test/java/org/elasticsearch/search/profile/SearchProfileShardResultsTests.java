@@ -466,8 +466,6 @@ argument_list|)
 decl_stmt|;
 name|SearchProfileShardResults
 name|parsed
-init|=
-literal|null
 decl_stmt|;
 try|try
 init|(
