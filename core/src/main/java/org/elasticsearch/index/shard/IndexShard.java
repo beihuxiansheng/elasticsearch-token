@@ -5344,7 +5344,7 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-comment|/*          * We allow flushes while recovery since we allow operations to happen while recovering and          * we want to keep the translog under control (up to deletes, which we do not GC). Yet, we          * do not use flush internally to clear deletes and flush the index writer since we use          * Engine#writeIndexingBuffer for this now.          */
+comment|/*          * We allow flushes while recovery since we allow operations to happen while recovering and we want to keep the translog under          * control (up to deletes, which we do not GC). Yet, we do not use flush internally to clear deletes and flush the index writer          * since we use Engine#writeIndexingBuffer for this now.          */
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
@@ -7787,7 +7787,7 @@ name|repository
 argument_list|)
 return|;
 block|}
-comment|/**      * Tests whether or not the translog should be flushed. This test is based on the current size      * of the translog comparted to the configured flush threshold size.      *      * @return {@code true} if the translog should be flushed      */
+comment|/**      * Tests whether or not the translog should be flushed. This test is based on the current size of the translog comparted to the      * configured flush threshold size.      *      * @return {@code true} if the translog should be flushed      */
 DECL|method|shouldFlush
 name|boolean
 name|shouldFlush
@@ -7839,7 +7839,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Tests whether or not the translog generation should be rolled to a new generation. This test      * is based on the size of the current generation compared to the configured generation      * threshold size.      *      * @return {@code true} if the current generation should be rolled to a new generation      */
+comment|/**      * Tests whether or not the translog generation should be rolled to a new generation. This test is based on the size of the current      * generation compared to the configured generation threshold size.      *      * @return {@code true} if the current generation should be rolled to a new generation      */
 DECL|method|shouldRollTranslogGeneration
 name|boolean
 name|shouldRollTranslogGeneration
@@ -10519,7 +10519,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/**      * Schedules a flush or translog generation roll if needed but will not schedule more than one      * concurrently. The operation will be executed asynchronously on the flush thread pool.      */
+comment|/**      * Schedules a flush or translog generation roll if needed but will not schedule more than one concurrently. The operation will be      * executed asynchronously on the flush thread pool.      */
 end_comment
 
 begin_function
@@ -10550,7 +10550,7 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|/*                  * We have to check again since otherwise there is a race when a thread passes the                  * first check next to another thread which performs the operation quickly enough to                  * finish before the current thread could flip the flag. In that situation, we have                  * an extra operation.                  *                  * Additionally, a flush implicitly executes a translog generation roll so if we                  * execute a flush then we do not need to check if we should roll the translog                  * generation.                  */
+comment|/*                  * We have to check again since otherwise there is a race when a thread passes the first check next to another thread which                  * performs the operation quickly enough to  finish before the current thread could flip the flag. In that situation, we                  * have an extra operation.                  *                  * Additionally, a flush implicitly executes a translog generation roll so if we execute a flush then we do not need to                  * check if we should roll the translog generation.                  */
 if|if
 condition|(
 name|shouldFlush

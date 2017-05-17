@@ -37,10 +37,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory to create instances of either {@link ExecutableScript} or {@link SearchScript}. Note,  * if this factory creates {@link SearchScript}, it must extend {@link AbstractSearchScript}.  *  * @see AbstractExecutableScript  * @see AbstractSearchScript  * @see AbstractLongSearchScript  * @see AbstractDoubleSearchScript  */
+comment|/**  * A factory to create instances of either {@link ExecutableScript} or {@link SearchScript}. Note,  * if this factory creates {@link SearchScript}, it must extend {@link AbstractSearchScript}.  *  * @see AbstractExecutableScript  * @see AbstractSearchScript  * @see AbstractLongSearchScript  * @see AbstractDoubleSearchScript  * @deprecated Create a {@link ScriptEngine} instead of using native scripts  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|NativeScriptFactory
 specifier|public
 interface|interface

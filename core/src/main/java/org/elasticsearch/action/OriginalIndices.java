@@ -70,6 +70,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used to keep track of original indices within internal (e.g. shard level) requests  */
 end_comment
@@ -252,6 +262,33 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"OriginalIndices{"
+operator|+
+literal|"indices="
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|indices
+argument_list|)
+operator|+
+literal|", indicesOptions="
+operator|+
+name|indicesOptions
+operator|+
+literal|'}'
+return|;
 block|}
 block|}
 end_class

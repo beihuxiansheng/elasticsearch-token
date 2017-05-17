@@ -417,6 +417,7 @@ argument_list|()
 operator|==
 literal|1
 operator|&&
+comment|// we have to allow resetting these settings otherwise users can't unblock an index
 name|IndexMetaData
 operator|.
 name|INDEX_BLOCKS_METADATA_SETTING
@@ -432,6 +433,18 @@ operator|||
 name|IndexMetaData
 operator|.
 name|INDEX_READ_ONLY_SETTING
+operator|.
+name|exists
+argument_list|(
+name|request
+operator|.
+name|settings
+argument_list|()
+argument_list|)
+operator|||
+name|IndexMetaData
+operator|.
+name|INDEX_BLOCKS_READ_ONLY_ALLOW_DELETE_SETTING
 operator|.
 name|exists
 argument_list|(

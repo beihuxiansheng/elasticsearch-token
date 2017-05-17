@@ -425,7 +425,7 @@ comment|/**      * The 507 (Insufficient Storage) status code means the method c
 DECL|enum constant|INSUFFICIENT_STORAGE
 name|INSUFFICIENT_STORAGE
 argument_list|(
-literal|506
+literal|507
 argument_list|)
 block|;
 DECL|field|CODE_TO_STATUS

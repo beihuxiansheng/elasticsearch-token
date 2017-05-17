@@ -405,6 +405,11 @@ literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Native scripts are deprecated. Use a custom ScriptEngine to write scripts in java."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFineGrainedSettingsDontAffectNativeScripts
 specifier|public
@@ -663,6 +668,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|assertWarnings
+argument_list|(
+literal|"Native scripts are deprecated. Use a custom ScriptEngine to write scripts in java."
+argument_list|)
+expr_stmt|;
 block|}
 DECL|class|MyNativeScriptFactory
 specifier|public

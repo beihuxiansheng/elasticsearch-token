@@ -690,25 +690,27 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"if the minimum compatibility version moves past 5.0.3, remove the special casing in DiscoverNode(StreamInput) and "
+literal|"if the minimum index compatibility version moves past 5.0.3, remove the special casing in DiscoverNode(StreamInput)"
 operator|+
-literal|"the TransportAddress(StreamInput, String) constructor"
+literal|" and the TransportAddress(StreamInput, String) constructor"
 argument_list|,
 name|Version
 operator|.
 name|CURRENT
 operator|.
-name|minimumCompatibilityVersion
+name|minimumIndexCompatibilityVersion
 argument_list|()
 operator|.
-name|onOrAfter
+name|after
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_3_UNRELEASED
+name|V_5_0_2
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// serialization can happen from an old cluster-state in a full cluster restart
+comment|// hence we need to maintain this until we drop index bwc
 block|}
 block|}
 end_class

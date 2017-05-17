@@ -1672,6 +1672,10 @@ name|MetaData
 operator|.
 name|SETTING_READ_ONLY_SETTING
 argument_list|,
+name|MetaData
+operator|.
+name|SETTING_READ_ONLY_ALLOW_DELETE_SETTING
+argument_list|,
 name|RecoverySettings
 operator|.
 name|INDICES_RECOVERY_MAX_BYTES_PER_SEC_SETTING

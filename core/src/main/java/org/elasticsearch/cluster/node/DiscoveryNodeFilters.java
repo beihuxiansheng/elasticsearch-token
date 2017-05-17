@@ -216,6 +216,19 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+comment|// this setting gets reset
+block|}
+if|if
+condition|(
 literal|"_ip"
 operator|.
 name|equals

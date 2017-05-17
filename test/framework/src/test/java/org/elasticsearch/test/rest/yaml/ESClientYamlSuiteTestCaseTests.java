@@ -139,7 +139,7 @@ name|yamlSuites
 init|=
 name|ESClientYamlSuiteTestCase
 operator|.
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 literal|""
 argument_list|)
@@ -176,7 +176,7 @@ name|yamlSuites
 init|=
 name|ESClientYamlSuiteTestCase
 operator|.
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 literal|"suite1/10_basic"
 argument_list|)
@@ -187,7 +187,7 @@ name|yamlSuites
 argument_list|,
 literal|"suite1"
 argument_list|,
-literal|"10_basic.yaml"
+literal|"10_basic.yml"
 argument_list|)
 expr_stmt|;
 comment|//extension .yaml is optional
@@ -195,7 +195,7 @@ name|yamlSuites
 operator|=
 name|ESClientYamlSuiteTestCase
 operator|.
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 literal|"suite1/10_basic"
 argument_list|)
@@ -206,7 +206,7 @@ name|yamlSuites
 argument_list|,
 literal|"suite1"
 argument_list|,
-literal|"10_basic.yaml"
+literal|"10_basic.yml"
 argument_list|)
 expr_stmt|;
 block|}
@@ -232,7 +232,7 @@ name|yamlSuites
 init|=
 name|ESClientYamlSuiteTestCase
 operator|.
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 literal|"suite1"
 argument_list|)
@@ -296,7 +296,7 @@ name|yamlSuites
 operator|=
 name|ESClientYamlSuiteTestCase
 operator|.
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 literal|"suite1"
 argument_list|,
@@ -389,7 +389,7 @@ name|yamlSuites
 operator|=
 name|ESClientYamlSuiteTestCase
 operator|.
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 literal|"suite2/10_basic"
 argument_list|,
@@ -461,7 +461,7 @@ argument_list|)
 argument_list|,
 literal|"suite2"
 argument_list|,
-literal|"10_basic.yaml"
+literal|"10_basic.yml"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -511,7 +511,7 @@ name|dir
 operator|.
 name|resolve
 argument_list|(
-literal|"test_loading.yaml"
+literal|"test_loading.yml"
 argument_list|)
 decl_stmt|;
 name|Files

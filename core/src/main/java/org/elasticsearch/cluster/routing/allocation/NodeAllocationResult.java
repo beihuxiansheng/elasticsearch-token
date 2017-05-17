@@ -492,7 +492,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_1_UNRELEASED
+name|V_5_2_1
 argument_list|)
 condition|)
 block|{
@@ -575,7 +575,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_1_UNRELEASED
+name|V_5_2_1
 argument_list|)
 condition|)
 block|{

@@ -398,7 +398,7 @@ name|getAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_2_UNRELEASED
+name|V_5_2_1
 argument_list|)
 argument_list|,
 name|PreBuiltAnalyzers
@@ -409,7 +409,7 @@ name|getAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|V_5_2_3_UNRELEASED
+name|V_5_2_2
 argument_list|)
 argument_list|)
 expr_stmt|;

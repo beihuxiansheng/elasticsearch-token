@@ -806,6 +806,8 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,
+literal|false
+argument_list|,
 name|RestStatus
 operator|.
 name|BAD_REQUEST
@@ -849,6 +851,8 @@ argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 name|RestStatus
 operator|.

@@ -1132,7 +1132,7 @@ name|Version
 operator|.
 name|CURRENT
 operator|.
-name|minimumCompatibilityVersion
+name|minimumIndexCompatibilityVersion
 argument_list|()
 argument_list|)
 expr_stmt|;

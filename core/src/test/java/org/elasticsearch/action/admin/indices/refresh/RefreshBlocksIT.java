@@ -126,13 +126,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|cluster
 operator|.
-name|hamcrest
+name|metadata
 operator|.
-name|ElasticsearchAssertions
+name|IndexMetaData
 operator|.
-name|assertBlocked
+name|SETTING_READ_ONLY_ALLOW_DELETE
 import|;
 end_import
 
@@ -224,6 +224,8 @@ argument_list|,
 name|SETTING_READ_ONLY
 argument_list|,
 name|SETTING_BLOCKS_METADATA
+argument_list|,
+name|SETTING_READ_ONLY_ALLOW_DELETE
 argument_list|)
 control|)
 block|{

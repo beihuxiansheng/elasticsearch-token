@@ -2771,7 +2771,7 @@ name|after
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_6_0_0_alpha1_UNRELEASED
 argument_list|)
 operator|==
 literal|false
@@ -2787,7 +2787,7 @@ operator|.
 name|minimumCompatibilityVersion
 argument_list|()
 operator|+
-literal|"] is after 5.0"
+literal|"] is after 6.0"
 assert|;
 block|}
 comment|/**      * Determines whether a bulk item request should be executed on the replica.      * @return {@link ReplicaItemExecutionMode#NORMAL} upon normal primary execution with no failures      * {@link ReplicaItemExecutionMode#FAILURE} upon primary execution failure after sequence no generation      * {@link ReplicaItemExecutionMode#NOOP} upon primary execution failure before sequence no generation or      * when primary execution resulted in noop (only possible for write requests from pre-6.0 nodes)      */

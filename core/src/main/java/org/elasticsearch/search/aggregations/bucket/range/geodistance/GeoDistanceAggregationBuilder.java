@@ -2297,6 +2297,30 @@ argument_list|()
 index|]
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ranges
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No [ranges] specified for the ["
+operator|+
+name|this
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] aggregation"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|GeoDistanceRangeAggregatorFactory

@@ -114,7 +114,7 @@ argument_list|()
 decl_stmt|;
 comment|/**      * Name used in error reporting.      */
 DECL|field|name
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|name

@@ -5816,14 +5816,14 @@ name|Version
 operator|.
 name|CURRENT
 operator|.
-name|minimumCompatibilityVersion
+name|minimumIndexCompatibilityVersion
 argument_list|()
 operator|.
 name|onOrBefore
 argument_list|(
 name|Version
 operator|.
-name|V_5_1_1_UNRELEASED
+name|V_5_1_1
 argument_list|)
 argument_list|)
 expr_stmt|;

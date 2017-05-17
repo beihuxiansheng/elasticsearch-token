@@ -253,7 +253,7 @@ specifier|static
 name|String
 name|regexWithoutDevicesFilename
 init|=
-literal|"regexes_without_devices.yaml"
+literal|"regexes_without_devices.yml"
 decl_stmt|;
 DECL|field|userAgentConfigDir
 specifier|private
@@ -312,7 +312,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/regexes.yaml"
+literal|"/regexes.yml"
 argument_list|)
 argument_list|,
 name|StandardCharsets
@@ -1069,7 +1069,7 @@ name|put
 argument_list|(
 literal|"regex_file"
 argument_list|,
-literal|"does-not-exist.yaml"
+literal|"does-not-exist.yml"
 argument_list|)
 expr_stmt|;
 name|ElasticsearchParseException
@@ -1104,7 +1104,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[regex_file] regex file [does-not-exist.yaml] doesn't exist (has to exist at node startup)"
+literal|"[regex_file] regex file [does-not-exist.yml] doesn't exist (has to exist at node startup)"
 argument_list|)
 argument_list|)
 expr_stmt|;

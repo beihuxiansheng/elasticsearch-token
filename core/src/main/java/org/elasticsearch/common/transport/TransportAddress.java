@@ -286,7 +286,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read from a stream and use the {@code hostString} when creating the InetAddress if the input comes from a version prior      * {@link Version#V_5_0_3_UNRELEASED} as the hostString was not serialized      */
+comment|/**      * Read from a stream and use the {@code hostString} when creating the InetAddress if the input comes from a version on or prior      * {@link Version#V_5_0_2} as the hostString was not serialized      */
 DECL|method|TransportAddress
 specifier|public
 name|TransportAddress
@@ -394,11 +394,11 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|onOrAfter
+name|after
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_3_UNRELEASED
+name|V_5_0_2
 argument_list|)
 condition|)
 block|{
@@ -545,11 +545,11 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|onOrAfter
+name|after
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_3_UNRELEASED
+name|V_5_0_2
 argument_list|)
 condition|)
 block|{

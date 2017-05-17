@@ -527,6 +527,10 @@ name|INDEX_BLOCKS_METADATA_SETTING
 argument_list|,
 name|IndexMetaData
 operator|.
+name|INDEX_BLOCKS_READ_ONLY_ALLOW_DELETE_SETTING
+argument_list|,
+name|IndexMetaData
+operator|.
 name|INDEX_PRIORITY_SETTING
 argument_list|,
 name|IndexMetaData
