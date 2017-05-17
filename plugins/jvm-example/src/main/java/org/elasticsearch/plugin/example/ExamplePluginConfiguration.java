@@ -146,7 +146,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"jvm-example/example.yaml"
+literal|"jvm-example/example.yml"
 argument_list|)
 decl_stmt|;
 try|try

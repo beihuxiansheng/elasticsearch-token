@@ -206,7 +206,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/regexes.yaml"
+literal|"/regexes.yml"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

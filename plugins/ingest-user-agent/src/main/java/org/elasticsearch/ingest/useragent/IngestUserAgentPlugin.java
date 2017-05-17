@@ -404,7 +404,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/regexes.yaml"
+literal|"/regexes.yml"
 argument_list|)
 argument_list|,
 name|cache
@@ -446,7 +446,7 @@ argument_list|()
 operator|.
 name|getPathMatcher
 argument_list|(
-literal|"glob:**.yaml"
+literal|"glob:**.yml"
 argument_list|)
 decl_stmt|;
 try|try

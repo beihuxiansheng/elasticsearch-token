@@ -4509,7 +4509,7 @@ name|configDir
 operator|.
 name|resolve
 argument_list|(
-literal|"custom.yaml"
+literal|"custom.yml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4600,7 +4600,7 @@ name|envConfigDir
 operator|.
 name|resolve
 argument_list|(
-literal|"custom.yaml"
+literal|"custom.yml"
 argument_list|)
 argument_list|,
 literal|"existing config"
@@ -4646,7 +4646,7 @@ name|configDir
 operator|.
 name|resolve
 argument_list|(
-literal|"custom.yaml"
+literal|"custom.yml"
 argument_list|)
 argument_list|,
 literal|"new config"
@@ -4667,7 +4667,7 @@ name|configDir
 operator|.
 name|resolve
 argument_list|(
-literal|"other.yaml"
+literal|"other.yml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4717,7 +4717,7 @@ name|envConfigDir
 operator|.
 name|resolve
 argument_list|(
-literal|"custom.yaml"
+literal|"custom.yml"
 argument_list|)
 argument_list|,
 name|StandardCharsets
@@ -4757,7 +4757,7 @@ name|envConfigDir
 operator|.
 name|resolve
 argument_list|(
-literal|"other.yaml"
+literal|"other.yml"
 argument_list|)
 argument_list|)
 argument_list|)

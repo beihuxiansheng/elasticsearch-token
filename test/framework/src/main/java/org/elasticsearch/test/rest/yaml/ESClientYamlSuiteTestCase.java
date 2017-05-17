@@ -1076,7 +1076,7 @@ argument_list|>
 argument_list|>
 name|yamlSuites
 init|=
-name|loadYamlSuites
+name|loadSuites
 argument_list|(
 name|paths
 argument_list|)
@@ -1212,7 +1212,7 @@ return|;
 block|}
 comment|/** Find all yaml suites that match the given list of paths from the root test path. */
 comment|// pkg private for tests
-DECL|method|loadYamlSuites
+DECL|method|loadSuites
 specifier|static
 name|Map
 argument_list|<
@@ -1223,7 +1223,7 @@ argument_list|<
 name|Path
 argument_list|>
 argument_list|>
-name|loadYamlSuites
+name|loadSuites
 parameter_list|(
 name|String
 modifier|...
@@ -1317,11 +1317,11 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|".yaml"
+literal|".yml"
 argument_list|)
 condition|)
 block|{
-name|addYamlSuite
+name|addSuite
 argument_list|(
 name|root
 argument_list|,
@@ -1345,7 +1345,7 @@ name|resolve
 argument_list|(
 name|strPath
 operator|+
-literal|".yaml"
+literal|".yml"
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -1356,7 +1356,7 @@ argument_list|(
 name|path
 argument_list|)
 assert|;
-name|addYamlSuite
+name|addSuite
 argument_list|(
 name|root
 argument_list|,
@@ -1372,11 +1372,11 @@ name|files
 return|;
 block|}
 comment|/** Add a single suite file to the set of suites. */
-DECL|method|addYamlSuite
+DECL|method|addSuite
 specifier|private
 specifier|static
 name|void
-name|addYamlSuite
+name|addSuite
 parameter_list|(
 name|Path
 name|root
