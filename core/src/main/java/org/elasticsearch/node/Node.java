@@ -2971,16 +2971,6 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|additionalSettings
-operator|.
-name|addAll
-argument_list|(
-name|scriptModule
-operator|.
-name|getSettings
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// this is as early as we can validate settings at this point. we already pass them to ScriptModule as well as ThreadPool
 comment|// so we might be late here already
 specifier|final
