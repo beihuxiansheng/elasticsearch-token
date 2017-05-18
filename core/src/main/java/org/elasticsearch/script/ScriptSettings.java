@@ -475,18 +475,6 @@ name|getRegisteredScriptEngineServices
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|scriptEngineService
-operator|==
-name|NativeScriptEngine
-operator|.
-name|class
-condition|)
-block|{
-comment|// native scripts are always enabled, and their settings can not be changed
-continue|continue;
-block|}
 specifier|final
 name|String
 name|language
@@ -531,25 +519,6 @@ init|=
 name|defaultNonFileScriptMode
 decl_stmt|;
 comment|// Files are treated differently because they are never default-deny
-if|if
-condition|(
-name|ScriptType
-operator|.
-name|FILE
-operator|==
-name|scriptType
-condition|)
-block|{
-name|defaultLangAndType
-operator|=
-name|ScriptType
-operator|.
-name|FILE
-operator|.
-name|isDefaultEnabled
-argument_list|()
-expr_stmt|;
-block|}
 specifier|final
 name|boolean
 name|defaultIfNothingSet

@@ -2941,12 +2941,6 @@ name|create
 argument_list|(
 name|settings
 argument_list|,
-name|this
-operator|.
-name|environment
-argument_list|,
-name|resourceWatcherService
-argument_list|,
 name|pluginsService
 operator|.
 name|filterPlugins

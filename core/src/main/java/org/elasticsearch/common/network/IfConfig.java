@@ -665,7 +665,10 @@ operator|.
 name|append
 argument_list|(
 literal|" netmask:"
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|NetworkAddress
 operator|.
 name|format
@@ -742,7 +745,10 @@ operator|.
 name|append
 argument_list|(
 literal|" broadcast:"
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|NetworkAddress
 operator|.
 name|format
@@ -915,7 +921,10 @@ operator|.
 name|append
 argument_list|(
 literal|"mtu:"
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|nic
 operator|.
 name|getMTU
@@ -927,7 +936,10 @@ operator|.
 name|append
 argument_list|(
 literal|" index:"
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|nic
 operator|.
 name|getIndex

@@ -903,10 +903,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|NETTY_MAX_CUMULATION_BUFFER_CAPACITY
@@ -935,10 +931,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|NETTY_MAX_COMPOSITE_BUFFER_COMPONENTS
@@ -966,10 +958,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|NETTY_RECEIVE_PREDICTOR_SIZE
@@ -1066,10 +1054,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|maxCumulationBufferCapacity

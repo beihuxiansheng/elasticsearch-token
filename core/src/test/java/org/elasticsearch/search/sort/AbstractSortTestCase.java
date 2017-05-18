@@ -853,16 +853,6 @@ name|ScriptService
 argument_list|(
 name|baseSettings
 argument_list|,
-name|environment
-argument_list|,
-operator|new
-name|ResourceWatcherService
-argument_list|(
-name|baseSettings
-argument_list|,
-literal|null
-argument_list|)
-argument_list|,
 name|scriptEngineRegistry
 argument_list|,
 name|scriptContextRegistry

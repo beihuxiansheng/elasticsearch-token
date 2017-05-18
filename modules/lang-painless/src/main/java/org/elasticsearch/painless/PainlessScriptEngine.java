@@ -389,19 +389,6 @@ return|return
 name|NAME
 return|;
 block|}
-comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */
-annotation|@
-name|Override
-DECL|method|getExtension
-specifier|public
-name|String
-name|getExtension
-parameter_list|()
-block|{
-return|return
-name|NAME
-return|;
-block|}
 comment|/**      * When a script is anonymous (inline), we give it this name.      */
 DECL|field|INLINE_NAME
 specifier|static

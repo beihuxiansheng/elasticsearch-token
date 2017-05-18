@@ -1246,16 +1246,6 @@ name|ScriptService
 argument_list|(
 name|settings
 argument_list|,
-name|environment
-argument_list|,
-operator|new
-name|ResourceWatcherService
-argument_list|(
-name|settings
-argument_list|,
-name|threadPool
-argument_list|)
-argument_list|,
 name|scriptEngineRegistry
 argument_list|,
 name|scriptContextRegistry

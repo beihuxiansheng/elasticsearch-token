@@ -809,8 +809,10 @@ operator|.
 name|append
 argument_list|(
 literal|"]["
-operator|+
-operator|(
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|node
 operator|==
 literal|null
@@ -818,8 +820,10 @@ condition|?
 literal|"X"
 else|:
 literal|"V"
-operator|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"]\n"
 argument_list|)
 expr_stmt|;

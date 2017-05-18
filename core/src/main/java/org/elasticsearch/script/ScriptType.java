@@ -127,21 +127,6 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|)
-block|,
-comment|/**      * FILE scripts are loaded from disk either on start-up or on-the-fly depending on      * user-defined settings.  They will be compiled and cached as soon as they are loaded      * from disk.  They are turned on by default as they should always be safe to execute.      */
-DECL|enum constant|FILE
-name|FILE
-argument_list|(
-literal|2
-argument_list|,
-operator|new
-name|ParseField
-argument_list|(
-literal|"file"
-argument_list|)
-argument_list|,
-literal|true
-argument_list|)
 block|;
 comment|/**      * Reads an int from the input stream and converts it to a {@link ScriptType}.      * @return The ScriptType read from the stream. Throws an {@link IllegalStateException}      * if no ScriptType is found based on the id.      */
 DECL|method|readFrom
@@ -164,20 +149,6 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|FILE
-operator|.
-name|id
-operator|==
-name|id
-condition|)
-block|{
-return|return
-name|FILE
-return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|STORED
@@ -216,21 +187,6 @@ operator|+
 name|id
 operator|+
 literal|"] from stream, expected one of ["
-operator|+
-name|FILE
-operator|.
-name|id
-operator|+
-literal|" ["
-operator|+
-name|FILE
-operator|.
-name|parseField
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"], "
 operator|+
 name|STORED
 operator|.

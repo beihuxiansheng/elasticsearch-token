@@ -1291,10 +1291,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_NETTY_MAX_COMPOSITE_BUFFER_COMPONENTS
@@ -1318,10 +1314,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_WORKER_COUNT
@@ -1376,10 +1368,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_TCP_NO_DELAY
@@ -1405,10 +1393,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_TCP_KEEP_ALIVE
@@ -1434,10 +1418,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_TCP_REUSE_ADDRESS
@@ -1463,10 +1443,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_TCP_SEND_BUFFER_SIZE
@@ -1494,10 +1470,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_TCP_RECEIVE_BUFFER_SIZE
@@ -1525,10 +1497,6 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|SETTING_HTTP_NETTY_RECEIVE_PREDICTOR_SIZE

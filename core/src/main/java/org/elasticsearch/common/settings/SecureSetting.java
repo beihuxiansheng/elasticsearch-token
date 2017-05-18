@@ -140,10 +140,6 @@ argument_list|(
 name|Property
 operator|.
 name|Deprecated
-argument_list|,
-name|Property
-operator|.
-name|Shared
 argument_list|)
 decl_stmt|;
 DECL|field|FIXED_PROPERTIES
