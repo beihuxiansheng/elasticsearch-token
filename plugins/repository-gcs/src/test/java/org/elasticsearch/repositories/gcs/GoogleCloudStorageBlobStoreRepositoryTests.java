@@ -439,9 +439,6 @@ name|Storage
 name|createClient
 parameter_list|(
 name|String
-name|serviceAccount
-parameter_list|,
-name|String
 name|accountName
 parameter_list|,
 name|String
