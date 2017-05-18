@@ -101,16 +101,16 @@ operator|.
 name|MINUTE
 argument_list|)
 comment|// some of the windows test VMs are slow as hell
-DECL|class|Backwards50ClientYamlTestSuiteIT
+DECL|class|MixedClusterClientYamlTestSuiteIT
 specifier|public
 class|class
-name|Backwards50ClientYamlTestSuiteIT
+name|MixedClusterClientYamlTestSuiteIT
 extends|extends
 name|ESClientYamlSuiteTestCase
 block|{
-DECL|method|Backwards50ClientYamlTestSuiteIT
+DECL|method|MixedClusterClientYamlTestSuiteIT
 specifier|public
-name|Backwards50ClientYamlTestSuiteIT
+name|MixedClusterClientYamlTestSuiteIT
 parameter_list|(
 name|ClientYamlTestCandidate
 name|testCandidate
