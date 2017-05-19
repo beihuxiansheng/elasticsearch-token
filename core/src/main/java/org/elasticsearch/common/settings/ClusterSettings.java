@@ -2300,6 +2300,10 @@ name|ZenDiscovery
 operator|.
 name|MASTER_ELECTION_IGNORE_NON_MASTER_PINGS_SETTING
 argument_list|,
+name|ZenDiscovery
+operator|.
+name|MAX_PENDING_CLUSTER_STATES_SETTING
+argument_list|,
 name|UnicastZenPing
 operator|.
 name|DISCOVERY_ZEN_PING_UNICAST_HOSTS_SETTING
