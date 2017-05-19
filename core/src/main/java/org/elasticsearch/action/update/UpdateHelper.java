@@ -2491,6 +2491,7 @@ block|}
 comment|/**      * Applies {@link UpdateRequest#fetchSource()} to the _source of the updated document to be returned in a update response.      * For BWC this function also extracts the {@link UpdateRequest#fields()} from the updated document to be returned in a update response      */
 DECL|method|extractGetResult
 specifier|public
+specifier|static
 name|GetResult
 name|extractGetResult
 parameter_list|(

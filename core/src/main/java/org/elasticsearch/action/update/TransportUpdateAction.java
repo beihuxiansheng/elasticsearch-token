@@ -1509,7 +1509,7 @@ name|update
 operator|.
 name|setGetResult
 argument_list|(
-name|updateHelper
+name|UpdateHelper
 operator|.
 name|extractGetResult
 argument_list|(
@@ -1679,7 +1679,7 @@ name|update
 operator|.
 name|setGetResult
 argument_list|(
-name|updateHelper
+name|UpdateHelper
 operator|.
 name|extractGetResult
 argument_list|(
@@ -1828,7 +1828,7 @@ name|update
 operator|.
 name|setGetResult
 argument_list|(
-name|updateHelper
+name|UpdateHelper
 operator|.
 name|extractGetResult
 argument_list|(
