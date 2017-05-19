@@ -10545,20 +10545,6 @@ argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"script.stored"
-argument_list|,
-literal|"true"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"script.inline"
-argument_list|,
-literal|"true"
-argument_list|)
 comment|// by default we never cache below 10k docs in a segment,
 comment|// bypass this limit so that caching gets some testing in
 comment|// integration tests that usually create few documents

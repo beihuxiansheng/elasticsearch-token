@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ScriptType represents the way a script is stored and retrieved from the {@link ScriptService}.  * It's also used to by {@link ScriptSettings} and {@link ScriptModes} to determine whether or not  * a {@link Script} is allowed to be executed based on both default and user-defined settings.  */
+comment|/**  * ScriptType represents the way a script is stored and retrieved from the {@link ScriptService}.  * It's also used to by {@link ScriptService} to determine whether or not a {@link Script} is  * allowed to be executed based on both default and user-defined settings.  */
 end_comment
 
 begin_enum

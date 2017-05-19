@@ -103,16 +103,6 @@ name|long
 name|getSubsetSize
 parameter_list|()
 function_decl|;
-DECL|method|compareTerm
-name|int
-name|compareTerm
-parameter_list|(
-name|SignificantTerms
-operator|.
-name|Bucket
-name|other
-parameter_list|)
-function_decl|;
 block|}
 annotation|@
 name|Override

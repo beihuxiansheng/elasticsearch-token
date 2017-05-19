@@ -38,33 +38,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Setting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|env
-operator|.
-name|Environment
 import|;
 end_import
 
@@ -77,18 +51,6 @@ operator|.
 name|plugins
 operator|.
 name|ScriptPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|watcher
-operator|.
-name|ResourceWatcherService
 import|;
 end_import
 
@@ -118,29 +80,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
 import|;
 end_import
 
@@ -157,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Manages building {@link ScriptService} and {@link ScriptSettings} from a list of plugins.  */
+comment|/**  * Manages building {@link ScriptService}.  */
 end_comment
 
 begin_class
@@ -166,12 +106,6 @@ specifier|public
 class|class
 name|ScriptModule
 block|{
-DECL|field|scriptSettings
-specifier|private
-specifier|final
-name|ScriptSettings
-name|scriptSettings
-decl_stmt|;
 DECL|field|scriptService
 specifier|private
 specifier|final
@@ -324,16 +258,6 @@ argument_list|(
 name|scriptEngines
 argument_list|)
 decl_stmt|;
-name|scriptSettings
-operator|=
-operator|new
-name|ScriptSettings
-argument_list|(
-name|scriptEngineRegistry
-argument_list|,
-name|scriptContextRegistry
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|scriptService
@@ -346,8 +270,6 @@ argument_list|,
 name|scriptEngineRegistry
 argument_list|,
 name|scriptContextRegistry
-argument_list|,
-name|scriptSettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -367,26 +289,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-comment|/**      * Extra settings for scripts.      */
-DECL|method|getSettings
-specifier|public
-name|List
-argument_list|<
-name|Setting
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-name|getSettings
-parameter_list|()
-block|{
-return|return
-name|scriptSettings
-operator|.
-name|getSettings
-argument_list|()
-return|;
 block|}
 comment|/**      * Service responsible for managing scripts.      */
 DECL|method|getScriptService

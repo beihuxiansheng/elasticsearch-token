@@ -223,18 +223,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.engine.expression.stored.update"
+literal|"script.contexts_allowed"
 argument_list|,
-literal|"false"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|put
-argument_list|(
-literal|"script.engine.expression.stored.search"
-argument_list|,
-literal|"false"
+literal|"update"
 argument_list|)
 expr_stmt|;
 return|return
@@ -495,7 +486,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"scripts of type [stored], operation [search] and lang [expression] are disabled"
+literal|"cannot execute scripts using [search] context"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -566,7 +557,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"scripts of type [stored], operation [aggs] and lang [expression] are disabled"
+literal|"cannot execute scripts using [aggs] context"
 argument_list|)
 argument_list|)
 expr_stmt|;

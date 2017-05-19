@@ -78,16 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|DocWriteRequest
@@ -186,9 +176,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|replication
-operator|.
-name|ReplicationOperation
+name|TransportActions
 import|;
 end_import
 
@@ -202,7 +190,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|TransportActions
+name|replication
+operator|.
+name|ReplicationOperation
 import|;
 end_import
 
@@ -533,20 +523,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperService
 import|;
 end_import
 
@@ -2757,39 +2733,6 @@ comment|/**          * When primary execution failed after sequence no was gener
 DECL|enum constant|FAILURE
 name|FAILURE
 block|}
-static|static
-block|{
-assert|assert
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|minimumCompatibilityVersion
-argument_list|()
-operator|.
-name|after
-argument_list|(
-name|Version
-operator|.
-name|V_6_0_0_alpha1_UNRELEASED
-argument_list|)
-operator|==
-literal|false
-operator|:
-literal|"Remove logic handling NoOp result from primary response; see TODO in replicaItemExecutionMode"
-operator|+
-literal|" as the current minimum compatible version ["
-operator|+
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|minimumCompatibilityVersion
-argument_list|()
-operator|+
-literal|"] is after 6.0"
-assert|;
-block|}
 comment|/**      * Determines whether a bulk item request should be executed on the replica.      * @return {@link ReplicaItemExecutionMode#NORMAL} upon normal primary execution with no failures      * {@link ReplicaItemExecutionMode#FAILURE} upon primary execution failure after sequence no generation      * {@link ReplicaItemExecutionMode#NOOP} upon primary execution failure before sequence no generation or      * when primary execution resulted in noop (only possible for write requests from pre-6.0 nodes)      */
 DECL|method|replicaItemExecutionMode
 specifier|static
@@ -2866,10 +2809,11 @@ comment|// no seq no generated, ignore replication
 block|}
 else|else
 block|{
-comment|// NOTE: write requests originating from pre-6.0 nodes can send a no-op operation to
-comment|// the replica; we ignore replication
-comment|// TODO: remove noOp result check from primary response, when pre-6.0 nodes are not supported
-comment|// we should return ReplicationItemExecutionMode.NORMAL instead
+comment|// TODO: once we know for sure that every operation that has been processed on the primary is assigned a seq#
+comment|// (i.e., all nodes on the cluster are on v6.0.0 or higher) we can use the existence of a seq# to indicate whether
+comment|// an operation should be processed or be treated as a noop. This means we could remove this method and the
+comment|// ReplicaItemExecutionMode enum and have a simple boolean check for seq != UNASSIGNED_SEQ_NO which will work for
+comment|// both failures and indexing operations.
 return|return
 name|primaryResponse
 operator|.
