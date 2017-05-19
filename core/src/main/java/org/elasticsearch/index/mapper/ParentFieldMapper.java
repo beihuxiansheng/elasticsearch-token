@@ -294,7 +294,7 @@ name|fielddata
 operator|.
 name|plain
 operator|.
-name|ParentChildIndexFieldData
+name|DocValuesIndexFieldData
 import|;
 end_import
 
@@ -1347,7 +1347,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|ParentChildIndexFieldData
+name|DocValuesIndexFieldData
 operator|.
 name|Builder
 argument_list|()

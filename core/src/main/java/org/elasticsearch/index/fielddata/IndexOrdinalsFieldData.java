@@ -44,6 +44,20 @@ name|IndexReader
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|MultiDocValues
+import|;
+end_import
+
 begin_comment
 comment|/**  * Specialization of {@link IndexFieldData} for data that is indexed with ordinals.  */
 end_comment
@@ -84,6 +98,14 @@ name|indexReader
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Returns the underlying {@link MultiDocValues.OrdinalMap} for this fielddata      * or null if global ordinals are not needed (constant value or single segment).      */
+DECL|method|getOrdinalMap
+name|MultiDocValues
+operator|.
+name|OrdinalMap
+name|getOrdinalMap
+parameter_list|()
 function_decl|;
 block|}
 end_interface

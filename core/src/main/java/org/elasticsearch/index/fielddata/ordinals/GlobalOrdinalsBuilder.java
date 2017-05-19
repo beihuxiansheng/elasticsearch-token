@@ -524,7 +524,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|InternalGlobalOrdinalsIndexFieldData
+name|GlobalOrdinalsIndexFieldData
 argument_list|(
 name|indexSettings
 argument_list|,
@@ -725,7 +725,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|InternalGlobalOrdinalsIndexFieldData
+name|GlobalOrdinalsIndexFieldData
 argument_list|(
 name|indexSettings
 argument_list|,

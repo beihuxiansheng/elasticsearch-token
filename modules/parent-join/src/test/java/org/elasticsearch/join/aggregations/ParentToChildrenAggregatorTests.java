@@ -1597,7 +1597,7 @@ name|ParentFieldMapper
 operator|.
 name|Builder
 argument_list|(
-literal|"parent"
+literal|"parent_type"
 argument_list|)
 operator|.
 name|type
