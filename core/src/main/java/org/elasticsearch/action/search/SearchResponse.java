@@ -964,7 +964,7 @@ name|START_OBJECT
 argument_list|,
 name|parser
 operator|.
-name|currentToken
+name|nextToken
 argument_list|()
 argument_list|,
 name|parser
