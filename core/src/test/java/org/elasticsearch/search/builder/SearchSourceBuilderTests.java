@@ -478,6 +478,7 @@ expr_stmt|;
 block|}
 DECL|method|assertParseSearchSource
 specifier|private
+specifier|static
 name|void
 name|assertParseSearchSource
 parameter_list|(

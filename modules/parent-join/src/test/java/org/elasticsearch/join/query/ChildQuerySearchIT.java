@@ -22130,7 +22130,7 @@ literal|"plain"
 block|,
 literal|"fvh"
 block|,
-literal|"postings"
+literal|"unified"
 block|}
 decl_stmt|;
 for|for
