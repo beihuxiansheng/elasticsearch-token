@@ -66,31 +66,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|Tokenizer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|Version
 import|;
 end_import
 
@@ -170,6 +146,20 @@ name|index
 operator|.
 name|analysis
 operator|.
+name|PreConfiguredTokenizer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
 name|PreConfiguredTokenFilter
 import|;
 end_import
@@ -220,20 +210,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|analysis
-operator|.
-name|PreBuiltCacheFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -259,18 +235,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|BiFunction
 import|;
 end_import
 
@@ -393,7 +357,7 @@ name|emptyMap
 argument_list|()
 return|;
 block|}
-comment|/**      * Override to add additional pre-configured token filters.      */
+comment|/**      * Override to add additional pre-configured {@link TokenFilter}s.      */
 DECL|method|getPreConfiguredTokenFilters
 specifier|default
 name|List
@@ -401,6 +365,21 @@ argument_list|<
 name|PreConfiguredTokenFilter
 argument_list|>
 name|getPreConfiguredTokenFilters
+parameter_list|()
+block|{
+return|return
+name|emptyList
+argument_list|()
+return|;
+block|}
+comment|/**      * Override to add additional pre-configured {@link Tokenizer}.      */
+DECL|method|getPreConfiguredTokenizers
+specifier|default
+name|List
+argument_list|<
+name|PreConfiguredTokenizer
+argument_list|>
+name|getPreConfiguredTokenizers
 parameter_list|()
 block|{
 return|return
