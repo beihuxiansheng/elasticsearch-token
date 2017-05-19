@@ -216,9 +216,13 @@ specifier|final
 name|int
 name|numRanges
 init|=
+name|randomIntBetween
+argument_list|(
 literal|1
+argument_list|,
+literal|10
+argument_list|)
 decl_stmt|;
-comment|//randomIntBetween(1, 10);
 name|List
 argument_list|<
 name|Tuple
