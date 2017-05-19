@@ -3893,40 +3893,6 @@ init|=
 name|createTestInstance
 argument_list|()
 decl_stmt|;
-comment|//norelease Remove this assumption when all aggregations can be parsed back.
-name|assumeTrue
-argument_list|(
-literal|"This test does not support the aggregation type yet"
-argument_list|,
-name|getNamedXContents
-argument_list|()
-operator|.
-name|stream
-argument_list|()
-operator|.
-name|filter
-argument_list|(
-name|entry
-lambda|->
-name|entry
-operator|.
-name|name
-operator|.
-name|match
-argument_list|(
-name|aggregation
-operator|.
-name|getType
-argument_list|()
-argument_list|)
-argument_list|)
-operator|.
-name|count
-argument_list|()
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
 specifier|final
 name|Aggregation
 name|parsedAggregation
@@ -3950,9 +3916,9 @@ name|parsedAggregation
 argument_list|)
 expr_stmt|;
 block|}
-comment|//norelease TODO make abstract
 DECL|method|assertFromXContent
 specifier|protected
+specifier|abstract
 name|void
 name|assertFromXContent
 parameter_list|(
@@ -3964,7 +3930,7 @@ name|parsedAggregation
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+function_decl|;
 annotation|@
 name|SuppressWarnings
 argument_list|(

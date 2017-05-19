@@ -70,18 +70,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|DocValueFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|aggregations
 operator|.
 name|ParsedAggregation
@@ -121,15 +109,10 @@ name|String
 name|getValueAsString
 parameter_list|()
 block|{
-comment|// InternalCardinality doesn't print "value_as_string", but you can get a formatted value using
-comment|// getValueAsString(). That method uses the raw formatter so we also use it here.
-comment|//norelease is it worth doing Double.toString(value) and removing the dependency to DocValueFormat.RAW ?
 return|return
-name|DocValueFormat
+name|Double
 operator|.
-name|RAW
-operator|.
-name|format
+name|toString
 argument_list|(
 operator|(
 name|double
