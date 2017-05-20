@@ -4136,18 +4136,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isInlineScriptEnabled
-specifier|public
-name|boolean
-name|isInlineScriptEnabled
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 comment|/**      * Mock plugin for the {@link FieldValueScriptEngine}      */
 DECL|class|FieldValueScriptPlugin
@@ -4539,18 +4527,6 @@ literal|false
 return|;
 block|}
 block|}
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isInlineScriptEnabled
-specifier|public
-name|boolean
-name|isInlineScriptEnabled
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 block|}

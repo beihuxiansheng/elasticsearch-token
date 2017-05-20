@@ -756,21 +756,6 @@ block|}
 block|}
 end_class
 
-begin_function
-annotation|@
-name|Override
-DECL|method|isInlineScriptEnabled
-specifier|public
-name|boolean
-name|isInlineScriptEnabled
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-end_function
-
 unit|}
 end_unit
 

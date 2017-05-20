@@ -1670,18 +1670,6 @@ name|void
 name|close
 parameter_list|()
 block|{}
-annotation|@
-name|Override
-DECL|method|isInlineScriptEnabled
-specifier|public
-name|boolean
-name|isInlineScriptEnabled
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 end_class
 
