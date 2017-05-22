@@ -6549,9 +6549,8 @@ argument_list|()
 return|;
 block|}
 return|return
+operator|new
 name|ScriptModule
-operator|.
-name|create
 argument_list|(
 name|Settings
 operator|.

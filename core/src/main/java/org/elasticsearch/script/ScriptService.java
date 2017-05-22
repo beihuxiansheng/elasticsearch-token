@@ -737,6 +737,17 @@ name|ScriptEngine
 argument_list|>
 name|engines
 decl_stmt|;
+DECL|field|contexts
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ScriptContext
+argument_list|>
+name|contexts
+decl_stmt|;
 DECL|field|cache
 specifier|private
 specifier|final
@@ -747,12 +758,6 @@ argument_list|,
 name|CompiledScript
 argument_list|>
 name|cache
-decl_stmt|;
-DECL|field|scriptContextRegistry
-specifier|private
-specifier|final
-name|ScriptContextRegistry
-name|scriptContextRegistry
 decl_stmt|;
 DECL|field|scriptMetrics
 specifier|private
@@ -804,11 +809,14 @@ name|ScriptEngine
 argument_list|>
 name|engines
 parameter_list|,
-name|ScriptContextRegistry
-name|scriptContextRegistry
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|ScriptContext
+argument_list|>
+name|contexts
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -833,11 +841,15 @@ argument_list|(
 name|engines
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|contexts
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|scriptContextRegistry
+name|contexts
 argument_list|)
 expr_stmt|;
 if|if
@@ -1176,9 +1188,9 @@ block|}
 block|}
 if|if
 condition|(
-name|scriptContextRegistry
+name|contexts
 operator|.
-name|isSupportedContext
+name|containsKey
 argument_list|(
 name|settingContext
 argument_list|)
@@ -1217,12 +1229,6 @@ throw|;
 block|}
 block|}
 block|}
-name|this
-operator|.
-name|scriptContextRegistry
-operator|=
-name|scriptContextRegistry
-expr_stmt|;
 name|int
 name|cacheMaxSize
 init|=
@@ -1474,7 +1480,7 @@ name|Script
 name|script
 parameter_list|,
 name|ScriptContext
-name|scriptContext
+name|context
 parameter_list|)
 block|{
 name|Objects
@@ -1488,7 +1494,7 @@ name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|scriptContext
+name|context
 argument_list|)
 expr_stmt|;
 name|ScriptType
@@ -1704,21 +1710,17 @@ decl_stmt|;
 name|boolean
 name|notSupported
 init|=
-name|scriptContext
+name|context
 operator|.
-name|getKey
-argument_list|()
+name|name
 operator|.
 name|equals
 argument_list|(
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|UPDATE
 operator|.
-name|getKey
-argument_list|()
+name|name
 argument_list|)
 decl_stmt|;
 if|if
@@ -1743,10 +1745,9 @@ literal|"],"
 operator|+
 literal|" operation ["
 operator|+
-name|scriptContext
+name|context
 operator|.
-name|getKey
-argument_list|()
+name|name
 operator|+
 literal|"] and lang ["
 operator|+
@@ -1788,14 +1789,13 @@ throw|;
 block|}
 if|if
 condition|(
-name|scriptContextRegistry
+name|contexts
 operator|.
-name|isSupportedContext
+name|containsKey
 argument_list|(
-name|scriptContext
+name|context
 operator|.
-name|getKey
-argument_list|()
+name|name
 argument_list|)
 operator|==
 literal|false
@@ -1807,10 +1807,9 @@ name|IllegalArgumentException
 argument_list|(
 literal|"script context ["
 operator|+
-name|scriptContext
+name|context
 operator|.
-name|getKey
-argument_list|()
+name|name
 operator|+
 literal|"] not supported"
 argument_list|)
@@ -1820,7 +1819,7 @@ if|if
 condition|(
 name|isContextEnabled
 argument_list|(
-name|scriptContext
+name|context
 argument_list|)
 operator|==
 literal|false
@@ -1832,10 +1831,9 @@ name|IllegalArgumentException
 argument_list|(
 literal|"cannot execute scripts using ["
 operator|+
-name|scriptContext
+name|context
 operator|.
-name|getKey
-argument_list|()
+name|name
 operator|+
 literal|"] context"
 argument_list|)
@@ -2232,8 +2230,7 @@ name|contains
 argument_list|(
 name|scriptContext
 operator|.
-name|getKey
-argument_list|()
+name|name
 argument_list|)
 return|;
 block|}

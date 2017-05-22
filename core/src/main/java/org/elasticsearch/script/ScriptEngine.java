@@ -78,16 +78,16 @@ name|String
 name|getType
 parameter_list|()
 function_decl|;
-comment|/**      * Compiles a script.      * @param scriptName name of the script. {@code null} if it is anonymous (inline).      *                                        For a file script, its the file name (with extension).      *                                        For a stored script, its the identifier.      * @param scriptSource actual source of the script      * @param params compile-time parameters (such as flags to the compiler)      */
+comment|/**      * Compiles a script.      * @param name the name of the script. {@code null} if it is anonymous (inline). For a stored script, its the identifier.      * @param code actual source of the script      * @param params compile-time parameters (such as flags to the compiler)      * @return an opaque compiled script which may be cached and later passed to      */
 DECL|method|compile
 name|Object
 name|compile
 parameter_list|(
 name|String
-name|scriptName
+name|name
 parameter_list|,
 name|String
-name|scriptSource
+name|code
 parameter_list|,
 name|Map
 argument_list|<

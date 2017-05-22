@@ -2935,9 +2935,8 @@ specifier|final
 name|ScriptModule
 name|scriptModule
 init|=
+operator|new
 name|ScriptModule
-operator|.
-name|create
 argument_list|(
 name|settings
 argument_list|,

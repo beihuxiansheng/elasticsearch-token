@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContextRegistry
+name|ScriptContext
 import|;
 end_import
 
@@ -171,18 +171,6 @@ argument_list|,
 name|engine
 argument_list|)
 decl_stmt|;
-name|ScriptContextRegistry
-name|scriptContextRegistry
-init|=
-operator|new
-name|ScriptContextRegistry
-argument_list|(
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|ScriptService
 name|scriptService
 init|=
@@ -195,7 +183,9 @@ name|EMPTY
 argument_list|,
 name|engines
 argument_list|,
-name|scriptContextRegistry
+name|ScriptContext
+operator|.
+name|BUILTINS
 argument_list|)
 decl_stmt|;
 name|templateService

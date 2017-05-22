@@ -875,8 +875,6 @@ name|initScript
 argument_list|,
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|AGGS
 argument_list|)
 expr_stmt|;
@@ -913,8 +911,6 @@ name|mapScript
 argument_list|,
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|AGGS
 argument_list|)
 decl_stmt|;
@@ -947,8 +943,6 @@ argument_list|(
 name|combineScript
 argument_list|,
 name|ScriptContext
-operator|.
-name|Standard
 operator|.
 name|AGGS
 argument_list|)

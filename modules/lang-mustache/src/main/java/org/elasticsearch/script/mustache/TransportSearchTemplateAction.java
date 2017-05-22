@@ -354,8 +354,6 @@ name|script
 operator|.
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|SEARCH
 import|;
 end_import

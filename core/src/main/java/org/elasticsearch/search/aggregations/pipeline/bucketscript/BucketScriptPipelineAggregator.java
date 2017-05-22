@@ -631,8 +631,6 @@ name|script
 argument_list|,
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|AGGS
 argument_list|)
 decl_stmt|;

@@ -467,8 +467,6 @@ name|script
 argument_list|,
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|SEARCH
 argument_list|)
 decl_stmt|;

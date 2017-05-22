@@ -231,8 +231,6 @@ name|script
 argument_list|,
 name|ScriptContext
 operator|.
-name|Standard
-operator|.
 name|INGEST
 argument_list|)
 decl_stmt|;
