@@ -6600,61 +6600,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|recoveryState
-argument_list|()
-operator|.
-name|getRecoverySource
-argument_list|()
-operator|.
-name|getType
-argument_list|()
-operator|==
-name|RecoverySource
-operator|.
-name|Type
-operator|.
-name|PEER
-condition|)
-block|{
-comment|// as of 5.5.0, the engine stores the maxUnsafeAutoIdTimestamp in the commit point.
-comment|// This should have baked into the commit by the primary we recover from, regardless of the index age.
-assert|assert
-name|userData
-operator|.
-name|containsKey
-argument_list|(
-name|InternalEngine
-operator|.
-name|MAX_UNSAFE_AUTO_ID_TIMESTAMP_COMMIT_ID
-argument_list|)
-operator|:
-literal|"recovery from remote but "
-operator|+
-name|InternalEngine
-operator|.
-name|MAX_UNSAFE_AUTO_ID_TIMESTAMP_COMMIT_ID
-operator|+
-literal|" is not found in commit"
-assert|;
-block|}
-elseif|else
-if|if
-condition|(
-name|recoveryState
-argument_list|()
-operator|.
-name|getRecoverySource
-argument_list|()
-operator|.
-name|getType
-argument_list|()
-operator|==
-name|RecoverySource
-operator|.
-name|Type
-operator|.
-name|EXISTING_STORE
-operator|&&
 name|indexSettings
 operator|.
 name|getIndexVersionCreated
@@ -6666,8 +6611,26 @@ name|Version
 operator|.
 name|V_5_5_0_UNRELEASED
 argument_list|)
+operator|&&
+comment|// TODO: LOCAL_SHARDS need to transfer this information
+name|recoveryState
+argument_list|()
+operator|.
+name|getRecoverySource
+argument_list|()
+operator|.
+name|getType
+argument_list|()
+operator|!=
+name|RecoverySource
+operator|.
+name|Type
+operator|.
+name|LOCAL_SHARDS
 condition|)
 block|{
+comment|// as of 5.5.0, the engine stores the maxUnsafeAutoIdTimestamp in the commit point.
+comment|// This should have baked into the commit by the primary we recover from, regardless of the index age.
 assert|assert
 name|userData
 operator|.
