@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -39,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An aggregation  */
+comment|/**  * An aggregation. Extends {@link ToXContent} as it makes it easier to print out its content.  */
 end_comment
 
 begin_interface
@@ -47,6 +61,8 @@ DECL|interface|Aggregation
 specifier|public
 interface|interface
 name|Aggregation
+extends|extends
+name|ToXContent
 block|{
 comment|/**      * Delimiter used when prefixing aggregation names with their type      * using the typed_keys parameter      */
 DECL|field|TYPED_KEYS_DELIMITER
@@ -59,6 +75,12 @@ comment|/**      * @return The name of this aggregation.      */
 DECL|method|getName
 name|String
 name|getName
+parameter_list|()
+function_decl|;
+comment|/**      * @return a string representing the type of the aggregation. This type is added to      * the aggregation name in the response, so that it can later be used by clients      * to determine type of the aggregation and parse it into the proper object.      */
+DECL|method|getType
+name|String
+name|getType
 parameter_list|()
 function_decl|;
 comment|/**      * Get the optional byte array metadata that was set on the aggregation      */

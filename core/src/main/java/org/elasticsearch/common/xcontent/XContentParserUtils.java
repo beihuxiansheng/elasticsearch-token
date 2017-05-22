@@ -489,7 +489,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * This method expects that the current token is a {@code XContentParser.Token.FIELD_NAME} and      * that the current field name is the concatenation of a type, delimiter and name (ex: terms#foo      * where "terms" refers to the type of a registered {@link NamedXContentRegistry.Entry}, "#" is      * the delimiter and "foo" the name of the object to parse).      *      * The method splits the field's name to extract the type and name and then parses the object      * using the {@link XContentParser#namedObject(Class, String, Object)} method.      *      * @param parser      the current {@link XContentParser}      * @param delimiter   the delimiter to use to splits the field's name      * @param objectClass the object class of the object to parse      * @param<T>         the type of the object to parse      * @return the parsed object      * @throws IOException if anything went wrong during parsing or if the type or name cannot be derived      *                     from the field's name      */
+comment|/**      * This method expects that the current field name is the concatenation of a type, a delimiter and a name      * (ex: terms#foo where "terms" refers to the type of a registered {@link NamedXContentRegistry.Entry},      * "#" is the delimiter and "foo" the name of the object to parse).      *      * The method splits the field's name to extract the type and name and then parses the object      * using the {@link XContentParser#namedObject(Class, String, Object)} method.      *      * @param parser      the current {@link XContentParser}      * @param delimiter   the delimiter to use to splits the field's name      * @param objectClass the object class of the object to parse      * @param<T>         the type of the object to parse      * @return the parsed object      * @throws IOException if anything went wrong during parsing or if the type or name cannot be derived      *                     from the field's name      */
 DECL|method|parseTypedKeysObject
 specifier|public
 specifier|static
@@ -514,24 +514,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ensureExpectedToken
-argument_list|(
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|FIELD_NAME
-argument_list|,
-name|parser
-operator|.
-name|currentToken
-argument_list|()
-argument_list|,
-name|parser
-operator|::
-name|getTokenLocation
-argument_list|)
-expr_stmt|;
 name|String
 name|currentFieldName
 init|=

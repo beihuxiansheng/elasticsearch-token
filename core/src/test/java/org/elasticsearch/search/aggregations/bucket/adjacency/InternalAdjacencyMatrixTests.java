@@ -62,9 +62,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
-name|PipelineAggregator
+name|InternalMultiBucketAggregationTestCase
 import|;
 end_import
 
@@ -74,9 +72,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|search
 operator|.
-name|InternalAggregationTestCase
+name|aggregations
+operator|.
+name|ParsedMultiBucketAggregation
 import|;
 end_import
 
@@ -84,9 +84,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Before
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregator
 import|;
 end_import
 
@@ -136,7 +142,7 @@ specifier|public
 class|class
 name|InternalAdjacencyMatrixTests
 extends|extends
-name|InternalAggregationTestCase
+name|InternalMultiBucketAggregationTestCase
 argument_list|<
 name|InternalAdjacencyMatrix
 argument_list|>
@@ -151,8 +157,6 @@ name|keys
 decl_stmt|;
 annotation|@
 name|Override
-annotation|@
-name|Before
 DECL|method|setUp
 specifier|public
 name|void
@@ -347,6 +351,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|metaData
+parameter_list|,
+name|InternalAggregations
+name|aggregations
 parameter_list|)
 block|{
 specifier|final
@@ -414,9 +421,7 @@ name|key
 argument_list|,
 name|docCount
 argument_list|,
-name|InternalAggregations
-operator|.
-name|EMPTY
+name|aggregations
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -602,6 +607,25 @@ return|return
 name|InternalAdjacencyMatrix
 operator|::
 operator|new
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|implementationClass
+specifier|protected
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|ParsedMultiBucketAggregation
+argument_list|>
+name|implementationClass
+parameter_list|()
+block|{
+return|return
+name|ParsedAdjacencyMatrix
+operator|.
+name|class
 return|;
 block|}
 block|}

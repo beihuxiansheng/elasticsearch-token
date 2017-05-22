@@ -417,12 +417,14 @@ name|hits
 return|;
 block|}
 DECL|class|Fields
+specifier|public
 specifier|static
 specifier|final
 class|class
 name|Fields
 block|{
 DECL|field|HITS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -431,6 +433,7 @@ init|=
 literal|"hits"
 decl_stmt|;
 DECL|field|TOTAL
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -439,6 +442,7 @@ init|=
 literal|"total"
 decl_stmt|;
 DECL|field|MAX_SCORE
+specifier|public
 specifier|static
 specifier|final
 name|String

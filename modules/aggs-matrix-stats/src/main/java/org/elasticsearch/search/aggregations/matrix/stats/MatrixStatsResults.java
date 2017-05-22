@@ -747,7 +747,17 @@ return|;
 block|}
 comment|/** return the value for two fields in an upper triangular matrix, regardless of row col location. */
 DECL|method|getValFromUpperTriangularMatrix
-specifier|private
+specifier|static
+parameter_list|<
+name|M
+extends|extends
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Double
+argument_list|>
+parameter_list|>
 name|double
 name|getValFromUpperTriangularMatrix
 parameter_list|(
@@ -755,12 +765,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Double
-argument_list|>
+name|M
 argument_list|>
 name|map
 parameter_list|,

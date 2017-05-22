@@ -131,6 +131,16 @@ name|NAME
 init|=
 literal|"mapped_sampler"
 decl_stmt|;
+comment|// InternalSampler and UnmappedSampler share the same parser name, so we use this when identifying the aggregation type
+DECL|field|PARSER_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PARSER_NAME
+init|=
+literal|"sampler"
+decl_stmt|;
 DECL|method|InternalSampler
 name|InternalSampler
 parameter_list|(
@@ -204,13 +214,13 @@ block|}
 annotation|@
 name|Override
 DECL|method|getType
-specifier|protected
+specifier|public
 name|String
 name|getType
 parameter_list|()
 block|{
 return|return
-literal|"sampler"
+name|PARSER_NAME
 return|;
 block|}
 annotation|@

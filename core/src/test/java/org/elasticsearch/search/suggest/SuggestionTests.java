@@ -521,13 +521,9 @@ argument_list|<
 name|Entry
 argument_list|>
 name|entrySupplier
-init|=
-literal|null
 decl_stmt|;
 name|Suggestion
 name|suggestion
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
