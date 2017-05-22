@@ -653,7 +653,7 @@ name|Setting
 operator|.
 name|listSetting
 argument_list|(
-literal|"script.types_allowed"
+literal|"script.allowed_types"
 argument_list|,
 name|Collections
 operator|.
@@ -689,7 +689,7 @@ name|Setting
 operator|.
 name|listSetting
 argument_list|(
-literal|"script.contexts_allowed"
+literal|"script.allowed_contexts"
 argument_list|,
 name|Collections
 operator|.

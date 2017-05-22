@@ -1097,7 +1097,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.types_allowed"
+literal|"script.allowed_types"
 argument_list|,
 literal|"inline"
 argument_list|)
@@ -1163,7 +1163,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.contexts_allowed"
+literal|"script.allowed_contexts"
 argument_list|,
 literal|"search, aggs"
 argument_list|)
@@ -1244,7 +1244,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.types_allowed"
+literal|"script.allowed_types"
 argument_list|,
 literal|"none"
 argument_list|)
@@ -1310,7 +1310,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.contexts_allowed"
+literal|"script.allowed_contexts"
 argument_list|,
 literal|"none"
 argument_list|)

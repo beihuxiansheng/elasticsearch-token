@@ -223,7 +223,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.contexts_allowed"
+literal|"script.allowed_contexts"
 argument_list|,
 literal|"update"
 argument_list|)
