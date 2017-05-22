@@ -703,7 +703,8 @@ return|return
 name|pipelineAggregators
 return|;
 block|}
-comment|/**      * Returns a string representing the type of the aggregation. This type is added to      * the aggregation name in the response, so that it can later be used by REST clients      * to determine the internal type of the aggregation.      */
+annotation|@
+name|Override
 DECL|method|getType
 specifier|public
 name|String

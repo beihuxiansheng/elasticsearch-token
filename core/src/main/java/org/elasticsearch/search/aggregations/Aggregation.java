@@ -77,6 +77,12 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+comment|/**      * @return a string representing the type of the aggregation. This type is added to      * the aggregation name in the response, so that it can later be used by clients      * to determine type of the aggregation and parse it into the proper object.      */
+DECL|method|getType
+name|String
+name|getType
+parameter_list|()
+function_decl|;
 comment|/**      * Get the optional byte array metadata that was set on the aggregation      */
 DECL|method|getMetaData
 name|Map

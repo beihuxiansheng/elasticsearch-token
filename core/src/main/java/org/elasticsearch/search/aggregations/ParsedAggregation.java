@@ -252,15 +252,6 @@ return|return
 name|metadata
 return|;
 block|}
-comment|/**      * Returns a string representing the type of the aggregation. This type is added to      * the aggregation name in the response, so that it can later be used by REST clients      * to determine the internal type of the aggregation.      */
-comment|//TODO it may make sense to move getType to the Aggregation interface given that we are duplicating it in both implementations
-DECL|method|getType
-specifier|public
-specifier|abstract
-name|String
-name|getType
-parameter_list|()
-function_decl|;
 annotation|@
 name|Override
 DECL|method|toXContent

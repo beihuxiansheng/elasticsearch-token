@@ -4176,12 +4176,7 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
-operator|(
-operator|(
-name|ParsedAggregation
-operator|)
 name|parsedAggregation
-operator|)
 operator|.
 name|getType
 argument_list|()
