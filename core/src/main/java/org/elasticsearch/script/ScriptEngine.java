@@ -137,17 +137,6 @@ argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
-comment|/**      * Returns<code>true</code> if this scripting engine can safely accept inline scripts by default. The default is<code>false</code>      */
-DECL|method|isInlineScriptEnabled
-specifier|default
-name|boolean
-name|isInlineScriptEnabled
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 end_interface
 

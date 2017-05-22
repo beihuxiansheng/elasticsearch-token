@@ -1067,7 +1067,7 @@ argument_list|()
 decl_stmt|;
 name|shard
 operator|.
-name|acquirePrimaryOperationLock
+name|acquirePrimaryOperationPermit
 argument_list|(
 name|fut
 argument_list|,

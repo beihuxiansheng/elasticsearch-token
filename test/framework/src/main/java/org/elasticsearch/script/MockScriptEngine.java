@@ -446,18 +446,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{     }
-annotation|@
-name|Override
-DECL|method|isInlineScriptEnabled
-specifier|public
-name|boolean
-name|isInlineScriptEnabled
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|class|MockCompiledScript
 specifier|public
 class|class

@@ -3565,7 +3565,7 @@ argument_list|(
 name|indexShard
 argument_list|)
 operator|.
-name|acquirePrimaryOperationLock
+name|acquirePrimaryOperationPermit
 argument_list|(
 name|any
 argument_list|(
@@ -3681,7 +3681,7 @@ argument_list|(
 name|indexShard
 argument_list|)
 operator|.
-name|acquireReplicaOperationLock
+name|acquireReplicaOperationPermit
 argument_list|(
 name|anyLong
 argument_list|()

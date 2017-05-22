@@ -229,18 +229,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -265,10 +253,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IndexShardOperationsLockTests
+DECL|class|IndexShardOperationPermitsTests
 specifier|public
 class|class
-name|IndexShardOperationsLockTests
+name|IndexShardOperationPermitsTests
 extends|extends
 name|ESTestCase
 block|{
@@ -278,10 +266,10 @@ specifier|static
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|block
+DECL|field|permits
 specifier|private
-name|IndexShardOperationsLock
-name|block
+name|IndexShardOperationPermits
+name|permits
 decl_stmt|;
 annotation|@
 name|BeforeClass
@@ -336,10 +324,10 @@ name|void
 name|createIndexShardOperationsLock
 parameter_list|()
 block|{
-name|block
+name|permits
 operator|=
 operator|new
-name|IndexShardOperationsLock
+name|IndexShardOperationPermits
 argument_list|(
 operator|new
 name|ShardId
@@ -367,7 +355,7 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|semaphore
 operator|.
@@ -384,7 +372,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -519,7 +507,7 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -688,7 +676,7 @@ name|PlainActionFuture
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -741,12 +729,12 @@ name|PlainActionFuture
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|block
+name|permits
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -801,7 +789,7 @@ name|ExecutionException
 throws|,
 name|InterruptedException
 block|{
-name|block
+name|permits
 operator|.
 name|close
 argument_list|()
@@ -814,7 +802,7 @@ name|class
 argument_list|,
 parameter_list|()
 lambda|->
-name|block
+name|permits
 operator|.
 name|blockOperations
 argument_list|(
@@ -879,7 +867,7 @@ name|blockAndWait
 argument_list|()
 init|)
 block|{
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -1184,7 +1172,7 @@ literal|"baz"
 argument_list|)
 expr_stmt|;
 comment|// test both with and without a executor name
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -1199,7 +1187,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -1322,7 +1310,7 @@ lambda|->
 block|{
 try|try
 block|{
-name|block
+name|permits
 operator|.
 name|blockOperations
 argument_list|(
@@ -1469,7 +1457,7 @@ name|PlainActionFuture
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -1494,7 +1482,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1516,7 +1504,7 @@ name|PlainActionFuture
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -1541,7 +1529,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1562,7 +1550,7 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1584,7 +1572,7 @@ expr_stmt|;
 comment|// check idempotence
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1605,7 +1593,7 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1627,7 +1615,7 @@ init|)
 block|{
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1650,7 +1638,7 @@ name|PlainActionFuture
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|block
+name|permits
 operator|.
 name|acquire
 argument_list|(
@@ -1675,7 +1663,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()
@@ -1696,7 +1684,7 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|block
+name|permits
 operator|.
 name|getActiveOperationsCount
 argument_list|()

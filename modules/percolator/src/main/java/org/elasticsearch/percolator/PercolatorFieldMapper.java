@@ -1984,10 +1984,12 @@ expr_stmt|;
 comment|// Fetching of terms, shapes and indexed scripts happen during this rewrite:
 name|queryBuilder
 operator|=
-name|queryBuilder
+name|QueryBuilder
 operator|.
-name|rewrite
+name|rewriteQuery
 argument_list|(
+name|queryBuilder
+argument_list|,
 name|queryShardContext
 argument_list|)
 expr_stmt|;

@@ -726,18 +726,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngineRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptService
 import|;
 end_import
@@ -844,18 +832,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|watcher
-operator|.
-name|ResourceWatcherService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -897,18 +873,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyList
 import|;
 end_import
 
@@ -1197,16 +1161,6 @@ argument_list|,
 name|circuitBreakerService
 argument_list|)
 expr_stmt|;
-name|ScriptEngineRegistry
-name|scriptEngineRegistry
-init|=
-operator|new
-name|ScriptEngineRegistry
-argument_list|(
-name|emptyList
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|ScriptContextRegistry
 name|scriptContextRegistry
 init|=
@@ -1226,7 +1180,10 @@ name|ScriptService
 argument_list|(
 name|settings
 argument_list|,
-name|scriptEngineRegistry
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|,
 name|scriptContextRegistry
 argument_list|)

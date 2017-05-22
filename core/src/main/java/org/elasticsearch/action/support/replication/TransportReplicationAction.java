@@ -276,20 +276,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -465,22 +451,6 @@ operator|.
 name|concurrent
 operator|.
 name|AbstractRunnable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadContext
 import|;
 end_import
 
@@ -1262,7 +1232,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Synchronous replica operation on nodes with replica copies. This is done under the lock form      * {@link IndexShard#acquireReplicaOperationLock(long, ActionListener, String)}      *      * @param shardRequest the request to the replica shard      * @param replica      the replica shard to perform the operation on      */
+comment|/**      * Synchronously execute the specified replica operation. This is done under a permit from      * {@link IndexShard#acquireReplicaOperationPermit(long, ActionListener, String)}.      *      * @param shardRequest the request to the replica shard      * @param replica      the replica shard to perform the operation on      */
 DECL|method|shardOperationOnReplica
 specifier|protected
 specifier|abstract
@@ -3228,7 +3198,7 @@ throw|;
 block|}
 name|replica
 operator|.
-name|acquireReplicaOperationLock
+name|acquireReplicaOperationPermit
 argument_list|(
 name|request
 operator|.
@@ -5042,7 +5012,7 @@ block|}
 decl_stmt|;
 name|indexShard
 operator|.
-name|acquirePrimaryOperationLock
+name|acquirePrimaryOperationPermit
 argument_list|(
 name|onAcquired
 argument_list|,
