@@ -318,7 +318,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 import|;
 end_import
 
@@ -3966,7 +3966,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 argument_list|>
 name|innerHitBuilders
 init|=
@@ -3985,7 +3985,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 operator|.
 name|extractInnerHits
 argument_list|(
@@ -4023,7 +4023,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 operator|.
 name|extractInnerHits
 argument_list|(
@@ -4069,7 +4069,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 argument_list|>
 name|entry
 range|:

@@ -1159,8 +1159,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -1373,8 +1371,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -1654,8 +1650,6 @@ name|emptyMap
 argument_list|()
 argument_list|)
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -2192,8 +2186,6 @@ name|setSize
 argument_list|(
 name|size
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2247,8 +2239,6 @@ name|setSize
 argument_list|(
 name|size
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2890,8 +2880,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3423,8 +3411,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 name|ScoreMode
@@ -3437,8 +3423,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -3666,8 +3650,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 name|ScoreMode
@@ -3680,8 +3662,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -4382,8 +4362,6 @@ name|setName
 argument_list|(
 literal|"kings"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 literal|false
@@ -4399,8 +4377,6 @@ name|setName
 argument_list|(
 literal|"princes"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -4432,8 +4408,6 @@ name|setName
 argument_list|(
 literal|"barons"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 name|ScoreMode
@@ -4473,8 +4447,6 @@ name|setSize
 argument_list|(
 literal|4
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5137,8 +5109,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -5436,8 +5406,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|response
@@ -5736,8 +5704,6 @@ name|MAX_ARRAY_LENGTH
 operator|-
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -5873,8 +5839,6 @@ name|MAX_ARRAY_LENGTH
 operator|-
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|response
@@ -6052,8 +6016,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 name|ScoreMode
@@ -6066,8 +6028,6 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6337,8 +6297,11 @@ argument_list|(
 operator|new
 name|InnerHitBuilder
 argument_list|()
-argument_list|,
+operator|.
+name|setIgnoreUnmapped
+argument_list|(
 literal|true
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

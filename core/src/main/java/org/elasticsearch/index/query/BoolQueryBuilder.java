@@ -2300,7 +2300,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 argument_list|>
 name|innerHits
 parameter_list|)
@@ -2344,7 +2344,7 @@ range|:
 name|clauses
 control|)
 block|{
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 operator|.
 name|extractInnerHits
 argument_list|(

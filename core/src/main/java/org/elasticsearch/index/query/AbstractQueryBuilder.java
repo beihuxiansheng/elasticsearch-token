@@ -1339,7 +1339,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 argument_list|>
 name|innerHits
 parameter_list|)

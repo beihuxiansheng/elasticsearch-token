@@ -519,11 +519,7 @@ init|=
 name|InnerHitBuilderTests
 operator|.
 name|randomInnerHits
-argument_list|(
-literal|false
-argument_list|,
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|builder
 operator|.

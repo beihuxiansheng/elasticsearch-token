@@ -290,7 +290,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 import|;
 end_import
 
@@ -2281,12 +2281,12 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 argument_list|>
 name|innerHits
 parameter_list|)
 block|{
-name|InnerHitBuilder
+name|InnerHitContextBuilder
 operator|.
 name|extractInnerHits
 argument_list|(

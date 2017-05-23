@@ -256,7 +256,7 @@ name|String
 argument_list|,
 name|InnerHitsContext
 operator|.
-name|BaseInnerHits
+name|InnerHitSubContext
 argument_list|>
 name|entry
 range|:
@@ -274,7 +274,7 @@ control|)
 block|{
 name|InnerHitsContext
 operator|.
-name|BaseInnerHits
+name|InnerHitSubContext
 name|innerHits
 init|=
 name|entry
