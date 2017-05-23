@@ -99,6 +99,8 @@ literal|"stash_in_key"
 argument_list|,
 literal|"stash_in_path"
 argument_list|,
+literal|"stash_path_replace"
+argument_list|,
 literal|"warnings"
 argument_list|,
 literal|"yaml"
