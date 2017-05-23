@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -1271,6 +1281,51 @@ throw|;
 block|}
 block|}
 comment|// if not, then use it as the index
+name|int
+name|routingHash
+init|=
+name|Murmur3HashFunction
+operator|.
+name|hash
+argument_list|(
+name|preference
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|nodes
+operator|.
+name|getMinNodeVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1_UNRELEASED
+argument_list|)
+condition|)
+block|{
+comment|// The AllocationService lists shards in a fixed order based on nodes
+comment|// so earlier versions of this class would have a tendency to
+comment|// select the same node across different shardIds.
+comment|// Better overall balancing can be achieved if each shardId opts
+comment|// for a different element in the list by also incorporating the
+comment|// shard ID into the hash of the user-supplied preference key.
+name|routingHash
+operator|=
+literal|31
+operator|*
+name|routingHash
+operator|+
+name|indexShard
+operator|.
+name|shardId
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|awarenessAttributes
@@ -1285,12 +1340,7 @@ name|indexShard
 operator|.
 name|activeInitializingShardsIt
 argument_list|(
-name|Murmur3HashFunction
-operator|.
-name|hash
-argument_list|(
-name|preference
-argument_list|)
+name|routingHash
 argument_list|)
 return|;
 block|}
@@ -1305,12 +1355,7 @@ name|awarenessAttributes
 argument_list|,
 name|nodes
 argument_list|,
-name|Murmur3HashFunction
-operator|.
-name|hash
-argument_list|(
-name|preference
-argument_list|)
+name|routingHash
 argument_list|)
 return|;
 block|}
