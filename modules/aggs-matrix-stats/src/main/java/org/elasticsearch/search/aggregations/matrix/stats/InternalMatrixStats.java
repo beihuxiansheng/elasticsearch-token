@@ -586,6 +586,15 @@ name|fieldY
 argument_list|)
 return|;
 block|}
+DECL|method|getStats
+name|RunningStats
+name|getStats
+parameter_list|()
+block|{
+return|return
+name|stats
+return|;
+block|}
 DECL|method|getResults
 name|MatrixStatsResults
 name|getResults

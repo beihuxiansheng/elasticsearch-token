@@ -184,7 +184,7 @@ end_import
 
 begin_class
 DECL|class|MatrixStatsAggregatorFactory
-specifier|public
+specifier|final
 class|class
 name|MatrixStatsAggregatorFactory
 extends|extends
@@ -204,7 +204,6 @@ name|MultiValueMode
 name|multiValueMode
 decl_stmt|;
 DECL|method|MatrixStatsAggregatorFactory
-specifier|public
 name|MatrixStatsAggregatorFactory
 parameter_list|(
 name|String

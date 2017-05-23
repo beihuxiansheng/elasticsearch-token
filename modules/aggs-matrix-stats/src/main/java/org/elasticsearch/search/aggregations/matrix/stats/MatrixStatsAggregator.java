@@ -274,7 +274,7 @@ end_comment
 
 begin_class
 DECL|class|MatrixStatsAggregator
-specifier|public
+specifier|final
 class|class
 name|MatrixStatsAggregator
 extends|extends
@@ -282,6 +282,7 @@ name|MetricsAggregator
 block|{
 comment|/** Multiple ValuesSource with field names */
 DECL|field|valuesSources
+specifier|private
 specifier|final
 name|NumericMultiValuesSource
 name|valuesSources
@@ -295,7 +296,6 @@ argument_list|>
 name|stats
 decl_stmt|;
 DECL|method|MatrixStatsAggregator
-specifier|public
 name|MatrixStatsAggregator
 parameter_list|(
 name|String
