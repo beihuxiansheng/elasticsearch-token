@@ -507,7 +507,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Calculate task rate (Î»), for a fixed number of tasks and time it took those tasks to be measured      *      * @param totalNumberOfTasks total number of tasks that were measured      * @param totalFrameFrameNanos nanoseconds during which the tasks were received      * @return the rate of tasks in the system      */
+comment|/**      * Calculate task rate (Î»), for a fixed number of tasks and time it took those tasks to be measured      *      * @param totalNumberOfTasks total number of tasks that were measured      * @param totalFrameTaskNanos nanoseconds during which the tasks were received      * @return the rate of tasks in the system      */
 DECL|method|calculateLambda
 specifier|static
 name|double
@@ -519,22 +519,26 @@ name|totalNumberOfTasks
 parameter_list|,
 specifier|final
 name|long
-name|totalFrameFrameNanos
+name|totalFrameTaskNanos
 parameter_list|)
 block|{
 assert|assert
-name|totalFrameFrameNanos
+name|totalFrameTaskNanos
 operator|>
 literal|0
 operator|:
-literal|"cannot calculate for instantaneous tasks"
+literal|"cannot calculate for instantaneous tasks, got: "
+operator|+
+name|totalFrameTaskNanos
 assert|;
 assert|assert
 name|totalNumberOfTasks
 operator|>
 literal|0
 operator|:
-literal|"cannot calculate for no tasks"
+literal|"cannot calculate for no tasks, got: "
+operator|+
+name|totalNumberOfTasks
 assert|;
 comment|// There is no set execution time, instead we adjust the time window based on the
 comment|// number of completed tasks, so there is no background thread required to update the
@@ -547,7 +551,7 @@ name|double
 operator|)
 name|totalNumberOfTasks
 operator|/
-name|totalFrameFrameNanos
+name|totalFrameTaskNanos
 return|;
 block|}
 comment|/**      * Calculate Little's Law (L), which is the "optimal" queue size for a particular task rate (lambda) and targeted response time.      *      * @param lambda the arrival rate of tasks in nanoseconds      * @param targetedResponseTimeNanos nanoseconds for the average targeted response rate of requests      * @return the optimal queue size for the give task rate and targeted response time      */

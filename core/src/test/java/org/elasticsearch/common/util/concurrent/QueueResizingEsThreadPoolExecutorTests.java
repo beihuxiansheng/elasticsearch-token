@@ -1190,7 +1190,7 @@ name|NANOSECONDS
 operator|.
 name|toNanos
 argument_list|(
-literal|50
+literal|100
 argument_list|)
 argument_list|)
 return|;
