@@ -43,11 +43,13 @@ init|=
 literal|false
 decl_stmt|;
 comment|/*          * If assertions are enabled, the following line will be evaluated and enabled will have the value true, otherwise when assertions          * are disabled enabled will have the value false.          */
+comment|// noinspection ConstantConditions,AssertWithSideEffects
 assert|assert
 name|enabled
 operator|=
 literal|true
 assert|;
+comment|// noinspection ConstantConditions
 name|ENABLED
 operator|=
 name|enabled
