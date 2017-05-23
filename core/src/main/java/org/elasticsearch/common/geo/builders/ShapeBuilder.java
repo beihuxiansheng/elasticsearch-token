@@ -80,6 +80,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Assertions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -411,19 +421,11 @@ static|static
 block|{
 comment|// if asserts are enabled we run the debug statements even if they are not logged
 comment|// to prevent exceptions only present if debug enabled
-name|boolean
-name|debug
-init|=
-literal|false
-decl_stmt|;
-assert|assert
-name|debug
-operator|=
-literal|true
-assert|;
 name|DEBUG
 operator|=
-name|debug
+name|Assertions
+operator|.
+name|ENABLED
 expr_stmt|;
 block|}
 DECL|field|DATELINE
