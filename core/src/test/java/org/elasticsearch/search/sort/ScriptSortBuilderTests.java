@@ -219,12 +219,7 @@ name|ScriptSortBuilder
 argument_list|(
 name|mockScript
 argument_list|(
-name|randomAlphaOfLengthBetween
-argument_list|(
-literal|5
-argument_list|,
-literal|10
-argument_list|)
+literal|"dummy"
 argument_list|)
 argument_list|,
 name|type
