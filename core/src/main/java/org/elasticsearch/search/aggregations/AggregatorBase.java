@@ -311,12 +311,10 @@ specifier|final
 name|CircuitBreakerService
 name|breakerService
 decl_stmt|;
-DECL|field|failed
+DECL|field|requestBytesUsed
 specifier|private
-name|boolean
-name|failed
-init|=
-literal|false
+name|long
+name|requestBytesUsed
 decl_stmt|;
 comment|/**      * Constructs a new Aggregator.      *      * @param name                  The name of the aggregation      * @param factories             The factories for all the sub-aggregators under this aggregator      * @param context               The aggregation context      * @param parent                The parent aggregator (may be {@code null} for top level aggregators)      * @param metaData              The metaData associated with this aggregator      */
 DECL|method|AggregatorBase
@@ -514,6 +512,22 @@ comment|// unreachable
 block|}
 block|}
 expr_stmt|;
+name|addRequestCircuitBreakerBytes
+argument_list|(
+name|DEFAULT_WEIGHT
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Increment the number of bytes that have been allocated to service this request      * and potentially trigger a {@link CircuitBreakingException}. The number of bytes      * allocated is automatically decremented with the circuit breaker service on       * closure of this aggregator.      * For performance reasons subclasses should not call this millions of times      * each with small increments and instead batch up into larger allocations.      *       * @param bytesAllocated the number of additional bytes allocated      * @return the cumulative size in bytes allocated by this aggregator to service this request      */
+DECL|method|addRequestCircuitBreakerBytes
+specifier|protected
+name|long
+name|addRequestCircuitBreakerBytes
+parameter_list|(
+name|long
+name|bytesAllocated
+parameter_list|)
+block|{
 try|try
 block|{
 name|this
@@ -529,7 +543,7 @@ argument_list|)
 operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
-name|DEFAULT_WEIGHT
+name|bytesAllocated
 argument_list|,
 literal|"<agg ["
 operator|+
@@ -538,6 +552,15 @@ operator|+
 literal|"]>"
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|requestBytesUsed
+operator|+=
+name|bytesAllocated
+expr_stmt|;
+return|return
+name|requestBytesUsed
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -545,12 +568,6 @@ name|CircuitBreakingException
 name|cbe
 parameter_list|)
 block|{
-name|this
-operator|.
-name|failed
-operator|=
-literal|true
-expr_stmt|;
 throw|throw
 name|cbe
 throw|;
@@ -1060,14 +1077,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-operator|!
-name|this
-operator|.
-name|failed
-condition|)
-block|{
 name|this
 operator|.
 name|breakerService
@@ -1082,10 +1091,11 @@ operator|.
 name|addWithoutBreaking
 argument_list|(
 operator|-
-name|DEFAULT_WEIGHT
+name|this
+operator|.
+name|requestBytesUsed
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Release instance-specific data. */
