@@ -1087,9 +1087,7 @@ comment|// this will cause some back pressure on the search end and eventually w
 comment|// we can't proceed with a search on a cluster level.
 comment|// in the future we might want to just skip the remote nodes in such a case but that can already be implemented on the caller
 comment|// end since they provide the listener.
-name|connectHandler
-operator|.
-name|connect
+name|ensureConnected
 argument_list|(
 name|ActionListener
 operator|.
@@ -1120,6 +1118,46 @@ argument_list|(
 name|searchRequest
 argument_list|,
 name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Ensures that this cluster is connected. If the cluster is connected this operation      * will invoke the listener immediately.      */
+DECL|method|ensureConnected
+specifier|public
+name|void
+name|ensureConnected
+parameter_list|(
+name|ActionListener
+argument_list|<
+name|Void
+argument_list|>
+name|voidActionListener
+parameter_list|)
+block|{
+if|if
+condition|(
+name|connectedNodes
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|connectHandler
+operator|.
+name|connect
+argument_list|(
+name|voidActionListener
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|voidActionListener
+operator|.
+name|onResponse
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
