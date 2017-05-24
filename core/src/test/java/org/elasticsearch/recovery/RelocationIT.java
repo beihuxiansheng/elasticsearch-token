@@ -3962,7 +3962,13 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.action.bulk:TRACE,org.elasticsearch.action.search:TRACE"
+literal|"org.elasticsearch.action.bulk:TRACE,"
+operator|+
+literal|"org.elasticsearch.action.search:TRACE,"
+operator|+
+literal|"org.elasticsearch.cluster.service:TRACE,"
+operator|+
+literal|"org.elasticsearch.index.seqno:TRACE"
 argument_list|)
 DECL|method|testIndexAndRelocateConcurrently
 specifier|public
