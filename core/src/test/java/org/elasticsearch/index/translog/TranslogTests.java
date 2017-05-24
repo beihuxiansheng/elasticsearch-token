@@ -1953,6 +1953,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -2011,6 +2013,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"2"
+argument_list|,
+literal|1
 argument_list|,
 name|newUid
 argument_list|(
@@ -2501,6 +2505,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -2558,6 +2564,8 @@ literal|"test"
 argument_list|,
 literal|"2"
 argument_list|,
+literal|1
+argument_list|,
 name|newUid
 argument_list|(
 literal|"2"
@@ -2613,6 +2621,8 @@ literal|"test"
 argument_list|,
 literal|"3"
 argument_list|,
+literal|2
+argument_list|,
 name|newUid
 argument_list|(
 literal|"3"
@@ -2655,18 +2665,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|long
-name|seqNo
-init|=
-literal|1
-decl_stmt|;
-specifier|final
-name|long
-name|primaryTerm
-init|=
-literal|1
-decl_stmt|;
 name|translog
 operator|.
 name|add
@@ -2676,9 +2674,9 @@ name|Translog
 operator|.
 name|NoOp
 argument_list|(
-name|seqNo
+literal|3
 argument_list|,
-name|primaryTerm
+literal|1
 argument_list|,
 name|randomAlphaOfLength
 argument_list|(
@@ -3223,6 +3221,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -3390,6 +3390,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -3423,6 +3425,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"2"
+argument_list|,
+literal|1
 argument_list|,
 operator|new
 name|byte
@@ -3469,6 +3473,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"3"
+argument_list|,
+literal|2
 argument_list|,
 operator|new
 name|byte
@@ -3582,6 +3588,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"1"
+argument_list|,
+literal|0
 argument_list|,
 operator|new
 name|byte
@@ -3879,6 +3887,14 @@ name|threadCount
 index|]
 decl_stmt|;
 specifier|final
+name|AtomicLong
+name|seqNoGenerator
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
+specifier|final
 name|CountDownLatch
 name|downLatch
 init|=
@@ -3926,6 +3942,8 @@ argument_list|,
 name|threadId
 argument_list|,
 name|writtenOperations
+argument_list|,
+name|seqNoGenerator
 argument_list|,
 name|threadExceptions
 argument_list|)
@@ -4440,6 +4458,8 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|op
+argument_list|,
 name|ascii
 operator|.
 name|getBytes
@@ -4624,6 +4644,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|ascii
@@ -5032,6 +5054,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -5410,6 +5434,8 @@ literal|""
 operator|+
 name|id
 argument_list|,
+name|id
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -5441,6 +5467,8 @@ argument_list|(
 name|id
 argument_list|)
 argument_list|,
+name|id
+argument_list|,
 name|newUid
 argument_list|(
 name|Long
@@ -5465,7 +5493,7 @@ name|NoOp
 argument_list|(
 name|id
 argument_list|,
-name|id
+literal|1
 argument_list|,
 name|Long
 operator|.
@@ -6299,6 +6327,12 @@ name|op
 operator|++
 control|)
 block|{
+name|int
+name|seqNo
+init|=
+operator|++
+name|count
+decl_stmt|;
 specifier|final
 name|Translog
 operator|.
@@ -6320,12 +6354,13 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|seqNo
+argument_list|,
 name|Integer
 operator|.
 name|toString
 argument_list|(
-operator|++
-name|count
+name|seqNo
 argument_list|)
 operator|.
 name|getBytes
@@ -6379,6 +6414,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we are the last location so everything should be synced
+name|seqNo
+operator|=
+operator|++
+name|count
+expr_stmt|;
 name|translog
 operator|.
 name|add
@@ -6394,12 +6434,13 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|seqNo
+argument_list|,
 name|Integer
 operator|.
 name|toString
 argument_list|(
-operator|++
-name|count
+name|seqNo
 argument_list|)
 operator|.
 name|getBytes
@@ -6625,6 +6666,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|Integer
@@ -6868,6 +6911,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|Integer
@@ -7154,6 +7199,8 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|op
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -7245,6 +7292,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|translogOperations
+argument_list|,
 name|translogOperations
 argument_list|,
 name|Integer
@@ -8247,6 +8296,8 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|op
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -8618,6 +8669,8 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|op
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -8806,7 +8859,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"payload missmatch, synced: "
+literal|"payload mismatch, synced: "
 operator|+
 name|sync
 argument_list|,
@@ -8945,7 +8998,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"payload missmatch, synced: "
+literal|"payload mismatch, synced: "
 operator|+
 name|sync
 argument_list|,
@@ -9063,6 +9116,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|Integer
@@ -9302,7 +9357,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"payload missmatch, synced: "
+literal|"payload mismatch, synced: "
 operator|+
 name|sync
 argument_list|,
@@ -9444,7 +9499,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"payload missmatch, synced: "
+literal|"payload mismatch, synced: "
 operator|+
 name|sync
 argument_list|,
@@ -9550,6 +9605,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|Integer
@@ -9736,7 +9793,11 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Checkpoint file translog-2.ckp already exists but has corrupted content expected: Checkpoint{offset=3123, numOps=55, generation=2, minSeqNo=0, maxSeqNo=0, globalCheckpoint=-2} but got: Checkpoint{offset=0, numOps=0, generation=0, minSeqNo=-1, maxSeqNo=-1, globalCheckpoint=-2}"
+literal|"Checkpoint file translog-2.ckp already exists but has corrupted content expected: Checkpoint{offset=3123, "
+operator|+
+literal|"numOps=55, generation=2, minSeqNo=45, maxSeqNo=99, globalCheckpoint=-2} but got: Checkpoint{offset=0, numOps=0, "
+operator|+
+literal|"generation=0, minSeqNo=-1, maxSeqNo=-1, globalCheckpoint=-2}"
 argument_list|,
 name|ex
 operator|.
@@ -9889,7 +9950,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"payload missmatch, synced: "
+literal|"payload mismatch, synced: "
 operator|+
 name|sync
 argument_list|,
@@ -9983,6 +10044,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|Integer
@@ -10156,6 +10219,8 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|op
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -10193,6 +10258,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|op
+argument_list|,
 name|op
 argument_list|,
 name|Integer
@@ -10446,6 +10513,8 @@ literal|""
 operator|+
 name|op
 argument_list|,
+name|op
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -10686,6 +10755,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -10725,6 +10796,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -10756,7 +10829,7 @@ name|AlreadyClosedException
 name|ex
 parameter_list|)
 block|{
-comment|// all is welll
+comment|// all is well
 block|}
 block|}
 end_function
@@ -10849,6 +10922,14 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+specifier|final
+name|AtomicLong
+name|seqNoGenerator
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -10887,6 +10968,8 @@ argument_list|,
 name|threadId
 argument_list|,
 name|writtenOperations
+argument_list|,
+name|seqNoGenerator
 argument_list|,
 name|threadExceptions
 argument_list|)
@@ -11032,6 +11115,12 @@ specifier|final
 name|Translog
 name|translog
 decl_stmt|;
+DECL|field|seqNoGenerator
+specifier|private
+specifier|final
+name|AtomicLong
+name|seqNoGenerator
+decl_stmt|;
 DECL|method|TranslogThread
 name|TranslogThread
 parameter_list|(
@@ -11052,6 +11141,9 @@ argument_list|<
 name|LocationOperation
 argument_list|>
 name|writtenOperations
+parameter_list|,
+name|AtomicLong
+name|seqNoGenerator
 parameter_list|,
 name|Exception
 index|[]
@@ -11087,6 +11179,12 @@ operator|.
 name|writtenOperations
 operator|=
 name|writtenOperations
+expr_stmt|;
+name|this
+operator|.
+name|seqNoGenerator
+operator|=
+name|seqNoGenerator
 expr_stmt|;
 name|this
 operator|.
@@ -11176,6 +11274,11 @@ literal|"_"
 operator|+
 name|opCount
 argument_list|,
+name|seqNoGenerator
+operator|.
+name|getAndIncrement
+argument_list|()
+argument_list|,
 name|randomUnicodeOfLengthBetween
 argument_list|(
 literal|1
@@ -11222,7 +11325,10 @@ operator|+
 name|opCount
 argument_list|)
 argument_list|,
-name|opCount
+name|seqNoGenerator
+operator|.
+name|getAndIncrement
+argument_list|()
 argument_list|,
 literal|0
 argument_list|,
@@ -11253,7 +11359,9 @@ name|Translog
 operator|.
 name|NoOp
 argument_list|(
-name|randomNonNegativeLong
+name|seqNoGenerator
+operator|.
+name|getAndIncrement
 argument_list|()
 argument_list|,
 name|randomNonNegativeLong
@@ -11449,6 +11557,8 @@ literal|""
 operator|+
 name|opsSynced
 argument_list|,
+name|opsSynced
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -11579,6 +11689,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|opsSynced
+argument_list|,
 name|opsSynced
 argument_list|,
 name|Integer
@@ -11966,7 +12078,7 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// writes pretty big docs so we cross buffer boarders regularly
+comment|// writes pretty big docs so we cross buffer borders regularly
 for|for
 control|(
 name|int
@@ -11999,6 +12111,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|opsAdded
+argument_list|,
 name|opsAdded
 argument_list|,
 name|lineFileDocs
@@ -12181,6 +12295,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 name|lineFileDocs
 operator|.
 name|nextDoc
@@ -12225,6 +12341,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"2"
+argument_list|,
+literal|1
 argument_list|,
 name|lineFileDocs
 operator|.
@@ -12421,6 +12539,14 @@ literal|100
 argument_list|)
 argument_list|)
 decl_stmt|;
+specifier|final
+name|AtomicLong
+name|seqNoGenerator
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
 name|List
 argument_list|<
 name|LocationOperation
@@ -12475,6 +12601,8 @@ argument_list|,
 name|threadId
 argument_list|,
 name|writtenOperations
+argument_list|,
+name|seqNoGenerator
 argument_list|,
 name|threadExceptions
 argument_list|)
@@ -13776,6 +13904,8 @@ literal|"test"
 argument_list|,
 literal|"boom"
 argument_list|,
+literal|0
+argument_list|,
 literal|"boom"
 operator|.
 name|getBytes
@@ -13885,6 +14015,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|,
 name|Integer
@@ -14120,6 +14252,8 @@ literal|""
 operator|+
 literal|1
 argument_list|,
+literal|1
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -14270,6 +14404,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|,
 name|Integer
@@ -14448,6 +14584,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+literal|0
+argument_list|,
 literal|0
 argument_list|,
 name|Integer
@@ -14707,6 +14845,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+literal|1
+argument_list|,
 literal|1
 argument_list|,
 name|Integer
@@ -14983,6 +15123,8 @@ literal|"test"
 argument_list|,
 literal|""
 operator|+
+name|opsAdded
+argument_list|,
 name|opsAdded
 argument_list|,
 name|doc
@@ -15691,6 +15833,8 @@ literal|"test"
 argument_list|,
 literal|"1"
 argument_list|,
+literal|0
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -15757,6 +15901,8 @@ literal|"test"
 argument_list|,
 literal|"2"
 argument_list|,
+literal|1
+argument_list|,
 operator|new
 name|byte
 index|[]
@@ -15793,6 +15939,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|"3"
+argument_list|,
+literal|2
 argument_list|,
 operator|new
 name|byte
@@ -17204,19 +17352,9 @@ name|repeatingTermSeqNo
 argument_list|,
 name|terms
 operator|.
-name|computeIfPresent
+name|get
 argument_list|(
 name|repeatingTermSeqNo
-argument_list|,
-parameter_list|(
-name|s
-parameter_list|,
-name|t
-parameter_list|)
-lambda|->
-name|t
-operator|+
-literal|1
 argument_list|)
 argument_list|)
 argument_list|)

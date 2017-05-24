@@ -436,6 +436,11 @@ argument_list|,
 name|seqNo
 operator|++
 argument_list|,
+name|replica
+operator|.
+name|getPrimaryTerm
+argument_list|()
+argument_list|,
 literal|1
 argument_list|,
 name|VersionType

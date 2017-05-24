@@ -3600,7 +3600,10 @@ name|SourceToParse
 name|source
 parameter_list|,
 name|long
-name|seqNo
+name|opSeqNo
+parameter_list|,
+name|long
+name|opPrimaryTerm
 parameter_list|,
 name|long
 name|version
@@ -3620,6 +3623,25 @@ block|{
 name|verifyReplicationTarget
 argument_list|()
 expr_stmt|;
+assert|assert
+name|opPrimaryTerm
+operator|<=
+name|this
+operator|.
+name|primaryTerm
+operator|:
+literal|"op term [ "
+operator|+
+name|opPrimaryTerm
+operator|+
+literal|" ]> shard term ["
+operator|+
+name|this
+operator|.
+name|primaryTerm
+operator|+
+literal|"]"
+assert|;
 return|return
 name|prepareIndex
 argument_list|(
@@ -3633,9 +3655,9 @@ argument_list|)
 argument_list|,
 name|source
 argument_list|,
-name|seqNo
+name|opSeqNo
 argument_list|,
-name|primaryTerm
+name|opPrimaryTerm
 argument_list|,
 name|version
 argument_list|,
@@ -4166,10 +4188,10 @@ name|String
 name|id
 parameter_list|,
 name|long
-name|seqNo
+name|opSeqNo
 parameter_list|,
 name|long
-name|primaryTerm
+name|opPrimaryTerm
 parameter_list|,
 name|long
 name|version
@@ -4181,6 +4203,25 @@ block|{
 name|verifyReplicationTarget
 argument_list|()
 expr_stmt|;
+assert|assert
+name|opPrimaryTerm
+operator|<=
+name|this
+operator|.
+name|primaryTerm
+operator|:
+literal|"op term [ "
+operator|+
+name|opPrimaryTerm
+operator|+
+literal|" ]> shard term ["
+operator|+
+name|this
+operator|.
+name|primaryTerm
+operator|+
+literal|"]"
+assert|;
 specifier|final
 name|Term
 name|uid
@@ -4201,9 +4242,9 @@ name|id
 argument_list|,
 name|uid
 argument_list|,
-name|seqNo
+name|opSeqNo
 argument_list|,
-name|primaryTerm
+name|opPrimaryTerm
 argument_list|,
 name|version
 argument_list|,
@@ -10244,10 +10285,29 @@ assert|assert
 name|operationPrimaryTerm
 operator|>
 name|primaryTerm
+operator|:
+literal|"shard term already update.  op term ["
+operator|+
+name|operationPrimaryTerm
+operator|+
+literal|"], shardTerm ["
+operator|+
+name|primaryTerm
+operator|+
+literal|"]"
 assert|;
 name|primaryTerm
 operator|=
 name|operationPrimaryTerm
+expr_stmt|;
+name|getEngine
+argument_list|()
+operator|.
+name|getTranslog
+argument_list|()
+operator|.
+name|rollGeneration
+argument_list|()
 expr_stmt|;
 block|}
 argument_list|)
@@ -10256,9 +10316,7 @@ block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|InterruptedException
-decl||
-name|TimeoutException
+name|Exception
 name|e
 parameter_list|)
 block|{

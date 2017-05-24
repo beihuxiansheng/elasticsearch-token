@@ -78,6 +78,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|CheckedRunnable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Nullable
 import|;
 end_import
@@ -337,6 +349,11 @@ block|}
 comment|/**      * Wait for in-flight operations to finish and executes onBlocked under the guarantee that no new operations are started. Queues      * operations that are occurring in the meanwhile and runs them once onBlocked has executed.      *      * @param timeout the maximum time to wait for the in-flight operations block      * @param timeUnit the time unit of the {@code timeout} argument      * @param onBlocked the action to run once the block has been acquired      * @throws InterruptedException if calling thread is interrupted      * @throws TimeoutException if timed out waiting for in-flight operations to finish      * @throws IndexShardClosedException if operation permit has been closed      */
 DECL|method|blockOperations
 specifier|public
+parameter_list|<
+name|E
+extends|extends
+name|Exception
+parameter_list|>
 name|void
 name|blockOperations
 parameter_list|(
@@ -346,13 +363,18 @@ parameter_list|,
 name|TimeUnit
 name|timeUnit
 parameter_list|,
-name|Runnable
+name|CheckedRunnable
+argument_list|<
+name|E
+argument_list|>
 name|onBlocked
 parameter_list|)
 throws|throws
 name|InterruptedException
 throws|,
 name|TimeoutException
+throws|,
+name|E
 block|{
 if|if
 condition|(
@@ -503,7 +525,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Acquires a permit whenever permit acquisition is not blocked. If the permit is directly available, the provided      * {@link ActionListener} will be called on the calling thread. During calls of {@link #blockOperations(long, TimeUnit, Runnable)},      * permit acquisition can be delayed. The provided ActionListener will then be called using the provided executor once operations are no      * longer blocked.      *      * @param onAcquired      {@link ActionListener} that is invoked once acquisition is successful or failed      * @param executorOnDelay executor to use for delayed call      * @param forceExecution  whether the runnable should force its execution in case it gets rejected      */
+comment|/**      * Acquires a permit whenever permit acquisition is not blocked. If the permit is directly available, the provided      * {@link ActionListener} will be called on the calling thread. During calls of      * {@link #blockOperations(long, TimeUnit, CheckedRunnable)}, permit acquisition can be delayed. The provided ActionListener will      * then be called using the provided executor once operations are no longer blocked.      *      * @param onAcquired      {@link ActionListener} that is invoked once acquisition is successful or failed      * @param executorOnDelay executor to use for delayed call      * @param forceExecution  whether the runnable should force its execution in case it gets rejected      */
 DECL|method|acquire
 specifier|public
 name|void

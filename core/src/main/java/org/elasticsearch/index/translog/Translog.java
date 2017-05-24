@@ -4344,6 +4344,9 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
+name|long
+name|seqNo
+parameter_list|,
 name|byte
 index|[]
 name|source
@@ -4375,7 +4378,7 @@ name|this
 operator|.
 name|seqNo
 operator|=
-literal|0
+name|seqNo
 expr_stmt|;
 name|version
 operator|=
@@ -5007,6 +5010,14 @@ name|type
 operator|+
 literal|'\''
 operator|+
+literal|", seqNo="
+operator|+
+name|seqNo
+operator|+
+literal|", primaryTerm="
+operator|+
+name|primaryTerm
+operator|+
 literal|'}'
 return|;
 block|}
@@ -5271,6 +5282,9 @@ parameter_list|,
 name|String
 name|id
 parameter_list|,
+name|long
+name|seqNo
+parameter_list|,
 name|Term
 name|uid
 parameter_list|)
@@ -5283,7 +5297,7 @@ name|id
 argument_list|,
 name|uid
 argument_list|,
-literal|0
+name|seqNo
 argument_list|,
 literal|0
 argument_list|,
@@ -5751,6 +5765,14 @@ literal|"uid="
 operator|+
 name|uid
 operator|+
+literal|", seqNo="
+operator|+
+name|seqNo
+operator|+
+literal|", primaryTerm="
+operator|+
+name|primaryTerm
+operator|+
 literal|'}'
 return|;
 block|}
@@ -6101,6 +6123,34 @@ argument_list|()
 operator|.
 name|hashCode
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"NoOp{"
+operator|+
+literal|"seqNo="
+operator|+
+name|seqNo
+operator|+
+literal|", primaryTerm="
+operator|+
+name|primaryTerm
+operator|+
+literal|", reason='"
+operator|+
+name|reason
+operator|+
+literal|'\''
+operator|+
+literal|'}'
 return|;
 block|}
 block|}

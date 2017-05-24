@@ -2914,6 +2914,15 @@ name|location
 init|=
 literal|null
 decl_stmt|;
+specifier|final
+name|long
+name|primaryTerm
+init|=
+name|request
+operator|.
+name|primaryTerm
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3011,6 +3020,8 @@ name|IndexRequest
 operator|)
 name|docWriteRequest
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|replica
 argument_list|)
 expr_stmt|;
@@ -3028,6 +3039,8 @@ operator|(
 name|DeleteRequest
 operator|)
 name|docWriteRequest
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|replica
 argument_list|)
@@ -3330,6 +3343,9 @@ parameter_list|,
 name|IndexRequest
 name|request
 parameter_list|,
+name|long
+name|primaryTerm
+parameter_list|,
 name|IndexShard
 name|replica
 parameter_list|)
@@ -3351,6 +3367,8 @@ argument_list|(
 name|primaryResponse
 argument_list|,
 name|request
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|replica
 argument_list|)
@@ -3443,6 +3461,9 @@ name|primaryResponse
 parameter_list|,
 name|IndexRequest
 name|request
+parameter_list|,
+name|long
+name|primaryTerm
 parameter_list|,
 name|IndexShard
 name|replica
@@ -3553,6 +3574,8 @@ argument_list|(
 name|sourceToParse
 argument_list|,
 name|seqNo
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|version
 argument_list|,
@@ -4076,6 +4099,10 @@ parameter_list|,
 name|DeleteRequest
 name|request
 parameter_list|,
+specifier|final
+name|long
+name|primaryTerm
+parameter_list|,
 name|IndexShard
 name|replica
 parameter_list|)
@@ -4231,10 +4258,7 @@ operator|.
 name|getSeqNo
 argument_list|()
 argument_list|,
-name|request
-operator|.
 name|primaryTerm
-argument_list|()
 argument_list|,
 name|version
 argument_list|,
