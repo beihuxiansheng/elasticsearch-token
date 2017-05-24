@@ -8110,6 +8110,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"org.elasticsearch.cluster.routing:TRACE"
+argument_list|)
 DECL|method|testDataFileCorruptionDuringRestore
 specifier|public
 name|void
@@ -8449,6 +8454,11 @@ argument_list|,
 literal|"test-snap"
 argument_list|)
 operator|.
+name|setMasterNodeTimeout
+argument_list|(
+literal|"30s"
+argument_list|)
+operator|.
 name|setWaitForCompletion
 argument_list|(
 literal|true
@@ -8502,21 +8512,13 @@ comment|// we have to delete the index here manually, otherwise the cluster will
 comment|// trying to allocate the shards for the index, even though the restore operation
 comment|// is completed and marked as failed, which can lead to nodes having pending
 comment|// cluster states to process in their queue when the test is finished
-name|client
-operator|.
-name|admin
+name|cluster
 argument_list|()
 operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
+name|wipeIndices
 argument_list|(
 literal|"test-idx"
 argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testDeletionOfFailingToRecoverIndexShouldStopRestore
