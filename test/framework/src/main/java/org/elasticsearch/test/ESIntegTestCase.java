@@ -10543,7 +10543,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|1000
+literal|2048
 argument_list|)
 comment|// by default we never cache below 10k docs in a segment,
 comment|// bypass this limit so that caching gets some testing in
