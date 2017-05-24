@@ -875,7 +875,7 @@ name|initScript
 argument_list|,
 name|ScriptContext
 operator|.
-name|AGGS
+name|AGGS_EXECUTABLE
 argument_list|)
 expr_stmt|;
 block|}
@@ -944,7 +944,7 @@ name|combineScript
 argument_list|,
 name|ScriptContext
 operator|.
-name|AGGS
+name|AGGS_EXECUTABLE
 argument_list|)
 expr_stmt|;
 block|}

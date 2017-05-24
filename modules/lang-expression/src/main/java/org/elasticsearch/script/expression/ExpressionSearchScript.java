@@ -122,18 +122,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|CompiledScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|GeneralScriptException
 import|;
 end_import
@@ -193,10 +181,10 @@ name|ExpressionSearchScript
 implements|implements
 name|SearchScript
 block|{
-DECL|field|compiledScript
+DECL|field|exprScript
 specifier|final
-name|CompiledScript
-name|compiledScript
+name|Expression
+name|exprScript
 decl_stmt|;
 DECL|field|bindings
 specifier|final
@@ -230,8 +218,8 @@ decl_stmt|;
 DECL|method|ExpressionSearchScript
 name|ExpressionSearchScript
 parameter_list|(
-name|CompiledScript
-name|c
+name|Expression
+name|e
 parameter_list|,
 name|SimpleBindings
 name|b
@@ -243,9 +231,9 @@ name|boolean
 name|needsScores
 parameter_list|)
 block|{
-name|compiledScript
+name|exprScript
 operator|=
-name|c
+name|e
 expr_stmt|;
 name|bindings
 operator|=
@@ -253,15 +241,7 @@ name|b
 expr_stmt|;
 name|source
 operator|=
-operator|(
-operator|(
-name|Expression
-operator|)
-name|compiledScript
-operator|.
-name|compiled
-argument_list|()
-operator|)
+name|exprScript
 operator|.
 name|getDoubleValuesSource
 argument_list|(
@@ -383,7 +363,7 @@ name|GeneralScriptException
 argument_list|(
 literal|"Error evaluating "
 operator|+
-name|compiledScript
+name|exprScript
 argument_list|,
 name|exception
 argument_list|)
@@ -470,7 +450,7 @@ name|IllegalStateException
 argument_list|(
 literal|"Can't advance to doc using "
 operator|+
-name|compiledScript
+name|exprScript
 argument_list|,
 name|e
 argument_list|)
@@ -554,7 +534,7 @@ name|IllegalStateException
 argument_list|(
 literal|"Can't get values using "
 operator|+
-name|compiledScript
+name|exprScript
 argument_list|,
 name|e
 argument_list|)
@@ -627,7 +607,7 @@ name|GeneralScriptException
 argument_list|(
 literal|"Cannot use expression with text variable using "
 operator|+
-name|compiledScript
+name|exprScript
 argument_list|)
 throw|;
 block|}

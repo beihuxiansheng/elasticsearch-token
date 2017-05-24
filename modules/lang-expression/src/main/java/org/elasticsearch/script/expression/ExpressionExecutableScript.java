@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|CompiledScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -98,11 +86,11 @@ name|ExpressionExecutableScript
 implements|implements
 name|ExecutableScript
 block|{
-DECL|field|compiledScript
+DECL|field|expression
 specifier|public
 specifier|final
-name|CompiledScript
-name|compiledScript
+name|Expression
+name|expression
 decl_stmt|;
 DECL|field|functionValuesMap
 specifier|public
@@ -126,8 +114,8 @@ DECL|method|ExpressionExecutableScript
 specifier|public
 name|ExpressionExecutableScript
 parameter_list|(
-name|CompiledScript
-name|compiledScript
+name|Expression
+name|expression
 parameter_list|,
 name|Map
 argument_list|<
@@ -140,23 +128,10 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|compiledScript
-operator|=
-name|compiledScript
-expr_stmt|;
-name|Expression
 name|expression
-init|=
-operator|(
-name|Expression
-operator|)
-name|this
-operator|.
-name|compiledScript
-operator|.
-name|compiled
-argument_list|()
-decl_stmt|;
+operator|=
+name|expression
+expr_stmt|;
 name|int
 name|functionValuesLength
 init|=
@@ -182,7 +157,7 @@ name|GeneralScriptException
 argument_list|(
 literal|"Error using "
 operator|+
-name|compiledScript
+name|expression
 operator|+
 literal|". "
 operator|+
@@ -355,7 +330,7 @@ name|GeneralScriptException
 argument_list|(
 literal|"Error using "
 operator|+
-name|compiledScript
+name|expression
 operator|+
 literal|". "
 operator|+
@@ -378,7 +353,7 @@ name|GeneralScriptException
 argument_list|(
 literal|"Error using "
 operator|+
-name|compiledScript
+name|expression
 operator|+
 literal|". "
 operator|+
@@ -402,15 +377,7 @@ block|{
 try|try
 block|{
 return|return
-operator|(
-operator|(
-name|Expression
-operator|)
-name|compiledScript
-operator|.
-name|compiled
-argument_list|()
-operator|)
+name|expression
 operator|.
 name|evaluate
 argument_list|(
@@ -430,7 +397,7 @@ name|GeneralScriptException
 argument_list|(
 literal|"Error evaluating "
 operator|+
-name|compiledScript
+name|expression
 argument_list|,
 name|exception
 argument_list|)

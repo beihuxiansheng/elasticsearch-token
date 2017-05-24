@@ -112,7 +112,7 @@ DECL|method|executable
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 annotation|@
@@ -130,7 +130,7 @@ DECL|method|search
 name|SearchScript
 name|search
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|SearchLookup

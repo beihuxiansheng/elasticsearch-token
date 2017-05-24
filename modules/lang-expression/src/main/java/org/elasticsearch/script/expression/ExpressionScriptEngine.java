@@ -280,18 +280,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|CompiledScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -665,7 +653,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|SearchLookup
@@ -689,9 +677,6 @@ operator|(
 name|Expression
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 decl_stmt|;
 name|MapperService
 name|mapper
@@ -1502,7 +1487,7 @@ return|return
 operator|new
 name|ExpressionSearchScript
 argument_list|(
-name|compiledScript
+name|expr
 argument_list|,
 name|bindings
 argument_list|,
@@ -1640,7 +1625,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|Map
@@ -1656,6 +1641,9 @@ return|return
 operator|new
 name|ExpressionExecutableScript
 argument_list|(
+operator|(
+name|Expression
+operator|)
 name|compiledScript
 argument_list|,
 name|vars

@@ -88,18 +88,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|CompiledScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -113,18 +101,6 @@ operator|.
 name|script
 operator|.
 name|LeafSearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptContext
 import|;
 end_import
 
@@ -815,7 +791,7 @@ name|ExecutableScript
 name|executable
 parameter_list|(
 specifier|final
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 specifier|final
@@ -836,9 +812,6 @@ operator|(
 name|GenericElasticsearchScript
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 argument_list|,
 name|vars
 argument_list|,
@@ -855,7 +828,7 @@ name|SearchScript
 name|search
 parameter_list|(
 specifier|final
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 specifier|final
@@ -899,9 +872,6 @@ operator|(
 name|GenericElasticsearchScript
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 argument_list|,
 name|vars
 argument_list|,
@@ -928,9 +898,6 @@ operator|(
 name|GenericElasticsearchScript
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 operator|)
 operator|.
 name|uses$_score

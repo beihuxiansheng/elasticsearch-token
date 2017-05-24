@@ -134,20 +134,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -294,18 +280,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|template
-operator|.
-name|CompiledTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -354,7 +328,7 @@ name|script
 operator|.
 name|ScriptContext
 operator|.
-name|SEARCH
+name|EXECUTABLE
 import|;
 end_import
 
@@ -687,7 +661,7 @@ name|compileTemplate
 argument_list|(
 name|script
 argument_list|,
-name|SEARCH
+name|EXECUTABLE
 argument_list|)
 decl_stmt|;
 name|String

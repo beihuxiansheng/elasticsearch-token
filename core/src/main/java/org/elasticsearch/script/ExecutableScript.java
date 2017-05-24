@@ -14,6 +14,16 @@ name|script
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An executable script, can't be used concurrently.  */
 end_comment
@@ -42,6 +52,24 @@ name|Object
 name|run
 parameter_list|()
 function_decl|;
+DECL|interface|Compiled
+interface|interface
+name|Compiled
+block|{
+DECL|method|newInstance
+name|ExecutableScript
+name|newInstance
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+parameter_list|)
+function_decl|;
+block|}
 block|}
 end_interface
 

@@ -3512,7 +3512,7 @@ name|collateQuery
 argument_list|,
 name|ScriptContext
 operator|.
-name|SEARCH
+name|EXECUTABLE
 argument_list|)
 decl_stmt|;
 name|suggestionContext

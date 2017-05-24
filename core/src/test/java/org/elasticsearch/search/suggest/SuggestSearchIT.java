@@ -108,20 +108,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -177,18 +163,6 @@ operator|.
 name|plugins
 operator|.
 name|ScriptPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|CompiledScript
 import|;
 end_import
 
@@ -7619,7 +7593,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|Map
@@ -7638,9 +7612,6 @@ operator|(
 name|String
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -7737,7 +7708,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|SearchLookup

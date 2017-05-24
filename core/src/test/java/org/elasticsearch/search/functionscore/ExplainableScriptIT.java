@@ -176,18 +176,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|CompiledScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -673,7 +661,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 annotation|@
@@ -699,7 +687,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|SearchLookup

@@ -285,7 +285,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|params
+name|options
 parameter_list|)
 block|{
 comment|// Scripts are always resolved using the script's source. For inline scripts, it's easy because they don't have names and the
@@ -341,7 +341,7 @@ name|MockCompiledScript
 argument_list|(
 name|name
 argument_list|,
-name|params
+name|options
 argument_list|,
 name|source
 argument_list|,
@@ -356,7 +356,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 annotation|@
@@ -377,9 +377,6 @@ operator|(
 name|MockCompiledScript
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 decl_stmt|;
 return|return
 name|compiled
@@ -397,7 +394,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|CompiledScript
+name|Object
 name|compiledScript
 parameter_list|,
 name|SearchLookup
@@ -421,9 +418,6 @@ operator|(
 name|MockCompiledScript
 operator|)
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 decl_stmt|;
 return|return
 name|compiled
