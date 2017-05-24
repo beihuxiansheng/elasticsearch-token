@@ -8113,7 +8113,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.cluster.routing:TRACE"
+literal|"org.elasticsearch.cluster.routing:TRACE,org.elasticsearch.snapshots:TRACE"
 argument_list|)
 DECL|method|testDataFileCorruptionDuringRestore
 specifier|public
