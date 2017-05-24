@@ -412,11 +412,6 @@ name|needsScores
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|service
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

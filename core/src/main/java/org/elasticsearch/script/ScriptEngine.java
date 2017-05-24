@@ -54,6 +54,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -137,6 +147,16 @@ argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|close
+specifier|default
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{}
 block|}
 end_interface
 

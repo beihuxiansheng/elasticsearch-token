@@ -7576,16 +7576,6 @@ literal|"mustache"
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{         }
-annotation|@
-name|Override
 DECL|method|getType
 specifier|public
 name|String

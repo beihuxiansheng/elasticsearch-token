@@ -708,7 +708,9 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{}
+block|{
+comment|// optionally close resources
+block|}
 block|}
 end_class
 

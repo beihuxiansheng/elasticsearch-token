@@ -940,17 +940,6 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Action taken when the engine is closed.      */
-annotation|@
-name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{
-comment|// Nothing to do.
-block|}
 DECL|method|convertToScriptException
 specifier|private
 name|ScriptException
