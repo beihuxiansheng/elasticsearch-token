@@ -324,6 +324,15 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+for|for
+control|(
+name|ScriptPlugin
+name|plugin
+range|:
+name|scriptPlugins
+control|)
+block|{
 name|ScriptEngine
 name|engine
 init|=
@@ -332,6 +341,11 @@ operator|.
 name|getScriptEngine
 argument_list|(
 name|settings
+argument_list|,
+name|contexts
+operator|.
+name|values
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

@@ -616,6 +616,15 @@ name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|Collection
+argument_list|<
+name|ScriptContext
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|contexts
 parameter_list|)
 block|{
 return|return

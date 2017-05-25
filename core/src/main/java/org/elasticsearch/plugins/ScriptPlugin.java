@@ -20,6 +20,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -31,6 +41,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -82,7 +102,7 @@ specifier|public
 interface|interface
 name|ScriptPlugin
 block|{
-comment|/**      * Returns a {@link ScriptEngine} instance or<code>null</code> if this plugin doesn't add a new script engine      */
+comment|/**      * Returns a {@link ScriptEngine} instance or<code>null</code> if this plugin doesn't add a new script engine.      * @param settings Node settings      * @param contexts The contexts that {@link ScriptEngine#compile(String, String, ScriptContext, Map)} may be called with      */
 DECL|method|getScriptEngine
 specifier|default
 name|ScriptEngine
@@ -90,6 +110,15 @@ name|getScriptEngine
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|Collection
+argument_list|<
+name|ScriptContext
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|contexts
 parameter_list|)
 block|{
 return|return
