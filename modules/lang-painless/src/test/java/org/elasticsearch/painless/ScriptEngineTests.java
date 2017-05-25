@@ -28,6 +28,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -535,7 +547,9 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
-name|Object
+name|ExecutableScript
+operator|.
+name|Compiled
 name|compiledScript
 init|=
 name|scriptEngine
@@ -546,6 +560,10 @@ literal|null
 argument_list|,
 literal|"return ctx.value;"
 argument_list|,
+name|ScriptContext
+operator|.
+name|EXECUTABLE
+argument_list|,
 name|Collections
 operator|.
 name|emptyMap
@@ -555,12 +573,10 @@ decl_stmt|;
 name|ExecutableScript
 name|script
 init|=
-name|scriptEngine
-operator|.
-name|executable
-argument_list|(
 name|compiledScript
-argument_list|,
+operator|.
+name|newInstance
+argument_list|(
 name|vars
 argument_list|)
 decl_stmt|;
@@ -647,7 +663,9 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Object
+name|ExecutableScript
+operator|.
+name|Compiled
 name|compiledScript
 init|=
 name|scriptEngine
@@ -658,6 +676,10 @@ literal|null
 argument_list|,
 literal|"return params['value'];"
 argument_list|,
+name|ScriptContext
+operator|.
+name|EXECUTABLE
+argument_list|,
 name|Collections
 operator|.
 name|emptyMap
@@ -667,12 +689,10 @@ decl_stmt|;
 name|ExecutableScript
 name|script
 init|=
-name|scriptEngine
-operator|.
-name|executable
-argument_list|(
 name|compiledScript
-argument_list|,
+operator|.
+name|newInstance
+argument_list|(
 name|vars
 argument_list|)
 decl_stmt|;
