@@ -3970,6 +3970,13 @@ literal|"org.elasticsearch.cluster.service:TRACE,"
 operator|+
 literal|"org.elasticsearch.index.seqno:TRACE"
 argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/24599"
+argument_list|)
 DECL|method|testIndexAndRelocateConcurrently
 specifier|public
 name|void
