@@ -733,8 +733,6 @@ argument_list|,
 name|ScriptContext
 argument_list|<
 name|?
-argument_list|,
-name|?
 argument_list|>
 argument_list|>
 name|contexts
@@ -806,8 +804,6 @@ name|String
 argument_list|,
 name|ScriptContext
 argument_list|<
-name|?
-argument_list|,
 name|?
 argument_list|>
 argument_list|>
@@ -1470,8 +1466,6 @@ comment|/**      * Compiles a script using the given context.      *      * @ret
 DECL|method|compile
 specifier|public
 parameter_list|<
-name|InstanceType
-parameter_list|,
 name|CompiledType
 parameter_list|>
 name|CompiledType
@@ -1482,8 +1476,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 argument_list|<
-name|InstanceType
-argument_list|,
 name|CompiledType
 argument_list|>
 name|context
@@ -2145,8 +2137,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 argument_list|<
-name|ExecutableScript
-argument_list|,
 name|ExecutableScript
 operator|.
 name|Compiled

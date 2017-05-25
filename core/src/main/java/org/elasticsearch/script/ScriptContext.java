@@ -18,6 +18,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -45,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The information necessary to compile and run a script.  *  * A {@link ScriptContext} contains the information related to a single use case and the interfaces  * and methods necessary for a {@link ScriptEngine} to implement.  *<p>  * There are two related classes which must be supplied to construct a {@link ScriptContext}.  *<p>  * The<i>InstanceType</i> is a class, possibly stateful, that is an instance of a script. Instances of  * the<i>InstanceType</i> may be executed multiple times by a caller with different arguments. This  * class must have an abstract method named<i>execute</i> which {@link ScriptEngine} implementations  * will define.  *<p>  * The<i>CompiledType</i> is a factory class for constructing instances of a script. The  * {@link ScriptService} returns an instance of<i>CompiledType</i> when compiling a script. This class  * must be stateless so it is cacheable by the {@link ScriptService}. It must have an abstract method  * named<i>newInstance</i> which returns<i>InstanceType</i> which {@link ScriptEngine} implementations  * will define.  */
+comment|/**  * The information necessary to compile and run a script.  *  * A {@link ScriptContext} contains the information related to a single use case and the interfaces  * and methods necessary for a {@link ScriptEngine} to implement.  *<p>  * There are two related classes which must be supplied to construct a {@link ScriptContext}.  *<p>  * The<i>CompiledType</i> is a factory class for constructing instances of a script. The  * {@link ScriptService} returns an instance of<i>CompiledType</i> when compiling a script. This class  * must be stateless so it is cacheable by the {@link ScriptService}. It must have an abstract method  * named {@code newInstance} which {@link ScriptEngine} implementations will define.  *<p>  * The<i>InstanceType</i> is a class returned by the {@code newInstance} method of the  *<i>CompiledType</i>. It is an instance of a script and may be stateful. Instances of  * the<i>InstanceType</i> may be executed multiple times by a caller with different arguments. This  * class must have an abstract method named {@code execute} which {@link ScriptEngine} implementations  * will define.  */
 end_comment
 
 begin_class
@@ -55,8 +67,6 @@ specifier|final
 class|class
 name|ScriptContext
 parameter_list|<
-name|InstanceType
-parameter_list|,
 name|CompiledType
 parameter_list|>
 block|{
@@ -66,8 +76,6 @@ specifier|static
 specifier|final
 name|ScriptContext
 argument_list|<
-name|SearchScript
-argument_list|,
 name|SearchScript
 operator|.
 name|Compiled
@@ -79,10 +87,6 @@ name|ScriptContext
 argument_list|<>
 argument_list|(
 literal|"aggs"
-argument_list|,
-name|SearchScript
-operator|.
-name|class
 argument_list|,
 name|SearchScript
 operator|.
@@ -98,8 +102,6 @@ specifier|final
 name|ScriptContext
 argument_list|<
 name|SearchScript
-argument_list|,
-name|SearchScript
 operator|.
 name|Compiled
 argument_list|>
@@ -110,10 +112,6 @@ name|ScriptContext
 argument_list|<>
 argument_list|(
 literal|"search"
-argument_list|,
-name|SearchScript
-operator|.
-name|class
 argument_list|,
 name|SearchScript
 operator|.
@@ -130,8 +128,6 @@ specifier|final
 name|ScriptContext
 argument_list|<
 name|ExecutableScript
-argument_list|,
-name|ExecutableScript
 operator|.
 name|Compiled
 argument_list|>
@@ -142,10 +138,6 @@ name|ScriptContext
 argument_list|<>
 argument_list|(
 literal|"aggs_executable"
-argument_list|,
-name|ExecutableScript
-operator|.
-name|class
 argument_list|,
 name|ExecutableScript
 operator|.
@@ -161,8 +153,6 @@ specifier|final
 name|ScriptContext
 argument_list|<
 name|ExecutableScript
-argument_list|,
-name|ExecutableScript
 operator|.
 name|Compiled
 argument_list|>
@@ -173,10 +163,6 @@ name|ScriptContext
 argument_list|<>
 argument_list|(
 literal|"update"
-argument_list|,
-name|ExecutableScript
-operator|.
-name|class
 argument_list|,
 name|ExecutableScript
 operator|.
@@ -192,8 +178,6 @@ specifier|final
 name|ScriptContext
 argument_list|<
 name|ExecutableScript
-argument_list|,
-name|ExecutableScript
 operator|.
 name|Compiled
 argument_list|>
@@ -204,10 +188,6 @@ name|ScriptContext
 argument_list|<>
 argument_list|(
 literal|"ingest"
-argument_list|,
-name|ExecutableScript
-operator|.
-name|class
 argument_list|,
 name|ExecutableScript
 operator|.
@@ -223,8 +203,6 @@ specifier|final
 name|ScriptContext
 argument_list|<
 name|ExecutableScript
-argument_list|,
-name|ExecutableScript
 operator|.
 name|Compiled
 argument_list|>
@@ -235,10 +213,6 @@ name|ScriptContext
 argument_list|<>
 argument_list|(
 literal|"executable"
-argument_list|,
-name|ExecutableScript
-operator|.
-name|class
 argument_list|,
 name|ExecutableScript
 operator|.
@@ -258,8 +232,6 @@ argument_list|,
 name|ScriptContext
 argument_list|<
 name|?
-argument_list|,
-name|?
 argument_list|>
 argument_list|>
 name|BUILTINS
@@ -272,8 +244,6 @@ name|String
 argument_list|,
 name|ScriptContext
 argument_list|<
-name|?
-argument_list|,
 name|?
 argument_list|>
 argument_list|>
@@ -367,16 +337,6 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-comment|/** A class that is an instance of a script. */
-DECL|field|instanceClazz
-specifier|public
-specifier|final
-name|Class
-argument_list|<
-name|InstanceType
-argument_list|>
-name|instanceClazz
-decl_stmt|;
 comment|/** A factory class for constructing instances of a script. */
 DECL|field|compiledClazz
 specifier|public
@@ -387,6 +347,16 @@ name|CompiledType
 argument_list|>
 name|compiledClazz
 decl_stmt|;
+comment|/** A class that is an instance of a script. */
+DECL|field|instanceClazz
+specifier|public
+specifier|final
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|instanceClazz
+decl_stmt|;
 comment|/** Construct a context with the related instance and compiled classes. */
 DECL|method|ScriptContext
 specifier|public
@@ -394,12 +364,6 @@ name|ScriptContext
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|Class
-argument_list|<
-name|InstanceType
-argument_list|>
-name|instanceClazz
 parameter_list|,
 name|Class
 argument_list|<
@@ -416,15 +380,103 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|instanceClazz
+name|compiledClazz
 operator|=
-name|instanceClazz
+name|compiledClazz
 expr_stmt|;
-name|this
+name|Method
+name|newInstanceMethod
+init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|Method
+name|method
+range|:
+name|compiledClazz
 operator|.
+name|getMethods
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|method
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"newInstance"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|newInstanceMethod
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot have multiple newInstance methods on CompiledType class ["
+operator|+
 name|compiledClazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] for script context ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+name|newInstanceMethod
 operator|=
+name|method
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|newInstanceMethod
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Could not find method newInstance on CompiledType class ["
+operator|+
 name|compiledClazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] for script context ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+name|instanceClazz
+operator|=
+name|newInstanceMethod
+operator|.
+name|getReturnType
+argument_list|()
 expr_stmt|;
 block|}
 block|}

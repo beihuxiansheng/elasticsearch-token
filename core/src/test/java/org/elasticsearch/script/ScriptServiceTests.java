@@ -372,8 +372,6 @@ argument_list|,
 name|ScriptContext
 argument_list|<
 name|?
-argument_list|,
-name|?
 argument_list|>
 argument_list|>
 name|contexts
@@ -1707,8 +1705,6 @@ argument_list|)
 decl_stmt|;
 name|ScriptContext
 argument_list|<
-name|?
-argument_list|,
 name|?
 argument_list|>
 name|context

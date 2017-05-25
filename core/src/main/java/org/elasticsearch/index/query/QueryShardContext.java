@@ -1815,8 +1815,6 @@ parameter_list|,
 name|ScriptContext
 argument_list|<
 name|SearchScript
-argument_list|,
-name|SearchScript
 operator|.
 name|Compiled
 argument_list|>
@@ -1878,8 +1876,6 @@ parameter_list|,
 name|ScriptContext
 argument_list|<
 name|SearchScript
-argument_list|,
-name|SearchScript
 operator|.
 name|Compiled
 argument_list|>
@@ -1932,8 +1928,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 argument_list|<
-name|ExecutableScript
-argument_list|,
 name|ExecutableScript
 operator|.
 name|Compiled
@@ -1992,8 +1986,6 @@ name|script
 parameter_list|,
 name|ScriptContext
 argument_list|<
-name|ExecutableScript
-argument_list|,
 name|ExecutableScript
 operator|.
 name|Compiled

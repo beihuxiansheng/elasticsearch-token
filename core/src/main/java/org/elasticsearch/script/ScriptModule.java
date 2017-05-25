@@ -144,8 +144,6 @@ argument_list|,
 name|ScriptContext
 argument_list|<
 name|?
-argument_list|,
-name|?
 argument_list|>
 argument_list|>
 name|contexts
