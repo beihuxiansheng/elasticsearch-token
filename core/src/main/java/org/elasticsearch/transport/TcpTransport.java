@@ -8428,13 +8428,9 @@ name|streamIn
 argument_list|)
 expr_stmt|;
 block|}
-comment|// for handshakes we are compatible with N-2 since otherwise we can't figure out our initial version
-comment|// since we are compatible with N-1 and N+1 so we always send our minCompatVersion as the initial version in the
-comment|// handshake. This looks odd but it's required to establish the connection correctly we check for real compatibility
-comment|// once the connection is established
 specifier|final
-name|Version
-name|compatibilityVersion
+name|boolean
+name|isHandshake
 init|=
 name|TransportStatus
 operator|.
@@ -8442,47 +8438,17 @@ name|isHandshake
 argument_list|(
 name|status
 argument_list|)
-condition|?
-name|getCurrentVersion
-argument_list|()
-operator|.
-name|minimumCompatibilityVersion
-argument_list|()
-else|:
-name|getCurrentVersion
-argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|version
-operator|.
-name|isCompatible
+name|ensureVersionCompatibility
 argument_list|(
-name|compatibilityVersion
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Received message from unsupported version: ["
-operator|+
 name|version
-operator|+
-literal|"] minimal compatible version is: ["
-operator|+
-name|compatibilityVersion
-operator|.
-name|minimumCompatibilityVersion
+argument_list|,
+name|getCurrentVersion
 argument_list|()
-operator|+
-literal|"]"
+argument_list|,
+name|isHandshake
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|streamIn
 operator|=
 operator|new
@@ -8551,12 +8517,7 @@ name|handler
 decl_stmt|;
 if|if
 condition|(
-name|TransportStatus
-operator|.
 name|isHandshake
-argument_list|(
-name|status
-argument_list|)
 condition|)
 block|{
 name|handler
@@ -8727,6 +8688,95 @@ name|streamIn
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|method|ensureVersionCompatibility
+specifier|static
+name|void
+name|ensureVersionCompatibility
+parameter_list|(
+name|Version
+name|version
+parameter_list|,
+name|Version
+name|currentVersion
+parameter_list|,
+name|boolean
+name|isHandshake
+parameter_list|)
+block|{
+comment|// for handshakes we are compatible with N-2 since otherwise we can't figure out our initial version
+comment|// since we are compatible with N-1 and N+1 so we always send our minCompatVersion as the initial version in the
+comment|// handshake. This looks odd but it's required to establish the connection correctly we check for real compatibility
+comment|// once the connection is established
+specifier|final
+name|Version
+name|compatibilityVersion
+init|=
+name|isHandshake
+condition|?
+name|currentVersion
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+else|:
+name|currentVersion
+decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|isCompatible
+argument_list|(
+name|compatibilityVersion
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+specifier|final
+name|Version
+name|minCompatibilityVersion
+init|=
+name|isHandshake
+condition|?
+name|compatibilityVersion
+else|:
+name|compatibilityVersion
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+decl_stmt|;
+name|String
+name|msg
+init|=
+literal|"Received "
+operator|+
+operator|(
+name|isHandshake
+condition|?
+literal|"handshake "
+else|:
+literal|""
+operator|)
+operator|+
+literal|"message from unsupported version: ["
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|msg
+operator|+
+name|version
+operator|+
+literal|"] minimal compatible version is: ["
+operator|+
+name|minCompatibilityVersion
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|handleResponse
