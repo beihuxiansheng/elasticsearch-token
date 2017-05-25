@@ -2546,11 +2546,10 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha1_UNRELEASED
+name|V_5_3_0
 argument_list|)
 condition|)
 block|{
-comment|// TODO change to V_5_3_0 once backported
 comment|// we do not know the incoming type so convert it if needed
 name|mappingSource
 operator|=
