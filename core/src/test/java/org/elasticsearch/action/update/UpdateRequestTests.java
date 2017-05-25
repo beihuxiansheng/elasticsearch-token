@@ -338,7 +338,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
+name|ScriptEngine
 import|;
 end_import
 
@@ -350,7 +350,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptEngine
+name|ScriptModule
 import|;
 end_import
 
@@ -1148,9 +1148,9 @@ name|baseSettings
 argument_list|,
 name|engines
 argument_list|,
-name|ScriptContext
+name|ScriptModule
 operator|.
-name|BUILTINS
+name|CORE_CONTEXTS
 argument_list|)
 decl_stmt|;
 specifier|final

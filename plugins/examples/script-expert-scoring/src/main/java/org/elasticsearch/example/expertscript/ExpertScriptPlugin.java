@@ -328,9 +328,9 @@ name|context
 operator|.
 name|equals
 argument_list|(
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|)
 operator|==
 literal|false

@@ -279,9 +279,9 @@ name|compile
 argument_list|(
 name|script
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|INGEST
+name|INGEST_CONTEXT
 argument_list|)
 argument_list|)
 operator|.

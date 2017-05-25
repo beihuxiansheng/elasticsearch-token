@@ -728,9 +728,9 @@ name|getSearchScript
 argument_list|(
 name|script
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|AGGS
+name|AGGS_CONTEXT
 argument_list|)
 return|;
 block|}

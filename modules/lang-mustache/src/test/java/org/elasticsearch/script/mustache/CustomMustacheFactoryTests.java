@@ -438,9 +438,9 @@ literal|null
 argument_list|,
 literal|"{\"field\": \"{{value}}\"}"
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|params
 argument_list|)
@@ -519,9 +519,9 @@ literal|null
 argument_list|,
 literal|"{\"field\": \"{{value}}\"}"
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|params
 argument_list|)
@@ -600,9 +600,9 @@ literal|null
 argument_list|,
 literal|"{\"field\": \"{{value}}\"}"
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|params
 argument_list|)

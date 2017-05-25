@@ -319,9 +319,9 @@ name|compile
 argument_list|(
 name|script
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|INGEST
+name|INGEST_CONTEXT
 argument_list|)
 decl_stmt|;
 name|ExecutableScript
@@ -706,9 +706,9 @@ name|compile
 argument_list|(
 name|script
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|INGEST
+name|INGEST_CONTEXT
 argument_list|)
 expr_stmt|;
 block|}

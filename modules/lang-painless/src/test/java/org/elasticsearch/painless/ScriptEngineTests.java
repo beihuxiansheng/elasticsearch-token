@@ -560,9 +560,9 @@ literal|null
 argument_list|,
 literal|"return ctx.value;"
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.
@@ -676,9 +676,9 @@ literal|null
 argument_list|,
 literal|"return params['value'];"
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.

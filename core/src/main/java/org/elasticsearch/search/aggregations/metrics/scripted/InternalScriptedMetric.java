@@ -597,9 +597,9 @@ name|firstAggregation
 operator|.
 name|reduceScript
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|AGGS_EXECUTABLE
+name|AGGS_CONTEXT
 argument_list|)
 decl_stmt|;
 name|ExecutableScript

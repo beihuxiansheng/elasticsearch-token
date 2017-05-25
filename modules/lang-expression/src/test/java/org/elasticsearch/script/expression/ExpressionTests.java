@@ -224,9 +224,9 @@ literal|null
 argument_list|,
 name|expression
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.

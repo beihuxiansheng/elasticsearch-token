@@ -465,9 +465,9 @@ name|getSearchScript
 argument_list|(
 name|script
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|)
 decl_stmt|;
 return|return

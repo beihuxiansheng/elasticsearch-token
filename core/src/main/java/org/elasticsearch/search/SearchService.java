@@ -4593,9 +4593,9 @@ operator|.
 name|script
 argument_list|()
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|)
 decl_stmt|;
 name|SearchScript

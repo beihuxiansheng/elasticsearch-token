@@ -183,9 +183,9 @@ literal|null
 argument_list|,
 literal|"1.2"
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.
@@ -226,9 +226,9 @@ literal|null
 argument_list|,
 literal|"doc['d'].value"
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.
@@ -268,9 +268,9 @@ literal|null
 argument_list|,
 literal|"1/_score"
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.
@@ -310,9 +310,9 @@ literal|null
 argument_list|,
 literal|"doc['d'].value * _score"
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.

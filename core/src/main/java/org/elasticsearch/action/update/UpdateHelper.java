@@ -2444,9 +2444,9 @@ name|compile
 argument_list|(
 name|script
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|UPDATE
+name|UPDATE_CONTEXT
 argument_list|)
 decl_stmt|;
 name|ExecutableScript

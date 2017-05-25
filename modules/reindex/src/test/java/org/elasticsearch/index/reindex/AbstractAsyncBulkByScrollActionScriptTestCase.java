@@ -375,9 +375,9 @@ argument_list|()
 argument_list|,
 name|eq
 argument_list|(
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|)
 argument_list|)
 argument_list|)
@@ -398,9 +398,9 @@ argument_list|()
 argument_list|,
 name|eq
 argument_list|(
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|UPDATE
+name|UPDATE_CONTEXT
 argument_list|)
 argument_list|)
 argument_list|)

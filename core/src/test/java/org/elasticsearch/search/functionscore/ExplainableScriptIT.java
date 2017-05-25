@@ -675,9 +675,9 @@ assert|;
 assert|assert
 name|context
 operator|==
-name|ScriptContext
+name|SearchScript
 operator|.
-name|SEARCH
+name|CONTEXT
 assert|;
 name|SearchScript
 operator|.

@@ -873,9 +873,9 @@ name|getLazyExecutableScript
 argument_list|(
 name|initScript
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|AGGS_EXECUTABLE
+name|AGGS_CONTEXT
 argument_list|)
 expr_stmt|;
 block|}
@@ -909,9 +909,9 @@ name|getLazySearchScript
 argument_list|(
 name|mapScript
 argument_list|,
-name|ScriptContext
+name|SearchScript
 operator|.
-name|AGGS
+name|AGGS_CONTEXT
 argument_list|)
 decl_stmt|;
 name|Function
@@ -942,9 +942,9 @@ name|getLazyExecutableScript
 argument_list|(
 name|combineScript
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|AGGS_EXECUTABLE
+name|AGGS_CONTEXT
 argument_list|)
 expr_stmt|;
 block|}

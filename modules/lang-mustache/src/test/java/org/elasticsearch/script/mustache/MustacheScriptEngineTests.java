@@ -294,9 +294,9 @@ literal|null
 argument_list|,
 name|template
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|compileParams
 argument_list|)
@@ -378,9 +378,9 @@ literal|null
 argument_list|,
 name|template
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|compileParams
 argument_list|)
@@ -461,9 +461,9 @@ operator|.
 name|getIdOrCode
 argument_list|()
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.
@@ -561,9 +561,9 @@ operator|.
 name|getIdOrCode
 argument_list|()
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|Collections
 operator|.

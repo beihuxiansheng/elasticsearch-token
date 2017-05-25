@@ -232,6 +232,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|ExecutableScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|Script
 import|;
 end_import
@@ -326,9 +338,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 import|;
 end_import
 
@@ -661,7 +673,9 @@ name|compileTemplate
 argument_list|(
 name|script
 argument_list|,
-name|EXECUTABLE
+name|ExecutableScript
+operator|.
+name|CONTEXT
 argument_list|)
 decl_stmt|;
 name|String

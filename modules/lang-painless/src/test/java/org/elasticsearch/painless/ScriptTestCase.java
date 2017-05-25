@@ -452,9 +452,9 @@ literal|null
 argument_list|,
 name|script
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|,
 name|compileParams
 argument_list|)

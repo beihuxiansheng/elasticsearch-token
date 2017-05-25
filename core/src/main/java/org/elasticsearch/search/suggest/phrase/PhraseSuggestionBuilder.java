@@ -3510,9 +3510,9 @@ name|this
 operator|.
 name|collateQuery
 argument_list|,
-name|ScriptContext
+name|ExecutableScript
 operator|.
-name|EXECUTABLE
+name|CONTEXT
 argument_list|)
 decl_stmt|;
 name|suggestionContext
