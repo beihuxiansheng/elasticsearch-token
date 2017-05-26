@@ -313,7 +313,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha1_UNRELEASED
+name|V_6_0_0_alpha1
 argument_list|)
 condition|)
 block|{
@@ -483,7 +483,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha1_UNRELEASED
+name|V_6_0_0_alpha1
 argument_list|)
 condition|)
 block|{

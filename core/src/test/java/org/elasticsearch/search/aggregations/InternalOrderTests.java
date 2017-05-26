@@ -681,7 +681,7 @@ name|getPreviousVersion
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|)
 decl_stmt|;

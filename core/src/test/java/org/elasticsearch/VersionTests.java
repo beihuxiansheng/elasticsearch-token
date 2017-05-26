@@ -170,7 +170,7 @@ name|elasticsearch
 operator|.
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 import|;
 end_import
 
@@ -282,7 +282,7 @@ name|V_5_3_0
 operator|.
 name|before
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|,
 name|is
@@ -308,7 +308,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|before
 argument_list|(
@@ -327,7 +327,7 @@ name|V_5_3_0
 operator|.
 name|onOrBefore
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|,
 name|is
@@ -353,7 +353,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|onOrBefore
 argument_list|(
@@ -372,7 +372,7 @@ name|V_5_3_0
 operator|.
 name|after
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|,
 name|is
@@ -398,7 +398,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|after
 argument_list|(
@@ -417,7 +417,7 @@ name|V_5_3_0
 operator|.
 name|onOrAfter
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|,
 name|is
@@ -443,7 +443,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|onOrAfter
 argument_list|(
@@ -544,7 +544,7 @@ name|is
 argument_list|(
 name|lessThan
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|)
 argument_list|)
@@ -566,7 +566,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|,
 name|is
 argument_list|(
@@ -828,7 +828,7 @@ name|V_5_0_0
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|minimumIndexCompatibilityVersion
 argument_list|()
@@ -1344,7 +1344,7 @@ name|V_5_2_0
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1486,7 +1486,7 @@ name|getPreviousVersion
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1497,7 +1497,7 @@ name|major
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -1515,7 +1515,7 @@ name|minor
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -1529,7 +1529,7 @@ literal|0
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -2909,11 +2909,11 @@ name|isCompatible
 argument_list|(
 name|Version
 operator|.
-name|V_5_5_0_UNRELEASED
+name|V_5_5_0
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2930,7 +2930,7 @@ argument_list|)
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2_UNRELEASED
+name|V_6_0_0_alpha2
 argument_list|)
 argument_list|)
 expr_stmt|;
