@@ -142,6 +142,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -791,6 +805,63 @@ name|id
 operator|+
 literal|"]}"
 return|;
+block|}
+comment|/**      * Override this method from ReplicationAction, this is where we are storing our state in the request object (which we really shouldn't      * do). Once the transport client goes away we can move away from making this available, but in the meantime this is dangerous to set or      * use because the DeleteRequest object will always be wrapped in a bulk request envelope, which is where this *should* be set.      */
+annotation|@
+name|Override
+DECL|method|primaryTerm
+specifier|public
+name|long
+name|primaryTerm
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"primary term should never be set on DeleteRequest"
+argument_list|)
+throw|;
+block|}
+comment|/**      * Override this method from ReplicationAction, this is where we are storing our state in the request object (which we really shouldn't      * do). Once the transport client goes away we can move away from making this available, but in the meantime this is dangerous to set or      * use because the DeleteRequest object will always be wrapped in a bulk request envelope, which is where this *should* be set.      */
+annotation|@
+name|Override
+DECL|method|primaryTerm
+specifier|public
+name|void
+name|primaryTerm
+parameter_list|(
+name|long
+name|term
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"primary term should never be set on DeleteRequest"
+argument_list|)
+throw|;
+block|}
+comment|/**      * Override this method from ReplicationAction, this is where we are storing our state in the request object (which we really shouldn't      * do). Once the transport client goes away we can move away from making this available, but in the meantime this is dangerous to set or      * use because the DeleteRequest object will always be wrapped in a bulk request envelope, which is where this *should* be set.      */
+annotation|@
+name|Override
+DECL|method|setShardId
+specifier|public
+name|DeleteRequest
+name|setShardId
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"shard id should never be set on DeleteRequest"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class
