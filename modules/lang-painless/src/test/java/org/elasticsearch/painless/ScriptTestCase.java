@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptException
 import|;
 end_import
@@ -441,8 +429,8 @@ block|}
 comment|// test actual script execution
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|scriptEngine
 operator|.
@@ -462,7 +450,7 @@ decl_stmt|;
 name|ExecutableScript
 name|executableScript
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(

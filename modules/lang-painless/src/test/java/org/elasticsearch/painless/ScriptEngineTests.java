@@ -28,18 +28,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -549,8 +537,8 @@ argument_list|)
 expr_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiledScript
+name|Factory
+name|factory
 init|=
 name|scriptEngine
 operator|.
@@ -573,7 +561,7 @@ decl_stmt|;
 name|ExecutableScript
 name|script
 init|=
-name|compiledScript
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -665,8 +653,8 @@ argument_list|()
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiledScript
+name|Factory
+name|factory
 init|=
 name|scriptEngine
 operator|.
@@ -689,7 +677,7 @@ decl_stmt|;
 name|ExecutableScript
 name|script
 init|=
-name|compiledScript
+name|factory
 operator|.
 name|newInstance
 argument_list|(

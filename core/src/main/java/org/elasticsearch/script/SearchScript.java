@@ -88,9 +88,9 @@ name|boolean
 name|needsScores
 parameter_list|()
 function_decl|;
-DECL|interface|Compiled
+DECL|interface|Factory
 interface|interface
-name|Compiled
+name|Factory
 block|{
 DECL|method|newInstance
 name|SearchScript
@@ -112,7 +112,7 @@ block|}
 DECL|field|CONTEXT
 name|ScriptContext
 argument_list|<
-name|Compiled
+name|Factory
 argument_list|>
 name|CONTEXT
 init|=
@@ -122,7 +122,7 @@ argument_list|<>
 argument_list|(
 literal|"search"
 argument_list|,
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)
@@ -131,9 +131,7 @@ comment|// TODO: remove aggs context when it has its own interface
 DECL|field|AGGS_CONTEXT
 name|ScriptContext
 argument_list|<
-name|SearchScript
-operator|.
-name|Compiled
+name|Factory
 argument_list|>
 name|AGGS_CONTEXT
 init|=
@@ -143,7 +141,7 @@ argument_list|<>
 argument_list|(
 literal|"aggs"
 argument_list|,
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)

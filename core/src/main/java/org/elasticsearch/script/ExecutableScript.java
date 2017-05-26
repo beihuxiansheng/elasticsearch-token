@@ -52,9 +52,9 @@ name|Object
 name|run
 parameter_list|()
 function_decl|;
-DECL|interface|Compiled
+DECL|interface|Factory
 interface|interface
-name|Compiled
+name|Factory
 block|{
 DECL|method|newInstance
 name|ExecutableScript
@@ -73,7 +73,7 @@ block|}
 DECL|field|CONTEXT
 name|ScriptContext
 argument_list|<
-name|Compiled
+name|Factory
 argument_list|>
 name|CONTEXT
 init|=
@@ -83,7 +83,7 @@ argument_list|<>
 argument_list|(
 literal|"executable"
 argument_list|,
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)
@@ -92,7 +92,7 @@ comment|// TODO: remove these once each has its own script interface
 DECL|field|AGGS_CONTEXT
 name|ScriptContext
 argument_list|<
-name|Compiled
+name|Factory
 argument_list|>
 name|AGGS_CONTEXT
 init|=
@@ -102,7 +102,7 @@ argument_list|<>
 argument_list|(
 literal|"aggs_executable"
 argument_list|,
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)
@@ -110,7 +110,7 @@ decl_stmt|;
 DECL|field|UPDATE_CONTEXT
 name|ScriptContext
 argument_list|<
-name|Compiled
+name|Factory
 argument_list|>
 name|UPDATE_CONTEXT
 init|=
@@ -120,7 +120,7 @@ argument_list|<>
 argument_list|(
 literal|"update"
 argument_list|,
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)
@@ -128,7 +128,7 @@ decl_stmt|;
 DECL|field|INGEST_CONTEXT
 name|ScriptContext
 argument_list|<
-name|Compiled
+name|Factory
 argument_list|>
 name|INGEST_CONTEXT
 init|=
@@ -138,7 +138,7 @@ argument_list|<>
 argument_list|(
 literal|"ingest"
 argument_list|,
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)

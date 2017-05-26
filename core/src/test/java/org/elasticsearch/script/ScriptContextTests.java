@@ -86,9 +86,9 @@ name|int
 name|foo
 parameter_list|)
 function_decl|;
-DECL|interface|Compiled
+DECL|interface|Factory
 interface|interface
-name|Compiled
+name|Factory
 block|{
 DECL|method|newInstance
 name|DummyScript
@@ -128,7 +128,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Cannot have multiple newInstance methods on CompiledType class ["
+literal|"Cannot have multiple newInstance methods on FactoryType class ["
 operator|+
 name|TwoNewInstance
 operator|.
@@ -177,7 +177,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Could not find method newInstance on CompiledType class ["
+literal|"Could not find method newInstance on FactoryType class ["
 operator|+
 name|MissingNewInstance
 operator|.
@@ -215,7 +215,7 @@ literal|"test"
 argument_list|,
 name|DummyScript
 operator|.
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|)
@@ -244,13 +244,13 @@ name|assertEquals
 argument_list|(
 name|DummyScript
 operator|.
-name|Compiled
+name|Factory
 operator|.
 name|class
 argument_list|,
 name|context
 operator|.
-name|compiledClazz
+name|factoryClazz
 argument_list|)
 expr_stmt|;
 block|}

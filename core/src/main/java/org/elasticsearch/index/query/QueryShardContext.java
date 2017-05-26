@@ -1816,7 +1816,7 @@ name|ScriptContext
 argument_list|<
 name|SearchScript
 operator|.
-name|Compiled
+name|Factory
 argument_list|>
 name|context
 parameter_list|)
@@ -1826,8 +1826,8 @@ argument_list|()
 expr_stmt|;
 name|SearchScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|scriptService
 operator|.
@@ -1839,7 +1839,7 @@ name|context
 argument_list|)
 decl_stmt|;
 return|return
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -1877,7 +1877,7 @@ name|ScriptContext
 argument_list|<
 name|SearchScript
 operator|.
-name|Compiled
+name|Factory
 argument_list|>
 name|context
 parameter_list|)
@@ -1888,8 +1888,8 @@ argument_list|()
 expr_stmt|;
 name|SearchScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|scriptService
 operator|.
@@ -1905,7 +1905,7 @@ parameter_list|(
 name|p
 parameter_list|)
 lambda|->
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -1930,7 +1930,7 @@ name|ScriptContext
 argument_list|<
 name|ExecutableScript
 operator|.
-name|Compiled
+name|Factory
 argument_list|>
 name|context
 parameter_list|)
@@ -1940,8 +1940,8 @@ argument_list|()
 expr_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|scriptService
 operator|.
@@ -1953,7 +1953,7 @@ name|context
 argument_list|)
 decl_stmt|;
 return|return
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -1988,7 +1988,7 @@ name|ScriptContext
 argument_list|<
 name|ExecutableScript
 operator|.
-name|Compiled
+name|Factory
 argument_list|>
 name|context
 parameter_list|)
@@ -1999,8 +1999,8 @@ argument_list|()
 expr_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|scriptService
 operator|.
@@ -2012,7 +2012,7 @@ name|context
 argument_list|)
 decl_stmt|;
 return|return
-name|compiled
+name|factory
 operator|::
 name|newInstance
 return|;

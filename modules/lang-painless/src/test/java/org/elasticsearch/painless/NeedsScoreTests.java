@@ -48,18 +48,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|SearchScript
 import|;
 end_import
@@ -172,8 +160,8 @@ argument_list|)
 decl_stmt|;
 name|SearchScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|service
 operator|.
@@ -196,7 +184,7 @@ decl_stmt|;
 name|SearchScript
 name|ss
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -216,7 +204,7 @@ name|needsScores
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|compiled
+name|factory
 operator|=
 name|service
 operator|.
@@ -238,7 +226,7 @@ argument_list|)
 expr_stmt|;
 name|ss
 operator|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -258,7 +246,7 @@ name|needsScores
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|compiled
+name|factory
 operator|=
 name|service
 operator|.
@@ -280,7 +268,7 @@ argument_list|)
 expr_stmt|;
 name|ss
 operator|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -300,7 +288,7 @@ name|needsScores
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|compiled
+name|factory
 operator|=
 name|service
 operator|.
@@ -322,7 +310,7 @@ argument_list|)
 expr_stmt|;
 name|ss
 operator|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(

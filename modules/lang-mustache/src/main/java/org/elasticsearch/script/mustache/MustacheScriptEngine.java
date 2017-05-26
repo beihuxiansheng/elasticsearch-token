@@ -104,18 +104,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|FastStringReader
@@ -193,32 +181,6 @@ operator|.
 name|script
 operator|.
 name|ScriptEngine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|SearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|lookup
-operator|.
-name|SearchLookup
 import|;
 end_import
 
@@ -414,7 +376,7 @@ argument_list|)
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
+name|Factory
 name|compiled
 init|=
 name|p
@@ -430,7 +392,7 @@ decl_stmt|;
 return|return
 name|context
 operator|.
-name|compiledClazz
+name|factoryClazz
 operator|.
 name|cast
 argument_list|(
@@ -516,7 +478,7 @@ name|MustacheExecutableScript
 implements|implements
 name|ExecutableScript
 block|{
-comment|/** Compiled template. */
+comment|/** Factory template. */
 DECL|field|template
 specifier|private
 name|Mustache

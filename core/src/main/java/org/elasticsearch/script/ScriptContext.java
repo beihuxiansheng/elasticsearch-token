@@ -26,38 +26,8 @@ name|Method
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
-comment|/**  * The information necessary to compile and run a script.  *  * A {@link ScriptContext} contains the information related to a single use case and the interfaces  * and methods necessary for a {@link ScriptEngine} to implement.  *<p>  * There are two related classes which must be supplied to construct a {@link ScriptContext}.  *<p>  * The<i>CompiledType</i> is a factory class for constructing instances of a script. The  * {@link ScriptService} returns an instance of<i>CompiledType</i> when compiling a script. This class  * must be stateless so it is cacheable by the {@link ScriptService}. It must have an abstract method  * named {@code newInstance} which {@link ScriptEngine} implementations will define.  *<p>  * The<i>InstanceType</i> is a class returned by the {@code newInstance} method of the  *<i>CompiledType</i>. It is an instance of a script and may be stateful. Instances of  * the<i>InstanceType</i> may be executed multiple times by a caller with different arguments. This  * class must have an abstract method named {@code execute} which {@link ScriptEngine} implementations  * will define.  */
+comment|/**  * The information necessary to compile and run a script.  *  * A {@link ScriptContext} contains the information related to a single use case and the interfaces  * and methods necessary for a {@link ScriptEngine} to implement.  *<p>  * There are two related classes which must be supplied to construct a {@link ScriptContext}.  *<p>  * The<i>FactoryType</i> is a factory class for constructing instances of a script. The  * {@link ScriptService} returns an instance of<i>FactoryType</i> when compiling a script. This class  * must be stateless so it is cacheable by the {@link ScriptService}. It must have an abstract method  * named {@code newInstance} which {@link ScriptEngine} implementations will define.  *<p>  * The<i>InstanceType</i> is a class returned by the {@code newInstance} method of the  *<i>FactoryType</i>. It is an instance of a script and may be stateful. Instances of  * the<i>InstanceType</i> may be executed multiple times by a caller with different arguments. This  * class must have an abstract method named {@code execute} which {@link ScriptEngine} implementations  * will define.  */
 end_comment
 
 begin_class
@@ -67,7 +37,7 @@ specifier|final
 class|class
 name|ScriptContext
 parameter_list|<
-name|CompiledType
+name|FactoryType
 parameter_list|>
 block|{
 comment|/** A unique identifier for this context. */
@@ -78,14 +48,14 @@ name|String
 name|name
 decl_stmt|;
 comment|/** A factory class for constructing instances of a script. */
-DECL|field|compiledClazz
+DECL|field|factoryClazz
 specifier|public
 specifier|final
 name|Class
 argument_list|<
-name|CompiledType
+name|FactoryType
 argument_list|>
-name|compiledClazz
+name|factoryClazz
 decl_stmt|;
 comment|/** A class that is an instance of a script. */
 DECL|field|instanceClazz
@@ -107,9 +77,9 @@ name|name
 parameter_list|,
 name|Class
 argument_list|<
-name|CompiledType
+name|FactoryType
 argument_list|>
-name|compiledClazz
+name|factoryClazz
 parameter_list|)
 block|{
 name|this
@@ -120,9 +90,9 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|compiledClazz
+name|factoryClazz
 operator|=
-name|compiledClazz
+name|factoryClazz
 expr_stmt|;
 name|Method
 name|newInstanceMethod
@@ -134,7 +104,7 @@ control|(
 name|Method
 name|method
 range|:
-name|compiledClazz
+name|factoryClazz
 operator|.
 name|getMethods
 argument_list|()
@@ -164,9 +134,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot have multiple newInstance methods on CompiledType class ["
+literal|"Cannot have multiple newInstance methods on FactoryType class ["
 operator|+
-name|compiledClazz
+name|factoryClazz
 operator|.
 name|getName
 argument_list|()
@@ -196,9 +166,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Could not find method newInstance on CompiledType class ["
+literal|"Could not find method newInstance on FactoryType class ["
 operator|+
-name|compiledClazz
+name|factoryClazz
 operator|.
 name|getName
 argument_list|()

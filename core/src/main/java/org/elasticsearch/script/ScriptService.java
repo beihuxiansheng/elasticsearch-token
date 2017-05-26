@@ -1466,9 +1466,9 @@ comment|/**      * Compiles a script using the given context.      *      * @ret
 DECL|method|compile
 specifier|public
 parameter_list|<
-name|CompiledType
+name|FactoryType
 parameter_list|>
-name|CompiledType
+name|FactoryType
 name|compile
 parameter_list|(
 name|Script
@@ -1476,7 +1476,7 @@ name|script
 parameter_list|,
 name|ScriptContext
 argument_list|<
-name|CompiledType
+name|FactoryType
 argument_list|>
 name|context
 parameter_list|)
@@ -1896,7 +1896,7 @@ block|{
 return|return
 name|context
 operator|.
-name|compiledClazz
+name|factoryClazz
 operator|.
 name|cast
 argument_list|(
@@ -2035,7 +2035,7 @@ block|}
 return|return
 name|context
 operator|.
-name|compiledClazz
+name|factoryClazz
 operator|.
 name|cast
 argument_list|(
@@ -2057,15 +2057,15 @@ name|ScriptContext
 argument_list|<
 name|ExecutableScript
 operator|.
-name|Compiled
+name|Factory
 argument_list|>
 name|scriptContext
 parameter_list|)
 block|{
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiledScript
+name|Factory
+name|factory
 init|=
 name|compile
 argument_list|(
@@ -2080,7 +2080,7 @@ lambda|->
 operator|(
 name|String
 operator|)
-name|compiledScript
+name|factory
 operator|.
 name|newInstance
 argument_list|(

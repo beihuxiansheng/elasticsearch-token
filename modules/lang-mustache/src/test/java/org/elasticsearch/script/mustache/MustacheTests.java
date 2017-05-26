@@ -24,18 +24,6 @@ name|github
 operator|.
 name|mustachejava
 operator|.
-name|Mustache
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|mustachejava
-operator|.
 name|MustacheException
 import|;
 end_import
@@ -77,18 +65,6 @@ operator|.
 name|script
 operator|.
 name|ExecutableScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptContext
 import|;
 end_import
 
@@ -407,8 +383,8 @@ argument_list|)
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -431,7 +407,7 @@ decl_stmt|;
 name|ExecutableScript
 name|result
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -468,8 +444,8 @@ literal|"{{data.0}} {{data.1}}"
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -537,7 +513,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -591,7 +567,7 @@ expr_stmt|;
 name|Object
 name|output
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -653,8 +629,8 @@ literal|"{{data.0.0}} {{data.0.1}}"
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -745,7 +721,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -777,8 +753,8 @@ literal|"{{data.0.key}} {{data.1.key}}"
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -866,7 +842,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -930,7 +906,7 @@ expr_stmt|;
 name|Object
 name|output
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -1025,8 +1001,8 @@ literal|"{{data.array.size}} {{data.list.size}}"
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -1124,7 +1100,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -3033,7 +3009,7 @@ DECL|method|compile
 specifier|private
 name|ExecutableScript
 operator|.
-name|Compiled
+name|Factory
 name|compile
 parameter_list|(
 name|String

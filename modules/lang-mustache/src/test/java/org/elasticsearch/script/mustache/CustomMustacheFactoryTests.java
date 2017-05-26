@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|mustachejava
-operator|.
-name|Mustache
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -49,18 +37,6 @@ operator|.
 name|script
 operator|.
 name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptContext
 import|;
 end_import
 
@@ -427,8 +403,8 @@ argument_list|()
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -448,7 +424,7 @@ decl_stmt|;
 name|ExecutableScript
 name|executable
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -508,8 +484,8 @@ argument_list|)
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -529,7 +505,7 @@ decl_stmt|;
 name|ExecutableScript
 name|executable
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(
@@ -589,8 +565,8 @@ argument_list|)
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|engine
 operator|.
@@ -610,7 +586,7 @@ decl_stmt|;
 name|ExecutableScript
 name|executable
 init|=
-name|compiled
+name|factory
 operator|.
 name|newInstance
 argument_list|(

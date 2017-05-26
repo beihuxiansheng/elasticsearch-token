@@ -108,18 +108,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptService
 import|;
 end_import
@@ -357,8 +345,8 @@ argument_list|)
 decl_stmt|;
 name|ExecutableScript
 operator|.
-name|Compiled
-name|compiled
+name|Factory
+name|factory
 init|=
 name|params
 lambda|->
@@ -384,7 +372,7 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|compiled
+name|factory
 argument_list|)
 expr_stmt|;
 name|when
@@ -407,7 +395,7 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|compiled
+name|factory
 argument_list|)
 expr_stmt|;
 name|AbstractAsyncBulkByScrollAction

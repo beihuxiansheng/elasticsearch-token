@@ -62,12 +62,12 @@ name|String
 name|getType
 parameter_list|()
 function_decl|;
-comment|/**      * Compiles a script.      * @param name the name of the script. {@code null} if it is anonymous (inline). For a stored script, its the identifier.      * @param code actual source of the script      * @param context the context this script will be used for      * @param params compile-time parameters (such as flags to the compiler)      * @return A compiled script of the CompiledType from {@link ScriptContext}      */
+comment|/**      * Compiles a script.      * @param name the name of the script. {@code null} if it is anonymous (inline). For a stored script, its the identifier.      * @param code actual source of the script      * @param context the context this script will be used for      * @param params compile-time parameters (such as flags to the compiler)      * @return A compiled script of the FactoryType from {@link ScriptContext}      */
 DECL|method|compile
 parameter_list|<
-name|CompiledType
+name|FactoryType
 parameter_list|>
-name|CompiledType
+name|FactoryType
 name|compile
 parameter_list|(
 name|String
@@ -78,7 +78,7 @@ name|code
 parameter_list|,
 name|ScriptContext
 argument_list|<
-name|CompiledType
+name|FactoryType
 argument_list|>
 name|context
 parameter_list|,
