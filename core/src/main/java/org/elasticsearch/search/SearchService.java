@@ -1837,6 +1837,11 @@ operator|.
 name|incRef
 argument_list|()
 expr_stmt|;
+name|boolean
+name|queryPhaseSuccess
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|context
@@ -1919,6 +1924,10 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
+name|queryPhaseSuccess
+operator|=
+literal|true
+expr_stmt|;
 name|operationListener
 operator|.
 name|onQueryPhase
@@ -2008,6 +2017,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|queryPhaseSuccess
+condition|)
+block|{
 name|operationListener
 operator|.
 name|onFailedQueryPhase
@@ -2015,6 +2030,7 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
 name|logger
 operator|.
 name|trace
