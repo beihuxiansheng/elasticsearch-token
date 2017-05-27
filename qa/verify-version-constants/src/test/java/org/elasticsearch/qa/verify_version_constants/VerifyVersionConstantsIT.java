@@ -227,12 +227,12 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
+name|elasticsearchVersion
+operator|.
 name|luceneVersion
 argument_list|,
 name|equalTo
 argument_list|(
-name|elasticsearchVersion
-operator|.
 name|luceneVersion
 argument_list|)
 argument_list|)
