@@ -1478,7 +1478,7 @@ literal|","
 operator|+
 name|bwcLuceneVersion
 operator|+
-literal|"] but was"
+literal|"] but was "
 operator|+
 name|line
 argument_list|)
