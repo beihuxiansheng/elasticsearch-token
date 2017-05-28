@@ -744,10 +744,15 @@ operator|.
 name|size
 argument_list|()
 else|:
+operator|(
+operator|(
+name|double
+operator|)
 name|shardStats
 operator|.
 name|getCacheSize
 argument_list|()
+operator|)
 operator|/
 name|totalSize
 decl_stmt|;
