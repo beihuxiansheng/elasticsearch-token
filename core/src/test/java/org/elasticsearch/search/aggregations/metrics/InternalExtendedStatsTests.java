@@ -564,6 +564,8 @@ name|getCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// The order in which you add double values in java can give different results. The difference can
+comment|// be larger for large sum values, so we make the delta in the assertion depend on the values magnitude
 name|assertEquals
 argument_list|(
 name|expectedSum
@@ -573,7 +575,14 @@ operator|.
 name|getSum
 argument_list|()
 argument_list|,
-literal|1e-07
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|expectedSum
+argument_list|)
+operator|*
+literal|1e-12
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -600,6 +609,7 @@ argument_list|,
 literal|0d
 argument_list|)
 expr_stmt|;
+comment|// summing squared values, see reason for delta above
 name|assertEquals
 argument_list|(
 name|expectedSumOfSquare
@@ -609,7 +619,9 @@ operator|.
 name|getSumOfSquares
 argument_list|()
 argument_list|,
-literal|1e-07
+name|expectedSumOfSquare
+operator|*
+literal|1e-14
 argument_list|)
 expr_stmt|;
 block|}
