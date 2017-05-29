@@ -3970,13 +3970,6 @@ literal|"org.elasticsearch.cluster.service:TRACE,"
 operator|+
 literal|"org.elasticsearch.index.seqno:TRACE"
 argument_list|)
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/24599"
-argument_list|)
 DECL|method|testIndexAndRelocateConcurrently
 specifier|public
 name|void
@@ -4589,6 +4582,25 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// refresh is a replication action so this forces a global checkpoint sync which is needed as these are asserted on in tear down
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareRefresh
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+comment|/*          * We have to execute a second refresh as in the face of relocations, the relocation target is not aware of the in-sync set and so          * the first refresh would bring back the local checkpoint for any shards added to the in-sync set that the relocation target was          * not tracking.          */
+comment|// TODO: remove this after a primary context is transferred during relocation handoff
 name|client
 argument_list|()
 operator|.
