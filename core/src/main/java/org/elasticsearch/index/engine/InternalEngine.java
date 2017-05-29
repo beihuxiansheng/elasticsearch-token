@@ -54,20 +54,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexCommit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexFormatTooOldException
 import|;
 end_import
@@ -111,6 +97,20 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|KeepOnlyLastCommitDeletionPolicy
 import|;
 end_import
 
@@ -181,6 +181,20 @@ operator|.
 name|index
 operator|.
 name|SegmentInfos
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SnapshotDeletionPolicy
 import|;
 end_import
 
@@ -1095,6 +1109,12 @@ specifier|final
 name|String
 name|uidField
 decl_stmt|;
+DECL|field|deletionPolicy
+specifier|private
+specifier|final
+name|SnapshotDeletionPolicy
+name|deletionPolicy
+decl_stmt|;
 comment|// How many callers are currently requesting index throttling.  Currently there are only two situations where we do this: when merges
 comment|// are falling behind and when writing indexing buffer to disk is too slow.  When this is 0, there is no throttling, else we throttling
 comment|// incoming indexing ops to a single thread:
@@ -1212,6 +1232,16 @@ name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 block|}
+name|deletionPolicy
+operator|=
+operator|new
+name|SnapshotDeletionPolicy
+argument_list|(
+operator|new
+name|KeepOnlyLastCommitDeletionPolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|uidField
@@ -8411,7 +8441,7 @@ annotation|@
 name|Override
 DECL|method|acquireIndexCommit
 specifier|public
-name|IndexCommit
+name|IndexCommitRef
 name|acquireIndexCommit
 parameter_list|(
 specifier|final
@@ -8472,10 +8502,11 @@ literal|"pulling snapshot"
 argument_list|)
 expr_stmt|;
 return|return
+operator|new
+name|IndexCommitRef
+argument_list|(
 name|deletionPolicy
-operator|.
-name|snapshot
-argument_list|()
+argument_list|)
 return|;
 block|}
 catch|catch

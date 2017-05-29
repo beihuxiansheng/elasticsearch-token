@@ -66,20 +66,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|SnapshotDeletionPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|QueryCache
@@ -409,12 +395,6 @@ specifier|final
 name|Store
 name|store
 decl_stmt|;
-DECL|field|deletionPolicy
-specifier|private
-specifier|final
-name|SnapshotDeletionPolicy
-name|deletionPolicy
-decl_stmt|;
 DECL|field|mergePolicy
 specifier|private
 specifier|final
@@ -623,9 +603,6 @@ parameter_list|,
 name|Store
 name|store
 parameter_list|,
-name|SnapshotDeletionPolicy
-name|deletionPolicy
-parameter_list|,
 name|MergePolicy
 name|mergePolicy
 parameter_list|,
@@ -721,12 +698,6 @@ operator|.
 name|store
 operator|=
 name|store
-expr_stmt|;
-name|this
-operator|.
-name|deletionPolicy
-operator|=
-name|deletionPolicy
 expr_stmt|;
 name|this
 operator|.
@@ -919,17 +890,6 @@ parameter_list|()
 block|{
 return|return
 name|store
-return|;
-block|}
-comment|/**      * Returns a {@link SnapshotDeletionPolicy} used in the engines      * {@link org.apache.lucene.index.IndexWriter}.      */
-DECL|method|getDeletionPolicy
-specifier|public
-name|SnapshotDeletionPolicy
-name|getDeletionPolicy
-parameter_list|()
-block|{
-return|return
-name|deletionPolicy
 return|;
 block|}
 comment|/**      * Returns the {@link org.apache.lucene.index.MergePolicy} for the engines {@link org.apache.lucene.index.IndexWriter}      */

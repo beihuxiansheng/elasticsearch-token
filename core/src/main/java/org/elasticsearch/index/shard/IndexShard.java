@@ -82,35 +82,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|KeepOnlyLastCommitDeletionPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|SegmentInfos
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|SnapshotDeletionPolicy
 import|;
 end_import
 
@@ -1788,12 +1760,6 @@ operator|.
 name|Warmer
 name|warmer
 decl_stmt|;
-DECL|field|deletionPolicy
-specifier|private
-specifier|final
-name|SnapshotDeletionPolicy
-name|deletionPolicy
-decl_stmt|;
 DECL|field|similarityService
 specifier|private
 specifier|final
@@ -2181,18 +2147,6 @@ operator|.
 name|warmer
 operator|=
 name|warmer
-expr_stmt|;
-name|this
-operator|.
-name|deletionPolicy
-operator|=
-operator|new
-name|SnapshotDeletionPolicy
-argument_list|(
-operator|new
-name|KeepOnlyLastCommitDeletionPolicy
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -5716,10 +5670,12 @@ else|:
 name|luceneVersion
 return|;
 block|}
-comment|/**      * Creates a new {@link IndexCommit} snapshot form the currently running engine. All resources referenced by this      * commit won't be freed until the commit / snapshot is released via {@link #releaseIndexCommit(IndexCommit)}.      *      * @param flushFirst<code>true</code> if the index should first be flushed to disk / a low level lucene commit should be executed      */
+comment|/**      * Creates a new {@link IndexCommit} snapshot form the currently running engine. All resources referenced by this      * commit won't be freed until the commit / snapshot is closed.      *      * @param flushFirst<code>true</code> if the index should first be flushed to disk / a low level lucene commit should be executed      */
 DECL|method|acquireIndexCommit
 specifier|public
-name|IndexCommit
+name|Engine
+operator|.
+name|IndexCommitRef
 name|acquireIndexCommit
 parameter_list|(
 name|boolean
@@ -5783,26 +5739,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Releases a snapshot taken from {@link #acquireIndexCommit(boolean)} this must be called to release the resources      * referenced by the given snapshot {@link IndexCommit}.      */
-DECL|method|releaseIndexCommit
-specifier|public
-name|void
-name|releaseIndexCommit
-parameter_list|(
-name|IndexCommit
-name|snapshot
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|deletionPolicy
-operator|.
-name|release
-argument_list|(
-name|snapshot
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * gets a {@link Store.MetadataSnapshot} for the current directory. This method is safe to call in all lifecycle of the index shard,      * without having to worry about the current state of the engine and concurrent flushes.      *      * @throws org.apache.lucene.index.IndexNotFoundException     if no index is found in the current directory      * @throws org.apache.lucene.index.CorruptIndexException      if the lucene index is corrupted. This can be caused by a checksum      *                                                            mismatch or an unexpected exception when opening the index reading the      *                                                            segments file.      * @throws org.apache.lucene.index.IndexFormatTooOldException if the lucene index is too old to be opened.      * @throws org.apache.lucene.index.IndexFormatTooNewException if the lucene index is too new to be opened.      * @throws java.io.FileNotFoundException                      if one or more files referenced by a commit are not present.      * @throws java.nio.file.NoSuchFileException                  if one or more files referenced by a commit are not present.      */
 DECL|method|snapshotStoreMetadata
 specifier|public
@@ -5814,7 +5750,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|IndexCommit
+name|Engine
+operator|.
+name|IndexCommitRef
 name|indexCommit
 init|=
 literal|null
@@ -5826,6 +5764,9 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+name|Engine
+name|engine
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|mutex
@@ -5834,12 +5775,11 @@ block|{
 comment|// if the engine is not running, we can access the store directly, but we need to make sure no one starts
 comment|// the engine on us. If the engine is running, we can get a snapshot via the deletion policy which is initialized.
 comment|// That can be done out of mutex, since the engine can be closed half way.
-name|Engine
 name|engine
-init|=
+operator|=
 name|getEngineOrNull
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|engine
@@ -5861,10 +5801,12 @@ block|}
 block|}
 name|indexCommit
 operator|=
-name|deletionPolicy
+name|engine
 operator|.
-name|snapshot
-argument_list|()
+name|acquireIndexCommit
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 return|return
 name|store
@@ -5872,6 +5814,9 @@ operator|.
 name|getMetadata
 argument_list|(
 name|indexCommit
+operator|.
+name|getIndexCommit
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -5882,21 +5827,13 @@ operator|.
 name|decRef
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|indexCommit
-operator|!=
-literal|null
-condition|)
-block|{
-name|deletionPolicy
+name|IOUtils
 operator|.
-name|release
+name|close
 argument_list|(
 name|indexCommit
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Fails the shard and marks the shard store as corrupted if      *<code>e</code> is caused by index corruption      */
@@ -10107,8 +10044,6 @@ argument_list|,
 name|warmer
 argument_list|,
 name|store
-argument_list|,
-name|deletionPolicy
 argument_list|,
 name|indexSettings
 operator|.

@@ -4404,7 +4404,9 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
-name|IndexCommit
+name|Engine
+operator|.
+name|IndexCommitRef
 name|commit
 init|=
 name|shard
@@ -4467,6 +4469,9 @@ operator|.
 name|open
 argument_list|(
 name|commit
+operator|.
+name|getIndexCommit
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -4488,12 +4493,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|shard
-operator|.
-name|releaseIndexCommit
-argument_list|(
 name|commit
-argument_list|)
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|flushShard
 argument_list|(
