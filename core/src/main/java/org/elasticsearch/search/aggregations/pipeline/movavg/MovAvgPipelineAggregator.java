@@ -1134,7 +1134,10 @@ name|createBucket
 argument_list|(
 name|newKey
 argument_list|,
-literal|0
+name|bucket
+operator|.
+name|getDocCount
+argument_list|()
 argument_list|,
 operator|new
 name|InternalAggregations
