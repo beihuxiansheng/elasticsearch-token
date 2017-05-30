@@ -1536,6 +1536,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|TimeUnit
 import|;
 end_import
@@ -2648,7 +2660,7 @@ operator|.
 name|primaryTerm
 return|;
 block|}
-comment|/**      * notifies the shard of an increase in the primary term      */
+comment|/**      * Notifies the shard of an increase in the primary term.      *      * @param newPrimaryTerm the new primary term      */
 DECL|method|updatePrimaryTerm
 specifier|public
 name|void
@@ -2656,7 +2668,7 @@ name|updatePrimaryTerm
 parameter_list|(
 specifier|final
 name|long
-name|newTerm
+name|newPrimaryTerm
 parameter_list|)
 block|{
 assert|assert
@@ -2674,7 +2686,7 @@ init|)
 block|{
 if|if
 condition|(
-name|newTerm
+name|newPrimaryTerm
 operator|!=
 name|primaryTerm
 condition|)
@@ -2715,12 +2727,12 @@ literal|"], "
 operator|+
 literal|"new term ["
 operator|+
-name|newTerm
+name|newPrimaryTerm
 operator|+
 literal|"]"
 assert|;
 assert|assert
-name|newTerm
+name|newPrimaryTerm
 operator|>
 name|primaryTerm
 operator|:
@@ -2730,13 +2742,53 @@ name|primaryTerm
 operator|+
 literal|"], new term ["
 operator|+
-name|newTerm
+name|newPrimaryTerm
 operator|+
 literal|"]"
 assert|;
+comment|/*                  * Before this call returns, we are guaranteed that all future operations are delayed and so this happens before we                  * increment the primary term. The latch is needed to ensure that we do not unblock operations before the primary term is                  * incremented.                  */
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|indexShardOperationPermits
+operator|.
+name|asyncBlockOperations
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|MINUTES
+argument_list|,
+name|latch
+operator|::
+name|await
+argument_list|,
+name|e
+lambda|->
+name|failShard
+argument_list|(
+literal|"exception during primary term transition"
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|primaryTerm
 operator|=
-name|newTerm
+name|newPrimaryTerm
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
