@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lease
 operator|.
 name|Releasable
@@ -299,7 +287,6 @@ name|ThreadPool
 name|threadPool
 decl_stmt|;
 DECL|field|TOTAL_PERMITS
-specifier|private
 specifier|static
 specifier|final
 name|int
@@ -942,14 +929,9 @@ else|else
 block|{
 name|releasable
 operator|=
-name|tryAcquire
+name|acquire
 argument_list|()
 expr_stmt|;
-assert|assert
-name|releasable
-operator|!=
-literal|null
-assert|;
 block|}
 block|}
 block|}
@@ -978,12 +960,10 @@ name|releasable
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Nullable
-DECL|method|tryAcquire
+DECL|method|acquire
 specifier|private
 name|Releasable
-name|tryAcquire
+name|acquire
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -1048,9 +1028,17 @@ block|}
 block|}
 return|;
 block|}
-return|return
-literal|null
-return|;
+else|else
+block|{
+comment|// this should never happen, if it does something is deeply wrong
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"failed to obtain permit but operations are not delayed"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Obtain the active operation count, or zero if all permits are held (even if there are outstanding operations in flight).      *      * @return the active operation count, or zero when all permits ar eheld      */
 DECL|method|getActiveOperationsCount
