@@ -171,6 +171,8 @@ operator|new
 name|PainlessScriptEngine
 argument_list|(
 name|settings
+argument_list|,
+name|contexts
 argument_list|)
 return|;
 block|}
