@@ -1261,7 +1261,7 @@ name|AlreadyClosedException
 name|e
 parameter_list|)
 block|{
-comment|// okay, the index was deleted or this shard was never activated after a relocation; fallthrough and finish normally
+comment|// okay, the index was deleted or this shard was never activated after a relocation; fall through and finish normally
 block|}
 catch|catch
 parameter_list|(
