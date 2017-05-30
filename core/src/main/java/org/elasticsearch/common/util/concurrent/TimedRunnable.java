@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A class used to wrap a {@code Runnable} that allows capturing the time the task since creation  * through execution.  */
+comment|/**  * A class used to wrap a {@code Runnable} that allows capturing the time of the task since creation  * through execution as well as only execution time.  */
 end_comment
 
 begin_class
@@ -40,6 +40,11 @@ specifier|private
 specifier|final
 name|long
 name|creationTimeNanos
+decl_stmt|;
+DECL|field|startTimeNanos
+specifier|private
+name|long
+name|startTimeNanos
 decl_stmt|;
 DECL|field|finishTimeNanos
 specifier|private
@@ -82,6 +87,13 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|startTimeNanos
+operator|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+expr_stmt|;
 name|original
 operator|.
 name|run
@@ -123,6 +135,37 @@ return|return
 name|finishTimeNanos
 operator|-
 name|creationTimeNanos
+return|;
+block|}
+comment|/**      * Return the time this task spent being run.      * If the task is still running or has not yet been run, returns -1.      */
+DECL|method|getTotalExecutionNanos
+name|long
+name|getTotalExecutionNanos
+parameter_list|()
+block|{
+if|if
+condition|(
+name|startTimeNanos
+operator|==
+operator|-
+literal|1
+operator|||
+name|finishTimeNanos
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+comment|// There must have been an exception thrown, the total time is unknown (-1)
+return|return
+operator|-
+literal|1
+return|;
+block|}
+return|return
+name|finishTimeNanos
+operator|-
+name|startTimeNanos
 return|;
 block|}
 block|}

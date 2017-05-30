@@ -56,6 +56,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ExponentiallyWeightedMovingAverage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -241,6 +253,15 @@ name|QueueResizingEsThreadPoolExecutor
 extends|extends
 name|EsThreadPoolExecutor
 block|{
+comment|// This is a random starting point alpha. TODO: revisit this with actual testing and/or make it configurable
+DECL|field|EWMA_ALPHA
+specifier|public
+specifier|static
+name|double
+name|EWMA_ALPHA
+init|=
+literal|0.3
+decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|static
@@ -256,6 +277,16 @@ name|QueueResizingEsThreadPoolExecutor
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// The amount the queue size is adjusted by for each calcuation
+DECL|field|QUEUE_ADJUSTMENT_AMOUNT
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|QUEUE_ADJUSTMENT_AMOUNT
+init|=
+literal|50
 decl_stmt|;
 DECL|field|runnableWrapper
 specifier|private
@@ -301,15 +332,11 @@ specifier|final
 name|long
 name|targetedResponseTimeNanos
 decl_stmt|;
-comment|// The amount the queue size is adjusted by for each calcuation
-DECL|field|QUEUE_ADJUSTMENT_AMOUNT
+DECL|field|executionEWMA
 specifier|private
-specifier|static
 specifier|final
-name|int
-name|QUEUE_ADJUSTMENT_AMOUNT
-init|=
-literal|50
+name|ExponentiallyWeightedMovingAverage
+name|executionEWMA
 decl_stmt|;
 DECL|field|totalTaskNanos
 specifier|private
@@ -464,6 +491,20 @@ operator|.
 name|getNanos
 argument_list|()
 expr_stmt|;
+comment|// We choose to start the EWMA with the targeted response time, reasoning that it is a
+comment|// better start point for a realistic task execution time than starting at 0
+name|this
+operator|.
+name|executionEWMA
+operator|=
+operator|new
+name|ExponentiallyWeightedMovingAverage
+argument_list|(
+name|EWMA_ALPHA
+argument_list|,
+name|targetedResponseTimeNanos
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -607,6 +648,20 @@ name|capacity
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the exponentially weighted moving average of the task execution time      */
+DECL|method|getTaskExecutionEWMA
+specifier|public
+name|double
+name|getTaskExecutionEWMA
+parameter_list|()
+block|{
+return|return
+name|executionEWMA
+operator|.
+name|getAverage
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|afterExecute
@@ -666,6 +721,36 @@ argument_list|(
 name|taskNanos
 argument_list|)
 decl_stmt|;
+specifier|final
+name|long
+name|taskExecutionNanos
+init|=
+operator|(
+operator|(
+name|TimedRunnable
+operator|)
+name|r
+operator|)
+operator|.
+name|getTotalExecutionNanos
+argument_list|()
+decl_stmt|;
+assert|assert
+name|taskExecutionNanos
+operator|>=
+literal|0
+operator|:
+literal|"expected task to always take longer than 0 nanoseconds, got: "
+operator|+
+name|taskExecutionNanos
+assert|;
+name|executionEWMA
+operator|.
+name|addValue
+argument_list|(
+name|taskExecutionNanos
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|taskCount
@@ -730,6 +815,15 @@ argument_list|,
 name|targetedResponseTimeNanos
 argument_list|)
 decl_stmt|;
+specifier|final
+name|int
+name|oldCapacity
+init|=
+name|workQueue
+operator|.
+name|capacity
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|logger
@@ -750,9 +844,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}]: there were [{}] tasks in [{}], avg task time: [{}], [{} tasks/s], "
+literal|"[{}]: there were [{}] tasks in [{}], avg task time [{}], EWMA task execution [{}], "
 operator|+
-literal|"optimal queue is [{}]"
+literal|"[{} tasks/s], optimal queue is [{}], current capacity [{}]"
 argument_list|,
 name|name
 argument_list|,
@@ -770,6 +864,19 @@ operator|.
 name|timeValueNanos
 argument_list|(
 name|avgTaskTime
+argument_list|)
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueNanos
+argument_list|(
+operator|(
+name|long
+operator|)
+name|executionEWMA
+operator|.
+name|getAverage
+argument_list|()
 argument_list|)
 argument_list|,
 name|String
@@ -796,18 +903,11 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|desiredQueueSize
+argument_list|,
+name|oldCapacity
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|int
-name|oldCapacity
-init|=
-name|workQueue
-operator|.
-name|capacity
-argument_list|()
-decl_stmt|;
 comment|// Adjust the queue size towards the desired capacity using an adjust of
 comment|// QUEUE_ADJUSTMENT_AMOUNT (either up or down), keeping in mind the min and max
 comment|// values the queue size can have.
@@ -1134,6 +1234,34 @@ operator|.
 name|timeValueNanos
 argument_list|(
 name|targetedResponseTimeNanos
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|", "
+argument_list|)
+expr_stmt|;
+name|b
+operator|.
+name|append
+argument_list|(
+literal|"task execution EWMA = "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|TimeValue
+operator|.
+name|timeValueNanos
+argument_list|(
+operator|(
+name|long
+operator|)
+name|executionEWMA
+operator|.
+name|getAverage
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
