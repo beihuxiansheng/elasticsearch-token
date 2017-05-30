@@ -70,71 +70,33 @@ begin_comment
 comment|/**  * Abstract superclass on top of which all Painless scripts are built.  */
 end_comment
 
-begin_class
-DECL|class|PainlessScript
+begin_interface
+DECL|interface|PainlessScript
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|PainlessScript
 block|{
-comment|/**      * Name of the script set at compile time.      */
-DECL|field|name
-specifier|private
-specifier|final
+comment|/**      * @return The name of the script retrieved from a static variable generated      * during compilation of a Painless script.      */
+DECL|method|getName
 name|String
-name|name
-decl_stmt|;
-comment|/**      * Source of the script.      */
-DECL|field|source
-specifier|private
-specifier|final
+name|getName
+parameter_list|()
+function_decl|;
+comment|/**      * @return The source for a script retrieved from a static variable generated      * during compilation of a Painless script.      */
+DECL|method|getSource
 name|String
-name|source
-decl_stmt|;
-comment|/**      * Character number of the start of each statement.      */
-DECL|field|statements
-specifier|private
-specifier|final
+name|getSource
+parameter_list|()
+function_decl|;
+comment|/**      * @return The {@link BitSet} tracking the boundaries for statements necessary      * for good exception messages.      */
+DECL|method|getStatements
 name|BitSet
-name|statements
-decl_stmt|;
-DECL|method|PainlessScript
-specifier|protected
-name|PainlessScript
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-name|source
-parameter_list|,
-name|BitSet
-name|statements
-parameter_list|)
-block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-name|this
-operator|.
-name|source
-operator|=
-name|source
-expr_stmt|;
-name|this
-operator|.
-name|statements
-operator|=
-name|statements
-expr_stmt|;
-block|}
+name|getStatements
+parameter_list|()
+function_decl|;
 comment|/**      * Adds stack trace and other useful information to exceptions thrown      * from a Painless script.      * @param t The throwable to build an exception around.      * @return The generated ScriptException.      */
 DECL|method|convertToScriptException
-specifier|protected
-specifier|final
+specifier|default
 name|ScriptException
 name|convertToScriptException
 parameter_list|(
@@ -265,7 +227,8 @@ condition|)
 block|{
 name|endOffset
 operator|=
-name|source
+name|getSource
+argument_list|()
 operator|.
 name|length
 argument_list|()
@@ -275,7 +238,8 @@ comment|// TODO: if this is still too long, truncate and use ellipses
 name|String
 name|snippet
 init|=
-name|source
+name|getSource
+argument_list|()
 operator|.
 name|substring
 argument_list|(
@@ -377,24 +341,23 @@ name|INLINE_NAME
 operator|.
 name|equals
 argument_list|(
-name|this
-operator|.
-name|name
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
 name|name
 operator|=
-name|source
+name|getSource
+argument_list|()
 expr_stmt|;
 block|}
 else|else
 block|{
 name|name
 operator|=
-name|this
-operator|.
-name|name
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 name|ScriptException
@@ -459,8 +422,7 @@ return|;
 block|}
 comment|/** returns true for methods that are part of the runtime */
 DECL|method|shouldFilter
-specifier|private
-specifier|static
+specifier|default
 name|boolean
 name|shouldFilter
 parameter_list|(
@@ -502,7 +464,7 @@ return|;
 block|}
 comment|/**      * Finds the start of the first statement boundary that is on or before {@code offset}. If one is not found, {@code -1} is returned.      */
 DECL|method|getPreviousStatement
-specifier|private
+specifier|default
 name|int
 name|getPreviousStatement
 parameter_list|(
@@ -511,7 +473,8 @@ name|offset
 parameter_list|)
 block|{
 return|return
-name|statements
+name|getStatements
+argument_list|()
 operator|.
 name|previousSetBit
 argument_list|(
@@ -521,7 +484,7 @@ return|;
 block|}
 comment|/**      * Finds the start of the first statement boundary that is after {@code offset}. If one is not found, {@code -1} is returned.      */
 DECL|method|getNextStatement
-specifier|private
+specifier|default
 name|int
 name|getNextStatement
 parameter_list|(
@@ -530,7 +493,8 @@ name|offset
 parameter_list|)
 block|{
 return|return
-name|statements
+name|getStatements
+argument_list|()
 operator|.
 name|nextSetBit
 argument_list|(
@@ -541,7 +505,7 @@ argument_list|)
 return|;
 block|}
 block|}
-end_class
+end_interface
 
 end_unit
 
