@@ -36,11 +36,7 @@ specifier|public
 interface|interface
 name|TokenizerFactory
 block|{
-DECL|method|name
-name|String
-name|name
-parameter_list|()
-function_decl|;
+comment|// TODO replace with Supplier<Tokenizer>
 DECL|method|create
 name|Tokenizer
 name|create

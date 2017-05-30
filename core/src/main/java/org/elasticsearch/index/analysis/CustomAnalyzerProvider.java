@@ -432,6 +432,8 @@ operator|=
 operator|new
 name|CustomAnalyzer
 argument_list|(
+name|tokenizerName
+argument_list|,
 name|tokenizer
 argument_list|,
 name|charFiltersList

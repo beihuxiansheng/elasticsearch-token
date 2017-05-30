@@ -438,6 +438,8 @@ operator|=
 operator|new
 name|CustomAnalyzer
 argument_list|(
+literal|"keyword"
+argument_list|,
 name|PreBuiltTokenizers
 operator|.
 name|KEYWORD

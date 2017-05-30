@@ -77,6 +77,12 @@ name|CustomAnalyzer
 extends|extends
 name|Analyzer
 block|{
+DECL|field|tokenizerName
+specifier|private
+specifier|final
+name|String
+name|tokenizerName
+decl_stmt|;
 DECL|field|tokenizerFactory
 specifier|private
 specifier|final
@@ -113,6 +119,9 @@ DECL|method|CustomAnalyzer
 specifier|public
 name|CustomAnalyzer
 parameter_list|(
+name|String
+name|tokenizerName
+parameter_list|,
 name|TokenizerFactory
 name|tokenizerFactory
 parameter_list|,
@@ -127,6 +136,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|tokenizerName
+argument_list|,
 name|tokenizerFactory
 argument_list|,
 name|charFilters
@@ -144,6 +155,9 @@ DECL|method|CustomAnalyzer
 specifier|public
 name|CustomAnalyzer
 parameter_list|(
+name|String
+name|tokenizerName
+parameter_list|,
 name|TokenizerFactory
 name|tokenizerFactory
 parameter_list|,
@@ -164,6 +178,12 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|tokenizerName
+operator|=
+name|tokenizerName
+expr_stmt|;
+name|this
+operator|.
 name|tokenizerFactory
 operator|=
 name|tokenizerFactory
@@ -192,6 +212,17 @@ name|offsetGap
 operator|=
 name|offsetGap
 expr_stmt|;
+block|}
+comment|/**      * The name of the tokenizer as configured by the user.      */
+DECL|method|getTokenizerName
+specifier|public
+name|String
+name|getTokenizerName
+parameter_list|()
+block|{
+return|return
+name|tokenizerName
+return|;
 block|}
 DECL|method|tokenizerFactory
 specifier|public
