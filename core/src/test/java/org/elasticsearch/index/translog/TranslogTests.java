@@ -5247,6 +5247,14 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
+specifier|final
+name|Object
+name|flushMutex
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 comment|// any errors on threads
 specifier|final
 name|List
@@ -5590,6 +5598,13 @@ operator|==
 literal|0
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|flushMutex
+init|)
+block|{
+comment|// we need not do this concurrently as we need to make sure that the generation
+comment|// we're committing - translog.currentFileGeneration() - is still present when we're committing
 name|translog
 operator|.
 name|commit
@@ -5600,6 +5615,7 @@ name|currentFileGeneration
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
