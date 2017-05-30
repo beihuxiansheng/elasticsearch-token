@@ -939,8 +939,19 @@ name|ParsedMatrixStats
 operator|)
 name|parsedAggregation
 decl_stmt|;
-comment|//norelease add parsing logic for doc count and enable this test once elastic/elasticsearch#24776 is merged
-comment|//assertEquals(expected.getDocCount(), actual.getDocCount());
+name|assertEquals
+argument_list|(
+name|expected
+operator|.
+name|getDocCount
+argument_list|()
+argument_list|,
+name|actual
+operator|.
+name|getDocCount
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
