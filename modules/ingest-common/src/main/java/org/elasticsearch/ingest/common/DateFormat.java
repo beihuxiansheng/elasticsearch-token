@@ -183,9 +183,9 @@ call|(
 name|long
 call|)
 argument_list|(
-name|Float
+name|Double
 operator|.
-name|parseFloat
+name|parseDouble
 argument_list|(
 name|date
 argument_list|)
