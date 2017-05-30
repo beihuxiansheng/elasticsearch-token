@@ -52,6 +52,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -1222,6 +1236,8 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|primary
 operator|.
 name|updateLocalCheckpointForShard
@@ -1237,6 +1253,51 @@ name|localCheckpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+specifier|final
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// okay, the index was deleted or this shard was never activated after a relocation; fallthrough and finish normally
+block|}
+catch|catch
+parameter_list|(
+specifier|final
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// fail the primary but fall through and let the rest of operation processing complete
+specifier|final
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"primary failed updating local checkpoint for replica %s"
+argument_list|,
+name|shard
+argument_list|)
+decl_stmt|;
+name|primary
+operator|.
+name|failShard
+argument_list|(
+name|message
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|decPendingAndFinishIfNeeded
 argument_list|()
 expr_stmt|;
@@ -2007,7 +2068,7 @@ name|ShardRouting
 name|routingEntry
 parameter_list|()
 function_decl|;
-comment|/**          * fail the primary, typically due to the fact that the operation has learned the primary has been demoted by the master          */
+comment|/**          * Fail the primary shard.          *          * @param message   the failure message          * @param exception the exception that triggered the failure          */
 DECL|method|failShard
 name|void
 name|failShard
