@@ -47,6 +47,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -64,7 +76,7 @@ specifier|public
 class|class
 name|TermsAggregatorFactoryTests
 extends|extends
-name|ESSingleNodeTestCase
+name|ESTestCase
 block|{
 DECL|method|testSubAggCollectMode
 specifier|public

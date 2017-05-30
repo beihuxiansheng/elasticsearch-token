@@ -1621,6 +1621,8 @@ name|context
 argument_list|,
 name|parent
 argument_list|,
+literal|false
+argument_list|,
 name|subAggCollectMode
 argument_list|,
 name|showTermDocCountError
@@ -1733,8 +1735,6 @@ decl_stmt|;
 return|return
 operator|new
 name|GlobalOrdinalsStringTermsAggregator
-operator|.
-name|WithHash
 argument_list|(
 name|name
 argument_list|,
@@ -1760,6 +1760,8 @@ argument_list|,
 name|context
 argument_list|,
 name|parent
+argument_list|,
+literal|true
 argument_list|,
 name|subAggCollectMode
 argument_list|,
@@ -1941,6 +1943,8 @@ argument_list|,
 name|context
 argument_list|,
 name|parent
+argument_list|,
+literal|false
 argument_list|,
 name|subAggCollectMode
 argument_list|,

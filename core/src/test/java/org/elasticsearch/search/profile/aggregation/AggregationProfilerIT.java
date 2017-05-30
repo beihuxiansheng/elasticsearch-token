@@ -1473,8 +1473,6 @@ name|equalTo
 argument_list|(
 name|GlobalOrdinalsStringTermsAggregator
 operator|.
-name|WithHash
-operator|.
 name|class
 operator|.
 name|getName
@@ -2417,8 +2415,6 @@ argument_list|,
 name|equalTo
 argument_list|(
 name|GlobalOrdinalsStringTermsAggregator
-operator|.
-name|WithHash
 operator|.
 name|class
 operator|.
@@ -4126,8 +4122,6 @@ name|equalTo
 argument_list|(
 name|GlobalOrdinalsStringTermsAggregator
 operator|.
-name|WithHash
-operator|.
 name|class
 operator|.
 name|getName
@@ -4890,8 +4884,6 @@ name|equalTo
 argument_list|(
 name|GlobalOrdinalsStringTermsAggregator
 operator|.
-name|WithHash
-operator|.
 name|class
 operator|.
 name|getName
@@ -5638,8 +5630,6 @@ argument_list|,
 name|equalTo
 argument_list|(
 name|GlobalOrdinalsStringTermsAggregator
-operator|.
-name|WithHash
 operator|.
 name|class
 operator|.

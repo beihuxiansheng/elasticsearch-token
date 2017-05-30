@@ -1832,6 +1832,8 @@ name|aggregationContext
 argument_list|,
 name|parent
 argument_list|,
+literal|false
+argument_list|,
 name|significanceHeuristic
 argument_list|,
 name|termsAggregatorFactory
@@ -1931,8 +1933,6 @@ decl_stmt|;
 return|return
 operator|new
 name|GlobalOrdinalsSignificantTermsAggregator
-operator|.
-name|WithHash
 argument_list|(
 name|name
 argument_list|,
@@ -1958,6 +1958,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+literal|true
 argument_list|,
 name|significanceHeuristic
 argument_list|,
