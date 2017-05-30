@@ -193,6 +193,8 @@ block|}
 DECL|method|compile
 specifier|private
 name|SearchScript
+operator|.
+name|LeafFactory
 name|compile
 parameter_list|(
 name|String
@@ -225,7 +227,7 @@ decl_stmt|;
 return|return
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|Collections
 operator|.

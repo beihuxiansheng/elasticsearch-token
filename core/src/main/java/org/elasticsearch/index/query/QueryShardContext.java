@@ -1807,6 +1807,8 @@ DECL|method|getSearchScript
 specifier|public
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|getSearchScript
 parameter_list|(
 name|Script
@@ -1841,7 +1843,7 @@ decl_stmt|;
 return|return
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|script
 operator|.
@@ -1867,6 +1869,8 @@ name|Object
 argument_list|>
 argument_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 argument_list|>
 name|getLazySearchScript
 parameter_list|(
@@ -1907,7 +1911,7 @@ parameter_list|)
 lambda|->
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|p
 argument_list|,

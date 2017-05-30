@@ -72,6 +72,8 @@ DECL|field|script
 specifier|private
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 decl_stmt|;
 DECL|field|ignoreException
@@ -88,6 +90,8 @@ name|String
 name|name
 parameter_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|,
 name|boolean
@@ -126,6 +130,8 @@ block|}
 DECL|method|script
 specifier|public
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|()
 block|{

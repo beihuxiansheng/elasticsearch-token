@@ -217,11 +217,13 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchScript
+operator|.
+name|LeafFactory
 name|ss
 init|=
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|Collections
 operator|.
@@ -263,7 +265,7 @@ name|ss
 operator|=
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|Collections
 operator|.
@@ -305,7 +307,7 @@ name|ss
 operator|=
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|Collections
 operator|.
@@ -347,7 +349,7 @@ name|ss
 operator|=
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|Collections
 operator|.

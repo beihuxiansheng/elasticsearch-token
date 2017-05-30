@@ -84,7 +84,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
+name|SearchScript
 import|;
 end_import
 
@@ -137,14 +137,14 @@ block|{
 DECL|field|script
 specifier|private
 specifier|final
-name|LeafSearchScript
+name|SearchScript
 name|script
 decl_stmt|;
 DECL|method|ScriptBytesValues
 specifier|public
 name|ScriptBytesValues
 parameter_list|(
-name|LeafSearchScript
+name|SearchScript
 name|script
 parameter_list|)
 block|{

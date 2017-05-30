@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
+name|SearchScript
 import|;
 end_import
 
@@ -158,16 +158,6 @@ name|Arrays
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|ScriptValuesTests
 specifier|public
@@ -181,8 +171,8 @@ specifier|private
 specifier|static
 class|class
 name|FakeSearchScript
-implements|implements
-name|LeafSearchScript
+extends|extends
+name|SearchScript
 block|{
 DECL|field|values
 specifier|private
@@ -205,6 +195,15 @@ index|[]
 name|values
 parameter_list|)
 block|{
+name|super
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|values
@@ -320,22 +319,6 @@ operator|=
 name|doc
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setSource
-specifier|public
-name|void
-name|setSource
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|source
-parameter_list|)
-block|{         }
 annotation|@
 name|Override
 DECL|method|runAsLong

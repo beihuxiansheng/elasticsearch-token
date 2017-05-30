@@ -900,6 +900,8 @@ name|Object
 argument_list|>
 argument_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 argument_list|>
 name|searchMapScript
 init|=

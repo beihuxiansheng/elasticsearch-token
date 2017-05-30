@@ -51,8 +51,6 @@ DECL|interface|ExplainableSearchScript
 specifier|public
 interface|interface
 name|ExplainableSearchScript
-extends|extends
-name|LeafSearchScript
 block|{
 comment|/**      * Build the explanation of the current document being scored      * The script score needs the Explanation of the sub query score because it might use _score and      * want to explain how that was computed.      *      * @param subQueryScore the Explanation for _score      */
 DECL|method|explain

@@ -457,6 +457,8 @@ block|{
 try|try
 block|{
 name|SearchScript
+operator|.
+name|LeafFactory
 name|searchScript
 init|=
 name|context

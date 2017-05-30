@@ -4603,11 +4603,13 @@ name|CONTEXT
 argument_list|)
 decl_stmt|;
 name|SearchScript
+operator|.
+name|LeafFactory
 name|searchScript
 init|=
 name|factory
 operator|.
-name|newInstance
+name|newFactory
 argument_list|(
 name|field
 operator|.

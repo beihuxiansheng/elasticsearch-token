@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptContext
 import|;
 end_import
@@ -149,16 +137,6 @@ operator|.
 name|script
 operator|.
 name|SearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -624,14 +602,15 @@ parameter_list|)
 lambda|->
 operator|new
 name|SearchScript
+operator|.
+name|LeafFactory
 argument_list|()
 block|{
-block|@Override                 public LeafSearchScript getLeafSearchScript(final LeafReaderContext context
+block|@Override                 public SearchScript newInstance(final LeafReaderContext context
 init|)
-throws|throws
-name|IOException
 block|{
-decl|return new
+return|return
+operator|new
 name|ScriptImpl
 argument_list|(
 name|painlessScript
@@ -639,13 +618,10 @@ argument_list|,
 name|p
 argument_list|,
 name|lookup
-operator|.
-name|getLeafSearchLookup
-argument_list|(
+argument_list|,
 name|context
 argument_list|)
-argument_list|)
-decl_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
@@ -674,9 +650,6 @@ name|factory
 argument_list|)
 return|;
 block|}
-end_class
-
-begin_elseif
 elseif|else
 if|if
 condition|(
@@ -709,6 +682,8 @@ argument_list|,
 name|p
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 return|return
@@ -722,9 +697,6 @@ name|factory
 argument_list|)
 return|;
 block|}
-end_elseif
-
-begin_throw
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -738,24 +710,25 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
-end_throw
+block|}
+end_class
 
-begin_expr_stmt
-unit|}      PainlessScript
+begin_function
 DECL|method|compile
+name|PainlessScript
 name|compile
-argument_list|(
+parameter_list|(
 name|Compiler
 name|compiler
-argument_list|,
+parameter_list|,
 name|String
 name|scriptName
-argument_list|,
-name|final
+parameter_list|,
+specifier|final
 name|String
 name|scriptSource
-argument_list|,
-name|final
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -763,12 +736,12 @@ argument_list|,
 name|String
 argument_list|>
 name|params
-argument_list|)
+parameter_list|)
 block|{
-name|final
+specifier|final
 name|CompilerSettings
 name|compilerSettings
-block|;
+decl_stmt|;
 if|if
 condition|(
 name|params
@@ -783,9 +756,6 @@ operator|=
 name|defaultCompilerSettings
 expr_stmt|;
 block|}
-end_expr_stmt
-
-begin_else
 else|else
 block|{
 comment|// Use custom settings specified by params.
@@ -964,25 +934,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_else
-
-begin_comment
 comment|// Check we ourselves are not being called by unprivileged code.
-end_comment
-
-begin_expr_stmt
 name|SpecialPermission
 operator|.
 name|check
 argument_list|()
 expr_stmt|;
-end_expr_stmt
-
-begin_comment
 comment|// Create our loader (which loads compiled code with no permissions).
-end_comment
-
-begin_decl_stmt
 specifier|final
 name|Loader
 name|loader
@@ -1020,9 +978,6 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-
-begin_try
 try|try
 block|{
 comment|// Drop all permissions to actually compile the code itself.
@@ -1144,11 +1099,12 @@ name|e
 argument_list|)
 throw|;
 block|}
-end_try
+block|}
+end_function
 
 begin_function
-unit|}      private
 DECL|method|convertToScriptException
+specifier|private
 name|ScriptException
 name|convertToScriptException
 parameter_list|(

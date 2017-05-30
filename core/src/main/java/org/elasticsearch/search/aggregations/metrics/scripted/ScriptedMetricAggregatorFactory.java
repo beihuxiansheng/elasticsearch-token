@@ -226,6 +226,8 @@ name|Object
 argument_list|>
 argument_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 argument_list|>
 name|mapScript
 decl_stmt|;
@@ -295,6 +297,8 @@ name|Object
 argument_list|>
 argument_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 argument_list|>
 name|mapScript
 parameter_list|,
@@ -522,6 +526,8 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|mapScript
 init|=
 name|this

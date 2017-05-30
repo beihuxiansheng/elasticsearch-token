@@ -176,18 +176,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|Script
 import|;
 end_import
@@ -663,9 +651,11 @@ parameter_list|)
 lambda|->
 operator|new
 name|SearchScript
+operator|.
+name|LeafFactory
 argument_list|()
 block|{
-block|@Override                         public LeafSearchScript getLeafSearchScript(LeafReaderContext context
+block|@Override                         public SearchScript newInstance(LeafReaderContext context
 init|)
 throws|throws
 name|IOException
@@ -719,6 +709,8 @@ unit|}      static
 DECL|class|MyScript
 class|class
 name|MyScript
+extends|extends
+name|SearchScript
 implements|implements
 name|ExplainableSearchScript
 block|{
@@ -733,6 +725,15 @@ name|LeafDocLookup
 name|docLookup
 parameter_list|)
 block|{
+name|super
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|docLookup

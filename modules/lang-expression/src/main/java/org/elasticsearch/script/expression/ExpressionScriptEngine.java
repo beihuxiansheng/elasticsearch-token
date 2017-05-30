@@ -773,6 +773,8 @@ block|}
 DECL|method|newSearchScript
 specifier|private
 name|SearchScript
+operator|.
+name|LeafFactory
 name|newSearchScript
 parameter_list|(
 name|Expression

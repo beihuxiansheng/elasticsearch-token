@@ -84,7 +84,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
+name|SearchScript
 import|;
 end_import
 
@@ -172,14 +172,14 @@ name|ScorerAware
 block|{
 DECL|field|script
 specifier|final
-name|LeafSearchScript
+name|SearchScript
 name|script
 decl_stmt|;
 DECL|method|ScriptLongValues
 specifier|public
 name|ScriptLongValues
 parameter_list|(
-name|LeafSearchScript
+name|SearchScript
 name|script
 parameter_list|)
 block|{

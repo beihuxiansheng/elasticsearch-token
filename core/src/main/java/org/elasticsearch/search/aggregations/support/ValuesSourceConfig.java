@@ -699,6 +699,8 @@ DECL|method|createScript
 specifier|private
 specifier|static
 name|SearchScript
+operator|.
+name|LeafFactory
 name|createScript
 parameter_list|(
 name|Script
@@ -815,6 +817,8 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 decl_stmt|;
 DECL|field|scriptValueType
@@ -886,6 +890,8 @@ block|}
 DECL|method|script
 specifier|public
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|()
 block|{
@@ -952,6 +958,8 @@ argument_list|>
 name|script
 parameter_list|(
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|)
 block|{

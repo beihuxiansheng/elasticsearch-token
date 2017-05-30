@@ -402,31 +402,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptContext
 import|;
 end_import
 
@@ -1361,6 +1337,8 @@ name|IOException
 block|{
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|searchScript
 init|=
 name|context
@@ -1471,7 +1449,7 @@ argument_list|,
 name|nested
 argument_list|)
 block|{
-name|LeafSearchScript
+name|SearchScript
 name|leafScript
 decl_stmt|;
 annotation|@
@@ -1490,7 +1468,7 @@ name|leafScript
 operator|=
 name|searchScript
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1612,7 +1590,7 @@ argument_list|,
 name|nested
 argument_list|)
 block|{
-name|LeafSearchScript
+name|SearchScript
 name|leafScript
 decl_stmt|;
 annotation|@
@@ -1631,7 +1609,7 @@ name|leafScript
 operator|=
 name|searchScript
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)

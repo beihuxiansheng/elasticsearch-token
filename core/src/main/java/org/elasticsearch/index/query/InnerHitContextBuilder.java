@@ -447,6 +447,8 @@ argument_list|()
 control|)
 block|{
 name|SearchScript
+operator|.
+name|LeafFactory
 name|searchScript
 init|=
 name|innerHitsContext

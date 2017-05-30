@@ -334,18 +334,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|LeafSearchScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|SearchScript
 import|;
 end_import
@@ -960,6 +948,8 @@ DECL|field|script
 specifier|private
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 decl_stmt|;
 DECL|method|Script
@@ -967,6 +957,8 @@ specifier|public
 name|Script
 parameter_list|(
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|)
 block|{
@@ -996,7 +988,7 @@ name|ScriptBytesValues
 argument_list|(
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1274,6 +1266,8 @@ DECL|field|script
 specifier|private
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 decl_stmt|;
 DECL|method|WithScript
@@ -1284,6 +1278,8 @@ name|Numeric
 name|delegate
 parameter_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|)
 block|{
@@ -1358,7 +1354,7 @@ argument_list|)
 argument_list|,
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1391,7 +1387,7 @@ argument_list|)
 argument_list|,
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1424,7 +1420,7 @@ argument_list|)
 argument_list|,
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1449,7 +1445,7 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
-name|LeafSearchScript
+name|SearchScript
 name|script
 decl_stmt|;
 DECL|method|LongValues
@@ -1458,7 +1454,7 @@ parameter_list|(
 name|SortedNumericDocValues
 name|values
 parameter_list|,
-name|LeafSearchScript
+name|SearchScript
 name|script
 parameter_list|)
 block|{
@@ -1599,7 +1595,7 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
-name|LeafSearchScript
+name|SearchScript
 name|script
 decl_stmt|;
 DECL|method|DoubleValues
@@ -1608,7 +1604,7 @@ parameter_list|(
 name|SortedNumericDoubleValues
 name|values
 parameter_list|,
-name|LeafSearchScript
+name|SearchScript
 name|script
 parameter_list|)
 block|{
@@ -1861,6 +1857,8 @@ DECL|field|script
 specifier|private
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 decl_stmt|;
 DECL|field|scriptValueType
@@ -1874,6 +1872,8 @@ specifier|public
 name|Script
 parameter_list|(
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|,
 name|ValueType
@@ -1933,7 +1933,7 @@ name|ScriptLongValues
 argument_list|(
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1959,7 +1959,7 @@ name|ScriptDoubleValues
 argument_list|(
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -1985,7 +1985,7 @@ name|ScriptBytesValues
 argument_list|(
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -2028,6 +2028,8 @@ DECL|field|script
 specifier|private
 specifier|final
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 decl_stmt|;
 DECL|method|WithScript
@@ -2038,6 +2040,8 @@ name|ValuesSource
 name|delegate
 parameter_list|,
 name|SearchScript
+operator|.
+name|LeafFactory
 name|script
 parameter_list|)
 block|{
@@ -2095,7 +2099,7 @@ argument_list|)
 argument_list|,
 name|script
 operator|.
-name|getLeafSearchScript
+name|newInstance
 argument_list|(
 name|context
 argument_list|)
@@ -2120,7 +2124,7 @@ decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
-name|LeafSearchScript
+name|SearchScript
 name|script
 decl_stmt|;
 DECL|method|BytesValues
@@ -2129,7 +2133,7 @@ parameter_list|(
 name|SortedBinaryDocValues
 name|bytesValues
 parameter_list|,
-name|LeafSearchScript
+name|SearchScript
 name|script
 parameter_list|)
 block|{
