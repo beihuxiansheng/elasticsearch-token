@@ -208,6 +208,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|internal
+operator|.
+name|InternalSearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|query
 operator|.
 name|QuerySearchResult
@@ -504,6 +518,8 @@ name|mockSearchPhaseContext
 argument_list|,
 parameter_list|(
 name|searchResponse
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -521,7 +537,14 @@ name|responseRef
 operator|.
 name|set
 argument_list|(
+name|mockSearchPhaseContext
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|searchResponse
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 block|}
@@ -1025,6 +1048,8 @@ name|mockSearchPhaseContext
 argument_list|,
 parameter_list|(
 name|searchResponse
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -1042,7 +1067,14 @@ name|responseRef
 operator|.
 name|set
 argument_list|(
+name|mockSearchPhaseContext
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|searchResponse
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 block|}
@@ -1570,6 +1602,8 @@ name|mockSearchPhaseContext
 argument_list|,
 parameter_list|(
 name|searchResponse
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -1587,7 +1621,14 @@ name|responseRef
 operator|.
 name|set
 argument_list|(
+name|mockSearchPhaseContext
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|searchResponse
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 block|}
@@ -2119,6 +2160,8 @@ name|mockSearchPhaseContext
 argument_list|,
 parameter_list|(
 name|searchResponse
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -2136,7 +2179,14 @@ name|responseRef
 operator|.
 name|set
 argument_list|(
+name|mockSearchPhaseContext
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|searchResponse
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -2826,6 +2876,8 @@ name|mockSearchPhaseContext
 argument_list|,
 parameter_list|(
 name|searchResponse
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -2843,7 +2895,14 @@ name|responseRef
 operator|.
 name|set
 argument_list|(
+name|mockSearchPhaseContext
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|searchResponse
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 block|}
@@ -3286,6 +3345,8 @@ name|mockSearchPhaseContext
 argument_list|,
 parameter_list|(
 name|searchResponse
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -3303,7 +3364,14 @@ name|responseRef
 operator|.
 name|set
 argument_list|(
+name|mockSearchPhaseContext
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|searchResponse
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 block|}
@@ -3479,6 +3547,6 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 
-unit|}  }
+unit|} }
 end_unit
 

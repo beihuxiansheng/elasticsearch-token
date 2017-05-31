@@ -248,7 +248,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|Function
+name|BiFunction
 import|;
 end_import
 
@@ -291,9 +291,11 @@ decl_stmt|;
 DECL|field|nextPhaseFactory
 specifier|private
 specifier|final
-name|Function
+name|BiFunction
 argument_list|<
-name|SearchResponse
+name|InternalSearchResponse
+argument_list|,
+name|String
 argument_list|,
 name|SearchPhase
 argument_list|>
@@ -350,6 +352,8 @@ name|context
 argument_list|,
 parameter_list|(
 name|response
+parameter_list|,
+name|scrollId
 parameter_list|)
 lambda|->
 operator|new
@@ -367,6 +371,8 @@ lambda|->
 name|sendResponsePhase
 argument_list|(
 name|finalResponse
+argument_list|,
+name|scrollId
 argument_list|,
 name|context
 argument_list|)
@@ -391,9 +397,11 @@ parameter_list|,
 name|SearchPhaseContext
 name|context
 parameter_list|,
-name|Function
+name|BiFunction
 argument_list|<
-name|SearchResponse
+name|InternalSearchResponse
+argument_list|,
+name|String
 argument_list|,
 name|SearchPhase
 argument_list|>
@@ -1320,14 +1328,9 @@ name|nextPhaseFactory
 operator|.
 name|apply
 argument_list|(
-name|context
-operator|.
-name|buildSearchResponse
-argument_list|(
 name|internalResponse
 argument_list|,
 name|scrollId
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1338,8 +1341,11 @@ specifier|static
 name|SearchPhase
 name|sendResponsePhase
 parameter_list|(
-name|SearchResponse
+name|InternalSearchResponse
 name|response
+parameter_list|,
+name|String
+name|scrollId
 parameter_list|,
 name|SearchPhaseContext
 name|context
@@ -1365,7 +1371,14 @@ name|context
 operator|.
 name|onResponse
 argument_list|(
+name|context
+operator|.
+name|buildSearchResponse
+argument_list|(
 name|response
+argument_list|,
+name|scrollId
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

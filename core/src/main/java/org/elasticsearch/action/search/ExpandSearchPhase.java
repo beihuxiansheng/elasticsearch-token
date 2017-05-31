@@ -138,6 +138,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|InternalSearchResponse
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -209,7 +223,7 @@ decl_stmt|;
 DECL|field|searchResponse
 specifier|private
 specifier|final
-name|SearchResponse
+name|InternalSearchResponse
 name|searchResponse
 decl_stmt|;
 DECL|field|nextPhaseFactory
@@ -217,7 +231,7 @@ specifier|private
 specifier|final
 name|Function
 argument_list|<
-name|SearchResponse
+name|InternalSearchResponse
 argument_list|,
 name|SearchPhase
 argument_list|>
@@ -229,12 +243,12 @@ parameter_list|(
 name|SearchPhaseContext
 name|context
 parameter_list|,
-name|SearchResponse
+name|InternalSearchResponse
 name|searchResponse
 parameter_list|,
 name|Function
 argument_list|<
-name|SearchResponse
+name|InternalSearchResponse
 argument_list|,
 name|SearchPhase
 argument_list|>
@@ -333,7 +347,7 @@ argument_list|()
 operator|&&
 name|searchResponse
 operator|.
-name|getHits
+name|hits
 argument_list|()
 operator|.
 name|getHits
@@ -409,6 +423,9 @@ name|SearchHit
 name|hit
 range|:
 name|searchResponse
+operator|.
+name|hits
+argument_list|()
 operator|.
 name|getHits
 argument_list|()
@@ -601,6 +618,8 @@ name|SearchHit
 name|hit
 range|:
 name|searchResponse
+operator|.
+name|hits
 operator|.
 name|getHits
 argument_list|()
