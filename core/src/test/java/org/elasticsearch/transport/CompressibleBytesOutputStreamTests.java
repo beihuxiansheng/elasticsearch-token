@@ -463,8 +463,10 @@ name|expectedBytes
 init|=
 name|randomBytes
 argument_list|(
-name|randomInt
+name|between
 argument_list|(
+literal|1
+argument_list|,
 literal|30
 argument_list|)
 argument_list|)
