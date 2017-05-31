@@ -324,20 +324,6 @@ name|common
 operator|.
 name|io
 operator|.
-name|Streams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
 name|stream
 operator|.
 name|BytesStreamOutput
@@ -6670,6 +6656,22 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+comment|// only compress if asked and the request is not bytes. Otherwise only
+comment|// the header part is compressed, and the "body" can't be extracted as compressed
+specifier|final
+name|boolean
+name|compressMessage
+init|=
+name|options
+operator|.
+name|compress
+argument_list|()
+operator|&&
+name|canCompress
+argument_list|(
+name|request
+argument_list|)
+decl_stmt|;
 name|status
 operator|=
 name|TransportStatus
@@ -6688,36 +6690,28 @@ argument_list|(
 name|bigArrays
 argument_list|)
 decl_stmt|;
+specifier|final
+name|CompressibleBytesOutputStream
+name|stream
+init|=
+operator|new
+name|CompressibleBytesOutputStream
+argument_list|(
+name|bStream
+argument_list|,
+name|compressMessage
+argument_list|)
+decl_stmt|;
 name|boolean
 name|addedReleaseListener
 init|=
 literal|false
 decl_stmt|;
-name|StreamOutput
-name|stream
-init|=
-name|Streams
-operator|.
-name|flushOnCloseStream
-argument_list|(
-name|bStream
-argument_list|)
-decl_stmt|;
 try|try
 block|{
-comment|// only compress if asked, and, the request is not bytes, since then only
-comment|// the header part is compressed, and the "body" can't be extracted as compressed
 if|if
 condition|(
-name|options
-operator|.
-name|compress
-argument_list|()
-operator|&&
-name|canCompress
-argument_list|(
-name|request
-argument_list|)
+name|compressMessage
 condition|)
 block|{
 name|status
@@ -6727,17 +6721,6 @@ operator|.
 name|setCompress
 argument_list|(
 name|status
-argument_list|)
-expr_stmt|;
-name|stream
-operator|=
-name|CompressorFactory
-operator|.
-name|COMPRESSOR
-operator|.
-name|streamOutput
-argument_list|(
-name|stream
 argument_list|)
 expr_stmt|;
 block|}
@@ -6798,8 +6781,6 @@ argument_list|,
 name|request
 argument_list|,
 name|stream
-argument_list|,
-name|bStream
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -6808,12 +6789,6 @@ name|finalOptions
 init|=
 name|options
 decl_stmt|;
-specifier|final
-name|StreamOutput
-name|finalStream
-init|=
-name|stream
-decl_stmt|;
 comment|// this might be called in a different thread
 name|SendListener
 name|onRequestSent
@@ -6821,16 +6796,7 @@ init|=
 operator|new
 name|SendListener
 argument_list|(
-parameter_list|()
-lambda|->
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|finalStream
-argument_list|,
-name|bStream
-argument_list|)
+name|stream
 argument_list|,
 parameter_list|()
 lambda|->
@@ -6877,8 +6843,6 @@ operator|.
 name|close
 argument_list|(
 name|stream
-argument_list|,
-name|bStream
 argument_list|)
 expr_stmt|;
 block|}
@@ -7236,20 +7200,24 @@ argument_list|(
 name|bigArrays
 argument_list|)
 decl_stmt|;
+name|CompressibleBytesOutputStream
+name|stream
+init|=
+operator|new
+name|CompressibleBytesOutputStream
+argument_list|(
+name|bStream
+argument_list|,
+name|options
+operator|.
+name|compress
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|boolean
 name|addedReleaseListener
 init|=
 literal|false
-decl_stmt|;
-name|StreamOutput
-name|stream
-init|=
-name|Streams
-operator|.
-name|flushOnCloseStream
-argument_list|(
-name|bStream
-argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -7268,17 +7236,6 @@ operator|.
 name|setCompress
 argument_list|(
 name|status
-argument_list|)
-expr_stmt|;
-name|stream
-operator|=
-name|CompressorFactory
-operator|.
-name|COMPRESSOR
-operator|.
-name|streamOutput
-argument_list|(
-name|stream
 argument_list|)
 expr_stmt|;
 block|}
@@ -7313,8 +7270,6 @@ argument_list|,
 name|response
 argument_list|,
 name|stream
-argument_list|,
-name|bStream
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -7323,12 +7278,6 @@ name|finalOptions
 init|=
 name|options
 decl_stmt|;
-specifier|final
-name|StreamOutput
-name|finalStream
-init|=
-name|stream
-decl_stmt|;
 comment|// this might be called in a different thread
 name|SendListener
 name|listener
@@ -7336,16 +7285,7 @@ init|=
 operator|new
 name|SendListener
 argument_list|(
-parameter_list|()
-lambda|->
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|finalStream
-argument_list|,
-name|bStream
-argument_list|)
+name|stream
 argument_list|,
 parameter_list|()
 lambda|->
@@ -7390,8 +7330,6 @@ operator|.
 name|close
 argument_list|(
 name|stream
-argument_list|,
-name|bStream
 argument_list|)
 expr_stmt|;
 block|}
@@ -7509,11 +7447,8 @@ parameter_list|,
 name|TransportMessage
 name|message
 parameter_list|,
-name|StreamOutput
+name|CompressibleBytesOutputStream
 name|stream
-parameter_list|,
-name|ReleasableBytesStreamOutput
-name|writtenBytes
 parameter_list|)
 throws|throws
 name|IOException
@@ -7579,22 +7514,18 @@ operator|.
 name|EMPTY
 expr_stmt|;
 block|}
-comment|// we have to close the stream here - flush is not enough since we might be compressing the content
-comment|// and if we do that the close method will write some marker bytes (EOS marker) and otherwise
-comment|// we barf on the decompressing end when we read past EOF on purpose in the #validateRequest method.
-comment|// this might be a problem in deflate after all but it's important to close it for now.
-name|stream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+comment|// we have to call materializeBytes() here before accessing the bytes. A CompressibleBytesOutputStream
+comment|// might be implementing compression. And materializeBytes() ensures that some marker bytes (EOS marker)
+comment|// are written. Otherwise we barf on the decompressing end when we read past EOF on purpose in the
+comment|// #validateRequest method. this might be a problem in deflate after all but it's important to write
+comment|// the marker bytes.
 specifier|final
 name|BytesReference
 name|messageBody
 init|=
-name|writtenBytes
+name|stream
 operator|.
-name|bytes
+name|materializeBytes
 argument_list|()
 decl_stmt|;
 specifier|final
