@@ -3028,6 +3028,16 @@ name|message
 argument_list|)
 throw|;
 block|}
+name|PluginsService
+operator|.
+name|checkForFailedPluginRemovals
+argument_list|(
+name|env
+operator|.
+name|pluginsFile
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|terminal
 operator|.
 name|println

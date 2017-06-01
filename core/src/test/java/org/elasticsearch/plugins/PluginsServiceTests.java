@@ -950,7 +950,12 @@ specifier|final
 name|Path
 name|removing
 init|=
-name|fake
+name|home
+operator|.
+name|resolve
+argument_list|(
+literal|"plugins"
+argument_list|)
 operator|.
 name|resolve
 argument_list|(
@@ -961,12 +966,7 @@ name|Files
 operator|.
 name|createFile
 argument_list|(
-name|fake
-operator|.
-name|resolve
-argument_list|(
-literal|".removing-fake"
-argument_list|)
+name|removing
 argument_list|)
 expr_stmt|;
 name|PluginTestUtil
