@@ -936,6 +936,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportRequest
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -2201,6 +2213,8 @@ name|request
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|SearchOperationListener
@@ -2366,6 +2380,8 @@ name|request
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|context
@@ -2605,6 +2621,8 @@ name|request
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|context
@@ -2798,6 +2816,8 @@ name|request
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2993,6 +3013,9 @@ name|findContext
 parameter_list|(
 name|long
 name|id
+parameter_list|,
+name|TransportRequest
+name|request
 parameter_list|)
 throws|throws
 name|SearchContextMissingException
@@ -3040,6 +3063,8 @@ operator|.
 name|validateSearchContext
 argument_list|(
 name|context
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 return|return

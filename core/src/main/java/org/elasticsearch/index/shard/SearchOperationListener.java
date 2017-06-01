@@ -88,6 +88,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportRequest
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -222,7 +234,7 @@ name|context
 parameter_list|)
 block|{}
 empty_stmt|;
-comment|/**      * Executed prior to using a {@link SearchContext} that has been retrieved      * from the active contexts. If the context is deemed invalid a runtime      * exception can be thrown, which will prevent the context from being used.      * @param context the context retrieved from the active contexts      */
+comment|/**      * Executed prior to using a {@link SearchContext} that has been retrieved      * from the active contexts. If the context is deemed invalid a runtime      * exception can be thrown, which will prevent the context from being used.      * @param context the context retrieved from the active contexts      * @param transportRequest the request that is going to use the search context      */
 DECL|method|validateSearchContext
 specifier|default
 name|void
@@ -230,6 +242,9 @@ name|validateSearchContext
 parameter_list|(
 name|SearchContext
 name|context
+parameter_list|,
+name|TransportRequest
+name|transportRequest
 parameter_list|)
 block|{}
 comment|/**      * A Composite listener that multiplexes calls to each of the listeners methods.      */
@@ -911,6 +926,9 @@ name|validateSearchContext
 parameter_list|(
 name|SearchContext
 name|context
+parameter_list|,
+name|TransportRequest
+name|request
 parameter_list|)
 block|{
 name|Exception
@@ -933,6 +951,8 @@ operator|.
 name|validateSearchContext
 argument_list|(
 name|context
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 block|}
