@@ -424,6 +424,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|lessThan
 import|;
 end_import
@@ -3607,7 +3619,7 @@ operator|.
 name|nanos
 argument_list|()
 argument_list|,
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 literal|0L
 argument_list|)
