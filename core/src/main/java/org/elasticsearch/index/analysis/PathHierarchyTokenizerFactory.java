@@ -208,7 +208,7 @@ name|delimiter
 operator|.
 name|length
 argument_list|()
-operator|>
+operator|!=
 literal|1
 condition|)
 block|{
@@ -216,7 +216,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"delimiter can only be a one char value"
+literal|"delimiter must be a one char value"
 argument_list|)
 throw|;
 block|}
@@ -267,7 +267,7 @@ name|replacement
 operator|.
 name|length
 argument_list|()
-operator|>
+operator|!=
 literal|1
 condition|)
 block|{
@@ -275,7 +275,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"replacement can only be a one char value"
+literal|"replacement must be a one char value"
 argument_list|)
 throw|;
 block|}
