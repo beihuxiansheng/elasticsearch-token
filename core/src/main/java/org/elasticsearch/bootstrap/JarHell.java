@@ -711,7 +711,11 @@ operator|.
 name|lineSeparator
 argument_list|()
 operator|+
-literal|"duplicate jar on classpath: "
+literal|"duplicate jar ["
+operator|+
+name|element
+operator|+
+literal|"] on classpath: "
 operator|+
 name|classPath
 argument_list|)
