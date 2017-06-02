@@ -280,6 +280,16 @@ argument_list|(
 literal|"lang"
 argument_list|)
 decl_stmt|;
+name|String
+name|context
+init|=
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"context"
+argument_list|)
+decl_stmt|;
 comment|// In the case where only {lang} is not null, we make it {id} because of
 comment|// name ordering issues in the handlers' paths.
 if|if
@@ -334,6 +344,8 @@ argument_list|(
 name|id
 argument_list|,
 name|lang
+argument_list|,
+name|context
 argument_list|,
 name|content
 argument_list|,
