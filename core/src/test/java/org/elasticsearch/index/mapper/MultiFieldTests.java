@@ -1520,7 +1520,6 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-comment|//        System.out.println(builtMapping);
 comment|// reparse it
 name|DocumentMapper
 name|docMapper
