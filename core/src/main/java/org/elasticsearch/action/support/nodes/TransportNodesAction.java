@@ -661,13 +661,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-specifier|final
-name|boolean
-name|accumulateExceptions
-init|=
-name|accumulateExceptions
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -703,11 +696,6 @@ operator|instanceof
 name|FailedNodeException
 condition|)
 block|{
-if|if
-condition|(
-name|accumulateExceptions
-condition|)
-block|{
 name|failures
 operator|.
 name|add
@@ -718,22 +706,6 @@ operator|)
 name|response
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"not accumulating exceptions, excluding exception from response"
-argument_list|,
-operator|(
-name|FailedNodeException
-operator|)
-name|response
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -834,13 +806,6 @@ name|request
 argument_list|)
 return|;
 block|}
-DECL|method|accumulateExceptions
-specifier|protected
-specifier|abstract
-name|boolean
-name|accumulateExceptions
-parameter_list|()
-function_decl|;
 comment|/**      * resolve node ids to concrete nodes of the incoming request      **/
 DECL|method|resolveRequest
 specifier|protected

@@ -456,18 +456,6 @@ name|setState
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|mock
-import|;
-end_import
-
 begin_class
 DECL|class|TransportNodesActionTests
 specifier|public
@@ -1968,18 +1956,6 @@ return|return
 operator|new
 name|TestNodeResponse
 argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|accumulateExceptions
-specifier|protected
-name|boolean
-name|accumulateExceptions
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 block|}

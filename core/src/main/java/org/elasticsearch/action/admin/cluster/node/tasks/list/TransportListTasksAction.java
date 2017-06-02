@@ -587,18 +587,6 @@ name|operation
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|accumulateExceptions
-specifier|protected
-name|boolean
-name|accumulateExceptions
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 end_class
 

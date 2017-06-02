@@ -1613,13 +1613,6 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|accumulateExceptions
-specifier|protected
-specifier|abstract
-name|boolean
-name|accumulateExceptions
-parameter_list|()
-function_decl|;
 DECL|class|AsyncAction
 specifier|private
 class|class
@@ -2237,12 +2230,6 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|accumulateExceptions
-argument_list|()
-condition|)
-block|{
 name|responses
 operator|.
 name|set
@@ -2264,7 +2251,6 @@ name|t
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|counter
