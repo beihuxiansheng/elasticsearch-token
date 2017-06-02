@@ -73,34 +73,40 @@ name|MultiBucketsAggregation
 operator|.
 name|Bucket
 block|{
+comment|/**          * @return The significant score for the subset          */
 DECL|method|getSignificanceScore
 name|double
 name|getSignificanceScore
 parameter_list|()
 function_decl|;
-DECL|method|getKeyAsNumber
-name|Number
-name|getKeyAsNumber
-parameter_list|()
-function_decl|;
+comment|/**          * @return The number of docs in the subset containing a particular term.          * This number is equal to the document count of the bucket.          */
 DECL|method|getSubsetDf
 name|long
 name|getSubsetDf
 parameter_list|()
 function_decl|;
+comment|/**          * @return The numbers of docs in the subset (also known as "foreground set").          * This number is equal to the document count of the containing aggregation.          */
+DECL|method|getSubsetSize
+name|long
+name|getSubsetSize
+parameter_list|()
+function_decl|;
+comment|/**          * @return The number of docs in the superset containing a particular term (also          * known as the "background count" of the bucket)          */
 DECL|method|getSupersetDf
 name|long
 name|getSupersetDf
 parameter_list|()
 function_decl|;
+comment|/**          * @return The numbers of docs in the superset (ordinarily the background count          * of the containing aggregation).          */
 DECL|method|getSupersetSize
 name|long
 name|getSupersetSize
 parameter_list|()
 function_decl|;
-DECL|method|getSubsetSize
-name|long
-name|getSubsetSize
+comment|/**          * @return The key, expressed as a number          */
+DECL|method|getKeyAsNumber
+name|Number
+name|getKeyAsNumber
 parameter_list|()
 function_decl|;
 block|}

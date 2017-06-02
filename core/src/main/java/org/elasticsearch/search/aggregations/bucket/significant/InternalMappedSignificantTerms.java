@@ -792,6 +792,15 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
+name|field
+argument_list|(
+name|BG_COUNT
+argument_list|,
+name|supersetSize
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
 name|startArray
 argument_list|(
 name|CommonFields

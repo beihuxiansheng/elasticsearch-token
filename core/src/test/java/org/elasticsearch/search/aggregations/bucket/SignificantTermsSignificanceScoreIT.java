@@ -2325,6 +2325,8 @@ literal|"\"sig_terms\":{"
 operator|+
 literal|"\"doc_count\":4,"
 operator|+
+literal|"\"bg_count\":7,"
+operator|+
 literal|"\"buckets\":["
 operator|+
 literal|"{"
@@ -2367,6 +2369,8 @@ operator|+
 literal|"\"sig_terms\":{"
 operator|+
 literal|"\"doc_count\":3,"
+operator|+
+literal|"\"bg_count\":7,"
 operator|+
 literal|"\"buckets\":["
 operator|+
