@@ -658,17 +658,6 @@ name|tookInMillis
 argument_list|)
 return|;
 block|}
-comment|/**      * How long the search took in milliseconds.      */
-DECL|method|getTookInMillis
-specifier|public
-name|long
-name|getTookInMillis
-parameter_list|()
-block|{
-return|return
-name|tookInMillis
-return|;
-block|}
 comment|/**      * The total number of shards the search was executed on.      */
 DECL|method|getTotalShards
 specifier|public

@@ -3987,7 +3987,10 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getTookInMillis
+name|getTook
+argument_list|()
+operator|.
+name|getMillis
 argument_list|()
 argument_list|,
 name|ingestTookInMillis
@@ -4272,7 +4275,10 @@ argument_list|)
 argument_list|,
 name|response
 operator|.
-name|getTookInMillis
+name|getTook
+argument_list|()
+operator|.
+name|getMillis
 argument_list|()
 argument_list|,
 name|ingestTookInMillis

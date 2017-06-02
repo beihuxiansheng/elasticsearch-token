@@ -2221,16 +2221,6 @@ name|tookInMillis
 argument_list|)
 return|;
 block|}
-DECL|method|getTookInMillis
-specifier|public
-name|long
-name|getTookInMillis
-parameter_list|()
-block|{
-return|return
-name|tookInMillis
-return|;
-block|}
 DECL|method|buildScore
 specifier|private
 name|void

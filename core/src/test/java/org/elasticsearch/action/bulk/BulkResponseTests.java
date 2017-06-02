@@ -710,7 +710,10 @@ name|took
 argument_list|,
 name|parsedBulkResponse
 operator|.
-name|getTookInMillis
+name|getTook
+argument_list|()
+operator|.
+name|getMillis
 argument_list|()
 argument_list|)
 expr_stmt|;

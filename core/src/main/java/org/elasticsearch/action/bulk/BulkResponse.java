@@ -382,17 +382,6 @@ name|tookInMillis
 argument_list|)
 return|;
 block|}
-comment|/**      * How long the bulk execution took in milliseconds. Excluding ingest preprocessing.      */
-DECL|method|getTookInMillis
-specifier|public
-name|long
-name|getTookInMillis
-parameter_list|()
-block|{
-return|return
-name|tookInMillis
-return|;
-block|}
 comment|/**      * If ingest is enabled returns the bulk ingest preprocessing time, otherwise 0 is returned.      */
 DECL|method|getIngestTook
 specifier|public

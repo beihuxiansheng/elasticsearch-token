@@ -5328,7 +5328,10 @@ name|assertTrue
 argument_list|(
 name|bulkResponse
 operator|.
-name|getTookInMillis
+name|getTook
+argument_list|()
+operator|.
+name|getMillis
 argument_list|()
 operator|>
 literal|0
@@ -5993,7 +5996,10 @@ name|assertTrue
 argument_list|(
 name|bulkResponse
 operator|.
-name|getTookInMillis
+name|getTook
+argument_list|()
+operator|.
+name|getMillis
 argument_list|()
 operator|>
 literal|0
