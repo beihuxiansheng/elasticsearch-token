@@ -528,7 +528,8 @@ literal|null
 else|:
 name|fieldType
 operator|.
-name|mapper
+name|getMapper
+argument_list|()
 return|;
 block|}
 DECL|method|getParentIdFieldName
@@ -797,6 +798,7 @@ throw|;
 block|}
 block|}
 DECL|class|Builder
+specifier|public
 specifier|static
 class|class
 name|Builder
@@ -832,6 +834,7 @@ init|=
 literal|true
 decl_stmt|;
 DECL|method|Builder
+specifier|public
 name|Builder
 parameter_list|(
 name|String

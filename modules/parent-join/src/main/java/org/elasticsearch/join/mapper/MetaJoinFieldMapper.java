@@ -184,6 +184,7 @@ end_comment
 
 begin_class
 DECL|class|MetaJoinFieldMapper
+specifier|public
 class|class
 name|MetaJoinFieldMapper
 extends|extends
@@ -324,14 +325,15 @@ return|;
 block|}
 block|}
 DECL|class|MetaJoinFieldType
+specifier|public
 specifier|static
-specifier|final
 class|class
 name|MetaJoinFieldType
 extends|extends
 name|StringFieldType
 block|{
 DECL|field|mapper
+specifier|private
 name|ParentJoinFieldMapper
 name|mapper
 decl_stmt|;
@@ -435,6 +437,16 @@ name|binaryValue
 operator|.
 name|utf8ToString
 argument_list|()
+return|;
+block|}
+DECL|method|getMapper
+specifier|public
+name|ParentJoinFieldMapper
+name|getMapper
+parameter_list|()
+block|{
+return|return
+name|mapper
 return|;
 block|}
 block|}

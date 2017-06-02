@@ -40,20 +40,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermInSetQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|BooleanClause
 import|;
 end_import
@@ -111,6 +97,20 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermInSetQuery
 import|;
 end_import
 
@@ -768,6 +768,8 @@ argument_list|,
 literal|"BM25"
 argument_list|)
 expr_stmt|;
+comment|// TODO: use a single type when inner hits have been changed to work with join field,
+comment|// this test randomly generates queries with inner hits
 name|mapperService
 operator|.
 name|merge

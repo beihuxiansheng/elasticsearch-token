@@ -581,6 +581,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: use a single type when inner hits have been changed to work with join field,
+comment|// this test randomly generates queries with inner hits
 name|mapperService
 operator|.
 name|merge
