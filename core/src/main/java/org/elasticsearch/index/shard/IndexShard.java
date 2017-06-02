@@ -2775,6 +2775,8 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|getEngine
 argument_list|()
 operator|.
@@ -2783,6 +2785,16 @@ argument_list|(
 name|newPrimaryTerm
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+specifier|final
+name|AlreadyClosedException
+name|e
+parameter_list|)
+block|{
+comment|// okay, the index was deleted
+block|}
 block|}
 argument_list|,
 name|e
