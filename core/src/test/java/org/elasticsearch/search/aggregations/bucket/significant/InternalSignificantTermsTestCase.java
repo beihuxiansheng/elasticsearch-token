@@ -343,12 +343,8 @@ specifier|final
 name|int
 name|numBuckets
 init|=
-name|randomInt
-argument_list|(
-name|requiredSize
-operator|+
-literal|2
-argument_list|)
+name|randomNumberOfBuckets
+argument_list|()
 decl_stmt|;
 name|long
 name|subsetSize

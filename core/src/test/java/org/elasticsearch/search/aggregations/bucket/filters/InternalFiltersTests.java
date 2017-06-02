@@ -190,12 +190,8 @@ expr_stmt|;
 name|int
 name|numBuckets
 init|=
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
+name|randomNumberOfBuckets
+argument_list|()
 decl_stmt|;
 for|for
 control|(

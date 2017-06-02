@@ -275,10 +275,8 @@ specifier|final
 name|int
 name|numBuckets
 init|=
-name|randomInt
-argument_list|(
-name|shardSize
-argument_list|)
+name|randomNumberOfBuckets
+argument_list|()
 decl_stmt|;
 name|Set
 argument_list|<

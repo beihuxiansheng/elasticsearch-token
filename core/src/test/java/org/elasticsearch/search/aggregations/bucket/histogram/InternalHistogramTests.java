@@ -266,10 +266,8 @@ specifier|final
 name|int
 name|numBuckets
 init|=
-name|randomInt
-argument_list|(
-literal|10
-argument_list|)
+name|randomNumberOfBuckets
+argument_list|()
 decl_stmt|;
 specifier|final
 name|int

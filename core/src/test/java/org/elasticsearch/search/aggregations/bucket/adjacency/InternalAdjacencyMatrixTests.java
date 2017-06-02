@@ -157,6 +157,18 @@ name|keys
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|maxNumberOfBuckets
+specifier|protected
+name|int
+name|maxNumberOfBuckets
+parameter_list|()
+block|{
+return|return
+literal|10
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -177,6 +189,10 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
+comment|// InternalAdjacencyMatrix represents the upper triangular matrix:
+comment|// 2 filters (matrix of 2x2) generates 3 buckets
+comment|// 3 filters generates 6 buckets
+comment|// 4 filters generates 10 buckets
 name|int
 name|numFilters
 init|=

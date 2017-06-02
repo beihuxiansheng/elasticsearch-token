@@ -621,13 +621,6 @@ name|shardSearchFailures
 argument_list|)
 return|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/24891"
-argument_list|)
 DECL|method|testFromXContent
 specifier|public
 name|void

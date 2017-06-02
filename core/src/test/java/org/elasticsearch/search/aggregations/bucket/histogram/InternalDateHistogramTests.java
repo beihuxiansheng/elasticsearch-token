@@ -310,10 +310,8 @@ block|{
 name|int
 name|nbBuckets
 init|=
-name|randomInt
-argument_list|(
-literal|10
-argument_list|)
+name|randomNumberOfBuckets
+argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
