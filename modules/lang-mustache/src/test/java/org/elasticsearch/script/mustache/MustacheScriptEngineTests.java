@@ -66,7 +66,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableScript
+name|TemplateScript
 import|;
 end_import
 
@@ -271,9 +271,6 @@ expr_stmt|;
 name|String
 name|o
 init|=
-operator|(
-name|String
-operator|)
 name|qe
 operator|.
 name|compile
@@ -282,7 +279,7 @@ literal|null
 argument_list|,
 name|template
 argument_list|,
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|CONTEXT
 argument_list|,
@@ -294,7 +291,7 @@ argument_list|(
 name|vars
 argument_list|)
 operator|.
-name|run
+name|execute
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -355,9 +352,6 @@ expr_stmt|;
 name|String
 name|o
 init|=
-operator|(
-name|String
-operator|)
 name|qe
 operator|.
 name|compile
@@ -366,7 +360,7 @@ literal|null
 argument_list|,
 name|template
 argument_list|,
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|CONTEXT
 argument_list|,
@@ -378,7 +372,7 @@ argument_list|(
 name|vars
 argument_list|)
 operator|.
-name|run
+name|execute
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -433,10 +427,10 @@ argument_list|(
 name|parser
 argument_list|)
 decl_stmt|;
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|Factory
-name|factory
+name|compiled
 init|=
 name|qe
 operator|.
@@ -449,7 +443,7 @@ operator|.
 name|getIdOrCode
 argument_list|()
 argument_list|,
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|CONTEXT
 argument_list|,
@@ -459,10 +453,10 @@ name|emptyMap
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ExecutableScript
-name|executableScript
+name|TemplateScript
+name|TemplateScript
 init|=
-name|factory
+name|compiled
 operator|.
 name|newInstance
 argument_list|(
@@ -474,9 +468,9 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|executableScript
+name|TemplateScript
 operator|.
-name|run
+name|execute
 argument_list|()
 argument_list|,
 name|equalTo
@@ -533,10 +527,10 @@ argument_list|(
 name|parser
 argument_list|)
 decl_stmt|;
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|Factory
-name|factory
+name|compiled
 init|=
 name|qe
 operator|.
@@ -549,7 +543,7 @@ operator|.
 name|getIdOrCode
 argument_list|()
 argument_list|,
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|CONTEXT
 argument_list|,
@@ -559,10 +553,10 @@ name|emptyMap
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ExecutableScript
-name|executableScript
+name|TemplateScript
+name|TemplateScript
 init|=
-name|factory
+name|compiled
 operator|.
 name|newInstance
 argument_list|(
@@ -574,9 +568,9 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|executableScript
+name|TemplateScript
 operator|.
-name|run
+name|execute
 argument_list|()
 argument_list|,
 name|equalTo

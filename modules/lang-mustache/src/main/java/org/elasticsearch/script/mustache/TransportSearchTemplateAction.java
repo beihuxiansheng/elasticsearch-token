@@ -266,11 +266,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|script
 operator|.
-name|builder
-operator|.
-name|SearchSourceBuilder
+name|TemplateScript
 import|;
 end_import
 
@@ -280,9 +278,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|template
+name|search
 operator|.
-name|CompiledTemplate
+name|builder
+operator|.
+name|SearchSourceBuilder
 import|;
 end_import
 
@@ -327,20 +327,6 @@ operator|.
 name|util
 operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ExecutableScript
-operator|.
-name|CONTEXT
 import|;
 end_import
 
@@ -664,18 +650,26 @@ name|getScriptParams
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|CompiledTemplate
+name|TemplateScript
 name|compiledScript
 init|=
 name|scriptService
 operator|.
-name|compileTemplate
+name|compile
 argument_list|(
 name|script
 argument_list|,
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|CONTEXT
+argument_list|)
+operator|.
+name|newInstance
+argument_list|(
+name|script
+operator|.
+name|getParams
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
@@ -683,13 +677,8 @@ name|source
 init|=
 name|compiledScript
 operator|.
-name|run
-argument_list|(
-name|script
-operator|.
-name|getParams
+name|execute
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|response
 operator|.

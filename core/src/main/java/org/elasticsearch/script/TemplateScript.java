@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.template
+DECL|package|org.elasticsearch.script
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|template
+name|script
 package|;
 end_package
 
@@ -25,19 +25,28 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A template that may be executed.  */
+comment|/**  * A string template rendered as a script.  */
 end_comment
 
 begin_interface
-DECL|interface|CompiledTemplate
+DECL|interface|TemplateScript
 specifier|public
 interface|interface
-name|CompiledTemplate
+name|TemplateScript
 block|{
 comment|/** Run a template and return the resulting string, encoded in utf8 bytes. */
-DECL|method|run
+DECL|method|execute
 name|String
-name|run
+name|execute
+parameter_list|()
+function_decl|;
+DECL|interface|Factory
+interface|interface
+name|Factory
+block|{
+DECL|method|newInstance
+name|TemplateScript
+name|newInstance
 parameter_list|(
 name|Map
 argument_list|<
@@ -48,6 +57,25 @@ argument_list|>
 name|params
 parameter_list|)
 function_decl|;
+block|}
+DECL|field|CONTEXT
+name|ScriptContext
+argument_list|<
+name|Factory
+argument_list|>
+name|CONTEXT
+init|=
+operator|new
+name|ScriptContext
+argument_list|<>
+argument_list|(
+literal|"template"
+argument_list|,
+name|Factory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 block|}
 end_interface
 

@@ -2021,6 +2021,18 @@ operator|::
 name|newInstance
 return|;
 block|}
+comment|/** Return the script service to allow compiling scripts. */
+DECL|method|getScriptService
+specifier|public
+specifier|final
+name|ScriptService
+name|getScriptService
+parameter_list|()
+block|{
+return|return
+name|scriptService
+return|;
+block|}
 comment|/**      * if this method is called the query context will throw exception if methods are accessed      * that could yield different results across executions like {@link #getTemplateBytes(Script)}      */
 DECL|method|freezeContext
 specifier|public

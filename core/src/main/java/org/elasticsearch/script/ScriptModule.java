@@ -20,16 +20,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -196,6 +186,10 @@ argument_list|,
 name|ExecutableScript
 operator|.
 name|INGEST_CONTEXT
+argument_list|,
+name|TemplateScript
+operator|.
+name|CONTEXT
 argument_list|)
 operator|.
 name|collect

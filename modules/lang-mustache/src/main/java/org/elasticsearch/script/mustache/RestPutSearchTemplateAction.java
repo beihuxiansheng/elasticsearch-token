@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -134,7 +144,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableScript
+name|Script
 import|;
 end_import
 
@@ -146,17 +156,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|TemplateScript
 import|;
 end_import
 
@@ -297,7 +297,7 @@ name|Script
 operator|.
 name|DEFAULT_TEMPLATE_LANG
 argument_list|,
-name|ExecutableScript
+name|TemplateScript
 operator|.
 name|CONTEXT
 operator|.
