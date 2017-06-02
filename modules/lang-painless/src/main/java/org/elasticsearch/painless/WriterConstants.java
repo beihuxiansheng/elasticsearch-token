@@ -638,12 +638,12 @@ argument_list|,
 literal|"emptyMap"
 argument_list|)
 decl_stmt|;
-DECL|field|USES_PARAMETER_METHOD_TYPE
+DECL|field|NEEDS_PARAMETER_METHOD_TYPE
 specifier|public
 specifier|static
 specifier|final
 name|MethodType
-name|USES_PARAMETER_METHOD_TYPE
+name|NEEDS_PARAMETER_METHOD_TYPE
 init|=
 name|MethodType
 operator|.

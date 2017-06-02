@@ -279,7 +279,7 @@ name|scoreLookup
 operator|=
 name|script
 operator|.
-name|uses$_score
+name|needs_score
 argument_list|()
 condition|?
 name|this
@@ -294,7 +294,7 @@ name|ctxLookup
 operator|=
 name|script
 operator|.
-name|uses$ctx
+name|needsCtx
 argument_list|()
 condition|?
 name|variables

@@ -633,7 +633,7 @@ block|{
 return|return
 name|painlessScript
 operator|.
-name|uses$_score
+name|needs_score
 argument_list|()
 return|;
 block|}
