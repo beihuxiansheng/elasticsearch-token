@@ -662,7 +662,7 @@ init|=
 operator|new
 name|Thread
 index|[
-literal|10
+literal|5
 index|]
 decl_stmt|;
 try|try
@@ -676,7 +676,9 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
+name|threads
+operator|.
+name|length
 condition|;
 name|i
 operator|++
