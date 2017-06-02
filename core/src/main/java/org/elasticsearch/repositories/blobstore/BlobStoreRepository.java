@@ -1196,6 +1196,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|FileAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|NoSuchFileException
 import|;
 end_import
@@ -3017,8 +3029,6 @@ name|long
 name|repositoryStateId
 parameter_list|)
 block|{
-try|try
-block|{
 name|SnapshotInfo
 name|blobStoreSnapshot
 init|=
@@ -3061,6 +3071,8 @@ argument_list|,
 name|shardFailures
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|snapshotFormat
 operator|.
 name|write
@@ -3101,9 +3113,32 @@ argument_list|,
 name|repositoryStateId
 argument_list|)
 expr_stmt|;
-return|return
-name|blobStoreSnapshot
-return|;
+block|}
+catch|catch
+parameter_list|(
+name|FileAlreadyExistsException
+name|ex
+parameter_list|)
+block|{
+comment|// if another master was elected and took over finalizing the snapshot, it is possible
+comment|// that both nodes try to finalize the snapshot and write to the same blobs, so we just
+comment|// log a warning here and carry on
+throw|throw
+operator|new
+name|RepositoryException
+argument_list|(
+name|metadata
+operator|.
+name|name
+argument_list|()
+argument_list|,
+literal|"Blob already exists while "
+operator|+
+literal|"finalizing snapshot, assume the snapshot has already been saved"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -3126,6 +3161,9 @@ name|ex
 argument_list|)
 throw|;
 block|}
+return|return
+name|blobStoreSnapshot
+return|;
 block|}
 annotation|@
 name|Override
