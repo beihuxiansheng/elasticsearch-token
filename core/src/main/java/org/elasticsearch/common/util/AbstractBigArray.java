@@ -407,6 +407,25 @@ name|long
 name|ramBytesUsed
 parameter_list|()
 block|{
+return|return
+name|ramBytesEstimated
+argument_list|(
+name|size
+argument_list|)
+return|;
+block|}
+comment|/** Given the size of the array, estimate the number of bytes it will use. */
+DECL|method|ramBytesEstimated
+specifier|public
+specifier|final
+name|long
+name|ramBytesEstimated
+parameter_list|(
+specifier|final
+name|long
+name|size
+parameter_list|)
+block|{
 comment|// rough approximate, we only take into account the size of the values, not the overhead of the array objects
 return|return
 operator|(

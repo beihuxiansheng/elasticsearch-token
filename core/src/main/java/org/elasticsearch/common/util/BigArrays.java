@@ -106,20 +106,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lease
 operator|.
 name|Releasable
@@ -489,7 +475,6 @@ implements|implements
 name|BigArray
 block|{
 DECL|field|SHALLOW_SIZE
-specifier|protected
 specifier|static
 specifier|final
 name|long
@@ -2191,13 +2176,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adjust the circuit breaker with the given delta, if the delta is      * negative, or checkBreaker is false, the breaker will be adjusted      * without tripping      */
+comment|/**      * Adjust the circuit breaker with the given delta, if the delta is      * negative, or checkBreaker is false, the breaker will be adjusted      * without tripping.  If the data was already created before calling      * this method, and the breaker trips, we add the delta without breaking      * to account for the created data.  If the data has not been created yet,      * we do not add the delta to the breaker if it trips.      */
 DECL|method|adjustBreaker
 name|void
 name|adjustBreaker
 parameter_list|(
+specifier|final
 name|long
 name|delta
+parameter_list|,
+specifier|final
+name|boolean
+name|isDataAlreadyCreated
 parameter_list|)
 block|{
 if|if
@@ -2257,6 +2247,11 @@ name|CircuitBreakingException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isDataAlreadyCreated
+condition|)
+block|{
 comment|// since we've already created the data, we need to
 comment|// add it so closing the stream re-adjusts properly
 name|breaker
@@ -2266,6 +2261,7 @@ argument_list|(
 name|delta
 argument_list|)
 expr_stmt|;
+block|}
 comment|// re-throw the original exception
 throw|throw
 name|e
@@ -2350,21 +2346,67 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 decl_stmt|;
+assert|assert
+name|oldMemSize
+operator|==
+name|array
+operator|.
+name|ramBytesEstimated
+argument_list|(
+name|array
+operator|.
+name|size
+argument_list|)
+operator|:
+literal|"ram bytes used should equal that which was previously estimated: ramBytesUsed="
+operator|+
+name|oldMemSize
+operator|+
+literal|", ramBytesEstimated="
+operator|+
+name|array
+operator|.
+name|ramBytesEstimated
+argument_list|(
+name|array
+operator|.
+name|size
+argument_list|)
+assert|;
+specifier|final
+name|long
+name|estimatedIncreaseInBytes
+init|=
+name|array
+operator|.
+name|ramBytesEstimated
+argument_list|(
+name|newSize
+argument_list|)
+operator|-
+name|oldMemSize
+decl_stmt|;
+assert|assert
+name|estimatedIncreaseInBytes
+operator|>=
+literal|0
+operator|:
+literal|"estimated increase in bytes for resizing should not be negative: "
+operator|+
+name|estimatedIncreaseInBytes
+assert|;
+name|adjustBreaker
+argument_list|(
+name|estimatedIncreaseInBytes
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|array
 operator|.
 name|resize
 argument_list|(
 name|newSize
-argument_list|)
-expr_stmt|;
-name|adjustBreaker
-argument_list|(
-name|array
-operator|.
-name|ramBytesUsed
-argument_list|()
-operator|-
-name|oldMemSize
 argument_list|)
 expr_stmt|;
 return|return
@@ -2398,6 +2440,8 @@ name|array
 operator|.
 name|ramBytesUsed
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|success
@@ -2439,10 +2483,6 @@ name|boolean
 name|clearOnResize
 parameter_list|)
 block|{
-specifier|final
-name|ByteArray
-name|array
-decl_stmt|;
 if|if
 condition|(
 name|size
@@ -2450,8 +2490,21 @@ operator|>
 name|BYTE_PAGE_SIZE
 condition|)
 block|{
-name|array
-operator|=
+comment|// when allocating big arrays, we want to first ensure we have the capacity by
+comment|// checking with the circuit breaker before attempting to allocate
+name|adjustBreaker
+argument_list|(
+name|BigByteArray
+operator|.
+name|estimateRamBytes
+argument_list|(
+name|size
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|BigByteArray
 argument_list|(
@@ -2461,7 +2514,7 @@ name|this
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -2494,8 +2547,9 @@ argument_list|(
 name|clearOnResize
 argument_list|)
 decl_stmt|;
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|ByteArrayWrapper
 argument_list|(
@@ -2512,12 +2566,14 @@ name|page
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|ByteArrayWrapper
 argument_list|(
@@ -2538,14 +2594,9 @@ literal|null
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validate
-argument_list|(
-name|array
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * Allocate a new {@link ByteArray} initialized with zeros.      * @param size          the initial length of the array      */
 DECL|method|newByteArray
@@ -2882,10 +2933,6 @@ name|boolean
 name|clearOnResize
 parameter_list|)
 block|{
-specifier|final
-name|IntArray
-name|array
-decl_stmt|;
 if|if
 condition|(
 name|size
@@ -2893,8 +2940,21 @@ operator|>
 name|INT_PAGE_SIZE
 condition|)
 block|{
-name|array
-operator|=
+comment|// when allocating big arrays, we want to first ensure we have the capacity by
+comment|// checking with the circuit breaker before attempting to allocate
+name|adjustBreaker
+argument_list|(
+name|BigIntArray
+operator|.
+name|estimateRamBytes
+argument_list|(
+name|size
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|BigIntArray
 argument_list|(
@@ -2904,7 +2964,7 @@ name|this
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -2937,8 +2997,9 @@ argument_list|(
 name|clearOnResize
 argument_list|)
 decl_stmt|;
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|IntArrayWrapper
 argument_list|(
@@ -2955,12 +3016,14 @@ name|page
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|IntArrayWrapper
 argument_list|(
@@ -2981,14 +3044,9 @@ literal|null
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validate
-argument_list|(
-name|array
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * Allocate a new {@link IntArray}.      * @param size          the initial length of the array      */
 DECL|method|newIntArray
@@ -3182,10 +3240,6 @@ name|boolean
 name|clearOnResize
 parameter_list|)
 block|{
-specifier|final
-name|LongArray
-name|array
-decl_stmt|;
 if|if
 condition|(
 name|size
@@ -3193,8 +3247,21 @@ operator|>
 name|LONG_PAGE_SIZE
 condition|)
 block|{
-name|array
-operator|=
+comment|// when allocating big arrays, we want to first ensure we have the capacity by
+comment|// checking with the circuit breaker before attempting to allocate
+name|adjustBreaker
+argument_list|(
+name|BigLongArray
+operator|.
+name|estimateRamBytes
+argument_list|(
+name|size
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|BigLongArray
 argument_list|(
@@ -3204,7 +3271,7 @@ name|this
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -3237,8 +3304,9 @@ argument_list|(
 name|clearOnResize
 argument_list|)
 decl_stmt|;
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|LongArrayWrapper
 argument_list|(
@@ -3255,12 +3323,14 @@ name|page
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|LongArrayWrapper
 argument_list|(
@@ -3281,14 +3351,9 @@ literal|null
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validate
-argument_list|(
-name|array
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * Allocate a new {@link LongArray}.      * @param size          the initial length of the array      */
 DECL|method|newLongArray
@@ -3482,10 +3547,6 @@ name|boolean
 name|clearOnResize
 parameter_list|)
 block|{
-specifier|final
-name|DoubleArray
-name|arr
-decl_stmt|;
 if|if
 condition|(
 name|size
@@ -3493,8 +3554,21 @@ operator|>
 name|LONG_PAGE_SIZE
 condition|)
 block|{
-name|arr
-operator|=
+comment|// when allocating big arrays, we want to first ensure we have the capacity by
+comment|// checking with the circuit breaker before attempting to allocate
+name|adjustBreaker
+argument_list|(
+name|BigDoubleArray
+operator|.
+name|estimateRamBytes
+argument_list|(
+name|size
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|BigDoubleArray
 argument_list|(
@@ -3504,7 +3578,7 @@ name|this
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -3537,8 +3611,9 @@ argument_list|(
 name|clearOnResize
 argument_list|)
 decl_stmt|;
-name|arr
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|DoubleArrayWrapper
 argument_list|(
@@ -3555,12 +3630,14 @@ name|page
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|arr
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|DoubleArrayWrapper
 argument_list|(
@@ -3581,14 +3658,9 @@ literal|null
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validate
-argument_list|(
-name|arr
 argument_list|)
 return|;
+block|}
 block|}
 comment|/** Allocate a new {@link DoubleArray} of the given capacity. */
 DECL|method|newDoubleArray
@@ -3782,10 +3854,6 @@ name|boolean
 name|clearOnResize
 parameter_list|)
 block|{
-specifier|final
-name|FloatArray
-name|array
-decl_stmt|;
 if|if
 condition|(
 name|size
@@ -3793,8 +3861,21 @@ operator|>
 name|INT_PAGE_SIZE
 condition|)
 block|{
-name|array
-operator|=
+comment|// when allocating big arrays, we want to first ensure we have the capacity by
+comment|// checking with the circuit breaker before attempting to allocate
+name|adjustBreaker
+argument_list|(
+name|BigFloatArray
+operator|.
+name|estimateRamBytes
+argument_list|(
+name|size
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|BigFloatArray
 argument_list|(
@@ -3804,7 +3885,7 @@ name|this
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -3837,8 +3918,9 @@ argument_list|(
 name|clearOnResize
 argument_list|)
 decl_stmt|;
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|FloatArrayWrapper
 argument_list|(
@@ -3855,12 +3937,14 @@ name|page
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|FloatArrayWrapper
 argument_list|(
@@ -3881,14 +3965,9 @@ literal|null
 argument_list|,
 name|clearOnResize
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validate
-argument_list|(
-name|array
 argument_list|)
 return|;
+block|}
 block|}
 comment|/** Allocate a new {@link FloatArray} of the given capacity. */
 DECL|method|newFloatArray
@@ -4099,8 +4178,21 @@ operator|>
 name|OBJECT_PAGE_SIZE
 condition|)
 block|{
-name|array
-operator|=
+comment|// when allocating big arrays, we want to first ensure we have the capacity by
+comment|// checking with the circuit breaker before attempting to allocate
+name|adjustBreaker
+argument_list|(
+name|BigObjectArray
+operator|.
+name|estimateRamBytes
+argument_list|(
+name|size
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
 operator|new
 name|BigObjectArray
 argument_list|<>
@@ -4109,7 +4201,7 @@ name|size
 argument_list|,
 name|this
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -4140,8 +4232,9 @@ operator|.
 name|objectPage
 argument_list|()
 decl_stmt|;
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|ObjectArrayWrapper
 argument_list|<>
@@ -4157,12 +4250,14 @@ name|size
 argument_list|,
 name|page
 argument_list|)
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|array
-operator|=
+return|return
+name|validate
+argument_list|(
 operator|new
 name|ObjectArrayWrapper
 argument_list|<>
@@ -4182,14 +4277,9 @@ name|size
 argument_list|,
 literal|null
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validate
-argument_list|(
-name|array
 argument_list|)
 return|;
+block|}
 block|}
 comment|/** Resize the array to the exact provided size. */
 DECL|method|resize
