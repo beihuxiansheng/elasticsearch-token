@@ -320,6 +320,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|usage
+operator|.
+name|UsageService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -554,6 +566,11 @@ specifier|private
 name|HierarchyCircuitBreakerService
 name|circuitBreakerService
 decl_stmt|;
+DECL|field|usageService
+specifier|private
+name|UsageService
+name|usageService
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setup
@@ -607,6 +624,14 @@ name|BUILT_IN_CLUSTER_SETTINGS
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|usageService
+operator|=
+operator|new
+name|UsageService
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
 comment|// we can do this here only because we know that we don't adjust breaker settings dynamically in the test
 name|inFlightRequestsBreaker
 operator|=
@@ -643,6 +668,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|circuitBreakerService
+argument_list|,
+name|usageService
 argument_list|)
 expr_stmt|;
 name|restController
@@ -782,6 +809,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|circuitBreakerService
+argument_list|,
+name|usageService
 argument_list|)
 decl_stmt|;
 name|Map
@@ -983,6 +1012,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|circuitBreakerService
+argument_list|,
+name|usageService
 argument_list|)
 decl_stmt|;
 comment|// trip circuit breaker by default
@@ -1544,6 +1575,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|circuitBreakerService
+argument_list|,
+name|usageService
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2105,6 +2138,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|circuitBreakerService
+argument_list|,
+name|usageService
 argument_list|)
 expr_stmt|;
 name|restController

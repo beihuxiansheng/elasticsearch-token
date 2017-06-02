@@ -100,6 +100,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|usage
+operator|.
+name|UsageService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -194,6 +206,17 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|UsageService
+name|usageService
+init|=
+operator|new
+name|UsageService
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
 name|action
 operator|=
 operator|new
@@ -220,6 +243,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|usageService
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -329,6 +329,21 @@ end_empty_stmt
 begin_function
 unit|}      @
 name|Override
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"cat_repositories_action"
+return|;
+block|}
+end_function
+
+begin_function
+annotation|@
+name|Override
 DECL|method|documentation
 specifier|protected
 name|void

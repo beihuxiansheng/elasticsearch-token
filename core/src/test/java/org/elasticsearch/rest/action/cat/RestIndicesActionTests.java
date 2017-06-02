@@ -580,6 +580,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|usage
+operator|.
+name|UsageService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -670,6 +682,15 @@ name|Settings
 operator|.
 name|EMPTY
 decl_stmt|;
+name|UsageService
+name|usageService
+init|=
+operator|new
+name|UsageService
+argument_list|(
+name|settings
+argument_list|)
+decl_stmt|;
 specifier|final
 name|RestController
 name|restController
@@ -689,6 +710,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|usageService
 argument_list|)
 decl_stmt|;
 specifier|final
