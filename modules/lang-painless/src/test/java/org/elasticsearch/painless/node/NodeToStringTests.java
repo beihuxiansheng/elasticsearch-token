@@ -182,7 +182,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|ScriptInterface
+name|ScriptClassInfo
 import|;
 end_import
 
@@ -3965,11 +3965,11 @@ name|String
 name|code
 parameter_list|)
 block|{
-name|ScriptInterface
-name|scriptInterface
+name|ScriptClassInfo
+name|scriptClassInfo
 init|=
 operator|new
-name|ScriptInterface
+name|ScriptClassInfo
 argument_list|(
 name|definition
 argument_list|,
@@ -3999,7 +3999,7 @@ name|Walker
 operator|.
 name|buildPainlessTree
 argument_list|(
-name|scriptInterface
+name|scriptClassInfo
 argument_list|,
 name|getTestName
 argument_list|()

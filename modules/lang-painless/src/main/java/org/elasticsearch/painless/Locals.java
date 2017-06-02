@@ -64,7 +64,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|ScriptInterface
+name|ScriptClassInfo
 operator|.
 name|MethodArgument
 import|;
@@ -461,8 +461,8 @@ specifier|static
 name|Locals
 name|newMainMethodScope
 parameter_list|(
-name|ScriptInterface
-name|scriptInterface
+name|ScriptClassInfo
+name|scriptClassInfo
 parameter_list|,
 name|Locals
 name|programScope
@@ -483,7 +483,7 @@ name|programScope
 operator|.
 name|definition
 argument_list|,
-name|scriptInterface
+name|scriptClassInfo
 operator|.
 name|getExecuteMethodReturnType
 argument_list|()
@@ -518,7 +518,7 @@ control|(
 name|MethodArgument
 name|arg
 range|:
-name|scriptInterface
+name|scriptClassInfo
 operator|.
 name|getExecuteArguments
 argument_list|()
@@ -934,7 +934,7 @@ name|definition
 return|;
 block|}
 comment|///// private impl
-comment|/** Whitelist against which thhis script is being compiled. */
+comment|/** Whitelist against which this script is being compiled. */
 DECL|field|definition
 specifier|private
 specifier|final
@@ -1335,6 +1335,11 @@ specifier|private
 specifier|final
 name|int
 name|slot
+decl_stmt|;
+DECL|field|used
+specifier|private
+name|boolean
+name|used
 decl_stmt|;
 DECL|method|Variable
 specifier|public

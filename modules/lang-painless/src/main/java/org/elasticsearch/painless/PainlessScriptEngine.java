@@ -715,7 +715,7 @@ end_class
 
 begin_function
 DECL|method|compile
-name|PainlessScript
+name|Object
 name|compile
 parameter_list|(
 name|Compiler
@@ -724,11 +724,9 @@ parameter_list|,
 name|String
 name|scriptName
 parameter_list|,
-specifier|final
 name|String
-name|scriptSource
+name|source
 parameter_list|,
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -736,6 +734,10 @@ argument_list|,
 name|String
 argument_list|>
 name|params
+parameter_list|,
+name|Object
+modifier|...
+name|args
 parameter_list|)
 block|{
 specifier|final
@@ -989,14 +991,14 @@ argument_list|(
 operator|new
 name|PrivilegedAction
 argument_list|<
-name|PainlessScript
+name|Object
 argument_list|>
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|PainlessScript
+name|Object
 name|run
 parameter_list|()
 block|{
@@ -1014,8 +1016,6 @@ decl_stmt|;
 name|Constructor
 argument_list|<
 name|?
-extends|extends
-name|PainlessScript
 argument_list|>
 name|constructor
 init|=
@@ -1027,7 +1027,7 @@ name|loader
 argument_list|,
 name|name
 argument_list|,
-name|scriptSource
+name|source
 argument_list|,
 name|compilerSettings
 argument_list|)
@@ -1038,7 +1038,9 @@ return|return
 name|constructor
 operator|.
 name|newInstance
-argument_list|()
+argument_list|(
+name|args
+argument_list|)
 return|;
 block|}
 catch|catch
@@ -1089,11 +1091,11 @@ name|scriptName
 operator|==
 literal|null
 condition|?
-name|scriptSource
+name|source
 else|:
 name|scriptName
 argument_list|,
-name|scriptSource
+name|source
 argument_list|,
 name|e
 argument_list|)

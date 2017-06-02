@@ -42,16 +42,25 @@ begin_comment
 comment|/**  * Generic script interface that Painless implements for all Elasticsearch scripts.  */
 end_comment
 
-begin_interface
-DECL|interface|GenericElasticsearchScript
+begin_class
+DECL|class|GenericElasticsearchScript
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|GenericElasticsearchScript
 block|{
-DECL|field|ARGUMENTS
+DECL|method|GenericElasticsearchScript
+specifier|public
+name|GenericElasticsearchScript
+parameter_list|()
+block|{}
+DECL|field|PARAMETERS
+specifier|public
+specifier|static
+specifier|final
 name|String
 index|[]
-name|ARGUMENTS
+name|PARAMETERS
 init|=
 operator|new
 name|String
@@ -69,6 +78,8 @@ literal|"ctx"
 block|}
 decl_stmt|;
 DECL|method|execute
+specifier|public
+specifier|abstract
 name|Object
 name|execute
 parameter_list|(
@@ -107,17 +118,21 @@ name|ctx
 parameter_list|)
 function_decl|;
 DECL|method|uses$_score
+specifier|public
+specifier|abstract
 name|boolean
 name|uses$_score
 parameter_list|()
 function_decl|;
 DECL|method|uses$ctx
+specifier|public
+specifier|abstract
 name|boolean
 name|uses$ctx
 parameter_list|()
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 

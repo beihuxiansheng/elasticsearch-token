@@ -214,7 +214,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|ScriptInterface
+name|ScriptClassInfo
 import|;
 end_import
 
@@ -2232,7 +2232,7 @@ specifier|static
 name|SSource
 name|buildPainlessTree
 parameter_list|(
-name|ScriptInterface
+name|ScriptClassInfo
 name|mainMethod
 parameter_list|,
 name|String
@@ -2271,11 +2271,11 @@ operator|.
 name|source
 return|;
 block|}
-DECL|field|scriptInterface
+DECL|field|scriptClassInfo
 specifier|private
 specifier|final
-name|ScriptInterface
-name|scriptInterface
+name|ScriptClassInfo
+name|scriptClassInfo
 decl_stmt|;
 DECL|field|source
 specifier|private
@@ -2344,8 +2344,8 @@ DECL|method|Walker
 specifier|private
 name|Walker
 parameter_list|(
-name|ScriptInterface
-name|scriptInterface
+name|ScriptClassInfo
+name|scriptClassInfo
 parameter_list|,
 name|String
 name|sourceName
@@ -2365,9 +2365,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|scriptInterface
+name|scriptClassInfo
 operator|=
-name|scriptInterface
+name|scriptClassInfo
 expr_stmt|;
 name|this
 operator|.
@@ -2771,7 +2771,7 @@ return|return
 operator|new
 name|SSource
 argument_list|(
-name|scriptInterface
+name|scriptClassInfo
 argument_list|,
 name|settings
 argument_list|,
