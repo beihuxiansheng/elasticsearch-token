@@ -3913,6 +3913,20 @@ name|key
 argument_list|)
 return|;
 block|}
+comment|/** Return the current secure settings, or {@code null} if none have been set. */
+DECL|method|getSecureSettings
+specifier|public
+name|SecureSettings
+name|getSecureSettings
+parameter_list|()
+block|{
+return|return
+name|secureSettings
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 DECL|method|setSecureSettings
 specifier|public
 name|Builder
