@@ -363,24 +363,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|request
-operator|.
-name|hasContentOrSourceParam
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchException
-argument_list|(
-literal|"request body is required"
-argument_list|)
-throw|;
-block|}
 name|MultiSearchTemplateRequest
 name|multiRequest
 init|=

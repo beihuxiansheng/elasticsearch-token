@@ -396,14 +396,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|request
-operator|.
-name|hasContent
-argument_list|()
-condition|)
-block|{
 try|try
 init|(
 name|XContentParser
@@ -486,7 +478,6 @@ argument_list|(
 name|bodySettings
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|updateSettingsRequest

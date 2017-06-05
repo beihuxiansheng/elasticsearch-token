@@ -325,7 +325,7 @@ name|content
 init|=
 name|request
 operator|.
-name|content
+name|requiredContent
 argument_list|()
 decl_stmt|;
 if|if
