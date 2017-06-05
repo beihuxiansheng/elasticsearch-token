@@ -163,6 +163,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -723,7 +735,7 @@ name|putArray
 argument_list|(
 literal|"index.analysis.normalizer.my_normalizer.char_filter"
 argument_list|,
-literal|"html_strip"
+literal|"mock_forbidden"
 argument_list|)
 operator|.
 name|put
@@ -761,12 +773,14 @@ operator|.
 name|createTestAnalysisFromSettings
 argument_list|(
 name|settings
+argument_list|,
+name|MOCK_ANALYSIS_PLUGIN
 argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Custom normalizer [my_normalizer] may not use char filter [html_strip]"
+literal|"Custom normalizer [my_normalizer] may not use char filter [mock_forbidden]"
 argument_list|,
 name|e
 operator|.
@@ -808,6 +822,36 @@ argument_list|,
 name|MockLowerCaseFilter
 operator|::
 operator|new
+argument_list|)
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPreConfiguredCharFilters
+specifier|public
+name|List
+argument_list|<
+name|PreConfiguredCharFilter
+argument_list|>
+name|getPreConfiguredCharFilters
+parameter_list|()
+block|{
+return|return
+name|singletonList
+argument_list|(
+name|PreConfiguredCharFilter
+operator|.
+name|singleton
+argument_list|(
+literal|"mock_forbidden"
+argument_list|,
+literal|false
+argument_list|,
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

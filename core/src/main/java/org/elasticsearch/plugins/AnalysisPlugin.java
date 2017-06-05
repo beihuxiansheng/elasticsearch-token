@@ -146,7 +146,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|PreConfiguredTokenizer
+name|PreConfiguredCharFilter
 import|;
 end_import
 
@@ -161,6 +161,20 @@ operator|.
 name|analysis
 operator|.
 name|PreConfiguredTokenFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|PreConfiguredTokenizer
 import|;
 end_import
 
@@ -354,6 +368,21 @@ parameter_list|()
 block|{
 return|return
 name|emptyMap
+argument_list|()
+return|;
+block|}
+comment|/**      * Override to add additional pre-configured {@link CharFilter}s.      */
+DECL|method|getPreConfiguredCharFilters
+specifier|default
+name|List
+argument_list|<
+name|PreConfiguredCharFilter
+argument_list|>
+name|getPreConfiguredCharFilters
+parameter_list|()
+block|{
+return|return
+name|emptyList
 argument_list|()
 return|;
 block|}
