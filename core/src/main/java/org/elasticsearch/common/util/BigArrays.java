@@ -2346,6 +2346,15 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 decl_stmt|;
+specifier|final
+name|long
+name|oldSize
+init|=
+name|array
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 assert|assert
 name|oldMemSize
 operator|==
@@ -2353,9 +2362,7 @@ name|array
 operator|.
 name|ramBytesEstimated
 argument_list|(
-name|array
-operator|.
-name|size
+name|oldSize
 argument_list|)
 operator|:
 literal|"ram bytes used should equal that which was previously estimated: ramBytesUsed="
@@ -2368,9 +2375,7 @@ name|array
 operator|.
 name|ramBytesEstimated
 argument_list|(
-name|array
-operator|.
-name|size
+name|oldSize
 argument_list|)
 assert|;
 specifier|final
@@ -2386,15 +2391,6 @@ argument_list|)
 operator|-
 name|oldMemSize
 decl_stmt|;
-assert|assert
-name|estimatedIncreaseInBytes
-operator|>=
-literal|0
-operator|:
-literal|"estimated increase in bytes for resizing should not be negative: "
-operator|+
-name|estimatedIncreaseInBytes
-assert|;
 name|adjustBreaker
 argument_list|(
 name|estimatedIncreaseInBytes
