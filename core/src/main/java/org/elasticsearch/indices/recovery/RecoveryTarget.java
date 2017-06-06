@@ -528,6 +528,18 @@ name|AtomicLong
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|LongConsumer
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a recovery where the current node is the target node of the recovery. To track recoveries in a central place, instances of  * this class are created through {@link RecoveriesCollection}.  */
 end_comment
@@ -615,10 +627,7 @@ decl_stmt|;
 DECL|field|ensureClusterStateVersionCallback
 specifier|private
 specifier|final
-name|Callback
-argument_list|<
-name|Long
-argument_list|>
+name|LongConsumer
 name|ensureClusterStateVersionCallback
 decl_stmt|;
 DECL|field|finished
@@ -714,10 +723,7 @@ name|RecoveryListener
 name|listener
 parameter_list|,
 specifier|final
-name|Callback
-argument_list|<
-name|Long
-argument_list|>
+name|LongConsumer
 name|ensureClusterStateVersionCallback
 parameter_list|)
 block|{
@@ -1794,7 +1800,7 @@ parameter_list|)
 block|{
 name|ensureClusterStateVersionCallback
 operator|.
-name|handle
+name|accept
 argument_list|(
 name|clusterStateVersion
 argument_list|)
