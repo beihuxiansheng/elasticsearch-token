@@ -329,7 +329,7 @@ name|V_5_0_0
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -352,7 +352,7 @@ name|onOrBefore
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -370,7 +370,7 @@ literal|null
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -394,7 +394,7 @@ name|onOrBefore
 argument_list|(
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -603,11 +603,11 @@ argument_list|()
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -616,7 +616,7 @@ name|got
 argument_list|,
 name|Version
 operator|.
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 argument_list|)
 expr_stmt|;
 comment|// implicit range of one
@@ -1283,6 +1283,20 @@ argument_list|(
 literal|"6.0.0-alpha2"
 argument_list|)
 decl_stmt|;
+DECL|field|V_6_0_0_alpha3
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|V_6_0_0_alpha3
+init|=
+name|Version
+operator|.
+name|fromString
+argument_list|(
+literal|"6.0.0-alpha3"
+argument_list|)
+decl_stmt|;
 DECL|field|CURRENT
 specifier|public
 specifier|static
@@ -1290,7 +1304,7 @@ specifier|final
 name|Version
 name|CURRENT
 init|=
-name|V_6_0_0_alpha2
+name|V_6_0_0_alpha3
 decl_stmt|;
 block|}
 DECL|method|testResolveReleasedVersionsForUnstableBranch
@@ -1369,6 +1383,10 @@ argument_list|,
 name|TestUnstableBranch
 operator|.
 name|V_6_0_0_alpha2
+argument_list|,
+name|TestUnstableBranch
+operator|.
+name|V_6_0_0_alpha3
 argument_list|)
 argument_list|,
 name|released
@@ -1394,10 +1412,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that {@link Version#minimumCompatibilityVersion()} and {@link VersionUtils#allReleasedVersions()}      * agree with the list of wire and index compatible versions we build in gradle.      */
-DECL|method|testGradleVersionsMatchVerionUtils
+DECL|method|testGradleVersionsMatchVersionUtils
 specifier|public
 name|void
-name|testGradleVersionsMatchVerionUtils
+name|testGradleVersionsMatchVersionUtils
 parameter_list|()
 block|{
 comment|// First check the index compatible versions
