@@ -1555,6 +1555,12 @@ name|NUMBER_OF_TESTQUERIES
 init|=
 literal|20
 decl_stmt|;
+DECL|field|indexVersionCreated
+specifier|protected
+specifier|static
+name|Version
+name|indexVersionCreated
+decl_stmt|;
 DECL|field|serviceHolder
 specifier|private
 specifier|static
@@ -1740,9 +1746,8 @@ name|indexSettings
 parameter_list|()
 block|{
 comment|// we have to prefer CURRENT since with the range of versions we support it's rather unlikely to get the current actually.
-name|Version
 name|indexVersionCreated
-init|=
+operator|=
 name|randomBoolean
 argument_list|()
 condition|?
@@ -1763,7 +1768,7 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|Settings
 operator|.

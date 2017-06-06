@@ -414,6 +414,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -6979,6 +6989,20 @@ operator|.
 name|length
 operator|>
 literal|0
+argument_list|)
+expr_stmt|;
+name|assumeTrue
+argument_list|(
+literal|"5.x behaves differently, so skip on non-6.x indices"
+argument_list|,
+name|indexVersionCreated
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QueryShardContext
