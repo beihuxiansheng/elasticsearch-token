@@ -118,16 +118,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -657,6 +647,25 @@ argument_list|(
 name|patternName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unable to find pattern ["
+operator|+
+name|patternName
+operator|+
+literal|"] in Grok's pattern dictionary"
+argument_list|)
+throw|;
+block|}
 name|String
 name|grokPart
 decl_stmt|;
