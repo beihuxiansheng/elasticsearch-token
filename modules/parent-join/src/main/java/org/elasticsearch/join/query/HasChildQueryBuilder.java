@@ -1900,6 +1900,41 @@ name|getMapperService
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|joinFieldMapper
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|ignoreUnmapped
+condition|)
+block|{
+return|return
+operator|new
+name|MatchNoDocsQuery
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryShardException
+argument_list|(
+name|context
+argument_list|,
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] no join field has been configured"
+argument_list|)
+throw|;
+block|}
+block|}
 name|ParentIdFieldMapper
 name|parentIdFieldMapper
 init|=
@@ -2028,7 +2063,18 @@ literal|"["
 operator|+
 name|NAME
 operator|+
-literal|"] join field has no parent type configured"
+literal|"] join field ["
+operator|+
+name|joinFieldMapper
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"] doesn't hold ["
+operator|+
+name|type
+operator|+
+literal|"] as a child"
 argument_list|)
 throw|;
 block|}
@@ -3050,11 +3096,11 @@ name|InnerHitContextBuilder
 name|innerHitContextBuilder
 init|=
 operator|new
-name|HasParentQueryBuilder
-operator|.
 name|ParentChildInnerHitContextBuilder
 argument_list|(
 name|type
+argument_list|,
+literal|true
 argument_list|,
 name|query
 argument_list|,

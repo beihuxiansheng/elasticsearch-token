@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.join.aggregations
+DECL|package|org.elasticsearch.join.query
 package|package
 name|org
 operator|.
@@ -12,17 +12,17 @@ name|elasticsearch
 operator|.
 name|join
 operator|.
-name|aggregations
+name|query
 package|;
 end_package
 
 begin_class
-DECL|class|LegacyChildrenIT
+DECL|class|LegacyInnerHitsIT
 specifier|public
 class|class
-name|LegacyChildrenIT
+name|LegacyInnerHitsIT
 extends|extends
-name|ChildrenIT
+name|InnerHitsIT
 block|{
 annotation|@
 name|Override
