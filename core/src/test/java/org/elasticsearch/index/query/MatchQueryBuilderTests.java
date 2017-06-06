@@ -2736,7 +2736,7 @@ name|mapperService
 operator|.
 name|merge
 argument_list|(
-literal|"t_boost"
+literal|"doc"
 argument_list|,
 operator|new
 name|CompressedXContent
@@ -2745,7 +2745,7 @@ name|PutMappingRequest
 operator|.
 name|buildFromSimplifiedDef
 argument_list|(
-literal|"t_boost"
+literal|"doc"
 argument_list|,
 literal|"string_boost"
 argument_list|,

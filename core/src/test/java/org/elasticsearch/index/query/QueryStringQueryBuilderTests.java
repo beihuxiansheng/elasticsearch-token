@@ -7184,7 +7184,7 @@ argument_list|()
 operator|.
 name|merge
 argument_list|(
-literal|"new_type"
+literal|"doc"
 argument_list|,
 operator|new
 name|CompressedXContent
@@ -7193,7 +7193,7 @@ name|PutMappingRequest
 operator|.
 name|buildFromSimplifiedDef
 argument_list|(
-literal|"new_type"
+literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
@@ -7268,7 +7268,7 @@ argument_list|()
 operator|.
 name|merge
 argument_list|(
-literal|"new_type"
+literal|"doc"
 argument_list|,
 operator|new
 name|CompressedXContent
@@ -7277,7 +7277,7 @@ name|PutMappingRequest
 operator|.
 name|buildFromSimplifiedDef
 argument_list|(
-literal|"new_type"
+literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,

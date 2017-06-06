@@ -111,6 +111,30 @@ name|score
 argument_list|)
 return|;
 block|}
+comment|/**      * Constructs a new parent id query that returns all child documents of the specified type that      * point to the specified id.      */
+DECL|method|parentId
+specifier|public
+specifier|static
+name|ParentIdQueryBuilder
+name|parentId
+parameter_list|(
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ParentIdQueryBuilder
+argument_list|(
+name|type
+argument_list|,
+name|id
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

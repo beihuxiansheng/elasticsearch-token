@@ -537,8 +537,7 @@ init|=
 operator|new
 name|WildcardQueryBuilder
 argument_list|(
-name|getRandomType
-argument_list|()
+literal|"doc"
 argument_list|,
 literal|""
 argument_list|)
@@ -742,9 +741,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"_type"
+literal|"field1"
 block|,
-literal|"_all"
+literal|"field2"
 block|}
 control|)
 block|{

@@ -813,10 +813,8 @@ decl_stmt|;
 name|String
 name|type
 init|=
-name|getRandomType
-argument_list|()
+literal|"doc"
 decl_stmt|;
-comment|// set to one type to avoid ambiguous types
 comment|// indexed item or artificial document
 name|Item
 name|item

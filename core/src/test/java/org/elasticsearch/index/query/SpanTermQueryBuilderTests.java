@@ -759,9 +759,9 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"_type"
+literal|"field1"
 block|,
-literal|"_all"
+literal|"field2"
 block|}
 control|)
 block|{

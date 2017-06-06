@@ -2479,8 +2479,6 @@ literal|"multi_match"
 block|,
 literal|"nested"
 block|,
-literal|"parent_id"
-block|,
 literal|"prefix"
 block|,
 literal|"query_string"

@@ -406,7 +406,7 @@ name|mapperService
 operator|.
 name|merge
 argument_list|(
-literal|"nested_doc"
+literal|"doc"
 argument_list|,
 operator|new
 name|CompressedXContent
@@ -415,7 +415,7 @@ name|PutMappingRequest
 operator|.
 name|buildFromSimplifiedDef
 argument_list|(
-literal|"nested_doc"
+literal|"doc"
 argument_list|,
 name|STRING_FIELD_NAME
 argument_list|,
