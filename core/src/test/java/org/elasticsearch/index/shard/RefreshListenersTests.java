@@ -2172,6 +2172,17 @@ operator|.
 name|get
 argument_list|(
 name|get
+argument_list|,
+name|engine
+operator|::
+name|acquireSearcher
+argument_list|,
+name|onRefresh
+lambda|->
+name|fail
+argument_list|(
+literal|"shouldn't have a refresh"
+argument_list|)
 argument_list|)
 init|)
 block|{
@@ -2184,7 +2195,7 @@ operator|.
 name|exists
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 name|assertEquals
 argument_list|(
 name|iteration
@@ -2194,16 +2205,16 @@ operator|.
 name|version
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 name|SingleFieldsVisitor
 name|visitor
-init|=
+operator|=
 operator|new
 name|SingleFieldsVisitor
 argument_list|(
 literal|"test"
 argument_list|)
-decl_stmt|;
+block|;
 name|getResult
 operator|.
 name|docIdAndVersion
@@ -2225,7 +2236,7 @@ name|docId
 argument_list|,
 name|visitor
 argument_list|)
-expr_stmt|;
+block|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -2245,8 +2256,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
+block|;                         }
 block|}
 catch|catch
 parameter_list|(

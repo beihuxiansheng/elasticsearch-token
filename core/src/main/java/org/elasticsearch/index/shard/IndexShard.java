@@ -4600,6 +4600,17 @@ argument_list|,
 name|this
 operator|::
 name|acquireSearcher
+argument_list|,
+parameter_list|(
+name|timeElapsed
+parameter_list|)
+lambda|->
+name|refreshMetric
+operator|.
+name|inc
+argument_list|(
+name|timeElapsed
+argument_list|)
 argument_list|)
 return|;
 block|}
