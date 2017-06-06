@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -188,6 +198,15 @@ name|FORBID_CLOSED_INDICES
 init|=
 literal|32
 decl_stmt|;
+DECL|field|IGNORE_ALIASES
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|IGNORE_ALIASES
+init|=
+literal|64
+decl_stmt|;
 DECL|field|STRICT_EXPAND_OPEN
 specifier|private
 specifier|static
@@ -235,12 +254,12 @@ literal|48
 decl_stmt|;
 static|static
 block|{
-name|byte
+name|short
 name|max
 init|=
 literal|1
 operator|<<
-literal|6
+literal|7
 decl_stmt|;
 name|VALUES
 operator|=
@@ -252,7 +271,7 @@ index|]
 expr_stmt|;
 for|for
 control|(
-name|byte
+name|short
 name|id
 init|=
 literal|0
@@ -273,6 +292,9 @@ operator|=
 operator|new
 name|IndicesOptions
 argument_list|(
+operator|(
+name|byte
+operator|)
 name|id
 argument_list|)
 expr_stmt|;
@@ -391,8 +413,8 @@ name|boolean
 name|allowAliasesToMultipleIndices
 parameter_list|()
 block|{
-comment|//true is default here, for bw comp we keep the first 16 values
-comment|//in the array same as before + the default value for the new flag
+comment|// true is default here, for bw comp we keep the first 16 values
+comment|// in the array same as before + the default value for the new flag
 return|return
 operator|(
 name|id
@@ -400,6 +422,23 @@ operator|&
 name|FORBID_ALIASES_TO_MULTIPLE_INDICES
 operator|)
 operator|==
+literal|0
+return|;
+block|}
+comment|/**      * @return whether aliases should be ignored (when resolving a wildcard)      */
+DECL|method|ignoreAliases
+specifier|public
+name|boolean
+name|ignoreAliases
+parameter_list|()
+block|{
+return|return
+operator|(
+name|id
+operator|&
+name|IGNORE_ALIASES
+operator|)
+operator|!=
 literal|0
 return|;
 block|}
@@ -414,6 +453,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_6_0_0_alpha2
+argument_list|)
+condition|)
+block|{
 name|out
 operator|.
 name|write
@@ -421,6 +475,21 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if we are talking to a node that doesn't support the newly added flag (ignoreAliases)
+comment|// flip to 0 all the bits starting from the 7th
+name|out
+operator|.
+name|write
+argument_list|(
+name|id
+operator|&
+literal|0x3f
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|readIndicesOptions
 specifier|public
@@ -434,8 +503,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//if we read from a node that doesn't support the newly added flag (allowAliasesToMultipleIndices)
-comment|//we just receive the old corresponding value with the new flag set to true (default)
+comment|//if we read from a node that doesn't support the newly added flag (ignoreAliases)
+comment|//we just receive the old corresponding value with the new flag set to false (default)
 name|byte
 name|id
 init|=
@@ -552,6 +621,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|fromOptions
+specifier|public
 specifier|static
 name|IndicesOptions
 name|fromOptions
@@ -575,6 +645,53 @@ name|boolean
 name|forbidClosedIndices
 parameter_list|)
 block|{
+return|return
+name|fromOptions
+argument_list|(
+name|ignoreUnavailable
+argument_list|,
+name|allowNoIndices
+argument_list|,
+name|expandToOpenIndices
+argument_list|,
+name|expandToClosedIndices
+argument_list|,
+name|allowAliasesToMultipleIndices
+argument_list|,
+name|forbidClosedIndices
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+DECL|method|fromOptions
+specifier|public
+specifier|static
+name|IndicesOptions
+name|fromOptions
+parameter_list|(
+name|boolean
+name|ignoreUnavailable
+parameter_list|,
+name|boolean
+name|allowNoIndices
+parameter_list|,
+name|boolean
+name|expandToOpenIndices
+parameter_list|,
+name|boolean
+name|expandToClosedIndices
+parameter_list|,
+name|boolean
+name|allowAliasesToMultipleIndices
+parameter_list|,
+name|boolean
+name|forbidClosedIndices
+parameter_list|,
+name|boolean
+name|ignoreAliases
+parameter_list|)
+block|{
 name|byte
 name|id
 init|=
@@ -591,6 +708,8 @@ argument_list|,
 name|allowAliasesToMultipleIndices
 argument_list|,
 name|forbidClosedIndices
+argument_list|,
+name|ignoreAliases
 argument_list|)
 decl_stmt|;
 return|return
@@ -1102,6 +1221,9 @@ name|allowAliasesToMultipleIndices
 parameter_list|,
 name|boolean
 name|forbidClosedIndices
+parameter_list|,
+name|boolean
+name|ignoreAliases
 parameter_list|)
 block|{
 name|byte
@@ -1172,6 +1294,16 @@ operator||=
 name|FORBID_CLOSED_INDICES
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ignoreAliases
+condition|)
+block|{
+name|id
+operator||=
+name|IGNORE_ALIASES
+expr_stmt|;
+block|}
 return|return
 name|id
 return|;
@@ -1219,6 +1351,11 @@ operator|+
 literal|", forbid_closed_indices="
 operator|+
 name|forbidClosedIndices
+argument_list|()
+operator|+
+literal|", ignore_aliases="
+operator|+
+name|ignoreAliases
 argument_list|()
 operator|+
 literal|']'

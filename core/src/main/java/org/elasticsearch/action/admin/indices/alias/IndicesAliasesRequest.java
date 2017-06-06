@@ -456,8 +456,9 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|//indices options that require every specified index to exist, expand wildcards only to open indices and
-comment|//don't allow that no indices are resolved from wildcard expressions
+comment|// indices options that require every specified index to exist, expand wildcards only to open
+comment|// indices, don't allow that no indices are resolved from wildcard expressions and resolve the
+comment|// expressions only against indices
 DECL|field|INDICES_OPTIONS
 specifier|private
 specifier|static
@@ -476,6 +477,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 DECL|method|IndicesAliasesRequest
