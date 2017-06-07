@@ -1108,18 +1108,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptType
 import|;
 end_import
@@ -1560,18 +1548,6 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|emptyList
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
 name|emptyMap
 import|;
 end_import
@@ -1601,30 +1577,6 @@ operator|.
 name|CollectionUtils
 operator|.
 name|arrayAsArrayList
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|contains
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
 import|;
 end_import
 

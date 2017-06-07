@@ -214,6 +214,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|XContentTestUtils
+operator|.
+name|insertRandomFields
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -372,6 +386,22 @@ argument_list|,
 name|humanReadable
 argument_list|)
 decl_stmt|;
+comment|// we add a few random fields to check that parser is lenient on new fields
+name|BytesReference
+name|withRandomFields
+init|=
+name|insertRandomFields
+argument_list|(
+name|xContentType
+argument_list|,
+name|originalBytes
+argument_list|,
+literal|null
+argument_list|,
+name|random
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|MainResponse
 name|parsed
 decl_stmt|;
@@ -387,7 +417,7 @@ operator|.
 name|xContent
 argument_list|()
 argument_list|,
-name|originalBytes
+name|withRandomFields
 argument_list|)
 init|)
 block|{

@@ -625,6 +625,7 @@ argument_list|(
 literal|"object1"
 argument_list|)
 expr_stmt|;
+block|{
 name|builder
 operator|.
 name|field
@@ -652,6 +653,7 @@ argument_list|,
 literal|"value3"
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|endObject
@@ -666,6 +668,7 @@ argument_list|(
 literal|"object2"
 argument_list|)
 expr_stmt|;
+block|{
 name|builder
 operator|.
 name|field
@@ -693,6 +696,7 @@ argument_list|,
 literal|"value6"
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|endObject
