@@ -1166,6 +1166,27 @@ index|]
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|positionSpanQueries
+operator|.
+name|length
+operator|==
+literal|1
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|positionSpanQueries
+index|[
+literal|0
+index|]
+argument_list|)
+return|;
+block|}
 comment|// sum position increments beyond 1
 name|int
 name|positionGaps
