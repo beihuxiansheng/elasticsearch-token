@@ -100,20 +100,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DirectoryReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexCommit
 import|;
 end_import
@@ -635,8 +621,6 @@ operator|.
 name|settings
 operator|.
 name|Setting
-operator|.
-name|Property
 import|;
 end_import
 
@@ -651,6 +635,8 @@ operator|.
 name|settings
 operator|.
 name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -679,20 +665,6 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|Callback
 import|;
 end_import
 
@@ -1082,7 +1054,7 @@ name|concurrent
 operator|.
 name|locks
 operator|.
-name|ReentrantLock
+name|ReentrantReadWriteLock
 import|;
 end_import
 
@@ -1092,11 +1064,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
+name|function
 operator|.
-name|locks
-operator|.
-name|ReentrantReadWriteLock
+name|Consumer
 import|;
 end_import
 
@@ -2323,7 +2293,7 @@ finally|finally
 block|{
 name|onClose
 operator|.
-name|handle
+name|accept
 argument_list|(
 name|shardLock
 argument_list|)
@@ -7464,7 +7434,7 @@ specifier|public
 interface|interface
 name|OnClose
 extends|extends
-name|Callback
+name|Consumer
 argument_list|<
 name|ShardLock
 argument_list|>
@@ -7482,7 +7452,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|handle
+name|accept
 parameter_list|(
 name|ShardLock
 name|Lock

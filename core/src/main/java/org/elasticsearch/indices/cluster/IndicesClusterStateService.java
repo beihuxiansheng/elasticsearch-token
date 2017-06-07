@@ -384,20 +384,6 @@ name|common
 operator|.
 name|util
 operator|.
-name|Callback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|AbstractRunnable
@@ -502,7 +488,7 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|GlobalCheckpointTracker
+name|GlobalCheckpointSyncAction
 import|;
 end_import
 
@@ -516,7 +502,7 @@ name|index
 operator|.
 name|seqno
 operator|.
-name|GlobalCheckpointSyncAction
+name|GlobalCheckpointTracker
 import|;
 end_import
 
@@ -4425,7 +4411,7 @@ specifier|private
 class|class
 name|FailedShardHandler
 implements|implements
-name|Callback
+name|Consumer
 argument_list|<
 name|IndexShard
 operator|.
@@ -4434,10 +4420,10 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|handle
+DECL|method|accept
 specifier|public
 name|void
-name|handle
+name|accept
 parameter_list|(
 specifier|final
 name|IndexShard
@@ -4750,7 +4736,7 @@ parameter_list|,
 name|RepositoriesService
 name|repositoriesService
 parameter_list|,
-name|Callback
+name|Consumer
 argument_list|<
 name|IndexShard
 operator|.

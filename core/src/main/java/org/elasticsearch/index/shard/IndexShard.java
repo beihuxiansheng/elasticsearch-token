@@ -520,20 +520,6 @@ name|common
 operator|.
 name|util
 operator|.
-name|Callback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|AbstractRunnable
@@ -7411,7 +7397,7 @@ specifier|public
 name|void
 name|addShardFailureCallback
 parameter_list|(
-name|Callback
+name|Consumer
 argument_list|<
 name|ShardFailure
 argument_list|>
@@ -9666,7 +9652,7 @@ specifier|private
 specifier|final
 name|CopyOnWriteArrayList
 argument_list|<
-name|Callback
+name|Consumer
 argument_list|<
 name|ShardFailure
 argument_list|>
@@ -9711,7 +9697,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Callback
+name|Consumer
 argument_list|<
 name|ShardFailure
 argument_list|>
@@ -9724,7 +9710,7 @@ try|try
 block|{
 name|listener
 operator|.
-name|handle
+name|accept
 argument_list|(
 name|shardFailure
 argument_list|)
@@ -10995,7 +10981,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Simple struct encapsulating a shard failure      *      * @see IndexShard#addShardFailureCallback(Callback)      */
+comment|/**      * Simple struct encapsulating a shard failure      *      * @see IndexShard#addShardFailureCallback(Consumer)      */
 end_comment
 
 begin_class
