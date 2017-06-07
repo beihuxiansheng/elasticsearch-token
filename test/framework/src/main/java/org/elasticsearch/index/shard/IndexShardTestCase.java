@@ -2214,7 +2214,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|getFakeDiscoNode
-specifier|private
+specifier|protected
 name|DiscoveryNode
 name|getFakeDiscoNode
 parameter_list|(

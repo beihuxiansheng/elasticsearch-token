@@ -2150,13 +2150,15 @@ name|final
 name|int
 name|totalTranslogOps
 argument_list|)
+throws|throws
+name|IOException
 block|{
 comment|// index a doc which is not part of the snapshot, but also does not complete on replica
 name|replicaEngineFactory
 operator|.
 name|latchIndexers
 argument_list|()
-block|;
+decl_stmt|;
 name|threadPool
 operator|.
 name|generic
@@ -2222,7 +2224,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-block|;
+expr_stmt|;
 try|try
 block|{
 comment|// the pending doc is latched in the engine
@@ -2320,12 +2322,18 @@ return|;
 block|}
 block|}
 block|)
-function|;
+class|;
+end_class
+
+begin_expr_stmt
 name|pendingDocActiveWithExtraDocIndexed
 operator|.
 name|await
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|assertThat
 argument_list|(
 name|pendingDocDone
@@ -2339,6 +2347,9 @@ literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_block
 block|{
 specifier|final
 name|long
@@ -2417,13 +2428,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_block
+
+begin_comment
 comment|// wait for recovery to enter the translog phase
+end_comment
+
+begin_expr_stmt
 name|phaseTwoStartLatch
 operator|.
 name|countDown
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+
+begin_comment
 comment|// wait for the translog phase to complete and the recovery to block global checkpoint advancement
+end_comment
+
+begin_expr_stmt
 name|awaitBusy
 argument_list|(
 parameter_list|()
@@ -2437,6 +2460,9 @@ name|pendingInSync
 argument_list|()
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_block
 block|{
 name|shards
 operator|.
@@ -2541,21 +2567,33 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_block
+
+begin_expr_stmt
 name|replicaEngineFactory
 operator|.
 name|releaseLatchedIndexers
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|pendingDocDone
 operator|.
 name|await
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|recoveryFuture
 operator|.
 name|get
-parameter_list|()
-constructor_decl|;
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+
+begin_block
 block|{
 specifier|final
 name|long
@@ -2651,12 +2689,12 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_block
 
 begin_class
-unit|}      private
+unit|}     }
 DECL|class|BlockingTarget
+specifier|private
 specifier|static
 class|class
 name|BlockingTarget
@@ -2910,6 +2948,8 @@ parameter_list|,
 name|int
 name|totalTranslogOps
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

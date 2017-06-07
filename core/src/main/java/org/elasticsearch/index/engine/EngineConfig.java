@@ -262,9 +262,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
+name|store
 operator|.
-name|TranslogRecoveryPerformer
+name|Store
 import|;
 end_import
 
@@ -276,9 +276,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|store
+name|translog
 operator|.
-name|Store
+name|Translog
 import|;
 end_import
 
@@ -324,6 +324,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -346,12 +356,6 @@ specifier|private
 specifier|final
 name|ShardId
 name|shardId
-decl_stmt|;
-DECL|field|translogRecoveryPerformer
-specifier|private
-specifier|final
-name|TranslogRecoveryPerformer
-name|translogRecoveryPerformer
 decl_stmt|;
 DECL|field|indexSettings
 specifier|private
@@ -469,6 +473,12 @@ specifier|private
 specifier|final
 name|Sort
 name|indexSort
+decl_stmt|;
+DECL|field|translogRecoveryRunner
+specifier|private
+specifier|final
+name|TranslogRecoveryRunner
+name|translogRecoveryRunner
 decl_stmt|;
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      * This setting is also settable on the node and the index level, it's commonly used in hot/cold node archs where index is likely      * allocated on both `kind` of nodes.      */
 DECL|field|INDEX_CODEC_SETTING
@@ -633,9 +643,6 @@ operator|.
 name|EventListener
 name|eventListener
 parameter_list|,
-name|TranslogRecoveryPerformer
-name|translogRecoveryPerformer
-parameter_list|,
 name|QueryCache
 name|queryCache
 parameter_list|,
@@ -658,6 +665,9 @@ name|refreshListeners
 parameter_list|,
 name|Sort
 name|indexSort
+parameter_list|,
+name|TranslogRecoveryRunner
+name|translogRecoveryRunner
 parameter_list|)
 block|{
 if|if
@@ -771,12 +781,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|translogRecoveryPerformer
-operator|=
-name|translogRecoveryPerformer
-expr_stmt|;
-name|this
-operator|.
 name|queryCache
 operator|=
 name|queryCache
@@ -816,6 +820,12 @@ operator|.
 name|indexSort
 operator|=
 name|indexSort
+expr_stmt|;
+name|this
+operator|.
+name|translogRecoveryRunner
+operator|=
+name|translogRecoveryRunner
 expr_stmt|;
 block|}
 comment|/**      * Enables / disables gc deletes      *      * @see #isEnableGcDeletes()      */
@@ -976,17 +986,6 @@ return|return
 name|similarity
 return|;
 block|}
-comment|/**      * Returns the {@link org.elasticsearch.index.shard.TranslogRecoveryPerformer} for this engine. This class is used      * to apply transaction log operations to the engine. It encapsulates all the logic to transfer the translog entry into      * an indexing operation.      */
-DECL|method|getTranslogRecoveryPerformer
-specifier|public
-name|TranslogRecoveryPerformer
-name|getTranslogRecoveryPerformer
-parameter_list|()
-block|{
-return|return
-name|translogRecoveryPerformer
-return|;
-block|}
 comment|/**      * Return the cache to use for queries.      */
 DECL|method|getQueryCache
 specifier|public
@@ -1040,6 +1039,40 @@ parameter_list|()
 block|{
 return|return
 name|openMode
+return|;
+block|}
+annotation|@
+name|FunctionalInterface
+DECL|interface|TranslogRecoveryRunner
+specifier|public
+interface|interface
+name|TranslogRecoveryRunner
+block|{
+DECL|method|run
+name|int
+name|run
+parameter_list|(
+name|Engine
+name|engine
+parameter_list|,
+name|Translog
+operator|.
+name|Snapshot
+name|snapshot
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+block|}
+comment|/**      * Returns a runner that implements the translog recovery from the given snapshot      */
+DECL|method|getTranslogRecoveryRunner
+specifier|public
+name|TranslogRecoveryRunner
+name|getTranslogRecoveryRunner
+parameter_list|()
+block|{
+return|return
+name|translogRecoveryRunner
 return|;
 block|}
 comment|/**      * Engine open mode defines how the engine should be opened or in other words what the engine should expect      * to recover from. We either create a brand new engine with a new index and translog or we recover from an existing index.      * If the index exists we also have the ability open only the index and create a new transaction log which happens      * during remote recovery since we have already transferred the index files but the translog is replayed from remote. The last      * and safest option opens the lucene index as well as it's referenced transaction log for a translog recovery.      * See also {@link Engine#recoverFromTranslog()}      */

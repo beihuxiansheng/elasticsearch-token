@@ -4765,42 +4765,7 @@ argument_list|,
 name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
-DECL|enum constant|BATCH_OPERATION_EXCEPTION
-name|BATCH_OPERATION_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|TranslogRecoveryPerformer
-operator|.
-name|BatchOperationException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|TranslogRecoveryPerformer
-operator|.
-name|BatchOperationException
-operator|::
-operator|new
-argument_list|,
-literal|26
-argument_list|,
-name|UNKNOWN_VERSION_ADDED
-argument_list|)
-block|,
+comment|// 26 was BatchOperationException
 DECL|enum constant|SNAPSHOT_CREATION_EXCEPTION
 name|SNAPSHOT_CREATION_EXCEPTION
 argument_list|(

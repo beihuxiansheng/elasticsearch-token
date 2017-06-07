@@ -5050,6 +5050,7 @@ name|id
 parameter_list|()
 function_decl|;
 DECL|method|operationType
+specifier|public
 specifier|abstract
 name|TYPE
 name|operationType
@@ -5275,6 +5276,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|operationType
+specifier|public
 name|TYPE
 name|operationType
 parameter_list|()
@@ -5622,6 +5624,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|operationType
+specifier|public
 name|TYPE
 name|operationType
 parameter_list|()
@@ -5814,6 +5817,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|operationType
+specifier|public
 name|TYPE
 name|operationType
 parameter_list|()

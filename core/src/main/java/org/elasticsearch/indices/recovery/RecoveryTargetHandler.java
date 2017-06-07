@@ -143,6 +143,8 @@ parameter_list|,
 name|int
 name|totalTranslogOps
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Notifies the target of the files it is going to receive      */
 DECL|method|receiveFileInfo

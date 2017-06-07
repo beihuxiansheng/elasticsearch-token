@@ -2948,7 +2948,7 @@ block|}
 specifier|final
 name|CancellableThreads
 operator|.
-name|Interruptable
+name|IOInterruptable
 name|sendBatch
 init|=
 parameter_list|()
@@ -3079,7 +3079,7 @@ condition|)
 block|{
 name|cancellableThreads
 operator|.
-name|execute
+name|executeIO
 argument_list|(
 name|sendBatch
 argument_list|)
@@ -3132,7 +3132,7 @@ block|{
 comment|// send the leftover operations or if no operations were sent, request the target to respond with its local checkpoint
 name|cancellableThreads
 operator|.
-name|execute
+name|executeIO
 argument_list|(
 name|sendBatch
 argument_list|)
