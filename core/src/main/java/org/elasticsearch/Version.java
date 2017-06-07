@@ -878,7 +878,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_6_5_1
+name|LUCENE_6_6_0
 argument_list|)
 decl_stmt|;
 DECL|field|V_5_6_0_ID
@@ -912,7 +912,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_6_5_1
+name|LUCENE_6_6_0
 argument_list|)
 decl_stmt|;
 DECL|field|V_6_0_0_alpha1_ID
