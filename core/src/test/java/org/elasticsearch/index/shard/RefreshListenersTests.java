@@ -610,6 +610,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -998,7 +1008,12 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
 name|listeners
+argument_list|)
 argument_list|,
 literal|null
 argument_list|)
@@ -2176,13 +2191,6 @@ argument_list|,
 name|engine
 operator|::
 name|acquireSearcher
-argument_list|,
-name|onRefresh
-lambda|->
-name|fail
-argument_list|(
-literal|"shouldn't have a refresh"
-argument_list|)
 argument_list|)
 init|)
 block|{
@@ -2195,7 +2203,7 @@ operator|.
 name|exists
 argument_list|()
 argument_list|)
-block|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|iteration
@@ -2205,16 +2213,16 @@ operator|.
 name|version
 argument_list|()
 argument_list|)
-block|;
+expr_stmt|;
 name|SingleFieldsVisitor
 name|visitor
-operator|=
+init|=
 operator|new
 name|SingleFieldsVisitor
 argument_list|(
 literal|"test"
 argument_list|)
-block|;
+decl_stmt|;
 name|getResult
 operator|.
 name|docIdAndVersion
@@ -2236,7 +2244,7 @@ name|docId
 argument_list|,
 name|visitor
 argument_list|)
-block|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|Arrays
@@ -2256,7 +2264,8 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
-block|;                         }
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

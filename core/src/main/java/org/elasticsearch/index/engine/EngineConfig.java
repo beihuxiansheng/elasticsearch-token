@@ -320,6 +320,16 @@ name|ThreadPool
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/*  * Holds all the configuration that is used to create an {@link Engine}.  * Once {@link Engine} has been created with this object, changes to this  * object will affect the {@link Engine} instance.  */
 end_comment
@@ -444,9 +454,12 @@ name|Nullable
 DECL|field|refreshListeners
 specifier|private
 specifier|final
+name|List
+argument_list|<
 name|ReferenceManager
 operator|.
 name|RefreshListener
+argument_list|>
 name|refreshListeners
 decl_stmt|;
 annotation|@
@@ -635,9 +648,12 @@ parameter_list|,
 name|TimeValue
 name|flushMergesAfter
 parameter_list|,
+name|List
+argument_list|<
 name|ReferenceManager
 operator|.
 name|RefreshListener
+argument_list|>
 name|refreshListeners
 parameter_list|,
 name|Sort
@@ -1041,12 +1057,15 @@ block|,
 DECL|enum constant|OPEN_INDEX_AND_TRANSLOG
 name|OPEN_INDEX_AND_TRANSLOG
 block|;     }
-comment|/**      * {@linkplain ReferenceManager.RefreshListener} instance to configure.      */
+comment|/**      * The refresh listeners to add to Lucene      */
 DECL|method|getRefreshListeners
 specifier|public
+name|List
+argument_list|<
 name|ReferenceManager
 operator|.
 name|RefreshListener
+argument_list|>
 name|getRefreshListeners
 parameter_list|()
 block|{

@@ -944,18 +944,6 @@ name|Function
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|LongConsumer
-import|;
-end_import
-
 begin_class
 DECL|class|Engine
 specifier|public
@@ -2585,9 +2573,6 @@ argument_list|,
 name|Searcher
 argument_list|>
 name|searcherFactory
-parameter_list|,
-name|LongConsumer
-name|onRefresh
 parameter_list|)
 throws|throws
 name|EngineException
