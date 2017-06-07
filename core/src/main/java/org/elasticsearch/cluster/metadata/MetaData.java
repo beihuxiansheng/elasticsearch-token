@@ -1520,7 +1520,7 @@ return|return
 name|aliasAndIndexLookup
 return|;
 block|}
-comment|/**      * Finds the specific index aliases that match with the specified aliases directly or partially via wildcards and      * that point to the specified concrete indices or match partially with the indices via wildcards.      *      * @param aliases         The names of the index aliases to find      * @param concreteIndices The concrete indexes the index aliases must point to order to be returned.      * @return the found index aliases grouped by index      */
+comment|/**      * Finds the specific index aliases that match with the specified aliases directly or partially via wildcards and      * that point to the specified concrete indices or match partially with the indices via wildcards.      *      * @param aliases         The names of the index aliases to find      * @param concreteIndices The concrete indexes the index aliases must point to order to be returned.      * @return a map of index to a list of alias metadata, the list corresponding to a concrete index will be empty if no aliases are      * present for that index      */
 DECL|method|findAliases
 specifier|public
 name|ImmutableOpenMap
@@ -1752,6 +1752,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|mapBuilder
 operator|.
 name|put
@@ -1766,7 +1767,6 @@ name|filteredValues
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|mapBuilder
