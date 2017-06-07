@@ -298,6 +298,17 @@ return|return
 name|mapperService
 return|;
 block|}
+comment|/** Return the script service to allow compiling scripts within queries. */
+DECL|method|getScriptService
+specifier|public
+name|ScriptService
+name|getScriptService
+parameter_list|()
+block|{
+return|return
+name|scriptService
+return|;
+block|}
 comment|/** Return the current {@link IndexReader}, or {@code null} if no index reader is available, for      *  instance if we are on the coordinating node or if this rewrite context is used to index      *  queries (percolation). */
 DECL|method|getIndexReader
 specifier|public
