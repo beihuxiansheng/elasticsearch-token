@@ -465,7 +465,7 @@ DECL|class|MustacheExecutableScript
 specifier|private
 class|class
 name|MustacheExecutableScript
-implements|implements
+extends|extends
 name|TemplateScript
 block|{
 comment|/** Factory template. */
@@ -500,6 +500,11 @@ argument_list|>
 name|params
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|params
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|template
