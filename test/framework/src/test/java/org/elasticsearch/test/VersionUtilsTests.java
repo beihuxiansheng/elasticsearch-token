@@ -1544,7 +1544,7 @@ name|minimumCompatibleVersion
 init|=
 name|Version
 operator|.
-name|V_5_5_0
+name|V_5_6_0
 decl_stmt|;
 comment|// Because things blow up all over the place if the minimum compatible version isn't released.
 comment|// We'll fix this very, very soon. But for now, this hack.
