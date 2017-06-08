@@ -2327,7 +2327,7 @@ name|blendedTermQuery
 init|=
 name|BlendedTermQuery
 operator|.
-name|booleanBlendedQuery
+name|dismaxBlendedQuery
 argument_list|(
 operator|new
 name|Term
@@ -2357,6 +2357,8 @@ argument_list|,
 literal|"fox"
 argument_list|)
 block|}
+argument_list|,
+literal|1.0f
 argument_list|)
 decl_stmt|;
 name|addQuery

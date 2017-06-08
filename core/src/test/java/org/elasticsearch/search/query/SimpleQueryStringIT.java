@@ -1073,13 +1073,6 @@ literal|"6"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/23966"
-argument_list|)
 DECL|method|testSimpleQueryStringMinimumShouldMatch
 specifier|public
 name|void

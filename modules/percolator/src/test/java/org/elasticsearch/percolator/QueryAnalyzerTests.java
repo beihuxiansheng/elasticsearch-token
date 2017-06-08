@@ -3119,9 +3119,11 @@ name|commonTermsQuery
 init|=
 name|BlendedTermQuery
 operator|.
-name|booleanBlendedQuery
+name|dismaxBlendedQuery
 argument_list|(
 name|termsArr
+argument_list|,
+literal|1.0f
 argument_list|)
 decl_stmt|;
 name|Result
