@@ -712,6 +712,43 @@ return|return
 name|request
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the given action is a proxy action      */
+DECL|method|isProxyAction
+specifier|public
+specifier|static
+name|boolean
+name|isProxyAction
+parameter_list|(
+name|String
+name|action
+parameter_list|)
+block|{
+return|return
+name|action
+operator|.
+name|startsWith
+argument_list|(
+name|PROXY_ACTION_PREFIX
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns<code>true</code> iff the given request is a proxy request      */
+DECL|method|isProxyRequest
+specifier|public
+specifier|static
+name|boolean
+name|isProxyRequest
+parameter_list|(
+name|TransportRequest
+name|request
+parameter_list|)
+block|{
+return|return
+name|request
+operator|instanceof
+name|ProxyRequest
+return|;
+block|}
 block|}
 end_class
 
