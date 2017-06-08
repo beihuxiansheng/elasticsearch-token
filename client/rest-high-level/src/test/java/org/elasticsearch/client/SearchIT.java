@@ -1725,7 +1725,7 @@ operator|.
 name|nanos
 argument_list|()
 argument_list|,
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 literal|0L
 argument_list|)
@@ -2483,7 +2483,7 @@ operator|.
 name|nanos
 argument_list|()
 argument_list|,
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 literal|0L
 argument_list|)
@@ -3104,7 +3104,7 @@ operator|.
 name|nanos
 argument_list|()
 argument_list|,
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 literal|0L
 argument_list|)
