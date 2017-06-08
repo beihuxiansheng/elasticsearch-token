@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Scorer
+name|ScorerSupplier
 import|;
 end_import
 
@@ -198,12 +198,12 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|Scorer
-name|filterScorer
+name|ScorerSupplier
+name|filterScorerSupplier
 init|=
 name|filter
 operator|.
-name|scorer
+name|scorerSupplier
 argument_list|(
 name|context
 argument_list|)
@@ -235,7 +235,7 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|,
-name|filterScorer
+name|filterScorerSupplier
 argument_list|)
 decl_stmt|;
 return|return

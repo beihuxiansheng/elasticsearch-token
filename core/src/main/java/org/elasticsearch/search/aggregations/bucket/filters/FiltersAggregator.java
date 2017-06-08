@@ -906,7 +906,7 @@ index|[
 name|i
 index|]
 operator|.
-name|scorer
+name|scorerSupplier
 argument_list|(
 name|ctx
 argument_list|)

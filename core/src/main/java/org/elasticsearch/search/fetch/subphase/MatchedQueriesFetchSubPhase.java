@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Scorer
+name|ScorerSupplier
 import|;
 end_import
 
@@ -582,12 +582,12 @@ operator|.
 name|docBase
 expr_stmt|;
 comment|// scorers can be costly to create, so reuse them across docs of the same segment
-name|Scorer
-name|scorer
+name|ScorerSupplier
+name|scorerSupplier
 init|=
 name|weight
 operator|.
-name|scorer
+name|scorerSupplier
 argument_list|(
 name|ctx
 argument_list|)
@@ -606,7 +606,7 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|,
-name|scorer
+name|scorerSupplier
 argument_list|)
 expr_stmt|;
 block|}

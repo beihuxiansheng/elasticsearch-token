@@ -3166,7 +3166,7 @@ argument_list|()
 argument_list|,
 name|termWeight
 operator|.
-name|scorer
+name|scorerSupplier
 argument_list|(
 name|leafReaderContext
 argument_list|)

@@ -334,7 +334,7 @@ argument_list|()
 argument_list|,
 name|filter
 operator|.
-name|scorer
+name|scorerSupplier
 argument_list|(
 name|ctx
 argument_list|)

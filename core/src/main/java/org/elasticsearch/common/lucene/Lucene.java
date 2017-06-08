@@ -454,6 +454,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|ScorerSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|SimpleCollector
 import|;
 end_import
@@ -5238,7 +5252,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Given a {@link Scorer}, return a {@link Bits} instance that will match      * all documents contained in the set. Note that the returned {@link Bits}      * instance MUST be consumed in order.      */
+comment|/**      * Given a {@link ScorerSupplier}, return a {@link Bits} instance that will match      * all documents contained in the set. Note that the returned {@link Bits}      * instance MUST be consumed in order.      */
 DECL|method|asSequentialAccessBits
 specifier|public
 specifier|static
@@ -5251,15 +5265,15 @@ name|maxDoc
 parameter_list|,
 annotation|@
 name|Nullable
-name|Scorer
-name|scorer
+name|ScorerSupplier
+name|scorerSupplier
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 if|if
 condition|(
-name|scorer
+name|scorerSupplier
 operator|==
 literal|null
 condition|)
@@ -5274,6 +5288,19 @@ name|maxDoc
 argument_list|)
 return|;
 block|}
+comment|// Since we want bits, we need random-access
+specifier|final
+name|Scorer
+name|scorer
+init|=
+name|scorerSupplier
+operator|.
+name|get
+argument_list|(
+literal|true
+argument_list|)
+decl_stmt|;
+comment|// this never returns null
 specifier|final
 name|TwoPhaseIterator
 name|twoPhase
