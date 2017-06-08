@@ -255,8 +255,6 @@ parameter_list|,
 name|boolean
 name|trackMaxScore
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

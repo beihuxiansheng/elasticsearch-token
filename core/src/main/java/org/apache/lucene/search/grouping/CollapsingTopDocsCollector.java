@@ -209,8 +209,6 @@ parameter_list|,
 name|boolean
 name|trackMaxScore
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -261,7 +259,7 @@ operator|=
 name|sort
 expr_stmt|;
 block|}
-comment|/**      * Transform {@link FirstPassGroupingCollector#getTopGroups(int, boolean)} output in      * {@link CollapseTopFieldDocs}. The collapsing needs only one pass so we can create the final top docs at the end      * of the first pass.      */
+comment|/**      * Transform {@link FirstPassGroupingCollector#getTopGroups(int, boolean)} output in      * {@link CollapseTopFieldDocs}. The collapsing needs only one pass so we can get the final top docs at the end      * of the first pass.      */
 DECL|method|getTopDocs
 specifier|public
 name|CollapseTopFieldDocs
@@ -631,7 +629,7 @@ name|totalHitCount
 operator|++
 expr_stmt|;
 block|}
-comment|/**      * Create a collapsing top docs collector on a {@link org.apache.lucene.index.NumericDocValues} field.      * It accepts also {@link org.apache.lucene.index.SortedNumericDocValues} field but      * the collect will fail with an {@link IllegalStateException} if a document contains more than one value for the      * field.      *      * @param collapseField The sort field used to group      *                      documents.      * @param sort          The {@link Sort} used to sort the collapsed hits.      *                      The collapsing keeps only the top sorted document per collapsed key.      *                      This must be non-null, ie, if you want to groupSort by relevance      *                      use Sort.RELEVANCE.      * @param topN          How many top groups to keep.      * @throws IOException When I/O related errors occur      */
+comment|/**      * Create a collapsing top docs collector on a {@link org.apache.lucene.index.NumericDocValues} field.      * It accepts also {@link org.apache.lucene.index.SortedNumericDocValues} field but      * the collect will fail with an {@link IllegalStateException} if a document contains more than one value for the      * field.      *      * @param collapseField The sort field used to group      *                      documents.      * @param sort          The {@link Sort} used to sort the collapsed hits.      *                      The collapsing keeps only the top sorted document per collapsed key.      *                      This must be non-null, ie, if you want to groupSort by relevance      *                      use Sort.RELEVANCE.      * @param topN          How many top groups to keep.      */
 DECL|method|createNumeric
 specifier|public
 specifier|static
@@ -653,8 +651,6 @@ parameter_list|,
 name|boolean
 name|trackMaxScore
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -679,7 +675,7 @@ name|trackMaxScore
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a collapsing top docs collector on a {@link org.apache.lucene.index.SortedDocValues} field.      * It accepts also {@link org.apache.lucene.index.SortedSetDocValues} field but      * the collect will fail with an {@link IllegalStateException} if a document contains more than one value for the      * field.      *      * @param collapseField The sort field used to group      *                      documents.      * @param sort          The {@link Sort} used to sort the collapsed hits. The collapsing keeps only the top sorted      *                      document per collapsed key.      *                      This must be non-null, ie, if you want to groupSort by relevance use Sort.RELEVANCE.      * @param topN          How many top groups to keep.      * @throws IOException When I/O related errors occur      */
+comment|/**      * Create a collapsing top docs collector on a {@link org.apache.lucene.index.SortedDocValues} field.      * It accepts also {@link org.apache.lucene.index.SortedSetDocValues} field but      * the collect will fail with an {@link IllegalStateException} if a document contains more than one value for the      * field.      *      * @param collapseField The sort field used to group      *                      documents.      * @param sort          The {@link Sort} used to sort the collapsed hits. The collapsing keeps only the top sorted      *                      document per collapsed key.      *                      This must be non-null, ie, if you want to groupSort by relevance use Sort.RELEVANCE.      * @param topN          How many top groups to keep.      */
 DECL|method|createKeyword
 specifier|public
 specifier|static
@@ -701,8 +697,6 @@ parameter_list|,
 name|boolean
 name|trackMaxScore
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new

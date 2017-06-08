@@ -5670,42 +5670,7 @@ argument_list|,
 name|UNKNOWN_VERSION_ADDED
 argument_list|)
 block|,
-DECL|enum constant|EARLY_TERMINATION_EXCEPTION
-name|EARLY_TERMINATION_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|Lucene
-operator|.
-name|EarlyTerminationException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|Lucene
-operator|.
-name|EarlyTerminationException
-operator|::
-operator|new
-argument_list|,
-literal|60
-argument_list|,
-name|UNKNOWN_VERSION_ADDED
-argument_list|)
-block|,
+comment|// 60 used to be for EarlyTerminationException
 comment|// 61 used to be for RoutingValidationException
 DECL|enum constant|NOT_SERIALIZABLE_EXCEPTION_WRAPPER
 name|NOT_SERIALIZABLE_EXCEPTION_WRAPPER

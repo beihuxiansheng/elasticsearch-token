@@ -1264,6 +1264,24 @@ name|boolean
 name|trackScores
 parameter_list|()
 function_decl|;
+DECL|method|trackTotalHits
+specifier|public
+specifier|abstract
+name|SearchContext
+name|trackTotalHits
+parameter_list|(
+name|boolean
+name|trackTotalHits
+parameter_list|)
+function_decl|;
+comment|/**      * Indicates if the total hit count for the query should be tracked. Defaults to<tt>true</tt>      */
+DECL|method|trackTotalHits
+specifier|public
+specifier|abstract
+name|boolean
+name|trackTotalHits
+parameter_list|()
+function_decl|;
 DECL|method|searchAfter
 specifier|public
 specifier|abstract

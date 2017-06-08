@@ -1111,7 +1111,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Applies when sorting, and controls if scores will be tracked as well. Defaults to      *<tt>false</tt>.      */
+comment|/**      * Applies when sorting, and controls if scores will be tracked as well. Defaults to<tt>false</tt>.      */
 DECL|method|setTrackScores
 specifier|public
 name|SearchRequestBuilder
@@ -1127,6 +1127,28 @@ operator|.
 name|trackScores
 argument_list|(
 name|trackScores
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Indicates if the total hit count for the query should be tracked. Defaults to<tt>true</tt>      */
+DECL|method|setTrackTotalHits
+specifier|public
+name|SearchRequestBuilder
+name|setTrackTotalHits
+parameter_list|(
+name|boolean
+name|trackTotalHits
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|trackTotalHits
+argument_list|(
+name|trackTotalHits
 argument_list|)
 expr_stmt|;
 return|return

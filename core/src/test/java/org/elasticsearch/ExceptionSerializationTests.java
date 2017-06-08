@@ -6773,21 +6773,10 @@ name|put
 argument_list|(
 literal|60
 argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|Lucene
-operator|.
-name|EarlyTerminationException
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// EarlyTerminationException was removed in 6.0
 name|ids
 operator|.
 name|put

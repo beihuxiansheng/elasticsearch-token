@@ -240,6 +240,20 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ValidateActions
+operator|.
+name|addValidationError
+import|;
+end_import
+
 begin_comment
 comment|/**  * A request to execute search against one or more indices (or all). Best created using  * {@link org.elasticsearch.client.Requests#searchRequest(String...)}.  *<p>  * Note, the search {@link #source(org.elasticsearch.search.builder.SearchSourceBuilder)}  * is required. The search source is the different search options, including aggregations and such.  *</p>  *  * @see org.elasticsearch.client.Requests#searchRequest(String...)  * @see org.elasticsearch.client.Client#search(SearchRequest)  * @see SearchResponse  */
 end_comment
@@ -438,8 +452,42 @@ name|ActionRequestValidationException
 name|validate
 parameter_list|()
 block|{
-return|return
+name|ActionRequestValidationException
+name|validationException
+init|=
 literal|null
+decl_stmt|;
+if|if
+condition|(
+name|source
+operator|!=
+literal|null
+operator|&&
+name|source
+operator|.
+name|trackTotalHits
+argument_list|()
+operator|==
+literal|false
+operator|&&
+name|scroll
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"disabling [track_total_hits] is not allowed in a scroll context"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|validationException
 return|;
 block|}
 comment|/**      * Sets the indices the search will be executed on.      */
