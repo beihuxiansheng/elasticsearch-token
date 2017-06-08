@@ -2871,11 +2871,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"+MatchNoDocsQuery(\"empty MultiPhraseQuery\") +MatchNoDocsQuery(\"No "
-operator|+
-literal|"terms supplied for org.elasticsearch.common.lucene.search."
-operator|+
-literal|"MultiPhrasePrefixQuery\")"
+literal|"field:\"ju*\""
 argument_list|)
 argument_list|)
 argument_list|,

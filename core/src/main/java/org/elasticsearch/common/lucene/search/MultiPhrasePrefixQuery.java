@@ -852,6 +852,30 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|sizeMinus1
+operator|==
+literal|0
+condition|)
+block|{
+comment|// no prefix and the phrase query is empty
+return|return
+name|Queries
+operator|.
+name|newMatchNoDocsQuery
+argument_list|(
+literal|"No terms supplied for "
+operator|+
+name|MultiPhrasePrefixQuery
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|// if the terms does not exist we could return a MatchNoDocsQuery but this would break the unified highlighter
 comment|// which rewrites query with an empty reader.
 return|return
