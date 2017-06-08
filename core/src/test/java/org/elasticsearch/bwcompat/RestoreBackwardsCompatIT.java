@@ -670,17 +670,16 @@ name|allReleasedVersions
 argument_list|()
 control|)
 block|{
+comment|// The current version is in the "released" list even though it isn't released for historical reasons
 if|if
 condition|(
-name|VersionUtils
-operator|.
-name|isSnapshot
-argument_list|(
 name|v
-argument_list|)
+operator|==
+name|Version
+operator|.
+name|CURRENT
 condition|)
 continue|continue;
-comment|// snapshots are unreleased, so there is no backcompat yet
 if|if
 condition|(
 name|v

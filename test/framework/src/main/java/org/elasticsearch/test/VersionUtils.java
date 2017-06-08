@@ -32,6 +32,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -553,6 +565,16 @@ name|Version
 argument_list|>
 name|UNRELEASED_VERSIONS
 decl_stmt|;
+DECL|field|ALL_VERSIONS
+specifier|private
+specifier|static
+specifier|final
+name|List
+argument_list|<
+name|Version
+argument_list|>
+name|ALL_VERSIONS
+decl_stmt|;
 static|static
 block|{
 name|Tuple
@@ -594,8 +616,57 @@ operator|.
 name|v2
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|Version
+argument_list|>
+name|allVersions
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|RELEASED_VERSIONS
+operator|.
+name|size
+argument_list|()
+operator|+
+name|UNRELEASED_VERSIONS
+operator|.
+name|size
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|allVersions
+operator|.
+name|addAll
+argument_list|(
+name|RELEASED_VERSIONS
+argument_list|)
+expr_stmt|;
+name|allVersions
+operator|.
+name|addAll
+argument_list|(
+name|UNRELEASED_VERSIONS
+argument_list|)
+expr_stmt|;
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|allVersions
+argument_list|)
+expr_stmt|;
+name|ALL_VERSIONS
+operator|=
+name|unmodifiableList
+argument_list|(
+name|allVersions
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Returns an immutable, sorted list containing all released versions.      *      * @return all released versions      */
+comment|/**      * Returns an immutable, sorted list containing all released versions.      */
 DECL|method|allReleasedVersions
 specifier|public
 specifier|static
@@ -610,7 +681,7 @@ return|return
 name|RELEASED_VERSIONS
 return|;
 block|}
-comment|/**      * Returns an immutable, sorted list containing all unreleased versions.      *      * @return all unreleased versions      */
+comment|/**      * Returns an immutable, sorted list containing all unreleased versions.      */
 DECL|method|allUnreleasedVersions
 specifier|public
 specifier|static
@@ -625,6 +696,22 @@ return|return
 name|UNRELEASED_VERSIONS
 return|;
 block|}
+comment|/**      * Returns an immutable, sorted list containing all versions, both released and unreleased.      */
+DECL|method|allVersions
+specifier|public
+specifier|static
+name|List
+argument_list|<
+name|Version
+argument_list|>
+name|allVersions
+parameter_list|()
+block|{
+return|return
+name|ALL_VERSIONS
+return|;
+block|}
+comment|/**      * Get the released version before {@code version}.      */
 DECL|method|getPreviousVersion
 specifier|public
 specifier|static
@@ -661,7 +748,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** Returns the {@link Version} before the {@link Version#CURRENT} */
+comment|/**      * Get the released version before {@link Version#CURRENT}.      */
 DECL|method|getPreviousVersion
 specifier|public
 specifier|static
@@ -693,7 +780,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/** Returns the {@link Version} before the {@link Version#CURRENT} where the minor version is less than the currents minor version. */
+comment|/**      * Returns the released {@link Version} before the {@link Version#CURRENT}      * where the minor version is less than the currents minor version.      */
 DECL|method|getPreviousMinorVersion
 specifier|public
 specifier|static
@@ -745,7 +832,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/** Returns the oldest {@link Version} */
+comment|/** Returns the oldest released {@link Version} */
 DECL|method|getFirstVersion
 specifier|public
 specifier|static
@@ -774,7 +861,7 @@ name|random
 parameter_list|)
 block|{
 return|return
-name|RELEASED_VERSIONS
+name|ALL_VERSIONS
 operator|.
 name|get
 argument_list|(
@@ -782,7 +869,7 @@ name|random
 operator|.
 name|nextInt
 argument_list|(
-name|RELEASED_VERSIONS
+name|ALL_VERSIONS
 operator|.
 name|size
 argument_list|()
@@ -800,9 +887,13 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
+annotation|@
+name|Nullable
 name|Version
 name|minVersion
 parameter_list|,
+annotation|@
+name|Nullable
 name|Version
 name|maxVersion
 parameter_list|)
@@ -821,7 +912,7 @@ condition|)
 block|{
 name|minVersionIndex
 operator|=
-name|RELEASED_VERSIONS
+name|ALL_VERSIONS
 operator|.
 name|indexOf
 argument_list|(
@@ -832,7 +923,7 @@ block|}
 name|int
 name|maxVersionIndex
 init|=
-name|RELEASED_VERSIONS
+name|ALL_VERSIONS
 operator|.
 name|size
 argument_list|()
@@ -848,7 +939,7 @@ condition|)
 block|{
 name|maxVersionIndex
 operator|=
-name|RELEASED_VERSIONS
+name|ALL_VERSIONS
 operator|.
 name|indexOf
 argument_list|(
@@ -934,7 +1025,7 @@ operator|-
 name|minVersionIndex
 decl_stmt|;
 return|return
-name|RELEASED_VERSIONS
+name|ALL_VERSIONS
 operator|.
 name|get
 argument_list|(
@@ -949,36 +1040,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|isSnapshot
-specifier|public
-specifier|static
-name|boolean
-name|isSnapshot
-parameter_list|(
-name|Version
-name|version
-parameter_list|)
-block|{
-if|if
-condition|(
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|equals
-argument_list|(
-name|version
-argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class

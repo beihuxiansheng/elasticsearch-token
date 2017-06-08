@@ -2272,7 +2272,7 @@ argument_list|()
 operator|.
 name|matches
 argument_list|(
-literal|"_ID(_UNRELEASED)?"
+literal|"_ID"
 argument_list|)
 condition|)
 block|{
@@ -2675,6 +2675,18 @@ name|maxBranchVersion
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|v
+operator|==
+name|Version
+operator|.
+name|CURRENT
+condition|)
+block|{
+comment|// Current is weird - it counts as released even though it shouldn't.
+continue|continue;
+block|}
 name|assertFalse
 argument_list|(
 literal|"Version "
@@ -2689,7 +2701,10 @@ literal|" exists"
 argument_list|,
 name|VersionUtils
 operator|.
-name|isSnapshot
+name|allUnreleasedVersions
+argument_list|()
+operator|.
+name|contains
 argument_list|(
 name|maxBranchVersion
 argument_list|)
