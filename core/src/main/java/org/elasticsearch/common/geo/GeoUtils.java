@@ -460,7 +460,7 @@ argument_list|)
 operator|||
 name|Double
 operator|.
-name|isNaN
+name|isInfinite
 argument_list|(
 name|longitude
 argument_list|)
