@@ -493,6 +493,8 @@ argument_list|,
 name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
+argument_list|,
+name|id
 argument_list|)
 decl_stmt|;
 return|return

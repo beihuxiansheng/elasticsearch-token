@@ -248,6 +248,11 @@ specifier|final
 name|long
 name|globalCheckpoint
 decl_stmt|;
+DECL|field|minTranslogGeneration
+specifier|final
+name|long
+name|minTranslogGeneration
+decl_stmt|;
 DECL|field|INITIAL_VERSION
 specifier|private
 specifier|static
@@ -321,6 +326,11 @@ operator|.
 name|BYTES
 comment|// global checkpoint, introduced in 6.0.0
 operator|+
+name|Long
+operator|.
+name|BYTES
+comment|// minimum translog generation in the translog - introduced in 6.0.0
+operator|+
 name|CodecUtil
 operator|.
 name|footerLength
@@ -360,7 +370,7 @@ operator|.
 name|footerLength
 argument_list|()
 decl_stmt|;
-comment|/**      * Create a new translog checkpoint.      *      * @param offset           the current offset in the translog      * @param numOps           the current number of operations in the translog      * @param generation       the current translog generation      * @param minSeqNo         the current minimum sequence number of all operations in the translog      * @param maxSeqNo         the current maximum sequence number of all operations in the translog      * @param globalCheckpoint the last-known global checkpoint      */
+comment|/**      * Create a new translog checkpoint.      *      * @param offset           the current offset in the translog      * @param numOps           the current number of operations in the translog      * @param generation       the current translog generation      * @param minSeqNo         the current minimum sequence number of all operations in the translog      * @param maxSeqNo         the current maximum sequence number of all operations in the translog      * @param globalCheckpoint the last-known global checkpoint      * @param minTranslogGeneration the minimum generation referenced by the translog at this moment.      */
 DECL|method|Checkpoint
 name|Checkpoint
 parameter_list|(
@@ -381,12 +391,40 @@ name|maxSeqNo
 parameter_list|,
 name|long
 name|globalCheckpoint
+parameter_list|,
+name|long
+name|minTranslogGeneration
 parameter_list|)
 block|{
 assert|assert
 name|minSeqNo
 operator|<=
 name|maxSeqNo
+operator|:
+literal|"minSeqNo ["
+operator|+
+name|minSeqNo
+operator|+
+literal|"] is higher than maxSeqNo ["
+operator|+
+name|maxSeqNo
+operator|+
+literal|"]"
+assert|;
+assert|assert
+name|minTranslogGeneration
+operator|<=
+name|generation
+operator|:
+literal|"minTranslogGen ["
+operator|+
+name|minTranslogGeneration
+operator|+
+literal|"] is higher than generation ["
+operator|+
+name|generation
+operator|+
+literal|"]"
 assert|;
 name|this
 operator|.
@@ -423,6 +461,12 @@ operator|.
 name|globalCheckpoint
 operator|=
 name|globalCheckpoint
+expr_stmt|;
+name|this
+operator|.
+name|minTranslogGeneration
+operator|=
+name|minTranslogGeneration
 expr_stmt|;
 block|}
 DECL|method|write
@@ -478,6 +522,13 @@ argument_list|(
 name|globalCheckpoint
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|writeLong
+argument_list|(
+name|minTranslogGeneration
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|emptyTranslogCheckpoint
 specifier|static
@@ -495,6 +546,9 @@ parameter_list|,
 specifier|final
 name|long
 name|globalCheckpoint
+parameter_list|,
+name|long
+name|minTranslogGeneration
 parameter_list|)
 block|{
 specifier|final
@@ -528,6 +582,8 @@ argument_list|,
 name|maxSeqNo
 argument_list|,
 name|globalCheckpoint
+argument_list|,
+name|minTranslogGeneration
 argument_list|)
 return|;
 block|}
@@ -555,6 +611,11 @@ argument_list|,
 name|in
 operator|.
 name|readInt
+argument_list|()
+argument_list|,
+name|in
+operator|.
+name|readLong
 argument_list|()
 argument_list|,
 name|in
@@ -616,6 +677,13 @@ name|SequenceNumbersService
 operator|.
 name|UNASSIGNED_SEQ_NO
 decl_stmt|;
+specifier|final
+name|long
+name|minTranslogGeneration
+init|=
+operator|-
+literal|1L
+decl_stmt|;
 return|return
 operator|new
 name|Checkpoint
@@ -640,6 +708,8 @@ argument_list|,
 name|maxSeqNo
 argument_list|,
 name|globalCheckpoint
+argument_list|,
+name|minTranslogGeneration
 argument_list|)
 return|;
 block|}
@@ -677,6 +747,10 @@ operator|+
 literal|", globalCheckpoint="
 operator|+
 name|globalCheckpoint
+operator|+
+literal|", minTranslogGeneration="
+operator|+
+name|minTranslogGeneration
 operator|+
 literal|'}'
 return|;

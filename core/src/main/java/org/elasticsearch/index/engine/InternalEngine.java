@@ -2157,6 +2157,27 @@ name|opsRecovered
 decl_stmt|;
 try|try
 block|{
+specifier|final
+name|long
+name|translogGen
+init|=
+name|Long
+operator|.
+name|parseLong
+argument_list|(
+name|lastCommittedSegmentInfos
+operator|.
+name|getUserData
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|Translog
+operator|.
+name|TRANSLOG_GENERATION_KEY
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|Translog
 operator|.
 name|Snapshot
@@ -2165,7 +2186,9 @@ init|=
 name|translog
 operator|.
 name|newSnapshot
-argument_list|()
+argument_list|(
+name|translogGen
+argument_list|)
 decl_stmt|;
 name|opsRecovered
 operator|=
@@ -2291,6 +2314,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// clean up what's not needed
+name|translog
+operator|.
+name|trimUnreferencedReaders
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|openTranslog
 specifier|private
@@ -10134,7 +10163,7 @@ block|}
 block|}
 comment|/**      * Commits the specified index writer.      *      * @param writer   the index writer to commit      * @param translog the translog      * @param syncId   the sync flush ID ({@code null} if not committing a synced flush)      * @throws IOException if an I/O exception occurs committing the specfied writer      */
 DECL|method|commitIndexWriter
-specifier|private
+specifier|protected
 name|void
 name|commitIndexWriter
 parameter_list|(

@@ -373,6 +373,16 @@ return|return
 name|indexDeletionPolicy
 return|;
 block|}
+DECL|method|getTranslogDeletionPolicy
+specifier|public
+name|TranslogDeletionPolicy
+name|getTranslogDeletionPolicy
+parameter_list|()
+block|{
+return|return
+name|translogDeletionPolicy
+return|;
+block|}
 block|}
 end_class
 
