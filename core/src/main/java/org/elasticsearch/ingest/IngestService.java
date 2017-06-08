@@ -266,16 +266,6 @@ argument_list|>
 name|ingestPlugins
 parameter_list|)
 block|{
-specifier|final
-name|TemplateService
-name|templateService
-init|=
-operator|new
-name|InternalTemplateService
-argument_list|(
-name|scriptService
-argument_list|)
-decl_stmt|;
 name|Processor
 operator|.
 name|Parameters
@@ -289,8 +279,6 @@ argument_list|(
 name|env
 argument_list|,
 name|scriptService
-argument_list|,
-name|templateService
 argument_list|,
 name|analysisRegistry
 argument_list|,

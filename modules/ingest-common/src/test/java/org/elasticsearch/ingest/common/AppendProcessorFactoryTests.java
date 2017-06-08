@@ -54,6 +54,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -119,6 +131,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
 import|;
 end_import
 
@@ -270,13 +294,16 @@ operator|.
 name|getField
 argument_list|()
 operator|.
-name|execute
+name|newInstance
 argument_list|(
 name|Collections
 operator|.
 name|emptyMap
 argument_list|()
 argument_list|)
+operator|.
+name|execute
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(

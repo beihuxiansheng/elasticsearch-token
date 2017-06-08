@@ -145,8 +145,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"field1"
@@ -158,7 +156,7 @@ name|wrap
 argument_list|(
 literal|"1 {{foo}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -185,8 +183,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"field1"
@@ -198,7 +194,7 @@ name|wrap
 argument_list|(
 literal|"2 {{_source.foo}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -320,8 +316,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"field1"
@@ -333,7 +327,7 @@ name|wrap
 argument_list|(
 literal|"1 {{foo.bar}} {{foo.baz}} {{foo.qux.fubar}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -360,8 +354,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"field1"
@@ -373,7 +365,7 @@ name|wrap
 argument_list|(
 literal|"2 {{_source.foo.bar}} {{_source.foo.baz}} {{_source.foo.qux.fubar}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -518,8 +510,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"field1"
@@ -531,7 +521,7 @@ name|wrap
 argument_list|(
 literal|"1 {{list1.0}} {{list2.0}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -628,8 +618,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"ingest_timestamp"
@@ -641,7 +629,7 @@ name|wrap
 argument_list|(
 literal|"{{_ingest.timestamp}} and {{_source._ingest.timestamp}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;

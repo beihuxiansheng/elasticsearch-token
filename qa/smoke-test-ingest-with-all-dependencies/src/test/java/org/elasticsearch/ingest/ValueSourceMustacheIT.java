@@ -161,7 +161,7 @@ name|wrap
 argument_list|(
 literal|"{{field1}}/{{field2}}/{{field2.field3}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -208,7 +208,7 @@ argument_list|,
 literal|"{{field1}}"
 argument_list|)
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -347,7 +347,7 @@ name|wrap
 argument_list|(
 name|map
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -531,8 +531,6 @@ name|ingestDocument
 operator|.
 name|setFieldValue
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"{{_index}}"
@@ -544,7 +542,7 @@ name|wrap
 argument_list|(
 literal|"{{_index}}"
 argument_list|,
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -571,8 +569,6 @@ name|ingestDocument
 operator|.
 name|removeField
 argument_list|(
-name|templateService
-operator|.
 name|compile
 argument_list|(
 literal|"{{marvel}}"

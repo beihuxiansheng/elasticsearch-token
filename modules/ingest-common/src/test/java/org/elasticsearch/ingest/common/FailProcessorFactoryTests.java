@@ -221,13 +221,16 @@ operator|.
 name|getMessage
 argument_list|()
 operator|.
-name|execute
+name|newInstance
 argument_list|(
 name|Collections
 operator|.
 name|emptyMap
 argument_list|()
 argument_list|)
+operator|.
+name|execute
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(

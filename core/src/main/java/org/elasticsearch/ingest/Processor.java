@@ -165,13 +165,6 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-comment|/**          * Provides template support to pipeline settings.          */
-DECL|field|templateService
-specifier|public
-specifier|final
-name|TemplateService
-name|templateService
-decl_stmt|;
 comment|/**          * Provide analyzer support          */
 DECL|field|analysisRegistry
 specifier|public
@@ -196,9 +189,6 @@ parameter_list|,
 name|ScriptService
 name|scriptService
 parameter_list|,
-name|TemplateService
-name|templateService
-parameter_list|,
 name|AnalysisRegistry
 name|analysisRegistry
 parameter_list|,
@@ -217,12 +207,6 @@ operator|.
 name|scriptService
 operator|=
 name|scriptService
-expr_stmt|;
-name|this
-operator|.
-name|templateService
-operator|=
-name|templateService
 expr_stmt|;
 name|this
 operator|.

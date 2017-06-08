@@ -235,7 +235,7 @@ name|Factory
 argument_list|(
 name|parameters
 operator|.
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -254,7 +254,7 @@ name|Factory
 argument_list|(
 name|parameters
 operator|.
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -288,7 +288,7 @@ name|Factory
 argument_list|(
 name|parameters
 operator|.
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -412,7 +412,7 @@ name|Factory
 argument_list|(
 name|parameters
 operator|.
-name|templateService
+name|scriptService
 argument_list|)
 argument_list|)
 expr_stmt|;

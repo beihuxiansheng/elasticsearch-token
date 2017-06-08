@@ -137,7 +137,9 @@ argument_list|,
 operator|new
 name|TestTemplateService
 operator|.
-name|MockTemplate
+name|MockTemplateScript
+operator|.
+name|Factory
 argument_list|(
 name|message
 argument_list|)
