@@ -216,22 +216,6 @@ name|ensureExpectedToken
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentParserUtils
-operator|.
-name|throwUnknownField
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class is the internal representation of a profiled Query, corresponding  * to a single node in the query tree.  It is built after the query has finished executing  * and is merely a structured representation, rather than the entity that collects the timing  * profile (see InternalProfiler for that)  *  * Each InternalProfileResult has a List of InternalProfileResults, which will contain  * "children" queries if applicable  */
 end_comment
@@ -248,7 +232,6 @@ implements|,
 name|ToXContentObject
 block|{
 DECL|field|TYPE
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -261,7 +244,6 @@ literal|"type"
 argument_list|)
 decl_stmt|;
 DECL|field|DESCRIPTION
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -274,7 +256,6 @@ literal|"description"
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_TIME
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -287,7 +268,6 @@ literal|"time"
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_TIME_RAW
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -300,7 +280,6 @@ literal|"time_in_nanos"
 argument_list|)
 decl_stmt|;
 DECL|field|CHILDREN
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -313,7 +292,6 @@ literal|"children"
 argument_list|)
 decl_stmt|;
 DECL|field|BREAKDOWN
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -1077,15 +1055,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|throwUnknownField
-argument_list|(
-name|currentFieldName
-argument_list|,
 name|parser
 operator|.
-name|getTokenLocation
+name|skipChildren
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1194,15 +1167,10 @@ block|}
 block|}
 else|else
 block|{
-name|throwUnknownField
-argument_list|(
-name|currentFieldName
-argument_list|,
 name|parser
 operator|.
-name|getTokenLocation
+name|skipChildren
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1262,15 +1230,10 @@ block|}
 block|}
 else|else
 block|{
-name|throwUnknownField
-argument_list|(
-name|currentFieldName
-argument_list|,
 name|parser
 operator|.
-name|getTokenLocation
+name|skipChildren
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 block|}
