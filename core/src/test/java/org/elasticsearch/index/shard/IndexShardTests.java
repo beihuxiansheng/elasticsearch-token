@@ -9420,7 +9420,10 @@ operator|++
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+name|newShard
+operator|.
+name|getPrimaryTerm
+argument_list|()
 argument_list|,
 name|operation
 operator|.

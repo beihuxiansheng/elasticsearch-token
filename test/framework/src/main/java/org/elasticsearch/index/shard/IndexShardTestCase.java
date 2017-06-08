@@ -1219,7 +1219,12 @@ name|primaryTerm
 argument_list|(
 literal|0
 argument_list|,
+name|randomIntBetween
+argument_list|(
 literal|1
+argument_list|,
+literal|100
+argument_list|)
 argument_list|)
 decl_stmt|;
 return|return

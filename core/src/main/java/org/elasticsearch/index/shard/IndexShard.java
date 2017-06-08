@@ -4285,15 +4285,18 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|prepareMarkingSeqNoAsNoOp
+DECL|method|prepareMarkingSeqNoAsNoOpOnReplica
 specifier|public
 name|Engine
 operator|.
 name|NoOp
-name|prepareMarkingSeqNoAsNoOp
+name|prepareMarkingSeqNoAsNoOpOnReplica
 parameter_list|(
 name|long
 name|seqNo
+parameter_list|,
+name|long
+name|opPrimaryTerm
 parameter_list|,
 name|String
 name|reason
@@ -4302,6 +4305,25 @@ block|{
 name|verifyReplicationTarget
 argument_list|()
 expr_stmt|;
+assert|assert
+name|opPrimaryTerm
+operator|<=
+name|this
+operator|.
+name|primaryTerm
+operator|:
+literal|"op term [ "
+operator|+
+name|opPrimaryTerm
+operator|+
+literal|" ]> shard term ["
+operator|+
+name|this
+operator|.
+name|primaryTerm
+operator|+
+literal|"]"
+assert|;
 name|long
 name|startTime
 init|=
@@ -4318,7 +4340,7 @@ name|NoOp
 argument_list|(
 name|seqNo
 argument_list|,
-name|primaryTerm
+name|opPrimaryTerm
 argument_list|,
 name|Engine
 operator|.

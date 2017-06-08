@@ -3119,6 +3119,8 @@ name|executeFailureNoOpOnReplica
 argument_list|(
 name|failure
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|replica
 argument_list|)
 expr_stmt|;
@@ -4287,6 +4289,9 @@ operator|.
 name|Failure
 name|primaryFailure
 parameter_list|,
+name|long
+name|primaryTerm
+parameter_list|,
 name|IndexShard
 name|replica
 parameter_list|)
@@ -4301,12 +4306,14 @@ name|noOp
 init|=
 name|replica
 operator|.
-name|prepareMarkingSeqNoAsNoOp
+name|prepareMarkingSeqNoAsNoOpOnReplica
 argument_list|(
 name|primaryFailure
 operator|.
 name|getSeqNo
 argument_list|()
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|primaryFailure
 operator|.
