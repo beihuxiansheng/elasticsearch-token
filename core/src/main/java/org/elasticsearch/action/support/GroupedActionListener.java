@@ -153,14 +153,14 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-DECL|field|roles
+DECL|field|results
 specifier|private
 specifier|final
 name|AtomicArray
 argument_list|<
 name|T
 argument_list|>
-name|roles
+name|results
 decl_stmt|;
 DECL|field|delegate
 specifier|private
@@ -221,7 +221,7 @@ argument_list|>
 name|defaults
 parameter_list|)
 block|{
-name|roles
+name|results
 operator|=
 operator|new
 name|AtomicArray
@@ -262,9 +262,9 @@ name|T
 name|element
 parameter_list|)
 block|{
-name|roles
+name|results
 operator|.
-name|set
+name|setOnce
 argument_list|(
 name|pos
 operator|.
@@ -315,7 +315,7 @@ name|collect
 init|=
 name|this
 operator|.
-name|roles
+name|results
 operator|.
 name|asList
 argument_list|()
