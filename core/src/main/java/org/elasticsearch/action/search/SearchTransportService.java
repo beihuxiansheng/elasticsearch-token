@@ -719,8 +719,10 @@ specifier|public
 name|void
 name|sendFreeContext
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Transport
+operator|.
+name|Connection
+name|connection
 parameter_list|,
 name|long
 name|contextId
@@ -737,7 +739,7 @@ name|transportService
 operator|.
 name|sendRequest
 argument_list|(
-name|node
+name|connection
 argument_list|,
 name|FREE_CONTEXT_SCROLL_ACTION_NAME
 argument_list|,
@@ -746,6 +748,10 @@ name|ScrollFreeContextRequest
 argument_list|(
 name|contextId
 argument_list|)
+argument_list|,
+name|TransportRequestOptions
+operator|.
+name|EMPTY
 argument_list|,
 operator|new
 name|ActionListenerResponseHandler
@@ -765,8 +771,10 @@ specifier|public
 name|void
 name|sendClearAllScrollContexts
 parameter_list|(
-name|DiscoveryNode
-name|node
+name|Transport
+operator|.
+name|Connection
+name|connection
 parameter_list|,
 specifier|final
 name|ActionListener
@@ -780,7 +788,7 @@ name|transportService
 operator|.
 name|sendRequest
 argument_list|(
-name|node
+name|connection
 argument_list|,
 name|CLEAR_SCROLL_CONTEXTS_ACTION_NAME
 argument_list|,
@@ -789,6 +797,10 @@ operator|.
 name|Empty
 operator|.
 name|INSTANCE
+argument_list|,
+name|TransportRequestOptions
+operator|.
+name|EMPTY
 argument_list|,
 operator|new
 name|ActionListenerResponseHandler

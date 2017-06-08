@@ -1660,6 +1660,7 @@ block|{          }
 throws|}
 DECL|class|MockConnection
 specifier|public
+specifier|static
 name|final
 name|class
 name|MockConnection
