@@ -518,17 +518,23 @@ name|DEFAULT_WEIGHT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Increment the number of bytes that have been allocated to service this request      * and potentially trigger a {@link CircuitBreakingException}. The number of bytes      * allocated is automatically decremented with the circuit breaker service on       * closure of this aggregator.      * For performance reasons subclasses should not call this millions of times      * each with small increments and instead batch up into larger allocations.      *       * @param bytesAllocated the number of additional bytes allocated      * @return the cumulative size in bytes allocated by this aggregator to service this request      */
+comment|/**      * Increment or decrement the number of bytes that have been allocated to service      * this request and potentially trigger a {@link CircuitBreakingException}. The      * number of bytes allocated is automatically decremented with the circuit breaker      * service on closure of this aggregator.      * If memory has been returned, decrement it without tripping the breaker.      * For performance reasons subclasses should not call this millions of times      * each with small increments and instead batch up into larger allocations.      *       * @param bytes the number of bytes to register or negative to deregister the bytes      * @return the cumulative size in bytes allocated by this aggregator to service this request      */
 DECL|method|addRequestCircuitBreakerBytes
 specifier|protected
 name|long
 name|addRequestCircuitBreakerBytes
 parameter_list|(
 name|long
-name|bytesAllocated
+name|bytes
 parameter_list|)
 block|{
-try|try
+comment|// Only use the potential to circuit break if bytes are being incremented
+if|if
+condition|(
+name|bytes
+operator|>
+literal|0
+condition|)
 block|{
 name|this
 operator|.
@@ -543,7 +549,7 @@ argument_list|)
 operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
-name|bytesAllocated
+name|bytes
 argument_list|,
 literal|"<agg ["
 operator|+
@@ -552,26 +558,35 @@ operator|+
 literal|"]>"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|breakerService
+operator|.
+name|getBreaker
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|REQUEST
+argument_list|)
+operator|.
+name|addWithoutBreaking
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|requestBytesUsed
 operator|+=
-name|bytesAllocated
+name|bytes
 expr_stmt|;
 return|return
 name|requestBytesUsed
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|CircuitBreakingException
-name|cbe
-parameter_list|)
-block|{
-throw|throw
-name|cbe
-throw|;
-block|}
 block|}
 comment|/**      * Most aggregators don't need scores, make sure to extend this method if      * your aggregator needs them.      */
 annotation|@
