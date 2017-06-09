@@ -172,6 +172,20 @@ name|toXContent
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|XContentTestUtils
+operator|.
+name|insertRandomFields
+import|;
+end_import
+
 begin_class
 DECL|class|ShardSearchFailureTests
 specifier|public
@@ -292,6 +306,38 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|doFromXContentTestWithRandomFields
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This test adds random fields and objects to the xContent rendered out to      * ensure we can parse it back to be forward compatible with additions to      * the xContent      */
+DECL|method|testFromXContentWithRandomFields
+specifier|public
+name|void
+name|testFromXContentWithRandomFields
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|doFromXContentTestWithRandomFields
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doFromXContentTestWithRandomFields
+specifier|private
+name|void
+name|doFromXContentTestWithRandomFields
+parameter_list|(
+name|boolean
+name|addRandomFields
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|ShardSearchFailure
 name|response
 init|=
@@ -331,6 +377,36 @@ argument_list|,
 name|humanReadable
 argument_list|)
 decl_stmt|;
+name|BytesReference
+name|mutated
+decl_stmt|;
+if|if
+condition|(
+name|addRandomFields
+condition|)
+block|{
+name|mutated
+operator|=
+name|insertRandomFields
+argument_list|(
+name|xContentType
+argument_list|,
+name|originalBytes
+argument_list|,
+literal|null
+argument_list|,
+name|random
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|mutated
+operator|=
+name|originalBytes
+expr_stmt|;
+block|}
 name|ShardSearchFailure
 name|parsed
 decl_stmt|;
@@ -346,7 +422,7 @@ operator|.
 name|xContent
 argument_list|()
 argument_list|,
-name|originalBytes
+name|mutated
 argument_list|)
 init|)
 block|{
@@ -441,8 +517,7 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we cannot compare the cause, because it will be wrapped in an outer ElasticSearchException
-comment|// best effort: try to check that the original message appears somewhere in the rendered xContent
+comment|/**          * we cannot compare the cause, because it will be wrapped in an outer          * ElasticSearchException best effort: try to check that the original          * message appears somewhere in the rendered xContent          */
 name|String
 name|originalMsg
 init|=
