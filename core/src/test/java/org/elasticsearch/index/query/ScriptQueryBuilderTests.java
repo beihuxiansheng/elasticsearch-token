@@ -354,7 +354,7 @@ literal|"  \"script\" : {\n"
 operator|+
 literal|"    \"script\" : {\n"
 operator|+
-literal|"      \"inline\" : \"5\",\n"
+literal|"      \"source\" : \"5\",\n"
 operator|+
 literal|"      \"lang\" : \"mockscript\"\n"
 operator|+

@@ -593,7 +593,7 @@ name|query
 init|=
 literal|"{"
 operator|+
-literal|"  \"inline\" : \"{ \\\"size\\\": \\\"{{size}}\\\", \\\"query\\\":{\\\"match_all\\\":{}}}\","
+literal|"  \"source\" : \"{ \\\"size\\\": \\\"{{size}}\\\", \\\"query\\\":{\\\"match_all\\\":{}}}\","
 operator|+
 literal|"  \"params\":{"
 operator|+
@@ -695,7 +695,7 @@ name|templateString
 init|=
 literal|"{"
 operator|+
-literal|"  \"inline\" : \"{ {{#use_size}} \\\"size\\\": \\\"{{size}}\\\", {{/use_size}} \\\"query\\\":{\\\"match_all\\\":{}}}\","
+literal|"  \"source\" : \"{ {{#use_size}} \\\"size\\\": \\\"{{size}}\\\", {{/use_size}} \\\"query\\\":{\\\"match_all\\\":{}}}\","
 operator|+
 literal|"  \"params\":{"
 operator|+
@@ -799,7 +799,7 @@ name|templateString
 init|=
 literal|"{"
 operator|+
-literal|"  \"inline\" : \"{ \\\"query\\\":{\\\"match_all\\\":{}} {{#use_size}}, \\\"size\\\": \\\"{{size}}\\\" {{/use_size}} }\","
+literal|"  \"source\" : \"{ \\\"query\\\":{\\\"match_all\\\":{}} {{#use_size}}, \\\"size\\\": \\\"{{size}}\\\" {{/use_size}} }\","
 operator|+
 literal|"  \"params\":{"
 operator|+

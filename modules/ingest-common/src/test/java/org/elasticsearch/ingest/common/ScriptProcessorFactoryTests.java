@@ -229,7 +229,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"inline"
 argument_list|)
@@ -296,7 +296,7 @@ name|randomFrom
 argument_list|(
 literal|"id"
 argument_list|,
-literal|"inline"
+literal|"source"
 argument_list|)
 decl_stmt|;
 name|configMap
@@ -415,7 +415,7 @@ name|randomFrom
 argument_list|(
 literal|"id"
 argument_list|,
-literal|"inline"
+literal|"source"
 argument_list|)
 decl_stmt|;
 name|Map
@@ -569,7 +569,7 @@ name|configMap
 operator|.
 name|put
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"bar"
 argument_list|)
@@ -618,7 +618,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"Only one of [id] or [inline] may be configured"
+literal|"Only one of [id] or [source] may be configured"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -688,8 +688,58 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"Need [id] or [inline] parameter to refer to scripts"
+literal|"Need [id] or [source] parameter to refer to scripts"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInlineBackcompat
+specifier|public
+name|void
+name|testInlineBackcompat
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|configMap
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|configMap
+operator|.
+name|put
+argument_list|(
+literal|"inline"
+argument_list|,
+literal|"code"
+argument_list|)
+expr_stmt|;
+name|factory
+operator|.
+name|create
+argument_list|(
+literal|null
+argument_list|,
+name|randomAlphaOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
+name|configMap
+argument_list|)
+expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"Specifying script source with [inline] is deprecated, use [source] instead."
 argument_list|)
 expr_stmt|;
 block|}
@@ -706,7 +756,7 @@ name|randomType
 init|=
 name|randomFrom
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"id"
 argument_list|)

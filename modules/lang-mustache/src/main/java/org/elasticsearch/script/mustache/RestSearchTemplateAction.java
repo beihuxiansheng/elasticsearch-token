@@ -543,6 +543,8 @@ argument_list|,
 operator|new
 name|ParseField
 argument_list|(
+literal|"source"
+argument_list|,
 literal|"inline"
 argument_list|,
 literal|"template"

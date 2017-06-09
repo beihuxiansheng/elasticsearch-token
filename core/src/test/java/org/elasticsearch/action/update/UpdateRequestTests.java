@@ -1331,7 +1331,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"script1"
 argument_list|)
@@ -1454,7 +1454,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"script1"
 argument_list|)
@@ -1634,7 +1634,7 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"script1"
 argument_list|)
@@ -1800,7 +1800,7 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"script1"
 argument_list|)
@@ -2105,7 +2105,7 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"script1"
 argument_list|)

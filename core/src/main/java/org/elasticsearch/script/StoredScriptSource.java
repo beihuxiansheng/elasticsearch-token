@@ -429,17 +429,19 @@ argument_list|(
 literal|"lang"
 argument_list|)
 decl_stmt|;
-comment|/**      * Standard {@link ParseField} for code on the inner level.      */
-DECL|field|CODE_PARSE_FIELD
+comment|/**      * Standard {@link ParseField} for source on the inner level.      */
+DECL|field|SOURCE_PARSE_FIELD
 specifier|public
 specifier|static
 specifier|final
 name|ParseField
-name|CODE_PARSE_FIELD
+name|SOURCE_PARSE_FIELD
 init|=
 operator|new
 name|ParseField
 argument_list|(
+literal|"source"
+argument_list|,
 literal|"code"
 argument_list|)
 decl_stmt|;
@@ -470,10 +472,10 @@ specifier|private
 name|String
 name|lang
 decl_stmt|;
-DECL|field|code
+DECL|field|source
 specifier|private
 name|String
-name|code
+name|source
 decl_stmt|;
 DECL|field|options
 specifier|private
@@ -517,11 +519,11 @@ operator|=
 name|lang
 expr_stmt|;
 block|}
-comment|/**          * Since stored scripts can accept templates rather than just scripts, they must also be able          * to handle template parsing, hence the need for custom parsing code.  Templates can          * consist of either an {@link String} or a JSON object.  If a JSON object is discovered          * then the content type option must also be saved as a compiler option.          */
-DECL|method|setCode
+comment|/**          * Since stored scripts can accept templates rather than just scripts, they must also be able          * to handle template parsing, hence the need for custom parsing source.  Templates can          * consist of either an {@link String} or a JSON object.  If a JSON object is discovered          * then the content type option must also be saved as a compiler option.          */
+DECL|method|setSource
 specifier|private
 name|void
-name|setCode
+name|setSource
 parameter_list|(
 name|XContentParser
 name|parser
@@ -550,7 +552,7 @@ operator|.
 name|jsonBuilder
 argument_list|()
 decl_stmt|;
-name|code
+name|source
 operator|=
 name|builder
 operator|.
@@ -581,7 +583,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|code
+name|source
 operator|=
 name|parser
 operator|.
@@ -671,7 +673,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|code
+name|source
 operator|==
 literal|null
 condition|)
@@ -680,14 +682,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"must specify code for stored script"
+literal|"must specify source for stored script"
 argument_list|)
 throw|;
 block|}
 elseif|else
 if|if
 condition|(
-name|code
+name|source
 operator|.
 name|isEmpty
 argument_list|()
@@ -697,7 +699,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"code cannot be empty"
+literal|"source cannot be empty"
 argument_list|)
 throw|;
 block|}
@@ -747,7 +749,7 @@ name|StoredScriptSource
 argument_list|(
 name|lang
 argument_list|,
-name|code
+name|source
 argument_list|,
 name|options
 argument_list|)
@@ -797,13 +799,13 @@ name|declareField
 argument_list|(
 name|Builder
 operator|::
-name|setCode
+name|setSource
 argument_list|,
 name|parser
 lambda|->
 name|parser
 argument_list|,
-name|CODE_PARSE_FIELD
+name|SOURCE_PARSE_FIELD
 argument_list|,
 name|ValueType
 operator|.
@@ -830,7 +832,7 @@ name|OBJECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will parse XContent into a {@link StoredScriptSource}.  The following formats can be parsed:      *      * The simple script format with no compiler options or user-defined params:      *      * Example:      * {@code      * {"script": "return Math.log(doc.popularity) * 100;"}      * }      *      * The above format requires the lang to be specified using the deprecated stored script namespace      * (as a url parameter during a put request).  See {@link ScriptMetaData} for more information about      * the stored script namespaces.      *      * The complex script format using the new stored script namespace      * where lang and code are required but options is optional:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "code" : "<code>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * Example:      * {@code      * {      *     "script": {      *         "lang" : "painless",      *         "code" : "return Math.log(doc.popularity) * params.multiplier"      *     }      * }      * }      *      * The simple template format:      *      * {@code      * {      *     "query" : ...      * }      * }      *      * The complex template format:      *      * {@code      * {      *     "template": {      *         "query" : ...      *     }      * }      * }      *      * Note that templates can be handled as both strings and complex JSON objects.      * Also templates may be part of the 'code' parameter in a script.  The Parser      * can handle this case as well.      *      * @param lang    An optional parameter to allow for use of the deprecated stored      *                script namespace.  This will be used to specify the language      *                coming in as a url parameter from a request or for stored templates.      * @param content The content from the request to be parsed as described above.      * @return        The parsed {@link StoredScriptSource}.      */
+comment|/**      * This will parse XContent into a {@link StoredScriptSource}.  The following formats can be parsed:      *      * The simple script format with no compiler options or user-defined params:      *      * Example:      * {@code      * {"script": "return Math.log(doc.popularity) * 100;"}      * }      *      * The above format requires the lang to be specified using the deprecated stored script namespace      * (as a url parameter during a put request).  See {@link ScriptMetaData} for more information about      * the stored script namespaces.      *      * The complex script format using the new stored script namespace      * where lang and source are required but options is optional:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "source" : "<source>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * Example:      * {@code      * {      *     "script": {      *         "lang" : "painless",      *         "source" : "return Math.log(doc.popularity) * params.multiplier"      *     }      * }      * }      *      * The use of "source" may also be substituted with "code" for backcompat with 5.3 to 5.5 format. For example:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "code" : "<source>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * The simple template format:      *      * {@code      * {      *     "query" : ...      * }      * }      *      * The complex template format:      *      * {@code      * {      *     "template": {      *         "query" : ...      *     }      * }      * }      *      * Note that templates can be handled as both strings and complex JSON objects.      * Also templates may be part of the 'source' parameter in a script.  The Parser      * can handle this case as well.      *      * @param lang    An optional parameter to allow for use of the deprecated stored      *                script namespace.  This will be used to specify the language      *                coming in as a url parameter from a request or for stored templates.      * @param content The content from the request to be parsed as described above.      * @return        The parsed {@link StoredScriptSource}.      */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -1103,7 +1105,7 @@ literal|"unexpected token ["
 operator|+
 name|token
 operator|+
-literal|"], expected [{,<code>]"
+literal|"], expected [{,<source>]"
 argument_list|)
 throw|;
 block|}
@@ -1256,7 +1258,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This will parse XContent into a {@link StoredScriptSource}. The following format is what will be parsed:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "code" : "<code>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * Note that the "code" parameter can also handle template parsing including from      * a complex JSON object.      */
+comment|/**      * This will parse XContent into a {@link StoredScriptSource}. The following format is what will be parsed:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "source" : "<source>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * Note that the "source" parameter can also handle template parsing including from      * a complex JSON object.      */
 DECL|method|fromXContent
 specifier|public
 specifier|static
@@ -1316,11 +1318,11 @@ specifier|final
 name|String
 name|lang
 decl_stmt|;
-DECL|field|code
+DECL|field|source
 specifier|private
 specifier|final
 name|String
-name|code
+name|source
 decl_stmt|;
 DECL|field|options
 specifier|private
@@ -1339,7 +1341,7 @@ specifier|public
 name|StoredScriptSource
 parameter_list|(
 name|String
-name|code
+name|source
 parameter_list|)
 block|{
 name|this
@@ -1350,13 +1352,13 @@ literal|null
 expr_stmt|;
 name|this
 operator|.
-name|code
+name|source
 operator|=
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|code
+name|source
 argument_list|)
 expr_stmt|;
 name|this
@@ -1366,7 +1368,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Standard StoredScriptSource constructor.      * @param lang    The language to compile the script with.  Must not be {@code null}.      * @param code    The source code to compile with.  Must not be {@code null}.      * @param options Compiler options to be compiled with.  Must not be {@code null},      *                use an empty {@link Map} to represent no options.      */
+comment|/**      * Standard StoredScriptSource constructor.      * @param lang    The language to compile the script with.  Must not be {@code null}.      * @param source    The source source to compile with.  Must not be {@code null}.      * @param options Compiler options to be compiled with.  Must not be {@code null},      *                use an empty {@link Map} to represent no options.      */
 DECL|method|StoredScriptSource
 specifier|public
 name|StoredScriptSource
@@ -1375,7 +1377,7 @@ name|String
 name|lang
 parameter_list|,
 name|String
-name|code
+name|source
 parameter_list|,
 name|Map
 argument_list|<
@@ -1399,13 +1401,13 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|code
+name|source
 operator|=
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|code
+name|source
 argument_list|)
 expr_stmt|;
 name|this
@@ -1425,7 +1427,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads a {@link StoredScriptSource} from a stream.  Version 5.3+ will read      * all of the lang, code, and options parameters.  For versions prior to 5.3,      * only the code parameter will be read in as a bytes reference.      */
+comment|/**      * Reads a {@link StoredScriptSource} from a stream.  Version 5.3+ will read      * all of the lang, source, and options parameters.  For versions prior to 5.3,      * only the source parameter will be read in as a bytes reference.      */
 DECL|method|StoredScriptSource
 specifier|public
 name|StoredScriptSource
@@ -1462,7 +1464,7 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|code
+name|source
 operator|=
 name|in
 operator|.
@@ -1515,7 +1517,7 @@ literal|null
 expr_stmt|;
 name|this
 operator|.
-name|code
+name|source
 operator|=
 name|in
 operator|.
@@ -1533,7 +1535,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a {@link StoredScriptSource} to a stream.  Version 5.3+ will write      * all of the lang, code, and options parameters.  For versions prior to 5.3,      * only the code parameter will be read in as a bytes reference.      */
+comment|/**      * Writes a {@link StoredScriptSource} to a stream.  Version 5.3+ will write      * all of the lang, source, and options parameters.  For versions prior to 5.3,      * only the source parameter will be read in as a bytes reference.      */
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -1573,7 +1575,7 @@ name|out
 operator|.
 name|writeString
 argument_list|(
-name|code
+name|source
 argument_list|)
 expr_stmt|;
 annotation|@
@@ -1621,13 +1623,13 @@ argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
-name|code
+name|source
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will write XContent from a {@link StoredScriptSource}. The following format will be written:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "code" : "<code>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * Note that the 'code' parameter can also handle templates written as complex JSON.      */
+comment|/**      * This will write XContent from a {@link StoredScriptSource}. The following format will be written:      *      * {@code      * {      *     "script" : {      *         "lang" : "<lang>",      *         "source" : "<source>",      *         "options" : {      *             "option0" : "<option0>",      *             "option1" : "<option1>",      *             ...      *         }      *     }      * }      * }      *      * Note that the 'source' parameter can also handle templates written as complex JSON.      */
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -1665,12 +1667,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|CODE_PARSE_FIELD
+name|SOURCE_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
-name|code
+name|source
 argument_list|)
 expr_stmt|;
 name|builder
@@ -1705,15 +1707,15 @@ return|return
 name|lang
 return|;
 block|}
-comment|/**      * @return The code used for compiling this script.      */
-DECL|method|getCode
+comment|/**      * @return The source used for compiling this script.      */
+DECL|method|getSource
 specifier|public
 name|String
-name|getCode
+name|getSource
 parameter_list|()
 block|{
 return|return
-name|code
+name|source
 return|;
 block|}
 comment|/**      * @return The compiler options used for this script.      */
@@ -1804,23 +1806,23 @@ literal|false
 return|;
 if|if
 condition|(
-name|code
+name|source
 operator|!=
 literal|null
 condition|?
 operator|!
-name|code
+name|source
 operator|.
 name|equals
 argument_list|(
 name|that
 operator|.
-name|code
+name|source
 argument_list|)
 else|:
 name|that
 operator|.
-name|code
+name|source
 operator|!=
 literal|null
 condition|)
@@ -1877,11 +1879,11 @@ operator|*
 name|result
 operator|+
 operator|(
-name|code
+name|source
 operator|!=
 literal|null
 condition|?
-name|code
+name|source
 operator|.
 name|hashCode
 argument_list|()
@@ -1929,9 +1931,9 @@ name|lang
 operator|+
 literal|'\''
 operator|+
-literal|", code='"
+literal|", source='"
 operator|+
-name|code
+name|source
 operator|+
 literal|'\''
 operator|+

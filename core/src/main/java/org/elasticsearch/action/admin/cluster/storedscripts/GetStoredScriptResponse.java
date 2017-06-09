@@ -347,7 +347,7 @@ name|writeString
 argument_list|(
 name|source
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;

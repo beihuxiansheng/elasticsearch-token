@@ -1667,7 +1667,7 @@ name|idOrCode
 operator|=
 name|source
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 expr_stmt|;
 name|options
@@ -2596,7 +2596,7 @@ argument_list|()
 argument_list|,
 name|source
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 argument_list|,
 name|context

@@ -399,7 +399,7 @@ name|templateString
 init|=
 literal|"{"
 operator|+
-literal|"\"inline\":{\"match_{{template}}\": {}},"
+literal|"\"source\":{\"match_{{template}}\": {}},"
 operator|+
 literal|"\"params\":{\"template\":\"all\"}"
 operator|+
@@ -493,7 +493,7 @@ name|templateString
 init|=
 literal|"{"
 operator|+
-literal|"  \"inline\" : \"{ \\\"match_{{#use_it}}{{template}}{{/use_it}}\\\":{} }\","
+literal|"  \"source\" : \"{ \\\"match_{{#use_it}}{{template}}{{/use_it}}\\\":{} }\","
 operator|+
 literal|"  \"params\":{"
 operator|+

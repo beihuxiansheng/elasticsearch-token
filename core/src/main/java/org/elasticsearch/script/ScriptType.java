@@ -84,6 +84,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * ScriptType represents the way a script is stored and retrieved from the {@link ScriptService}.  * It's also used to by {@link ScriptService} to determine whether or not a {@link Script} is  * allowed to be executed based on both default and user-defined settings.  */
 end_comment
@@ -105,6 +115,8 @@ argument_list|,
 operator|new
 name|ParseField
 argument_list|(
+literal|"source"
+argument_list|,
 literal|"inline"
 argument_list|)
 argument_list|,
@@ -120,9 +132,9 @@ argument_list|,
 operator|new
 name|ParseField
 argument_list|(
-literal|"stored"
-argument_list|,
 literal|"id"
+argument_list|,
+literal|"stored"
 argument_list|)
 argument_list|,
 literal|false
@@ -310,10 +322,15 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|parseField
-operator|.
-name|getPreferredName
+name|name
 argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 return|;
 block|}
 comment|/**      * @return Specifies the name used to parse input from queries.      */

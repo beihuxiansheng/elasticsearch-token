@@ -418,6 +418,20 @@ argument_list|(
 literal|"script"
 argument_list|)
 decl_stmt|;
+comment|/**      * Standard {@link ParseField} for source on the inner level.      */
+DECL|field|SOURCE_PARSE_FIELD
+specifier|public
+specifier|static
+specifier|final
+name|ParseField
+name|SOURCE_PARSE_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"source"
+argument_list|)
+decl_stmt|;
 comment|/**      * Standard {@link ParseField} for lang on the inner level.      */
 DECL|field|LANG_PARSE_FIELD
 specifier|public
@@ -789,33 +803,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"must specify either code for an ["
-operator|+
-name|ScriptType
-operator|.
-name|INLINE
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] script "
-operator|+
-literal|"or an id for a ["
-operator|+
-name|ScriptType
-operator|.
-name|STORED
-operator|.
-name|getParseField
-argument_list|()
-operator|.
-name|getPreferredName
-argument_list|()
-operator|+
-literal|"] script"
+literal|"must specify either [source] for an inline script or [id] for a stored script"
 argument_list|)
 throw|;
 block|}
@@ -1207,7 +1195,7 @@ name|DEFAULT_SCRIPT_LANG
 argument_list|)
 return|;
 block|}
-comment|/**      * This will parse XContent into a {@link Script}.  The following formats can be parsed:      *      * The simple format defaults to an {@link ScriptType#INLINE} with no compiler options or user-defined params:      *      * Example:      * {@code      * "return Math.log(doc.popularity) * 100;"      * }      *      * The complex format where {@link ScriptType} and idOrCode are required while lang, options and params are not required.      *      * {@code      * {      *     "<type (inline, stored, file)>" : "<idOrCode>",      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      *      * Example:      * {@code      * {      *     "inline" : "return Math.log(doc.popularity) * params.multiplier",      *     "lang" : "painless",      *     "params" : {      *         "multiplier" : 100.0      *     }      * }      * }      *      * This also handles templates in a special way.  If a complexly formatted query is specified as another complex      * JSON object the query is assumed to be a template, and the format will be preserved.      *      * {@code      * {      *     "inline" : { "query" : ... },      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      *      * @param parser       The {@link XContentParser} to be used.      * @param defaultLang  The default language to use if no language is specified.  The default language isn't necessarily      *                     the one defined by {@link Script#DEFAULT_SCRIPT_LANG} due to backwards compatibility requirements      *                     related to stored queries using previously default languages.      *      * @return             The parsed {@link Script}.      */
+comment|/**      * This will parse XContent into a {@link Script}.  The following formats can be parsed:      *      * The simple format defaults to an {@link ScriptType#INLINE} with no compiler options or user-defined params:      *      * Example:      * {@code      * "return Math.log(doc.popularity) * 100;"      * }      *      * The complex format where {@link ScriptType} and idOrCode are required while lang, options and params are not required.      *      * {@code      * {      *     // Exactly one of "id" or "source" must be specified      *     "id" : "<id>",      *     // OR      *     "source": "<source>",      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      *      * Example:      * {@code      * {      *     "source" : "return Math.log(doc.popularity) * params.multiplier",      *     "lang" : "painless",      *     "params" : {      *         "multiplier" : 100.0      *     }      * }      * }      *      * This also handles templates in a special way.  If a complexly formatted query is specified as another complex      * JSON object the query is assumed to be a template, and the format will be preserved.      *      * {@code      * {      *     "source" : { "query" : ... },      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      *      * @param parser       The {@link XContentParser} to be used.      * @param defaultLang  The default language to use if no language is specified.  The default language isn't necessarily      *                     the one defined by {@link Script#DEFAULT_SCRIPT_LANG} due to backwards compatibility requirements      *                     related to stored queries using previously default languages.      *      * @return             The parsed {@link Script}.      */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -2327,7 +2315,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This will build scripts into the following XContent structure:      *      * {@code      * {      *     "<type (inline, stored, file)>" : "<idOrCode>",      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      *      * Example:      * {@code      * {      *     "inline" : "return Math.log(doc.popularity) * params.multiplier;",      *     "lang" : "painless",      *     "params" : {      *         "multiplier" : 100.0      *     }      * }      * }      *      * Note that lang, options, and params will only be included if there have been any specified.      *      * This also handles templates in a special way.  If the {@link Script#CONTENT_TYPE_OPTION} option      * is provided and the {@link ScriptType#INLINE} is specified then the template will be preserved as a raw field.      *      * {@code      * {      *     "inline" : { "query" : ... },      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      */
+comment|/**      * This will build scripts into the following XContent structure:      *      * {@code      * {      *     "<(id, source)>" : "<idOrCode>",      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      *      * Example:      * {@code      * {      *     "source" : "return Math.log(doc.popularity) * params.multiplier;",      *     "lang" : "painless",      *     "params" : {      *         "multiplier" : 100.0      *     }      * }      * }      *      * Note that lang, options, and params will only be included if there have been any specified.      *      * This also handles templates in a special way.  If the {@link Script#CONTENT_TYPE_OPTION} option      * is provided and the {@link ScriptType#INLINE} is specified then the template will be preserved as a raw field.      *      * {@code      * {      *     "source" : { "query" : ... },      *     "lang" : "<lang>",      *     "options" : {      *         "option0" : "<option0>",      *         "option1" : "<option1>",      *         ...      *     },      *     "params" : {      *         "param0" : "<param0>",      *         "param1" : "<param1>",      *         ...      *     }      * }      * }      */
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -2372,7 +2360,10 @@ operator|==
 name|ScriptType
 operator|.
 name|INLINE
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|contentType
 operator|!=
 literal|null
@@ -2395,10 +2386,7 @@ name|builder
 operator|.
 name|rawField
 argument_list|(
-name|type
-operator|.
-name|getParseField
-argument_list|()
+name|SOURCE_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -2417,13 +2405,23 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|type
-operator|.
-name|getParseField
-argument_list|()
+name|SOURCE_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
+argument_list|,
+name|idOrCode
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"id"
 argument_list|,
 name|idOrCode
 argument_list|)

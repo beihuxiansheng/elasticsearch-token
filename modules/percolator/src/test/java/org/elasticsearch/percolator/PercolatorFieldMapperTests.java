@@ -4986,7 +4986,7 @@ name|query
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"return true"
 argument_list|)
@@ -5197,7 +5197,7 @@ name|query
 operator|.
 name|field
 argument_list|(
-literal|"inline"
+literal|"source"
 argument_list|,
 literal|"return true"
 argument_list|)

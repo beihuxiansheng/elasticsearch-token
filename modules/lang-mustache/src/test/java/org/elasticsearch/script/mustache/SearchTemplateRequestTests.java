@@ -183,7 +183,7 @@ name|source
 init|=
 literal|"{"
 operator|+
-literal|"    'inline' : {\n"
+literal|"    'source' : {\n"
 operator|+
 literal|"    'query': {\n"
 operator|+
@@ -273,7 +273,7 @@ name|source
 init|=
 literal|"{"
 operator|+
-literal|"    'inline' : {"
+literal|"    'source' : {"
 operator|+
 literal|"      'query': { 'match' : { '{{my_field}}' : '{{my_value}}' } },"
 operator|+
@@ -407,7 +407,7 @@ block|{
 name|String
 name|source
 init|=
-literal|"{'inline' : '{\\\"query\\\":{\\\"bool\\\":{\\\"must\\\":{\\\"match\\\":{\\\"foo\\\":\\\"{{text}}\\\"}}}}}'}"
+literal|"{'source' : '{\\\"query\\\":{\\\"bool\\\":{\\\"must\\\":{\\\"match\\\":{\\\"foo\\\":\\\"{{text}}\\\"}}}}}'}"
 decl_stmt|;
 name|SearchTemplateRequest
 name|request
@@ -478,7 +478,7 @@ block|{
 name|String
 name|source
 init|=
-literal|"{'inline' : '{\\\"query\\\":{\\\"match\\\":{\\\"{{field}}\\\":\\\"{{value}}\\\"}}}', "
+literal|"{'source' : '{\\\"query\\\":{\\\"match\\\":{\\\"{{field}}\\\":\\\"{{value}}\\\"}}}', "
 operator|+
 literal|"'params': {'status': ['pending', 'published']}}"
 decl_stmt|;

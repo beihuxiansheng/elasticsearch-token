@@ -22,20 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|MultiSearchRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -864,7 +850,7 @@ name|content
 init|=
 literal|"{\"index\":[\"test0\", \"test1\"], \"request_cache\": true}\r\n"
 operator|+
-literal|"{\"inline\": {\"query\" : {\"match_{{template}}\" :{}}}, \"params\": {\"template\": \"all\" } }\r\n"
+literal|"{\"source\": {\"query\" : {\"match_{{template}}\" :{}}}, \"params\": {\"template\": \"all\" } }\r\n"
 decl_stmt|;
 name|RestRequest
 name|restRequest

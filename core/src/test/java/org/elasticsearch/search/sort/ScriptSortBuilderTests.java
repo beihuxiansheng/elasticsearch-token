@@ -1005,7 +1005,7 @@ literal|"\"type\" : \"number\",\n"
 operator|+
 literal|"\"script\" : {\n"
 operator|+
-literal|"\"inline\": \"doc['field_name'].value * factor\",\n"
+literal|"\"source\": \"doc['field_name'].value * factor\",\n"
 operator|+
 literal|"\"params\" : {\n"
 operator|+

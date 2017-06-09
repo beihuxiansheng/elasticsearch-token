@@ -570,14 +570,14 @@ name|field
 argument_list|(
 name|StoredScriptSource
 operator|.
-name|CODE_PARSE_FIELD
+name|SOURCE_PARSE_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
 name|source
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -633,7 +633,7 @@ argument_list|()
 argument_list|,
 name|source
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;

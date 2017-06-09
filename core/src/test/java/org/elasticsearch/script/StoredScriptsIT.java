@@ -315,7 +315,7 @@ operator|.
 name|getSource
 argument_list|()
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 decl_stmt|;
 name|assertNotNull

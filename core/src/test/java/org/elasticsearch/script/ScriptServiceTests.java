@@ -1968,7 +1968,7 @@ argument_list|,
 literal|"_lang"
 argument_list|)
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2181,7 +2181,7 @@ literal|"_lang"
 argument_list|)
 argument_list|)
 operator|.
-name|getCode
+name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
