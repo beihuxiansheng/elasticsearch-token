@@ -703,7 +703,7 @@ decl_stmt|;
 name|BytesReference
 name|originalBytes
 init|=
-name|toXContent
+name|toShuffledXContent
 argument_list|(
 name|suggest
 argument_list|,
