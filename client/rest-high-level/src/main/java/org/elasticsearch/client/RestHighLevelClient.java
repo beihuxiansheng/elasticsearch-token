@@ -3095,7 +3095,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|performRequestAndParseEntity
-specifier|private
+specifier|protected
 parameter_list|<
 name|Req
 extends|extends
@@ -3170,6 +3170,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|performRequest
+specifier|protected
 parameter_list|<
 name|Req
 extends|extends
@@ -3367,7 +3368,7 @@ throw|;
 block|}
 block|}
 DECL|method|performRequestAsyncAndParseEntity
-specifier|private
+specifier|protected
 parameter_list|<
 name|Req
 extends|extends
@@ -3447,6 +3448,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|performRequestAsync
+specifier|protected
 parameter_list|<
 name|Req
 extends|extends
