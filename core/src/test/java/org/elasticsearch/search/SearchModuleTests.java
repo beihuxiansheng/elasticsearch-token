@@ -644,7 +644,7 @@ name|subphase
 operator|.
 name|highlight
 operator|.
-name|PostingsHighlighter
+name|UnifiedHighlighter
 import|;
 end_import
 
@@ -2001,7 +2001,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|PostingsHighlighter
+name|UnifiedHighlighter
 operator|.
 name|class
 argument_list|,
@@ -2009,7 +2009,7 @@ name|highlighters
 operator|.
 name|get
 argument_list|(
-literal|"postings"
+literal|"unified"
 argument_list|)
 operator|.
 name|getClass

@@ -8516,7 +8516,7 @@ literal|"plain"
 argument_list|,
 literal|"fvh"
 argument_list|,
-literal|"postings"
+literal|"unified"
 argument_list|)
 decl_stmt|;
 name|HighlightBuilder

@@ -187,7 +187,7 @@ specifier|final
 class|class
 name|HighlightUtils
 block|{
-comment|//U+2029 PARAGRAPH SEPARATOR (PS): each value holds a discrete passage for highlighting (postings highlighter)
+comment|//U+2029 PARAGRAPH SEPARATOR (PS): each value holds a discrete passage for highlighting (unified highlighter)
 DECL|field|PARAGRAPH_SEPARATOR
 specifier|public
 specifier|static

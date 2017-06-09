@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.search.highlight
+DECL|package|org.apache.lucene.search.uhighlight
 package|package
 name|org
 operator|.
@@ -14,12 +14,12 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|highlight
+name|uhighlight
 package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a scored highlighted snippet.  * It's our own arbitrary object that we get back from the postings highlighter when highlighting a document.  * Every snippet contains its formatted text and its score.  * The score is needed in case we want to sort snippets by score, they get sorted by position in the text by default.  */
+comment|/**  * Represents a scored highlighted snippet.  * It's our own arbitrary object that we get back from the unified highlighter when highlighting a document.  * Every snippet contains its formatted text and its score.  * The score is needed in case we want to sort snippets by score, they get sorted by position in the text by default.  */
 end_comment
 
 begin_class

@@ -808,6 +808,11 @@ name|field
 argument_list|(
 literal|"body"
 argument_list|)
+operator|.
+name|highlighterType
+argument_list|(
+literal|"fvh"
+argument_list|)
 argument_list|)
 operator|.
 name|get
@@ -866,6 +871,11 @@ operator|.
 name|field
 argument_list|(
 literal|"body"
+argument_list|)
+operator|.
+name|highlighterType
+argument_list|(
+literal|"fvh"
 argument_list|)
 argument_list|)
 operator|.
