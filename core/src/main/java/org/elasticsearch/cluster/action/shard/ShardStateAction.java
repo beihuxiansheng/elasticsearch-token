@@ -2747,7 +2747,9 @@ name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"shard-started"
+literal|"shard-started "
+operator|+
+name|request
 argument_list|,
 name|request
 argument_list|,
