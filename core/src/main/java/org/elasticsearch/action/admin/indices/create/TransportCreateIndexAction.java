@@ -509,6 +509,8 @@ name|response
 operator|.
 name|isShardsAcked
 argument_list|()
+argument_list|,
+name|indexName
 argument_list|)
 argument_list|)
 argument_list|,

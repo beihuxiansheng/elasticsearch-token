@@ -59,6 +59,9 @@ name|acknowledged
 parameter_list|,
 name|boolean
 name|shardsAcked
+parameter_list|,
+name|String
+name|index
 parameter_list|)
 block|{
 name|super
@@ -66,6 +69,8 @@ argument_list|(
 name|acknowledged
 argument_list|,
 name|shardsAcked
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}

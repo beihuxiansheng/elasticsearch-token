@@ -678,6 +678,11 @@ name|response
 operator|.
 name|isShardsAcked
 argument_list|()
+argument_list|,
+name|updateRequest
+operator|.
+name|index
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
