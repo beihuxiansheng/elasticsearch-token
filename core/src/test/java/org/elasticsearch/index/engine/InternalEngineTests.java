@@ -17892,7 +17892,7 @@ name|Engine
 operator|.
 name|Delete
 argument_list|(
-literal|null
+literal|"doc"
 argument_list|,
 literal|"1"
 argument_list|,
