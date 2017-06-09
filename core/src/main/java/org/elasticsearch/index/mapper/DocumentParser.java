@@ -2628,7 +2628,85 @@ operator|.
 name|getParent
 argument_list|()
 decl_stmt|;
-comment|// pre add the uid field if possible (id was already provided)
+comment|// We need to add the uid or id to this nested Lucene document too,
+comment|// If we do not do this then when a document gets deleted only the root Lucene document gets deleted and
+comment|// not the nested Lucene documents! Besides the fact that we would have zombie Lucene documents, the ordering of
+comment|// documents inside the Lucene index (document blocks) will be incorrect, as nested documents of different root
+comment|// documents are then aligned with other root documents. This will lead tothe nested query, sorting, aggregations
+comment|// and inner hits to fail or yield incorrect results.
+if|if
+condition|(
+name|context
+operator|.
+name|mapperService
+argument_list|()
+operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
+name|isSingleType
+argument_list|()
+condition|)
+block|{
+name|IndexableField
+name|idField
+init|=
+name|parentDoc
+operator|.
+name|getField
+argument_list|(
+name|IdFieldMapper
+operator|.
+name|NAME
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|idField
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// We just need to store the id as indexed field, so that IndexWriter#deleteDocuments(term) can then
+comment|// delete it when the root document is deleted too.
+name|nestedDoc
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Field
+argument_list|(
+name|IdFieldMapper
+operator|.
+name|NAME
+argument_list|,
+name|idField
+operator|.
+name|stringValue
+argument_list|()
+argument_list|,
+name|IdFieldMapper
+operator|.
+name|Defaults
+operator|.
+name|NESTED_FIELD_TYPE
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The root document of a nested document should have an id field"
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
 name|IndexableField
 name|uidField
 init|=
@@ -2648,9 +2726,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// we don't need to add it as a full uid field in nested docs, since we don't need versioning
-comment|// we also rely on this for UidField#loadVersion
-comment|// this is a deeply nested field
+comment|/// We just need to store the uid as indexed field, so that IndexWriter#deleteDocuments(term) can then
+comment|// delete it when the root document is deleted too.
 name|nestedDoc
 operator|.
 name|add
@@ -2675,6 +2752,17 @@ name|NESTED_FIELD_TYPE
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"The root document of a nested document should have an uid field"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// the type of the nested doc starts with __, so we can identify that its a nested one in filters
 comment|// note, we don't prefix it with the type of the doc since it allows us to execute a nested query
