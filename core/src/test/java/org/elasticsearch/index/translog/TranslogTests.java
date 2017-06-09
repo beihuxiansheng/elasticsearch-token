@@ -15941,26 +15941,36 @@ unit|}
 comment|/**      * This test adds operations to the translog which might randomly throw an IOException. The only thing this test verifies is      * that we can, after we hit an exception, open and recover the translog successfully and retrieve all successfully synced operations      * from the transaction log.      */
 end_comment
 
-begin_function
+begin_expr_stmt
+unit|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/25133"
+argument_list|)
 DECL|method|testWithRandomException
-unit|public
+specifier|public
 name|void
 name|testWithRandomException
-parameter_list|()
+argument_list|()
 throws|throws
 name|IOException
 block|{
-specifier|final
+name|final
 name|int
 name|runs
-init|=
+operator|=
 name|randomIntBetween
 argument_list|(
 literal|5
 argument_list|,
 literal|10
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+end_expr_stmt
+
+begin_for
 for|for
 control|(
 name|int
@@ -16573,12 +16583,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-end_function
+end_for
 
 begin_function
-unit|}      private
+unit|}     }
 DECL|method|randomCheckpoint
+specifier|private
 name|Checkpoint
 name|randomCheckpoint
 parameter_list|()
