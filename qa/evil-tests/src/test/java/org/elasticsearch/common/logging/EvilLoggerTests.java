@@ -1201,7 +1201,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|// this has the side effect of caching a marker with this prefix
 name|Loggers
 operator|.
 name|getLogger
@@ -1215,13 +1214,14 @@ operator|+
 name|i
 argument_list|)
 expr_stmt|;
+comment|// this has the side effect of caching a marker with this prefix
 block|}
-comment|// this will free the weakly referenced keys in the marker cache
 name|System
 operator|.
 name|gc
 argument_list|()
 expr_stmt|;
+comment|// this will free the weakly referenced keys in the marker cache
 name|assertThat
 argument_list|(
 name|PrefixLogger
