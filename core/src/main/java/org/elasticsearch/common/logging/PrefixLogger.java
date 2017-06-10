@@ -110,23 +110,15 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|ref
-operator|.
-name|WeakReference
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|WeakHashMap
 import|;
 end_import
+
+begin_comment
+comment|/**  * A logger that prefixes all messages with a fixed prefix specified during construction. The prefix mechanism uses the marker construct, so  * for the prefixes to appear, the logging layout pattern must include the marker in its pattern.  */
+end_comment
 
 begin_class
 DECL|class|PrefixLogger
@@ -135,9 +127,7 @@ name|PrefixLogger
 extends|extends
 name|ExtendedLoggerWrapper
 block|{
-comment|// we can not use the built-in Marker tracking (MarkerManager) because the MarkerManager holds
-comment|// a permanent reference to the marker; however, we have transient markers from index-level and
-comment|// shard-level components so this would effectively be a memory leak
+comment|/*      * We can not use the built-in Marker tracking (MarkerManager) because the MarkerManager holds a permanent reference to the marker;      * however, we have transient markers from index-level and shard-level components so this would effectively be a memory leak. Since we      * can not tie into the lifecycle of these components, we have to use a mechanism that enables garbage collection of such markers when      * they are no longer in use.      */
 DECL|field|markers
 specifier|private
 specifier|static
@@ -146,10 +136,7 @@ name|WeakHashMap
 argument_list|<
 name|String
 argument_list|,
-name|WeakReference
-argument_list|<
 name|Marker
-argument_list|>
 argument_list|>
 name|markers
 init|=
@@ -158,12 +145,28 @@ name|WeakHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|/**      * Return the size of the cached markers. This size can vary as markers are cached but collected during GC activity when a given prefix      * is no longer in use.      *      * @return the size of the cached markers      */
+DECL|method|markersSize
+specifier|static
+name|int
+name|markersSize
+parameter_list|()
+block|{
+return|return
+name|markers
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+comment|/**      * The marker for this prefix logger.      */
 DECL|field|marker
 specifier|private
 specifier|final
 name|Marker
 name|marker
 decl_stmt|;
+comment|/**      * Obtain the prefix for this prefix logger. This can be used to create a logger with the same prefix as this one.      *      * @return the prefix      */
 DECL|method|prefix
 specifier|public
 name|String
@@ -177,6 +180,7 @@ name|getName
 argument_list|()
 return|;
 block|}
+comment|/**      * Construct a prefix logger with the specified name and prefix.      *      * @param logger the extended logger to wrap      * @param name   the name of this prefix logger      * @param prefix the prefix for this prefix logger      */
 DECL|method|PrefixLogger
 name|PrefixLogger
 parameter_list|(
@@ -230,11 +234,8 @@ name|markers
 init|)
 block|{
 specifier|final
-name|WeakReference
-argument_list|<
 name|Marker
-argument_list|>
-name|marker
+name|maybeMarker
 init|=
 name|markers
 operator|.
@@ -242,21 +243,6 @@ name|get
 argument_list|(
 name|actualPrefix
 argument_list|)
-decl_stmt|;
-specifier|final
-name|Marker
-name|maybeMarker
-init|=
-name|marker
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|marker
-operator|.
-name|get
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -275,18 +261,18 @@ argument_list|(
 name|actualPrefix
 argument_list|)
 expr_stmt|;
+comment|/*                  * We must create a new instance here as otherwise the marker will hold a reference to the key in the weak hash map; as                  * those references are held strongly, this would give a strong reference back to the key preventing them from ever being                  * collected. This also guarantees that no other strong reference can be held to the prefix anywhere.                  */
 name|markers
 operator|.
 name|put
 argument_list|(
-name|actualPrefix
-argument_list|,
 operator|new
-name|WeakReference
-argument_list|<>
+name|String
 argument_list|(
-name|actualMarker
+name|actualPrefix
 argument_list|)
+argument_list|,
+name|actualMarker
 argument_list|)
 expr_stmt|;
 block|}
