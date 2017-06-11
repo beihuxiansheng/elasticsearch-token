@@ -1466,6 +1466,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we may have some views closed concurrently causing the deletion policy to increase it's minTranslogGenRequired
 name|assertThat
 argument_list|(
 name|translog
@@ -1473,7 +1474,7 @@ operator|.
 name|getMinFileGeneration
 argument_list|()
 argument_list|,
-name|equalTo
+name|lessThanOrEqualTo
 argument_list|(
 name|deletionPolicy
 operator|.
