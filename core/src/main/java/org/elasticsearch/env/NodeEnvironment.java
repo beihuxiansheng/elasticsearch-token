@@ -1348,17 +1348,6 @@ operator|++
 control|)
 block|{
 name|Path
-name|dataDirWithClusterName
-init|=
-name|environment
-operator|.
-name|dataWithClusterFiles
-argument_list|()
-index|[
-name|dirIndex
-index|]
-decl_stmt|;
-name|Path
 name|dataDir
 init|=
 name|environment
@@ -1455,12 +1444,18 @@ name|startupTraceLogger
 operator|.
 name|trace
 argument_list|(
+operator|new
+name|ParameterizedMessage
+argument_list|(
 literal|"failed to obtain node lock on {}"
 argument_list|,
 name|dir
 operator|.
 name|toAbsolutePath
 argument_list|()
+argument_list|)
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 comment|// release all the ones that were obtained up until now
