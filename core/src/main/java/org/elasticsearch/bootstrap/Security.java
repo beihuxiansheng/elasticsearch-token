@@ -314,6 +314,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -1320,6 +1330,18 @@ literal|"read,readlink,write,delete"
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|Set
+argument_list|<
+name|Path
+argument_list|>
+name|dataFilesPaths
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Path
@@ -1347,6 +1369,67 @@ argument_list|,
 literal|"read,readlink,write,delete"
 argument_list|)
 expr_stmt|;
+comment|/*              * We have to do this after adding the path because a side effect of that is that the directory is created; the Path#toRealPath              * invocation will fail if the directory does not already exist. We use Path#toRealPath to follow symlinks and handle issues              * like unicode normalization or case-insensitivity on some filesystems (e.g., the case-insensitive variant of HFS+ on macOS).              */
+try|try
+block|{
+specifier|final
+name|Path
+name|realPath
+init|=
+name|path
+operator|.
+name|toRealPath
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|dataFilesPaths
+operator|.
+name|add
+argument_list|(
+name|realPath
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"path ["
+operator|+
+name|realPath
+operator|+
+literal|"] is duplicated by ["
+operator|+
+name|path
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+specifier|final
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"unable to access ["
+operator|+
+name|path
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/*          * If path.data and default.path.data are set, we need read access to the paths in default.path.data to check for the existence of          * index directories there that could have arisen from a bug in the handling of simultaneous configuration of path.data and          * default.path.data that was introduced in Elasticsearch 5.3.0.          *          * If path.data is not set then default.path.data would take precedence in setting the data paths for the environment and          * permissions would have been granted above.          *          * If path.data is not set and default.path.data is not set, then we would fallback to the default data directory under          * Elasticsearch home and again permissions would have been granted above.          *          * If path.data is set and default.path.data is not set, there is nothing to do here.          */
 if|if
@@ -1900,7 +1983,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add access to path (and all files underneath it)      * @param policy current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path the path itself      * @param permissions set of file permissions to grant to the path      */
+comment|/**      * Add access to path (and all files underneath it); this also creates the directory if it does not exist.      *      * @param policy            current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path              the path itself      * @param permissions       set of file permissions to grant to the path      */
 DECL|method|addPath
 specifier|static
 name|void
