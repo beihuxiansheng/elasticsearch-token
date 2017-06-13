@@ -16,6 +16,16 @@ name|common
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processor that trims the content of string fields.  * Throws exception is the field is not of type string.  */
 end_comment
@@ -49,6 +59,9 @@ name|field
 parameter_list|,
 name|boolean
 name|ignoreMissing
+parameter_list|,
+name|String
+name|targetField
 parameter_list|)
 block|{
 name|super
@@ -58,6 +71,8 @@ argument_list|,
 name|field
 argument_list|,
 name|ignoreMissing
+argument_list|,
+name|targetField
 argument_list|)
 expr_stmt|;
 block|}
@@ -123,11 +138,22 @@ parameter_list|(
 name|String
 name|tag
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|config
+parameter_list|,
 name|String
 name|field
 parameter_list|,
 name|boolean
 name|ignoreMissing
+parameter_list|,
+name|String
+name|targetField
 parameter_list|)
 block|{
 return|return
@@ -139,6 +165,8 @@ argument_list|,
 name|field
 argument_list|,
 name|ignoreMissing
+argument_list|,
+name|targetField
 argument_list|)
 return|;
 block|}

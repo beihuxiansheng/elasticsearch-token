@@ -274,6 +274,8 @@ argument_list|,
 literal|"_ingest._value"
 argument_list|,
 literal|false
+argument_list|,
+literal|"_ingest._value"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1552,6 +1554,8 @@ argument_list|,
 literal|"_ingest._value"
 argument_list|,
 literal|false
+argument_list|,
+literal|"_ingest._value"
 argument_list|)
 argument_list|)
 argument_list|,

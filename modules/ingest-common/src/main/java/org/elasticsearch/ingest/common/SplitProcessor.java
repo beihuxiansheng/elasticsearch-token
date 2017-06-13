@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor that splits fields content into different items based on the occurrence of a specified separator.  * New field value will be an array containing all of the different extracted items.  * Throws exception if the field is null or a type other than string.  */
+comment|/**  * Processor that splits fields content into different items based on the occurrence of a specified separator.  * New field value will be an array containing all of the different extracted items.  * Support fields of string type only, throws exception if a field is of a different type.  */
 end_comment
 
 begin_class
@@ -144,6 +144,12 @@ specifier|final
 name|boolean
 name|ignoreMissing
 decl_stmt|;
+DECL|field|targetField
+specifier|private
+specifier|final
+name|String
+name|targetField
+decl_stmt|;
 DECL|method|SplitProcessor
 name|SplitProcessor
 parameter_list|(
@@ -158,6 +164,9 @@ name|separator
 parameter_list|,
 name|boolean
 name|ignoreMissing
+parameter_list|,
+name|String
+name|targetField
 parameter_list|)
 block|{
 name|super
@@ -182,6 +191,12 @@ operator|.
 name|ignoreMissing
 operator|=
 name|ignoreMissing
+expr_stmt|;
+name|this
+operator|.
+name|targetField
+operator|=
+name|targetField
 expr_stmt|;
 block|}
 DECL|method|getField
@@ -209,6 +224,15 @@ parameter_list|()
 block|{
 return|return
 name|ignoreMissing
+return|;
+block|}
+DECL|method|getTargetField
+name|String
+name|getTargetField
+parameter_list|()
+block|{
+return|return
+name|targetField
 return|;
 block|}
 annotation|@
@@ -308,7 +332,7 @@ name|document
 operator|.
 name|setFieldValue
 argument_list|(
-name|field
+name|targetField
 argument_list|,
 name|splitList
 argument_list|)
@@ -401,6 +425,24 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|String
+name|targetField
+init|=
+name|ConfigurationUtils
+operator|.
+name|readStringProperty
+argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
+name|config
+argument_list|,
+literal|"target_field"
+argument_list|,
+name|field
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|SplitProcessor
@@ -423,6 +465,8 @@ literal|"separator"
 argument_list|)
 argument_list|,
 name|ignoreMissing
+argument_list|,
+name|targetField
 argument_list|)
 return|;
 block|}

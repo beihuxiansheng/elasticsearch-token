@@ -46,6 +46,9 @@ name|field
 parameter_list|,
 name|boolean
 name|ignoreMissing
+parameter_list|,
+name|String
+name|targetField
 parameter_list|)
 block|{
 return|return
@@ -60,6 +63,8 @@ argument_list|,
 name|field
 argument_list|,
 name|ignoreMissing
+argument_list|,
+name|targetField
 argument_list|)
 return|;
 block|}
