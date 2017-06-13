@@ -4,27 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.analysis
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 
 begin_import
 import|import
@@ -127,6 +117,16 @@ operator|.
 name|test
 operator|.
 name|IndexSettingsModule
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 

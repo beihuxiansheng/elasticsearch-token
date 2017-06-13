@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.analysis
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 package|;
 end_package
 
@@ -130,6 +130,34 @@ name|IndexSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|AbstractTokenFilterFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|MultiTermAwareComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory for {@link LowerCaseFilter} and some language-specific variants  * supported by the {@code language} parameter:  *<ul>  *<li>greek: {@link GreekLowerCaseFilter}  *<li>irish: {@link IrishLowerCaseFilter}  *<li>turkish: {@link TurkishLowerCaseFilter}  *</ul>  */
 end_comment
@@ -151,7 +179,6 @@ name|String
 name|lang
 decl_stmt|;
 DECL|method|LowerCaseTokenFilterFactory
-specifier|public
 name|LowerCaseTokenFilterFactory
 parameter_list|(
 name|IndexSettings

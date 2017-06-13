@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.analysis.miscellaneous
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
+name|elasticsearch
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
+name|common
 package|;
 end_package
 

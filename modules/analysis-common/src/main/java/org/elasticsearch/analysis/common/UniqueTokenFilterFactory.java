@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.analysis
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|analysis
+operator|.
+name|common
 package|;
 end_package
 
@@ -27,22 +27,6 @@ operator|.
 name|analysis
 operator|.
 name|TokenStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|miscellaneous
-operator|.
-name|UniqueTokenFilter
 import|;
 end_import
 
@@ -84,6 +68,20 @@ name|IndexSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|analysis
+operator|.
+name|AbstractTokenFilterFactory
+import|;
+end_import
+
 begin_class
 DECL|class|UniqueTokenFilterFactory
 specifier|public
@@ -99,7 +97,6 @@ name|boolean
 name|onlyOnSamePosition
 decl_stmt|;
 DECL|method|UniqueTokenFilterFactory
-specifier|public
 name|UniqueTokenFilterFactory
 parameter_list|(
 name|IndexSettings

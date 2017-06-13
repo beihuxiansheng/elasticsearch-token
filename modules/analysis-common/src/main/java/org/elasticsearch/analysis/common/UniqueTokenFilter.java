@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.apache.lucene.analysis.miscellaneous
+DECL|package|org.elasticsearch.analysis.common
 package|package
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
+name|elasticsearch
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
+name|common
 package|;
 end_package
 
@@ -108,7 +106,6 @@ end_comment
 
 begin_class
 DECL|class|UniqueTokenFilter
-specifier|public
 class|class
 name|UniqueTokenFilter
 extends|extends
@@ -161,7 +158,6 @@ name|boolean
 name|onlyOnSamePosition
 decl_stmt|;
 DECL|method|UniqueTokenFilter
-specifier|public
 name|UniqueTokenFilter
 parameter_list|(
 name|TokenStream
@@ -177,7 +173,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|UniqueTokenFilter
-specifier|public
 name|UniqueTokenFilter
 parameter_list|(
 name|TokenStream
