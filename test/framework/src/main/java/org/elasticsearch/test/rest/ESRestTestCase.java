@@ -977,11 +977,22 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns whether to preserve the repositories on completion of this test.      */
+comment|/**      * Returns whether to preserve the repositories on completion of this test.      * Defaults to not preserving repos. See also      * {@link #preserveSnapshotsUponCompletion()}.      */
 DECL|method|preserveReposUponCompletion
 specifier|protected
 name|boolean
 name|preserveReposUponCompletion
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Returns whether to preserve the snapshots in repositories on completion of this      * test. Defaults to not preserving snapshots. Only works for {@code fs} repositories.      */
+DECL|method|preserveSnapshotsUponCompletion
+specifier|protected
+name|boolean
+name|preserveSnapshotsUponCompletion
 parameter_list|()
 block|{
 return|return
@@ -1152,6 +1163,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+literal|false
+operator|==
+name|preserveSnapshotsUponCompletion
+argument_list|()
+operator|&&
 name|repoType
 operator|.
 name|equals
