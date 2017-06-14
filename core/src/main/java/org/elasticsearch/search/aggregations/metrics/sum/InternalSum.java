@@ -183,6 +183,7 @@ name|double
 name|sum
 decl_stmt|;
 DECL|method|InternalSum
+specifier|public
 name|InternalSum
 parameter_list|(
 name|String

@@ -1094,6 +1094,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Returns the number of term buckets currently configured      */
+DECL|method|size
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|bucketCountThresholds
+operator|.
+name|getRequiredSize
+argument_list|()
+return|;
+block|}
 comment|/**      * Sets the shard_size - indicating the number of term buckets each shard      * will return to the coordinating node (the node that coordinates the      * search execution). The higher the shard size is, the more accurate the      * results are.      */
 DECL|method|shardSize
 specifier|public
@@ -1136,6 +1150,20 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Returns the number of term buckets per shard that are currently configured      */
+DECL|method|shardSize
+specifier|public
+name|int
+name|shardSize
+parameter_list|()
+block|{
+return|return
+name|bucketCountThresholds
+operator|.
+name|getShardSize
+argument_list|()
 return|;
 block|}
 comment|/**      * Set the minimum document count terms should have in order to appear in      * the response.      */
@@ -1182,6 +1210,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Returns the minimum document count required per term      */
+DECL|method|minDocCount
+specifier|public
+name|long
+name|minDocCount
+parameter_list|()
+block|{
+return|return
+name|bucketCountThresholds
+operator|.
+name|getMinDocCount
+argument_list|()
+return|;
+block|}
 comment|/**      * Set the minimum document count terms should have on the shard in order to      * appear in the response.      */
 DECL|method|shardMinDocCount
 specifier|public
@@ -1224,6 +1266,20 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Returns the minimum document count required per term, per shard      */
+DECL|method|shardMinDocCount
+specifier|public
+name|long
+name|shardMinDocCount
+parameter_list|()
+block|{
+return|return
+name|bucketCountThresholds
+operator|.
+name|getShardMinDocCount
+argument_list|()
 return|;
 block|}
 comment|/** Set a new order on this builder and return the builder so that calls      *  can be chained. A tie-breaker may be added to avoid non-deterministic ordering. */

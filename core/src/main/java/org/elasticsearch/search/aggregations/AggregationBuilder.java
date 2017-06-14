@@ -253,6 +253,19 @@ argument_list|>
 name|metaData
 parameter_list|)
 function_decl|;
+comment|/** Return any associated metadata with this {@link AggregationBuilder}. */
+DECL|method|getMetaData
+specifier|public
+specifier|abstract
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getMetaData
+parameter_list|()
+function_decl|;
 comment|/** Add a sub aggregation to this builder. */
 DECL|method|subAggregation
 specifier|public
