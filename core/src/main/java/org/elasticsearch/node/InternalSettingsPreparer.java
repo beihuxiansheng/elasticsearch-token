@@ -74,16 +74,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -95,16 +85,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -207,20 +187,6 @@ operator|.
 name|env
 operator|.
 name|Environment
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
-operator|.
-name|cleanPath
 import|;
 end_import
 
@@ -548,8 +514,6 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|cleanPath
-argument_list|(
 name|environment
 operator|.
 name|logsFile
@@ -558,9 +522,11 @@ operator|.
 name|toAbsolutePath
 argument_list|()
 operator|.
+name|normalize
+argument_list|()
+operator|.
 name|toString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
