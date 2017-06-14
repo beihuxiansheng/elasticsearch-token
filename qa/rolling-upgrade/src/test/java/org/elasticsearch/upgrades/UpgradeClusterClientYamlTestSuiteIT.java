@@ -227,6 +227,15 @@ argument_list|,
 literal|"40s"
 argument_list|)
 operator|.
+name|put
+argument_list|(
+name|ESRestTestCase
+operator|.
+name|CLIENT_SOCKET_TIMEOUT
+argument_list|,
+literal|"40s"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
