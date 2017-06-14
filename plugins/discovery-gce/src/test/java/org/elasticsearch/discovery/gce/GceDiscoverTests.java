@@ -646,7 +646,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.type"
+literal|"discovery.zen.hosts_provider"
 argument_list|,
 literal|"gce"
 argument_list|)

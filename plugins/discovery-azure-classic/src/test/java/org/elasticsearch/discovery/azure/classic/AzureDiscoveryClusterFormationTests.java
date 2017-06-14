@@ -797,7 +797,7 @@ name|put
 argument_list|(
 name|DiscoveryModule
 operator|.
-name|DISCOVERY_TYPE_SETTING
+name|DISCOVERY_HOSTS_PROVIDER_SETTING
 operator|.
 name|getKey
 argument_list|()
