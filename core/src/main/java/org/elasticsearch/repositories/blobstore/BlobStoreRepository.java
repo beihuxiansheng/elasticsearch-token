@@ -284,6 +284,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|Version
 import|;
 end_import
@@ -2733,6 +2743,8 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
+decl||
+name|ResourceNotFoundException
 name|ex
 parameter_list|)
 block|{
@@ -2745,7 +2757,11 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-literal|"failed to update snapshot in repository"
+literal|"failed to delete snapshot ["
+operator|+
+name|snapshotId
+operator|+
+literal|"]"
 argument_list|,
 name|ex
 argument_list|)
@@ -4302,8 +4318,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// write the index file
-name|writeAtomic
-argument_list|(
+specifier|final
+name|String
+name|indexBlob
+init|=
 name|INDEX_FILE_PREFIX
 operator|+
 name|Long
@@ -4312,6 +4330,24 @@ name|toString
 argument_list|(
 name|newGen
 argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Repository [{}] writing new index generational blob [{}]"
+argument_list|,
+name|metadata
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|indexBlob
+argument_list|)
+expr_stmt|;
+name|writeAtomic
+argument_list|(
+name|indexBlob
 argument_list|,
 name|snapshotsBytes
 argument_list|)
@@ -4413,6 +4449,20 @@ name|INDEX_LATEST_BLOB
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Repository [{}] updating index.latest with generation [{}]"
+argument_list|,
+name|metadata
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|newGen
+argument_list|)
+expr_stmt|;
 name|writeAtomic
 argument_list|(
 name|INDEX_LATEST_BLOB

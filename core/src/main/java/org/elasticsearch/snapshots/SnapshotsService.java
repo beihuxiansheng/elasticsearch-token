@@ -7249,7 +7249,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"deleted snapshot completed - deleting files"
 argument_list|)
@@ -7438,7 +7438,7 @@ else|else
 block|{
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"deleted snapshot is not running - deleting files"
 argument_list|)
