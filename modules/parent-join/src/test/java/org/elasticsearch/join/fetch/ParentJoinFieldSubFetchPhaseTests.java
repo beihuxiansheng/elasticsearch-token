@@ -299,6 +299,11 @@ argument_list|,
 literal|"join"
 argument_list|)
 operator|.
+name|startObject
+argument_list|(
+literal|"relations"
+argument_list|)
+operator|.
 name|field
 argument_list|(
 literal|"parent"
@@ -319,6 +324,9 @@ literal|"product"
 argument_list|,
 literal|"item"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
