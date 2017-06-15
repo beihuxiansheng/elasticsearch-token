@@ -589,9 +589,9 @@ name|path
 parameter_list|,
 name|Map
 argument_list|<
-name|String
+name|?
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|map
 parameter_list|)
