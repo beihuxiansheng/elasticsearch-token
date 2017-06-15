@@ -251,7 +251,7 @@ argument_list|(
 literal|"1.2"
 argument_list|)
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -262,7 +262,7 @@ argument_list|(
 literal|"doc['d'].value"
 argument_list|)
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -273,7 +273,7 @@ argument_list|(
 literal|"1/_score"
 argument_list|)
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -284,7 +284,7 @@ argument_list|(
 literal|"doc['d'].value * _score"
 argument_list|)
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;

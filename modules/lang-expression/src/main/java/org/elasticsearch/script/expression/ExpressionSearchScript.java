@@ -241,10 +241,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|needsScores
+DECL|method|needs_score
 specifier|public
 name|boolean
-name|needsScores
+name|needs_score
 parameter_list|()
 block|{
 return|return

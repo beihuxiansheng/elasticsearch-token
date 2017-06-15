@@ -552,7 +552,7 @@ block|{
 return|return
 name|script
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 return|;
 block|}

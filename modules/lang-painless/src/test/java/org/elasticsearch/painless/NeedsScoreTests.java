@@ -237,7 +237,7 @@ name|assertFalse
 argument_list|(
 name|ss
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -279,7 +279,7 @@ name|assertFalse
 argument_list|(
 name|ss
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -321,7 +321,7 @@ name|assertTrue
 argument_list|(
 name|ss
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -363,7 +363,7 @@ name|assertTrue
 argument_list|(
 name|ss
 operator|.
-name|needsScores
+name|needs_score
 argument_list|()
 argument_list|)
 expr_stmt|;
