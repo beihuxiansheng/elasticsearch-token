@@ -944,16 +944,18 @@ comment|// we need to have age (ie number of repeats of "test" term) high enough
 comment|// to produce the same 8-bit norm for all docs here, so that
 comment|// the tf is basically the entire score (assuming idf is fixed, which
 comment|// it should be if dfs is working correctly)
+comment|// With the current way of encoding norms, every length between 1048 and 1176
+comment|// are encoded into the same byte
 for|for
 control|(
 name|int
 name|i
 init|=
-literal|1024
+literal|1048
 init|;
 name|i
 operator|<
-literal|1124
+literal|1148
 condition|;
 name|i
 operator|++
@@ -967,7 +969,7 @@ name|toString
 argument_list|(
 name|i
 operator|-
-literal|1024
+literal|1048
 argument_list|)
 argument_list|,
 literal|"test"

@@ -2321,6 +2321,17 @@ name|Void
 operator|.
 name|class
 argument_list|)
+comment|// should we expose it, or maybe think about higher level integration of the
+comment|// fake term frequency feature (LUCENE-7854)
+operator|.
+name|put
+argument_list|(
+literal|"delimitedtermfrequency"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
 operator|.
 name|immutableMap
 argument_list|()

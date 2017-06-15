@@ -315,7 +315,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Unexpected exception type, expected IllegalArgumentException"
+literal|"Unexpected exception type, expected IllegalArgumentException but got java.lang.IllegalStateException: bad state"
 argument_list|,
 name|assertFailed
 operator|.
@@ -380,7 +380,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Expected exception IllegalArgumentException"
+literal|"Expected exception IllegalArgumentException but no exception was thrown"
 argument_list|,
 name|assertFailed
 operator|.
