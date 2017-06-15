@@ -542,23 +542,6 @@ init|=
 name|newIndexWriterConfig
 argument_list|()
 decl_stmt|;
-name|indexWriterConfig
-operator|.
-name|setMaxBufferedDocs
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
-name|indexWriterConfig
-operator|.
-name|setRAMBufferSizeMB
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
-comment|// flush on open to have a
-comment|// single segment with
-comment|// predictable docIds
 try|try
 init|(
 name|Directory
@@ -774,21 +757,6 @@ name|w
 argument_list|)
 init|)
 block|{
-name|assertEquals
-argument_list|(
-literal|"test expects a single segment"
-argument_list|,
-literal|1
-argument_list|,
-name|reader
-operator|.
-name|leaves
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|IndexSearcher
 name|searcher
 init|=
@@ -1163,21 +1131,6 @@ name|w
 argument_list|)
 init|)
 block|{
-name|assertEquals
-argument_list|(
-literal|"test expects a single segment"
-argument_list|,
-literal|1
-argument_list|,
-name|reader
-operator|.
-name|leaves
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|IndexSearcher
 name|searcher
 init|=
