@@ -936,16 +936,8 @@ name|Exception
 block|{
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|ClusterState
 name|state
@@ -1124,7 +1116,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;

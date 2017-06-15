@@ -48,18 +48,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|admin
 operator|.
 name|cluster
@@ -109,18 +97,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterStateTaskListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|LocalClusterUpdateTask
 import|;
 end_import
 
@@ -311,18 +287,6 @@ operator|.
 name|service
 operator|.
 name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Priority
 import|;
 end_import
 
@@ -3505,17 +3469,8 @@ argument_list|)
 decl_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
-block|{
+lambda|->
 name|assertTrue
 argument_list|(
 name|internalCluster
@@ -3535,9 +3490,6 @@ argument_list|(
 name|index
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 comment|// wait for 4 active shards - we should have lost one shard

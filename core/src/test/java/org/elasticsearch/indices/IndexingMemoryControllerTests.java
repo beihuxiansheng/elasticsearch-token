@@ -2419,16 +2419,8 @@ expr_stmt|;
 comment|// We must assertBusy because the writeIndexingBufferAsync is done in background (REFRESH) thread pool:
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 try|try
 init|(
@@ -2462,7 +2454,6 @@ operator|<
 name|indexingBufferBytes1
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)

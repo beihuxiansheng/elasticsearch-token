@@ -2090,16 +2090,8 @@ expr_stmt|;
 comment|// ...and wait for mappings to be available on master
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|ImmutableOpenMap
 argument_list|<
@@ -2216,7 +2208,6 @@ argument_list|(
 name|fieldMapping
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -2343,16 +2334,8 @@ argument_list|()
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|assertThat
 argument_list|(
@@ -2440,7 +2423,6 @@ name|getTotal
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -2908,16 +2890,8 @@ decl_stmt|;
 comment|// Wait for mappings to be available on master
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 specifier|final
 name|IndicesService
@@ -2988,7 +2962,6 @@ literal|"field"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -3074,17 +3047,8 @@ expr_stmt|;
 comment|// Wait for document to be indexed on primary
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
-block|{
+lambda|->
 name|assertTrue
 argument_list|(
 name|client
@@ -3110,9 +3074,6 @@ operator|.
 name|isExists
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 comment|// The mappings have not been propagated to the replica yet as a consequence the document count not be indexed
@@ -3159,16 +3120,8 @@ argument_list|()
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|assertThat
 argument_list|(
@@ -3257,7 +3210,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// both shards should have succeeded
-block|}
 block|}
 argument_list|)
 expr_stmt|;

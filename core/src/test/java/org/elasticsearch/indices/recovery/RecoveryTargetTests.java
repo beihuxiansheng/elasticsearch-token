@@ -1000,17 +1000,8 @@ argument_list|)
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
-block|{
+lambda|->
 name|assertThat
 argument_list|(
 literal|"timer timer should progress compared to captured one "
@@ -1025,9 +1016,6 @@ name|time
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 name|assertThat

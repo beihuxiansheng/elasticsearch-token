@@ -2023,17 +2023,8 @@ expr_stmt|;
 comment|// wait until the timeout was triggered and we actually tried to send for the second time
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
-block|{
+lambda|->
 name|assertThat
 argument_list|(
 name|transport
@@ -2048,9 +2039,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 comment|// let it fail the second time too

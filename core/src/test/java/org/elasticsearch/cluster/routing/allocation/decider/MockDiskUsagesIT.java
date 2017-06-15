@@ -374,16 +374,8 @@ decl_stmt|;
 comment|// Wait for all 3 nodes to be up
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|NodesStatsResponse
 name|resp
@@ -419,7 +411,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -672,16 +663,8 @@ expr_stmt|;
 comment|// Block until the "fake" cluster info is retrieved at least once
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|ClusterInfo
 name|info
@@ -722,7 +705,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -943,19 +925,11 @@ argument_list|()
 decl_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|ClusterStateResponse
-name|resp
+name|resp12
 init|=
 name|client
 argument_list|()
@@ -976,9 +950,9 @@ name|Iterator
 argument_list|<
 name|RoutingNode
 argument_list|>
-name|iter
+name|iter12
 init|=
-name|resp
+name|resp12
 operator|.
 name|getState
 argument_list|()
@@ -991,7 +965,7 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-name|iter
+name|iter12
 operator|.
 name|hasNext
 argument_list|()
@@ -1000,7 +974,7 @@ block|{
 name|RoutingNode
 name|node
 init|=
-name|iter
+name|iter12
 operator|.
 name|next
 argument_list|()
@@ -1016,7 +990,7 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|resp
+name|resp12
 operator|.
 name|getState
 argument_list|()
@@ -1045,7 +1019,7 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|resp
+name|resp12
 operator|.
 name|getState
 argument_list|()
@@ -1132,7 +1106,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -1239,19 +1212,11 @@ argument_list|()
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|ClusterStateResponse
-name|resp
+name|resp1
 init|=
 name|client
 argument_list|()
@@ -1272,9 +1237,9 @@ name|Iterator
 argument_list|<
 name|RoutingNode
 argument_list|>
-name|iter
+name|iter1
 init|=
-name|resp
+name|resp1
 operator|.
 name|getState
 argument_list|()
@@ -1287,7 +1252,7 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-name|iter
+name|iter1
 operator|.
 name|hasNext
 argument_list|()
@@ -1296,7 +1261,7 @@ block|{
 name|RoutingNode
 name|node
 init|=
-name|iter
+name|iter1
 operator|.
 name|next
 argument_list|()
@@ -1312,7 +1277,7 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|resp
+name|resp1
 operator|.
 name|getState
 argument_list|()
@@ -1341,7 +1306,7 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|resp
+name|resp1
 operator|.
 name|getState
 argument_list|()
@@ -1428,7 +1393,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
