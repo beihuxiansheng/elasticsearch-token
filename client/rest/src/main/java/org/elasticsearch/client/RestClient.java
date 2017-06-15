@@ -2920,7 +2920,6 @@ name|httpRequest
 return|;
 block|}
 DECL|method|buildUri
-specifier|private
 specifier|static
 name|URI
 name|buildUri
