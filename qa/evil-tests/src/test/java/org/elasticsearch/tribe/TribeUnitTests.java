@@ -625,6 +625,11 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|assertWarnings
+argument_list|(
+literal|"tribe nodes are deprecated in favor of cross-cluster search and will be removed in Elasticsearch 7.0.0"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertTribeNodeSuccessfullyCreated
 specifier|private
