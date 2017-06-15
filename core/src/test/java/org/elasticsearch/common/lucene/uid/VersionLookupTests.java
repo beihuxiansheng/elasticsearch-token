@@ -385,6 +385,9 @@ operator|new
 name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
+operator|.
+name|reader
+argument_list|()
 argument_list|,
 name|IdFieldMapper
 operator|.
@@ -404,6 +407,8 @@ name|BytesRef
 argument_list|(
 literal|"6"
 argument_list|)
+argument_list|,
+name|segment
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -441,6 +446,8 @@ name|BytesRef
 argument_list|(
 literal|"7"
 argument_list|)
+argument_list|,
+name|segment
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -492,6 +499,9 @@ operator|new
 name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
+operator|.
+name|reader
+argument_list|()
 argument_list|,
 name|IdFieldMapper
 operator|.
@@ -509,6 +519,8 @@ name|BytesRef
 argument_list|(
 literal|"6"
 argument_list|)
+argument_list|,
+name|segment
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -663,6 +675,9 @@ operator|new
 name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
+operator|.
+name|reader
+argument_list|()
 argument_list|,
 name|IdFieldMapper
 operator|.
@@ -682,6 +697,8 @@ name|BytesRef
 argument_list|(
 literal|"6"
 argument_list|)
+argument_list|,
+name|segment
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -754,6 +771,9 @@ operator|new
 name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
+operator|.
+name|reader
+argument_list|()
 argument_list|,
 name|IdFieldMapper
 operator|.
@@ -771,6 +791,8 @@ name|BytesRef
 argument_list|(
 literal|"6"
 argument_list|)
+argument_list|,
+name|segment
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -843,6 +865,9 @@ operator|new
 name|PerThreadIDVersionAndSeqNoLookup
 argument_list|(
 name|segment
+operator|.
+name|reader
+argument_list|()
 argument_list|,
 name|IdFieldMapper
 operator|.
@@ -860,6 +885,8 @@ name|BytesRef
 argument_list|(
 literal|"6"
 argument_list|)
+argument_list|,
+name|segment
 argument_list|)
 argument_list|)
 expr_stmt|;

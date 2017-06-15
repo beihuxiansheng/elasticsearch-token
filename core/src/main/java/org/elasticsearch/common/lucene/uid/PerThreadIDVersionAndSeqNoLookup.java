@@ -258,20 +258,6 @@ name|PerThreadIDVersionAndSeqNoLookup
 block|{
 comment|// TODO: do we really need to store all this stuff? some if it might not speed up anything.
 comment|// we keep it around for now, to reduce the amount of e.g. hash lookups by field and stuff
-comment|/** The {@link LeafReaderContext} that needs to be looked up. */
-DECL|field|context
-specifier|private
-specifier|final
-name|LeafReaderContext
-name|context
-decl_stmt|;
-comment|/** Live docs of the context, cached to avoid the cost of ensureOpen() on every      *  segment for every index operation. */
-DECL|field|liveDocs
-specifier|private
-specifier|final
-name|Bits
-name|liveDocs
-decl_stmt|;
 comment|/** terms enum for uid field */
 DECL|field|uidField
 specifier|final
@@ -301,8 +287,8 @@ comment|/**      * Initialize lookup for the provided segment      */
 DECL|method|PerThreadIDVersionAndSeqNoLookup
 name|PerThreadIDVersionAndSeqNoLookup
 parameter_list|(
-name|LeafReaderContext
-name|context
+name|LeafReader
+name|reader
 parameter_list|,
 name|String
 name|uidField
@@ -310,30 +296,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|context
-operator|=
-name|context
-expr_stmt|;
-specifier|final
-name|LeafReader
-name|reader
-init|=
-name|context
-operator|.
-name|reader
-argument_list|()
-decl_stmt|;
-name|this
-operator|.
-name|liveDocs
-operator|=
-name|reader
-operator|.
-name|getLiveDocs
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|uidField
@@ -439,7 +401,7 @@ operator|=
 name|readerKey
 expr_stmt|;
 block|}
-comment|/** Return null if id is not found. */
+comment|/** Return null if id is not found.      * We pass the {@link LeafReaderContext} as an argument so that things      * still work with reader wrappers that hide some documents while still      * using the same cache key. Otherwise we'd have to disable caching      * entirely for these readers.      */
 DECL|method|lookupVersion
 specifier|public
 name|DocIdAndVersion
@@ -447,6 +409,9 @@ name|lookupVersion
 parameter_list|(
 name|BytesRef
 name|id
+parameter_list|,
+name|LeafReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -476,6 +441,14 @@ init|=
 name|getDocID
 argument_list|(
 name|id
+argument_list|,
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getLiveDocs
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -584,6 +557,9 @@ name|getDocID
 parameter_list|(
 name|BytesRef
 name|id
+parameter_list|,
+name|Bits
+name|liveDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -684,16 +660,46 @@ name|lookupSeqNo
 parameter_list|(
 name|BytesRef
 name|id
+parameter_list|,
+name|LeafReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getCoreCacheHelper
+argument_list|()
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|readerKey
+argument_list|)
+operator|:
+literal|"context's reader is not the same as the reader class was initialized on."
+assert|;
 name|int
 name|docID
 init|=
 name|getDocID
 argument_list|(
 name|id
+argument_list|,
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getLiveDocs
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
