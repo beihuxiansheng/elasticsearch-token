@@ -800,7 +800,8 @@ specifier|final
 name|IndexSearcher
 name|searcher
 init|=
-name|newSearcher
+operator|new
+name|IndexSearcher
 argument_list|(
 name|reader
 argument_list|)
