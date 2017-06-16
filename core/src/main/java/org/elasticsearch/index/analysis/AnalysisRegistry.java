@@ -3285,6 +3285,13 @@ argument_list|()
 argument_list|,
 name|normalizers
 argument_list|,
+name|tokenizerFactoryFactories
+operator|.
+name|get
+argument_list|(
+literal|"keyword"
+argument_list|)
+argument_list|,
 name|tokenFilterFactoryFactories
 argument_list|,
 name|charFilterFactoryFactories
@@ -4103,6 +4110,9 @@ name|NamedAnalyzer
 argument_list|>
 name|normalizers
 parameter_list|,
+name|TokenizerFactory
+name|keywordTokenizerFactory
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -4136,6 +4146,8 @@ operator|)
 operator|.
 name|build
 argument_list|(
+name|keywordTokenizerFactory
+argument_list|,
 name|charFilters
 argument_list|,
 name|tokenFilters
