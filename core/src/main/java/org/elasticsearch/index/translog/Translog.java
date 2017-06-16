@@ -7353,7 +7353,11 @@ init|=
 name|deletionPolicy
 operator|.
 name|minTranslogGenRequired
-argument_list|()
+argument_list|(
+name|readers
+argument_list|,
+name|current
+argument_list|)
 decl_stmt|;
 assert|assert
 name|minReferencedGen

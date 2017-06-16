@@ -128,6 +128,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogDeletionPolicyTests
+operator|.
+name|createTranslogDeletionPolicy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|mockito
 operator|.
 name|Mockito
@@ -206,8 +222,7 @@ name|CombinedDeletionPolicy
 argument_list|(
 name|indexDeletionPolicy
 argument_list|,
-operator|new
-name|TranslogDeletionPolicy
+name|createTranslogDeletionPolicy
 argument_list|()
 argument_list|,
 name|EngineConfig

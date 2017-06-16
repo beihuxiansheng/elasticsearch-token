@@ -2156,6 +2156,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogDeletionPolicyTests
+operator|.
+name|createTranslogDeletionPolicy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -3319,9 +3335,10 @@ name|translogConfig
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|TranslogDeletionPolicy
-argument_list|()
+name|createTranslogDeletionPolicy
+argument_list|(
+name|INDEX_SETTINGS
+argument_list|)
 argument_list|,
 parameter_list|()
 lambda|->
@@ -24921,9 +24938,10 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|TranslogDeletionPolicy
-argument_list|()
+name|createTranslogDeletionPolicy
+argument_list|(
+name|INDEX_SETTINGS
+argument_list|)
 argument_list|,
 parameter_list|()
 lambda|->

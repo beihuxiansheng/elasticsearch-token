@@ -589,7 +589,7 @@ name|numOps
 operator|>=
 literal|0
 operator|:
-literal|"expected at least 0 operatin but got: "
+literal|"expected at least 0 operation but got: "
 operator|+
 name|checkpoint
 operator|.
@@ -716,7 +716,9 @@ block|}
 specifier|final
 name|long
 name|firstOperationOffset
-init|=
+decl_stmt|;
+name|firstOperationOffset
+operator|=
 name|ref
 operator|.
 name|length
@@ -733,7 +735,7 @@ operator|+
 name|Integer
 operator|.
 name|BYTES
-decl_stmt|;
+expr_stmt|;
 return|return
 operator|new
 name|TranslogReader

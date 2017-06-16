@@ -551,6 +551,31 @@ name|position
 argument_list|()
 argument_list|)
 expr_stmt|;
+assert|assert
+name|initialCheckpoint
+operator|.
+name|offset
+operator|==
+name|channel
+operator|.
+name|position
+argument_list|()
+operator|:
+literal|"initial checkpoint offset ["
+operator|+
+name|initialCheckpoint
+operator|.
+name|offset
+operator|+
+literal|"] is different than current channel poistion ["
+operator|+
+name|channel
+operator|.
+name|position
+argument_list|()
+operator|+
+literal|"]"
+assert|;
 name|this
 operator|.
 name|shardId
@@ -822,7 +847,7 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|int
-name|headerLength
+name|firstOperationOffset
 init|=
 name|getHeaderLength
 argument_list|(
@@ -889,7 +914,7 @@ name|Checkpoint
 operator|.
 name|emptyTranslogCheckpoint
 argument_list|(
-name|headerLength
+name|firstOperationOffset
 argument_list|,
 name|fileGeneration
 argument_list|,
