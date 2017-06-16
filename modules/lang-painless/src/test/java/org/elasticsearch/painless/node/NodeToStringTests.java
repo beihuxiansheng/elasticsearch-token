@@ -182,7 +182,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|ScriptClassInfo
+name|Operation
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Operation
+name|ScriptClassInfo
 import|;
 end_import
 
@@ -275,6 +275,22 @@ operator|.
 name|Collections
 operator|.
 name|singletonList
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|node
+operator|.
+name|SSource
+operator|.
+name|MainMethodReserved
 import|;
 end_import
 
@@ -4000,6 +4016,10 @@ operator|.
 name|buildPainlessTree
 argument_list|(
 name|scriptClassInfo
+argument_list|,
+operator|new
+name|MainMethodReserved
+argument_list|()
 argument_list|,
 name|getTestName
 argument_list|()

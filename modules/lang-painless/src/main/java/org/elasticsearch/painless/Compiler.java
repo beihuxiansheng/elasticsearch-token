@@ -160,6 +160,22 @@ name|CLASS_NAME
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|node
+operator|.
+name|SSource
+operator|.
+name|MainMethodReserved
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Compiler is the entry point for generating a Painless script.  The compiler will receive a Painless  * tree based on the type of input passed in (currently only ANTLR).  Two passes will then be run over the tree,  * one for analysis and another to generate the actual byte code using ASM using the root of the tree {@link SSource}.  */
 end_comment
@@ -443,6 +459,9 @@ parameter_list|(
 name|Loader
 name|loader
 parameter_list|,
+name|MainMethodReserved
+name|reserved
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -503,6 +522,8 @@ operator|.
 name|buildPainlessTree
 argument_list|(
 name|scriptClassInfo
+argument_list|,
+name|reserved
 argument_list|,
 name|name
 argument_list|,
@@ -709,6 +730,10 @@ operator|.
 name|buildPainlessTree
 argument_list|(
 name|scriptClassInfo
+argument_list|,
+operator|new
+name|MainMethodReserved
+argument_list|()
 argument_list|,
 name|name
 argument_list|,
