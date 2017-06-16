@@ -298,6 +298,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportStats
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -1494,18 +1506,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|serverOpen
-specifier|public
-name|long
-name|serverOpen
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getLocalAddresses
 specifier|public
 name|List
@@ -1558,7 +1558,7 @@ parameter_list|(
 name|LifecycleListener
 name|listener
 parameter_list|)
-block|{          }
+block|{         }
 annotation|@
 name|Override
 DECL|method|removeLifecycleListener
@@ -1569,7 +1569,7 @@ parameter_list|(
 name|LifecycleListener
 name|listener
 parameter_list|)
-block|{          }
+block|{         }
 annotation|@
 name|Override
 DECL|method|start
@@ -1594,6 +1594,20 @@ name|void
 name|close
 parameter_list|()
 block|{}
+annotation|@
+name|Override
+DECL|method|getStats
+specifier|public
+name|TransportStats
+name|getStats
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 block|}
 end_class

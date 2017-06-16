@@ -310,12 +310,6 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 function_decl|;
-comment|/**      * Returns count of currently open connections      */
-DECL|method|serverOpen
-name|long
-name|serverOpen
-parameter_list|()
-function_decl|;
 DECL|method|getLocalAddresses
 name|List
 argument_list|<
@@ -366,6 +360,11 @@ name|profile
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+DECL|method|getStats
+name|TransportStats
+name|getStats
+parameter_list|()
 function_decl|;
 comment|/**      * A unidirectional connection to a {@link DiscoveryNode}      */
 DECL|interface|Connection

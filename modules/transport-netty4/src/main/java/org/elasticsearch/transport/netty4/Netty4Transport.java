@@ -2365,10 +2365,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|serverOpen
+DECL|method|getNumOpenServerConnections
 specifier|public
 name|long
-name|serverOpen
+name|getNumOpenServerConnections
 parameter_list|()
 block|{
 name|Netty4OpenChannelsHandler

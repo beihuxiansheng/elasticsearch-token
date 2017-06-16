@@ -36,22 +36,6 @@ name|TransportServiceAdapter
 extends|extends
 name|TransportConnectionListener
 block|{
-DECL|method|addBytesReceived
-name|void
-name|addBytesReceived
-parameter_list|(
-name|long
-name|size
-parameter_list|)
-function_decl|;
-DECL|method|addBytesSent
-name|void
-name|addBytesSent
-parameter_list|(
-name|long
-name|size
-parameter_list|)
-function_decl|;
 comment|/** called by the {@link Transport} implementation once a request has been sent */
 DECL|method|onRequestSent
 name|void

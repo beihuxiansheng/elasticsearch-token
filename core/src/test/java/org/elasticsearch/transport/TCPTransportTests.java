@@ -1650,7 +1650,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|serverOpen
+name|getNumOpenServerConnections
 parameter_list|()
 block|{
 return|return
