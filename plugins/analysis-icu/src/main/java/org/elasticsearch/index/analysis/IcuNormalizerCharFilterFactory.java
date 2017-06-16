@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2CharFilter} to normalize character.  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.</p>  *<p>The<tt>mode</tt> can be used to provide 'compose' or 'decompose'. Default is compose.</p>  */
+comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2CharFilter} to normalize character.  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.</p>  *<p>The<tt>mode</tt> can be used to provide 'compose' or 'decompose'. Default is compose.</p>  *<p>The<tt>unicodeSetFilter</tt> attribute can be used to provide the UniCodeSet for filtering.</p>  */
 end_comment
 
 begin_class
@@ -108,12 +108,6 @@ name|AbstractCharFilterFactory
 implements|implements
 name|MultiTermAwareComponent
 block|{
-DECL|field|name
-specifier|private
-specifier|final
-name|String
-name|name
-decl_stmt|;
 DECL|field|normalizer
 specifier|private
 specifier|final
@@ -144,10 +138,9 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|name
-operator|=
+name|String
+name|method
+init|=
 name|settings
 operator|.
 name|get
@@ -156,7 +149,7 @@ literal|"name"
 argument_list|,
 literal|"nfkc_cf"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|String
 name|mode
 init|=
@@ -191,19 +184,16 @@ operator|=
 literal|"compose"
 expr_stmt|;
 block|}
-name|this
-operator|.
+name|Normalizer2
 name|normalizer
-operator|=
+init|=
 name|Normalizer2
 operator|.
 name|getInstance
 argument_list|(
 literal|null
 argument_list|,
-name|this
-operator|.
-name|name
+name|method
 argument_list|,
 literal|"compose"
 operator|.
@@ -223,6 +213,19 @@ operator|.
 name|Mode
 operator|.
 name|DECOMPOSE
+argument_list|)
+decl_stmt|;
+name|this
+operator|.
+name|normalizer
+operator|=
+name|IcuNormalizerTokenFilterFactory
+operator|.
+name|wrapWithUnicodeSetFilter
+argument_list|(
+name|normalizer
+argument_list|,
+name|settings
 argument_list|)
 expr_stmt|;
 block|}
