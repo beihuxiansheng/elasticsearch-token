@@ -7469,6 +7469,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/25281"
+argument_list|)
 DECL|method|testMasterShutdownDuringFailedSnapshot
 specifier|public
 name|void
