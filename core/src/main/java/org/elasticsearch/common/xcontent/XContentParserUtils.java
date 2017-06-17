@@ -72,22 +72,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|RestSearchAction
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -103,6 +87,18 @@ operator|.
 name|util
 operator|.
 name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Consumer
 import|;
 end_import
 
@@ -489,14 +485,14 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * This method expects that the current field name is the concatenation of a type, a delimiter and a name      * (ex: terms#foo where "terms" refers to the type of a registered {@link NamedXContentRegistry.Entry},      * "#" is the delimiter and "foo" the name of the object to parse).      *      * The method splits the field's name to extract the type and name and then parses the object      * using the {@link XContentParser#namedObject(Class, String, Object)} method.      *      * @param parser      the current {@link XContentParser}      * @param delimiter   the delimiter to use to splits the field's name      * @param objectClass the object class of the object to parse      * @param<T>         the type of the object to parse      * @return the parsed object      * @throws IOException if anything went wrong during parsing or if the type or name cannot be derived      *                     from the field's name      */
+comment|/**      * This method expects that the current field name is the concatenation of a type, a delimiter and a name      * (ex: terms#foo where "terms" refers to the type of a registered {@link NamedXContentRegistry.Entry},      * "#" is the delimiter and "foo" the name of the object to parse).      *      * It also expected that following this field name is either an Object or an array xContent structure and      * the cursor points to the start token of this structure.      *      * The method splits the field's name to extract the type and name and then parses the object      * using the {@link XContentParser#namedObject(Class, String, Object)} method.      *      * @param parser      the current {@link XContentParser}      * @param delimiter   the delimiter to use to splits the field's name      * @param objectClass the object class of the object to parse      * @param consumer    something to consume the parsed object      * @param<T>         the type of the object to parse      * @throws IOException if anything went wrong during parsing or if the type or name cannot be derived      *                     from the field's name      * @throws ParsingException if the parser isn't positioned on either START_OBJECT or START_ARRAY at the beginning      */
 DECL|method|parseTypedKeysObject
 specifier|public
 specifier|static
 parameter_list|<
 name|T
 parameter_list|>
-name|T
+name|void
 name|parseTypedKeysObject
 parameter_list|(
 name|XContentParser
@@ -510,10 +506,55 @@ argument_list|<
 name|T
 argument_list|>
 name|objectClass
+parameter_list|,
+name|Consumer
+argument_list|<
+name|T
+argument_list|>
+name|consumer
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+operator|&&
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_ARRAY
+condition|)
+block|{
+name|throwUnknownToken
+argument_list|(
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|currentFieldName
 init|=
@@ -573,7 +614,10 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-return|return
+name|consumer
+operator|.
+name|accept
+argument_list|(
 name|parser
 operator|.
 name|namedObject
@@ -584,9 +628,19 @@ name|type
 argument_list|,
 name|name
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
+comment|// if we didn't find a delimiter we ignore the object or array for forward compatibility instead of throwing an error
+name|parser
+operator|.
+name|skipChildren
+argument_list|()
+expr_stmt|;
 block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|ParsingException
@@ -596,24 +650,10 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"Cannot parse object of class ["
-operator|+
-name|objectClass
-operator|.
-name|getSimpleName
-argument_list|()
-operator|+
-literal|"] without type information. Set ["
-operator|+
-name|RestSearchAction
-operator|.
-name|TYPED_KEYS_PARAM
-operator|+
-literal|"] parameter on the request to ensure the"
-operator|+
-literal|" type information is added to the response output"
+literal|"Failed to parse object: empty key"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 end_class

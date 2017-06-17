@@ -903,6 +903,15 @@ name|NaN
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|parser
+operator|.
+name|skipChildren
+argument_list|()
+expr_stmt|;
+comment|// skip potential inner objects and arrays for forward compatibility
+block|}
 block|}
 block|}
 elseif|else
@@ -1098,6 +1107,15 @@ name|Double
 operator|.
 name|NaN
 expr_stmt|;
+block|}
+else|else
+block|{
+name|parser
+operator|.
+name|skipChildren
+argument_list|()
+expr_stmt|;
+comment|// skip potential inner objects and arrays for forward compatibility
 block|}
 block|}
 if|if

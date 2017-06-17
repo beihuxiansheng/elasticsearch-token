@@ -751,10 +751,6 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-name|aggregations
-operator|.
-name|add
-argument_list|(
 name|XContentParserUtils
 operator|.
 name|parseTypedKeysObject
@@ -768,7 +764,10 @@ argument_list|,
 name|Aggregation
 operator|.
 name|class
-argument_list|)
+argument_list|,
+name|aggregations
+operator|::
+name|add
 argument_list|)
 expr_stmt|;
 block|}

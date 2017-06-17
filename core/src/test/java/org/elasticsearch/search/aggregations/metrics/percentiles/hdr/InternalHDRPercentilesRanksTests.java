@@ -116,18 +116,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|InternalAggregationTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util

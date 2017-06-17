@@ -355,7 +355,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-literal|"inner2"
+literal|"inn.er2"
 argument_list|)
 expr_stmt|;
 block|{
@@ -504,7 +504,7 @@ name|hasItem
 argument_list|(
 name|equalTo
 argument_list|(
-literal|"inner1.inner2"
+literal|"inner1.inn\\.er2"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -569,7 +569,7 @@ argument_list|)
 argument_list|,
 parameter_list|()
 lambda|->
-literal|"inner1"
+literal|"inn.er1"
 argument_list|,
 parameter_list|()
 lambda|->
@@ -635,7 +635,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-literal|"inner1"
+literal|"inn\\.er1"
 argument_list|)
 argument_list|,
 parameter_list|()
@@ -672,7 +672,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-literal|"inner1"
+literal|"inn\\.er1"
 argument_list|)
 argument_list|,
 parameter_list|()
@@ -750,7 +750,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"inner1"
+literal|"inn.er1"
 argument_list|)
 argument_list|,
 name|instanceOf
@@ -781,7 +781,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"inner1"
+literal|"inn.er1"
 argument_list|)
 decl_stmt|;
 name|assertEquals
