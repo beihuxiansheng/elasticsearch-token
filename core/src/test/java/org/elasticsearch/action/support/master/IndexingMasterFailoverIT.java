@@ -190,6 +190,22 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|transport
 operator|.
 name|MockTransportService
@@ -408,6 +424,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Indexing operations which entail mapping changes require a blocking request to the master node to update the mapping.      * If the master node is being disrupted or if it cannot commit cluster state changes, it needs to retry within timeout limits.      * This retry logic is implemented in TransportMasterNodeAction and tested by the following master failover scenario.      */
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|method|testMasterFailoverDuringIndexingWithMappingChanges
 specifier|public
 name|void
