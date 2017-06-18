@@ -1476,13 +1476,6 @@ name|minNumDataNodes
 operator|=
 literal|2
 argument_list|)
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/25284"
-argument_list|)
 DECL|class|IndicesRequestIT
 specifier|public
 class|class
@@ -3867,7 +3860,7 @@ name|String
 index|[]
 name|randomIndicesOrAliases
 init|=
-name|randomUniqueIndicesOrAliases
+name|randomUniqueIndices
 argument_list|()
 decl_stmt|;
 name|DeleteIndexRequest
